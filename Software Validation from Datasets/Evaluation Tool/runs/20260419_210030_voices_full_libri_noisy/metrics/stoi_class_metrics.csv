@@ -1,0 +1,4 @@
+stoi_class,file_count,recordings,processed_predictions,processed_prediction_count,missing_predictions,missing_prediction_count,total_duration_sec,scored_duration_sec,reference_words,errors,substitutions,deletions,insertions,aggregate_wer,mean_recording_wer,speaker_label_scored,speaker_label_matches,speaker_label_accuracy
+high,2079,2079,2079,2079,0,0,32761.329927,32761.329927,90587,0,0,0,0,0.0,0.0,2079,2079,1.0
+low,7629,7629,7629,7629,0,0,120003.841468,120003.841468,331346,0,0,0,0,0.0,0.0,7629,7629,1.0
+mid,9492,9492,9492,9492,0,0,149287.79052500002,149287.79052500002,412883,0,0,0,0,0.0,0.0,9492,9492,1.0

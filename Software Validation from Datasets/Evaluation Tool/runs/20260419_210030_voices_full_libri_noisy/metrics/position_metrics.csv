@@ -1,0 +1,3 @@
+position,file_count,recordings,processed_predictions,processed_prediction_count,missing_predictions,missing_prediction_count,total_duration_sec,scored_duration_sec,reference_words,errors,substitutions,deletions,insertions,aggregate_wer,mean_recording_wer,speaker_label_scored,speaker_label_matches,speaker_label_accuracy
+clo,9600,9600,9600,9600,0,0,151026.48096,151026.48096,417408,0,0,0,0,0.0,0.0,9600,9600,1.0
+far,9600,9600,9600,9600,0,0,151026.48096,151026.48096,417408,0,0,0,0,0.0,0.0,9600,9600,1.0

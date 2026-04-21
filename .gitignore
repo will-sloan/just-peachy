@@ -1,0 +1,10 @@
+.venv/
+# Ignore raw datasets
+Software Validation from Datasets/Raw Datasets/
+Software Validation from Datasets/Raw Datasets (Not formatted)/
+
+
+
+# Python cache
+__pycache__/
+*.pyc

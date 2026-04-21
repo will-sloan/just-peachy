@@ -1,0 +1,5 @@
+room,file_count,recordings,processed_predictions,processed_prediction_count,missing_predictions,missing_prediction_count,total_duration_sec,scored_duration_sec,reference_words,errors,substitutions,deletions,insertions,aggregate_wer,mean_recording_wer,speaker_label_scored,speaker_label_matches,speaker_label_accuracy
+rm1,4800,4800,4800,4800,0,0,75513.24048000001,75513.24048000001,208704,0,0,0,0,0.0,0.0,4800,4800,1.0
+rm2,4800,4800,4800,4800,0,0,75513.24048000001,75513.24048000001,208704,0,0,0,0,0.0,0.0,4800,4800,1.0
+rm3,4800,4800,4800,4800,0,0,75513.24048,75513.24048,208704,0,0,0,0,0.0,0.0,4800,4800,1.0
+rm4,4800,4800,4800,4800,0,0,75513.24048000001,75513.24048000001,208704,0,0,0,0,0.0,0.0,4800,4800,1.0

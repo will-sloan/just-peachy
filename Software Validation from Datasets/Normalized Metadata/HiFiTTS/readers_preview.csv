@@ -1,0 +1,11 @@
+reader_id,reader_name,gender,audio_quality_groups,hours_clean,hours_other,hours_total
+92,Cori Samuel,female,clean,27.3,,27.3
+6097,Phil Benson,male,clean|other,30.1,3.4,33.5
+9017,John Van Stan,male,clean,58.0,,58.0
+6670,Mike Pelton,male,other,,17.7,17.7
+6671,Tony Oliva,male,other,,24.1,24.1
+8051,Maria Kasper,female,other,,30.4,30.4
+9136,Helen Taylor,female,other,,24.3,24.3
+11614,Sylviamb,female,other,,22.2,22.2
+11697,Celine Major,female,other,,26.8,26.8
+12787,LikeManyWaters,female,other,,27.3,27.3

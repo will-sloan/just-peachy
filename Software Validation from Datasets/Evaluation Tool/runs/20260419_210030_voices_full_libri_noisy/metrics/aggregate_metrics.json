@@ -1,0 +1,33 @@
+{
+  "aggregate_wer": 0.0,
+  "audio_missing": 0,
+  "deletions": 0,
+  "duplicate_prediction_rows_ignored": 0,
+  "errors": 0,
+  "hypothesis_words": 834816,
+  "insertions": 0,
+  "max_recording_wer": 0.0,
+  "mean_recording_wer": 0.0,
+  "median_recording_wer": 0.0,
+  "missing_prediction_count": 0,
+  "missing_prediction_rate": 0.0,
+  "missing_predictions": 0,
+  "prediction_files_present": {
+    "segments.rttm": false,
+    "utterances.jsonl": true,
+    "words.jsonl": false
+  },
+  "prediction_rows": 19200,
+  "processed_prediction_count": 19200,
+  "processed_predictions": 19200,
+  "reference_words": 834816,
+  "scored_duration_sec": 302052.96192000003,
+  "selected_recording_count": 19200,
+  "selected_recordings": 19200,
+  "speaker_label_accuracy": 1.0,
+  "speaker_label_matches": 19200,
+  "speaker_label_scored": 19200,
+  "substitutions": 0,
+  "total_duration_sec": 302052.96192000003,
+  "unexpected_prediction_recordings": 0
+}

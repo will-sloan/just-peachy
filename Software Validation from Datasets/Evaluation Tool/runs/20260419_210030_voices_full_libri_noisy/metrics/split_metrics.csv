@@ -1,0 +1,3 @@
+split,file_count,recordings,processed_predictions,processed_prediction_count,missing_predictions,missing_prediction_count,total_duration_sec,scored_duration_sec,reference_words,errors,substitutions,deletions,insertions,aggregate_wer,mean_recording_wer,speaker_label_scored,speaker_label_matches,speaker_label_accuracy
+test,6400,6400,6400,6400,0,0,100608.802016,100608.802016,275936,0,0,0,0,0.0,0.0,6400,6400,1.0
+train,12800,12800,12800,12800,0,0,201444.159904,201444.159904,558880,0,0,0,0,0.0,0.0,12800,12800,1.0

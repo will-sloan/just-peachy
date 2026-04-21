@@ -1,0 +1,201 @@
+chapter_id,speaker_id,chapter_minutes,chapter_subset,project_id,book_id,chapter_title,project_title
+1,110,19.77,train-other-500,53,1023,In Chancery,Bleak House
+2,110,10.3,train-other-500,53,1023,In Fashion,Bleak House
+159,4174,7.67,train-other-500,68,2184,Letter XXV,Unbeaten Tracks in Japan
+198,19,8.42,train-clean-100,219,121,Chapter 01,Northanger Abbey
+199,98,11.68,train-clean-360,219,121,Chapter 02,Northanger Abbey
+200,173,11.25,train-other-500,219,121,Chapter 03,Northanger Abbey
+201,44,7.57,train-other-500,219,121,Chapter 04,Northanger Abbey
+204,92,12.76,train-other-500,219,121,Chapter 07,Northanger Abbey
+205,20,12.82,train-other-500,219,121,Chapter 08,Northanger Abbey
+207,44,18.33,train-other-500,219,121,Chapter 10,Northanger Abbey
+208,14,12.95,train-clean-360,219,121,Chapter 11,Northanger Abbey
+209,198,8.2,train-clean-100,219,121,Chapter 12,Northanger Abbey
+212,14,12.09,train-clean-360,219,121,Chapter 15,Northanger Abbey
+214,37,6.19,train-other-500,219,121,Chapter 17,Northanger Abbey
+215,37,8.28,train-other-500,219,121,Chapter 18,Northanger Abbey
+216,403,6.3,train-clean-100,219,121,Chapter 19,Northanger Abbey
+218,89,12.78,train-clean-100,219,121,Chapter 21,Northanger Abbey
+219,89,12.3,train-clean-100,219,121,Chapter 22,Northanger Abbey
+222,40,15.59,train-clean-100,219,121,Chapter 25,Northanger Abbey
+224,246,7.56,train-clean-360,219,121,Chapter 27,Northanger Abbey
+225,37,15.58,train-other-500,219,121,Chapter 28,Northanger Abbey
+227,19,16.77,train-clean-100,219,121,Chapter 30,Northanger Abbey
+348,728,30.21,train-other-500,381,84,00 - Letters,"Frankenstein, or The Modern Prometheus"
+352,166,10.65,train-clean-360,381,84,04 - Chapter 5,"Frankenstein, or The Modern Prometheus"
+354,66,13.84,train-other-500,381,84,06 - Chapter 7,"Frankenstein, or The Modern Prometheus"
+355,66,16.38,train-other-500,381,84,07 - Chapter 8,"Frankenstein, or The Modern Prometheus"
+358,730,9.82,train-clean-100,381,84,10 - Chapter 11,"Frankenstein, or The Modern Prometheus"
+359,730,7.9,train-clean-100,381,84,11 - Chapter 12,"Frankenstein, or The Modern Prometheus"
+360,730,7.48,train-clean-100,381,84,12 - Chapter 13,"Frankenstein, or The Modern Prometheus"
+362,17,15.5,train-clean-360,381,84,14 - Chapter 16,"Frankenstein, or The Modern Prometheus"
+363,17,9.54,train-clean-360,381,84,15 - Chapter 17,"Frankenstein, or The Modern Prometheus"
+365,731,11.65,train-clean-360,381,84,17 - Chapter 19,"Frankenstein, or The Modern Prometheus"
+366,731,13.5,train-clean-360,381,84,18 - Chapter 20,"Frankenstein, or The Modern Prometheus"
+368,78,10.91,train-clean-100,381,84,20 - Chapter 23,"Frankenstein, or The Modern Prometheus"
+369,78,14.15,train-clean-100,381,84,21 - Chapter 24,"Frankenstein, or The Modern Prometheus"
+395,1724,25.05,train-clean-360,508,5682,1 Transition from the common rational knowledge of morality to the philosophical,Fundamental Principles of the Metaphysic of Morals
+397,6555,4.77,train-clean-360,508,5682,"3 Transition from popular moral philosophy to the metaphysic of morals, part 2",Fundamental Principles of the Metaphysic of Morals
+398,6555,20.26,train-clean-360,508,5682,"4 Transition from popular moral philosophy to the metaphysic of morals, part 3",Fundamental Principles of the Metaphysic of Morals
+399,6533,26.88,train-other-500,508,5682,5 Final step from the metaphysic of morals to the critique of the pure practical reason,Fundamental Principles of the Metaphysic of Morals
+407,2952,5.51,train-clean-100,569,1210,Of A Mirror and a Bell,Kwaidan: Stories and Studies of Strange Things
+408,2952,6.49,train-clean-100,569,1210,Jikininki,Kwaidan: Stories and Studies of Strange Things
+410,2952,13.02,train-clean-100,569,1210,Rokuro-Kubi,Kwaidan: Stories and Studies of Strange Things
+418,3595,6.19,train-other-500,569,1210,Horai,Kwaidan: Stories and Studies of Strange Things
+495,26,19.32,train-clean-100,629,376,Part 1,Journal of the Plague Year
+496,26,5.76,train-clean-100,629,376,Part 2,Journal of the Plague Year
+666,2825,17.05,train-other-500,743,28054,"04 - Book 1 Chapter 4 - The Third Son, Alyosha",Brothers Karamazov
+668,920,9.42,train-clean-360,743,28054,06 - Book 2 Chapter 1 - They Arrive at the Monastery,Brothers Karamazov
+681,920,11.94,train-clean-360,743,28054,19 - Book 3 Chapter 6 - Smerdyakov,Brothers Karamazov
+691,3779,30.11,train-other-500,743,28054,29 - Book 4 Chapter 5 - A Laceration in the Drawing-Room,Brothers Karamazov
+692,3871,19.81,train-other-500,743,28054,30 - Book 4 Chapter 6 - A Laceration in the Cottage,Brothers Karamazov
+693,3871,10.17,train-other-500,743,28054,31 - Book 4 Chapter 7 - And in the Open Air,Brothers Karamazov
+696,3638,16.5,train-clean-360,743,28054,34 - Book 5 Chapter 3 - The Brothers Make Friends,Brothers Karamazov
+697,3553,9.81,train-other-500,743,28054,35 - Book 5 Chapter 4 - Rebellion,Brothers Karamazov
+699,3869,8.92,train-clean-360,743,28054,37 - Book 5 Chapter 6 - For Awhile a Very Obscure One,Brothers Karamazov
+700,3869,16.1,train-clean-360,743,28054,38 - Book 5 Chapter 7 - 'It's Always Worth While Speaking to a Clever Man',Brothers Karamazov
+706,3959,30.24,train-other-500,743,28054,44 - Book 7 Chapter 3 - An Onion,Brothers Karamazov
+707,4463,9.04,train-other-500,743,28054,45 - Book 7 Chapter 4 - Cana of Galilee,Brothers Karamazov
+714,3992,30.24,train-other-500,743,28054,52 - Book 8 Chapter 7 - The First and Rightful Lover,Brothers Karamazov
+715,3922,8.71,train-clean-360,743,28054,53 - Book 8 Chapter 8 - Delirium,Brothers Karamazov
+718,3433,16.24,train-other-500,743,28054,"56 - Book 9 Chapter 3 - The Sufferings of a Soul, the First Ordeal",Brothers Karamazov
+721,3962,15.47,train-other-500,743,28054,59 - Book 9 Chapter 6 - The Prosecutor Catches Mitya,Brothers Karamazov
+722,3962,9.96,train-other-500,743,28054,60 - Book 9 Chapter 7 - Mitya's Great Secret. Received with Hisses,Brothers Karamazov
+723,3922,16.49,train-clean-360,743,28054,61 - Book 9 Chapter 8 - The Evidences of the Witnesses. The Babe,Brothers Karamazov
+724,3370,6.04,train-clean-360,743,28054,62 - Book 9 Chapter 9 - They Carry Mitya Away,Brothers Karamazov
+734,3553,15.22,train-other-500,743,28054,72 - Book 11 Chapter 3 - A Little Demon,Brothers Karamazov
+756,3370,7.81,train-clean-360,743,28054,94 - Epilogue Chapter 1 - Plans for Mitya's Escape,Brothers Karamazov
+758,3638,8.65,train-clean-360,743,28054,96 - Epilogue Chapter 3 - Ilusha's Funeral. The Speech at the Stone,Brothers Karamazov
+853,75,16.22,train-other-500,762,3429,01 - A Wayfarer,Saint George for England
+854,75,13.88,train-other-500,762,3429,02 - The Hut in the Marshes,Saint George for England
+861,329,8.9,train-clean-360,762,3429,09 - The Siege of Hennebon,Saint George for England
+862,329,16.18,train-clean-360,762,3429,10 - A Place of Refuge,Saint George for England
+884,331,11.21,train-other-500,786,2775,"02 - Part 1, Section 2",Good Soldier
+888,3020,13.64,train-other-500,786,2775,"06 - Part 1, Section 6",Good Soldier
+890,3945,8.01,train-clean-360,786,2775,"08 - Part 2, Section 2",Good Soldier
+891,3926,15.93,train-other-500,786,2775,"09 - Part 3, Section 1a",Good Soldier
+892,3020,16.43,train-other-500,786,2775,"10 - Part 3, Section 1b",Good Soldier
+893,4352,9.27,train-other-500,786,2775,"11 - Part 3, Section 2",Good Soldier
+901,4594,12.89,train-other-500,786,2775,"19 - Part 4, Section 5",Good Soldier
+902,4594,15.87,train-other-500,786,2775,"20 - Part 4, Section 6",Good Soldier
+960,2961,4.7,test-clean,842,1572,01 - Introduction and Analysis: opening remarks,Timaeus
+961,2961,3.37,test-clean,842,1572,"02 - Introduction and Analysis: Section 1, part 1",Timaeus
+964,4710,14.84,train-other-500,842,1572,05 - Introduction and Analysis: Section 2,Timaeus
+1042,1107,6.51,train-other-500,882,434,IN THE EAST CORRIDOR,Circular Staircase
+1043,1112,7.0,train-clean-360,882,434,A SPRAINED ANKLE,Circular Staircase
+1054,1298,9.78,train-other-500,882,434,A HOLE IN THE WALL,Circular Staircase
+1060,1230,5.95,train-other-500,882,434,FLINDERS,Circular Staircase
+1061,1430,13.2,train-other-500,882,434,A VISIT FROM LOUISE,Circular Staircase
+1066,533,2.63,test-other,882,434,WHEN CHURCHYARDS YAWN,Circular Staircase
+1068,1230,6.36,train-other-500,882,434,ANNE WATSON'S STORY,Circular Staircase
+1070,688,9.04,train-clean-360,882,434,THE ODDS AND ENDS,Circular Staircase
+1119,345,8.46,train-clean-360,969,1342,05 - Chapter 7,Pride and Prejudice (version 5)
+1120,345,7.19,train-clean-360,969,1342,06 - Chapter 8,Pride and Prejudice (version 5)
+1129,345,9.54,train-clean-360,969,1342,15 - Chapter 19,Pride and Prejudice (version 5)
+1133,3361,9.82,train-clean-360,969,1342,19 - Chapter 23,Pride and Prejudice (version 5)
+1150,3361,6.68,train-clean-360,969,1342,36 - Chapter 40,Pride and Prejudice (version 5)
+1180,1284,3.8,test-clean,1045,955,02 - The Crooked Magician,Patchwork Girl of Oz
+1181,1284,2.45,test-clean,1045,955,03 - The Patchwork Girl,Patchwork Girl of Oz
+1185,5023,8.35,train-other-500,1045,955,07 - The Troublesome Phonograph,Patchwork Girl of Oz
+1187,5054,13.7,train-clean-360,1045,955,09 - They Meet the Woozy,Patchwork Girl of Oz
+1188,5039,8.56,train-clean-360,1045,955,10 - Shaggy Man to the Rescue,Patchwork Girl of Oz
+1189,5039,16.54,train-clean-360,1045,955,11 - A Good Friend,Patchwork Girl of Oz
+1193,3885,4.26,train-other-500,1045,955,15 - Ozma's Prisoner,Patchwork Girl of Oz
+1194,3885,5.08,train-other-500,1045,955,16 - Princess Dorothy,Patchwork Girl of Oz
+1196,5045,9.34,train-other-500,1045,955,18 - Ojo Is Forgiven,Patchwork Girl of Oz
+1197,5045,12.1,train-other-500,1045,955,19 - Trouble with the Tottenhots,Patchwork Girl of Oz
+1240,103,13.44,train-clean-100,1168,45,Mrs. Rachel Lynde Is Surprised,Anne of Green Gables (version 3)
+1241,103,10.28,train-clean-100,1168,45,Matthew Cuthbert Is Surprised,Anne of Green Gables (version 3)
+1303,1505,15.39,train-other-500,1172,244,"01 Part 1, Chapter 1. Mr Sherlock Holmes",Study in Scarlet (version 2)
+1304,1505,10.59,train-other-500,1172,244,"02 Part 1, Chapter 2. The Science of Deduction",Study in Scarlet (version 2)
+1312,5893,7.44,train-other-500,1172,244,"10 Part 2, Chapter 3. John Ferrier Talks with the Prophet",Study in Scarlet (version 2)
+1315,6281,10.37,train-other-500,1172,244,"13 Part 2, Chapter 6. A Continuation of the Reminiscences of John Watson, M.D.",Study in Scarlet (version 2)
+1532,1417,8.49,train-clean-360,1331,2607,04 Bat Jarvis,"Psmith, Journalist"
+1536,1417,8.32,train-clean-360,1331,2607,08 The Honeyed Word,"Psmith, Journalist"
+1539,1417,8.38,train-clean-360,1331,2607,11 The Man at the Astor,"Psmith, Journalist"
+1560,1748,7.18,train-clean-360,1337,325,01 - Chapter - 01,Phantastes
+1562,1748,17.98,train-clean-360,1337,325,03 - Chapter - 03,Phantastes
+1730,56,4.71,train-clean-360,1545,1399,Book 1 - Chapter 01,"Anna Karenina, Book 1"
+1731,56,5.22,train-clean-360,1545,1399,Book 1 - Chapter 02,"Anna Karenina, Book 1"
+1732,56,7.16,train-clean-360,1545,1399,Book 1 - Chapter 03,"Anna Karenina, Book 1"
+1733,56,7.98,train-clean-360,1545,1399,Book 1 - Chapter 04,"Anna Karenina, Book 1"
+1793,1920,20.01,train-other-500,1561,2950,01 - The Sorceress,Midnight Queen
+1799,4487,14.47,train-other-500,1561,2950,07 - The Earl's Barge,Midnight Queen
+1803,4487,15.72,train-other-500,1561,2950,11 - The Execution,Midnight Queen
+1805,4520,9.86,train-other-500,1561,2950,13 - Escaped,Midnight Queen
+1811,4757,10.61,train-other-500,1561,2950,19 - Hubert's Whisper,Midnight Queen
+1814,4766,19.73,train-other-500,1561,2950,22 - Day Dawn,Midnight Queen
+1826,1995,2.74,test-clean,1591,15265,03 - Miss Mary Taylor,Quest of the Silver Fleece
+1836,1995,2.37,test-clean,1591,15265,13 - Mrs. Grey Gives a Dinner,Quest of the Silver Fleece
+1837,1995,2.95,test-clean,1591,15265,14 - Love,Quest of the Silver Fleece
+2145,2133,6.69,train-other-500,1765,34580,All Things Are Nothing To Me,Ego and His Own
+2148,2133,7.47,train-other-500,1765,34580,The Moderns,Ego and His Own
+2159,6084,22.16,train-other-500,1765,34580,Humane Liberalism - part 1,Ego and His Own
+2163,5248,11.39,train-other-500,1765,34580,Ownness - part 2,Ego and His Own
+2271,4446,2.06,test-clean,1797,94,Chapter 02,Alexander's Bridge (version 3)
+2273,4446,2.86,test-clean,1797,94,Chapter 04,Alexander's Bridge (version 3)
+2275,4446,3.08,test-clean,1797,94,Chapter 06,Alexander's Bridge (version 3)
+2301,816,12.09,train-clean-360,1824,165,Chapter 17,McTeague
+2318,1868,10.51,train-other-500,1894,1477,Tea,Toys of Peace
+2327,7085,10.28,train-clean-360,1894,1477,Forewarned,Toys of Peace
+2330,7105,5.03,test-other,1894,1477,Canossa,Toys of Peace
+2331,7009,10.47,train-other-500,1894,1477,The Threat,Toys of Peace
+2333,7079,9.48,train-other-500,1894,1477,Mark,Toys of Peace
+2338,7150,8.63,train-other-500,1894,1477,Morlvera,Toys of Peace
+2340,7105,5.12,test-other,1894,1477,The Seven Cream Jugs,Toys of Peace
+2343,7079,9.12,train-other-500,1894,1477,The Oversight,Toys of Peace
+2344,6127,8.45,train-other-500,1894,1477,Hyacinth,Toys of Peace
+2346,7135,6.88,train-other-500,1894,1477,The Purple of the Balkan Kings,Toys of Peace
+2476,2436,8.92,train-clean-100,1922,19066,04 - Chapter 04,Brigands of the Moon
+2477,2436,8.15,train-clean-100,1922,19066,05 - Chapter 05,Brigands of the Moon
+2481,2436,8.08,train-clean-100,1922,19066,09 - Chapter 09,Brigands of the Moon
+2488,5181,7.76,train-other-500,1922,19066,16 - Chapter 16,Brigands of the Moon
+2489,5181,10.88,train-other-500,1922,19066,17 - Chapter 17,Brigands of the Moon
+2490,5181,9.62,train-other-500,1922,19066,18 - Chapter 18,Brigands of the Moon
+2500,5009,10.01,train-other-500,1922,19066,28 - Chapter 28,Brigands of the Moon
+2503,4598,11.28,train-clean-360,1922,19066,31 - Chapter 31,Brigands of the Moon
+2536,1806,9.14,train-clean-360,1930,2275,00 - Introduction,"Pioneers, or The Sources of the Susquehanna"
+2772,4108,8.12,train-clean-360,1985,2005,Mrs. Pett Takes Precautions,Piccadilly Jim
+2777,4108,9.57,train-clean-360,1985,2005,Chicago Ed.,Piccadilly Jim
+2868,4442,27.21,train-other-500,2000,474,8 - Stories Selected and Adapted for Telling- Especially for Classes IV and V,How to Tell Stories to Children
+3040,453,5.5,train-other-500,2041,3154,Chapter 01,Surprising Adventures of Baron Munchausen
+3054,83,4.44,train-clean-100,2041,3154,Chapter 15,Surprising Adventures of Baron Munchausen
+3057,4059,5.95,train-other-500,2041,3154,Chapter 18,Surprising Adventures of Baron Munchausen
+3059,4059,10.5,train-other-500,2041,3154,Chapter 20,Surprising Adventures of Baron Munchausen
+3061,4059,4.11,train-other-500,2041,3154,Chapter 22,Surprising Adventures of Baron Munchausen
+3066,4402,7.3,train-other-500,2041,3154,Chapter 27,Surprising Adventures of Baron Munchausen
+3067,4402,5.16,train-other-500,2041,3154,Chapter 28,Surprising Adventures of Baron Munchausen
+3068,4402,10.21,train-other-500,2041,3154,Chapter 29,Surprising Adventures of Baron Munchausen
+3069,4059,4.43,train-other-500,2041,3154,Chapter 30,Surprising Adventures of Baron Munchausen
+3070,2544,8.53,train-other-500,2041,3154,Chapter 31,Surprising Adventures of Baron Munchausen
+3072,5278,9.82,train-other-500,2041,3154,Chapter 33,Surprising Adventures of Baron Munchausen
+3073,4059,4.85,train-other-500,2041,3154,Chapter 34,Surprising Adventures of Baron Munchausen
+3185,6019,25.17,train-clean-100,2116,1831,"The Avenger, part 1",Lock and Key Library
+3532,2712,10.38,train-other-500,2178,7040,An Unexpected Letter,Paula the Waldensian
+3534,2712,8.78,train-other-500,2178,7040,Paula Arrives,Paula the Waldensian
+3536,2712,7.96,train-other-500,2178,7040,Louis' Watch,Paula the Waldensian
+3545,2270,7.08,train-other-500,2178,7040,Some Years Later,Paula the Waldensian
+3547,2270,7.13,train-other-500,2178,7040,Saved!,Paula the Waldensian
+3582,4116,8.17,train-clean-360,2199,2770,Polly is Comforted,Five Little Peppers and How They Grew (Version 2)
+3586,4967,6.58,train-clean-360,2199,2770,Polly's Dismal Morning,Five Little Peppers and How They Grew (Version 2)
+3587,5400,8.92,train-clean-360,2199,2770,Polly's Big Bundle,Five Little Peppers and How They Grew (Version 2)
+3791,94,4.28,train-other-500,2285,1938,01 - Maslova in Prison,"Resurrection, Book 1"
+3792,94,5.73,train-other-500,2285,1938,02 - Maslova's Early Life,"Resurrection, Book 1"
+3793,94,9.81,train-other-500,2285,1938,03 - Nekhludoff,"Resurrection, Book 1"
+3794,94,5.23,train-other-500,2285,1938,04 - Missy,"Resurrection, Book 1"
+3795,94,5.06,train-other-500,2285,1938,05 - The Jurymen,"Resurrection, Book 1"
+3819,4211,7.21,train-other-500,2285,1938,29 - Maslova in Prison,"Resurrection, Book 1"
+3820,4211,6.97,train-other-500,2285,1938,30 - The Cell,"Resurrection, Book 1"
+3831,3912,9.61,train-other-500,2285,1938,41 - Visiting Day - The Men's Ward,"Resurrection, Book 1"
+3835,4211,13.13,train-other-500,2285,1938,"45 - Fanarin, the Advocate - The Petition","Resurrection, Book 1"
+3956,8148,22.81,train-other-500,2312,19264,Young Violet Part 1,Genji Monogatari (The Tale of Genji)
+3961,8080,17.17,train-clean-360,2312,19264,Hollyhock,Genji Monogatari (The Tale of Genji)
+3966,8142,8.28,train-clean-360,2312,19264,The Beacon,Genji Monogatari (The Tale of Genji)
+3967,8142,5.26,train-clean-360,2312,19264,Overgrown Mugwort,Genji Monogatari (The Tale of Genji)
+3979,2830,1.54,test-clean,2319,1549,00 - Preface,Commentary on St. Paul's Epistle to the Galatians
+3980,2830,6.51,test-clean,2319,1549,"01 - Chapter 1, vv 1-6",Commentary on St. Paul's Epistle to the Galatians
+3984,5245,26.36,train-other-500,2319,1549,"05 - Chapter 2, vv 16-18",Commentary on St. Paul's Epistle to the Galatians
+3992,4443,16.83,train-other-500,2319,1549,"13 - Chapter 4, vv 1-6a",Commentary on St. Paul's Epistle to the Galatians
+4136,2816,14.43,train-clean-360,2354,2046,01 - The Negro Sale,"Clotel, or, The President's Daughter"
+4137,32,11.51,train-clean-100,2354,2046,02 - Going to the South,"Clotel, or, The President's Daughter"
+4145,5386,7.81,train-clean-360,2354,2046,10- The Young Christian,"Clotel, or, The President's Daughter"

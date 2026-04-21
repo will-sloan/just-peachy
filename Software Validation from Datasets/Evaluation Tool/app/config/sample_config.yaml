@@ -1,0 +1,30 @@
+# Sample configuration for the local Evaluation Tool.
+# The CLI arguments are the source of truth; this file documents a common run.
+
+project_root: ..
+runs_root: runs
+
+dataset:
+  key: hifitts
+  subset_filters:
+    reader_split: 6097_clean
+  max_recordings: 25
+
+runner:
+  name: simulation
+  simulation_mode: noisy
+
+augmentation:
+  mode: noise
+  noise_types:
+    - pink
+  snr_db:
+    - 15
+  preview: true
+  augmentation_seed: 1337
+
+prediction_contract:
+  minimum_file: predictions/utterances.jsonl
+  optional_files:
+    - predictions/words.jsonl
+    - predictions/segments.rttm

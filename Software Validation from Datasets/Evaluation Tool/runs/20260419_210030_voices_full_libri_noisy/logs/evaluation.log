@@ -1,0 +1,4 @@
+2026-04-19 21:00:33,046 INFO Inference condition: clean
+2026-04-19 21:01:37,228 INFO Scored 19200 selected recordings
+2026-04-19 21:01:45,986 INFO Created 22 plots
+2026-04-19 21:01:46,429 INFO Wrote report to C:\Users\amiri\Documents\GitHub\just-peachy\Software Validation from Datasets\Evaluation Tool\runs\20260419_210030_voices_full_libri_noisy\report\report.md

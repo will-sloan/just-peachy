@@ -1,0 +1,19 @@
+{
+  "conditions": [
+    {
+      "condition_id": "clean",
+      "mode": "none",
+      "noise_type": null,
+      "rir_label": null,
+      "rir_path": null,
+      "snr_db": null
+    }
+  ],
+  "keep_temp_audio": false,
+  "mode": "none",
+  "peak_limit": 0.98,
+  "preview_count": 0,
+  "preview_enabled": false,
+  "preview_recording_id": null,
+  "seed": 1337
+}

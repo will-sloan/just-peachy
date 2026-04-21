@@ -1,0 +1,43 @@
+command: full
+project_root: C:\Users\amiri\Documents\GitHub\just-peachy\Software Validation from
+  Datasets
+project_root_relative_to_run: C:/Users/amiri/Documents/GitHub/just-peachy/Software
+  Validation from Datasets
+run_dir: C:\Users\amiri\Documents\GitHub\just-peachy\Software Validation from Datasets\Evaluation
+  Tool\runs\20260419_210030_voices_full_libri_noisy
+dataset:
+  key: voices
+  name: VOiCES DevKit
+  dataset_id: voices
+  normalized_metadata_dir: Normalized Metadata/VOiCES
+selection:
+  subset_filters: {}
+  max_recordings: 100000
+  selected_source_recordings: 19200
+  selected_recordings: 19200
+  total_source_duration_sec: 302052.961920001
+  total_evaluation_duration_sec: 302052.961920001
+run_name: libri_noisy
+augmentation:
+  mode: none
+  preview_enabled: false
+  preview_recording_id: null
+  seed: 1337
+  peak_limit: 0.98
+  keep_temp_audio: false
+  conditions:
+  - condition_id: clean
+    mode: none
+    rir_path: null
+    rir_label: null
+    noise_type: null
+    snr_db: null
+  preview_count: 0
+runner:
+  name: simulation
+  simulation_mode: perfect
+prediction_contract:
+  minimum_file: predictions/utterances.jsonl
+  optional_files:
+  - predictions/words.jsonl
+  - predictions/segments.rttm

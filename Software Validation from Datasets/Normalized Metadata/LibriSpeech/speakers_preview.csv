@@ -1,0 +1,201 @@
+speaker_id,speaker_sex,speaker_subset,speaker_minutes,speaker_name
+14,F,train-clean-360,25.03,Kristin LeMoine
+16,F,train-clean-360,25.11,Alys AtteWater
+17,M,train-clean-360,25.04,Gord Mackenzie
+19,F,train-clean-100,25.19,Kara Shallenberg
+20,F,train-other-500,30.07,Gesine
+22,F,train-clean-360,25.14,Michelle Crandall
+23,F,train-clean-360,25.23,Anita Roy Dobbs
+25,M,train-other-500,30.16,John Gonzalez
+26,M,train-clean-100,25.08,Denny Sayers
+27,M,train-clean-100,20.14,Sean McKinley
+28,F,train-clean-360,25.03,Kristin Hughes
+29,M,train-other-500,30.1,Linton
+30,F,train-clean-360,25.19,Annie Coleman Rothenberg
+31,M,train-other-500,23.79,Martin Clifton
+32,F,train-clean-100,24.01,Betsie Bush
+36,M,train-other-500,25.85,Chip
+37,M,train-other-500,30.04,wolvrin
+38,M,train-clean-360,25.11,R. Francis Smith
+39,F,train-clean-100,25.05,Sherry Crowther
+40,F,train-clean-100,25.04,Vicki Barbour
+44,F,train-other-500,25.9,travelbratd
+45,F,train-other-500,8.85,Kelly Bescherer
+46,M,train-other-500,30.02,Aaron Hochwimmer
+47,F,train-other-500,30.09,Amanda
+49,M,train-other-500,28.62,vrk74
+51,M,train-other-500,24.13,rakkar
+52,F,train-other-500,10.99,Luisa Hall
+54,F,train-clean-360,25.07,Westwinds12
+55,M,train-clean-360,25.21,David Jaquay
+56,F,train-clean-360,25.07,Kirsten Ferreri
+57,F,train-other-500,29.41,Ophelia Darcy
+58,M,train-other-500,30.06,George Coutts
+60,M,train-clean-100,20.18,
+61,M,test-clean,8.08,Paul-Gabriel Wiener
+62,M,train-other-500,17.8,Faris
+64,F,train-clean-360,23.51,Robin Cotter
+65,F,train-other-500,27.32,chriss the girl
+66,M,train-other-500,30.22,Alex Foster
+70,M,train-clean-360,21.61,Kurt Copeland
+75,M,train-other-500,30.1,Jim Mowatt
+77,F,train-other-500,30.1,JemmaBlythe
+78,M,train-clean-100,25.05,Hugh McGuire
+79,F,train-clean-360,25.01,Jennifer Crispin
+81,M,train-clean-360,25.22,Aaron Decker
+82,F,train-other-500,30.15,Marlo Dianne
+83,F,train-clean-100,25.04,Catharine Eastman
+84,F,dev-clean,8.02,Christie Nowak
+85,M,train-other-500,30.02,David Leaman
+87,F,train-clean-100,25.1,Rosalind Wills
+89,F,train-clean-100,25.08,Kristen McQuillin
+90,M,train-clean-360,25.17,Dan Threetrees
+91,M,train-other-500,30.05,Stephan Mobius
+92,F,train-other-500,26.78,Cori Samuel
+93,F,train-clean-360,25.02,Kathy
+94,M,train-other-500,30.11,David Barnes
+98,F,train-clean-360,25.03,Patricia Oakley
+100,F,train-clean-360,25.06,Judy Bieber
+101,M,train-clean-360,25.04,paulino
+102,F,train-other-500,30.18,Linda Leu
+103,F,train-clean-100,23.72,Karen Savage
+104,F,train-other-500,30.21,Laura M.D.
+107,M,train-other-500,18.64,John Greenman
+110,F,train-other-500,30.07,Cynthia Lyons (1946-2011)
+111,F,train-other-500,22.36,Linda Wilcox
+112,F,train-clean-360,25.23,Christiane Levesque
+114,F,train-clean-360,25.03,Jen Kidd
+115,F,train-clean-360,25.02,Maddie
+116,M,dev-other,10.02,Steven Collins
+118,M,train-clean-100,25.05,Alex Buie
+119,M,train-clean-360,25.11,Alex Patterson
+121,F,test-clean,8.01,Nikolle Doolin
+122,M,train-clean-360,25.15,J.C.
+123,F,train-other-500,30.01,Ezwa
+125,F,train-clean-100,25.18,Claire Goget
+126,F,train-clean-360,25.15,Susan Denney
+127,M,train-other-500,29.49,John Hicken
+128,M,train-other-500,25.63,ML Cohen
+133,M,train-other-500,13.89,Mick
+147,M,train-other-500,10.79,Thomas Hoover
+149,M,train-other-500,17.69,Joshua Young
+150,F,train-clean-100,25.13,Fox in the Stars
+151,F,train-other-500,10.54,Gwen
+152,M,train-other-500,28.67,Andy Minter
+153,M,train-other-500,30.16,Graham Williams
+154,M,train-clean-360,25.13,Robert Foster
+157,M,train-clean-360,22.96,Ben Douglas
+159,M,train-clean-360,25.03,hugh mac
+161,M,train-other-500,30.09,"Cyril Law, Jr."
+163,M,train-clean-100,25.06,Andrew Miller
+166,F,train-clean-360,25.16,Paula Berinstein
+167,M,train-other-500,21.75,Peter Yearsley
+168,M,train-other-500,28.32,Chris Goringe
+173,F,train-other-500,11.25,vlooi
+174,M,dev-clean,8.04,Peter Eastman
+175,F,train-clean-360,25.03,Meredith Hughes
+176,M,train-clean-360,25.2,Vinny Bove
+177,F,train-other-500,26.69,Kymm Zuckert
+188,F,train-clean-360,25.26,Mary Anderson
+192,F,train-clean-360,25.19,Deborah Clark
+196,M,train-clean-100,25.24,Stewart Wills
+198,F,train-clean-100,25.02,Heather Barnett
+199,F,train-other-500,7.08,Maria Morabe
+200,F,train-clean-100,25.14,Maureen S. O'Brien
+201,M,train-clean-100,25.19,Joplin James
+202,F,train-other-500,30.04,Geetu Melwani
+203,F,train-clean-360,25.01,Marian Brown
+204,M,train-clean-360,25.18,Mark F. Smith
+205,F,train-clean-360,25.07,Esther
+207,M,train-clean-360,25.0,Kevin McAsh
+208,F,train-clean-360,13.28,Andrea L
+209,F,train-clean-360,25.08,Moira Fogarty
+210,M,train-clean-360,25.12,Aldark
+211,F,train-clean-100,25.22,shanda_w
+215,F,train-other-500,29.09,Alice Elizabeth Still
+216,M,train-clean-360,25.08,Thomas Davoren
+217,F,train-clean-360,17.71,firefly
+218,M,train-other-500,14.46,Kelly Clear
+224,F,train-clean-360,25.2,Caitlin Kelly
+225,F,train-clean-360,25.17,Brenda Dayne
+226,F,train-clean-100,25.21,Deb Bacon-Ziegler
+227,F,train-clean-360,25.16,Sarah Key-DeLyria
+228,F,train-other-500,28.84,Arctura
+229,M,train-clean-100,19.56,carnright
+231,M,train-clean-360,22.19,Sean McGaughey
+233,M,train-clean-100,24.72,Steve Karafit
+237,F,test-clean,8.02,rachelellen
+238,F,train-other-500,10.11,Maria Elmvang
+240,M,train-clean-360,25.06,Shurtagal
+242,F,train-clean-360,25.12,Cagirlwithasoutherndrawl
+243,F,train-other-500,30.04,Jennifer Stearns
+245,M,train-other-500,30.25,Peter of Buckinghamshire England
+246,F,train-clean-360,22.43,Beth Dudek
+248,F,train-clean-100,25.13,Becky Miller
+249,M,train-clean-360,18.69,pww214
+250,F,train-clean-100,25.16,Mary Reagan
+251,M,dev-clean,8.04,Mark Nelson
+252,M,train-other-500,30.26,Rainer
+253,M,train-other-500,27.43,Stefan Schmelz
+254,M,train-clean-100,25.06,Alan Davis Drake (1945-2010)
+255,M,train-other-500,30.1,Chris Hawk
+258,M,train-clean-360,24.53,Kurt Wong
+260,M,test-clean,8.05,Brad Bush
+263,M,train-other-500,16.03,Michael Sirois
+264,M,train-other-500,22.55,Chris Hughes
+265,M,train-other-500,10.38,Janice
+272,M,train-clean-360,16.45,Mr. Baby Man
+273,M,train-other-500,30.02,Jim Cadwell
+274,F,train-clean-360,25.18,Eileen George
+277,F,train-other-500,25.72,Alessia
+278,F,train-clean-360,22.05,AliceG
+283,M,train-other-500,15.42,Asaf Bartov
+288,F,train-clean-360,25.13,Bookworm
+289,F,train-clean-100,19.64,Barbara Wedge
+294,F,train-other-500,20.51,Calliope
+296,M,train-clean-360,25.16,Carl Manchester
+298,F,train-clean-100,25.0,Caroline Morse
+302,F,train-clean-100,25.04,Chris Peterson
+303,M,train-clean-360,25.03,Tony Hightower
+307,M,train-clean-100,25.11,Randy Phillips
+310,F,train-other-500,25.15,Dexnell Peters
+311,M,train-clean-100,25.17,deadwhitemales
+313,F,train-other-500,30.03,Dilini Jayasinghe
+317,M,train-other-500,28.14,Mike Gardom
+318,F,train-clean-360,25.17,Eileen aka e
+319,M,train-other-500,30.07,Ed Good
+322,F,train-clean-100,25.2,Elisabeth Shields
+323,F,train-clean-360,14.36,Erica Kuntz
+328,F,train-clean-100,19.35,Elizabeth Palmer
+329,M,train-clean-360,25.09,Todd Cranston-Cuebas
+331,M,train-other-500,30.12,Richard Grove
+332,M,train-clean-100,19.0,Aaron Teiser
+335,M,train-clean-360,25.08,Paul Harvey
+336,M,train-other-500,21.97,Harvey Chinn
+337,F,train-clean-360,25.15,Barbara Harvey
+339,F,train-clean-360,25.07,Heather Ordover
+340,M,train-clean-360,25.17,Scott Henkel
+345,M,train-clean-360,25.19,Micah Sheppard
+348,M,train-other-500,30.02,ianish
+353,M,train-clean-360,20.1,Jamey Osborne
+359,M,train-clean-360,25.08,John Nicholson
+362,F,train-clean-360,25.07,Judith Brown
+365,M,train-other-500,30.01,Jon Ingram
+366,F,train-other-500,30.12,Katy Preston
+367,F,test-other,6.74,Kathleen Dang
+369,M,train-clean-360,19.56,Kevin Readdean
+373,F,train-clean-360,25.18,Kim Braun
+374,M,train-clean-100,25.16,kumarei
+377,M,train-other-500,21.39,Lenny Glionna Jr.
+380,F,train-clean-360,25.15,Laurie Campbell
+392,F,train-other-500,23.64,Maria Celano
+398,M,train-clean-360,23.56,James Smith
+402,F,train-other-500,30.19,Sharmini Kumar
+403,F,train-clean-100,25.14,Nocturna
+404,F,train-other-500,24.68,Nomenphile
+405,M,train-clean-100,25.04,Eric Dennison
+408,F,train-clean-360,25.17,Claudine Chen
+409,M,train-clean-360,25.13,Mike Kauffmann
+412,M,train-clean-100,22.38,Brian Roberg
+413,M,train-other-500,19.72,Daniel Watkins
+421,M,train-other-500,29.09,Patrick

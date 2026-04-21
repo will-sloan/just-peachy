@@ -1,0 +1,23 @@
+reader_id,book_id,audio_quality,book_bandwidth,book_bandwidth_comment
+6097,8992,clean,16365,This book sounds a bit different than the rest of the reader's books. The speaker is artistic.
+6097,9575,clean,16451,The speaker is artistic.
+6097,11271,clean,16623,The speaker is artistic.
+6097,13418,clean,16623,The speaker is artistic.
+6097,13657,clean,16882,The speaker is artistic.
+6097,14411,clean,17312,The speaker is artistic.
+6097,14764,clean,16968,The speaker is artistic.
+6097,14843,clean,16968,The speaker is artistic.
+6097,15277,clean,18518,The speaker is artistic.
+6097,15326,clean,16882,The speaker is artistic.
+6097,15114,other,14987,The speaker is artistic.
+6097,15793,other,16795,The speaker is artistic.
+8051,8930,other,15245,This book was moved to the `other` set due to audio quality inconsistency across the readers books
+8051,9685,other,14814,This book was moved to the `other` set due to audio quality inconsistency across the readers books
+8051,14468,other,14814,This book was moved to the `other` set due to audio quality inconsistency across the readers books
+9017,11216,clean,15417,The speaker is artistic.
+9017,13089,clean,17054,Slightly stronger attenuation in high frequency band compared to the other books of this reader. The speaker is artistic.
+9017,13130,clean,16365,Slightly stronger attenuation in high frequency band compared to the other books of this reader. The speaker is artistic.
+9017,13885,clean,16882,The speaker is artistic.
+9017,14261,clean,16451,The speaker is artistic.
+9017,15482,clean,19293,The speaker is artistic.
+9017,15752,clean,19379,The speaker is artistic.

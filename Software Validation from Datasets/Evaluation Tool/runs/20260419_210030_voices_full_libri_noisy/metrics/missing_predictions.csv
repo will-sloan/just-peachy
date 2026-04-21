@@ -1,0 +1,1 @@
+dataset,dataset_id,recording_id,utt_id,source_recording_id,audio_path_project_relative,audio_path_resolved,reason,augmentation_condition_id,augmentation_mode,rir_label,noise_type,snr_db,split,room,distractor,mic,device,position,degrees,gender,speaker_id_padded,chapter_id,segment_id,distance_foreground_class,stoi_class,pesq_wb_class,srmr_class

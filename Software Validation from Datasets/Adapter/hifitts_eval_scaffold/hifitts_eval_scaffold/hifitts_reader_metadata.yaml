@@ -1,0 +1,73 @@
+dataset: Hi Fi TTS
+dataset_id: hifitts
+readers:
+  "92":
+    reader_name: Cori Samuel
+    gender: female
+    audio_quality_groups: [clean]
+    hours_clean: 27.3
+    hours_other:
+    hours_total: 27.3
+  "6097":
+    reader_name: Phil Benson
+    gender: male
+    audio_quality_groups: [clean, other]
+    hours_clean: 30.1
+    hours_other: 3.4
+    hours_total: 33.5
+  "9017":
+    reader_name: John Van Stan
+    gender: male
+    audio_quality_groups: [clean]
+    hours_clean: 58.0
+    hours_other:
+    hours_total: 58.0
+  "6670":
+    reader_name: Mike Pelton
+    gender: male
+    audio_quality_groups: [other]
+    hours_clean:
+    hours_other: 17.7
+    hours_total: 17.7
+  "6671":
+    reader_name: Tony Oliva
+    gender: male
+    audio_quality_groups: [other]
+    hours_clean:
+    hours_other: 24.1
+    hours_total: 24.1
+  "8051":
+    reader_name: Maria Kasper
+    gender: female
+    audio_quality_groups: [other]
+    hours_clean:
+    hours_other: 30.4
+    hours_total: 30.4
+  "9136":
+    reader_name: Helen Taylor
+    gender: female
+    audio_quality_groups: [other]
+    hours_clean:
+    hours_other: 24.3
+    hours_total: 24.3
+  "11614":
+    reader_name: Sylviamb
+    gender: female
+    audio_quality_groups: [other]
+    hours_clean:
+    hours_other: 22.2
+    hours_total: 22.2
+  "11697":
+    reader_name: Celine Major
+    gender: female
+    audio_quality_groups: [other]
+    hours_clean:
+    hours_other: 26.8
+    hours_total: 26.8
+  "12787":
+    reader_name: LikeManyWaters
+    gender: female
+    audio_quality_groups: [other]
+    hours_clean:
+    hours_other: 27.3
+    hours_total: 27.3

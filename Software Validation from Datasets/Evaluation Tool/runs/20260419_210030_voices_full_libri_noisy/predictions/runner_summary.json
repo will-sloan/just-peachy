@@ -1,0 +1,12 @@
+{
+  "attempted_count": 19200,
+  "condition_prediction_counts": {
+    "clean": 19200
+  },
+  "failed_count": 0,
+  "predictions_path": "utterances.jsonl",
+  "run_duration_sec": 0.6532290000000103,
+  "runner": "simulation",
+  "skipped_count": 0,
+  "written_count": 19200
+}

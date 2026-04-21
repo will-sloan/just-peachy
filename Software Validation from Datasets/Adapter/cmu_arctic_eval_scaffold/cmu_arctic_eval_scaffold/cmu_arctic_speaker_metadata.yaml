@@ -1,0 +1,113 @@
+dataset: CMU Arctic
+dataset_id: cmu_arctic
+speakers:
+  cmu_us_bdl_arctic:
+    speaker_code: bdl
+    gender: male
+    accent: US English
+    accent_group: native_us
+    speaker_variant_group: core
+  cmu_us_slt_arctic:
+    speaker_code: slt
+    gender: female
+    accent: US English
+    accent_group: native_us
+    speaker_variant_group: core
+  cmu_us_clb_arctic:
+    speaker_code: clb
+    gender: female
+    accent: US English
+    accent_group: native_us
+    speaker_variant_group: core
+  cmu_us_rms_arctic:
+    speaker_code: rms
+    gender: male
+    accent: US English
+    accent_group: native_us
+    speaker_variant_group: core
+
+  cmu_us_jmk_arctic:
+    speaker_code: jmk
+    gender: male
+    accent: Canadian English
+    accent_group: other_english
+    speaker_variant_group: other_accents
+  cmu_us_awb_arctic:
+    speaker_code: awb
+    gender: male
+    accent: Scottish English
+    accent_group: other_english
+    speaker_variant_group: other_accents
+  cmu_us_ksp_arctic:
+    speaker_code: ksp
+    gender: male
+    accent: Indian English
+    accent_group: other_english
+    speaker_variant_group: other_accents
+
+  cmu_us_aew_arctic:
+    speaker_code: aew
+    gender: male
+    accent: US English
+    accent_group: native_us
+    speaker_variant_group: additional
+  cmu_us_ahw_arctic:
+    speaker_code: ahw
+    gender: male
+    accent: German-accented English
+    accent_group: non_native_or_accented
+    speaker_variant_group: additional
+  cmu_us_aup_arctic:
+    speaker_code: aup
+    gender: male
+    accent: Indian English
+    accent_group: non_native_or_accented
+    speaker_variant_group: additional
+  cmu_us_axb_arctic:
+    speaker_code: axb
+    gender: female
+    accent: Indian English
+    accent_group: non_native_or_accented
+    speaker_variant_group: additional
+  cmu_us_eey_arctic:
+    speaker_code: eey
+    gender: female
+    accent: US English
+    accent_group: native_us
+    speaker_variant_group: additional
+  cmu_us_fem_arctic:
+    speaker_code: fem
+    gender: male
+    accent: German-accented English
+    accent_group: non_native_or_accented
+    speaker_variant_group: additional
+  cmu_us_gka_arctic:
+    speaker_code: gka
+    gender: male
+    accent: Indian English
+    accent_group: non_native_or_accented
+    speaker_variant_group: additional
+  cmu_us_ljm_arctic:
+    speaker_code: ljm
+    gender: female
+    accent: US English
+    accent_group: native_us
+    speaker_variant_group: additional
+  cmu_us_lnh_arctic:
+    speaker_code: lnh
+    gender: female
+    accent: US English
+    accent_group: native_us
+    speaker_variant_group: additional
+  cmu_us_rxr_arctic:
+    speaker_code: rxr
+    gender: male
+    accent: Israeli-accented English
+    accent_group: non_native_or_accented
+    speaker_variant_group: additional
+  cmu_us_slp_arctic:
+    speaker_code: slp
+    gender: male
+    accent: Indian English
+    accent_group: non_native_or_accented
+    speaker_variant_group: additional

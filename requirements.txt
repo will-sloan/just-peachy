@@ -1,0 +1,25 @@
+# --- Core ML ---
+pip install torch torchaudio
+
+# --- Speaker embeddings ---
+speechbrain
+
+# --- Voice activity detection ---
+silero-vad
+
+# --- Automatic speech recognition ---
+faster-whisper
+
+# --- Audio I/O & DSP ---
+soundfile
+scipy
+numpy
+
+# --- Matching & metrics ---
+scikit-learn
+jiwer
+
+# --- Utilities ---
+tqdm
+pyyaml
+

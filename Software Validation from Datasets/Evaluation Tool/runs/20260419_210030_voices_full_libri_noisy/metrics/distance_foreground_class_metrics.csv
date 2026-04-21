@@ -1,0 +1,4 @@
+distance_foreground_class,file_count,recordings,processed_predictions,processed_prediction_count,missing_predictions,missing_prediction_count,total_duration_sec,scored_duration_sec,reference_words,errors,substitutions,deletions,insertions,aggregate_wer,mean_recording_wer,speaker_label_scored,speaker_label_matches,speaker_label_accuracy
+far,9600,9600,9600,9600,0,0,151026.48096,151026.48096,417408,0,0,0,0,0.0,0.0,9600,9600,1.0
+mid,7200,7200,7200,7200,0,0,113269.86072,113269.86072,313056,0,0,0,0,0.0,0.0,7200,7200,1.0
+near,2400,2400,2400,2400,0,0,37756.620240000004,37756.620240000004,104352,0,0,0,0,0.0,0.0,2400,2400,1.0

@@ -1,0 +1,4 @@
+pesq_wb_class,file_count,recordings,processed_predictions,processed_prediction_count,missing_predictions,missing_prediction_count,total_duration_sec,scored_duration_sec,reference_words,errors,substitutions,deletions,insertions,aggregate_wer,mean_recording_wer,speaker_label_scored,speaker_label_matches,speaker_label_accuracy
+high,1,1,1,1,0,0,16.92,16.92,41,0,0,0,0,0.0,0.0,1,1,1.0
+low,17957,17957,17957,17957,0,0,282630.562927,282630.562927,783121,0,0,0,0,0.0,0.0,17957,17957,1.0
+mid,1242,1242,1242,1242,0,0,19405.478993,19405.478993,51654,0,0,0,0,0.0,0.0,1242,1242,1.0

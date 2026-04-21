@@ -1,0 +1,4 @@
+srmr_class,file_count,recordings,processed_predictions,processed_prediction_count,missing_predictions,missing_prediction_count,total_duration_sec,scored_duration_sec,reference_words,errors,substitutions,deletions,insertions,aggregate_wer,mean_recording_wer,speaker_label_scored,speaker_label_matches,speaker_label_accuracy
+high,1446,1446,1446,1446,0,0,22434.149861,22434.149861,63276,0,0,0,0,0.0,0.0,1446,1446,1.0
+low,9288,9288,9288,9288,0,0,146344.43135,146344.43135,402512,0,0,0,0,0.0,0.0,9288,9288,1.0
+mid,8466,8466,8466,8466,0,0,133274.380709,133274.380709,369028,0,0,0,0,0.0,0.0,8466,8466,1.0
