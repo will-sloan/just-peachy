@@ -1,4 +1,5 @@
 .venv/
+myenv/
 # Ignore raw datasets
 Software Validation from Datasets/Raw Datasets/
 Software Validation from Datasets/Raw Datasets (Not formatted)/
