@@ -1,0 +1,138 @@
+You are Codex working in this existing project. Implement only milestone M0: Repository Baseline, File Map, and Development Rules. Do not implement the speech pipeline yet.
+
+Project roots:
+- Project root: just-peachy\Software Validation from Datasets
+- Evaluation Tool root: just-peachy\Software Validation from Datasets\Evaluation Tool
+
+Critical context:
+- The Evaluation Tool already handles dataset selection, simulation, augmentation, run folders, scoring, plots, and reports.
+- The inference integration point is Evaluation Tool\app\model_runner\external_stub.py.
+- The runner receives one selected metadata row at a time.
+- The model must read record["inference_audio_path"], which may point to original audio or a temporary augmented WAV.
+- Preserve recording_id and utt_id exactly because scoring matches predictions on (recording_id, utt_id).
+- Preserve start_sec and end_sec when present.
+- Required prediction file: predictions/utterances.jsonl.
+- Each prediction row must contain: recording_id, utt_id, start_sec, end_sec, speaker_label, text.
+- Future pipeline should be modular and PyTorch-native, but do not build it in this milestone.
+- One person is implementing this project, so keep scope small, testable, and milestone-specific.
+- Do not redesign the GUI, CLI, dataset registry, scorer, report generator, plotting, or normalized metadata loaders.
+
+Before editing:
+1. Inspect the repository structure.
+2. Read, but do not modify:
+   - Evaluation Tool\app\model_runner\external_stub.py
+   - Evaluation Tool\app\prediction_io\schema.py
+3. Inspect existing test conventions before adding tests.
+4. Check git status. If unrelated user changes exist, do not overwrite or revert them.
+
+Branch/commit:
+- Create a documentation-only branch named codex/m0-inference-pipeline-baseline, unless already on an appropriate branch.
+- Make a documentation-only commit if that is consistent with the current repo state. If the worktree is dirty with unrelated changes, leave changes uncommitted and report exactly what remains.
+
+Files to create or update:
+- Evaluation Tool\README_inference_pipeline.md
+- Evaluation Tool\docs\inference_pipeline\FILE_MAP.md
+- Evaluation Tool\docs\inference_pipeline\DEVELOPMENT_RULES.md
+- Evaluation Tool\docs\inference_pipeline\MILESTONE_LEDGER.md
+- Evaluation Tool\reports\milestones\M0_repository_baseline_report.md
+
+Read-only files for this milestone:
+- Evaluation Tool\app\model_runner\external_stub.py
+- Evaluation Tool\app\prediction_io\schema.py
+
+Required documentation content:
+1. README_inference_pipeline.md
+   - Explain that this is the entry point for the future inference pipeline documentation.
+   - Link to FILE_MAP.md, DEVELOPMENT_RULES.md, MILESTONE_LEDGER.md, and the M0 report.
+   - State clearly that no model implementation exists in M0.
+
+2. FILE_MAP.md
+   - List existing Evaluation Tool paths relevant to inference, prediction IO, datasets, scoring, plots, reports, run folders, and augmentation.
+   - List proposed future inference-pipeline paths, but mark them as proposed only.
+   - Include a “Do not change without explicit milestone reason” section naming:
+     - dataset registry
+     - scorer
+     - plotting
+     - reporting
+     - GUI
+     - CLI
+     - normalized metadata loaders
+   - Include the existing external runner contract in a copyable block.
+
+3. DEVELOPMENT_RULES.md
+   - Define the rule that all model work must pass through explicit interfaces.
+   - State that future model code must not directly modify dataset registry, scorer, plotting, reporting, GUI, CLI, or normalized metadata loading.
+   - State that each milestone must produce:
+     - tests or smoke checks
+     - a short markdown report
+     - updated milestone ledger entry
+   - State that predictions must preserve recording_id and utt_id exactly.
+   - State that start_sec and end_sec must be preserved when present.
+   - State that the model must use record["inference_audio_path"] as the audio source.
+   - State that predictions must be written to predictions/utterances.jsonl using the required schema.
+
+4. MILESTONE_LEDGER.md
+   - Create a markdown table with these columns:
+     - milestone
+     - branch
+     - implemented files
+     - tests
+     - report path
+     - open issues
+     - merged yes/no
+   - Add one row for M0.
+
+5. M0_repository_baseline_report.md
+   - Summarize what changed.
+   - Summarize what was inspected.
+   - Summarize how it was tested.
+   - List open issues or explicitly say none.
+   - Confirm whether scorer, dataset registry, GUI, plotting, reporting, and normalized metadata loading were unchanged.
+
+Testing:
+- Create or update tests for this milestone.
+- First inspect the existing test layout and conventions.
+- Prefer a small docs validation test that checks:
+  - required M0 docs exist
+  - FILE_MAP.md includes both existing and proposed path groups
+  - DEVELOPMENT_RULES.md includes the explicit-interface rule
+  - MILESTONE_LEDGER.md includes the required columns
+  - M0 report exists
+- Keep tests minimal and aligned with the existing test framework.
+- If no test framework exists, create the smallest reasonable pytest-based docs test under the Evaluation Tool test structure.
+- Do not introduce heavy dependencies.
+
+Validation/smoke checks:
+- Run the relevant test command.
+- Also run git diff/name-only or equivalent to confirm no prohibited files changed.
+- Include exact commands in the final response and in the M0 report.
+
+Safety requirements:
+- Do not modify:
+  - scorer
+  - dataset registry
+  - GUI
+  - CLI
+  - plotting
+  - reporting
+  - normalized metadata loaders
+  - Evaluation Tool\app\model_runner\external_stub.py
+  - Evaluation Tool\app\prediction_io\schema.py
+- Do not add model code.
+- Do not add inference implementations.
+- Do not refactor existing evaluator behavior.
+- Do not change schemas, scorer assumptions, or dataset loading behavior.
+
+Stop and report blockers if:
+- required files cannot be found
+- existing tests cannot be discovered or run
+- dependencies required for existing tests are unavailable
+- git status shows conflicts or unsafe unrelated edits
+- the existing runner contract cannot be determined from the read-only files
+
+Final response:
+- Summarize changed files.
+- State whether tests passed.
+- Include exact commands run.
+- State whether prohibited files were unchanged.
+- State whether a commit was created, or why not.

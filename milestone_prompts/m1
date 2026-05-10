@@ -1,0 +1,234 @@
+You are Codex working in this existing project. Implement only milestone M1: Core Pipeline Contracts and Dataclasses. Do not implement VAD, ASR, speaker embedding, diarization, model loading, GPU code, Raspberry Pi optimization, ExecuTorch export, or external hardware integration yet.
+
+Project roots:
+- Project root: just-peachy\Software Validation from Datasets
+- Evaluation Tool root: just-peachy\Software Validation from Datasets\Evaluation Tool
+
+Critical context:
+- The Evaluation Tool already handles dataset selection, simulation, augmentation, run folders, scoring, plots, and reports.
+- The inference integration point remains Evaluation Tool\app\model_runner\external_stub.py.
+- The runner receives one selected metadata row at a time.
+- Future model code must read record["inference_audio_path"], which may point to original audio or a temporary augmented WAV.
+- Preserve recording_id and utt_id exactly because scoring matches predictions on (recording_id, utt_id).
+- Preserve start_sec and end_sec when present.
+- Required prediction file remains predictions/utterances.jsonl.
+- Each prediction row must contain recording_id, utt_id, start_sec, end_sec, speaker_label, and text.
+- Future pipeline should be modular and PyTorch-native, but this milestone only creates model-free contracts.
+- Do not redesign or modify the existing GUI, CLI, dataset registry, scorer, plotting, reporting, run folder behavior, normalized metadata loaders, or prediction schema unless a test proves a narrow change is absolutely required.
+
+Before editing:
+1. Check git status and current branch.
+2. Inspect the existing M0 docs:
+   - Evaluation Tool\README_inference_pipeline.md
+   - Evaluation Tool\docs\inference_pipeline\FILE_MAP.md
+   - Evaluation Tool\docs\inference_pipeline\DEVELOPMENT_RULES.md
+   - Evaluation Tool\docs\inference_pipeline\MILESTONE_LEDGER.md
+3. Read, but do not modify unless absolutely required:
+   - Evaluation Tool\app\model_runner\external_stub.py
+   - Evaluation Tool\app\model_runner\base.py
+   - Evaluation Tool\app\prediction_io\schema.py
+4. Inspect existing tests under Evaluation Tool\tests before adding new tests.
+5. If unrelated user changes exist, do not overwrite, revert, or reformat them.
+
+Branch/commit:
+- Create and work on a new branch named codex/m1-inference-pipeline-contracts, unless already on that exact branch.
+- Do not commit anything to the repository.
+- Leave all M1 changes uncommitted for user review.
+- Do not stage files unless explicitly asked.
+- Do not include or modify local virtual environments such as myenv/ or .venv/.
+- In the final response, report the current branch and list the uncommitted changed files.
+
+Target files to create or update:
+- Evaluation Tool\app\inference_pipeline\__init__.py
+- Evaluation Tool\app\inference_pipeline\contracts.py
+- Evaluation Tool\app\inference_pipeline\errors.py
+- Evaluation Tool\app\inference_pipeline\typing.py
+- Evaluation Tool\tests\inference_pipeline\test_contracts.py
+- Evaluation Tool\docs\inference_pipeline\contracts.md
+- Evaluation Tool\reports\milestones\M1_contracts_report.md
+- Evaluation Tool\docs\inference_pipeline\MILESTONE_LEDGER.md
+
+Implement only contracts:
+Create lightweight, model-free dataclasses or Pydantic-style objects for:
+- EvaluationRecord
+- AudioSegment
+- SpeechRegion
+- ASRTranscript
+- WordTiming
+- SpeakerEmbedding
+- SpeakerDecision
+- TranscriptItem, if useful for final utterance assembly
+- PipelineOutput
+- RuntimeStats
+
+Use standard-library dataclasses unless the project already depends on Pydantic. Do not add Pydantic or any new heavy dependency.
+
+Required contract behavior:
+1. EvaluationRecord
+   - Represents one selected metadata row passed by the Evaluation Tool runner.
+   - Must include recording_id, utt_id, inference_audio_path, start_sec, end_sec, speaker_label.
+   - May include source_recording_id, augmentation_condition_id, augmentation_mode, channel information, sample_rate_hz, duration_sec, and an extras dict for dataset-specific metadata.
+   - Provide a from_record(record: Mapping[str, object]) constructor.
+   - Validate that recording_id and utt_id are present and non-empty.
+   - Preserve recording_id and utt_id exactly as strings.
+   - Preserve start_sec and end_sec when present.
+   - Use record["inference_audio_path"] as the primary audio path and fail clearly if missing.
+
+2. AudioSegment
+   - Represents model-ready audio metadata, not loaded samples unless already available.
+   - Include audio_path, start_sec, end_sec, sample_rate_hz, channel_index, channel_count, is_mono, and optional duration_sec.
+   - Keep mono as the default path.
+   - Include optional fields for multichannel audio without requiring multichannel handling yet.
+
+3. SpeechRegion
+   - Represents VAD output.
+   - Include start_sec, end_sec, confidence, channel_index, and optional label.
+   - Validate end_sec >= start_sec when both are present.
+
+4. WordTiming
+   - Represents optional word-level timing.
+   - Include word, start_sec, end_sec, confidence.
+   - Validate word is not empty.
+
+5. ASRTranscript
+   - Represents ASR output for an audio segment or speech region.
+   - Include text, optional words list, language, confidence, start_sec, end_sec.
+   - Must be JSON-safe serializable.
+
+6. SpeakerEmbedding
+   - Represents speaker embedding metadata without requiring tensor libraries.
+   - Include embedding_id, vector, dim, model_name, channel_index, source_region.
+   - Keep vector as list[float] or tuple[float, ...] for JSON-safe tests.
+   - Validate dim matches vector length when both are supplied.
+
+7. SpeakerDecision
+   - Represents speaker matching/labeling output.
+   - Include speaker_label, confidence, method, embedding_id, matched_reference_id, and notes.
+   - Allow speaker_label to be None.
+
+8. RuntimeStats
+   - Represents runtime timings and counters.
+   - Include total_sec, audio_load_sec, vad_sec, asr_sec, speaker_sec, postprocess_sec, device, model_versions, and counters.
+   - Must be serializable without importing ML frameworks.
+
+9. PipelineOutput
+   - Represents the final output for one EvaluationRecord.
+   - Must include recording_id, utt_id, start_sec, end_sec, speaker_label, text, transcript items or ASR transcript, runtime stats, and warnings/errors.
+   - Add a to_utterance_prediction_row() or equivalent method returning exactly the JSON-safe fields required by predictions/utterances.jsonl:
+     - recording_id
+     - utt_id
+     - start_sec
+     - end_sec
+     - speaker_label
+     - text
+   - Add a from_record_and_transcript(...) helper if it keeps the mapping simple.
+   - Validate recording_id and utt_id match the source EvaluationRecord when a source record is provided.
+
+Serialization:
+- Add a consistent to_jsonable() helper or method for each contract.
+- Output must be JSON-safe without custom encoders.
+- Paths should serialize as strings.
+- Avoid numpy, torch, pandas, audio libraries, and model imports in these contract modules.
+
+Errors:
+- In errors.py, define small custom exceptions such as:
+  - InferencePipelineError
+  - ContractValidationError
+  - MissingRequiredFieldError
+  - IdentityMismatchError
+- Use these for validation failures.
+
+Typing:
+- In typing.py, define shared type aliases or protocols only if useful.
+- Keep this file small and avoid overengineering.
+
+Documentation:
+- Add Evaluation Tool\docs\inference_pipeline\contracts.md.
+- Explain each contract in plain language.
+- Include a small example showing:
+  - an Evaluation Tool metadata record
+  - EvaluationRecord.from_record(...)
+  - creating an ASRTranscript
+  - creating PipelineOutput
+  - converting it to the utterances.jsonl row
+- State clearly that M1 imports no ML models and performs no inference.
+
+Tests:
+- Add Evaluation Tool\tests\inference_pipeline\test_contracts.py.
+- Tests must pass without GPU, datasets, or model assets.
+- Cover:
+  - all contract classes can be imported without ML dependencies
+  - EvaluationRecord.from_record preserves recording_id and utt_id exactly
+  - missing recording_id, utt_id, or inference_audio_path raises the expected custom error
+  - start_sec and end_sec are preserved when present
+  - AudioSegment defaults to mono
+  - SpeechRegion validates time ordering
+  - WordTiming validates non-empty words
+  - SpeakerEmbedding validates dim/vector length
+  - PipelineOutput maps to exactly the required utterances.jsonl fields
+  - PipelineOutput detects recording_id or utt_id mismatch when built from a source EvaluationRecord
+  - to_jsonable output can be passed to json.dumps
+
+Validation commands:
+- Run the focused M1 tests from Evaluation Tool root. Prefer the existing local venv if present:
+  - & '..\..\myenv\Scripts\python.exe' -m pytest tests\inference_pipeline\test_contracts.py
+- If that venv is unavailable, use:
+  - python -m pytest tests\inference_pipeline\test_contracts.py
+- Also rerun the M0 docs test if it exists:
+  - & '..\..\myenv\Scripts\python.exe' -m pytest tests\test_m0_docs.py
+- Run a protected-path check from repo root:
+  - git status --short -- "Software Validation from Datasets\Evaluation Tool\app\model_runner" "Software Validation from Datasets\Evaluation Tool\app\prediction_io" "Software Validation from Datasets\Evaluation Tool\app\scoring" "Software Validation from Datasets\Evaluation Tool\app\dataset_registry" "Software Validation from Datasets\Evaluation Tool\app\gui" "Software Validation from Datasets\Evaluation Tool\app\cli" "Software Validation from Datasets\Evaluation Tool\app\plotting" "Software Validation from Datasets\Evaluation Tool\app\reporting"
+
+Required report:
+- Write Evaluation Tool\reports\milestones\M1_contracts_report.md.
+- Include:
+  - summary of files changed
+  - contracts added
+  - how the existing Evaluation Tool runner contract is preserved
+  - exact validation commands run
+  - test results
+  - protected-path safety confirmation
+  - open issues or “None known”
+
+Milestone ledger:
+- Update Evaluation Tool\docs\inference_pipeline\MILESTONE_LEDGER.md with one M1 row.
+- Use the required columns already established in M0:
+  - milestone
+  - branch
+  - implemented files
+  - tests
+  - report path
+  - open issues
+  - merged yes/no
+
+Safety requirements:
+- Do not modify:
+  - Evaluation Tool\app\model_runner\external_stub.py
+  - Evaluation Tool\app\model_runner\base.py
+  - Evaluation Tool\app\prediction_io\schema.py
+  - scorer
+  - dataset registry
+  - GUI
+  - CLI
+  - plotting
+  - reporting
+  - normalized metadata loaders
+- Do not add model code.
+- Do not add VAD, ASR, speaker embedding, diarization, hardware, or ExecuTorch implementation.
+- Do not add runtime dependencies unless the existing project already requires them.
+- Do not refactor unrelated files.
+
+Stop and report blockers if:
+- M0 docs are missing
+- the runner contract cannot be determined
+- Python or pytest cannot run
+- required dependencies are unavailable
+- tests require datasets, GPU, or model assets
+- git status shows unrelated changes that would make a scoped M1 commit unsafe
+
+Final response:
+- Summarize changed files.
+- State whether tests passed.
+- Include exact commands run.
+- State whether protected paths were unchanged.
+- State whether a commit was created, or why not.
