@@ -66,7 +66,7 @@ git status --short -- "Software Validation from Datasets\Evaluation Tool\app\mod
 ## Test Results
 
 - `tests\inference_pipeline\test_contracts.py`: 11 passed.
-- `tests\test_m0_docs.py`: 4 passed.
+- `tests\test_m0_docs.py`: 5 passed.
 
 ## Safety Confirmation
 

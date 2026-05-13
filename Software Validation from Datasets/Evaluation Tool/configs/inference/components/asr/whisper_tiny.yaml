@@ -1,0 +1,12 @@
+component:
+  slot: asr
+  name: whisper_tiny
+  enabled: true
+  adapter: WhisperTinyASRAdapter
+  notes: Placeholder config only; M2 does not import or load Whisper.
+  params:
+    model_family: whisper
+    model_size: tiny
+    language: en
+    beam_size: 1
+

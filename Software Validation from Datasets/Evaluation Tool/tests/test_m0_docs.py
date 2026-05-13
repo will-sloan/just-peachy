@@ -1,7 +1,9 @@
+import subprocess
 from pathlib import Path
 
 
 TOOL_ROOT = Path(__file__).resolve().parents[1]
+REPO_ROOT = TOOL_ROOT.parents[1]
 
 
 REQUIRED_DOCS = [
@@ -77,4 +79,31 @@ def test_milestone_ledger_has_required_columns() -> None:
 
     for column in required_columns:
         assert column in text
+
+
+def test_protected_runtime_paths_are_unchanged() -> None:
+    result = subprocess.run(
+        ["git", "-C", str(REPO_ROOT), "status", "--short"],
+        check=True,
+        capture_output=True,
+        text=True,
+    )
+    protected_paths = [
+        "Software Validation from Datasets/Evaluation Tool/app/scoring/",
+        "Software Validation from Datasets/Evaluation Tool/app/dataset_registry/",
+        "Software Validation from Datasets/Evaluation Tool/app/gui/",
+        "Software Validation from Datasets/Evaluation Tool/app/cli/",
+        "Software Validation from Datasets/Evaluation Tool/app/plotting/",
+        "Software Validation from Datasets/Evaluation Tool/app/reporting/",
+        "Software Validation from Datasets/Evaluation Tool/app/model_runner/external_stub.py",
+        "Software Validation from Datasets/Evaluation Tool/app/prediction_io/schema.py",
+    ]
+    violations = [
+        line
+        for line in result.stdout.splitlines()
+        for protected_path in protected_paths
+        if protected_path in line
+    ]
+
+    assert violations == []
 

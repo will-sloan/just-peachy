@@ -1,0 +1,11 @@
+component:
+  slot: speaker_embedding
+  name: speechbrain_ecapa
+  enabled: true
+  adapter: SpeechBrainECAPAAdapter
+  notes: Placeholder config only; M2 does not import or load SpeechBrain.
+  params:
+    model_family: speechbrain
+    architecture: ecapa_tdnn
+    embedding_dim: 192
+

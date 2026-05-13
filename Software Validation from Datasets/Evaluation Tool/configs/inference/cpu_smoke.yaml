@@ -1,0 +1,43 @@
+config_name: cpu_smoke
+profile: local_cpu_smoke
+notes: Small dry-run config for local validation without datasets or model assets.
+future: false
+runtime:
+  device: cpu
+  sample_rate_hz: 16000
+  max_batch_size: 1
+  num_threads: 1
+  precision: float32
+  dry_run: true
+  allow_model_downloads: false
+  cache_dir: null
+components:
+  vad:
+    name: no_op_vad
+    enabled: true
+    adapter: NoOpVADAdapter
+    params:
+      emits_single_region: true
+  segmentation:
+    name: no_op_segmentation
+    enabled: true
+    adapter: NoOpSegmentationAdapter
+    params:
+      mode: full_utterance
+  asr:
+    name: no_op_asr
+    enabled: true
+    adapter: NoOpASRAdapter
+    params:
+      transcript: ""
+  speaker_embedding:
+    name: no_op_speaker_embedding
+    enabled: false
+    adapter: NoOpSpeakerEmbeddingAdapter
+    params: {}
+  speaker_matching:
+    name: no_op_speaker_matching
+    enabled: false
+    adapter: NoOpSpeakerMatchingAdapter
+    params: {}
+

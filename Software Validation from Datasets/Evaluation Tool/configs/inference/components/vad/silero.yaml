@@ -1,0 +1,12 @@
+component:
+  slot: vad
+  name: silero_vad
+  enabled: true
+  adapter: SileroVADAdapter
+  notes: Placeholder config only; M2 does not import or load Silero.
+  params:
+    model_family: silero
+    threshold: 0.5
+    min_speech_duration_ms: 250
+    min_silence_duration_ms: 100
+
