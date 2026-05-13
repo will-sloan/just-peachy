@@ -1,0 +1,30 @@
+config_name: desktop_gpu
+profile: rtx_3080_3090_development
+notes: Dry-run-safe desktop GPU profile. Component names resolve, but no models load.
+future: false
+runtime:
+  device: cuda
+  sample_rate_hz: 16000
+  max_batch_size: 8
+  num_threads: 4
+  precision: float16
+  dry_run: true
+  allow_model_downloads: false
+  cache_dir: models/cache
+components:
+  vad: components/vad/silero.yaml
+  segmentation:
+    name: no_op_segmentation
+    enabled: true
+    adapter: NoOpSegmentationAdapter
+    params:
+      mode: vad_regions
+  asr: components/asr/whisper_tiny.yaml
+  speaker_embedding: components/speaker_embedding/speechbrain_ecapa.yaml
+  speaker_matching:
+    name: no_op_speaker_matching
+    enabled: true
+    adapter: NoOpSpeakerMatchingAdapter
+    params:
+      threshold: 0.7
+

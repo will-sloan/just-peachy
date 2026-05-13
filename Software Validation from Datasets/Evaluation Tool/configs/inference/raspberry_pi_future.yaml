@@ -1,0 +1,45 @@
+config_name: raspberry_pi_future
+profile: raspberry_pi_future
+notes: Future edge profile only; not implemented and not performance validated.
+future: true
+runtime:
+  device: cpu
+  sample_rate_hz: 16000
+  max_batch_size: 1
+  num_threads: 2
+  precision: int8
+  dry_run: true
+  allow_model_downloads: false
+  cache_dir: models/edge-cache
+components:
+  vad:
+    name: no_op_vad
+    enabled: true
+    adapter: NoOpVADAdapter
+    params:
+      future_replacement: edge_vad
+  segmentation:
+    name: no_op_segmentation
+    enabled: true
+    adapter: NoOpSegmentationAdapter
+    params:
+      mode: streaming_chunks_future
+  asr:
+    name: no_op_asr
+    enabled: true
+    adapter: NoOpASRAdapter
+    params:
+      future_replacement: executorch_asr
+  speaker_embedding:
+    name: no_op_speaker_embedding
+    enabled: false
+    adapter: NoOpSpeakerEmbeddingAdapter
+    params:
+      future_replacement: edge_speaker_embedding
+  speaker_matching:
+    name: no_op_speaker_matching
+    enabled: false
+    adapter: NoOpSpeakerMatchingAdapter
+    params:
+      future_replacement: edge_speaker_matching
+

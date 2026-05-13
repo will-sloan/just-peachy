@@ -13,7 +13,6 @@ Changed files:
 - `docs/inference_pipeline/MILESTONE_LEDGER.md`
 - `reports/milestones/M0_repository_baseline_report.md`
 - `tests/test_m0_docs.py`
-- `tests/test_m0_docs.ps1`
 
 ## Inspected Files
 
@@ -45,7 +44,6 @@ Commands to run from `Software Validation from Datasets/Evaluation Tool`:
 
 ```powershell
 & '..\..\myenv\Scripts\python.exe' -m pytest tests/test_m0_docs.py
-powershell -NoProfile -ExecutionPolicy Bypass -File tests/test_m0_docs.ps1
 ```
 
 Commands to run from repository root:
@@ -57,9 +55,7 @@ git status --short
 Observed results in this shell:
 
 - `& '..\..\myenv\Scripts\python.exe' -m pytest tests/test_m0_docs.py` passed
-  with 4 tests.
-- `powershell -NoProfile -ExecutionPolicy Bypass -File tests/test_m0_docs.ps1`
-  passed.
+  with the docs and protected-path checks.
 - `git status --short --untracked-files=all -- "Software Validation from Datasets/Evaluation Tool"`
   showed only M0 docs, report, and docs validation tests.
 
@@ -80,6 +76,5 @@ M0 did not intentionally change:
 ## Open Issues
 
 The local virtual environment `myenv/` exists at the repository root and is
-untracked. It is outside the M0 artifact set, so the M0 files remain uncommitted
-on branch `codex/m0-inference-pipeline-baseline` unless that environment is
-ignored, removed, or explicitly left outside a documentation-only commit.
+untracked. It is outside the M0 artifact set, so keep it outside any
+documentation-only commit.
