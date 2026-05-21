@@ -4,6 +4,8 @@ myenv/
 Software Validation from Datasets/Raw Datasets/
 Software Validation from Datasets/Raw Datasets (Not formatted)/
 
+# Mac
+.DS_Store
 
 
 # Python cache

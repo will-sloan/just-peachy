@@ -1,7 +1,7 @@
 """Stub external model runner.
 
-Replace ``predict_one`` with a call into another person's inference code.
 The evaluator only requires a standardized ``UtterancePrediction`` back.
+M4 routes this runner through a dummy modular pipeline before real models exist.
 """
 
 from __future__ import annotations
@@ -9,7 +9,8 @@ from __future__ import annotations
 import logging
 from pathlib import Path
 
-from app.model_runner.base import ModelRunner, prediction_from_record
+from app.inference_pipeline.pipeline import PipelineRunner
+from app.model_runner.base import ModelRunner
 from app.prediction_io.schema import UtterancePrediction
 from app.utils.json_utils import write_jsonl
 
@@ -18,6 +19,9 @@ class ExternalStubRunner(ModelRunner):
     """Minimal external-inference integration point."""
 
     name = "external_stub"
+
+    def __init__(self, pipeline_runner: PipelineRunner | None = None) -> None:
+        self.pipeline_runner = pipeline_runner or PipelineRunner.with_dummy_components()
 
     def before_run(
         self,
@@ -59,9 +63,9 @@ class ExternalStubRunner(ModelRunner):
             "It receives each selected recording_id, resolved audio_path, and run_config.\n"
             "For augmented runs, predict_one() receives record['inference_audio_path'],\n"
             "which points at a temporary augmented WAV valid during that call.\n"
-            "The current stub writes blank transcript predictions so scoring can still\n"
-            "exercise the missing/poor-output path. Replace predict_one() in\n"
-            "app/model_runner/external_stub.py with the real inference call.\n",
+            "The current stub calls a dummy modular pipeline that returns deterministic\n"
+            "placeholder transcript predictions so scoring can exercise the external\n"
+            "runner integration path before real model adapters exist.\n",
             encoding="utf-8",
         )
         logger.info("Wrote external stub manifest with %d rows", len(records))
@@ -72,7 +76,12 @@ class ExternalStubRunner(ModelRunner):
         run_config: dict[str, object],
         logger: logging.Logger,
     ) -> UtterancePrediction:
-        # Replace this method with a call such as:
-        # text = external_asr.transcribe(record["audio_path_resolved"], run_config)
-        text = ""
-        return prediction_from_record(record, text)
+        output = self.pipeline_runner.run_one(record, run_config, logger)
+        return UtterancePrediction(
+            recording_id=output.recording_id,
+            utt_id=output.utt_id,
+            start_sec=output.start_sec,
+            end_sec=output.end_sec,
+            speaker_label=output.speaker_label,
+            text=output.text,
+        )
