@@ -1,0 +1,14 @@
+component:
+  slot: segmentation
+  name: vad_chunks
+  enabled: true
+  adapter: VADChunkerAdapter
+  notes: Deterministic VAD-region chunking policy for M6 smoke validation.
+  params:
+    target: asr
+    min_chunk_sec: 0.2
+    max_chunk_sec: 30.0
+    merge_gap_sec: 0.2
+    left_pad_sec: 0.05
+    right_pad_sec: 0.05
+    clip_to_record_bounds: true

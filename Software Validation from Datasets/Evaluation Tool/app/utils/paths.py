@@ -12,7 +12,7 @@ from pathlib import Path, PureWindowsPath
 
 
 PROJECT_ANCHORS = (
-    "Raw Datasets (Not formatted)",
+    "RawDatasets",
     "Normalized Metadata",
 )
 
@@ -35,7 +35,7 @@ def find_project_root(start: Path | None = None) -> Path:
 def _looks_like_project_root(path: Path) -> bool:
     return (
         (path / "Normalized Metadata").is_dir()
-        and (path / "Raw Datasets (Not formatted)").is_dir()
+        and (path / "RawDatasets").is_dir()
     )
 
 

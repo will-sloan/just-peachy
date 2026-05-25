@@ -54,9 +54,19 @@ class SileroVADAdapter(ComponentAdapter):
     component_name = "silero_vad"
 
 
+class EnergyVADAdapter(ComponentAdapter):
+    component_slot = "vad"
+    component_name = "energy_vad"
+
+
 class NoOpSegmentationAdapter(ComponentAdapter):
     component_slot = "segmentation"
     component_name = "no_op_segmentation"
+
+
+class VADChunkerAdapter(ComponentAdapter):
+    component_slot = "segmentation"
+    component_name = "vad_chunks"
 
 
 class NoOpASRAdapter(ComponentAdapter):
@@ -86,11 +96,13 @@ class NoOpSpeakerMatchingAdapter(ComponentAdapter):
 
 REGISTERED_COMPONENTS: dict[str, dict[str, type[ComponentAdapter]]] = {
     "vad": {
+        EnergyVADAdapter.component_name: EnergyVADAdapter,
         NoOpVADAdapter.component_name: NoOpVADAdapter,
         SileroVADAdapter.component_name: SileroVADAdapter,
     },
     "segmentation": {
         NoOpSegmentationAdapter.component_name: NoOpSegmentationAdapter,
+        VADChunkerAdapter.component_name: VADChunkerAdapter,
     },
     "asr": {
         NoOpASRAdapter.component_name: NoOpASRAdapter,
@@ -186,4 +198,3 @@ def dry_run_config(config: PipelineConfig) -> JsonObject:
             for slot, component in resolved.items()
         },
     }
-

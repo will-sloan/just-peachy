@@ -21,6 +21,10 @@ TEST_MILESTONES = {
     "tests/test_m0_docs.py": ("M0",),
     "tests/inference_pipeline/test_contracts.py": ("M1",),
     "tests/inference_pipeline/test_config_registry.py": ("M2",),
+    "tests/inference_pipeline/test_audio_io.py": ("M3",),
+    "tests/model_runner/test_external_stub_bridge.py": ("M4",),
+    "tests/inference_pipeline/test_vad.py": ("M5",),
+    "tests/inference_pipeline/test_segmentation.py": ("M6",),
 }
 
 
