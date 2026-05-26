@@ -8,13 +8,20 @@ project anchors so the tool can run from another checkout location.
 from __future__ import annotations
 
 import re
+import os
 from pathlib import Path, PureWindowsPath
 
 
-PROJECT_ANCHORS = (
-    "RawDatasets",
-    "Normalized Metadata",
-)
+PROJECT_ANCHOR_ALIASES = {
+    "RawDatasets": (
+        "RawDatasets",
+        "Raw Datasets",
+        "Raw Datasets (Not formatted)",
+    ),
+    "Normalized Metadata": (
+        "Normalized Metadata",
+    ),
+}
 
 
 def find_project_root(start: Path | None = None) -> Path:
@@ -84,11 +91,12 @@ def metadata_path_to_project_relative(
 
     parts = path_parts_any_platform(text)
     lowered = [part.lower() for part in parts]
-    for anchor in PROJECT_ANCHORS:
-        anchor_lower = anchor.lower()
-        if anchor_lower in lowered:
-            index = lowered.index(anchor_lower)
-            return Path(*parts[index:])
+    for canonical_anchor, aliases in PROJECT_ANCHOR_ALIASES.items():
+        for alias in aliases:
+            alias_lower = alias.lower()
+            if alias_lower in lowered:
+                index = lowered.index(alias_lower)
+                return Path(canonical_anchor, *parts[index + 1 :])
 
     if not native_path.is_absolute():
         return Path(text.replace("\\", "/"))
@@ -112,5 +120,7 @@ def safe_relative_to(path: Path, root: Path) -> str:
     try:
         return path.resolve().relative_to(root.resolve()).as_posix()
     except ValueError:
-        return path.resolve().as_posix()
-
+        try:
+            return Path(os.path.relpath(path.resolve(), root.resolve())).as_posix()
+        except ValueError:
+            return path.resolve().as_posix()

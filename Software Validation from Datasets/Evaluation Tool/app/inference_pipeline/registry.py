@@ -79,6 +79,16 @@ class WhisperTinyASRAdapter(ComponentAdapter):
     component_name = "whisper_tiny"
 
 
+class WhisperBaseASRAdapter(ComponentAdapter):
+    component_slot = "asr"
+    component_name = "whisper_base"
+
+
+class FasterWhisperASRAdapter(ComponentAdapter):
+    component_slot = "asr"
+    component_name = "faster_whisper"
+
+
 class NoOpSpeakerEmbeddingAdapter(ComponentAdapter):
     component_slot = "speaker_embedding"
     component_name = "no_op_speaker_embedding"
@@ -105,7 +115,9 @@ REGISTERED_COMPONENTS: dict[str, dict[str, type[ComponentAdapter]]] = {
         VADChunkerAdapter.component_name: VADChunkerAdapter,
     },
     "asr": {
+        FasterWhisperASRAdapter.component_name: FasterWhisperASRAdapter,
         NoOpASRAdapter.component_name: NoOpASRAdapter,
+        WhisperBaseASRAdapter.component_name: WhisperBaseASRAdapter,
         WhisperTinyASRAdapter.component_name: WhisperTinyASRAdapter,
     },
     "speaker_embedding": {

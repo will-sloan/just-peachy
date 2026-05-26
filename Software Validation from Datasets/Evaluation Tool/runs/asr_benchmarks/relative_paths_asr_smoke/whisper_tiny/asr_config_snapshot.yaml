@@ -1,0 +1,27 @@
+id: whisper_tiny
+label: Whisper tiny local model
+enabled: true
+optional: true
+component:
+  slot: asr
+  name: whisper_tiny
+  enabled: true
+  adapter: WhisperTinyASRAdapter
+  notes: Lazy Whisper tiny adapter config. Requires local package and model assets;
+    downloads disabled.
+  params:
+    model_family: whisper
+    model_size: tiny
+    model_name: whisper_tiny
+    language: en
+    beam_size: 1
+    word_timestamps: false
+    device: cpu
+    dtype: float32
+    allow_model_downloads: false
+    cache_dir: models/cache/whisper
+availability:
+  requires_package: whisper
+  requires_whisper_model: tiny
+  whisper_cache_dir: models/cache/whisper
+notes: Runs only when the OpenAI Whisper package and local tiny.pt asset are available.

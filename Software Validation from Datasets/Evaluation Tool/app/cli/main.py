@@ -36,6 +36,8 @@ from app.utils.run_artifacts import (
     create_run_dir,
     ensure_run_subdirs,
     read_yaml,
+    relative_artifact_config,
+    relative_artifact_records,
     write_yaml,
 )
 
@@ -495,7 +497,10 @@ def prepare_new_run(
             "optional_files": ["predictions/words.jsonl", "predictions/segments.rttm"],
         },
     }
-    write_yaml(run_dir / "run_config.yaml", run_config)
+    write_yaml(
+        run_dir / "run_config.yaml",
+        relative_artifact_config(run_config, artifact_root=run_dir, project_root=project_root),
+    )
     write_json(
         run_dir / "dataset_selection.json",
         {
@@ -507,8 +512,14 @@ def prepare_new_run(
         },
     )
     write_json(run_dir / "augmentation_config.json", run_config["augmentation"])
-    write_jsonl(run_dir / "dataset_selection_source_records.jsonl", base_records)
-    write_jsonl(run_dir / "dataset_selection_records.jsonl", records)
+    write_jsonl(
+        run_dir / "dataset_selection_source_records.jsonl",
+        relative_artifact_records(base_records, artifact_root=run_dir, project_root=project_root),
+    )
+    write_jsonl(
+        run_dir / "dataset_selection_records.jsonl",
+        relative_artifact_records(records, artifact_root=run_dir, project_root=project_root),
+    )
 
     print(
         f"Selected {len(base_records)} source recording(s), "

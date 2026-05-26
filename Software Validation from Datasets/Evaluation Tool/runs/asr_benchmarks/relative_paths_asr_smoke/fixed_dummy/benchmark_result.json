@@ -1,0 +1,75 @@
+{
+  "error": null,
+  "examples": {
+    "best": {
+      "empty_output": false,
+      "hypothesis_text": "dummy pipeline transcript",
+      "recording_id": "CMU_ARCTIC_aew_arctic_a0001",
+      "reference_text": "author of the danger trail philip steels etc",
+      "repeated_word_rate": 0.0,
+      "utt_id": "arctic_a0001",
+      "wer": 1.0
+    },
+    "empty_output": null,
+    "hallucination": null,
+    "high_stutter": {
+      "empty_output": false,
+      "hypothesis_text": "dummy pipeline transcript",
+      "recording_id": "CMU_ARCTIC_aew_arctic_a0001",
+      "reference_text": "author of the danger trail philip steels etc",
+      "repeated_word_rate": 0.0,
+      "utt_id": "arctic_a0001",
+      "wer": 1.0
+    },
+    "median": {
+      "empty_output": false,
+      "hypothesis_text": "dummy pipeline transcript",
+      "recording_id": "CMU_ARCTIC_aew_arctic_a0001",
+      "reference_text": "author of the danger trail philip steels etc",
+      "repeated_word_rate": 0.0,
+      "utt_id": "arctic_a0001",
+      "wer": 1.0
+    },
+    "worst": {
+      "empty_output": false,
+      "hypothesis_text": "dummy pipeline transcript",
+      "recording_id": "CMU_ARCTIC_aew_arctic_a0001",
+      "reference_text": "author of the danger trail philip steels etc",
+      "repeated_word_rate": 0.0,
+      "utt_id": "arctic_a0001",
+      "wer": 1.0
+    }
+  },
+  "label": "Fixed deterministic baseline",
+  "metrics": {
+    "attempted_count": 1,
+    "cer": 0.7297297297297297,
+    "composite_score": 42.4946,
+    "condition_metrics": {
+      "clean": {
+        "cer": 0.7297297297297297,
+        "record_count": 1,
+        "wer": 1.0
+      }
+    },
+    "consecutive_duplicate_token_rate": 0.0,
+    "cpu_memory_mb": null,
+    "empty_output_rate": 0.0,
+    "failed_count": 0,
+    "failure_rate": 0.0,
+    "hallucinated_output_rate": null,
+    "load_sec": 0.0,
+    "peak_gpu_memory_mb": null,
+    "realtime_factor": 0.00021739338252560776,
+    "repeated_ngram_rate": 0.0,
+    "repeated_word_rate": 0.0,
+    "runtime_sec": 0.0008435000199824572,
+    "skipped_count": 0,
+    "throughput_items_per_sec": 1185.536427160722,
+    "total_audio_duration_sec": 3.880063,
+    "wer": 1.0,
+    "written_count": 1
+  },
+  "model_id": "fixed_dummy",
+  "status": "ran"
+}

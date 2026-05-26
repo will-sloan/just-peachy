@@ -13,6 +13,7 @@ from app.inference_pipeline.pipeline import PipelineRunner
 from app.model_runner.base import ModelRunner
 from app.prediction_io.schema import UtterancePrediction
 from app.utils.json_utils import write_jsonl
+from app.utils.run_artifacts import relative_artifact_record
 
 
 class ExternalStubRunner(ModelRunner):
@@ -32,6 +33,18 @@ class ExternalStubRunner(ModelRunner):
     ) -> None:
         manifest_rows = []
         for record in records:
+            artifact_record = relative_artifact_record(record, artifact_root=predictions_dir)
+            audio_path = (
+                artifact_record.get("inference_audio_path")
+                or artifact_record.get("audio_path")
+                or artifact_record.get("inference_audio_project_relative")
+                or artifact_record.get("audio_path_project_relative")
+            )
+            source_audio_path = (
+                artifact_record.get("source_audio_path")
+                or artifact_record.get("source_audio_path_project_relative")
+                or audio_path
+            )
             manifest_rows.append(
                 {
                     "recording_id": record.get("recording_id"),
@@ -40,14 +53,19 @@ class ExternalStubRunner(ModelRunner):
                     "start_sec": record.get("start_sec"),
                     "end_sec": record.get("end_sec"),
                     "speaker_label": record.get("speaker_label"),
-                    "audio_path": record.get("inference_audio_path") or record.get("audio_path_resolved"),
-                    "source_audio_path": record.get("source_audio_path_resolved") or record.get("audio_path_resolved"),
-                    "clean_source_audio_path": record.get("source_audio_path_resolved"),
-                    "distant_audio_path": record.get("distant_audio_path_resolved"),
-                    "audio_path_project_relative": record.get("inference_audio_project_relative")
-                    or record.get("audio_path_project_relative"),
-                    "source_audio_path_project_relative": record.get("source_audio_path_project_relative"),
-                    "distant_audio_path_project_relative": record.get("distant_audio_path_project_relative"),
+                    "audio_path": audio_path,
+                    "source_audio_path": source_audio_path,
+                    "clean_source_audio_path": artifact_record.get("clean_source_audio_path")
+                    or artifact_record.get("source_audio_path_project_relative"),
+                    "distant_audio_path": artifact_record.get("distant_audio_path"),
+                    "audio_path_project_relative": artifact_record.get("inference_audio_project_relative")
+                    or artifact_record.get("audio_path_project_relative"),
+                    "source_audio_path_project_relative": artifact_record.get(
+                        "source_audio_path_project_relative"
+                    ),
+                    "distant_audio_path_project_relative": artifact_record.get(
+                        "distant_audio_path_project_relative"
+                    ),
                     "augmentation_condition_id": record.get("augmentation_condition_id"),
                     "augmentation_mode": record.get("augmentation_mode"),
                     "rir_label": record.get("rir_label"),
@@ -60,7 +78,7 @@ class ExternalStubRunner(ModelRunner):
         (predictions_dir / "README_external_stub.md").write_text(
             "# External Stub Runner\n\n"
             "This runner is a replaceable integration point for another ASR system.\n"
-            "It receives each selected recording_id, resolved audio_path, and run_config.\n"
+            "Its persisted manifest records project-relative audio paths and ids.\n"
             "For augmented runs, predict_one() receives record['inference_audio_path'],\n"
             "which points at a temporary augmented WAV valid during that call.\n"
             "The current stub calls a dummy modular pipeline that returns deterministic\n"

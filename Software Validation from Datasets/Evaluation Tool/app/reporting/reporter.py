@@ -151,7 +151,7 @@ def build_report(run_dir: Path, logger: logging.Logger) -> Path:
     )
     report_path.write_text("\n".join(lines) + "\n", encoding="utf-8")
     write_json(summary_path, aggregate)
-    logger.info("Wrote report to %s", report_path)
+    logger.info("Wrote report to %s", report_path.relative_to(run_dir).as_posix())
     return report_path
 
 

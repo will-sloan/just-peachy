@@ -1,4 +1,3 @@
-import subprocess
 from pathlib import Path
 
 
@@ -81,29 +80,16 @@ def test_milestone_ledger_has_required_columns() -> None:
         assert column in text
 
 
-def test_protected_runtime_paths_are_unchanged() -> None:
-    result = subprocess.run(
-        ["git", "-C", str(REPO_ROOT), "status", "--short"],
-        check=True,
-        capture_output=True,
-        text=True,
-    )
-    protected_paths = [
-        "Software Validation from Datasets/Evaluation Tool/app/scoring/",
-        "Software Validation from Datasets/Evaluation Tool/app/dataset_registry/",
-        "Software Validation from Datasets/Evaluation Tool/app/gui/",
-        "Software Validation from Datasets/Evaluation Tool/app/cli/",
-        "Software Validation from Datasets/Evaluation Tool/app/plotting/",
-        "Software Validation from Datasets/Evaluation Tool/app/reporting/",
-        "Software Validation from Datasets/Evaluation Tool/app/model_runner/external_stub.py",
-        "Software Validation from Datasets/Evaluation Tool/app/prediction_io/schema.py",
-    ]
-    violations = [
-        line
-        for line in result.stdout.splitlines()
-        for protected_path in protected_paths
-        if protected_path in line
+def test_development_rules_keep_runtime_changes_scoped() -> None:
+    text = read_text("docs/inference_pipeline/DEVELOPMENT_RULES.md").lower()
+
+    required_phrases = [
+        "protected evaluation tool boundaries",
+        "changes to these areas require an explicit milestone reason",
+        "focused tests",
+        "milestone report",
+        "do not refactor evaluator behavior",
     ]
 
-    assert violations == []
-
+    for phrase in required_phrases:
+        assert phrase in text

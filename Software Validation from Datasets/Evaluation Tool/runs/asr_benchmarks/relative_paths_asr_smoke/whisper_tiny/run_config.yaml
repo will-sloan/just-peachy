@@ -1,0 +1,57 @@
+command: asr_benchmark
+project_root: ../../../../..
+run_dir: .
+dataset:
+  key: cmu_arctic
+  name: CMU Arctic
+  dataset_id: cmu_arctic
+  normalized_metadata_dir: Normalized Metadata/CMU_Arctic
+selection:
+  max_recordings: 1
+  selected_source_recordings: 1
+  selected_recordings: 1
+  total_source_duration_sec: 3.880063
+  total_evaluation_duration_sec: 3.880063
+augmentation:
+  mode: none
+  preview_enabled: false
+  preview_recording_id: null
+  seed: 1337
+  peak_limit: 0.98
+  keep_temp_audio: false
+  conditions:
+  - condition_id: clean
+    mode: none
+    rir_path: null
+    rir_label: null
+    noise_type: null
+    snr_db: null
+  preview_count: 0
+runner:
+  name: external-stub
+  simulation_mode: null
+prediction_contract:
+  minimum_file: predictions/utterances.jsonl
+  optional_files:
+  - predictions/words.jsonl
+  - predictions/segments.rttm
+asr:
+  benchmark_model_id: whisper_tiny
+  component:
+    slot: asr
+    name: whisper_tiny
+    enabled: true
+    adapter: WhisperTinyASRAdapter
+    notes: Lazy Whisper tiny adapter config. Requires local package and model assets;
+      downloads disabled.
+    params:
+      model_family: whisper
+      model_size: tiny
+      model_name: whisper_tiny
+      language: en
+      beam_size: 1
+      word_timestamps: false
+      device: cpu
+      dtype: float32
+      allow_model_downloads: false
+      cache_dir: models/cache/whisper

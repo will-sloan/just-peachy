@@ -1,0 +1,13 @@
+id: fixed_dummy
+label: Fixed deterministic baseline
+enabled: true
+optional: false
+component:
+  slot: asr
+  name: fixed_asr
+  enabled: true
+  adapter: FixedASR
+  params:
+    transcript: dummy pipeline transcript
+availability: {}
+notes: Deterministic text baseline for comparing benchmark plumbing.

@@ -1,0 +1,75 @@
+{
+  "error": null,
+  "examples": {
+    "best": {
+      "empty_output": false,
+      "hypothesis_text": "author of the danger trail, philip steels, etc.",
+      "recording_id": "CMU_ARCTIC_aew_arctic_a0001",
+      "reference_text": "author of the danger trail philip steels etc",
+      "repeated_word_rate": 0.0,
+      "utt_id": "arctic_a0001",
+      "wer": 0.375
+    },
+    "empty_output": null,
+    "hallucination": null,
+    "high_stutter": {
+      "empty_output": false,
+      "hypothesis_text": "author of the danger trail, philip steels, etc.",
+      "recording_id": "CMU_ARCTIC_aew_arctic_a0001",
+      "reference_text": "author of the danger trail philip steels etc",
+      "repeated_word_rate": 0.0,
+      "utt_id": "arctic_a0001",
+      "wer": 0.375
+    },
+    "median": {
+      "empty_output": false,
+      "hypothesis_text": "author of the danger trail, philip steels, etc.",
+      "recording_id": "CMU_ARCTIC_aew_arctic_a0001",
+      "reference_text": "author of the danger trail philip steels etc",
+      "repeated_word_rate": 0.0,
+      "utt_id": "arctic_a0001",
+      "wer": 0.375
+    },
+    "worst": {
+      "empty_output": false,
+      "hypothesis_text": "author of the danger trail, philip steels, etc.",
+      "recording_id": "CMU_ARCTIC_aew_arctic_a0001",
+      "reference_text": "author of the danger trail philip steels etc",
+      "repeated_word_rate": 0.0,
+      "utt_id": "arctic_a0001",
+      "wer": 0.375
+    }
+  },
+  "label": "Whisper tiny local model",
+  "metrics": {
+    "attempted_count": 1,
+    "cer": 0.08108108108108109,
+    "composite_score": 72.8769,
+    "condition_metrics": {
+      "clean": {
+        "cer": 0.08108108108108109,
+        "record_count": 1,
+        "wer": 0.375
+      }
+    },
+    "consecutive_duplicate_token_rate": 0.0,
+    "cpu_memory_mb": null,
+    "empty_output_rate": 0.0,
+    "failed_count": 0,
+    "failure_rate": 0.0,
+    "hallucinated_output_rate": null,
+    "load_sec": 0.27756545902229846,
+    "peak_gpu_memory_mb": null,
+    "realtime_factor": 0.19036882701252894,
+    "repeated_ngram_rate": 0.0,
+    "repeated_word_rate": 0.0,
+    "runtime_sec": 0.7386430420447141,
+    "skipped_count": 0,
+    "throughput_items_per_sec": 1.3538339131061152,
+    "total_audio_duration_sec": 3.880063,
+    "wer": 0.375,
+    "written_count": 1
+  },
+  "model_id": "whisper_tiny",
+  "status": "ran"
+}

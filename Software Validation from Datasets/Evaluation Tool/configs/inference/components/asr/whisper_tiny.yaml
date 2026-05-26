@@ -3,10 +3,15 @@ component:
   name: whisper_tiny
   enabled: true
   adapter: WhisperTinyASRAdapter
-  notes: Placeholder config only; M2 does not import or load Whisper.
+  notes: Lazy Whisper tiny adapter config. Requires local package and model assets; downloads disabled.
   params:
     model_family: whisper
     model_size: tiny
+    model_name: whisper_tiny
     language: en
     beam_size: 1
-
+    word_timestamps: false
+    device: cpu
+    dtype: float32
+    allow_model_downloads: false
+    cache_dir: models/cache/whisper

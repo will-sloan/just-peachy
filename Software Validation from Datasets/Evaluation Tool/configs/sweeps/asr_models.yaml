@@ -1,0 +1,42 @@
+sweep_name: m8_asr_models
+notes: Small ASR comparison sweep for local M8 smoke checks.
+defaults:
+  dataset: cmu_arctic
+  max_recordings: 1
+models:
+  - id: no_op_empty
+    label: No-op empty transcript
+    enabled: true
+    optional: false
+    component:
+      slot: asr
+      name: no_op_asr
+      enabled: true
+      adapter: NoOpASRAdapter
+      params:
+        transcript: ""
+    notes: Deterministic empty baseline that requires no model assets.
+
+  - id: fixed_dummy
+    label: Fixed deterministic baseline
+    enabled: true
+    optional: false
+    component:
+      slot: asr
+      name: fixed_asr
+      enabled: true
+      adapter: FixedASR
+      params:
+        transcript: dummy pipeline transcript
+    notes: Deterministic text baseline for comparing benchmark plumbing.
+
+  - id: whisper_tiny
+    label: Whisper tiny local model
+    enabled: true
+    optional: true
+    availability:
+      requires_package: whisper
+      requires_whisper_model: tiny
+      whisper_cache_dir: models/cache/whisper
+    component_path: configs/inference/components/asr/whisper_tiny.yaml
+    notes: Runs only when the OpenAI Whisper package and local tiny.pt asset are available.

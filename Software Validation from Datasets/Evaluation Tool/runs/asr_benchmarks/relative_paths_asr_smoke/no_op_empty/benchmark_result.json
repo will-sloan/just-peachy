@@ -1,0 +1,83 @@
+{
+  "error": null,
+  "examples": {
+    "best": {
+      "empty_output": true,
+      "hypothesis_text": "",
+      "recording_id": "CMU_ARCTIC_aew_arctic_a0001",
+      "reference_text": "author of the danger trail philip steels etc",
+      "repeated_word_rate": 0.0,
+      "utt_id": "arctic_a0001",
+      "wer": 1.0
+    },
+    "empty_output": {
+      "empty_output": true,
+      "hypothesis_text": "",
+      "recording_id": "CMU_ARCTIC_aew_arctic_a0001",
+      "reference_text": "author of the danger trail philip steels etc",
+      "repeated_word_rate": 0.0,
+      "utt_id": "arctic_a0001",
+      "wer": 1.0
+    },
+    "hallucination": null,
+    "high_stutter": {
+      "empty_output": true,
+      "hypothesis_text": "",
+      "recording_id": "CMU_ARCTIC_aew_arctic_a0001",
+      "reference_text": "author of the danger trail philip steels etc",
+      "repeated_word_rate": 0.0,
+      "utt_id": "arctic_a0001",
+      "wer": 1.0
+    },
+    "median": {
+      "empty_output": true,
+      "hypothesis_text": "",
+      "recording_id": "CMU_ARCTIC_aew_arctic_a0001",
+      "reference_text": "author of the danger trail philip steels etc",
+      "repeated_word_rate": 0.0,
+      "utt_id": "arctic_a0001",
+      "wer": 1.0
+    },
+    "worst": {
+      "empty_output": true,
+      "hypothesis_text": "",
+      "recording_id": "CMU_ARCTIC_aew_arctic_a0001",
+      "reference_text": "author of the danger trail philip steels etc",
+      "repeated_word_rate": 0.0,
+      "utt_id": "arctic_a0001",
+      "wer": 1.0
+    }
+  },
+  "label": "No-op empty transcript",
+  "metrics": {
+    "attempted_count": 1,
+    "cer": 1.0,
+    "composite_score": 27.3666,
+    "condition_metrics": {
+      "clean": {
+        "cer": 1.0,
+        "record_count": 1,
+        "wer": 1.0
+      }
+    },
+    "consecutive_duplicate_token_rate": 0.0,
+    "cpu_memory_mb": null,
+    "empty_output_rate": 1.0,
+    "failed_count": 0,
+    "failure_rate": 1.0,
+    "hallucinated_output_rate": null,
+    "load_sec": 0.0,
+    "peak_gpu_memory_mb": null,
+    "realtime_factor": 0.0053627886905944205,
+    "repeated_ngram_rate": 0.0,
+    "repeated_word_rate": 0.0,
+    "runtime_sec": 0.020807957975193858,
+    "skipped_count": 0,
+    "throughput_items_per_sec": 48.05853612315763,
+    "total_audio_duration_sec": 3.880063,
+    "wer": 1.0,
+    "written_count": 1
+  },
+  "model_id": "no_op_empty",
+  "status": "ran"
+}

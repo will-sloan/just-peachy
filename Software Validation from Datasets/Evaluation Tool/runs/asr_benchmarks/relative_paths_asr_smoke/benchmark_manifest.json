@@ -1,0 +1,9 @@
+{
+  "model_ids": [
+    "no_op_empty",
+    "fixed_dummy",
+    "whisper_tiny"
+  ],
+  "record_count": 1,
+  "run_id": "relative_paths_asr_smoke"
+}

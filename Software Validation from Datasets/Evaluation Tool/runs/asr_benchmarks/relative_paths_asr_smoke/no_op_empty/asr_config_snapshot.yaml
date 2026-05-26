@@ -1,0 +1,13 @@
+id: no_op_empty
+label: No-op empty transcript
+enabled: true
+optional: false
+component:
+  slot: asr
+  name: no_op_asr
+  enabled: true
+  adapter: NoOpASRAdapter
+  params:
+    transcript: ''
+availability: {}
+notes: Deterministic empty baseline that requires no model assets.

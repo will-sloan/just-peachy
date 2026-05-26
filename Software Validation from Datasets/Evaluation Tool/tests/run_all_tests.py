@@ -19,12 +19,15 @@ TESTS_ROOT = Path(__file__).resolve().parent
 TOOL_ROOT = TESTS_ROOT.parent
 TEST_MILESTONES = {
     "tests/test_m0_docs.py": ("M0",),
+    "tests/test_path_artifacts.py": ("paths",),
     "tests/inference_pipeline/test_contracts.py": ("M1",),
     "tests/inference_pipeline/test_config_registry.py": ("M2",),
     "tests/inference_pipeline/test_audio_io.py": ("M3",),
     "tests/model_runner/test_external_stub_bridge.py": ("M4",),
     "tests/inference_pipeline/test_vad.py": ("M5",),
     "tests/inference_pipeline/test_segmentation.py": ("M6",),
+    "tests/inference_pipeline/test_asr_interface.py": ("M7",),
+    "tests/inference_pipeline/test_asr_benchmark.py": ("M8",),
 }
 
 

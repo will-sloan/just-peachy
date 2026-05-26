@@ -1,0 +1,17 @@
+component:
+  slot: asr
+  name: whisper_base
+  enabled: true
+  adapter: WhisperBaseASRAdapter
+  notes: Lazy Whisper base adapter config. Requires local package and model assets; downloads disabled.
+  params:
+    model_family: whisper
+    model_size: base
+    model_name: whisper_base
+    language: en
+    beam_size: 1
+    word_timestamps: false
+    device: cpu
+    dtype: float32
+    allow_model_downloads: false
+    cache_dir: models/cache/whisper

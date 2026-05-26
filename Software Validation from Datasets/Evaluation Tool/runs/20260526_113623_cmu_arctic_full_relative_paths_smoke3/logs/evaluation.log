@@ -1,0 +1,5 @@
+2026-05-26 11:36:23,409 INFO Wrote external stub manifest with 1 rows
+2026-05-26 11:36:23,429 INFO Inference condition: clean
+2026-05-26 11:36:23,455 INFO Scored 1 selected recordings
+2026-05-26 11:36:30,540 INFO Created 11 plots
+2026-05-26 11:36:30,550 INFO Wrote report to /Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/runs/20260526_113623_cmu_arctic_full_relative_paths_smoke3/report/report.md
