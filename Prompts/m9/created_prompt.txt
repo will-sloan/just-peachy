@@ -1,0 +1,121 @@
+You are working in the existing repository:
+
+/Users/billy/Documents/just-peachy
+
+Project root:
+Software Validation from Datasets
+
+Evaluation Tool root:
+Software Validation from Datasets/Evaluation Tool
+
+Create and operate on a new branch named m9 before making code changes. This is the only repo-affecting git action allowed. Do not git add, commit, push, reset, checkout unrelated files, or otherwise mutate git history. You may use read-only git commands such as git status, git diff, git branch, and git log.
+
+Milestone: M9 - Speaker Embedding Interface and First Adapter
+
+Goal:
+Implement a small, modular speaker embedding component that can convert speech segments into L2-normalized vectors, independently testable from ASR.
+
+Hard scope boundaries:
+- Implement only this milestone.
+- Do not redesign or refactor the existing GUI, CLI, dataset registry, scorer, report generator, simulation, augmentation, run folder handling, plotting, or reporting systems.
+- Preserve the existing Evaluation Tool runner contract.
+- The inference integration point remains:
+  Software Validation from Datasets/Evaluation Tool/app/model_runner/external_stub.py
+- The runner receives one selected metadata row at a time.
+- Any model-facing inference code must read record["inference_audio_path"].
+- Preserve recording_id and utt_id exactly.
+- Preserve start_sec and end_sec when present.
+- Do not change the required prediction file contract:
+  predictions/utterances.jsonl with recording_id, utt_id, start_sec, end_sec, speaker_label, and text.
+- Avoid broad refactors and unrelated file edits.
+
+Before editing:
+1. Review the repository structure at a practical whole-repo level.
+2. Inspect the existing Evaluation Tool layout, configs, tests, inference pipeline, model runner, and any existing component patterns.
+3. Identify existing dependency management, test conventions, serialization conventions, and config style.
+4. Stop and report blockers if required dependencies or model assets are unavailable.
+
+Target files:
+- Software Validation from Datasets/Evaluation Tool/app/inference_pipeline/speaker_embedding/__init__.py
+- Software Validation from Datasets/Evaluation Tool/app/inference_pipeline/speaker_embedding/base.py
+- Software Validation from Datasets/Evaluation Tool/app/inference_pipeline/speaker_embedding/speechbrain_adapter.py
+- Software Validation from Datasets/Evaluation Tool/app/inference_pipeline/speaker_embedding/wespeaker_adapter.py optional only if low risk
+- Software Validation from Datasets/Evaluation Tool/configs/inference/components/speaker_embedding/speechbrain_ecapa.yaml
+- Software Validation from Datasets/Evaluation Tool/tests/inference_pipeline/test_speaker_embedding_interface.py
+- Software Validation from Datasets/Evaluation Tool/reports/component_reports/speaker_embedding/
+
+Implementation requirements:
+1. Define a SpeakerEmbeddingBase interface with:
+   embed(audio_segment, context) -> SpeakerEmbedding
+
+2. Define a serializable SpeakerEmbedding result object containing:
+   - vector
+   - model_name
+   - dimension
+   - segment_duration
+   - device
+   - runtime
+   - status or reliability flag for short/failed segments
+   - any concise metadata needed to reload/use the embedding later
+
+3. Ensure all successful embeddings are L2-normalized.
+
+4. Reject or clearly flag segments that are too short for reliable embeddings.
+
+5. Implement one real PyTorch-native backend:
+   - Prefer SpeechBrain ECAPA if dependencies and model access are available.
+   - Keep the adapter modular so it can later be optimized for Raspberry Pi, ExecuTorch, or custom hardware.
+   - If the dependency/model cannot be used in the current environment, implement the adapter cleanly but stop before pretending it was validated. Report the blocker clearly.
+
+6. Add a deterministic fake embedding adapter for tests.
+   - It must produce stable vectors across runs.
+   - It must allow dimension and normalization tests without downloading real models.
+
+7. Add a standalone script to embed a folder of audio samples and write embeddings to JSONL or parquet.
+   - Prefer JSONL unless the project already has parquet conventions.
+   - The script should collect basic runtime metrics such as RTF and memory where feasible.
+   - The script should support producing a similarity distribution report when labels are available.
+
+8. Add or update config:
+   Software Validation from Datasets/Evaluation Tool/configs/inference/components/speaker_embedding/speechbrain_ecapa.yaml
+
+Validation requirements:
+- Add tests for the SpeakerEmbeddingBase contract.
+- Add tests for fake adapter determinism.
+- Add tests for embedding dimension.
+- Add tests for L2 normalization.
+- Add tests for short-segment rejection/flagging.
+- Add tests for serialization/loadability if practical.
+- Keep tests narrow and milestone-specific.
+
+Evaluation/report requirements:
+Create a short milestone report at:
+
+Software Validation from Datasets/Evaluation Tool/reports/component_reports/speaker_embedding/embedding_quality_<run_id>.md
+
+The report must summarize:
+- What changed
+- Which files were added/modified
+- How the component works
+- Exact commands run for tests or smoke checks
+- Results of dimension and normalization checks
+- RTF and memory observations if measured
+- Short-segment failure/flag rate if measured
+- Same-speaker vs different-speaker similarity distribution if labeled sample data is available
+- What remains incomplete
+- Any blockers, especially missing dependencies or unavailable model assets
+
+Completion conditions:
+- The interface exists and is tested.
+- A deterministic fake adapter exists and is tested.
+- One real speaker embedding adapter is implemented.
+- The real adapter runs on a small labeled dataset sample if dependencies/model assets are available.
+- Embeddings are serializable and can be loaded later.
+- A distribution report shows same-speaker and different-speaker similarity separation if labeled data is available.
+- The existing Evaluation Tool runner contract remains unchanged.
+
+After implementation:
+- Run the relevant tests.
+- Run a smoke check for the folder embedding script if possible.
+- Report exact commands used.
+- Do not stage, commit, or push changes.

@@ -1,0 +1,70 @@
+Codex prompt that is scoped only to the milestone below.
+
+Project context:
+- Existing project root: just-peachy\Software Validation from Datasets
+- Existing Evaluation Tool root: just-peachy\Software Validation from Datasets\Evaluation Tool
+- The Evaluation Tool already handles dataset selection, simulation, augmentation, run folders, scoring, plots, and reports for every supported dataset test.
+- The inference integration point is Evaluation Tool/app/model_runner/external_stub.py.
+- The runner receives one selected metadata row at a time.
+- The model must read record["inference_audio_path"]. This may point to original audio or a temporary augmented WAV.
+- Preserve recording_id and utt_id exactly because scoring matches predictions on (recording_id, utt_id).
+- Preserve start_sec and end_sec when present.
+- The required prediction file is predictions/utterances.jsonl with recording_id, utt_id, start_sec, end_sec, speaker_label, and text.
+- Build a modular PyTorch-native pipeline that can later be optimized for Raspberry Pi and possibly ExecuTorch/custom hardware.
+- One person is implementing this, so keep the scope small, testable, and milestone-specific.
+- Do not redesign the existing GUI, CLI, dataset registry, scorer, or report generator unless explicitly required by the milestone.
+
+Milestone: M9 - Speaker Embedding Interface and First Adapter
+
+Goal:
+Implement the SpeakerEmbeddingBase interface and one real embedding backend that converts speech segments into normalized vectors.
+
+Why this matters:
+Speaker embedding quality determines whether enrolled speakers can be named correctly. This must be testable independently of ASR.
+
+Target file paths:
+- Evaluation Tool\app\inference_pipeline\speaker_embedding\__init__.py
+- Evaluation Tool\app\inference_pipeline\speaker_embedding\base.py
+- Evaluation Tool\app\inference_pipeline\speaker_embedding\speechbrain_adapter.py
+- Evaluation Tool\app\inference_pipeline\speaker_embedding\wespeaker_adapter.py  (optional)
+- Evaluation Tool\configs\inference\components\speaker_embedding\speechbrain_ecapa.yaml
+- Evaluation Tool\tests\inference_pipeline\test_speaker_embedding_interface.py
+- Evaluation Tool\reports\component_reports\speaker_embedding\\
+
+Implementation actions Codex should perform:
+- Define SpeakerEmbeddingBase.embed(audio_segment, context) -> SpeakerEmbedding.
+- Implement L2-normalized embedding output and metadata: model name, dimension, segment duration, device, runtime.
+- Reject or flag segments too short for reliable embeddings.
+- Add a deterministic fake embedding adapter for tests.
+- Add a standalone script to embed a folder of audio samples and write embeddings to JSONL or parquet.
+
+Evaluation metrics or validation checks:
+- Embedding dimension and normalization checks.
+- Embedding extraction RTF and memory.
+- Intra-speaker vs inter-speaker similarity distributions on available labeled data.
+- Short-segment failure rate.
+
+Completion conditions:
+- One real speaker embedding adapter runs on a small labeled dataset sample.
+- Embeddings are serializable and can be loaded later.
+- A distribution report shows same-speaker and different-speaker similarity separation.
+
+Required report artifact:
+- Evaluation Tool\reports\component_reports\speaker_embedding\embedding_quality_<run_id>.md
+
+Instructions for the Codex prompt you generate:
+- Tell Codex to inspect the existing files before editing.
+- Tell Codex to implement only this milestone.
+- Tell Codex to create or update tests for the milestone.
+- Tell Codex to preserve the existing Evaluation Tool runner contract.
+- Tell Codex to avoid broad refactors and avoid changing unrelated files.
+- Tell Codex to write a short milestone report at the required report path summarizing what changed, how it was tested, and what remains incomplete.
+- Tell Codex to include exact commands to run tests or smoke checks.
+- Tell Codex to stop and report blockers if required dependencies or model assets are unavailable.
+- Tell Codex to not use any git commands that effect the repository like add, commit, push. It is allowed to check the status, and perform actions that cause no effect. 
+- Tell codex to review the entire repository before making changes. 
+- Tell codex to create a new branch and operate wholly within that branch called “m9”
+- Tell codex to ensure it is operating with the .venv
+
+
+Now generate a single high-quality Codex prompt for this milestone.

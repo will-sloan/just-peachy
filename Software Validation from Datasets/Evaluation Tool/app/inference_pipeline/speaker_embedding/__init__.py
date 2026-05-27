@@ -1,0 +1,43 @@
+"""Speaker embedding interfaces and adapters."""
+
+from app.inference_pipeline.speaker_embedding.base import (
+    DEFAULT_MIN_DURATION_SEC,
+    DeterministicFakeSpeakerEmbedding,
+    NoOpSpeakerEmbedding,
+    SpeakerEmbedding,
+    SpeakerEmbeddingBase,
+    SpeakerEmbeddingContext,
+    SpeakerEmbeddingRuntimeStats,
+    build_speaker_embedding_from_config,
+    component_report_path,
+    embedding_id,
+    is_l2_normalized,
+    normalize_vector,
+    vector_l2_norm,
+)
+from app.inference_pipeline.speaker_embedding.report import (
+    SimilarityDistribution,
+    cosine_similarity,
+    summarize_similarity_distribution,
+    write_speaker_embedding_report,
+)
+
+__all__ = [
+    "DEFAULT_MIN_DURATION_SEC",
+    "DeterministicFakeSpeakerEmbedding",
+    "NoOpSpeakerEmbedding",
+    "SimilarityDistribution",
+    "SpeakerEmbedding",
+    "SpeakerEmbeddingBase",
+    "SpeakerEmbeddingContext",
+    "SpeakerEmbeddingRuntimeStats",
+    "build_speaker_embedding_from_config",
+    "component_report_path",
+    "cosine_similarity",
+    "embedding_id",
+    "is_l2_normalized",
+    "normalize_vector",
+    "summarize_similarity_distribution",
+    "vector_l2_norm",
+    "write_speaker_embedding_report",
+]
