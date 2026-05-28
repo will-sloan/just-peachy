@@ -1,0 +1,70 @@
+You are helping me write a precise Codex prompt for a speech pipeline project. Do not write the code yourself. Generate a Codex prompt that is scoped only to the milestone below.
+
+Project context:
+- Existing project root: just-peachy\Software Validation from Datasets
+- Existing Evaluation Tool root: just-peachy\Software Validation from Datasets\Evaluation Tool
+- The Evaluation Tool already handles dataset selection, simulation, augmentation, run folders, scoring, plots, and reports for every supported dataset test.
+- The inference integration point is Evaluation Tool/app/model_runner/external_stub.py.
+- The runner receives one selected metadata row at a time.
+- The model must read record["inference_audio_path"]. This may point to original audio or a temporary augmented WAV.
+- Preserve recording_id and utt_id exactly because scoring matches predictions on (recording_id, utt_id).
+- Preserve start_sec and end_sec when present.
+- The required prediction file is predictions/utterances.jsonl with recording_id, utt_id, start_sec, end_sec, speaker_label, and text.
+- Build a modular PyTorch-native pipeline that can later be optimized for Raspberry Pi and possibly ExecuTorch/custom hardware.
+- One person is implementing this, so keep the scope small, testable, and milestone-specific.
+- Do not redesign the existing GUI, CLI, dataset registry, scorer, or report generator unless explicitly required by the milestone.
+
+Milestone: M12 - Enrollment Prompt Testing Framework
+
+Goal:
+Create a reproducible experiment to determine which enrollment phrase, sentence, or prompt set produces the best speaker embeddings for later recognition.
+
+Why this matters:
+The enrollment prompt is part of the product. A poor prompt creates weak embeddings and unstable identity assignment.
+
+Target file paths:
+- Evaluation Tool\app\inference_pipeline\enrollment\prompt_sets.yaml
+- Evaluation Tool\app\inference_pipeline\experiments\enrollment_prompt_eval.py
+- Evaluation Tool\scripts\run_enrollment_prompt_eval.py
+- Evaluation Tool\configs\sweeps\enrollment_prompts.yaml
+- Evaluation Tool\reports\component_reports\enrollment_prompts\\
+- Evaluation Tool\artifacts\enrollment_prompt_eval\\
+
+Implementation actions Codex should perform:
+- Define candidate prompt sets: short phrase, balanced phoneme sentence, multiple short phrases, and 20-30 second paragraph.
+- Create metadata schema tying each enrollment audio sample to speaker_id, prompt_id, recording condition, and embedding model.
+- Evaluate cross-prompt generalization: enroll on prompt A, test on prompt B or natural speech.
+- Rank prompts by false-known rate, known accuracy, EER, score margin, stability across repeated recordings, and total enrollment time.
+- Generate a prompt recommendation report.
+
+Evaluation metrics or validation checks:
+- Embedding stability across repeated readings.
+- Cross-phrase generalization accuracy.
+- EER and TAR@FAR by prompt set.
+- False known-speaker rate by prompt set.
+- Enrollment duration vs performance curve.
+
+Completion conditions:
+- At least three prompt strategies can be compared from config.
+- The report recommends an initial enrollment prompt and minimum audio duration.
+- The experiment can be repeated when new participant data is collected.
+
+Required report artifact:
+- Evaluation Tool\reports\component_reports\enrollment_prompts\prompt_comparison_<run_id>.md
+
+Instructions for the Codex prompt you generate:
+- Tell Codex to inspect the existing files before editing.
+- Tell Codex to implement only this milestone.
+- Tell Codex to create or update tests for the milestone.
+- Tell Codex to preserve the existing Evaluation Tool runner contract.
+- Tell Codex to avoid broad refactors and avoid changing unrelated files.
+- Tell Codex to write a short milestone report at the required report path summarizing what changed, how it was tested, and what remains incomplete.
+- Tell Codex to include exact commands to run tests or smoke checks.
+- Tell Codex to stop and report blockers if required dependencies or model assets are unavailable.
+- Tell Codex to not use any git commands that effect the repository like add, commit, push. It is allowed to check the status, and perform actions that cause no effect. 
+- Tell codex to review the entire repository before making changes. 
+- Tell codex to create a new branch and operate wholly within that branch called “m12”
+- Tell codex to ensure it is operating with the .venv located at the root of the repository
+- Tell codex to write a high-level summary of the changes in the milestone/reports folder
+
+Now generate a single high-quality Codex prompt for this milestone.

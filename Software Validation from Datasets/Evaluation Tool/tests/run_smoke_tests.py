@@ -325,6 +325,21 @@ def smoke_checks(python: str) -> list[SmokeCheck]:
             default=True,
         ),
         SmokeCheck(
+            name="m12-enrollment-prompt-eval-direct",
+            milestone="M12",
+            group="quick",
+            command=[
+                python,
+                "scripts/run_enrollment_prompt_eval.py",
+                "--run-id",
+                "m12_smoke",
+                "--report",
+                "/private/tmp/m12_enrollment_prompt_eval/prompt_comparison_m12_smoke.md",
+            ],
+            source="reports/component_reports/enrollment_prompts/prompt_comparison_m12_enrollment_prompts.md",
+            default=True,
+        ),
+        SmokeCheck(
             name="gui-validation-harness",
             milestone="GUI",
             group="gui",

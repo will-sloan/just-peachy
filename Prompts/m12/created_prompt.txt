@@ -1,0 +1,154 @@
+
+You are working in the existing repository at:
+
+/Users/billy/Documents/just-peachy
+
+Milestone: M12 - Enrollment Prompt Testing Framework
+
+Goal:
+Implement only this milestone: create a reproducible experiment for comparing enrollment prompt strategies and recommending an initial enrollment prompt plus minimum audio duration for later speaker recognition.
+
+Project roots:
+- Project root: /Users/billy/Documents/just-peachy/Software Validation from Datasets
+- Evaluation Tool root: /Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool
+
+Important constraints:
+- Inspect the existing repository, docs, configs, tests, scripts, inference pipeline modules, reports, and prior milestone patterns before editing.
+- Implement only M12. Do not broaden scope into unrelated pipeline wiring.
+- Preserve the existing Evaluation Tool runner contract.
+- Do not redesign the GUI, CLI, dataset registry, scorer, report generator, run-folder system, or external runner contract.
+- Do not modify `app/model_runner/external_stub.py` unless absolutely required, and stop to report why before doing so.
+- The model runner must continue to read `record["inference_audio_path"]`.
+- Preserve `recording_id` and `utt_id` exactly.
+- Preserve `start_sec` and `end_sec` when present.
+- Required prediction output remains `predictions/utterances.jsonl` with `recording_id`, `utt_id`, `start_sec`, `end_sec`, `speaker_label`, and `text`.
+- Keep the implementation small, modular, testable, and suitable for one person to review.
+- Prefer existing M9/M10/M11 speaker embedding, enrollment, speaker matching, and calibration helpers where available.
+- Stop and report blockers if required dependencies, model assets, or existing pipeline assumptions are unavailable.
+
+Git and environment instructions:
+- Work from `/Users/billy/Documents/just-peachy`.
+- First run:
+  `git status --short`
+- Create and operate wholly on branch `m12`.
+  If it already exists, switch to it.
+- The only allowed git mutation is creating/switching to branch `m12`.
+- Do not run `git add`, `git commit`, `git push`, `git reset`, `git checkout --`, `git clean`, or any destructive git command.
+- Use the repository virtual environment:
+  `/Users/billy/Documents/just-peachy/.venv`
+- Use commands like:
+  `source .venv/bin/activate`
+  or invoke:
+  `.venv/bin/python`
+
+Target files:
+- `Software Validation from Datasets/Evaluation Tool/app/inference_pipeline/enrollment/prompt_sets.yaml`
+- `Software Validation from Datasets/Evaluation Tool/app/inference_pipeline/experiments/enrollment_prompt_eval.py`
+- `Software Validation from Datasets/Evaluation Tool/scripts/run_enrollment_prompt_eval.py`
+- `Software Validation from Datasets/Evaluation Tool/configs/sweeps/enrollment_prompts.yaml`
+- `Software Validation from Datasets/Evaluation Tool/reports/component_reports/enrollment_prompts/`
+- `Software Validation from Datasets/Evaluation Tool/artifacts/enrollment_prompt_eval/`
+- Add focused tests under the existing Evaluation Tool test structure, for example:
+  `Software Validation from Datasets/Evaluation Tool/tests/inference_pipeline/test_enrollment_prompt_eval.py`
+- If existing all-test or smoke-test harnesses explicitly register milestone tests or smoke checks, update them for M12.
+
+Implementation requirements:
+1. Define candidate enrollment prompt sets in `prompt_sets.yaml`, including:
+   - short phrase
+   - balanced phoneme sentence
+   - multiple short phrases
+   - 20-30 second paragraph
+2. Create a metadata schema tying each enrollment audio or embedding sample to:
+   - `speaker_id`
+   - `display_name` when available
+   - `prompt_id`
+   - `prompt_set_id`
+   - `recording_condition`
+   - `embedding_model`
+   - `duration_sec`
+   - `sample_id`
+   - embedding vector or path to embedding artifact
+3. Implement a reproducible experiment module:
+   `app/inference_pipeline/experiments/enrollment_prompt_eval.py`
+4. Implement a script entry point:
+   `scripts/run_enrollment_prompt_eval.py`
+5. Add sweep config:
+   `configs/sweeps/enrollment_prompts.yaml`
+6. Evaluate cross-prompt generalization:
+   - enroll on prompt A
+   - test on prompt B or natural speech where available
+   - compare prompt sets consistently
+7. Rank prompt strategies by:
+   - false-known speaker rate
+   - known-speaker accuracy
+   - EER
+   - TAR@FAR where data allows
+   - score margin distribution
+   - embedding stability across repeated recordings
+   - total enrollment time
+   - duration vs performance tradeoff
+8. Generate a markdown recommendation report at:
+   `reports/component_reports/enrollment_prompts/prompt_comparison_<run_id>.md`
+9. Store repeatable experiment inputs or templates under:
+   `artifacts/enrollment_prompt_eval/`
+10. Keep tests deterministic and lightweight. Use synthetic embeddings and synthetic metadata fixtures unless existing test assets already provide suitable data.
+11. Do not require real microphone recordings, real participant data, downloads, or large model assets for unit tests.
+12. If real embedding/model assets are unavailable, the implementation should still support a synthetic/fake smoke path and clearly report that real model validation remains incomplete.
+
+Required report content:
+- Prompt strategies compared
+- Experiment inputs and assumptions
+- Metrics table by prompt set
+- Cross-prompt generalization results
+- Stability across repeated recordings
+- EER and TAR@FAR if computable
+- False-known rate by prompt set
+- Duration vs performance summary
+- Recommended initial enrollment prompt
+- Recommended minimum enrollment duration
+- What was tested
+- What remains incomplete or blocked
+
+Also write a high-level milestone summary in the project’s `milestone/reports` folder, following any existing convention. If that folder does not exist, create it under:
+`Software Validation from Datasets/milestone/reports/`
+
+Validation commands to run:
+From repo root:
+```bash
+cd "/Users/billy/Documents/just-peachy"
+source .venv/bin/activate
+python -m pytest "Software Validation from Datasets/Evaluation Tool/tests/inference_pipeline/test_enrollment_prompt_eval.py"
+```
+
+From Evaluation Tool root:
+```bash
+cd "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool"
+../../.venv/bin/python -m compileall app/inference_pipeline/experiments scripts/run_enrollment_prompt_eval.py
+```
+
+If all-test or smoke-test harnesses are updated, run the focused harness checks, for example:
+```bash
+../../.venv/bin/python tests/run_all_tests.py --python ../../.venv/bin/python
+../../.venv/bin/python tests/run_smoke_tests.py --only m12-enrollment-prompt-eval-direct
+../../.venv/bin/python tests/run_smoke_tests.py --list
+```
+
+Run a synthetic smoke check for the new script and record the exact command used. It should generate:
+```text
+reports/component_reports/enrollment_prompts/prompt_comparison_<run_id>.md
+```
+
+Completion conditions:
+- At least three prompt strategies can be compared from config.
+- Synthetic tests cover schema loading, prompt-set loading, cross-prompt evaluation, metric calculation, ranking, and report writing.
+- The experiment can be repeated when new participant data is collected.
+- The report recommends an initial enrollment prompt and minimum audio duration.
+- Existing Evaluation Tool runner and prediction contracts are preserved.
+- No unrelated files are changed.
+
+Final response requirements:
+- Summarize changed files.
+- Include exact test and smoke-check commands run and whether they passed.
+- Mention any blockers, unavailable dependencies/assets, or incomplete real-data metrics.
+- Do not claim real end-to-end speaker validation unless it was actually run.
+- Confirm no staging, commit, or push was performed.

@@ -1,0 +1,45 @@
+schema_version: m12.enrollment_prompt_sets.v1
+prompt_sets:
+  - prompt_set_id: short_phrase
+    title: Short phrase
+    strategy: short_phrase
+    target_duration_sec: 2.0
+    minimum_duration_sec: 2.0
+    prompts:
+      - prompt_id: short_phrase_v1
+        text: "My voice is my password."
+    notes: Fastest capture path; expected to be least stable.
+
+  - prompt_set_id: balanced_sentence
+    title: Balanced phoneme sentence
+    strategy: balanced_phoneme_sentence
+    target_duration_sec: 6.0
+    minimum_duration_sec: 6.0
+    prompts:
+      - prompt_id: balanced_sentence_v1
+        text: "The quick brown fox jumps over the lazy dog while bright voices carry clearly."
+    notes: Single compact sentence covering varied consonants and vowels.
+
+  - prompt_set_id: multiple_short_phrases
+    title: Multiple short phrases
+    strategy: multiple_short_phrases
+    target_duration_sec: 10.0
+    minimum_duration_sec: 8.0
+    prompts:
+      - prompt_id: multi_phrase_v1_a
+        text: "My voice is clear."
+      - prompt_id: multi_phrase_v1_b
+        text: "Today I am speaking naturally."
+      - prompt_id: multi_phrase_v1_c
+        text: "This recording helps identify me."
+    notes: Several short captures for better repeatability checks.
+
+  - prompt_set_id: long_paragraph
+    title: 20-30 second paragraph
+    strategy: long_paragraph
+    target_duration_sec: 25.0
+    minimum_duration_sec: 20.0
+    prompts:
+      - prompt_id: long_paragraph_v1
+        text: "Please read this paragraph in your normal speaking voice. Keep a steady pace, avoid background noise, and continue for long enough that the system can hear your vowels, consonants, rhythm, and natural pauses across several connected sentences."
+    notes: Richest capture path, with the highest enrollment-time cost.

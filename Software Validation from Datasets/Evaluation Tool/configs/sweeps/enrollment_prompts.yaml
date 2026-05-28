@@ -1,0 +1,31 @@
+sweep_name: m12_enrollment_prompts
+notes: Synthetic and repeatable enrollment prompt comparison sweep.
+prompt_sets_path: app/inference_pipeline/enrollment/prompt_sets.yaml
+samples_jsonl: artifacts/enrollment_prompt_eval/synthetic_prompt_samples.jsonl
+report_dir: reports/component_reports/enrollment_prompts
+artifact_dir: artifacts/enrollment_prompt_eval
+matcher:
+  scoring_mode: centroid
+  min_margin: 0.05
+  unknown_label: Unknown
+  conservative_max_false_known_rate: 0.0
+  thresholds:
+    - 0.50
+    - 0.70
+    - 0.85
+    - 0.90
+    - 0.95
+    - 0.99
+  fixed_far_targets:
+    - 0.01
+    - 0.05
+    - 0.10
+ranking:
+  prefer_lower_false_known_rate: true
+  prefer_higher_known_accuracy: true
+  prefer_lower_eer: true
+  prefer_higher_margin: true
+  prefer_higher_stability: true
+  prefer_shorter_duration_when_quality_ties: true
+incomplete:
+  - Synthetic samples validate experiment plumbing only; real participant recordings are still required for product-quality prompt selection.
