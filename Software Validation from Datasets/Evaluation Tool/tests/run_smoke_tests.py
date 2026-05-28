@@ -313,6 +313,18 @@ def smoke_checks(python: str) -> list[SmokeCheck]:
             default=True,
         ),
         SmokeCheck(
+            name="m11-speaker-matching-calibration-direct",
+            milestone="M11",
+            group="quick",
+            command=[
+                python,
+                "-c",
+                m11_speaker_matching_direct_code(),
+            ],
+            source="reports/component_reports/speaker_matching/threshold_calibration_m11_speaker_matching.md",
+            default=True,
+        ),
+        SmokeCheck(
             name="gui-validation-harness",
             milestone="GUI",
             group="gui",
@@ -461,6 +473,52 @@ def m8_whisper_direct_code() -> str:
         "assert rows; "
         "print(json.dumps({'result':result_dict,'runtime':asr.last_runtime_stats.to_jsonable() "
         "if asr.last_runtime_stats else None,'predictions':rows}, indent=2))"
+    )
+
+
+def m11_speaker_matching_direct_code() -> str:
+    """Return the M11 synthetic speaker matching calibration smoke."""
+
+    return (
+        "from pathlib import Path; "
+        "from app.inference_pipeline.enrollment import EnrollmentDatabase, add_enrollment_exemplar; "
+        "from app.inference_pipeline.speaker_matching import CosineThresholdSpeakerMatcher; "
+        "from app.inference_pipeline.speaker_matching.thresholds import CalibrationSample, "
+        "calibrate_thresholds, write_threshold_calibration_report; "
+        "model='speaker-embedder@1'; "
+        "db=EnrollmentDatabase.empty(created_at='2026-05-28T00:00:00Z'); "
+        "db,_=add_enrollment_exemplar(db, display_name='Alice', "
+        "prompt_id='clean_enrollment_v1', audio_path=Path('alice.wav'), "
+        "embedding=(1.0,0.0,0.0), model_id=model, "
+        "created_at='2026-05-28T00:00:01Z', duration_sec=1.0, "
+        "validate_audio_path=False); "
+        "db,_=add_enrollment_exemplar(db, display_name='Bob', "
+        "prompt_id='clean_enrollment_v1', audio_path=Path('bob.wav'), "
+        "embedding=(0.0,1.0,0.0), model_id=model, "
+        "created_at='2026-05-28T00:00:02Z', duration_sec=1.0, "
+        "validate_audio_path=False); "
+        "matcher=CosineThresholdSpeakerMatcher(threshold=0.95, min_margin=0.05, "
+        "runtime_model_id=model); "
+        "known=matcher.match({'embedding_id':'alice-q','vector':[0.99,0.01,0.0],"
+        "'model_id':model}, db); "
+        "unknown=matcher.match({'embedding_id':'unknown-q','vector':[0.6,0.8,0.0],"
+        "'model_id':model}, db); "
+        "assert known.speaker_label == 'Alice'; "
+        "assert unknown.speaker_label == 'Unknown'; "
+        "samples=(CalibrationSample('alice-q','Alice',(0.99,0.01,0.0),model), "
+        "CalibrationSample('bob-q','Bob',(0.01,0.99,0.0),model), "
+        "CalibrationSample('unknown-near-bob','Mallory',(0.60,0.80,0.0),model)); "
+        "result=calibrate_thresholds(samples, db, run_id='m11_smoke', "
+        "thresholds=(0.5,0.8,0.95), min_margin=0.05, runtime_model_id=model); "
+        "assert result.recommended_threshold == 0.95; "
+        "report=Path('/private/tmp/m11_speaker_matching_smoke/threshold_calibration_m11_smoke.md'); "
+        "write_threshold_calibration_report(report, result, "
+        "files_changed=['app/inference_pipeline/speaker_matching'], "
+        "test_commands=[], smoke_commands=[], "
+        "runner_contract='Synthetic smoke does not touch the runner contract.'); "
+        "assert report.is_file(); "
+        "print({'known': known.to_jsonable(), 'unknown': unknown.to_jsonable(), "
+        "'recommended_threshold': result.recommended_threshold, 'report': str(report)})"
     )
 
 

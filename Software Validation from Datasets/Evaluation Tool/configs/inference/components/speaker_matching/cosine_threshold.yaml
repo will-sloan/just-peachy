@@ -1,0 +1,22 @@
+component:
+  slot: speaker_matching
+  name: cosine_threshold
+  enabled: true
+  adapter: CosineThresholdSpeakerMatcher
+  notes: Conservative cosine matcher for enrolled speakers with Unknown fallback.
+  params:
+    threshold: 0.82
+    min_margin: 0.05
+    unknown_label: Unknown
+    scoring_mode: centroid
+    enforce_model_id: true
+    runtime_model_id: null
+    conservative_max_false_known_rate: 0.0
+    calibration:
+      threshold_min: 0.0
+      threshold_max: 1.0
+      threshold_step: 0.05
+      fixed_far_targets:
+        - 0.01
+        - 0.05
+        - 0.10

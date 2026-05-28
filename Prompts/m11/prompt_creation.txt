@@ -63,5 +63,10 @@ Instructions for the Codex prompt you generate:
 - Tell Codex to write a short milestone report at the required report path summarizing what changed, how it was tested, and what remains incomplete.
 - Tell Codex to include exact commands to run tests or smoke checks.
 - Tell Codex to stop and report blockers if required dependencies or model assets are unavailable.
+- Tell Codex to not use any git commands that effect the repository like add, commit, push. It is allowed to check the status, and perform actions that cause no effect. 
+- Tell codex to review the entire repository before making changes. 
+- Tell codex to create a new branch and operate wholly within that branch called “m11”
+- Tell codex to ensure it is operating with the .venv located at the root of the repository
+- Tell codex to write a high-level summary of the changes in the milestone/reports folder
 
 Now generate a single high-quality Codex prompt for this milestone.

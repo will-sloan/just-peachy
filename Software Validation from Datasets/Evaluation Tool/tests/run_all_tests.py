@@ -29,6 +29,7 @@ TEST_MILESTONES = {
     "tests/inference_pipeline/test_asr_interface.py": ("M7",),
     "tests/inference_pipeline/test_asr_benchmark.py": ("M8",),
     "tests/inference_pipeline/test_speaker_embedding_interface.py": ("M9",),
+    "tests/inference_pipeline/test_speaker_matching.py": ("M11",),
 }
 
 

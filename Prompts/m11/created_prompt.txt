@@ -1,0 +1,122 @@
+You are Codex working in the existing repository. Implement only the milestone described below. Do not broaden scope.
+
+Milestone: M11 - Speaker Matching, Unknown Fallback, and Threshold Calibration
+
+Project context:
+- Repository root: just-peachy
+- Project root: just-peachy/Software Validation from Datasets
+- Evaluation Tool root: just-peachy/Software Validation from Datasets/Evaluation Tool
+- The Evaluation Tool already handles dataset selection, simulation, augmentation, run folders, scoring, plots, and reports for every supported dataset test.
+- The inference integration point is Evaluation Tool/app/model_runner/external_stub.py.
+- The runner receives one selected metadata row at a time.
+- The model must read record["inference_audio_path"], which may point to original audio or a temporary augmented WAV.
+- Preserve recording_id and utt_id exactly because scoring matches predictions on (recording_id, utt_id).
+- Preserve start_sec and end_sec when present.
+- The required prediction file remains predictions/utterances.jsonl with recording_id, utt_id, start_sec, end_sec, speaker_label, and text.
+- Build a modular PyTorch-native pipeline that can later be optimized for Raspberry Pi and possibly ExecuTorch/custom hardware.
+- One person is implementing this, so keep the scope small, testable, and milestone-specific.
+- Do not redesign the existing GUI, CLI, dataset registry, scorer, report generator, augmentation, simulation, plotting, or run-folder behavior unless directly required by this milestone.
+
+Before making changes:
+1. Confirm the current working directory is the repository root.
+2. Check git status. This is allowed.
+3. Create and operate wholly within a new branch named m11. This branch creation/switch is the only allowed state-changing git operation. Do not run git add, git commit, git push, git reset, git checkout on unrelated files, or any destructive git command.
+4. Ensure you are operating with the Evaluation Tool .venv. From the Evaluation Tool root, use:
+   source .venv/bin/activate
+   If .venv is missing, broken, or required dependencies are unavailable, stop and report the blocker.
+5. Review the entire repository before editing. At minimum, inventory files with rg --files and inspect existing Evaluation Tool structure, inference pipeline patterns, configs, tests, reports, and the runner contract.
+6. Inspect existing files before editing and follow local patterns.
+
+Target file paths:
+- Evaluation Tool/app/inference_pipeline/speaker_matching/__init__.py
+- Evaluation Tool/app/inference_pipeline/speaker_matching/base.py
+- Evaluation Tool/app/inference_pipeline/speaker_matching/cosine_matcher.py
+- Evaluation Tool/app/inference_pipeline/speaker_matching/thresholds.py
+- Evaluation Tool/configs/inference/components/speaker_matching/cosine_threshold.yaml
+- Evaluation Tool/tests/inference_pipeline/test_speaker_matching.py
+- Evaluation Tool/reports/component_reports/speaker_matching/
+
+Goal:
+Implement name assignment for enrolled speakers and conservative Unknown fallback using calibrated similarity thresholds.
+
+Why this matters:
+Wrong known-speaker attribution is worse than Unknown. This milestone turns embeddings into product behavior.
+
+Implementation requirements:
+- Define SpeakerMatcherBase.match(embedding, enrollment_db) -> SpeakerDecision.
+- Define a SpeakerDecision data structure that includes:
+  - selected speaker label or Unknown
+  - best label before thresholding, if useful
+  - confidence/similarity score
+  - margin to second-best
+  - threshold used
+  - threshold decision
+  - Unknown fallback reason where applicable
+- Implement cosine similarity scoring against speaker centroids and/or multiple exemplars.
+- Return the best known speaker only when the configured/calibrated threshold is met.
+- Return Unknown conservatively when below threshold.
+- Add logic for ambiguous matches using score margin and threshold behavior.
+- Handle no enrolled speakers.
+- Handle model mismatch or embedding dimensionality mismatch with a clear error or safe Unknown decision, following existing project style.
+- Add threshold configuration in Evaluation Tool/configs/inference/components/speaker_matching/cosine_threshold.yaml.
+- Add a calibration script or module, following existing project conventions, that sweeps thresholds and reports:
+  - false-known rate
+  - unknown rate
+  - known-speaker accuracy
+  - equal error rate for verification-style tests where possible
+  - TAR at fixed FAR thresholds where possible
+  - score margin distributions
+- Do not require unavailable model assets or external downloads. If real model assets or real calibration data are unavailable, use deterministic synthetic embeddings for tests and clearly document the limitation in the report.
+
+Tests:
+Create or update Evaluation Tool/tests/inference_pipeline/test_speaker_matching.py with focused tests for:
+- obvious known-speaker match
+- Unknown fallback
+- ambiguous match
+- no enrolled speakers
+- model/embedding mismatch
+- threshold configuration behavior, if practical within the existing config patterns
+
+Keep tests deterministic and small. Use synthetic vectors. Do not depend on network access, external downloads, or unavailable model files.
+
+Reports:
+- Write the required report artifact:
+  Evaluation Tool/reports/component_reports/speaker_matching/threshold_calibration_<run_id>.md
+- The report must summarize:
+  - what changed
+  - threshold/configuration values used
+  - calibration results or synthetic calibration results
+  - how it was tested
+  - known limitations or incomplete work
+  - recommended conservative threshold for the next end-to-end test
+- Also write a high-level milestone summary in the existing milestone reports folder. If the repository has no existing milestone reports folder, create:
+  Evaluation Tool/reports/milestone_reports/M11_speaker_matching_summary.md
+
+Validation commands:
+Run from the Evaluation Tool root with .venv active.
+
+Required focused test:
+cd "Software Validation from Datasets/Evaluation Tool"
+source .venv/bin/activate
+python -m pytest tests/inference_pipeline/test_speaker_matching.py
+
+If an existing relevant inference pipeline test suite is present and the focused test passes, also run:
+python -m pytest tests/inference_pipeline
+
+If tests cannot run because dependencies, .venv, or model assets are unavailable, stop and report the blocker clearly. Do not fake passing test results.
+
+Completion conditions:
+- Matcher can return a known enrolled speaker name or Unknown for each segment.
+- Thresholds are configurable.
+- Threshold decisions and recommended thresholds are recorded in reports.
+- Calibration report recommends a conservative threshold for the next end-to-end test.
+- Existing Evaluation Tool runner contract is preserved.
+- No unrelated files are changed.
+- No git add, commit, push, reset, or destructive git operation was performed.
+
+Final response requirements:
+- Summarize changed files.
+- Include exact commands run and whether they passed.
+- Include exact report artifact paths.
+- Mention blockers or unavailable assets, if any.
+- Confirm no forbidden git commands were run.

@@ -104,6 +104,11 @@ class NoOpSpeakerMatchingAdapter(ComponentAdapter):
     component_name = "no_op_speaker_matching"
 
 
+class CosineThresholdSpeakerMatchingAdapter(ComponentAdapter):
+    component_slot = "speaker_matching"
+    component_name = "cosine_threshold"
+
+
 REGISTERED_COMPONENTS: dict[str, dict[str, type[ComponentAdapter]]] = {
     "vad": {
         EnergyVADAdapter.component_name: EnergyVADAdapter,
@@ -125,6 +130,7 @@ REGISTERED_COMPONENTS: dict[str, dict[str, type[ComponentAdapter]]] = {
         SpeechBrainECAPAAdapter.component_name: SpeechBrainECAPAAdapter,
     },
     "speaker_matching": {
+        CosineThresholdSpeakerMatchingAdapter.component_name: CosineThresholdSpeakerMatchingAdapter,
         NoOpSpeakerMatchingAdapter.component_name: NoOpSpeakerMatchingAdapter,
     },
 }
