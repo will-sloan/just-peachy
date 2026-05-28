@@ -1,0 +1,63 @@
+"""Speaker enrollment database helpers."""
+
+from app.inference_pipeline.enrollment.prompts import (
+    DEFAULT_PROMPT_ID,
+    ENROLLMENT_PROMPTS,
+    prompt_metadata,
+)
+from app.inference_pipeline.enrollment.schema import (
+    ENROLLMENT_SCHEMA_VERSION,
+    EnrollmentDatabase,
+    EnrollmentExemplar,
+    EnrollmentSpeaker,
+)
+from app.inference_pipeline.enrollment.store import (
+    DEFAULT_ENROLLMENT_DB_PATH,
+    DuplicateSpeakerNameError,
+    EnrollmentAudioNotFoundError,
+    EnrollmentStoreError,
+    EnrollmentValidationReport,
+    SpeakerEnrollmentSummary,
+    add_enrollment_exemplar,
+    add_speaker,
+    create_enrollment_exemplar,
+    enrollment_report_path,
+    find_speaker_by_display_name,
+    load_enrollment_db,
+    normalized_display_name,
+    portable_audio_path,
+    save_enrollment_db,
+    stable_embedding_id,
+    stable_speaker_id,
+    validate_enrollment_database,
+    write_enrollment_db_report,
+)
+
+__all__ = [
+    "DEFAULT_ENROLLMENT_DB_PATH",
+    "DEFAULT_PROMPT_ID",
+    "ENROLLMENT_PROMPTS",
+    "ENROLLMENT_SCHEMA_VERSION",
+    "DuplicateSpeakerNameError",
+    "EnrollmentAudioNotFoundError",
+    "EnrollmentDatabase",
+    "EnrollmentExemplar",
+    "EnrollmentSpeaker",
+    "EnrollmentStoreError",
+    "EnrollmentValidationReport",
+    "SpeakerEnrollmentSummary",
+    "add_enrollment_exemplar",
+    "add_speaker",
+    "create_enrollment_exemplar",
+    "enrollment_report_path",
+    "find_speaker_by_display_name",
+    "load_enrollment_db",
+    "normalized_display_name",
+    "portable_audio_path",
+    "prompt_metadata",
+    "save_enrollment_db",
+    "stable_embedding_id",
+    "stable_speaker_id",
+    "validate_enrollment_database",
+    "write_enrollment_db_report",
+]

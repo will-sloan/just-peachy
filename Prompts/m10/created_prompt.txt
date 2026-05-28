@@ -1,0 +1,146 @@
+You are Codex working in the existing repository:
+
+Project root:
+just-peachy/Software Validation from Datasets
+
+Evaluation Tool root:
+just-peachy/Software Validation from Datasets/Evaluation Tool
+
+Milestone: M10 - Enrollment Store and Enrollment CLI
+
+Do not implement anything outside this milestone.
+
+Before making changes:
+1. Create and switch to a new branch named `m10`.
+2. Ensure all Python work runs inside the existing `.venv`.
+3. Review the repository before editing: inspect the Evaluation Tool structure, existing inference pipeline modules, tests, scripts, artifacts, reports, and runner integration points.
+4. Check git status first. After branch creation, do not use git commands that affect repository state: no add, commit, push, reset, checkout of files, stash, or destructive operations. Status/log/diff/show are allowed.
+5. Inspect existing files before editing or creating replacements.
+
+Important project constraints:
+- Preserve the existing Evaluation Tool runner contract.
+- Do not redesign or refactor the GUI, CLI, dataset registry, scorer, report generator, run-folder logic, plots, reports, augmentation, or simulation systems.
+- The inference integration point remains:
+  `Evaluation Tool/app/model_runner/external_stub.py`
+- The runner receives one selected metadata row at a time.
+- The model must continue to read:
+  `record["inference_audio_path"]`
+- Preserve `recording_id` and `utt_id` exactly because scoring matches predictions on `(recording_id, utt_id)`.
+- Preserve `start_sec` and `end_sec` when present.
+- The required prediction file remains:
+  `predictions/utterances.jsonl`
+  with `recording_id`, `utt_id`, `start_sec`, `end_sec`, `speaker_label`, and `text`.
+- Keep the implementation modular and PyTorch-native where model-facing code is needed, but this milestone is primarily enrollment storage and CLI workflow.
+- Avoid broad refactors and unrelated file changes.
+
+Target files for this milestone:
+- `Evaluation Tool/app/inference_pipeline/enrollment/__init__.py`
+- `Evaluation Tool/app/inference_pipeline/enrollment/store.py`
+- `Evaluation Tool/app/inference_pipeline/enrollment/schema.py`
+- `Evaluation Tool/app/inference_pipeline/enrollment/prompts.py`
+- `Evaluation Tool/scripts/enroll_speaker.py`
+- `Evaluation Tool/artifacts/enrollment/enrollment_db.json`
+- `Evaluation Tool/artifacts/enrollment/samples/`
+- `Evaluation Tool/tests/inference_pipeline/test_enrollment_store.py`
+
+Goal:
+Build the enrollment data structure and CLI/workflow for associating one or more speaker embeddings with a speaker name.
+
+Required schema:
+Define an enrollment database schema that records, at minimum:
+- `speaker_id`
+- `display_name`
+- `prompt_id`
+- `audio_path`
+- `embedding`
+- `model_id`
+- `created_at`
+- `notes`
+
+Functional requirements:
+- Support multiple exemplars per speaker.
+- Support future use of both averaged centroid embeddings and exemplar-by-exemplar matching.
+- Create a CLI that enrolls speakers from existing WAV files first.
+- Do not implement live microphone enrollment.
+- The enrollment DB must record model/version metadata, not just vectors.
+- Enrollment DB must be versioned/reproducible and independent of any UI.
+- Enrollment DB should be loadable in a separate process.
+- If an existing matcher test or matcher module exists, integrate the enrollment DB narrowly enough that matcher tests can load/use it. If no matcher exists yet, do not invent a broad matcher architecture; add only store-level validation needed by this milestone.
+
+Validation and checks to implement:
+- Enrollment completeness: each speaker has enough valid embeddings.
+- Embedding duration coverage per enrolled speaker.
+- Model-version consistency: stored embedding model matches runtime matcher model.
+- Warnings for model-version mismatch.
+
+Tests to create or update:
+- Save/load enrollment DB.
+- Duplicate speaker names.
+- Missing WAV/audio files.
+- Model-version mismatch warnings.
+- Multiple exemplars per speaker.
+- Separate-process DB load, if feasible without unavailable external assets.
+- Use synthetic embeddings in tests where appropriate.
+- Do not require unavailable model weights or hardware for unit tests.
+
+CLI requirements:
+- Script path:
+  `Evaluation Tool/scripts/enroll_speaker.py`
+- Enroll from one or more existing WAV files.
+- Accept speaker display name and model/version metadata.
+- Store or update the enrollment DB at:
+  `Evaluation Tool/artifacts/enrollment/enrollment_db.json`
+- Preserve audio paths in the DB.
+- Fail clearly on missing files.
+- If real embedding dependencies/model assets are unavailable, stop and report the blocker instead of fabricating a production embedding path. For unit tests, synthetic/test embeddings are acceptable if clearly isolated from production CLI behavior.
+
+Required report artifact:
+Create a short milestone report at:
+`Evaluation Tool/reports/component_reports/enrollment/enrollment_db_report_<run_id>.md`
+
+The report must summarize:
+- What changed.
+- How the enrollment schema works.
+- How the CLI is used.
+- What tests or smoke checks were run.
+- Exact commands to rerun tests/checks.
+- Any blockers or remaining incomplete work.
+
+Completion conditions:
+- At least two known speakers can be enrolled from clean WAV files when appropriate WAV inputs and embedding dependencies are available.
+- Enrollment DB loads in a separate process.
+- DB records model/version metadata.
+- Tests for this milestone pass.
+- Existing runner contract remains unchanged.
+
+Implementation guidance:
+- Prefer small, explicit modules:
+  - `schema.py` for dataclasses or typed schema definitions and validation.
+  - `store.py` for load/save/update/query/report helpers.
+  - `prompts.py` for reusable enrollment prompt metadata/constants.
+  - `enroll_speaker.py` for CLI parsing and workflow only.
+- Keep JSON deterministic and human-inspectable.
+- Use stable IDs where appropriate.
+- Do not store paths in a way that breaks portability unnecessarily.
+- Add clear warnings, not silent behavior, for model/version mismatches.
+- Keep tests focused and fast.
+
+Commands:
+- First inspect and activate/use `.venv`.
+- Run the narrow test suite for this milestone.
+- If feasible, also run the smallest relevant existing test subset that protects the inference pipeline.
+- Include the exact commands used in the final response and in the milestone report.
+
+Stop conditions:
+Stop and report blockers if:
+- Required dependency discovery fails.
+- Required model assets for real embedding extraction are unavailable.
+- Existing repository structure contradicts the target file paths in a way that would require broad redesign.
+- Implementing this milestone would require changing unrelated Evaluation Tool systems.
+
+Final response:
+- Summarize changed files.
+- Summarize tests/checks run with exact commands.
+- Mention the milestone report path.
+- Mention any blockers or intentionally deferred items.
+- Do not stage, commit, or push.
