@@ -1,0 +1,2 @@
+accent,file_count,recordings,processed_predictions,processed_prediction_count,missing_predictions,missing_prediction_count,total_duration_sec,scored_duration_sec,reference_words,errors,substitutions,deletions,insertions,aggregate_wer,mean_recording_wer,reference_chars,char_errors,char_substitutions,char_deletions,char_insertions,aggregate_cer,mean_recording_cer,speaker_label_scored,speaker_label_matches,speaker_label_accuracy
+US English,1,1,1,1,0,0,3.880063,3.880063,8,4,2,0,2,0.5,0.5,37,12,4,1,7,0.32432432432432434,0.32432432432432434,1,0,0.0

@@ -279,6 +279,12 @@ def add_runner_args(parser: argparse.ArgumentParser) -> None:
         default="perfect",
         help="Fake runner behavior for simulation mode.",
     )
+    parser.add_argument(
+        "--inference-config",
+        type=Path,
+        default=None,
+        help="Inference pipeline YAML config for external-stub runs.",
+    )
 
 
 def add_augmentation_args(parser: argparse.ArgumentParser) -> None:
@@ -379,6 +385,7 @@ def command_score(args: argparse.Namespace) -> None:
     print(
         "[3/3] Done: "
         f"aggregate_wer={_format_float(result.aggregate_metrics.get('aggregate_wer'))}, "
+        f"aggregate_cer={_format_float(result.aggregate_metrics.get('aggregate_cer'))}, "
         f"missing={result.aggregate_metrics.get('missing_predictions')}"
     )
     print(f"Metrics: {result.per_recording_metrics_path}")
@@ -417,7 +424,8 @@ def command_full(args: argparse.Namespace) -> None:
         f"predictions={runner_result.written_count}, "
         f"failed={runner_result.failed_count}, "
         f"missing={score_result.aggregate_metrics.get('missing_predictions')}, "
-        f"aggregate_wer={_format_float(score_result.aggregate_metrics.get('aggregate_wer'))}"
+        f"aggregate_wer={_format_float(score_result.aggregate_metrics.get('aggregate_wer'))}, "
+        f"aggregate_cer={_format_float(score_result.aggregate_metrics.get('aggregate_cer'))}"
     )
     print(f"Run folder: {run_dir}")
     print(f"Report: {report_path}")
@@ -491,6 +499,11 @@ def prepare_new_run(
         "runner": {
             "name": args.runner,
             "simulation_mode": args.simulation_mode if args.runner == "simulation" else None,
+            "inference_config_path": (
+                args.inference_config.as_posix()
+                if args.inference_config is not None and args.runner == "external-stub"
+                else None
+            ),
         },
         "prediction_contract": {
             "minimum_file": "predictions/utterances.jsonl",
@@ -615,7 +628,7 @@ def build_runner(args: argparse.Namespace):
     if args.runner == "simulation":
         return FakeModelRunner(args.simulation_mode)
     if args.runner == "external-stub":
-        return ExternalStubRunner()
+        return ExternalStubRunner(inference_config=args.inference_config)
     raise ValueError(f"Unknown runner {args.runner}")
 
 

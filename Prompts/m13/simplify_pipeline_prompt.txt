@@ -1,0 +1,252 @@
+
+You are Codex working in:
+
+/Users/billy/Documents/just-peachy
+
+Use the repository-root virtual environment:
+
+/Users/billy/Documents/just-peachy/.venv
+
+Create and operate wholly within a new git branch named:
+
+m15
+
+Do not broaden scope beyond this milestone.
+
+Milestone: M15 - Simple WAV Inference CLI
+
+Goal:
+Add a simple command-line interface for direct WAV transcription that calls the existing inference pipeline and prints useful output to stdout, without requiring the Evaluation Tool full run flow, reports, plots, scoring, or run folders.
+
+Project context:
+- Existing project root: Software Validation from Datasets
+- Evaluation Tool root: Software Validation from Datasets/Evaluation Tool
+- M13/M14 implemented the end-to-end pipeline invoked by `ExternalStubRunner`.
+- `PipelineRunner.predict(record, config) -> PipelineOutput` already exists.
+- Real local config exists at `configs/inference/e2e_real_local.yaml`.
+- Smoke-safe config exists at `configs/inference/e2e_named_transcript.yaml`.
+- The Evaluation Tool runner contract must remain unchanged.
+- Do not redesign the GUI, dataset registry, scorer, report generator, or existing evaluation CLI.
+- This milestone is about a thin product-style CLI for one or more WAV files.
+
+Before editing:
+1. Review the repository structure and current M13/M14 implementation.
+2. Inspect:
+   - `app/inference_pipeline/pipeline.py`
+   - `app/model_runner/external_stub.py`
+   - `configs/inference/e2e_real_local.yaml`
+   - `configs/inference/e2e_named_transcript.yaml`
+   - `scripts/enroll_speaker.py`
+   - existing tests under `tests/inference_pipeline/`, `tests/model_runner/`, and `tests/scoring/`
+3. Confirm `.venv` works and use it for all Python commands.
+4. Detect local Whisper/SpeechBrain assets before claiming real model support.
+5. Stop and report blockers if required dependencies or local model assets are unavailable for real-model smoke tests.
+
+Initial commands:
+
+
+cd "/Users/billy/Documents/just-peachy"
+git status --short
+git switch -c m15
+source .venv/bin/activate
+cd "Software Validation from Datasets/Evaluation Tool"
+python --version
+python -m pytest --version
+
+
+Implementation target:
+- Add a new standalone CLI script:
+  - `scripts/transcribe_wav.py`
+
+Optional supporting files if needed:
+- `tests/inference_pipeline/test_transcribe_wav_cli.py`
+- `reports/milestones/M15_simple_wav_inference_cli_report.md`
+
+Main requirements:
+
+1. Simple WAV CLI
+- Implement:
+
+
+python scripts/transcribe_wav.py /path/to/audio.wav
+
+
+- It should call the existing `PipelineRunner.predict()` directly.
+- It must not create Evaluation Tool run folders by default.
+- It must not run scoring, plotting, or report generation.
+- It must print the transcript result to stdout.
+
+2. Input handling
+- Accept one or more WAV paths.
+- Validate each path exists and has `.wav` suffix.
+- Use `soundfile` or existing audio utilities to infer duration when possible.
+- Build a synthetic record per WAV with:
+  - `recording_id`
+  - `utt_id`
+  - `inference_audio_path`
+  - `start_sec`
+  - `end_sec`
+- Default `recording_id` and `utt_id` should be based on the WAV stem.
+- Add optional overrides:
+  - `--recording-id`
+  - `--utt-id`
+  - `--start-sec`
+  - `--end-sec`
+- For multiple WAVs, disallow single-value `--recording-id` / `--utt-id` unless the design clearly handles unique IDs safely.
+
+3. Config selection
+- Default to `configs/inference/e2e_real_local.yaml` if present.
+- Add:
+
+--config configs/inference/e2e_real_local.yaml
+
+- Add:
+
+--smoke-safe
+
+to use `configs/inference/e2e_named_transcript.yaml` for dependency-light smoke testing.
+
+- Do not download model assets.
+- Missing model assets must fail with a clear, actionable error.
+
+4. Output modes
+- Default stdout format should be concise text:
+
+
+[Unknown] transcript text here
+
+
+- Add:
+
+
+--format text
+--format json
+--format jsonl
+
+
+- `json` should emit a JSON object for one WAV and a JSON list for multiple WAVs.
+- `jsonl` should emit one JSON object per WAV.
+- JSON output should include:
+  - `recording_id`
+  - `utt_id`
+  - `audio_path`
+  - `start_sec`
+  - `end_sec`
+  - `speaker_label`
+  - `text`
+  - optionally `segments` only when requested
+- Add:
+
+
+--segments
+
+
+to include segment/transcript item details in JSON/JSONL output.
+- Default text output should not include diagnostics noise.
+
+5. Diagnostics
+- Do not write diagnostics by default.
+- Add optional:
+
+
+--diagnostics /path/to/diagnostics.jsonl
+
+
+- When provided, write pipeline diagnostics to that JSONL file.
+- Diagnostics must be separate from stdout.
+- Do not break the existing evaluator diagnostics behavior.
+
+6. Speaker enrollment
+- Add optional:
+
+
+--enrollment-db artifacts/enrollment/enrollment_db.json
+
+
+- This should override the enrollment DB path in the selected pipeline config for this direct CLI run only.
+- If the DB is missing or empty, the command should still work and label speakers as `Unknown`.
+- Do not implement new enrollment logic in this milestone.
+
+7. Exit behavior
+- Exit `0` when all WAVs process successfully.
+- Exit nonzero if any WAV fails.
+- For multiple WAVs, process independently and summarize failures to stderr.
+- Keep stdout machine-readable when `--format json` or `--format jsonl` is selected.
+
+8. Preserve existing Evaluation Tool behavior
+- Do not change `run_evaluation.py full` behavior except if a tiny shared helper is clearly justified.
+- Do not change `predictions/utterances.jsonl` contract.
+- Do not change scoring/report behavior.
+- Avoid broad refactors.
+
+Testing requirements:
+- Add focused tests for `scripts/transcribe_wav.py`.
+- Tests should use fake/smoke-safe components where possible, not require real model assets.
+- Test:
+  - default text stdout shape
+  - JSON output shape
+  - JSONL output for multiple WAVs
+  - `--diagnostics` writes a separate file
+  - missing WAV returns nonzero
+  - `--smoke-safe` works without real assets
+  - `--enrollment-db` config override is accepted
+- Keep tests deterministic and small.
+
+Validation commands to run:
+
+
+cd "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool"
+source "/Users/billy/Documents/just-peachy/.venv/bin/activate"
+
+python -m pytest tests/inference_pipeline/test_transcribe_wav_cli.py -q
+python -m pytest tests/inference_pipeline/test_pipeline_e2e.py -q
+python -m pytest tests/model_runner/test_external_stub_bridge.py -q
+python -m pytest tests -q -k "transcribe_wav or inference_pipeline or external_stub"
+python -m compileall app/inference_pipeline app/model_runner app/scoring scripts
+
+
+Smoke commands to run:
+- First run smoke-safe direct CLI:
+
+
+python scripts/transcribe_wav.py \
+  "../RawDatasets/CMU Arctic/cmu_us_slt_arctic/wav/arctic_a0001.wav" \
+  --smoke-safe
+
+
+- Then, if local real model assets are available, run real local direct CLI:
+
+
+python scripts/transcribe_wav.py \
+  "../RawDatasets/CMU Arctic/cmu_us_slt_arctic/wav/arctic_a0001.wav" \
+  --config configs/inference/e2e_real_local.yaml \
+  --format json
+
+
+- If the exact WAV path differs, inspect the local CMU Arctic raw dataset and use the smallest available WAV.
+- Do not invent fake success if assets are missing. Report the blocker.
+
+Completion conditions:
+- A user can run one WAV through the pipeline from the command line without using Evaluation Tool full runs.
+- Default stdout is concise and human-readable.
+- JSON/JSONL output is available for scripting.
+- Optional diagnostics can be written separately.
+- Existing Evaluation Tool run/scoring/report behavior still works.
+- Tests pass.
+- A milestone report exists at:
+
+`reports/milestones/M15_simple_wav_inference_cli_report.md`
+
+Milestone report requirements:
+Summarize:
+- Files changed.
+- New CLI usage examples.
+- How the CLI calls the existing pipeline.
+- How stdout output differs from Evaluation Tool reports.
+- How evaluator contracts were preserved.
+- Test commands and results.
+- Smoke commands and results.
+- Real model assets found or missing.
+- Remaining blockers or incomplete work.
+
+Keep scope tight. This milestone is not real-time microphone streaming and not unknown-speaker clustering. It is only a simple direct WAV inference CLI over the existing offline pipeline.

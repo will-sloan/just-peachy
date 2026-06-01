@@ -44,6 +44,7 @@ class WhisperASR(ASRBase):
         self.cache_dir = _optional_path(self.params.get("cache_dir"))
         self.allow_model_downloads = bool(self.params.get("allow_model_downloads", False))
         self.word_timestamps = bool(self.params.get("word_timestamps", False))
+        self.beam_size = _optional_int(self.params.get("beam_size"))
         self._load_sec: float | None = None
 
     def transcribe(self, audio_segment: AudioSegment, context: ASRContext) -> ASRTranscript:
@@ -52,7 +53,10 @@ class WhisperASR(ASRBase):
         kwargs: dict[str, object] = {
             "language": self.language or context.language,
             "word_timestamps": self.word_timestamps,
+            "fp16": self.dtype == "float16" and self.device != "cpu",
         }
+        if self.beam_size is not None:
+            kwargs["beam_size"] = self.beam_size
         if audio_segment.start_sec is not None or audio_segment.end_sec is not None:
             kwargs["clip_timestamps"] = _clip_timestamps(audio_segment)
         try:
@@ -92,8 +96,13 @@ class WhisperASR(ASRBase):
             )
         model_asset = _local_model_asset_path(self.model_size, self.cache_dir, context)
         if not self.allow_model_downloads and model_asset is None:
+            searched = ", ".join(
+                str(candidate / f"{self.model_size}.pt")
+                for candidate in _cache_dir_candidates(self.cache_dir, context)
+            )
             raise WhisperASRUnavailableError(
-                "Whisper model assets are not available locally and downloads are disabled."
+                "Whisper model assets are not available locally and downloads are disabled. "
+                f"Expected {self.model_size}.pt in: {searched}"
             )
 
         import whisper  # type: ignore[import-not-found]
@@ -228,3 +237,15 @@ def _optional_float(value: object) -> float | None:
         return float(value)
     except (TypeError, ValueError):
         return None
+
+
+def _optional_int(value: object) -> int | None:
+    if value is None or value == "":
+        return None
+    try:
+        parsed = int(value)
+    except (TypeError, ValueError) as exc:
+        raise WhisperASRUnavailableError("beam_size must be an integer") from exc
+    if parsed < 1:
+        raise WhisperASRUnavailableError("beam_size must be >= 1")
+    return parsed

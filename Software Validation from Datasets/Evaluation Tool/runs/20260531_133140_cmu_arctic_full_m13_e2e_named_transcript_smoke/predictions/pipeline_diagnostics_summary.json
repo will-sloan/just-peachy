@@ -1,0 +1,24 @@
+{
+  "attempted_count": 1,
+  "chronological_ordering_violations": 0,
+  "diagnostic_rows": 1,
+  "duplicate_text_tokens_removed": 3,
+  "failed_count": 0,
+  "false_known_speaker_assignment_rate": 0.0,
+  "false_known_speaker_assignments": 0,
+  "known_speaker_assignments": 0,
+  "mean_pipeline_realtime_factor": 0.0010271956925634387,
+  "runner": "external_stub",
+  "stage_runtime_sec": {
+    "asr": 8.537499525118619e-05,
+    "audio_load": 0.0011750420089811087,
+    "postprocess": 5.7958008255809546e-05,
+    "segmentation": 3.7582998629659414e-05,
+    "speaker_embedding": 0.00016237499949056655,
+    "speaker_matching": 3.354200453031808e-05,
+    "vad": 0.0021857079991605133
+  },
+  "unknown_rate": 1.0,
+  "unknown_speaker_assignments": 1,
+  "written_count": 1
+}

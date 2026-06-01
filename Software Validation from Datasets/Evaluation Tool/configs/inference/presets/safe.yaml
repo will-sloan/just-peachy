@@ -1,0 +1,61 @@
+config_name: safe
+profile: direct_wav_safe
+notes: User-facing preset for dependency-light CLI smoke tests. Uses no-op ASR and no-op speaker components.
+future: false
+runtime:
+  device: cpu
+  sample_rate_hz: 16000
+  max_batch_size: 1
+  num_threads: 1
+  precision: float32
+  dry_run: true
+  allow_model_downloads: false
+  cache_dir: null
+audio:
+  target_sample_rate_hz: 16000
+  channel_policy: mono
+diagnostics:
+  enabled: true
+  file_name: pipeline_diagnostics.jsonl
+enrollment:
+  db_path: artifacts/enrollment/enrollment_db.json
+components:
+  vad:
+    name: energy_vad
+    enabled: true
+    adapter: EnergyVADAdapter
+    params:
+      threshold: 0.02
+      min_speech_ms: 100
+      min_silence_ms: 100
+      pad_ms: 20
+      sample_rate: 16000
+  segmentation:
+    name: vad_chunks
+    enabled: true
+    adapter: VADChunkerAdapter
+    params:
+      target: asr
+      min_chunk_sec: 0.1
+      max_chunk_sec: 30.0
+      merge_gap_sec: 0.2
+      left_pad_sec: 0.0
+      right_pad_sec: 0.0
+      clip_to_record_bounds: true
+  asr:
+    name: no_op_asr
+    enabled: true
+    adapter: NoOpASRAdapter
+    params:
+      transcript: dummy pipeline transcript
+  speaker_embedding:
+    name: no_op_speaker_embedding
+    enabled: true
+    adapter: NoOpSpeakerEmbeddingAdapter
+    params: {}
+  speaker_matching:
+    name: no_op_speaker_matching
+    enabled: true
+    adapter: NoOpSpeakerMatchingAdapter
+    params:
+      unknown_label: Unknown

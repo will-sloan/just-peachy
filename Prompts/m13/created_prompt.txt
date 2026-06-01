@@ -1,0 +1,123 @@
+```
+You are Codex working in the existing repository at:
+
+/Users/billy/Documents/just-peachy
+
+Create and operate wholly within a new git branch named:
+
+m13
+
+Use the repository-root virtual environment:
+
+/Users/billy/Documents/just-peachy/.venv
+
+Do not write code outside this branch. Do not broaden the scope beyond this milestone.
+
+Milestone: M13 - End-to-End Named Transcript Pipeline
+
+Goal:
+Connect audio loading, VAD/segmentation, ASR, speaker embedding, speaker matching, and transcript assembly into one PyTorch-native inference pipeline invoked by the existing Evaluation Tool runner.
+
+Project context:
+- Existing project root: Software Validation from Datasets
+- Existing Evaluation Tool root: Software Validation from Datasets/Evaluation Tool
+- The Evaluation Tool already handles dataset selection, simulation, augmentation, run folders, scoring, plots, and reports for every supported dataset test.
+- The inference integration point is Evaluation Tool/app/model_runner/external_stub.py.
+- The runner receives one selected metadata row at a time.
+- The model must read record["inference_audio_path"]. This may point to original audio or a temporary augmented WAV.
+- Preserve recording_id and utt_id exactly because scoring matches predictions on (recording_id, utt_id).
+- Preserve start_sec and end_sec when present.
+- The required prediction file remains predictions/utterances.jsonl with recording_id, utt_id, start_sec, end_sec, speaker_label, and text.
+- Build this as a modular PyTorch-native pipeline that can later be optimized for Raspberry Pi and possibly ExecuTorch/custom hardware.
+- One person is implementing this, so keep scope small, testable, and milestone-specific.
+- Do not redesign the existing GUI, CLI, dataset registry, scorer, or report generator unless explicitly required by this milestone.
+
+Before editing:
+1. Review the entire repository structure enough to understand the Evaluation Tool flow.
+2. Inspect the existing runner contract, prediction models, scoring expectations, configs, and tests before making changes.
+3. Confirm the .venv exists at the repository root and use it for all Python commands.
+4. Stop and report blockers if required dependencies, model assets, sample datasets, or smoke-run inputs are unavailable.
+
+Initial commands:
+
+cd "/Users/billy/Documents/just-peachy"
+git status --short
+git switch -c m13
+source .venv/bin/activate
+cd "Software Validation from Datasets/Evaluation Tool"
+python --version
+python -m pytest --version
+
+
+Target file paths:
+- app/inference_pipeline/pipeline.py
+- app/inference_pipeline/transcript/__init__.py
+- app/inference_pipeline/transcript/assembler.py
+- app/inference_pipeline/runtime/stats.py
+- app/model_runner/external_stub.py
+- configs/inference/e2e_named_transcript.yaml
+- tests/inference_pipeline/test_pipeline_e2e.py
+- reports/milestones/M13_e2e_named_transcript_report.md
+
+Implementation requirements:
+1. Implement `PipelineRunner.predict(record, config) -> PipelineOutput`.
+2. Make `ExternalStubRunner` call the real pipeline while preserving the existing Evaluation Tool runner contract.
+3. Read audio from `record["inference_audio_path"]`.
+4. Preserve `recording_id` and `utt_id` exactly.
+5. Preserve `start_sec` and `end_sec` when present.
+6. Assemble segment-level outputs into one utterance-level prediction compatible with the existing `UtterancePrediction` contract.
+7. Preserve chronological order.
+8. Prevent duplicate text when multiple chunks are merged.
+9. Write evaluator-compatible predictions to `predictions/utterances.jsonl`.
+10. Store optional diagnostics without breaking the evaluator contract, including:
+    - segment list
+    - speaker decisions
+    - raw ASR text
+    - normalized text
+    - runtime stats
+11. Add per-stage runtime tracking in `app/inference_pipeline/runtime/stats.py`.
+12. Add or update `configs/inference/e2e_named_transcript.yaml` for this milestone.
+13. Create focused tests in `tests/inference_pipeline/test_pipeline_e2e.py`.
+14. Avoid broad refactors and avoid changing unrelated files.
+
+Validation checks to support or report:
+- End-to-end WER/CER from the existing evaluator.
+- Speaker label accuracy where labels exist.
+- False known-speaker assignment rate.
+- Unknown rate.
+- Chronological ordering violations.
+- Pipeline RTF and per-stage runtime breakdown.
+
+Testing and smoke commands to run:
+
+cd "/Users/billy/Documents/just-peachy"
+source .venv/bin/activate
+cd "Software Validation from Datasets/Evaluation Tool"
+
+python -m pytest tests/inference_pipeline/test_pipeline_e2e.py -q
+python -m pytest tests -q -k "inference_pipeline or external_stub or e2e"
+
+
+Also run at least one small full external-stub Evaluation Tool run through the existing CLI or runner mechanism after inspecting how the project starts runs. Use the smallest available dataset/sample configuration. Record the exact command used in the milestone report. If no runnable dataset/model assets are available, stop and clearly report the blocker instead of inventing fake success.
+
+Completion conditions:
+- `ExternalStubRunner` can call the real pipeline and produce valid predictions.
+- A smoke full run completes scoring and reporting, unless blocked by unavailable dependencies/assets.
+- A diagnostics file is written for debugging without changing or breaking the evaluator prediction contract.
+- Tests for the milestone pass.
+- A short milestone report exists at:
+  `reports/milestones/M13_e2e_named_transcript_report.md`
+
+Milestone report requirements:
+Write a concise report summarizing:
+- Files changed.
+- Pipeline behavior implemented.
+- How the Evaluation Tool runner contract was preserved.
+- Diagnostics written.
+- Test commands run and results.
+- Smoke-run command and result.
+- Validation metrics observed, if available.
+- Remaining incomplete work or blockers.
+
+Keep the implementation tightly scoped to M13. Do not redesign the GUI, CLI, dataset registry, scorer, report generator, or unrelated inference components.
+```

@@ -1,0 +1,192 @@
+
+You are Codex working in:
+
+/Users/billy/Documents/just-peachy
+
+Use the repository-root virtual environment:
+
+/Users/billy/Documents/just-peachy/.venv
+
+Create and operate wholly within a new git branch:
+
+m14-real-pipeline-completion
+
+Goal:
+Complete the remaining production-oriented portions of the speech inference pipeline after M13. M13 already wires the Evaluation Tool runner to the end-to-end pipeline, but the smoke-safe config still uses no-op/default components. Your job is to make the pipeline practically usable with real local model assets where available, while preserving the Evaluation Tool contract.
+
+Project roots:
+- Project root: Software Validation from Datasets
+- Evaluation Tool root: Software Validation from Datasets/Evaluation Tool
+
+Current state:
+- `app/model_runner/external_stub.py` invokes the real end-to-end pipeline.
+- `app/inference_pipeline/pipeline.py` implements `PipelineRunner.predict(record, config) -> PipelineOutput`.
+- `configs/inference/e2e_named_transcript.yaml` exists as a smoke-safe profile.
+- Required evaluator prediction file remains `predictions/utterances.jsonl`.
+- Diagnostics are written separately and must not break evaluator scoring.
+
+Non-negotiable contract:
+- The model must read `record["inference_audio_path"]`.
+- Preserve `recording_id` and `utt_id` exactly.
+- Preserve `start_sec` and `end_sec` when present.
+- `predictions/utterances.jsonl` must contain only evaluator-compatible utterance rows:
+  `recording_id`, `utt_id`, `start_sec`, `end_sec`, `speaker_label`, `text`.
+- Do not redesign the GUI, dataset registry, scorer, report generator, or CLI unless a small targeted change is required to select/run the real pipeline config.
+- Avoid broad refactors and unrelated file changes.
+
+Before editing:
+1. Inspect the full repository structure and current M13 implementation.
+2. Read:
+   - `app/inference_pipeline/pipeline.py`
+   - `app/model_runner/external_stub.py`
+   - `configs/inference/e2e_named_transcript.yaml`
+   - ASR adapters under `app/inference_pipeline/asr/`
+   - speaker embedding adapters under `app/inference_pipeline/speaker_embedding/`
+   - speaker matching under `app/inference_pipeline/speaker_matching/`
+   - enrollment store/scripts under `app/inference_pipeline/enrollment/` and `scripts/`
+   - scoring code under `app/scoring/`
+   - M13 report at `reports/milestones/M13_e2e_named_transcript_report.md`
+3. Confirm `.venv` works.
+4. Detect local model assets and dependencies before assuming real model availability.
+5. Do not download model assets unless explicitly approved. If assets are missing, implement graceful blocked reporting and keep tests using fakes/injected models.
+
+Initial commands:
+```bash
+cd "/Users/billy/Documents/just-peachy"
+git status --short
+git switch -c m14
+source .venv/bin/activate
+cd "Software Validation from Datasets/Evaluation Tool"
+python --version
+python -m pytest --version
+```
+
+Main implementation objectives:
+
+1. Real ASR readiness
+- Verify the existing Whisper adapter can run from local assets without downloading.
+- Add or fix config support needed to select local Whisper tiny/base assets.
+- Ensure ASR errors clearly state missing dependency vs missing model asset.
+- Preserve segment timestamps and assembled utterance text.
+- Add tests with injected/fake ASR where real assets are unavailable.
+- If local Whisper assets are available, run one real ASR smoke check.
+
+2. Real speaker embedding readiness
+- Verify the SpeechBrain ECAPA adapter can run from local cached assets without downloading.
+- Add or fix config support needed to select local SpeechBrain assets.
+- Ensure missing dependency/asset errors are explicit.
+- Preserve segment identity and timing in embedding diagnostics.
+- Add tests with injected/fake embedding where real assets are unavailable.
+- If local SpeechBrain assets are available, run one real embedding smoke check.
+
+3. Enrollment DB readiness
+- Ensure there is a clear command path to build or validate an enrollment DB from local WAV samples.
+- Validate that speaker matching uses the configured enrollment DB.
+- If no real enrollment samples exist, keep the empty DB behavior graceful and report the blocker.
+- Add or update tests for pipeline behavior with:
+  - known enrolled speaker
+  - unknown fallback
+  - missing/empty enrollment DB
+
+4. Speaker matching calibration
+- Ensure cosine threshold matching can be calibrated against local/sample embeddings.
+- Add or update a config/report path for calibrated thresholds.
+- Track:
+  - known-speaker accuracy
+  - false known-speaker assignment rate
+  - unknown rate
+  - threshold and margin used
+- If real calibration samples are unavailable, create a deterministic synthetic calibration smoke and clearly mark it as synthetic.
+
+5. Evaluator metric gap
+- Inspect whether CER is already implemented. If not, add a minimal CER implementation alongside existing WER scoring without disrupting current report outputs.
+- Include CER in aggregate metrics and per-recording metrics if feasible with small, safe changes.
+- Add focused tests for CER.
+
+6. Configuration and CLI usability
+- Ensure there is a clean way to run `external-stub` with a selected inference config.
+- Prefer adding a small targeted CLI option only if current run config cannot select the pipeline config.
+- Example desired usage:
+```bash
+python run_evaluation.py full \
+  --project-root "/Users/billy/Documents/just-peachy/Software Validation from Datasets" \
+  --dataset cmu_arctic \
+  --max-recordings 1 \
+  --runner external-stub \
+  --augmentation none \
+  --inference-config configs/inference/e2e_named_transcript.yaml \
+  --run-name real_pipeline_smoke
+```
+- If you add this option, preserve all existing CLI behavior.
+
+7. Diagnostics and reports
+- Keep `pipeline_diagnostics.jsonl` and summary output separate from `utterances.jsonl`.
+- Ensure diagnostics include:
+  - segment list
+  - speaker decisions
+  - raw ASR text
+  - normalized text
+  - runtime stats
+  - pipeline RTF
+  - per-stage runtime breakdown
+  - unknown rate
+  - false known-speaker assignment rate
+  - chronological ordering violations
+- Write a final milestone report.
+
+Required report:
+`reports/milestones/M14_real_pipeline_completion_report.md`
+
+Report must summarize:
+- Files changed.
+- Which real components are now runnable.
+- Which local dependencies/assets were found.
+- Which dependencies/assets were missing.
+- How to run the real pipeline config.
+- Test commands and results.
+- Smoke commands and results.
+- WER/CER and speaker metrics observed.
+- RTF and per-stage runtime observed.
+- Remaining blockers or incomplete work.
+
+Validation commands to run:
+```bash
+cd "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool"
+source "/Users/billy/Documents/just-peachy/.venv/bin/activate"
+
+python -m pytest tests/inference_pipeline/test_pipeline_e2e.py -q
+python -m pytest tests/model_runner/test_external_stub_bridge.py -q
+python -m pytest tests/inference_pipeline -q
+python -m pytest tests -q -k "inference_pipeline or external_stub or scoring or e2e"
+python -m compileall app/inference_pipeline app/model_runner app/scoring scripts
+```
+
+Run at least one full Evaluation Tool smoke:
+```bash
+python run_evaluation.py full \
+  --project-root "/Users/billy/Documents/just-peachy/Software Validation from Datasets" \
+  --dataset cmu_arctic \
+  --max-recordings 1 \
+  --runner external-stub \
+  --augmentation none \
+  --run-name m14_real_pipeline_smoke
+```
+
+If a selectable inference config option is added, also run the same smoke with that option.
+
+Completion conditions:
+- The pipeline can run end-to-end through `ExternalStubRunner`.
+- The evaluator contract remains valid.
+- Real model-backed ASR and speaker embedding are supported when local assets exist.
+- Missing assets produce clear blockers instead of silent fake success.
+- Enrollment and speaker matching path is validated.
+- WER and CER are available or CER blocker is explicitly documented.
+- Full smoke run completes scoring and reporting.
+- Diagnostics are written and contain runtime/speaker/ordering metrics.
+- Final report is written at:
+  `reports/milestones/M14_real_pipeline_completion_report.md`
+- Tell codex to review the entire repository before making changes. 
+- Tell codex to create a new branch and operate wholly within that branch called “m14”
+- Tell codex to ensure it is operating with the .venv located at the root of the repository
+- Tell codex to write a high-level summary of the changes in the milestone/reports folder
+Keep scope tight. Do not turn this into a redesign. Finish the remaining practical pipeline gaps with the smallest safe changes.

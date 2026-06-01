@@ -1,0 +1,73 @@
+You are helping me write a precise Codex prompt for a speech pipeline project. Do not write the code yourself. Generate a Codex prompt that is scoped only to the milestone below.
+
+Project context:
+- Existing project root: just-peachy\Software Validation from Datasets
+- Existing Evaluation Tool root: just-peachy\Software Validation from Datasets\Evaluation Tool
+- The Evaluation Tool already handles dataset selection, simulation, augmentation, run folders, scoring, plots, and reports for every supported dataset test.
+- The inference integration point is Evaluation Tool/app/model_runner/external_stub.py.
+- The runner receives one selected metadata row at a time.
+- The model must read record["inference_audio_path"]. This may point to original audio or a temporary augmented WAV.
+- Preserve recording_id and utt_id exactly because scoring matches predictions on (recording_id, utt_id).
+- Preserve start_sec and end_sec when present.
+- The required prediction file is predictions/utterances.jsonl with recording_id, utt_id, start_sec, end_sec, speaker_label, and text.
+- Build a modular PyTorch-native pipeline that can later be optimized for Raspberry Pi and possibly ExecuTorch/custom hardware.
+- One person is implementing this, so keep the scope small, testable, and milestone-specific.
+- Do not redesign the existing GUI, CLI, dataset registry, scorer, or report generator unless explicitly required by the milestone.
+
+Milestone: M13 - End-to-End Named Transcript Pipeline
+
+Goal:
+Connect audio loading, VAD/segmentation, ASR, speaker embedding, speaker matching, and transcript assembly into one pipeline invoked by the Evaluation Tool runner.
+
+Why this matters:
+This milestone proves that the modular pieces work as a product pipeline: audio in, labeled transcript out, evaluator-compatible prediction written.
+
+Target file paths:
+- Evaluation Tool\app\inference_pipeline\pipeline.py
+- Evaluation Tool\app\inference_pipeline\transcript\__init__.py
+- Evaluation Tool\app\inference_pipeline\transcript\assembler.py
+- Evaluation Tool\app\inference_pipeline\runtime\stats.py
+- Evaluation Tool\app\model_runner\external_stub.py
+- Evaluation Tool\configs\inference\e2e_named_transcript.yaml
+- Evaluation Tool\tests\inference_pipeline\test_pipeline_e2e.py
+- Evaluation Tool\reports\milestones\M13_e2e_named_transcript_report.md
+
+Implementation actions Codex should perform:
+- Implement PipelineRunner.predict(record, config) -> PipelineOutput.
+- Assemble segment-level outputs into one utterance-level prediction compatible with UtterancePrediction.
+- Preserve chronological order and prevent duplicate text when multiple chunks are merged.
+- Store optional diagnostics: segment list, speaker decisions, raw ASR text, normalized text, runtime stats.
+- Run at least one small external-stub full run through the Evaluation Tool.
+
+Evaluation metrics or validation checks:
+- End-to-end WER/CER from existing evaluator.
+- Speaker label accuracy where labels exist.
+- False known-speaker assignment rate.
+- Unknown rate.
+- Chronological ordering violations.
+- Pipeline RTF and per-stage runtime breakdown.
+
+Completion conditions:
+- ExternalStubRunner can call the real pipeline and produce valid predictions.
+- A smoke full run completes scoring and reporting.
+- A diagnostics file is written for debugging without breaking the evaluator contract.
+
+Required report artifact:
+- Evaluation Tool\reports\milestones\M13_e2e_named_transcript_report.md
+
+Instructions for the Codex prompt you generate:
+- Tell Codex to inspect the existing files before editing.
+- Tell Codex to implement only this milestone.
+- Tell Codex to create or update tests for the milestone.
+- Tell Codex to preserve the existing Evaluation Tool runner contract.
+- Tell Codex to avoid broad refactors and avoid changing unrelated files.
+- Tell Codex to write a short milestone report at the required report path summarizing what changed, how it was tested, and what remains incomplete.
+- Tell Codex to include exact commands to run tests or smoke checks.
+- Tell Codex to stop and report blockers if required dependencies or model assets are unavailable.
+- Tell codex to review the entire repository before making changes. 
+- Tell codex to create a new branch and operate wholly within that branch called “m13”
+- Tell codex to ensure it is operating with the .venv located at the root of the repository
+- Tell codex to write a high-level summary of the changes in the milestone/reports folder
+
+
+Now generate a single high-quality Codex prompt for this milestone.

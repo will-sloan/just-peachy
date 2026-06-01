@@ -18,6 +18,19 @@ class WerResult:
     hypothesis_words: int
 
 
+@dataclass(frozen=True)
+class CerResult:
+    """Character error counts and derived CER."""
+
+    cer: float
+    errors: int
+    substitutions: int
+    deletions: int
+    insertions: int
+    reference_chars: int
+    hypothesis_chars: int
+
+
 def compute_wer(reference: str, hypothesis: str) -> WerResult:
     """Compute word error rate and operation counts."""
 
@@ -25,7 +38,51 @@ def compute_wer(reference: str, hypothesis: str) -> WerResult:
     hyp_words = hypothesis.split()
     ref_len = len(ref_words)
     hyp_len = len(hyp_words)
+    errors, substitutions, deletions, insertions = _edit_counts(ref_words, hyp_words)
+    if ref_len == 0:
+        wer = 0.0 if errors == 0 else 1.0
+    else:
+        wer = errors / ref_len
+    return WerResult(
+        wer=wer,
+        errors=errors,
+        substitutions=substitutions,
+        deletions=deletions,
+        insertions=insertions,
+        reference_words=ref_len,
+        hypothesis_words=hyp_len,
+    )
 
+
+def compute_cer(reference: str, hypothesis: str) -> CerResult:
+    """Compute character error rate and operation counts, excluding whitespace."""
+
+    ref_chars = _cer_characters(reference)
+    hyp_chars = _cer_characters(hypothesis)
+    ref_len = len(ref_chars)
+    hyp_len = len(hyp_chars)
+    errors, substitutions, deletions, insertions = _edit_counts(ref_chars, hyp_chars)
+    if ref_len == 0:
+        cer = 0.0 if errors == 0 else 1.0
+    else:
+        cer = errors / ref_len
+    return CerResult(
+        cer=cer,
+        errors=errors,
+        substitutions=substitutions,
+        deletions=deletions,
+        insertions=insertions,
+        reference_chars=ref_len,
+        hypothesis_chars=hyp_len,
+    )
+
+
+def _edit_counts(
+    reference_units: list[str] | tuple[str, ...],
+    hypothesis_units: list[str] | tuple[str, ...],
+) -> tuple[int, int, int, int]:
+    ref_len = len(reference_units)
+    hyp_len = len(hypothesis_units)
     # Each cell stores (cost, substitutions, deletions, insertions).
     dp: list[list[tuple[int, int, int, int]]] = [
         [(0, 0, 0, 0) for _ in range(hyp_len + 1)] for _ in range(ref_len + 1)
@@ -39,7 +96,7 @@ def compute_wer(reference: str, hypothesis: str) -> WerResult:
 
     for i in range(1, ref_len + 1):
         for j in range(1, hyp_len + 1):
-            if ref_words[i - 1] == hyp_words[j - 1]:
+            if reference_units[i - 1] == hypothesis_units[j - 1]:
                 dp[i][j] = dp[i - 1][j - 1]
                 continue
 
@@ -63,18 +120,8 @@ def compute_wer(reference: str, hypothesis: str) -> WerResult:
             ]
             dp[i][j] = min(candidates, key=lambda item: (item[0], item[1], item[2], item[3]))
 
-    errors, substitutions, deletions, insertions = dp[ref_len][hyp_len]
-    if ref_len == 0:
-        wer = 0.0 if errors == 0 else 1.0
-    else:
-        wer = errors / ref_len
-    return WerResult(
-        wer=wer,
-        errors=errors,
-        substitutions=substitutions,
-        deletions=deletions,
-        insertions=insertions,
-        reference_words=ref_len,
-        hypothesis_words=hyp_len,
-    )
+    return dp[ref_len][hyp_len]
 
+
+def _cer_characters(text: str) -> tuple[str, ...]:
+    return tuple(character for character in text if not character.isspace())

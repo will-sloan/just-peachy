@@ -1,0 +1,33 @@
+{
+  "attempted_count": 1,
+  "chronological_ordering_violations": 0,
+  "diagnostic_rows": 1,
+  "duplicate_text_tokens_removed": 0,
+  "failed_count": 0,
+  "false_known_speaker_assignment_rate": 0.0,
+  "false_known_speaker_assignments": 0,
+  "known_speaker_assignments": 0,
+  "mean_pipeline_realtime_factor": 0.22691406685927626,
+  "runner": "external_stub",
+  "speaker_label_accuracy": 0.0,
+  "speaker_label_matches": 0,
+  "speaker_label_scored": 1,
+  "speaker_matching_min_margins": [
+    0.05
+  ],
+  "speaker_matching_thresholds": [
+    0.82
+  ],
+  "stage_runtime_sec": {
+    "asr": 0.6079530829883879,
+    "audio_load": 0.0011117919930256903,
+    "postprocess": 7.587501022499055e-05,
+    "segmentation": 3.908299549948424e-05,
+    "speaker_embedding": 0.26839237500098534,
+    "speaker_matching": 0.00023499999952036887,
+    "vad": 0.002233416002127342
+  },
+  "unknown_rate": 1.0,
+  "unknown_speaker_assignments": 1,
+  "written_count": 1
+}

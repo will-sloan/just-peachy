@@ -165,7 +165,8 @@ class SpeechBrainECAPAAdapter(SpeakerEmbeddingBase):
         source = self._source_for_load(savedir)
         if not self.allow_model_downloads and not self._local_assets_available(savedir):
             raise SpeechBrainUnavailableError(
-                "SpeechBrain ECAPA model assets are not available locally and downloads are disabled."
+                "SpeechBrain ECAPA model assets are not available locally and downloads are disabled. "
+                f"model_source={self.model_source!r}, savedir={str(savedir) if savedir else None!r}"
             )
 
         try:

@@ -1,0 +1,6 @@
+2026-05-31 13:50:05,123 INFO Wrote external stub manifest with 1 rows
+2026-05-31 13:50:05,134 INFO Inference condition: clean
+2026-05-31 13:50:06,017 INFO Wrote pipeline diagnostics with 1 rows
+2026-05-31 13:50:06,040 INFO Scored 1 selected recordings
+2026-05-31 13:50:12,367 INFO Created 11 plots
+2026-05-31 13:50:12,376 INFO Wrote report to report/report.md

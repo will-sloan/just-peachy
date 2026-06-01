@@ -14,7 +14,7 @@ from app.dataset_registry.registry import DatasetDefinition
 from app.prediction_io.jsonl import prediction_files_present, read_utterance_predictions
 from app.prediction_io.rttm import RttmSegment, read_rttm_segments
 from app.scoring.text import normalize_for_scoring
-from app.scoring.wer import compute_wer
+from app.scoring.wer import compute_cer, compute_wer
 from app.utils.json_utils import write_json
 
 
@@ -81,12 +81,14 @@ def score_run(
         if missing_prediction:
             hypothesis_norm = ""
             wer = None
+            cer = None
         else:
             hypothesis_norm = normalize_for_scoring(
                 hypothesis_text,
                 definition.text_normalization,
             )
             wer = compute_wer(reference_norm, hypothesis_norm)
+            cer = compute_cer(reference_norm, hypothesis_norm)
         reference_speaker = _normalize_speaker_label(record.get("speaker_label"))
         predicted_speaker = _normalize_speaker_label(
             prediction.get("speaker_label") if prediction is not None else None
@@ -114,6 +116,17 @@ def score_run(
             "insertions": wer.insertions if wer is not None else None,
             "reference_words": wer.reference_words if wer is not None else len(reference_norm.split()),
             "hypothesis_words": wer.hypothesis_words if wer is not None else None,
+            "cer": cer.cer if cer is not None else None,
+            "char_errors": cer.errors if cer is not None else None,
+            "char_substitutions": cer.substitutions if cer is not None else None,
+            "char_deletions": cer.deletions if cer is not None else None,
+            "char_insertions": cer.insertions if cer is not None else None,
+            "reference_chars": (
+                cer.reference_chars
+                if cer is not None
+                else len("".join(reference_norm.split()))
+            ),
+            "hypothesis_chars": cer.hypothesis_chars if cer is not None else None,
             "duration_sec": record_duration_sec(record),
             "missing_prediction": missing_prediction,
             "audio_exists": record.get("audio_exists"),
@@ -292,6 +305,13 @@ def _sanitize_metric_dataframe(metrics_df: pd.DataFrame) -> pd.DataFrame:
         "insertions",
         "reference_words",
         "hypothesis_words",
+        "cer",
+        "char_errors",
+        "char_substitutions",
+        "char_deletions",
+        "char_insertions",
+        "reference_chars",
+        "hypothesis_chars",
         "duration_sec",
     ):
         if column in result.columns:
@@ -377,10 +397,18 @@ def _aggregate_metrics(
             "duplicate_prediction_rows_ignored": int(duplicate_count),
             "unexpected_prediction_recordings": int(unexpected_prediction_count),
             "aggregate_wer": None,
+            "aggregate_cer": None,
             "mean_recording_wer": None,
+            "mean_recording_cer": None,
             "missing_predictions": 0,
             "missing_prediction_count": 0,
             "missing_prediction_rate": 0.0,
+            "reference_words": 0,
+            "hypothesis_words": 0,
+            "errors": 0,
+            "reference_chars": 0,
+            "hypothesis_chars": 0,
+            "char_errors": 0,
             "speaker_label_scored": 0,
             "speaker_label_matches": 0,
             "speaker_label_accuracy": None,
@@ -392,6 +420,9 @@ def _aggregate_metrics(
     reference_words = int(scored_df["reference_words"].sum()) if not scored_df.empty else 0
     errors = int(scored_df["errors"].sum()) if not scored_df.empty else 0
     aggregate_wer = errors / reference_words if reference_words else 0.0
+    reference_chars = int(scored_df["reference_chars"].sum()) if not scored_df.empty else 0
+    char_errors = int(scored_df["char_errors"].sum()) if not scored_df.empty else 0
+    aggregate_cer = char_errors / reference_chars if reference_chars else 0.0
     speaker_summary = _speaker_label_summary(metrics_df)
     return {
         "selected_recordings": selected_count,
@@ -417,6 +448,18 @@ def _aggregate_metrics(
         "mean_recording_wer": _optional_mean(scored_df, "wer"),
         "median_recording_wer": _optional_median(scored_df, "wer"),
         "max_recording_wer": _optional_max(scored_df, "wer"),
+        "reference_chars": reference_chars,
+        "hypothesis_chars": int(scored_df["hypothesis_chars"].sum()) if not scored_df.empty else 0,
+        "char_errors": char_errors,
+        "char_substitutions": (
+            int(scored_df["char_substitutions"].sum()) if not scored_df.empty else 0
+        ),
+        "char_deletions": int(scored_df["char_deletions"].sum()) if not scored_df.empty else 0,
+        "char_insertions": int(scored_df["char_insertions"].sum()) if not scored_df.empty else 0,
+        "aggregate_cer": aggregate_cer,
+        "mean_recording_cer": _optional_mean(scored_df, "cer"),
+        "median_recording_cer": _optional_median(scored_df, "cer"),
+        "max_recording_cer": _optional_max(scored_df, "cer"),
         **speaker_summary,
     }
 
@@ -440,6 +483,13 @@ def _group_metrics(metrics_df: pd.DataFrame, group_column: str) -> pd.DataFrame:
         "insertions",
         "aggregate_wer",
         "mean_recording_wer",
+        "reference_chars",
+        "char_errors",
+        "char_substitutions",
+        "char_deletions",
+        "char_insertions",
+        "aggregate_cer",
+        "mean_recording_cer",
         "speaker_label_scored",
         "speaker_label_matches",
         "speaker_label_accuracy",
@@ -451,6 +501,8 @@ def _group_metrics(metrics_df: pd.DataFrame, group_column: str) -> pd.DataFrame:
         scored_group = _scored_metrics_df(group)
         reference_words = int(scored_group["reference_words"].sum()) if not scored_group.empty else 0
         errors = int(scored_group["errors"].sum()) if not scored_group.empty else 0
+        reference_chars = int(scored_group["reference_chars"].sum()) if not scored_group.empty else 0
+        char_errors = int(scored_group["char_errors"].sum()) if not scored_group.empty else 0
         row = {
             group_column: value,
             "file_count": int(len(group)),
@@ -468,6 +520,17 @@ def _group_metrics(metrics_df: pd.DataFrame, group_column: str) -> pd.DataFrame:
             "insertions": int(scored_group["insertions"].sum()) if not scored_group.empty else 0,
             "aggregate_wer": errors / reference_words if reference_words else 0.0,
             "mean_recording_wer": _optional_mean(scored_group, "wer"),
+            "reference_chars": reference_chars,
+            "char_errors": char_errors,
+            "char_substitutions": (
+                int(scored_group["char_substitutions"].sum())
+                if not scored_group.empty
+                else 0
+            ),
+            "char_deletions": int(scored_group["char_deletions"].sum()) if not scored_group.empty else 0,
+            "char_insertions": int(scored_group["char_insertions"].sum()) if not scored_group.empty else 0,
+            "aggregate_cer": char_errors / reference_chars if reference_chars else 0.0,
+            "mean_recording_cer": _optional_mean(scored_group, "cer"),
         }
         row.update(_speaker_label_summary(group))
         rows.append(row)
