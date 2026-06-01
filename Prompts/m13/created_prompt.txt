@@ -1,0 +1,105 @@
+You are working in `/Users/billy/Documents/just-peachy`.
+
+Create and operate wholly within a new git branch named `m13`. Before editing, run `git status` and do not overwrite or revert user changes. Use the repository virtualenv at `/Users/billy/Documents/just-peachy/.venv` for all Python commands.
+
+Milestone only: M13 - End-to-End Named Transcript Pipeline.
+
+Project roots:
+- Project root: `Software Validation from Datasets`
+- Evaluation Tool root: `Software Validation from Datasets/Evaluation Tool`
+- Inference integration point: `Software Validation from Datasets/Evaluation Tool/app/model_runner/external_stub.py`
+
+First inspect the entire repository structure and existing implementation before making changes. At minimum, review the Evaluation Tool runner flow, existing inference pipeline modules, prediction schemas, scorer expectations, config patterns, tests, and report conventions. Use `rg --files`, `rg`, and direct file reads before editing.
+
+Do not redesign the existing GUI, CLI, dataset registry, scorer, plots, or report generator. Avoid broad refactors and unrelated file changes.
+
+Goal:
+Connect audio loading, VAD/segmentation, ASR, speaker embedding, speaker matching, and transcript assembly into one pipeline invoked by the Evaluation Tool runner. The result must be evaluator-compatible: audio in, named/labeled transcript out, valid prediction written.
+
+Important contract details:
+- The runner receives one selected metadata row at a time.
+- The pipeline must read `record["inference_audio_path"]`; this may point to original audio or a temporary augmented WAV.
+- Preserve `recording_id` and `utt_id` exactly because scoring matches predictions on `(recording_id, utt_id)`.
+- Preserve `start_sec` and `end_sec` when present.
+- Required prediction file remains `predictions/utterances.jsonl`.
+- Each prediction must include: `recording_id`, `utt_id`, `start_sec`, `end_sec`, `speaker_label`, and `text`.
+- Preserve the existing Evaluation Tool runner contract.
+
+Target files:
+- `Software Validation from Datasets/Evaluation Tool/app/inference_pipeline/pipeline.py`
+- `Software Validation from Datasets/Evaluation Tool/app/inference_pipeline/transcript/__init__.py`
+- `Software Validation from Datasets/Evaluation Tool/app/inference_pipeline/transcript/assembler.py`
+- `Software Validation from Datasets/Evaluation Tool/app/inference_pipeline/runtime/stats.py`
+- `Software Validation from Datasets/Evaluation Tool/app/model_runner/external_stub.py`
+- `Software Validation from Datasets/Evaluation Tool/configs/inference/e2e_named_transcript.yaml`
+- `Software Validation from Datasets/Evaluation Tool/tests/inference_pipeline/test_pipeline_e2e.py`
+- `Software Validation from Datasets/Evaluation Tool/reports/milestones/M13_e2e_named_transcript_report.md`
+
+Implementation requirements:
+1. Implement `PipelineRunner.predict(record, config) -> PipelineOutput`.
+2. Build the pipeline as modular PyTorch-native code suitable for later Raspberry Pi, ExecuTorch, or custom hardware optimization.
+3. Assemble segment-level VAD/ASR/speaker outputs into one utterance-level prediction compatible with the existing `UtterancePrediction` contract.
+4. Preserve chronological order.
+5. Prevent duplicate text when multiple chunks are merged.
+6. Store optional diagnostics without breaking the evaluator contract:
+   - segment list
+   - speaker decisions
+   - raw ASR text
+   - normalized text
+   - runtime stats
+7. Add runtime stats support with total pipeline RTF and per-stage timing where feasible.
+8. Update `external_stub.py` so `ExternalStubRunner` can invoke the real pipeline and still produce valid `predictions/utterances.jsonl`.
+9. Add `configs/inference/e2e_named_transcript.yaml` using existing config style.
+10. Create or update tests for this milestone only.
+11. Run at least one small external-stub full run through the Evaluation Tool if required dependencies and model assets are available.
+
+Validation checks to support or report:
+- End-to-end WER/CER from the existing evaluator.
+- Speaker label accuracy where labels exist.
+- False known-speaker assignment rate.
+- Unknown rate.
+- Chronological ordering violations.
+- Pipeline RTF and per-stage runtime breakdown.
+
+Testing expectations:
+- Add focused tests in `tests/inference_pipeline/test_pipeline_e2e.py`.
+- Prefer lightweight deterministic fakes/mocks for ASR/VAD/speaker components if real model assets are unavailable.
+- Ensure the tests verify:
+  - `inference_audio_path` is used.
+  - `recording_id` and `utt_id` are preserved exactly.
+  - `start_sec` and `end_sec` are preserved when present.
+  - merged transcript text is chronological and does not duplicate chunk text.
+  - output can be serialized into the existing prediction format.
+  - diagnostics are written separately and do not break `predictions/utterances.jsonl`.
+  - `ExternalStubRunner` can call the real pipeline path.
+
+Commands to run, adjusting only if the repo uses a different test command discovered during inspection:
+
+cd /Users/billy/Documents/just-peachy
+git checkout -b m13
+source .venv/bin/activate
+cd "Software Validation from Datasets/Evaluation Tool"
+python -m pytest tests/inference_pipeline/test_pipeline_e2e.py
+
+Then run the smallest available smoke/full Evaluation Tool external-stub command you can identify from the existing docs or scripts. Use the existing CLI/run pattern; do not invent a new runner interface. If no runnable smoke command exists or required assets are missing, stop and report that blocker clearly.
+
+Stop and report blockers if:
+- required Python dependencies are missing and cannot be installed safely,
+- required model assets are unavailable,
+- there is no discoverable smoke dataset/config to run,
+- existing APIs conflict with the milestone contract.
+
+Required report:
+Write `Software Validation from Datasets/Evaluation Tool/reports/milestones/M13_e2e_named_transcript_report.md`.
+
+The report must briefly summarize:
+- what changed,
+- files touched,
+- how the pipeline is invoked,
+- diagnostics written,
+- tests run and exact commands,
+- smoke run result or blocker,
+- current metric output if available,
+- remaining incomplete work or assumptions.
+
+Also write a high-level summary in the milestone reports folder as part of that report. Keep the implementation scoped strictly to M13.

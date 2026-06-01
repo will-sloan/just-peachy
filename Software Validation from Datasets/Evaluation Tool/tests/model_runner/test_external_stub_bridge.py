@@ -3,6 +3,9 @@ from __future__ import annotations
 import logging
 from pathlib import Path
 
+import numpy as np
+import soundfile as sf
+
 from app.inference_pipeline.contracts import PipelineOutput
 from app.inference_pipeline.dummy_components import (
     DEFAULT_DUMMY_TEXT,
@@ -17,6 +20,14 @@ from app.prediction_io.schema import UtterancePrediction
 
 
 LOGGER = logging.getLogger(__name__)
+
+
+def write_wav(path: Path, duration_sec: float = 4.0) -> Path:
+    sample_rate = 16000
+    t = np.linspace(0.0, duration_sec, int(sample_rate * duration_sec), endpoint=False)
+    waveform = 0.25 * np.sin(2.0 * np.pi * 440.0 * t)
+    sf.write(path, waveform.astype(np.float32), sample_rate)
+    return path
 
 
 def sample_record(audio_path: Path) -> dict[str, object]:
@@ -82,7 +93,7 @@ def test_external_stub_predict_one_calls_pipeline_and_returns_prediction(tmp_pat
 
 
 def test_default_dummy_pipeline_output_is_deterministic(tmp_path: Path) -> None:
-    record = sample_record(tmp_path / "input.wav")
+    record = sample_record(write_wav(tmp_path / "input.wav"))
     runner = ExternalStubRunner()
 
     first = runner.predict_one(dict(record), {}, LOGGER)
@@ -91,7 +102,7 @@ def test_default_dummy_pipeline_output_is_deterministic(tmp_path: Path) -> None:
     assert first.text == DEFAULT_DUMMY_TEXT
     assert second.text == DEFAULT_DUMMY_TEXT
     assert first == second
-    assert first.speaker_label is None
+    assert first.speaker_label == "Unknown"
 
 
 def test_pipeline_reads_inference_audio_path_not_fallback(tmp_path: Path) -> None:
@@ -120,7 +131,7 @@ def test_pipeline_reads_inference_audio_path_not_fallback(tmp_path: Path) -> Non
 def test_external_stub_run_batch_writes_schema_compatible_jsonl(tmp_path: Path) -> None:
     run_dir = tmp_path / "run"
     predictions_dir = run_dir / "predictions"
-    audio_path = tmp_path / "input.wav"
+    audio_path = write_wav(tmp_path / "input.wav")
     records = [sample_record(audio_path)]
     run_config = {
         "project_root": str(tmp_path),
@@ -142,7 +153,8 @@ def test_external_stub_run_batch_writes_schema_compatible_jsonl(tmp_path: Path) 
             "utt_id": "utt:001",
             "start_sec": 1.25,
             "end_sec": 3.5,
-            "speaker_label": None,
+            "speaker_label": "Unknown",
             "text": DEFAULT_DUMMY_TEXT,
         }
     ]
+    assert (predictions_dir / "diagnostics.jsonl").is_file()

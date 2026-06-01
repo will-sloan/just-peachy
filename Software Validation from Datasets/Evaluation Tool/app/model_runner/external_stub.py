@@ -1,13 +1,10 @@
-"""Stub external model runner.
-
-The evaluator only requires a standardized ``UtterancePrediction`` back.
-M4 routes this runner through a dummy modular pipeline before real models exist.
-"""
+"""External model runner integration point."""
 
 from __future__ import annotations
 
 import logging
 from pathlib import Path
+from typing import Any
 
 from app.inference_pipeline.pipeline import PipelineRunner
 from app.model_runner.base import ModelRunner
@@ -21,8 +18,15 @@ class ExternalStubRunner(ModelRunner):
 
     name = "external_stub"
 
-    def __init__(self, pipeline_runner: PipelineRunner | None = None) -> None:
-        self.pipeline_runner = pipeline_runner or PipelineRunner.with_dummy_components()
+    def __init__(
+        self,
+        pipeline_runner: PipelineRunner | None = None,
+        *,
+        config_path: Path | str | None = None,
+    ) -> None:
+        self.pipeline_runner = pipeline_runner
+        self.config_path = Path(config_path) if config_path is not None else _default_config_path()
+        self._diagnostics_rows: list[dict[str, object]] = []
 
     def before_run(
         self,
@@ -81,12 +85,26 @@ class ExternalStubRunner(ModelRunner):
             "Its persisted manifest records project-relative audio paths and ids.\n"
             "For augmented runs, predict_one() receives record['inference_audio_path'],\n"
             "which points at a temporary augmented WAV valid during that call.\n"
-            "The current stub calls a dummy modular pipeline that returns deterministic\n"
-            "placeholder transcript predictions so scoring can exercise the external\n"
-            "runner integration path before real model adapters exist.\n",
+            "The current runner calls the modular inference pipeline and writes\n"
+            "diagnostics.jsonl beside utterances.jsonl for debugging. The evaluator\n"
+            "contract remains predictions/utterances.jsonl.\n",
             encoding="utf-8",
         )
+        self._diagnostics_rows = []
         logger.info("Wrote external stub manifest with %d rows", len(records))
+
+    def after_run(
+        self,
+        result,
+        predictions_dir: Path,
+        run_config: dict[str, object],
+        logger: logging.Logger,
+    ) -> None:
+        _ = (result, run_config)
+        if not self._diagnostics_rows:
+            return
+        write_jsonl(predictions_dir / "diagnostics.jsonl", self._diagnostics_rows)
+        logger.info("Wrote external stub diagnostics with %d rows", len(self._diagnostics_rows))
 
     def predict_one(
         self,
@@ -94,7 +112,9 @@ class ExternalStubRunner(ModelRunner):
         run_config: dict[str, object],
         logger: logging.Logger,
     ) -> UtterancePrediction:
-        output = self.pipeline_runner.run_one(record, run_config, logger)
+        pipeline = self._pipeline_runner()
+        output = _run_pipeline(pipeline, record, run_config, logger)
+        self._diagnostics_rows.append(_diagnostics_row(output, pipeline))
         return UtterancePrediction(
             recording_id=output.recording_id,
             utt_id=output.utt_id,
@@ -103,3 +123,40 @@ class ExternalStubRunner(ModelRunner):
             speaker_label=output.speaker_label,
             text=output.text,
         )
+
+    def _pipeline_runner(self) -> PipelineRunner:
+        if self.pipeline_runner is None:
+            self.pipeline_runner = PipelineRunner.from_config_path(self.config_path)
+        return self.pipeline_runner
+
+
+def _run_pipeline(
+    pipeline: Any,
+    record: dict[str, object],
+    run_config: dict[str, object],
+    logger: logging.Logger,
+):
+    predict = getattr(pipeline, "predict", None)
+    if callable(predict):
+        return predict(record, run_config)
+    return pipeline.run_one(record, run_config, logger)
+
+
+def _diagnostics_row(output: Any, pipeline: Any) -> dict[str, object]:
+    diagnostics = getattr(output, "diagnostics", None)
+    if diagnostics is None:
+        diagnostics = getattr(pipeline, "last_diagnostics", None)
+    return {
+        "recording_id": output.recording_id,
+        "utt_id": output.utt_id,
+        "start_sec": output.start_sec,
+        "end_sec": output.end_sec,
+        "speaker_label": output.speaker_label,
+        "diagnostics": diagnostics or {},
+        "warnings": list(getattr(output, "warnings", ()) or ()),
+        "errors": list(getattr(output, "errors", ()) or ()),
+    }
+
+
+def _default_config_path() -> Path:
+    return Path(__file__).resolve().parents[2] / "configs" / "inference" / "e2e_named_transcript.yaml"

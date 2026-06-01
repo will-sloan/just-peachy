@@ -284,6 +284,7 @@ class PipelineOutput:
     transcript: ASRTranscript | None = None
     transcript_items: tuple[TranscriptItem, ...] = ()
     runtime_stats: RuntimeStats | None = None
+    diagnostics: JsonObject | None = None
     warnings: tuple[str, ...] = ()
     errors: tuple[str, ...] = ()
 
@@ -292,6 +293,12 @@ class PipelineOutput:
         _validate_required_identity("utt_id", self.utt_id)
         _validate_time_range(self.start_sec, self.end_sec, "PipelineOutput")
         object.__setattr__(self, "transcript_items", tuple(self.transcript_items))
+        if self.diagnostics is not None:
+            object.__setattr__(
+                self,
+                "diagnostics",
+                {str(key): _jsonable(value) for key, value in self.diagnostics.items()},
+            )
         object.__setattr__(self, "warnings", tuple(str(value) for value in self.warnings))
         object.__setattr__(self, "errors", tuple(str(value) for value in self.errors))
 
@@ -303,6 +310,7 @@ class PipelineOutput:
         speaker_decision: SpeakerDecision | None = None,
         runtime_stats: RuntimeStats | None = None,
         transcript_items: Sequence[TranscriptItem] = (),
+        diagnostics: Mapping[str, object] | None = None,
         warnings: Sequence[str] = (),
         errors: Sequence[str] = (),
     ) -> "PipelineOutput":
@@ -323,6 +331,11 @@ class PipelineOutput:
             transcript=transcript,
             transcript_items=tuple(transcript_items),
             runtime_stats=runtime_stats,
+            diagnostics=(
+                {str(key): _jsonable(value) for key, value in diagnostics.items()}
+                if diagnostics is not None
+                else None
+            ),
             warnings=tuple(warnings),
             errors=tuple(errors),
         ).validate_identity(record)
@@ -452,4 +465,3 @@ def _jsonable(value: object) -> JsonValue:
     if isinstance(value, Sequence) and not isinstance(value, str | bytes | bytearray):
         return [_jsonable(item) for item in value]
     return str(value)
-
