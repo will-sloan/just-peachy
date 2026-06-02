@@ -1,0 +1,165 @@
+
+You are working in the existing repository:
+
+/Users/billy/Documents/just-peachy
+
+Project root:
+Software Validation from Datasets
+
+Evaluation Tool root:
+Software Validation from Datasets/Evaluation Tool
+
+Create a new git branch named exactly `m16` before making changes, and operate wholly within that branch. First run `git status`; do not overwrite, revert, or stage unrelated user changes. Ensure you are using the repository root virtual environment at `.venv` for all tests and smoke checks.
+
+Milestone: M16 - All-Dataset and All-Augmentation Validation Battery
+
+Goal:
+Implement only this milestone: run controlled validation across CMU Arctic, LibriSpeech, HiFiTTS, AMI, VOiCES, and CHiME-6 using the existing Evaluation Tool and its existing simulation/augmentation support.
+
+Do not redesign the existing GUI, CLI, dataset registry, scorer, plotting, report generator, run folder system, or inference runner unless strictly required for this milestone.
+
+Important existing Evaluation Tool runner contract:
+- The inference integration point remains:
+  `Software Validation from Datasets/Evaluation Tool/app/model_runner/external_stub.py`
+- The runner receives one selected metadata row at a time.
+- The model must read `record["inference_audio_path"]`.
+- Preserve `recording_id` and `utt_id` exactly because scoring matches predictions on `(recording_id, utt_id)`.
+- Preserve `start_sec` and `end_sec` when present.
+- Required prediction output remains:
+  `predictions/utterances.jsonl`
+  with `recording_id`, `utt_id`, `start_sec`, `end_sec`, `speaker_label`, and `text`.
+- Do not break or change this contract.
+
+Before editing:
+1. Review the entire repository structurally.
+2. Inspect existing Evaluation Tool modules, especially:
+   - dataset registry and supported dataset keys
+   - dataset selection/loading
+   - augmentation config and runtime materialization
+   - run folder creation and artifact helpers
+   - scoring outputs and aggregate metrics
+   - plotting/report generation
+   - inference pipeline reporting from prior milestones
+   - existing sweep/config conventions
+   - tests
+   - existing milestone and validation reports
+3. Identify how current runs store configs, dataset selections, predictions, metrics, plots, reports, logs, and failures.
+4. Stop and report blockers if required normalized metadata, raw audio, dependencies, model assets, or dataset artifacts are unavailable.
+5. If full real dataset assets are unavailable in the current environment, still implement testable sweep parsing, aggregation, and dry/synthetic smoke coverage, but clearly report that full all-dataset execution was not validated.
+
+Target files to create or update:
+- `Software Validation from Datasets/Evaluation Tool/configs/sweeps/all_datasets_smoke.yaml`
+- `Software Validation from Datasets/Evaluation Tool/configs/sweeps/all_datasets_robustness.yaml`
+- `Software Validation from Datasets/Evaluation Tool/scripts/run_all_dataset_validation.py`
+- `Software Validation from Datasets/Evaluation Tool/reports/validation/all_dataset_validation_<run_id>.md`
+- Generated run folders under:
+  `Software Validation from Datasets/Evaluation Tool/runs/<generated_run_folders>/`
+
+Implementation requirements:
+- Create a smoke sweep with small `max_recordings` for every supported dataset:
+  - CMU Arctic
+  - LibriSpeech
+  - HiFiTTS
+  - AMI
+  - VOiCES
+  - CHiME-6
+- Create a robustness sweep with augmentation conditions and native-condition datasets.
+- Use the existing Evaluation Tool selection, augmentation, runner, scorer, plot, and reporting paths wherever possible.
+- Aggregate results across generated run folders.
+- Group metrics by:
+  - dataset
+  - augmentation condition
+  - SNR/noise/reverb metadata when present
+  - speaker labels where available
+  - runtime device
+- Identify likely failure modes and classify them where possible as:
+  - ASR
+  - VAD
+  - segmentation
+  - speaker matching
+  - data/artifact availability
+  - timeout/crash
+- Ensure every generated run has an isolated run folder and persisted config snapshot.
+- Preserve existing prediction schema and scoring identity fields.
+- Keep implementation small and reviewable; avoid broad abstractions beyond the validation battery’s needs.
+
+Evaluation metrics/reporting:
+- WER/CER by dataset and condition, when references are available.
+- Speaker label accuracy, false known rate, and Unknown rate where applicable.
+- Missing prediction count and missing prediction rate.
+- Crash/timeout rate.
+- Runtime real-time factor and memory by dataset condition, when available.
+- Stutter/repetition metrics by dataset condition when available.
+- Cross-dataset comparison table.
+- One report section per dataset.
+- Clear recommendations for next model/tooling changes based on failures.
+
+Required validation report:
+Create:
+
+`Software Validation from Datasets/Evaluation Tool/reports/validation/all_dataset_validation_<run_id>.md`
+
+The report must summarize:
+- Sweep config used.
+- Datasets attempted.
+- Dataset availability and blockers.
+- Generated run folders.
+- Per-dataset metrics.
+- Cross-dataset comparison table.
+- Augmentation/native-condition breakdowns.
+- Failure-mode classification.
+- Recommended next model/tooling changes.
+- Exact commands used for tests and smoke checks.
+- What remains incomplete or blocked.
+
+Also create or update a high-level milestone summary in:
+
+`Software Validation from Datasets/milestone/reports/M16_all_dataset_validation_report.md`
+
+Testing requirements:
+- Create or update tests for this milestone.
+- Tests should not require full real datasets.
+- Use temporary synthetic run folders and fixture metric artifacts where needed.
+- Test at minimum:
+  - smoke sweep config parses and includes all six datasets
+  - robustness sweep config parses and includes augmentation/native-condition coverage
+  - aggregation across multiple run folders
+  - grouping by dataset and condition
+  - missing/crashed/timeout run classification
+  - validation report generation with one section per dataset and a cross-dataset table
+  - no changes to the existing runner prediction contract
+
+Suggested commands, adapted only if the repo’s existing test layout requires it:
+
+```bash
+cd "/Users/billy/Documents/just-peachy"
+git status
+git checkout -b m16
+source .venv/bin/activate
+python -m pytest "Software Validation from Datasets/Evaluation Tool/tests"
+```
+
+Also run a focused smoke check for the all-dataset validation script. If full dataset assets are unavailable, run it in dry-run or fixture mode and include the exact command in the validation report.
+
+Constraints:
+- Implement only M16.
+- Avoid broad refactors.
+- Avoid changing unrelated files.
+- Preserve the Evaluation Tool runner contract and prediction schema.
+- Prefer existing project conventions.
+- Keep scope small enough for one person to review.
+- Do not introduce heavyweight dependencies unless already present or clearly necessary.
+- Do not download datasets or model assets unless explicitly approved.
+- If required normalized metadata, raw audio, CUDA tools, model assets, or full dataset artifacts are unavailable, stop or use a clearly marked dry/fixture mode and report the blocker honestly.
+
+Deliverables:
+1. All-dataset smoke sweep config.
+2. All-dataset robustness sweep config.
+3. All-dataset validation script.
+4. Tests added or updated.
+5. Validation report written at:
+   `Software Validation from Datasets/Evaluation Tool/reports/validation/all_dataset_validation_<run_id>.md`
+6. Generated run folders for any smoke/dry/fixture validation performed.
+7. High-level milestone summary written at:
+   `Software Validation from Datasets/milestone/reports/M16_all_dataset_validation_report.md`
+8. Final response summarizing implementation, blockers, and exact test/smoke-check commands run.

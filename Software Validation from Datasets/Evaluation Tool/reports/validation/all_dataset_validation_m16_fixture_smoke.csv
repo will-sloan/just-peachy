@@ -1,0 +1,7 @@
+dataset,dataset_display_name,attempted_runs,succeeded_runs,failed_runs,timed_out_runs,skipped_runs,wer,cer,speaker_label_accuracy,false_known_rate,unknown_rate,missing_prediction_count,missing_prediction_rate,crash_timeout_rate,realtime_factor,memory_peak_mb,stutter_repetition_rate,failure_modes
+cmu_arctic,CMU Arctic,1,1,0,0,0,0.16666666666666666,,0.5,0.0,0.5,0.0,0.0,0.0,0.25,256.0,0.14285714285714285,none
+librispeech,LibriSpeech,1,1,0,0,0,0.3333333333333333,,0.5,0.0,0.5,0.0,0.0,0.0,0.25,256.0,0.14285714285714285,none
+hifitts,HiFiTTS,1,1,0,0,0,0.16666666666666666,,0.5,0.0,0.5,0.0,0.0,0.0,0.25,256.0,0.14285714285714285,none
+ami,AMI Meeting Corpus,1,1,0,0,0,0.3333333333333333,,0.5,0.0,0.5,0.0,0.0,0.0,0.25,256.0,0.14285714285714285,none
+voices,VOiCES DevKit,1,1,0,0,0,0.16666666666666666,,0.5,0.0,0.5,0.0,0.0,0.0,0.25,256.0,0.14285714285714285,none
+chime6,CHiME-6,1,1,0,0,0,0.3333333333333333,,0.5,0.0,0.5,0.0,0.0,0.0,0.25,256.0,0.14285714285714285,none

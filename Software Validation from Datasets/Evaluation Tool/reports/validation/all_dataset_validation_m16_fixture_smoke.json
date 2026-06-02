@@ -1,0 +1,1438 @@
+{
+  "dataset_rollups": [
+    {
+      "attempted_runs": 1,
+      "cer": null,
+      "crash_timeout_rate": 0.0,
+      "dataset": "cmu_arctic",
+      "dataset_display_name": "CMU Arctic",
+      "failed_runs": 0,
+      "failure_modes": "none",
+      "false_known_rate": 0.0,
+      "memory_peak_mb": 256.0,
+      "missing_prediction_count": 0.0,
+      "missing_prediction_rate": 0.0,
+      "realtime_factor": 0.25,
+      "skipped_runs": 0,
+      "speaker_label_accuracy": 0.5,
+      "stutter_repetition_rate": 0.14285714285714285,
+      "succeeded_runs": 1,
+      "timed_out_runs": 0,
+      "unknown_rate": 0.5,
+      "wer": 0.16666666666666666
+    },
+    {
+      "attempted_runs": 1,
+      "cer": null,
+      "crash_timeout_rate": 0.0,
+      "dataset": "librispeech",
+      "dataset_display_name": "LibriSpeech",
+      "failed_runs": 0,
+      "failure_modes": "none",
+      "false_known_rate": 0.0,
+      "memory_peak_mb": 256.0,
+      "missing_prediction_count": 0.0,
+      "missing_prediction_rate": 0.0,
+      "realtime_factor": 0.25,
+      "skipped_runs": 0,
+      "speaker_label_accuracy": 0.5,
+      "stutter_repetition_rate": 0.14285714285714285,
+      "succeeded_runs": 1,
+      "timed_out_runs": 0,
+      "unknown_rate": 0.5,
+      "wer": 0.3333333333333333
+    },
+    {
+      "attempted_runs": 1,
+      "cer": null,
+      "crash_timeout_rate": 0.0,
+      "dataset": "hifitts",
+      "dataset_display_name": "HiFiTTS",
+      "failed_runs": 0,
+      "failure_modes": "none",
+      "false_known_rate": 0.0,
+      "memory_peak_mb": 256.0,
+      "missing_prediction_count": 0.0,
+      "missing_prediction_rate": 0.0,
+      "realtime_factor": 0.25,
+      "skipped_runs": 0,
+      "speaker_label_accuracy": 0.5,
+      "stutter_repetition_rate": 0.14285714285714285,
+      "succeeded_runs": 1,
+      "timed_out_runs": 0,
+      "unknown_rate": 0.5,
+      "wer": 0.16666666666666666
+    },
+    {
+      "attempted_runs": 1,
+      "cer": null,
+      "crash_timeout_rate": 0.0,
+      "dataset": "ami",
+      "dataset_display_name": "AMI Meeting Corpus",
+      "failed_runs": 0,
+      "failure_modes": "none",
+      "false_known_rate": 0.0,
+      "memory_peak_mb": 256.0,
+      "missing_prediction_count": 0.0,
+      "missing_prediction_rate": 0.0,
+      "realtime_factor": 0.25,
+      "skipped_runs": 0,
+      "speaker_label_accuracy": 0.5,
+      "stutter_repetition_rate": 0.14285714285714285,
+      "succeeded_runs": 1,
+      "timed_out_runs": 0,
+      "unknown_rate": 0.5,
+      "wer": 0.3333333333333333
+    },
+    {
+      "attempted_runs": 1,
+      "cer": null,
+      "crash_timeout_rate": 0.0,
+      "dataset": "voices",
+      "dataset_display_name": "VOiCES DevKit",
+      "failed_runs": 0,
+      "failure_modes": "none",
+      "false_known_rate": 0.0,
+      "memory_peak_mb": 256.0,
+      "missing_prediction_count": 0.0,
+      "missing_prediction_rate": 0.0,
+      "realtime_factor": 0.25,
+      "skipped_runs": 0,
+      "speaker_label_accuracy": 0.5,
+      "stutter_repetition_rate": 0.14285714285714285,
+      "succeeded_runs": 1,
+      "timed_out_runs": 0,
+      "unknown_rate": 0.5,
+      "wer": 0.16666666666666666
+    },
+    {
+      "attempted_runs": 1,
+      "cer": null,
+      "crash_timeout_rate": 0.0,
+      "dataset": "chime6",
+      "dataset_display_name": "CHiME-6",
+      "failed_runs": 0,
+      "failure_modes": "none",
+      "false_known_rate": 0.0,
+      "memory_peak_mb": 256.0,
+      "missing_prediction_count": 0.0,
+      "missing_prediction_rate": 0.0,
+      "realtime_factor": 0.25,
+      "skipped_runs": 0,
+      "speaker_label_accuracy": 0.5,
+      "stutter_repetition_rate": 0.14285714285714285,
+      "succeeded_runs": 1,
+      "timed_out_runs": 0,
+      "unknown_rate": 0.5,
+      "wer": 0.3333333333333333
+    }
+  ],
+  "dry_run_fixtures": true,
+  "failure_rate": 0.0,
+  "run_id": "m16_fixture_smoke",
+  "runs": [
+    {
+      "augmentation_mode": "none",
+      "blocker": null,
+      "command": [],
+      "condition_id": "clean",
+      "config_snapshot": {
+        "augmentation": {
+          "condition_id": "clean",
+          "conditions": [
+            {
+              "condition_id": "clean",
+              "mode": "none"
+            }
+          ],
+          "mode": "none",
+          "native_condition": false
+        },
+        "command": "m16_fixture",
+        "components": {
+          "asr": {
+            "enabled": true,
+            "name": "fixture_asr",
+            "params": {
+              "model_name": "m16-fixture-asr@1"
+            }
+          },
+          "speaker_matching": {
+            "enabled": true,
+            "name": "fixture_speaker_matching",
+            "params": {
+              "model_name": "m16-fixture-speaker@1"
+            }
+          }
+        },
+        "dataset": {
+          "dataset_id": "cmu_arctic",
+          "key": "cmu_arctic",
+          "name": "CMU Arctic",
+          "normalized_metadata_dir": "Normalized Metadata/CMU_Arctic"
+        },
+        "m16_validation_job": {
+          "augmentation": {
+            "mode": "none"
+          },
+          "condition_id": "clean",
+          "config_snapshot": {
+            "augmentation": {
+              "mode": "none"
+            },
+            "condition_id": "clean",
+            "dataset": "cmu_arctic",
+            "max_recordings": 1,
+            "native_condition": false,
+            "runner": "simulation",
+            "runtime_device": "cpu",
+            "simulation_mode": "perfect",
+            "subset_filters": {},
+            "sweep_config": "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/configs/sweeps/all_datasets_smoke.yaml"
+          },
+          "dataset": "cmu_arctic",
+          "expected_audio_duration_sec": null,
+          "job_id": "cmu_arctic_clean",
+          "label": "CMU Arctic clean smoke",
+          "max_recordings": 1,
+          "native_condition": false,
+          "runner": "simulation",
+          "runtime_device": "cpu",
+          "simulation_mode": "perfect",
+          "subset_filters": {},
+          "timeout_sec": 300.0
+        },
+        "prediction_contract": {
+          "minimum_file": "predictions/utterances.jsonl",
+          "required_fields": [
+            "recording_id",
+            "utt_id",
+            "start_sec",
+            "end_sec",
+            "speaker_label",
+            "text"
+          ]
+        },
+        "run_dir": "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/runs/all_dataset_validation/m16_fixture_smoke/cmu_arctic_clean/m16_fixture_smoke_cmu_arctic_clean",
+        "run_id": "m16_fixture_smoke",
+        "runner": {
+          "name": "simulation",
+          "simulation_mode": "perfect"
+        },
+        "runtime": {
+          "device": "cpu"
+        },
+        "selection": {
+          "max_recordings": 1,
+          "selected_recordings": 2,
+          "selected_source_recordings": 2,
+          "subset_filters": {},
+          "total_evaluation_duration_sec": 4.0,
+          "total_source_duration_sec": 4.0
+        }
+      },
+      "dataset": "cmu_arctic",
+      "dataset_display_name": "CMU Arctic",
+      "duration_sec": null,
+      "failure_mode": "none",
+      "group_metrics": {
+        "augmentation_condition_id": [
+          {
+            "aggregate_wer": "0.16666666666666666",
+            "augmentation_condition_id": "clean",
+            "errors": "1",
+            "file_count": "2",
+            "missing_predictions": "0",
+            "processed_predictions": "2",
+            "recordings": "2",
+            "reference_words": "6",
+            "speaker_label_accuracy": "0.5",
+            "total_duration_sec": "4.0"
+          }
+        ],
+        "runtime_device": [
+          {
+            "aggregate_wer": "0.16666666666666666",
+            "augmentation_condition_id": "clean",
+            "errors": "1",
+            "file_count": "2",
+            "missing_predictions": "0",
+            "processed_predictions": "2",
+            "recordings": "2",
+            "reference_words": "6",
+            "runtime_device": "cpu",
+            "speaker_label_accuracy": "0.5",
+            "total_duration_sec": "4.0"
+          }
+        ]
+      },
+      "job_id": "cmu_arctic_clean",
+      "metrics": {
+        "aggregate_wer": 0.16666666666666666,
+        "audio_missing": 0,
+        "augmentation_condition_id": "clean",
+        "augmentation_mode": "none",
+        "cer": null,
+        "deletions": 0,
+        "errors": 1,
+        "false_known_rate": 0.0,
+        "hypothesis_words": 7,
+        "insertions": 1,
+        "mean_recording_wer": 0.16666666666666666,
+        "memory_peak_mb": 256.0,
+        "missing_audio_count": 0,
+        "missing_prediction_count": 0,
+        "missing_prediction_rate": 0.0,
+        "missing_predictions": 0,
+        "prediction_rows": 2,
+        "processed_prediction_count": 2,
+        "processed_predictions": 2,
+        "realtime_factor_mean": 0.25,
+        "reference_words": 6,
+        "runtime_audio_duration_sec": 4.0,
+        "runtime_device": "cpu",
+        "runtime_total_sec": 1.0,
+        "scored_duration_sec": 4.0,
+        "selected_evaluation_items": 2,
+        "selected_recording_count": 2,
+        "selected_recordings": 2,
+        "speaker_label_accuracy": 0.5,
+        "speaker_label_matches": 1,
+        "speaker_label_scored": 2,
+        "stutter_repetition_rate": 0.14285714285714285,
+        "substitutions": 1,
+        "total_duration_sec": 4.0,
+        "unknown_rate": 0.5
+      },
+      "model_identifiers": {
+        "asr": "m16-fixture-asr@1",
+        "runner": "simulation",
+        "speaker_matching": "m16-fixture-speaker@1"
+      },
+      "native_condition": false,
+      "run_dir": "runs/all_dataset_validation/m16_fixture_smoke/cmu_arctic_clean/m16_fixture_smoke_cmu_arctic_clean",
+      "run_id": "m16_fixture_smoke",
+      "runtime_device": "cpu",
+      "status": "succeeded"
+    },
+    {
+      "augmentation_mode": "none",
+      "blocker": null,
+      "command": [],
+      "condition_id": "clean",
+      "config_snapshot": {
+        "augmentation": {
+          "condition_id": "clean",
+          "conditions": [
+            {
+              "condition_id": "clean",
+              "mode": "none"
+            }
+          ],
+          "mode": "none",
+          "native_condition": false
+        },
+        "command": "m16_fixture",
+        "components": {
+          "asr": {
+            "enabled": true,
+            "name": "fixture_asr",
+            "params": {
+              "model_name": "m16-fixture-asr@1"
+            }
+          },
+          "speaker_matching": {
+            "enabled": true,
+            "name": "fixture_speaker_matching",
+            "params": {
+              "model_name": "m16-fixture-speaker@1"
+            }
+          }
+        },
+        "dataset": {
+          "dataset_id": "librispeech",
+          "key": "librispeech",
+          "name": "LibriSpeech",
+          "normalized_metadata_dir": "Normalized Metadata/LibriSpeech"
+        },
+        "m16_validation_job": {
+          "augmentation": {
+            "mode": "none"
+          },
+          "condition_id": "clean",
+          "config_snapshot": {
+            "augmentation": {
+              "mode": "none"
+            },
+            "condition_id": "clean",
+            "dataset": "librispeech",
+            "max_recordings": 1,
+            "native_condition": false,
+            "runner": "simulation",
+            "runtime_device": "cpu",
+            "simulation_mode": "perfect",
+            "subset_filters": {},
+            "sweep_config": "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/configs/sweeps/all_datasets_smoke.yaml"
+          },
+          "dataset": "librispeech",
+          "expected_audio_duration_sec": null,
+          "job_id": "librispeech_clean",
+          "label": "LibriSpeech clean smoke",
+          "max_recordings": 1,
+          "native_condition": false,
+          "runner": "simulation",
+          "runtime_device": "cpu",
+          "simulation_mode": "perfect",
+          "subset_filters": {},
+          "timeout_sec": 300.0
+        },
+        "prediction_contract": {
+          "minimum_file": "predictions/utterances.jsonl",
+          "required_fields": [
+            "recording_id",
+            "utt_id",
+            "start_sec",
+            "end_sec",
+            "speaker_label",
+            "text"
+          ]
+        },
+        "run_dir": "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/runs/all_dataset_validation/m16_fixture_smoke/librispeech_clean/m16_fixture_smoke_librispeech_clean",
+        "run_id": "m16_fixture_smoke",
+        "runner": {
+          "name": "simulation",
+          "simulation_mode": "perfect"
+        },
+        "runtime": {
+          "device": "cpu"
+        },
+        "selection": {
+          "max_recordings": 1,
+          "selected_recordings": 2,
+          "selected_source_recordings": 2,
+          "subset_filters": {},
+          "total_evaluation_duration_sec": 4.0,
+          "total_source_duration_sec": 4.0
+        }
+      },
+      "dataset": "librispeech",
+      "dataset_display_name": "LibriSpeech",
+      "duration_sec": null,
+      "failure_mode": "none",
+      "group_metrics": {
+        "augmentation_condition_id": [
+          {
+            "aggregate_wer": "0.3333333333333333",
+            "augmentation_condition_id": "clean",
+            "errors": "2",
+            "file_count": "2",
+            "missing_predictions": "0",
+            "processed_predictions": "2",
+            "recordings": "2",
+            "reference_words": "6",
+            "speaker_label_accuracy": "0.5",
+            "total_duration_sec": "4.0"
+          }
+        ],
+        "runtime_device": [
+          {
+            "aggregate_wer": "0.3333333333333333",
+            "augmentation_condition_id": "clean",
+            "errors": "2",
+            "file_count": "2",
+            "missing_predictions": "0",
+            "processed_predictions": "2",
+            "recordings": "2",
+            "reference_words": "6",
+            "runtime_device": "cpu",
+            "speaker_label_accuracy": "0.5",
+            "total_duration_sec": "4.0"
+          }
+        ]
+      },
+      "job_id": "librispeech_clean",
+      "metrics": {
+        "aggregate_wer": 0.3333333333333333,
+        "audio_missing": 0,
+        "augmentation_condition_id": "clean",
+        "augmentation_mode": "none",
+        "cer": null,
+        "deletions": 0,
+        "errors": 2,
+        "false_known_rate": 0.0,
+        "hypothesis_words": 7,
+        "insertions": 1,
+        "mean_recording_wer": 0.3333333333333333,
+        "memory_peak_mb": 256.0,
+        "missing_audio_count": 0,
+        "missing_prediction_count": 0,
+        "missing_prediction_rate": 0.0,
+        "missing_predictions": 0,
+        "prediction_rows": 2,
+        "processed_prediction_count": 2,
+        "processed_predictions": 2,
+        "realtime_factor_mean": 0.25,
+        "reference_words": 6,
+        "runtime_audio_duration_sec": 4.0,
+        "runtime_device": "cpu",
+        "runtime_total_sec": 1.0,
+        "scored_duration_sec": 4.0,
+        "selected_evaluation_items": 2,
+        "selected_recording_count": 2,
+        "selected_recordings": 2,
+        "speaker_label_accuracy": 0.5,
+        "speaker_label_matches": 1,
+        "speaker_label_scored": 2,
+        "stutter_repetition_rate": 0.14285714285714285,
+        "substitutions": 2,
+        "total_duration_sec": 4.0,
+        "unknown_rate": 0.5
+      },
+      "model_identifiers": {
+        "asr": "m16-fixture-asr@1",
+        "runner": "simulation",
+        "speaker_matching": "m16-fixture-speaker@1"
+      },
+      "native_condition": false,
+      "run_dir": "runs/all_dataset_validation/m16_fixture_smoke/librispeech_clean/m16_fixture_smoke_librispeech_clean",
+      "run_id": "m16_fixture_smoke",
+      "runtime_device": "cpu",
+      "status": "succeeded"
+    },
+    {
+      "augmentation_mode": "none",
+      "blocker": null,
+      "command": [],
+      "condition_id": "clean",
+      "config_snapshot": {
+        "augmentation": {
+          "condition_id": "clean",
+          "conditions": [
+            {
+              "condition_id": "clean",
+              "mode": "none"
+            }
+          ],
+          "mode": "none",
+          "native_condition": false
+        },
+        "command": "m16_fixture",
+        "components": {
+          "asr": {
+            "enabled": true,
+            "name": "fixture_asr",
+            "params": {
+              "model_name": "m16-fixture-asr@1"
+            }
+          },
+          "speaker_matching": {
+            "enabled": true,
+            "name": "fixture_speaker_matching",
+            "params": {
+              "model_name": "m16-fixture-speaker@1"
+            }
+          }
+        },
+        "dataset": {
+          "dataset_id": "hifitts",
+          "key": "hifitts",
+          "name": "HiFiTTS",
+          "normalized_metadata_dir": "Normalized Metadata/HiFiTTS"
+        },
+        "m16_validation_job": {
+          "augmentation": {
+            "mode": "none"
+          },
+          "condition_id": "clean",
+          "config_snapshot": {
+            "augmentation": {
+              "mode": "none"
+            },
+            "condition_id": "clean",
+            "dataset": "hifitts",
+            "max_recordings": 1,
+            "native_condition": false,
+            "runner": "simulation",
+            "runtime_device": "cpu",
+            "simulation_mode": "perfect",
+            "subset_filters": {},
+            "sweep_config": "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/configs/sweeps/all_datasets_smoke.yaml"
+          },
+          "dataset": "hifitts",
+          "expected_audio_duration_sec": null,
+          "job_id": "hifitts_clean",
+          "label": "HiFiTTS clean smoke",
+          "max_recordings": 1,
+          "native_condition": false,
+          "runner": "simulation",
+          "runtime_device": "cpu",
+          "simulation_mode": "perfect",
+          "subset_filters": {},
+          "timeout_sec": 300.0
+        },
+        "prediction_contract": {
+          "minimum_file": "predictions/utterances.jsonl",
+          "required_fields": [
+            "recording_id",
+            "utt_id",
+            "start_sec",
+            "end_sec",
+            "speaker_label",
+            "text"
+          ]
+        },
+        "run_dir": "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/runs/all_dataset_validation/m16_fixture_smoke/hifitts_clean/m16_fixture_smoke_hifitts_clean",
+        "run_id": "m16_fixture_smoke",
+        "runner": {
+          "name": "simulation",
+          "simulation_mode": "perfect"
+        },
+        "runtime": {
+          "device": "cpu"
+        },
+        "selection": {
+          "max_recordings": 1,
+          "selected_recordings": 2,
+          "selected_source_recordings": 2,
+          "subset_filters": {},
+          "total_evaluation_duration_sec": 4.0,
+          "total_source_duration_sec": 4.0
+        }
+      },
+      "dataset": "hifitts",
+      "dataset_display_name": "HiFiTTS",
+      "duration_sec": null,
+      "failure_mode": "none",
+      "group_metrics": {
+        "augmentation_condition_id": [
+          {
+            "aggregate_wer": "0.16666666666666666",
+            "augmentation_condition_id": "clean",
+            "errors": "1",
+            "file_count": "2",
+            "missing_predictions": "0",
+            "processed_predictions": "2",
+            "recordings": "2",
+            "reference_words": "6",
+            "speaker_label_accuracy": "0.5",
+            "total_duration_sec": "4.0"
+          }
+        ],
+        "runtime_device": [
+          {
+            "aggregate_wer": "0.16666666666666666",
+            "augmentation_condition_id": "clean",
+            "errors": "1",
+            "file_count": "2",
+            "missing_predictions": "0",
+            "processed_predictions": "2",
+            "recordings": "2",
+            "reference_words": "6",
+            "runtime_device": "cpu",
+            "speaker_label_accuracy": "0.5",
+            "total_duration_sec": "4.0"
+          }
+        ]
+      },
+      "job_id": "hifitts_clean",
+      "metrics": {
+        "aggregate_wer": 0.16666666666666666,
+        "audio_missing": 0,
+        "augmentation_condition_id": "clean",
+        "augmentation_mode": "none",
+        "cer": null,
+        "deletions": 0,
+        "errors": 1,
+        "false_known_rate": 0.0,
+        "hypothesis_words": 7,
+        "insertions": 1,
+        "mean_recording_wer": 0.16666666666666666,
+        "memory_peak_mb": 256.0,
+        "missing_audio_count": 0,
+        "missing_prediction_count": 0,
+        "missing_prediction_rate": 0.0,
+        "missing_predictions": 0,
+        "prediction_rows": 2,
+        "processed_prediction_count": 2,
+        "processed_predictions": 2,
+        "realtime_factor_mean": 0.25,
+        "reference_words": 6,
+        "runtime_audio_duration_sec": 4.0,
+        "runtime_device": "cpu",
+        "runtime_total_sec": 1.0,
+        "scored_duration_sec": 4.0,
+        "selected_evaluation_items": 2,
+        "selected_recording_count": 2,
+        "selected_recordings": 2,
+        "speaker_label_accuracy": 0.5,
+        "speaker_label_matches": 1,
+        "speaker_label_scored": 2,
+        "stutter_repetition_rate": 0.14285714285714285,
+        "substitutions": 1,
+        "total_duration_sec": 4.0,
+        "unknown_rate": 0.5
+      },
+      "model_identifiers": {
+        "asr": "m16-fixture-asr@1",
+        "runner": "simulation",
+        "speaker_matching": "m16-fixture-speaker@1"
+      },
+      "native_condition": false,
+      "run_dir": "runs/all_dataset_validation/m16_fixture_smoke/hifitts_clean/m16_fixture_smoke_hifitts_clean",
+      "run_id": "m16_fixture_smoke",
+      "runtime_device": "cpu",
+      "status": "succeeded"
+    },
+    {
+      "augmentation_mode": "none",
+      "blocker": null,
+      "command": [],
+      "condition_id": "native_meeting",
+      "config_snapshot": {
+        "augmentation": {
+          "condition_id": "native_meeting",
+          "conditions": [
+            {
+              "condition_id": "native_meeting",
+              "mode": "none"
+            }
+          ],
+          "mode": "none",
+          "native_condition": true
+        },
+        "command": "m16_fixture",
+        "components": {
+          "asr": {
+            "enabled": true,
+            "name": "fixture_asr",
+            "params": {
+              "model_name": "m16-fixture-asr@1"
+            }
+          },
+          "speaker_matching": {
+            "enabled": true,
+            "name": "fixture_speaker_matching",
+            "params": {
+              "model_name": "m16-fixture-speaker@1"
+            }
+          }
+        },
+        "dataset": {
+          "dataset_id": "ami",
+          "key": "ami",
+          "name": "AMI Meeting Corpus",
+          "normalized_metadata_dir": "Normalized Metadata/AMI"
+        },
+        "m16_validation_job": {
+          "augmentation": {
+            "mode": "none"
+          },
+          "condition_id": "native_meeting",
+          "config_snapshot": {
+            "augmentation": {
+              "mode": "none"
+            },
+            "condition_id": "native_meeting",
+            "dataset": "ami",
+            "max_recordings": 1,
+            "native_condition": true,
+            "runner": "simulation",
+            "runtime_device": "cpu",
+            "simulation_mode": "perfect",
+            "subset_filters": {},
+            "sweep_config": "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/configs/sweeps/all_datasets_smoke.yaml"
+          },
+          "dataset": "ami",
+          "expected_audio_duration_sec": null,
+          "job_id": "ami_native_meeting",
+          "label": "AMI native-condition smoke",
+          "max_recordings": 1,
+          "native_condition": true,
+          "runner": "simulation",
+          "runtime_device": "cpu",
+          "simulation_mode": "perfect",
+          "subset_filters": {},
+          "timeout_sec": 300.0
+        },
+        "prediction_contract": {
+          "minimum_file": "predictions/utterances.jsonl",
+          "required_fields": [
+            "recording_id",
+            "utt_id",
+            "start_sec",
+            "end_sec",
+            "speaker_label",
+            "text"
+          ]
+        },
+        "run_dir": "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/runs/all_dataset_validation/m16_fixture_smoke/ami_native_meeting/m16_fixture_smoke_ami_native_meeting",
+        "run_id": "m16_fixture_smoke",
+        "runner": {
+          "name": "simulation",
+          "simulation_mode": "perfect"
+        },
+        "runtime": {
+          "device": "cpu"
+        },
+        "selection": {
+          "max_recordings": 1,
+          "selected_recordings": 2,
+          "selected_source_recordings": 2,
+          "subset_filters": {},
+          "total_evaluation_duration_sec": 4.0,
+          "total_source_duration_sec": 4.0
+        }
+      },
+      "dataset": "ami",
+      "dataset_display_name": "AMI Meeting Corpus",
+      "duration_sec": null,
+      "failure_mode": "none",
+      "group_metrics": {
+        "augmentation_condition_id": [
+          {
+            "aggregate_wer": "0.3333333333333333",
+            "augmentation_condition_id": "native_meeting",
+            "errors": "2",
+            "file_count": "2",
+            "missing_predictions": "0",
+            "processed_predictions": "2",
+            "recordings": "2",
+            "reference_words": "6",
+            "speaker_label_accuracy": "0.5",
+            "total_duration_sec": "4.0"
+          }
+        ],
+        "runtime_device": [
+          {
+            "aggregate_wer": "0.3333333333333333",
+            "augmentation_condition_id": "native_meeting",
+            "errors": "2",
+            "file_count": "2",
+            "missing_predictions": "0",
+            "processed_predictions": "2",
+            "recordings": "2",
+            "reference_words": "6",
+            "runtime_device": "cpu",
+            "speaker_label_accuracy": "0.5",
+            "total_duration_sec": "4.0"
+          }
+        ]
+      },
+      "job_id": "ami_native_meeting",
+      "metrics": {
+        "aggregate_wer": 0.3333333333333333,
+        "audio_missing": 0,
+        "augmentation_condition_id": "native_meeting",
+        "augmentation_mode": "none",
+        "cer": null,
+        "deletions": 0,
+        "errors": 2,
+        "false_known_rate": 0.0,
+        "hypothesis_words": 7,
+        "insertions": 1,
+        "mean_recording_wer": 0.3333333333333333,
+        "memory_peak_mb": 256.0,
+        "missing_audio_count": 0,
+        "missing_prediction_count": 0,
+        "missing_prediction_rate": 0.0,
+        "missing_predictions": 0,
+        "prediction_rows": 2,
+        "processed_prediction_count": 2,
+        "processed_predictions": 2,
+        "realtime_factor_mean": 0.25,
+        "reference_words": 6,
+        "runtime_audio_duration_sec": 4.0,
+        "runtime_device": "cpu",
+        "runtime_total_sec": 1.0,
+        "scored_duration_sec": 4.0,
+        "selected_evaluation_items": 2,
+        "selected_recording_count": 2,
+        "selected_recordings": 2,
+        "speaker_label_accuracy": 0.5,
+        "speaker_label_matches": 1,
+        "speaker_label_scored": 2,
+        "stutter_repetition_rate": 0.14285714285714285,
+        "substitutions": 2,
+        "total_duration_sec": 4.0,
+        "unknown_rate": 0.5
+      },
+      "model_identifiers": {
+        "asr": "m16-fixture-asr@1",
+        "runner": "simulation",
+        "speaker_matching": "m16-fixture-speaker@1"
+      },
+      "native_condition": true,
+      "run_dir": "runs/all_dataset_validation/m16_fixture_smoke/ami_native_meeting/m16_fixture_smoke_ami_native_meeting",
+      "run_id": "m16_fixture_smoke",
+      "runtime_device": "cpu",
+      "status": "succeeded"
+    },
+    {
+      "augmentation_mode": "none",
+      "blocker": null,
+      "command": [],
+      "condition_id": "native_farfield",
+      "config_snapshot": {
+        "augmentation": {
+          "condition_id": "native_farfield",
+          "conditions": [
+            {
+              "condition_id": "native_farfield",
+              "mode": "none"
+            }
+          ],
+          "mode": "none",
+          "native_condition": true
+        },
+        "command": "m16_fixture",
+        "components": {
+          "asr": {
+            "enabled": true,
+            "name": "fixture_asr",
+            "params": {
+              "model_name": "m16-fixture-asr@1"
+            }
+          },
+          "speaker_matching": {
+            "enabled": true,
+            "name": "fixture_speaker_matching",
+            "params": {
+              "model_name": "m16-fixture-speaker@1"
+            }
+          }
+        },
+        "dataset": {
+          "dataset_id": "voices",
+          "key": "voices",
+          "name": "VOiCES DevKit",
+          "normalized_metadata_dir": "Normalized Metadata/VOiCES"
+        },
+        "m16_validation_job": {
+          "augmentation": {
+            "mode": "none"
+          },
+          "condition_id": "native_farfield",
+          "config_snapshot": {
+            "augmentation": {
+              "mode": "none"
+            },
+            "condition_id": "native_farfield",
+            "dataset": "voices",
+            "max_recordings": 1,
+            "native_condition": true,
+            "runner": "simulation",
+            "runtime_device": "cpu",
+            "simulation_mode": "perfect",
+            "subset_filters": {},
+            "sweep_config": "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/configs/sweeps/all_datasets_smoke.yaml"
+          },
+          "dataset": "voices",
+          "expected_audio_duration_sec": null,
+          "job_id": "voices_native_farfield",
+          "label": "VOiCES native-condition smoke",
+          "max_recordings": 1,
+          "native_condition": true,
+          "runner": "simulation",
+          "runtime_device": "cpu",
+          "simulation_mode": "perfect",
+          "subset_filters": {},
+          "timeout_sec": 300.0
+        },
+        "prediction_contract": {
+          "minimum_file": "predictions/utterances.jsonl",
+          "required_fields": [
+            "recording_id",
+            "utt_id",
+            "start_sec",
+            "end_sec",
+            "speaker_label",
+            "text"
+          ]
+        },
+        "run_dir": "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/runs/all_dataset_validation/m16_fixture_smoke/voices_native_farfield/m16_fixture_smoke_voices_native_farfield",
+        "run_id": "m16_fixture_smoke",
+        "runner": {
+          "name": "simulation",
+          "simulation_mode": "perfect"
+        },
+        "runtime": {
+          "device": "cpu"
+        },
+        "selection": {
+          "max_recordings": 1,
+          "selected_recordings": 2,
+          "selected_source_recordings": 2,
+          "subset_filters": {},
+          "total_evaluation_duration_sec": 4.0,
+          "total_source_duration_sec": 4.0
+        }
+      },
+      "dataset": "voices",
+      "dataset_display_name": "VOiCES DevKit",
+      "duration_sec": null,
+      "failure_mode": "none",
+      "group_metrics": {
+        "augmentation_condition_id": [
+          {
+            "aggregate_wer": "0.16666666666666666",
+            "augmentation_condition_id": "native_farfield",
+            "errors": "1",
+            "file_count": "2",
+            "missing_predictions": "0",
+            "processed_predictions": "2",
+            "recordings": "2",
+            "reference_words": "6",
+            "speaker_label_accuracy": "0.5",
+            "total_duration_sec": "4.0"
+          }
+        ],
+        "runtime_device": [
+          {
+            "aggregate_wer": "0.16666666666666666",
+            "augmentation_condition_id": "native_farfield",
+            "errors": "1",
+            "file_count": "2",
+            "missing_predictions": "0",
+            "processed_predictions": "2",
+            "recordings": "2",
+            "reference_words": "6",
+            "runtime_device": "cpu",
+            "speaker_label_accuracy": "0.5",
+            "total_duration_sec": "4.0"
+          }
+        ]
+      },
+      "job_id": "voices_native_farfield",
+      "metrics": {
+        "aggregate_wer": 0.16666666666666666,
+        "audio_missing": 0,
+        "augmentation_condition_id": "native_farfield",
+        "augmentation_mode": "none",
+        "cer": null,
+        "deletions": 0,
+        "errors": 1,
+        "false_known_rate": 0.0,
+        "hypothesis_words": 7,
+        "insertions": 1,
+        "mean_recording_wer": 0.16666666666666666,
+        "memory_peak_mb": 256.0,
+        "missing_audio_count": 0,
+        "missing_prediction_count": 0,
+        "missing_prediction_rate": 0.0,
+        "missing_predictions": 0,
+        "prediction_rows": 2,
+        "processed_prediction_count": 2,
+        "processed_predictions": 2,
+        "realtime_factor_mean": 0.25,
+        "reference_words": 6,
+        "runtime_audio_duration_sec": 4.0,
+        "runtime_device": "cpu",
+        "runtime_total_sec": 1.0,
+        "scored_duration_sec": 4.0,
+        "selected_evaluation_items": 2,
+        "selected_recording_count": 2,
+        "selected_recordings": 2,
+        "speaker_label_accuracy": 0.5,
+        "speaker_label_matches": 1,
+        "speaker_label_scored": 2,
+        "stutter_repetition_rate": 0.14285714285714285,
+        "substitutions": 1,
+        "total_duration_sec": 4.0,
+        "unknown_rate": 0.5
+      },
+      "model_identifiers": {
+        "asr": "m16-fixture-asr@1",
+        "runner": "simulation",
+        "speaker_matching": "m16-fixture-speaker@1"
+      },
+      "native_condition": true,
+      "run_dir": "runs/all_dataset_validation/m16_fixture_smoke/voices_native_farfield/m16_fixture_smoke_voices_native_farfield",
+      "run_id": "m16_fixture_smoke",
+      "runtime_device": "cpu",
+      "status": "succeeded"
+    },
+    {
+      "augmentation_mode": "none",
+      "blocker": null,
+      "command": [],
+      "condition_id": "native_farfield",
+      "config_snapshot": {
+        "augmentation": {
+          "condition_id": "native_farfield",
+          "conditions": [
+            {
+              "condition_id": "native_farfield",
+              "mode": "none"
+            }
+          ],
+          "mode": "none",
+          "native_condition": true
+        },
+        "command": "m16_fixture",
+        "components": {
+          "asr": {
+            "enabled": true,
+            "name": "fixture_asr",
+            "params": {
+              "model_name": "m16-fixture-asr@1"
+            }
+          },
+          "speaker_matching": {
+            "enabled": true,
+            "name": "fixture_speaker_matching",
+            "params": {
+              "model_name": "m16-fixture-speaker@1"
+            }
+          }
+        },
+        "dataset": {
+          "dataset_id": "chime6",
+          "key": "chime6",
+          "name": "CHiME-6",
+          "normalized_metadata_dir": "Normalized Metadata/CHiME_6"
+        },
+        "m16_validation_job": {
+          "augmentation": {
+            "mode": "none"
+          },
+          "condition_id": "native_farfield",
+          "config_snapshot": {
+            "augmentation": {
+              "mode": "none"
+            },
+            "condition_id": "native_farfield",
+            "dataset": "chime6",
+            "max_recordings": 1,
+            "native_condition": true,
+            "runner": "simulation",
+            "runtime_device": "cpu",
+            "simulation_mode": "perfect",
+            "subset_filters": {},
+            "sweep_config": "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/configs/sweeps/all_datasets_smoke.yaml"
+          },
+          "dataset": "chime6",
+          "expected_audio_duration_sec": null,
+          "job_id": "chime6_native_farfield",
+          "label": "CHiME-6 native-condition smoke",
+          "max_recordings": 1,
+          "native_condition": true,
+          "runner": "simulation",
+          "runtime_device": "cpu",
+          "simulation_mode": "perfect",
+          "subset_filters": {},
+          "timeout_sec": 300.0
+        },
+        "prediction_contract": {
+          "minimum_file": "predictions/utterances.jsonl",
+          "required_fields": [
+            "recording_id",
+            "utt_id",
+            "start_sec",
+            "end_sec",
+            "speaker_label",
+            "text"
+          ]
+        },
+        "run_dir": "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/runs/all_dataset_validation/m16_fixture_smoke/chime6_native_farfield/m16_fixture_smoke_chime6_native_farfield",
+        "run_id": "m16_fixture_smoke",
+        "runner": {
+          "name": "simulation",
+          "simulation_mode": "perfect"
+        },
+        "runtime": {
+          "device": "cpu"
+        },
+        "selection": {
+          "max_recordings": 1,
+          "selected_recordings": 2,
+          "selected_source_recordings": 2,
+          "subset_filters": {},
+          "total_evaluation_duration_sec": 4.0,
+          "total_source_duration_sec": 4.0
+        }
+      },
+      "dataset": "chime6",
+      "dataset_display_name": "CHiME-6",
+      "duration_sec": null,
+      "failure_mode": "none",
+      "group_metrics": {
+        "augmentation_condition_id": [
+          {
+            "aggregate_wer": "0.3333333333333333",
+            "augmentation_condition_id": "native_farfield",
+            "errors": "2",
+            "file_count": "2",
+            "missing_predictions": "0",
+            "processed_predictions": "2",
+            "recordings": "2",
+            "reference_words": "6",
+            "speaker_label_accuracy": "0.5",
+            "total_duration_sec": "4.0"
+          }
+        ],
+        "runtime_device": [
+          {
+            "aggregate_wer": "0.3333333333333333",
+            "augmentation_condition_id": "native_farfield",
+            "errors": "2",
+            "file_count": "2",
+            "missing_predictions": "0",
+            "processed_predictions": "2",
+            "recordings": "2",
+            "reference_words": "6",
+            "runtime_device": "cpu",
+            "speaker_label_accuracy": "0.5",
+            "total_duration_sec": "4.0"
+          }
+        ]
+      },
+      "job_id": "chime6_native_farfield",
+      "metrics": {
+        "aggregate_wer": 0.3333333333333333,
+        "audio_missing": 0,
+        "augmentation_condition_id": "native_farfield",
+        "augmentation_mode": "none",
+        "cer": null,
+        "deletions": 0,
+        "errors": 2,
+        "false_known_rate": 0.0,
+        "hypothesis_words": 7,
+        "insertions": 1,
+        "mean_recording_wer": 0.3333333333333333,
+        "memory_peak_mb": 256.0,
+        "missing_audio_count": 0,
+        "missing_prediction_count": 0,
+        "missing_prediction_rate": 0.0,
+        "missing_predictions": 0,
+        "prediction_rows": 2,
+        "processed_prediction_count": 2,
+        "processed_predictions": 2,
+        "realtime_factor_mean": 0.25,
+        "reference_words": 6,
+        "runtime_audio_duration_sec": 4.0,
+        "runtime_device": "cpu",
+        "runtime_total_sec": 1.0,
+        "scored_duration_sec": 4.0,
+        "selected_evaluation_items": 2,
+        "selected_recording_count": 2,
+        "selected_recordings": 2,
+        "speaker_label_accuracy": 0.5,
+        "speaker_label_matches": 1,
+        "speaker_label_scored": 2,
+        "stutter_repetition_rate": 0.14285714285714285,
+        "substitutions": 2,
+        "total_duration_sec": 4.0,
+        "unknown_rate": 0.5
+      },
+      "model_identifiers": {
+        "asr": "m16-fixture-asr@1",
+        "runner": "simulation",
+        "speaker_matching": "m16-fixture-speaker@1"
+      },
+      "native_condition": true,
+      "run_dir": "runs/all_dataset_validation/m16_fixture_smoke/chime6_native_farfield/m16_fixture_smoke_chime6_native_farfield",
+      "run_id": "m16_fixture_smoke",
+      "runtime_device": "cpu",
+      "status": "succeeded"
+    }
+  ],
+  "started_at": "2026-06-02T16:53:00+00:00",
+  "sweep": {
+    "default_run_id": "m16_all_datasets_smoke",
+    "description": "Small all-dataset validation smoke sweep. Each dataset uses one selected recording and the existing Evaluation Tool runner/scorer/report paths.\n",
+    "jobs": [
+      {
+        "augmentation": {
+          "mode": "none"
+        },
+        "condition_id": "clean",
+        "config_snapshot": {
+          "augmentation": {
+            "mode": "none"
+          },
+          "condition_id": "clean",
+          "dataset": "cmu_arctic",
+          "max_recordings": 1,
+          "native_condition": false,
+          "runner": "simulation",
+          "runtime_device": "cpu",
+          "simulation_mode": "perfect",
+          "subset_filters": {},
+          "sweep_config": "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/configs/sweeps/all_datasets_smoke.yaml"
+        },
+        "dataset": "cmu_arctic",
+        "expected_audio_duration_sec": null,
+        "job_id": "cmu_arctic_clean",
+        "label": "CMU Arctic clean smoke",
+        "max_recordings": 1,
+        "native_condition": false,
+        "runner": "simulation",
+        "runtime_device": "cpu",
+        "simulation_mode": "perfect",
+        "subset_filters": {},
+        "timeout_sec": 300.0
+      },
+      {
+        "augmentation": {
+          "mode": "none"
+        },
+        "condition_id": "clean",
+        "config_snapshot": {
+          "augmentation": {
+            "mode": "none"
+          },
+          "condition_id": "clean",
+          "dataset": "librispeech",
+          "max_recordings": 1,
+          "native_condition": false,
+          "runner": "simulation",
+          "runtime_device": "cpu",
+          "simulation_mode": "perfect",
+          "subset_filters": {},
+          "sweep_config": "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/configs/sweeps/all_datasets_smoke.yaml"
+        },
+        "dataset": "librispeech",
+        "expected_audio_duration_sec": null,
+        "job_id": "librispeech_clean",
+        "label": "LibriSpeech clean smoke",
+        "max_recordings": 1,
+        "native_condition": false,
+        "runner": "simulation",
+        "runtime_device": "cpu",
+        "simulation_mode": "perfect",
+        "subset_filters": {},
+        "timeout_sec": 300.0
+      },
+      {
+        "augmentation": {
+          "mode": "none"
+        },
+        "condition_id": "clean",
+        "config_snapshot": {
+          "augmentation": {
+            "mode": "none"
+          },
+          "condition_id": "clean",
+          "dataset": "hifitts",
+          "max_recordings": 1,
+          "native_condition": false,
+          "runner": "simulation",
+          "runtime_device": "cpu",
+          "simulation_mode": "perfect",
+          "subset_filters": {},
+          "sweep_config": "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/configs/sweeps/all_datasets_smoke.yaml"
+        },
+        "dataset": "hifitts",
+        "expected_audio_duration_sec": null,
+        "job_id": "hifitts_clean",
+        "label": "HiFiTTS clean smoke",
+        "max_recordings": 1,
+        "native_condition": false,
+        "runner": "simulation",
+        "runtime_device": "cpu",
+        "simulation_mode": "perfect",
+        "subset_filters": {},
+        "timeout_sec": 300.0
+      },
+      {
+        "augmentation": {
+          "mode": "none"
+        },
+        "condition_id": "native_meeting",
+        "config_snapshot": {
+          "augmentation": {
+            "mode": "none"
+          },
+          "condition_id": "native_meeting",
+          "dataset": "ami",
+          "max_recordings": 1,
+          "native_condition": true,
+          "runner": "simulation",
+          "runtime_device": "cpu",
+          "simulation_mode": "perfect",
+          "subset_filters": {},
+          "sweep_config": "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/configs/sweeps/all_datasets_smoke.yaml"
+        },
+        "dataset": "ami",
+        "expected_audio_duration_sec": null,
+        "job_id": "ami_native_meeting",
+        "label": "AMI native-condition smoke",
+        "max_recordings": 1,
+        "native_condition": true,
+        "runner": "simulation",
+        "runtime_device": "cpu",
+        "simulation_mode": "perfect",
+        "subset_filters": {},
+        "timeout_sec": 300.0
+      },
+      {
+        "augmentation": {
+          "mode": "none"
+        },
+        "condition_id": "native_farfield",
+        "config_snapshot": {
+          "augmentation": {
+            "mode": "none"
+          },
+          "condition_id": "native_farfield",
+          "dataset": "voices",
+          "max_recordings": 1,
+          "native_condition": true,
+          "runner": "simulation",
+          "runtime_device": "cpu",
+          "simulation_mode": "perfect",
+          "subset_filters": {},
+          "sweep_config": "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/configs/sweeps/all_datasets_smoke.yaml"
+        },
+        "dataset": "voices",
+        "expected_audio_duration_sec": null,
+        "job_id": "voices_native_farfield",
+        "label": "VOiCES native-condition smoke",
+        "max_recordings": 1,
+        "native_condition": true,
+        "runner": "simulation",
+        "runtime_device": "cpu",
+        "simulation_mode": "perfect",
+        "subset_filters": {},
+        "timeout_sec": 300.0
+      },
+      {
+        "augmentation": {
+          "mode": "none"
+        },
+        "condition_id": "native_farfield",
+        "config_snapshot": {
+          "augmentation": {
+            "mode": "none"
+          },
+          "condition_id": "native_farfield",
+          "dataset": "chime6",
+          "max_recordings": 1,
+          "native_condition": true,
+          "runner": "simulation",
+          "runtime_device": "cpu",
+          "simulation_mode": "perfect",
+          "subset_filters": {},
+          "sweep_config": "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/configs/sweeps/all_datasets_smoke.yaml"
+        },
+        "dataset": "chime6",
+        "expected_audio_duration_sec": null,
+        "job_id": "chime6_native_farfield",
+        "label": "CHiME-6 native-condition smoke",
+        "max_recordings": 1,
+        "native_condition": true,
+        "runner": "simulation",
+        "runtime_device": "cpu",
+        "simulation_mode": "perfect",
+        "subset_filters": {},
+        "timeout_sec": 300.0
+      }
+    ],
+    "runner": "simulation",
+    "runtime_device": "cpu",
+    "simulation_mode": "perfect",
+    "source_path": "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/configs/sweeps/all_datasets_smoke.yaml",
+    "sweep_name": "all_datasets_smoke"
+  },
+  "wall_duration_sec": 0.024637666007038206
+}

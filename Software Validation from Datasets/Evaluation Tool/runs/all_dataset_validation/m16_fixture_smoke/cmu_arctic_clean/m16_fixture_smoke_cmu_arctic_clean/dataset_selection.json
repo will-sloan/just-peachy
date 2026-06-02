@@ -1,0 +1,10 @@
+{
+  "condition_id": "clean",
+  "dataset_key": "cmu_arctic",
+  "dataset_name": "CMU Arctic",
+  "missing_audio_count": 0,
+  "records_manifest": "dataset_selection_records.jsonl",
+  "selected_evaluation_items": 2,
+  "selected_source_recordings": 2,
+  "subset_filters": {}
+}

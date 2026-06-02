@@ -1,0 +1,61 @@
+sweep_name: all_datasets_smoke
+run_id: m16_all_datasets_smoke
+description: >
+  Small all-dataset validation smoke sweep. Each dataset uses one selected
+  recording and the existing Evaluation Tool runner/scorer/report paths.
+runner: simulation
+simulation_mode: perfect
+runtime_device: cpu
+defaults:
+  max_recordings: 1
+  timeout_sec: 300
+  augmentation:
+    mode: none
+datasets:
+  - key: cmu_arctic
+    label: CMU Arctic clean smoke
+    conditions:
+      - id: clean
+        native_condition: false
+        augmentation:
+          mode: none
+
+  - key: librispeech
+    label: LibriSpeech clean smoke
+    conditions:
+      - id: clean
+        native_condition: false
+        augmentation:
+          mode: none
+
+  - key: hifitts
+    label: HiFiTTS clean smoke
+    conditions:
+      - id: clean
+        native_condition: false
+        augmentation:
+          mode: none
+
+  - key: ami
+    label: AMI native-condition smoke
+    conditions:
+      - id: native_meeting
+        native_condition: true
+        augmentation:
+          mode: none
+
+  - key: voices
+    label: VOiCES native-condition smoke
+    conditions:
+      - id: native_farfield
+        native_condition: true
+        augmentation:
+          mode: none
+
+  - key: chime6
+    label: CHiME-6 native-condition smoke
+    conditions:
+      - id: native_farfield
+        native_condition: true
+        augmentation:
+          mode: none

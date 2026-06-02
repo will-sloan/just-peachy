@@ -1,0 +1,2 @@
+{"augmentation_condition_id": "native_meeting", "end_sec": 2.0, "recording_id": "ami_native_meeting_rec_1", "speaker_label": "speaker_a", "start_sec": 0.0, "text": "hello validation battery", "utt_id": "ami_native_meeting_utt_1"}
+{"augmentation_condition_id": "native_meeting", "end_sec": 4.0, "recording_id": "ami_native_meeting_rec_2", "speaker_label": "Unknown", "start_sec": 2.0, "text": "robust robust speech check", "utt_id": "ami_native_meeting_utt_2"}

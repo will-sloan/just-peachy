@@ -1,0 +1,3 @@
+recording_id,utt_id,speaker_label,predicted_speaker_label,speaker_label_scored,speaker_label_match,reference_text,hypothesis_text,transcript_scored,wer,errors,reference_words,hypothesis_words,duration_sec,missing_prediction,audio_exists,augmentation_condition_id,augmentation_mode,noise_type,snr_db,runtime_device
+chime6_native_farfield_rec_1,chime6_native_farfield_utt_1,speaker_a,speaker_a,True,True,hello validation battery,hello validation battery,True,0.3333333333333333,2,3,3,2.0,False,True,native_farfield,none,,,cpu
+chime6_native_farfield_rec_2,chime6_native_farfield_utt_2,speaker_b,Unknown,True,False,robust speech check,robust robust speech check,True,0.3333333333333333,2,3,4,2.0,False,True,native_farfield,none,,,cpu

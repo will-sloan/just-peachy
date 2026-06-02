@@ -1,0 +1,76 @@
+command: m16_fixture
+run_id: m16_fixture_smoke
+run_dir: /Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation
+  Tool/runs/all_dataset_validation/m16_fixture_smoke/chime6_native_farfield/m16_fixture_smoke_chime6_native_farfield
+dataset:
+  key: chime6
+  name: CHiME-6
+  dataset_id: chime6
+  normalized_metadata_dir: Normalized Metadata/CHiME_6
+selection:
+  subset_filters: {}
+  max_recordings: 1
+  selected_source_recordings: 2
+  selected_recordings: 2
+  total_source_duration_sec: 4.0
+  total_evaluation_duration_sec: 4.0
+augmentation:
+  mode: none
+  condition_id: native_farfield
+  conditions:
+  - condition_id: native_farfield
+    mode: none
+  native_condition: true
+runner:
+  name: simulation
+  simulation_mode: perfect
+components:
+  asr:
+    name: fixture_asr
+    enabled: true
+    params:
+      model_name: m16-fixture-asr@1
+  speaker_matching:
+    name: fixture_speaker_matching
+    enabled: true
+    params:
+      model_name: m16-fixture-speaker@1
+runtime:
+  device: cpu
+prediction_contract:
+  minimum_file: predictions/utterances.jsonl
+  required_fields:
+  - recording_id
+  - utt_id
+  - start_sec
+  - end_sec
+  - speaker_label
+  - text
+m16_validation_job:
+  job_id: chime6_native_farfield
+  dataset: chime6
+  label: CHiME-6 native-condition smoke
+  condition_id: native_farfield
+  max_recordings: 1
+  subset_filters: {}
+  augmentation:
+    mode: none
+  native_condition: true
+  runtime_device: cpu
+  timeout_sec: 300.0
+  runner: simulation
+  simulation_mode: perfect
+  expected_audio_duration_sec: null
+  config_snapshot:
+    sweep_config: /Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation
+      Tool/configs/sweeps/all_datasets_smoke.yaml
+    dataset: chime6
+    condition_id: native_farfield
+    max_recordings: 1
+    subset_filters: {}
+    augmentation:
+      mode: none
+    native_condition: true
+    runner: simulation
+    simulation_mode: perfect
+    runtime_device: cpu

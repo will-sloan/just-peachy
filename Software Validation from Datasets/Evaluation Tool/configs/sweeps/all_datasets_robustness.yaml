@@ -1,0 +1,97 @@
+sweep_name: all_datasets_robustness
+run_id: m16_all_datasets_robustness
+description: >
+  Controlled robustness sweep across clean augmented datasets and datasets
+  whose metadata already captures native far-field or meeting conditions.
+runner: simulation
+simulation_mode: perfect
+runtime_device: cpu
+defaults:
+  max_recordings: 3
+  timeout_sec: 900
+  augmentation:
+    mode: none
+datasets:
+  - key: cmu_arctic
+    label: CMU Arctic robustness
+    conditions:
+      - id: clean
+        native_condition: false
+        augmentation:
+          mode: none
+      - id: white_noise_20db
+        native_condition: false
+        augmentation:
+          mode: noise
+          noise_type: white
+          snr_db: 20
+      - id: white_noise_10db
+        native_condition: false
+        augmentation:
+          mode: noise
+          noise_type: white
+          snr_db: 10
+
+  - key: librispeech
+    label: LibriSpeech robustness
+    conditions:
+      - id: clean
+        native_condition: false
+        augmentation:
+          mode: none
+      - id: white_noise_20db
+        native_condition: false
+        augmentation:
+          mode: noise
+          noise_type: white
+          snr_db: 20
+      - id: white_noise_10db
+        native_condition: false
+        augmentation:
+          mode: noise
+          noise_type: white
+          snr_db: 10
+
+  - key: hifitts
+    label: HiFiTTS robustness
+    conditions:
+      - id: clean
+        native_condition: false
+        augmentation:
+          mode: none
+      - id: white_noise_20db
+        native_condition: false
+        augmentation:
+          mode: noise
+          noise_type: white
+          snr_db: 20
+      - id: white_noise_10db
+        native_condition: false
+        augmentation:
+          mode: noise
+          noise_type: white
+          snr_db: 10
+
+  - key: ami
+    label: AMI native-condition robustness
+    conditions:
+      - id: native_meeting
+        native_condition: true
+        augmentation:
+          mode: none
+
+  - key: voices
+    label: VOiCES native-condition robustness
+    conditions:
+      - id: native_room_farfield
+        native_condition: true
+        augmentation:
+          mode: none
+
+  - key: chime6
+    label: CHiME-6 native-condition robustness
+    conditions:
+      - id: native_farfield_array
+        native_condition: true
+        augmentation:
+          mode: none

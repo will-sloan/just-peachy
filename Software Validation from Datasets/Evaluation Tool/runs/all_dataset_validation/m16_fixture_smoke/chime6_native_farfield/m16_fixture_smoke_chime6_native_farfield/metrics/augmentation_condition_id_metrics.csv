@@ -1,0 +1,2 @@
+augmentation_condition_id,file_count,recordings,processed_predictions,missing_predictions,total_duration_sec,reference_words,errors,aggregate_wer,speaker_label_accuracy
+native_farfield,2,2,2,0,4.0,6,2,0.3333333333333333,0.5
