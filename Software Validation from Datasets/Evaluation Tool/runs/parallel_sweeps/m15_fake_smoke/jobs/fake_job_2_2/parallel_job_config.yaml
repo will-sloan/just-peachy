@@ -1,0 +1,18 @@
+job_id: fake_job_2
+command:
+- /Users/billy/Documents/just-peachy/.venv/bin/python
+- -c
+- 'import json, os, pathlib, time; run_dir = pathlib.Path(os.environ[''JP_RUN_DIR'']);
+  run_dir.mkdir(parents=True, exist_ok=True); time.sleep(float(os.environ.get(''JP_FAKE_SLEEP_SEC'',
+  ''0.05''))); (run_dir / ''fake_job.json'').write_text(json.dumps({''job_id'': os.environ.get(''JP_JOB_ID''),
+  ''cuda_visible_devices'': os.environ.get(''CUDA_VISIBLE_DEVICES''), ''run_dir'':
+  str(run_dir)}, sort_keys=True), encoding=''utf-8'')'
+cwd: null
+env:
+  JP_FAKE_SLEEP_SEC: '0.05'
+assigned_cuda_device: '1'
+timeout_sec: 5.0
+max_retries: 0
+audio_duration_sec: 30.0
+config_snapshot:
+  kind: m15_fake_job

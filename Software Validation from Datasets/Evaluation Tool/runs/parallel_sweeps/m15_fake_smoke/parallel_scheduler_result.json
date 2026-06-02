@@ -1,0 +1,88 @@
+{
+  "config": {
+    "effective_max_workers": 2,
+    "gpu_ids": [
+      "0",
+      "1"
+    ],
+    "max_workers": 2,
+    "output_root": "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/runs/parallel_sweeps/m15_fake_smoke",
+    "retry_count": 0,
+    "run_id": "m15_fake_smoke",
+    "serial": false,
+    "serial_baseline_wall_sec": null,
+    "telemetry_poll_interval_sec": 0.01,
+    "timeout_sec": 5.0
+  },
+  "failure_rate": 0.0,
+  "gpu_devices": [],
+  "jobs": [
+    {
+      "assigned_cuda_device": "0",
+      "attempts": 1,
+      "audio_duration_sec": 30.0,
+      "command": [
+        "/Users/billy/Documents/just-peachy/.venv/bin/python",
+        "-c",
+        "import json, os, pathlib, time; run_dir = pathlib.Path(os.environ['JP_RUN_DIR']); run_dir.mkdir(parents=True, exist_ok=True); time.sleep(float(os.environ.get('JP_FAKE_SLEEP_SEC', '0.05'))); (run_dir / 'fake_job.json').write_text(json.dumps({'job_id': os.environ.get('JP_JOB_ID'), 'cuda_visible_devices': os.environ.get('CUDA_VISIBLE_DEVICES'), 'run_dir': str(run_dir)}, sort_keys=True), encoding='utf-8')"
+      ],
+      "config_snapshot_path": "jobs/fake_job_1_2/parallel_job_config.yaml",
+      "cwd": null,
+      "duration_sec": 0.078827082994394,
+      "failure_message": null,
+      "gpu": {
+        "assigned_cuda_device": "0",
+        "average_utilization_percent": null,
+        "gpu_name": null,
+        "memory_headroom_percent": null,
+        "peak_memory_mb": null,
+        "sample_count": 0,
+        "telemetry_available": false,
+        "total_vram_mb": null
+      },
+      "job_id": "fake_job_1",
+      "returncode": 0,
+      "run_dir": "jobs/fake_job_1_2",
+      "status": "succeeded",
+      "stderr_path": "jobs/fake_job_1_2/logs/stderr_attempt_1.txt",
+      "stdout_path": "jobs/fake_job_1_2/logs/stdout_attempt_1.txt"
+    },
+    {
+      "assigned_cuda_device": "1",
+      "attempts": 1,
+      "audio_duration_sec": 30.0,
+      "command": [
+        "/Users/billy/Documents/just-peachy/.venv/bin/python",
+        "-c",
+        "import json, os, pathlib, time; run_dir = pathlib.Path(os.environ['JP_RUN_DIR']); run_dir.mkdir(parents=True, exist_ok=True); time.sleep(float(os.environ.get('JP_FAKE_SLEEP_SEC', '0.05'))); (run_dir / 'fake_job.json').write_text(json.dumps({'job_id': os.environ.get('JP_JOB_ID'), 'cuda_visible_devices': os.environ.get('CUDA_VISIBLE_DEVICES'), 'run_dir': str(run_dir)}, sort_keys=True), encoding='utf-8')"
+      ],
+      "config_snapshot_path": "jobs/fake_job_2_2/parallel_job_config.yaml",
+      "cwd": null,
+      "duration_sec": 0.07762016699416563,
+      "failure_message": null,
+      "gpu": {
+        "assigned_cuda_device": "1",
+        "average_utilization_percent": null,
+        "gpu_name": null,
+        "memory_headroom_percent": null,
+        "peak_memory_mb": null,
+        "sample_count": 0,
+        "telemetry_available": false,
+        "total_vram_mb": null
+      },
+      "job_id": "fake_job_2",
+      "returncode": 0,
+      "run_dir": "jobs/fake_job_2_2",
+      "status": "succeeded",
+      "stderr_path": "jobs/fake_job_2_2/logs/stderr_attempt_1.txt",
+      "stdout_path": "jobs/fake_job_2_2/logs/stdout_attempt_1.txt"
+    }
+  ],
+  "min_memory_headroom_percent": null,
+  "run_id": "m15_fake_smoke",
+  "speedup_vs_serial_baseline": null,
+  "started_at": "2026-06-02T14:52:29+00:00",
+  "telemetry_available": false,
+  "throughput_audio_hours_per_wall_hour": 743.4034558201433,
+  "wall_duration_sec": 0.08070987500832416
+}

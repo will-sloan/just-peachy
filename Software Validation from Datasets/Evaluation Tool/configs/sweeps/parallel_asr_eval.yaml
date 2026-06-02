@@ -1,0 +1,70 @@
+sweep_name: parallel_asr_eval
+run_id: m15_parallel_asr_eval
+notes: >
+  Small M15 parallel sweep scaffold for running isolated ASR comparison jobs
+  over the same CMU Arctic subset. The fake-job mode in scripts/run_parallel_sweep.py
+  can validate scheduler isolation without model downloads or GPUs.
+scheduler:
+  max_workers: 2
+  serial: false
+  timeout_sec: 900
+  retry_count: 0
+  gpu_ids: auto
+  telemetry_poll_interval_sec: 1.0
+dataset:
+  key: cmu_arctic
+  max_recordings: 1
+jobs:
+  - id: asr_no_op_baseline
+    label: No-op ASR baseline sweep
+    model_family: asr
+    audio_duration_sec: 3.88
+    command:
+      - "{python}"
+      - "scripts/run_asr_benchmark.py"
+      - "--dataset"
+      - "cmu_arctic"
+      - "--max-recordings"
+      - "1"
+      - "--sweep-config"
+      - "configs/sweeps/asr_models.yaml"
+      - "--run-id"
+      - "m15_parallel_asr_no_op_baseline"
+      - "--runs-root"
+      - "{run_dir}/asr_benchmark"
+    config_snapshot:
+      compared_models:
+        - no_op_empty
+        - fixed_dummy
+      optional_models:
+        - whisper_tiny
+      dataset_subset:
+        dataset: cmu_arctic
+        max_recordings: 1
+
+  - id: asr_fixed_baseline
+    label: Fixed ASR baseline sweep
+    model_family: asr
+    audio_duration_sec: 3.88
+    command:
+      - "{python}"
+      - "scripts/run_asr_benchmark.py"
+      - "--dataset"
+      - "cmu_arctic"
+      - "--max-recordings"
+      - "1"
+      - "--sweep-config"
+      - "configs/sweeps/asr_models.yaml"
+      - "--run-id"
+      - "m15_parallel_asr_fixed_baseline"
+      - "--runs-root"
+      - "{run_dir}/asr_benchmark"
+    config_snapshot:
+      compared_models:
+        - no_op_empty
+        - fixed_dummy
+      optional_models:
+        - whisper_tiny
+      dataset_subset:
+        dataset: cmu_arctic
+        max_recordings: 1

@@ -1,0 +1,3 @@
+job_id,status,run_dir,assigned_cuda_device,gpu_name,total_vram_mb,peak_memory_mb,average_utilization_percent,memory_headroom_percent,attempts,duration_sec,returncode,failure_message
+fake_job_1,succeeded,jobs/fake_job_1_2,0,,,,,,1,0.078827082994394,0,
+fake_job_2,succeeded,jobs/fake_job_2_2,1,,,,,,1,0.07762016699416563,0,

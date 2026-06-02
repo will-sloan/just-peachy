@@ -1,0 +1,70 @@
+You are helping me write a precise Codex prompt for a speech pipeline project. Do not write the code yourself. Generate a Codex prompt that is scoped only to the milestone below.
+
+Project context:
+- Existing project root: just-peachy\Software Validation from Datasets
+- Existing Evaluation Tool root: just-peachy\Software Validation from Datasets\Evaluation Tool
+- The Evaluation Tool already handles dataset selection, simulation, augmentation, run folders, scoring, plots, and reports for every supported dataset test.
+- The inference integration point is Evaluation Tool/app/model_runner/external_stub.py.
+- The runner receives one selected metadata row at a time.
+- The model must read record["inference_audio_path"]. This may point to original audio or a temporary augmented WAV.
+- Preserve recording_id and utt_id exactly because scoring matches predictions on (recording_id, utt_id).
+- Preserve start_sec and end_sec when present.
+- The required prediction file is predictions/utterances.jsonl with recording_id, utt_id, start_sec, end_sec, speaker_label, and text.
+- Build a modular PyTorch-native pipeline that can later be optimized for Raspberry Pi and possibly ExecuTorch/custom hardware.
+- One person is implementing this, so keep the scope small, testable, and milestone-specific.
+- Do not redesign the existing GUI, CLI, dataset registry, scorer, or report generator unless explicitly required by the milestone.
+
+Milestone: M15 - Parallel Batch Execution and GPU Scheduling
+
+Goal:
+Build a safe way to run multiple evaluation jobs or model configurations across available GPUs without corrupting run folders or exhausting memory.
+
+Why this matters:
+You have access to RTX 3080 and RTX 3090 GPUs. Parallel execution can accelerate simulation and model comparison, but only if jobs are isolated and resource-limited.
+
+Target file paths:
+- Evaluation Tool\app\inference_pipeline\runtime\gpu.py
+- Evaluation Tool\app\inference_pipeline\runtime\job_scheduler.py
+- Evaluation Tool\scripts\run_parallel_sweep.py
+- Evaluation Tool\configs\runtime\rtx3080.yaml
+- Evaluation Tool\configs\runtime\rtx3090.yaml
+- Evaluation Tool\configs\sweeps\parallel_asr_eval.yaml
+- Evaluation Tool\reports\runtime\parallel_execution_<run_id>.md
+
+Implementation actions Codex should perform:
+- Design the simplest safe scheduler: one process per job with explicit CUDA_VISIBLE_DEVICES, max workers, timeout, and unique run directory.
+- Support serial fallback mode for debugging.
+- Record GPU name, VRAM, peak memory, average utilization if available, job duration, failures, and retries.
+- Avoid loading multiple large models in one process unless deliberately configured.
+- Create a sweep config that compares multiple ASR or speaker embedding models over the same dataset subset.
+
+Evaluation metrics or validation checks:
+- Throughput: audio hours processed per wall-clock hour.
+- Failure rate under parallel load.
+- GPU memory headroom.
+- Speedup vs serial baseline.
+- Reproducibility: each job has isolated config and output folder.
+
+Completion conditions:
+- Two small jobs can run independently without overwriting each other.
+- The scheduler gracefully reports failures instead of silently losing results.
+- A runtime report states recommended concurrency for RTX 3080 and RTX 3090.
+
+Required report artifact:
+- Evaluation Tool\reports\runtime\parallel_execution_<run_id>.md
+
+Instructions for the Codex prompt you generate:
+- Tell Codex to inspect the existing files before editing.
+- Tell Codex to implement only this milestone.
+- Tell Codex to create or update tests for the milestone.
+- Tell Codex to preserve the existing Evaluation Tool runner contract.
+- Tell Codex to avoid broad refactors and avoid changing unrelated files.
+- Tell Codex to write a short milestone report at the required report path summarizing what changed, how it was tested, and what remains incomplete.
+- Tell Codex to include exact commands to run tests or smoke checks.
+- Tell Codex to stop and report blockers if required dependencies or model assets are unavailable.
+- Tell codex to review the entire repository before making changes. 
+- Tell codex to create a new branch and operate wholly within that branch called “m15”
+- Tell codex to ensure it is operating with the .venv located at the root of the repository
+- Tell codex to write a high-level summary of the changes in the milestone/reports folder
+
+Now generate a single high-quality Codex prompt for this milestone.

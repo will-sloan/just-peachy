@@ -1,0 +1,17 @@
+profile_name: rtx3090
+gpu_name: NVIDIA GeForce RTX 3090
+vram_mb: 24576
+cuda_visible_devices_hint:
+  - "1"
+default_max_workers: 2
+recommended_concurrency: 2
+telemetry_poll_interval_sec: 1.0
+per_job_timeout_sec: 900
+memory_headroom_target_percent: 20
+recommendation_notes: >
+  Use up to two moderate ASR or speaker embedding model processes on RTX 3090
+  when telemetry confirms at least 20 percent VRAM headroom. Keep one worker
+  for very large models or high beam sizes.
+notes: >
+  The 24 GB VRAM budget is suitable for limited parallel comparisons, but each
+  job must still run in its own process with explicit CUDA_VISIBLE_DEVICES.

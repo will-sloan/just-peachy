@@ -1,0 +1,18 @@
+profile_name: rtx3080
+gpu_name: NVIDIA GeForce RTX 3080
+vram_mb: 10240
+cuda_visible_devices_hint:
+  - "0"
+default_max_workers: 1
+recommended_concurrency: 1
+telemetry_poll_interval_sec: 1.0
+per_job_timeout_sec: 900
+memory_headroom_target_percent: 20
+recommendation_notes: >
+  Use one large ASR or speaker embedding model process per RTX 3080 by default.
+  Increase only for deterministic smoke jobs or small CPU-bound models after
+  confirming at least 20 percent VRAM headroom.
+notes: >
+  This profile is intentionally conservative for Whisper and speaker embedding
+  sweeps because the 10 GB VRAM budget can be exhausted quickly by multiple
+  model processes.

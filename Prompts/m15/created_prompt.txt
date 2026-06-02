@@ -1,0 +1,160 @@
+
+You are working in the existing repository:
+
+/Users/billy/Documents/just-peachy
+
+Project root:
+Software Validation from Datasets
+
+Evaluation Tool root:
+Software Validation from Datasets/Evaluation Tool
+
+Create a new git branch named exactly `m15` before making changes, and operate wholly within that branch. First run `git status`; do not overwrite, revert, or stage unrelated user changes. Ensure you are using the repository root virtual environment at `.venv` for all tests and smoke checks.
+
+Milestone: M15 - Parallel Batch Execution and GPU Scheduling
+
+Goal:
+Implement only this milestone: build a safe scheduler for running multiple evaluation jobs or model configurations across available GPUs without corrupting run folders or exhausting memory.
+
+Do not redesign the existing GUI, CLI, dataset registry, scorer, report generator, run folder system, or inference runner unless strictly required for this milestone.
+
+Important existing Evaluation Tool runner contract:
+- The inference integration point remains:
+  `Software Validation from Datasets/Evaluation Tool/app/model_runner/external_stub.py`
+- The runner receives one selected metadata row at a time.
+- The model must read `record["inference_audio_path"]`.
+- Preserve `recording_id` and `utt_id` exactly because scoring matches predictions on `(recording_id, utt_id)`.
+- Preserve `start_sec` and `end_sec` when present.
+- Required prediction output remains:
+  `predictions/utterances.jsonl`
+  with `recording_id`, `utt_id`, `start_sec`, `end_sec`, `speaker_label`, and `text`.
+- Do not break or change this contract.
+
+Before editing:
+1. Review the entire repository structurally.
+2. Inspect existing Evaluation Tool modules, especially:
+   - run folder creation and artifact helpers
+   - existing CLI and scripts
+   - ASR benchmark/sweep code
+   - inference pipeline runtime modules
+   - config conventions
+   - tests
+   - existing reports and milestone reports
+3. Identify how existing runs isolate configs, predictions, metrics, plots, and reports.
+4. Stop and report blockers if required dependencies, GPU access, CUDA tooling, model assets, or prior artifacts are unavailable.
+5. If real GPUs are unavailable in the current environment, still implement testable GPU-discovery abstractions and serial/dry-run smoke coverage, but clearly report that real RTX 3080/3090 execution was not validated.
+
+Target files to create or update:
+- `Software Validation from Datasets/Evaluation Tool/app/inference_pipeline/runtime/gpu.py`
+- `Software Validation from Datasets/Evaluation Tool/app/inference_pipeline/runtime/job_scheduler.py`
+- `Software Validation from Datasets/Evaluation Tool/scripts/run_parallel_sweep.py`
+- `Software Validation from Datasets/Evaluation Tool/configs/runtime/rtx3080.yaml`
+- `Software Validation from Datasets/Evaluation Tool/configs/runtime/rtx3090.yaml`
+- `Software Validation from Datasets/Evaluation Tool/configs/sweeps/parallel_asr_eval.yaml`
+- `Software Validation from Datasets/Evaluation Tool/reports/runtime/parallel_execution_<run_id>.md`
+
+Implementation requirements:
+- Design the simplest safe scheduler:
+  - one subprocess per job
+  - explicit `CUDA_VISIBLE_DEVICES`
+  - configurable `max_workers`
+  - configurable per-job timeout
+  - unique run/output directory per job
+  - serial fallback mode for debugging
+- Avoid loading multiple large models in one process unless deliberately configured.
+- Each job must get an isolated config snapshot and output folder.
+- Support a sweep config that compares multiple ASR or speaker embedding models over the same dataset subset.
+- Record runtime metadata where available:
+  - GPU name
+  - VRAM
+  - peak memory
+  - average utilization
+  - job duration
+  - failures
+  - retries
+  - timeout status
+  - assigned CUDA device
+- If GPU telemetry is unavailable, record `null`/`unavailable` fields rather than failing the whole scheduler.
+- Scheduler failures must be reported clearly and must not silently lose results.
+- Two small jobs must be able to run independently without overwriting each other.
+- Keep the design modular and PyTorch-native-compatible for future Raspberry Pi, ExecuTorch, or custom-hardware work.
+
+Validation metrics/reporting:
+- Throughput: audio hours processed per wall-clock hour.
+- Failure rate under parallel load.
+- GPU memory headroom.
+- Speedup vs serial baseline when comparable data exists.
+- Reproducibility: each job has isolated config and output folder.
+
+Required runtime report:
+Create a runtime report at:
+
+`Software Validation from Datasets/Evaluation Tool/reports/runtime/parallel_execution_<run_id>.md`
+
+The report must summarize:
+- Scheduler configuration.
+- Jobs launched.
+- Per-job run folders.
+- GPU assignments.
+- Job duration and status.
+- Failure/retry summary.
+- Throughput.
+- Failure rate.
+- Memory headroom.
+- Speedup vs serial baseline if measured, otherwise state why unavailable.
+- Recommended concurrency for RTX 3080.
+- Recommended concurrency for RTX 3090.
+- Exact commands used for tests and smoke checks.
+- What remains incomplete or blocked.
+
+Also create or update a high-level milestone summary in:
+
+`Software Validation from Datasets/milestone/reports/M15_parallel_batch_execution_report.md`
+
+Testing requirements:
+- Create or update tests for this milestone.
+- Tests should not require real GPUs.
+- Use dependency injection, mocks, fake GPU telemetry, and tiny subprocess commands where needed.
+- Test at minimum:
+  - unique run directory/job output isolation
+  - serial fallback mode
+  - CUDA_VISIBLE_DEVICES assignment per job
+  - timeout/failure reporting
+  - report generation
+  - sweep config parsing
+  - no changes to the existing runner prediction contract
+
+Suggested commands, adapted only if the repo’s existing test layout requires it:
+
+```bash
+cd "/Users/billy/Documents/just-peachy"
+git status
+git checkout -b m15
+source .venv/bin/activate
+python -m pytest "Software Validation from Datasets/Evaluation Tool/tests"
+```
+
+Also run a focused smoke check for the scheduler. If real GPU/model execution is unavailable, run a dry-run or fake-job scheduler smoke check with two tiny jobs and include the exact command in the runtime report.
+
+Constraints:
+- Implement only M15.
+- Avoid broad refactors.
+- Avoid changing unrelated files.
+- Preserve the Evaluation Tool runner contract and prediction schema.
+- Prefer existing project conventions.
+- Keep scope small enough for one person to review.
+- Do not introduce heavyweight dependencies unless already present or clearly necessary.
+- If required dependencies, CUDA tools, model assets, or real GPUs are unavailable, stop or use a clearly marked dry-run path and report the blocker honestly.
+
+Deliverables:
+1. GPU/runtime helpers implemented.
+2. Safe parallel job scheduler implemented.
+3. Parallel sweep script implemented.
+4. RTX 3080 and RTX 3090 runtime config files added.
+5. Parallel ASR sweep config added.
+6. Tests added or updated.
+7. Runtime report written at:
+   `Software Validation from Datasets/Evaluation Tool/reports/runtime/parallel_execution_<run_id>.md`
+8. High-level milestone summary written at:
+   `Software Validation from Datasets/milestone/reports/M15_parallel_batch_execution_report.md`
+9. Final response summarizing implementation, blockers, and exact test/smoke-check commands run.
