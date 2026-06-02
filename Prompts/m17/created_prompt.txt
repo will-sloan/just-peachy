@@ -1,0 +1,101 @@
+You are Codex working in the existing repository. Implement only milestone M17: Optional Diarization and Overlap Baseline. Do not implement unrelated speech-pipeline features.
+
+Repository and environment requirements:
+- Start from `/Users/billy/Documents/just-peachy`.
+- Create and operate wholly on a new git branch named `m17`.
+- Use the repository-root `.venv` for all Python commands.
+- Before editing, inspect the entire repository structure enough to understand the existing Evaluation Tool architecture, test layout, config conventions, and runner contract.
+- Do not redesign the existing GUI, CLI, dataset registry, scorer, report generator, run-folder system, or unrelated inference components.
+
+Initial commands:
+```bash
+cd "/Users/billy/Documents/just-peachy"
+git status --short
+git checkout -b m17
+source .venv/bin/activate
+```
+
+Project context:
+- Existing project root: `Software Validation from Datasets`
+- Existing Evaluation Tool root: `Software Validation from Datasets/Evaluation Tool`
+- The Evaluation Tool already handles dataset selection, simulation, augmentation, run folders, scoring, plots, and reports for every supported dataset test.
+- The inference integration point is `Software Validation from Datasets/Evaluation Tool/app/model_runner/external_stub.py`.
+- The runner receives one selected metadata row at a time.
+- The model must read `record["inference_audio_path"]`, which may point to original audio or a temporary augmented WAV.
+- Preserve `recording_id` and `utt_id` exactly because scoring matches predictions on `(recording_id, utt_id)`.
+- Preserve `start_sec` and `end_sec` when present.
+- The required prediction file remains `predictions/utterances.jsonl` with:
+  `recording_id`, `utt_id`, `start_sec`, `end_sec`, `speaker_label`, and `text`.
+- The pipeline should remain modular and PyTorch-native so it can later be optimized for Raspberry Pi, ExecuTorch, or custom hardware.
+
+Milestone goal:
+Evaluate whether an optional diarization helper materially improves named transcripts, especially in overlapping or multi-speaker conversation conditions. Diarization is only a helper, not a required dependency.
+
+Target files:
+- `Software Validation from Datasets/Evaluation Tool/app/inference_pipeline/diarization/__init__.py`
+- `Software Validation from Datasets/Evaluation Tool/app/inference_pipeline/diarization/base.py`
+- `Software Validation from Datasets/Evaluation Tool/app/inference_pipeline/diarization/pyannote_adapter.py`
+- `Software Validation from Datasets/Evaluation Tool/configs/inference/components/diarization/pyannote_community.yaml`
+- `Software Validation from Datasets/Evaluation Tool/reports/component_reports/diarization/`
+- `Software Validation from Datasets/Evaluation Tool/tests/inference_pipeline/test_diarization_interface.py`
+- Also write a high-level summary in the project’s `milestone/reports` folder, following any existing report conventions there.
+
+Implementation requirements:
+1. Inspect existing files and conventions before editing.
+2. Define diarization as optional. The core pipeline and tests must pass when diarization dependencies are not installed.
+3. Implement a small adapter interface that returns speaker-turn regions only. Do not return product speaker names from diarization.
+4. Add a pyannote-style adapter behind optional imports. If required dependencies, credentials, gated model access, or model assets are unavailable, degrade cleanly and report the blocker instead of making them mandatory.
+5. Add config support so diarization can be enabled or disabled by config.
+6. Compare VAD-only segmentation against diarization-assisted segmentation on AMI/CHiME-style data where the existing tool supports it.
+7. Measure, where data is available:
+   - DER/JER when reference diarization labels exist.
+   - Speaker-attributed WER if calculable.
+   - Named-speaker false assignment rate before/after diarization helper.
+   - Overlap segment detection rate.
+   - Runtime and memory overhead.
+8. Preserve the existing Evaluation Tool runner contract, especially:
+   - read audio from `record["inference_audio_path"]`;
+   - preserve `recording_id` and `utt_id` exactly;
+   - preserve `start_sec` and `end_sec` when present;
+   - keep producing `predictions/utterances.jsonl` with the required fields.
+9. Avoid broad refactors. Do not change unrelated files unless strictly necessary for this milestone.
+10. Create or update focused tests for the diarization interface and optional-dependency behavior.
+
+Required report artifact:
+- Write `Software Validation from Datasets/Evaluation Tool/reports/component_reports/diarization/diarization_baseline_<run_id>.md`
+
+The report must summarize:
+- What changed.
+- How diarization is enabled/disabled.
+- Whether pyannote or any external model was actually available.
+- Comparison results or, if real assets are unavailable, the exact blocker.
+- Metrics available and metrics unavailable.
+- Whether diarization appears worth keeping in the prototype path.
+- Commands run for tests and smoke checks.
+- Remaining incomplete work.
+
+Testing and smoke-check commands to run from repo root after activating `.venv`:
+```bash
+cd "/Users/billy/Documents/just-peachy"
+source .venv/bin/activate
+cd "Software Validation from Datasets/Evaluation Tool"
+
+python -m pytest tests/inference_pipeline/test_diarization_interface.py
+python -m pytest
+```
+
+If the project has a narrower established test command, use that as well, but still run the focused diarization test. If full tests are too slow or blocked by missing local assets, run the relevant subset, document exactly what was skipped, and why.
+
+Stop and report blockers if:
+- The repository-root `.venv` is missing or unusable.
+- Required local test data for AMI/CHiME-style comparison is unavailable.
+- Optional diarization dependencies or gated model assets are unavailable.
+- Existing contracts are unclear enough that continuing would risk changing scoring or runner behavior.
+
+Completion criteria:
+- Diarization can be enabled or disabled by config.
+- The pipeline still runs without diarization installed.
+- Tests cover the adapter interface and disabled/optional behavior.
+- A comparison report exists at the required diarization report path.
+- A high-level milestone summary exists in the `milestone/reports` folder.
+- The existing Evaluation Tool runner contract is preserved.

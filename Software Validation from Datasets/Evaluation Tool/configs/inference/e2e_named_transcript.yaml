@@ -34,6 +34,11 @@ components:
       left_pad_sec: 0.0
       right_pad_sec: 0.0
       clip_to_record_bounds: true
+  diarization:
+    name: no_op_diarization
+    enabled: false
+    adapter: NoOpDiarizationAdapter
+    params: {}
   asr:
     name: no_op_asr
     enabled: true

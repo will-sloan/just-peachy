@@ -24,6 +24,11 @@ components:
     adapter: NoOpSegmentationAdapter
     params:
       mode: full_utterance
+  diarization:
+    name: no_op_diarization
+    enabled: false
+    adapter: NoOpDiarizationAdapter
+    params: {}
   asr:
     name: no_op_asr
     enabled: true
@@ -40,4 +45,3 @@ components:
     enabled: false
     adapter: NoOpSpeakerMatchingAdapter
     params: {}
-

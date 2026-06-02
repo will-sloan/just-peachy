@@ -22,6 +22,13 @@ from app.inference_pipeline.dummy_components import (
     DummyAudioReader,
     DummySpeakerLabeler,
 )
+from app.inference_pipeline.diarization.base import (
+    DiarizationBase,
+    DiarizationUnavailableError,
+    build_diarizer_from_config,
+    speaker_turns_to_speech_regions,
+    write_turns_jsonable,
+)
 from app.inference_pipeline.enrollment.schema import EnrollmentDatabase
 from app.inference_pipeline.enrollment.store import load_enrollment_db
 from app.inference_pipeline.runtime.stats import RuntimeAccumulator, runtime_diagnostics
@@ -97,6 +104,7 @@ class PipelineRunner:
     speaker_labeler: SpeakerLabeler | None = None
     vad: VADBase | None = None
     segmenter: SegmenterBase | None = None
+    diarizer: DiarizationBase | None = None
     speaker_embedding: SpeakerEmbeddingBase | None = None
     speaker_matcher: SpeakerMatcherBase | None = None
     enrollment_db: EnrollmentDatabase | Mapping[str, object] | None = None
@@ -110,6 +118,7 @@ class PipelineRunner:
         cls,
         vad: VADBase | None = None,
         segmenter: SegmenterBase | None = None,
+        diarizer: DiarizationBase | None = None,
         asr: ASRComponent | ASRBase | None = None,
         config: object | None = None,
     ) -> "PipelineRunner":
@@ -121,6 +130,9 @@ class PipelineRunner:
         selected_segmenter = segmenter
         if selected_segmenter is None and config is not None:
             selected_segmenter = build_segmenter_from_config(config)
+        selected_diarizer = diarizer
+        if selected_diarizer is None and config is not None:
+            selected_diarizer = build_diarizer_from_config(config)
         selected_asr = asr
         if selected_asr is None and config is not None:
             selected_asr = build_asr_from_config(config)
@@ -130,6 +142,7 @@ class PipelineRunner:
             speaker_labeler=DummySpeakerLabeler(),
             vad=selected_vad,
             segmenter=selected_segmenter,
+            diarizer=selected_diarizer,
         )
 
     @classmethod
@@ -147,6 +160,7 @@ class PipelineRunner:
             speaker_labeler=None,
             vad=build_vad_from_config(pipeline_config),
             segmenter=build_segmenter_from_config(pipeline_config),
+            diarizer=build_diarizer_from_config(pipeline_config),
             speaker_embedding=build_speaker_embedding_from_config(pipeline_config),
             speaker_matcher=build_speaker_matcher_from_config(pipeline_config),
             enrollment_db=_load_enrollment_database(pipeline_config),
@@ -196,7 +210,29 @@ class PipelineRunner:
             with accumulator.stage("vad"):
                 vad_regions = tuple(self.vad.detect(audio))
 
-        segments = self._segments(evaluation_record, vad_regions, audio, accumulator)
+        diarization_turns = ()
+        diarization_warnings: tuple[str, ...] = ()
+        if self.diarizer is not None:
+            try:
+                with accumulator.stage("diarization"):
+                    diarization_turns = tuple(self.diarizer.diarize(audio))
+            except DiarizationUnavailableError as exc:
+                diarization_warnings = (f"diarization unavailable: {exc}",)
+                if logger is not None:
+                    logger.warning(
+                        "Diarization unavailable for recording_id=%s utt_id=%s: %s",
+                        evaluation_record.recording_id,
+                        evaluation_record.utt_id,
+                        exc,
+                    )
+
+        segments = self._segments(
+            evaluation_record,
+            vad_regions,
+            diarization_turns,
+            audio,
+            accumulator,
+        )
 
         with accumulator.stage("asr"):
             segment_predictions = self._transcribe_segments(
@@ -227,6 +263,12 @@ class PipelineRunner:
         counters = _runtime_counters(
             vad_enabled=self.vad is not None,
             vad_region_count=len(vad_regions),
+            diarization_enabled=self.diarizer is not None,
+            diarization_turn_count=len(diarization_turns),
+            diarization_overlap_turn_count=sum(
+                1 for turn in diarization_turns if getattr(turn, "is_overlap", False)
+            ),
+            diarization_warning_count=len(diarization_warnings),
             segmentation_enabled=self.segmenter is not None,
             segment_count=len(segments),
             segmentation_sec=accumulator.stages.get("segmentation"),
@@ -242,10 +284,12 @@ class PipelineRunner:
         )
         runtime_stats = accumulator.stats(
             counters=counters,
-            model_versions=_model_versions(self.asr, self.speaker_embedding),
+            model_versions=_model_versions(self.asr, self.speaker_embedding, self.diarizer),
         )
         diagnostics = {
             **assembly.diagnostics,
+            "diarization_turns": write_turns_jsonable(diarization_turns),
+            "diarization_warnings": list(diarization_warnings),
             "runtime_stats": runtime_diagnostics(
                 runtime_stats,
                 audio_duration_sec=_audio_duration(evaluation_record, audio),
@@ -268,13 +312,14 @@ class PipelineRunner:
             runtime_stats=runtime_stats,
             transcript_items=assembly.transcript_items,
             diagnostics=diagnostics if self.diagnostics_enabled else None,
-            warnings=assembly.warnings,
+            warnings=(*assembly.warnings, *diarization_warnings),
         )
 
     def _segments(
         self,
         record: EvaluationRecord,
         vad_regions: Sequence[object],
+        diarization_turns: Sequence[object],
         audio: Any,
         accumulator: RuntimeAccumulator,
     ) -> tuple[AudioSegment, ...]:
@@ -282,7 +327,12 @@ class PipelineRunner:
             return (_record_segment(record, audio),)
 
         with accumulator.stage("segmentation"):
-            segments = tuple(self.segmenter.segment(record, vad_regions, audio))
+            segmentation_regions = (
+                tuple(speaker_turns_to_speech_regions(diarization_turns))
+                if diarization_turns
+                else vad_regions
+            )
+            segments = tuple(self.segmenter.segment(record, segmentation_regions, audio))
         return segments
 
     def _transcribe_segments(
@@ -482,12 +532,15 @@ def _enrollment_db_path(config: PipelineConfig) -> Path | None:
 def _model_versions(
     asr: ASRComponent | ASRBase,
     speaker_embedding: SpeakerEmbeddingBase | None,
+    diarizer: DiarizationBase | None,
 ) -> JsonObject | None:
     versions: JsonObject = {}
     if isinstance(asr, ASRBase):
         versions["asr"] = getattr(asr, "model_name", asr.name)
     else:
         versions["asr"] = type(asr).__name__
+    if diarizer is not None:
+        versions["diarization"] = getattr(diarizer, "model_name", diarizer.name)
     if speaker_embedding is not None:
         versions["speaker_embedding"] = speaker_embedding.model_name
     return versions or None
@@ -512,6 +565,10 @@ def _runtime_counters(
     *,
     vad_enabled: bool,
     vad_region_count: int,
+    diarization_enabled: bool,
+    diarization_turn_count: int,
+    diarization_overlap_turn_count: int,
+    diarization_warning_count: int,
     segmentation_enabled: bool,
     segment_count: int,
     segmentation_sec: float | None,
@@ -524,6 +581,11 @@ def _runtime_counters(
     counters: dict[str, object] = {}
     if vad_enabled:
         counters["vad_region_count"] = vad_region_count
+    if diarization_enabled:
+        counters["diarization_turn_count"] = diarization_turn_count
+        counters["diarization_overlap_turn_count"] = diarization_overlap_turn_count
+        if diarization_warning_count:
+            counters["diarization_warning_count"] = diarization_warning_count
     if segmentation_enabled:
         counters["segment_count"] = segment_count
         counters["segmentation_sec"] = segmentation_sec

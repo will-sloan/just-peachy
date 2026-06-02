@@ -1,0 +1,15 @@
+component:
+  slot: diarization
+  name: pyannote_community
+  enabled: false
+  adapter: PyannoteCommunityDiarizer
+  notes: Optional pyannote community diarization helper; disabled by default because model access may be gated.
+  params:
+    model_source: pyannote/speaker-diarization-community-1
+    min_turn_sec: 0.05
+    min_speakers: null
+    max_speakers: null
+    collar_sec: 0.0
+    auth_token_env: PYANNOTE_AUTH_TOKEN
+    cache_dir: models/cache/pyannote
+    allow_model_downloads: false

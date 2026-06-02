@@ -69,6 +69,16 @@ class VADChunkerAdapter(ComponentAdapter):
     component_name = "vad_chunks"
 
 
+class NoOpDiarizationAdapter(ComponentAdapter):
+    component_slot = "diarization"
+    component_name = "no_op_diarization"
+
+
+class PyannoteCommunityDiarizationAdapter(ComponentAdapter):
+    component_slot = "diarization"
+    component_name = "pyannote_community"
+
+
 class NoOpASRAdapter(ComponentAdapter):
     component_slot = "asr"
     component_name = "no_op_asr"
@@ -118,6 +128,10 @@ REGISTERED_COMPONENTS: dict[str, dict[str, type[ComponentAdapter]]] = {
     "segmentation": {
         NoOpSegmentationAdapter.component_name: NoOpSegmentationAdapter,
         VADChunkerAdapter.component_name: VADChunkerAdapter,
+    },
+    "diarization": {
+        NoOpDiarizationAdapter.component_name: NoOpDiarizationAdapter,
+        PyannoteCommunityDiarizationAdapter.component_name: PyannoteCommunityDiarizationAdapter,
     },
     "asr": {
         FasterWhisperASRAdapter.component_name: FasterWhisperASRAdapter,

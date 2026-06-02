@@ -258,6 +258,7 @@ class RuntimeStats:
     total_sec: float | None = None
     audio_load_sec: float | None = None
     vad_sec: float | None = None
+    diarization_sec: float | None = None
     asr_sec: float | None = None
     speaker_sec: float | None = None
     postprocess_sec: float | None = None

@@ -19,6 +19,7 @@ components:
     adapter: NoOpSegmentationAdapter
     params:
       mode: vad_regions
+  diarization: components/diarization/pyannote_community.yaml
   asr: components/asr/whisper_tiny.yaml
   speaker_embedding: components/speaker_embedding/speechbrain_ecapa.yaml
   speaker_matching:
@@ -27,4 +28,3 @@ components:
     adapter: NoOpSpeakerMatchingAdapter
     params:
       threshold: 0.7
-

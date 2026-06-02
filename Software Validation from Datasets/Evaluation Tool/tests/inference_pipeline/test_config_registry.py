@@ -22,6 +22,7 @@ FORBIDDEN_MODEL_MODULES = {
     "speechbrain",
     "whisper",
     "silero",
+    "pyannote",
 }
 
 
@@ -47,6 +48,7 @@ def test_base_config_loads_successfully() -> None:
     assert set(config.components) == {
         "vad",
         "segmentation",
+        "diarization",
         "asr",
         "speaker_embedding",
         "speaker_matching",
@@ -137,4 +139,3 @@ def test_config_modules_import_without_ml_frameworks() -> None:
     after_modules = set(sys.modules)
 
     assert FORBIDDEN_MODEL_MODULES.isdisjoint(after_modules - before_modules)
-

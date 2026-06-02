@@ -24,6 +24,12 @@ components:
     adapter: NoOpSegmentationAdapter
     params:
       mode: streaming_chunks_future
+  diarization:
+    name: no_op_diarization
+    enabled: false
+    adapter: NoOpDiarizationAdapter
+    params:
+      future_replacement: edge_diarization_or_overlap_detector
   asr:
     name: no_op_asr
     enabled: true
@@ -42,4 +48,3 @@ components:
     adapter: NoOpSpeakerMatchingAdapter
     params:
       future_replacement: edge_speaker_matching
-

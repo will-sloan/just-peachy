@@ -43,6 +43,7 @@ class RuntimeAccumulator:
             total_sec=self.total_sec,
             audio_load_sec=self.stages.get("audio_load"),
             vad_sec=self.stages.get("vad"),
+            diarization_sec=self.stages.get("diarization"),
             asr_sec=self.stages.get("asr"),
             speaker_sec=self.stages.get("speaker"),
             postprocess_sec=self.stages.get("postprocess"),
@@ -73,6 +74,7 @@ def runtime_diagnostics(
     stage_breakdown = {
         "audio_load_sec": runtime_stats.audio_load_sec,
         "vad_sec": runtime_stats.vad_sec,
+        "diarization_sec": runtime_stats.diarization_sec,
         "asr_sec": runtime_stats.asr_sec,
         "speaker_sec": runtime_stats.speaker_sec,
         "postprocess_sec": runtime_stats.postprocess_sec,

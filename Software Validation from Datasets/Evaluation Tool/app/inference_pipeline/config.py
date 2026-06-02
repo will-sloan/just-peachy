@@ -15,6 +15,7 @@ from app.inference_pipeline.typing import JsonObject, JsonValue
 COMPONENT_SLOTS = (
     "vad",
     "segmentation",
+    "diarization",
     "asr",
     "speaker_embedding",
     "speaker_matching",
@@ -348,4 +349,3 @@ def _jsonable(value: object) -> JsonValue:
     if isinstance(value, Sequence) and not isinstance(value, str | bytes | bytearray):
         return [_jsonable(item) for item in value]
     return str(value)
-
