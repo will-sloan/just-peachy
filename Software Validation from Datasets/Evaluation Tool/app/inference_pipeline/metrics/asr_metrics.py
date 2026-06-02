@@ -254,6 +254,47 @@ def total_audio_duration_sec(records: Sequence[Mapping[str, object]]) -> float:
     return total
 
 
+def asr_summary_from_aggregate(
+    aggregate_metrics: Mapping[str, object],
+) -> dict[str, object]:
+    """Return the ASR-facing subset of an Evaluation Tool aggregate summary."""
+
+    keys = (
+        "aggregate_wer",
+        "mean_recording_wer",
+        "median_recording_wer",
+        "max_recording_wer",
+        "reference_words",
+        "hypothesis_words",
+        "errors",
+        "substitutions",
+        "insertions",
+        "deletions",
+        "missing_prediction_rate",
+        "prediction_rows",
+        "processed_prediction_count",
+        "selected_recording_count",
+        "total_duration_sec",
+    )
+    return {key: aggregate_metrics.get(key) for key in keys if key in aggregate_metrics}
+
+
+def asr_primary_recommendation(metrics: Mapping[str, object]) -> str:
+    """Return a concise ASR recommendation suitable for report indexes."""
+
+    wer = _optional_float(metrics.get("aggregate_wer") or metrics.get("wer"))
+    missing_rate = _optional_float(metrics.get("missing_prediction_rate"))
+    if missing_rate is not None and missing_rate > 0:
+        return "Resolve missing ASR predictions before comparing model quality."
+    if wer is None:
+        return "Add transcript reference metrics before ranking ASR models."
+    if wer <= 0.15:
+        return "ASR quality is strong enough for downstream speaker and runtime comparisons."
+    if wer <= 0.40:
+        return "ASR is usable for smoke comparisons; benchmark stronger models before deployment."
+    return "Prioritize ASR model/configuration improvements before end-to-end conclusions."
+
+
 def _record_duration(record: Mapping[str, object]) -> float | None:
     start = _optional_float(record.get("start_sec"))
     end = _optional_float(record.get("end_sec"))

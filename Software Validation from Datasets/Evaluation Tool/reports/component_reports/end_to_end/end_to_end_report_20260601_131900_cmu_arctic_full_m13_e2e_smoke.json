@@ -1,0 +1,661 @@
+{
+  "artifacts": {
+    "csv": "reports/component_reports/end_to_end/end_to_end_report_20260601_131900_cmu_arctic_full_m13_e2e_smoke.csv",
+    "json": "reports/component_reports/end_to_end/end_to_end_report_20260601_131900_cmu_arctic_full_m13_e2e_smoke.json",
+    "markdown": "reports/component_reports/end_to_end/end_to_end_report_20260601_131900_cmu_arctic_full_m13_e2e_smoke.md",
+    "report_index": "reports/report_index.csv",
+    "source_run_dir": "runs/20260601_131900_cmu_arctic_full_m13_e2e_smoke"
+  },
+  "component_type": "end_to_end",
+  "metadata": {
+    "config_path": "runs/20260601_131900_cmu_arctic_full_m13_e2e_smoke/run_config.yaml",
+    "config_snapshot": {
+      "run_config.yaml": {
+        "augmentation": {
+          "conditions": [
+            {
+              "condition_id": "clean",
+              "mode": "none",
+              "noise_type": null,
+              "rir_label": null,
+              "rir_path": null,
+              "snr_db": null
+            }
+          ],
+          "keep_temp_audio": false,
+          "mode": "none",
+          "peak_limit": 0.98,
+          "preview_count": 0,
+          "preview_enabled": false,
+          "preview_recording_id": null,
+          "seed": 1337
+        },
+        "command": "full",
+        "dataset": {
+          "dataset_id": "cmu_arctic",
+          "key": "cmu_arctic",
+          "name": "CMU Arctic",
+          "normalized_metadata_dir": "Normalized Metadata/CMU_Arctic"
+        },
+        "prediction_contract": {
+          "minimum_file": "predictions/utterances.jsonl",
+          "optional_files": [
+            "predictions/words.jsonl",
+            "predictions/segments.rttm"
+          ]
+        },
+        "project_root": "../../..",
+        "project_root_relative_to_run": "../../..",
+        "run_dir": ".",
+        "run_name": "m13_e2e_smoke",
+        "runner": {
+          "name": "external-stub",
+          "simulation_mode": null
+        },
+        "selection": {
+          "max_recordings": 1,
+          "selected_recordings": 1,
+          "selected_source_recordings": 1,
+          "subset_filters": {},
+          "total_evaluation_duration_sec": 3.880063,
+          "total_source_duration_sec": 3.880063
+        }
+      }
+    },
+    "dataset_selection": {
+      "audio_format": "wav",
+      "dataset_id": "cmu_arctic",
+      "dataset_key": "cmu_arctic",
+      "dataset_name": "CMU Arctic",
+      "evaluation_unit": "one utterance WAV file",
+      "max_recordings": 1,
+      "missing_audio_count": 0,
+      "normalized_metadata_dir": "Normalized Metadata/CMU_Arctic",
+      "records_manifest": "dataset_selection_records.jsonl",
+      "reference_tables": {
+        "recordings": "Normalized Metadata/CMU_Arctic/recordings.parquet",
+        "utterances": "Normalized Metadata/CMU_Arctic/utterances.parquet"
+      },
+      "rows_after_filters": 15583,
+      "selected_accent_counts": {
+        "US English": 1
+      },
+      "selected_accent_group_counts": {
+        "native_us": 1
+      },
+      "selected_evaluation_items": 1,
+      "selected_gender_counts": {
+        "male": 1
+      },
+      "selected_recordings": 1,
+      "selected_source_recordings": 1,
+      "selected_source_records": 1,
+      "selected_speaker_variant_group_counts": {
+        "additional": 1
+      },
+      "source_records_manifest": "dataset_selection_source_records.jsonl",
+      "subset_filters": {},
+      "total_metadata_rows": 15583
+    },
+    "date": "2026-06-02T14:25:42+00:00",
+    "git_commit": "61108dd64ee5df3408cb08442d4c21347aa724d3",
+    "hardware": {
+      "device": "cpu",
+      "machine": "arm64",
+      "platform": "macOS-15.5-arm64-arm-64bit-Mach-O",
+      "processor": "arm",
+      "python_version": "3.14.5"
+    },
+    "model_versions": {
+      "asr": "no_op_asr",
+      "runner": "external-stub",
+      "speaker_embedding": "no_op_speaker_embedding"
+    },
+    "run_id": "20260601_131900_cmu_arctic_full_m13_e2e_smoke"
+  },
+  "metrics": {
+    "aggregate_metrics": {
+      "aggregate_wer": 1.0,
+      "audio_missing": 0,
+      "deletions": 5,
+      "duplicate_prediction_rows_ignored": 0,
+      "errors": 8,
+      "hypothesis_words": 3,
+      "insertions": 0,
+      "max_recording_wer": 1.0,
+      "mean_recording_wer": 1.0,
+      "median_recording_wer": 1.0,
+      "missing_prediction_count": 0,
+      "missing_prediction_rate": 0.0,
+      "missing_predictions": 0,
+      "prediction_files_present": {
+        "segments.rttm": false,
+        "utterances.jsonl": true,
+        "words.jsonl": false
+      },
+      "prediction_rows": 1,
+      "processed_prediction_count": 1,
+      "processed_predictions": 1,
+      "reference_words": 8,
+      "scored_duration_sec": 3.880063,
+      "selected_recording_count": 1,
+      "selected_recordings": 1,
+      "speaker_label_accuracy": 0.0,
+      "speaker_label_matches": 0,
+      "speaker_label_scored": 1,
+      "substitutions": 3,
+      "total_duration_sec": 3.880063,
+      "unexpected_prediction_recordings": 0
+    },
+    "artifact_counts": {
+      "has_aggregate_metrics": true,
+      "has_per_recording_metrics": true,
+      "has_utterance_predictions": true,
+      "metrics_file_count": 12,
+      "plots_file_count": 11,
+      "predictions_file_count": 6,
+      "report_file_count": 2
+    },
+    "asr_metrics": {
+      "aggregate_wer": 1.0,
+      "deletions": 5,
+      "errors": 8,
+      "hypothesis_words": 3,
+      "insertions": 0,
+      "max_recording_wer": 1.0,
+      "mean_recording_wer": 1.0,
+      "median_recording_wer": 1.0,
+      "missing_prediction_rate": 0.0,
+      "prediction_rows": 1,
+      "processed_prediction_count": 1,
+      "reference_words": 8,
+      "selected_recording_count": 1,
+      "substitutions": 3,
+      "total_duration_sec": 3.880063
+    },
+    "benchmark_result": {},
+    "component_type": "end_to_end",
+    "diagnostics_row_count": 1,
+    "runner_summary": {
+      "attempted_count": 1,
+      "condition_prediction_counts": {
+        "clean": 1
+      },
+      "failed_count": 0,
+      "predictions_path": "utterances.jsonl",
+      "run_duration_sec": 0.021549582976149395,
+      "runner": "external_stub",
+      "skipped_count": 0,
+      "written_count": 1
+    },
+    "runtime_metrics": {
+      "audio_duration_sec_total": 3.8800625,
+      "device": "cpu",
+      "realtime_factor_max": 0.0010987258609277786,
+      "realtime_factor_mean": 0.0010987258609277786,
+      "runtime_row_count": 1,
+      "stage_breakdown_sec_mean": {
+        "asr_sec": 6.0874997870996594e-05,
+        "audio_load_sec": 0.0014027500001247972,
+        "postprocess_sec": 0.0001376250002067536,
+        "speaker_sec": 0.0001320409937761724,
+        "vad_sec": 0.0024329999869223684
+      },
+      "total_runtime_sec_max": 0.004263125010766089,
+      "total_runtime_sec_mean": 0.004263125010766089
+    },
+    "speaker_metrics": {
+      "accepted_count": 0,
+      "decision_count": 2,
+      "false_known_count": 0,
+      "false_known_rate": null,
+      "speaker_accuracy": null,
+      "speaker_label_accuracy": 0.0,
+      "speaker_label_matches": 0,
+      "speaker_label_scored": 1,
+      "speaker_scored_count": 0,
+      "threshold_decision_counts": {
+        "disabled": 2
+      },
+      "unknown_count": 2,
+      "unknown_rate": 1.0
+    }
+  },
+  "primary_recommendation": "Improve enrollment coverage or thresholds; most decisions are Unknown.",
+  "summary_rows": [
+    {
+      "metric": "aggregate_wer",
+      "source": "aggregate",
+      "value": 1.0
+    },
+    {
+      "metric": "audio_missing",
+      "source": "aggregate",
+      "value": 0
+    },
+    {
+      "metric": "deletions",
+      "source": "aggregate",
+      "value": 5
+    },
+    {
+      "metric": "duplicate_prediction_rows_ignored",
+      "source": "aggregate",
+      "value": 0
+    },
+    {
+      "metric": "errors",
+      "source": "aggregate",
+      "value": 8
+    },
+    {
+      "metric": "hypothesis_words",
+      "source": "aggregate",
+      "value": 3
+    },
+    {
+      "metric": "insertions",
+      "source": "aggregate",
+      "value": 0
+    },
+    {
+      "metric": "max_recording_wer",
+      "source": "aggregate",
+      "value": 1.0
+    },
+    {
+      "metric": "mean_recording_wer",
+      "source": "aggregate",
+      "value": 1.0
+    },
+    {
+      "metric": "median_recording_wer",
+      "source": "aggregate",
+      "value": 1.0
+    },
+    {
+      "metric": "missing_prediction_count",
+      "source": "aggregate",
+      "value": 0
+    },
+    {
+      "metric": "missing_prediction_rate",
+      "source": "aggregate",
+      "value": 0.0
+    },
+    {
+      "metric": "missing_predictions",
+      "source": "aggregate",
+      "value": 0
+    },
+    {
+      "metric": "prediction_files_present.segments.rttm",
+      "source": "aggregate",
+      "value": false
+    },
+    {
+      "metric": "prediction_files_present.utterances.jsonl",
+      "source": "aggregate",
+      "value": true
+    },
+    {
+      "metric": "prediction_files_present.words.jsonl",
+      "source": "aggregate",
+      "value": false
+    },
+    {
+      "metric": "prediction_rows",
+      "source": "aggregate",
+      "value": 1
+    },
+    {
+      "metric": "processed_prediction_count",
+      "source": "aggregate",
+      "value": 1
+    },
+    {
+      "metric": "processed_predictions",
+      "source": "aggregate",
+      "value": 1
+    },
+    {
+      "metric": "reference_words",
+      "source": "aggregate",
+      "value": 8
+    },
+    {
+      "metric": "scored_duration_sec",
+      "source": "aggregate",
+      "value": 3.880063
+    },
+    {
+      "metric": "selected_recording_count",
+      "source": "aggregate",
+      "value": 1
+    },
+    {
+      "metric": "selected_recordings",
+      "source": "aggregate",
+      "value": 1
+    },
+    {
+      "metric": "speaker_label_accuracy",
+      "source": "aggregate",
+      "value": 0.0
+    },
+    {
+      "metric": "speaker_label_matches",
+      "source": "aggregate",
+      "value": 0
+    },
+    {
+      "metric": "speaker_label_scored",
+      "source": "aggregate",
+      "value": 1
+    },
+    {
+      "metric": "substitutions",
+      "source": "aggregate",
+      "value": 3
+    },
+    {
+      "metric": "total_duration_sec",
+      "source": "aggregate",
+      "value": 3.880063
+    },
+    {
+      "metric": "unexpected_prediction_recordings",
+      "source": "aggregate",
+      "value": 0
+    },
+    {
+      "metric": "aggregate_wer",
+      "source": "asr",
+      "value": 1.0
+    },
+    {
+      "metric": "deletions",
+      "source": "asr",
+      "value": 5
+    },
+    {
+      "metric": "errors",
+      "source": "asr",
+      "value": 8
+    },
+    {
+      "metric": "hypothesis_words",
+      "source": "asr",
+      "value": 3
+    },
+    {
+      "metric": "insertions",
+      "source": "asr",
+      "value": 0
+    },
+    {
+      "metric": "max_recording_wer",
+      "source": "asr",
+      "value": 1.0
+    },
+    {
+      "metric": "mean_recording_wer",
+      "source": "asr",
+      "value": 1.0
+    },
+    {
+      "metric": "median_recording_wer",
+      "source": "asr",
+      "value": 1.0
+    },
+    {
+      "metric": "missing_prediction_rate",
+      "source": "asr",
+      "value": 0.0
+    },
+    {
+      "metric": "prediction_rows",
+      "source": "asr",
+      "value": 1
+    },
+    {
+      "metric": "processed_prediction_count",
+      "source": "asr",
+      "value": 1
+    },
+    {
+      "metric": "reference_words",
+      "source": "asr",
+      "value": 8
+    },
+    {
+      "metric": "selected_recording_count",
+      "source": "asr",
+      "value": 1
+    },
+    {
+      "metric": "substitutions",
+      "source": "asr",
+      "value": 3
+    },
+    {
+      "metric": "total_duration_sec",
+      "source": "asr",
+      "value": 3.880063
+    },
+    {
+      "metric": "accepted_count",
+      "source": "speaker",
+      "value": 0
+    },
+    {
+      "metric": "decision_count",
+      "source": "speaker",
+      "value": 2
+    },
+    {
+      "metric": "false_known_count",
+      "source": "speaker",
+      "value": 0
+    },
+    {
+      "metric": "speaker_label_accuracy",
+      "source": "speaker",
+      "value": 0.0
+    },
+    {
+      "metric": "speaker_label_matches",
+      "source": "speaker",
+      "value": 0
+    },
+    {
+      "metric": "speaker_label_scored",
+      "source": "speaker",
+      "value": 1
+    },
+    {
+      "metric": "speaker_scored_count",
+      "source": "speaker",
+      "value": 0
+    },
+    {
+      "metric": "threshold_decision_counts.disabled",
+      "source": "speaker",
+      "value": 2
+    },
+    {
+      "metric": "unknown_count",
+      "source": "speaker",
+      "value": 2
+    },
+    {
+      "metric": "unknown_rate",
+      "source": "speaker",
+      "value": 1.0
+    },
+    {
+      "metric": "audio_duration_sec_total",
+      "source": "runtime",
+      "value": 3.8800625
+    },
+    {
+      "metric": "device",
+      "source": "runtime",
+      "value": "cpu"
+    },
+    {
+      "metric": "realtime_factor_max",
+      "source": "runtime",
+      "value": 0.0010987258609277786
+    },
+    {
+      "metric": "realtime_factor_mean",
+      "source": "runtime",
+      "value": 0.0010987258609277786
+    },
+    {
+      "metric": "runtime_row_count",
+      "source": "runtime",
+      "value": 1
+    },
+    {
+      "metric": "stage_breakdown_sec_mean.asr_sec",
+      "source": "runtime",
+      "value": 6.0874997870996594e-05
+    },
+    {
+      "metric": "stage_breakdown_sec_mean.audio_load_sec",
+      "source": "runtime",
+      "value": 0.0014027500001247972
+    },
+    {
+      "metric": "stage_breakdown_sec_mean.postprocess_sec",
+      "source": "runtime",
+      "value": 0.0001376250002067536
+    },
+    {
+      "metric": "stage_breakdown_sec_mean.speaker_sec",
+      "source": "runtime",
+      "value": 0.0001320409937761724
+    },
+    {
+      "metric": "stage_breakdown_sec_mean.vad_sec",
+      "source": "runtime",
+      "value": 0.0024329999869223684
+    },
+    {
+      "metric": "total_runtime_sec_max",
+      "source": "runtime",
+      "value": 0.004263125010766089
+    },
+    {
+      "metric": "total_runtime_sec_mean",
+      "source": "runtime",
+      "value": 0.004263125010766089
+    },
+    {
+      "metric": "attempted_count",
+      "source": "runner",
+      "value": 1
+    },
+    {
+      "metric": "condition_prediction_counts.clean",
+      "source": "runner",
+      "value": 1
+    },
+    {
+      "metric": "failed_count",
+      "source": "runner",
+      "value": 0
+    },
+    {
+      "metric": "predictions_path",
+      "source": "runner",
+      "value": "utterances.jsonl"
+    },
+    {
+      "metric": "run_duration_sec",
+      "source": "runner",
+      "value": 0.021549582976149395
+    },
+    {
+      "metric": "runner",
+      "source": "runner",
+      "value": "external_stub"
+    },
+    {
+      "metric": "skipped_count",
+      "source": "runner",
+      "value": 0
+    },
+    {
+      "metric": "written_count",
+      "source": "runner",
+      "value": 1
+    },
+    {
+      "metric": "has_aggregate_metrics",
+      "source": "artifacts",
+      "value": true
+    },
+    {
+      "metric": "has_per_recording_metrics",
+      "source": "artifacts",
+      "value": true
+    },
+    {
+      "metric": "has_utterance_predictions",
+      "source": "artifacts",
+      "value": true
+    },
+    {
+      "metric": "metrics_file_count",
+      "source": "artifacts",
+      "value": 12
+    },
+    {
+      "metric": "plots_file_count",
+      "source": "artifacts",
+      "value": 11
+    },
+    {
+      "metric": "predictions_file_count",
+      "source": "artifacts",
+      "value": 6
+    },
+    {
+      "metric": "report_file_count",
+      "source": "artifacts",
+      "value": 2
+    }
+  ],
+  "validation": {
+    "comparison_checks": {
+      "csv_output_planned": true,
+      "json_output_planned": true,
+      "markdown_output_planned": true,
+      "summary_rows_present": true
+    },
+    "comparison_readiness_score": 1.0,
+    "report_completeness_score": 1.0,
+    "reproducibility_checks": {
+      "config_path_present": true,
+      "config_snapshot_present": true,
+      "dataset_selection_present": true,
+      "git_commit_present": true,
+      "model_versions_present": true
+    },
+    "reproducibility_score": 1.0,
+    "required_sections_missing": [],
+    "required_sections_present": [
+      "Report Metadata",
+      "Dataset Selection",
+      "Configuration Snapshot",
+      "Model Versions",
+      "Metrics Summary",
+      "Validation Scores",
+      "Recommendation",
+      "Artifacts"
+    ]
+  }
+}

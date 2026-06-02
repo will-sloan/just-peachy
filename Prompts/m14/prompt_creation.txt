@@ -1,0 +1,69 @@
+You are helping me write a precise Codex prompt for a speech pipeline project. Do not write the code yourself. Generate a Codex prompt that is scoped only to the milestone below.
+
+Project context:
+- Existing project root: just-peachy\Software Validation from Datasets
+- Existing Evaluation Tool root: just-peachy\Software Validation from Datasets\Evaluation Tool
+- The Evaluation Tool already handles dataset selection, simulation, augmentation, run folders, scoring, plots, and reports for every supported dataset test.
+- The inference integration point is Evaluation Tool/app/model_runner/external_stub.py.
+- The runner receives one selected metadata row at a time.
+- The model must read record["inference_audio_path"]. This may point to original audio or a temporary augmented WAV.
+- Preserve recording_id and utt_id exactly because scoring matches predictions on (recording_id, utt_id).
+- Preserve start_sec and end_sec when present.
+- The required prediction file is predictions/utterances.jsonl with recording_id, utt_id, start_sec, end_sec, speaker_label, and text.
+- Build a modular PyTorch-native pipeline that can later be optimized for Raspberry Pi and possibly ExecuTorch/custom hardware.
+- One person is implementing this, so keep the scope small, testable, and milestone-specific.
+- Do not redesign the existing GUI, CLI, dataset registry, scorer, or report generator unless explicitly required by the milestone.
+
+Milestone: M14 - Metrics and Report Generation Framework
+
+Goal:
+Create a reusable reporting layer that generates markdown/CSV/JSON reports for ASR, VAD, segmentation, speaker embedding, speaker matching, enrollment, and end-to-end runs.
+
+Why this matters:
+The system will compare many models. Reports must be reproducible, comparable, and tied to exact configs and dataset selections.
+
+Target file paths:
+- Evaluation Tool\app\inference_pipeline\metrics\__init__.py
+- Evaluation Tool\app\inference_pipeline\metrics\asr_metrics.py
+- Evaluation Tool\app\inference_pipeline\metrics\speaker_metrics.py
+- Evaluation Tool\app\inference_pipeline\metrics\runtime_metrics.py
+- Evaluation Tool\app\inference_pipeline\reporting\__init__.py
+- Evaluation Tool\app\inference_pipeline\reporting\component_report.py
+- Evaluation Tool\app\inference_pipeline\reporting\templates\\
+- Evaluation Tool\reports\report_index.csv
+
+Implementation actions Codex should perform:
+- Define a standard ReportMetadata block: run_id, git commit, config path, dataset selection, model versions, hardware, date.
+- Implement report writers for markdown, CSV summary tables, and JSON metrics.
+- Add report templates for ASR, VAD, segmentation, speaker embedding, matching, enrollment prompts, runtime, and end-to-end pipeline.
+- Create a report index that lists every generated report and its primary recommendation.
+- Ensure reports can be produced after any milestone run, not only final end-to-end runs.
+
+Evaluation metrics or validation checks:
+- Report completeness score: required sections present.
+- Reproducibility score: report includes config snapshot and model versions.
+- Comparison readiness: reports include machine-readable CSV/JSON outputs.
+
+Completion conditions:
+- At least ASR, speaker matching, and end-to-end report templates exist.
+- A report can be generated from a prior run directory.
+- Every report includes the exact config and model identifiers used.
+
+Required report artifact:
+- Evaluation Tool\reports\milestones\M14_reporting_framework_report.md
+
+Instructions for the Codex prompt you generate:
+- Tell Codex to inspect the existing files before editing.
+- Tell Codex to implement only this milestone.
+- Tell Codex to create or update tests for the milestone.
+- Tell Codex to preserve the existing Evaluation Tool runner contract.
+- Tell Codex to avoid broad refactors and avoid changing unrelated files.
+- Tell Codex to write a short milestone report at the required report path summarizing what changed, how it was tested, and what remains incomplete.
+- Tell Codex to include exact commands to run tests or smoke checks.
+- Tell Codex to stop and report blockers if required dependencies or model assets are unavailable.
+- Tell codex to review the entire repository before making changes. 
+- Tell codex to create a new branch and operate wholly within that branch called “m14”
+- Tell codex to ensure it is operating with the .venv located at the root of the repository
+- Tell codex to write a high-level summary of the changes in the milestone/reports folder
+
+Now generate a single high-quality Codex prompt for this milestone.

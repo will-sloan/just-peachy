@@ -1,0 +1,121 @@
+
+You are working in the existing repository:
+
+/Users/billy/Documents/just-peachy
+
+Project root:
+Software Validation from Datasets
+
+Evaluation Tool root:
+Software Validation from Datasets/Evaluation Tool
+
+Create a new git branch named exactly `m14` before making changes, and operate wholly within that branch. First run `git status` and do not overwrite or revert any user changes. Ensure you are using the repository root virtual environment at `.venv`; activate it before running tests or smoke checks.
+
+Milestone: M14 - Metrics and Report Generation Framework
+
+Goal:
+Implement only this milestone: create a reusable reporting layer that generates markdown, CSV, and JSON reports for ASR, VAD, segmentation, speaker embedding, speaker matching, enrollment, runtime, and end-to-end runs.
+
+Do not write or modify unrelated functionality. Do not redesign the existing GUI, CLI, dataset registry, scorer, report generator, run folder system, or inference runner unless strictly required for this milestone.
+
+Important existing contract:
+- The inference integration point is `Evaluation Tool/app/model_runner/external_stub.py`.
+- The runner receives one selected metadata row at a time.
+- The model must read `record["inference_audio_path"]`.
+- Preserve `recording_id` and `utt_id` exactly because scoring matches predictions on `(recording_id, utt_id)`.
+- Preserve `start_sec` and `end_sec` when present.
+- Required prediction output remains `predictions/utterances.jsonl` with:
+  `recording_id`, `utt_id`, `start_sec`, `end_sec`, `speaker_label`, `text`.
+- Preserve the existing Evaluation Tool runner contract.
+
+Before editing:
+1. Review the entire repository at a structural level.
+2. Inspect existing files, especially Evaluation Tool app modules, reports, scoring, run-folder conventions, tests, and any existing report-generation code.
+3. Identify how prior run directories store configs, dataset selections, scores, plots, predictions, and metadata.
+4. Stop and report blockers if required dependencies, prior-run artifacts, or model assets are unavailable.
+
+Target files to create or update:
+- `Software Validation from Datasets/Evaluation Tool/app/inference_pipeline/metrics/__init__.py`
+- `Software Validation from Datasets/Evaluation Tool/app/inference_pipeline/metrics/asr_metrics.py`
+- `Software Validation from Datasets/Evaluation Tool/app/inference_pipeline/metrics/speaker_metrics.py`
+- `Software Validation from Datasets/Evaluation Tool/app/inference_pipeline/metrics/runtime_metrics.py`
+- `Software Validation from Datasets/Evaluation Tool/app/inference_pipeline/reporting/__init__.py`
+- `Software Validation from Datasets/Evaluation Tool/app/inference_pipeline/reporting/component_report.py`
+- `Software Validation from Datasets/Evaluation Tool/app/inference_pipeline/reporting/templates/`
+- `Software Validation from Datasets/Evaluation Tool/reports/report_index.csv`
+
+Implementation requirements:
+- Define a standard `ReportMetadata` block containing:
+  `run_id`, git commit, config path, dataset selection, model versions, hardware, and date.
+- Implement report writers for:
+  markdown reports,
+  CSV summary tables,
+  JSON metrics.
+- Add reusable report templates for:
+  ASR,
+  VAD,
+  segmentation,
+  speaker embedding,
+  speaker matching,
+  enrollment prompts,
+  runtime,
+  end-to-end pipeline.
+- At minimum, ASR, speaker matching, and end-to-end templates must exist and be usable.
+- Create or update a report index at:
+  `Software Validation from Datasets/Evaluation Tool/reports/report_index.csv`
+  The index must list every generated report and its primary recommendation.
+- Ensure reports can be generated after any milestone/component run, not only final end-to-end runs.
+- Ensure a report can be generated from a prior run directory.
+- Every generated report must include the exact config snapshot and model identifiers used.
+- Keep the implementation modular and PyTorch-native-compatible in style, since the broader project may later target Raspberry Pi, ExecuTorch, or custom hardware.
+
+Validation requirements:
+- Create or update tests for this milestone.
+- Add validation checks for:
+  report completeness score,
+  reproducibility score,
+  comparison readiness.
+- Report completeness score should verify required sections are present.
+- Reproducibility score should verify config snapshot and model versions are included.
+- Comparison readiness should verify machine-readable CSV and JSON outputs are generated.
+
+Required milestone report:
+Create:
+`Software Validation from Datasets/Evaluation Tool/reports/milestones/M14_reporting_framework_report.md`
+
+The milestone report must briefly summarize:
+- What changed.
+- Files added or updated.
+- How it was tested.
+- Exact commands used for tests or smoke checks.
+- What remains incomplete or blocked.
+- A high-level summary of the changes in the milestone reports folder.
+
+Use these commands, adapted only if the repo’s existing test layout requires it:
+
+cd "/Users/billy/Documents/just-peachy"
+git status
+git checkout -b m14
+source .venv/bin/activate
+python -m pytest "Software Validation from Datasets/Evaluation Tool/tests"
+
+Also run a focused smoke check that generates a report from a prior or synthetic run directory. If no prior run directory is available, create a minimal temporary test fixture under the test area rather than relying on external assets. Include the exact smoke-check command in the milestone report.
+
+Constraints:
+- Implement only M14.
+- Avoid broad refactors.
+- Avoid changing unrelated files.
+- Preserve existing runner behavior and prediction schema.
+- Prefer existing project conventions.
+- Use structured parsing/writing APIs for JSON/CSV/markdown assembly where practical.
+- Keep the scope small enough for one person to review and maintain.
+- If dependencies, model assets, or run artifacts are unavailable, stop and report the blocker instead of inventing unrelated infrastructure.
+
+Deliverables:
+1. Reporting and metrics modules implemented.
+2. Templates added.
+3. Tests added or updated.
+4. `report_index.csv` created or updated.
+5. Required milestone report written at:
+   `Software Validation from Datasets/Evaluation Tool/reports/milestones/M14_reporting_framework_report.md`
+6. Final response summarizing the implementation and listing exact test/smoke-check commands run.
