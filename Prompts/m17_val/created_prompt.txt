@@ -1,0 +1,135 @@
+You are Codex working in the existing repository. Implement only milestone M17_VAL: Live Microphone End-to-End Smoke Validation. Do not implement unrelated diarization, dataset, GUI, scorer, or report-generator changes.
+
+Repository and branch requirements:
+- Start from `/Users/billy/Documents/just-peachy`.
+- Switch to the existing branch `m17_val`. If it does not exist, stop and report that blocker.
+- Use the repository-root `.venv` for all Python commands.
+- Before editing, inspect the repository structure and current Evaluation Tool inference pipeline, especially:
+  - `Software Validation from Datasets/Evaluation Tool/app/model_runner/external_stub.py`
+  - `Software Validation from Datasets/Evaluation Tool/app/inference_pipeline/pipeline.py`
+  - `Software Validation from Datasets/Evaluation Tool/app/inference_pipeline/asr/`
+  - `Software Validation from Datasets/Evaluation Tool/configs/inference/`
+  - `Software Validation from Datasets/Evaluation Tool/tests/inference_pipeline/`
+  - existing milestone/component report patterns.
+- Preserve all existing runner contracts.
+
+Initial commands:
+```bash
+cd "/Users/billy/Documents/just-peachy"
+git status --short
+git checkout m17_val
+source .venv/bin/activate
+```
+
+Project context:
+- Existing Evaluation Tool root: `Software Validation from Datasets/Evaluation Tool`
+- The Evaluation Tool runner contract remains file-backed:
+  - pipeline input is one selected metadata row at a time;
+  - the model must read `record["inference_audio_path"]`;
+  - preserve `recording_id`, `utt_id`, `start_sec`, and `end_sec`;
+  - required prediction row fields are `recording_id`, `utt_id`, `start_sec`, `end_sec`, `speaker_label`, and `text`.
+- Whisper tiny/base configs and a lazy Whisper adapter already exist.
+- The default end-to-end config may still use `no_op_asr`; this milestone should make it easy to test microphone audio with a real ASR config when local Whisper dependencies/assets exist.
+- Do not make model downloads, microphone access, pyannote, or cloud services mandatory for core tests.
+
+Milestone goal:
+Add a minimal local microphone smoke path that records short microphone chunks to temporary WAV files, feeds each chunk through the existing `PipelineRunner`, and writes/prints end-to-end predictions and diagnostics. This is for developer validation, not a production streaming system.
+
+Scope:
+- Build a small file-backed microphone validation script, not a full real-time product feature.
+- Keep the existing pipeline contract intact by writing each microphone chunk to a WAV and passing that path as `record["inference_audio_path"]`.
+- Use real ASR when configured and available, especially Whisper tiny/base.
+- Gracefully support dry/no-op operation when microphone packages, microphone permission, Whisper package, or model assets are unavailable.
+- Add tests using fake/injected microphone capture and fake pipeline behavior; tests must not require a physical microphone or Whisper model assets.
+
+Suggested target files:
+- `Software Validation from Datasets/Evaluation Tool/scripts/live_mic_smoke.py`
+- `Software Validation from Datasets/Evaluation Tool/configs/inference/live_mic_whisper_tiny.yaml`
+- `Software Validation from Datasets/Evaluation Tool/tests/inference_pipeline/test_live_mic_smoke.py`
+- `Software Validation from Datasets/Evaluation Tool/reports/component_reports/live_mic/`
+- `Software Validation from Datasets/milestone/reports/M17_VAL_live_mic_e2e_report.md`
+
+Implementation requirements:
+1. Inspect existing files and conventions before editing.
+2. Add a CLI script for microphone smoke testing.
+3. The script should support options similar to:
+   - `--config`
+   - `--run-id`
+   - `--duration-sec`
+   - `--chunk-sec`
+   - `--sample-rate`
+   - `--speaker-label`
+   - `--recording-id`
+   - `--output-dir`
+   - `--keep-audio`
+   - `--dry-run`
+4. Record microphone audio in short chunks, write each chunk as WAV, create one synthetic Evaluation Tool record per chunk, and call `PipelineRunner.predict(...)`.
+5. Write outputs under a run-like folder, for example:
+   - `runs/live_mic/<run_id>/audio/chunk_0001.wav`
+   - `runs/live_mic/<run_id>/predictions/utterances.jsonl`
+   - `runs/live_mic/<run_id>/predictions/diagnostics.jsonl`
+   - `runs/live_mic/<run_id>/summary.json`
+6. Print a concise live transcript line per chunk.
+7. If real ASR is unavailable, fail clearly or support `--dry-run`; do not silently pretend no-op transcripts are real.
+8. Keep microphone capture behind an optional dependency boundary. If using `sounddevice`, import it lazily and report a clear blocker if missing.
+9. Do not require model downloads by default. If the selected Whisper config has `allow_model_downloads: false` and model assets are missing, report the exact blocker.
+10. Add a live mic config that selects `whisper_tiny` while keeping downloads disabled by default.
+11. Tests must verify:
+   - synthetic records preserve `recording_id`, `utt_id`, `start_sec`, `end_sec`, and `speaker_label`;
+   - chunk WAV paths are passed through `inference_audio_path`;
+   - JSONL predictions are written with the required fields;
+   - missing microphone dependency is reported cleanly;
+   - dry-run mode works without a microphone or Whisper assets;
+   - no core tests require physical microphone access.
+12. Avoid broad refactors and unrelated file changes.
+
+Validation commands to run:
+```bash
+cd "/Users/billy/Documents/just-peachy"
+source .venv/bin/activate
+cd "Software Validation from Datasets/Evaluation Tool"
+
+python -m pytest tests/inference_pipeline/test_live_mic_smoke.py
+python -m pytest tests/inference_pipeline/test_pipeline_e2e.py tests/inference_pipeline/test_asr_interface.py
+python -m pytest
+```
+
+If a manual microphone smoke command is possible locally, document it but do not require it for automated tests. Example:
+```bash
+python scripts/live_mic_smoke.py \
+  --config configs/inference/live_mic_whisper_tiny.yaml \
+  --run-id manual_mic_test \
+  --duration-sec 10 \
+  --chunk-sec 3 \
+  --speaker-label Billy \
+  --keep-audio
+```
+
+Required report artifacts:
+- `Software Validation from Datasets/Evaluation Tool/reports/component_reports/live_mic/live_mic_smoke_<run_id>.md`
+- `Software Validation from Datasets/milestone/reports/M17_VAL_live_mic_e2e_report.md`
+
+Reports must summarize:
+- What changed.
+- How to run the microphone smoke test.
+- Whether microphone capture was actually tested.
+- Whether Whisper tiny/base dependencies and model assets were available.
+- Whether the run used real ASR or dry/no-op mode.
+- Commands run.
+- Output artifact paths.
+- Remaining incomplete work.
+
+Stop and report blockers if:
+- `.venv` is missing or unusable.
+- Branch `m17_val` is unavailable.
+- Existing runner contracts are unclear.
+- Microphone dependencies are unavailable and cannot be optionalized.
+- Whisper dependencies/model assets are unavailable for real ASR testing.
+
+Completion criteria:
+- A developer can run one command to capture microphone chunks and feed them through the existing pipeline.
+- The pipeline contract remains file-backed and unchanged.
+- Automated tests pass without microphone hardware or model assets.
+- Real ASR is used when configured and locally available.
+- Clear blockers are reported when real microphone or Whisper execution is unavailable.
+- Required reports are written.
