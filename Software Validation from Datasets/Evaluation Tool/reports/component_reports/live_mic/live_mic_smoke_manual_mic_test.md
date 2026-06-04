@@ -2,8 +2,8 @@
 
 ## Report Metadata
 - Run id: `manual_mic_test`
-- Date: `2026-06-03T14:36:03.842462+00:00`
-- Config path: `/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/configs/inference/live_mic_whisper_tiny.yaml`
+- Date: `2026-06-04T14:12:00.150099+00:00`
+- Config path: `/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/configs/inference/live_mic_whisper_base.yaml`
 - Run directory: `/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/runs/live_mic/manual_mic_test`
 
 ## What Changed
@@ -19,15 +19,15 @@ python scripts/live_mic_smoke.py --config configs/inference/live_mic_whisper_tin
 - Microphone capture: actual microphone capture was attempted.
 - Microphone dependency available: `True`.
 - Real microphone blocker: `none for completed run`.
-- ASR mode: configured real ASR: whisper_tiny.
+- ASR mode: configured real ASR: whisper_base.
 - Dry-run: `False`.
 - Whisper package available: `True`.
-- Whisper model asset: `/Users/billy/Documents/just-peachy/models/cache/whisper/tiny.pt`.
+- Whisper model asset: `/Users/billy/Documents/just-peachy/models/cache/whisper/base.pt`.
 - Model downloads allowed: `False`.
 - ASR/config blocker: `none for completed run`.
 
 ## Commands Run
-- `python scripts/live_mic_smoke.py --config configs/inference/live_mic_whisper_tiny.yaml --run-id manual_mic_test --duration-sec 10 --chunk-sec 3 --speaker-label Billy --keep-audio`
+- `python scripts/live_mic_smoke.py --config configs/inference/live_mic_whisper_base.yaml --run-id manual_mic_test --duration-sec 10 --chunk-sec 3 --speaker-label Billy --keep-audio`
 
 ## Output Artifacts
 - Predictions: `/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/runs/live_mic/manual_mic_test/predictions/utterances.jsonl`

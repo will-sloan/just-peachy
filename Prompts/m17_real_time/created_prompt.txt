@@ -1,0 +1,157 @@
+
+You are Codex working in the existing repository. Implement only milestone m17_real_time: Genuine Real-Time Microphone Inference Prototype. Do not implement unrelated diarization, dataset, GUI, scorer, training, cloud, or report-generator changes. Use the repository branch called m17_real_time. 
+
+Repository requirements:
+- Start from `/Users/billy/Documents/just-peachy`.
+- Use the repository-root `.venv` for all Python commands.
+- Work in the Evaluation Tool root: `Software Validation from Datasets/Evaluation Tool`.
+- Preserve the existing Evaluation Tool runner contract:
+  - pipeline input is one selected metadata row at a time;
+  - the model reads `record["inference_audio_path"]`;
+  - preserve `recording_id`, `utt_id`, `start_sec`, `end_sec`;
+  - prediction rows contain `recording_id`, `utt_id`, `start_sec`, `end_sec`, `speaker_label`, `text`.
+
+Context:
+- M17_VAL added `scripts/live_mic_smoke.py`, which records one full microphone chunk, writes WAV, runs `PipelineRunner.predict(...)`, then records the next chunk. That is file-backed and useful, but not genuine real-time because capture pauses while ASR runs.
+- The next milestone should make capture continuous while previous chunks are processed in the background.
+- Keep this as a developer validation prototype, not a production streaming product.
+- Do not make microphone hardware, Whisper downloads, speaker matching, or model downloads mandatory for automated tests.
+
+Milestone goal:
+Add a genuine real-time microphone prototype that continuously captures audio while an inference worker processes completed windows through the existing `PipelineRunner`. It should avoid capture gaps caused by ASR runtime, measure lag/backlog, and print/write live predictions and diagnostics.
+
+Suggested target files:
+- `Software Validation from Datasets/Evaluation Tool/scripts/live_mic_realtime.py`
+- `Software Validation from Datasets/Evaluation Tool/configs/inference/live_mic_realtime_whisper_tiny.yaml`
+- Optional: `Software Validation from Datasets/Evaluation Tool/configs/inference/live_mic_realtime_whisper_base.yaml`
+- `Software Validation from Datasets/Evaluation Tool/tests/inference_pipeline/test_live_mic_realtime.py`
+- `Software Validation from Datasets/Evaluation Tool/reports/component_reports/live_mic_realtime/`
+- `Software Validation from Datasets/milestone/reports/M18_VAL_realtime_live_mic_report.md`
+
+Implementation requirements:
+1. Inspect existing M17 live mic script, pipeline, ASR adapters, enrollment/matching boundaries, tests, and report patterns before editing.
+2. Add a new CLI script rather than replacing `live_mic_smoke.py`.
+3. Use a producer-consumer architecture:
+   - producer continuously captures microphone frames using `sounddevice.InputStream` or equivalent callback;
+   - frames are buffered into fixed inference windows;
+   - completed windows are queued for a background inference worker;
+   - the worker writes each window to a WAV and calls `PipelineRunner.predict(...)`;
+   - capture must continue while inference is running.
+4. Preserve the file-backed pipeline contract by writing each inference window to WAV and passing that path as `record["inference_audio_path"]`.
+5. Support options like:
+   - `--config`
+   - `--run-id`
+   - `--duration-sec`
+   - `--window-sec`
+   - `--hop-sec`
+   - `--sample-rate`
+   - `--speaker-label`
+   - `--recording-id`
+   - `--device`
+   - `--output-dir`
+   - `--keep-audio`
+   - `--dry-run`
+   - `--max-queue`
+   - `--drop-policy` with choices like `drop_oldest`, `drop_newest`, `block`
+6. Windowing behavior:
+   - `window-sec` is the audio duration sent to inference.
+   - `hop-sec` is the spacing between inference windows.
+   - If `hop-sec < window-sec`, support overlapping windows.
+   - If `hop-sec == window-sec`, support contiguous chunks.
+   - Do not require transcript stitching in this milestone, but record enough metadata to support it later.
+7. Output structure should be run-like:
+   - `runs/live_mic_realtime/<run_id>/audio/window_0001.wav`
+   - `runs/live_mic_realtime/<run_id>/predictions/utterances.jsonl`
+   - `runs/live_mic_realtime/<run_id>/predictions/diagnostics.jsonl`
+   - `runs/live_mic_realtime/<run_id>/summary.json`
+8. Each prediction row must use the required Evaluation Tool fields. Diagnostics should include:
+   - `window_index`
+   - `capture_start_monotonic`
+   - `capture_end_monotonic`
+   - `inference_start_monotonic`
+   - `inference_end_monotonic`
+   - `capture_to_prediction_latency_sec`
+   - `asr_realtime_factor` if available
+   - queue depth at enqueue/dequeue
+   - dropped-window count
+   - `inference_audio_path`
+9. Print concise live transcript lines as predictions complete, including latency and backlog.
+10. Gracefully handle:
+   - missing `sounddevice`;
+   - no microphone permission/device;
+   - missing Whisper package;
+   - missing Whisper model asset when downloads are disabled;
+   - ASR slower than capture, with explicit backlog/drop diagnostics.
+11. `--dry-run` must work without microphone hardware or Whisper assets by using synthetic audio frames and a no-op/fake pipeline mode.
+12. Do not silently present no-op transcripts as real ASR.
+13. Add a realtime Whisper tiny config with downloads disabled by default.
+14. Tests must use fake/injected capture and fake pipeline behavior. No test may require a physical microphone, OS permission, or Whisper assets.
+15. Tests must verify:
+   - capture and inference are decoupled, meaning capture can enqueue multiple windows while fake inference sleeps or blocks;
+   - generated records preserve `recording_id`, `utt_id`, `start_sec`, `end_sec`, and `speaker_label`;
+   - WAV paths are passed through `inference_audio_path`;
+   - JSONL predictions use the required fields;
+   - diagnostics contain latency/backlog/drop fields;
+   - dry-run works without mic or Whisper;
+   - missing microphone dependency is reported cleanly;
+   - queue overflow/drop policy behavior is deterministic.
+16. Keep edits narrowly scoped. Avoid broad refactors.
+
+Validation commands to run:
+```bash
+cd "/Users/billy/Documents/just-peachy"
+source .venv/bin/activate
+cd "Software Validation from Datasets/Evaluation Tool"
+
+python -m pytest tests/inference_pipeline/test_live_mic_realtime.py
+python -m pytest tests/inference_pipeline/test_live_mic_smoke.py tests/inference_pipeline/test_pipeline_e2e.py tests/inference_pipeline/test_asr_interface.py
+python -m pytest
+```
+
+Also run a dry-run realtime smoke command, for example:
+```bash
+python scripts/live_mic_realtime.py \
+  --config configs/inference/live_mic_realtime_whisper_tiny.yaml \
+  --run-id m18_realtime_dry_run \
+  --duration-sec 3 \
+  --window-sec 1.0 \
+  --hop-sec 0.5 \
+  --speaker-label Billy \
+  --dry-run
+```
+
+If a manual microphone smoke is possible locally, document it but do not require it for automated tests:
+```bash
+python scripts/live_mic_realtime.py \
+  --config configs/inference/live_mic_realtime_whisper_tiny.yaml \
+  --run-id manual_realtime_mic_test \
+  --duration-sec 20 \
+  --window-sec 3 \
+  --hop-sec 1.5 \
+  --speaker-label Billy \
+  --keep-audio
+```
+
+Reports:
+- Write `Software Validation from Datasets/Evaluation Tool/reports/component_reports/live_mic_realtime/live_mic_realtime_<run_id>.md`.
+- Write `Software Validation from Datasets/milestone/reports/M18_VAL_realtime_live_mic_report.md`.
+
+Reports must summarize:
+- What changed.
+- How this differs from M17_VAL sequential chunk smoke.
+- How to run realtime mic validation.
+- Whether microphone capture was actually tested.
+- Whether Whisper tiny/base dependencies and model assets were available.
+- Whether the run used real ASR or dry/no-op mode.
+- Latency/backlog/drop metrics from the dry-run and any manual run.
+- Commands run.
+- Output artifact paths.
+- Remaining incomplete work.
+
+Completion criteria:
+- A developer can run one command that continuously captures microphone audio while previous windows are processed by the pipeline.
+- The pipeline contract remains file-backed and unchanged.
+- Automated tests pass without microphone hardware or model assets.
+- Backlog/latency/dropped-window diagnostics are written.
+- Real ASR is used when configured and locally available.
+- Clear blockers are reported when real microphone or Whisper execution is unavailable.
