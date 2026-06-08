@@ -1,0 +1,26 @@
+{
+  "output_wav": "artifacts/realtime_test_audio/aew_rxr_eey_arctic_a0301_concat.wav",
+  "sample_rate_hz": 16000,
+  "channels": 1,
+  "duration_sec": 8.8975625,
+  "segments": [
+    {
+      "speaker": "aew",
+      "path": "../RawDatasets/CMU Arctic/cmu_us_aew_arctic/wav/arctic_a0301.wav",
+      "frames": 50880,
+      "duration_sec": 3.18
+    },
+    {
+      "speaker": "rxr",
+      "path": "../RawDatasets/CMU Arctic/cmu_us_rxr_arctic/wav/arctic_a0301.wav",
+      "frames": 53081,
+      "duration_sec": 3.3175625
+    },
+    {
+      "speaker": "eey",
+      "path": "../RawDatasets/CMU Arctic/cmu_us_eey_arctic/wav/arctic_a0301.wav",
+      "frames": 38400,
+      "duration_sec": 2.4
+    }
+  ]
+}

@@ -1,0 +1,101 @@
+{
+  "output_wav": "artifacts/realtime_test_audio/aew_alt_rxr_eey_random_30s.wav",
+  "sample_rate_hz": 16000,
+  "channels": 1,
+  "target_duration_sec": 30.0,
+  "duration_sec": 32.133938,
+  "random_seed": 20260605,
+  "pattern": "aew, then random choice of rxr/eey, repeated",
+  "segments": [
+    {
+      "index": 1,
+      "speaker": "aew",
+      "utterance": "arctic_a0281.wav",
+      "path": "../RawDatasets/CMU Arctic/cmu_us_aew_arctic/wav/arctic_a0281.wav",
+      "start_sec": 0.0,
+      "end_sec": 3.994937,
+      "duration_sec": 3.994937
+    },
+    {
+      "index": 2,
+      "speaker": "rxr",
+      "utterance": "arctic_a0111.wav",
+      "path": "../RawDatasets/CMU Arctic/cmu_us_rxr_arctic/wav/arctic_a0111.wav",
+      "start_sec": 3.994937,
+      "end_sec": 8.21875,
+      "duration_sec": 4.223813
+    },
+    {
+      "index": 3,
+      "speaker": "aew",
+      "utterance": "arctic_a0061.wav",
+      "path": "../RawDatasets/CMU Arctic/cmu_us_aew_arctic/wav/arctic_a0061.wav",
+      "start_sec": 8.21875,
+      "end_sec": 11.843813,
+      "duration_sec": 3.625062
+    },
+    {
+      "index": 4,
+      "speaker": "rxr",
+      "utterance": "arctic_a0132.wav",
+      "path": "../RawDatasets/CMU Arctic/cmu_us_rxr_arctic/wav/arctic_a0132.wav",
+      "start_sec": 11.843813,
+      "end_sec": 15.317625,
+      "duration_sec": 3.473813
+    },
+    {
+      "index": 5,
+      "speaker": "aew",
+      "utterance": "arctic_a0587.wav",
+      "path": "../RawDatasets/CMU Arctic/cmu_us_aew_arctic/wav/arctic_a0587.wav",
+      "start_sec": 15.317625,
+      "end_sec": 18.507562,
+      "duration_sec": 3.189938
+    },
+    {
+      "index": 6,
+      "speaker": "eey",
+      "utterance": "arctic_a0338.wav",
+      "path": "../RawDatasets/CMU Arctic/cmu_us_eey_arctic/wav/arctic_a0338.wav",
+      "start_sec": 18.507562,
+      "end_sec": 20.662562,
+      "duration_sec": 2.155
+    },
+    {
+      "index": 7,
+      "speaker": "aew",
+      "utterance": "arctic_a0098.wav",
+      "path": "../RawDatasets/CMU Arctic/cmu_us_aew_arctic/wav/arctic_a0098.wav",
+      "start_sec": 20.662562,
+      "end_sec": 22.192563,
+      "duration_sec": 1.53
+    },
+    {
+      "index": 8,
+      "speaker": "rxr",
+      "utterance": "arctic_a0391.wav",
+      "path": "../RawDatasets/CMU Arctic/cmu_us_rxr_arctic/wav/arctic_a0391.wav",
+      "start_sec": 22.192563,
+      "end_sec": 25.978875,
+      "duration_sec": 3.786313
+    },
+    {
+      "index": 9,
+      "speaker": "aew",
+      "utterance": "arctic_a0045.wav",
+      "path": "../RawDatasets/CMU Arctic/cmu_us_aew_arctic/wav/arctic_a0045.wav",
+      "start_sec": 25.978875,
+      "end_sec": 29.343938,
+      "duration_sec": 3.365063
+    },
+    {
+      "index": 10,
+      "speaker": "eey",
+      "utterance": "arctic_a0142.wav",
+      "path": "../RawDatasets/CMU Arctic/cmu_us_eey_arctic/wav/arctic_a0142.wav",
+      "start_sec": 29.343938,
+      "end_sec": 32.133938,
+      "duration_sec": 2.79
+    }
+  ]
+}

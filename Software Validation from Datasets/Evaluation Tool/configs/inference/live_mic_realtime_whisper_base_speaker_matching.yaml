@@ -1,0 +1,45 @@
+config_name: live_mic_realtime_whisper_base_speaker_matching
+profile: local_live_mic_realtime_whisper_base_speaker_matching
+notes: Realtime live microphone validation config with Whisper base ASR and enrolled-speaker matching.
+future: false
+runtime:
+  device: cpu
+  sample_rate_hz: 16000
+  max_batch_size: 1
+  num_threads: 1
+  precision: float32
+  dry_run: false
+  allow_model_downloads: false
+  cache_dir: models/cache/whisper
+components:
+  vad:
+    name: no_op_vad
+    enabled: false
+    adapter: NoOpVADAdapter
+    params: {}
+  segmentation:
+    name: no_op_segmentation
+    enabled: false
+    adapter: NoOpSegmentationAdapter
+    params:
+      mode: full_window
+  diarization:
+    name: no_op_diarization
+    enabled: false
+    adapter: NoOpDiarizationAdapter
+    params: {}
+  asr: components/asr/whisper_base.yaml
+  speaker_embedding: components/speaker_embedding/speechbrain_ecapa.yaml
+  speaker_matching:
+    name: cosine_threshold
+    enabled: true
+    adapter: CosineThresholdSpeakerMatcher
+    params:
+      enrollment_db_path: artifacts/enrollment/enrollment_db_speechbrain_ecapa.json
+      threshold: 0.70
+      min_margin: 0.05
+      unknown_label: Unknown
+      scoring_mode: centroid
+      enforce_model_id: true
+      runtime_model_id: speechbrain_ecapa
+

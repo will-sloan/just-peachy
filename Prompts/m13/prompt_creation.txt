@@ -47,7 +47,7 @@ Evaluation metrics or validation checks:
 - Chronological ordering violations.
 - Pipeline RTF and per-stage runtime breakdown.
 
-Completion conditions:
+Completion conditions:s
 - ExternalStubRunner can call the real pipeline and produce valid predictions.
 - A smoke full run completes scoring and reporting.
 - A diagnostics file is written for debugging without breaking the evaluator contract.

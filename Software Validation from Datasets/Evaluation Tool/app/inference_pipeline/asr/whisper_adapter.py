@@ -52,6 +52,7 @@ class WhisperASR(ASRBase):
         kwargs: dict[str, object] = {
             "language": self.language or context.language,
             "word_timestamps": self.word_timestamps,
+            "fp16": _use_fp16(self.device, self.dtype, context),
         }
         if audio_segment.start_sec is not None or audio_segment.end_sec is not None:
             kwargs["clip_timestamps"] = _clip_timestamps(audio_segment)
@@ -207,6 +208,12 @@ def _peak_gpu_memory_mb(device: str) -> float | None:
     if device == "cuda" and torch.cuda.is_available():
         return torch.cuda.max_memory_allocated() / (1024 * 1024)
     return None
+
+
+def _use_fp16(device: str, dtype: str, context: ASRContext) -> bool:
+    runtime_device = str(context.device or device)
+    runtime_dtype = str(context.dtype or dtype)
+    return runtime_device == "cuda" and runtime_dtype == "float16"
 
 
 def _optional_string(value: object) -> str | None:

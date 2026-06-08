@@ -1,0 +1,251 @@
+{
+  "asr_mode": "whisper_base",
+  "audio_retained": false,
+  "availability": {
+    "allow_model_downloads": false,
+    "asr_component": "whisper_base",
+    "asr_enabled": true,
+    "blocker": null,
+    "input_wav_path": "../RawDatasets/CMU Arctic/cmu_us_aew_arctic/wav/arctic_a0301.wav",
+    "mic_device": null,
+    "mic_package": "sounddevice",
+    "mic_package_available": true,
+    "realtime_capture": "wav_file_realtime",
+    "whisper_model_asset_path": "/Users/billy/Documents/just-peachy/models/cache/whisper/base.pt",
+    "whisper_model_asset_searched": [
+      "models/cache/whisper/base.pt",
+      "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/models/cache/whisper/base.pt",
+      "/Users/billy/Documents/just-peachy/Software Validation from Datasets/models/cache/whisper/base.pt",
+      "/Users/billy/Documents/just-peachy/models/cache/whisper/base.pt",
+      "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/configs/inference/models/cache/whisper/base.pt",
+      "/Users/billy/.cache/whisper/base.pt"
+    ],
+    "whisper_model_size": "base",
+    "whisper_package_available": true
+  },
+  "component_report_path": "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/reports/component_reports/live_mic_realtime/live_mic_realtime_cmu_b0539_base_matching.md",
+  "config_path": "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/configs/inference/live_mic_realtime_whisper_base_speaker_matching.yaml",
+  "device": null,
+  "diagnostics_path": "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/runs/live_mic_realtime/cmu_b0539_base_matching/predictions/diagnostics.jsonl",
+  "diagnostics_rows": [
+    {
+      "asr_realtime_factor": 0.229099,
+      "capture_end_monotonic": 343797.508761791,
+      "capture_start_monotonic": 343794.503706708,
+      "capture_to_prediction_latency_sec": 0.921907,
+      "dequeue_monotonic": 343797.509594041,
+      "diagnostics": {
+        "assembled_text": "but all my dreams violated this law.",
+        "chronological_ordering_violations": 0,
+        "diarization_turns": [],
+        "diarization_warnings": [],
+        "normalized_text": [
+          "but all my dreams violated this law."
+        ],
+        "raw_asr_text": [
+          " But all my dreams violated this law."
+        ],
+        "runtime_stats": {
+          "audio_duration_sec": 3.0,
+          "counters": {
+            "asr_segment_count": 1,
+            "speaker_decision_count": 1,
+            "speaker_embedding_count": 1
+          },
+          "device": "cpu",
+          "model_versions": {
+            "asr": "whisper_base",
+            "speaker_embedding": "speechbrain_ecapa"
+          },
+          "realtime_factor": 0.3061776526737958,
+          "stage_breakdown_sec": {
+            "asr_sec": 0.6875574589939788,
+            "audio_load_sec": 0.0032991659827530384,
+            "diarization_sec": null,
+            "postprocess_sec": 0.00012458302080631256,
+            "speaker_sec": 0.2272234580013901,
+            "vad_sec": null
+          },
+          "total_sec": 0.9185329580213875
+        },
+        "segment_overlap_violations": 0,
+        "segment_predictions": [
+          {
+            "normalized_text": "but all my dreams violated this law.",
+            "raw_text": " But all my dreams violated this law.",
+            "segment": {
+              "audio_path": "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/runs/live_mic_realtime/cmu_b0539_base_matching/audio/window_0001.wav",
+              "channel_count": 1,
+              "channel_index": null,
+              "duration_sec": 3.0,
+              "end_sec": 3.0,
+              "is_mono": true,
+              "sample_rate_hz": 16000,
+              "start_sec": 0.0
+            },
+            "segment_index": 0,
+            "speaker_decision": {
+              "accepted": true,
+              "best_label": "Alice",
+              "confidence": 0.7644482851028442,
+              "embedding_id": "cmu_arctic_b0539:cmu_arctic_b0539_window_0001:0:0.0:3.0",
+              "margin": null,
+              "matched_reference_id": "centroid:spk_2bd806c97f0e",
+              "method": "cosine_threshold",
+              "min_margin": 0.05,
+              "model_id": "speechbrain_ecapa",
+              "notes": null,
+              "scores": [
+                {
+                  "model_id": "speechbrain_ecapa",
+                  "reference_id": "centroid:spk_2bd806c97f0e",
+                  "score": 0.7644482851028442,
+                  "scoring_mode": "centroid",
+                  "speaker_id": "spk_2bd806c97f0e",
+                  "speaker_label": "Alice"
+                }
+              ],
+              "second_best_label": null,
+              "second_best_score": null,
+              "speaker_label": "Alice",
+              "threshold": 0.7,
+              "threshold_decision": "accepted"
+            },
+            "transcript": {
+              "confidence": null,
+              "end_sec": 3.0,
+              "language": "en",
+              "start_sec": 0.0,
+              "text": "but all my dreams violated this law.",
+              "words": []
+            }
+          }
+        ],
+        "segments": [
+          {
+            "audio_path": "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/runs/live_mic_realtime/cmu_b0539_base_matching/audio/window_0001.wav",
+            "channel_count": 1,
+            "channel_index": null,
+            "duration_sec": 3.0,
+            "end_sec": 3.0,
+            "is_mono": true,
+            "sample_rate_hz": 16000,
+            "start_sec": 0.0
+          }
+        ],
+        "speaker_decisions": [
+          {
+            "accepted": true,
+            "best_label": "Alice",
+            "confidence": 0.7644482851028442,
+            "embedding_id": "cmu_arctic_b0539:cmu_arctic_b0539_window_0001:0:0.0:3.0",
+            "margin": null,
+            "matched_reference_id": "centroid:spk_2bd806c97f0e",
+            "method": "cosine_threshold",
+            "min_margin": 0.05,
+            "model_id": "speechbrain_ecapa",
+            "notes": null,
+            "scores": [
+              {
+                "model_id": "speechbrain_ecapa",
+                "reference_id": "centroid:spk_2bd806c97f0e",
+                "score": 0.7644482851028442,
+                "scoring_mode": "centroid",
+                "speaker_id": "spk_2bd806c97f0e",
+                "speaker_label": "Alice"
+              }
+            ],
+            "second_best_label": null,
+            "second_best_score": null,
+            "speaker_label": "Alice",
+            "threshold": 0.7,
+            "threshold_decision": "accepted"
+          }
+        ]
+      },
+      "drop_policy": "drop_oldest",
+      "dropped_window_count": 0,
+      "dry_run": false,
+      "end_sec": 3.0,
+      "enqueue_blocked_sec": 0.0,
+      "enqueue_monotonic": 343797.509462416,
+      "errors": [],
+      "inference_audio_path": "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/runs/live_mic_realtime/cmu_b0539_base_matching/audio/window_0001.wav",
+      "inference_end_monotonic": 343798.430668291,
+      "inference_runtime_sec": 0.921045,
+      "inference_start_monotonic": 343797.5096235,
+      "queue_depth_after_dequeue": 0,
+      "queue_depth_at_dequeue": 1,
+      "queue_depth_at_enqueue": 1,
+      "recording_id": "cmu_arctic_b0539",
+      "speaker_label": "Alice",
+      "start_sec": 0.0,
+      "status": "predicted",
+      "utt_id": "cmu_arctic_b0539_window_0001",
+      "warnings": [],
+      "window_duration_sec": 3.0,
+      "window_end_sec": 3.0,
+      "window_index": 1,
+      "window_start_sec": 0.0
+    }
+  ],
+  "drop_policy": "drop_oldest",
+  "dropped_window_count": 0,
+  "dry_run": false,
+  "duration_sec": 3.3,
+  "hop_sec": 1.5,
+  "input_wav_path": "../RawDatasets/CMU Arctic/cmu_us_aew_arctic/wav/arctic_a0301.wav",
+  "max_queue": 4,
+  "max_queue_depth": 1,
+  "metrics": {
+    "asr_realtime_factor": {
+      "count": 1,
+      "max": 0.229099,
+      "mean": 0.229099,
+      "min": 0.229099
+    },
+    "latency_sec": {
+      "count": 1,
+      "max": 0.921907,
+      "mean": 0.921907,
+      "min": 0.921907
+    },
+    "queue": {
+      "dropped_window_count": 0,
+      "dropped_window_indices": [],
+      "max_depth_observed": 1,
+      "max_depth_recorded": 1.0
+    }
+  },
+  "microphone_capture_tested": false,
+  "prediction_count": 1,
+  "prediction_required_fields": [
+    "recording_id",
+    "utt_id",
+    "start_sec",
+    "end_sec",
+    "speaker_label",
+    "text"
+  ],
+  "prediction_rows": [
+    {
+      "end_sec": 3.0,
+      "recording_id": "cmu_arctic_b0539",
+      "speaker_label": "Alice",
+      "start_sec": 0.0,
+      "text": "but all my dreams violated this law.",
+      "utt_id": "cmu_arctic_b0539_window_0001"
+    }
+  ],
+  "predictions_path": "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/runs/live_mic_realtime/cmu_b0539_base_matching/predictions/utterances.jsonl",
+  "real_asr_used": true,
+  "recording_id": "cmu_arctic_b0539",
+  "run_dir": "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/runs/live_mic_realtime/cmu_b0539_base_matching",
+  "run_id": "cmu_b0539_base_matching",
+  "sample_rate": 16000,
+  "speaker_label": "Unknown",
+  "summary_path": "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/runs/live_mic_realtime/cmu_b0539_base_matching/summary.json",
+  "window_count": 1,
+  "window_sec": 3.0,
+  "worker_errors": []
+}

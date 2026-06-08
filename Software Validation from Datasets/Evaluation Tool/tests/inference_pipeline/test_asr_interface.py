@@ -204,6 +204,48 @@ def test_whisper_adapter_is_lazy_and_reports_unavailable_without_dependency_or_a
         assert adapter.model is not None
 
 
+class RecordingWhisperModel:
+    def __init__(self) -> None:
+        self.calls: list[dict[str, object]] = []
+
+    def transcribe(self, audio_path: str, **kwargs):
+        self.calls.append({"audio_path": audio_path, **kwargs})
+        return {"text": "Hello from Whisper"}
+
+
+def test_whisper_adapter_disables_fp16_on_cpu_to_avoid_warning() -> None:
+    model = RecordingWhisperModel()
+    adapter = WhisperASR(
+        {"model_size": "tiny", "device": "cpu", "dtype": "float32"},
+        model=model,
+    )
+
+    transcript = adapter.transcribe(audio_segment(), asr_context())
+
+    assert transcript.text == "hello from whisper"
+    assert model.calls[0]["fp16"] is False
+
+
+def test_whisper_adapter_enables_fp16_only_for_cuda_float16_context() -> None:
+    model = RecordingWhisperModel()
+    adapter = WhisperASR(
+        {"model_size": "tiny", "device": "cuda", "dtype": "float16"},
+        model=model,
+    )
+    context = ASRContext(
+        recording_id="rec-001",
+        utt_id="utt-001",
+        source_audio_path=Path("synthetic.wav"),
+        device="cuda",
+        dtype="float16",
+        language="en",
+    )
+
+    adapter.transcribe(audio_segment(), context)
+
+    assert model.calls[0]["fp16"] is True
+
+
 class StaticAudioReader:
     def __init__(self, duration_sec: float) -> None:
         self.audio = SimpleNamespace(

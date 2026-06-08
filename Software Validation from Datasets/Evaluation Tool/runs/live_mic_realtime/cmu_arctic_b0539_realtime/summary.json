@@ -1,0 +1,638 @@
+{
+  "asr_mode": "whisper_base",
+  "audio_retained": true,
+  "availability": {
+    "allow_model_downloads": false,
+    "asr_component": "whisper_base",
+    "asr_enabled": true,
+    "blocker": null,
+    "input_wav_path": "../RawDatasets/CMU Arctic/cmu_us_aew_arctic/wav/arctic_b0538.wav",
+    "mic_device": null,
+    "mic_package": "sounddevice",
+    "mic_package_available": true,
+    "realtime_capture": "wav_file_realtime",
+    "whisper_model_asset_path": "/Users/billy/Documents/just-peachy/models/cache/whisper/base.pt",
+    "whisper_model_asset_searched": [
+      "models/cache/whisper/base.pt",
+      "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/models/cache/whisper/base.pt",
+      "/Users/billy/Documents/just-peachy/Software Validation from Datasets/models/cache/whisper/base.pt",
+      "/Users/billy/Documents/just-peachy/models/cache/whisper/base.pt",
+      "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/configs/inference/models/cache/whisper/base.pt",
+      "/Users/billy/.cache/whisper/base.pt"
+    ],
+    "whisper_model_size": "base",
+    "whisper_package_available": true
+  },
+  "component_report_path": "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/reports/component_reports/live_mic_realtime/live_mic_realtime_cmu_arctic_b0539_realtime.md",
+  "config_path": "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/configs/inference/live_mic_realtime_whisper_base.yaml",
+  "device": null,
+  "diagnostics_path": "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/runs/live_mic_realtime/cmu_arctic_b0539_realtime/predictions/diagnostics.jsonl",
+  "diagnostics_rows": [
+    {
+      "asr_realtime_factor": 0.67212,
+      "capture_end_monotonic": 340401.558046666,
+      "capture_start_monotonic": 340400.554056458,
+      "capture_to_prediction_latency_sec": 0.678312,
+      "dequeue_monotonic": 340401.558564791,
+      "diagnostics": {
+        "assembled_text": "at the best.",
+        "chronological_ordering_violations": 0,
+        "diarization_turns": [],
+        "diarization_warnings": [],
+        "normalized_text": [
+          "at the best."
+        ],
+        "raw_asr_text": [
+          " At the best."
+        ],
+        "runtime_stats": {
+          "audio_duration_sec": 1.0,
+          "counters": {
+            "asr_segment_count": 1
+          },
+          "device": "cpu",
+          "model_versions": {
+            "asr": "whisper_base"
+          },
+          "realtime_factor": 0.6755920840078034,
+          "stage_breakdown_sec": {
+            "asr_sec": 0.6724446669686586,
+            "audio_load_sec": 0.0026275840355083346,
+            "diarization_sec": null,
+            "postprocess_sec": 0.0001504159881733358,
+            "speaker_sec": 2.208980731666088e-06,
+            "vad_sec": null
+          },
+          "total_sec": 0.6755920840078034
+        },
+        "segment_overlap_violations": 0,
+        "segment_predictions": [
+          {
+            "normalized_text": "at the best.",
+            "raw_text": " At the best.",
+            "segment": {
+              "audio_path": "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/runs/live_mic_realtime/cmu_arctic_b0539_realtime/audio/window_0001.wav",
+              "channel_count": 1,
+              "channel_index": null,
+              "duration_sec": 1.0,
+              "end_sec": 1.0,
+              "is_mono": true,
+              "sample_rate_hz": 16000,
+              "start_sec": 0.0
+            },
+            "segment_index": 0,
+            "speaker_decision": null,
+            "transcript": {
+              "confidence": null,
+              "end_sec": 1.0,
+              "language": "en",
+              "start_sec": 0.0,
+              "text": "at the best.",
+              "words": []
+            }
+          }
+        ],
+        "segments": [
+          {
+            "audio_path": "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/runs/live_mic_realtime/cmu_arctic_b0539_realtime/audio/window_0001.wav",
+            "channel_count": 1,
+            "channel_index": null,
+            "duration_sec": 1.0,
+            "end_sec": 1.0,
+            "is_mono": true,
+            "sample_rate_hz": 16000,
+            "start_sec": 0.0
+          }
+        ],
+        "speaker_decisions": []
+      },
+      "drop_policy": "drop_oldest",
+      "dropped_window_count": 0,
+      "dry_run": false,
+      "end_sec": 1.0,
+      "enqueue_blocked_sec": 0.0,
+      "enqueue_monotonic": 340401.558443833,
+      "errors": [],
+      "inference_audio_path": "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/runs/live_mic_realtime/cmu_arctic_b0539_realtime/audio/window_0001.wav",
+      "inference_end_monotonic": 340402.236358333,
+      "inference_runtime_sec": 0.677767,
+      "inference_start_monotonic": 340401.558590958,
+      "queue_depth_after_dequeue": 0,
+      "queue_depth_at_dequeue": 1,
+      "queue_depth_at_enqueue": 1,
+      "recording_id": "cmu_arctic_b0539",
+      "speaker_label": "Billy",
+      "start_sec": 0.0,
+      "status": "predicted",
+      "utt_id": "cmu_arctic_b0539_window_0001",
+      "warnings": [],
+      "window_duration_sec": 1.0,
+      "window_end_sec": 1.0,
+      "window_index": 1,
+      "window_start_sec": 0.0
+    },
+    {
+      "asr_realtime_factor": 0.143375,
+      "capture_end_monotonic": 340402.071374791,
+      "capture_start_monotonic": 340401.054056458,
+      "capture_to_prediction_latency_sec": 0.309792,
+      "dequeue_monotonic": 340402.236840208,
+      "diagnostics": {
+        "assembled_text": "the best they were in",
+        "chronological_ordering_violations": 0,
+        "diarization_turns": [],
+        "diarization_warnings": [],
+        "normalized_text": [
+          "the best they were in"
+        ],
+        "raw_asr_text": [
+          " the best they were in"
+        ],
+        "runtime_stats": {
+          "audio_duration_sec": 1.0,
+          "counters": {
+            "asr_segment_count": 1
+          },
+          "device": "cpu",
+          "model_versions": {
+            "asr": "whisper_base"
+          },
+          "realtime_factor": 0.14397366699995473,
+          "stage_breakdown_sec": {
+            "asr_sec": 0.143484250002075,
+            "audio_load_sec": 0.0003394579980522394,
+            "diarization_sec": null,
+            "postprocess_sec": 7.499998901039362e-05,
+            "speaker_sec": 2.0830193534493446e-06,
+            "vad_sec": null
+          },
+          "total_sec": 0.14397366699995473
+        },
+        "segment_overlap_violations": 0,
+        "segment_predictions": [
+          {
+            "normalized_text": "the best they were in",
+            "raw_text": " the best they were in",
+            "segment": {
+              "audio_path": "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/runs/live_mic_realtime/cmu_arctic_b0539_realtime/audio/window_0002.wav",
+              "channel_count": 1,
+              "channel_index": null,
+              "duration_sec": 1.0,
+              "end_sec": 1.0,
+              "is_mono": true,
+              "sample_rate_hz": 16000,
+              "start_sec": 0.0
+            },
+            "segment_index": 0,
+            "speaker_decision": null,
+            "transcript": {
+              "confidence": null,
+              "end_sec": 1.0,
+              "language": "en",
+              "start_sec": 0.0,
+              "text": "the best they were in",
+              "words": []
+            }
+          }
+        ],
+        "segments": [
+          {
+            "audio_path": "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/runs/live_mic_realtime/cmu_arctic_b0539_realtime/audio/window_0002.wav",
+            "channel_count": 1,
+            "channel_index": null,
+            "duration_sec": 1.0,
+            "end_sec": 1.0,
+            "is_mono": true,
+            "sample_rate_hz": 16000,
+            "start_sec": 0.0
+          }
+        ],
+        "speaker_decisions": []
+      },
+      "drop_policy": "drop_oldest",
+      "dropped_window_count": 0,
+      "dry_run": false,
+      "end_sec": 1.0,
+      "enqueue_blocked_sec": 0.0,
+      "enqueue_monotonic": 340402.072053916,
+      "errors": [],
+      "inference_audio_path": "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/runs/live_mic_realtime/cmu_arctic_b0539_realtime/audio/window_0002.wav",
+      "inference_end_monotonic": 340402.38116725,
+      "inference_runtime_sec": 0.144322,
+      "inference_start_monotonic": 340402.236845333,
+      "queue_depth_after_dequeue": 0,
+      "queue_depth_at_dequeue": 1,
+      "queue_depth_at_enqueue": 1,
+      "recording_id": "cmu_arctic_b0539",
+      "speaker_label": "Billy",
+      "start_sec": 0.0,
+      "status": "predicted",
+      "utt_id": "cmu_arctic_b0539_window_0002",
+      "warnings": [],
+      "window_duration_sec": 1.0,
+      "window_end_sec": 1.5,
+      "window_index": 2,
+      "window_start_sec": 0.5
+    },
+    {
+      "asr_realtime_factor": 0.182443,
+      "capture_end_monotonic": 340402.559095875,
+      "capture_start_monotonic": 340401.554056458,
+      "capture_to_prediction_latency_sec": 0.185454,
+      "dequeue_monotonic": 340402.559328666,
+      "diagnostics": {
+        "assembled_text": "they were necessary.",
+        "chronological_ordering_violations": 0,
+        "diarization_turns": [],
+        "diarization_warnings": [],
+        "normalized_text": [
+          "they were necessary."
+        ],
+        "raw_asr_text": [
+          " they were necessary."
+        ],
+        "runtime_stats": {
+          "audio_duration_sec": 1.0,
+          "counters": {
+            "asr_segment_count": 1
+          },
+          "device": "cpu",
+          "model_versions": {
+            "asr": "whisper_base"
+          },
+          "realtime_factor": 0.1836759580182843,
+          "stage_breakdown_sec": {
+            "asr_sec": 0.1825786249828525,
+            "audio_load_sec": 0.0008939169929362833,
+            "diarization_sec": null,
+            "postprocess_sec": 6.462499732151628e-05,
+            "speaker_sec": 1.792039256542921e-06,
+            "vad_sec": null
+          },
+          "total_sec": 0.1836759580182843
+        },
+        "segment_overlap_violations": 0,
+        "segment_predictions": [
+          {
+            "normalized_text": "they were necessary.",
+            "raw_text": " they were necessary.",
+            "segment": {
+              "audio_path": "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/runs/live_mic_realtime/cmu_arctic_b0539_realtime/audio/window_0003.wav",
+              "channel_count": 1,
+              "channel_index": null,
+              "duration_sec": 1.0,
+              "end_sec": 1.0,
+              "is_mono": true,
+              "sample_rate_hz": 16000,
+              "start_sec": 0.0
+            },
+            "segment_index": 0,
+            "speaker_decision": null,
+            "transcript": {
+              "confidence": null,
+              "end_sec": 1.0,
+              "language": "en",
+              "start_sec": 0.0,
+              "text": "they were necessary.",
+              "words": []
+            }
+          }
+        ],
+        "segments": [
+          {
+            "audio_path": "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/runs/live_mic_realtime/cmu_arctic_b0539_realtime/audio/window_0003.wav",
+            "channel_count": 1,
+            "channel_index": null,
+            "duration_sec": 1.0,
+            "end_sec": 1.0,
+            "is_mono": true,
+            "sample_rate_hz": 16000,
+            "start_sec": 0.0
+          }
+        ],
+        "speaker_decisions": []
+      },
+      "drop_policy": "drop_oldest",
+      "dropped_window_count": 0,
+      "dry_run": false,
+      "end_sec": 1.0,
+      "enqueue_blocked_sec": 0.0,
+      "enqueue_monotonic": 340402.559272833,
+      "errors": [],
+      "inference_audio_path": "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/runs/live_mic_realtime/cmu_arctic_b0539_realtime/audio/window_0003.wav",
+      "inference_end_monotonic": 340402.74455,
+      "inference_runtime_sec": 0.184411,
+      "inference_start_monotonic": 340402.560139166,
+      "queue_depth_after_dequeue": 0,
+      "queue_depth_at_dequeue": 1,
+      "queue_depth_at_enqueue": 1,
+      "recording_id": "cmu_arctic_b0539",
+      "speaker_label": "Billy",
+      "start_sec": 0.0,
+      "status": "predicted",
+      "utt_id": "cmu_arctic_b0539_window_0003",
+      "warnings": [],
+      "window_duration_sec": 1.0,
+      "window_end_sec": 2.0,
+      "window_index": 3,
+      "window_start_sec": 1.0
+    },
+    {
+      "asr_realtime_factor": 0.177447,
+      "capture_end_monotonic": 340403.058217166,
+      "capture_start_monotonic": 340402.054056458,
+      "capture_to_prediction_latency_sec": 0.182575,
+      "dequeue_monotonic": 340403.058662083,
+      "diagnostics": {
+        "assembled_text": "necessary access.",
+        "chronological_ordering_violations": 0,
+        "diarization_turns": [],
+        "diarization_warnings": [],
+        "normalized_text": [
+          "necessary access."
+        ],
+        "raw_asr_text": [
+          " necessary access."
+        ],
+        "runtime_stats": {
+          "audio_duration_sec": 1.0,
+          "counters": {
+            "asr_segment_count": 1
+          },
+          "device": "cpu",
+          "model_versions": {
+            "asr": "whisper_base"
+          },
+          "realtime_factor": 0.18020187504589558,
+          "stage_breakdown_sec": {
+            "asr_sec": 0.1776039579999633,
+            "audio_load_sec": 0.0021650409908033907,
+            "diarization_sec": null,
+            "postprocess_sec": 5.52500132471323e-05,
+            "speaker_sec": 1.333013642579317e-06,
+            "vad_sec": null
+          },
+          "total_sec": 0.18020187504589558
+        },
+        "segment_overlap_violations": 0,
+        "segment_predictions": [
+          {
+            "normalized_text": "necessary access.",
+            "raw_text": " necessary access.",
+            "segment": {
+              "audio_path": "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/runs/live_mic_realtime/cmu_arctic_b0539_realtime/audio/window_0004.wav",
+              "channel_count": 1,
+              "channel_index": null,
+              "duration_sec": 1.0,
+              "end_sec": 1.0,
+              "is_mono": true,
+              "sample_rate_hz": 16000,
+              "start_sec": 0.0
+            },
+            "segment_index": 0,
+            "speaker_decision": null,
+            "transcript": {
+              "confidence": null,
+              "end_sec": 1.0,
+              "language": "en",
+              "start_sec": 0.0,
+              "text": "necessary access.",
+              "words": []
+            }
+          }
+        ],
+        "segments": [
+          {
+            "audio_path": "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/runs/live_mic_realtime/cmu_arctic_b0539_realtime/audio/window_0004.wav",
+            "channel_count": 1,
+            "channel_index": null,
+            "duration_sec": 1.0,
+            "end_sec": 1.0,
+            "is_mono": true,
+            "sample_rate_hz": 16000,
+            "start_sec": 0.0
+          }
+        ],
+        "speaker_decisions": []
+      },
+      "drop_policy": "drop_oldest",
+      "dropped_window_count": 0,
+      "dry_run": false,
+      "end_sec": 1.0,
+      "enqueue_blocked_sec": 0.0,
+      "enqueue_monotonic": 340403.058588166,
+      "errors": [],
+      "inference_audio_path": "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/runs/live_mic_realtime/cmu_arctic_b0539_realtime/audio/window_0004.wav",
+      "inference_end_monotonic": 340403.240791916,
+      "inference_runtime_sec": 0.182115,
+      "inference_start_monotonic": 340403.058677166,
+      "queue_depth_after_dequeue": 0,
+      "queue_depth_at_dequeue": 1,
+      "queue_depth_at_enqueue": 1,
+      "recording_id": "cmu_arctic_b0539",
+      "speaker_label": "Billy",
+      "start_sec": 0.0,
+      "status": "predicted",
+      "utt_id": "cmu_arctic_b0539_window_0004",
+      "warnings": [],
+      "window_duration_sec": 1.0,
+      "window_end_sec": 2.5,
+      "window_index": 4,
+      "window_start_sec": 1.5
+    },
+    {
+      "asr_realtime_factor": 0.168191,
+      "capture_end_monotonic": 340403.559083333,
+      "capture_start_monotonic": 340402.554056458,
+      "capture_to_prediction_latency_sec": 0.172378,
+      "dequeue_monotonic": 340403.559491375,
+      "diagnostics": {
+        "assembled_text": "accessories.",
+        "chronological_ordering_violations": 0,
+        "diarization_turns": [],
+        "diarization_warnings": [],
+        "normalized_text": [
+          "accessories."
+        ],
+        "raw_asr_text": [
+          " accessories."
+        ],
+        "runtime_stats": {
+          "audio_duration_sec": 1.0,
+          "counters": {
+            "asr_segment_count": 1
+          },
+          "device": "cpu",
+          "model_versions": {
+            "asr": "whisper_base"
+          },
+          "realtime_factor": 0.1702684999909252,
+          "stage_breakdown_sec": {
+            "asr_sec": 0.16834033298073336,
+            "audio_load_sec": 0.0016075840103439987,
+            "diarization_sec": null,
+            "postprocess_sec": 6.333400961011648e-05,
+            "speaker_sec": 1.5420373529195786e-06,
+            "vad_sec": null
+          },
+          "total_sec": 0.1702684999909252
+        },
+        "segment_overlap_violations": 0,
+        "segment_predictions": [
+          {
+            "normalized_text": "accessories.",
+            "raw_text": " accessories.",
+            "segment": {
+              "audio_path": "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/runs/live_mic_realtime/cmu_arctic_b0539_realtime/audio/window_0005.wav",
+              "channel_count": 1,
+              "channel_index": null,
+              "duration_sec": 1.0,
+              "end_sec": 1.0,
+              "is_mono": true,
+              "sample_rate_hz": 16000,
+              "start_sec": 0.0
+            },
+            "segment_index": 0,
+            "speaker_decision": null,
+            "transcript": {
+              "confidence": null,
+              "end_sec": 1.0,
+              "language": "en",
+              "start_sec": 0.0,
+              "text": "accessories.",
+              "words": []
+            }
+          }
+        ],
+        "segments": [
+          {
+            "audio_path": "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/runs/live_mic_realtime/cmu_arctic_b0539_realtime/audio/window_0005.wav",
+            "channel_count": 1,
+            "channel_index": null,
+            "duration_sec": 1.0,
+            "end_sec": 1.0,
+            "is_mono": true,
+            "sample_rate_hz": 16000,
+            "start_sec": 0.0
+          }
+        ],
+        "speaker_decisions": []
+      },
+      "drop_policy": "drop_oldest",
+      "dropped_window_count": 0,
+      "dry_run": false,
+      "end_sec": 1.0,
+      "enqueue_blocked_sec": 0.0,
+      "enqueue_monotonic": 340403.559421458,
+      "errors": [],
+      "inference_audio_path": "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/runs/live_mic_realtime/cmu_arctic_b0539_realtime/audio/window_0005.wav",
+      "inference_end_monotonic": 340403.731461833,
+      "inference_runtime_sec": 0.171956,
+      "inference_start_monotonic": 340403.559505416,
+      "queue_depth_after_dequeue": 0,
+      "queue_depth_at_dequeue": 1,
+      "queue_depth_at_enqueue": 1,
+      "recording_id": "cmu_arctic_b0539",
+      "speaker_label": "Billy",
+      "start_sec": 0.0,
+      "status": "predicted",
+      "utt_id": "cmu_arctic_b0539_window_0005",
+      "warnings": [],
+      "window_duration_sec": 1.0,
+      "window_end_sec": 3.0,
+      "window_index": 5,
+      "window_start_sec": 2.0
+    }
+  ],
+  "drop_policy": "drop_oldest",
+  "dropped_window_count": 0,
+  "dry_run": false,
+  "duration_sec": 3.3,
+  "hop_sec": 0.5,
+  "input_wav_path": "../RawDatasets/CMU Arctic/cmu_us_aew_arctic/wav/arctic_b0538.wav",
+  "max_queue": 4,
+  "max_queue_depth": 1,
+  "metrics": {
+    "asr_realtime_factor": {
+      "count": 5,
+      "max": 0.67212,
+      "mean": 0.268715,
+      "min": 0.143375
+    },
+    "latency_sec": {
+      "count": 5,
+      "max": 0.678312,
+      "mean": 0.305702,
+      "min": 0.172378
+    },
+    "queue": {
+      "dropped_window_count": 0,
+      "dropped_window_indices": [],
+      "max_depth_observed": 1,
+      "max_depth_recorded": 1.0
+    }
+  },
+  "microphone_capture_tested": false,
+  "prediction_count": 5,
+  "prediction_required_fields": [
+    "recording_id",
+    "utt_id",
+    "start_sec",
+    "end_sec",
+    "speaker_label",
+    "text"
+  ],
+  "prediction_rows": [
+    {
+      "end_sec": 1.0,
+      "recording_id": "cmu_arctic_b0539",
+      "speaker_label": "Billy",
+      "start_sec": 0.0,
+      "text": "at the best.",
+      "utt_id": "cmu_arctic_b0539_window_0001"
+    },
+    {
+      "end_sec": 1.0,
+      "recording_id": "cmu_arctic_b0539",
+      "speaker_label": "Billy",
+      "start_sec": 0.0,
+      "text": "the best they were in",
+      "utt_id": "cmu_arctic_b0539_window_0002"
+    },
+    {
+      "end_sec": 1.0,
+      "recording_id": "cmu_arctic_b0539",
+      "speaker_label": "Billy",
+      "start_sec": 0.0,
+      "text": "they were necessary.",
+      "utt_id": "cmu_arctic_b0539_window_0003"
+    },
+    {
+      "end_sec": 1.0,
+      "recording_id": "cmu_arctic_b0539",
+      "speaker_label": "Billy",
+      "start_sec": 0.0,
+      "text": "necessary access.",
+      "utt_id": "cmu_arctic_b0539_window_0004"
+    },
+    {
+      "end_sec": 1.0,
+      "recording_id": "cmu_arctic_b0539",
+      "speaker_label": "Billy",
+      "start_sec": 0.0,
+      "text": "accessories.",
+      "utt_id": "cmu_arctic_b0539_window_0005"
+    }
+  ],
+  "predictions_path": "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/runs/live_mic_realtime/cmu_arctic_b0539_realtime/predictions/utterances.jsonl",
+  "real_asr_used": true,
+  "recording_id": "cmu_arctic_b0539",
+  "run_dir": "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/runs/live_mic_realtime/cmu_arctic_b0539_realtime",
+  "run_id": "cmu_arctic_b0539_realtime",
+  "sample_rate": 16000,
+  "speaker_label": "Billy",
+  "summary_path": "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/runs/live_mic_realtime/cmu_arctic_b0539_realtime/summary.json",
+  "window_count": 5,
+  "window_sec": 1.0,
+  "worker_errors": []
+}

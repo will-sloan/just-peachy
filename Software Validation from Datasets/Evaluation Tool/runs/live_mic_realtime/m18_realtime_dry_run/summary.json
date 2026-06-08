@@ -1,0 +1,636 @@
+{
+  "asr_mode": "dry_run_no_op_asr",
+  "audio_retained": false,
+  "availability": {
+    "allow_model_downloads": false,
+    "asr_component": "whisper_tiny",
+    "asr_enabled": true,
+    "blocker": null,
+    "mic_device": null,
+    "mic_package": "sounddevice",
+    "mic_package_available": true,
+    "realtime_capture": "sounddevice.InputStream callback",
+    "whisper_model_asset_path": "/Users/billy/Documents/just-peachy/models/cache/whisper/tiny.pt",
+    "whisper_model_asset_searched": [
+      "models/cache/whisper/tiny.pt",
+      "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/models/cache/whisper/tiny.pt",
+      "/Users/billy/Documents/just-peachy/Software Validation from Datasets/models/cache/whisper/tiny.pt",
+      "/Users/billy/Documents/just-peachy/models/cache/whisper/tiny.pt",
+      "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/configs/inference/models/cache/whisper/tiny.pt",
+      "/Users/billy/.cache/whisper/tiny.pt"
+    ],
+    "whisper_model_size": "tiny",
+    "whisper_package_available": true
+  },
+  "component_report_path": "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/reports/component_reports/live_mic_realtime/live_mic_realtime_m18_realtime_dry_run.md",
+  "config_path": "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/configs/inference/live_mic_realtime_whisper_tiny.yaml",
+  "device": null,
+  "diagnostics_path": "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/runs/live_mic_realtime/m18_realtime_dry_run/predictions/diagnostics.jsonl",
+  "diagnostics_rows": [
+    {
+      "asr_realtime_factor": 0.000156,
+      "capture_end_monotonic": 282579.830532375,
+      "capture_start_monotonic": 282578.744878375,
+      "capture_to_prediction_latency_sec": 0.006333,
+      "dequeue_monotonic": 282579.831121291,
+      "diagnostics": {
+        "assembled_text": "dry run transcript unavailable",
+        "chronological_ordering_violations": 0,
+        "diarization_turns": [],
+        "diarization_warnings": [],
+        "normalized_text": [
+          "dry run transcript unavailable"
+        ],
+        "raw_asr_text": [
+          "dry run transcript unavailable"
+        ],
+        "runtime_stats": {
+          "audio_duration_sec": 1.0,
+          "counters": {
+            "asr_segment_count": 1
+          },
+          "device": "cpu",
+          "model_versions": {
+            "asr": "no_op_asr"
+          },
+          "realtime_factor": 0.003108916978817433,
+          "stage_breakdown_sec": {
+            "asr_sec": 0.0002680000034160912,
+            "audio_load_sec": 0.002356915967538953,
+            "diarization_sec": null,
+            "postprocess_sec": 0.0002436250215396285,
+            "speaker_sec": 3.917026333510876e-06,
+            "vad_sec": null
+          },
+          "total_sec": 0.003108916978817433
+        },
+        "segment_overlap_violations": 0,
+        "segment_predictions": [
+          {
+            "normalized_text": "dry run transcript unavailable",
+            "raw_text": "dry run transcript unavailable",
+            "segment": {
+              "audio_path": "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/runs/live_mic_realtime/m18_realtime_dry_run/audio/window_0001.wav",
+              "channel_count": 1,
+              "channel_index": null,
+              "duration_sec": 1.0,
+              "end_sec": 1.0,
+              "is_mono": true,
+              "sample_rate_hz": 16000,
+              "start_sec": 0.0
+            },
+            "segment_index": 0,
+            "speaker_decision": null,
+            "transcript": {
+              "confidence": null,
+              "end_sec": 1.0,
+              "language": null,
+              "start_sec": 0.0,
+              "text": "dry run transcript unavailable",
+              "words": []
+            }
+          }
+        ],
+        "segments": [
+          {
+            "audio_path": "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/runs/live_mic_realtime/m18_realtime_dry_run/audio/window_0001.wav",
+            "channel_count": 1,
+            "channel_index": null,
+            "duration_sec": 1.0,
+            "end_sec": 1.0,
+            "is_mono": true,
+            "sample_rate_hz": 16000,
+            "start_sec": 0.0
+          }
+        ],
+        "speaker_decisions": []
+      },
+      "drop_policy": "drop_oldest",
+      "dropped_window_count": 0,
+      "dry_run": true,
+      "end_sec": 1.0,
+      "enqueue_blocked_sec": 0.0,
+      "enqueue_monotonic": 282579.830991541,
+      "errors": [],
+      "inference_audio_path": "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/runs/live_mic_realtime/m18_realtime_dry_run/audio/window_0001.wav",
+      "inference_end_monotonic": 282579.836864958,
+      "inference_runtime_sec": 0.005727,
+      "inference_start_monotonic": 282579.831138041,
+      "queue_depth_after_dequeue": 0,
+      "queue_depth_at_dequeue": 1,
+      "queue_depth_at_enqueue": 1,
+      "recording_id": "live_mic_realtime",
+      "speaker_label": "Billy",
+      "start_sec": 0.0,
+      "status": "predicted",
+      "utt_id": "live_mic_realtime_window_0001",
+      "warnings": [],
+      "window_duration_sec": 1.0,
+      "window_end_sec": 1.0,
+      "window_index": 1,
+      "window_start_sec": 0.0
+    },
+    {
+      "asr_realtime_factor": 3.9e-05,
+      "capture_end_monotonic": 282580.375894375,
+      "capture_start_monotonic": 282579.29089425,
+      "capture_to_prediction_latency_sec": 0.004905,
+      "dequeue_monotonic": 282580.37632975,
+      "diagnostics": {
+        "assembled_text": "dry run transcript unavailable",
+        "chronological_ordering_violations": 0,
+        "diarization_turns": [],
+        "diarization_warnings": [],
+        "normalized_text": [
+          "dry run transcript unavailable"
+        ],
+        "raw_asr_text": [
+          "dry run transcript unavailable"
+        ],
+        "runtime_stats": {
+          "audio_duration_sec": 1.0,
+          "counters": {
+            "asr_segment_count": 1
+          },
+          "device": "cpu",
+          "model_versions": {
+            "asr": "no_op_asr"
+          },
+          "realtime_factor": 0.0023641670122742653,
+          "stage_breakdown_sec": {
+            "asr_sec": 0.00016024999786168337,
+            "audio_load_sec": 0.0017412910237908363,
+            "diarization_sec": null,
+            "postprocess_sec": 0.00020583299919962883,
+            "speaker_sec": 4.999979864805937e-06,
+            "vad_sec": null
+          },
+          "total_sec": 0.0023641670122742653
+        },
+        "segment_overlap_violations": 0,
+        "segment_predictions": [
+          {
+            "normalized_text": "dry run transcript unavailable",
+            "raw_text": "dry run transcript unavailable",
+            "segment": {
+              "audio_path": "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/runs/live_mic_realtime/m18_realtime_dry_run/audio/window_0002.wav",
+              "channel_count": 1,
+              "channel_index": null,
+              "duration_sec": 1.0,
+              "end_sec": 1.0,
+              "is_mono": true,
+              "sample_rate_hz": 16000,
+              "start_sec": 0.0
+            },
+            "segment_index": 0,
+            "speaker_decision": null,
+            "transcript": {
+              "confidence": null,
+              "end_sec": 1.0,
+              "language": null,
+              "start_sec": 0.0,
+              "text": "dry run transcript unavailable",
+              "words": []
+            }
+          }
+        ],
+        "segments": [
+          {
+            "audio_path": "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/runs/live_mic_realtime/m18_realtime_dry_run/audio/window_0002.wav",
+            "channel_count": 1,
+            "channel_index": null,
+            "duration_sec": 1.0,
+            "end_sec": 1.0,
+            "is_mono": true,
+            "sample_rate_hz": 16000,
+            "start_sec": 0.0
+          }
+        ],
+        "speaker_decisions": []
+      },
+      "drop_policy": "drop_oldest",
+      "dropped_window_count": 0,
+      "dry_run": true,
+      "end_sec": 1.0,
+      "enqueue_blocked_sec": 0.0,
+      "enqueue_monotonic": 282580.376237291,
+      "errors": [],
+      "inference_audio_path": "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/runs/live_mic_realtime/m18_realtime_dry_run/audio/window_0002.wav",
+      "inference_end_monotonic": 282580.380799458,
+      "inference_runtime_sec": 0.004447,
+      "inference_start_monotonic": 282580.376352083,
+      "queue_depth_after_dequeue": 0,
+      "queue_depth_at_dequeue": 1,
+      "queue_depth_at_enqueue": 1,
+      "recording_id": "live_mic_realtime",
+      "speaker_label": "Billy",
+      "start_sec": 0.0,
+      "status": "predicted",
+      "utt_id": "live_mic_realtime_window_0002",
+      "warnings": [],
+      "window_duration_sec": 1.0,
+      "window_end_sec": 1.5,
+      "window_index": 2,
+      "window_start_sec": 0.5
+    },
+    {
+      "asr_realtime_factor": 2.2e-05,
+      "capture_end_monotonic": 282580.92036025,
+      "capture_start_monotonic": 282579.830667166,
+      "capture_to_prediction_latency_sec": 0.004195,
+      "dequeue_monotonic": 282580.921171166,
+      "diagnostics": {
+        "assembled_text": "dry run transcript unavailable",
+        "chronological_ordering_violations": 0,
+        "diarization_turns": [],
+        "diarization_warnings": [],
+        "normalized_text": [
+          "dry run transcript unavailable"
+        ],
+        "raw_asr_text": [
+          "dry run transcript unavailable"
+        ],
+        "runtime_stats": {
+          "audio_duration_sec": 1.0,
+          "counters": {
+            "asr_segment_count": 1
+          },
+          "device": "cpu",
+          "model_versions": {
+            "asr": "no_op_asr"
+          },
+          "realtime_factor": 0.0016104590031318367,
+          "stage_breakdown_sec": {
+            "asr_sec": 9.470898658037186e-05,
+            "audio_load_sec": 0.0012165000080130994,
+            "diarization_sec": null,
+            "postprocess_sec": 0.00010237499373033643,
+            "speaker_sec": 2.2500171326100826e-06,
+            "vad_sec": null
+          },
+          "total_sec": 0.0016104590031318367
+        },
+        "segment_overlap_violations": 0,
+        "segment_predictions": [
+          {
+            "normalized_text": "dry run transcript unavailable",
+            "raw_text": "dry run transcript unavailable",
+            "segment": {
+              "audio_path": "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/runs/live_mic_realtime/m18_realtime_dry_run/audio/window_0003.wav",
+              "channel_count": 1,
+              "channel_index": null,
+              "duration_sec": 1.0,
+              "end_sec": 1.0,
+              "is_mono": true,
+              "sample_rate_hz": 16000,
+              "start_sec": 0.0
+            },
+            "segment_index": 0,
+            "speaker_decision": null,
+            "transcript": {
+              "confidence": null,
+              "end_sec": 1.0,
+              "language": null,
+              "start_sec": 0.0,
+              "text": "dry run transcript unavailable",
+              "words": []
+            }
+          }
+        ],
+        "segments": [
+          {
+            "audio_path": "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/runs/live_mic_realtime/m18_realtime_dry_run/audio/window_0003.wav",
+            "channel_count": 1,
+            "channel_index": null,
+            "duration_sec": 1.0,
+            "end_sec": 1.0,
+            "is_mono": true,
+            "sample_rate_hz": 16000,
+            "start_sec": 0.0
+          }
+        ],
+        "speaker_decisions": []
+      },
+      "drop_policy": "drop_oldest",
+      "dropped_window_count": 0,
+      "dry_run": true,
+      "end_sec": 1.0,
+      "enqueue_blocked_sec": 0.0,
+      "enqueue_monotonic": 282580.921059041,
+      "errors": [],
+      "inference_audio_path": "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/runs/live_mic_realtime/m18_realtime_dry_run/audio/window_0003.wav",
+      "inference_end_monotonic": 282580.924555166,
+      "inference_runtime_sec": 0.003362,
+      "inference_start_monotonic": 282580.921192666,
+      "queue_depth_after_dequeue": 0,
+      "queue_depth_at_dequeue": 1,
+      "queue_depth_at_enqueue": 1,
+      "recording_id": "live_mic_realtime",
+      "speaker_label": "Billy",
+      "start_sec": 0.0,
+      "status": "predicted",
+      "utt_id": "live_mic_realtime_window_0003",
+      "warnings": [],
+      "window_duration_sec": 1.0,
+      "window_end_sec": 2.0,
+      "window_index": 3,
+      "window_start_sec": 1.0
+    },
+    {
+      "asr_realtime_factor": 2.4e-05,
+      "capture_end_monotonic": 282581.46382225,
+      "capture_start_monotonic": 282580.375978041,
+      "capture_to_prediction_latency_sec": 0.004013,
+      "dequeue_monotonic": 282581.46435675,
+      "diagnostics": {
+        "assembled_text": "dry run transcript unavailable",
+        "chronological_ordering_violations": 0,
+        "diarization_turns": [],
+        "diarization_warnings": [],
+        "normalized_text": [
+          "dry run transcript unavailable"
+        ],
+        "raw_asr_text": [
+          "dry run transcript unavailable"
+        ],
+        "runtime_stats": {
+          "audio_duration_sec": 1.0,
+          "counters": {
+            "asr_segment_count": 1
+          },
+          "device": "cpu",
+          "model_versions": {
+            "asr": "no_op_asr"
+          },
+          "realtime_factor": 0.0015113339759409428,
+          "stage_breakdown_sec": {
+            "asr_sec": 9.73339774645865e-05,
+            "audio_load_sec": 0.0011182499583810568,
+            "diarization_sec": null,
+            "postprocess_sec": 0.00012354098726063967,
+            "speaker_sec": 2.6249908842146397e-06,
+            "vad_sec": null
+          },
+          "total_sec": 0.0015113339759409428
+        },
+        "segment_overlap_violations": 0,
+        "segment_predictions": [
+          {
+            "normalized_text": "dry run transcript unavailable",
+            "raw_text": "dry run transcript unavailable",
+            "segment": {
+              "audio_path": "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/runs/live_mic_realtime/m18_realtime_dry_run/audio/window_0004.wav",
+              "channel_count": 1,
+              "channel_index": null,
+              "duration_sec": 1.0,
+              "end_sec": 1.0,
+              "is_mono": true,
+              "sample_rate_hz": 16000,
+              "start_sec": 0.0
+            },
+            "segment_index": 0,
+            "speaker_decision": null,
+            "transcript": {
+              "confidence": null,
+              "end_sec": 1.0,
+              "language": null,
+              "start_sec": 0.0,
+              "text": "dry run transcript unavailable",
+              "words": []
+            }
+          }
+        ],
+        "segments": [
+          {
+            "audio_path": "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/runs/live_mic_realtime/m18_realtime_dry_run/audio/window_0004.wav",
+            "channel_count": 1,
+            "channel_index": null,
+            "duration_sec": 1.0,
+            "end_sec": 1.0,
+            "is_mono": true,
+            "sample_rate_hz": 16000,
+            "start_sec": 0.0
+          }
+        ],
+        "speaker_decisions": []
+      },
+      "drop_policy": "drop_oldest",
+      "dropped_window_count": 0,
+      "dry_run": true,
+      "end_sec": 1.0,
+      "enqueue_blocked_sec": 0.0,
+      "enqueue_monotonic": 282581.464117458,
+      "errors": [],
+      "inference_audio_path": "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/runs/live_mic_realtime/m18_realtime_dry_run/audio/window_0004.wav",
+      "inference_end_monotonic": 282581.467835625,
+      "inference_runtime_sec": 0.003464,
+      "inference_start_monotonic": 282581.4643715,
+      "queue_depth_after_dequeue": 0,
+      "queue_depth_at_dequeue": 1,
+      "queue_depth_at_enqueue": 1,
+      "recording_id": "live_mic_realtime",
+      "speaker_label": "Billy",
+      "start_sec": 0.0,
+      "status": "predicted",
+      "utt_id": "live_mic_realtime_window_0004",
+      "warnings": [],
+      "window_duration_sec": 1.0,
+      "window_end_sec": 2.5,
+      "window_index": 4,
+      "window_start_sec": 1.5
+    },
+    {
+      "asr_realtime_factor": 2.5e-05,
+      "capture_end_monotonic": 282582.0093705,
+      "capture_start_monotonic": 282580.920494666,
+      "capture_to_prediction_latency_sec": 0.004067,
+      "dequeue_monotonic": 282582.009837,
+      "diagnostics": {
+        "assembled_text": "dry run transcript unavailable",
+        "chronological_ordering_violations": 0,
+        "diarization_turns": [],
+        "diarization_warnings": [],
+        "normalized_text": [
+          "dry run transcript unavailable"
+        ],
+        "raw_asr_text": [
+          "dry run transcript unavailable"
+        ],
+        "runtime_stats": {
+          "audio_duration_sec": 1.0,
+          "counters": {
+            "asr_segment_count": 1
+          },
+          "device": "cpu",
+          "model_versions": {
+            "asr": "no_op_asr"
+          },
+          "realtime_factor": 0.0017401250079274178,
+          "stage_breakdown_sec": {
+            "asr_sec": 0.00010950001887977123,
+            "audio_load_sec": 0.0013212499907240272,
+            "diarization_sec": null,
+            "postprocess_sec": 0.0001276669790968299,
+            "speaker_sec": 2.500019036233425e-06,
+            "vad_sec": null
+          },
+          "total_sec": 0.0017401250079274178
+        },
+        "segment_overlap_violations": 0,
+        "segment_predictions": [
+          {
+            "normalized_text": "dry run transcript unavailable",
+            "raw_text": "dry run transcript unavailable",
+            "segment": {
+              "audio_path": "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/runs/live_mic_realtime/m18_realtime_dry_run/audio/window_0005.wav",
+              "channel_count": 1,
+              "channel_index": null,
+              "duration_sec": 1.0,
+              "end_sec": 1.0,
+              "is_mono": true,
+              "sample_rate_hz": 16000,
+              "start_sec": 0.0
+            },
+            "segment_index": 0,
+            "speaker_decision": null,
+            "transcript": {
+              "confidence": null,
+              "end_sec": 1.0,
+              "language": null,
+              "start_sec": 0.0,
+              "text": "dry run transcript unavailable",
+              "words": []
+            }
+          }
+        ],
+        "segments": [
+          {
+            "audio_path": "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/runs/live_mic_realtime/m18_realtime_dry_run/audio/window_0005.wav",
+            "channel_count": 1,
+            "channel_index": null,
+            "duration_sec": 1.0,
+            "end_sec": 1.0,
+            "is_mono": true,
+            "sample_rate_hz": 16000,
+            "start_sec": 0.0
+          }
+        ],
+        "speaker_decisions": []
+      },
+      "drop_policy": "drop_oldest",
+      "dropped_window_count": 0,
+      "dry_run": true,
+      "end_sec": 1.0,
+      "enqueue_blocked_sec": 0.0,
+      "enqueue_monotonic": 282582.009686833,
+      "errors": [],
+      "inference_audio_path": "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/runs/live_mic_realtime/m18_realtime_dry_run/audio/window_0005.wav",
+      "inference_end_monotonic": 282582.013437291,
+      "inference_runtime_sec": 0.003583,
+      "inference_start_monotonic": 282582.009854625,
+      "queue_depth_after_dequeue": 0,
+      "queue_depth_at_dequeue": 1,
+      "queue_depth_at_enqueue": 1,
+      "recording_id": "live_mic_realtime",
+      "speaker_label": "Billy",
+      "start_sec": 0.0,
+      "status": "predicted",
+      "utt_id": "live_mic_realtime_window_0005",
+      "warnings": [],
+      "window_duration_sec": 1.0,
+      "window_end_sec": 3.0,
+      "window_index": 5,
+      "window_start_sec": 2.0
+    }
+  ],
+  "drop_policy": "drop_oldest",
+  "dropped_window_count": 0,
+  "dry_run": true,
+  "duration_sec": 3.0,
+  "hop_sec": 0.5,
+  "max_queue": 4,
+  "max_queue_depth": 1,
+  "metrics": {
+    "asr_realtime_factor": {
+      "count": 5,
+      "max": 0.000156,
+      "mean": 5.3e-05,
+      "min": 2.2e-05
+    },
+    "latency_sec": {
+      "count": 5,
+      "max": 0.006333,
+      "mean": 0.004703,
+      "min": 0.004013
+    },
+    "queue": {
+      "dropped_window_count": 0,
+      "dropped_window_indices": [],
+      "max_depth_observed": 1,
+      "max_depth_recorded": 1.0
+    }
+  },
+  "microphone_capture_tested": false,
+  "prediction_count": 5,
+  "prediction_required_fields": [
+    "recording_id",
+    "utt_id",
+    "start_sec",
+    "end_sec",
+    "speaker_label",
+    "text"
+  ],
+  "prediction_rows": [
+    {
+      "end_sec": 1.0,
+      "recording_id": "live_mic_realtime",
+      "speaker_label": "Billy",
+      "start_sec": 0.0,
+      "text": "dry run transcript unavailable",
+      "utt_id": "live_mic_realtime_window_0001"
+    },
+    {
+      "end_sec": 1.0,
+      "recording_id": "live_mic_realtime",
+      "speaker_label": "Billy",
+      "start_sec": 0.0,
+      "text": "dry run transcript unavailable",
+      "utt_id": "live_mic_realtime_window_0002"
+    },
+    {
+      "end_sec": 1.0,
+      "recording_id": "live_mic_realtime",
+      "speaker_label": "Billy",
+      "start_sec": 0.0,
+      "text": "dry run transcript unavailable",
+      "utt_id": "live_mic_realtime_window_0003"
+    },
+    {
+      "end_sec": 1.0,
+      "recording_id": "live_mic_realtime",
+      "speaker_label": "Billy",
+      "start_sec": 0.0,
+      "text": "dry run transcript unavailable",
+      "utt_id": "live_mic_realtime_window_0004"
+    },
+    {
+      "end_sec": 1.0,
+      "recording_id": "live_mic_realtime",
+      "speaker_label": "Billy",
+      "start_sec": 0.0,
+      "text": "dry run transcript unavailable",
+      "utt_id": "live_mic_realtime_window_0005"
+    }
+  ],
+  "predictions_path": "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/runs/live_mic_realtime/m18_realtime_dry_run/predictions/utterances.jsonl",
+  "real_asr_used": false,
+  "recording_id": "live_mic_realtime",
+  "run_dir": "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/runs/live_mic_realtime/m18_realtime_dry_run",
+  "run_id": "m18_realtime_dry_run",
+  "sample_rate": 16000,
+  "speaker_label": "Billy",
+  "summary_path": "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/runs/live_mic_realtime/m18_realtime_dry_run/summary.json",
+  "window_count": 5,
+  "window_sec": 1.0,
+  "worker_errors": []
+}
