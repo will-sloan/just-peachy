@@ -1,0 +1,149 @@
+You are Codex working in the existing repository.
+
+Implement only the next realtime validation milestone: improved realtime ASR stitching plus delayed speaker/diarization assignment. Do not implement unrelated dataset, GUI, cloud, scorer, training, or report-generator changes.
+
+Repository requirements:
+- Start from /Users/billy/Documents/just-peachy
+- Use the repository-root .venv for Python commands
+- Work in: Software Validation from Datasets/Evaluation Tool
+- Preserve the Evaluation Tool runner contract:
+  - pipeline input remains one selected metadata row at a time
+  - model reads record["inference_audio_path"]
+  - prediction rows preserve recording_id, utt_id, start_sec, end_sec, speaker_label, text
+
+Context:
+- scripts/live_mic_realtime.py already supports realtime frame capture, --input-wav, --dry-run, --verbose, window-sec, hop-sec, queue/drop diagnostics, and file-backed PipelineRunner.predict(...)
+- Current realtime ASR emits one prediction per overlapping window, so repeated text appears when hop-sec < window-sec.
+- Current speaker matching runs on the same fixed ASR window, which is too short or mixed near speaker changes.
+- We want quick ASR updates but more stable delayed speaker labels.
+
+Milestone goal:
+Add a developer validation prototype for:
+1. overlap-aware ASR transcript stitching
+2. provisional vs finalized transcript text
+3. longer-window speaker/diarization evidence
+4. delayed speaker-label correction for recent transcript spans
+
+Design requirements:
+- Keep realtime capture and PipelineRunner file-backed behavior unchanged.
+- Add an ASR stitcher that can merge overlapping ASR windows.
+- Prefer word timestamps when available.
+- Convert word timestamps from window-relative time to stream-absolute time using window_start_sec.
+- Use fuzzy suffix/prefix token matching as fallback when word timestamps are missing or unreliable.
+- Maintain:
+  - committed/final words
+  - provisional words
+  - a stability delay, e.g. 0.8-1.2 sec
+- Do not print duplicate words from overlapping ASR windows.
+- Allow quick provisional transcript updates while delaying final commitment.
+
+Speaker/diarization requirements:
+- Add a separate longer speaker-evidence path that can run less frequently than ASR.
+- Example defaults:
+  - ASR window 2.0 sec, ASR hop 0.5 sec
+  - speaker window 4.0-8.0 sec, speaker hop 1.0-2.0 sec
+- Do not require production diarization quality in this milestone.
+- If true diarization model support is not available locally, support fake/injected speaker evidence in tests.
+- Implement speaker label states:
+  - unknown
+  - tentative
+  - confirmed
+- Accumulate speaker scores across recent evidence windows.
+- Confirm a speaker only after repeated evidence clears threshold, e.g. 2 of last 3 windows agree.
+- Support delayed correction of recent transcript spans when speaker evidence arrives.
+- Preserve Unknown when confidence is insufficient.
+
+Suggested target files:
+- scripts/live_mic_realtime.py, if integration is small
+- or new module: app/inference_pipeline/realtime/stitching.py
+- or new module: app/inference_pipeline/realtime/speaker_state.py
+- tests/inference_pipeline/test_live_mic_realtime_stitching.py
+- configs/inference/live_mic_realtime_whisper_base_speaker_matching.yaml, only if new config params are needed
+- reports/component_reports/live_mic_realtime/
+- milestone report under Software Validation from Datasets/milestone/reports/
+
+CLI/config additions:
+- Add options as needed, such as:
+  - --stitch-transcript
+  - --stability-delay-sec
+  - --speaker-window-sec
+  - --speaker-hop-sec
+  - --speaker-confirmation-windows
+  - --speaker-confirmation-threshold
+- Defaults should preserve existing behavior unless the new option is enabled, or clearly document the new default.
+
+Output requirements:
+- Quiet output should remain readable, e.g.
+  - Alice?: provisional words
+  - Alice: finalized words
+  - Unknown: finalized words
+- Verbose output should include stitching/speaker diagnostics.
+- Diagnostics JSONL should include:
+  - window_index
+  - window_start_sec
+  - window_end_sec
+  - raw_asr_text
+  - normalized_asr_text
+  - overlap_removed_tokens
+  - committed_text
+  - provisional_text
+  - speaker_state
+  - speaker_scores
+  - speaker_label_status: unknown/tentative/confirmed
+  - corrected_prior_span boolean when applicable
+
+Testing requirements:
+- Tests must not require microphone hardware, OS permission, Whisper assets, pyannote assets, or model downloads.
+- Use fake ASR outputs with overlapping text to verify duplicate removal.
+- Test exact overlap:
+  - "i do not blame you"
+  - "blame you for anything"
+  becomes "i do not blame you for anything"
+- Test fuzzy overlap with minor punctuation/casing differences.
+- Test word timestamp absolute-time conversion.
+- Test provisional words become committed after stability delay.
+- Test speaker evidence accumulator:
+  - repeated Alice evidence becomes confirmed Alice
+  - weak evidence remains Unknown
+  - speaker change resets or weakens previous evidence
+- Test quiet CLI output does not print duplicate words.
+- Keep existing tests passing.
+
+Validation commands:
+cd "/Users/billy/Documents/just-peachy"
+source .venv/bin/activate
+cd "Software Validation from Datasets/Evaluation Tool"
+
+python -m pytest tests/inference_pipeline/test_live_mic_realtime_stitching.py
+python -m pytest tests/inference_pipeline/test_live_mic_realtime.py tests/inference_pipeline/test_asr_interface.py tests/inference_pipeline/test_speaker_matching.py
+python -m pytest
+
+Also run a dry/input-wav smoke using:
+python scripts/live_mic_realtime.py \
+  --config configs/inference/live_mic_realtime_whisper_base_speaker_matching.yaml \
+  --run-id realtime_stitching_dry_or_wav_smoke \
+  --input-wav artifacts/realtime_test_audio/aew_alt_rxr_eey_random_30s.wav \
+  --duration-sec 32.2 \
+  --window-sec 2.0 \
+  --hop-sec 0.5 \
+  --sample-rate 16000 \
+  --recording-id aew_rxr_eey_random_30s \
+  --stitch-transcript \
+  --verbose
+
+Reports:
+- Write a component report summarizing:
+  - what changed
+  - how overlap duplicate removal works
+  - how provisional/final text works
+  - how delayed speaker evidence works
+  - commands run
+  - artifact paths
+  - limitations and remaining incomplete work
+
+Completion criteria:
+- Overlapping ASR windows no longer produce duplicated transcript text.
+- The system can emit quick provisional text and later finalized text.
+- Speaker labels can be delayed/tentative/confirmed instead of hard per-window decisions.
+- Tests pass without hardware or model assets.
+- Existing PipelineRunner file-backed contract remains unchanged.

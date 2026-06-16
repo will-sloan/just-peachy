@@ -42,6 +42,11 @@ if str(Path(__file__).resolve().parent) not in sys.path:
 
 from app.inference_pipeline.audio_io.resample import resample_audio  # noqa: E402
 from app.inference_pipeline.config import PipelineConfig  # noqa: E402
+from app.inference_pipeline.realtime import (  # noqa: E402
+    SPEAKER_STATUS_CONFIRMED,
+    SpeakerEvidenceAccumulator,
+    RealtimeTranscriptStitcher,
+)
 from app.utils.json_utils import write_json  # noqa: E402
 
 import live_mic_smoke  # noqa: E402
@@ -106,6 +111,7 @@ class InferenceWindow:
     window_end_sec: float
     capture_start_monotonic: float
     capture_end_monotonic: float
+    purpose: Literal["asr", "speaker"] = "asr"
 
     @property
     def duration_sec(self) -> float:
@@ -666,6 +672,14 @@ def run_live_mic_realtime(
     report_dir: Path | str | None = None,
     write_report: bool = True,
     verbose: bool = False,
+    stitch_transcript: bool = False,
+    stability_delay_sec: float = 1.0,
+    speaker_window_sec: float | None = None,
+    speaker_hop_sec: float | None = None,
+    speaker_confirmation_windows: int = 3,
+    speaker_confirmation_threshold: int = 2,
+    speaker_score_threshold: float = 0.5,
+    speaker_correction_window_sec: float = 6.0,
     stdout: TextIO | None = None,
     command: Sequence[str] = (),
 ) -> LiveMicRealtimeResult:
@@ -679,6 +693,14 @@ def run_live_mic_realtime(
         recording_id=recording_id,
         max_queue=max_queue,
         drop_policy=drop_policy,
+        stitch_transcript=stitch_transcript,
+        stability_delay_sec=stability_delay_sec,
+        speaker_window_sec=speaker_window_sec,
+        speaker_hop_sec=speaker_hop_sec,
+        speaker_confirmation_windows=speaker_confirmation_windows,
+        speaker_confirmation_threshold=speaker_confirmation_threshold,
+        speaker_score_threshold=speaker_score_threshold,
+        speaker_correction_window_sec=speaker_correction_window_sec,
     )
     output = stdout or sys.stdout
     resolved_config_path = live_mic_smoke.resolve_config_path(config_path)
@@ -691,6 +713,17 @@ def run_live_mic_realtime(
     availability["input_wav_path"] = str(Path(input_wav).expanduser()) if input_wav else None
     availability["realtime_capture"] = (
         "wav_file_realtime" if input_wav else "sounddevice.InputStream callback"
+    )
+    resolved_speaker_window_sec = (
+        max(window_sec, 4.0) if stitch_transcript and speaker_window_sec is None else speaker_window_sec
+    )
+    resolved_speaker_hop_sec = (
+        max(hop_sec, 1.0) if stitch_transcript and speaker_hop_sec is None else speaker_hop_sec
+    )
+    speaker_evidence_enabled = (
+        stitch_transcript
+        and resolved_speaker_window_sec is not None
+        and resolved_speaker_hop_sec is not None
     )
 
     try:
@@ -735,6 +768,14 @@ def run_live_mic_realtime(
         drop_policy=drop_policy,
         command=command,
         availability=availability,
+        stitch_transcript=stitch_transcript,
+        stability_delay_sec=stability_delay_sec,
+        speaker_window_sec=resolved_speaker_window_sec,
+        speaker_hop_sec=resolved_speaker_hop_sec,
+        speaker_confirmation_windows=speaker_confirmation_windows,
+        speaker_confirmation_threshold=speaker_confirmation_threshold,
+        speaker_score_threshold=speaker_score_threshold,
+        speaker_correction_window_sec=speaker_correction_window_sec,
     )
 
     selected_frame_source = frame_source
@@ -752,6 +793,20 @@ def run_live_mic_realtime(
     frame_queue: queue.Queue[FrameBatch | None] = queue.Queue()
     work_queue = WindowWorkQueue(max_queue)
     writer_lock = threading.Lock()
+    stitcher = (
+        RealtimeTranscriptStitcher(stability_delay_sec=stability_delay_sec)
+        if stitch_transcript
+        else None
+    )
+    speaker_state = (
+        SpeakerEvidenceAccumulator(
+            confirmation_windows=speaker_confirmation_windows,
+            confirmation_threshold=speaker_confirmation_threshold,
+            score_threshold=speaker_score_threshold,
+        )
+        if stitch_transcript
+        else None
+    )
 
     producer_thread = threading.Thread(
         target=_window_producer_loop,
@@ -763,6 +818,9 @@ def run_live_mic_realtime(
             "sample_rate": sample_rate,
             "window_sec": window_sec,
             "hop_sec": hop_sec,
+            "speaker_window_sec": resolved_speaker_window_sec,
+            "speaker_hop_sec": resolved_speaker_hop_sec,
+            "speaker_evidence_enabled": speaker_evidence_enabled,
             "drop_policy": drop_policy,
             "dry_run": dry_run,
             "diagnostics_path": diagnostics_path,
@@ -792,6 +850,11 @@ def run_live_mic_realtime(
             "stdout": output,
             "run_id": selected_run_id,
             "verbose": verbose,
+            "stitcher": stitcher,
+            "speaker_state": speaker_state,
+            "stitch_transcript": stitch_transcript,
+            "speaker_evidence_enabled": speaker_evidence_enabled,
+            "speaker_correction_window_sec": speaker_correction_window_sec,
         },
         daemon=True,
     )
@@ -879,6 +942,14 @@ def run_live_mic_realtime(
         prediction_rows=prediction_rows,
         diagnostics_rows=diagnostics_rows,
         worker_errors=worker_errors,
+        stitch_transcript=stitch_transcript,
+        stability_delay_sec=stability_delay_sec,
+        speaker_window_sec=resolved_speaker_window_sec,
+        speaker_hop_sec=resolved_speaker_hop_sec,
+        speaker_confirmation_windows=speaker_confirmation_windows,
+        speaker_confirmation_threshold=speaker_confirmation_threshold,
+        speaker_score_threshold=speaker_score_threshold,
+        speaker_correction_window_sec=speaker_correction_window_sec,
     )
     write_json(summary_path, summary)
     if component_report_path is not None:
@@ -920,6 +991,7 @@ def build_realtime_record(
         "speaker_label": speaker_label,
         "source_recording_id": recording_id,
         "window_index": window.window_index,
+        "window_purpose": window.purpose,
         "window_start_sec": _round_seconds(window.window_start_sec),
         "window_end_sec": _round_seconds(window.window_end_sec),
         "window_duration_sec": duration_sec,
@@ -962,6 +1034,18 @@ def write_component_report(
     latency = metrics.get("latency_sec") if isinstance(metrics, Mapping) else {}
     asr_rtf = metrics.get("asr_realtime_factor") if isinstance(metrics, Mapping) else {}
     queue_metrics = metrics.get("queue") if isinstance(metrics, Mapping) else {}
+    stitching_enabled = bool(summary.get("stitch_transcript"))
+    stitching_summary = (
+        "- Transcript stitching: enabled.\n"
+        f"- Stability delay seconds: `{summary.get('stability_delay_sec')}`.\n"
+        f"- Speaker evidence window/hop seconds: "
+        f"`{summary.get('speaker_window_sec')}` / `{summary.get('speaker_hop_sec')}`.\n"
+        f"- Speaker confirmation: `{summary.get('speaker_confirmation_threshold')}` of "
+        f"`{summary.get('speaker_confirmation_windows')}` windows above score "
+        f"`{summary.get('speaker_score_threshold')}`."
+        if stitching_enabled
+        else "- Transcript stitching: disabled; one prediction row is emitted per ASR window."
+    )
     microphone_status = (
         "actual microphone capture was attempted with sounddevice.InputStream"
         if result.microphone_capture_tested
@@ -989,6 +1073,7 @@ def write_component_report(
 ## What Changed
 - Added a genuine realtime microphone prototype with continuous frame capture, fixed inference windows, a bounded background inference queue, and a worker that calls `PipelineRunner.predict(...)`.
 - Preserved the file-backed Evaluation Tool contract by writing every processed window to WAV and passing it through `record["inference_audio_path"]`.
+- Added opt-in overlap-aware ASR stitching and delayed speaker-state handling for realtime validation runs.
 
 ## Difference From M17_VAL
 - M17_VAL recorded one full chunk, paused capture while ASR ran, then recorded the next chunk.
@@ -1007,6 +1092,12 @@ python scripts/live_mic_realtime.py --config configs/inference/live_mic_realtime
 - Whisper model asset: `{availability.get("whisper_model_asset_path")}`.
 - Model downloads allowed: `{availability.get("allow_model_downloads")}`.
 - Config/runtime blocker: `{availability.get("blocker") or "none for completed run"}`.
+
+## Realtime Stitching And Speaker Evidence
+{stitching_summary}
+- Duplicate removal uses suffix/prefix token matching over normalized ASR tokens, with word timestamps converted from window-relative to stream-absolute time when ASR provides them.
+- Provisional text remains mutable until the stability delay elapses; finalized text is committed without re-adding overlap tokens from later windows.
+- Speaker evidence is accumulated over recent longer windows, with labels reported as `unknown`, `tentative`, or `confirmed`; recent transcript spans can be corrected when stronger evidence arrives.
 
 ## Latency And Backlog
 - Windows completed: `{result.window_count}`.
@@ -1131,6 +1222,53 @@ def build_parser() -> argparse.ArgumentParser:
         action="store_true",
         help="Print detailed realtime diagnostics and output artifact paths.",
     )
+    parser.add_argument(
+        "--stitch-transcript",
+        action="store_true",
+        help="Merge overlapping ASR windows and emit provisional/final transcript updates.",
+    )
+    parser.add_argument(
+        "--stability-delay-sec",
+        type=float,
+        default=1.0,
+        help="Seconds to keep recent stitched words provisional before finalizing.",
+    )
+    parser.add_argument(
+        "--speaker-window-sec",
+        type=float,
+        default=None,
+        help="Longer speaker-evidence window seconds. Defaults to max(window-sec, 4.0) when stitching.",
+    )
+    parser.add_argument(
+        "--speaker-hop-sec",
+        type=float,
+        default=None,
+        help="Seconds between speaker-evidence windows. Defaults to max(hop-sec, 1.0) when stitching.",
+    )
+    parser.add_argument(
+        "--speaker-confirmation-windows",
+        type=int,
+        default=3,
+        help="Recent speaker-evidence windows used for label confirmation.",
+    )
+    parser.add_argument(
+        "--speaker-confirmation-threshold",
+        type=int,
+        default=2,
+        help="Matching recent speaker windows required before a label is confirmed.",
+    )
+    parser.add_argument(
+        "--speaker-score-threshold",
+        type=float,
+        default=0.5,
+        help="Minimum per-window speaker score used as evidence.",
+    )
+    parser.add_argument(
+        "--speaker-correction-window-sec",
+        type=float,
+        default=6.0,
+        help="Recent transcript seconds eligible for delayed speaker-label correction.",
+    )
     return parser
 
 
@@ -1160,6 +1298,14 @@ def main(argv: list[str] | None = None) -> int:
             drop_policy=args.drop_policy,
             report_dir=args.report_dir,
             verbose=args.verbose,
+            stitch_transcript=args.stitch_transcript,
+            stability_delay_sec=args.stability_delay_sec,
+            speaker_window_sec=args.speaker_window_sec,
+            speaker_hop_sec=args.speaker_hop_sec,
+            speaker_confirmation_windows=args.speaker_confirmation_windows,
+            speaker_confirmation_threshold=args.speaker_confirmation_threshold,
+            speaker_score_threshold=args.speaker_score_threshold,
+            speaker_correction_window_sec=args.speaker_correction_window_sec,
             command=command,
         )
     except LiveMicRealtimeError as exc:
@@ -1187,6 +1333,9 @@ def _window_producer_loop(
     sample_rate: int,
     window_sec: float,
     hop_sec: float,
+    speaker_window_sec: float | None,
+    speaker_hop_sec: float | None,
+    speaker_evidence_enabled: bool,
     drop_policy: DropPolicy,
     dry_run: bool,
     diagnostics_path: Path,
@@ -1195,28 +1344,52 @@ def _window_producer_loop(
     stop_event: threading.Event,
 ) -> None:
     assembler = WindowAssembler(sample_rate=sample_rate, window_sec=window_sec, hop_sec=hop_sec)
+    speaker_assembler = (
+        WindowAssembler(
+            sample_rate=sample_rate,
+            window_sec=float(speaker_window_sec),
+            hop_sec=float(speaker_hop_sec),
+        )
+        if speaker_evidence_enabled and speaker_window_sec is not None and speaker_hop_sec is not None
+        else None
+    )
     while not stop_event.is_set():
         batch = frame_queue.get()
         if batch is None:
             break
-        for window_audio in assembler.add_frames(
+        asr_windows = assembler.add_frames(
             batch.audio,
             capture_start_monotonic=batch.capture_start_monotonic,
             capture_end_monotonic=batch.capture_end_monotonic,
-        ):
+        )
+        speaker_windows = (
+            speaker_assembler.add_frames(
+                batch.audio,
+                capture_start_monotonic=batch.capture_start_monotonic,
+                capture_end_monotonic=batch.capture_end_monotonic,
+            )
+            if speaker_assembler is not None
+            else []
+        )
+        pending_windows = [
+            *_pending_windows(
+                asr_windows,
+                audio_dir=audio_dir,
+                sample_rate=sample_rate,
+                purpose="asr",
+            ),
+            *_pending_windows(
+                speaker_windows,
+                audio_dir=audio_dir,
+                sample_rate=sample_rate,
+                purpose="speaker",
+            ),
+        ]
+        pending_windows.sort(key=lambda item: (item.window_end_sec, item.purpose))
+        for window in pending_windows:
             if stop_event.is_set():
                 break
             state.increment("windows_completed")
-            window = InferenceWindow(
-                window_index=window_audio.window_index,
-                audio=window_audio.audio,
-                audio_path=audio_dir / f"window_{window_audio.window_index:04d}.wav",
-                sample_rate=sample_rate,
-                window_start_sec=window_audio.window_start_sec,
-                window_end_sec=window_audio.window_end_sec,
-                capture_start_monotonic=window_audio.capture_start_monotonic,
-                capture_end_monotonic=window_audio.capture_end_monotonic,
-            )
             outcome = work_queue.enqueue(window, drop_policy=drop_policy)
             if outcome.enqueued is not None:
                 state.increment("windows_enqueued")
@@ -1256,6 +1429,11 @@ def _inference_worker_loop(
     stdout: TextIO,
     run_id: str,
     verbose: bool,
+    stitcher: RealtimeTranscriptStitcher | None,
+    speaker_state: SpeakerEvidenceAccumulator | None,
+    stitch_transcript: bool,
+    speaker_evidence_enabled: bool,
+    speaker_correction_window_sec: float,
 ) -> None:
     while not stop_event.is_set():
         get_result = work_queue.get()
@@ -1302,7 +1480,87 @@ def _inference_worker_loop(
             return
 
         inference_end = time.monotonic()
+        if window.purpose == "speaker":
+            speaker_update = (
+                speaker_state.add_evidence(_speaker_scores_from_output(pipeline_output))
+                if speaker_state is not None
+                else None
+            )
+            corrected = False
+            if stitcher is not None and speaker_update is not None:
+                corrected = stitcher.apply_speaker_state(
+                    speaker_label=speaker_update.speaker_label,
+                    speaker_label_status=speaker_update.status,
+                    stream_time_sec=window.window_end_sec,
+                    correction_window_sec=speaker_correction_window_sec,
+                )
+            diagnostics_row = _speaker_evidence_diagnostics_row(
+                pipeline_output,
+                pipeline,
+                record,
+                window=window,
+                queued=queued,
+                get_result=get_result,
+                inference_start_monotonic=inference_start,
+                inference_end_monotonic=inference_end,
+                dry_run=dry_run,
+                drop_policy=drop_policy,
+                dropped_window_count=work_queue.dropped_count,
+                speaker_update=speaker_update,
+                corrected_prior_span=corrected,
+            )
+            _append_diagnostics_row(
+                diagnostics_row,
+                diagnostics_path=diagnostics_path,
+                writer_lock=writer_lock,
+                state=state,
+            )
+            if verbose:
+                _print_speaker_evidence_line(
+                    stdout,
+                    run_id=run_id,
+                    window_index=window.window_index,
+                    diagnostics_row=diagnostics_row,
+                    dry_run=dry_run,
+                )
+            continue
+
         prediction_row = live_mic_smoke._prediction_row(pipeline_output, record=record)
+        speaker_update = None
+        corrected_prior_span = False
+        if stitch_transcript and speaker_state is not None and not speaker_evidence_enabled:
+            speaker_update = speaker_state.add_evidence(_speaker_scores_from_output(pipeline_output))
+            if stitcher is not None and speaker_update.corrected_prior_span:
+                corrected_prior_span = stitcher.apply_speaker_state(
+                    speaker_label=speaker_update.speaker_label,
+                    speaker_label_status=speaker_update.status,
+                    stream_time_sec=window.window_end_sec,
+                    correction_window_sec=speaker_correction_window_sec,
+                )
+        stitch_update = None
+        if stitch_transcript and stitcher is not None:
+            speaker_label_for_text = (
+                speaker_state.current_label
+                if speaker_state is not None
+                else str(prediction_row.get("speaker_label") or "Unknown")
+            )
+            speaker_status_for_text = (
+                speaker_state.current_status if speaker_state is not None else SPEAKER_STATUS_CONFIRMED
+            )
+            stitch_update = stitcher.update(
+                raw_text=str(prediction_row.get("text") or ""),
+                window_start_sec=window.window_start_sec,
+                window_end_sec=window.window_end_sec,
+                window_index=window.window_index,
+                words=_word_timings_from_output(pipeline_output),
+                speaker_label=speaker_label_for_text,
+                speaker_label_status=speaker_status_for_text,
+            )
+            prediction_row = _stitched_prediction_row(
+                prediction_row,
+                stitch_update=stitch_update,
+                speaker_state=speaker_state,
+            )
         diagnostics_row = _prediction_diagnostics_row(
             pipeline_output,
             pipeline,
@@ -1315,6 +1573,9 @@ def _inference_worker_loop(
             dry_run=dry_run,
             drop_policy=drop_policy,
             dropped_window_count=work_queue.dropped_count,
+            stitch_update=stitch_update,
+            speaker_state=speaker_state,
+            corrected_prior_span=corrected_prior_span,
         )
         _append_prediction_and_diagnostics(
             prediction_row,
@@ -1333,6 +1594,260 @@ def _inference_worker_loop(
             dry_run=dry_run,
             verbose=verbose,
         )
+
+
+def _pending_windows(
+    windows: Sequence[WindowAudio],
+    *,
+    audio_dir: Path,
+    sample_rate: int,
+    purpose: Literal["asr", "speaker"],
+) -> list[InferenceWindow]:
+    prefix = "speaker_window" if purpose == "speaker" else "window"
+    return [
+        InferenceWindow(
+            window_index=window_audio.window_index,
+            audio=window_audio.audio,
+            audio_path=audio_dir / f"{prefix}_{window_audio.window_index:04d}.wav",
+            sample_rate=sample_rate,
+            window_start_sec=window_audio.window_start_sec,
+            window_end_sec=window_audio.window_end_sec,
+            capture_start_monotonic=window_audio.capture_start_monotonic,
+            capture_end_monotonic=window_audio.capture_end_monotonic,
+            purpose=purpose,
+        )
+        for window_audio in windows
+    ]
+
+
+def _stitched_prediction_row(
+    prediction_row: Mapping[str, object],
+    *,
+    stitch_update: Any,
+    speaker_state: SpeakerEvidenceAccumulator | None,
+) -> dict[str, object]:
+    row = dict(prediction_row)
+    row["text"] = stitch_update.emitted_prediction_text
+    if speaker_state is not None:
+        row["speaker_label"] = (
+            speaker_state.current_label
+            if speaker_state.current_status != "unknown"
+            else "Unknown"
+        )
+    return row
+
+
+def _word_timings_from_output(output: Any) -> tuple[object, ...]:
+    transcript = getattr(output, "transcript", None)
+    transcript_words = tuple(getattr(transcript, "words", ()) or ())
+    if transcript_words:
+        return transcript_words
+    words: list[object] = []
+    for item in tuple(getattr(output, "transcript_items", ()) or ()):
+        words.extend(tuple(getattr(item, "words", ()) or ()))
+    if words:
+        return tuple(words)
+    diagnostics = getattr(output, "diagnostics", None)
+    if isinstance(diagnostics, Mapping):
+        raw_words = diagnostics.get("words") or diagnostics.get("word_timestamps")
+        if isinstance(raw_words, Sequence) and not isinstance(raw_words, str | bytes | bytearray):
+            return tuple(raw_words)
+    return ()
+
+
+def _speaker_scores_from_output(output: Any) -> dict[str, float]:
+    diagnostics = getattr(output, "diagnostics", None)
+    if not isinstance(diagnostics, Mapping):
+        diagnostics = {}
+    direct_scores = _coerce_speaker_scores(diagnostics.get("speaker_scores"))
+    if direct_scores:
+        return direct_scores
+    for key in ("speaker_state", "speaker_decision", "speaker_matching"):
+        value = diagnostics.get(key)
+        if isinstance(value, Mapping):
+            scores = _coerce_speaker_scores(value.get("scores"))
+            if scores:
+                return scores
+            fallback = _label_score_from_mapping(value)
+            if fallback:
+                return fallback
+    decisions = diagnostics.get("speaker_decisions")
+    if isinstance(decisions, Sequence) and not isinstance(decisions, str | bytes | bytearray):
+        for decision in decisions:
+            if not isinstance(decision, Mapping):
+                continue
+            scores = _coerce_speaker_scores(decision.get("scores"))
+            if scores:
+                return scores
+            fallback = _label_score_from_mapping(decision)
+            if fallback:
+                return fallback
+    label = str(getattr(output, "speaker_label", "") or "").strip()
+    if label and label != "Unknown":
+        return {label: 1.0}
+    return {}
+
+
+def _coerce_speaker_scores(value: object) -> dict[str, float]:
+    if isinstance(value, Mapping):
+        return _clean_score_mapping(value)
+    if isinstance(value, Sequence) and not isinstance(value, str | bytes | bytearray):
+        scores: dict[str, float] = {}
+        for item in value:
+            if not isinstance(item, Mapping):
+                continue
+            label = item.get("speaker_label") or item.get("label") or item.get("best_label")
+            score = item.get("score")
+            if score is None:
+                score = item.get("confidence")
+            if label is None or score is None:
+                continue
+            try:
+                scores[str(label)] = float(score)
+            except (TypeError, ValueError):
+                continue
+        return _clean_score_mapping(scores)
+    return {}
+
+
+def _label_score_from_mapping(value: Mapping[str, object]) -> dict[str, float]:
+    label = value.get("speaker_label") or value.get("best_label") or value.get("label")
+    score = value.get("confidence")
+    if score is None:
+        score = value.get("score")
+    if label is None or score is None:
+        return {}
+    return _clean_score_mapping({str(label): score})
+
+
+def _clean_score_mapping(value: Mapping[str, object]) -> dict[str, float]:
+    scores: dict[str, float] = {}
+    for label, score in value.items():
+        text = str(label).strip()
+        if not text or text == "Unknown":
+            continue
+        try:
+            scores[text] = float(score)
+        except (TypeError, ValueError):
+            continue
+    return scores
+
+
+def _speaker_state_json(
+    speaker_state: SpeakerEvidenceAccumulator | None,
+) -> dict[str, object]:
+    if speaker_state is None:
+        return {
+            "speaker_label": "Unknown",
+            "status": SPEAKER_STATUS_CONFIRMED,
+            "scores": {},
+        }
+    return {
+        "speaker_label": speaker_state.current_label,
+        "status": speaker_state.current_status,
+        "scores": speaker_state.current_scores,
+    }
+
+
+def _raw_asr_text(output: Any) -> str:
+    diagnostics = getattr(output, "diagnostics", None)
+    if isinstance(diagnostics, Mapping):
+        value = diagnostics.get("raw_asr_text")
+        if value is not None:
+            return _diagnostic_text(value)
+    return str(getattr(output, "text", "") or "")
+
+
+def _normalized_asr_text(output: Any, *, fallback: str) -> str:
+    diagnostics = getattr(output, "diagnostics", None)
+    if isinstance(diagnostics, Mapping):
+        for key in ("normalized_asr_text", "normalized_text", "assembled_text"):
+            value = diagnostics.get(key)
+            if value is not None:
+                return _diagnostic_text(value)
+    return fallback
+
+
+def _diagnostic_text(value: object) -> str:
+    if isinstance(value, str):
+        return value
+    if isinstance(value, Sequence) and not isinstance(value, bytes | bytearray):
+        return " ".join(str(item) for item in value if item is not None).strip()
+    return str(value)
+
+
+def _speaker_evidence_diagnostics_row(
+    output: Any,
+    pipeline: Any,
+    record: Mapping[str, object],
+    *,
+    window: InferenceWindow,
+    queued: QueuedWindow,
+    get_result: QueueGetResult,
+    inference_start_monotonic: float,
+    inference_end_monotonic: float,
+    dry_run: bool,
+    drop_policy: DropPolicy,
+    dropped_window_count: int,
+    speaker_update: Any | None,
+    corrected_prior_span: bool,
+) -> dict[str, object]:
+    pipeline_diagnostics = getattr(output, "diagnostics", None)
+    if pipeline_diagnostics is None:
+        pipeline_diagnostics = getattr(pipeline, "last_diagnostics", None)
+    scores = speaker_update.scores if speaker_update is not None else {}
+    status = speaker_update.status if speaker_update is not None else "unknown"
+    label = speaker_update.speaker_label if speaker_update is not None else "Unknown"
+    return {
+        "status": "speaker_evidence",
+        "window_index": window.window_index,
+        "recording_id": getattr(output, "recording_id"),
+        "utt_id": getattr(output, "utt_id"),
+        "start_sec": getattr(output, "start_sec"),
+        "end_sec": getattr(output, "end_sec"),
+        "speaker_label": label,
+        "window_start_sec": window.window_start_sec,
+        "window_end_sec": window.window_end_sec,
+        "window_duration_sec": window.duration_sec,
+        "capture_start_monotonic": window.capture_start_monotonic,
+        "capture_end_monotonic": window.capture_end_monotonic,
+        "enqueue_monotonic": queued.enqueue_monotonic,
+        "dequeue_monotonic": get_result.dequeue_monotonic,
+        "inference_start_monotonic": inference_start_monotonic,
+        "inference_end_monotonic": inference_end_monotonic,
+        "capture_to_prediction_latency_sec": _round_seconds(
+            inference_end_monotonic - window.capture_end_monotonic
+        ),
+        "inference_runtime_sec": _round_seconds(inference_end_monotonic - inference_start_monotonic),
+        "asr_realtime_factor": _asr_realtime_factor(
+            pipeline=pipeline,
+            output=output,
+            audio_duration_sec=window.duration_sec,
+        ),
+        "queue_depth_at_enqueue": queued.queue_depth_at_enqueue,
+        "queue_depth_at_dequeue": get_result.queue_depth_at_dequeue,
+        "queue_depth_after_dequeue": get_result.queue_depth_after_dequeue,
+        "enqueue_blocked_sec": _round_seconds(queued.enqueue_blocked_sec),
+        "dropped_window_count": dropped_window_count,
+        "drop_policy": drop_policy,
+        "inference_audio_path": str(record["inference_audio_path"]),
+        "dry_run": dry_run,
+        "raw_asr_text": _raw_asr_text(output),
+        "normalized_asr_text": _normalized_asr_text(output, fallback=_raw_asr_text(output)),
+        "overlap_removed_tokens": 0,
+        "committed_text": "",
+        "provisional_text": "",
+        "newly_committed_text": "",
+        "provisional_delta_text": "",
+        "speaker_state": speaker_update.to_jsonable() if speaker_update is not None else {},
+        "speaker_scores": dict(scores),
+        "speaker_label_status": status,
+        "corrected_prior_span": corrected_prior_span,
+        "stitching_enabled": True,
+        "diagnostics": pipeline_diagnostics or {},
+        "warnings": list(getattr(output, "warnings", ()) or ()),
+        "errors": list(getattr(output, "errors", ()) or ()),
+    }
 
 
 def _run_config(
@@ -1354,6 +1869,14 @@ def _run_config(
     drop_policy: DropPolicy,
     command: Sequence[str],
     availability: Mapping[str, object],
+    stitch_transcript: bool,
+    stability_delay_sec: float,
+    speaker_window_sec: float | None,
+    speaker_hop_sec: float | None,
+    speaker_confirmation_windows: int,
+    speaker_confirmation_threshold: int,
+    speaker_score_threshold: float,
+    speaker_correction_window_sec: float,
 ) -> dict[str, object]:
     return {
         "command": "live_mic_realtime",
@@ -1379,6 +1902,14 @@ def _run_config(
             "dry_run": dry_run,
             "max_queue": max_queue,
             "drop_policy": drop_policy,
+            "stitch_transcript": stitch_transcript,
+            "stability_delay_sec": stability_delay_sec,
+            "speaker_window_sec": speaker_window_sec,
+            "speaker_hop_sec": speaker_hop_sec,
+            "speaker_confirmation_windows": speaker_confirmation_windows,
+            "speaker_confirmation_threshold": speaker_confirmation_threshold,
+            "speaker_score_threshold": speaker_score_threshold,
+            "speaker_correction_window_sec": speaker_correction_window_sec,
             "pipeline_contract": {
                 "input": "one selected metadata row per completed window",
                 "audio_field": "inference_audio_path",
@@ -1402,6 +1933,9 @@ def _prediction_diagnostics_row(
     dry_run: bool,
     drop_policy: DropPolicy,
     dropped_window_count: int,
+    stitch_update: Any | None = None,
+    speaker_state: SpeakerEvidenceAccumulator | None = None,
+    corrected_prior_span: bool = False,
 ) -> dict[str, object]:
     pipeline_diagnostics = getattr(output, "diagnostics", None)
     if pipeline_diagnostics is None:
@@ -1411,7 +1945,9 @@ def _prediction_diagnostics_row(
         output=output,
         audio_duration_sec=window.duration_sec,
     )
-    return {
+    raw_asr_text = _raw_asr_text(output)
+    normalized_asr_text = _normalized_asr_text(output, fallback=raw_asr_text)
+    row = {
         "status": "predicted",
         "window_index": window.window_index,
         "recording_id": getattr(output, "recording_id"),
@@ -1441,10 +1977,38 @@ def _prediction_diagnostics_row(
         "drop_policy": drop_policy,
         "inference_audio_path": str(record["inference_audio_path"]),
         "dry_run": dry_run,
+        "raw_asr_text": raw_asr_text,
+        "normalized_asr_text": normalized_asr_text,
+        "overlap_removed_tokens": 0,
+        "committed_text": "",
+        "provisional_text": "",
+        "newly_committed_text": "",
+        "provisional_delta_text": "",
+        "speaker_state": _speaker_state_json(speaker_state),
+        "speaker_scores": speaker_state.current_scores if speaker_state is not None else {},
+        "speaker_label_status": (
+            speaker_state.current_status if speaker_state is not None else SPEAKER_STATUS_CONFIRMED
+        ),
+        "corrected_prior_span": corrected_prior_span,
+        "stitching_enabled": stitch_update is not None,
         "diagnostics": pipeline_diagnostics or {},
         "warnings": list(getattr(output, "warnings", ()) or ()),
         "errors": list(getattr(output, "errors", ()) or ()),
     }
+    if stitch_update is not None:
+        row.update(
+            {
+                "raw_asr_text": stitch_update.raw_asr_text,
+                "normalized_asr_text": stitch_update.normalized_asr_text,
+                "overlap_removed_tokens": stitch_update.overlap_removed_tokens,
+                "committed_text": stitch_update.committed_text,
+                "provisional_text": stitch_update.provisional_text,
+                "newly_committed_text": stitch_update.newly_committed_text,
+                "provisional_delta_text": stitch_update.provisional_delta_text,
+                "stitching": stitch_update.to_jsonable(),
+            }
+        )
+    return row
 
 
 def _dropped_diagnostics_row(
@@ -1585,6 +2149,30 @@ def _print_transcript_line(
     mode = "DRY-RUN/NO-OP" if dry_run else "LIVE"
     speaker = prediction_row.get("speaker_label") or "Unknown"
     text = str(prediction_row.get("text") or "").strip() or "(empty transcript)"
+    if diagnostics_row.get("stitching_enabled"):
+        final_text = str(diagnostics_row.get("newly_committed_text") or "").strip()
+        provisional_text = str(diagnostics_row.get("provisional_delta_text") or "").strip()
+        status = str(diagnostics_row.get("speaker_label_status") or "unknown")
+        if not verbose:
+            if final_text:
+                print(f"{_speaker_display(speaker, status, provisional=False)}: {final_text}", file=output)
+            if provisional_text and provisional_text != final_text:
+                print(
+                    f"{_speaker_display(speaker, status, provisional=True)}: {provisional_text}",
+                    file=output,
+                )
+            return
+        overlap = diagnostics_row.get("overlap_removed_tokens")
+        committed = diagnostics_row.get("committed_text")
+        provisional = diagnostics_row.get("provisional_text")
+        print(
+            f"[{mode} {run_id}] window {window_index:04d} "
+            f"overlap_removed={overlap} "
+            f"speaker_status={status} "
+            f"committed={committed!r} provisional={provisional!r}",
+            file=output,
+        )
+        return
     if not verbose:
         print(f"{speaker}: {text}", file=output)
         return
@@ -1596,6 +2184,33 @@ def _print_transcript_line(
         f"latency={latency}s backlog={backlog} dropped={dropped} {speaker}: {text}",
         file=output,
     )
+
+
+def _print_speaker_evidence_line(
+    output: TextIO,
+    *,
+    run_id: str,
+    window_index: int,
+    diagnostics_row: Mapping[str, object],
+    dry_run: bool,
+) -> None:
+    mode = "DRY-RUN/NO-OP" if dry_run else "LIVE"
+    speaker = diagnostics_row.get("speaker_label") or "Unknown"
+    status = diagnostics_row.get("speaker_label_status")
+    scores = diagnostics_row.get("speaker_scores")
+    corrected = diagnostics_row.get("corrected_prior_span")
+    print(
+        f"[{mode} {run_id}] speaker-window {window_index:04d} "
+        f"{speaker} status={status} corrected_prior_span={corrected} scores={scores}",
+        file=output,
+    )
+
+
+def _speaker_display(speaker: object, status: str, *, provisional: bool) -> str:
+    text = str(speaker or "Unknown").strip() or "Unknown"
+    if text != "Unknown" and (provisional or status != SPEAKER_STATUS_CONFIRMED):
+        return f"{text}?"
+    return text
 
 
 def _summary_json(
@@ -1614,6 +2229,14 @@ def _summary_json(
     prediction_rows: Sequence[Mapping[str, object]],
     diagnostics_rows: Sequence[Mapping[str, object]],
     worker_errors: Sequence[str],
+    stitch_transcript: bool,
+    stability_delay_sec: float,
+    speaker_window_sec: float | None,
+    speaker_hop_sec: float | None,
+    speaker_confirmation_windows: int,
+    speaker_confirmation_threshold: int,
+    speaker_score_threshold: float,
+    speaker_correction_window_sec: float,
 ) -> dict[str, object]:
     predicted_rows = [row for row in diagnostics_rows if row.get("status") == "predicted"]
     dropped_rows = [row for row in diagnostics_rows if row.get("status") == "dropped"]
@@ -1636,6 +2259,14 @@ def _summary_json(
         "input_wav_path": str(Path(input_wav).expanduser()) if input_wav else None,
         "max_queue": max_queue,
         "drop_policy": drop_policy,
+        "stitch_transcript": stitch_transcript,
+        "stability_delay_sec": stability_delay_sec,
+        "speaker_window_sec": speaker_window_sec,
+        "speaker_hop_sec": speaker_hop_sec,
+        "speaker_confirmation_windows": speaker_confirmation_windows,
+        "speaker_confirmation_threshold": speaker_confirmation_threshold,
+        "speaker_score_threshold": speaker_score_threshold,
+        "speaker_correction_window_sec": speaker_correction_window_sec,
         "real_asr_used": not result.dry_run and result.asr_mode not in {"dry_run_no_op_asr"},
         "prediction_required_fields": list(REQUIRED_PREDICTION_FIELDS),
         "metrics": {
@@ -1693,6 +2324,14 @@ def _validate_realtime_args(
     recording_id: str,
     max_queue: int,
     drop_policy: str,
+    stitch_transcript: bool,
+    stability_delay_sec: float,
+    speaker_window_sec: float | None,
+    speaker_hop_sec: float | None,
+    speaker_confirmation_windows: int,
+    speaker_confirmation_threshold: int,
+    speaker_score_threshold: float,
+    speaker_correction_window_sec: float,
 ) -> None:
     if duration_sec <= 0:
         raise LiveMicRealtimeError("--duration-sec must be > 0")
@@ -1708,6 +2347,24 @@ def _validate_realtime_args(
         raise LiveMicRealtimeError(f"--drop-policy must be one of {DROP_POLICIES}")
     if not str(recording_id).strip():
         raise LiveMicRealtimeError("--recording-id must be non-empty")
+    if stability_delay_sec < 0:
+        raise LiveMicRealtimeError("--stability-delay-sec must be >= 0")
+    if speaker_window_sec is not None and speaker_window_sec <= 0:
+        raise LiveMicRealtimeError("--speaker-window-sec must be > 0")
+    if speaker_hop_sec is not None and speaker_hop_sec <= 0:
+        raise LiveMicRealtimeError("--speaker-hop-sec must be > 0")
+    if speaker_confirmation_windows < 1:
+        raise LiveMicRealtimeError("--speaker-confirmation-windows must be >= 1")
+    if speaker_confirmation_threshold < 1:
+        raise LiveMicRealtimeError("--speaker-confirmation-threshold must be >= 1")
+    if speaker_confirmation_threshold > speaker_confirmation_windows:
+        raise LiveMicRealtimeError(
+            "--speaker-confirmation-threshold must be <= --speaker-confirmation-windows"
+        )
+    if speaker_correction_window_sec < 0:
+        raise LiveMicRealtimeError("--speaker-correction-window-sec must be >= 0")
+    if stitch_transcript and speaker_score_threshold < 0:
+        raise LiveMicRealtimeError("--speaker-score-threshold must be >= 0")
 
 
 def _mono_float32(frames: np.ndarray) -> np.ndarray:
