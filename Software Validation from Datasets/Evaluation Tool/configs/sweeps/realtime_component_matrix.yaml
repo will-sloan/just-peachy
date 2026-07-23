@@ -1,0 +1,137 @@
+sweep_name: realtime_components
+notes: >-
+  Cartesian realtime sweep. Larger models are listed but disabled by default;
+  use --all-models or --models to opt in. Model downloads remain CLI opt-in.
+base_config: configs/inference/live_mic_realtime_whisper_base_speaker_matching.yaml
+
+inputs:
+  - id: aew_alt_rxr_eey_random_30s
+    enabled: true
+    path: artifacts/realtime_test_audio/aew_alt_rxr_eey_random_30s.wav
+    recording_id: aew_alt_rxr_eey_random_30s
+    duration_sec: 32.2
+
+models:
+  - id: tiny
+    enabled: true
+    component_name: whisper_tiny
+    adapter: WhisperTinyASRAdapter
+    model_size: tiny
+  - id: base
+    enabled: true
+    component_name: whisper_base
+    adapter: WhisperBaseASRAdapter
+    model_size: base
+  - id: small
+    enabled: false
+    component_name: whisper_small
+    adapter: WhisperSmallASRAdapter
+    model_size: small
+  - id: medium
+    enabled: false
+    component_name: whisper_medium
+    adapter: WhisperMediumASRAdapter
+    model_size: medium
+  - id: large-v1
+    enabled: false
+    component_name: whisper_large_v1
+    adapter: WhisperLargeV1ASRAdapter
+    model_size: large-v1
+  - id: large-v2
+    enabled: false
+    component_name: whisper_large_v2
+    adapter: WhisperLargeV2ASRAdapter
+    model_size: large-v2
+  - id: large-v3
+    enabled: false
+    component_name: whisper_large_v3
+    adapter: WhisperLargeV3ASRAdapter
+    model_size: large-v3
+  - id: turbo
+    enabled: false
+    component_name: whisper_turbo
+    adapter: WhisperTurboASRAdapter
+    model_size: large-v3-turbo
+
+devices:
+  - id: cpu_fp32
+    enabled: true
+    device: cpu
+    dtype: float32
+  - id: cuda_fp16
+    enabled: false
+    device: cuda
+    dtype: float16
+
+window_profiles:
+  - id: nonoverlap_3s
+    enabled: true
+    window_sec: 3.0
+    hop_sec: 3.0
+    stitch_transcript: false
+  - id: overlap_4s_2s
+    enabled: true
+    window_sec: 4.0
+    hop_sec: 2.0
+    stitch_transcript: true
+    stability_delay_sec: 1.0
+
+vad_profiles:
+  - id: none
+    enabled: true
+    kind: none
+  - id: energy_001
+    enabled: true
+    kind: energy
+    params:
+      threshold: 0.01
+      min_speech_ms: 100
+      min_silence_ms: 200
+      pad_ms: 50
+      sample_rate: 16000
+    segmentation_params:
+      target: asr
+      min_chunk_sec: 0.2
+      max_chunk_sec: 30.0
+      merge_gap_sec: 0.2
+      left_pad_sec: 0.05
+      right_pad_sec: 0.05
+      clip_to_record_bounds: true
+  - id: silero_05
+    enabled: false
+    kind: silero
+    params:
+      threshold: 0.5
+      min_speech_ms: 250
+      min_silence_ms: 100
+      pad_ms: 30
+      sample_rate: 16000
+    segmentation_params:
+      target: asr
+      min_chunk_sec: 0.2
+      max_chunk_sec: 30.0
+      merge_gap_sec: 0.2
+      left_pad_sec: 0.05
+      right_pad_sec: 0.05
+      clip_to_record_bounds: true
+
+speaker_thresholds:
+  - 0.60
+  - 0.70
+  - 0.80
+
+scoring_modes:
+  - centroid
+  - exemplar
+
+word_timestamps:
+  - false
+
+beam_sizes:
+  - 1
+
+queue_profiles:
+  - id: preserve_all
+    enabled: true
+    max_queue: 16
+    drop_policy: drop_oldest

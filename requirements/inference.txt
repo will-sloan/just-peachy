@@ -1,0 +1,9 @@
+-r core.txt
+
+# Local inference components used by the validated pipeline.
+torch
+torchaudio
+openai-whisper
+speechbrain
+silero-vad
+sounddevice

@@ -1,5 +1,8 @@
 .venv/
+.venv.broken.*/
+.venv.backup.*/
 myenv/
+.install-logs/
 # Ignore raw datasets
 Software Validation from Datasets/Raw Datasets/
 Software Validation from Datasets/Raw Datasets (Not formatted)/

@@ -1,0 +1,17 @@
+component:
+  slot: asr
+  name: whisper_large_v1
+  enabled: true
+  adapter: WhisperLargeV1ASRAdapter
+  notes: OpenAI Whisper large-v1 checkpoint; CUDA and substantial VRAM are recommended.
+  params:
+    model_family: whisper
+    model_size: large-v1
+    model_name: whisper_large_v1
+    language: en
+    beam_size: 1
+    word_timestamps: false
+    device: cuda
+    dtype: float16
+    allow_model_downloads: false
+    cache_dir: models/cache/whisper

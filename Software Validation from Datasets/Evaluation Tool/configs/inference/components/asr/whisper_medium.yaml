@@ -1,0 +1,17 @@
+component:
+  slot: asr
+  name: whisper_medium
+  enabled: true
+  adapter: WhisperMediumASRAdapter
+  notes: OpenAI Whisper medium checkpoint; a CUDA device is recommended.
+  params:
+    model_family: whisper
+    model_size: medium
+    model_name: whisper_medium
+    language: en
+    beam_size: 1
+    word_timestamps: false
+    device: cpu
+    dtype: float32
+    allow_model_downloads: false
+    cache_dir: models/cache/whisper

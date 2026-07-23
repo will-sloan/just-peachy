@@ -4,6 +4,7 @@ import sys
 from pathlib import Path
 
 import pytest
+import yaml
 
 from app.inference_pipeline.config import PipelineConfig
 from app.inference_pipeline.registry import (
@@ -96,6 +97,30 @@ def test_changing_asr_or_vad_names_changes_resolved_components() -> None:
     assert swapped_resolved["asr"].adapter_class.__name__ == "WhisperTinyASRAdapter"
     assert original_resolved["vad"].adapter_class.__name__ == "NoOpVADAdapter"
     assert swapped_resolved["vad"].adapter_class.__name__ == "SileroVADAdapter"
+
+
+@pytest.mark.parametrize(
+    ("filename", "adapter_name"),
+    [
+        ("whisper_small.yaml", "WhisperSmallASRAdapter"),
+        ("whisper_medium.yaml", "WhisperMediumASRAdapter"),
+        ("whisper_large_v1.yaml", "WhisperLargeV1ASRAdapter"),
+        ("whisper_large_v2.yaml", "WhisperLargeV2ASRAdapter"),
+        ("whisper_large_v3.yaml", "WhisperLargeV3ASRAdapter"),
+        ("whisper_turbo.yaml", "WhisperTurboASRAdapter"),
+    ],
+)
+def test_expanded_whisper_component_configs_resolve(
+    filename: str,
+    adapter_name: str,
+) -> None:
+    mapping = load_config("cpu_smoke.yaml").to_jsonable()
+    component_path = CONFIG_ROOT / "components" / "asr" / filename
+    component_mapping = yaml.safe_load(component_path.read_text(encoding="utf-8"))["component"]
+    mapping["components"]["asr"] = component_mapping
+    config = PipelineConfig.from_mapping(mapping)
+
+    assert resolve_components(config)["asr"].adapter_class.__name__ == adapter_name
 
 
 def test_unknown_component_name_fails_cleanly() -> None:

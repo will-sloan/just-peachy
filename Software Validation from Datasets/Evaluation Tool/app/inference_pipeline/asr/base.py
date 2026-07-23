@@ -209,6 +209,18 @@ class FixedASR(ASRBase):
         )
 
 
+WHISPER_COMPONENT_NAMES = {
+    "whisper_tiny",
+    "whisper_base",
+    "whisper_small",
+    "whisper_medium",
+    "whisper_large_v1",
+    "whisper_large_v2",
+    "whisper_large_v3",
+    "whisper_turbo",
+}
+
+
 def build_asr_from_config(config: object) -> ASRBase | None:
     """Instantiate configured ASR without loading model weights during config resolution."""
 
@@ -220,7 +232,7 @@ def build_asr_from_config(config: object) -> ASRBase | None:
     params = _component_params(component)
     if name == "no_op_asr":
         return NoOpASR(str(params.get("transcript", "")))
-    if name in {"whisper_tiny", "whisper_base"}:
+    if name in WHISPER_COMPONENT_NAMES:
         from app.inference_pipeline.asr.whisper_adapter import WhisperASR
 
         return WhisperASR(params)

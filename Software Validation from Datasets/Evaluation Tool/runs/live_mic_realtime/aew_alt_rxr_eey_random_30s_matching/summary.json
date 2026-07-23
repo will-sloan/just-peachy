@@ -6,34 +6,72 @@
     "asr_component": "whisper_base",
     "asr_enabled": true,
     "blocker": null,
-    "input_wav_path": "artifacts/realtime_test_audio/aew_alt_rxr_eey_random_30s.wav",
+    "input_wav_path": "artifacts\\realtime_test_audio\\aew_alt_rxr_eey_random_30s.wav",
     "mic_device": null,
     "mic_package": "sounddevice",
-    "mic_package_available": true,
+    "mic_package_available": false,
     "realtime_capture": "wav_file_realtime",
-    "whisper_model_asset_path": "/Users/billy/Documents/just-peachy/models/cache/whisper/base.pt",
+    "whisper_model_asset_path": "C:\\Users\\will5\\Documents\\just-peachy\\models\\cache\\whisper\\base.pt",
     "whisper_model_asset_searched": [
-      "models/cache/whisper/base.pt",
-      "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/models/cache/whisper/base.pt",
-      "/Users/billy/Documents/just-peachy/Software Validation from Datasets/models/cache/whisper/base.pt",
-      "/Users/billy/Documents/just-peachy/models/cache/whisper/base.pt",
-      "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/configs/inference/models/cache/whisper/base.pt",
-      "/Users/billy/.cache/whisper/base.pt"
+      "models\\cache\\whisper\\base.pt",
+      "C:\\Users\\will5\\Documents\\just-peachy\\Software Validation from Datasets\\Evaluation Tool\\models\\cache\\whisper\\base.pt",
+      "C:\\Users\\will5\\Documents\\just-peachy\\Software Validation from Datasets\\models\\cache\\whisper\\base.pt",
+      "C:\\Users\\will5\\Documents\\just-peachy\\models\\cache\\whisper\\base.pt",
+      "C:\\Users\\will5\\Documents\\just-peachy\\Software Validation from Datasets\\Evaluation Tool\\configs\\inference\\models\\cache\\whisper\\base.pt",
+      "C:\\Users\\will5\\.cache\\whisper\\base.pt"
     ],
     "whisper_model_size": "base",
     "whisper_package_available": true
   },
-  "component_report_path": "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/reports/component_reports/live_mic_realtime/live_mic_realtime_aew_alt_rxr_eey_random_30s_matching.md",
-  "config_path": "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/configs/inference/live_mic_realtime_whisper_base_speaker_matching.yaml",
+  "component_report_path": "C:\\Users\\will5\\Documents\\just-peachy\\Software Validation from Datasets\\Evaluation Tool\\reports\\component_reports\\live_mic_realtime\\live_mic_realtime_aew_alt_rxr_eey_random_30s_matching.md",
+  "config_path": "C:\\Users\\will5\\Documents\\just-peachy\\Software Validation from Datasets\\Evaluation Tool\\configs\\inference\\live_mic_realtime_whisper_base_speaker_matching.yaml",
   "device": null,
-  "diagnostics_path": "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/runs/live_mic_realtime/aew_alt_rxr_eey_random_30s_matching/predictions/diagnostics.jsonl",
+  "diagnostics_path": "C:\\Users\\will5\\Documents\\just-peachy\\Software Validation from Datasets\\Evaluation Tool\\runs\\live_mic_realtime\\aew_alt_rxr_eey_random_30s_matching\\predictions\\diagnostics.jsonl",
   "diagnostics_rows": [
     {
-      "asr_realtime_factor": 0.225133,
-      "capture_end_monotonic": 344247.836185583,
-      "capture_start_monotonic": 344244.834757958,
-      "capture_to_prediction_latency_sec": 0.902426,
-      "dequeue_monotonic": 344247.836945541,
+      "asr_realtime_factor": null,
+      "capture_end_monotonic": 307502.625,
+      "capture_start_monotonic": 307499.625,
+      "capture_to_prediction_latency_sec": null,
+      "dequeue_monotonic": null,
+      "diagnostics": {},
+      "drop_monotonic": 307514.625,
+      "drop_policy": "drop_oldest",
+      "drop_reason": "drop_oldest",
+      "dropped_window_count": 1,
+      "dry_run": false,
+      "end_sec": 3.0,
+      "enqueue_blocked_sec": 0.0,
+      "enqueue_monotonic": null,
+      "errors": [],
+      "inference_audio_path": "C:\\Users\\will5\\Documents\\just-peachy\\Software Validation from Datasets\\Evaluation Tool\\runs\\live_mic_realtime\\aew_alt_rxr_eey_random_30s_matching\\audio\\window_0002.wav",
+      "inference_end_monotonic": null,
+      "inference_runtime_sec": null,
+      "inference_start_monotonic": null,
+      "queue_depth_after_dequeue": null,
+      "queue_depth_at_dequeue": null,
+      "queue_depth_at_enqueue": 4,
+      "recording_id": null,
+      "speaker_label": null,
+      "start_sec": 0.0,
+      "status": "dropped",
+      "utt_id": null,
+      "warnings": [
+        "window dropped before inference because backlog exceeded --max-queue"
+      ],
+      "window_duration_sec": 3.0,
+      "window_end_sec": 6.0,
+      "window_index": 2,
+      "window_start_sec": 3.0
+    },
+    {
+      "asr_realtime_factor": 0.36632,
+      "capture_end_monotonic": 307499.625,
+      "capture_start_monotonic": 307496.625,
+      "capture_to_prediction_latency_sec": 17.312,
+      "committed_text": "",
+      "corrected_prior_span": false,
+      "dequeue_monotonic": 307499.625,
       "diagnostics": {
         "assembled_text": "i do not blame you for anything.",
         "chronological_ordering_violations": 0,
@@ -57,16 +95,16 @@
             "asr": "whisper_base",
             "speaker_embedding": "speechbrain_ecapa"
           },
-          "realtime_factor": 0.2996382636677784,
+          "realtime_factor": 5.772544433323977,
           "stage_breakdown_sec": {
-            "asr_sec": 0.6756514169974253,
-            "audio_load_sec": 0.002625624998472631,
+            "asr_sec": 1.099101800005883,
+            "audio_load_sec": 0.00593390001449734,
             "diarization_sec": null,
-            "postprocess_sec": 0.00010616704821586609,
-            "speaker_sec": 0.22022558300523087,
+            "postprocess_sec": 0.00022620003437623382,
+            "speaker_sec": 16.212249300035182,
             "vad_sec": null
           },
-          "total_sec": 0.8989147910033353
+          "total_sec": 17.31763329997193
         },
         "segment_overlap_violations": 0,
         "segment_predictions": [
@@ -74,7 +112,7 @@
             "normalized_text": "i do not blame you for anything.",
             "raw_text": " I do not blame you for anything.",
             "segment": {
-              "audio_path": "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/runs/live_mic_realtime/aew_alt_rxr_eey_random_30s_matching/audio/window_0001.wav",
+              "audio_path": "C:\\Users\\will5\\Documents\\just-peachy\\Software Validation from Datasets\\Evaluation Tool\\runs\\live_mic_realtime\\aew_alt_rxr_eey_random_30s_matching\\audio\\window_0001.wav",
               "channel_count": 1,
               "channel_index": null,
               "duration_sec": 3.0,
@@ -123,7 +161,7 @@
         ],
         "segments": [
           {
-            "audio_path": "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/runs/live_mic_realtime/aew_alt_rxr_eey_random_30s_matching/audio/window_0001.wav",
+            "audio_path": "C:\\Users\\will5\\Documents\\just-peachy\\Software Validation from Datasets\\Evaluation Tool\\runs\\live_mic_realtime\\aew_alt_rxr_eey_random_30s_matching\\audio\\window_0001.wav",
             "channel_count": 1,
             "channel_index": null,
             "duration_sec": 3.0,
@@ -164,23 +202,37 @@
         ]
       },
       "drop_policy": "drop_oldest",
-      "dropped_window_count": 0,
+      "dropped_window_count": 1,
       "dry_run": false,
       "end_sec": 3.0,
       "enqueue_blocked_sec": 0.0,
-      "enqueue_monotonic": 344247.836812541,
+      "enqueue_monotonic": 307499.625,
       "errors": [],
-      "inference_audio_path": "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/runs/live_mic_realtime/aew_alt_rxr_eey_random_30s_matching/audio/window_0001.wav",
-      "inference_end_monotonic": 344248.738611875,
-      "inference_runtime_sec": 0.901639,
-      "inference_start_monotonic": 344247.836972375,
+      "inference_audio_path": "C:\\Users\\will5\\Documents\\just-peachy\\Software Validation from Datasets\\Evaluation Tool\\runs\\live_mic_realtime\\aew_alt_rxr_eey_random_30s_matching\\audio\\window_0001.wav",
+      "inference_end_monotonic": 307516.937,
+      "inference_runtime_sec": 17.312,
+      "inference_start_monotonic": 307499.625,
+      "newly_committed_text": "",
+      "normalized_asr_text": "i do not blame you for anything.",
+      "overlap_removed_tokens": 0,
+      "provisional_delta_text": "",
+      "provisional_text": "",
       "queue_depth_after_dequeue": 0,
       "queue_depth_at_dequeue": 1,
       "queue_depth_at_enqueue": 1,
+      "raw_asr_text": "I do not blame you for anything.",
       "recording_id": "aew_alt_rxr_eey_random_30s",
       "speaker_label": "Unknown",
+      "speaker_label_status": "confirmed",
+      "speaker_scores": {},
+      "speaker_state": {
+        "scores": {},
+        "speaker_label": "Unknown",
+        "status": "confirmed"
+      },
       "start_sec": 0.0,
       "status": "predicted",
+      "stitching_enabled": false,
       "utt_id": "aew_alt_rxr_eey_random_30s_window_0001",
       "warnings": [],
       "window_duration_sec": 3.0,
@@ -189,171 +241,13 @@
       "window_start_sec": 0.0
     },
     {
-      "asr_realtime_factor": 0.06399,
-      "capture_end_monotonic": 344250.839533208,
-      "capture_start_monotonic": 344247.834757958,
-      "capture_to_prediction_latency_sec": 0.221777,
-      "dequeue_monotonic": 344250.840154791,
-      "diagnostics": {
-        "assembled_text": "remember that. instead, he joined her and",
-        "chronological_ordering_violations": 0,
-        "diarization_turns": [],
-        "diarization_warnings": [],
-        "normalized_text": [
-          "remember that. instead, he joined her and"
-        ],
-        "raw_asr_text": [
-          " remember that. Instead, he joined her and"
-        ],
-        "runtime_stats": {
-          "audio_duration_sec": 3.0,
-          "counters": {
-            "asr_segment_count": 1,
-            "speaker_decision_count": 1,
-            "speaker_embedding_count": 1
-          },
-          "device": "cpu",
-          "model_versions": {
-            "asr": "whisper_base",
-            "speaker_embedding": "speechbrain_ecapa"
-          },
-          "realtime_factor": 0.07289320833903427,
-          "stage_breakdown_sec": {
-            "asr_sec": 0.19211058301152661,
-            "audio_load_sec": 0.0019048750400543213,
-            "diarization_sec": null,
-            "postprocess_sec": 8.870899910107255e-05,
-            "speaker_sec": 0.024157999956514686,
-            "vad_sec": null
-          },
-          "total_sec": 0.2186796250171028
-        },
-        "segment_overlap_violations": 0,
-        "segment_predictions": [
-          {
-            "normalized_text": "remember that. instead, he joined her and",
-            "raw_text": " remember that. Instead, he joined her and",
-            "segment": {
-              "audio_path": "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/runs/live_mic_realtime/aew_alt_rxr_eey_random_30s_matching/audio/window_0002.wav",
-              "channel_count": 1,
-              "channel_index": null,
-              "duration_sec": 3.0,
-              "end_sec": 3.0,
-              "is_mono": true,
-              "sample_rate_hz": 16000,
-              "start_sec": 0.0
-            },
-            "segment_index": 0,
-            "speaker_decision": {
-              "accepted": false,
-              "best_label": "Alice",
-              "confidence": 0.4702957272529602,
-              "embedding_id": "aew_alt_rxr_eey_random_30s:aew_alt_rxr_eey_random_30s_window_0002:0:0.0:3.0",
-              "margin": null,
-              "matched_reference_id": "centroid:spk_2bd806c97f0e",
-              "method": "cosine_threshold",
-              "min_margin": 0.05,
-              "model_id": "speechbrain_ecapa",
-              "notes": "best cosine 0.4703 is below threshold 0.7000",
-              "scores": [
-                {
-                  "model_id": "speechbrain_ecapa",
-                  "reference_id": "centroid:spk_2bd806c97f0e",
-                  "score": 0.4702957272529602,
-                  "scoring_mode": "centroid",
-                  "speaker_id": "spk_2bd806c97f0e",
-                  "speaker_label": "Alice"
-                }
-              ],
-              "second_best_label": null,
-              "second_best_score": null,
-              "speaker_label": "Unknown",
-              "threshold": 0.7,
-              "threshold_decision": "below_threshold"
-            },
-            "transcript": {
-              "confidence": null,
-              "end_sec": 3.0,
-              "language": "en",
-              "start_sec": 0.0,
-              "text": "remember that. instead, he joined her and",
-              "words": []
-            }
-          }
-        ],
-        "segments": [
-          {
-            "audio_path": "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/runs/live_mic_realtime/aew_alt_rxr_eey_random_30s_matching/audio/window_0002.wav",
-            "channel_count": 1,
-            "channel_index": null,
-            "duration_sec": 3.0,
-            "end_sec": 3.0,
-            "is_mono": true,
-            "sample_rate_hz": 16000,
-            "start_sec": 0.0
-          }
-        ],
-        "speaker_decisions": [
-          {
-            "accepted": false,
-            "best_label": "Alice",
-            "confidence": 0.4702957272529602,
-            "embedding_id": "aew_alt_rxr_eey_random_30s:aew_alt_rxr_eey_random_30s_window_0002:0:0.0:3.0",
-            "margin": null,
-            "matched_reference_id": "centroid:spk_2bd806c97f0e",
-            "method": "cosine_threshold",
-            "min_margin": 0.05,
-            "model_id": "speechbrain_ecapa",
-            "notes": "best cosine 0.4703 is below threshold 0.7000",
-            "scores": [
-              {
-                "model_id": "speechbrain_ecapa",
-                "reference_id": "centroid:spk_2bd806c97f0e",
-                "score": 0.4702957272529602,
-                "scoring_mode": "centroid",
-                "speaker_id": "spk_2bd806c97f0e",
-                "speaker_label": "Alice"
-              }
-            ],
-            "second_best_label": null,
-            "second_best_score": null,
-            "speaker_label": "Unknown",
-            "threshold": 0.7,
-            "threshold_decision": "below_threshold"
-          }
-        ]
-      },
-      "drop_policy": "drop_oldest",
-      "dropped_window_count": 0,
-      "dry_run": false,
-      "end_sec": 3.0,
-      "enqueue_blocked_sec": 0.0,
-      "enqueue_monotonic": 344250.840064375,
-      "errors": [],
-      "inference_audio_path": "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/runs/live_mic_realtime/aew_alt_rxr_eey_random_30s_matching/audio/window_0002.wav",
-      "inference_end_monotonic": 344251.061309916,
-      "inference_runtime_sec": 0.22113,
-      "inference_start_monotonic": 344250.840180125,
-      "queue_depth_after_dequeue": 0,
-      "queue_depth_at_dequeue": 1,
-      "queue_depth_at_enqueue": 1,
-      "recording_id": "aew_alt_rxr_eey_random_30s",
-      "speaker_label": "Unknown",
-      "start_sec": 0.0,
-      "status": "predicted",
-      "utt_id": "aew_alt_rxr_eey_random_30s_window_0002",
-      "warnings": [],
-      "window_duration_sec": 3.0,
-      "window_end_sec": 6.0,
-      "window_index": 2,
-      "window_start_sec": 3.0
-    },
-    {
-      "asr_realtime_factor": 0.062178,
-      "capture_end_monotonic": 344253.839788375,
-      "capture_start_monotonic": 344250.834757958,
-      "capture_to_prediction_latency_sec": 0.215268,
-      "dequeue_monotonic": 344253.840167375,
+      "asr_realtime_factor": 0.176363,
+      "capture_end_monotonic": 307505.625,
+      "capture_start_monotonic": 307502.625,
+      "capture_to_prediction_latency_sec": 11.89,
+      "committed_text": "",
+      "corrected_prior_span": false,
+      "dequeue_monotonic": 307516.937,
       "diagnostics": {
         "assembled_text": "and the 8 like 2 hungry children. phillips sn...",
         "chronological_ordering_violations": 0,
@@ -377,16 +271,16 @@
             "asr": "whisper_base",
             "speaker_embedding": "speechbrain_ecapa"
           },
-          "realtime_factor": 0.07122580567374825,
+          "realtime_factor": 0.1917820333231551,
           "stage_breakdown_sec": {
-            "asr_sec": 0.18664708297001198,
-            "audio_load_sec": 0.0012996250297874212,
+            "asr_sec": 0.5291864999453537,
+            "audio_load_sec": 0.0077936999732628465,
             "diarization_sec": null,
-            "postprocess_sec": 9.683298412710428e-05,
-            "speaker_sec": 0.025480791984591633,
+            "postprocess_sec": 0.00012260000221431255,
+            "speaker_sec": 0.03809210000326857,
             "vad_sec": null
           },
-          "total_sec": 0.21367741702124476
+          "total_sec": 0.5753460999694653
         },
         "segment_overlap_violations": 0,
         "segment_predictions": [
@@ -394,7 +288,7 @@
             "normalized_text": "and the 8 like 2 hungry children. phillips sn...",
             "raw_text": " And the 8 like 2 hungry children. Phillips Sn...",
             "segment": {
-              "audio_path": "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/runs/live_mic_realtime/aew_alt_rxr_eey_random_30s_matching/audio/window_0003.wav",
+              "audio_path": "C:\\Users\\will5\\Documents\\just-peachy\\Software Validation from Datasets\\Evaluation Tool\\runs\\live_mic_realtime\\aew_alt_rxr_eey_random_30s_matching\\audio\\window_0003.wav",
               "channel_count": 1,
               "channel_index": null,
               "duration_sec": 3.0,
@@ -407,7 +301,7 @@
             "speaker_decision": {
               "accepted": false,
               "best_label": "Alice",
-              "confidence": 0.34065353870391846,
+              "confidence": 0.3406527638435364,
               "embedding_id": "aew_alt_rxr_eey_random_30s:aew_alt_rxr_eey_random_30s_window_0003:0:0.0:3.0",
               "margin": null,
               "matched_reference_id": "centroid:spk_2bd806c97f0e",
@@ -419,7 +313,7 @@
                 {
                   "model_id": "speechbrain_ecapa",
                   "reference_id": "centroid:spk_2bd806c97f0e",
-                  "score": 0.34065353870391846,
+                  "score": 0.3406527638435364,
                   "scoring_mode": "centroid",
                   "speaker_id": "spk_2bd806c97f0e",
                   "speaker_label": "Alice"
@@ -443,7 +337,7 @@
         ],
         "segments": [
           {
-            "audio_path": "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/runs/live_mic_realtime/aew_alt_rxr_eey_random_30s_matching/audio/window_0003.wav",
+            "audio_path": "C:\\Users\\will5\\Documents\\just-peachy\\Software Validation from Datasets\\Evaluation Tool\\runs\\live_mic_realtime\\aew_alt_rxr_eey_random_30s_matching\\audio\\window_0003.wav",
             "channel_count": 1,
             "channel_index": null,
             "duration_sec": 3.0,
@@ -457,7 +351,7 @@
           {
             "accepted": false,
             "best_label": "Alice",
-            "confidence": 0.34065353870391846,
+            "confidence": 0.3406527638435364,
             "embedding_id": "aew_alt_rxr_eey_random_30s:aew_alt_rxr_eey_random_30s_window_0003:0:0.0:3.0",
             "margin": null,
             "matched_reference_id": "centroid:spk_2bd806c97f0e",
@@ -469,7 +363,7 @@
               {
                 "model_id": "speechbrain_ecapa",
                 "reference_id": "centroid:spk_2bd806c97f0e",
-                "score": 0.34065353870391846,
+                "score": 0.3406527638435364,
                 "scoring_mode": "centroid",
                 "speaker_id": "spk_2bd806c97f0e",
                 "speaker_label": "Alice"
@@ -484,23 +378,37 @@
         ]
       },
       "drop_policy": "drop_oldest",
-      "dropped_window_count": 0,
+      "dropped_window_count": 1,
       "dry_run": false,
       "end_sec": 3.0,
       "enqueue_blocked_sec": 0.0,
-      "enqueue_monotonic": 344253.840107333,
+      "enqueue_monotonic": 307505.625,
       "errors": [],
-      "inference_audio_path": "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/runs/live_mic_realtime/aew_alt_rxr_eey_random_30s_matching/audio/window_0003.wav",
-      "inference_end_monotonic": 344254.055056625,
-      "inference_runtime_sec": 0.21488,
-      "inference_start_monotonic": 344253.840176333,
-      "queue_depth_after_dequeue": 0,
-      "queue_depth_at_dequeue": 1,
-      "queue_depth_at_enqueue": 1,
+      "inference_audio_path": "C:\\Users\\will5\\Documents\\just-peachy\\Software Validation from Datasets\\Evaluation Tool\\runs\\live_mic_realtime\\aew_alt_rxr_eey_random_30s_matching\\audio\\window_0003.wav",
+      "inference_end_monotonic": 307517.515,
+      "inference_runtime_sec": 0.578,
+      "inference_start_monotonic": 307516.937,
+      "newly_committed_text": "",
+      "normalized_asr_text": "and the 8 like 2 hungry children. phillips sn...",
+      "overlap_removed_tokens": 0,
+      "provisional_delta_text": "",
+      "provisional_text": "",
+      "queue_depth_after_dequeue": 3,
+      "queue_depth_at_dequeue": 4,
+      "queue_depth_at_enqueue": 2,
+      "raw_asr_text": "And the 8 like 2 hungry children. Phillips Sn...",
       "recording_id": "aew_alt_rxr_eey_random_30s",
       "speaker_label": "Unknown",
+      "speaker_label_status": "confirmed",
+      "speaker_scores": {},
+      "speaker_state": {
+        "scores": {},
+        "speaker_label": "Unknown",
+        "status": "confirmed"
+      },
       "start_sec": 0.0,
       "status": "predicted",
+      "stitching_enabled": false,
       "utt_id": "aew_alt_rxr_eey_random_30s_window_0003",
       "warnings": [],
       "window_duration_sec": 3.0,
@@ -509,11 +417,13 @@
       "window_start_sec": 6.0
     },
     {
-      "asr_realtime_factor": 0.065489,
-      "capture_end_monotonic": 344256.839786583,
-      "capture_start_monotonic": 344253.834757958,
-      "capture_to_prediction_latency_sec": 0.225098,
-      "dequeue_monotonic": 344256.840235666,
+      "asr_realtime_factor": 0.154988,
+      "capture_end_monotonic": 307508.625,
+      "capture_start_monotonic": 307505.625,
+      "capture_to_prediction_latency_sec": 9.406,
+      "committed_text": "",
+      "corrected_prior_span": false,
+      "dequeue_monotonic": 307517.515,
       "diagnostics": {
         "assembled_text": "matched at the letter which gregson held out to him.",
         "chronological_ordering_violations": 0,
@@ -537,16 +447,16 @@
             "asr": "whisper_base",
             "speaker_embedding": "speechbrain_ecapa"
           },
-          "realtime_factor": 0.07437591666045289,
+          "realtime_factor": 0.16900463334362334,
           "stage_breakdown_sec": {
-            "asr_sec": 0.1965734999976121,
-            "audio_load_sec": 0.0011334170121699572,
+            "asr_sec": 0.46504370000911877,
+            "audio_load_sec": 0.007930000021588057,
             "diarization_sec": null,
-            "postprocess_sec": 9.26250359043479e-05,
-            "speaker_sec": 0.025143375038169324,
+            "postprocess_sec": 0.00010579999070614576,
+            "speaker_sec": 0.03382599999895319,
             "vad_sec": null
           },
-          "total_sec": 0.22312774998135865
+          "total_sec": 0.50701390003087
         },
         "segment_overlap_violations": 0,
         "segment_predictions": [
@@ -554,7 +464,7 @@
             "normalized_text": "matched at the letter which gregson held out to him.",
             "raw_text": " matched at the letter which Gregson held out to him.",
             "segment": {
-              "audio_path": "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/runs/live_mic_realtime/aew_alt_rxr_eey_random_30s_matching/audio/window_0004.wav",
+              "audio_path": "C:\\Users\\will5\\Documents\\just-peachy\\Software Validation from Datasets\\Evaluation Tool\\runs\\live_mic_realtime\\aew_alt_rxr_eey_random_30s_matching\\audio\\window_0004.wav",
               "channel_count": 1,
               "channel_index": null,
               "duration_sec": 3.0,
@@ -567,7 +477,7 @@
             "speaker_decision": {
               "accepted": true,
               "best_label": "Alice",
-              "confidence": 0.7841970920562744,
+              "confidence": 0.7841968536376953,
               "embedding_id": "aew_alt_rxr_eey_random_30s:aew_alt_rxr_eey_random_30s_window_0004:0:0.0:3.0",
               "margin": null,
               "matched_reference_id": "centroid:spk_2bd806c97f0e",
@@ -579,7 +489,7 @@
                 {
                   "model_id": "speechbrain_ecapa",
                   "reference_id": "centroid:spk_2bd806c97f0e",
-                  "score": 0.7841970920562744,
+                  "score": 0.7841968536376953,
                   "scoring_mode": "centroid",
                   "speaker_id": "spk_2bd806c97f0e",
                   "speaker_label": "Alice"
@@ -603,7 +513,7 @@
         ],
         "segments": [
           {
-            "audio_path": "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/runs/live_mic_realtime/aew_alt_rxr_eey_random_30s_matching/audio/window_0004.wav",
+            "audio_path": "C:\\Users\\will5\\Documents\\just-peachy\\Software Validation from Datasets\\Evaluation Tool\\runs\\live_mic_realtime\\aew_alt_rxr_eey_random_30s_matching\\audio\\window_0004.wav",
             "channel_count": 1,
             "channel_index": null,
             "duration_sec": 3.0,
@@ -617,7 +527,7 @@
           {
             "accepted": true,
             "best_label": "Alice",
-            "confidence": 0.7841970920562744,
+            "confidence": 0.7841968536376953,
             "embedding_id": "aew_alt_rxr_eey_random_30s:aew_alt_rxr_eey_random_30s_window_0004:0:0.0:3.0",
             "margin": null,
             "matched_reference_id": "centroid:spk_2bd806c97f0e",
@@ -629,7 +539,7 @@
               {
                 "model_id": "speechbrain_ecapa",
                 "reference_id": "centroid:spk_2bd806c97f0e",
-                "score": 0.7841970920562744,
+                "score": 0.7841968536376953,
                 "scoring_mode": "centroid",
                 "speaker_id": "spk_2bd806c97f0e",
                 "speaker_label": "Alice"
@@ -644,23 +554,37 @@
         ]
       },
       "drop_policy": "drop_oldest",
-      "dropped_window_count": 0,
+      "dropped_window_count": 1,
       "dry_run": false,
       "end_sec": 3.0,
       "enqueue_blocked_sec": 0.0,
-      "enqueue_monotonic": 344256.840145333,
+      "enqueue_monotonic": 307508.625,
       "errors": [],
-      "inference_audio_path": "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/runs/live_mic_realtime/aew_alt_rxr_eey_random_30s_matching/audio/window_0004.wav",
-      "inference_end_monotonic": 344257.064884458,
-      "inference_runtime_sec": 0.224636,
-      "inference_start_monotonic": 344256.840248791,
-      "queue_depth_after_dequeue": 0,
-      "queue_depth_at_dequeue": 1,
-      "queue_depth_at_enqueue": 1,
+      "inference_audio_path": "C:\\Users\\will5\\Documents\\just-peachy\\Software Validation from Datasets\\Evaluation Tool\\runs\\live_mic_realtime\\aew_alt_rxr_eey_random_30s_matching\\audio\\window_0004.wav",
+      "inference_end_monotonic": 307518.031,
+      "inference_runtime_sec": 0.516,
+      "inference_start_monotonic": 307517.515,
+      "newly_committed_text": "",
+      "normalized_asr_text": "matched at the letter which gregson held out to him.",
+      "overlap_removed_tokens": 0,
+      "provisional_delta_text": "",
+      "provisional_text": "",
+      "queue_depth_after_dequeue": 2,
+      "queue_depth_at_dequeue": 3,
+      "queue_depth_at_enqueue": 3,
+      "raw_asr_text": "matched at the letter which Gregson held out to him.",
       "recording_id": "aew_alt_rxr_eey_random_30s",
       "speaker_label": "Alice",
+      "speaker_label_status": "confirmed",
+      "speaker_scores": {},
+      "speaker_state": {
+        "scores": {},
+        "speaker_label": "Unknown",
+        "status": "confirmed"
+      },
       "start_sec": 0.0,
       "status": "predicted",
+      "stitching_enabled": false,
       "utt_id": "aew_alt_rxr_eey_random_30s_window_0004",
       "warnings": [],
       "window_duration_sec": 3.0,
@@ -669,11 +593,13 @@
       "window_start_sec": 9.0
     },
     {
-      "asr_realtime_factor": 0.064576,
-      "capture_end_monotonic": 344259.835125666,
-      "capture_start_monotonic": 344256.834757958,
-      "capture_to_prediction_latency_sec": 0.220694,
-      "dequeue_monotonic": 344259.835409625,
+      "asr_realtime_factor": 0.136672,
+      "capture_end_monotonic": 307511.625,
+      "capture_start_monotonic": 307508.625,
+      "capture_to_prediction_latency_sec": 6.859,
+      "committed_text": "",
+      "corrected_prior_span": false,
+      "dequeue_monotonic": 307518.031,
       "diagnostics": {
         "assembled_text": "a cry of joy burst from philip's lips.",
         "chronological_ordering_violations": 0,
@@ -697,16 +623,16 @@
             "asr": "whisper_base",
             "speaker_embedding": "speechbrain_ecapa"
           },
-          "realtime_factor": 0.07314356932571779,
+          "realtime_factor": 0.14998970000306144,
           "stage_breakdown_sec": {
-            "asr_sec": 0.19384833297226578,
-            "audio_load_sec": 0.0009525000350549817,
+            "asr_sec": 0.41008920001331717,
+            "audio_load_sec": 0.007696099986787885,
             "diarization_sec": null,
-            "postprocess_sec": 9.887496707960963e-05,
-            "speaker_sec": 0.024396124994382262,
+            "postprocess_sec": 9.889999637380242e-05,
+            "speaker_sec": 0.031989899987820536,
             "vad_sec": null
           },
-          "total_sec": 0.21943070797715336
+          "total_sec": 0.44996910000918433
         },
         "segment_overlap_violations": 0,
         "segment_predictions": [
@@ -714,7 +640,7 @@
             "normalized_text": "a cry of joy burst from philip's lips.",
             "raw_text": " A cry of joy burst from Philip's lips.",
             "segment": {
-              "audio_path": "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/runs/live_mic_realtime/aew_alt_rxr_eey_random_30s_matching/audio/window_0005.wav",
+              "audio_path": "C:\\Users\\will5\\Documents\\just-peachy\\Software Validation from Datasets\\Evaluation Tool\\runs\\live_mic_realtime\\aew_alt_rxr_eey_random_30s_matching\\audio\\window_0005.wav",
               "channel_count": 1,
               "channel_index": null,
               "duration_sec": 3.0,
@@ -727,7 +653,7 @@
             "speaker_decision": {
               "accepted": false,
               "best_label": "Alice",
-              "confidence": 0.14048613607883453,
+              "confidence": 0.1404862403869629,
               "embedding_id": "aew_alt_rxr_eey_random_30s:aew_alt_rxr_eey_random_30s_window_0005:0:0.0:3.0",
               "margin": null,
               "matched_reference_id": "centroid:spk_2bd806c97f0e",
@@ -739,7 +665,7 @@
                 {
                   "model_id": "speechbrain_ecapa",
                   "reference_id": "centroid:spk_2bd806c97f0e",
-                  "score": 0.14048613607883453,
+                  "score": 0.1404862403869629,
                   "scoring_mode": "centroid",
                   "speaker_id": "spk_2bd806c97f0e",
                   "speaker_label": "Alice"
@@ -763,7 +689,7 @@
         ],
         "segments": [
           {
-            "audio_path": "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/runs/live_mic_realtime/aew_alt_rxr_eey_random_30s_matching/audio/window_0005.wav",
+            "audio_path": "C:\\Users\\will5\\Documents\\just-peachy\\Software Validation from Datasets\\Evaluation Tool\\runs\\live_mic_realtime\\aew_alt_rxr_eey_random_30s_matching\\audio\\window_0005.wav",
             "channel_count": 1,
             "channel_index": null,
             "duration_sec": 3.0,
@@ -777,7 +703,7 @@
           {
             "accepted": false,
             "best_label": "Alice",
-            "confidence": 0.14048613607883453,
+            "confidence": 0.1404862403869629,
             "embedding_id": "aew_alt_rxr_eey_random_30s:aew_alt_rxr_eey_random_30s_window_0005:0:0.0:3.0",
             "margin": null,
             "matched_reference_id": "centroid:spk_2bd806c97f0e",
@@ -789,7 +715,7 @@
               {
                 "model_id": "speechbrain_ecapa",
                 "reference_id": "centroid:spk_2bd806c97f0e",
-                "score": 0.14048613607883453,
+                "score": 0.1404862403869629,
                 "scoring_mode": "centroid",
                 "speaker_id": "spk_2bd806c97f0e",
                 "speaker_label": "Alice"
@@ -804,23 +730,37 @@
         ]
       },
       "drop_policy": "drop_oldest",
-      "dropped_window_count": 0,
+      "dropped_window_count": 1,
       "dry_run": false,
       "end_sec": 3.0,
       "enqueue_blocked_sec": 0.0,
-      "enqueue_monotonic": 344259.835371208,
+      "enqueue_monotonic": 307511.625,
       "errors": [],
-      "inference_audio_path": "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/runs/live_mic_realtime/aew_alt_rxr_eey_random_30s_matching/audio/window_0005.wav",
-      "inference_end_monotonic": 344260.055819291,
-      "inference_runtime_sec": 0.2204,
-      "inference_start_monotonic": 344259.83541925,
-      "queue_depth_after_dequeue": 0,
-      "queue_depth_at_dequeue": 1,
-      "queue_depth_at_enqueue": 1,
+      "inference_audio_path": "C:\\Users\\will5\\Documents\\just-peachy\\Software Validation from Datasets\\Evaluation Tool\\runs\\live_mic_realtime\\aew_alt_rxr_eey_random_30s_matching\\audio\\window_0005.wav",
+      "inference_end_monotonic": 307518.484,
+      "inference_runtime_sec": 0.453,
+      "inference_start_monotonic": 307518.031,
+      "newly_committed_text": "",
+      "normalized_asr_text": "a cry of joy burst from philip's lips.",
+      "overlap_removed_tokens": 0,
+      "provisional_delta_text": "",
+      "provisional_text": "",
+      "queue_depth_after_dequeue": 2,
+      "queue_depth_at_dequeue": 3,
+      "queue_depth_at_enqueue": 4,
+      "raw_asr_text": "A cry of joy burst from Philip's lips.",
       "recording_id": "aew_alt_rxr_eey_random_30s",
       "speaker_label": "Unknown",
+      "speaker_label_status": "confirmed",
+      "speaker_scores": {},
+      "speaker_state": {
+        "scores": {},
+        "speaker_label": "Unknown",
+        "status": "confirmed"
+      },
       "start_sec": 0.0,
       "status": "predicted",
+      "stitching_enabled": false,
       "utt_id": "aew_alt_rxr_eey_random_30s_window_0005",
       "warnings": [],
       "window_duration_sec": 3.0,
@@ -829,11 +769,13 @@
       "window_start_sec": 12.0
     },
     {
-      "asr_realtime_factor": 0.068353,
-      "capture_end_monotonic": 344262.839787166,
-      "capture_start_monotonic": 344259.834757958,
-      "capture_to_prediction_latency_sec": 0.233351,
-      "dequeue_monotonic": 344262.840218125,
+      "asr_realtime_factor": 0.133146,
+      "capture_end_monotonic": 307514.625,
+      "capture_start_monotonic": 307511.625,
+      "capture_to_prediction_latency_sec": 4.281,
+      "committed_text": "",
+      "corrected_prior_span": false,
+      "dequeue_monotonic": 307518.484,
       "diagnostics": {
         "assembled_text": "he had comparatively no advantages at...",
         "chronological_ordering_violations": 0,
@@ -857,16 +799,16 @@
             "asr": "whisper_base",
             "speaker_embedding": "speechbrain_ecapa"
           },
-          "realtime_factor": 0.0771308890155827,
+          "realtime_factor": 0.14649420000690347,
           "stage_breakdown_sec": {
-            "asr_sec": 0.20518479199381545,
-            "audio_load_sec": 0.0020742079941555858,
+            "asr_sec": 0.3995084000052884,
+            "audio_load_sec": 0.007319399970583618,
             "diarization_sec": null,
-            "postprocess_sec": 9.341700933873653e-05,
-            "speaker_sec": 0.023818417044822127,
+            "postprocess_sec": 8.889997843652964e-05,
+            "speaker_sec": 0.032468699966557324,
             "vad_sec": null
           },
-          "total_sec": 0.2313926670467481
+          "total_sec": 0.4394826000207104
         },
         "segment_overlap_violations": 0,
         "segment_predictions": [
@@ -874,7 +816,7 @@
             "normalized_text": "he had comparatively no advantages at...",
             "raw_text": " He had comparatively no advantages at...",
             "segment": {
-              "audio_path": "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/runs/live_mic_realtime/aew_alt_rxr_eey_random_30s_matching/audio/window_0006.wav",
+              "audio_path": "C:\\Users\\will5\\Documents\\just-peachy\\Software Validation from Datasets\\Evaluation Tool\\runs\\live_mic_realtime\\aew_alt_rxr_eey_random_30s_matching\\audio\\window_0006.wav",
               "channel_count": 1,
               "channel_index": null,
               "duration_sec": 3.0,
@@ -887,7 +829,7 @@
             "speaker_decision": {
               "accepted": true,
               "best_label": "Alice",
-              "confidence": 0.8025082349777222,
+              "confidence": 0.8025083541870117,
               "embedding_id": "aew_alt_rxr_eey_random_30s:aew_alt_rxr_eey_random_30s_window_0006:0:0.0:3.0",
               "margin": null,
               "matched_reference_id": "centroid:spk_2bd806c97f0e",
@@ -899,7 +841,7 @@
                 {
                   "model_id": "speechbrain_ecapa",
                   "reference_id": "centroid:spk_2bd806c97f0e",
-                  "score": 0.8025082349777222,
+                  "score": 0.8025083541870117,
                   "scoring_mode": "centroid",
                   "speaker_id": "spk_2bd806c97f0e",
                   "speaker_label": "Alice"
@@ -923,7 +865,7 @@
         ],
         "segments": [
           {
-            "audio_path": "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/runs/live_mic_realtime/aew_alt_rxr_eey_random_30s_matching/audio/window_0006.wav",
+            "audio_path": "C:\\Users\\will5\\Documents\\just-peachy\\Software Validation from Datasets\\Evaluation Tool\\runs\\live_mic_realtime\\aew_alt_rxr_eey_random_30s_matching\\audio\\window_0006.wav",
             "channel_count": 1,
             "channel_index": null,
             "duration_sec": 3.0,
@@ -937,7 +879,7 @@
           {
             "accepted": true,
             "best_label": "Alice",
-            "confidence": 0.8025082349777222,
+            "confidence": 0.8025083541870117,
             "embedding_id": "aew_alt_rxr_eey_random_30s:aew_alt_rxr_eey_random_30s_window_0006:0:0.0:3.0",
             "margin": null,
             "matched_reference_id": "centroid:spk_2bd806c97f0e",
@@ -949,7 +891,7 @@
               {
                 "model_id": "speechbrain_ecapa",
                 "reference_id": "centroid:spk_2bd806c97f0e",
-                "score": 0.8025082349777222,
+                "score": 0.8025083541870117,
                 "scoring_mode": "centroid",
                 "speaker_id": "spk_2bd806c97f0e",
                 "speaker_label": "Alice"
@@ -964,23 +906,37 @@
         ]
       },
       "drop_policy": "drop_oldest",
-      "dropped_window_count": 0,
+      "dropped_window_count": 1,
       "dry_run": false,
       "end_sec": 3.0,
       "enqueue_blocked_sec": 0.0,
-      "enqueue_monotonic": 344262.840147708,
+      "enqueue_monotonic": 307514.625,
       "errors": [],
-      "inference_audio_path": "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/runs/live_mic_realtime/aew_alt_rxr_eey_random_30s_matching/audio/window_0006.wav",
-      "inference_end_monotonic": 344263.073138208,
-      "inference_runtime_sec": 0.232892,
-      "inference_start_monotonic": 344262.840246583,
-      "queue_depth_after_dequeue": 0,
-      "queue_depth_at_dequeue": 1,
-      "queue_depth_at_enqueue": 1,
+      "inference_audio_path": "C:\\Users\\will5\\Documents\\just-peachy\\Software Validation from Datasets\\Evaluation Tool\\runs\\live_mic_realtime\\aew_alt_rxr_eey_random_30s_matching\\audio\\window_0006.wav",
+      "inference_end_monotonic": 307518.906,
+      "inference_runtime_sec": 0.422,
+      "inference_start_monotonic": 307518.484,
+      "newly_committed_text": "",
+      "normalized_asr_text": "he had comparatively no advantages at...",
+      "overlap_removed_tokens": 0,
+      "provisional_delta_text": "",
+      "provisional_text": "",
+      "queue_depth_after_dequeue": 1,
+      "queue_depth_at_dequeue": 2,
+      "queue_depth_at_enqueue": 4,
+      "raw_asr_text": "He had comparatively no advantages at...",
       "recording_id": "aew_alt_rxr_eey_random_30s",
       "speaker_label": "Alice",
+      "speaker_label_status": "confirmed",
+      "speaker_scores": {},
+      "speaker_state": {
+        "scores": {},
+        "speaker_label": "Unknown",
+        "status": "confirmed"
+      },
       "start_sec": 0.0,
       "status": "predicted",
+      "stitching_enabled": false,
       "utt_id": "aew_alt_rxr_eey_random_30s_window_0006",
       "warnings": [],
       "window_duration_sec": 3.0,
@@ -989,11 +945,13 @@
       "window_start_sec": 15.0
     },
     {
-      "asr_realtime_factor": 0.074182,
-      "capture_end_monotonic": 344265.839809958,
-      "capture_start_monotonic": 344262.834757958,
-      "capture_to_prediction_latency_sec": 0.250932,
-      "dequeue_monotonic": 344265.840311666,
+      "asr_realtime_factor": 0.162601,
+      "capture_end_monotonic": 307517.625,
+      "capture_start_monotonic": 307514.625,
+      "capture_to_prediction_latency_sec": 1.828,
+      "committed_text": "",
+      "corrected_prior_span": false,
+      "dequeue_monotonic": 307518.906,
       "diagnostics": {
         "assembled_text": "first, the fighting had now become intermittent. shalom.",
         "chronological_ordering_violations": 0,
@@ -1017,16 +975,16 @@
             "asr": "whisper_base",
             "speaker_embedding": "speechbrain_ecapa"
           },
-          "realtime_factor": 0.08294824999757111,
+          "realtime_factor": 0.17678830000416687,
           "stage_breakdown_sec": {
-            "asr_sec": 0.22267624997766688,
-            "audio_load_sec": 0.001922750030644238,
+            "asr_sec": 0.48786959995049983,
+            "audio_load_sec": 0.006250600039493293,
             "diarization_sec": null,
-            "postprocess_sec": 8.858297951519489e-05,
-            "speaker_sec": 0.023956457967869937,
+            "postprocess_sec": 0.00010339997243136168,
+            "speaker_sec": 0.03603010001825169,
             "vad_sec": null
           },
-          "total_sec": 0.24884474999271333
+          "total_sec": 0.5303649000125006
         },
         "segment_overlap_violations": 0,
         "segment_predictions": [
@@ -1034,7 +992,7 @@
             "normalized_text": "first, the fighting had now become intermittent. shalom.",
             "raw_text": " First, the fighting had now become intermittent. Shalom.",
             "segment": {
-              "audio_path": "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/runs/live_mic_realtime/aew_alt_rxr_eey_random_30s_matching/audio/window_0007.wav",
+              "audio_path": "C:\\Users\\will5\\Documents\\just-peachy\\Software Validation from Datasets\\Evaluation Tool\\runs\\live_mic_realtime\\aew_alt_rxr_eey_random_30s_matching\\audio\\window_0007.wav",
               "channel_count": 1,
               "channel_index": null,
               "duration_sec": 3.0,
@@ -1047,7 +1005,7 @@
             "speaker_decision": {
               "accepted": false,
               "best_label": "Alice",
-              "confidence": 0.27002811431884766,
+              "confidence": 0.27002814412117004,
               "embedding_id": "aew_alt_rxr_eey_random_30s:aew_alt_rxr_eey_random_30s_window_0007:0:0.0:3.0",
               "margin": null,
               "matched_reference_id": "centroid:spk_2bd806c97f0e",
@@ -1059,7 +1017,7 @@
                 {
                   "model_id": "speechbrain_ecapa",
                   "reference_id": "centroid:spk_2bd806c97f0e",
-                  "score": 0.27002811431884766,
+                  "score": 0.27002814412117004,
                   "scoring_mode": "centroid",
                   "speaker_id": "spk_2bd806c97f0e",
                   "speaker_label": "Alice"
@@ -1083,7 +1041,7 @@
         ],
         "segments": [
           {
-            "audio_path": "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/runs/live_mic_realtime/aew_alt_rxr_eey_random_30s_matching/audio/window_0007.wav",
+            "audio_path": "C:\\Users\\will5\\Documents\\just-peachy\\Software Validation from Datasets\\Evaluation Tool\\runs\\live_mic_realtime\\aew_alt_rxr_eey_random_30s_matching\\audio\\window_0007.wav",
             "channel_count": 1,
             "channel_index": null,
             "duration_sec": 3.0,
@@ -1097,7 +1055,7 @@
           {
             "accepted": false,
             "best_label": "Alice",
-            "confidence": 0.27002811431884766,
+            "confidence": 0.27002814412117004,
             "embedding_id": "aew_alt_rxr_eey_random_30s:aew_alt_rxr_eey_random_30s_window_0007:0:0.0:3.0",
             "margin": null,
             "matched_reference_id": "centroid:spk_2bd806c97f0e",
@@ -1109,7 +1067,7 @@
               {
                 "model_id": "speechbrain_ecapa",
                 "reference_id": "centroid:spk_2bd806c97f0e",
-                "score": 0.27002811431884766,
+                "score": 0.27002814412117004,
                 "scoring_mode": "centroid",
                 "speaker_id": "spk_2bd806c97f0e",
                 "speaker_label": "Alice"
@@ -1124,23 +1082,37 @@
         ]
       },
       "drop_policy": "drop_oldest",
-      "dropped_window_count": 0,
+      "dropped_window_count": 1,
       "dry_run": false,
       "end_sec": 3.0,
       "enqueue_blocked_sec": 0.0,
-      "enqueue_monotonic": 344265.8402415,
+      "enqueue_monotonic": 307517.625,
       "errors": [],
-      "inference_audio_path": "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/runs/live_mic_realtime/aew_alt_rxr_eey_random_30s_matching/audio/window_0007.wav",
-      "inference_end_monotonic": 344266.090741666,
-      "inference_runtime_sec": 0.250254,
-      "inference_start_monotonic": 344265.840487666,
+      "inference_audio_path": "C:\\Users\\will5\\Documents\\just-peachy\\Software Validation from Datasets\\Evaluation Tool\\runs\\live_mic_realtime\\aew_alt_rxr_eey_random_30s_matching\\audio\\window_0007.wav",
+      "inference_end_monotonic": 307519.453,
+      "inference_runtime_sec": 0.547,
+      "inference_start_monotonic": 307518.906,
+      "newly_committed_text": "",
+      "normalized_asr_text": "first, the fighting had now become intermittent. shalom.",
+      "overlap_removed_tokens": 0,
+      "provisional_delta_text": "",
+      "provisional_text": "",
       "queue_depth_after_dequeue": 0,
       "queue_depth_at_dequeue": 1,
-      "queue_depth_at_enqueue": 1,
+      "queue_depth_at_enqueue": 3,
+      "raw_asr_text": "First, the fighting had now become intermittent. Shalom.",
       "recording_id": "aew_alt_rxr_eey_random_30s",
       "speaker_label": "Unknown",
+      "speaker_label_status": "confirmed",
+      "speaker_scores": {},
+      "speaker_state": {
+        "scores": {},
+        "speaker_label": "Unknown",
+        "status": "confirmed"
+      },
       "start_sec": 0.0,
       "status": "predicted",
+      "stitching_enabled": false,
       "utt_id": "aew_alt_rxr_eey_random_30s_window_0007",
       "warnings": [],
       "window_duration_sec": 3.0,
@@ -1149,11 +1121,13 @@
       "window_start_sec": 18.0
     },
     {
-      "asr_realtime_factor": 0.071415,
-      "capture_end_monotonic": 344268.839802833,
-      "capture_start_monotonic": 344265.834757958,
-      "capture_to_prediction_latency_sec": 0.248569,
-      "dequeue_monotonic": 344268.840473416,
+      "asr_realtime_factor": 0.165232,
+      "capture_end_monotonic": 307520.625,
+      "capture_start_monotonic": 307517.625,
+      "capture_to_prediction_latency_sec": 0.531,
+      "committed_text": "",
+      "corrected_prior_span": false,
+      "dequeue_monotonic": 307520.625,
       "diagnostics": {
         "assembled_text": "i carry you, but he reconciled himself.",
         "chronological_ordering_violations": 0,
@@ -1177,16 +1151,16 @@
             "asr": "whisper_base",
             "speaker_embedding": "speechbrain_ecapa"
           },
-          "realtime_factor": 0.0822100833368798,
+          "realtime_factor": 0.17949576668130854,
           "stage_breakdown_sec": {
-            "asr_sec": 0.21438304195180535,
-            "audio_load_sec": 0.0022029170067980886,
+            "asr_sec": 0.49576639995211735,
+            "audio_load_sec": 0.0058052000240422785,
             "diarization_sec": null,
-            "postprocess_sec": 9.345798753201962e-05,
-            "speaker_sec": 0.029787791019771248,
+            "postprocess_sec": 0.00012710003647953272,
+            "speaker_sec": 0.036691199988126755,
             "vad_sec": null
           },
-          "total_sec": 0.24663025001063943
+          "total_sec": 0.5384873000439256
         },
         "segment_overlap_violations": 0,
         "segment_predictions": [
@@ -1194,7 +1168,7 @@
             "normalized_text": "i carry you, but he reconciled himself.",
             "raw_text": " I carry you, but he reconciled himself.",
             "segment": {
-              "audio_path": "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/runs/live_mic_realtime/aew_alt_rxr_eey_random_30s_matching/audio/window_0008.wav",
+              "audio_path": "C:\\Users\\will5\\Documents\\just-peachy\\Software Validation from Datasets\\Evaluation Tool\\runs\\live_mic_realtime\\aew_alt_rxr_eey_random_30s_matching\\audio\\window_0008.wav",
               "channel_count": 1,
               "channel_index": null,
               "duration_sec": 3.0,
@@ -1207,7 +1181,7 @@
             "speaker_decision": {
               "accepted": false,
               "best_label": "Alice",
-              "confidence": 0.4617190361022949,
+              "confidence": 0.46171942353248596,
               "embedding_id": "aew_alt_rxr_eey_random_30s:aew_alt_rxr_eey_random_30s_window_0008:0:0.0:3.0",
               "margin": null,
               "matched_reference_id": "centroid:spk_2bd806c97f0e",
@@ -1219,7 +1193,7 @@
                 {
                   "model_id": "speechbrain_ecapa",
                   "reference_id": "centroid:spk_2bd806c97f0e",
-                  "score": 0.4617190361022949,
+                  "score": 0.46171942353248596,
                   "scoring_mode": "centroid",
                   "speaker_id": "spk_2bd806c97f0e",
                   "speaker_label": "Alice"
@@ -1243,7 +1217,7 @@
         ],
         "segments": [
           {
-            "audio_path": "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/runs/live_mic_realtime/aew_alt_rxr_eey_random_30s_matching/audio/window_0008.wav",
+            "audio_path": "C:\\Users\\will5\\Documents\\just-peachy\\Software Validation from Datasets\\Evaluation Tool\\runs\\live_mic_realtime\\aew_alt_rxr_eey_random_30s_matching\\audio\\window_0008.wav",
             "channel_count": 1,
             "channel_index": null,
             "duration_sec": 3.0,
@@ -1257,7 +1231,7 @@
           {
             "accepted": false,
             "best_label": "Alice",
-            "confidence": 0.4617190361022949,
+            "confidence": 0.46171942353248596,
             "embedding_id": "aew_alt_rxr_eey_random_30s:aew_alt_rxr_eey_random_30s_window_0008:0:0.0:3.0",
             "margin": null,
             "matched_reference_id": "centroid:spk_2bd806c97f0e",
@@ -1269,7 +1243,7 @@
               {
                 "model_id": "speechbrain_ecapa",
                 "reference_id": "centroid:spk_2bd806c97f0e",
-                "score": 0.4617190361022949,
+                "score": 0.46171942353248596,
                 "scoring_mode": "centroid",
                 "speaker_id": "spk_2bd806c97f0e",
                 "speaker_label": "Alice"
@@ -1284,23 +1258,37 @@
         ]
       },
       "drop_policy": "drop_oldest",
-      "dropped_window_count": 0,
+      "dropped_window_count": 1,
       "dry_run": false,
       "end_sec": 3.0,
       "enqueue_blocked_sec": 0.0,
-      "enqueue_monotonic": 344268.840365,
+      "enqueue_monotonic": 307520.625,
       "errors": [],
-      "inference_audio_path": "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/runs/live_mic_realtime/aew_alt_rxr_eey_random_30s_matching/audio/window_0008.wav",
-      "inference_end_monotonic": 344269.08837225,
-      "inference_runtime_sec": 0.247879,
-      "inference_start_monotonic": 344268.840493416,
+      "inference_audio_path": "C:\\Users\\will5\\Documents\\just-peachy\\Software Validation from Datasets\\Evaluation Tool\\runs\\live_mic_realtime\\aew_alt_rxr_eey_random_30s_matching\\audio\\window_0008.wav",
+      "inference_end_monotonic": 307521.156,
+      "inference_runtime_sec": 0.531,
+      "inference_start_monotonic": 307520.625,
+      "newly_committed_text": "",
+      "normalized_asr_text": "i carry you, but he reconciled himself.",
+      "overlap_removed_tokens": 0,
+      "provisional_delta_text": "",
+      "provisional_text": "",
       "queue_depth_after_dequeue": 0,
       "queue_depth_at_dequeue": 1,
       "queue_depth_at_enqueue": 1,
+      "raw_asr_text": "I carry you, but he reconciled himself.",
       "recording_id": "aew_alt_rxr_eey_random_30s",
       "speaker_label": "Unknown",
+      "speaker_label_status": "confirmed",
+      "speaker_scores": {},
+      "speaker_state": {
+        "scores": {},
+        "speaker_label": "Unknown",
+        "status": "confirmed"
+      },
       "start_sec": 0.0,
       "status": "predicted",
+      "stitching_enabled": false,
       "utt_id": "aew_alt_rxr_eey_random_30s_window_0008",
       "warnings": [],
       "window_duration_sec": 3.0,
@@ -1309,11 +1297,13 @@
       "window_start_sec": 21.0
     },
     {
-      "asr_realtime_factor": 0.070121,
-      "capture_end_monotonic": 344271.838253708,
-      "capture_start_monotonic": 344268.834757958,
-      "capture_to_prediction_latency_sec": 0.242055,
-      "dequeue_monotonic": 344271.838798166,
+      "asr_realtime_factor": 0.167442,
+      "capture_end_monotonic": 307523.625,
+      "capture_start_monotonic": 307520.625,
+      "capture_to_prediction_latency_sec": 0.546,
+      "committed_text": "",
+      "corrected_prior_span": false,
+      "dequeue_monotonic": 307523.625,
       "diagnostics": {
         "assembled_text": "to it by an act of faith. he moved away.",
         "chronological_ordering_violations": 0,
@@ -1337,16 +1327,16 @@
             "asr": "whisper_base",
             "speaker_embedding": "speechbrain_ecapa"
           },
-          "realtime_factor": 0.07995037499737616,
+          "realtime_factor": 0.18448146665468812,
           "stage_breakdown_sec": {
-            "asr_sec": 0.2104840840329416,
-            "audio_load_sec": 0.0019720830023288727,
+            "asr_sec": 0.5023916999925859,
+            "audio_load_sec": 0.00598859996534884,
             "diarization_sec": null,
-            "postprocess_sec": 8.562504081055522e-05,
-            "speaker_sec": 0.027082707965746522,
+            "postprocess_sec": 0.00010419997852295637,
+            "speaker_sec": 0.04486790002556518,
             "vad_sec": null
           },
-          "total_sec": 0.23985112499212846
+          "total_sec": 0.5534443999640644
         },
         "segment_overlap_violations": 0,
         "segment_predictions": [
@@ -1354,7 +1344,7 @@
             "normalized_text": "to it by an act of faith. he moved away.",
             "raw_text": " to it by an act of faith. He moved away.",
             "segment": {
-              "audio_path": "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/runs/live_mic_realtime/aew_alt_rxr_eey_random_30s_matching/audio/window_0009.wav",
+              "audio_path": "C:\\Users\\will5\\Documents\\just-peachy\\Software Validation from Datasets\\Evaluation Tool\\runs\\live_mic_realtime\\aew_alt_rxr_eey_random_30s_matching\\audio\\window_0009.wav",
               "channel_count": 1,
               "channel_index": null,
               "duration_sec": 3.0,
@@ -1367,7 +1357,7 @@
             "speaker_decision": {
               "accepted": false,
               "best_label": "Alice",
-              "confidence": 0.30151689052581787,
+              "confidence": 0.30151697993278503,
               "embedding_id": "aew_alt_rxr_eey_random_30s:aew_alt_rxr_eey_random_30s_window_0009:0:0.0:3.0",
               "margin": null,
               "matched_reference_id": "centroid:spk_2bd806c97f0e",
@@ -1379,7 +1369,7 @@
                 {
                   "model_id": "speechbrain_ecapa",
                   "reference_id": "centroid:spk_2bd806c97f0e",
-                  "score": 0.30151689052581787,
+                  "score": 0.30151697993278503,
                   "scoring_mode": "centroid",
                   "speaker_id": "spk_2bd806c97f0e",
                   "speaker_label": "Alice"
@@ -1403,7 +1393,7 @@
         ],
         "segments": [
           {
-            "audio_path": "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/runs/live_mic_realtime/aew_alt_rxr_eey_random_30s_matching/audio/window_0009.wav",
+            "audio_path": "C:\\Users\\will5\\Documents\\just-peachy\\Software Validation from Datasets\\Evaluation Tool\\runs\\live_mic_realtime\\aew_alt_rxr_eey_random_30s_matching\\audio\\window_0009.wav",
             "channel_count": 1,
             "channel_index": null,
             "duration_sec": 3.0,
@@ -1417,7 +1407,7 @@
           {
             "accepted": false,
             "best_label": "Alice",
-            "confidence": 0.30151689052581787,
+            "confidence": 0.30151697993278503,
             "embedding_id": "aew_alt_rxr_eey_random_30s:aew_alt_rxr_eey_random_30s_window_0009:0:0.0:3.0",
             "margin": null,
             "matched_reference_id": "centroid:spk_2bd806c97f0e",
@@ -1429,7 +1419,7 @@
               {
                 "model_id": "speechbrain_ecapa",
                 "reference_id": "centroid:spk_2bd806c97f0e",
-                "score": 0.30151689052581787,
+                "score": 0.30151697993278503,
                 "scoring_mode": "centroid",
                 "speaker_id": "spk_2bd806c97f0e",
                 "speaker_label": "Alice"
@@ -1444,23 +1434,37 @@
         ]
       },
       "drop_policy": "drop_oldest",
-      "dropped_window_count": 0,
+      "dropped_window_count": 1,
       "dry_run": false,
       "end_sec": 3.0,
       "enqueue_blocked_sec": 0.0,
-      "enqueue_monotonic": 344271.838682333,
+      "enqueue_monotonic": 307523.625,
       "errors": [],
-      "inference_audio_path": "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/runs/live_mic_realtime/aew_alt_rxr_eey_random_30s_matching/audio/window_0009.wav",
-      "inference_end_monotonic": 344272.080308833,
-      "inference_runtime_sec": 0.241487,
-      "inference_start_monotonic": 344271.838821666,
+      "inference_audio_path": "C:\\Users\\will5\\Documents\\just-peachy\\Software Validation from Datasets\\Evaluation Tool\\runs\\live_mic_realtime\\aew_alt_rxr_eey_random_30s_matching\\audio\\window_0009.wav",
+      "inference_end_monotonic": 307524.171,
+      "inference_runtime_sec": 0.546,
+      "inference_start_monotonic": 307523.625,
+      "newly_committed_text": "",
+      "normalized_asr_text": "to it by an act of faith. he moved away.",
+      "overlap_removed_tokens": 0,
+      "provisional_delta_text": "",
+      "provisional_text": "",
       "queue_depth_after_dequeue": 0,
       "queue_depth_at_dequeue": 1,
       "queue_depth_at_enqueue": 1,
+      "raw_asr_text": "to it by an act of faith. He moved away.",
       "recording_id": "aew_alt_rxr_eey_random_30s",
       "speaker_label": "Unknown",
+      "speaker_label_status": "confirmed",
+      "speaker_scores": {},
+      "speaker_state": {
+        "scores": {},
+        "speaker_label": "Unknown",
+        "status": "confirmed"
+      },
       "start_sec": 0.0,
       "status": "predicted",
+      "stitching_enabled": false,
       "utt_id": "aew_alt_rxr_eey_random_30s_window_0009",
       "warnings": [],
       "window_duration_sec": 3.0,
@@ -1469,11 +1473,13 @@
       "window_start_sec": 24.0
     },
     {
-      "asr_realtime_factor": 0.066161,
-      "capture_end_monotonic": 344274.839786208,
-      "capture_start_monotonic": 344271.834757958,
-      "capture_to_prediction_latency_sec": 0.227035,
-      "dequeue_monotonic": 344274.840300041,
+      "asr_realtime_factor": 0.154047,
+      "capture_end_monotonic": 307526.625,
+      "capture_start_monotonic": 307523.625,
+      "capture_to_prediction_latency_sec": 0.5,
+      "committed_text": "",
+      "corrected_prior_span": false,
+      "dequeue_monotonic": 307526.625,
       "diagnostics": {
         "assembled_text": "is quietly as he had come. such thing",
         "chronological_ordering_violations": 0,
@@ -1497,16 +1503,16 @@
             "asr": "whisper_base",
             "speaker_embedding": "speechbrain_ecapa"
           },
-          "realtime_factor": 0.07488148601260036,
+          "realtime_factor": 0.17077450000215322,
           "stage_breakdown_sec": {
-            "asr_sec": 0.19860929099377245,
-            "audio_load_sec": 0.001981083012651652,
+            "asr_sec": 0.4622183999745175,
+            "audio_load_sec": 0.005843300023116171,
             "diarization_sec": null,
-            "postprocess_sec": 8.875003550201654e-05,
-            "speaker_sec": 0.023735249997116625,
+            "postprocess_sec": 0.00013699999544769526,
+            "speaker_sec": 0.04402159998426214,
             "vad_sec": null
           },
-          "total_sec": 0.2246444580378011
+          "total_sec": 0.5123235000064597
         },
         "segment_overlap_violations": 0,
         "segment_predictions": [
@@ -1514,7 +1520,7 @@
             "normalized_text": "is quietly as he had come. such thing",
             "raw_text": " is quietly as he had come. Such thing",
             "segment": {
-              "audio_path": "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/runs/live_mic_realtime/aew_alt_rxr_eey_random_30s_matching/audio/window_0010.wav",
+              "audio_path": "C:\\Users\\will5\\Documents\\just-peachy\\Software Validation from Datasets\\Evaluation Tool\\runs\\live_mic_realtime\\aew_alt_rxr_eey_random_30s_matching\\audio\\window_0010.wav",
               "channel_count": 1,
               "channel_index": null,
               "duration_sec": 3.0,
@@ -1563,7 +1569,7 @@
         ],
         "segments": [
           {
-            "audio_path": "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/runs/live_mic_realtime/aew_alt_rxr_eey_random_30s_matching/audio/window_0010.wav",
+            "audio_path": "C:\\Users\\will5\\Documents\\just-peachy\\Software Validation from Datasets\\Evaluation Tool\\runs\\live_mic_realtime\\aew_alt_rxr_eey_random_30s_matching\\audio\\window_0010.wav",
             "channel_count": 1,
             "channel_index": null,
             "duration_sec": 3.0,
@@ -1604,23 +1610,37 @@
         ]
       },
       "drop_policy": "drop_oldest",
-      "dropped_window_count": 0,
+      "dropped_window_count": 1,
       "dry_run": false,
       "end_sec": 3.0,
       "enqueue_blocked_sec": 0.0,
-      "enqueue_monotonic": 344274.840214458,
+      "enqueue_monotonic": 307526.625,
       "errors": [],
-      "inference_audio_path": "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/runs/live_mic_realtime/aew_alt_rxr_eey_random_30s_matching/audio/window_0010.wav",
-      "inference_end_monotonic": 344275.066820958,
-      "inference_runtime_sec": 0.226504,
-      "inference_start_monotonic": 344274.840316875,
+      "inference_audio_path": "C:\\Users\\will5\\Documents\\just-peachy\\Software Validation from Datasets\\Evaluation Tool\\runs\\live_mic_realtime\\aew_alt_rxr_eey_random_30s_matching\\audio\\window_0010.wav",
+      "inference_end_monotonic": 307527.125,
+      "inference_runtime_sec": 0.5,
+      "inference_start_monotonic": 307526.625,
+      "newly_committed_text": "",
+      "normalized_asr_text": "is quietly as he had come. such thing",
+      "overlap_removed_tokens": 0,
+      "provisional_delta_text": "",
+      "provisional_text": "",
       "queue_depth_after_dequeue": 0,
       "queue_depth_at_dequeue": 1,
       "queue_depth_at_enqueue": 1,
+      "raw_asr_text": "is quietly as he had come. Such thing",
       "recording_id": "aew_alt_rxr_eey_random_30s",
       "speaker_label": "Unknown",
+      "speaker_label_status": "confirmed",
+      "speaker_scores": {},
+      "speaker_state": {
+        "scores": {},
+        "speaker_label": "Unknown",
+        "status": "confirmed"
+      },
       "start_sec": 0.0,
       "status": "predicted",
+      "stitching_enabled": false,
       "utt_id": "aew_alt_rxr_eey_random_30s_window_0010",
       "warnings": [],
       "window_duration_sec": 3.0,
@@ -1630,35 +1650,37 @@
     }
   ],
   "drop_policy": "drop_oldest",
-  "dropped_window_count": 0,
+  "dropped_window_count": 1,
   "dry_run": false,
   "duration_sec": 32.2,
   "hop_sec": 3.0,
-  "input_wav_path": "artifacts/realtime_test_audio/aew_alt_rxr_eey_random_30s.wav",
+  "input_wav_path": "artifacts\\realtime_test_audio\\aew_alt_rxr_eey_random_30s.wav",
   "max_queue": 4,
-  "max_queue_depth": 1,
+  "max_queue_depth": 4,
   "metrics": {
     "asr_realtime_factor": {
-      "count": 10,
-      "max": 0.225133,
-      "mean": 0.08316,
-      "min": 0.062178
+      "count": 9,
+      "max": 0.36632,
+      "mean": 0.179646,
+      "min": 0.133146
     },
     "latency_sec": {
-      "count": 10,
-      "max": 0.902426,
-      "mean": 0.29872,
-      "min": 0.215268
+      "count": 9,
+      "max": 17.312,
+      "mean": 5.905889,
+      "min": 0.5
     },
     "queue": {
-      "dropped_window_count": 0,
-      "dropped_window_indices": [],
-      "max_depth_observed": 1,
-      "max_depth_recorded": 1.0
+      "dropped_window_count": 1,
+      "dropped_window_indices": [
+        2
+      ],
+      "max_depth_observed": 4,
+      "max_depth_recorded": 4.0
     }
   },
   "microphone_capture_tested": false,
-  "prediction_count": 10,
+  "prediction_count": 9,
   "prediction_required_fields": [
     "recording_id",
     "utt_id",
@@ -1675,14 +1697,6 @@
       "start_sec": 0.0,
       "text": "i do not blame you for anything.",
       "utt_id": "aew_alt_rxr_eey_random_30s_window_0001"
-    },
-    {
-      "end_sec": 3.0,
-      "recording_id": "aew_alt_rxr_eey_random_30s",
-      "speaker_label": "Unknown",
-      "start_sec": 0.0,
-      "text": "remember that. instead, he joined her and",
-      "utt_id": "aew_alt_rxr_eey_random_30s_window_0002"
     },
     {
       "end_sec": 3.0,
@@ -1749,14 +1763,22 @@
       "utt_id": "aew_alt_rxr_eey_random_30s_window_0010"
     }
   ],
-  "predictions_path": "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/runs/live_mic_realtime/aew_alt_rxr_eey_random_30s_matching/predictions/utterances.jsonl",
+  "predictions_path": "C:\\Users\\will5\\Documents\\just-peachy\\Software Validation from Datasets\\Evaluation Tool\\runs\\live_mic_realtime\\aew_alt_rxr_eey_random_30s_matching\\predictions\\utterances.jsonl",
   "real_asr_used": true,
   "recording_id": "aew_alt_rxr_eey_random_30s",
-  "run_dir": "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/runs/live_mic_realtime/aew_alt_rxr_eey_random_30s_matching",
+  "run_dir": "C:\\Users\\will5\\Documents\\just-peachy\\Software Validation from Datasets\\Evaluation Tool\\runs\\live_mic_realtime\\aew_alt_rxr_eey_random_30s_matching",
   "run_id": "aew_alt_rxr_eey_random_30s_matching",
   "sample_rate": 16000,
+  "speaker_confirmation_threshold": 2,
+  "speaker_confirmation_windows": 3,
+  "speaker_correction_window_sec": 6.0,
+  "speaker_hop_sec": null,
   "speaker_label": "Unknown",
-  "summary_path": "/Users/billy/Documents/just-peachy/Software Validation from Datasets/Evaluation Tool/runs/live_mic_realtime/aew_alt_rxr_eey_random_30s_matching/summary.json",
+  "speaker_score_threshold": 0.5,
+  "speaker_window_sec": null,
+  "stability_delay_sec": 1.0,
+  "stitch_transcript": false,
+  "summary_path": "C:\\Users\\will5\\Documents\\just-peachy\\Software Validation from Datasets\\Evaluation Tool\\runs\\live_mic_realtime\\aew_alt_rxr_eey_random_30s_matching\\summary.json",
   "window_count": 10,
   "window_sec": 3.0,
   "worker_errors": []

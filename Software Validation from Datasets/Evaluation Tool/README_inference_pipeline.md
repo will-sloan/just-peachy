@@ -30,3 +30,37 @@ app/prediction_io/schema.py
 predictions/utterances.jsonl
 ```
 
+## Realtime Component Sweep
+
+`scripts/run_realtime_component_sweep.py` generates an explicit Cartesian
+matrix from `configs/sweeps/realtime_component_matrix.yaml`. Each case runs in
+an isolated subprocess and writes its generated config, console log, original
+run summary, and a checkpointed result row. The consolidated outputs are
+`results.jsonl` and `results.csv`.
+
+Preview the default matrix without running models:
+
+```powershell
+python scripts/run_realtime_component_sweep.py --run-id preview --dry-run
+```
+
+Run a small cached-model smoke before starting the full matrix:
+
+```powershell
+python scripts/run_realtime_component_sweep.py --run-id base_smoke --models base --max-cases 2
+```
+
+Run every enabled combination and resume after interruption:
+
+```powershell
+python scripts/run_realtime_component_sweep.py --run-id full_matrix
+python scripts/run_realtime_component_sweep.py --run-id full_matrix --resume
+```
+
+The matrix lists Whisper tiny, base, small, medium, large-v1, large-v2,
+large-v3, and large-v3-turbo. Larger models are disabled by default. Select
+one explicitly with `--models small` or include every listed model with
+`--all-models`. Downloads remain disabled unless
+`--allow-model-downloads` is passed. Use `--devices cuda_fp16` to select the
+disabled-by-default CUDA profile.
+

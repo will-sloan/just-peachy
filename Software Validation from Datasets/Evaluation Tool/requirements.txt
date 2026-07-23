@@ -1,8 +1,2 @@
-numpy
-pandas
-pyarrow
-PyYAML
-scipy
-soundfile
-tqdm
-matplotlib
+# Kept as a compatibility entry point for existing Evaluation Tool commands.
+-r ../../requirements/core.txt

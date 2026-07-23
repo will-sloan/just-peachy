@@ -5,7 +5,6 @@ from __future__ import annotations
 import hashlib
 import math
 import platform
-import resource
 import time
 from abc import ABC, abstractmethod
 from dataclasses import dataclass, fields, is_dataclass
@@ -13,6 +12,11 @@ from pathlib import Path
 from typing import Mapping, Sequence
 
 import torch
+
+try:
+    import resource
+except ImportError:  # pragma: no cover - resource is unavailable on Windows
+    resource = None  # type: ignore[assignment]
 
 from app.inference_pipeline.contracts import AudioSegment, EvaluationRecord
 from app.inference_pipeline.errors import ContractValidationError
@@ -502,6 +506,8 @@ def peak_gpu_memory_mb(device: str) -> float | None:
 def process_memory_mb() -> float | None:
     """Return current process max RSS in MB where the platform exposes it."""
 
+    if resource is None:
+        return None
     try:
         value = float(resource.getrusage(resource.RUSAGE_SELF).ru_maxrss)
     except Exception:

@@ -1,0 +1,17 @@
+component:
+  slot: asr
+  name: whisper_small
+  enabled: true
+  adapter: WhisperSmallASRAdapter
+  notes: OpenAI Whisper small checkpoint; local assets required unless downloads are enabled.
+  params:
+    model_family: whisper
+    model_size: small
+    model_name: whisper_small
+    language: en
+    beam_size: 1
+    word_timestamps: false
+    device: cpu
+    dtype: float32
+    allow_model_downloads: false
+    cache_dir: models/cache/whisper

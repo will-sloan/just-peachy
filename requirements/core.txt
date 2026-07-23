@@ -1,0 +1,11 @@
+# Dataset registry, audio processing, metrics, and reporting.
+numpy
+pandas
+pyarrow
+PyYAML
+scipy
+soundfile
+tqdm
+matplotlib
+scikit-learn
+jiwer

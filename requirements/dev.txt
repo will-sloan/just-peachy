@@ -1,0 +1,7 @@
+-r inference.txt
+
+pytest
+pytest-cov
+ruff
+mypy
+types-PyYAML

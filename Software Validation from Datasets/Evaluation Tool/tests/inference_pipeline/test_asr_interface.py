@@ -246,6 +246,18 @@ def test_whisper_adapter_enables_fp16_only_for_cuda_float16_context() -> None:
     assert model.calls[0]["fp16"] is True
 
 
+def test_whisper_adapter_passes_configured_beam_size() -> None:
+    model = RecordingWhisperModel()
+    adapter = WhisperASR(
+        {"model_size": "tiny", "device": "cpu", "beam_size": 5},
+        model=model,
+    )
+
+    adapter.transcribe(audio_segment(), asr_context())
+
+    assert model.calls[0]["beam_size"] == 5
+
+
 class StaticAudioReader:
     def __init__(self, duration_sec: float) -> None:
         self.audio = SimpleNamespace(

@@ -94,6 +94,36 @@ class WhisperBaseASRAdapter(ComponentAdapter):
     component_name = "whisper_base"
 
 
+class WhisperSmallASRAdapter(ComponentAdapter):
+    component_slot = "asr"
+    component_name = "whisper_small"
+
+
+class WhisperMediumASRAdapter(ComponentAdapter):
+    component_slot = "asr"
+    component_name = "whisper_medium"
+
+
+class WhisperLargeV1ASRAdapter(ComponentAdapter):
+    component_slot = "asr"
+    component_name = "whisper_large_v1"
+
+
+class WhisperLargeV2ASRAdapter(ComponentAdapter):
+    component_slot = "asr"
+    component_name = "whisper_large_v2"
+
+
+class WhisperLargeV3ASRAdapter(ComponentAdapter):
+    component_slot = "asr"
+    component_name = "whisper_large_v3"
+
+
+class WhisperTurboASRAdapter(ComponentAdapter):
+    component_slot = "asr"
+    component_name = "whisper_turbo"
+
+
 class FasterWhisperASRAdapter(ComponentAdapter):
     component_slot = "asr"
     component_name = "faster_whisper"
@@ -137,7 +167,13 @@ REGISTERED_COMPONENTS: dict[str, dict[str, type[ComponentAdapter]]] = {
         FasterWhisperASRAdapter.component_name: FasterWhisperASRAdapter,
         NoOpASRAdapter.component_name: NoOpASRAdapter,
         WhisperBaseASRAdapter.component_name: WhisperBaseASRAdapter,
+        WhisperLargeV1ASRAdapter.component_name: WhisperLargeV1ASRAdapter,
+        WhisperLargeV2ASRAdapter.component_name: WhisperLargeV2ASRAdapter,
+        WhisperLargeV3ASRAdapter.component_name: WhisperLargeV3ASRAdapter,
+        WhisperMediumASRAdapter.component_name: WhisperMediumASRAdapter,
+        WhisperSmallASRAdapter.component_name: WhisperSmallASRAdapter,
         WhisperTinyASRAdapter.component_name: WhisperTinyASRAdapter,
+        WhisperTurboASRAdapter.component_name: WhisperTurboASRAdapter,
     },
     "speaker_embedding": {
         NoOpSpeakerEmbeddingAdapter.component_name: NoOpSpeakerEmbeddingAdapter,

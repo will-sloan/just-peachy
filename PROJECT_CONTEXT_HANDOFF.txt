@@ -1,0 +1,772 @@
+JUST-PEACHY PROJECT CONTEXT AND HANDOFF
+=======================================
+
+Prepared: 2026-07-23
+Audience: A new human collaborator and the chatbot assisting them
+Repository root: C:\Users\will5\Documents\just-peachy
+
+
+1. PURPOSE OF THIS DOCUMENT
+---------------------------
+
+This file transfers the working context accumulated while reviewing, debugging,
+and extending the just-peachy repository. It describes what the project does,
+how its important pieces fit together, what has been validated, what was
+recently changed, and what remains incomplete.
+
+This is a handoff document, not a substitute for inspecting the source. The
+repository currently has uncommitted changes. A new collaborator or chatbot
+should inspect "git status" and the relevant diffs before editing, committing,
+or discarding anything.
+
+No passwords, API keys, Hugging Face tokens, or other secrets are included here.
+
+
+2. PROJECT SUMMARY
+------------------
+
+Just-peachy is a local speech-pipeline and dataset-validation project. Its
+current capabilities include:
+
+* Dataset-aware speech evaluation.
+* Audio loading, resampling, and channel handling.
+* Voice activity detection (VAD).
+* VAD-driven segmentation.
+* Automatic speech recognition (ASR).
+* Optional diarization.
+* Speaker embeddings.
+* Enrolled-speaker matching.
+* Realtime microphone or prerecorded-realtime simulation.
+* Speaker enrollment.
+* Component performance sweeps.
+* Metrics, reports, plots, and run artifacts.
+
+The largest active application is located at:
+
+  Software Validation from Datasets\Evaluation Tool
+
+The Evaluation Tool supports normalized metadata and evaluation workflows for:
+
+* AMI
+* CHiME-6
+* CMU Arctic
+* HiFiTTS
+* LibriSpeech
+* VOiCES
+
+The current realtime work is focused on OpenAI Whisper transcription combined
+with SpeechBrain ECAPA speaker embeddings and cosine-threshold matching against
+an enrollment database.
+
+
+3. IMPORTANT REPOSITORY LOCATIONS
+---------------------------------
+
+Repository-level setup:
+
+  README.md
+  install.ps1
+  requirements.txt
+  requirements\core.txt
+  requirements\inference.txt
+  requirements\optional.txt
+  requirements\dev.txt
+  scripts\bootstrap_models.py
+  scripts\verify_install.py
+
+Evaluation Tool:
+
+  Software Validation from Datasets\Evaluation Tool
+
+Core inference package:
+
+  Software Validation from Datasets\Evaluation Tool\app\inference_pipeline
+
+Important pipeline files:
+
+  app\inference_pipeline\pipeline.py
+  app\inference_pipeline\config.py
+  app\inference_pipeline\registry.py
+  app\inference_pipeline\contracts.py
+
+Component implementations:
+
+  app\inference_pipeline\asr
+  app\inference_pipeline\vad
+  app\inference_pipeline\segmentation
+  app\inference_pipeline\diarization
+  app\inference_pipeline\speaker_embedding
+  app\inference_pipeline\speaker_matching
+  app\inference_pipeline\enrollment
+  app\inference_pipeline\realtime
+
+Main realtime script:
+
+  scripts\live_mic_realtime.py
+
+Speaker enrollment:
+
+  scripts\enroll_speaker.py
+
+Component sweep:
+
+  scripts\run_realtime_component_sweep.py
+
+Inference configurations:
+
+  configs\inference
+  configs\inference\components
+
+Default component-sweep matrix:
+
+  configs\sweeps\realtime_component_matrix.yaml
+
+Run outputs:
+
+  runs\
+
+Reports:
+
+  reports\
+
+Enrollment database:
+
+  artifacts\enrollment\enrollment_db_speechbrain_ecapa.json
+
+Shared model cache:
+
+  <repository root>\models\cache
+
+
+4. PIPELINE ARCHITECTURE
+------------------------
+
+The main PipelineRunner resolves components from YAML and processes an
+EvaluationRecord through approximately this flow:
+
+  input record
+    -> audio loading/resampling
+    -> VAD (optional)
+    -> segmentation (optional)
+    -> diarization (optional)
+    -> ASR
+    -> speaker embedding (optional)
+    -> enrolled-speaker matching (optional)
+    -> transcript assembly and diagnostics
+    -> predictions, metrics, and reports
+
+The project intentionally uses explicit component interfaces and data contracts.
+Important identities such as recording_id and utt_id should be preserved through
+the pipeline.
+
+Configuration can reference reusable component YAML files. Component loading is
+lazy so configuration resolution does not automatically import or load every
+machine-learning model.
+
+
+5. CURRENT VALIDATED REALTIME CONFIGURATION
+-------------------------------------------
+
+The validated configuration is:
+
+  configs\inference\live_mic_realtime_whisper_base_speaker_matching.yaml
+
+Its important settings are:
+
+* Runtime device: CPU
+* Runtime precision: float32
+* Sample rate: 16000 Hz
+* VAD: disabled
+* Segmentation: disabled; full inference window is used
+* Diarization: disabled
+* ASR: OpenAI Whisper base
+* Speaker embedding: SpeechBrain ECAPA
+* Speaker matching: cosine threshold
+* Matching threshold: 0.70
+* Matching mode: centroid
+* Runtime model ID enforcement: enabled
+* Implicit model downloads: disabled
+
+The referenced enrollment database currently contains one enrolled speaker,
+Alice, with multiple enrollment exemplars. Because only one speaker is enrolled,
+the matcher has no meaningful second-best speaker. Therefore min_margin is not
+useful until at least two speakers are enrolled.
+
+
+6. SUCCESSFUL VALIDATION RUN
+----------------------------
+
+A successful prerecorded-realtime run used:
+
+  Run ID:
+    aew_alt_rxr_eey_random_30s_matching
+
+  Input:
+    artifacts\realtime_test_audio\aew_alt_rxr_eey_random_30s.wav
+
+  Window:
+    3.0 seconds
+
+  Hop:
+    3.0 seconds
+
+  Duration:
+    32.2 seconds
+
+Observed results from the saved run summary:
+
+* Windows produced: 10
+* Predictions completed: 9
+* Dropped windows: 1
+* ASR mode: whisper_base
+* Mean ASR realtime factor was approximately 0.18.
+* The first prediction took approximately 17.3 seconds.
+* Approximately 16.2 seconds of that first prediction were attributed to the
+  initial SpeechBrain stage/model load.
+* Later windows completed in roughly 0.42 to 0.58 seconds.
+* At threshold 0.70, two of nine completed windows were accepted as Alice.
+
+Do not interpret those acceptance counts as calibrated speaker accuracy without
+checking the ground-truth speaker content of every window. Proper calibration
+needs known-positive and known-negative audio from multiple speakers.
+
+The first-load delay filled the default realtime queue and caused one dropped
+window. Increasing --max-queue, prewarming models, or selecting an appropriate
+drop policy are useful experiments.
+
+
+7. SUPPORTED AND PARTIALLY SUPPORTED COMPONENTS
+-----------------------------------------------
+
+ASR:
+
+* OpenAI Whisper tiny: runnable
+* OpenAI Whisper base: runnable and validated
+* OpenAI Whisper small: configuration and registry added
+* OpenAI Whisper medium: configuration and registry added
+* OpenAI Whisper large-v1: configuration and registry added
+* OpenAI Whisper large-v2: configuration and registry added
+* OpenAI Whisper large-v3: configuration and registry added
+* OpenAI Whisper large-v3-turbo: configuration and registry added
+* Faster-Whisper: registered, but execution is deliberately not wired
+
+The generic Whisper adapter now passes configured beam_size to Whisper.
+Word timestamps can be enabled and are useful with realtime transcript
+stitching.
+
+VAD:
+
+* No-op VAD
+* Deterministic energy VAD
+* Silero VAD
+
+Segmentation:
+
+* Full-window/no-op behavior
+* VAD-region chunking
+
+Diarization:
+
+* No-op diarization
+* Optional pyannote community diarization
+
+Pyannote may require:
+
+* pyannote.audio
+* Hugging Face authentication
+* Acceptance of gated model terms
+* Model downloads
+
+Pyannote returns anonymous speaker turns such as speaker_00. Enrolled-speaker
+matching is a separate operation that maps embeddings to known names.
+
+Speaker embedding:
+
+* No-op/fake adapters for tests
+* SpeechBrain ECAPA for real embeddings
+
+Speaker matching:
+
+* No-op matching
+* Cosine-threshold matching
+* Centroid scoring
+* Exemplar scoring
+
+
+8. WINDOWS COMPATIBILITY FIXES ALREADY MADE
+-------------------------------------------
+
+Several Windows-specific failures were found and fixed.
+
+8.1 Python resource module
+
+The standard-library resource module is Unix-only. The speaker-embedding base
+module previously imported it unconditionally and failed on Windows.
+
+The import is now optional. process_memory_mb() returns None when resource is
+unavailable. Memory reporting is optional, so this is safe.
+
+Relevant file:
+
+  app\inference_pipeline\speaker_embedding\base.py
+
+8.2 SpeechBrain symlink privileges
+
+SpeechBrain originally attempted to create symlinks from the Hugging Face cache
+into the project model cache. Standard Windows sessions raised WinError 1314.
+
+The adapter now passes:
+
+  local_strategy=LocalStrategy.COPY
+
+This avoids requiring Administrator privileges or Windows Developer Mode.
+
+Relevant file:
+
+  app\inference_pipeline\speaker_embedding\speechbrain_adapter.py
+
+The model bootstrap helper uses the same copy strategy.
+
+8.3 FFmpeg
+
+OpenAI Whisper receives WAV paths and uses FFmpeg to decode them. If ffmpeg.exe
+is absent from PATH, Whisper raises WinError 2.
+
+The installer can check or install FFmpeg through WinGet:
+
+  .\install.ps1 -Profile inference -InstallFFmpeg
+
+8.4 PowerShell quoting
+
+PowerShell/native-command quoting stripped nested double quotes from an earlier
+python -c command. Prefer Python script files. If python -c is necessary, use
+outer double quotes with inner single-quoted Python strings.
+
+
+9. INSTALLATION SYSTEM
+----------------------
+
+A Windows-first installer and dependency profiles were recently added.
+
+Main installer:
+
+  install.ps1
+
+Profiles:
+
+  core       Dataset, audio, metrics, and reporting packages
+  inference  Core plus PyTorch, OpenAI Whisper, SpeechBrain, Silero, sounddevice
+  full       Inference plus Faster-Whisper and pyannote.audio packages
+  dev        Inference plus pytest, coverage, Ruff, and mypy
+
+Recommended installation:
+
+  Set-ExecutionPolicy -Scope Process Bypass
+  .\install.ps1 -Profile inference -InstallFFmpeg -DownloadModels
+
+Installer behavior:
+
+* Accepts Python 3.10 through Python 3.12.
+* Prefers the Python 3.12 py launcher when creating a new environment.
+* Reuses a functional .venv.
+* Backs up a broken .venv instead of deleting it.
+* Installs the selected dependency profile.
+* Optionally installs FFmpeg with WinGet.
+* Optionally downloads Whisper, SpeechBrain ECAPA, and Silero assets.
+* Runs installation verification.
+* Writes transcripts under .install-logs.
+
+The installer has been statically validated but has not been run end-to-end in
+this Codex session because doing so would replace the current broken launcher,
+install packages, and potentially download large assets.
+
+
+10. MODEL BOOTSTRAP AND VERIFICATION
+------------------------------------
+
+Model bootstrap:
+
+  scripts\bootstrap_models.py
+
+Example:
+
+  .\.venv\Scripts\python.exe scripts\bootstrap_models.py ^
+    --whisper tiny,base,small ^
+    --speechbrain-ecapa ^
+    --silero
+
+The README uses PowerShell backticks rather than cmd.exe carets. The example
+above is conceptual; use the syntax appropriate for the active shell.
+
+Pyannote bootstrap:
+
+  $env:HF_TOKEN = "your-token"
+  .\.venv\Scripts\python.exe scripts\bootstrap_models.py --pyannote
+
+Never commit or paste a real token into configuration, logs, or this document.
+
+Installation verification:
+
+  scripts\verify_install.py
+
+Example:
+
+  .\.venv\Scripts\python.exe scripts\verify_install.py `
+    --profile inference `
+    --device auto `
+    --require-models `
+    --whisper base
+
+The verifier checks:
+
+* Required Python imports
+* FFmpeg
+* CUDA visibility
+* Whisper model-cache files
+* SpeechBrain cache markers
+* Real pipeline configuration resolution
+
+
+11. CURRENT VIRTUAL-ENVIRONMENT CONTEXT
+---------------------------------------
+
+During earlier tool-based validation, both local virtual-environment launchers
+referenced this missing base interpreter:
+
+  C:\Users\will5\AppData\Local\Programs\Python\Python312\python.exe
+
+The user's already-running Evaluation Tool terminal continued to work, but new
+processes launched through .venv\Scripts\python.exe could not start from the
+Codex shell.
+
+The new installer is designed to detect this condition, move the old environment
+to a timestamped backup, and create a fresh environment.
+
+
+12. REALTIME COMMANDS
+---------------------
+
+Commands below assume the current directory is:
+
+  Software Validation from Datasets\Evaluation Tool
+
+Run the validated prerecorded-realtime flow:
+
+  python scripts/live_mic_realtime.py `
+    --config configs/inference/live_mic_realtime_whisper_base_speaker_matching.yaml `
+    --run-id example_matching `
+    --input-wav artifacts/realtime_test_audio/aew_alt_rxr_eey_random_30s.wav `
+    --duration-sec 32.2 `
+    --window-sec 3.0 `
+    --hop-sec 3.0 `
+    --sample-rate 16000 `
+    --recording-id example_matching
+
+Useful realtime flags:
+
+  --max-queue 16
+  --drop-policy drop_oldest
+  --drop-policy drop_newest
+  --drop-policy block
+  --stitch-transcript
+  --stability-delay-sec 1
+  --speaker-window-sec 6
+  --speaker-hop-sec 2
+  --speaker-confirmation-windows 3
+  --speaker-confirmation-threshold 2
+  --speaker-score-threshold 0.60
+  --speaker-correction-window-sec 6
+  --verbose
+  --keep-audio
+
+Use a unique run ID for every experiment. Reusing a run ID can mix or overwrite
+artifacts and make comparisons harder to interpret.
+
+
+13. COMPONENT SWEEP
+-------------------
+
+The sweep runner is:
+
+  scripts\run_realtime_component_sweep.py
+
+The default matrix is:
+
+  configs\sweeps\realtime_component_matrix.yaml
+
+It builds a configurable Cartesian product over dimensions such as:
+
+* Input recordings
+* Whisper model
+* CPU or CUDA profile
+* Window and hop settings
+* VAD profile
+* Speaker threshold
+* Centroid or exemplar scoring
+* Word timestamps
+* Beam size
+* Queue behavior
+
+The default enabled matrix produces 48 cases. Larger models and CUDA are listed
+but disabled by default.
+
+Preview without running models:
+
+  python scripts/run_realtime_component_sweep.py --run-id preview --dry-run
+
+Run two base cases:
+
+  python scripts/run_realtime_component_sweep.py `
+    --run-id base_smoke `
+    --models base `
+    --max-cases 2
+
+Run the enabled matrix:
+
+  python scripts/run_realtime_component_sweep.py --run-id full_matrix
+
+Resume:
+
+  python scripts/run_realtime_component_sweep.py --run-id full_matrix --resume
+
+The sweep writes:
+
+* A manifest
+* Generated configuration per case
+* Console log per case
+* Original realtime summary per case
+* Checkpointed results.jsonl
+* Consolidated results.csv
+
+Recorded performance fields include:
+
+* Wall-clock time
+* Prediction count
+* Dropped-window count
+* Mean and maximum latency
+* ASR realtime factor
+* Mean total pipeline runtime
+* Mean ASR-stage runtime
+* Mean speaker-stage runtime
+* Speaker acceptance and unknown counts
+* Mean speaker score
+* Error and output paths
+
+The current sweep measures runtime and matching behavior. It does not yet
+automatically calculate transcription WER for the realtime test WAV unless
+reference text is separately integrated.
+
+
+14. EXPERIMENTS THAT ARE MOST USEFUL
+------------------------------------
+
+Speaker threshold:
+
+  0.60, 0.70, 0.80
+
+Window/hop:
+
+  3/3 seconds, no overlap
+  4/2 seconds, overlap with stitching
+  6/3 seconds, longer speaker context
+
+ASR:
+
+  Whisper tiny versus base
+  CPU float32 versus CUDA float16
+  Word timestamps off versus on
+  Beam size 1 versus 5
+
+VAD:
+
+  None
+  Energy threshold around 0.005, 0.01, or 0.02
+  Silero threshold around 0.4, 0.5, or 0.6
+
+Speaker matching:
+
+  Centroid versus exemplar
+  Multiple known speakers
+  Known-positive and known-negative recordings
+
+Queue:
+
+  Capacity 4 versus 16
+  drop_oldest versus drop_newest versus block
+
+
+15. KNOWN LIMITATIONS AND INCOMPLETE WORK
+-----------------------------------------
+
+* Faster-Whisper is registered and installable, but its execution adapter still
+  raises an intentional "not wired" error.
+
+* Pyannote is optional, potentially gated, and not part of the validated default
+  realtime path.
+
+* The main realtime matching config explicitly uses CPU. CUDA availability
+  alone does not cause Whisper to use the GPU.
+
+* Large Whisper models may exceed available memory or be impractically slow on
+  CPU. Downloads are intentionally opt-in.
+
+* runtime.max_batch_size and runtime.num_threads are currently mostly
+  configuration/reporting fields and are not comprehensive model-execution
+  controls.
+
+* First-use model loading can distort realtime latency and fill the inference
+  queue.
+
+* Speaker threshold 0.70 is not fully calibrated. A proper calibration set must
+  include multiple speakers, impostor trials, noise, silence, and varied
+  microphones.
+
+* With one enrolled speaker, min_margin does not provide useful ambiguity
+  rejection.
+
+* The dependency profiles use direct package names rather than a fully pinned
+  lock file. A clean-machine install should be validated before declaring the
+  setup reproducible.
+
+* Full pytest was not run after all recent changes because the local .venv
+  launcher was broken in the Codex shell. Python compilation, PowerShell
+  parsing, requirements-reference checks, configuration resolution, registry
+  checks, sweep manifest generation, and focused assertions were run.
+
+
+16. CURRENT GIT/WORKTREE STATE
+------------------------------
+
+At the time this handoff was prepared, the worktree was dirty. It included:
+
+* Windows compatibility fixes.
+* Expanded Whisper model registry and component YAML files.
+* The realtime component sweep.
+* Tests for expanded model configuration and sweep logic.
+* Installer and dependency-profile work.
+* README changes.
+* Modified generated run reports and prediction artifacts.
+
+Some files are modified and some are untracked. These changes have not been
+described here as committed or pushed.
+
+Important rule for the next collaborator/chatbot:
+
+  Do not run git reset --hard, git checkout --, or broad cleanup commands.
+
+Generated run files and source-code changes are mixed in the worktree. Inspect
+each diff, separate source changes from generated artifacts, and commit
+intentionally.
+
+
+17. VALIDATION ALREADY PERFORMED
+--------------------------------
+
+The following checks were completed during development:
+
+* Windows resource import fix inspected and source-verified.
+* SpeechBrain COPY local strategy verified against the installed API.
+* OpenAI Whisper base loaded and transcribed successfully.
+* SpeechBrain model downloaded and loaded successfully after the copy-strategy
+  fix.
+* Realtime Whisper base plus speaker matching completed a full test input.
+* Expanded Whisper registry entries resolved for six added configurations.
+* Whisper beam_size forwarding was tested with an injected model.
+* Sweep matrix dry run produced 48 cases.
+* Filtered small-model sweep configuration resolved to the correct adapter.
+* Sweep metric extraction received focused assertion testing.
+* New Python installation helpers compiled successfully.
+* install.ps1 passed PowerShell AST parsing.
+* Nested requirements references resolved.
+* Git whitespace checks passed.
+
+The full installer has not been executed end-to-end, and model downloads for
+every expanded Whisper checkpoint have not been performed.
+
+
+18. RECOMMENDED NEXT STEPS
+--------------------------
+
+1. Run install.ps1 on a clean or repairable Windows environment.
+
+2. Run scripts\verify_install.py with the inference profile and required base
+   model assets.
+
+3. Run the two-case base sweep smoke before the complete matrix.
+
+4. Add at least one more enrolled speaker so min_margin and ambiguity rejection
+   can be evaluated.
+
+5. Build a labeled calibration set containing genuine speakers, impostors,
+   silence, background noise, and multiple recording conditions.
+
+6. Add transcription references to the realtime sweep so speed and WER can be
+   compared together.
+
+7. Consider an explicit model-prewarm phase before realtime capture begins.
+
+8. Pin or lock a known-good dependency set after validating a clean install.
+
+9. Run the complete inference-pipeline pytest suite in the rebuilt environment.
+
+10. Review the dirty worktree, separate generated outputs from source changes,
+    and create intentional commits.
+
+
+19. GUIDANCE FOR THE NEXT CHATBOT
+---------------------------------
+
+Before editing:
+
+* Read this file.
+* Read the root README.md.
+* Run git status.
+* Inspect the exact files relevant to the requested task.
+* Preserve unrelated changes.
+
+When changing configuration:
+
+* Keep model downloads disabled by default.
+* Never store Hugging Face tokens in YAML.
+* Use unique run IDs.
+* Change both runtime and ASR component settings for CUDA tests.
+* Treat Faster-Whisper as unwired until its adapter is implemented.
+* Do not claim pyannote is validated in the default path.
+
+When evaluating results:
+
+* Separate first-load latency from steady-state latency.
+* Report dropped windows.
+* Do not equate a cosine score with calibrated probability.
+* Do not interpret matching acceptance as accuracy without ground truth.
+* Remember that a single enrolled speaker makes margin tests ineffective.
+
+When working with Git:
+
+* Do not discard the dirty worktree.
+* Do not commit generated artifacts accidentally.
+* Do not assume untracked files are disposable.
+* Review source and generated-output changes separately.
+
+
+20. PRIMARY DOCUMENTATION
+-------------------------
+
+Start with:
+
+  README.md
+
+Detailed Evaluation Tool documentation:
+
+  Software Validation from Datasets\Evaluation Tool\README.md
+
+Inference notes:
+
+  Software Validation from Datasets\Evaluation Tool\README_inference_pipeline.md
+
+This handoff:
+
+  PROJECT_CONTEXT_HANDOFF.txt
+
+
+END OF HANDOFF

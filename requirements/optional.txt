@@ -1,0 +1,6 @@
+-r inference.txt
+
+# Optional or advanced components. Faster-Whisper is registered but its
+# execution adapter is not wired into the realtime pipeline yet.
+faster-whisper
+pyannote.audio

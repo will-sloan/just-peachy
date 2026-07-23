@@ -173,6 +173,7 @@ class SpeechBrainECAPAAdapter(SpeakerEmbeddingBase):
                 from speechbrain.inference.speaker import EncoderClassifier
             except Exception:
                 from speechbrain.pretrained import EncoderClassifier  # type: ignore[no-redef]
+            from speechbrain.utils.fetching import LocalStrategy
         except Exception as exc:  # pragma: no cover - dependency boundary
             raise SpeechBrainUnavailableError("SpeechBrain EncoderClassifier is not importable.") from exc
 
@@ -182,6 +183,7 @@ class SpeechBrainECAPAAdapter(SpeakerEmbeddingBase):
                 source=source,
                 savedir=str(savedir) if savedir is not None else None,
                 run_opts={"device": device},
+                local_strategy=LocalStrategy.COPY,
             )
         except Exception as exc:  # pragma: no cover - dependency boundary
             raise SpeechBrainUnavailableError(f"SpeechBrain model load failed: {exc}") from exc

@@ -1,0 +1,17 @@
+component:
+  slot: asr
+  name: whisper_turbo
+  enabled: true
+  adapter: WhisperTurboASRAdapter
+  notes: OpenAI Whisper large-v3-turbo checkpoint; optimized for faster transcription.
+  params:
+    model_family: whisper
+    model_size: large-v3-turbo
+    model_name: whisper_turbo
+    language: en
+    beam_size: 1
+    word_timestamps: false
+    device: cuda
+    dtype: float16
+    allow_model_downloads: false
+    cache_dir: models/cache/whisper

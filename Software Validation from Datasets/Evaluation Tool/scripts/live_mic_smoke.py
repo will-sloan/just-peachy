@@ -33,7 +33,7 @@ REQUIRED_PREDICTION_FIELDS = (
 if str(TOOL_ROOT) not in sys.path:
     sys.path.insert(0, str(TOOL_ROOT))
 
-from app.inference_pipeline.asr.base import NoOpASR  # noqa: E402
+from app.inference_pipeline.asr.base import NoOpASR, WHISPER_COMPONENT_NAMES  # noqa: E402
 from app.inference_pipeline.config import PipelineConfig  # noqa: E402
 from app.inference_pipeline.pipeline import AudioLoaderAdapter, PipelineRunner  # noqa: E402
 from app.utils.json_utils import write_json  # noqa: E402
@@ -409,7 +409,7 @@ def inspect_runtime_availability(
         )
         return status
 
-    if asr.name in {"whisper_tiny", "whisper_base"}:
+    if asr.name in WHISPER_COMPONENT_NAMES:
         params = dict(asr.params or {})
         model_size = str(params.get("model_size") or asr.name.removeprefix("whisper_"))
         allow_downloads = _boolish(

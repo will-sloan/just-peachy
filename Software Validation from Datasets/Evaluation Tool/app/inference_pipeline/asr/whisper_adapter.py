@@ -17,7 +17,7 @@ from app.inference_pipeline.asr.base import (
     normalize_text,
 )
 from app.inference_pipeline.contracts import ASRTranscript, AudioSegment, WordTiming
-from app.inference_pipeline.errors import InferencePipelineError
+from app.inference_pipeline.errors import ContractValidationError, InferencePipelineError
 
 
 class WhisperASRUnavailableError(InferencePipelineError):
@@ -44,6 +44,7 @@ class WhisperASR(ASRBase):
         self.cache_dir = _optional_path(self.params.get("cache_dir"))
         self.allow_model_downloads = bool(self.params.get("allow_model_downloads", False))
         self.word_timestamps = bool(self.params.get("word_timestamps", False))
+        self.beam_size = _optional_int(self.params.get("beam_size"))
         self._load_sec: float | None = None
 
     def transcribe(self, audio_segment: AudioSegment, context: ASRContext) -> ASRTranscript:
@@ -54,6 +55,8 @@ class WhisperASR(ASRBase):
             "word_timestamps": self.word_timestamps,
             "fp16": _use_fp16(self.device, self.dtype, context),
         }
+        if self.beam_size is not None:
+            kwargs["beam_size"] = self.beam_size
         if audio_segment.start_sec is not None or audio_segment.end_sec is not None:
             kwargs["clip_timestamps"] = _clip_timestamps(audio_segment)
         try:
@@ -235,3 +238,15 @@ def _optional_float(value: object) -> float | None:
         return float(value)
     except (TypeError, ValueError):
         return None
+
+
+def _optional_int(value: object) -> int | None:
+    if value is None or value == "":
+        return None
+    try:
+        parsed = int(value)
+    except (TypeError, ValueError) as exc:
+        raise ContractValidationError("beam_size must be an integer") from exc
+    if parsed < 1:
+        raise ContractValidationError("beam_size must be >= 1")
+    return parsed
