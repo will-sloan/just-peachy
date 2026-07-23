@@ -1,0 +1,21 @@
+{
+  "ordering": [
+    "far_end_reference",
+    "packing_convention_unused",
+    "mic0",
+    "mic1",
+    "mic2",
+    "mic3"
+  ],
+  "mode": "single_mic",
+  "mic_index": 0,
+  "channels": {
+    "channel_0": "silence",
+    "channel_1": "packing_convention_unused_silence",
+    "channel_2": "mic0",
+    "channel_3": "silence",
+    "channel_4": "silence",
+    "channel_5": "silence"
+  },
+  "warning": "SingleMic injects only the selected substitute microphone channel; it is not spatially valid four-microphone data."
+}

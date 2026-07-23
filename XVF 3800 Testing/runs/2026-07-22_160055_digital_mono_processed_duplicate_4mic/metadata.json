@@ -1,0 +1,275 @@
+{
+  "test_name": "digital_mono_processed_duplicate_4mic",
+  "test_type": "digital_mono_asr_hardware_in_loop",
+  "start_time_utc": "2026-07-22T20:00:55.801298+00:00",
+  "end_time_utc": "2026-07-22T20:01:46.729887+00:00",
+  "duration_sec": 5.7244375,
+  "python_executable": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\XVF 3800 Testing\\XVF_3800_Testing_Starter\\.venv\\Scripts\\python.exe",
+  "python_version": "3.10.11 (tags/v3.10.11:7d4cc5a, Apr  5 2023, 00:38:17) [MSC v.1929 64 bit (AMD64)]",
+  "project_path": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\XVF 3800 Testing\\XVF_3800_Testing_Starter",
+  "xvf_host_path": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\XVF 3800 Testing\\XVF3800-Binary_v3_2_1\\host_v3.0.0\\win32\\xvf_host.exe",
+  "xvf_tools_path": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\XVF 3800 Testing\\xvf3800_source_external_241029_121941\\sources\\xvf_tools.py",
+  "firmware_version": "Device (USB)::device_init() -- Found device VID: 8369 PID: 20224 interface: 3\nVERSION 3 2 1",
+  "audio_device_selection": {
+    "input_id": 30,
+    "output_id": 29,
+    "api": "Windows WDM-KS",
+    "input": {
+      "name": "Echo Cancelling Speakerphone (XVF3800 Voice Processor)",
+      "index": 30,
+      "hostapi": 3,
+      "max_input_channels": 2,
+      "max_output_channels": 0,
+      "default_low_input_latency": 0.01,
+      "default_low_output_latency": 0.01,
+      "default_high_input_latency": 0.04,
+      "default_high_output_latency": 0.04,
+      "default_samplerate": 48000.0
+    },
+    "output": {
+      "name": "Output (XVF3800 Voice Processor)",
+      "index": 29,
+      "hostapi": 3,
+      "max_input_channels": 0,
+      "max_output_channels": 2,
+      "default_low_input_latency": 0.01,
+      "default_low_output_latency": 0.01,
+      "default_high_input_latency": 0.04,
+      "default_high_output_latency": 0.04,
+      "default_samplerate": 48000.0
+    }
+  },
+  "usb_sample_rate_hz": 48000,
+  "usb_bit_depth": 16,
+  "vector": {
+    "input_file": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\XVF 3800 Testing\\runs\\2026-07-22_160055_digital_mono_processed_duplicate_4mic\\input\\church2000ms.wav",
+    "input_sha256": "ceeb1e91b7edb32219a5e216bad849e71bb7eef374101b01198dd64e8dbedd6a",
+    "input_sample_rate_hz": 11025,
+    "output_file": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\XVF 3800 Testing\\runs\\2026-07-22_160055_digital_mono_processed_duplicate_4mic\\input\\injection_vector_16k_6ch.wav",
+    "output_sample_rate_hz": 16000,
+    "channels": [
+      "far_end_reference",
+      "packing_convention_unused",
+      "mic0",
+      "mic1",
+      "mic2",
+      "mic3"
+    ],
+    "mode": "duplicate_mics",
+    "mic_index": 0,
+    "warning": "Duplicating one mono waveform into all four microphone channels contains no realistic spatial delays. It is unsuitable for evaluating beamforming or Direction of Arrival."
+  },
+  "packed_bit_depth": 16,
+  "packed_output_command": "12 0  3 0  3 2  7 3  3 1  3 3",
+  "packed_output_order": [
+    "far_end_reference",
+    "asr_processed_auto_selected",
+    "amplified_mic0",
+    "amplified_mic1",
+    "amplified_mic2",
+    "amplified_mic3"
+  ],
+  "asr_output_enabled": true,
+  "asr_output_route": {
+    "AEC_ASROUTONOFF": 1,
+    "mux_category": 7,
+    "mux_source": 3,
+    "label": "asr_processed_auto_selected"
+  },
+  "capture": {
+    "unpacked_output_found": true,
+    "sample_rate_hz": 16000,
+    "channels": 6,
+    "frames": 91591,
+    "labels": [
+      "far_end_reference",
+      "asr_processed_auto_selected",
+      "amplified_mic0",
+      "amplified_mic1",
+      "amplified_mic2",
+      "amplified_mic3"
+    ]
+  },
+  "audio_statistics": [
+    {
+      "file": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\XVF 3800 Testing\\runs\\2026-07-22_160055_digital_mono_processed_duplicate_4mic\\input\\church2000ms.wav",
+      "sha256": "ceeb1e91b7edb32219a5e216bad849e71bb7eef374101b01198dd64e8dbedd6a",
+      "sample_rate_hz": 11025,
+      "channels": 2,
+      "frames": 64032,
+      "duration_sec": 5.807891156462585,
+      "peak_absolute": 1.0,
+      "rms": 0.0911850780248642,
+      "exact_zero_percent": 5.317653673163418,
+      "clipping_count": 1
+    },
+    {
+      "file": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\XVF 3800 Testing\\runs\\2026-07-22_160055_digital_mono_processed_duplicate_4mic\\input\\injection_vector_16k_6ch.wav",
+      "sha256": "b39b394ad0dcd18e8b41ecf75befc8842ab0e2e1d36b6d5022b6dc0ee7a3d8a9",
+      "sample_rate_hz": 16000,
+      "channels": 6,
+      "frames": 92928,
+      "duration_sec": 5.808,
+      "peak_absolute": 0.800018310546875,
+      "rms": 0.06921042501926422,
+      "exact_zero_percent": 35.12181473829201,
+      "clipping_count": 0
+    },
+    {
+      "file": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\XVF 3800 Testing\\runs\\2026-07-22_160055_digital_mono_processed_duplicate_4mic\\input\\packed_input_48k_stereo.wav",
+      "sha256": "44d645aa516136a357a925b102e01a5863d76329493a3f2c71e9e937c37b51fd",
+      "sample_rate_hz": 48000,
+      "channels": 2,
+      "frames": 278784,
+      "duration_sec": 5.808,
+      "peak_absolute": 0.800018310546875,
+      "rms": 0.06921036541461945,
+      "exact_zero_percent": 33.33333333333333,
+      "clipping_count": 0
+    },
+    {
+      "file": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\XVF 3800 Testing\\runs\\2026-07-22_160055_digital_mono_processed_duplicate_4mic\\output\\raw_capture_48k_stereo.wav",
+      "sha256": "18647a019454ed67819c0395d20901dd0010cf0b8fb7bd7803c6aed7ef5d713c",
+      "sample_rate_hz": 48000,
+      "channels": 2,
+      "frames": 278784,
+      "duration_sec": 5.808,
+      "peak_absolute": 1.0,
+      "rms": 0.09069906175136566,
+      "exact_zero_percent": 18.357581496786043,
+      "clipping_count": 24
+    },
+    {
+      "file": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\XVF 3800 Testing\\runs\\2026-07-22_160055_digital_mono_processed_duplicate_4mic\\output\\unpacked_capture_16k_6ch.wav",
+      "sha256": "7212adfdc0db6c06b9007bb41faefcacb2af34e27aa7e4a5d6ba8bd366fa38ba",
+      "sample_rate_hz": 16000,
+      "channels": 6,
+      "frames": 91591,
+      "duration_sec": 5.7244375,
+      "peak_absolute": 1.0,
+      "rms": 0.09135866165161133,
+      "exact_zero_percent": 19.00368667955003,
+      "clipping_count": 24
+    },
+    {
+      "file": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\XVF 3800 Testing\\runs\\2026-07-22_160055_digital_mono_processed_duplicate_4mic\\output\\01_far_end_reference.wav",
+      "sha256": "03cf54b33a4b05b45d237e260317065bd898cf2ebe5b0e36ee10656acf8a2d07",
+      "sample_rate_hz": 16000,
+      "channels": 1,
+      "frames": 91591,
+      "duration_sec": 5.7244375,
+      "peak_absolute": 0.0,
+      "rms": 0.0,
+      "exact_zero_percent": 100.0,
+      "clipping_count": 0
+    },
+    {
+      "file": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\XVF 3800 Testing\\runs\\2026-07-22_160055_digital_mono_processed_duplicate_4mic\\output\\02_asr_processed_auto_selected.wav",
+      "sha256": "fbbc7d95abf08310f16725818e67ed373a0c0785c5463792d29a157631ce49f7",
+      "sample_rate_hz": 16000,
+      "channels": 1,
+      "frames": 91591,
+      "duration_sec": 5.7244375,
+      "peak_absolute": 1.0,
+      "rms": 0.14463208615779877,
+      "exact_zero_percent": 2.9948357371357446,
+      "clipping_count": 24
+    },
+    {
+      "file": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\XVF 3800 Testing\\runs\\2026-07-22_160055_digital_mono_processed_duplicate_4mic\\output\\03_amplified_mic0.wav",
+      "sha256": "4ab5a9c35f77c30fe8353cabb4abc587bfc01e4a5d3774a79f2cde53ddc0ab59",
+      "sample_rate_hz": 16000,
+      "channels": 1,
+      "frames": 91591,
+      "duration_sec": 5.7244375,
+      "peak_absolute": 0.800048828125,
+      "rms": 0.08538148552179337,
+      "exact_zero_percent": 2.7568210850411066,
+      "clipping_count": 0
+    },
+    {
+      "file": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\XVF 3800 Testing\\runs\\2026-07-22_160055_digital_mono_processed_duplicate_4mic\\output\\04_amplified_mic1.wav",
+      "sha256": "4ab5a9c35f77c30fe8353cabb4abc587bfc01e4a5d3774a79f2cde53ddc0ab59",
+      "sample_rate_hz": 16000,
+      "channels": 1,
+      "frames": 91591,
+      "duration_sec": 5.7244375,
+      "peak_absolute": 0.800048828125,
+      "rms": 0.08538148552179337,
+      "exact_zero_percent": 2.7568210850411066,
+      "clipping_count": 0
+    },
+    {
+      "file": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\XVF 3800 Testing\\runs\\2026-07-22_160055_digital_mono_processed_duplicate_4mic\\output\\05_amplified_mic2.wav",
+      "sha256": "4ab5a9c35f77c30fe8353cabb4abc587bfc01e4a5d3774a79f2cde53ddc0ab59",
+      "sample_rate_hz": 16000,
+      "channels": 1,
+      "frames": 91591,
+      "duration_sec": 5.7244375,
+      "peak_absolute": 0.800048828125,
+      "rms": 0.08538148552179337,
+      "exact_zero_percent": 2.7568210850411066,
+      "clipping_count": 0
+    },
+    {
+      "file": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\XVF 3800 Testing\\runs\\2026-07-22_160055_digital_mono_processed_duplicate_4mic\\output\\06_amplified_mic3.wav",
+      "sha256": "4ab5a9c35f77c30fe8353cabb4abc587bfc01e4a5d3774a79f2cde53ddc0ab59",
+      "sample_rate_hz": 16000,
+      "channels": 1,
+      "frames": 91591,
+      "duration_sec": 5.7244375,
+      "peak_absolute": 0.800048828125,
+      "rms": 0.08538148552179337,
+      "exact_zero_percent": 2.7568210850411066,
+      "clipping_count": 0
+    }
+  ],
+  "restore_warnings": [],
+  "commands": {
+    "pack": [
+      "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\XVF 3800 Testing\\XVF_3800_Testing_Starter\\.venv\\Scripts\\python.exe",
+      "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\XVF 3800 Testing\\xvf3800_source_external_241029_121941\\sources\\modules\\fwk_xvf\\modules\\tuning\\tuning\\packing.py",
+      "pack",
+      "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\XVF 3800 Testing\\runs\\2026-07-22_160055_digital_mono_processed_duplicate_4mic\\input\\injection_vector_16k_6ch.wav",
+      "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\XVF 3800 Testing\\runs\\2026-07-22_160055_digital_mono_processed_duplicate_4mic\\input\\packed_input_48k_stereo.wav",
+      "-b",
+      "16"
+    ],
+    "packed_recorder": [
+      "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\XVF 3800 Testing\\XVF_3800_Testing_Starter\\.venv\\Scripts\\python.exe",
+      "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\XVF 3800 Testing\\xvf3800_source_external_241029_121941\\sources\\xvf_tools.py",
+      "packed_recorder",
+      "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\XVF 3800 Testing\\XVF3800-Binary_v3_2_1\\host_v3.0.0\\win32\\xvf_host.exe",
+      "--protocol",
+      "usb",
+      "--playback_file",
+      "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\XVF 3800 Testing\\runs\\2026-07-22_160055_digital_mono_processed_duplicate_4mic\\input\\packed_input_48k_stereo.wav",
+      "--packed_input",
+      "--packed_output",
+      "--bit_depth",
+      "16",
+      "--packed_output_file",
+      "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\XVF 3800 Testing\\runs\\2026-07-22_160055_digital_mono_processed_duplicate_4mic\\output\\raw_capture_48k_stereo.wav",
+      "--unpacked_output_file",
+      "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\XVF 3800 Testing\\runs\\2026-07-22_160055_digital_mono_processed_duplicate_4mic\\output\\unpacked_capture_tool_32bit.wav",
+      "--op_all",
+      "12 0  3 0  3 2  7 3  3 1  3 3",
+      "--asr_output"
+    ]
+  },
+  "exit_status": 0,
+  "interpretation": {
+    "valid_for": [
+      "USB packed transport verification",
+      "repeatable gain and signal-routing tests",
+      "ASR-output regression testing",
+      "firmware regression testing that does not depend on spatial processing"
+    ],
+    "not_valid_for": [
+      "beamforming gain",
+      "Direction of Arrival accuracy",
+      "spatial noise rejection",
+      "microphone geometry performance"
+    ]
+  }
+}

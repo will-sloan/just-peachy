@@ -1,0 +1,9 @@
+$ "C:\Users\amiri\Documents\GitHub\just-peachy\XVF 3800 Testing\XVF_3800_Testing_Starter\.venv\Scripts\python.exe" "C:\Users\amiri\Documents\GitHub\just-peachy\XVF 3800 Testing\xvf3800_source_external_241029_121941\sources\xvf_tools.py" packed_recorder "C:\Users\amiri\Documents\GitHub\just-peachy\XVF 3800 Testing\XVF3800-Binary_v3_2_1\host_v3.0.0\win32\xvf_host.exe" --protocol usb --playback_file "C:\Users\amiri\Documents\GitHub\just-peachy\XVF 3800 Testing\runs\2026-07-22_152120_digital_far_end_reference\input\packed_input_48k_stereo.wav" --packed_input --packed_output --bit_depth 16 --packed_output_file "C:\Users\amiri\Documents\GitHub\just-peachy\XVF 3800 Testing\runs\2026-07-22_152120_digital_far_end_reference\output\raw_capture_48k_stereo.wav" --unpacked_output_file "C:\Users\amiri\Documents\GitHub\just-peachy\XVF 3800 Testing\runs\2026-07-22_152120_digital_far_end_reference\output\unpacked_capture_tool_32bit.wav" --op_all "12 0  7 3  3 0  3 1  3 2  3 3" --asr_output
+Traceback (most recent call last):
+  File "C:\Users\amiri\Documents\GitHub\just-peachy\XVF 3800 Testing\xvf3800_source_external_241029_121941\sources\modules\fwk_xvf\modules\tuning\tuning\host_utils.py", line 81, in run_control_command
+    output.check_returncode()
+  File "C:\Users\amiri\AppData\Local\Python\pythoncore-3.10-64\lib\subprocess.py", line 457, in check_returncode
+    raise CalledProcessError(self.returncode, self.args, self.stdout,
+subprocess.CalledProcessError: Command '['C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\XVF 3800 Testing\\XVF3800-Binary_v3_2_1\\host_v3.0.0\\win32\\xvf_host.exe', '-u', 'usb', 'I2S_INPUT_PACKED', '1']' returned non-zero exit status 8.
+
+--------------------------------------------------------------------------------

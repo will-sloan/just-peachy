@@ -1,0 +1,74 @@
+{
+  "test_name": "windows_baseline",
+  "start_time_utc": "2026-07-22T19:18:31.372348+00:00",
+  "end_time_utc": "2026-07-22T19:18:34.032708+00:00",
+  "duration_sec": 2.6719999999622814,
+  "python_executable": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\XVF 3800 Testing\\XVF_3800_Testing_Starter\\.venv\\Scripts\\python.exe",
+  "python_version": "3.10.11 (tags/v3.10.11:7d4cc5a, Apr  5 2023, 00:38:17) [MSC v.1929 64 bit (AMD64)]",
+  "project_path": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\XVF 3800 Testing\\XVF_3800_Testing_Starter",
+  "xvf_host_path": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\XVF 3800 Testing\\XVF3800-Binary_v3_2_1\\host_v3.0.0\\win32\\xvf_host.exe",
+  "xvf_tools_path": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\XVF 3800 Testing\\xvf3800_source_external_241029_121941\\sources\\xvf_tools.py",
+  "firmware_version": [
+    3.0,
+    2.0,
+    1.0
+  ],
+  "microphone_geometry": [
+    0.0333,
+    -0.0333,
+    0.0,
+    0.0333,
+    0.0333,
+    0.0,
+    -0.0333,
+    0.0333,
+    0.0,
+    -0.0333,
+    -0.0333,
+    0.0
+  ],
+  "audio_device_selection": {
+    "input_id": 30,
+    "output_id": 29,
+    "api": "Windows WDM-KS",
+    "input": {
+      "name": "Echo Cancelling Speakerphone (XVF3800 Voice Processor)",
+      "index": 30,
+      "hostapi": 3,
+      "max_input_channels": 2,
+      "max_output_channels": 0,
+      "default_low_input_latency": 0.01,
+      "default_low_output_latency": 0.01,
+      "default_high_input_latency": 0.04,
+      "default_high_output_latency": 0.04,
+      "default_samplerate": 48000.0
+    },
+    "output": {
+      "name": "Output (XVF3800 Voice Processor)",
+      "index": 29,
+      "hostapi": 3,
+      "max_input_channels": 0,
+      "max_output_channels": 2,
+      "default_low_input_latency": 0.01,
+      "default_low_output_latency": 0.01,
+      "default_high_input_latency": 0.04,
+      "default_high_output_latency": 0.04,
+      "default_samplerate": 48000.0
+    }
+  },
+  "commands_executed": [
+    "VERSION",
+    "AEC_NUM_MICS",
+    "AEC_MIC_ARRAY_TYPE",
+    "AEC_MIC_ARRAY_GEO",
+    "AUDIO_MGR_OP_L",
+    "AUDIO_MGR_OP_R",
+    "USB_BIT_DEPTH",
+    "AEC_ASROUTONOFF",
+    "AEC_ASROUTGAIN",
+    "I2S_INPUT_PACKED",
+    "AUDIO_MGR_OP_PACKED",
+    "AUDIO_MGR_OP_ALL"
+  ],
+  "exit_status": 0
+}

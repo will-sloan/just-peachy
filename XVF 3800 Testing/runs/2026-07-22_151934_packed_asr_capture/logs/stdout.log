@@ -1,0 +1,190 @@
+$ "C:\Users\amiri\Documents\GitHub\just-peachy\XVF 3800 Testing\XVF3800-Binary_v3_2_1\host_v3.0.0\win32\xvf_host.exe" --use usb VERSION
+Device (USB)::device_init() -- Found device VID: 8369 PID: 20224 interface: 3
+VERSION 3 2 1 
+
+--------------------------------------------------------------------------------
+$ "C:\Users\amiri\Documents\GitHub\just-peachy\XVF 3800 Testing\XVF3800-Binary_v3_2_1\host_v3.0.0\win32\xvf_host.exe" --use usb AEC_NUM_MICS
+Device (USB)::device_init() -- Found device VID: 8369 PID: 20224 interface: 3
+AEC_NUM_MICS 4 
+
+--------------------------------------------------------------------------------
+$ "C:\Users\amiri\Documents\GitHub\just-peachy\XVF 3800 Testing\XVF3800-Binary_v3_2_1\host_v3.0.0\win32\xvf_host.exe" --use usb AEC_MIC_ARRAY_TYPE
+Device (USB)::device_init() -- Found device VID: 8369 PID: 20224 interface: 3
+AEC_MIC_ARRAY_TYPE 2 
+
+--------------------------------------------------------------------------------
+$ "C:\Users\amiri\Documents\GitHub\just-peachy\XVF 3800 Testing\XVF3800-Binary_v3_2_1\host_v3.0.0\win32\xvf_host.exe" --use usb AEC_MIC_ARRAY_GEO
+Device (USB)::device_init() -- Found device VID: 8369 PID: 20224 interface: 3
+AEC_MIC_ARRAY_GEO 0.0333 -0.0333 0 0.0333 0.0333 0 -0.0333 0.0333 0 -0.0333 -0.0333 0 
+
+--------------------------------------------------------------------------------
+$ "C:\Users\amiri\Documents\GitHub\just-peachy\XVF 3800 Testing\XVF3800-Binary_v3_2_1\host_v3.0.0\win32\xvf_host.exe" --use usb AUDIO_MGR_OP_PACKED
+Device (USB)::device_init() -- Found device VID: 8369 PID: 20224 interface: 3
+AUDIO_MGR_OP_PACKED 0 0 
+
+--------------------------------------------------------------------------------
+$ "C:\Users\amiri\Documents\GitHub\just-peachy\XVF 3800 Testing\XVF3800-Binary_v3_2_1\host_v3.0.0\win32\xvf_host.exe" --use usb AUDIO_MGR_OP_ALL
+Device (USB)::device_init() -- Found device VID: 8369 PID: 20224 interface: 3
+AUDIO_MGR_OP_ALL MUX_USER_CHOSEN_CHANNELS[8] 0 MUX_RAW_MICS[1] 0 MUX_RAW_MICS[1] 2 MUX_SILENCE[0] 0 MUX_RAW_MICS[1] 1 MUX_RAW_MICS[1] 3 
+
+--------------------------------------------------------------------------------
+$ "C:\Users\amiri\Documents\GitHub\just-peachy\XVF 3800 Testing\XVF3800-Binary_v3_2_1\host_v3.0.0\win32\xvf_host.exe" --use usb AUDIO_MGR_OP_UPSAMPLE
+Device (USB)::device_init() -- Found device VID: 8369 PID: 20224 interface: 3
+AUDIO_MGR_OP_UPSAMPLE 1 1 
+
+--------------------------------------------------------------------------------
+$ "C:\Users\amiri\Documents\GitHub\just-peachy\XVF 3800 Testing\XVF3800-Binary_v3_2_1\host_v3.0.0\win32\xvf_host.exe" --use usb AUDIO_MGR_OP_L_PK0
+Device (USB)::device_init() -- Found device VID: 8369 PID: 20224 interface: 3
+AUDIO_MGR_OP_L_PK0 MUX_USER_CHOSEN_CHANNELS[8] 0 
+
+--------------------------------------------------------------------------------
+$ "C:\Users\amiri\Documents\GitHub\just-peachy\XVF 3800 Testing\XVF3800-Binary_v3_2_1\host_v3.0.0\win32\xvf_host.exe" --use usb AUDIO_MGR_OP_L_PK1
+Device (USB)::device_init() -- Found device VID: 8369 PID: 20224 interface: 3
+AUDIO_MGR_OP_L_PK1 MUX_RAW_MICS[1] 0 
+
+--------------------------------------------------------------------------------
+$ "C:\Users\amiri\Documents\GitHub\just-peachy\XVF 3800 Testing\XVF3800-Binary_v3_2_1\host_v3.0.0\win32\xvf_host.exe" --use usb AUDIO_MGR_OP_L_PK2
+Device (USB)::device_init() -- Found device VID: 8369 PID: 20224 interface: 3
+AUDIO_MGR_OP_L_PK2 MUX_RAW_MICS[1] 2 
+
+--------------------------------------------------------------------------------
+$ "C:\Users\amiri\Documents\GitHub\just-peachy\XVF 3800 Testing\XVF3800-Binary_v3_2_1\host_v3.0.0\win32\xvf_host.exe" --use usb AUDIO_MGR_OP_R_PK0
+Device (USB)::device_init() -- Found device VID: 8369 PID: 20224 interface: 3
+AUDIO_MGR_OP_R_PK0 MUX_SILENCE[0] 0 
+
+--------------------------------------------------------------------------------
+$ "C:\Users\amiri\Documents\GitHub\just-peachy\XVF 3800 Testing\XVF3800-Binary_v3_2_1\host_v3.0.0\win32\xvf_host.exe" --use usb AUDIO_MGR_OP_R_PK1
+Device (USB)::device_init() -- Found device VID: 8369 PID: 20224 interface: 3
+AUDIO_MGR_OP_R_PK1 MUX_RAW_MICS[1] 1 
+
+--------------------------------------------------------------------------------
+$ "C:\Users\amiri\Documents\GitHub\just-peachy\XVF 3800 Testing\XVF3800-Binary_v3_2_1\host_v3.0.0\win32\xvf_host.exe" --use usb AUDIO_MGR_OP_R_PK2
+Device (USB)::device_init() -- Found device VID: 8369 PID: 20224 interface: 3
+AUDIO_MGR_OP_R_PK2 MUX_RAW_MICS[1] 3 
+
+--------------------------------------------------------------------------------
+$ "C:\Users\amiri\Documents\GitHub\just-peachy\XVF 3800 Testing\XVF3800-Binary_v3_2_1\host_v3.0.0\win32\xvf_host.exe" --use usb USB_BIT_DEPTH
+Device (USB)::device_init() -- Found device VID: 8369 PID: 20224 interface: 3
+USB_BIT_DEPTH 16 16 
+
+--------------------------------------------------------------------------------
+$ "C:\Users\amiri\Documents\GitHub\just-peachy\XVF 3800 Testing\XVF3800-Binary_v3_2_1\host_v3.0.0\win32\xvf_host.exe" --use usb I2S_INPUT_PACKED
+Device (USB)::device_init() -- Found device VID: 8369 PID: 20224 interface: 3
+I2S_INPUT_PACKED 0 
+
+--------------------------------------------------------------------------------
+$ "C:\Users\amiri\Documents\GitHub\just-peachy\XVF 3800 Testing\XVF3800-Binary_v3_2_1\host_v3.0.0\win32\xvf_host.exe" --use usb AUDIO_MGR_MIC_GAIN
+Device (USB)::device_init() -- Found device VID: 8369 PID: 20224 interface: 3
+AUDIO_MGR_MIC_GAIN 10 
+
+--------------------------------------------------------------------------------
+$ "C:\Users\amiri\Documents\GitHub\just-peachy\XVF 3800 Testing\XVF3800-Binary_v3_2_1\host_v3.0.0\win32\xvf_host.exe" --use usb AUDIO_MGR_REF_GAIN
+Device (USB)::device_init() -- Found device VID: 8369 PID: 20224 interface: 3
+AUDIO_MGR_REF_GAIN 1.5 
+
+--------------------------------------------------------------------------------
+$ "C:\Users\amiri\Documents\GitHub\just-peachy\XVF 3800 Testing\XVF3800-Binary_v3_2_1\host_v3.0.0\win32\xvf_host.exe" --use usb AUDIO_MGR_SYS_DELAY
+Device (USB)::device_init() -- Found device VID: 8369 PID: 20224 interface: 3
+AUDIO_MGR_SYS_DELAY -32 
+
+--------------------------------------------------------------------------------
+$ "C:\Users\amiri\Documents\GitHub\just-peachy\XVF 3800 Testing\XVF3800-Binary_v3_2_1\host_v3.0.0\win32\xvf_host.exe" --use usb AEC_ASROUTONOFF
+Device (USB)::device_init() -- Found device VID: 8369 PID: 20224 interface: 3
+AEC_ASROUTONOFF 0 
+
+--------------------------------------------------------------------------------
+$ "C:\Users\amiri\Documents\GitHub\just-peachy\XVF 3800 Testing\XVF3800-Binary_v3_2_1\host_v3.0.0\win32\xvf_host.exe" --use usb AEC_ASROUTGAIN
+Device (USB)::device_init() -- Found device VID: 8369 PID: 20224 interface: 3
+AEC_ASROUTGAIN 1 
+
+--------------------------------------------------------------------------------
+$ "C:\Users\amiri\Documents\GitHub\just-peachy\XVF 3800 Testing\XVF3800-Binary_v3_2_1\host_v3.0.0\win32\xvf_host.exe" --use usb USB_BIT_DEPTH
+Device (USB)::device_init() -- Found device VID: 8369 PID: 20224 interface: 3
+USB_BIT_DEPTH 16 16 
+
+--------------------------------------------------------------------------------
+$ "C:\Users\amiri\Documents\GitHub\just-peachy\XVF 3800 Testing\XVF3800-Binary_v3_2_1\host_v3.0.0\win32\xvf_host.exe" --use usb VERSION
+Device (USB)::device_init() -- Found device VID: 8369 PID: 20224 interface: 3
+VERSION 3 2 1 
+
+--------------------------------------------------------------------------------
+$ "C:\Users\amiri\Documents\GitHub\just-peachy\XVF 3800 Testing\XVF_3800_Testing_Starter\.venv\Scripts\python.exe" "C:\Users\amiri\Documents\GitHub\just-peachy\XVF 3800 Testing\xvf3800_source_external_241029_121941\sources\xvf_tools.py" packed_recorder "C:\Users\amiri\Documents\GitHub\just-peachy\XVF 3800 Testing\XVF3800-Binary_v3_2_1\host_v3.0.0\win32\xvf_host.exe" --protocol usb --recording_length 10.0 --bit_depth 16 --packed_output --packed_output_file "C:\Users\amiri\Documents\GitHub\just-peachy\XVF 3800 Testing\runs\2026-07-22_151934_packed_asr_capture\output\raw_capture_48k_stereo.wav" --unpacked_output_file "C:\Users\amiri\Documents\GitHub\just-peachy\XVF 3800 Testing\runs\2026-07-22_151934_packed_asr_capture\output\unpacked_capture_tool_32bit.wav" --op_all "12 0  7 3  3 0  3 1  3 2  3 3" --asr_output
+USB bit depth already set to 16 16
+Waiting for audio restart
+Setting packed output
+Control command retry 1/2 after exit code 8
+Enabling automatic speech-recognition output
+Playing and recording audio
+Unpacking
+Unpacking complete.
+If the AUDIO_MGR_OP_ALL command was used to set the output from the device, the channel order in the resultant .wav will be (1,3,5,2,4,6); i.e. the first argument to _OP_ALL will be in channel 1, the second in channel 3, etc.
+If each output was set individually using the AUDIO_MGR_OP_(L|R)_PK(0|1|2) commands, the channel order in the resultant .wav will be (L_PK0, R_PK0, L_PK1, R_PK1, L_PK2, R_PK2)
+
+--------------------------------------------------------------------------------
+$ "C:\Users\amiri\Documents\GitHub\just-peachy\XVF 3800 Testing\XVF_3800_Testing_Starter\.venv\Scripts\python.exe" "C:\Users\amiri\Documents\GitHub\just-peachy\XVF 3800 Testing\xvf3800_source_external_241029_121941\sources\modules\fwk_xvf\modules\tuning\tuning\packing.py" unpack "C:\Users\amiri\Documents\GitHub\just-peachy\XVF 3800 Testing\runs\2026-07-22_151934_packed_asr_capture\output\raw_capture_48k_stereo.wav" "C:\Users\amiri\Documents\GitHub\just-peachy\XVF 3800 Testing\runs\2026-07-22_151934_packed_asr_capture\output\unpacked_capture_16k_6ch.wav" -b 16 -s
+Unpacking complete.
+If the AUDIO_MGR_OP_ALL command was used to set the output from the device, the channel order in the resultant .wav will be (1,3,5,2,4,6); i.e. the first argument to _OP_ALL will be in channel 1, the second in channel 3, etc.
+If each output was set individually using the AUDIO_MGR_OP_(L|R)_PK(0|1|2) commands, the channel order in the resultant .wav will be (L_PK0, R_PK0, L_PK1, R_PK1, L_PK2, R_PK2)
+
+--------------------------------------------------------------------------------
+$ "C:\Users\amiri\Documents\GitHub\just-peachy\XVF 3800 Testing\XVF3800-Binary_v3_2_1\host_v3.0.0\win32\xvf_host.exe" --use usb USB_BIT_DEPTH
+Device (USB)::device_init() -- Found device VID: 8369 PID: 20224 interface: 3
+USB_BIT_DEPTH 16 16 
+
+--------------------------------------------------------------------------------
+$ "C:\Users\amiri\Documents\GitHub\just-peachy\XVF 3800 Testing\XVF3800-Binary_v3_2_1\host_v3.0.0\win32\xvf_host.exe" --use usb AUDIO_MGR_OP_PACKED 0 0
+Device (USB)::device_init() -- Found device VID: 8369 PID: 20224 interface: 3
+
+--------------------------------------------------------------------------------
+$ "C:\Users\amiri\Documents\GitHub\just-peachy\XVF 3800 Testing\XVF3800-Binary_v3_2_1\host_v3.0.0\win32\xvf_host.exe" --use usb AUDIO_MGR_OP_UPSAMPLE 1 1
+Device (USB)::device_init() -- Found device VID: 8369 PID: 20224 interface: 3
+
+--------------------------------------------------------------------------------
+$ "C:\Users\amiri\Documents\GitHub\just-peachy\XVF 3800 Testing\XVF3800-Binary_v3_2_1\host_v3.0.0\win32\xvf_host.exe" --use usb I2S_INPUT_PACKED 0
+Device (USB)::device_init() -- Found device VID: 8369 PID: 20224 interface: 3
+
+--------------------------------------------------------------------------------
+$ "C:\Users\amiri\Documents\GitHub\just-peachy\XVF 3800 Testing\XVF3800-Binary_v3_2_1\host_v3.0.0\win32\xvf_host.exe" --use usb AUDIO_MGR_MIC_GAIN 10
+Device (USB)::device_init() -- Found device VID: 8369 PID: 20224 interface: 3
+
+--------------------------------------------------------------------------------
+$ "C:\Users\amiri\Documents\GitHub\just-peachy\XVF 3800 Testing\XVF3800-Binary_v3_2_1\host_v3.0.0\win32\xvf_host.exe" --use usb AUDIO_MGR_REF_GAIN 1.5
+Device (USB)::device_init() -- Found device VID: 8369 PID: 20224 interface: 3
+
+--------------------------------------------------------------------------------
+$ "C:\Users\amiri\Documents\GitHub\just-peachy\XVF 3800 Testing\XVF3800-Binary_v3_2_1\host_v3.0.0\win32\xvf_host.exe" --use usb AUDIO_MGR_SYS_DELAY -32
+Device (USB)::device_init() -- Found device VID: 8369 PID: 20224 interface: 3
+
+--------------------------------------------------------------------------------
+$ "C:\Users\amiri\Documents\GitHub\just-peachy\XVF 3800 Testing\XVF3800-Binary_v3_2_1\host_v3.0.0\win32\xvf_host.exe" --use usb AEC_ASROUTONOFF 0
+Device (USB)::device_init() -- Found device VID: 8369 PID: 20224 interface: 3
+
+--------------------------------------------------------------------------------
+$ "C:\Users\amiri\Documents\GitHub\just-peachy\XVF 3800 Testing\XVF3800-Binary_v3_2_1\host_v3.0.0\win32\xvf_host.exe" --use usb AEC_ASROUTGAIN 1
+Device (USB)::device_init() -- Found device VID: 8369 PID: 20224 interface: 3
+
+--------------------------------------------------------------------------------
+$ "C:\Users\amiri\Documents\GitHub\just-peachy\XVF 3800 Testing\XVF3800-Binary_v3_2_1\host_v3.0.0\win32\xvf_host.exe" --use usb AUDIO_MGR_OP_L_PK0 8 0
+Device (USB)::device_init() -- Found device VID: 8369 PID: 20224 interface: 3
+
+--------------------------------------------------------------------------------
+$ "C:\Users\amiri\Documents\GitHub\just-peachy\XVF 3800 Testing\XVF3800-Binary_v3_2_1\host_v3.0.0\win32\xvf_host.exe" --use usb AUDIO_MGR_OP_L_PK1 1 0
+Device (USB)::device_init() -- Found device VID: 8369 PID: 20224 interface: 3
+
+--------------------------------------------------------------------------------
+$ "C:\Users\amiri\Documents\GitHub\just-peachy\XVF 3800 Testing\XVF3800-Binary_v3_2_1\host_v3.0.0\win32\xvf_host.exe" --use usb AUDIO_MGR_OP_L_PK2 1 2
+Device (USB)::device_init() -- Found device VID: 8369 PID: 20224 interface: 3
+
+--------------------------------------------------------------------------------
+$ "C:\Users\amiri\Documents\GitHub\just-peachy\XVF 3800 Testing\XVF3800-Binary_v3_2_1\host_v3.0.0\win32\xvf_host.exe" --use usb AUDIO_MGR_OP_R_PK0 0 0
+Device (USB)::device_init() -- Found device VID: 8369 PID: 20224 interface: 3
+
+--------------------------------------------------------------------------------
+$ "C:\Users\amiri\Documents\GitHub\just-peachy\XVF 3800 Testing\XVF3800-Binary_v3_2_1\host_v3.0.0\win32\xvf_host.exe" --use usb AUDIO_MGR_OP_R_PK1 1 1
+Device (USB)::device_init() -- Found device VID: 8369 PID: 20224 interface: 3
+
+--------------------------------------------------------------------------------
+$ "C:\Users\amiri\Documents\GitHub\just-peachy\XVF 3800 Testing\XVF3800-Binary_v3_2_1\host_v3.0.0\win32\xvf_host.exe" --use usb AUDIO_MGR_OP_R_PK2 1 3
+Device (USB)::device_init() -- Found device VID: 8369 PID: 20224 interface: 3
+
+--------------------------------------------------------------------------------

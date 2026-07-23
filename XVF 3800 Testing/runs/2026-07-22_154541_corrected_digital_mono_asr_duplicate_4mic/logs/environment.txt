@@ -1,0 +1,6 @@
+project_root=C:\Users\amiri\Documents\GitHub\just-peachy\XVF 3800 Testing\XVF_3800_Testing_Starter
+python_executable=C:\Users\amiri\Documents\GitHub\just-peachy\XVF 3800 Testing\XVF_3800_Testing_Starter\.venv\Scripts\python.exe
+python_version=3.10.11 (tags/v3.10.11:7d4cc5a, Apr  5 2023, 00:38:17) [MSC v.1929 64 bit (AMD64)]
+xvf_host_path=C:\Users\amiri\Documents\GitHub\just-peachy\XVF 3800 Testing\XVF3800-Binary_v3_2_1\host_v3.0.0\win32\xvf_host.exe
+xvf_tools_path=C:\Users\amiri\Documents\GitHub\just-peachy\XVF 3800 Testing\xvf3800_source_external_241029_121941\sources\xvf_tools.py
+xmos_pythonpath=C:\Users\amiri\Documents\GitHub\just-peachy\XVF 3800 Testing\xvf3800_source_external_241029_121941\sources\modules\fwk_xvf\modules\tuning

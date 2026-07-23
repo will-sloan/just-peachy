@@ -1,0 +1,21 @@
+{
+  "ordering": [
+    "far_end_reference",
+    "packing_convention_unused",
+    "mic0",
+    "mic1",
+    "mic2",
+    "mic3"
+  ],
+  "mode": "duplicate_mics",
+  "mic_index": 0,
+  "channels": {
+    "channel_0": "silence",
+    "channel_1": "packing_convention_unused_silence",
+    "channel_2": "mic0",
+    "channel_3": "mic1",
+    "channel_4": "mic2",
+    "channel_5": "mic3"
+  },
+  "warning": "DuplicateMics is deterministic routing data, not genuine four-microphone far-field data and is invalid for beamforming, DoA, dereverberation, or spatial-rejection evaluation."
+}

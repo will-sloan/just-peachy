@@ -1,0 +1,117 @@
+$ "C:\Users\amiri\Documents\GitHub\just-peachy\XVF 3800 Testing\XVF3800-Binary_v3_2_1\host_v3.0.0\win32\xvf_host.exe" --use usb VERSION
+exit_code=0
+--------------------------------------------------------------------------------
+$ "C:\Users\amiri\Documents\GitHub\just-peachy\XVF 3800 Testing\XVF3800-Binary_v3_2_1\host_v3.0.0\win32\xvf_host.exe" --use usb AEC_NUM_MICS
+exit_code=0
+--------------------------------------------------------------------------------
+$ "C:\Users\amiri\Documents\GitHub\just-peachy\XVF 3800 Testing\XVF3800-Binary_v3_2_1\host_v3.0.0\win32\xvf_host.exe" --use usb AEC_MIC_ARRAY_TYPE
+exit_code=0
+--------------------------------------------------------------------------------
+$ "C:\Users\amiri\Documents\GitHub\just-peachy\XVF 3800 Testing\XVF3800-Binary_v3_2_1\host_v3.0.0\win32\xvf_host.exe" --use usb AEC_MIC_ARRAY_GEO
+exit_code=0
+--------------------------------------------------------------------------------
+$ "C:\Users\amiri\Documents\GitHub\just-peachy\XVF 3800 Testing\XVF3800-Binary_v3_2_1\host_v3.0.0\win32\xvf_host.exe" --use usb AUDIO_MGR_OP_PACKED
+exit_code=0
+--------------------------------------------------------------------------------
+$ "C:\Users\amiri\Documents\GitHub\just-peachy\XVF 3800 Testing\XVF3800-Binary_v3_2_1\host_v3.0.0\win32\xvf_host.exe" --use usb AUDIO_MGR_OP_ALL
+exit_code=0
+--------------------------------------------------------------------------------
+$ "C:\Users\amiri\Documents\GitHub\just-peachy\XVF 3800 Testing\XVF3800-Binary_v3_2_1\host_v3.0.0\win32\xvf_host.exe" --use usb AUDIO_MGR_OP_UPSAMPLE
+exit_code=0
+--------------------------------------------------------------------------------
+$ "C:\Users\amiri\Documents\GitHub\just-peachy\XVF 3800 Testing\XVF3800-Binary_v3_2_1\host_v3.0.0\win32\xvf_host.exe" --use usb AUDIO_MGR_OP_L_PK0
+exit_code=0
+--------------------------------------------------------------------------------
+$ "C:\Users\amiri\Documents\GitHub\just-peachy\XVF 3800 Testing\XVF3800-Binary_v3_2_1\host_v3.0.0\win32\xvf_host.exe" --use usb AUDIO_MGR_OP_L_PK1
+exit_code=0
+--------------------------------------------------------------------------------
+$ "C:\Users\amiri\Documents\GitHub\just-peachy\XVF 3800 Testing\XVF3800-Binary_v3_2_1\host_v3.0.0\win32\xvf_host.exe" --use usb AUDIO_MGR_OP_L_PK2
+exit_code=0
+--------------------------------------------------------------------------------
+$ "C:\Users\amiri\Documents\GitHub\just-peachy\XVF 3800 Testing\XVF3800-Binary_v3_2_1\host_v3.0.0\win32\xvf_host.exe" --use usb AUDIO_MGR_OP_R_PK0
+exit_code=0
+--------------------------------------------------------------------------------
+$ "C:\Users\amiri\Documents\GitHub\just-peachy\XVF 3800 Testing\XVF3800-Binary_v3_2_1\host_v3.0.0\win32\xvf_host.exe" --use usb AUDIO_MGR_OP_R_PK1
+exit_code=0
+--------------------------------------------------------------------------------
+$ "C:\Users\amiri\Documents\GitHub\just-peachy\XVF 3800 Testing\XVF3800-Binary_v3_2_1\host_v3.0.0\win32\xvf_host.exe" --use usb AUDIO_MGR_OP_R_PK2
+exit_code=0
+--------------------------------------------------------------------------------
+$ "C:\Users\amiri\Documents\GitHub\just-peachy\XVF 3800 Testing\XVF3800-Binary_v3_2_1\host_v3.0.0\win32\xvf_host.exe" --use usb USB_BIT_DEPTH
+exit_code=0
+--------------------------------------------------------------------------------
+$ "C:\Users\amiri\Documents\GitHub\just-peachy\XVF 3800 Testing\XVF3800-Binary_v3_2_1\host_v3.0.0\win32\xvf_host.exe" --use usb I2S_INPUT_PACKED
+exit_code=0
+--------------------------------------------------------------------------------
+$ "C:\Users\amiri\Documents\GitHub\just-peachy\XVF 3800 Testing\XVF3800-Binary_v3_2_1\host_v3.0.0\win32\xvf_host.exe" --use usb AUDIO_MGR_MIC_GAIN
+exit_code=0
+--------------------------------------------------------------------------------
+$ "C:\Users\amiri\Documents\GitHub\just-peachy\XVF 3800 Testing\XVF3800-Binary_v3_2_1\host_v3.0.0\win32\xvf_host.exe" --use usb AUDIO_MGR_REF_GAIN
+exit_code=0
+--------------------------------------------------------------------------------
+$ "C:\Users\amiri\Documents\GitHub\just-peachy\XVF 3800 Testing\XVF3800-Binary_v3_2_1\host_v3.0.0\win32\xvf_host.exe" --use usb AUDIO_MGR_SYS_DELAY
+exit_code=0
+--------------------------------------------------------------------------------
+$ "C:\Users\amiri\Documents\GitHub\just-peachy\XVF 3800 Testing\XVF3800-Binary_v3_2_1\host_v3.0.0\win32\xvf_host.exe" --use usb AEC_ASROUTONOFF
+exit_code=0
+--------------------------------------------------------------------------------
+$ "C:\Users\amiri\Documents\GitHub\just-peachy\XVF 3800 Testing\XVF3800-Binary_v3_2_1\host_v3.0.0\win32\xvf_host.exe" --use usb AEC_ASROUTGAIN
+exit_code=0
+--------------------------------------------------------------------------------
+$ "C:\Users\amiri\Documents\GitHub\just-peachy\XVF 3800 Testing\XVF3800-Binary_v3_2_1\host_v3.0.0\win32\xvf_host.exe" --use usb USB_BIT_DEPTH
+exit_code=0
+--------------------------------------------------------------------------------
+$ "C:\Users\amiri\Documents\GitHub\just-peachy\XVF 3800 Testing\XVF3800-Binary_v3_2_1\host_v3.0.0\win32\xvf_host.exe" --use usb VERSION
+exit_code=0
+--------------------------------------------------------------------------------
+$ "C:\Users\amiri\Documents\GitHub\just-peachy\XVF 3800 Testing\XVF_3800_Testing_Starter\.venv\Scripts\python.exe" "C:\Users\amiri\Documents\GitHub\just-peachy\XVF 3800 Testing\xvf3800_source_external_241029_121941\sources\xvf_tools.py" packed_recorder "C:\Users\amiri\Documents\GitHub\just-peachy\XVF 3800 Testing\XVF3800-Binary_v3_2_1\host_v3.0.0\win32\xvf_host.exe" --protocol usb --recording_length 10.0 --bit_depth 16 --packed_output --packed_output_file "C:\Users\amiri\Documents\GitHub\just-peachy\XVF 3800 Testing\runs\2026-07-22_151934_packed_asr_capture\output\raw_capture_48k_stereo.wav" --unpacked_output_file "C:\Users\amiri\Documents\GitHub\just-peachy\XVF 3800 Testing\runs\2026-07-22_151934_packed_asr_capture\output\unpacked_capture_tool_32bit.wav" --op_all "12 0  7 3  3 0  3 1  3 2  3 3" --asr_output
+exit_code=0
+--------------------------------------------------------------------------------
+$ "C:\Users\amiri\Documents\GitHub\just-peachy\XVF 3800 Testing\XVF_3800_Testing_Starter\.venv\Scripts\python.exe" "C:\Users\amiri\Documents\GitHub\just-peachy\XVF 3800 Testing\xvf3800_source_external_241029_121941\sources\modules\fwk_xvf\modules\tuning\tuning\packing.py" unpack "C:\Users\amiri\Documents\GitHub\just-peachy\XVF 3800 Testing\runs\2026-07-22_151934_packed_asr_capture\output\raw_capture_48k_stereo.wav" "C:\Users\amiri\Documents\GitHub\just-peachy\XVF 3800 Testing\runs\2026-07-22_151934_packed_asr_capture\output\unpacked_capture_16k_6ch.wav" -b 16 -s
+exit_code=0
+--------------------------------------------------------------------------------
+$ "C:\Users\amiri\Documents\GitHub\just-peachy\XVF 3800 Testing\XVF3800-Binary_v3_2_1\host_v3.0.0\win32\xvf_host.exe" --use usb USB_BIT_DEPTH
+exit_code=0
+--------------------------------------------------------------------------------
+$ "C:\Users\amiri\Documents\GitHub\just-peachy\XVF 3800 Testing\XVF3800-Binary_v3_2_1\host_v3.0.0\win32\xvf_host.exe" --use usb AUDIO_MGR_OP_PACKED 0 0
+exit_code=0
+--------------------------------------------------------------------------------
+$ "C:\Users\amiri\Documents\GitHub\just-peachy\XVF 3800 Testing\XVF3800-Binary_v3_2_1\host_v3.0.0\win32\xvf_host.exe" --use usb AUDIO_MGR_OP_UPSAMPLE 1 1
+exit_code=0
+--------------------------------------------------------------------------------
+$ "C:\Users\amiri\Documents\GitHub\just-peachy\XVF 3800 Testing\XVF3800-Binary_v3_2_1\host_v3.0.0\win32\xvf_host.exe" --use usb I2S_INPUT_PACKED 0
+exit_code=0
+--------------------------------------------------------------------------------
+$ "C:\Users\amiri\Documents\GitHub\just-peachy\XVF 3800 Testing\XVF3800-Binary_v3_2_1\host_v3.0.0\win32\xvf_host.exe" --use usb AUDIO_MGR_MIC_GAIN 10
+exit_code=0
+--------------------------------------------------------------------------------
+$ "C:\Users\amiri\Documents\GitHub\just-peachy\XVF 3800 Testing\XVF3800-Binary_v3_2_1\host_v3.0.0\win32\xvf_host.exe" --use usb AUDIO_MGR_REF_GAIN 1.5
+exit_code=0
+--------------------------------------------------------------------------------
+$ "C:\Users\amiri\Documents\GitHub\just-peachy\XVF 3800 Testing\XVF3800-Binary_v3_2_1\host_v3.0.0\win32\xvf_host.exe" --use usb AUDIO_MGR_SYS_DELAY -32
+exit_code=0
+--------------------------------------------------------------------------------
+$ "C:\Users\amiri\Documents\GitHub\just-peachy\XVF 3800 Testing\XVF3800-Binary_v3_2_1\host_v3.0.0\win32\xvf_host.exe" --use usb AEC_ASROUTONOFF 0
+exit_code=0
+--------------------------------------------------------------------------------
+$ "C:\Users\amiri\Documents\GitHub\just-peachy\XVF 3800 Testing\XVF3800-Binary_v3_2_1\host_v3.0.0\win32\xvf_host.exe" --use usb AEC_ASROUTGAIN 1
+exit_code=0
+--------------------------------------------------------------------------------
+$ "C:\Users\amiri\Documents\GitHub\just-peachy\XVF 3800 Testing\XVF3800-Binary_v3_2_1\host_v3.0.0\win32\xvf_host.exe" --use usb AUDIO_MGR_OP_L_PK0 8 0
+exit_code=0
+--------------------------------------------------------------------------------
+$ "C:\Users\amiri\Documents\GitHub\just-peachy\XVF 3800 Testing\XVF3800-Binary_v3_2_1\host_v3.0.0\win32\xvf_host.exe" --use usb AUDIO_MGR_OP_L_PK1 1 0
+exit_code=0
+--------------------------------------------------------------------------------
+$ "C:\Users\amiri\Documents\GitHub\just-peachy\XVF 3800 Testing\XVF3800-Binary_v3_2_1\host_v3.0.0\win32\xvf_host.exe" --use usb AUDIO_MGR_OP_L_PK2 1 2
+exit_code=0
+--------------------------------------------------------------------------------
+$ "C:\Users\amiri\Documents\GitHub\just-peachy\XVF 3800 Testing\XVF3800-Binary_v3_2_1\host_v3.0.0\win32\xvf_host.exe" --use usb AUDIO_MGR_OP_R_PK0 0 0
+exit_code=0
+--------------------------------------------------------------------------------
+$ "C:\Users\amiri\Documents\GitHub\just-peachy\XVF 3800 Testing\XVF3800-Binary_v3_2_1\host_v3.0.0\win32\xvf_host.exe" --use usb AUDIO_MGR_OP_R_PK1 1 1
+exit_code=0
+--------------------------------------------------------------------------------
+$ "C:\Users\amiri\Documents\GitHub\just-peachy\XVF 3800 Testing\XVF3800-Binary_v3_2_1\host_v3.0.0\win32\xvf_host.exe" --use usb AUDIO_MGR_OP_R_PK2 1 3
+exit_code=0
+--------------------------------------------------------------------------------

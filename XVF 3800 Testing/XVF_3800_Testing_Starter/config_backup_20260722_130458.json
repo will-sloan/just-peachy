@@ -1,0 +1,25 @@
+﻿{
+    "workspace_root":  "../../XVF 3800 Testing",
+    "xvf_host_path":  "../XVF3800-Binary_v3_2_1/host_v3.0.0/win32/xvf_host.exe",
+    "xvf_tools_path":  "../xvf3800_source_external_241029_121941/sources/xvf_tools.py",
+    "python_executable":  ".venv/Scripts/python.exe",
+    "protocol":  "usb",
+    "audio_input_device_contains":  "XVF3800 Voice Processor",
+    "audio_output_device_contains":  "XVF3800 Voice Processor",
+    "sample_rate_hz":  48000,
+    "record_channels":  2,
+    "record_subtype":  "PCM_16",
+    "telemetry_poll_hz":  5.0,
+    "command_timeout_sec":  5.0,
+    "reset_before_digital_test":  true,
+    "packed_bit_depth":  16,
+    "xmos_source_root":  "../xvf3800_source_external_241029_121941/sources",
+    "xmos_pythonpath":  "../xvf3800_source_external_241029_121941/sources/modules/fwk_xvf/modules/tuning",
+    "audio_api_preference":  [
+                                 "WDM-KS",
+                                 "WASAPI",
+                                 "DirectSound",
+                                 "MME"
+                             ],
+    "packed_output_command":  "12 0  3 0  3 2  6 3  3 1  3 3"
+}

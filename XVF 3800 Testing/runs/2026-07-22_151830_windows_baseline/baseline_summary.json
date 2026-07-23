@@ -1,0 +1,206 @@
+{
+  "created_local": "2026-07-22T15:18:31.372348",
+  "created_utc": "2026-07-22T19:18:31.372348+00:00",
+  "config": {
+    "workspace_root": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\XVF 3800 Testing",
+    "xvf_host_path": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\XVF 3800 Testing\\XVF3800-Binary_v3_2_1\\host_v3.0.0\\win32\\xvf_host.exe",
+    "xvf_tools_path": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\XVF 3800 Testing\\xvf3800_source_external_241029_121941\\sources\\xvf_tools.py",
+    "python_executable": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\XVF 3800 Testing\\XVF_3800_Testing_Starter\\.venv\\Scripts\\python.exe",
+    "protocol": "usb",
+    "audio_input_device_contains": "XVF3800 Voice Processor",
+    "audio_output_device_contains": "XVF3800 Voice Processor",
+    "sample_rate_hz": 48000,
+    "record_channels": 2,
+    "record_subtype": "PCM_16",
+    "telemetry_poll_hz": 5.0,
+    "command_timeout_sec": 5.0,
+    "reset_before_digital_test": true,
+    "packed_bit_depth": 16,
+    "xmos_source_root": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\XVF 3800 Testing\\xvf3800_source_external_241029_121941\\sources",
+    "xmos_pythonpath": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\XVF 3800 Testing\\xvf3800_source_external_241029_121941\\sources\\modules\\fwk_xvf\\modules\\tuning",
+    "audio_api_preference": [
+      "WDM-KS",
+      "WASAPI",
+      "DirectSound",
+      "MME"
+    ],
+    "packed_output_command": "12 0  3 0  3 2  6 3  3 1  3 3",
+    "asr_packed_output_command": "12 0  7 3  3 0  3 1  3 2  3 3"
+  },
+  "checks": {
+    "VERSION": {
+      "returncode": 0,
+      "values": [
+        3.0,
+        2.0,
+        1.0
+      ],
+      "stdout": "Device (USB)::device_init() -- Found device VID: 8369 PID: 20224 interface: 3\nVERSION 3 2 1",
+      "stderr": ""
+    },
+    "AEC_NUM_MICS": {
+      "returncode": 0,
+      "values": [
+        4.0
+      ],
+      "stdout": "Device (USB)::device_init() -- Found device VID: 8369 PID: 20224 interface: 3\nAEC_NUM_MICS 4",
+      "stderr": ""
+    },
+    "AEC_MIC_ARRAY_TYPE": {
+      "returncode": 0,
+      "values": [
+        2.0
+      ],
+      "stdout": "Device (USB)::device_init() -- Found device VID: 8369 PID: 20224 interface: 3\nAEC_MIC_ARRAY_TYPE 2",
+      "stderr": ""
+    },
+    "AEC_MIC_ARRAY_GEO": {
+      "returncode": 0,
+      "values": [
+        0.0333,
+        -0.0333,
+        0.0,
+        0.0333,
+        0.0333,
+        0.0,
+        -0.0333,
+        0.0333,
+        0.0,
+        -0.0333,
+        -0.0333,
+        0.0
+      ],
+      "stdout": "Device (USB)::device_init() -- Found device VID: 8369 PID: 20224 interface: 3\nAEC_MIC_ARRAY_GEO 0.0333 -0.0333 0 0.0333 0.0333 0 -0.0333 0.0333 0 -0.0333 -0.0333 0",
+      "stderr": ""
+    },
+    "AUDIO_MGR_OP_L": {
+      "returncode": 0,
+      "values": [
+        8.0,
+        0.0
+      ],
+      "stdout": "Device (USB)::device_init() -- Found device VID: 8369 PID: 20224 interface: 3\nAUDIO_MGR_OP_L MUX_USER_CHOSEN_CHANNELS[8] 0",
+      "stderr": ""
+    },
+    "AUDIO_MGR_OP_R": {
+      "returncode": 0,
+      "values": [
+        0.0,
+        0.0
+      ],
+      "stdout": "Device (USB)::device_init() -- Found device VID: 8369 PID: 20224 interface: 3\nAUDIO_MGR_OP_R MUX_SILENCE[0] 0",
+      "stderr": ""
+    },
+    "USB_BIT_DEPTH": {
+      "returncode": 0,
+      "values": [
+        16.0,
+        16.0
+      ],
+      "stdout": "Device (USB)::device_init() -- Found device VID: 8369 PID: 20224 interface: 3\nUSB_BIT_DEPTH 16 16",
+      "stderr": ""
+    },
+    "AEC_ASROUTONOFF": {
+      "returncode": 0,
+      "values": [
+        0.0
+      ],
+      "stdout": "Device (USB)::device_init() -- Found device VID: 8369 PID: 20224 interface: 3\nAEC_ASROUTONOFF 0",
+      "stderr": ""
+    },
+    "AEC_ASROUTGAIN": {
+      "returncode": 0,
+      "values": [
+        1.0
+      ],
+      "stdout": "Device (USB)::device_init() -- Found device VID: 8369 PID: 20224 interface: 3\nAEC_ASROUTGAIN 1",
+      "stderr": ""
+    },
+    "I2S_INPUT_PACKED": {
+      "returncode": 0,
+      "values": [
+        0.0
+      ],
+      "stdout": "Device (USB)::device_init() -- Found device VID: 8369 PID: 20224 interface: 3\nI2S_INPUT_PACKED 0",
+      "stderr": ""
+    },
+    "AUDIO_MGR_OP_PACKED": {
+      "returncode": 0,
+      "values": [
+        0.0,
+        0.0
+      ],
+      "stdout": "Device (USB)::device_init() -- Found device VID: 8369 PID: 20224 interface: 3\nAUDIO_MGR_OP_PACKED 0 0",
+      "stderr": ""
+    },
+    "AUDIO_MGR_OP_ALL": {
+      "returncode": 0,
+      "values": [
+        8.0,
+        0.0,
+        1.0,
+        0.0,
+        1.0,
+        2.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0,
+        1.0,
+        3.0
+      ],
+      "stdout": "Device (USB)::device_init() -- Found device VID: 8369 PID: 20224 interface: 3\nAUDIO_MGR_OP_ALL MUX_USER_CHOSEN_CHANNELS[8] 0 MUX_RAW_MICS[1] 0 MUX_RAW_MICS[1] 2 MUX_SILENCE[0] 0 MUX_RAW_MICS[1] 1 MUX_RAW_MICS[1] 3",
+      "stderr": ""
+    }
+  },
+  "audio_devices": {
+    "input_id": 30,
+    "output_id": 29,
+    "api": "Windows WDM-KS",
+    "input": {
+      "name": "Echo Cancelling Speakerphone (XVF3800 Voice Processor)",
+      "index": 30,
+      "hostapi": 3,
+      "max_input_channels": 2,
+      "max_output_channels": 0,
+      "default_low_input_latency": 0.01,
+      "default_low_output_latency": 0.01,
+      "default_high_input_latency": 0.04,
+      "default_high_output_latency": 0.04,
+      "default_samplerate": 48000.0
+    },
+    "output": {
+      "name": "Output (XVF3800 Voice Processor)",
+      "index": 29,
+      "hostapi": 3,
+      "max_input_channels": 0,
+      "max_output_channels": 2,
+      "default_low_input_latency": 0.01,
+      "default_low_output_latency": 0.01,
+      "default_high_input_latency": 0.04,
+      "default_high_output_latency": 0.04,
+      "default_samplerate": 48000.0
+    }
+  },
+  "firmware_version": [
+    3.0,
+    2.0,
+    1.0
+  ],
+  "microphone_geometry": [
+    0.0333,
+    -0.0333,
+    0.0,
+    0.0333,
+    0.0333,
+    0.0,
+    -0.0333,
+    0.0333,
+    0.0,
+    -0.0333,
+    -0.0333,
+    0.0
+  ],
+  "duration_sec": 2.6719999999622814,
+  "end_time_utc": "2026-07-22T19:18:34.032708+00:00"
+}

@@ -1,0 +1,102 @@
+{
+  "VERSION": {
+    "returncode": 0,
+    "stdout": "Device (USB)::device_init() -- Found device VID: 8369 PID: 20224 interface: 3\nVERSION 3 2 1 \n",
+    "stderr": ""
+  },
+  "AEC_NUM_MICS": {
+    "returncode": 0,
+    "stdout": "Device (USB)::device_init() -- Found device VID: 8369 PID: 20224 interface: 3\nAEC_NUM_MICS 4 \n",
+    "stderr": ""
+  },
+  "AEC_MIC_ARRAY_TYPE": {
+    "returncode": 0,
+    "stdout": "Device (USB)::device_init() -- Found device VID: 8369 PID: 20224 interface: 3\nAEC_MIC_ARRAY_TYPE 2 \n",
+    "stderr": ""
+  },
+  "AEC_MIC_ARRAY_GEO": {
+    "returncode": 0,
+    "stdout": "Device (USB)::device_init() -- Found device VID: 8369 PID: 20224 interface: 3\nAEC_MIC_ARRAY_GEO 0.0333 -0.0333 0 0.0333 0.0333 0 -0.0333 0.0333 0 -0.0333 -0.0333 0 \n",
+    "stderr": ""
+  },
+  "AUDIO_MGR_OP_PACKED": {
+    "returncode": 0,
+    "stdout": "Device (USB)::device_init() -- Found device VID: 8369 PID: 20224 interface: 3\nAUDIO_MGR_OP_PACKED 0 0 \n",
+    "stderr": ""
+  },
+  "AUDIO_MGR_OP_ALL": {
+    "returncode": 0,
+    "stdout": "Device (USB)::device_init() -- Found device VID: 8369 PID: 20224 interface: 3\nAUDIO_MGR_OP_ALL MUX_USER_CHOSEN_CHANNELS[8] 0 MUX_RAW_MICS[1] 0 MUX_RAW_MICS[1] 2 MUX_SILENCE[0] 0 MUX_RAW_MICS[1] 1 MUX_RAW_MICS[1] 3 \n",
+    "stderr": ""
+  },
+  "AUDIO_MGR_OP_UPSAMPLE": {
+    "returncode": 0,
+    "stdout": "Device (USB)::device_init() -- Found device VID: 8369 PID: 20224 interface: 3\nAUDIO_MGR_OP_UPSAMPLE 1 1 \n",
+    "stderr": ""
+  },
+  "AUDIO_MGR_OP_L_PK0": {
+    "returncode": 0,
+    "stdout": "Device (USB)::device_init() -- Found device VID: 8369 PID: 20224 interface: 3\nAUDIO_MGR_OP_L_PK0 MUX_USER_CHOSEN_CHANNELS[8] 0 \n",
+    "stderr": ""
+  },
+  "AUDIO_MGR_OP_L_PK1": {
+    "returncode": 0,
+    "stdout": "Device (USB)::device_init() -- Found device VID: 8369 PID: 20224 interface: 3\nAUDIO_MGR_OP_L_PK1 MUX_RAW_MICS[1] 0 \n",
+    "stderr": ""
+  },
+  "AUDIO_MGR_OP_L_PK2": {
+    "returncode": 0,
+    "stdout": "Device (USB)::device_init() -- Found device VID: 8369 PID: 20224 interface: 3\nAUDIO_MGR_OP_L_PK2 MUX_RAW_MICS[1] 2 \n",
+    "stderr": ""
+  },
+  "AUDIO_MGR_OP_R_PK0": {
+    "returncode": 0,
+    "stdout": "Device (USB)::device_init() -- Found device VID: 8369 PID: 20224 interface: 3\nAUDIO_MGR_OP_R_PK0 MUX_SILENCE[0] 0 \n",
+    "stderr": ""
+  },
+  "AUDIO_MGR_OP_R_PK1": {
+    "returncode": 0,
+    "stdout": "Device (USB)::device_init() -- Found device VID: 8369 PID: 20224 interface: 3\nAUDIO_MGR_OP_R_PK1 MUX_RAW_MICS[1] 1 \n",
+    "stderr": ""
+  },
+  "AUDIO_MGR_OP_R_PK2": {
+    "returncode": 0,
+    "stdout": "Device (USB)::device_init() -- Found device VID: 8369 PID: 20224 interface: 3\nAUDIO_MGR_OP_R_PK2 MUX_RAW_MICS[1] 3 \n",
+    "stderr": ""
+  },
+  "USB_BIT_DEPTH": {
+    "returncode": 0,
+    "stdout": "Device (USB)::device_init() -- Found device VID: 8369 PID: 20224 interface: 3\nUSB_BIT_DEPTH 16 16 \n",
+    "stderr": ""
+  },
+  "I2S_INPUT_PACKED": {
+    "returncode": 0,
+    "stdout": "Device (USB)::device_init() -- Found device VID: 8369 PID: 20224 interface: 3\nI2S_INPUT_PACKED 0 \n",
+    "stderr": ""
+  },
+  "AUDIO_MGR_MIC_GAIN": {
+    "returncode": 0,
+    "stdout": "Device (USB)::device_init() -- Found device VID: 8369 PID: 20224 interface: 3\nAUDIO_MGR_MIC_GAIN 10 \n",
+    "stderr": ""
+  },
+  "AUDIO_MGR_REF_GAIN": {
+    "returncode": 0,
+    "stdout": "Device (USB)::device_init() -- Found device VID: 8369 PID: 20224 interface: 3\nAUDIO_MGR_REF_GAIN 1.5 \n",
+    "stderr": ""
+  },
+  "AUDIO_MGR_SYS_DELAY": {
+    "returncode": 0,
+    "stdout": "Device (USB)::device_init() -- Found device VID: 8369 PID: 20224 interface: 3\nAUDIO_MGR_SYS_DELAY -32 \n",
+    "stderr": ""
+  },
+  "AEC_ASROUTONOFF": {
+    "returncode": 0,
+    "stdout": "Device (USB)::device_init() -- Found device VID: 8369 PID: 20224 interface: 3\nAEC_ASROUTONOFF 0 \n",
+    "stderr": ""
+  },
+  "AEC_ASROUTGAIN": {
+    "returncode": 0,
+    "stdout": "Device (USB)::device_init() -- Found device VID: 8369 PID: 20224 interface: 3\nAEC_ASROUTGAIN 1 \n",
+    "stderr": ""
+  }
+}

@@ -1,0 +1,3 @@
+$ "C:\Users\amiri\Documents\GitHub\just-peachy\XVF 3800 Testing\XVF_3800_Testing_Starter\.venv\Scripts\python.exe" "C:\Users\amiri\Documents\GitHub\just-peachy\XVF 3800 Testing\xvf3800_source_external_241029_121941\sources\modules\fwk_xvf\modules\tuning\tuning\packing.py" pack "C:\Users\amiri\Documents\GitHub\just-peachy\XVF 3800 Testing\runs\2026-07-22_152120_digital_far_end_reference\input\injection_vector_16k_6ch.wav" "C:\Users\amiri\Documents\GitHub\just-peachy\XVF 3800 Testing\runs\2026-07-22_152120_digital_far_end_reference\input\packed_input_48k_stereo.wav" -b 16
+exit_code=0
+
