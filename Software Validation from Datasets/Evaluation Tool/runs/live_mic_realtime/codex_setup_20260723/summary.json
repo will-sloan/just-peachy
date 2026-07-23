@@ -1,0 +1,1931 @@
+{
+  "asr_mode": "whisper_base",
+  "audio_retained": false,
+  "availability": {
+    "allow_model_downloads": false,
+    "asr_component": "whisper_base",
+    "asr_enabled": true,
+    "blocker": null,
+    "input_wav_path": "artifacts\\realtime_test_audio\\aew_alt_rxr_eey_random_30s.wav",
+    "mic_device": null,
+    "mic_package": "sounddevice",
+    "mic_package_available": true,
+    "realtime_capture": "wav_file_realtime",
+    "whisper_model_asset_path": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\models\\cache\\whisper\\base.pt",
+    "whisper_model_asset_searched": [
+      "models\\cache\\whisper\\base.pt",
+      "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\Software Validation from Datasets\\Evaluation Tool\\models\\cache\\whisper\\base.pt",
+      "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\Software Validation from Datasets\\models\\cache\\whisper\\base.pt",
+      "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\models\\cache\\whisper\\base.pt",
+      "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\Software Validation from Datasets\\Evaluation Tool\\configs\\inference\\models\\cache\\whisper\\base.pt",
+      "C:\\Users\\amiri\\.cache\\whisper\\base.pt"
+    ],
+    "whisper_model_size": "base",
+    "whisper_package_available": true
+  },
+  "component_report_path": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\Software Validation from Datasets\\Evaluation Tool\\reports\\component_reports\\live_mic_realtime\\live_mic_realtime_codex_setup_20260723.md",
+  "config_path": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\Software Validation from Datasets\\Evaluation Tool\\configs\\inference\\live_mic_realtime_whisper_base_speaker_matching.yaml",
+  "device": null,
+  "diagnostics_path": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\Software Validation from Datasets\\Evaluation Tool\\runs\\live_mic_realtime\\codex_setup_20260723\\predictions\\diagnostics.jsonl",
+  "diagnostics_rows": [
+    {
+      "asr_realtime_factor": 0.582511,
+      "capture_end_monotonic": 511689.937,
+      "capture_start_monotonic": 511686.937,
+      "capture_to_prediction_latency_sec": 2.781,
+      "committed_text": "",
+      "corrected_prior_span": false,
+      "dequeue_monotonic": 511689.937,
+      "diagnostics": {
+        "assembled_text": "i do not blame you for anything.",
+        "chronological_ordering_violations": 0,
+        "diarization_turns": [],
+        "diarization_warnings": [],
+        "normalized_text": [
+          "i do not blame you for anything."
+        ],
+        "raw_asr_text": [
+          " I do not blame you for anything."
+        ],
+        "runtime_stats": {
+          "audio_duration_sec": 3.0,
+          "counters": {
+            "asr_segment_count": 1,
+            "speaker_decision_count": 1,
+            "speaker_embedding_count": 1
+          },
+          "device": "cpu",
+          "model_versions": {
+            "asr": "whisper_base",
+            "speaker_embedding": "speechbrain_ecapa"
+          },
+          "realtime_factor": 0.9246589000103995,
+          "stage_breakdown_sec": {
+            "asr_sec": 1.7477131999912672,
+            "audio_load_sec": 0.008256700006313622,
+            "diarization_sec": null,
+            "postprocess_sec": 0.00019839999731630087,
+            "speaker_sec": 1.0176398999756202,
+            "vad_sec": null
+          },
+          "total_sec": 2.7739767000311986
+        },
+        "segment_overlap_violations": 0,
+        "segment_predictions": [
+          {
+            "normalized_text": "i do not blame you for anything.",
+            "raw_text": " I do not blame you for anything.",
+            "segment": {
+              "audio_path": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\Software Validation from Datasets\\Evaluation Tool\\runs\\live_mic_realtime\\codex_setup_20260723\\audio\\window_0001.wav",
+              "channel_count": 1,
+              "channel_index": null,
+              "duration_sec": 3.0,
+              "end_sec": 3.0,
+              "is_mono": true,
+              "sample_rate_hz": 16000,
+              "start_sec": 0.0
+            },
+            "segment_index": 0,
+            "speaker_decision": {
+              "accepted": false,
+              "best_label": "Alice",
+              "confidence": 0.6603381037712097,
+              "embedding_id": "codex_setup_20260723:codex_setup_20260723_window_0001:0:0.0:3.0",
+              "margin": null,
+              "matched_reference_id": "centroid:spk_2bd806c97f0e",
+              "method": "cosine_threshold",
+              "min_margin": 0.05,
+              "model_id": "speechbrain_ecapa",
+              "notes": "best cosine 0.6603 is below threshold 0.7000",
+              "scores": [
+                {
+                  "model_id": "speechbrain_ecapa",
+                  "reference_id": "centroid:spk_2bd806c97f0e",
+                  "score": 0.6603381037712097,
+                  "scoring_mode": "centroid",
+                  "speaker_id": "spk_2bd806c97f0e",
+                  "speaker_label": "Alice"
+                }
+              ],
+              "second_best_label": null,
+              "second_best_score": null,
+              "speaker_label": "Unknown",
+              "threshold": 0.7,
+              "threshold_decision": "below_threshold"
+            },
+            "transcript": {
+              "confidence": null,
+              "end_sec": 3.0,
+              "language": "en",
+              "start_sec": 0.0,
+              "text": "i do not blame you for anything.",
+              "words": []
+            }
+          }
+        ],
+        "segments": [
+          {
+            "audio_path": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\Software Validation from Datasets\\Evaluation Tool\\runs\\live_mic_realtime\\codex_setup_20260723\\audio\\window_0001.wav",
+            "channel_count": 1,
+            "channel_index": null,
+            "duration_sec": 3.0,
+            "end_sec": 3.0,
+            "is_mono": true,
+            "sample_rate_hz": 16000,
+            "start_sec": 0.0
+          }
+        ],
+        "speaker_decisions": [
+          {
+            "accepted": false,
+            "best_label": "Alice",
+            "confidence": 0.6603381037712097,
+            "embedding_id": "codex_setup_20260723:codex_setup_20260723_window_0001:0:0.0:3.0",
+            "margin": null,
+            "matched_reference_id": "centroid:spk_2bd806c97f0e",
+            "method": "cosine_threshold",
+            "min_margin": 0.05,
+            "model_id": "speechbrain_ecapa",
+            "notes": "best cosine 0.6603 is below threshold 0.7000",
+            "scores": [
+              {
+                "model_id": "speechbrain_ecapa",
+                "reference_id": "centroid:spk_2bd806c97f0e",
+                "score": 0.6603381037712097,
+                "scoring_mode": "centroid",
+                "speaker_id": "spk_2bd806c97f0e",
+                "speaker_label": "Alice"
+              }
+            ],
+            "second_best_label": null,
+            "second_best_score": null,
+            "speaker_label": "Unknown",
+            "threshold": 0.7,
+            "threshold_decision": "below_threshold"
+          }
+        ]
+      },
+      "drop_policy": "drop_oldest",
+      "dropped_window_count": 0,
+      "dry_run": false,
+      "end_sec": 3.0,
+      "enqueue_blocked_sec": 0.0,
+      "enqueue_monotonic": 511689.937,
+      "errors": [],
+      "inference_audio_path": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\Software Validation from Datasets\\Evaluation Tool\\runs\\live_mic_realtime\\codex_setup_20260723\\audio\\window_0001.wav",
+      "inference_end_monotonic": 511692.718,
+      "inference_runtime_sec": 2.781,
+      "inference_start_monotonic": 511689.937,
+      "newly_committed_text": "",
+      "normalized_asr_text": "i do not blame you for anything.",
+      "overlap_removed_tokens": 0,
+      "provisional_delta_text": "",
+      "provisional_text": "",
+      "queue_depth_after_dequeue": 0,
+      "queue_depth_at_dequeue": 1,
+      "queue_depth_at_enqueue": 1,
+      "raw_asr_text": "I do not blame you for anything.",
+      "recording_id": "codex_setup_20260723",
+      "speaker_label": "Unknown",
+      "speaker_label_status": "confirmed",
+      "speaker_scores": {},
+      "speaker_state": {
+        "scores": {},
+        "speaker_label": "Unknown",
+        "status": "confirmed"
+      },
+      "start_sec": 0.0,
+      "status": "predicted",
+      "stitching_enabled": false,
+      "utt_id": "codex_setup_20260723_window_0001",
+      "warnings": [],
+      "window_duration_sec": 3.0,
+      "window_end_sec": 3.0,
+      "window_index": 1,
+      "window_start_sec": 0.0
+    },
+    {
+      "asr_realtime_factor": 0.165258,
+      "capture_end_monotonic": 511692.937,
+      "capture_start_monotonic": 511689.937,
+      "capture_to_prediction_latency_sec": 0.547,
+      "committed_text": "",
+      "corrected_prior_span": false,
+      "dequeue_monotonic": 511692.937,
+      "diagnostics": {
+        "assembled_text": "remember that. instead, he joined her and",
+        "chronological_ordering_violations": 0,
+        "diarization_turns": [],
+        "diarization_warnings": [],
+        "normalized_text": [
+          "remember that. instead, he joined her and"
+        ],
+        "raw_asr_text": [
+          " remember that. Instead, he joined her and"
+        ],
+        "runtime_stats": {
+          "audio_duration_sec": 3.0,
+          "counters": {
+            "asr_segment_count": 1,
+            "speaker_decision_count": 1,
+            "speaker_embedding_count": 1
+          },
+          "device": "cpu",
+          "model_versions": {
+            "asr": "whisper_base",
+            "speaker_embedding": "speechbrain_ecapa"
+          },
+          "realtime_factor": 0.18306430000423765,
+          "stage_breakdown_sec": {
+            "asr_sec": 0.49586700001964346,
+            "audio_load_sec": 0.006806300021708012,
+            "diarization_sec": null,
+            "postprocess_sec": 0.00019200000679120421,
+            "speaker_sec": 0.046194199996534735,
+            "vad_sec": null
+          },
+          "total_sec": 0.5491929000127129
+        },
+        "segment_overlap_violations": 0,
+        "segment_predictions": [
+          {
+            "normalized_text": "remember that. instead, he joined her and",
+            "raw_text": " remember that. Instead, he joined her and",
+            "segment": {
+              "audio_path": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\Software Validation from Datasets\\Evaluation Tool\\runs\\live_mic_realtime\\codex_setup_20260723\\audio\\window_0002.wav",
+              "channel_count": 1,
+              "channel_index": null,
+              "duration_sec": 3.0,
+              "end_sec": 3.0,
+              "is_mono": true,
+              "sample_rate_hz": 16000,
+              "start_sec": 0.0
+            },
+            "segment_index": 0,
+            "speaker_decision": {
+              "accepted": false,
+              "best_label": "Alice",
+              "confidence": 0.4702955484390259,
+              "embedding_id": "codex_setup_20260723:codex_setup_20260723_window_0002:0:0.0:3.0",
+              "margin": null,
+              "matched_reference_id": "centroid:spk_2bd806c97f0e",
+              "method": "cosine_threshold",
+              "min_margin": 0.05,
+              "model_id": "speechbrain_ecapa",
+              "notes": "best cosine 0.4703 is below threshold 0.7000",
+              "scores": [
+                {
+                  "model_id": "speechbrain_ecapa",
+                  "reference_id": "centroid:spk_2bd806c97f0e",
+                  "score": 0.4702955484390259,
+                  "scoring_mode": "centroid",
+                  "speaker_id": "spk_2bd806c97f0e",
+                  "speaker_label": "Alice"
+                }
+              ],
+              "second_best_label": null,
+              "second_best_score": null,
+              "speaker_label": "Unknown",
+              "threshold": 0.7,
+              "threshold_decision": "below_threshold"
+            },
+            "transcript": {
+              "confidence": null,
+              "end_sec": 3.0,
+              "language": "en",
+              "start_sec": 0.0,
+              "text": "remember that. instead, he joined her and",
+              "words": []
+            }
+          }
+        ],
+        "segments": [
+          {
+            "audio_path": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\Software Validation from Datasets\\Evaluation Tool\\runs\\live_mic_realtime\\codex_setup_20260723\\audio\\window_0002.wav",
+            "channel_count": 1,
+            "channel_index": null,
+            "duration_sec": 3.0,
+            "end_sec": 3.0,
+            "is_mono": true,
+            "sample_rate_hz": 16000,
+            "start_sec": 0.0
+          }
+        ],
+        "speaker_decisions": [
+          {
+            "accepted": false,
+            "best_label": "Alice",
+            "confidence": 0.4702955484390259,
+            "embedding_id": "codex_setup_20260723:codex_setup_20260723_window_0002:0:0.0:3.0",
+            "margin": null,
+            "matched_reference_id": "centroid:spk_2bd806c97f0e",
+            "method": "cosine_threshold",
+            "min_margin": 0.05,
+            "model_id": "speechbrain_ecapa",
+            "notes": "best cosine 0.4703 is below threshold 0.7000",
+            "scores": [
+              {
+                "model_id": "speechbrain_ecapa",
+                "reference_id": "centroid:spk_2bd806c97f0e",
+                "score": 0.4702955484390259,
+                "scoring_mode": "centroid",
+                "speaker_id": "spk_2bd806c97f0e",
+                "speaker_label": "Alice"
+              }
+            ],
+            "second_best_label": null,
+            "second_best_score": null,
+            "speaker_label": "Unknown",
+            "threshold": 0.7,
+            "threshold_decision": "below_threshold"
+          }
+        ]
+      },
+      "drop_policy": "drop_oldest",
+      "dropped_window_count": 0,
+      "dry_run": false,
+      "end_sec": 3.0,
+      "enqueue_blocked_sec": 0.0,
+      "enqueue_monotonic": 511692.937,
+      "errors": [],
+      "inference_audio_path": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\Software Validation from Datasets\\Evaluation Tool\\runs\\live_mic_realtime\\codex_setup_20260723\\audio\\window_0002.wav",
+      "inference_end_monotonic": 511693.484,
+      "inference_runtime_sec": 0.547,
+      "inference_start_monotonic": 511692.937,
+      "newly_committed_text": "",
+      "normalized_asr_text": "remember that. instead, he joined her and",
+      "overlap_removed_tokens": 0,
+      "provisional_delta_text": "",
+      "provisional_text": "",
+      "queue_depth_after_dequeue": 0,
+      "queue_depth_at_dequeue": 1,
+      "queue_depth_at_enqueue": 1,
+      "raw_asr_text": "remember that. Instead, he joined her and",
+      "recording_id": "codex_setup_20260723",
+      "speaker_label": "Unknown",
+      "speaker_label_status": "confirmed",
+      "speaker_scores": {},
+      "speaker_state": {
+        "scores": {},
+        "speaker_label": "Unknown",
+        "status": "confirmed"
+      },
+      "start_sec": 0.0,
+      "status": "predicted",
+      "stitching_enabled": false,
+      "utt_id": "codex_setup_20260723_window_0002",
+      "warnings": [],
+      "window_duration_sec": 3.0,
+      "window_end_sec": 6.0,
+      "window_index": 2,
+      "window_start_sec": 3.0
+    },
+    {
+      "asr_realtime_factor": 0.177792,
+      "capture_end_monotonic": 511695.937,
+      "capture_start_monotonic": 511692.937,
+      "capture_to_prediction_latency_sec": 0.594,
+      "committed_text": "",
+      "corrected_prior_span": false,
+      "dequeue_monotonic": 511695.937,
+      "diagnostics": {
+        "assembled_text": "and the 8 like 2 hungry children. phillips sn...",
+        "chronological_ordering_violations": 0,
+        "diarization_turns": [],
+        "diarization_warnings": [],
+        "normalized_text": [
+          "and the 8 like 2 hungry children. phillips sn..."
+        ],
+        "raw_asr_text": [
+          " And the 8 like 2 hungry children. Phillips Sn..."
+        ],
+        "runtime_stats": {
+          "audio_duration_sec": 3.0,
+          "counters": {
+            "asr_segment_count": 1,
+            "speaker_decision_count": 1,
+            "speaker_embedding_count": 1
+          },
+          "device": "cpu",
+          "model_versions": {
+            "asr": "whisper_base",
+            "speaker_embedding": "speechbrain_ecapa"
+          },
+          "realtime_factor": 0.19870643333221474,
+          "stage_breakdown_sec": {
+            "asr_sec": 0.5334497000440024,
+            "audio_load_sec": 0.00836510001681745,
+            "diarization_sec": null,
+            "postprocess_sec": 0.00011650001397356391,
+            "speaker_sec": 0.05407140002353117,
+            "vad_sec": null
+          },
+          "total_sec": 0.5961192999966443
+        },
+        "segment_overlap_violations": 0,
+        "segment_predictions": [
+          {
+            "normalized_text": "and the 8 like 2 hungry children. phillips sn...",
+            "raw_text": " And the 8 like 2 hungry children. Phillips Sn...",
+            "segment": {
+              "audio_path": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\Software Validation from Datasets\\Evaluation Tool\\runs\\live_mic_realtime\\codex_setup_20260723\\audio\\window_0003.wav",
+              "channel_count": 1,
+              "channel_index": null,
+              "duration_sec": 3.0,
+              "end_sec": 3.0,
+              "is_mono": true,
+              "sample_rate_hz": 16000,
+              "start_sec": 0.0
+            },
+            "segment_index": 0,
+            "speaker_decision": {
+              "accepted": false,
+              "best_label": "Alice",
+              "confidence": 0.3406527638435364,
+              "embedding_id": "codex_setup_20260723:codex_setup_20260723_window_0003:0:0.0:3.0",
+              "margin": null,
+              "matched_reference_id": "centroid:spk_2bd806c97f0e",
+              "method": "cosine_threshold",
+              "min_margin": 0.05,
+              "model_id": "speechbrain_ecapa",
+              "notes": "best cosine 0.3407 is below threshold 0.7000",
+              "scores": [
+                {
+                  "model_id": "speechbrain_ecapa",
+                  "reference_id": "centroid:spk_2bd806c97f0e",
+                  "score": 0.3406527638435364,
+                  "scoring_mode": "centroid",
+                  "speaker_id": "spk_2bd806c97f0e",
+                  "speaker_label": "Alice"
+                }
+              ],
+              "second_best_label": null,
+              "second_best_score": null,
+              "speaker_label": "Unknown",
+              "threshold": 0.7,
+              "threshold_decision": "below_threshold"
+            },
+            "transcript": {
+              "confidence": null,
+              "end_sec": 3.0,
+              "language": "en",
+              "start_sec": 0.0,
+              "text": "and the 8 like 2 hungry children. phillips sn...",
+              "words": []
+            }
+          }
+        ],
+        "segments": [
+          {
+            "audio_path": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\Software Validation from Datasets\\Evaluation Tool\\runs\\live_mic_realtime\\codex_setup_20260723\\audio\\window_0003.wav",
+            "channel_count": 1,
+            "channel_index": null,
+            "duration_sec": 3.0,
+            "end_sec": 3.0,
+            "is_mono": true,
+            "sample_rate_hz": 16000,
+            "start_sec": 0.0
+          }
+        ],
+        "speaker_decisions": [
+          {
+            "accepted": false,
+            "best_label": "Alice",
+            "confidence": 0.3406527638435364,
+            "embedding_id": "codex_setup_20260723:codex_setup_20260723_window_0003:0:0.0:3.0",
+            "margin": null,
+            "matched_reference_id": "centroid:spk_2bd806c97f0e",
+            "method": "cosine_threshold",
+            "min_margin": 0.05,
+            "model_id": "speechbrain_ecapa",
+            "notes": "best cosine 0.3407 is below threshold 0.7000",
+            "scores": [
+              {
+                "model_id": "speechbrain_ecapa",
+                "reference_id": "centroid:spk_2bd806c97f0e",
+                "score": 0.3406527638435364,
+                "scoring_mode": "centroid",
+                "speaker_id": "spk_2bd806c97f0e",
+                "speaker_label": "Alice"
+              }
+            ],
+            "second_best_label": null,
+            "second_best_score": null,
+            "speaker_label": "Unknown",
+            "threshold": 0.7,
+            "threshold_decision": "below_threshold"
+          }
+        ]
+      },
+      "drop_policy": "drop_oldest",
+      "dropped_window_count": 0,
+      "dry_run": false,
+      "end_sec": 3.0,
+      "enqueue_blocked_sec": 0.0,
+      "enqueue_monotonic": 511695.937,
+      "errors": [],
+      "inference_audio_path": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\Software Validation from Datasets\\Evaluation Tool\\runs\\live_mic_realtime\\codex_setup_20260723\\audio\\window_0003.wav",
+      "inference_end_monotonic": 511696.531,
+      "inference_runtime_sec": 0.594,
+      "inference_start_monotonic": 511695.937,
+      "newly_committed_text": "",
+      "normalized_asr_text": "and the 8 like 2 hungry children. phillips sn...",
+      "overlap_removed_tokens": 0,
+      "provisional_delta_text": "",
+      "provisional_text": "",
+      "queue_depth_after_dequeue": 0,
+      "queue_depth_at_dequeue": 1,
+      "queue_depth_at_enqueue": 1,
+      "raw_asr_text": "And the 8 like 2 hungry children. Phillips Sn...",
+      "recording_id": "codex_setup_20260723",
+      "speaker_label": "Unknown",
+      "speaker_label_status": "confirmed",
+      "speaker_scores": {},
+      "speaker_state": {
+        "scores": {},
+        "speaker_label": "Unknown",
+        "status": "confirmed"
+      },
+      "start_sec": 0.0,
+      "status": "predicted",
+      "stitching_enabled": false,
+      "utt_id": "codex_setup_20260723_window_0003",
+      "warnings": [],
+      "window_duration_sec": 3.0,
+      "window_end_sec": 9.0,
+      "window_index": 3,
+      "window_start_sec": 6.0
+    },
+    {
+      "asr_realtime_factor": 0.177296,
+      "capture_end_monotonic": 511698.937,
+      "capture_start_monotonic": 511695.937,
+      "capture_to_prediction_latency_sec": 0.594,
+      "committed_text": "",
+      "corrected_prior_span": false,
+      "dequeue_monotonic": 511698.937,
+      "diagnostics": {
+        "assembled_text": "matched at the letter which gregson held out to him.",
+        "chronological_ordering_violations": 0,
+        "diarization_turns": [],
+        "diarization_warnings": [],
+        "normalized_text": [
+          "matched at the letter which gregson held out to him."
+        ],
+        "raw_asr_text": [
+          " matched at the letter which Gregson held out to him."
+        ],
+        "runtime_stats": {
+          "audio_duration_sec": 3.0,
+          "counters": {
+            "asr_segment_count": 1,
+            "speaker_decision_count": 1,
+            "speaker_embedding_count": 1
+          },
+          "device": "cpu",
+          "model_versions": {
+            "asr": "whisper_base",
+            "speaker_embedding": "speechbrain_ecapa"
+          },
+          "realtime_factor": 0.20013983334259441,
+          "stage_breakdown_sec": {
+            "asr_sec": 0.5319680999964476,
+            "audio_load_sec": 0.007790700008627027,
+            "diarization_sec": null,
+            "postprocess_sec": 0.00015470001380890608,
+            "speaker_sec": 0.06039159995270893,
+            "vad_sec": null
+          },
+          "total_sec": 0.6004195000277832
+        },
+        "segment_overlap_violations": 0,
+        "segment_predictions": [
+          {
+            "normalized_text": "matched at the letter which gregson held out to him.",
+            "raw_text": " matched at the letter which Gregson held out to him.",
+            "segment": {
+              "audio_path": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\Software Validation from Datasets\\Evaluation Tool\\runs\\live_mic_realtime\\codex_setup_20260723\\audio\\window_0004.wav",
+              "channel_count": 1,
+              "channel_index": null,
+              "duration_sec": 3.0,
+              "end_sec": 3.0,
+              "is_mono": true,
+              "sample_rate_hz": 16000,
+              "start_sec": 0.0
+            },
+            "segment_index": 0,
+            "speaker_decision": {
+              "accepted": true,
+              "best_label": "Alice",
+              "confidence": 0.7841967344284058,
+              "embedding_id": "codex_setup_20260723:codex_setup_20260723_window_0004:0:0.0:3.0",
+              "margin": null,
+              "matched_reference_id": "centroid:spk_2bd806c97f0e",
+              "method": "cosine_threshold",
+              "min_margin": 0.05,
+              "model_id": "speechbrain_ecapa",
+              "notes": null,
+              "scores": [
+                {
+                  "model_id": "speechbrain_ecapa",
+                  "reference_id": "centroid:spk_2bd806c97f0e",
+                  "score": 0.7841967344284058,
+                  "scoring_mode": "centroid",
+                  "speaker_id": "spk_2bd806c97f0e",
+                  "speaker_label": "Alice"
+                }
+              ],
+              "second_best_label": null,
+              "second_best_score": null,
+              "speaker_label": "Alice",
+              "threshold": 0.7,
+              "threshold_decision": "accepted"
+            },
+            "transcript": {
+              "confidence": null,
+              "end_sec": 3.0,
+              "language": "en",
+              "start_sec": 0.0,
+              "text": "matched at the letter which gregson held out to him.",
+              "words": []
+            }
+          }
+        ],
+        "segments": [
+          {
+            "audio_path": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\Software Validation from Datasets\\Evaluation Tool\\runs\\live_mic_realtime\\codex_setup_20260723\\audio\\window_0004.wav",
+            "channel_count": 1,
+            "channel_index": null,
+            "duration_sec": 3.0,
+            "end_sec": 3.0,
+            "is_mono": true,
+            "sample_rate_hz": 16000,
+            "start_sec": 0.0
+          }
+        ],
+        "speaker_decisions": [
+          {
+            "accepted": true,
+            "best_label": "Alice",
+            "confidence": 0.7841967344284058,
+            "embedding_id": "codex_setup_20260723:codex_setup_20260723_window_0004:0:0.0:3.0",
+            "margin": null,
+            "matched_reference_id": "centroid:spk_2bd806c97f0e",
+            "method": "cosine_threshold",
+            "min_margin": 0.05,
+            "model_id": "speechbrain_ecapa",
+            "notes": null,
+            "scores": [
+              {
+                "model_id": "speechbrain_ecapa",
+                "reference_id": "centroid:spk_2bd806c97f0e",
+                "score": 0.7841967344284058,
+                "scoring_mode": "centroid",
+                "speaker_id": "spk_2bd806c97f0e",
+                "speaker_label": "Alice"
+              }
+            ],
+            "second_best_label": null,
+            "second_best_score": null,
+            "speaker_label": "Alice",
+            "threshold": 0.7,
+            "threshold_decision": "accepted"
+          }
+        ]
+      },
+      "drop_policy": "drop_oldest",
+      "dropped_window_count": 0,
+      "dry_run": false,
+      "end_sec": 3.0,
+      "enqueue_blocked_sec": 0.0,
+      "enqueue_monotonic": 511698.937,
+      "errors": [],
+      "inference_audio_path": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\Software Validation from Datasets\\Evaluation Tool\\runs\\live_mic_realtime\\codex_setup_20260723\\audio\\window_0004.wav",
+      "inference_end_monotonic": 511699.531,
+      "inference_runtime_sec": 0.594,
+      "inference_start_monotonic": 511698.937,
+      "newly_committed_text": "",
+      "normalized_asr_text": "matched at the letter which gregson held out to him.",
+      "overlap_removed_tokens": 0,
+      "provisional_delta_text": "",
+      "provisional_text": "",
+      "queue_depth_after_dequeue": 0,
+      "queue_depth_at_dequeue": 1,
+      "queue_depth_at_enqueue": 1,
+      "raw_asr_text": "matched at the letter which Gregson held out to him.",
+      "recording_id": "codex_setup_20260723",
+      "speaker_label": "Alice",
+      "speaker_label_status": "confirmed",
+      "speaker_scores": {},
+      "speaker_state": {
+        "scores": {},
+        "speaker_label": "Unknown",
+        "status": "confirmed"
+      },
+      "start_sec": 0.0,
+      "status": "predicted",
+      "stitching_enabled": false,
+      "utt_id": "codex_setup_20260723_window_0004",
+      "warnings": [],
+      "window_duration_sec": 3.0,
+      "window_end_sec": 12.0,
+      "window_index": 4,
+      "window_start_sec": 9.0
+    },
+    {
+      "asr_realtime_factor": 0.163321,
+      "capture_end_monotonic": 511701.937,
+      "capture_start_monotonic": 511698.937,
+      "capture_to_prediction_latency_sec": 0.563,
+      "committed_text": "",
+      "corrected_prior_span": false,
+      "dequeue_monotonic": 511701.937,
+      "diagnostics": {
+        "assembled_text": "a cry of joy burst from philip's lips.",
+        "chronological_ordering_violations": 0,
+        "diarization_turns": [],
+        "diarization_warnings": [],
+        "normalized_text": [
+          "a cry of joy burst from philip's lips."
+        ],
+        "raw_asr_text": [
+          " A cry of joy burst from Philip's lips."
+        ],
+        "runtime_stats": {
+          "audio_duration_sec": 3.0,
+          "counters": {
+            "asr_segment_count": 1,
+            "speaker_decision_count": 1,
+            "speaker_embedding_count": 1
+          },
+          "device": "cpu",
+          "model_versions": {
+            "asr": "whisper_base",
+            "speaker_embedding": "speechbrain_ecapa"
+          },
+          "realtime_factor": 0.18243993333696076,
+          "stage_breakdown_sec": {
+            "asr_sec": 0.49004449998028576,
+            "audio_load_sec": 0.008167500025592744,
+            "diarization_sec": null,
+            "postprocess_sec": 0.00015199999324977398,
+            "speaker_sec": 0.04883530002553016,
+            "vad_sec": null
+          },
+          "total_sec": 0.5473198000108823
+        },
+        "segment_overlap_violations": 0,
+        "segment_predictions": [
+          {
+            "normalized_text": "a cry of joy burst from philip's lips.",
+            "raw_text": " A cry of joy burst from Philip's lips.",
+            "segment": {
+              "audio_path": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\Software Validation from Datasets\\Evaluation Tool\\runs\\live_mic_realtime\\codex_setup_20260723\\audio\\window_0005.wav",
+              "channel_count": 1,
+              "channel_index": null,
+              "duration_sec": 3.0,
+              "end_sec": 3.0,
+              "is_mono": true,
+              "sample_rate_hz": 16000,
+              "start_sec": 0.0
+            },
+            "segment_index": 0,
+            "speaker_decision": {
+              "accepted": false,
+              "best_label": "Alice",
+              "confidence": 0.14048627018928528,
+              "embedding_id": "codex_setup_20260723:codex_setup_20260723_window_0005:0:0.0:3.0",
+              "margin": null,
+              "matched_reference_id": "centroid:spk_2bd806c97f0e",
+              "method": "cosine_threshold",
+              "min_margin": 0.05,
+              "model_id": "speechbrain_ecapa",
+              "notes": "best cosine 0.1405 is below threshold 0.7000",
+              "scores": [
+                {
+                  "model_id": "speechbrain_ecapa",
+                  "reference_id": "centroid:spk_2bd806c97f0e",
+                  "score": 0.14048627018928528,
+                  "scoring_mode": "centroid",
+                  "speaker_id": "spk_2bd806c97f0e",
+                  "speaker_label": "Alice"
+                }
+              ],
+              "second_best_label": null,
+              "second_best_score": null,
+              "speaker_label": "Unknown",
+              "threshold": 0.7,
+              "threshold_decision": "below_threshold"
+            },
+            "transcript": {
+              "confidence": null,
+              "end_sec": 3.0,
+              "language": "en",
+              "start_sec": 0.0,
+              "text": "a cry of joy burst from philip's lips.",
+              "words": []
+            }
+          }
+        ],
+        "segments": [
+          {
+            "audio_path": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\Software Validation from Datasets\\Evaluation Tool\\runs\\live_mic_realtime\\codex_setup_20260723\\audio\\window_0005.wav",
+            "channel_count": 1,
+            "channel_index": null,
+            "duration_sec": 3.0,
+            "end_sec": 3.0,
+            "is_mono": true,
+            "sample_rate_hz": 16000,
+            "start_sec": 0.0
+          }
+        ],
+        "speaker_decisions": [
+          {
+            "accepted": false,
+            "best_label": "Alice",
+            "confidence": 0.14048627018928528,
+            "embedding_id": "codex_setup_20260723:codex_setup_20260723_window_0005:0:0.0:3.0",
+            "margin": null,
+            "matched_reference_id": "centroid:spk_2bd806c97f0e",
+            "method": "cosine_threshold",
+            "min_margin": 0.05,
+            "model_id": "speechbrain_ecapa",
+            "notes": "best cosine 0.1405 is below threshold 0.7000",
+            "scores": [
+              {
+                "model_id": "speechbrain_ecapa",
+                "reference_id": "centroid:spk_2bd806c97f0e",
+                "score": 0.14048627018928528,
+                "scoring_mode": "centroid",
+                "speaker_id": "spk_2bd806c97f0e",
+                "speaker_label": "Alice"
+              }
+            ],
+            "second_best_label": null,
+            "second_best_score": null,
+            "speaker_label": "Unknown",
+            "threshold": 0.7,
+            "threshold_decision": "below_threshold"
+          }
+        ]
+      },
+      "drop_policy": "drop_oldest",
+      "dropped_window_count": 0,
+      "dry_run": false,
+      "end_sec": 3.0,
+      "enqueue_blocked_sec": 0.0,
+      "enqueue_monotonic": 511701.937,
+      "errors": [],
+      "inference_audio_path": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\Software Validation from Datasets\\Evaluation Tool\\runs\\live_mic_realtime\\codex_setup_20260723\\audio\\window_0005.wav",
+      "inference_end_monotonic": 511702.5,
+      "inference_runtime_sec": 0.563,
+      "inference_start_monotonic": 511701.937,
+      "newly_committed_text": "",
+      "normalized_asr_text": "a cry of joy burst from philip's lips.",
+      "overlap_removed_tokens": 0,
+      "provisional_delta_text": "",
+      "provisional_text": "",
+      "queue_depth_after_dequeue": 0,
+      "queue_depth_at_dequeue": 1,
+      "queue_depth_at_enqueue": 1,
+      "raw_asr_text": "A cry of joy burst from Philip's lips.",
+      "recording_id": "codex_setup_20260723",
+      "speaker_label": "Unknown",
+      "speaker_label_status": "confirmed",
+      "speaker_scores": {},
+      "speaker_state": {
+        "scores": {},
+        "speaker_label": "Unknown",
+        "status": "confirmed"
+      },
+      "start_sec": 0.0,
+      "status": "predicted",
+      "stitching_enabled": false,
+      "utt_id": "codex_setup_20260723_window_0005",
+      "warnings": [],
+      "window_duration_sec": 3.0,
+      "window_end_sec": 15.0,
+      "window_index": 5,
+      "window_start_sec": 12.0
+    },
+    {
+      "asr_realtime_factor": 0.150303,
+      "capture_end_monotonic": 511704.937,
+      "capture_start_monotonic": 511701.937,
+      "capture_to_prediction_latency_sec": 0.516,
+      "committed_text": "",
+      "corrected_prior_span": false,
+      "dequeue_monotonic": 511704.937,
+      "diagnostics": {
+        "assembled_text": "he had comparatively no advantages at...",
+        "chronological_ordering_violations": 0,
+        "diarization_turns": [],
+        "diarization_warnings": [],
+        "normalized_text": [
+          "he had comparatively no advantages at..."
+        ],
+        "raw_asr_text": [
+          " He had comparatively no advantages at..."
+        ],
+        "runtime_stats": {
+          "audio_duration_sec": 3.0,
+          "counters": {
+            "asr_segment_count": 1,
+            "speaker_decision_count": 1,
+            "speaker_embedding_count": 1
+          },
+          "device": "cpu",
+          "model_versions": {
+            "asr": "whisper_base",
+            "speaker_embedding": "speechbrain_ecapa"
+          },
+          "realtime_factor": 0.16967876666846374,
+          "stage_breakdown_sec": {
+            "asr_sec": 0.4509900999837555,
+            "audio_load_sec": 0.0072889000293798745,
+            "diarization_sec": null,
+            "postprocess_sec": 0.00011049996828660369,
+            "speaker_sec": 0.05052569997496903,
+            "vad_sec": null
+          },
+          "total_sec": 0.5090363000053912
+        },
+        "segment_overlap_violations": 0,
+        "segment_predictions": [
+          {
+            "normalized_text": "he had comparatively no advantages at...",
+            "raw_text": " He had comparatively no advantages at...",
+            "segment": {
+              "audio_path": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\Software Validation from Datasets\\Evaluation Tool\\runs\\live_mic_realtime\\codex_setup_20260723\\audio\\window_0006.wav",
+              "channel_count": 1,
+              "channel_index": null,
+              "duration_sec": 3.0,
+              "end_sec": 3.0,
+              "is_mono": true,
+              "sample_rate_hz": 16000,
+              "start_sec": 0.0
+            },
+            "segment_index": 0,
+            "speaker_decision": {
+              "accepted": true,
+              "best_label": "Alice",
+              "confidence": 0.8025082945823669,
+              "embedding_id": "codex_setup_20260723:codex_setup_20260723_window_0006:0:0.0:3.0",
+              "margin": null,
+              "matched_reference_id": "centroid:spk_2bd806c97f0e",
+              "method": "cosine_threshold",
+              "min_margin": 0.05,
+              "model_id": "speechbrain_ecapa",
+              "notes": null,
+              "scores": [
+                {
+                  "model_id": "speechbrain_ecapa",
+                  "reference_id": "centroid:spk_2bd806c97f0e",
+                  "score": 0.8025082945823669,
+                  "scoring_mode": "centroid",
+                  "speaker_id": "spk_2bd806c97f0e",
+                  "speaker_label": "Alice"
+                }
+              ],
+              "second_best_label": null,
+              "second_best_score": null,
+              "speaker_label": "Alice",
+              "threshold": 0.7,
+              "threshold_decision": "accepted"
+            },
+            "transcript": {
+              "confidence": null,
+              "end_sec": 3.0,
+              "language": "en",
+              "start_sec": 0.0,
+              "text": "he had comparatively no advantages at...",
+              "words": []
+            }
+          }
+        ],
+        "segments": [
+          {
+            "audio_path": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\Software Validation from Datasets\\Evaluation Tool\\runs\\live_mic_realtime\\codex_setup_20260723\\audio\\window_0006.wav",
+            "channel_count": 1,
+            "channel_index": null,
+            "duration_sec": 3.0,
+            "end_sec": 3.0,
+            "is_mono": true,
+            "sample_rate_hz": 16000,
+            "start_sec": 0.0
+          }
+        ],
+        "speaker_decisions": [
+          {
+            "accepted": true,
+            "best_label": "Alice",
+            "confidence": 0.8025082945823669,
+            "embedding_id": "codex_setup_20260723:codex_setup_20260723_window_0006:0:0.0:3.0",
+            "margin": null,
+            "matched_reference_id": "centroid:spk_2bd806c97f0e",
+            "method": "cosine_threshold",
+            "min_margin": 0.05,
+            "model_id": "speechbrain_ecapa",
+            "notes": null,
+            "scores": [
+              {
+                "model_id": "speechbrain_ecapa",
+                "reference_id": "centroid:spk_2bd806c97f0e",
+                "score": 0.8025082945823669,
+                "scoring_mode": "centroid",
+                "speaker_id": "spk_2bd806c97f0e",
+                "speaker_label": "Alice"
+              }
+            ],
+            "second_best_label": null,
+            "second_best_score": null,
+            "speaker_label": "Alice",
+            "threshold": 0.7,
+            "threshold_decision": "accepted"
+          }
+        ]
+      },
+      "drop_policy": "drop_oldest",
+      "dropped_window_count": 0,
+      "dry_run": false,
+      "end_sec": 3.0,
+      "enqueue_blocked_sec": 0.0,
+      "enqueue_monotonic": 511704.937,
+      "errors": [],
+      "inference_audio_path": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\Software Validation from Datasets\\Evaluation Tool\\runs\\live_mic_realtime\\codex_setup_20260723\\audio\\window_0006.wav",
+      "inference_end_monotonic": 511705.453,
+      "inference_runtime_sec": 0.516,
+      "inference_start_monotonic": 511704.937,
+      "newly_committed_text": "",
+      "normalized_asr_text": "he had comparatively no advantages at...",
+      "overlap_removed_tokens": 0,
+      "provisional_delta_text": "",
+      "provisional_text": "",
+      "queue_depth_after_dequeue": 0,
+      "queue_depth_at_dequeue": 1,
+      "queue_depth_at_enqueue": 1,
+      "raw_asr_text": "He had comparatively no advantages at...",
+      "recording_id": "codex_setup_20260723",
+      "speaker_label": "Alice",
+      "speaker_label_status": "confirmed",
+      "speaker_scores": {},
+      "speaker_state": {
+        "scores": {},
+        "speaker_label": "Unknown",
+        "status": "confirmed"
+      },
+      "start_sec": 0.0,
+      "status": "predicted",
+      "stitching_enabled": false,
+      "utt_id": "codex_setup_20260723_window_0006",
+      "warnings": [],
+      "window_duration_sec": 3.0,
+      "window_end_sec": 18.0,
+      "window_index": 6,
+      "window_start_sec": 15.0
+    },
+    {
+      "asr_realtime_factor": 0.183046,
+      "capture_end_monotonic": 511707.937,
+      "capture_start_monotonic": 511704.937,
+      "capture_to_prediction_latency_sec": 0.609,
+      "committed_text": "",
+      "corrected_prior_span": false,
+      "dequeue_monotonic": 511707.937,
+      "diagnostics": {
+        "assembled_text": "first, the fighting had now become intermittent. shalom.",
+        "chronological_ordering_violations": 0,
+        "diarization_turns": [],
+        "diarization_warnings": [],
+        "normalized_text": [
+          "first, the fighting had now become intermittent. shalom."
+        ],
+        "raw_asr_text": [
+          " First, the fighting had now become intermittent. Shalom."
+        ],
+        "runtime_stats": {
+          "audio_duration_sec": 3.0,
+          "counters": {
+            "asr_segment_count": 1,
+            "speaker_decision_count": 1,
+            "speaker_embedding_count": 1
+          },
+          "device": "cpu",
+          "model_versions": {
+            "asr": "whisper_base",
+            "speaker_embedding": "speechbrain_ecapa"
+          },
+          "realtime_factor": 0.20214766667534909,
+          "stage_breakdown_sec": {
+            "asr_sec": 0.5492280999897048,
+            "audio_load_sec": 0.00885560002643615,
+            "diarization_sec": null,
+            "postprocess_sec": 0.0001509999856352806,
+            "speaker_sec": 0.0480600000009872,
+            "vad_sec": null
+          },
+          "total_sec": 0.6064430000260472
+        },
+        "segment_overlap_violations": 0,
+        "segment_predictions": [
+          {
+            "normalized_text": "first, the fighting had now become intermittent. shalom.",
+            "raw_text": " First, the fighting had now become intermittent. Shalom.",
+            "segment": {
+              "audio_path": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\Software Validation from Datasets\\Evaluation Tool\\runs\\live_mic_realtime\\codex_setup_20260723\\audio\\window_0007.wav",
+              "channel_count": 1,
+              "channel_index": null,
+              "duration_sec": 3.0,
+              "end_sec": 3.0,
+              "is_mono": true,
+              "sample_rate_hz": 16000,
+              "start_sec": 0.0
+            },
+            "segment_index": 0,
+            "speaker_decision": {
+              "accepted": false,
+              "best_label": "Alice",
+              "confidence": 0.27002817392349243,
+              "embedding_id": "codex_setup_20260723:codex_setup_20260723_window_0007:0:0.0:3.0",
+              "margin": null,
+              "matched_reference_id": "centroid:spk_2bd806c97f0e",
+              "method": "cosine_threshold",
+              "min_margin": 0.05,
+              "model_id": "speechbrain_ecapa",
+              "notes": "best cosine 0.2700 is below threshold 0.7000",
+              "scores": [
+                {
+                  "model_id": "speechbrain_ecapa",
+                  "reference_id": "centroid:spk_2bd806c97f0e",
+                  "score": 0.27002817392349243,
+                  "scoring_mode": "centroid",
+                  "speaker_id": "spk_2bd806c97f0e",
+                  "speaker_label": "Alice"
+                }
+              ],
+              "second_best_label": null,
+              "second_best_score": null,
+              "speaker_label": "Unknown",
+              "threshold": 0.7,
+              "threshold_decision": "below_threshold"
+            },
+            "transcript": {
+              "confidence": null,
+              "end_sec": 3.0,
+              "language": "en",
+              "start_sec": 0.0,
+              "text": "first, the fighting had now become intermittent. shalom.",
+              "words": []
+            }
+          }
+        ],
+        "segments": [
+          {
+            "audio_path": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\Software Validation from Datasets\\Evaluation Tool\\runs\\live_mic_realtime\\codex_setup_20260723\\audio\\window_0007.wav",
+            "channel_count": 1,
+            "channel_index": null,
+            "duration_sec": 3.0,
+            "end_sec": 3.0,
+            "is_mono": true,
+            "sample_rate_hz": 16000,
+            "start_sec": 0.0
+          }
+        ],
+        "speaker_decisions": [
+          {
+            "accepted": false,
+            "best_label": "Alice",
+            "confidence": 0.27002817392349243,
+            "embedding_id": "codex_setup_20260723:codex_setup_20260723_window_0007:0:0.0:3.0",
+            "margin": null,
+            "matched_reference_id": "centroid:spk_2bd806c97f0e",
+            "method": "cosine_threshold",
+            "min_margin": 0.05,
+            "model_id": "speechbrain_ecapa",
+            "notes": "best cosine 0.2700 is below threshold 0.7000",
+            "scores": [
+              {
+                "model_id": "speechbrain_ecapa",
+                "reference_id": "centroid:spk_2bd806c97f0e",
+                "score": 0.27002817392349243,
+                "scoring_mode": "centroid",
+                "speaker_id": "spk_2bd806c97f0e",
+                "speaker_label": "Alice"
+              }
+            ],
+            "second_best_label": null,
+            "second_best_score": null,
+            "speaker_label": "Unknown",
+            "threshold": 0.7,
+            "threshold_decision": "below_threshold"
+          }
+        ]
+      },
+      "drop_policy": "drop_oldest",
+      "dropped_window_count": 0,
+      "dry_run": false,
+      "end_sec": 3.0,
+      "enqueue_blocked_sec": 0.0,
+      "enqueue_monotonic": 511707.937,
+      "errors": [],
+      "inference_audio_path": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\Software Validation from Datasets\\Evaluation Tool\\runs\\live_mic_realtime\\codex_setup_20260723\\audio\\window_0007.wav",
+      "inference_end_monotonic": 511708.546,
+      "inference_runtime_sec": 0.609,
+      "inference_start_monotonic": 511707.937,
+      "newly_committed_text": "",
+      "normalized_asr_text": "first, the fighting had now become intermittent. shalom.",
+      "overlap_removed_tokens": 0,
+      "provisional_delta_text": "",
+      "provisional_text": "",
+      "queue_depth_after_dequeue": 0,
+      "queue_depth_at_dequeue": 1,
+      "queue_depth_at_enqueue": 1,
+      "raw_asr_text": "First, the fighting had now become intermittent. Shalom.",
+      "recording_id": "codex_setup_20260723",
+      "speaker_label": "Unknown",
+      "speaker_label_status": "confirmed",
+      "speaker_scores": {},
+      "speaker_state": {
+        "scores": {},
+        "speaker_label": "Unknown",
+        "status": "confirmed"
+      },
+      "start_sec": 0.0,
+      "status": "predicted",
+      "stitching_enabled": false,
+      "utt_id": "codex_setup_20260723_window_0007",
+      "warnings": [],
+      "window_duration_sec": 3.0,
+      "window_end_sec": 21.0,
+      "window_index": 7,
+      "window_start_sec": 18.0
+    },
+    {
+      "asr_realtime_factor": 0.167649,
+      "capture_end_monotonic": 511710.937,
+      "capture_start_monotonic": 511707.937,
+      "capture_to_prediction_latency_sec": 0.578,
+      "committed_text": "",
+      "corrected_prior_span": false,
+      "dequeue_monotonic": 511710.937,
+      "diagnostics": {
+        "assembled_text": "i carry you, but he reconciled himself.",
+        "chronological_ordering_violations": 0,
+        "diarization_turns": [],
+        "diarization_warnings": [],
+        "normalized_text": [
+          "i carry you, but he reconciled himself."
+        ],
+        "raw_asr_text": [
+          " I carry you, but he reconciled himself."
+        ],
+        "runtime_stats": {
+          "audio_duration_sec": 3.0,
+          "counters": {
+            "asr_segment_count": 1,
+            "speaker_decision_count": 1,
+            "speaker_embedding_count": 1
+          },
+          "device": "cpu",
+          "model_versions": {
+            "asr": "whisper_base",
+            "speaker_embedding": "speechbrain_ecapa"
+          },
+          "realtime_factor": 0.1876281666724632,
+          "stage_breakdown_sec": {
+            "asr_sec": 0.5030267999973148,
+            "audio_load_sec": 0.009744000039063394,
+            "diarization_sec": null,
+            "postprocess_sec": 0.00017829996068030596,
+            "speaker_sec": 0.04981299996143207,
+            "vad_sec": null
+          },
+          "total_sec": 0.5628845000173897
+        },
+        "segment_overlap_violations": 0,
+        "segment_predictions": [
+          {
+            "normalized_text": "i carry you, but he reconciled himself.",
+            "raw_text": " I carry you, but he reconciled himself.",
+            "segment": {
+              "audio_path": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\Software Validation from Datasets\\Evaluation Tool\\runs\\live_mic_realtime\\codex_setup_20260723\\audio\\window_0008.wav",
+              "channel_count": 1,
+              "channel_index": null,
+              "duration_sec": 3.0,
+              "end_sec": 3.0,
+              "is_mono": true,
+              "sample_rate_hz": 16000,
+              "start_sec": 0.0
+            },
+            "segment_index": 0,
+            "speaker_decision": {
+              "accepted": false,
+              "best_label": "Alice",
+              "confidence": 0.46171942353248596,
+              "embedding_id": "codex_setup_20260723:codex_setup_20260723_window_0008:0:0.0:3.0",
+              "margin": null,
+              "matched_reference_id": "centroid:spk_2bd806c97f0e",
+              "method": "cosine_threshold",
+              "min_margin": 0.05,
+              "model_id": "speechbrain_ecapa",
+              "notes": "best cosine 0.4617 is below threshold 0.7000",
+              "scores": [
+                {
+                  "model_id": "speechbrain_ecapa",
+                  "reference_id": "centroid:spk_2bd806c97f0e",
+                  "score": 0.46171942353248596,
+                  "scoring_mode": "centroid",
+                  "speaker_id": "spk_2bd806c97f0e",
+                  "speaker_label": "Alice"
+                }
+              ],
+              "second_best_label": null,
+              "second_best_score": null,
+              "speaker_label": "Unknown",
+              "threshold": 0.7,
+              "threshold_decision": "below_threshold"
+            },
+            "transcript": {
+              "confidence": null,
+              "end_sec": 3.0,
+              "language": "en",
+              "start_sec": 0.0,
+              "text": "i carry you, but he reconciled himself.",
+              "words": []
+            }
+          }
+        ],
+        "segments": [
+          {
+            "audio_path": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\Software Validation from Datasets\\Evaluation Tool\\runs\\live_mic_realtime\\codex_setup_20260723\\audio\\window_0008.wav",
+            "channel_count": 1,
+            "channel_index": null,
+            "duration_sec": 3.0,
+            "end_sec": 3.0,
+            "is_mono": true,
+            "sample_rate_hz": 16000,
+            "start_sec": 0.0
+          }
+        ],
+        "speaker_decisions": [
+          {
+            "accepted": false,
+            "best_label": "Alice",
+            "confidence": 0.46171942353248596,
+            "embedding_id": "codex_setup_20260723:codex_setup_20260723_window_0008:0:0.0:3.0",
+            "margin": null,
+            "matched_reference_id": "centroid:spk_2bd806c97f0e",
+            "method": "cosine_threshold",
+            "min_margin": 0.05,
+            "model_id": "speechbrain_ecapa",
+            "notes": "best cosine 0.4617 is below threshold 0.7000",
+            "scores": [
+              {
+                "model_id": "speechbrain_ecapa",
+                "reference_id": "centroid:spk_2bd806c97f0e",
+                "score": 0.46171942353248596,
+                "scoring_mode": "centroid",
+                "speaker_id": "spk_2bd806c97f0e",
+                "speaker_label": "Alice"
+              }
+            ],
+            "second_best_label": null,
+            "second_best_score": null,
+            "speaker_label": "Unknown",
+            "threshold": 0.7,
+            "threshold_decision": "below_threshold"
+          }
+        ]
+      },
+      "drop_policy": "drop_oldest",
+      "dropped_window_count": 0,
+      "dry_run": false,
+      "end_sec": 3.0,
+      "enqueue_blocked_sec": 0.0,
+      "enqueue_monotonic": 511710.937,
+      "errors": [],
+      "inference_audio_path": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\Software Validation from Datasets\\Evaluation Tool\\runs\\live_mic_realtime\\codex_setup_20260723\\audio\\window_0008.wav",
+      "inference_end_monotonic": 511711.515,
+      "inference_runtime_sec": 0.578,
+      "inference_start_monotonic": 511710.937,
+      "newly_committed_text": "",
+      "normalized_asr_text": "i carry you, but he reconciled himself.",
+      "overlap_removed_tokens": 0,
+      "provisional_delta_text": "",
+      "provisional_text": "",
+      "queue_depth_after_dequeue": 0,
+      "queue_depth_at_dequeue": 1,
+      "queue_depth_at_enqueue": 1,
+      "raw_asr_text": "I carry you, but he reconciled himself.",
+      "recording_id": "codex_setup_20260723",
+      "speaker_label": "Unknown",
+      "speaker_label_status": "confirmed",
+      "speaker_scores": {},
+      "speaker_state": {
+        "scores": {},
+        "speaker_label": "Unknown",
+        "status": "confirmed"
+      },
+      "start_sec": 0.0,
+      "status": "predicted",
+      "stitching_enabled": false,
+      "utt_id": "codex_setup_20260723_window_0008",
+      "warnings": [],
+      "window_duration_sec": 3.0,
+      "window_end_sec": 24.0,
+      "window_index": 8,
+      "window_start_sec": 21.0
+    },
+    {
+      "asr_realtime_factor": 0.173682,
+      "capture_end_monotonic": 511713.937,
+      "capture_start_monotonic": 511710.937,
+      "capture_to_prediction_latency_sec": 0.578,
+      "committed_text": "",
+      "corrected_prior_span": false,
+      "dequeue_monotonic": 511713.937,
+      "diagnostics": {
+        "assembled_text": "to it by an act of faith. he moved away.",
+        "chronological_ordering_violations": 0,
+        "diarization_turns": [],
+        "diarization_warnings": [],
+        "normalized_text": [
+          "to it by an act of faith. he moved away."
+        ],
+        "raw_asr_text": [
+          " to it by an act of faith. He moved away."
+        ],
+        "runtime_stats": {
+          "audio_duration_sec": 3.0,
+          "counters": {
+            "asr_segment_count": 1,
+            "speaker_decision_count": 1,
+            "speaker_embedding_count": 1
+          },
+          "device": "cpu",
+          "model_versions": {
+            "asr": "whisper_base",
+            "speaker_embedding": "speechbrain_ecapa"
+          },
+          "realtime_factor": 0.19239536667009816,
+          "stage_breakdown_sec": {
+            "asr_sec": 0.5211363999987952,
+            "audio_load_sec": 0.008886500028893352,
+            "diarization_sec": null,
+            "postprocess_sec": 0.00011399999493733048,
+            "speaker_sec": 0.04692639998393133,
+            "vad_sec": null
+          },
+          "total_sec": 0.5771861000102945
+        },
+        "segment_overlap_violations": 0,
+        "segment_predictions": [
+          {
+            "normalized_text": "to it by an act of faith. he moved away.",
+            "raw_text": " to it by an act of faith. He moved away.",
+            "segment": {
+              "audio_path": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\Software Validation from Datasets\\Evaluation Tool\\runs\\live_mic_realtime\\codex_setup_20260723\\audio\\window_0009.wav",
+              "channel_count": 1,
+              "channel_index": null,
+              "duration_sec": 3.0,
+              "end_sec": 3.0,
+              "is_mono": true,
+              "sample_rate_hz": 16000,
+              "start_sec": 0.0
+            },
+            "segment_index": 0,
+            "speaker_decision": {
+              "accepted": false,
+              "best_label": "Alice",
+              "confidence": 0.3015170097351074,
+              "embedding_id": "codex_setup_20260723:codex_setup_20260723_window_0009:0:0.0:3.0",
+              "margin": null,
+              "matched_reference_id": "centroid:spk_2bd806c97f0e",
+              "method": "cosine_threshold",
+              "min_margin": 0.05,
+              "model_id": "speechbrain_ecapa",
+              "notes": "best cosine 0.3015 is below threshold 0.7000",
+              "scores": [
+                {
+                  "model_id": "speechbrain_ecapa",
+                  "reference_id": "centroid:spk_2bd806c97f0e",
+                  "score": 0.3015170097351074,
+                  "scoring_mode": "centroid",
+                  "speaker_id": "spk_2bd806c97f0e",
+                  "speaker_label": "Alice"
+                }
+              ],
+              "second_best_label": null,
+              "second_best_score": null,
+              "speaker_label": "Unknown",
+              "threshold": 0.7,
+              "threshold_decision": "below_threshold"
+            },
+            "transcript": {
+              "confidence": null,
+              "end_sec": 3.0,
+              "language": "en",
+              "start_sec": 0.0,
+              "text": "to it by an act of faith. he moved away.",
+              "words": []
+            }
+          }
+        ],
+        "segments": [
+          {
+            "audio_path": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\Software Validation from Datasets\\Evaluation Tool\\runs\\live_mic_realtime\\codex_setup_20260723\\audio\\window_0009.wav",
+            "channel_count": 1,
+            "channel_index": null,
+            "duration_sec": 3.0,
+            "end_sec": 3.0,
+            "is_mono": true,
+            "sample_rate_hz": 16000,
+            "start_sec": 0.0
+          }
+        ],
+        "speaker_decisions": [
+          {
+            "accepted": false,
+            "best_label": "Alice",
+            "confidence": 0.3015170097351074,
+            "embedding_id": "codex_setup_20260723:codex_setup_20260723_window_0009:0:0.0:3.0",
+            "margin": null,
+            "matched_reference_id": "centroid:spk_2bd806c97f0e",
+            "method": "cosine_threshold",
+            "min_margin": 0.05,
+            "model_id": "speechbrain_ecapa",
+            "notes": "best cosine 0.3015 is below threshold 0.7000",
+            "scores": [
+              {
+                "model_id": "speechbrain_ecapa",
+                "reference_id": "centroid:spk_2bd806c97f0e",
+                "score": 0.3015170097351074,
+                "scoring_mode": "centroid",
+                "speaker_id": "spk_2bd806c97f0e",
+                "speaker_label": "Alice"
+              }
+            ],
+            "second_best_label": null,
+            "second_best_score": null,
+            "speaker_label": "Unknown",
+            "threshold": 0.7,
+            "threshold_decision": "below_threshold"
+          }
+        ]
+      },
+      "drop_policy": "drop_oldest",
+      "dropped_window_count": 0,
+      "dry_run": false,
+      "end_sec": 3.0,
+      "enqueue_blocked_sec": 0.0,
+      "enqueue_monotonic": 511713.937,
+      "errors": [],
+      "inference_audio_path": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\Software Validation from Datasets\\Evaluation Tool\\runs\\live_mic_realtime\\codex_setup_20260723\\audio\\window_0009.wav",
+      "inference_end_monotonic": 511714.515,
+      "inference_runtime_sec": 0.578,
+      "inference_start_monotonic": 511713.937,
+      "newly_committed_text": "",
+      "normalized_asr_text": "to it by an act of faith. he moved away.",
+      "overlap_removed_tokens": 0,
+      "provisional_delta_text": "",
+      "provisional_text": "",
+      "queue_depth_after_dequeue": 0,
+      "queue_depth_at_dequeue": 1,
+      "queue_depth_at_enqueue": 1,
+      "raw_asr_text": "to it by an act of faith. He moved away.",
+      "recording_id": "codex_setup_20260723",
+      "speaker_label": "Unknown",
+      "speaker_label_status": "confirmed",
+      "speaker_scores": {},
+      "speaker_state": {
+        "scores": {},
+        "speaker_label": "Unknown",
+        "status": "confirmed"
+      },
+      "start_sec": 0.0,
+      "status": "predicted",
+      "stitching_enabled": false,
+      "utt_id": "codex_setup_20260723_window_0009",
+      "warnings": [],
+      "window_duration_sec": 3.0,
+      "window_end_sec": 27.0,
+      "window_index": 9,
+      "window_start_sec": 24.0
+    },
+    {
+      "asr_realtime_factor": 0.166437,
+      "capture_end_monotonic": 511716.937,
+      "capture_start_monotonic": 511713.937,
+      "capture_to_prediction_latency_sec": 0.563,
+      "committed_text": "",
+      "corrected_prior_span": false,
+      "dequeue_monotonic": 511716.937,
+      "diagnostics": {
+        "assembled_text": "is quietly as he had come. such thing",
+        "chronological_ordering_violations": 0,
+        "diarization_turns": [],
+        "diarization_warnings": [],
+        "normalized_text": [
+          "is quietly as he had come. such thing"
+        ],
+        "raw_asr_text": [
+          " is quietly as he had come. Such thing"
+        ],
+        "runtime_stats": {
+          "audio_duration_sec": 3.0,
+          "counters": {
+            "asr_segment_count": 1,
+            "speaker_decision_count": 1,
+            "speaker_embedding_count": 1
+          },
+          "device": "cpu",
+          "model_versions": {
+            "asr": "whisper_base",
+            "speaker_embedding": "speechbrain_ecapa"
+          },
+          "realtime_factor": 0.185745533342318,
+          "stage_breakdown_sec": {
+            "asr_sec": 0.4993833000189625,
+            "audio_load_sec": 0.007921100012026727,
+            "diarization_sec": null,
+            "postprocess_sec": 0.0001534000039100647,
+            "speaker_sec": 0.04966029996285215,
+            "vad_sec": null
+          },
+          "total_sec": 0.557236600026954
+        },
+        "segment_overlap_violations": 0,
+        "segment_predictions": [
+          {
+            "normalized_text": "is quietly as he had come. such thing",
+            "raw_text": " is quietly as he had come. Such thing",
+            "segment": {
+              "audio_path": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\Software Validation from Datasets\\Evaluation Tool\\runs\\live_mic_realtime\\codex_setup_20260723\\audio\\window_0010.wav",
+              "channel_count": 1,
+              "channel_index": null,
+              "duration_sec": 3.0,
+              "end_sec": 3.0,
+              "is_mono": true,
+              "sample_rate_hz": 16000,
+              "start_sec": 0.0
+            },
+            "segment_index": 0,
+            "speaker_decision": {
+              "accepted": false,
+              "best_label": "Alice",
+              "confidence": 0.6356462240219116,
+              "embedding_id": "codex_setup_20260723:codex_setup_20260723_window_0010:0:0.0:3.0",
+              "margin": null,
+              "matched_reference_id": "centroid:spk_2bd806c97f0e",
+              "method": "cosine_threshold",
+              "min_margin": 0.05,
+              "model_id": "speechbrain_ecapa",
+              "notes": "best cosine 0.6356 is below threshold 0.7000",
+              "scores": [
+                {
+                  "model_id": "speechbrain_ecapa",
+                  "reference_id": "centroid:spk_2bd806c97f0e",
+                  "score": 0.6356462240219116,
+                  "scoring_mode": "centroid",
+                  "speaker_id": "spk_2bd806c97f0e",
+                  "speaker_label": "Alice"
+                }
+              ],
+              "second_best_label": null,
+              "second_best_score": null,
+              "speaker_label": "Unknown",
+              "threshold": 0.7,
+              "threshold_decision": "below_threshold"
+            },
+            "transcript": {
+              "confidence": null,
+              "end_sec": 3.0,
+              "language": "en",
+              "start_sec": 0.0,
+              "text": "is quietly as he had come. such thing",
+              "words": []
+            }
+          }
+        ],
+        "segments": [
+          {
+            "audio_path": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\Software Validation from Datasets\\Evaluation Tool\\runs\\live_mic_realtime\\codex_setup_20260723\\audio\\window_0010.wav",
+            "channel_count": 1,
+            "channel_index": null,
+            "duration_sec": 3.0,
+            "end_sec": 3.0,
+            "is_mono": true,
+            "sample_rate_hz": 16000,
+            "start_sec": 0.0
+          }
+        ],
+        "speaker_decisions": [
+          {
+            "accepted": false,
+            "best_label": "Alice",
+            "confidence": 0.6356462240219116,
+            "embedding_id": "codex_setup_20260723:codex_setup_20260723_window_0010:0:0.0:3.0",
+            "margin": null,
+            "matched_reference_id": "centroid:spk_2bd806c97f0e",
+            "method": "cosine_threshold",
+            "min_margin": 0.05,
+            "model_id": "speechbrain_ecapa",
+            "notes": "best cosine 0.6356 is below threshold 0.7000",
+            "scores": [
+              {
+                "model_id": "speechbrain_ecapa",
+                "reference_id": "centroid:spk_2bd806c97f0e",
+                "score": 0.6356462240219116,
+                "scoring_mode": "centroid",
+                "speaker_id": "spk_2bd806c97f0e",
+                "speaker_label": "Alice"
+              }
+            ],
+            "second_best_label": null,
+            "second_best_score": null,
+            "speaker_label": "Unknown",
+            "threshold": 0.7,
+            "threshold_decision": "below_threshold"
+          }
+        ]
+      },
+      "drop_policy": "drop_oldest",
+      "dropped_window_count": 0,
+      "dry_run": false,
+      "end_sec": 3.0,
+      "enqueue_blocked_sec": 0.0,
+      "enqueue_monotonic": 511716.937,
+      "errors": [],
+      "inference_audio_path": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\Software Validation from Datasets\\Evaluation Tool\\runs\\live_mic_realtime\\codex_setup_20260723\\audio\\window_0010.wav",
+      "inference_end_monotonic": 511717.5,
+      "inference_runtime_sec": 0.563,
+      "inference_start_monotonic": 511716.937,
+      "newly_committed_text": "",
+      "normalized_asr_text": "is quietly as he had come. such thing",
+      "overlap_removed_tokens": 0,
+      "provisional_delta_text": "",
+      "provisional_text": "",
+      "queue_depth_after_dequeue": 0,
+      "queue_depth_at_dequeue": 1,
+      "queue_depth_at_enqueue": 1,
+      "raw_asr_text": "is quietly as he had come. Such thing",
+      "recording_id": "codex_setup_20260723",
+      "speaker_label": "Unknown",
+      "speaker_label_status": "confirmed",
+      "speaker_scores": {},
+      "speaker_state": {
+        "scores": {},
+        "speaker_label": "Unknown",
+        "status": "confirmed"
+      },
+      "start_sec": 0.0,
+      "status": "predicted",
+      "stitching_enabled": false,
+      "utt_id": "codex_setup_20260723_window_0010",
+      "warnings": [],
+      "window_duration_sec": 3.0,
+      "window_end_sec": 30.0,
+      "window_index": 10,
+      "window_start_sec": 27.0
+    }
+  ],
+  "drop_policy": "drop_oldest",
+  "dropped_window_count": 0,
+  "dry_run": false,
+  "duration_sec": 32.2,
+  "hop_sec": 3.0,
+  "input_wav_path": "artifacts\\realtime_test_audio\\aew_alt_rxr_eey_random_30s.wav",
+  "max_queue": 4,
+  "max_queue_depth": 1,
+  "metrics": {
+    "asr_realtime_factor": {
+      "count": 10,
+      "max": 0.582511,
+      "mean": 0.21073,
+      "min": 0.150303
+    },
+    "latency_sec": {
+      "count": 10,
+      "max": 2.781,
+      "mean": 0.7923,
+      "min": 0.516
+    },
+    "queue": {
+      "dropped_window_count": 0,
+      "dropped_window_indices": [],
+      "max_depth_observed": 1,
+      "max_depth_recorded": 1.0
+    }
+  },
+  "microphone_capture_tested": false,
+  "prediction_count": 10,
+  "prediction_required_fields": [
+    "recording_id",
+    "utt_id",
+    "start_sec",
+    "end_sec",
+    "speaker_label",
+    "text"
+  ],
+  "prediction_rows": [
+    {
+      "end_sec": 3.0,
+      "recording_id": "codex_setup_20260723",
+      "speaker_label": "Unknown",
+      "start_sec": 0.0,
+      "text": "i do not blame you for anything.",
+      "utt_id": "codex_setup_20260723_window_0001"
+    },
+    {
+      "end_sec": 3.0,
+      "recording_id": "codex_setup_20260723",
+      "speaker_label": "Unknown",
+      "start_sec": 0.0,
+      "text": "remember that. instead, he joined her and",
+      "utt_id": "codex_setup_20260723_window_0002"
+    },
+    {
+      "end_sec": 3.0,
+      "recording_id": "codex_setup_20260723",
+      "speaker_label": "Unknown",
+      "start_sec": 0.0,
+      "text": "and the 8 like 2 hungry children. phillips sn...",
+      "utt_id": "codex_setup_20260723_window_0003"
+    },
+    {
+      "end_sec": 3.0,
+      "recording_id": "codex_setup_20260723",
+      "speaker_label": "Alice",
+      "start_sec": 0.0,
+      "text": "matched at the letter which gregson held out to him.",
+      "utt_id": "codex_setup_20260723_window_0004"
+    },
+    {
+      "end_sec": 3.0,
+      "recording_id": "codex_setup_20260723",
+      "speaker_label": "Unknown",
+      "start_sec": 0.0,
+      "text": "a cry of joy burst from philip's lips.",
+      "utt_id": "codex_setup_20260723_window_0005"
+    },
+    {
+      "end_sec": 3.0,
+      "recording_id": "codex_setup_20260723",
+      "speaker_label": "Alice",
+      "start_sec": 0.0,
+      "text": "he had comparatively no advantages at...",
+      "utt_id": "codex_setup_20260723_window_0006"
+    },
+    {
+      "end_sec": 3.0,
+      "recording_id": "codex_setup_20260723",
+      "speaker_label": "Unknown",
+      "start_sec": 0.0,
+      "text": "first, the fighting had now become intermittent. shalom.",
+      "utt_id": "codex_setup_20260723_window_0007"
+    },
+    {
+      "end_sec": 3.0,
+      "recording_id": "codex_setup_20260723",
+      "speaker_label": "Unknown",
+      "start_sec": 0.0,
+      "text": "i carry you, but he reconciled himself.",
+      "utt_id": "codex_setup_20260723_window_0008"
+    },
+    {
+      "end_sec": 3.0,
+      "recording_id": "codex_setup_20260723",
+      "speaker_label": "Unknown",
+      "start_sec": 0.0,
+      "text": "to it by an act of faith. he moved away.",
+      "utt_id": "codex_setup_20260723_window_0009"
+    },
+    {
+      "end_sec": 3.0,
+      "recording_id": "codex_setup_20260723",
+      "speaker_label": "Unknown",
+      "start_sec": 0.0,
+      "text": "is quietly as he had come. such thing",
+      "utt_id": "codex_setup_20260723_window_0010"
+    }
+  ],
+  "predictions_path": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\Software Validation from Datasets\\Evaluation Tool\\runs\\live_mic_realtime\\codex_setup_20260723\\predictions\\utterances.jsonl",
+  "real_asr_used": true,
+  "recording_id": "codex_setup_20260723",
+  "run_dir": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\Software Validation from Datasets\\Evaluation Tool\\runs\\live_mic_realtime\\codex_setup_20260723",
+  "run_id": "codex_setup_20260723",
+  "sample_rate": 16000,
+  "speaker_confirmation_threshold": 2,
+  "speaker_confirmation_windows": 3,
+  "speaker_correction_window_sec": 6.0,
+  "speaker_hop_sec": null,
+  "speaker_label": "Unknown",
+  "speaker_score_threshold": 0.5,
+  "speaker_window_sec": null,
+  "stability_delay_sec": 1.0,
+  "stitch_transcript": false,
+  "summary_path": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\Software Validation from Datasets\\Evaluation Tool\\runs\\live_mic_realtime\\codex_setup_20260723\\summary.json",
+  "window_count": 10,
+  "window_sec": 3.0,
+  "worker_errors": []
+}
