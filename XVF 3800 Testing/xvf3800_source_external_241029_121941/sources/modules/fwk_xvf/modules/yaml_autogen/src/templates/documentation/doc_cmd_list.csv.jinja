@@ -1,0 +1,6 @@
+Command name,Read / Write,Params,Param format,Description
+{% for resid, cmds in render_list.items() %}
+{% for cmd in cmds %}
+{{cmd['user_cmd']}},{{cmd['type']}},{{cmd['num_values']}},{{cmd['value_type']}},"{{cmd['help']}}"
+{% endfor %}
+{% endfor %}

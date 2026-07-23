@@ -1,0 +1,6 @@
+numpy
+matplotlib
+pytest
+
+-e file:./modules/nlmodel_tuning#egg=nlmodel_tuning
+-e file:./modules/yaml_autogen#egg=yaml_autogen

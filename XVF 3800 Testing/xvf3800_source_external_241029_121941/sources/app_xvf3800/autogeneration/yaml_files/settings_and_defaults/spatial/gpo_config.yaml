@@ -1,0 +1,42 @@
+PORT0:
+  # UNUSED: NOT PINNED OUT
+  - pin_number: 0
+    active_level: 1
+    output_duty_percent: 0
+    flash_serial_mask: 0xFFFFFFFF
+  # UNUSED: NOT PINNED OUT
+  - pin_number: 1
+    active_level: 1
+    output_duty_percent: 0
+    flash_serial_mask: 0xFFFFFFFF
+  # UNUSED: NOT PINNED OUT
+  - pin_number: 2
+    active_level: 1
+    output_duty_percent: 0
+    flash_serial_mask: 0xFFFFFFFF
+  # GPO_DAC_RST_N_PIN
+  - pin_number: 3
+    active_level: 1
+    output_duty_percent: 100
+    flash_serial_mask: 0xFFFFFFFF
+  # GPO_SQ_nLIN_PIN
+  - pin_number: 4
+    active_level: 1
+    output_duty_percent: 0
+    flash_serial_mask: 0xFFFFFFFF
+  # GPO_INT_N_PIN
+  - pin_number: 5
+    active_level: 1
+    output_duty_percent: 100
+    flash_serial_mask: 0xFFFFFFFF
+  # GPO_LED_RED_PIN
+  - pin_number: 6
+    active_level: 0
+    output_duty_percent: 0
+    flash_serial_mask: 0xFFFFFFFF
+  # GPO_LED_GREEN_PIN
+  - pin_number: 7
+    active_level: 0
+    output_duty_percent: 0
+    flash_serial_mask: 0xFFFFFFFF
+

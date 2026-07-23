@@ -1,0 +1,29 @@
+--------------------------------
+Copyright (c) 2024 XMOS LIMITED.
+--------------------------------
+
+Release Notes: HOST_XVF_CONTROL version 3.0.0
+*********************************************
+
+Introduction
+============
+
+This note describes version 3.0.0 of the HOST_XVF_CONTROL code. This version can be built using the source code in this release.
+
+What's in this release?
+=======================
+
+HOST_XVF_CONTROL is a host control reference code. It can be used with products in the XVF38xx product family.
+
+Version 3.0.0 enables the processing of multiple sets of device information. This allows a command map to specify multiple sets of device initialisation information. For USB operation, the host application will then initialise the first device in this set that can be found on the bus.
+The full list of changes is available in the changelog file included in the release package.
+
+How to use the code
+===================
+
+The source code in this release can be built and run using the instructions in the readme file included in the release package.
+
+Known issues in this release
+============================
+
+None

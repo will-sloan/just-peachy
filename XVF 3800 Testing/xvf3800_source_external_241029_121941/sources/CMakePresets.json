@@ -1,0 +1,192 @@
+{
+  "version": 3,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 21,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "name": "default",
+      "hidden": true,
+      "displayName": "Default Config",
+      "description": "Default build",
+      "generator": "Unix Makefiles",
+      "binaryDir": "$env{rel_path_to_root}./build/default",
+      "installDir": "$env{rel_path_to_root}./build/release",
+      "cacheVariables": {},
+      "vendor": {}
+    },
+    {
+      "name": "_release",
+      "hidden": true,
+      "binaryDir": "${sourceDir}/build/app_xvf3800",
+      "installDir": "${sourceDir}/../",
+      "inherits": "default",
+      "cacheVariables": {
+        "CMAKE_TOOLCHAIN_FILE": "${sourceDir}/xmos_cmake_toolchain/xs3a.cmake",
+        "CMAKE_EXPORT_COMPILE_COMMANDS": "ON"
+      },
+      "environment": {
+      }
+    },
+    {
+      "name": "rel_app_xvf3800",
+      "displayName": "Release app_xvf3800",
+      "description": "xvf3800 device configuration for Linux and Mac host machines",
+      "inherits": "_release",
+      "condition": {
+        "type": "notEquals",
+        "lhs": "Windows",
+        "rhs": "${hostSystemName}"
+      }
+    },
+    {
+      "name": "rel_app_xvf3800_windows",
+      "displayName": "Release app_xvf3800 for Windows",
+      "description": "xvf3800 device configuration for Windows host machines",
+      "inherits": "_release",
+      "generator": "Ninja",
+      "condition": {
+        "type": "equals",
+        "lhs": "Windows",
+        "rhs": "${hostSystemName}"
+      }
+    },
+    {
+      "name": "app_xvf3800",
+      "displayName": "app_xvf3800",
+      "description": "xvf3800 device configuration",
+      "binaryDir": "${sourceDir}/build/app_xvf3800",
+      "installDir": "${sourceDir}/build/release",
+      "inherits": "default",
+      "cacheVariables": {
+        "CMAKE_TOOLCHAIN_FILE": "${sourceDir}/xmos_cmake_toolchain/xs3a.cmake",
+        "CMAKE_EXPORT_COMPILE_COMMANDS": "ON",
+        "BUILD_TESTS": "ON",
+        "RESERVE_USER_MEMORY": "ON"
+      },
+      "environment": {
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "ua-io16-lin",
+      "configurePreset": "app_xvf3800",
+      "targets":["application_xvf3800_ua-io16-lin","compile_commands"]
+    },
+    {
+      "name": "ua-io16-sqr",
+      "configurePreset": "app_xvf3800",
+      "targets":["application_xvf3800_ua-io16-sqr","compile_commands"]
+    },
+    {
+      "name": "ua-io48-lin",
+      "configurePreset": "app_xvf3800",
+      "targets":["application_xvf3800_ua-io48-lin","compile_commands"]
+    },
+    {
+      "name": "ua-io48-sqr",
+      "configurePreset": "app_xvf3800",
+      "targets":["application_xvf3800_ua-io48-sqr","compile_commands"]
+    },
+    {
+      "name": "intdev-lr16-lin-spi",
+      "configurePreset": "app_xvf3800",
+      "targets":["application_xvf3800_intdev-lr16-lin-spi","compile_commands"]
+    },
+    {
+      "name": "intdev-lr16-sqr-spi",
+      "configurePreset": "app_xvf3800",
+      "targets":["application_xvf3800_intdev-lr16-sqr-spi","compile_commands"]
+    },
+    {
+      "name": "intdev-lr16-lin-i2c",
+      "configurePreset": "app_xvf3800",
+      "targets":["application_xvf3800_intdev-lr16-lin-i2c","compile_commands"]
+    },
+    {
+      "name": "intdev-lr16-sqr-i2c",
+      "configurePreset": "app_xvf3800",
+      "targets":["application_xvf3800_intdev-lr16-sqr-i2c","compile_commands"]
+    },
+    {
+      "name": "intdev-lr48-lin-spi",
+      "configurePreset": "app_xvf3800",
+      "targets":["application_xvf3800_intdev-lr48-lin-spi","compile_commands"]
+    },
+    {
+      "name": "intdev-lr48-sqr-spi",
+      "configurePreset": "app_xvf3800",
+      "targets":["application_xvf3800_intdev-lr48-sqr-spi","compile_commands"]
+    },
+    {
+      "name": "intdev-lr48-lin-i2c",
+      "configurePreset": "app_xvf3800",
+      "targets":["application_xvf3800_intdev-lr48-lin-i2c","compile_commands"]
+    },
+    {
+      "name": "intdev-lr48-sqr-i2c",
+      "configurePreset": "app_xvf3800",
+      "targets":["application_xvf3800_intdev-lr48-sqr-i2c","compile_commands"]
+    },
+    {
+      "name": "intdev-lr16-lin-spi-extmclk",
+      "configurePreset": "app_xvf3800",
+      "targets":["application_xvf3800_intdev-lr16-lin-spi-extmclk","compile_commands"]
+    },
+    {
+      "name": "intdev-lr16-sqr-spi-extmclk",
+      "configurePreset": "app_xvf3800",
+      "targets":["application_xvf3800_intdev-lr16-sqr-spi-extmclk","compile_commands"]
+    },
+    {
+      "name": "intdev-lr16-lin-i2c-extmclk",
+      "configurePreset": "app_xvf3800",
+      "targets":["application_xvf3800_intdev-lr16-lin-i2c-extmclk","compile_commands"]
+    },
+    {
+      "name": "intdev-lr16-sqr-i2c-extmclk",
+      "configurePreset": "app_xvf3800",
+      "targets":["application_xvf3800_intdev-lr16-sqr-i2c-extmclk","compile_commands"]
+    },
+    {
+      "name": "intdev-lr48-lin-spi-extmclk",
+      "configurePreset": "app_xvf3800",
+      "targets":["application_xvf3800_intdev-lr48-lin-spi-extmclk","compile_commands"]
+    },
+    {
+      "name": "intdev-lr48-sqr-spi-extmclk",
+      "configurePreset": "app_xvf3800",
+      "targets":["application_xvf3800_intdev-lr48-sqr-spi-extmclk","compile_commands"]
+    },
+    {
+      "name": "intdev-lr48-lin-i2c-extmclk",
+      "configurePreset": "app_xvf3800",
+      "targets":["application_xvf3800_intdev-lr48-lin-i2c-extmclk","compile_commands"]
+    },
+    {
+      "name": "intdev-lr48-sqr-i2c-extmclk",
+      "configurePreset": "app_xvf3800",
+      "targets":["application_xvf3800_intdev-lr48-sqr-i2c-extmclk","compile_commands"]
+    },
+    {
+      "name": "intdev-lr48-lin-i2c-spatial",
+      "configurePreset": "app_xvf3800",
+      "targets":["application_xvf3800_intdev-lr48-lin-i2c-spatial","compile_commands"]
+    },
+    {
+      "name": "ua-io48-lin-spatial",
+      "configurePreset": "app_xvf3800",
+      "targets":["application_xvf3800_ua-io48-lin-spatial","compile_commands"]
+    }
+  ],
+  "testPresets" : [
+    {
+      "name" : "default",
+      "configurePreset": "app_xvf3800",
+      "output": {"outputOnFailure": true}
+    }
+  ]
+}

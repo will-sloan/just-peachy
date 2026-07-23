@@ -1,0 +1,212 @@
+// Copyright 2023-2024 XMOS LIMITED.
+// This Software is subject to the terms of the XCORE VocalFusion Licence.
+#define DEBUG_UNIT DFU_SERVICER
+#ifndef DEBUG_PRINT_ENABLE_DFU_SERVICER
+#define DEBUG_PRINT_ENABLE_DFU_SERVICER 0
+#endif
+#include "debug_print.h"
+
+#include <stdio.h>
+#include <string.h>
+#include <platform.h>
+#include <xassert.h>
+
+#include "platform/platform_conf.h"
+#include "servicer.h"
+#include "dfu_cmds.h"
+#include "tile_common.h" // for reboot_xvf3800
+#include "dfu_state_machine.h"
+
+void dfu_servicer(void *args) {
+    device_control_servicer_t servicer_ctx;
+
+    servicer_t *servicer = (servicer_t*)args;
+    xassert(servicer != NULL);
+
+    for(int i=0; i<servicer->num_resources; i++) {
+        servicer->res_info[i].control_pkt_queue.queue_wr_index = 0;
+    }
+    control_resid_t *resources = (control_resid_t*)pvPortMalloc(servicer->num_resources * sizeof(control_resid_t));
+    for(int i=0; i<servicer->num_resources; i++)
+    {
+        resources[i] = servicer->res_info[i].resource;
+    }
+
+    if(APP_CONTROL_TRANSPORT_COUNT > 0)
+    {
+        control_ret_t dc_ret;
+        debug_printf("Calling device_control_servicer_register(), servicer ID %d, on tile %d, core %d.\n", servicer->id, THIS_XCORE_TILE, rtos_core_id_get());
+
+        dc_ret = device_control_servicer_register(&servicer_ctx,
+                                            device_control_ctxs,
+                                            APP_CONTROL_TRANSPORT_COUNT,
+                                            resources, servicer->num_resources);
+        debug_printf("Out of device_control_servicer_register(), servicer ID %d, on tile %d. servicer_ctx address = 0x%x\n", servicer->id, THIS_XCORE_TILE, &servicer_ctx);
+    }
+
+    vPortFree(resources);    
+    
+    xTaskCreate(
+        dfu_int_state_machine,
+        "DFU state machine task",
+        RTOS_THREAD_STACK_SIZE(dfu_int_state_machine),
+        NULL,
+        uxTaskPriorityGet(NULL), // Same priority so should run after this task
+        NULL
+    );
+    
+    if(APP_CONTROL_TRANSPORT_COUNT > 0)
+    {
+        for(;;){
+            device_control_servicer_cmd_recv(&servicer_ctx, read_cmd, write_cmd, servicer, RTOS_OSAL_WAIT_FOREVER);
+        }
+    }
+    else
+    {
+        for(;;){
+            vTaskDelay(pdMS_TO_TICKS(100));
+        }
+    }
+}
+
+control_ret_t dfu_servicer_read_cmd(control_resource_info_t *res_info, control_cmd_t cmd, uint8_t *payload, size_t payload_len)
+{
+    control_ret_t ret = CONTROL_SUCCESS;
+    uint8_t cmd_id = CONTROL_CMD_CLEAR_READ(cmd);
+
+    memset(payload, 0, payload_len);
+
+    debug_printf("dfu_servicer_read_cmd, cmd_id: %d.\n", cmd_id);
+
+    switch (cmd_id)
+    {
+    case DFU_CONTROLLER_SERVICER_RESID_DFU_UPLOAD:
+    {
+        debug_printf("DFU_CONTROLLER_SERVICER_RESID_DFU_UPLOAD\n");
+        size_t upload_len = dfu_int_upload(&payload[2], DFU_DATA_XFER_SIZE);
+
+        payload[0] = upload_len & 0xFF;
+        payload[1] = (upload_len >> 8) & 0xFF;
+        // Rest of payload is filled by dfu_int_upload function
+        break;
+    }
+
+    case DFU_CONTROLLER_SERVICER_RESID_DFU_GETSTATUS:
+    {
+        debug_printf("DFU_CONTROLLER_SERVICER_RESID_DFU_GETSTATUS\n");
+        dfu_int_get_status_packet_t retval;
+        dfu_int_get_status(&retval);
+
+        uint8_t time_high, time_mid, time_low;
+        time_low = (uint8_t)(retval.timeout_ms & 0xFF);
+        time_mid = (uint8_t)((retval.timeout_ms >> 8) & 0xFF);
+        time_high = (uint8_t)((retval.timeout_ms >> 16) & 0xFF);
+
+        payload[0] = retval.current_status;
+        payload[1] = time_low;
+        payload[2] = time_mid;
+        payload[3] = time_high;
+        payload[4] = retval.next_state;
+        
+        break;
+    }
+
+    case DFU_CONTROLLER_SERVICER_RESID_DFU_GETSTATE:
+    {
+        debug_printf("DFU_CONTROLLER_SERVICER_RESID_DFU_GETSTATE\n");
+        uint8_t state = dfu_int_get_state();
+        payload[0] = state;
+        break;
+    }
+
+    case DFU_CONTROLLER_SERVICER_RESID_DFU_TRANSFERBLOCK:
+    {
+        debug_printf("DFU_CONTROLLER_SERVICER_RESID_DFU_TRANSFERBLOCK\n");
+        uint16_t transferblock = dfu_int_get_transfer_block();
+        
+        uint8_t tb_high, tb_low;
+        tb_low = (uint8_t)(transferblock & 0xFF);
+        tb_high = (uint8_t)((transferblock >> 8) & 0xFF);
+
+        payload[0] = tb_low;
+        payload[1] = tb_high;
+
+        break;
+    }
+
+    case DFU_CONTROLLER_SERVICER_RESID_DFU_GETVERSION:
+    {
+        debug_printf("DFU_CONTROLLER_SERVICER_RESID_DFU_GETVERSION\n");
+        static const uint8_t version[3] = {VERSION_MAJOR, VERSION_MINOR, VERSION_PATCH};
+        memcpy(payload, &version, sizeof(version));
+        break;
+    }
+
+    default:
+    {
+        debug_printf("DFU_CONTROLLER_SERVICER UNHANDLED COMMAND!!!\n");
+        ret = CONTROL_BAD_COMMAND;
+        break;
+    }
+    }
+
+    return ret;
+}
+
+control_ret_t dfu_servicer_write_cmd(control_resource_info_t *res_info, control_cmd_t cmd, const uint8_t *payload, size_t payload_len)
+{
+    control_ret_t ret = CONTROL_SUCCESS;
+
+    uint8_t cmd_id = CONTROL_CMD_CLEAR_READ(cmd);
+    debug_printf("dfu_servicer_write_cmd cmd_id %d.\n", cmd_id);
+
+    switch (cmd_id)
+    {
+    case DFU_CONTROLLER_SERVICER_RESID_DFU_DETACH:
+        debug_printf("DFU_CONTROLLER_SERVICER_RESID_DFU_DETACH\n");
+        dfu_int_detach();
+        break;
+
+    case DFU_CONTROLLER_SERVICER_RESID_DFU_DNLOAD:
+        debug_printf("DFU_CONTROLLER_SERVICER_RESID_DFU_DNLOAD\n");
+
+        uint16_t dnload_length = payload[0] + (payload[1] << 8);
+        const uint8_t * dnload_data = &payload[2];
+        dfu_int_download(dnload_length, dnload_data);
+        break;
+
+    case DFU_CONTROLLER_SERVICER_RESID_DFU_CLRSTATUS:
+        debug_printf("DFU_CONTROLLER_SERVICER_RESID_DFU_CLRSTATUS\n");
+        dfu_int_clear_status();
+        break;
+
+    case DFU_CONTROLLER_SERVICER_RESID_DFU_ABORT:
+        debug_printf("DFU_CONTROLLER_SERVICER_RESID_DFU_ABORT\n");
+        dfu_int_abort();
+        break;
+
+    case DFU_CONTROLLER_SERVICER_RESID_DFU_SETALTERNATE:
+        debug_printf("DFU_CONTROLLER_SERVICER_RESID_DFU_SETALTERNATE\n");
+        dfu_int_set_alternate(payload[0]);
+        break;
+
+    case DFU_CONTROLLER_SERVICER_RESID_DFU_TRANSFERBLOCK:
+        debug_printf("DFU_CONTROLLER_SERVICER_RESID_DFU_TRANSFERBLOCK\n");
+
+        uint16_t const transferblock = (payload[1] << 8) + payload[0];
+        dfu_int_set_transfer_block(transferblock);
+        break;
+
+    case DFU_CONTROLLER_SERVICER_RESID_DFU_REBOOT:
+        debug_printf("DFU_CONTROLLER_SERVICER_RESID_DFU_REBOOT\n");
+        reboot_xvf3800(DFU_REBOOT_DELAY_MS);
+        break;
+
+    default:
+        debug_printf("DFU_CONTROLLER_SERVICER UNHANDLED COMMAND!!!\n");
+        ret = CONTROL_BAD_COMMAND;
+        break;
+    }
+
+    return ret;
+}

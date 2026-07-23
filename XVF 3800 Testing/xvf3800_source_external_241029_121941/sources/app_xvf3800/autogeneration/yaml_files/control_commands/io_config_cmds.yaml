@@ -1,0 +1,112 @@
+IO_CONFIG_SERVICER_RESID:
+  dedicated_commands:
+    - cmd: GPI_INDEX
+      number_of_values: 1
+      type: CMD_READ_WRITE
+      help: Set/get pin index for next and subsequent GPI reads. Maximum value should be equal to GPIO_NUM_INPUT_PINS
+      value_type: TYPE_UINT8
+      value_ranges:
+          value0: [0 .. 1]
+      hidden: false
+    - cmd: GPI_EVENT_CONFIG
+      number_of_values: 1
+      type: CMD_READ_WRITE
+      help: Set/get event config for selected pin
+      value_type: TYPE_UINT8
+      value_ranges:
+          value0: [0 .. 3]
+      hidden: false
+      super_print_parameters:
+        - gpi_interrupt_edge
+    - cmd: GPI_ACTIVE_LEVEL
+      number_of_values: 1
+      type: CMD_READ_WRITE
+      help: Set/get active level for selected pin
+      value_type: TYPE_UINT8
+      value_ranges:
+          value0: any
+      hidden: false
+    - cmd: GPI_VALUE
+      number_of_values: 1
+      type: CMD_READ_ONLY
+      help: Get current logic level of selected GPI pin.
+      value_type: TYPE_UINT8
+      hidden: false
+    - cmd: GPI_EVENT_PENDING
+      number_of_values: 1
+      type: CMD_READ_ONLY
+      help: Get whether event was triggered for selected GPI pin. Event flag is cleared for the pin. Interrupt pin is set when all event flags are cleared
+      value_type: TYPE_UINT8
+      hidden: false
+    - cmd: GPI_VALUE_ALL
+      number_of_values: 1
+      type: CMD_READ_ONLY
+      help: Get current logic level of all GPI pins as a bitmap, where GPI index n -> bit n of returned value.
+      value_type: TYPE_UINT32
+      hidden: false
+    - cmd: GPI_EVENT_PENDING_ALL
+      number_of_values: 1
+      type: CMD_READ_ONLY
+      help: Get whether event was triggered for all GPI pins as a bitmap, where GPI index n -> bit n of returned value. Event flag is cleared for all GPI pins. Interrupt pin is set.
+      value_type: TYPE_UINT32
+      hidden: false
+GPO_SERVICER_RESID:
+  dedicated_commands:
+    - cmd: GPO_PORT_PIN_INDEX
+      number_of_values: 2
+      type: CMD_READ_WRITE
+      help: GPO port index and pin index that the following commands would be directed to
+      value_type: TYPE_UINT32
+      value_ranges:
+          value0: [0 .. 0]
+          value1: [3 .. 7]
+      hidden: false
+    - cmd: GPO_PIN_VAL
+      number_of_values: 3
+      type: CMD_WRITE_ONLY
+      help: value to write to one pin of a GPO port. Payload specifies port_index, pin_index and value to write to the pin
+      value_type: TYPE_UINT8
+      value_ranges:
+            value0: [0 .. 0]
+            value1: [3 .. 7]
+            value2: [0 .. 1]
+      hidden: false
+    - cmd: GPO_PIN_ACTIVE_LEVEL
+      number_of_values: 1
+      type: CMD_READ_WRITE
+      help: Active level of the port/pin specified by the GPO_PORT_PIN_INDEX command. 1 = ACTIVE_HIGH, 0 = ACTIVE_LOW
+      value_type: TYPE_UINT32
+      value_ranges:
+          value0: [0 .. 1]
+      hidden: false
+    - cmd: GPO_PIN_PWM_DUTY
+      number_of_values: 1
+      type: CMD_READ_WRITE
+      help: PWM duty cycle of the pin specified by the GPO_PORT_PIN_INDEX command. Specified as an integer percentage between 0 and 100
+      value_type: TYPE_UINT8
+      value_ranges:
+          value0: [0 .. 100]
+      hidden: false
+    - cmd: GPO_PIN_FLASH_MASK
+      number_of_values: 1
+      type: CMD_READ_WRITE
+      help: Serial flash mask for the pin specified by the GPO_PORT_PIN_INDEX command. Each bit in the mask specifies the GPO pin state for a 100 ms time period interval
+      value_type: TYPE_UINT32
+      value_ranges:
+          value0: any
+      hidden: false
+    - cmd: INTERNAL_GPO_START_CONTROL_TASK
+      number_of_values: 1
+      type: CMD_WRITE_ONLY
+      help: This is an internal command and shouldn't be used from the host app. Command indicating that we're done with I2C master and it's safe to start I2C slave driver now
+      value_type: TYPE_UINT32
+      value_ranges:
+          value0: any
+      hidden: true
+    - cmd: INTERNAL_GPO_LED_STATE
+      number_of_values: 2
+      type: CMD_WRITE_ONLY
+      help: Set a GPO LED to a desired state. payload[0] = EVK LED index (all_evk_leds_t) and payload[1] = LED state (e_led_mode_t)
+      value_type: TYPE_UINT8
+      hidden: true
+

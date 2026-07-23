@@ -1,0 +1,127 @@
+diff --git a/app_xvf3800/autogeneration/yaml_files/settings_and_defaults/product/control_param_values.yaml b/app_xvf3800/autogeneration/yaml_files/settings_and_defaults/product/control_param_values.yaml
+index 48b898a8..c7404a12 100644
+--- a/app_xvf3800/autogeneration/yaml_files/settings_and_defaults/product/control_param_values.yaml
++++ b/app_xvf3800/autogeneration/yaml_files/settings_and_defaults/product/control_param_values.yaml
+@@ -22,11 +22,11 @@ PP_RESID:
+   - cmd: PP_AGCONOFF
+     default_value: on
+   - cmd: PP_AGCMAXGAIN
+-    default_value: 125.0
++    default_value: 40.0
+   - cmd: PP_AGCDESIREDLEVEL
+     default_value: 0.0045
+   - cmd: PP_AGCGAIN
+-    default_value: 32.0
++    default_value: 10.0
+   - cmd: PP_AGCTIME
+     default_value: 0.9
+   - cmd: PP_AGCFASTTIME
+@@ -72,7 +72,7 @@ PP_RESID:
+ 
+ AUDIO_MGR_RESID:
+   - cmd: AUDIO_MGR_MIC_GAIN
+-    default_value: 10
++    default_value: 35
+   - cmd: AUDIO_MGR_REF_GAIN
+     default_value: 1.5
+   - cmd: AUDIO_MGR_SELECTED_CHANNELS
+diff --git a/app_xvf3800/nl_model_gen/nlmodel_bin/nlmodel_buffer_override.bin.r16.c40 b/app_xvf3800/nl_model_gen/nlmodel_bin/nlmodel_buffer_override.bin.r16.c40
+new file mode 100644
+index 0000000000000000000000000000000000000000..a6d9e768bad6b68426ee75bb4c23dbfc3e0b298a
+GIT binary patch
+literal 2560
+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
+Kpa0qaSN;c~Nvp>I
+
+literal 0
+HcmV?d00001
+
+diff --git a/modules/fwk_xvf/modules/bsp/dac/dac3101/dac3101.c b/modules/fwk_xvf/modules/bsp/dac/dac3101/dac3101.c
+index ae769c1d..9b568880 100644
+--- a/modules/fwk_xvf/modules/bsp/dac/dac3101/dac3101.c
++++ b/modules/fwk_xvf/modules/bsp/dac/dac3101/dac3101.c
+@@ -122,26 +122,26 @@ int dac3101_init(uint32_t sample_rate)
+         // Set Left Biquad A Coefficients
+         dac3101_reg_write(DAC3101_L_BQD_A_N0_HI, 0x7F) == 0 &&
+         dac3101_reg_write(DAC3101_L_BQD_A_N0_LO, 0xFF) == 0 &&
+-        dac3101_reg_write(DAC3101_L_BQD_A_N1_HI, 0x00) == 0 &&
+-        dac3101_reg_write(DAC3101_L_BQD_A_N1_LO, 0x00) == 0 &&
+-        dac3101_reg_write(DAC3101_L_BQD_A_N2_HI, 0x00) == 0 &&
+-        dac3101_reg_write(DAC3101_L_BQD_A_N2_LO, 0x00) == 0 &&
+-        dac3101_reg_write(DAC3101_L_BQD_A_D1_HI, 0x00) == 0 &&
+-        dac3101_reg_write(DAC3101_L_BQD_A_D1_LO, 0x00) == 0 &&
+-        dac3101_reg_write(DAC3101_L_BQD_A_D2_HI, 0x00) == 0 &&
+-        dac3101_reg_write(DAC3101_L_BQD_A_D2_LO, 0x00) == 0 &&
++        dac3101_reg_write(DAC3101_L_BQD_A_N1_HI, 0x82) == 0 &&
++        dac3101_reg_write(DAC3101_L_BQD_A_N1_LO, 0x72) == 0 &&
++        dac3101_reg_write(DAC3101_L_BQD_A_N2_HI, 0x7B) == 0 &&
++        dac3101_reg_write(DAC3101_L_BQD_A_N2_LO, 0x3C) == 0 &&
++        dac3101_reg_write(DAC3101_L_BQD_A_D1_HI, 0x7C) == 0 &&
++        dac3101_reg_write(DAC3101_L_BQD_A_D1_LO, 0x8B) == 0 &&
++        dac3101_reg_write(DAC3101_L_BQD_A_D2_HI, 0x86) == 0 &&
++        dac3101_reg_write(DAC3101_L_BQD_A_D2_LO, 0xAD) == 0 &&
+ 
+         // Set Right Biquad A Coefficients
+         dac3101_reg_write(DAC3101_R_BQD_A_N0_HI, 0x7F) == 0 &&
+         dac3101_reg_write(DAC3101_R_BQD_A_N0_LO, 0xFF) == 0 &&
+-        dac3101_reg_write(DAC3101_R_BQD_A_N1_HI, 0x00) == 0 &&
+-        dac3101_reg_write(DAC3101_R_BQD_A_N1_LO, 0x00) == 0 &&
+-        dac3101_reg_write(DAC3101_R_BQD_A_N2_HI, 0x00) == 0 &&
+-        dac3101_reg_write(DAC3101_R_BQD_A_N2_LO, 0x00) == 0 &&
+-        dac3101_reg_write(DAC3101_R_BQD_A_D1_HI, 0x00) == 0 &&
+-        dac3101_reg_write(DAC3101_R_BQD_A_D1_LO, 0x00) == 0 &&
+-        dac3101_reg_write(DAC3101_R_BQD_A_D2_HI, 0x00) == 0 &&
+-        dac3101_reg_write(DAC3101_R_BQD_A_D2_LO, 0x00) == 0 &&
++        dac3101_reg_write(DAC3101_R_BQD_A_N1_HI, 0x82) == 0 &&
++        dac3101_reg_write(DAC3101_R_BQD_A_N1_LO, 0x72) == 0 &&
++        dac3101_reg_write(DAC3101_R_BQD_A_N2_HI, 0x7B) == 0 &&
++        dac3101_reg_write(DAC3101_R_BQD_A_N2_LO, 0x3C) == 0 &&
++        dac3101_reg_write(DAC3101_R_BQD_A_D1_HI, 0x7C) == 0 &&
++        dac3101_reg_write(DAC3101_R_BQD_A_D1_LO, 0x8B) == 0 &&
++        dac3101_reg_write(DAC3101_R_BQD_A_D2_HI, 0x86) == 0 &&
++        dac3101_reg_write(DAC3101_R_BQD_A_D2_LO, 0xAD) == 0 &&
+ 
+         // Set Left Biquad B Coefficients
+         dac3101_reg_write(DAC3101_L_BQD_B_N0_HI, 0x7F) == 0 &&

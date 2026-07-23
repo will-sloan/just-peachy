@@ -1,0 +1,8 @@
+# Exactly GPIO_NUM_INPUT_PINS pins should be defined here
+
+PIN0:
+  active_level: 1
+  event_config: EdgeNone
+PIN1:
+  active_level: 1
+  event_config: EdgeNone

@@ -1,0 +1,131 @@
+
+AEC_SERVICER_RESID:
+  dedicated_commands:
+    - cmd: TEST_CONTROL
+      number_of_values: 60
+      type: CMD_READ_WRITE
+      help: Test signal integrity on the control interface
+      value_type: TYPE_UINT8
+      hidden: true
+  shared_commands:
+  external_commands:
+AEC_RESID:
+  dedicated_commands:
+    - cmd: SHF_BYPASS
+      number_of_values: 1
+      type: CMD_READ_WRITE
+      help: AEC bypass
+      value_type: TYPE_UINT8
+      hidden: false
+    - cmd: AEC_NUM_MICS
+      number_of_values: 1
+      type: CMD_READ_ONLY
+      help: Number of microphone inputs into the AEC
+      value_type: TYPE_INT32
+      hidden: false
+    - cmd: AEC_NUM_FARENDS
+      number_of_values: 1
+      type: CMD_READ_ONLY
+      help: Number of farend inputs into the AEC
+      value_type: TYPE_INT32
+      hidden: false
+    - cmd: AEC_MIC_ARRAY_TYPE
+      number_of_values: 1
+      type: CMD_READ_ONLY
+      help: Microphone array type (1 - linear, 2 - squarecular)
+      value_type: TYPE_INT32
+      hidden: false
+    - cmd: AEC_MIC_ARRAY_GEO
+      number_of_values: 12
+      type: CMD_READ_ONLY
+      help: Microphone array geometry. Each microphone is represented by 3 XYZ coordinates in m.
+      value_type: TYPE_FLOAT
+      hidden: false
+    - cmd: AEC_AZIMUTH_VALUES
+      number_of_values: 4
+      type: CMD_READ_ONLY
+      help: Azimuth values in radians - beam 1, beam 2, free-running beam, 3 - auto-select beam
+      value_type: TYPE_RADIANS
+      hidden: false
+    - cmd: TEST_AEC_DISABLE_CONTROL
+      number_of_values: 1
+      type: CMD_WRITE_ONLY
+      help: Disable Control processing in the AEC resource. Only to be used for internal testing! Do not use in normal operation. When disabled, there's no way to bring back control without restarting the device.
+      value_type: TYPE_UINT32
+      hidden: true
+    - cmd: AEC_CURRENT_IDLE_TIME
+      number_of_values: 1
+      type: CMD_READ_ONLY
+      help: AEC processing current idle time in 10ns ticks
+      value_type: TYPE_UINT32
+      hidden: false
+    - cmd: AEC_MIN_IDLE_TIME
+      number_of_values: 1
+      type: CMD_READ_ONLY
+      help: AEC processing minimum idle time in 10ns ticks
+      value_type: TYPE_UINT32
+      hidden: false
+    - cmd: AEC_RESET_MIN_IDLE_TIME
+      number_of_values: 1
+      type: CMD_WRITE_ONLY
+      help: Reset the AEC minimum idle time. The value of the argument passed is ignored.
+      value_type: TYPE_UINT32
+      hidden: false
+    - cmd: AEC_SPENERGY_VALUES
+      number_of_values: 4
+      type: CMD_READ_ONLY
+      help: >-
+        Speech energy level values for each beam. Any value above 0 indicates speech. Higher values indicates louder or closer speech,
+        however noise, echo and reverb can cause the energy level to decrease. 0 - beam 1, 1 - beam 2, 2 - free-running beam, 3 - auto-select beam
+      value_type: TYPE_FLOAT
+      hidden: false
+    - cmd: AEC_FIXEDBEAMSAZIMUTH_VALUES
+      number_of_values: 2
+      type: CMD_READ_WRITE
+      help: Azimuth values in radians for beams in fixed mode - fixed beam 1, fixed beam 2
+      value_type: TYPE_RADIANS
+      hidden: false
+    - cmd: AEC_FIXEDBEAMSELEVATION_VALUES
+      number_of_values: 2
+      type: CMD_READ_WRITE
+      help: Elevation angles in radians for the beams in fixed mode. 0 - fixed beam 1, 1 - fixed beam 2
+      value_type: TYPE_RADIANS
+      hidden: false
+    - cmd: AEC_FIXEDBEAMSGATING
+      number_of_values: 1
+      type: CMD_READ_WRITE
+      help: Enables/disables gating for beams in fixed mode. When enabled, speech energy is used to determine which beam should be active; inactive beams are silenced.
+      value_type: TYPE_UINT8
+      hidden: false
+  shared_commands:
+    - cmd: SPECIAL_CMD_AEC_FAR_MIC_INDEX
+      number_of_values: 2
+      type: CMD_WRITE_ONLY
+      help: Set Far and Mic index for AEC filter read. Also used as a trigger command that starts a new filter read
+      value_type: TYPE_INT32
+      hidden: true
+    - cmd: SPECIAL_CMD_AEC_FILTER_COEFF_START_OFFSET
+      number_of_values: 1
+      type: CMD_READ_WRITE
+      help: start offset to get or set the filter coefficients from
+      value_type: TYPE_INT32
+      hidden: true
+    - cmd: SPECIAL_CMD_AEC_FILTER_COEFFS
+      number_of_values: 15
+      type: CMD_READ_WRITE
+      help: get or set AEC filter coefficients
+      value_type: TYPE_FLOAT
+      hidden: true
+    - cmd: SPECIAL_CMD_AEC_FILTER_LENGTH
+      number_of_values: 1
+      type: CMD_READ_ONLY
+      help: get AEC filter length
+      value_type: TYPE_INT32
+      hidden: true
+    - cmd: AEC_FILTER_CMD_ABORT
+      number_of_values: 1
+      type: CMD_WRITE_ONLY
+      help: Reset the special command state machine. Used for safely exiting from an AEC filter read/write command sequence that has gone wrong.
+      value_type: TYPE_INT32
+      hidden: false
+  external_commands:

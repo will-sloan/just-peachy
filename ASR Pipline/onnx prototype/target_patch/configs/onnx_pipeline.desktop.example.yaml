@@ -1,0 +1,40 @@
+runtime:
+  preferred_providers:
+    - CUDAExecutionProvider
+    - CPUExecutionProvider
+  intra_op_num_threads: 4
+  inter_op_num_threads: 1
+
+vad:
+  enabled: false
+  backend: silero_onnx
+  model_path: models/silero-vad/silero_vad.onnx
+  sample_rate: 16000
+  trim_only: true
+
+asr:
+  backend: sherpa_whisper
+  model_dir: models/whisper-large-v3-onnx
+  sample_rate: 16000
+  language: en
+  task: transcribe
+
+speaker:
+  enabled: false
+  backend: wespeaker_campplus_onnx
+  model_path: models/wespeaker-campplus/voxceleb_CAM++.onnx
+  sample_rate: 16000
+
+punctuation:
+  enabled: false
+  backend: sherpa_punctuation
+  model_dir: models/punctuation-en
+
+enrollment:
+  enabled: false
+  store_path: data/enrollment_store.json
+
+thresholds:
+  accept_threshold: 0.72
+  margin_threshold: 0.05
+  unknown_label: Unknown

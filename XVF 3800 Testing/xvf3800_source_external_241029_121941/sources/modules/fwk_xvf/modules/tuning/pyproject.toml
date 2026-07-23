@@ -1,0 +1,14 @@
+[project]
+name = "tuning"
+version = "0.1.0"
+dependencies = [
+    "matplotlib",
+    "numpy",
+    "scipy",
+    "sounddevice",
+    "soundfile"
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

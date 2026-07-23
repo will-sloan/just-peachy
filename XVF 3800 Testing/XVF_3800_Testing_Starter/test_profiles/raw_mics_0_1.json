@@ -1,0 +1,12 @@
+{
+  "name": "raw_mics_0_1",
+  "description": "Raw microphone channels 0 and 1 for mapping and level checks.",
+  "commands": [
+    ["AUDIO_MGR_OP_UPSAMPLE", "1", "1"],
+    ["AEC_ASROUTONOFF", "0"],
+    ["AUDIO_MGR_OP_L", "1", "0"],
+    ["AUDIO_MGR_OP_R", "1", "1"]
+  ],
+  "left_label": "raw_mic0",
+  "right_label": "raw_mic1"
+}

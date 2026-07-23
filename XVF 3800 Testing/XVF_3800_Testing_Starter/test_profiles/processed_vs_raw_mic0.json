@@ -1,0 +1,12 @@
+{
+  "name": "processed_vs_raw_mic0",
+  "description": "Left channel: normal post-processed auto-selected beam. Right channel: raw microphone 0.",
+  "commands": [
+    ["AUDIO_MGR_OP_UPSAMPLE", "1", "1"],
+    ["AEC_ASROUTONOFF", "0"],
+    ["AUDIO_MGR_OP_L", "6", "3"],
+    ["AUDIO_MGR_OP_R", "1", "0"]
+  ],
+  "left_label": "processed_autoselect",
+  "right_label": "raw_mic0"
+}

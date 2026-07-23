@@ -58,13 +58,17 @@ pip install -r requirements.txt
 ```
 
 Required packages include `pandas`, `pyarrow`, `PyYAML`, `tqdm`, `matplotlib`,
-`numpy`, `scipy`, and `soundfile`.
+`numpy`, `scipy`, `soundfile`, and `torch`.
 
 The verified interpreter on this machine is:
 
 ```powershell
 & "C:\Users\amiri\anaconda3\python.exe" run_evaluation.py list-datasets
 ```
+
+If `python` opens the Microsoft Store or says Python was not found, use the
+full Anaconda interpreter path shown above, or run the commands from Anaconda
+Prompt after activating the environment that contains these dependencies.
 
 ## Run The GUI
 
@@ -93,6 +97,14 @@ Plain-language flow:
 3. Choose simulation or the external runner hook.
 4. Choose augmentation, RIRs, noise, SNR, preview, and run limits.
 5. Launch the run and watch the progress/output panel.
+
+To exercise the modular app pipeline from the GUI, choose **External stub / real
+runner hook**. In the current default config
+`configs/inference/e2e_named_transcript.yaml`, that path runs audio loading,
+energy VAD, VAD chunking, no-op speaker embedding/matching diagnostics, scoring,
+plots, and reports. The ASR component is still `no_op_asr`, so it writes the
+configured dummy transcript instead of running Whisper. Diarization is also
+disabled by default.
 
 Smart-control behavior:
 
@@ -239,14 +251,54 @@ The current external stub is:
 app/model_runner/external_stub.py
 ```
 
-Real integration means replacing `ExternalStubRunner.predict_one()` with a call
-to another ASR system and returning `UtterancePrediction(...)`.
+The current external stub calls:
+
+```text
+app/inference_pipeline/pipeline.py
+configs/inference/e2e_named_transcript.yaml
+```
+
+That is the main app pipeline integration point. To switch from the default
+dummy transcript to actual ASR or diarization, edit the inference config used by
+`ExternalStubRunner` and install the optional model packages/assets needed by
+that config.
 
 Example stub run:
 
 ```bash
 python run_evaluation.py run --dataset hifitts --reader-split 6097_clean --max-recordings 25 --runner external-stub --run-name hifitts_real_stub
 ```
+
+Verified one-record pipeline smoke on this Windows/Anaconda setup:
+
+```powershell
+& "C:\Users\amiri\anaconda3\python.exe" run_evaluation.py full --dataset cmu_arctic --max-recordings 1 --runner external-stub --run-name external_pipeline_smoke
+```
+
+Inputs: normalized metadata and one selected source audio file.
+
+Outputs: a timestamped folder under `runs/` containing
+`predictions/utterances.jsonl`, `predictions/diagnostics.jsonl`, metrics, plots,
+logs, and `report/report.md`.
+
+### Optional Real Model Components
+
+The repository contains lazy adapters and example configs for real model
+components, but the default GUI/CLI external runner does not enable them.
+
+- Whisper ASR configs: `configs/inference/components/asr/whisper_tiny.yaml` and
+  `configs/inference/components/asr/whisper_base.yaml`
+- pyannote diarization config:
+  `configs/inference/components/diarization/pyannote_community.yaml`
+- SpeechBrain speaker embedding config:
+  `configs/inference/components/speaker_embedding/speechbrain_ecapa.yaml`
+
+Those configs have downloads disabled by default. If you enable them, install
+the corresponding optional packages and make sure model assets or access tokens
+are available locally. For example, Whisper requires the OpenAI Whisper package
+and local Whisper model assets; pyannote may require gated model access and a
+`PYANNOTE_AUTH_TOKEN`; SpeechBrain requires the SpeechBrain package and ECAPA
+assets.
 
 ## Augmentation Options
 

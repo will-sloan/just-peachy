@@ -1,0 +1,23 @@
+---
+project: XVF3800
+title: XMOS XVF3800
+version: 3.2.1
+
+documentation:
+  doxyfile_include_path: doc/Doxyfile.inc
+  exclude_patterns_path: doc/exclude-patterns.inc
+  substitutions_path: doc/substitutions.inc
+  linkcheck_ignore_regex: [".*raspberrypi.*"]
+  doxygen_projects:
+    sw_xvf3800:
+      doxyfile_path: doc/Doxyfile.inc
+  pdfs:
+    doc/user_guide/index:
+      pdf_title: "{{title}} - User Guide"
+      pdf_filename: xvf3800_user_guide_v{{version}}
+    doc/datasheet/index:
+      pdf_title: "{{title}} - Datasheet"
+      pdf_filename: xvf3800_datasheet_v{{version}}
+    doc/programming_guide/index:
+      pdf_title: "{{title}} - Programming Guide"
+      pdf_filename: xvf3800_programming_guide_v{{version}}

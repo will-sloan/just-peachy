@@ -1,0 +1,32 @@
+VERSION = 2.3.0
+
+DEPENDENT_MODULES = lib_logging(>=3.1.1) \
+                    lib_xassert(>=4.1.0)
+
+MODULE_XCC_FLAGS = $(XCC_FLAGS) \
+                   -Wno-missing-braces \
+                   -O3
+
+OPTIONAL_HEADERS += src_conf.h
+
+EXPORT_INCLUDE_DIRS = api \
+                      src/fixed_factor_of_3 \
+                      src/fixed_factor_of_3/ds3 \
+                      src/fixed_factor_of_3/os3 \
+                      src/fixed_factor_of_3_voice \
+                      src/multirate_hifi \
+                      src/multirate_hifi/asrc \
+                      src/multirate_hifi/ssrc \
+                      src/fixed_factor_vpu_voice
+
+INCLUDE_DIRS = $(EXPORT_INCLUDE_DIRS)
+
+SOURCE_DIRS = src/fixed_factor_of_3 \
+              src/fixed_factor_of_3/ds3 \
+              src/fixed_factor_of_3/os3 \
+              src/fixed_factor_of_3_voice \
+              src/fixed_factor_of_3_voice/ds3_voice \
+              src/fixed_factor_of_3_voice/us3_voice \
+              src/multirate_hifi \
+              src/multirate_hifi/asrc \
+              src/multirate_hifi/ssrc

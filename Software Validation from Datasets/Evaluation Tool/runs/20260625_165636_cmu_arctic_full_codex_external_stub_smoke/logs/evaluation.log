@@ -1,0 +1,6 @@
+2026-06-25 16:56:36,809 INFO Wrote external stub manifest with 1 rows
+2026-06-25 16:56:36,813 INFO Inference condition: clean
+2026-06-25 16:56:36,914 INFO Wrote external stub diagnostics with 1 rows
+2026-06-25 16:56:36,994 INFO Scored 1 selected recordings
+2026-06-25 16:56:39,146 INFO Created 11 plots
+2026-06-25 16:56:39,184 INFO Wrote report to report/report.md

@@ -13,3 +13,13 @@ models/
 # Python cache
 __pycache__/
 *.pyc
+
+# XVF3800 generated setup artifacts and test results. The setup script recreates
+# the environment on each computer, while timestamped results remain locally
+# available without becoming part of a copied GitHub checkout.
+XVF 3800 Testing/XVF_3800_Testing_Starter/setup_logs/
+XVF 3800 Testing/XVF_3800_Testing_Starter/environment_freeze.txt
+XVF 3800 Testing/XVF_3800_Testing_Starter/config_backup_*.json
+XVF 3800 Testing/XVF_3800_Testing_Starter/XVF3800_Install_and_Test_Guide_backup_*.docx
+XVF 3800 Testing/XVF_3800_Testing_Starter/__pycache__/
+XVF 3800 Testing/runs/

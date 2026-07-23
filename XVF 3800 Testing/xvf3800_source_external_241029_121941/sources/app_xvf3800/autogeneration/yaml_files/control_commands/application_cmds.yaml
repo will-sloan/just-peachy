@@ -1,0 +1,61 @@
+APPLICATION_SERVICER_RESID:
+  dedicated_commands:
+    - cmd: VERSION
+      number_of_values: 3
+      type: CMD_READ_ONLY
+      help: The version number of the firmware. The format is VERSION_MAJOR VERSION_MINOR VERSION_PATCH
+      value_type: TYPE_UINT8
+      hidden: false
+    - cmd: BLD_MSG
+      number_of_values: 50
+      type: CMD_READ_ONLY
+      help: Retrieve the build message built in to the firmware, normally the build configuration name
+      value_type: TYPE_CHAR
+      hidden: false
+    - cmd: BLD_HOST
+      number_of_values: 30
+      type: CMD_READ_ONLY
+      help: Retrieve details of the CI build host used to build the firmware
+      value_type: TYPE_CHAR
+      hidden: false
+    - cmd: BLD_REPO_HASH
+      number_of_values: 40
+      type: CMD_READ_ONLY
+      help: Retrieve the GIT hash of the sw_xvf3800 repo used to build the firmware
+      value_type: TYPE_CHAR
+      hidden: false
+    - cmd: BLD_MODIFIED
+      number_of_values: 6
+      type: CMD_READ_ONLY
+      help: Show whether or not the current firmware repo has been modified from the official release. Requires use of a GIT repo
+      value_type: TYPE_CHAR
+      hidden: false
+    - cmd: BOOT_STATUS
+      number_of_values: 3
+      type: CMD_READ_ONLY
+      help: Shows whether or not the firmware has been booted via SPI or JTAG/FLASH
+      value_type: TYPE_CHAR
+      hidden: false
+    - cmd: TEST_CORE_BURN
+      number_of_values: 1
+      type: CMD_READ_WRITE
+      help: Set to enable core burn to exercise worst case timing. This will reboot the chip, reset all parameters to default and significantly increase power consumption.
+      value_type: TYPE_UINT8
+      hidden: true
+    - cmd: REBOOT
+      number_of_values: 1
+      type: CMD_WRITE_ONLY
+      help: Set to any value to reboot the chip and reset all parameters to default.
+      value_type: TYPE_UINT8
+      hidden: false
+    - cmd: USB_BIT_DEPTH
+      number_of_values: 2
+      value_ranges:
+          value0: [16 .. 16, 24 .. 24, 32 .. 32]
+          value1: [16 .. 16, 24 .. 24, 32 .. 32]
+      type: CMD_READ_WRITE
+      help: Only relevant for the UA device variant. For the UA device, set or get the USB bit depth IN, OUT to either 16, 24 or 32.
+        Setting will reboot the chip, resetting all other parameters to default.
+        If issued to the INT device, a set is ignored and the device is not rebooted while a get always returns 0 as both IN and OUT bit depths.
+      value_type: TYPE_UINT8
+      hidden: false

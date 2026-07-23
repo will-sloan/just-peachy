@@ -1,0 +1,281 @@
+diff --git a/app_xvf3800/autogeneration/yaml_files/settings_and_defaults/product/control_param_values.yaml b/app_xvf3800/autogeneration/yaml_files/settings_and_defaults/product/control_param_values.yaml
+index 48b898a8..cd4a024f 100644
+--- a/app_xvf3800/autogeneration/yaml_files/settings_and_defaults/product/control_param_values.yaml
++++ b/app_xvf3800/autogeneration/yaml_files/settings_and_defaults/product/control_param_values.yaml
+@@ -22,19 +22,19 @@ PP_RESID:
+   - cmd: PP_AGCONOFF
+     default_value: on
+   - cmd: PP_AGCMAXGAIN
+-    default_value: 125.0
++    default_value: 60.0
+   - cmd: PP_AGCDESIREDLEVEL
+     default_value: 0.0045
+   - cmd: PP_AGCGAIN
+-    default_value: 32.0
++    default_value: 60.0
+   - cmd: PP_AGCTIME
+-    default_value: 0.9
++    default_value: 3.5
+   - cmd: PP_AGCFASTTIME
+-    default_value: 0.1f
++    default_value: 0.6f
+   - cmd: PP_AGCALPHAFASTGAIN
+-    default_value: 0.0
++    default_value: 10.0
+   - cmd: PP_AGCALPHASLOW
+-    default_value: 0.984
++    default_value: 0.977
+   - cmd: PP_AGCALPHAFAST
+     default_value: 0.36
+   - cmd: PP_LIMITONOFF
+@@ -42,7 +42,7 @@ PP_RESID:
+   - cmd: PP_LIMITPLIMIT
+     default_value: 0.47
+   - cmd: PP_MIN_NS
+-    default_value: 0.15
++    default_value: 0.08
+   - cmd: PP_MIN_NN
+     default_value: 0.51
+   - cmd: PP_ECHOONOFF
+@@ -60,7 +60,7 @@ PP_RESID:
+   - cmd: PP_MGSCALE
+     default_value: (1000.0,1.0)
+   - cmd: PP_FMIN_SPEINDEX
+-    default_value: 593.75
++    default_value: 950.0
+   - cmd: PP_DTSENSITIVE
+     default_value: 0
+   - cmd: PP_ATTNS_MODE
+diff --git a/app_xvf3800/eq_filter_gen/eq_filter_bin/eq_filter_override.bin b/app_xvf3800/eq_filter_gen/eq_filter_bin/eq_filter_override.bin
+new file mode 100644
+index 0000000000000000000000000000000000000000..250d406efbd56ec97a339b373566a7c772d89a7e
+GIT binary patch
+literal 160
+zcmZQzXs~BM!-XHa>~E^gvwzVw+diGQ$9|=JgS}0DgMD@wrdo8p*!bQa_4YkAb@ngb
+z)!CQpHP|=BH`yP2KH2{H%8m99J5SqNS-iGCBKp_9?EX9Z!v3rF*&%1`OShb{KNNb#
+F9su|LH}?Pl
+
+literal 0
+HcmV?d00001
+
+diff --git a/app_xvf3800/nl_model_gen/nlmodel_bin/nlmodel_buffer_override.bin.r16.c40 b/app_xvf3800/nl_model_gen/nlmodel_bin/nlmodel_buffer_override.bin.r16.c40
+new file mode 100644
+index 0000000000000000000000000000000000000000..d7eb9b3d0b5a553a9725b213dff77d5f0449f9f0
+GIT binary patch
+literal 2560
+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
+Ai2wiq
+
+literal 0
+HcmV?d00001
+
+diff --git a/modules/fwk_xvf/modules/bsp/dac/dac3101/dac3101.c b/modules/fwk_xvf/modules/bsp/dac/dac3101/dac3101.c
+index ae769c1d..d6c2ee8e 100644
+--- a/modules/fwk_xvf/modules/bsp/dac/dac3101/dac3101.c
++++ b/modules/fwk_xvf/modules/bsp/dac/dac3101/dac3101.c
+@@ -91,8 +91,9 @@ int dac3101_init(uint32_t sample_rate)
+         // De-pop, Power on = 800 ms, Step time = 4 ms
+         dac3101_reg_write(DAC3101_HP_DEPOP, 0x4E) == 0 &&
+         // Program routing of DAC output to the output amplifier (headphone/lineout or speaker)
+-        // LDAC routed to left channel mixer amp, RDAC routed to right channel mixer amp
+-        dac3101_reg_write(DAC3101_DAC_OP_MIX, 0x44) == 0 &&
++        // LDAC routed to left channel mixer amp, RDAC not routed
++        // HPL routed to HPR for differential output
++        dac3101_reg_write(DAC3101_DAC_OP_MIX, 0x41) == 0 &&
+         // Unmute and set gain of output driver
+         // Unmute HPL, set gain = 0 db
+         dac3101_reg_write(DAC3101_HPL_DRVR, 0x06) == 0 &&
+@@ -107,10 +108,10 @@ int dac3101_init(uint32_t sample_rate)
+         dac3101_reg_write(DAC3101_HP_DRVR, 0xD4) == 0 &&
+         // Power-up L and R Class-D drivers
+         dac3101_reg_write(DAC3101_SPK_AMP, 0xC6) == 0 &&
+-        // Enable HPL output analog volume, set = -9 dB
+-        dac3101_reg_write(DAC3101_HPL_VOL_A, 0x92) == 0 &&
+-        // Enable HPR output analog volume, set = -9 dB
+-        dac3101_reg_write(DAC3101_HPR_VOL_A, 0x92) == 0 &&
++        // Enable HPL output analog volume, set = -10.5 dB
++        dac3101_reg_write(DAC3101_HPL_VOL_A, 0x95) == 0 &&
++        // Enable HPR output analog volume, set = -10.5 dB
++        dac3101_reg_write(DAC3101_HPR_VOL_A, 0x95) == 0 &&
+         // Enable Left Class-D output analog volume, set = -9 dB
+         dac3101_reg_write(DAC3101_SPKL_VOL_A, 0x92) == 0 &&
+         // Enable Right Class-D output analog volume, set = -9 dB
+@@ -122,74 +123,74 @@ int dac3101_init(uint32_t sample_rate)
+         // Set Left Biquad A Coefficients
+         dac3101_reg_write(DAC3101_L_BQD_A_N0_HI, 0x7F) == 0 &&
+         dac3101_reg_write(DAC3101_L_BQD_A_N0_LO, 0xFF) == 0 &&
+-        dac3101_reg_write(DAC3101_L_BQD_A_N1_HI, 0x00) == 0 &&
+-        dac3101_reg_write(DAC3101_L_BQD_A_N1_LO, 0x00) == 0 &&
+-        dac3101_reg_write(DAC3101_L_BQD_A_N2_HI, 0x00) == 0 &&
+-        dac3101_reg_write(DAC3101_L_BQD_A_N2_LO, 0x00) == 0 &&
+-        dac3101_reg_write(DAC3101_L_BQD_A_D1_HI, 0x00) == 0 &&
+-        dac3101_reg_write(DAC3101_L_BQD_A_D1_LO, 0x00) == 0 &&
+-        dac3101_reg_write(DAC3101_L_BQD_A_D2_HI, 0x00) == 0 &&
+-        dac3101_reg_write(DAC3101_L_BQD_A_D2_LO, 0x00) == 0 &&
++        dac3101_reg_write(DAC3101_L_BQD_A_N1_HI, 0x82) == 0 &&
++        dac3101_reg_write(DAC3101_L_BQD_A_N1_LO, 0xC4) == 0 &&
++        dac3101_reg_write(DAC3101_L_BQD_A_N2_HI, 0x7A) == 0 &&
++        dac3101_reg_write(DAC3101_L_BQD_A_N2_LO, 0x9A) == 0 &&
++        dac3101_reg_write(DAC3101_L_BQD_A_D1_HI, 0x7B) == 0 &&
++        dac3101_reg_write(DAC3101_L_BQD_A_D1_LO, 0x14) == 0 &&
++        dac3101_reg_write(DAC3101_L_BQD_A_D2_HI, 0x89) == 0 &&
++        dac3101_reg_write(DAC3101_L_BQD_A_D2_LO, 0x6F) == 0 &&
+ 
+         // Set Right Biquad A Coefficients
+         dac3101_reg_write(DAC3101_R_BQD_A_N0_HI, 0x7F) == 0 &&
+         dac3101_reg_write(DAC3101_R_BQD_A_N0_LO, 0xFF) == 0 &&
+-        dac3101_reg_write(DAC3101_R_BQD_A_N1_HI, 0x00) == 0 &&
+-        dac3101_reg_write(DAC3101_R_BQD_A_N1_LO, 0x00) == 0 &&
+-        dac3101_reg_write(DAC3101_R_BQD_A_N2_HI, 0x00) == 0 &&
+-        dac3101_reg_write(DAC3101_R_BQD_A_N2_LO, 0x00) == 0 &&
+-        dac3101_reg_write(DAC3101_R_BQD_A_D1_HI, 0x00) == 0 &&
+-        dac3101_reg_write(DAC3101_R_BQD_A_D1_LO, 0x00) == 0 &&
+-        dac3101_reg_write(DAC3101_R_BQD_A_D2_HI, 0x00) == 0 &&
+-        dac3101_reg_write(DAC3101_R_BQD_A_D2_LO, 0x00) == 0 &&
++        dac3101_reg_write(DAC3101_R_BQD_A_N1_HI, 0x82) == 0 &&
++        dac3101_reg_write(DAC3101_R_BQD_A_N1_LO, 0xC4) == 0 &&
++        dac3101_reg_write(DAC3101_R_BQD_A_N2_HI, 0x7A) == 0 &&
++        dac3101_reg_write(DAC3101_R_BQD_A_N2_LO, 0x9A) == 0 &&
++        dac3101_reg_write(DAC3101_R_BQD_A_D1_HI, 0x7B) == 0 &&
++        dac3101_reg_write(DAC3101_R_BQD_A_D1_LO, 0x14) == 0 &&
++        dac3101_reg_write(DAC3101_R_BQD_A_D2_HI, 0x89) == 0 &&
++        dac3101_reg_write(DAC3101_R_BQD_A_D2_LO, 0x6F) == 0 &&
+ 
+         // Set Left Biquad B Coefficients
+         dac3101_reg_write(DAC3101_L_BQD_B_N0_HI, 0x7F) == 0 &&
+         dac3101_reg_write(DAC3101_L_BQD_B_N0_LO, 0xFF) == 0 &&
+-        dac3101_reg_write(DAC3101_L_BQD_B_N1_HI, 0x00) == 0 &&
+-        dac3101_reg_write(DAC3101_L_BQD_B_N1_LO, 0x00) == 0 &&
+-        dac3101_reg_write(DAC3101_L_BQD_B_N2_HI, 0x00) == 0 &&
+-        dac3101_reg_write(DAC3101_L_BQD_B_N2_LO, 0x00) == 0 &&
+-        dac3101_reg_write(DAC3101_L_BQD_B_D1_HI, 0x00) == 0 &&
+-        dac3101_reg_write(DAC3101_L_BQD_B_D1_LO, 0x00) == 0 &&
+-        dac3101_reg_write(DAC3101_L_BQD_B_D2_HI, 0x00) == 0 &&
+-        dac3101_reg_write(DAC3101_L_BQD_B_D2_LO, 0x00) == 0 &&
++        dac3101_reg_write(DAC3101_L_BQD_B_N1_HI, 0x80) == 0 &&
++        dac3101_reg_write(DAC3101_L_BQD_B_N1_LO, 0x01) == 0 &&
++        dac3101_reg_write(DAC3101_L_BQD_B_N2_HI, 0x7F) == 0 &&
++        dac3101_reg_write(DAC3101_L_BQD_B_N2_LO, 0xFF) == 0 &&
++        dac3101_reg_write(DAC3101_L_BQD_B_D1_HI, 0x7E) == 0 &&
++        dac3101_reg_write(DAC3101_L_BQD_B_D1_LO, 0x38) == 0 &&
++        dac3101_reg_write(DAC3101_L_BQD_B_D2_HI, 0x83) == 0 &&
++        dac3101_reg_write(DAC3101_L_BQD_B_D2_LO, 0x83) == 0 &&
+ 
+         // Set Right Biquad B Coefficients
+         dac3101_reg_write(DAC3101_R_BQD_B_N0_HI, 0x7F) == 0 &&
+         dac3101_reg_write(DAC3101_R_BQD_B_N0_LO, 0xFF) == 0 &&
+-        dac3101_reg_write(DAC3101_R_BQD_B_N1_HI, 0x00) == 0 &&
+-        dac3101_reg_write(DAC3101_R_BQD_B_N1_LO, 0x00) == 0 &&
+-        dac3101_reg_write(DAC3101_R_BQD_B_N2_HI, 0x00) == 0 &&
+-        dac3101_reg_write(DAC3101_R_BQD_B_N2_LO, 0x00) == 0 &&
+-        dac3101_reg_write(DAC3101_R_BQD_B_D1_HI, 0x00) == 0 &&
+-        dac3101_reg_write(DAC3101_R_BQD_B_D1_LO, 0x00) == 0 &&
+-        dac3101_reg_write(DAC3101_R_BQD_B_D2_HI, 0x00) == 0 &&
+-        dac3101_reg_write(DAC3101_R_BQD_B_D2_LO, 0x00) == 0 &&
++        dac3101_reg_write(DAC3101_R_BQD_B_N1_HI, 0x80) == 0 &&
++        dac3101_reg_write(DAC3101_R_BQD_B_N1_LO, 0x01) == 0 &&
++        dac3101_reg_write(DAC3101_R_BQD_B_N2_HI, 0x7F) == 0 &&
++        dac3101_reg_write(DAC3101_R_BQD_B_N2_LO, 0xFF) == 0 &&
++        dac3101_reg_write(DAC3101_R_BQD_B_D1_HI, 0x7E) == 0 &&
++        dac3101_reg_write(DAC3101_R_BQD_B_D1_LO, 0x38) == 0 &&
++        dac3101_reg_write(DAC3101_R_BQD_B_D2_HI, 0x83) == 0 &&
++        dac3101_reg_write(DAC3101_R_BQD_B_D2_LO, 0x83) == 0 &&
+ 
+         // Set Left Biquad C Coefficients
+         dac3101_reg_write(DAC3101_L_BQD_C_N0_HI, 0x7F) == 0 &&
+         dac3101_reg_write(DAC3101_L_BQD_C_N0_LO, 0xFF) == 0 &&
+-        dac3101_reg_write(DAC3101_L_BQD_C_N1_HI, 0x00) == 0 &&
+-        dac3101_reg_write(DAC3101_L_BQD_C_N1_LO, 0x00) == 0 &&
+-        dac3101_reg_write(DAC3101_L_BQD_C_N2_HI, 0x00) == 0 &&
+-        dac3101_reg_write(DAC3101_L_BQD_C_N2_LO, 0x00) == 0 &&
+-        dac3101_reg_write(DAC3101_L_BQD_C_D1_HI, 0x00) == 0 &&
+-        dac3101_reg_write(DAC3101_L_BQD_C_D1_LO, 0x00) == 0 &&
+-        dac3101_reg_write(DAC3101_L_BQD_C_D2_HI, 0x00) == 0 &&
+-        dac3101_reg_write(DAC3101_L_BQD_C_D2_LO, 0x00) == 0 &&
++        dac3101_reg_write(DAC3101_L_BQD_C_N1_HI, 0x80) == 0 &&
++        dac3101_reg_write(DAC3101_L_BQD_C_N1_LO, 0x01) == 0 &&
++        dac3101_reg_write(DAC3101_L_BQD_C_N2_HI, 0x7F) == 0 &&
++        dac3101_reg_write(DAC3101_L_BQD_C_N2_LO, 0xFF) == 0 &&
++        dac3101_reg_write(DAC3101_L_BQD_C_D1_HI, 0x7E) == 0 &&
++        dac3101_reg_write(DAC3101_L_BQD_C_D1_LO, 0x38) == 0 &&
++        dac3101_reg_write(DAC3101_L_BQD_C_D2_HI, 0x83) == 0 &&
++        dac3101_reg_write(DAC3101_L_BQD_C_D2_LO, 0x83) == 0 &&
+ 
+         // Set Right Biquad C Coefficients
+         dac3101_reg_write(DAC3101_R_BQD_C_N0_HI, 0x7F) == 0 &&
+         dac3101_reg_write(DAC3101_R_BQD_C_N0_LO, 0xFF) == 0 &&
+-        dac3101_reg_write(DAC3101_R_BQD_C_N1_HI, 0x00) == 0 &&
+-        dac3101_reg_write(DAC3101_R_BQD_C_N1_LO, 0x00) == 0 &&
+-        dac3101_reg_write(DAC3101_R_BQD_C_N2_HI, 0x00) == 0 &&
+-        dac3101_reg_write(DAC3101_R_BQD_C_N2_LO, 0x00) == 0 &&
+-        dac3101_reg_write(DAC3101_R_BQD_C_D1_HI, 0x00) == 0 &&
+-        dac3101_reg_write(DAC3101_R_BQD_C_D1_LO, 0x00) == 0 &&
+-        dac3101_reg_write(DAC3101_R_BQD_C_D2_HI, 0x00) == 0 &&
+-        dac3101_reg_write(DAC3101_R_BQD_C_D2_LO, 0x00) == 0
++        dac3101_reg_write(DAC3101_R_BQD_C_N1_HI, 0x80) == 0 &&
++        dac3101_reg_write(DAC3101_R_BQD_C_N1_LO, 0x01) == 0 &&
++        dac3101_reg_write(DAC3101_R_BQD_C_N2_HI, 0x7F) == 0 &&
++        dac3101_reg_write(DAC3101_R_BQD_C_N2_LO, 0xFF) == 0 &&
++        dac3101_reg_write(DAC3101_R_BQD_C_D1_HI, 0x7E) == 0 &&
++        dac3101_reg_write(DAC3101_R_BQD_C_D1_LO, 0x38) == 0 &&
++        dac3101_reg_write(DAC3101_R_BQD_C_D2_HI, 0x83) == 0 &&
++        dac3101_reg_write(DAC3101_R_BQD_C_D2_LO, 0x83) == 0
+     ) {
+ 		// Wait for 100 ms
+         dac3101_wait(100);
+@@ -202,9 +203,9 @@ int dac3101_init(uint32_t sample_rate)
+         // Set register page to 0
+         dac3101_reg_write(DAC3101_PAGE_CTRL, 0x00) == 0 &&
+         // Power up DAC channels and set digital gain
+-        // Powerup DAC left and right channels (soft step enabled)
+-        // Right output channel will contain left channel data
+-        dac3101_reg_write(DAC3101_DAC_DAT_PATH, 0xD8) == 0 &&
++        // Powerup DAC left channel (soft step enabled)
++        // DACL = L only, right channel not on
++        dac3101_reg_write(DAC3101_DAC_DAT_PATH,0x90) == 0 &&
+         // DAC Left gain = 0dB
+         dac3101_reg_write(DAC3101_DACL_VOL_D, 0x00) == 0 &&
+         // DAC Right gain = 0dB
+			

@@ -1,0 +1,290 @@
+AUDIO_SERVICER_RESID:
+  dedicated_commands:
+  shared_commands:
+  external_commands:
+AUDIO_MGR_RESID:
+  dedicated_commands:
+    - cmd: AUDIO_MGR_MIC_GAIN
+      number_of_values: 1
+      type: CMD_READ_WRITE
+      help: Audio Mgr pre SHF microphone gain
+      value_type: TYPE_FLOAT
+      value_ranges:
+          value0: any
+      hidden: false
+    - cmd: AUDIO_MGR_REF_GAIN
+      number_of_values: 1
+      type: CMD_READ_WRITE
+      help: Audio Mgr pre SHF reference gain
+      value_type: TYPE_FLOAT
+      value_ranges:
+          value0: any
+      hidden: false
+    - cmd: AUDIO_MGR_CURRENT_IDLE_TIME
+      number_of_values: 1
+      type: CMD_READ_ONLY
+      help: Get audio manager current idle time in 10ns ticks
+      value_type: TYPE_INT32
+      hidden: false
+    - cmd: AUDIO_MGR_MIN_IDLE_TIME
+      number_of_values: 1
+      type: CMD_READ_ONLY
+      help: Get audio manager min idle time in 10ns ticks
+      value_type: TYPE_INT32
+      hidden: false
+    - cmd: AUDIO_MGR_RESET_MIN_IDLE_TIME
+      number_of_values: 1
+      type: CMD_WRITE_ONLY
+      help: Reset audio manager min idle time. The value of the argument passed is ignored.
+      value_type: TYPE_INT32
+      hidden: false
+    - cmd: MAX_CONTROL_TIME
+      number_of_values: 1
+      type: CMD_READ_ONLY
+      help: Get audio manager max control time
+      value_type: TYPE_INT32
+      hidden: false
+    - cmd: RESET_MAX_CONTROL_TIME
+      number_of_values: 1
+      type: CMD_WRITE_ONLY
+      help: Reset audio manager max control time. The value of the argument passed is ignored.
+      value_type: TYPE_INT32
+      value_ranges:
+        value0: any
+      hidden: false
+    - cmd: I2S_CURRENT_IDLE_TIME
+      number_of_values: 1
+      type: CMD_READ_ONLY
+      help: Get I2S current idle time in 10ns ticks
+      value_type: TYPE_INT32
+      hidden: false
+    - cmd: I2S_MIN_IDLE_TIME
+      number_of_values: 1
+      type: CMD_READ_ONLY
+      help: Get I2S min idle time in 10ns ticks
+      value_type: TYPE_INT32
+      hidden: false
+    - cmd: I2S_RESET_MIN_IDLE_TIME
+      number_of_values: 1
+      type: CMD_WRITE_ONLY
+      help: I2S reset idle time. The value of the argument passed is ignored.
+      value_type: TYPE_INT32
+      value_ranges:
+          value0: any
+      hidden: false
+    - cmd: I2S_INPUT_PACKED
+      number_of_values: 1
+      type: CMD_READ_WRITE
+      help: Will expect packed input on both I2S or USB channels if this is not 0.
+        Note, could take up to 3 samples to take effect.
+      value_type: TYPE_UINT8
+      value_ranges:
+          value0: [0 .. 1]
+      hidden: false
+    - cmd: AUDIO_MGR_SELECTED_AZIMUTHS
+      number_of_values: 2
+      type: CMD_READ_ONLY
+      help: This returns the azimuths determined by the beam_selection function in post_shf_dsp.c.
+        The default implementation will provide a processed DoA at index 0 and the DoA of the auto 
+        select beam at index 1. The processed DoA uses speech energy to select from the DoA on each
+        fixed beam to provide the direction of a speaker. NAN will be returned if neither of the 
+        fixed beams contain speech. Versions 2.0.0 and earlier of XVF3800 had a different default 
+        implementation of beam_selection which returned the DoA associated with the 
+        AUDIO_MGR_SELECTED_CHANNELS
+      value_type: TYPE_RADIANS
+      hidden: false
+    - cmd: AUDIO_MGR_SELECTED_CHANNELS
+      number_of_values: 2
+      type: CMD_READ_WRITE
+      help: Default implementation of post processing will use this to select which channels
+        should be output to MUX_USER_CHOSEN_CHANNELS. Note that a customer implementation of
+        the beam selection stage could override this command. How this channel selection aligns
+        with actual output depends on the mux configuration
+      value_type: TYPE_UINT8
+      value_ranges:
+          value0: [0 .. 3]
+          value1: [0 .. 3]
+      hidden: false
+    - cmd: AUDIO_MGR_OP_PACKED
+      number_of_values: 2
+      type: CMD_READ_WRITE
+      help: <L>, <R>; Sets/gets packing status for L and R output channels
+      value_ranges:
+          value0: [0 .. 1]
+          value1: [0 .. 1]
+      value_type: TYPE_UINT8
+      hidden: false
+    - cmd: AUDIO_MGR_OP_UPSAMPLE
+      number_of_values: 2
+      type: CMD_READ_WRITE
+      help: <L>, <R>; Sets/gets upsample status for L and R output channels, where appropriate
+      value_ranges:
+          value0: [0 .. 1]
+          value1: [0 .. 1]
+      value_type: TYPE_UINT8
+      hidden: false
+    - cmd: AUDIO_MGR_OP_L
+      number_of_values: 2
+      type: CMD_READ_WRITE
+      help: <category>, <source>; Sets category and source for L output channel. Equivalent to AUDIO_MGR_OP_L_PK0
+      value_type: TYPE_UINT8
+      value_ranges:
+          value0: [0 .. 12]
+          value1: [0 .. 5]
+      hidden: false
+      super_print_parameters:
+        - audio_mux_category
+        - TYPE_UINT8
+    - cmd: AUDIO_MGR_OP_L_PK0
+      number_of_values: 2
+      type: CMD_READ_WRITE
+      help: <category>, <source>; Sets category and source for first (of three) sources on the L channel in packed mode. Equivalent to AUDIO_MGR_OP_L
+      value_type: TYPE_UINT8
+      value_ranges:
+          value0: [0 .. 12]
+          value1: [0 .. 5]
+      hidden: false
+      super_print_parameters:
+        - audio_mux_category
+        - TYPE_UINT8
+    - cmd: AUDIO_MGR_OP_L_PK1
+      number_of_values: 2
+      type: CMD_READ_WRITE
+      help: Sets category and source for second (of three) sources on the L channel in packed mode
+      value_type: TYPE_UINT8
+      value_ranges:
+          value0: [0 .. 12]
+          value1: [0 .. 5]
+      hidden: false
+      super_print_parameters:
+        - audio_mux_category
+        - TYPE_UINT8
+    - cmd: AUDIO_MGR_OP_L_PK2
+      number_of_values: 2
+      type: CMD_READ_WRITE
+      help: Sets category and source for third (of three) sources on the L channel in packed mode
+      value_type: TYPE_UINT8
+      value_ranges:
+          value0: [0 .. 12]
+          value1: [0 .. 5]
+      hidden: false
+      super_print_parameters:
+        - audio_mux_category
+        - TYPE_UINT8
+    - cmd: AUDIO_MGR_OP_R
+      number_of_values: 2
+      type: CMD_READ_WRITE
+      help: <category>, <source>; Sets category and source for R output channel. Equivalent to AUDIO_MGR_OP_R_PK0
+      value_type: TYPE_UINT8
+      value_ranges:
+          value0: [0 .. 12]
+          value1: [0 .. 5]
+      hidden: false
+      super_print_parameters:
+        - audio_mux_category
+        - TYPE_UINT8
+    - cmd: AUDIO_MGR_OP_R_PK0
+      number_of_values: 2
+      type: CMD_READ_WRITE
+      help: <category>, <source>; Sets category and source for first (of three) sources on the R channel in packed mode. Equivalent to AUDIO_MGR_OP_R
+      value_type: TYPE_UINT8
+      value_ranges:
+          value0: [0 .. 12]
+          value1: [0 .. 5]
+      hidden: false
+      super_print_parameters:
+        - audio_mux_category
+        - TYPE_UINT8
+    - cmd: AUDIO_MGR_OP_R_PK1
+      number_of_values: 2
+      type: CMD_READ_WRITE
+      help: Sets category and source for second (of three) sources on the R channel in packed mode
+      value_type: TYPE_UINT8
+      value_ranges:
+          value0: [0 .. 12]
+          value1: [0 .. 5]
+      hidden: false
+      super_print_parameters:
+        - audio_mux_category
+        - TYPE_UINT8
+    - cmd: AUDIO_MGR_OP_R_PK2
+      number_of_values: 2
+      type: CMD_READ_WRITE
+      help: Sets category and source for third (of three) sources on the R channel in packed mode
+      value_type: TYPE_UINT8
+      value_ranges:
+          value0: [0 .. 12]
+          value1: [0 .. 5]
+      hidden: false
+      super_print_parameters:
+        - audio_mux_category
+        - TYPE_UINT8
+    - cmd: AUDIO_MGR_OP_ALL
+      number_of_values: 12
+      type: CMD_READ_WRITE
+      help: Sets category and source for all 3 sources on L channel and all 3 sources for R channel. Equivalent to AUDIO_MGR_OP_[L,R]_PK[0,1,2] with successive pairs of arguments
+      value_type: TYPE_UINT8
+      value_ranges:
+          value0: [0 .. 12]
+          value1: [0 .. 5]
+          value2: [0 .. 12]
+          value3: [0 .. 5]
+          value4: [0 .. 12]
+          value5: [0 .. 5]
+          value6: [0 .. 12]
+          value7: [0 .. 5]
+          value8: [0 .. 12]
+          value9: [0 .. 5]
+          value10: [0 .. 12]
+          value11: [0 .. 5]
+      hidden: false
+      super_print_parameters:
+        - audio_mux_category
+        - TYPE_UINT8
+        - audio_mux_category
+        - TYPE_UINT8
+        - audio_mux_category
+        - TYPE_UINT8
+        - audio_mux_category
+        - TYPE_UINT8
+        - audio_mux_category
+        - TYPE_UINT8
+        - audio_mux_category
+        - TYPE_UINT8
+    - cmd: I2S_INACTIVE
+      number_of_values: 1
+      type: CMD_READ_ONLY
+      help: Returns whether the main audio loop is exchanging samples with I2S (0). If not (1), I2S is inactive
+      value_type: TYPE_UINT8
+      hidden: false
+    - cmd: AUDIO_MGR_FAR_END_DSP_ENABLE
+      number_of_values: 1
+      type: CMD_READ_WRITE
+      help: Enables/disables XVF3800 far-end DSP (if implemented). Write a 1 to enable, 0 to disable
+      value_type: TYPE_UINT8
+      value_ranges:
+          value0: [0 .. 1]
+      hidden: false
+    - cmd: AUDIO_MGR_SYS_DELAY
+      number_of_values: 1
+      type: CMD_READ_WRITE
+      help:
+        Delay, measured in samples, that is applied to the reference signal before passing to
+        SHF algorithm
+      value_type: TYPE_INT32
+      value_ranges:
+          value0: [-64 .. 256]
+      hidden: false
+    - cmd: I2S_DAC_DSP_ENABLE
+      number_of_values: 1
+      type: CMD_READ_WRITE
+      help: Indicates if the DAC performs DSP on the far-end reference signal.
+        If enabled (1), use the I2S signal as input to the audio pipeline,
+        even in the UA configuration
+      value_type: TYPE_UINT8
+      value_ranges:
+          value0: [0 .. 1]
+      hidden: false
+  external_commands:
+  shared_commands:
+  external_commands:

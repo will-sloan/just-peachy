@@ -1,0 +1,72 @@
+--------------------------------
+Copyright (c) 2024 XMOS LIMITED.
+--------------------------------
+
+Release Notes:XVF3800 firmware version 3.2.1 (build 241029 121941)
+******************************************************************
+
+Introduction
+============
+
+This note describes version 3.2.1 of the XVF3800 firmware. This version can be installed as a new factory image using xFlash.
+
+What's in this release?
+=======================
+
+The XMOS VocalFusion (R) XVF3800 is a high-performance voice processor that uses microphone array processing and a sophisticated audio processing pipeline to capture clear, high-quality speech from anywhere in a room.
+
+This releases fixes a minor issue that caused the Source Release Package to fail to compile.
+
+How to use the firmware
+=======================
+
+See the XVF3800 User Guide in the product documentation for information on features and on how to build and use this release.
+
+If present, files ending in the 'xe' suffix are pre-compiled executable images. Use the xrun or xflash tool to run or install them. To obtain the tools, go to https://www.xmos.com/software-tools.
+
+If present, xvf3800_source_release_<date>_<time>.tar contains the source code. The means to extract it differs depending on the operating system of your computer.
+
+Windows
+-------
+
+Use the 7-zip utility, which is freely available in the Microsoft Store. Open a file browser and navigate to the folder containing xvf3800_source_release_<date>_<time>.tar.
+Right-click on xvf3800_source_release_<date>_<time>.tar. If necessary, select 'Show more options'. Highlight '7-zip' and select one of the 'Extract' options. If necessary, press the 'Close' button upon completion.
+
+Linux and MacOS operating systems
+------------------------------
+
+Using a command line terminal, navigate to the directory containing the 'tar' archive and type:
+
+    tar -xvf xvf3800_source_release_<date>_<time>.tar
+
+Raspberry Pi
+------------
+
+If you have enough space on the Raspberry Pi, you can follow the same steps as for Linux or MacOS systems.
+If this not the case you can just transfer the tuning scripts: download the source files to a development machine, and
+copy the following files and directories to the Raspberry Pi:
+
+  - sources/xvf_tools.py
+  - sources/app_xvf3800/nl_model_gen/
+  - sources/modules/fwk_xvf/modules/boot_spi_slave/scripts/
+  - sources/modules/fwk_xvf/modules/eq_filter_tuning/eq_filter_tuning/
+  - sources/modules/fwk_xvf/modules/tuning/tuning/
+
+Please remember to maintain the same file structure as in the source release package.
+
+The XTC tools are not supported on Raspberry Pi OS, therefore it is not possible to build the firmware on that operating system.
+
+Known issues in this release
+============================
+
+1. Known issue: Building from the Source Release Package fails if there is any blank space in the path of the working directory.
+
+Workaround: Move the source files to a location with no blank space in the path.
+
+2. Known issue: Packed audio not working for UA device on some platforms if 32 bits are used.
+
+Workaround: As per the Programming Guide, section 04 - Testing the Software, subsection Signal Capture: neither Windows nor MacOS support 32bit USB audio bit depths. However, 24 bit audio provides 144 dB of dynamic range, which is more than enough for professional audio applications. 16 bit audio provides 96 dB of dynamic range, which should be adequate for most applications.
+
+3. Known issue: USB device declares its audio endpoints as synchronous, when the device behaves as an adaptive device.
+
+Workaround: Whilst this should not cause issues with audio streaming, should issues be encountered adjust the USB descriptors by editing the file sources/modules/fwk_xvf/src/usb/config/usb_descriptors.c. On lines 360 and 377, replace TUSB_ISO_EP_ATT_SYNCHRONOUS with TUSB_ISO_EP_ATT_ADAPTIVE. Recompile.

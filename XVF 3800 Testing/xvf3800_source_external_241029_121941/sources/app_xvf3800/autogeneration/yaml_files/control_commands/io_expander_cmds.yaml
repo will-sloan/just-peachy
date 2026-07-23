@@ -1,0 +1,8 @@
+IO_EXPANDER_SERVICER_RESID:
+  dedicated_commands:
+    - cmd: INTERNAL_GPO_LED_STATE
+      number_of_values: 2
+      type: CMD_WRITE_ONLY
+      help: Set a GPO LED to a desired state. payload[0] = GPO LED index (all_io_exp_leds_t) and payload[1] = LED state (e_led_mode_t)
+      value_type: TYPE_UINT8
+      hidden: true

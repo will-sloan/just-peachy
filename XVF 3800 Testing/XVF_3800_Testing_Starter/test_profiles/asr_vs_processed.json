@@ -1,0 +1,12 @@
+{
+  "name": "asr_vs_processed",
+  "description": "Left channel: ASR output. Right channel: normal post-processed auto-selected beam.",
+  "commands": [
+    ["AUDIO_MGR_OP_UPSAMPLE", "1", "1"],
+    ["AEC_ASROUTONOFF", "1"],
+    ["AUDIO_MGR_OP_L", "7", "3"],
+    ["AUDIO_MGR_OP_R", "6", "3"]
+  ],
+  "left_label": "asr_autoselect",
+  "right_label": "processed_autoselect"
+}

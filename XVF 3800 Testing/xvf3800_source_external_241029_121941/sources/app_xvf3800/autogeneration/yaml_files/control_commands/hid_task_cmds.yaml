@@ -1,0 +1,8 @@
+HID_TASK_RESID:
+  dedicated_commands:
+    - cmd: INTERNAL_BUTTON_PRESS
+      number_of_values: 7
+      type: CMD_WRITE_ONLY
+      help: payload[0] GPI pin source (EVK or IO EXPANDER), payload[1] GPI button index (all_io_exp_buttons_t or all_evk_buttons_t), payload[2] button state, payload[3]..[6] Button press duration in reference timer ticks.
+      value_type: TYPE_UINT8
+      hidden: true

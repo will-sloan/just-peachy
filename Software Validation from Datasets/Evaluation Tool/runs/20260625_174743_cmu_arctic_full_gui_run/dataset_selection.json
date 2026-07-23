@@ -1,0 +1,34 @@
+{
+  "audio_format": "wav",
+  "dataset_id": "cmu_arctic",
+  "dataset_key": "cmu_arctic",
+  "dataset_name": "CMU Arctic",
+  "evaluation_unit": "one utterance WAV file",
+  "max_recordings": 1000,
+  "missing_audio_count": 0,
+  "normalized_metadata_dir": "Normalized Metadata/CMU_Arctic",
+  "records_manifest": "dataset_selection_records.jsonl",
+  "reference_tables": {
+    "recordings": "Normalized Metadata/CMU_Arctic/recordings.parquet",
+    "utterances": "Normalized Metadata/CMU_Arctic/utterances.parquet"
+  },
+  "rows_after_filters": 15583,
+  "selected_accent_counts": {
+    "US English": 1000
+  },
+  "selected_accent_group_counts": {
+    "native_us": 1000
+  },
+  "selected_evaluation_items": 1000,
+  "selected_gender_counts": {
+    "male": 1000
+  },
+  "selected_recordings": 1000,
+  "selected_source_recordings": 1000,
+  "selected_speaker_variant_group_counts": {
+    "additional": 1000
+  },
+  "source_records_manifest": "dataset_selection_source_records.jsonl",
+  "subset_filters": {},
+  "total_metadata_rows": 15583
+}

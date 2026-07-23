@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "yaml_autogen"
+version = "0.0.2"
+description = "A package for aiding with generation of project-specific files using Jinja templates"
+authors = [ 
+    {name = "Angel Cascarino", email = "angelcascarino@xmos.com"}, 
+]
+license = { file = "LICENSE" }
+readme = "README.rst"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "Jinja2",
+    "pyyaml"
+]
+
+[tool.pytest.ini_options]
+addopts = "--doctest-modules"

@@ -1,0 +1,101 @@
+@Library('xmos_jenkins_shared_library@v0.27.0')
+
+def runningOn(machine) {
+    println "Stage running on:"
+    println machine
+}
+
+getApproval()
+
+pipeline {
+    agent none
+
+    options {
+        disableConcurrentBuilds()
+        skipDefaultCheckout()
+        timestamps()
+        buildDiscarder(xmosDiscardBuildSettings(onlyArtifacts=false))
+    }
+    parameters {
+        string(
+            name: 'TOOLS_VERSION',
+            defaultValue: '15.3.0',
+            description: 'The XTC tools version'
+        )
+    }
+    environment {
+        PYTHON_VERSION = "3.10.5"
+        VENV_DIRNAME = ".venv"
+    }
+
+    stages {
+        stage("Do CI") {
+            parallel {
+                stage('Build sw_xvf3800') {
+                    agent none
+                    when {
+                        expression {
+                            return !env.GH_LABEL_ALL.contains("skip_downstream")
+                        }
+                    }
+                    steps {
+                        println "add 'skip_downstream' label to your PR to skip building downstream projects"
+                        println "Starting build of 3800, find build details here: http://srv-bri-jcim0:8080/blue/organizations/jenkins/Manual%2Fsw_xvf3800_manual_trigger/activity"
+                        script {
+                            // build sw_xvf3800 with this commit of fwk_xvf
+                            (url, api_url, server, owner, repo, branch, run_sha, head_sha, event) = extractFromScm()
+                            build job: '/Manual/sw_xvf3800_manual_trigger/develop', parameters: [booleanParam(name: 'TRIGGERED_BY_UPSTREAM', value: true), string(name: 'UPSTREAM_PR_LABELS', value: env.GH_LABEL_ALL), string(name: 'UPSTREAM_FWK_XVF_GIT_HASH', value: head_sha)]
+                        }
+                    }
+                }
+                stage('Build sw_xvf3820') {
+                    agent none
+                    when {
+                        expression {
+                            return !env.GH_LABEL_ALL.contains("skip_downstream")
+                        }
+                    }
+                    steps {
+                        println "add 'skip_downstream' label to your PR to skip building downstream projects"
+                        println "Starting build of 3820, find build details here: http://srv-bri-jcim0:8080/blue/organizations/jenkins/Manual%2Fsw_xvf3820_manual_trigger/activity"
+                        script {
+                            // build sw_xvf3820 with this commit of fwk_xvf
+                            (url, api_url, server, owner, repo, branch, run_sha, head_sha, event) = extractFromScm()
+                            build job: '/Manual/sw_xvf3820_manual_trigger/develop', parameters: [booleanParam(name: 'TRIGGERED_BY_UPSTREAM', value: true), string(name: 'UPSTREAM_PR_LABELS', value: env.GH_LABEL_ALL), string(name: 'UPSTREAM_FWK_XVF_GIT_HASH', value: head_sha)]
+                        }
+                    }
+                }
+                stage('tests') {
+                    agent {
+                        label 'linux&&64'
+                    }
+                    steps {
+                        withTools(params.TOOLS_VERSION){ 
+                            dir("fwk_xvf") {
+                                checkout scm
+                                sh "git submodule update --init --recursive"
+                                createVenv('requirements.txt')
+                                withVenv {
+                                    sh "pip install -r requirements.txt"
+                                    sh "tools/ci/run-unit-tests.sh"
+                                    dir("modules/yaml_autogen") {
+                                        sh 'python -m pytest --junitxml=pytest_result.xml -rA -v --durations=0 -o junit_logging=all'
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    post {
+                        always {
+                            junit "fwk_xvf/ctest_results.xml"
+                            junit "fwk_xvf/modules/yaml_autogen/pytest_result.xml"
+                        }
+                        cleanup {
+                            xcoreCleanSandbox()
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

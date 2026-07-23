@@ -1,0 +1,14 @@
+Metadata-Version: 2.4
+Name: yaml_autogen
+Version: 0.0.2
+Summary: A package for aiding with generation of project-specific files using Jinja templates
+Author-email: Angel Cascarino <angelcascarino@xmos.com>
+License: This Software is subject to the terms of the XCORE VocalFusion Licence.
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/x-rst
+License-File: LICENSE
+Requires-Dist: Jinja2
+Requires-Dist: pyyaml
+Dynamic: license-file

@@ -1,0 +1,111 @@
+AEC_RESID:
+  - cmd: AEC_HPFONOFF
+    default_value: on125
+  - cmd: AEC_AECSILENCELEVEL
+    default_value: 1e-8f
+  - cmd: AEC_AECEMPHASISONOFF
+    default_value: off
+  - cmd: AEC_FAR_EXTGAIN
+    default_value: 0.0dB
+  - cmd: AEC_PCD_COUPLINGI
+    default_value: disabled
+  - cmd: AEC_PCD_MINTHR
+    default_value: 0.005
+  - cmd: AEC_PCD_MAXTHR
+    default_value: 0.1
+  - cmd: AEC_ASROUTONOFF
+    default_value: 0
+  - cmd: AEC_ASROUTGAIN
+    default_value: 1.0
+  - cmd: AEC_FIXEDBEAMSONOFF
+    default_value: off
+  - cmd: AEC_FIXEDBEAMNOISETHR
+    default_value: (0.4,0.4)
+  - cmd: AEC_FIXEDBEAMSAZIMUTH_VALUES
+    default_value: (0,0)
+  - cmd: AEC_FIXEDBEAMSELEVATION_VALUES
+    default_value: (0,0)
+  - cmd: AEC_FIXEDBEAMSGATING
+    default_value: 0
+
+PP_RESID:
+  - cmd: PP_AGCONOFF
+    default_value: on
+  - cmd: PP_AGCMAXGAIN
+    default_value: 200.0
+  - cmd: PP_AGCDESIREDLEVEL
+    default_value: 0.007
+  - cmd: PP_AGCGAIN
+    default_value: 66.0
+  - cmd: PP_AGCTIME
+    default_value: 0.9
+  - cmd: PP_AGCFASTTIME
+    default_value: 0.1f
+  - cmd: PP_AGCALPHAFASTGAIN
+    default_value: 0.0
+  - cmd: PP_AGCALPHASLOW
+    default_value: 0.984
+  - cmd: PP_AGCALPHAFAST
+    default_value: 0.36
+  - cmd: PP_LIMITONOFF
+    default_value: on
+  - cmd: PP_LIMITPLIMIT
+    default_value: 0.47
+  - cmd: PP_MIN_NS
+    default_value: 0.15
+  - cmd: PP_MIN_NN
+    default_value: 0.51
+  - cmd: PP_ECHOONOFF
+    default_value: on
+  - cmd: PP_GAMMA_E
+    default_value: 1.0
+  - cmd: PP_GAMMA_ETAIL
+    default_value: 1.0
+  - cmd: PP_GAMMA_ENL
+    default_value: 1.1
+  - cmd: PP_NLATTENONOFF
+    default_value: 1
+  - cmd: PP_NLAEC_MODE
+    default_value: 0
+  - cmd: PP_MGSCALE
+    default_value: (1000.0,1.0)
+  - cmd: PP_FMIN_SPEINDEX
+    default_value: 593.75
+  - cmd: PP_DTSENSITIVE
+    default_value: 0
+  - cmd: PP_ATTNS_MODE
+    default_value: 1
+  - cmd: PP_ATTNS_NOMINAL
+    default_value: 1.0
+  - cmd: PP_ATTNS_SLOPE
+    default_value: 1.0
+
+AUDIO_MGR_RESID:
+  - cmd: AUDIO_MGR_MIC_GAIN
+    default_value: 6.5
+  - cmd: AUDIO_MGR_REF_GAIN
+    default_value: 1.5
+  - cmd: AUDIO_MGR_SELECTED_CHANNELS
+    default_value: (3, 3)
+  - cmd: AUDIO_MGR_SYS_DELAY
+    default_value: -32
+  - cmd: AUDIO_MGR_OP_PACKED
+    default_value: (0, 0)
+  - cmd: AUDIO_MGR_OP_L
+    default_value: (8, 0)
+  - cmd: AUDIO_MGR_OP_L_PK1
+    default_value: (1, 0)
+  - cmd: AUDIO_MGR_OP_L_PK2
+    default_value: (1, 2)
+  - cmd: AUDIO_MGR_OP_R
+    default_value: (8, 1)
+  - cmd: AUDIO_MGR_OP_R_PK1
+    default_value: (1, 1)
+  - cmd: AUDIO_MGR_OP_R_PK2
+    default_value: (1, 3)
+  - cmd: AUDIO_MGR_FAR_END_DSP_ENABLE
+    default_value: 0
+  - cmd: I2S_INPUT_PACKED
+    default_value: 0
+  - cmd: I2S_DAC_DSP_ENABLE
+    default_value: 0

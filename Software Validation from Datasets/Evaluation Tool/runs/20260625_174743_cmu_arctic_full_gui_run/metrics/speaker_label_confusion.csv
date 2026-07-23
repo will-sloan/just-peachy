@@ -1,0 +1,2 @@
+speaker_label,predicted_speaker_label,file_count,total_duration_sec,mean_wer
+cmu_us_aew_arctic,Unknown,1000,3441.84527,1.0025

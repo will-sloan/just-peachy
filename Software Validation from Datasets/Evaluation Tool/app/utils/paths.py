@@ -42,7 +42,7 @@ def find_project_root(start: Path | None = None) -> Path:
 def _looks_like_project_root(path: Path) -> bool:
     return (
         (path / "Normalized Metadata").is_dir()
-        and (path / "RawDatasets").is_dir()
+        and _raw_datasets_root(path) is not None
     )
 
 
@@ -111,7 +111,22 @@ def resolve_metadata_path(metadata_path: str | Path | None, project_root: Path) 
         return None
     if relative.is_absolute():
         return relative
-    return project_root / relative
+    direct = project_root / relative
+    if direct.exists() or not relative.parts:
+        return direct
+    if relative.parts[0] == "RawDatasets":
+        raw_root = _raw_datasets_root(project_root)
+        if raw_root is not None:
+            return raw_root.joinpath(*relative.parts[1:])
+    return direct
+
+
+def _raw_datasets_root(project_root: Path) -> Path | None:
+    for alias in PROJECT_ANCHOR_ALIASES["RawDatasets"]:
+        candidate = project_root / alias
+        if candidate.is_dir():
+            return candidate
+    return None
 
 
 def safe_relative_to(path: Path, root: Path) -> str:

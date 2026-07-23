@@ -1,0 +1,12 @@
+[project]
+name = "nlmodel_tuning"
+version = "0.1.0"
+dependencies = [
+    "matplotlib",
+    "asyncssh",
+    "Jinja2"
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

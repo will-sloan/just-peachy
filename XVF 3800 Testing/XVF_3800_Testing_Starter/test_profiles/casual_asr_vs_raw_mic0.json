@@ -1,0 +1,12 @@
+{
+  "name": "casual_asr_vs_raw_mic0",
+  "description": "Left channel: XVF3800 ASR output from the auto-selected beam. Right channel: raw microphone 0. Telemetry logs DoA and speech energy concurrently.",
+  "commands": [
+    ["AUDIO_MGR_OP_UPSAMPLE", "1", "1"],
+    ["AEC_ASROUTONOFF", "1"],
+    ["AUDIO_MGR_OP_L", "7", "3"],
+    ["AUDIO_MGR_OP_R", "1", "0"]
+  ],
+  "left_label": "asr_autoselect",
+  "right_label": "raw_mic0"
+}

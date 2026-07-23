@@ -1,0 +1,50 @@
+USB_BUFFER_SERVICER_RESID:
+  dedicated_commands:
+    - cmd: INTERNAL_MIC_MUTE
+      number_of_values: 2
+      type: CMD_WRITE_ONLY
+      help: entityID UAC2_ENTITY_MIC_FEATURE_UNIT, ctrlSel AUDIO_FU_CTRL_MUTE cmd. payload[0] channelNum, payload[1] mute status
+      value_type: TYPE_UINT8
+      hidden: true
+    - cmd: INTERNAL_SPK_MUTE
+      number_of_values: 2
+      type: CMD_WRITE_ONLY
+      help: entityID UAC2_ENTITY_SPK_FEATURE_UNIT, ctrlSel AUDIO_FU_CTRL_MUTE cmd. payload[0] channelNum, payload[1] mute status
+      value_type: TYPE_UINT8
+      hidden: true
+    - cmd: INTERNAL_MIC_VOL
+      number_of_values: 2
+      type: CMD_WRITE_ONLY
+      help: entityID UAC2_ENTITY_MIC_FEATURE_UNIT, ctrlSel AUDIO_FU_CTRL_VOLUME cmd. payload[0] channelNum, payload[1] current volume in decibels
+      value_type: TYPE_UINT16
+      hidden: true
+    - cmd: INTERNAL_SPK_VOL
+      number_of_values: 2
+      type: CMD_WRITE_ONLY
+      help: entityID UAC2_ENTITY_SPK_FEATURE_UNIT, ctrlSel AUDIO_FU_CTRL_VOLUME cmd. payload[0] channelNum, payload[1] current volume in decibels
+      value_type: TYPE_UINT16
+      hidden: true
+    - cmd: INTERNAL_ALT_INTERFACE
+      number_of_values: 2
+      type: CMD_WRITE_ONLY
+      help: set_interface on EP0. payload[0] interface, payload[1] alt setting
+      value_type: TYPE_UINT8
+      hidden: true
+    - cmd: USB_D2H_BUFFER_STABLE
+      number_of_values: 1
+      type: CMD_READ_ONLY
+      help: Boolean value indicating if the D2H FIFO has been stable when streaming from the device. The buffer_stable value is retained
+            between a streaming stop and the next streaming start event and reset on the next streaming start event. The command may return one
+            of the following. 0 if the buffer was ever unstable after a streaming start event. 1 if the buffer has always been stable after it
+            reached a stable state after a streaming start event.
+      value_type: TYPE_UINT8
+      hidden: false
+    - cmd: USB_H2D_BUFFER_STABLE
+      number_of_values: 1
+      type: CMD_READ_ONLY
+      help: Boolean value indicating if the H2D FIFO has been stable when streaming to the device. The buffer_stable value is retained
+            between a streaming stop and the next streaming start event and reset on the next streaming start event. The command may return one
+            of the following. 0 if the buffer was ever unstable after a streaming start event. 1 if the buffer has always been stable after it
+            reached a stable state after a streaming start event.
+      value_type: TYPE_UINT8
+      hidden: false

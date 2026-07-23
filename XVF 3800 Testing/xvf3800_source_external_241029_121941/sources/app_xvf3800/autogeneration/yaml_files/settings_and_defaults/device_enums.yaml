@@ -1,0 +1,63 @@
+
+## List of enums used in the device.
+## Add new enums here and refer to them in the super_print_parameters
+## cmds yaml file for enum string printing from host app in case of read commands.
+
+
+audio_mux_category:
+  MUX_SILENCE:
+    value: 0
+    description: 4 channels of silence
+  MUX_RAW_MICS:
+    value:
+    description: Output of the actual microphones
+  MUX_UNPACKED_MICS:
+    value:
+    description: microphone output from the packed input signal, This will be undefined when not using packed input
+  MUX_MICS_W_GAIN:
+    value:
+    description: Chosen microphone signal (packed/raw) after having the configurable fixed gain applied to it. Note that the gain is applied as floating point and then converted back to int32 to create this signal. This is the signal which is passed to the SHF task for processing
+  MUX_FAR_END:
+    value:
+    description: Output from I2S task which is the far end reference signal with the custom pre-processing DSP applied and then, when running at 48kHz, downsampled to 16kHz.
+  MUX_FAR_END_SYSDELAY:
+    value:
+    description: Far end signal with sys-delay applied, this is passed to SHF task
+  MUX_PROCESSED_MICS:
+    value:
+    description: 4 channel output of SHF task containing the processed output channels
+  MUX_AEC_RESIDUALS:
+    value:
+    description: 4 channel of AEC residuals, 1 for each microphone
+  MUX_USER_CHOSEN_CHANNELS:
+    value:
+    description: 2 channels selected by user DSP
+  MUX_ALL_USER_CHANNELS:
+    value:
+    description: All output channels from user post SHF DSP
+  MUX_FAR_END_NATIVE:
+    value:
+    description: Output from I2S task which is the far end reference signal with the custom pre-processing DSP applied. Always at native I2S rate
+  MUX_DELAYED_MICS:
+    value:
+    description: Raw microphones after applying the delay but before applying gain.
+  MUX_FAR_END_W_GAIN:
+    value:
+    description: Far end signal with configurable fixed gain applied. This is the signal which is passed to the SHF task for processing. Note that this is after system delay has been applied.
+  NUM_MUX_ENTRIES:
+    value:
+    description: Meta entry to count how many buffers are available in the mux
+
+gpi_interrupt_edge:
+  EdgeNone:
+    value: 0
+    description: Do not create an event on any edge
+  EdgeFalling:
+    value:
+    description: Create an event on a falling edge (high to low)
+  EdgeRising:
+    value:
+    description: Create an event on a rising edge (low to high)
+  EdgeBoth:
+    value:
+    description: Create an event on any edge

@@ -1,0 +1,19 @@
+# Core runtime / model utilities
+numpy
+scipy
+soundfile
+PyYAML
+
+# ONNX stack
+onnx
+onnxruntime
+onnxruntime-extensions
+olive-ai
+optimum[onnxruntime]
+
+# Speech-task runtime / models
+sherpa-onnx
+silero-vad
+
+# Testing / linting
+pytest

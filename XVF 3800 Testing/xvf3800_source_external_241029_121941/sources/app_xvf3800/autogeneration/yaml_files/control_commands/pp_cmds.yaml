@@ -1,0 +1,94 @@
+PP_SERVICER_RESID:
+  dedicated_commands:
+  shared_commands:
+  external_commands:
+PP_RESID:
+  dedicated_commands:
+    - cmd: PP_CURRENT_IDLE_TIME
+      number_of_values: 1
+      type: CMD_READ_ONLY
+      help: PP processing current idle time in 10ns ticks
+      value_type: TYPE_UINT32
+      hidden: false
+    - cmd: PP_MIN_IDLE_TIME
+      number_of_values: 1
+      type: CMD_READ_ONLY
+      help: PP processing minimum idle time in 10ns ticks
+      value_type: TYPE_UINT32
+      hidden: false
+    - cmd: PP_RESET_MIN_IDLE_TIME
+      number_of_values: 1
+      type: CMD_WRITE_ONLY
+      help: Reset the PP minimum idle time. The value of the argument passed is ignored.
+      value_type: TYPE_UINT32
+      hidden: false
+  shared_commands:
+    - cmd: SPECIAL_CMD_PP_NLMODEL_NROW_NCOL
+      number_of_values: 2
+      type: CMD_READ_ONLY
+      help: Get number of rows and number of cols in PP NLModel buffer
+      value_type: TYPE_INT32
+      hidden: true
+    - cmd: SPECIAL_CMD_NLMODEL_START
+      number_of_values: 1
+      type: CMD_WRITE_ONLY
+      help: Start an NLModel Get or Set
+      value_type: TYPE_INT32
+      hidden: true
+    - cmd: SPECIAL_CMD_NLMODEL_COEFF_START_OFFSET
+      number_of_values: 1
+      type: CMD_READ_WRITE
+      help: start offset to get or set the NLModel from
+      value_type: TYPE_INT32
+      hidden: true
+    - cmd: SPECIAL_CMD_PP_NLMODEL
+      number_of_values: 15
+      type: CMD_READ_WRITE
+      help: get or set NL model values
+      value_type: TYPE_FLOAT
+      hidden: true
+    - cmd: PP_NL_MODEL_CMD_ABORT
+      number_of_values: 1
+      type: CMD_WRITE_ONLY
+      help: Reset the special command state machine. Used for safely exiting from a NL model read/write sequence that has gone wrong.
+      value_type: TYPE_INT32
+      hidden: false
+    - cmd: SPECIAL_CMD_PP_NLMODEL_BAND
+      number_of_values: 1
+      type: CMD_READ_WRITE
+      help: Band index for which to set or get the NL model. 0 = LowBand, 1 = HighBand
+      value_type: TYPE_UINT8
+      value_ranges:
+        value0: [0 .. 1]
+      hidden: true
+    - cmd: SPECIAL_CMD_PP_EQUALIZATION_NUM_BANDS
+      number_of_values: 1
+      type: CMD_READ_ONLY
+      help: Get number of bands for equalization filter
+      value_type: TYPE_INT32
+      hidden: true
+    - cmd: SPECIAL_CMD_EQUALIZATION_START
+      number_of_values: 1
+      type: CMD_WRITE_ONLY
+      help: Start an equalization Get or Set
+      value_type: TYPE_INT32
+      hidden: true
+    - cmd: SPECIAL_CMD_EQUALIZATION_COEFF_START_OFFSET
+      number_of_values: 1
+      type: CMD_READ_WRITE
+      help: start offset to get or set the equalization from
+      value_type: TYPE_INT32
+      hidden: true
+    - cmd: SPECIAL_CMD_PP_EQUALIZATION
+      number_of_values: 15
+      type: CMD_READ_WRITE
+      help: get or set equalization values
+      value_type: TYPE_FLOAT
+      hidden: true
+    - cmd: PP_EQUALIZATION_CMD_ABORT
+      number_of_values: 1
+      type: CMD_WRITE_ONLY
+      help: Reset the special command state machine. Used for safely exiting from an equalization read/write sequence that has gone wrong.
+      value_type: TYPE_INT32
+      hidden: false
+  external_commands:
