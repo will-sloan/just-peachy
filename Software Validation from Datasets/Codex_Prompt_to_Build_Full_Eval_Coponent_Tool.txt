@@ -1,0 +1,1324 @@
+You are extending an existing, working speech Evaluation Tool into a reliable,
+unattended, repeatable speech-pipeline benchmarking system.
+
+Work inside the existing repository:
+
+C:\Users\amiri\Documents\GitHub\just-peachy\
+Software Validation from Datasets\Evaluation Tool
+
+There is no separate speech-processing repository. The speech pipeline,
+component adapters, inference configurations, dataset integration, augmentation,
+scoring, GUI, and CLI all exist inside this repository.
+
+Implement the new system in phases. Do not rewrite the current Evaluation Tool.
+Reuse existing dataset loading, path rebasing, augmentation, inference,
+prediction serialization, scoring, grouped metrics, plotting, and reporting.
+
+At the end of every phase:
+
+1. run the required tests;
+2. write a phase report;
+3. list files changed;
+4. record commands executed;
+5. describe unresolved issues;
+6. continue only when the phase tests pass.
+
+If a blocking ambiguity or missing model asset prevents safe implementation,
+stop that phase, document the issue, and leave prior working functionality
+unchanged.
+
+======================================================================
+1. AUTHORITATIVE SOURCES
+======================================================================
+
+Before making any changes, inspect and use:
+
+- the main Evaluation Tool README;
+- all planning-package documents:
+  - 01_planning_report.md
+  - 02_benchmark_manifest_spec.md
+  - 03_scenario_schema.yaml
+  - 04_metrics_and_logging_spec.md
+  - 05_codex_prompt_manifest_builder.md
+  - 06_codex_prompt_automated_runner.md
+  - 07_information_needed_later.md
+- normalized README files for all six datasets;
+- normalized parquet tables;
+- normalization logs;
+- run_evaluation.py;
+- the current CLI implementation;
+- the dataset registry;
+- the current GUI command builder;
+- augmentation modules;
+- model-runner base interfaces;
+- ExternalStubRunner;
+- app/inference_pipeline/pipeline.py;
+- prediction schema and prediction writers;
+- scoring, plotting, and reporting modules;
+- current tests;
+- component configuration files under:
+
+  configs/inference/components
+
+- higher-level inference configuration YAML files.
+
+The current code is authoritative for actual interfaces and class names. The
+planning documents are authoritative for the intended new behavior. If they
+conflict, document the conflict before choosing an implementation.
+
+======================================================================
+2. NON-NEGOTIABLE SCOPE
+======================================================================
+
+The initial real component candidates are:
+
+ASR:
+- Whisper Tiny
+- Whisper Base
+- Whisper Small
+
+VAD and segmentation:
+- full-record / no-op segmentation baseline;
+- Energy VAD;
+- Energy VAD plus the existing VADChunker;
+- any other VAD configuration only if it is referenced by an active config,
+  its required assets are locally available, and a smoke qualification passes.
+
+Speaker processing:
+- speaker processing disabled baseline;
+- SpeechBrain ECAPA embedding extraction, if its configured assets load;
+- existing cosine-threshold matcher, after embedding output is validated.
+
+No-op components may be used for contract and smoke tests, but they must never
+be presented as quality candidates.
+
+Explicitly exclude from this phase:
+
+- ONNX code and ONNX runtimes;
+- XVF3800;
+- Whisper Medium;
+- Whisper Turbo;
+- Whisper Large variants;
+- Faster-Whisper;
+- inactive or prototype components;
+- Raspberry Pi future configs;
+- pyannote unless a currently active, runnable configuration and required
+  local assets are discovered and explicitly qualified;
+- any class merely present in the repository but not referenced by an intended
+  active configuration.
+
+Whisper Small is an intended candidate even if its asset execution has not yet
+been proven. Qualify it during Phase 1. If it cannot run, mark it unavailable
+with a concrete reason rather than silently excluding it.
+
+Do not change the behavior of the existing:
+
+- dataset normalization;
+- dataset registry;
+- GUI;
+- augmentation algorithm;
+- simulation runner;
+- external runner contract;
+- WER scoring;
+- grouped metric generation;
+- plotting;
+- report generation;
+- prediction ID matching.
+
+Extend these systems through stable interfaces.
+
+======================================================================
+3. DATASETS AND BENCHMARK PANELS
+======================================================================
+
+The six supported datasets are:
+
+- CMU Arctic
+- LibriSpeech
+- HiFiTTS
+- AMI
+- VOiCES
+- CHiME-6
+
+Create three benchmark panels:
+
+1. controlled_clean
+   - clean CMU Arctic;
+   - LibriSpeech clean rows;
+   - HiFiTTS clean rows;
+   - may receive controlled noise and RIR simulation.
+
+2. native_robustness
+   - AMI;
+   - VOiCES;
+   - CHiME-6;
+   - optional LibriSpeech other rows;
+   - optional HiFiTTS other rows;
+   - must not receive synthetic augmentation.
+
+3. speaker_protocol
+   - clean enrollment rows;
+   - clean and degraded probe rows;
+   - enrollment and probe source utterances must remain disjoint.
+
+Every manifest row must contain an explicit augmentation policy:
+
+- allow
+- native_only
+- review
+
+The resolver must reject augmentation when:
+
+- panel is native_robustness;
+- dataset is AMI, VOiCES, or CHiME-6;
+- LibriSpeech row belongs to an unapproved other subset;
+- HiFiTTS row belongs to an unapproved other subset;
+- row is marked native_only;
+- source metadata identifies a native noisy or reverberant condition.
+
+======================================================================
+4. INITIAL STANDARD BENCHMARK TARGETS
+======================================================================
+
+Implement deterministic small, standard, and large manifests according to the
+planning specifications. Verify all quotas against actual metadata and report
+shortfalls.
+
+The initial standard target is:
+
+CMU Arctic:
+- use all 18 eligible speakers;
+- balanced core: 12 speakers, 6 female and 6 male;
+- 20 shared prompt IDs per core speaker;
+- remaining 6 speakers form an accent extension;
+- 10 utterances per extension speaker;
+- target: 300 source utterances;
+- select prompts from the actual intersection available to the relevant
+  speakers.
+
+LibriSpeech:
+- use dev-clean for controlled simulation;
+- 40 speakers: 20 female and 20 male;
+- 10 utterances per speaker;
+- use at least two chapters per speaker where possible;
+- 3 enrollment and 7 probe/evaluation utterances;
+- target: 400 source utterances.
+
+HiFiTTS:
+- use all eligible readers;
+- cap at 20 clean utterances per reader;
+- 4 enrollment and up to 16 probe/evaluation utterances;
+- prefer multiple books where available;
+- target is approximately 200 source utterances, but calculate the actual
+  realized count from metadata.
+
+AMI:
+- select 6 meetings;
+- approximately 4 usable speakers per meeting;
+- 12 segments per speaker;
+- matched headset and one canonical array stream;
+- target: 288 unique source segments and 576 evaluated stream-segment items.
+
+VOiCES:
+- select 40 speakers: 20 female and 20 male;
+- 2 source utterances per speaker;
+- 8 native acoustic conditions per source utterance;
+- hold source content constant across conditions;
+- target: 80 source utterances and 640 evaluated items.
+
+CHiME-6:
+- select 4 sessions, preferring development sessions;
+- approximately 4 speakers per session;
+- 15 segments per speaker;
+- matched participant-close and one canonical far-field microphone;
+- target: 240 unique source segments and 480 evaluated stream-segment items.
+
+Use deterministic seed 3800.
+
+Do not depend on dataframe row order. Generate stable selection ranks from a
+canonical hash containing at least:
+
+- seed;
+- dataset key;
+- source_recording_id;
+- utt_id.
+
+Store all selected rows in immutable, versioned parquet manifests. Do not copy
+the source audio.
+
+======================================================================
+5. ROOM IMPULSE RESPONSES
+======================================================================
+
+Use the existing Evaluation Tool RIR-convolution implementation. Do not create
+new RT60, EDT, C50, C80, or acoustic-characterization functionality.
+
+RIR source directory:
+
+C:\Users\amiri\Documents\GitHub\just-peachy\
+Software Validation from Datasets\
+Raw Datasets (Not formatted)\MIT 271 RIRs\Audio
+
+Requested environmental RIR identifiers:
+
+- h025_Diningroom_8txts
+- h004_LivingRoom_Large_49txts
+- h044_Kitchen_3txts
+- h060_Office_ConferenceRoom_3txts
+- h093_Restaurant_2txts
+- h155_FastFoodRestaurant_1txts
+- h063_Cafeteria_3txts
+- h050_Bar_IrishPub_3txts
+- h035_Bar_LargeSportsBar_5txts
+- h069_Supermarket_2txts
+- h118_MITCampus_Atrium_1txts
+- h011_Car_29txts
+- h068_SwimmingPool_2txts
+- h170_Outside_BikePath_1txts
+- h180_Outside_Field_1txts
+
+Inspect the actual directory and resolve each requested identifier to an actual
+WAV path.
+
+Do not silently rename or substitute missing files. Produce an RIR audit that
+contains:
+
+- requested identifier;
+- resolved identifier;
+- relative path;
+- SHA256;
+- resolution status;
+- discrepancy note.
+
+Known discrepancies previously observed and requiring verification include:
+
+- requested h004_LivingRoom_Large_49txts versus a possible actual
+  h004_LivingRoom_Large_48txts.wav;
+- requested h044_Kitchen_3txts versus a possible actual
+  h044_ParkingLot_4txts.wav.
+
+Treat every RIR environment as a distinct condition. Do not collapse the RIRs
+into generic low, medium, and high categories.
+
+Preserve exact RIR identity and hash in every resolved scenario and result.
+
+Avoid a full Cartesian product. Support named condition sets, for example:
+
+- smoke conditions;
+- core controlled conditions;
+- all requested RIR environments;
+- selected RIR-plus-noise interaction conditions.
+
+The campaign configuration must decide which condition set is used.
+
+======================================================================
+6. COMPONENT CONFIGURATION AND PIPELINE RESOLUTION
+======================================================================
+
+Treat configs/inference/components as the source of truth for available
+component fragments.
+
+Inspect how higher-level inference YAML files currently compose these fragments.
+
+Add a component-catalog and pipeline-resolution layer that:
+
+- discovers intended component configs;
+- records component family;
+- records implementation class;
+- records config path and hash;
+- records required assets and packages;
+- records device and dtype settings;
+- records whether the component passed qualification;
+- records input and output contract;
+- records compatibility constraints;
+- writes a resolved scenario-specific inference configuration without modifying
+  the source component config.
+
+Do not introduce a new configuration format if the repository already has a
+usable composition mechanism.
+
+Every resolved pipeline scenario must preserve:
+
+- ASR config path/hash;
+- VAD config path/hash;
+- segmentation config path/hash;
+- speaker embedding config path/hash;
+- speaker matcher config path/hash;
+- diarization config if active;
+- model name;
+- model asset identity/hash where practical;
+- device;
+- dtype;
+- component enable/disable state;
+- configuration-resolution warnings.
+
+The future architecture must allow additional component configs to be added
+without rewriting the campaign runner.
+
+======================================================================
+7. PIPELINE ADAPTER
+======================================================================
+
+Use the existing pipeline boundary:
+
+normalized Evaluation Tool record
+→ existing augmentation materialization
+→ resolved inference configuration
+→ existing PipelineRunner
+→ active VAD/segmentation/ASR/speaker components
+→ PipelineOutput
+→ prediction adapter
+→ predictions/utterances.jsonl
+→ existing scoring and reporting
+
+Create the smallest necessary configured-runner or adapter layer. Do not rebuild
+the inference pipeline.
+
+The adapter must:
+
+- read record["inference_audio_path"];
+- preserve recording_id exactly;
+- preserve utt_id exactly;
+- respect start_sec and end_sec for AMI and CHiME-6;
+- preserve source_recording_id;
+- map pipeline transcript output to text;
+- map speaker output to speaker_label;
+- capture component diagnostics;
+- catch per-item errors without corrupting the campaign;
+- never copy a reference transcript or reference speaker label into a real
+  prediction.
+
+Unknown speaker output must remain explicit and scoreable.
+
+Use one canonical campaign-wide representation:
+
+Unknown
+
+If a component emits a different unknown token, map it to `Unknown` and record
+the original token and mapping in resolved_scenario.json.
+
+Never replace an unknown speaker with:
+
+- null;
+- an empty string;
+- a reference label;
+- the first enrolled speaker.
+
+Unknown predictions must contribute to speaker-label accuracy, unknown rejection,
+and attribution-error metrics.
+
+The existing minimum prediction contract remains:
+
+predictions/utterances.jsonl
+
+Each output row must include the fields required by the existing schema,
+conceptually:
+
+{
+  "recording_id": "...",
+  "utt_id": "...",
+  "start_sec": 0.0,
+  "end_sec": 1.8,
+  "speaker_label": "Unknown",
+  "text": "predicted text"
+}
+
+Optional words.jsonl, diagnostics, embeddings, and RTTM outputs should only be
+added when the active pipeline genuinely produces them.
+
+======================================================================
+8. INTELLIGENT COMPONENT SCREENING
+======================================================================
+
+Do not generate every theoretical component combination.
+
+Implement staged screening with configurable advancement rules.
+
+Stage 0: availability and contract qualification
+------------------------------------------------
+
+Use:
+- a tiny deterministic audio manifest;
+- no augmentation;
+- fixed seed;
+- one GPU job at a time.
+
+Qualify:
+- Whisper Tiny;
+- Whisper Base;
+- Whisper Small;
+- full-record/no-op segmentation baseline;
+- Energy VAD;
+- Energy VAD plus VADChunker;
+- other active VAD only if assets and config are runnable;
+- ECAPA;
+- cosine matcher;
+- no-op components only for contract verification.
+
+Qualification criteria:
+- config resolves;
+- dependencies and assets are found;
+- model loads;
+- device placement is valid;
+- one prediction is produced;
+- output validates against the schema;
+- component identity is recorded;
+- repeated smoke executions complete without unexplained failure.
+
+Unavailable candidates must be recorded with a reason.
+
+Stage 1: ASR screening
+----------------------
+
+Fixed:
+- full-record input;
+- no VAD;
+- no speaker processing;
+- same small controlled-clean manifest;
+- same acoustic conditions.
+
+Vary:
+- Whisper Tiny;
+- Whisper Base;
+- Whisper Small.
+
+Metrics:
+- WER;
+- CER if currently supported or added safely;
+- substitutions, insertions, deletions;
+- empty/missing predictions;
+- initialization time;
+- inference time;
+- total RTF;
+- mean, median, p95, and p99 latency;
+- CPU/RAM;
+- GPU utilization and peak VRAM;
+- failures;
+- dataset, gender, accent, and speaker grouping.
+
+Do not automatically eliminate a model solely because it is slower. Preserve
+accuracy/latency tradeoffs. Eliminate only clearly dominated candidates or
+candidates that fail qualification.
+
+Stage 2: VAD and segmentation screening
+---------------------------------------
+
+Select one reference ASR configuration based on Stage 1. Prefer a middle
+accuracy/performance candidate, but make the choice explicit and configurable.
+
+Broad screen:
+- full-record baseline;
+- Energy VAD;
+- Energy VAD plus VADChunker;
+- any other qualified active VAD/segmentation configs.
+
+Fixed:
+- reference ASR;
+- no speaker processing;
+- same data.
+
+Metrics:
+- WER/CER;
+- empty transcript rate;
+- missed speech and false alarms when compatible references exist;
+- segment count;
+- empty segment count;
+- segment duration distribution;
+- boundary metrics where references permit;
+- latency;
+- RTF;
+- RAM/VRAM;
+- failure rate.
+
+Take the strongest one or two segmentation candidates and cross-check them with
+all three qualified Whisper models. This targeted cross-check detects ASR/VAD
+interactions without evaluating every combination.
+
+Stage 3: speaker embedding and matching
+---------------------------------------
+
+Fixed:
+- approved speaker_protocol manifest;
+- disjoint enrollment and probe rows;
+- one stable ASR/segmentation configuration.
+
+Vary:
+- speaker processing disabled;
+- ECAPA extraction;
+- ECAPA plus cosine matcher;
+- matcher threshold/margin scenarios only after embedding output is validated.
+
+Metrics, when outputs support them:
+- extraction success;
+- embedding norm and dimension;
+- same-speaker and different-speaker similarity distributions;
+- clean-to-degraded embedding drift;
+- EER;
+- FAR;
+- FRR;
+- top-1 and top-k identification;
+- enrollment failures;
+- unknown-speaker rejection;
+- per-speaker, gender, dataset, SNR, and RIR results.
+
+Stage 4: targeted combinations
+------------------------------
+
+Retain only the strongest one or two candidates from each qualified family.
+
+Generate combinations only when interactions are technically plausible, such as:
+
+- VAD/segmentation changing ASR accuracy;
+- VAD/segmentation changing embedding quality;
+- noise or RIR changing speaker matching;
+- ASR model changing latency and resource use;
+- segmentation changing unknown-speaker behavior.
+
+Do not include dominated candidates simply to complete a matrix.
+
+Stage 5: native-condition validation
+------------------------------------
+
+Run shortlisted pipelines on:
+
+- AMI;
+- VOiCES;
+- CHiME-6;
+- optional LibriSpeech other;
+- optional HiFiTTS other.
+
+Do not apply synthetic noise or RIRs to this panel.
+
+Stage 6: standard and large validation
+--------------------------------------
+
+Use:
+- small benchmark for qualification and rapid iteration;
+- standard benchmark for overnight comparison;
+- large benchmark only for final release-level validation.
+
+“Large” refers to benchmark tier, not Whisper Large.
+
+Advancement and elimination rules must be configurable and reported. Include:
+
+- valid-output rate;
+- missing/empty prediction rate;
+- WER/CER;
+- speaker metrics where relevant;
+- RTF and latency;
+- memory and GPU use;
+- failure rate;
+- protected-group regression;
+- robustness across noise and RIR conditions.
+
+Use Pareto-style comparisons. Do not collapse everything into one opaque score.
+
+======================================================================
+9. CAMPAIGN AND SCENARIO MODEL
+======================================================================
+
+Add an automated campaign system, preferably under a focused package such as:
+
+app/automated/
+
+Suggested responsibilities:
+
+- config_schema.py
+- component_catalog.py
+- pipeline_resolver.py
+- manifest_builder.py
+- rir_registry.py
+- scenario_resolver.py
+- hashing.py
+- state_db.py
+- worker_assignment.py
+- executor.py
+- resource_monitor.py
+- comparison.py
+- analysis_manifest.py
+- campaign_report.py
+- cli.py
+
+Adapt names to existing repository conventions.
+
+A campaign contains immutable resolved scenarios.
+
+A scenario must represent one combination of:
+
+- benchmark manifest and hash;
+- panel;
+- tier;
+- dataset or dataset slice;
+- acoustic/native condition;
+- component configuration;
+- model identity;
+- seed;
+- repetition;
+- timeout;
+- resource policy;
+- failure policy.
+
+Generate the scenario ID from a canonical serialization and SHA256 hash.
+
+Use short folder-safe IDs, for example:
+
+campaign_<short-id>
+scenario_<8-to-12-character-hash>
+
+Do not encode model names, RIR filenames, SNRs, full component paths, and every
+setting into the folder name.
+
+Store full details in resolved_scenario.json.
+
+======================================================================
+10. RESULT STORAGE
+======================================================================
+
+Use a structure similar to:
+
+Evaluation Tool/
+  automated_runs/
+    <campaign_id>/
+      campaign_manifest.json
+      campaign_manifest.sha256
+      worker_assignments/
+        amir.yaml
+        second_user.yaml
+      database/
+        campaign.sqlite
+      scenarios/
+        <scenario_id>/
+          resolved_scenario.json
+          run_config.yaml
+          status.json
+          predictions/
+            utterances.jsonl
+            words.jsonl
+            segments.rttm
+            diagnostics.jsonl
+          metrics/
+            item_metrics.parquet
+            grouped_metrics.json
+            summary.json
+          resource_logs/
+            samples.parquet
+            summary.json
+          logs/
+            events.jsonl
+            runner.log
+            errors.jsonl
+          report/
+            scenario_report.json
+            scenario_report.md
+      analysis_manifest.json
+      result_index.jsonl
+      campaign_report/
+      audit/
+
+Only create optional prediction files when real output is available.
+
+Use atomic writes:
+- write temporary artifact;
+- flush and close;
+- validate;
+- atomically rename to final path.
+
+status.json must include:
+
+- campaign_id;
+- scenario_id;
+- scenario_hash;
+- status;
+- worker_id;
+- hostname;
+- attempt count;
+- start time;
+- end time;
+- last heartbeat;
+- exit code;
+- exception category;
+- concise error summary;
+- expected artifacts;
+- output completeness;
+- checksums;
+- retry eligibility.
+
+Recommended states:
+
+- pending
+- assigned
+- running
+- succeeded
+- succeeded_with_warnings
+- failed_retryable
+- failed_terminal
+- timeout
+- out_of_memory
+- stopped
+- interrupted
+- invalid
+
+A scenario may be skipped as complete only when:
+- scenario hash matches;
+- status is successful;
+- required artifacts exist;
+- artifact validation passes;
+- stored checksums match.
+
+======================================================================
+11. UNATTENDED EXECUTION
+======================================================================
+
+Implement:
+
+- deterministic scenario ordering;
+- dry-run planning;
+- queue status;
+- resumable execution;
+- skip-completed behavior;
+- stale-running detection;
+- heartbeat;
+- safe Ctrl+C handling;
+- stop-request file;
+- timeout;
+- transient retry;
+- GPU OOM classification;
+- partial-result preservation;
+- disk-space checks;
+- clear terminal progress;
+- machine-readable event logs;
+- campaign summary.
+
+Initial retry policy:
+- one retry for a transient per-scenario failure;
+- no automatic retry for deterministic schema/config errors;
+- one controlled retry for OOM only if a safer setting is defined;
+- terminal failure after the configured limit.
+
+One scenario failure must not corrupt or terminate unrelated scenarios unless the
+campaign failure policy explicitly says to stop.
+
+======================================================================
+12. TWO-COMPUTER EXECUTION
+======================================================================
+
+Assume both users clone the complete GitHub repository and have access to the
+same datasets and frozen campaign manifest.
+
+Initial design:
+- no shared live database;
+- no network coordinator;
+- one immutable global campaign manifest;
+- explicit worker-assignment YAML files;
+- independent local campaign databases;
+- result merge by global scenario ID and hash.
+
+Support assignment by:
+- explicit scenario IDs;
+- scenario ID range;
+- component combination;
+- deterministic partition;
+- generated worker assignment files.
+
+Example:
+
+worker_assignments/amir.yaml
+worker_assignments/second_user.yaml
+
+Each assignment must include:
+- campaign ID;
+- campaign manifest hash;
+- worker ID;
+- scenario IDs;
+- benchmark manifest hash;
+- expected Git commit;
+- optional notes.
+
+Add validation that proves:
+- no assignment overlap;
+- every scenario exists;
+- campaign hashes match;
+- benchmark manifest hashes match;
+- scenario hashes match;
+- model/config identities match;
+- seed matches.
+
+Add a merge command that:
+- imports copied scenario result folders;
+- validates scenario identity and checksums;
+- rejects conflicting duplicate results;
+- reports missing scenarios;
+- reports environment differences;
+- creates result_index.jsonl;
+- creates analysis_manifest.json.
+
+======================================================================
+13. GPU AND PARALLEL EXECUTION POLICY
+======================================================================
+
+Machine A:
+- approximately 10 GB GPU VRAM.
+
+Machine B:
+- approximately 24 GB GPU VRAM.
+
+Default:
+- one GPU-heavy scenario at a time per machine;
+- CPU-side scoring/report generation may use controlled parallelism;
+- do not enable two simultaneous GPU inference scenarios by default.
+
+Create configurable concurrency limits, but keep GPU concurrency set to 1 until
+a qualification test proves no material downside.
+
+A concurrency qualification test must compare one versus two simultaneous GPU
+jobs using:
+
+- total throughput;
+- per-scenario RTF;
+- mean/p95/p99 latency;
+- peak GPU memory;
+- GPU utilization;
+- CPU utilization;
+- RAM;
+- disk throughput;
+- temperature/power if available;
+- failures and timeouts;
+- prediction and metric reproducibility.
+
+Allow dual GPU jobs only if:
+- no OOM occurs;
+- conservative VRAM headroom remains;
+- throughput improves materially;
+- individual latency degradation is acceptable;
+- outputs remain identical or within expected determinism;
+- CPU/RAM/disk do not become bottlenecks;
+- a sustained test completes reliably.
+
+Do not assume that a nominal model size below 4 GB means total pipeline VRAM is
+below 4 GB. Measure actual peak usage.
+
+======================================================================
+14. RESOURCE MONITORING
+======================================================================
+
+Add scenario-level and component-level telemetry.
+
+Use:
+- psutil for process/system CPU, RAM, and disk I/O;
+- pynvml/NVML for NVIDIA GPU utilization, memory, temperature, and power when
+  available;
+- time.perf_counter_ns() for precise timing;
+- appropriate GPU synchronization only at measured boundaries when required.
+
+Default sample interval:
+- configurable;
+- initially 1.0 second.
+
+Record:
+- wall timestamp;
+- monotonic timestamp;
+- campaign/scenario ID;
+- PID;
+- active component;
+- CPU percent;
+- process RSS;
+- system RAM;
+- GPU utilization;
+- GPU memory used and total;
+- GPU temperature/power if available;
+- disk read/write bytes.
+
+Record explicit component spans:
+- audio loading;
+- augmentation;
+- VAD;
+- segmentation;
+- ASR model load;
+- ASR inference;
+- embedding model load;
+- embedding extraction;
+- speaker matching;
+- diarization if active;
+- prediction serialization;
+- scoring;
+- reporting.
+
+Handle missing NVML or unsupported telemetry gracefully.
+
+======================================================================
+15. METRICS
+======================================================================
+
+Preserve existing metrics and standardize campaign-level outputs.
+
+Mandatory:
+- WER;
+- CER when the current scorer supports it safely;
+- substitutions;
+- insertions;
+- deletions;
+- reference and hypothesis word counts;
+- empty predictions;
+- missing predictions;
+- malformed predictions;
+- duplicate/unexpected predictions;
+- per-item duration;
+- wall time;
+- total RTF;
+- per-component time;
+- mean/median/p90/p95/p99 latency;
+- CPU and RAM;
+- GPU utilization and peak memory;
+- failures;
+- retries;
+- timeouts;
+- OOMs.
+
+Group by relevant available fields:
+- dataset;
+- benchmark panel;
+- component combination;
+- ASR model;
+- VAD/segmentation config;
+- speaker config;
+- speaker;
+- gender;
+- accent;
+- split;
+- noise type;
+- SNR;
+- exact RIR identifier;
+- AMI meeting/stream;
+- VOiCES room/distractor/mic/position;
+- CHiME-6 session/device/channel/location.
+
+Speaker metrics, when outputs are available:
+- embedding extraction success;
+- cosine similarity;
+- same/different-speaker distributions;
+- EER;
+- FAR;
+- FRR;
+- top-1/top-k accuracy;
+- enrollment failure;
+- unknown rejection;
+- clean-to-degraded embedding drift.
+
+Do not claim full DER/JER unless:
+- valid RTTM predictions exist;
+- compatible reference RTTM exists;
+- proper speaker-permutation and time-overlap scoring is implemented.
+
+Label the current simple overlap check separately from full diarization metrics.
+
+======================================================================
+16. ANALYSIS HANDOFF
+======================================================================
+
+Generate a stable campaign-level analysis_manifest.json that does not require
+importing execution code.
+
+It must contain:
+- campaign identity and hashes;
+- benchmark manifest identity;
+- scenario index;
+- scenario statuses;
+- scenario paths;
+- component/model identities;
+- dataset/panel/tier;
+- augmentation and exact RIR settings;
+- prediction paths;
+- metric paths;
+- resource-log paths;
+- machine/environment fingerprints;
+- failed/missing scenarios;
+- worker assignment and merge-validation results.
+
+Another analyst should be able to use this manifest to:
+- list successful scenarios;
+- filter by model, VAD, component combination, dataset, RIR, SNR, or machine;
+- load comparable metrics;
+- identify missing/incomplete runs;
+- compare machines;
+- generate later plots and tables;
+- reconstruct the scenario description.
+
+Do not build a large new analysis UI in this phase. Create the stable handoff
+contract and a concise README for analysts.
+
+======================================================================
+17. CLI
+======================================================================
+
+Integrate with the current CLI style. Suggested commands are conceptual; adapt
+them to the repository's actual CLI framework:
+
+- automated inspect-components
+- automated build-manifests
+- automated audit-rirs
+- automated plan-campaign
+- automated validate-campaign
+- automated assign-workers
+- automated validate-assignments
+- automated list-scenarios
+- automated run-worker
+- automated resume
+- automated status
+- automated stop
+- automated merge-results
+- automated build-analysis-manifest
+- automated report-campaign
+
+Required selection controls:
+- scenario ID;
+- multiple scenario IDs;
+- scenario ID range;
+- component combination;
+- worker-assignment file;
+- status;
+- dry run;
+- maximum scenarios.
+
+Do not require long descriptive path names.
+
+Do not make the existing GUI depend on the automated runner. A GUI extension may
+be considered later after the headless system is proven.
+
+======================================================================
+18. IMPLEMENTATION PHASES
+======================================================================
+
+PHASE 0 — Repository and component audit
+----------------------------------------
+
+Implement no functional changes until the audit is complete.
+
+Produce:
+- actual architecture map;
+- current CLI/API call graph;
+- active component catalog;
+- model asset status;
+- exact prediction schema;
+- normalized parquet schemas;
+- current test inventory;
+- conflicts between code and planning documents.
+
+Run existing tests first.
+
+PHASE 1 — Deterministic benchmark manifests
+-------------------------------------------
+
+Build:
+- small manifest;
+- standard manifest;
+- large manifest;
+- speaker protocol;
+- selection audit;
+- manifest summary;
+- validation tests.
+
+Do not build the runner until manifests validate.
+
+PHASE 2 — Configured pipeline adapter
+-------------------------------------
+
+Build:
+- component catalog;
+- resolved pipeline config generation;
+- configured runner/adapter;
+- unknown-speaker mapping;
+- component identity capture;
+- Tiny/Base/Small qualification.
+
+Preserve ExternalStubRunner and simulation behavior.
+
+PHASE 3 — Scenario resolver and intelligent screening
+-----------------------------------------------------
+
+Build:
+- scenario schema;
+- condition sets;
+- staged component-screening plans;
+- canonical serialization;
+- scenario hashing;
+- dry-run matrix output;
+- advancement-rule configuration.
+
+Ensure the resolver does not create a full Cartesian product.
+
+PHASE 4 — Automated executor and state
+--------------------------------------
+
+Build:
+- campaign SQLite index;
+- queue;
+- executor;
+- heartbeat;
+- timeout;
+- retry;
+- safe interruption;
+- resume;
+- status;
+- atomic artifact writing;
+- stop-request behavior.
+
+PHASE 5 — Resource telemetry and standardized metrics
+-----------------------------------------------------
+
+Build:
+- resource monitor;
+- component spans;
+- scenario summaries;
+- standardized item/group metrics;
+- comparison with baseline.
+
+PHASE 6 — Two-worker assignment and merge
+-----------------------------------------
+
+Build:
+- assignment generation;
+- assignment validation;
+- non-overlap validation;
+- worker execution;
+- result merge;
+- conflict detection;
+- analysis manifest.
+
+PHASE 7 — End-to-end qualification
+----------------------------------
+
+Run:
+1. existing unit tests;
+2. current GUI/CLI smoke tests;
+3. perfect simulation campaign;
+4. noisy simulation campaign;
+5. drop-some campaign;
+6. interruption/resume test;
+7. timeout test;
+8. retry test;
+9. path-length test;
+10. two-worker split/merge test;
+11. Whisper Tiny smoke;
+12. Whisper Base smoke;
+13. Whisper Small qualification;
+14. Energy VAD/VADChunker screen;
+15. ECAPA/matcher qualification;
+16. one controlled noise scenario;
+17. one RIR scenario;
+18. one AMI scenario;
+19. one VOiCES scenario;
+20. one CHiME-6 scenario.
+
+Do not claim week-long or overnight readiness until:
+- interruption and restart work;
+- completed scenarios are correctly skipped;
+- partial results survive;
+- scenario failures are isolated;
+- assignments do not overlap;
+- merged results validate;
+- disk and VRAM failures are handled;
+- actual artifacts have been inspected.
+
+======================================================================
+19. TESTING REQUIREMENTS
+======================================================================
+
+Use automated tests wherever possible.
+
+Unit tests:
+- canonical hashing;
+- deterministic selection;
+- component discovery;
+- config merging;
+- RIR resolution;
+- augmentation-policy blocking;
+- unknown speaker mapping;
+- assignment overlap detection;
+- state transitions;
+- artifact validation;
+- path length;
+- analysis manifest generation.
+
+Integration tests:
+- current Evaluation Tool invocation;
+- configured pipeline adapter;
+- prediction serialization;
+- scoring;
+- resource logging;
+- resume;
+- merge.
+
+Regression tests:
+- existing GUI and CLI still work;
+- existing simulation modes still work;
+- existing augmentation output is unchanged;
+- existing scoring results are unchanged for identical inputs;
+- existing run folders remain readable.
+
+Use small deterministic inputs for tests. Do not run the standard or large
+benchmark as part of the normal unit-test suite.
+
+======================================================================
+20. DOCUMENTATION AND PHASE REPORTS
+======================================================================
+
+Add documentation for:
+- architecture;
+- benchmark manifests;
+- component qualification;
+- scenario YAML;
+- campaign lifecycle;
+- worker assignments;
+- result merging;
+- resource metrics;
+- analysis handoff;
+- troubleshooting;
+- adding future component configs.
+
+At the end of each phase write:
+
+docs/automated_evaluation/phase_<n>_report.md
+
+Each report must include:
+- files changed;
+- interfaces added;
+- tests run;
+- results;
+- limitations;
+- decisions;
+- next phase readiness.
+
+======================================================================
+21. FINAL DELIVERABLE
+======================================================================
+
+When all phases are complete, provide:
+
+1. final file tree;
+2. files changed;
+3. architecture description;
+4. exact active component inventory;
+5. manifest realized counts and hours;
+6. component qualification results;
+7. campaign/scenario schema;
+8. database schema;
+9. CLI commands;
+10. worker assignment workflow;
+11. merge workflow;
+12. resource metrics implemented;
+13. test evidence;
+14. sample campaign folders;
+15. analysis_manifest example;
+16. known limitations;
+17. deferred features.
+
+Deferred features must explicitly include:
+- XVF3800;
+- ONNX;
+- Whisper Large;
+- inactive model families;
+- unqualified diarization;
+- advanced analysis UI.
+
+Do not claim that a component, metric, or scenario works unless an actual test
+was executed and its artifacts were inspected.

@@ -277,7 +277,3 @@ Run inference-pipeline tests from the Evaluation Tool directory:
 The detailed dataset-evaluation documentation remains in
 `Software Validation from Datasets/Evaluation Tool/README.md`, and inference
 component notes are in `README_inference_pipeline.md` in the same directory.
-
-For the verified ASR setup sequence, architecture map, component/configuration
-reference, expected inputs and outputs, and troubleshooting notes, see
-[`docs/ASR_PIPELINE_SETUP_AND_ARCHITECTURE.md`](docs/ASR_PIPELINE_SETUP_AND_ARCHITECTURE.md).
