@@ -3,12 +3,15 @@
 from __future__ import annotations
 
 import importlib.util
+import inspect
 import os
 import time
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, Callable, Mapping
 
+from app.inference_pipeline.asr.audio_utils import resolve_model_path
+from app.inference_pipeline.diarization.adapter_utils import materialized_audio_path
 from app.inference_pipeline.diarization.base import (
     DiarizationBase,
     DiarizationParameters,
@@ -16,7 +19,6 @@ from app.inference_pipeline.diarization.base import (
     SpeakerTurnRegion,
     mark_overlapping_turns,
 )
-from app.inference_pipeline.errors import ContractValidationError
 
 
 class PyannoteDiarizationUnavailableError(DiarizationUnavailableError):
@@ -34,20 +36,19 @@ class PyannoteCommunityDiarizer(DiarizationBase):
     name = "pyannote_community"
 
     def __post_init__(self) -> None:
+        raw = dict(self.params or {}) if isinstance(self.params, Mapping) else {}
         DiarizationBase.__init__(self, self.params)
+        self.device = str(raw.get("device") or "cpu")
         self.last_runtime_sec: float | None = None
         self.last_turns: tuple[SpeakerTurnRegion, ...] = ()
 
     def diarize(self, audio: object) -> list[SpeakerTurnRegion]:
-        audio_path = _audio_path(audio)
         pipeline = self._pipeline()
         call_kwargs = _speaker_count_kwargs(self.params)
         started_at = time.perf_counter()
         try:
-            try:
-                annotation = pipeline({"audio": str(audio_path)}, **call_kwargs)
-            except TypeError:
-                annotation = pipeline(str(audio_path), **call_kwargs)
+            with materialized_audio_path(audio, prefix="pyannote-diarization-audio-") as path:
+                annotation = pipeline(str(path), **call_kwargs)
         except Exception as exc:  # pragma: no cover - dependency boundary
             raise PyannoteDiarizationUnavailableError(
                 f"pyannote diarization failed: {exc}"
@@ -89,36 +90,29 @@ class PyannoteCommunityDiarizer(DiarizationBase):
             ) from exc
 
         loader = self.pipeline_loader or Pipeline.from_pretrained
-        kwargs: dict[str, object] = {}
-        token = os.environ.get(self.params.auth_token_env)
-        if token:
-            kwargs["use_auth_token"] = token
-        if self.params.cache_dir:
-            kwargs["cache_dir"] = self.params.cache_dir
+        token = _auth_token(self.params)
+        source = _resolve_pipeline_source(self.params, token=token)
+        kwargs = _loader_kwargs(loader, self.params, token=token)
         try:
-            self.pipeline = loader(self.params.model_source, **kwargs)
-        except TypeError:
-            kwargs.pop("cache_dir", None)
-            if "use_auth_token" in kwargs:
-                kwargs["token"] = kwargs.pop("use_auth_token")
-            self.pipeline = loader(self.params.model_source, **kwargs)
+            self.pipeline = loader(source, **kwargs)
         except Exception as exc:  # pragma: no cover - dependency boundary
             raise PyannoteDiarizationUnavailableError(
                 f"pyannote model load failed: {exc}"
             ) from exc
+        if self.pipeline is None:
+            raise PyannoteDiarizationUnavailableError(
+                "pyannote model loader returned no pipeline; verify model access and cache completeness."
+            )
+        if self.device != "cpu" and hasattr(self.pipeline, "to"):
+            try:
+                import torch
+
+                self.pipeline.to(torch.device(self.device))
+            except Exception as exc:  # pragma: no cover - dependency boundary
+                raise PyannoteDiarizationUnavailableError(
+                    f"pyannote could not move the pipeline to {self.device!r}: {exc}"
+                ) from exc
         return self.pipeline
-
-
-def _audio_path(audio: object) -> Path:
-    value = getattr(audio, "audio_path", None)
-    if value is None:
-        value = getattr(audio, "path", None)
-    if value is None:
-        raise ContractValidationError("diarization audio object must expose audio_path")
-    path = Path(str(value))
-    if not str(path).strip():
-        raise ContractValidationError("diarization audio_path must be non-empty")
-    return path
 
 
 def _speaker_count_kwargs(params: DiarizationParameters) -> dict[str, int]:
@@ -130,17 +124,102 @@ def _speaker_count_kwargs(params: DiarizationParameters) -> dict[str, int]:
     return kwargs
 
 
+def _auth_token(params: DiarizationParameters) -> str | None:
+    configured = os.environ.get(params.auth_token_env)
+    if configured:
+        return configured
+    # ``HF_TOKEN`` is Hugging Face's standard variable and is also what the
+    # repository bootstrap uses.  Supporting it avoids two divergent secrets.
+    fallback = os.environ.get("HF_TOKEN")
+    return fallback or None
+
+
+def _loader_kwargs(
+    loader: Callable[..., Any],
+    params: DiarizationParameters,
+    *,
+    token: str | None,
+) -> dict[str, object]:
+    try:
+        signature = inspect.signature(loader)
+        parameters = signature.parameters
+        accepts_kwargs = any(
+            parameter.kind is inspect.Parameter.VAR_KEYWORD
+            for parameter in parameters.values()
+        )
+    except (TypeError, ValueError):
+        parameters = {}
+        accepts_kwargs = True
+
+    kwargs: dict[str, object] = {}
+    if token:
+        if "token" in parameters or accepts_kwargs:
+            kwargs["token"] = token
+        elif "use_auth_token" in parameters:
+            kwargs["use_auth_token"] = token
+    cache_dir = params.cache_dir
+    if cache_dir:
+        if "cache_dir" in parameters or accepts_kwargs:
+            kwargs["cache_dir"] = str(_cache_dir(cache_dir))
+    return kwargs
+
+
+def _resolve_pipeline_source(
+    params: DiarizationParameters,
+    *,
+    token: str | None,
+) -> str:
+    try:
+        local_source = resolve_model_path(params.model_source)
+    except (FileNotFoundError, ValueError):
+        local_source = None
+    if local_source is not None:
+        return str(local_source)
+
+    if params.allow_model_downloads:
+        if not token:
+            raise PyannoteDiarizationUnavailableError(
+                f"pyannote model downloads require a Hugging Face token; set "
+                f"{params.auth_token_env} or HF_TOKEN after accepting the model terms."
+            )
+        return params.model_source
+
+    try:
+        from huggingface_hub import snapshot_download
+
+        snapshot = snapshot_download(
+            repo_id=params.model_source,
+            cache_dir=str(_cache_dir(params.cache_dir)) if params.cache_dir else None,
+            token=token,
+            local_files_only=True,
+        )
+    except Exception as exc:
+        raise PyannoteDiarizationUnavailableError(
+            "pyannote downloads are disabled and no complete local snapshot was found; "
+            "bootstrap the gated model first or configure a local model_source."
+        ) from exc
+    return str(Path(snapshot).resolve())
+
+
+def _cache_dir(value: str) -> Path:
+    configured = Path(value).expanduser()
+    if configured.is_absolute():
+        return configured
+    try:
+        return resolve_model_path(configured)
+    except FileNotFoundError:
+        tool_root = Path(__file__).resolve().parents[3]
+        return (tool_root.parent.parent / configured).resolve()
+
+
 def _local_assets_available(params: DiarizationParameters) -> bool:
-    source = Path(params.model_source).expanduser()
-    if source.exists():
-        return True
-    if not params.cache_dir:
+    """Return whether a complete local source/snapshot can be resolved."""
+
+    try:
+        _resolve_pipeline_source(params, token=_auth_token(params))
+    except PyannoteDiarizationUnavailableError:
         return False
-    cache_dir = Path(params.cache_dir).expanduser()
-    if not cache_dir.exists():
-        return False
-    markers = ("config.yaml", "pytorch_model.bin", "model.safetensors")
-    return any(path.name in markers for path in cache_dir.rglob("*"))
+    return True
 
 
 def _annotation_to_turns(
@@ -149,6 +228,11 @@ def _annotation_to_turns(
     min_turn_sec: float,
     source: str,
 ) -> list[SpeakerTurnRegion]:
+    # pyannote.audio 4 wraps the Annotation in a DiarizeOutput object while
+    # pyannote.audio 3 returns the Annotation directly.
+    wrapped = getattr(annotation, "speaker_diarization", None)
+    if wrapped is not None:
+        annotation = wrapped
     if not hasattr(annotation, "itertracks"):
         raise PyannoteDiarizationUnavailableError(
             "pyannote output does not expose itertracks(yield_label=True)."

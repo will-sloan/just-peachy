@@ -1,0 +1,4 @@
+# NeMo is intentionally separate from the cross-platform full profile.
+# Install this profile on Linux, preferably with a supported NVIDIA CUDA stack.
+# The marker prevents an apparently successful but unusable Windows install.
+nemo_toolkit[asr]==2.7.3; platform_system == "Linux"

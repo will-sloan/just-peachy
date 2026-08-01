@@ -1,0 +1,13 @@
+component:
+  slot: speaker_embedding
+  name: resemblyzer
+  enabled: true
+  adapter: ResemblyzerSpeakerEmbeddingAdapter
+  notes: Resemblyzer d-vector embeddings using its packaged pretrained weights.
+  params:
+    model_name: resemblyzer
+    sample_rate_hz: 16000
+    min_duration_sec: 0.75
+    device: cpu
+    dtype: float32
+

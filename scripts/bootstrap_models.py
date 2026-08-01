@@ -4,17 +4,227 @@ from __future__ import annotations
 
 import argparse
 import gc
+import hashlib
+import json
 import os
+import shutil
+import stat
 import sys
+import tarfile
+import tempfile
+import urllib.request
+import zipfile
 from pathlib import Path
 from typing import Callable
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_CACHE_ROOT = PROJECT_ROOT / "models" / "cache"
+ALLOWED_WHISPER_MODELS = frozenset(
+    {"tiny", "tiny.en", "base", "base.en", "small", "small.en"}
+)
+SHERPA_ASR_ARCHIVE = "sherpa-onnx-streaming-zipformer-en-2023-06-26.tar.bz2"
+SHERPA_ASR_DIRECTORY = "sherpa-onnx-streaming-zipformer-en-2023-06-26"
+SHERPA_ASR_URL = (
+    "https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/"
+    f"{SHERPA_ASR_ARCHIVE}"
+)
+SHERPA_ASR_SHA256 = "639e25b578e9e997131402199419c13a941f8e4e198e2da1ce57dbf5cf401282"
+SHERPA_ASR_MARKERS = (
+    "tokens.txt",
+    "encoder-epoch-99-avg-1-chunk-16-left-128.int8.onnx",
+    "decoder-epoch-99-avg-1-chunk-16-left-128.onnx",
+    "joiner-epoch-99-avg-1-chunk-16-left-128.int8.onnx",
+)
+
+VOSK_ASR_ARCHIVE = "vosk-model-small-en-us-0.15.zip"
+VOSK_ASR_DIRECTORY = "vosk-model-small-en-us-0.15"
+VOSK_ASR_URL = f"https://alphacephei.com/vosk/models/{VOSK_ASR_ARCHIVE}"
+VOSK_ASR_SHA256 = "30f26242c4eb449f948e42cb302dd7a686cb29a3423a8367f99ff41780942498"
+VOSK_ASR_MARKERS = ("am/final.mdl", "conf/model.conf", "graph/HCLr.fst")
+
+WENET_ASR_ARCHIVE = "librispeech_u2pp_conformer_exp.tar.gz"
+WENET_ASR_DIRECTORY = "librispeech_u2pp_conformer_exp"
+WENET_MODEL_REVISION = "9161c07e35d505087c98fef201a2c3ab0995e53a"
+WENET_ASR_URL = (
+    "https://huggingface.co/openspeech/wenet-models/resolve/"
+    f"{WENET_MODEL_REVISION}/{WENET_ASR_ARCHIVE}"
+)
+WENET_ASR_SHA256 = "fa95c21b2e11b6c4c887cd5f92eeb4f9390069d4ac7cb7ea156e1594849135d9"
+WENET_ASR_MARKERS = (
+    "final.pt",
+    "global_cmvn",
+    "train.yaml",
+    "train_960_unigram5000.model",
+    "units.txt",
+)
+
+FASTER_WHISPER_REPOSITORY = "Systran/faster-whisper-tiny"
+FASTER_WHISPER_REVISION = "d90ca5fe260221311c53c58e660288d3deb8d356"
+FASTER_WHISPER_MARKERS = (
+    "config.json",
+    "model.bin",
+    "tokenizer.json",
+    "vocabulary.txt",
+)
+
+SHERPA_VAD_URL = (
+    "https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/"
+    "silero_vad.onnx"
+)
+SHERPA_VAD_SHA256 = "9e2449e1087496d8d4caba907f23e0bd3f78d91fa552479bb9c23ac09cbb1fd6"
+SHERPA_EMBEDDING_FILENAME = (
+    "3dspeaker_speech_eres2net_base_sv_zh-cn_3dspeaker_16k.onnx"
+)
+SHERPA_EMBEDDING_URL = (
+    "https://github.com/k2-fsa/sherpa-onnx/releases/download/"
+    f"speaker-recongition-models/{SHERPA_EMBEDDING_FILENAME}"
+)
+SHERPA_EMBEDDING_SHA256 = (
+    "1a331345f04805badbb495c775a6ddffcdd1a732567d5ec8b3d5749e3c7a5e4b"
+)
+SHERPA_SEGMENTATION_ARCHIVE = "sherpa-onnx-pyannote-segmentation-3-0.tar.bz2"
+SHERPA_SEGMENTATION_URL = (
+    "https://github.com/k2-fsa/sherpa-onnx/releases/download/"
+    f"speaker-segmentation-models/{SHERPA_SEGMENTATION_ARCHIVE}"
+)
+SHERPA_SEGMENTATION_SHA256 = (
+    "24615ee884c897d9d2ba09bb4d30da6bb1b15e685065962db5b02e76e4996488"
+)
+WESPEAKER_ARCHIVE = "voxceleb_resnet221_LM.tar.gz"
+WESPEAKER_ARCHIVE_DIRECTORY = "voxceleb_resnet221_LM"
+WESPEAKER_SHA256 = "9462705bfafeed7b4a6585638a4d0140ddaf9338471198d014eb2579712f89f6"
+WESPEAKER_MODEL_SHA256 = (
+    "47d76239f1e865b273e31e30f691959061ff6565ed6c4e7be9639a65d9662eb5"
+)
+WESPEAKER_CONFIG_SHA256 = (
+    "31511c8e6c60d96d40962e9a261dd8f752b01831b955192b5cbed8367276bbb5"
+)
+WESPEAKER_MODELSCOPE_INDEX = (
+    "https://modelscope.cn/api/v1/datasets/wenet/"
+    "wespeaker_pretrained_models/oss/tree"
+)
+NEMO_DIARIZATION_CONFIG_URL = (
+    "https://raw.githubusercontent.com/NVIDIA/NeMo/v2.7.3/examples/speaker_tasks/"
+    "diarization/conf/inference/diar_infer_meeting.yaml"
+)
+
+
+def file_sha256(path: Path) -> str:
+    """Return the lowercase SHA-256 digest for one file."""
+
+    digest = hashlib.sha256()
+    with path.open("rb") as stream:
+        for chunk in iter(lambda: stream.read(1024 * 1024), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
+
+
+def download_file(
+    url: str,
+    destination: Path,
+    *,
+    expected_sha256: str | None = None,
+    refresh: bool = False,
+) -> Path:
+    """Download one public model asset and verify its immutable digest."""
+
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    if destination.is_file() and destination.stat().st_size > 0 and not refresh:
+        if expected_sha256 and file_sha256(destination) != expected_sha256.lower():
+            raise RuntimeError(
+                f"cached asset failed SHA-256 verification: {destination}"
+            )
+        print(f"Using cached asset {destination}")
+        return destination
+    print(f"Downloading {url} to {destination}")
+    temporary = destination.with_suffix(destination.suffix + ".part")
+    try:
+        request = urllib.request.Request(url, headers={"User-Agent": "just-peachy/1"})
+        with urllib.request.urlopen(request, timeout=60) as response:
+            with temporary.open("wb") as stream:
+                shutil.copyfileobj(response, stream, length=1024 * 1024)
+        if temporary.stat().st_size == 0:
+            raise RuntimeError(f"downloaded asset is empty: {url}")
+        if expected_sha256 and file_sha256(temporary) != expected_sha256.lower():
+            raise RuntimeError(f"downloaded asset failed SHA-256 verification: {url}")
+        temporary.replace(destination)
+    finally:
+        temporary.unlink(missing_ok=True)
+    return destination
+
+
+def extract_tar_safely(archive: Path, destination: Path) -> None:
+    """Extract an archive after rejecting traversal, links, and device entries."""
+
+    destination_root = destination.resolve()
+    with tarfile.open(archive, "r:*") as handle:
+        for member in handle.getmembers():
+            target = (destination / member.name).resolve()
+            if not target.is_relative_to(destination_root):
+                raise RuntimeError(f"unsafe archive member: {member.name}")
+            if member.issym() or member.islnk() or member.isdev():
+                raise RuntimeError(f"unsupported archive member: {member.name}")
+        if sys.version_info >= (3, 12):
+            handle.extractall(destination, filter="data")
+        else:  # Python 3.10-3.11 use the explicit checks above.
+            handle.extractall(destination)
+
+
+def extract_zip_safely(archive: Path, destination: Path) -> None:
+    """Extract a ZIP after rejecting traversal paths and symbolic links."""
+
+    destination_root = destination.resolve()
+    with zipfile.ZipFile(archive) as handle:
+        for member in handle.infolist():
+            target = (destination / member.filename).resolve()
+            if not target.is_relative_to(destination_root):
+                raise RuntimeError(f"unsafe archive member: {member.filename}")
+            mode = (member.external_attr >> 16) & 0o170000
+            if mode == stat.S_IFLNK:
+                raise RuntimeError(f"unsupported archive member: {member.filename}")
+        handle.extractall(destination)
+
+
+def install_model_archive(
+    archive: Path,
+    *,
+    destination: Path,
+    archive_directory: str,
+    markers: tuple[str, ...],
+) -> Path:
+    """Safely extract one model directory and verify every runtime marker."""
+
+    if all((destination / marker).is_file() for marker in markers):
+        print(f"Using cached model {destination}")
+        return destination
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    with tempfile.TemporaryDirectory(
+        prefix=f".{destination.name}-",
+        dir=destination.parent,
+    ) as temporary_directory:
+        staging = Path(temporary_directory)
+        if archive.suffix.lower() == ".zip":
+            extract_zip_safely(archive, staging)
+        else:
+            extract_tar_safely(archive, staging)
+        source = staging / archive_directory
+        missing = [marker for marker in markers if not (source / marker).is_file()]
+        if missing:
+            raise RuntimeError(
+                f"{archive.name} is missing required model assets: {', '.join(missing)}"
+            )
+        shutil.copytree(source, destination, dirs_exist_ok=True)
+    missing = [marker for marker in markers if not (destination / marker).is_file()]
+    if missing:
+        raise RuntimeError(
+            f"model extraction did not create required assets: {', '.join(missing)}"
+        )
+    return destination
 
 
 def download_whisper(models: list[str], cache_root: Path) -> None:
+    validate_whisper_models(models)
     import whisper
 
     destination = cache_root / "whisper"
@@ -23,16 +233,34 @@ def download_whisper(models: list[str], cache_root: Path) -> None:
     for model_name in models:
         if model_name not in available:
             known = ", ".join(sorted(available))
-            raise ValueError(f"unknown Whisper model {model_name!r}; available: {known}")
+            raise ValueError(
+                f"unknown Whisper model {model_name!r}; available: {known}"
+            )
         print(f"Downloading Whisper {model_name} to {destination}")
         model_urls = getattr(whisper, "_MODELS", {})
         downloader: Callable[..., object] | None = getattr(whisper, "_download", None)
         if model_name in model_urls and callable(downloader):
             downloader(model_urls[model_name], str(destination), False)
         else:
-            model = whisper.load_model(model_name, device="cpu", download_root=str(destination))
+            model = whisper.load_model(
+                model_name,
+                device="cpu",
+                download_root=str(destination),
+            )
             del model
             gc.collect()
+
+
+def validate_whisper_models(models: list[str]) -> None:
+    """Reject every Whisper checkpoint outside the approved small-model set."""
+
+    rejected = [model for model in models if model not in ALLOWED_WHISPER_MODELS]
+    if rejected:
+        allowed = ", ".join(sorted(ALLOWED_WHISPER_MODELS))
+        raise ValueError(
+            "Whisper model(s) are prohibited or unsupported: "
+            f"{', '.join(rejected)}. Allowed models: {allowed}"
+        )
 
 
 def download_speechbrain(cache_root: Path, device: str) -> None:
@@ -64,13 +292,175 @@ def download_silero() -> None:
     gc.collect()
 
 
+def download_sherpa_asr(cache_root: Path) -> None:
+    archive = download_file(
+        SHERPA_ASR_URL,
+        cache_root / "downloads" / SHERPA_ASR_ARCHIVE,
+        expected_sha256=SHERPA_ASR_SHA256,
+    )
+    install_model_archive(
+        archive,
+        destination=cache_root / "sherpa_onnx" / "asr" / SHERPA_ASR_DIRECTORY,
+        archive_directory=SHERPA_ASR_DIRECTORY,
+        markers=SHERPA_ASR_MARKERS,
+    )
+
+
+def download_vosk_asr(cache_root: Path) -> None:
+    archive = download_file(
+        VOSK_ASR_URL,
+        cache_root / "downloads" / VOSK_ASR_ARCHIVE,
+        expected_sha256=VOSK_ASR_SHA256,
+    )
+    install_model_archive(
+        archive,
+        destination=cache_root / "vosk" / "asr" / VOSK_ASR_DIRECTORY,
+        archive_directory=VOSK_ASR_DIRECTORY,
+        markers=VOSK_ASR_MARKERS,
+    )
+
+
+def download_wenet_asr(cache_root: Path) -> None:
+    archive = download_file(
+        WENET_ASR_URL,
+        cache_root / "downloads" / WENET_ASR_ARCHIVE,
+        expected_sha256=WENET_ASR_SHA256,
+    )
+    install_model_archive(
+        archive,
+        destination=cache_root / "wenet" / "asr" / WENET_ASR_DIRECTORY,
+        archive_directory=WENET_ASR_DIRECTORY,
+        markers=WENET_ASR_MARKERS,
+    )
+
+
+def download_faster_whisper_tiny(cache_root: Path) -> None:
+    destination = cache_root / "faster_whisper" / "tiny"
+    if all((destination / marker).is_file() for marker in FASTER_WHISPER_MARKERS):
+        print(f"Using cached model {destination}")
+        return
+    from huggingface_hub import snapshot_download
+
+    destination.mkdir(parents=True, exist_ok=True)
+    print(
+        f"Downloading {FASTER_WHISPER_REPOSITORY}@{FASTER_WHISPER_REVISION} "
+        f"to {destination}"
+    )
+    snapshot_download(
+        repo_id=FASTER_WHISPER_REPOSITORY,
+        revision=FASTER_WHISPER_REVISION,
+        local_dir=str(destination),
+        allow_patterns=list(FASTER_WHISPER_MARKERS),
+    )
+    missing = [
+        marker
+        for marker in FASTER_WHISPER_MARKERS
+        if not (destination / marker).is_file()
+    ]
+    if missing:
+        raise RuntimeError(
+            "Faster-Whisper snapshot is missing required assets: " + ", ".join(missing)
+        )
+
+
+def download_sherpa_vad(cache_root: Path) -> None:
+    download_file(
+        SHERPA_VAD_URL,
+        cache_root / "sherpa_onnx" / "vad" / "silero_vad.onnx",
+        expected_sha256=SHERPA_VAD_SHA256,
+    )
+
+
+def download_sherpa_embedding(cache_root: Path) -> None:
+    download_file(
+        SHERPA_EMBEDDING_URL,
+        cache_root / "sherpa_onnx" / "speaker_embedding" / SHERPA_EMBEDDING_FILENAME,
+        expected_sha256=SHERPA_EMBEDDING_SHA256,
+    )
+
+
+def download_sherpa_diarization(cache_root: Path) -> None:
+    destination = (
+        cache_root
+        / "sherpa_onnx"
+        / "diarization"
+        / "sherpa-onnx-pyannote-segmentation-3-0"
+    )
+    archive = download_file(
+        SHERPA_SEGMENTATION_URL,
+        cache_root / "downloads" / SHERPA_SEGMENTATION_ARCHIVE,
+        expected_sha256=SHERPA_SEGMENTATION_SHA256,
+    )
+    install_model_archive(
+        archive,
+        destination=destination,
+        archive_directory="sherpa-onnx-pyannote-segmentation-3-0",
+        markers=("model.onnx",),
+    )
+
+
+def download_wespeaker(cache_root: Path) -> None:
+    destination = cache_root / "wespeaker" / "english"
+    markers = ("avg_model.pt", "config.yaml")
+    if (
+        all((destination / marker).is_file() for marker in markers)
+        and file_sha256(destination / "avg_model.pt") == WESPEAKER_MODEL_SHA256
+        and file_sha256(destination / "config.yaml") == WESPEAKER_CONFIG_SHA256
+    ):
+        print(f"Using cached model {destination}")
+        return
+    request = urllib.request.Request(
+        WESPEAKER_MODELSCOPE_INDEX,
+        headers={"User-Agent": "just-peachy/1"},
+    )
+    with urllib.request.urlopen(request, timeout=60) as response:
+        index = json.load(response)
+    entries = index.get("Data", []) if isinstance(index, dict) else []
+    model_entry = next(
+        (
+            entry
+            for entry in entries
+            if isinstance(entry, dict) and entry.get("Key") == WESPEAKER_ARCHIVE
+        ),
+        None,
+    )
+    if not model_entry or not model_entry.get("Url"):
+        raise RuntimeError(
+            f"WeSpeaker ModelScope index did not contain {WESPEAKER_ARCHIVE}"
+        )
+    archive = download_file(
+        str(model_entry["Url"]),
+        cache_root / "downloads" / WESPEAKER_ARCHIVE,
+        expected_sha256=WESPEAKER_SHA256,
+    )
+    install_model_archive(
+        archive,
+        destination=destination,
+        archive_directory=WESPEAKER_ARCHIVE_DIRECTORY,
+        markers=markers,
+    )
+    if file_sha256(destination / "avg_model.pt") != WESPEAKER_MODEL_SHA256:
+        raise RuntimeError("WeSpeaker avg_model.pt failed SHA-256 verification")
+    if file_sha256(destination / "config.yaml") != WESPEAKER_CONFIG_SHA256:
+        raise RuntimeError("WeSpeaker config.yaml failed SHA-256 verification")
+
+
+def download_nemo_config(cache_root: Path) -> None:
+    download_file(
+        NEMO_DIARIZATION_CONFIG_URL,
+        cache_root / "nemo" / "diarization" / "config.yaml",
+        refresh=True,
+    )
+
+
 def download_pyannote(cache_root: Path, token_env: str) -> None:
     from pyannote.audio import Pipeline
 
     token = os.environ.get(token_env)
     if not token:
         raise RuntimeError(
-            f"{token_env} is not set; pyannote community model access requires a Hugging Face token"
+            f"{token_env} is not set; pyannote community model access requires "
+            "a Hugging Face token"
         )
     destination = cache_root / "pyannote"
     destination.mkdir(parents=True, exist_ok=True)
@@ -103,27 +493,46 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument(
         "--whisper",
         default="",
-        help="Comma-separated OpenAI Whisper model names.",
+        help=(
+            "Comma-separated approved OpenAI Whisper models: tiny, tiny.en, "
+            "base, base.en, small, small.en."
+        ),
     )
     parser.add_argument("--speechbrain-ecapa", action="store_true")
     parser.add_argument("--silero", action="store_true")
     parser.add_argument("--pyannote", action="store_true")
-    parser.add_argument("--hf-token-env", default="HF_TOKEN")
+    parser.add_argument("--sherpa-asr", action="store_true")
+    parser.add_argument("--vosk-asr", action="store_true")
+    parser.add_argument("--wenet-asr", action="store_true")
+    parser.add_argument("--faster-whisper-tiny", action="store_true")
+    parser.add_argument("--sherpa-vad", action="store_true")
+    parser.add_argument("--sherpa-speaker-embedding", action="store_true")
+    parser.add_argument("--sherpa-diarization", action="store_true")
+    parser.add_argument("--wespeaker", action="store_true")
+    parser.add_argument("--nemo-config", action="store_true")
+    parser.add_argument("--hf-token-env", default="PYANNOTE_AUTH_TOKEN")
     parser.add_argument(
         "--device",
         choices=("cpu", "cuda"),
         default="cpu",
-        help="Device used while initializing models that must be loaded after download.",
+        help=(
+            "Device used while initializing models that must be loaded after download."
+        ),
     )
     return parser
 
 
 def main(argv: list[str] | None = None) -> int:
     args = build_parser().parse_args(argv)
+    whisper_models = [item.strip() for item in args.whisper.split(",") if item.strip()]
+    try:
+        validate_whisper_models(whisper_models)
+    except ValueError as exc:
+        print(f"[FAIL] Whisper policy: {exc}", file=sys.stderr)
+        return 2
     cache_root = args.cache_root.expanduser().resolve()
     cache_root.mkdir(parents=True, exist_ok=True)
     tasks: list[tuple[str, Callable[[], None]]] = []
-    whisper_models = [item.strip() for item in args.whisper.split(",") if item.strip()]
     if whisper_models:
         tasks.append(("Whisper", lambda: download_whisper(whisper_models, cache_root)))
     if args.speechbrain_ecapa:
@@ -133,9 +542,49 @@ def main(argv: list[str] | None = None) -> int:
     if args.silero:
         tasks.append(("Silero VAD", download_silero))
     if args.pyannote:
-        tasks.append(("pyannote", lambda: download_pyannote(cache_root, args.hf_token_env)))
+        tasks.append(
+            ("pyannote", lambda: download_pyannote(cache_root, args.hf_token_env))
+        )
+    if args.sherpa_asr:
+        tasks.append(("Sherpa-ONNX ASR", lambda: download_sherpa_asr(cache_root)))
+    if args.vosk_asr:
+        tasks.append(("Vosk ASR", lambda: download_vosk_asr(cache_root)))
+    if args.wenet_asr:
+        tasks.append(("WeNet ASR", lambda: download_wenet_asr(cache_root)))
+    if args.faster_whisper_tiny:
+        tasks.append(
+            (
+                "Faster-Whisper Tiny ASR",
+                lambda: download_faster_whisper_tiny(cache_root),
+            )
+        )
+    if args.sherpa_vad:
+        tasks.append(("Sherpa-ONNX VAD", lambda: download_sherpa_vad(cache_root)))
+    if args.sherpa_speaker_embedding:
+        tasks.append(
+            (
+                "Sherpa-ONNX speaker embedding",
+                lambda: download_sherpa_embedding(cache_root),
+            )
+        )
+    if args.sherpa_diarization:
+        tasks.append(
+            ("Sherpa-ONNX diarization", lambda: download_sherpa_diarization(cache_root))
+        )
+    if args.wespeaker:
+        tasks.append(("WeSpeaker English", lambda: download_wespeaker(cache_root)))
+    if args.nemo_config:
+        tasks.append(
+            (
+                "NeMo meeting diarization example config (not model weights)",
+                lambda: download_nemo_config(cache_root),
+            )
+        )
     if not tasks:
-        print("No models selected. Use --whisper, --speechbrain-ecapa, --silero, or --pyannote.")
+        print(
+            "No models selected. Choose an approved Whisper, SpeechBrain, Silero, "
+            "Sherpa, Vosk, WeNet, WeSpeaker, pyannote, or NeMo option."
+        )
         return 0
 
     failures: list[str] = []

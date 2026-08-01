@@ -1,11 +1,12 @@
 # Dataset registry, audio processing, metrics, and reporting.
-numpy
-pandas
-pyarrow
-PyYAML
-scipy
-soundfile
-tqdm
-matplotlib
-scikit-learn
-jiwer
+# Direct dependencies are pinned to the Python 3.10-3.12 compatibility baseline.
+numpy==2.2.6
+pandas==2.3.3
+pyarrow==21.0.0
+PyYAML==6.0.3
+scipy==1.15.3
+soundfile==0.13.1
+tqdm==4.67.1
+matplotlib==3.10.7
+scikit-learn==1.7.2
+jiwer==4.0.0

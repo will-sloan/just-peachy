@@ -1,0 +1,13 @@
+component:
+  slot: asr
+  name: wenet
+  enabled: true
+  adapter: WeNetASRAdapter
+  params:
+    model_name: wenet_local
+    language: en
+    sample_rate: 16000
+    device: cpu
+    audio_backend: soundfile
+    allow_model_downloads: false
+    model_path: models/cache/wenet/asr/librispeech_u2pp_conformer_exp

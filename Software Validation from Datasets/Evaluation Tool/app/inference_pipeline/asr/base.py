@@ -209,15 +209,13 @@ class FixedASR(ASRBase):
         )
 
 
+ALLOWED_WHISPER_MODEL_SIZES = frozenset({"tiny", "base", "small"})
+
+
 WHISPER_COMPONENT_NAMES = {
     "whisper_tiny",
     "whisper_base",
     "whisper_small",
-    "whisper_medium",
-    "whisper_large_v1",
-    "whisper_large_v2",
-    "whisper_large_v3",
-    "whisper_turbo",
 }
 
 
@@ -235,12 +233,42 @@ def build_asr_from_config(config: object) -> ASRBase | None:
     if name in WHISPER_COMPONENT_NAMES:
         from app.inference_pipeline.asr.whisper_adapter import WhisperASR
 
+        expected_size = name.removeprefix("whisper_")
+        configured_size = str(params.get("model_size", expected_size))
+        if configured_size != expected_size:
+            raise ContractValidationError(
+                f"{name} requires model_size={expected_size!r}, got {configured_size!r}"
+            )
         return WhisperASR(params)
     if name == "faster_whisper":
         from app.inference_pipeline.asr.faster_whisper_adapter import FasterWhisperASR
 
         return FasterWhisperASR(params)
+    if name == "sherpa_onnx":
+        from app.inference_pipeline.asr.sherpa_onnx_adapter import SherpaOnnxASR
+
+        return SherpaOnnxASR(params)
+    if name == "vosk":
+        from app.inference_pipeline.asr.vosk_adapter import VoskASR
+
+        return VoskASR(params)
+    if name == "wenet":
+        from app.inference_pipeline.asr.wenet_adapter import WeNetASR
+
+        return WeNetASR(params)
     raise ContractValidationError(f"unknown asr component {name!r}")
+
+
+def validate_allowed_whisper_model_size(value: object) -> str:
+    """Return an explicitly supported Whisper size or fail before model loading."""
+
+    model_size = str(value).strip().lower()
+    if model_size not in ALLOWED_WHISPER_MODEL_SIZES:
+        choices = ", ".join(sorted(ALLOWED_WHISPER_MODEL_SIZES))
+        raise ContractValidationError(
+            f"Whisper model_size {model_size!r} is not permitted; allowed sizes: {choices}"
+        )
+    return model_size
 
 
 def normalize_text(text: str) -> str:

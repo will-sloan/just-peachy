@@ -1,0 +1,5 @@
+# Packages with legacy or overly broad dependency metadata. install.ps1 first
+# installs optional.txt, then installs this file with --no-deps. Keeping the
+# immutable WeSpeaker commit here makes the complete full profile auditable.
+resemblyzer==0.1.4
+wespeaker @ git+https://github.com/wenet-e2e/wespeaker.git@1d4164bdb1dcfee4624093190fd5ecbb19447686

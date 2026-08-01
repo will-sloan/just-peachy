@@ -1,6 +1,30 @@
 -r inference.txt
 
-# Optional or advanced components. Faster-Whisper is registered but its
-# execution adapter is not wired into the realtime pipeline yet.
-faster-whisper
-pyannote.audio
+# Optional or advanced components. ASR backends require separately acquired
+# model assets; adapters do not download model weights unless explicitly enabled.
+faster-whisper==1.2.1
+pyannote.audio==4.0.7
+sherpa-onnx==1.13.4
+webrtcvad-wheels==2.0.14
+pvfalcon==2.0.1
+
+# Dependencies required by the pinned WeSpeaker and Resemblyzer packages.
+# Those two packages themselves live in speaker_backends.txt and are installed
+# with --no-deps by install.ps1 because Resemblyzer names the source-only
+# `webrtcvad` distribution instead of the cross-platform wheel distribution.
+fire==0.4.0
+kaldiio==2.17.2
+tableprint==0.9.1
+pypeln==0.4.9
+umap-learn==0.5.6
+hdbscan==0.8.44
+pynndescent==0.6.0
+audioread==3.1.0
+platformdirs==4.4.0
+
+vosk==0.3.45
+wenet @ git+https://github.com/wenet-e2e/wenet.git@v3.1.0
+# Runtime dependencies used by WeNet's local Python inference API.
+librosa==0.11.0
+langid==1.1.6
+sentencepiece==0.2.1

@@ -33,7 +33,11 @@ REQUIRED_PREDICTION_FIELDS = (
 if str(TOOL_ROOT) not in sys.path:
     sys.path.insert(0, str(TOOL_ROOT))
 
-from app.inference_pipeline.asr.base import NoOpASR, WHISPER_COMPONENT_NAMES  # noqa: E402
+from app.inference_pipeline.asr.base import (  # noqa: E402
+    ALLOWED_WHISPER_MODEL_SIZES,
+    NoOpASR,
+    WHISPER_COMPONENT_NAMES,
+)
 from app.inference_pipeline.config import PipelineConfig  # noqa: E402
 from app.inference_pipeline.pipeline import AudioLoaderAdapter, PipelineRunner  # noqa: E402
 from app.utils.json_utils import write_json  # noqa: E402
@@ -445,16 +449,60 @@ def inspect_runtime_availability(
         return status
 
     if asr.name == "faster_whisper":
+        params = dict(asr.params or {})
+        model_size = str(params.get("model_size") or "tiny").strip().lower()
+        model_path = _optional_path(params.get("model_path"))
+        allow_downloads = _boolish(
+            params.get("allow_model_downloads"),
+            default=config.runtime.allow_model_downloads,
+        )
         package_available = importlib.util.find_spec("faster_whisper") is not None
+        candidates = (
+            _faster_whisper_model_candidates(model_path, config_path=config_path)
+            if model_path is not None
+            else []
+        )
+        model_asset = next(
+            (candidate for candidate in candidates if _is_complete_faster_model(candidate)),
+            None,
+        )
         status.update(
             {
                 "faster_whisper_package_available": package_available,
-                "blocker": (
-                    "faster_whisper execution is not wired for this live smoke path; "
-                    "use whisper_tiny when local assets are available"
+                "faster_whisper_model_size": model_size,
+                "faster_whisper_model_path": (
+                    str(model_asset) if model_asset is not None else None
                 ),
+                "faster_whisper_model_searched": [str(path) for path in candidates],
+                "allow_model_downloads": allow_downloads,
             }
         )
+        if model_size not in ALLOWED_WHISPER_MODEL_SIZES:
+            status["blocker"] = (
+                f"Faster-Whisper model_size={model_size!r} is not permitted."
+            )
+        elif model_path is not None and not _path_declares_model_size(
+            model_path,
+            model_size,
+        ):
+            status["blocker"] = (
+                "Faster-Whisper model_path does not identify its configured "
+                f"model_size={model_size!r}."
+            )
+        elif not package_available:
+            status["blocker"] = (
+                "faster-whisper is not installed in the active .venv."
+            )
+        elif model_path is not None and model_asset is None:
+            searched = ", ".join(str(path) for path in candidates)
+            status["blocker"] = (
+                "Faster-Whisper local CTranslate2 assets are missing or incomplete. "
+                f"Searched: {searched}"
+            )
+        elif model_path is None and not allow_downloads:
+            status["blocker"] = (
+                "Faster-Whisper has no local model_path and downloads are disabled."
+            )
         return status
 
     return status
@@ -871,6 +919,37 @@ def _whisper_model_asset_candidates(
             )
     directories.append(Path.home() / ".cache" / "whisper")
     return [_path / expected_name for _path in _dedupe_paths(directories)]
+
+
+def _faster_whisper_model_candidates(
+    model_path: Path,
+    *,
+    config_path: Path,
+) -> list[Path]:
+    if model_path.is_absolute():
+        return [model_path]
+    return _dedupe_paths(
+        [
+            model_path,
+            Path.cwd() / model_path,
+            TOOL_ROOT / model_path,
+            PROJECT_ROOT / model_path,
+            PROJECT_ROOT.parent / model_path,
+            config_path.parent / model_path,
+        ]
+    )
+
+
+def _is_complete_faster_model(path: Path) -> bool:
+    required = ("config.json", "model.bin", "tokenizer.json", "vocabulary.txt")
+    return path.is_dir() and all((path / filename).is_file() for filename in required)
+
+
+def _path_declares_model_size(path: Path, model_size: str) -> bool:
+    return re.search(
+        rf"(^|[-_.]){re.escape(model_size)}($|[-_.])",
+        path.name.lower(),
+    ) is not None
 
 
 def _dedupe_paths(paths: Sequence[Path]) -> list[Path]:

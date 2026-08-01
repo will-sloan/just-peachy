@@ -7,6 +7,7 @@ import pytest
 
 from app.inference_pipeline.benchmarking.asr_benchmark import (
     ASRModelConfig,
+    _missing_availability,
     load_asr_sweep_config,
     run_asr_benchmark,
 )
@@ -250,5 +251,38 @@ def test_default_sweep_config_loads() -> None:
         "no_op_empty",
         "fixed_dummy",
         "whisper_tiny",
+        "whisper_base",
+        "whisper_small",
+        "faster_whisper",
+        "sherpa_onnx",
+        "vosk",
+        "wenet",
     ]
-    assert configs[-1].availability["requires_package"] == "whisper"
+    assert configs[2].availability["requires_package"] == "whisper"
+    assert configs[3].availability["requires_package"] == "whisper"
+    assert configs[4].availability["requires_package"] == "whisper"
+    assert configs[5].availability["requires_package"] == "faster_whisper"
+    assert configs[6].availability["requires_package"] == "sherpa_onnx"
+    assert configs[7].availability["requires_package"] == "vosk"
+    assert configs[8].availability["requires_package"] == "wenet"
+
+
+def test_availability_accepts_multiple_assets_from_repository_root(tmp_path: Path) -> None:
+    project_root = tmp_path / "Software Validation from Datasets"
+    project_root.mkdir()
+    asset_root = tmp_path / "models" / "cache" / "sherpa_onnx" / "asr"
+    asset_root.mkdir(parents=True)
+    for filename in ("tokens.txt", "encoder.onnx", "decoder.onnx", "joiner.onnx"):
+        (asset_root / filename).touch()
+
+    missing = _missing_availability(
+        {
+            "requires_files": [
+                f"models/cache/sherpa_onnx/asr/{filename}"
+                for filename in ("tokens.txt", "encoder.onnx", "decoder.onnx", "joiner.onnx")
+            ]
+        },
+        project_root=project_root,
+    )
+
+    assert missing == []

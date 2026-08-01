@@ -465,6 +465,24 @@ def build_speaker_embedding_from_config(config: object) -> SpeakerEmbeddingBase 
         )
 
         return SpeechBrainECAPAAdapter(params)
+    if name == "wespeaker":
+        from app.inference_pipeline.speaker_embedding.wespeaker_adapter import (
+            WeSpeakerEmbeddingAdapter,
+        )
+
+        return WeSpeakerEmbeddingAdapter(params)
+    if name == "sherpa_onnx_speaker_embedding":
+        from app.inference_pipeline.speaker_embedding.sherpa_onnx_adapter import (
+            SherpaOnnxSpeakerEmbeddingAdapter,
+        )
+
+        return SherpaOnnxSpeakerEmbeddingAdapter(params)
+    if name == "resemblyzer":
+        from app.inference_pipeline.speaker_embedding.resemblyzer_adapter import (
+            ResemblyzerSpeakerEmbeddingAdapter,
+        )
+
+        return ResemblyzerSpeakerEmbeddingAdapter(params)
     raise ContractValidationError(f"unknown speaker embedding component {name!r}")
 
 

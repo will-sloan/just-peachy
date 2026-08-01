@@ -39,6 +39,15 @@ from app.inference_pipeline.speaker_embedding.speechbrain_adapter import (
     SpeechBrainECAPAAdapter,
     SpeechBrainUnavailableError,
 )
+from app.inference_pipeline.speaker_embedding.resemblyzer_adapter import (
+    ResemblyzerSpeakerEmbeddingAdapter,
+)
+from app.inference_pipeline.speaker_embedding.sherpa_onnx_adapter import (
+    SherpaOnnxSpeakerEmbeddingAdapter,
+)
+from app.inference_pipeline.speaker_embedding.wespeaker_adapter import (
+    WeSpeakerEmbeddingAdapter,
+)
 
 
 AUDIO_SUFFIXES = {".wav"}
@@ -91,9 +100,12 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--report", type=Path, default=None, help="Optional report output path.")
     parser.add_argument(
         "--backend",
-        choices=["speechbrain", "fake"],
+        choices=["speechbrain", "wespeaker", "sherpa_onnx", "resemblyzer", "fake"],
         default="speechbrain",
-        help="Embedding backend. Use fake only for isolated smoke checks.",
+        help=(
+            "Embedding backend used both for enrollment and later matching. "
+            "Use fake only for isolated contract smoke checks."
+        ),
     )
     parser.add_argument("--device", default="cpu", help="Torch device for embedding.")
     parser.add_argument("--dimension", type=int, default=16, help="Fake backend dimension.")
@@ -110,14 +122,23 @@ def build_parser() -> argparse.ArgumentParser:
     )
     parser.add_argument(
         "--model-source",
-        default="speechbrain/spkrec-ecapa-voxceleb",
-        help="SpeechBrain source name or local model directory.",
+        default=None,
+        help="Optional backend model source name (backend-specific default when omitted).",
     )
     parser.add_argument(
         "--savedir",
         type=Path,
         default=Path("models/cache/speechbrain/spkrec-ecapa-voxceleb"),
         help="SpeechBrain local asset/cache directory.",
+    )
+    parser.add_argument(
+        "--model-path",
+        type=Path,
+        default=None,
+        help=(
+            "Optional local model path. Defaults to the repository model cache for "
+            "WeSpeaker and Sherpa-ONNX; for Resemblyzer it selects custom weights."
+        ),
     )
     return parser
 
@@ -144,7 +165,11 @@ def enroll_speaker(args: argparse.Namespace) -> int:
             source_audio_path=audio_path,
             segment_index=index,
             device=args.device,
-            run_config={"run_id": run_id, "enrollment": True},
+            run_config={
+                "run_id": run_id,
+                "enrollment": True,
+                "project_root": str(PROJECT_ROOT),
+            },
         )
         try:
             embedding = adapter.embed(segment, context)
@@ -227,21 +252,60 @@ def build_adapter(args: argparse.Namespace) -> SpeakerEmbeddingBase:
             dimension=args.dimension,
             min_duration_sec=args.min_duration_sec,
             device=args.device,
+            model_name=args.model_id,
         )
-    savedir = args.savedir
-    if not savedir.is_absolute():
-        savedir = TOOL_ROOT / savedir
-    return SpeechBrainECAPAAdapter(
-        {
-            "model_source": args.model_source,
-            "savedir": str(savedir),
-            "sample_rate_hz": 16000,
-            "embedding_dim": 192,
-            "min_duration_sec": args.min_duration_sec,
-            "device": args.device,
-            "allow_model_downloads": args.allow_model_downloads,
-        }
-    )
+    common = {
+        "model_name": args.model_id,
+        "sample_rate_hz": 16000,
+        "min_duration_sec": args.min_duration_sec,
+        "device": args.device,
+    }
+    if args.backend == "speechbrain":
+        return SpeechBrainECAPAAdapter(
+            {
+                **common,
+                "model_source": args.model_source or "speechbrain/spkrec-ecapa-voxceleb",
+                "savedir": str(_repository_path(args.savedir)),
+                "embedding_dim": 192,
+                "allow_model_downloads": args.allow_model_downloads,
+            }
+        )
+    if args.backend == "wespeaker":
+        model_path = args.model_path or Path("models/cache/wespeaker/english")
+        return WeSpeakerEmbeddingAdapter(
+            {
+                **common,
+                "model_source": args.model_source or "english",
+                "model_path": str(_repository_path(model_path)),
+                "allow_model_downloads": args.allow_model_downloads,
+            }
+        )
+    if args.backend == "sherpa_onnx":
+        model_path = args.model_path or Path(
+            "models/cache/sherpa_onnx/speaker_embedding/"
+            "3dspeaker_speech_eres2net_base_sv_zh-cn_3dspeaker_16k.onnx"
+        )
+        return SherpaOnnxSpeakerEmbeddingAdapter(
+            {
+                **common,
+                "model_path": str(_repository_path(model_path)),
+                "provider": "cuda" if str(args.device).startswith("cuda") else "cpu",
+                "num_threads": 1,
+            }
+        )
+    if args.backend == "resemblyzer":
+        params: dict[str, object] = dict(common)
+        if args.model_path is not None:
+            params["weights_path"] = str(_repository_path(args.model_path))
+        return ResemblyzerSpeakerEmbeddingAdapter(params)
+    raise ValueError(f"unsupported embedding backend: {args.backend}")
+
+
+def _repository_path(path: Path) -> Path:
+    """Resolve documented model-cache paths independently of the current directory."""
+
+    expanded = path.expanduser()
+    return expanded if expanded.is_absolute() else REPO_ROOT / expanded
 
 
 def blockers_summary(backend: str) -> list[str]:
@@ -253,9 +317,10 @@ def blockers_summary(backend: str) -> list[str]:
 
 
 def incomplete_summary(backend: str) -> list[str]:
-    items = ["Live microphone enrollment is intentionally deferred beyond M10."]
+    items: list[str] = []
     if backend != "speechbrain":
-        items.append("Real speaker embedding quality was not validated by the fake backend.")
+        if backend == "fake":
+            items.append("Real speaker embedding quality was not validated by the fake backend.")
     return items
 
 

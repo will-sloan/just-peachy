@@ -40,3 +40,73 @@ models:
       whisper_cache_dir: models/cache/whisper
     component_path: configs/inference/components/asr/whisper_tiny.yaml
     notes: Runs only when the OpenAI Whisper package and local tiny.pt asset are available.
+
+  - id: whisper_base
+    label: Whisper base local model
+    enabled: true
+    optional: true
+    availability:
+      requires_package: whisper
+      requires_whisper_model: base
+      whisper_cache_dir: models/cache/whisper
+    component_path: configs/inference/components/asr/whisper_base.yaml
+    notes: Runs only when the OpenAI Whisper package and local base.pt asset are available.
+
+  - id: whisper_small
+    label: Whisper small local model
+    enabled: true
+    optional: true
+    availability:
+      requires_package: whisper
+      requires_whisper_model: small
+      whisper_cache_dir: models/cache/whisper
+    component_path: configs/inference/components/asr/whisper_small.yaml
+    notes: Runs only when the OpenAI Whisper package and local small.pt asset are available.
+
+  - id: faster_whisper
+    label: Faster-Whisper Tiny CTranslate2 model
+    enabled: true
+    optional: true
+    availability:
+      requires_package: faster_whisper
+      requires_files:
+        - models/cache/faster_whisper/tiny/config.json
+        - models/cache/faster_whisper/tiny/model.bin
+        - models/cache/faster_whisper/tiny/tokenizer.json
+        - models/cache/faster_whisper/tiny/vocabulary.txt
+    component_path: configs/inference/components/asr/faster_whisper.yaml
+    notes: Runs only with the repository-local Faster-Whisper Tiny model directory.
+
+  - id: sherpa_onnx
+    label: Sherpa-ONNX streaming transducer
+    enabled: true
+    optional: true
+    availability:
+      requires_package: sherpa_onnx
+      requires_files:
+        - models/cache/sherpa_onnx/asr/sherpa-onnx-streaming-zipformer-en-2023-06-26/tokens.txt
+        - models/cache/sherpa_onnx/asr/sherpa-onnx-streaming-zipformer-en-2023-06-26/encoder-epoch-99-avg-1-chunk-16-left-128.int8.onnx
+        - models/cache/sherpa_onnx/asr/sherpa-onnx-streaming-zipformer-en-2023-06-26/decoder-epoch-99-avg-1-chunk-16-left-128.onnx
+        - models/cache/sherpa_onnx/asr/sherpa-onnx-streaming-zipformer-en-2023-06-26/joiner-epoch-99-avg-1-chunk-16-left-128.int8.onnx
+    component_path: configs/inference/components/asr/sherpa_onnx.yaml
+    notes: Runs only with a local streaming transducer model; downloads are never implicit.
+
+  - id: vosk
+    label: Vosk local model
+    enabled: true
+    optional: true
+    availability:
+      requires_package: vosk
+      requires_file: models/cache/vosk/asr/vosk-model-small-en-us-0.15
+    component_path: configs/inference/components/asr/vosk.yaml
+    notes: Runs only with a local Vosk model directory.
+
+  - id: wenet
+    label: WeNet local checkpoint
+    enabled: true
+    optional: true
+    availability:
+      requires_package: wenet
+      requires_file: models/cache/wenet/asr/librispeech_u2pp_conformer_exp
+    component_path: configs/inference/components/asr/wenet.yaml
+    notes: Runs only with a local WeNet checkpoint directory unless downloads are explicitly enabled.

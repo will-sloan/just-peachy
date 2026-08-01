@@ -11,6 +11,7 @@ from app.inference_pipeline.audio_io import LoadedAudio
 from app.inference_pipeline.config import PipelineConfig
 from app.inference_pipeline.contracts import EvaluationRecord, SpeechRegion
 from app.inference_pipeline.dummy_components import DummyASRComponent, DummySpeakerLabeler
+from app.inference_pipeline.errors import ContractValidationError
 from app.inference_pipeline.pipeline import PipelineRunner
 from app.inference_pipeline.registry import resolve_components
 from app.inference_pipeline.vad.base import FixedVAD, NoOpVAD, build_vad_from_config
@@ -154,7 +155,7 @@ def test_silero_vad_can_be_selected_by_config_without_eager_model_load() -> None
             "min_speech_ms": 100,
             "min_silence_ms": 100,
             "pad_ms": 30,
-            "sample_rate": SAMPLE_RATE,
+            "sample_rate": 8000,
         },
     }
     config = PipelineConfig.from_mapping(mapping)
@@ -198,7 +199,7 @@ def test_silero_vad_maps_timestamps_with_injected_backend() -> None:
             "min_speech_ms": 75,
             "min_silence_ms": 60,
             "pad_ms": 20,
-            "sample_rate": SAMPLE_RATE,
+            "sample_rate": 8000,
         },
         model=model,
         timestamp_fn=fake_timestamps,
@@ -210,15 +211,20 @@ def test_silero_vad_maps_timestamps_with_injected_backend() -> None:
         SpeechRegion(start_sec=0.2, end_sec=0.5, confidence=None, label="speech")
     ]
     assert calls == {
-        "sample_count": SAMPLE_RATE,
+        "sample_count": 8000,
         "model": model,
         "threshold": 0.4,
-        "sampling_rate": SAMPLE_RATE,
+        "sampling_rate": 8000,
         "min_speech_duration_ms": 75,
         "min_silence_duration_ms": 60,
         "speech_pad_ms": 20,
         "return_seconds": True,
     }
+
+
+def test_silero_vad_rejects_unsupported_configured_sample_rate() -> None:
+    with pytest.raises(ContractValidationError, match="8000 or 16000"):
+        SileroVAD({"sample_rate": 48000})
 
 
 def test_silero_vad_loads_packaged_model_when_available() -> None:

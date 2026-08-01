@@ -8,6 +8,7 @@ from typing import Any
 
 from app.inference_pipeline.pipeline import PipelineRunner
 from app.model_runner.base import ModelRunner
+from app.prediction_io.rttm import write_rttm_lines
 from app.prediction_io.schema import UtterancePrediction
 from app.utils.json_utils import write_jsonl
 from app.utils.run_artifacts import relative_artifact_record
@@ -27,6 +28,7 @@ class ExternalStubRunner(ModelRunner):
         self.pipeline_runner = pipeline_runner
         self.config_path = Path(config_path) if config_path is not None else _default_config_path()
         self._diagnostics_rows: list[dict[str, object]] = []
+        self._diarization_rttm_lines: list[str] = []
 
     def before_run(
         self,
@@ -91,6 +93,7 @@ class ExternalStubRunner(ModelRunner):
             encoding="utf-8",
         )
         self._diagnostics_rows = []
+        self._diarization_rttm_lines = []
         logger.info("Wrote external stub manifest with %d rows", len(records))
 
     def after_run(
@@ -105,6 +108,10 @@ class ExternalStubRunner(ModelRunner):
             return
         write_jsonl(predictions_dir / "diagnostics.jsonl", self._diagnostics_rows)
         logger.info("Wrote external stub diagnostics with %d rows", len(self._diagnostics_rows))
+        if self._diarization_rttm_lines:
+            unique_lines = list(dict.fromkeys(self._diarization_rttm_lines))
+            write_rttm_lines(predictions_dir / "segments.rttm", unique_lines)
+            logger.info("Wrote %d diarization RTTM segments", len(unique_lines))
 
     def predict_one(
         self,
@@ -114,7 +121,15 @@ class ExternalStubRunner(ModelRunner):
     ) -> UtterancePrediction:
         pipeline = self._pipeline_runner()
         output = _run_pipeline(pipeline, record, run_config, logger)
-        self._diagnostics_rows.append(_diagnostics_row(output, pipeline))
+        diagnostics_row = _diagnostics_row(output, pipeline)
+        self._diagnostics_rows.append(diagnostics_row)
+        diagnostics = diagnostics_row.get("diagnostics")
+        if isinstance(diagnostics, dict):
+            lines = diagnostics.get("diarization_rttm_lines")
+            if isinstance(lines, list):
+                self._diarization_rttm_lines.extend(
+                    str(line) for line in lines if str(line).strip()
+                )
         return UtterancePrediction(
             recording_id=output.recording_id,
             utt_id=output.utt_id,

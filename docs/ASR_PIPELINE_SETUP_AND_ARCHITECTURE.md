@@ -45,6 +45,10 @@ The `inference` profile installs the core packages plus PyTorch, torchaudio,
 OpenAI Whisper, SpeechBrain, Silero VAD, and sounddevice. `-InstallFFmpeg`
 installs FFmpeg through WinGet if it is not already on `PATH`.
 
+The `full` profile additionally installs the optional Faster-Whisper,
+pyannote, Sherpa-ONNX, Vosk, and WeNet packages. Their model weights remain a
+separate, explicit installation step.
+
 For development and tests, install the additional development tools:
 
 ```powershell
@@ -72,6 +76,7 @@ Package installation and model downloads are separate. The default cache is:
 
 ```text
 models/cache/whisper/<model>.pt
+models/cache/faster_whisper/tiny/
 models/cache/speechbrain/spkrec-ecapa-voxceleb/
 models/cache/pyannote/
 ```
@@ -85,9 +90,11 @@ Bootstrap the assets used by the validated realtime path with:
   --silero
 ```
 
-Other registered Whisper sizes are `tiny`, `small`, `medium`, `large-v1`,
-`large-v2`, `large-v3`, and `large-v3-turbo`. Larger models require additional
-disk space, memory, and CPU/GPU time.
+The permitted OpenAI Whisper sizes are `tiny`, `base`, and `small`. This policy
+is enforced both by the component registry and by the OpenAI/Faster-Whisper
+runtime adapters before model loading. The adapters pass cropped, mono 16 kHz
+waveforms in memory, so normal WAV inference does not rely on an ambient
+FFmpeg executable and always honors record/segment bounds.
 
 Pyannote is optional and not part of the validated default path. It may require
 accepting gated Hugging Face model terms and a token:
@@ -269,9 +276,13 @@ before interpreting margin behavior.
 
 ## Other registered paths and limitations
 
-- Whisper tiny through large-v3-turbo have component YAML and registry entries.
-- Faster-Whisper is installable and registered, but its execution adapter is
-  intentionally not wired into the realtime pipeline.
+- OpenAI Whisper Tiny, Base, and Small have component YAML and registry entries.
+- Faster-Whisper has an executable, lazy-loaded adapter and a reusable Tiny
+  component YAML. It consumes in-memory 16 kHz segments, exhausts the backend's
+  generator, preserves word timings, and refuses implicit downloads by default.
+- Sherpa-ONNX, Vosk, and WeNet have executable, lazy-loaded ASR adapters and
+  reusable component YAML files. They require explicitly configured local model
+  assets; WeNet downloads only when `allow_model_downloads` is deliberately set.
 - Energy VAD and Silero VAD are available; both are opt-in configurations.
 - VAD-region segmentation is available as an opt-in component.
 - Pyannote community diarization is optional, token-dependent, and disabled by

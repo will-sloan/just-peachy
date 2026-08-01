@@ -12,6 +12,10 @@ Software Validation from Datasets/Raw Datasets (Not formatted)/
 RawDatasets/
 models/
 
+# Local real-model qualification artifacts (recreated by the qualification script)
+Software Validation from Datasets/Evaluation Tool/runs/component_qualification/
+Software Validation from Datasets/Evaluation Tool/runs/component_readiness_*/
+
 
 # Python cache
 __pycache__/

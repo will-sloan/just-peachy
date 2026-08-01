@@ -1,0 +1,14 @@
+component:
+  slot: vad
+  name: webrtc_vad
+  enabled: true
+  adapter: WebRTCVAD
+  notes: Frame-based WebRTC VAD; the Python wheel includes the native runtime.
+  params:
+    mode: 2
+    frame_ms: 30
+    min_speech_ms: 250
+    min_silence_ms: 100
+    pad_ms: 30
+    sample_rate: 16000
+

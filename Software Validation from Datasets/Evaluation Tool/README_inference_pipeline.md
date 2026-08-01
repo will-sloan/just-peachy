@@ -57,10 +57,9 @@ python scripts/run_realtime_component_sweep.py --run-id full_matrix
 python scripts/run_realtime_component_sweep.py --run-id full_matrix --resume
 ```
 
-The matrix lists Whisper tiny, base, small, medium, large-v1, large-v2,
-large-v3, and large-v3-turbo. Larger models are disabled by default. Select
-one explicitly with `--models small` or include every listed model with
-`--all-models`. Downloads remain disabled unless
+The matrix is restricted to Whisper Tiny, Base, and Small. Small is disabled
+by default; select it explicitly with `--models small` or include all three
+permitted models with `--all-models`. Downloads remain disabled unless
 `--allow-model-downloads` is passed. Use `--devices cuda_fp16` to select the
 disabled-by-default CUDA profile.
 

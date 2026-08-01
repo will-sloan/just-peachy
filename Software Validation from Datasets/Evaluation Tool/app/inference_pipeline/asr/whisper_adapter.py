@@ -10,11 +10,13 @@ from typing import Any, Mapping
 
 import torch
 
+from app.inference_pipeline.asr.audio_utils import load_segment_audio
 from app.inference_pipeline.asr.base import (
     ASRBase,
     ASRContext,
     ASRRuntimeStats,
     normalize_text,
+    validate_allowed_whisper_model_size,
 )
 from app.inference_pipeline.contracts import ASRTranscript, AudioSegment, WordTiming
 from app.inference_pipeline.errors import ContractValidationError, InferencePipelineError
@@ -36,7 +38,9 @@ class WhisperASR(ASRBase):
     def __post_init__(self) -> None:
         ASRBase.__init__(self)
         self.params = dict(self.params or {})
-        self.model_size = str(self.params.get("model_size", "tiny"))
+        self.model_size = validate_allowed_whisper_model_size(
+            self.params.get("model_size", "tiny")
+        )
         self.model_name = str(self.params.get("model_name", f"whisper_{self.model_size}"))
         self.device = str(self.params.get("device", "cpu"))
         self.dtype = str(self.params.get("dtype", "float32"))
@@ -48,8 +52,8 @@ class WhisperASR(ASRBase):
         self._load_sec: float | None = None
 
     def transcribe(self, audio_segment: AudioSegment, context: ASRContext) -> ASRTranscript:
-        started_at = time.perf_counter()
         model = self._model(context)
+        audio = load_segment_audio(audio_segment, target_sample_rate=16000)
         kwargs: dict[str, object] = {
             "language": self.language or context.language,
             "word_timestamps": self.word_timestamps,
@@ -57,23 +61,29 @@ class WhisperASR(ASRBase):
         }
         if self.beam_size is not None:
             kwargs["beam_size"] = self.beam_size
-        if audio_segment.start_sec is not None or audio_segment.end_sec is not None:
-            kwargs["clip_timestamps"] = _clip_timestamps(audio_segment)
+        started_at = time.perf_counter()
         try:
-            result = model.transcribe(str(audio_segment.audio_path), **kwargs)
-        except TypeError:
-            result = model.transcribe(str(audio_segment.audio_path), language=self.language)
+            result = model.transcribe(audio.samples, **kwargs)
+        except Exception as exc:  # pragma: no cover - dependency boundary
+            raise WhisperASRUnavailableError(f"Whisper transcription failed: {exc}") from exc
         inference_sec = time.perf_counter() - started_at
         raw_text = str(result.get("text", ""))
         normalized_text = normalize_text(raw_text)
-        words = _words_from_result(result)
+        words = (
+            _words_from_result(
+                result,
+                offset_sec=float(audio_segment.start_sec or 0.0),
+            )
+            if self.word_timestamps
+            else ()
+        )
         self.last_raw_text = raw_text
         self.last_normalized_text = normalized_text
         self.last_runtime_stats = ASRRuntimeStats.from_timings(
             model_name=self.model_name,
             load_sec=self._load_sec,
             inference_sec=inference_sec,
-            audio_duration_sec=audio_segment.duration_sec,
+            audio_duration_sec=audio.duration_sec,
             device=self.device,
             dtype=self.dtype,
             peak_gpu_memory_mb=_peak_gpu_memory_mb(self.device),
@@ -132,7 +142,10 @@ def _local_model_asset_path(
 def _download_root(cache_dir: Path | None, model_asset: Path | None) -> Path | None:
     if model_asset is not None:
         return model_asset.parent
-    return cache_dir
+    if cache_dir is None or cache_dir.is_absolute():
+        return cache_dir
+    repository_root = Path(__file__).resolve().parents[5]
+    return repository_root / cache_dir
 
 
 def _cache_dir_candidates(cache_dir: Path | None, context: ASRContext | None) -> list[Path]:
@@ -141,6 +154,10 @@ def _cache_dir_candidates(cache_dir: Path | None, context: ASRContext | None) ->
         candidates.append(cache_dir)
         if not cache_dir.is_absolute():
             candidates.append(Path.cwd() / cache_dir)
+            tool_root = Path(__file__).resolve().parents[3]
+            candidates.append(tool_root / cache_dir)
+            candidates.append(tool_root.parent / cache_dir)
+            candidates.append(tool_root.parent.parent / cache_dir)
             project_root = _project_root_from_context(context)
             if project_root is not None:
                 candidates.append(project_root / "Evaluation Tool" / cache_dir)
@@ -171,15 +188,11 @@ def _dedupe_paths(paths: list[Path]) -> list[Path]:
     return unique
 
 
-def _clip_timestamps(audio_segment: AudioSegment) -> str:
-    start = audio_segment.start_sec or 0.0
-    end = audio_segment.end_sec
-    if end is None:
-        return f"{start}"
-    return f"{start},{end}"
-
-
-def _words_from_result(result: Mapping[str, object]) -> tuple[WordTiming, ...]:
+def _words_from_result(
+    result: Mapping[str, object],
+    *,
+    offset_sec: float = 0.0,
+) -> tuple[WordTiming, ...]:
     words: list[WordTiming] = []
     segments = result.get("segments")
     if not isinstance(segments, list):
@@ -199,8 +212,8 @@ def _words_from_result(result: Mapping[str, object]) -> tuple[WordTiming, ...]:
             words.append(
                 WordTiming(
                     word=text,
-                    start_sec=_optional_float(raw_word.get("start")),
-                    end_sec=_optional_float(raw_word.get("end")),
+                    start_sec=_offset_time(raw_word.get("start"), offset_sec),
+                    end_sec=_offset_time(raw_word.get("end"), offset_sec),
                     confidence=_optional_float(raw_word.get("probability")),
                 )
             )
@@ -238,6 +251,11 @@ def _optional_float(value: object) -> float | None:
         return float(value)
     except (TypeError, ValueError):
         return None
+
+
+def _offset_time(value: object, offset_sec: float) -> float | None:
+    parsed = _optional_float(value)
+    return None if parsed is None else parsed + offset_sec
 
 
 def _optional_int(value: object) -> int | None:

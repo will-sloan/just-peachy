@@ -4,6 +4,7 @@ from __future__ import annotations
 
 from abc import ABC, abstractmethod
 from dataclasses import dataclass
+import math
 from pathlib import Path
 from typing import Mapping, Sequence
 
@@ -33,10 +34,40 @@ class SpeakerTurnRegion:
     source: str | None = None
 
     def __post_init__(self) -> None:
-        _validate_time_range(self.start_sec, self.end_sec, "SpeakerTurnRegion")
-        if not str(self.speaker_turn_label).strip():
+        try:
+            start_sec = float(self.start_sec)
+            end_sec = float(self.end_sec)
+        except (TypeError, ValueError) as exc:
+            raise ContractValidationError(
+                "SpeakerTurnRegion times must be numeric"
+            ) from exc
+        _validate_time_range(start_sec, end_sec, "SpeakerTurnRegion")
+        label = str(self.speaker_turn_label).strip()
+        if not label:
             raise ContractValidationError("speaker_turn_label must be non-empty")
-        object.__setattr__(self, "speaker_turn_label", str(self.speaker_turn_label))
+        if any(character.isspace() for character in label):
+            raise ContractValidationError("speaker_turn_label must not contain whitespace")
+        try:
+            confidence = None if self.confidence is None else float(self.confidence)
+        except (TypeError, ValueError) as exc:
+            raise ContractValidationError(
+                "SpeakerTurnRegion confidence must be numeric"
+            ) from exc
+        if confidence is not None and not 0.0 <= confidence <= 1.0:
+            raise ContractValidationError("SpeakerTurnRegion confidence must be in [0, 1]")
+        try:
+            channel_index = None if self.channel_index is None else int(self.channel_index)
+        except (TypeError, ValueError) as exc:
+            raise ContractValidationError(
+                "SpeakerTurnRegion channel_index must be an integer"
+            ) from exc
+        if channel_index is not None and channel_index < 0:
+            raise ContractValidationError("SpeakerTurnRegion channel_index must be >= 0")
+        object.__setattr__(self, "start_sec", start_sec)
+        object.__setattr__(self, "end_sec", end_sec)
+        object.__setattr__(self, "speaker_turn_label", label)
+        object.__setattr__(self, "confidence", confidence)
+        object.__setattr__(self, "channel_index", channel_index)
 
     def to_speech_region(self) -> SpeechRegion:
         """Return a segmentation-compatible region without naming a speaker."""
@@ -267,6 +298,22 @@ def build_diarizer_from_config(config: object) -> DiarizationBase | None:
         )
 
         return PyannoteCommunityDiarizer(params)
+    if name == "sherpa_onnx_diarization":
+        from app.inference_pipeline.diarization.sherpa_onnx_adapter import (
+            SherpaOnnxDiarizer,
+        )
+
+        return SherpaOnnxDiarizer(params)
+    if name == "picovoice_falcon":
+        from app.inference_pipeline.diarization.falcon_adapter import (
+            PicovoiceFalconDiarizer,
+        )
+
+        return PicovoiceFalconDiarizer(params)
+    if name == "nemo_diarization":
+        from app.inference_pipeline.diarization.nemo_adapter import NemoDiarizer
+
+        return NemoDiarizer(params)
     raise ContractValidationError(f"unknown diarization component {name!r}")
 
 
@@ -282,6 +329,46 @@ def write_turns_jsonable(turns: Sequence[SpeakerTurnRegion]) -> list[JsonObject]
     """Return JSON-safe diarization turn rows."""
 
     return [turn.to_jsonable() for turn in turns]
+
+
+def speaker_turns_to_rttm_lines(
+    recording_id: str,
+    turns: Sequence[SpeakerTurnRegion],
+    *,
+    time_offset_sec: float = 0.0,
+) -> list[str]:
+    """Serialize anonymous turns as standards-compatible RTTM SPEAKER rows.
+
+    Backend timestamps are relative to the model-ready record audio.  The
+    optional offset maps them back to source-recording coordinates before the
+    Evaluation Tool writes ``predictions/segments.rttm``.
+    """
+
+    file_id = str(recording_id).strip()
+    if not file_id or any(character.isspace() for character in file_id):
+        raise ContractValidationError(
+            "RTTM recording_id must be non-empty and contain no whitespace"
+        )
+    try:
+        offset = float(time_offset_sec)
+    except (TypeError, ValueError) as exc:
+        raise ContractValidationError("RTTM time_offset_sec must be numeric") from exc
+    if not math.isfinite(offset) or offset < 0:
+        raise ContractValidationError("RTTM time_offset_sec must be finite and >= 0")
+
+    lines: list[str] = []
+    for turn in sorted(
+        turns,
+        key=lambda item: (item.start_sec, item.end_sec, item.speaker_turn_label),
+    ):
+        start = offset + turn.start_sec
+        duration = turn.end_sec - turn.start_sec
+        channel = (turn.channel_index + 1) if turn.channel_index is not None else 1
+        lines.append(
+            f"SPEAKER {file_id} {channel} {start:.6f} {duration:.6f} "
+            f"<NA> <NA> {turn.speaker_turn_label} <NA> <NA>"
+        )
+    return lines
 
 
 def mark_overlapping_turns(
@@ -593,8 +680,12 @@ def _component_params(component: object) -> Mapping[str, object]:
 
 
 def _validate_time_range(start_sec: float, end_sec: float, label: str) -> None:
-    if end_sec < start_sec:
-        raise ContractValidationError(f"{label} end_sec must be >= start_sec")
+    if not math.isfinite(float(start_sec)) or not math.isfinite(float(end_sec)):
+        raise ContractValidationError(f"{label} times must be finite")
+    if start_sec < 0:
+        raise ContractValidationError(f"{label} start_sec must be >= 0")
+    if end_sec <= start_sec:
+        raise ContractValidationError(f"{label} end_sec must be > start_sec")
 
 
 def _float_value(value: object, field_name: str) -> float:

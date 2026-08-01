@@ -1,0 +1,13 @@
+component:
+  slot: asr
+  name: vosk
+  enabled: true
+  adapter: VoskASRAdapter
+  params:
+    model_name: vosk_local
+    language: en
+    sample_rate: 16000
+    chunk_frames: 4000
+    words: true
+    partial_words: false
+    model_path: models/cache/vosk/asr/vosk-model-small-en-us-0.15

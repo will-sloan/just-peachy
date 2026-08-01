@@ -1,0 +1,4 @@
+# Canonical inventory for the full profile. On Windows, use install.ps1;
+# it applies the documented --no-deps workaround for speaker_backends.txt.
+-r optional.txt
+-r speaker_backends.txt

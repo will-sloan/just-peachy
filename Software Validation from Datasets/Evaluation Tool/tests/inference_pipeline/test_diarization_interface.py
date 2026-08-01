@@ -5,13 +5,22 @@ import sys
 from pathlib import Path
 from types import SimpleNamespace
 
+import numpy as np
 import pytest
+import soundfile as sf
+import torch
 
 from app.inference_pipeline.asr.base import FixedASR
 from app.inference_pipeline.config import PipelineConfig
-from app.inference_pipeline.contracts import EvaluationRecord, SpeechRegion
+from app.inference_pipeline.contracts import (
+    ASRTranscript,
+    AudioSegment,
+    EvaluationRecord,
+    SpeechRegion,
+)
 from app.inference_pipeline.diarization import (
     DiarizationUnavailableError,
+    DiarizationParameters,
     FixedDiarizer,
     NoOpDiarizer,
     PyannoteCommunityDiarizer,
@@ -24,12 +33,21 @@ from app.inference_pipeline.diarization import (
     mark_overlapping_turns,
     named_speaker_false_assignment_rate,
     summarize_diarization_baseline,
+    speaker_turns_to_rttm_lines,
     write_diarization_report,
     write_turns_jsonable,
 )
 from app.inference_pipeline.pipeline import PipelineRunner
+from app.inference_pipeline.diarization.pyannote_adapter import _resolve_pipeline_source
+from app.inference_pipeline.enrollment.schema import EnrollmentDatabase
 from app.inference_pipeline.registry import resolve_components
 from app.inference_pipeline.segmentation.vad_chunker import VADChunker
+from app.inference_pipeline.speaker_matching.base import SpeakerDecision as MatchingDecision
+from app.inference_pipeline.speaker_matching.base import SpeakerScore
+from app.inference_pipeline.speaker_matching.cosine_matcher import (
+    CosineThresholdSpeakerMatcher,
+)
+from app.inference_pipeline.transcript import SegmentPrediction
 from app.inference_pipeline.vad.base import FixedVAD
 
 
@@ -71,6 +89,12 @@ class FakePipeline:
     def __call__(self, audio_input, **kwargs):
         self.calls.append((audio_input, kwargs))
         return FakeAnnotation()
+
+
+def _write_wav(path: Path, duration_sec: float, sample_rate: int = 16000) -> Path:
+    samples = np.zeros(int(duration_sec * sample_rate), dtype=np.float32)
+    sf.write(path, samples, sample_rate)
+    return path
 
 
 def cpu_smoke_mapping() -> dict[str, object]:
@@ -124,6 +148,31 @@ def test_no_op_and_fixed_diarizers_are_deterministic() -> None:
     assert write_turns_jsonable(expected) == [expected[0].to_jsonable()]
 
 
+def test_diarization_turns_serialize_to_absolute_rttm_rows() -> None:
+    lines = speaker_turns_to_rttm_lines(
+        "meeting-01",
+        turns((0.25, 0.75, "speaker_00")),
+        time_offset_sec=10.0,
+    )
+
+    assert lines == [
+        "SPEAKER meeting-01 1 10.250000 0.500000 <NA> <NA> speaker_00 <NA> <NA>"
+    ]
+
+
+@pytest.mark.parametrize(
+    "kwargs",
+    [
+        {"start_sec": -0.1, "end_sec": 0.5, "speaker_turn_label": "speaker_00"},
+        {"start_sec": 0.5, "end_sec": 0.5, "speaker_turn_label": "speaker_00"},
+        {"start_sec": 0.0, "end_sec": 0.5, "speaker_turn_label": "bad label"},
+    ],
+)
+def test_diarization_turn_contract_rejects_invalid_rttm_values(kwargs) -> None:
+    with pytest.raises(ValueError):
+        SpeakerTurnRegion(**kwargs)
+
+
 def test_diarization_disabled_by_default_config() -> None:
     config = PipelineConfig.from_yaml_path(CONFIG_ROOT / "cpu_smoke.yaml")
     resolved = resolve_components(config)
@@ -166,11 +215,14 @@ def test_pyannote_component_file_loads_by_reference() -> None:
     )
     resolved = resolve_components(config)
 
-    assert resolved["diarization"].enabled is False
-    assert resolved["diarization"].adapter_class.__name__ == "DisabledComponentAdapter"
+    assert resolved["diarization"].enabled is True
+    assert resolved["diarization"].adapter_class.__name__ == (
+        "PyannoteCommunityDiarizationAdapter"
+    )
 
 
-def test_pyannote_adapter_maps_backend_labels_to_anonymous_turns() -> None:
+def test_pyannote_adapter_maps_backend_labels_to_anonymous_turns(tmp_path: Path) -> None:
+    audio_path = _write_wav(tmp_path / "meeting.wav", 2.0)
     fake_pipeline = FakePipeline()
     diarizer = PyannoteCommunityDiarizer(
         {
@@ -181,15 +233,51 @@ def test_pyannote_adapter_maps_backend_labels_to_anonymous_turns() -> None:
         pipeline=fake_pipeline,
     )
 
-    result = diarizer.diarize(SimpleNamespace(audio_path=Path("meeting.wav")))
+    result = diarizer.diarize(SimpleNamespace(audio_path=audio_path))
 
     assert [turn.speaker_turn_label for turn in result] == ["speaker_00", "speaker_01"]
     assert all(turn.speaker_turn_label not in {"Alice", "Bob"} for turn in result)
     assert [turn.is_overlap for turn in result] == [True, True]
-    assert fake_pipeline.calls == [({"audio": "meeting.wav"}, {})]
+    assert fake_pipeline.calls == [(str(audio_path), {})]
 
 
-def test_pyannote_adapter_reports_unavailable_without_optional_dependency() -> None:
+def test_pyannote_uses_only_loaded_record_waveform(tmp_path: Path) -> None:
+    source_path = _write_wav(tmp_path / "long_meeting.wav", 4.0)
+
+    class InspectingPipeline(FakePipeline):
+        def __init__(self) -> None:
+            super().__init__()
+            self.observed_duration: float | None = None
+            self.observed_path: Path | None = None
+
+        def __call__(self, audio_input, **kwargs):
+            self.observed_path = Path(audio_input)
+            self.observed_duration = float(sf.info(self.observed_path).duration)
+            return super().__call__(audio_input, **kwargs)
+
+    fake_pipeline = InspectingPipeline()
+    diarizer = PyannoteCommunityDiarizer(
+        {"model_source": "local-pyannote", "allow_model_downloads": False},
+        pipeline=fake_pipeline,
+    )
+    audio = SimpleNamespace(
+        audio_path=source_path,
+        waveform=torch.zeros(1, 16000),
+        sample_rate=16000,
+        segment_start_sec=2.0,
+        segment_end_sec=3.0,
+    )
+
+    diarizer.diarize(audio)
+
+    assert fake_pipeline.observed_duration == pytest.approx(1.0)
+    assert fake_pipeline.observed_path is not None
+    assert fake_pipeline.observed_path != source_path
+    assert not fake_pipeline.observed_path.exists()
+
+
+def test_pyannote_adapter_reports_unavailable_without_optional_dependency(tmp_path: Path) -> None:
+    audio_path = _write_wav(tmp_path / "meeting.wav", 1.0)
     diarizer = PyannoteCommunityDiarizer(
         {
             "model_source": "pyannote/speaker-diarization-community-1",
@@ -199,11 +287,23 @@ def test_pyannote_adapter_reports_unavailable_without_optional_dependency() -> N
     )
 
     try:
-        diarizer.diarize(SimpleNamespace(audio_path=Path("meeting.wav")))
+        diarizer.diarize(SimpleNamespace(audio_path=audio_path))
     except PyannoteDiarizationUnavailableError as exc:
         assert "pyannote" in str(exc).lower()
     else:
         pytest.skip("pyannote and local model assets are available in this environment")
+
+
+def test_pyannote_downloads_require_explicit_token(monkeypatch) -> None:
+    monkeypatch.delenv("PYANNOTE_AUTH_TOKEN", raising=False)
+    monkeypatch.delenv("HF_TOKEN", raising=False)
+    params = DiarizationParameters(
+        model_source="pyannote/speaker-diarization-community-1",
+        allow_model_downloads=True,
+    )
+
+    with pytest.raises(PyannoteDiarizationUnavailableError, match="require a Hugging Face token"):
+        _resolve_pipeline_source(params, token=None)
 
 
 def test_metrics_compute_der_jer_overlap_and_named_false_assignment() -> None:
@@ -281,6 +381,19 @@ def test_pipeline_uses_diarization_turns_for_segmentation_when_enabled() -> None
     assert output.runtime_stats is not None
     assert output.runtime_stats.diarization_sec is not None
     assert output.runtime_stats.counters["diarization_turn_count"] == 2
+    assert [item.speaker_label for item in output.transcript_items] == [
+        "speaker_00",
+        "speaker_01",
+    ]
+    assert output.speaker_label == "speaker_00"
+    assert output.diagnostics["segment_diarization_labels"] == [
+        "speaker_00",
+        "speaker_01",
+    ]
+    assert output.diagnostics["diarization_rttm_lines"] == [
+        "SPEAKER rec-001 1 0.000000 0.700000 <NA> <NA> speaker_00 <NA> <NA>",
+        "SPEAKER rec-001 1 0.900000 0.700000 <NA> <NA> speaker_01 <NA> <NA>",
+    ]
 
 
 def test_pipeline_falls_back_to_vad_when_diarization_is_unavailable() -> None:
@@ -319,6 +432,139 @@ def test_pipeline_falls_back_to_vad_when_diarization_is_unavailable() -> None:
     assert "diarization unavailable" in output.diagnostics["diarization_warnings"][0]
     assert output.diagnostics["segments"][0]["start_sec"] == pytest.approx(0.2)
     assert output.warnings
+
+
+def test_pipeline_warns_when_named_matching_has_no_enrollment() -> None:
+    pipeline = PipelineRunner(
+        audio_reader=StaticAudioReader(1.0),
+        asr=FixedASR("hello"),
+        speaker_matcher=CosineThresholdSpeakerMatcher(),
+        enrollment_db=EnrollmentDatabase.empty(),
+    )
+
+    output = pipeline.predict(
+        {
+            "recording_id": "rec-empty-enrollment",
+            "utt_id": "utt-empty-enrollment",
+            "inference_audio_path": "synthetic.wav",
+            "duration_sec": 1.0,
+        },
+        {},
+    )
+
+    assert any("enrollment database is empty" in warning for warning in output.warnings)
+    assert output.diagnostics is not None
+    assert output.diagnostics["speaker_warnings"]
+
+
+def test_offline_speaker_evidence_applies_two_of_three_change_heuristic() -> None:
+    pipeline = PipelineRunner(
+        audio_reader=StaticAudioReader(4.0),
+        asr=FixedASR("hello"),
+        speaker_evidence_params={
+            "enabled": True,
+            "confirmation_windows": 3,
+            "confirmation_threshold": 2,
+            "score_threshold": 0.7,
+            "unknown_label": "Unknown",
+        },
+    )
+    labels = ("Alice", "Alice", "Bob", "Bob")
+    predictions = tuple(
+        SegmentPrediction(
+            segment_index=index,
+            segment=AudioSegment(
+                audio_path=Path("synthetic.wav"),
+                start_sec=float(index),
+                end_sec=float(index + 1),
+                duration_sec=1.0,
+            ),
+            transcript=ASRTranscript(
+                text="hello",
+                start_sec=float(index),
+                end_sec=float(index + 1),
+            ),
+            speaker_decision=MatchingDecision(
+                speaker_label=label,
+                best_label=label,
+                confidence=0.9,
+                accepted=True,
+                threshold_decision="accepted",
+                scores=(SpeakerScore(speaker_label=label, score=0.9),),
+            ),
+        )
+        for index, label in enumerate(labels)
+    )
+
+    updated = pipeline._apply_speaker_evidence(predictions)
+
+    assert [item.speaker_decision.speaker_label for item in updated] == [
+        "Unknown",
+        "Alice",
+        "Unknown",
+        "Bob",
+    ]
+    assert [item.speaker_decision.accepted for item in updated] == [
+        False,
+        True,
+        False,
+        True,
+    ]
+    assert [row["status"] for row in pipeline.last_speaker_evidence_updates] == [
+        "tentative",
+        "confirmed",
+        "tentative",
+        "confirmed",
+    ]
+    assert all(
+        "temporal_evidence" in item.speaker_decision.method for item in updated
+    )
+
+
+def test_anonymous_diarization_falls_back_when_enrollment_match_is_unknown() -> None:
+    pipeline = PipelineRunner(
+        audio_reader=StaticAudioReader(1.0),
+        asr=FixedASR("hello"),
+    )
+    pipeline.last_segment_diarization_labels = ("speaker_00",)
+    unknown = MatchingDecision(
+        speaker_label="Unknown",
+        best_label="Alice",
+        confidence=0.4,
+        accepted=False,
+        threshold_decision="below_threshold",
+        scores=(SpeakerScore(speaker_label="Alice", score=0.4),),
+    )
+    prediction = SegmentPrediction(
+        segment_index=0,
+        segment=AudioSegment(
+            audio_path=Path("synthetic.wav"),
+            start_sec=0.0,
+            end_sec=1.0,
+            duration_sec=1.0,
+        ),
+        transcript=ASRTranscript(text="hello", start_sec=0.0, end_sec=1.0),
+        speaker_decision=unknown,
+    )
+    record = EvaluationRecord(
+        recording_id="rec",
+        utt_id="utt",
+        inference_audio_path=Path("synthetic.wav"),
+        start_sec=0.0,
+        end_sec=1.0,
+    )
+
+    updated = pipeline._apply_diarization_labels(
+        record,
+        (prediction,),
+        turns((0.0, 1.0, "speaker_00")),
+    )
+
+    decision = updated[0].speaker_decision
+    assert decision.speaker_label == "speaker_00"
+    assert decision.accepted is False
+    assert decision.scores == unknown.scores
+    assert "anonymous_diarization" in decision.method
 
 
 def test_diarization_report_writer(tmp_path: Path) -> None:

@@ -1,7 +1,7 @@
 sweep_name: realtime_components
 notes: >-
-  Cartesian realtime sweep. Larger models are listed but disabled by default;
-  use --all-models or --models to opt in. Model downloads remain CLI opt-in.
+  Cartesian realtime sweep over the permitted OpenAI Whisper sizes. Use
+  --all-models or --models to opt into Small. Model downloads remain CLI opt-in.
 base_config: configs/inference/live_mic_realtime_whisper_base_speaker_matching.yaml
 
 inputs:
@@ -27,31 +27,6 @@ models:
     component_name: whisper_small
     adapter: WhisperSmallASRAdapter
     model_size: small
-  - id: medium
-    enabled: false
-    component_name: whisper_medium
-    adapter: WhisperMediumASRAdapter
-    model_size: medium
-  - id: large-v1
-    enabled: false
-    component_name: whisper_large_v1
-    adapter: WhisperLargeV1ASRAdapter
-    model_size: large-v1
-  - id: large-v2
-    enabled: false
-    component_name: whisper_large_v2
-    adapter: WhisperLargeV2ASRAdapter
-    model_size: large-v2
-  - id: large-v3
-    enabled: false
-    component_name: whisper_large_v3
-    adapter: WhisperLargeV3ASRAdapter
-    model_size: large-v3
-  - id: turbo
-    enabled: false
-    component_name: whisper_turbo
-    adapter: WhisperTurboASRAdapter
-    model_size: large-v3-turbo
 
 devices:
   - id: cpu_fp32

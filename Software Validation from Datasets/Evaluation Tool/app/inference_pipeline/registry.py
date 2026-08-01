@@ -59,6 +59,16 @@ class EnergyVADAdapter(ComponentAdapter):
     component_name = "energy_vad"
 
 
+class WebRTCVADAdapter(ComponentAdapter):
+    component_slot = "vad"
+    component_name = "webrtc_vad"
+
+
+class SherpaOnnxVADAdapter(ComponentAdapter):
+    component_slot = "vad"
+    component_name = "sherpa_onnx_vad"
+
+
 class NoOpSegmentationAdapter(ComponentAdapter):
     component_slot = "segmentation"
     component_name = "no_op_segmentation"
@@ -77,6 +87,21 @@ class NoOpDiarizationAdapter(ComponentAdapter):
 class PyannoteCommunityDiarizationAdapter(ComponentAdapter):
     component_slot = "diarization"
     component_name = "pyannote_community"
+
+
+class SherpaOnnxDiarizationAdapter(ComponentAdapter):
+    component_slot = "diarization"
+    component_name = "sherpa_onnx_diarization"
+
+
+class PicovoiceFalconDiarizationAdapter(ComponentAdapter):
+    component_slot = "diarization"
+    component_name = "picovoice_falcon"
+
+
+class NemoDiarizationAdapter(ComponentAdapter):
+    component_slot = "diarization"
+    component_name = "nemo_diarization"
 
 
 class NoOpASRAdapter(ComponentAdapter):
@@ -99,34 +124,24 @@ class WhisperSmallASRAdapter(ComponentAdapter):
     component_name = "whisper_small"
 
 
-class WhisperMediumASRAdapter(ComponentAdapter):
-    component_slot = "asr"
-    component_name = "whisper_medium"
-
-
-class WhisperLargeV1ASRAdapter(ComponentAdapter):
-    component_slot = "asr"
-    component_name = "whisper_large_v1"
-
-
-class WhisperLargeV2ASRAdapter(ComponentAdapter):
-    component_slot = "asr"
-    component_name = "whisper_large_v2"
-
-
-class WhisperLargeV3ASRAdapter(ComponentAdapter):
-    component_slot = "asr"
-    component_name = "whisper_large_v3"
-
-
-class WhisperTurboASRAdapter(ComponentAdapter):
-    component_slot = "asr"
-    component_name = "whisper_turbo"
-
-
 class FasterWhisperASRAdapter(ComponentAdapter):
     component_slot = "asr"
     component_name = "faster_whisper"
+
+
+class SherpaOnnxASRAdapter(ComponentAdapter):
+    component_slot = "asr"
+    component_name = "sherpa_onnx"
+
+
+class VoskASRAdapter(ComponentAdapter):
+    component_slot = "asr"
+    component_name = "vosk"
+
+
+class WeNetASRAdapter(ComponentAdapter):
+    component_slot = "asr"
+    component_name = "wenet"
 
 
 class NoOpSpeakerEmbeddingAdapter(ComponentAdapter):
@@ -137,6 +152,21 @@ class NoOpSpeakerEmbeddingAdapter(ComponentAdapter):
 class SpeechBrainECAPAAdapter(ComponentAdapter):
     component_slot = "speaker_embedding"
     component_name = "speechbrain_ecapa"
+
+
+class WeSpeakerEmbeddingAdapter(ComponentAdapter):
+    component_slot = "speaker_embedding"
+    component_name = "wespeaker"
+
+
+class SherpaOnnxSpeakerEmbeddingAdapter(ComponentAdapter):
+    component_slot = "speaker_embedding"
+    component_name = "sherpa_onnx_speaker_embedding"
+
+
+class ResemblyzerSpeakerEmbeddingAdapter(ComponentAdapter):
+    component_slot = "speaker_embedding"
+    component_name = "resemblyzer"
 
 
 class NoOpSpeakerMatchingAdapter(ComponentAdapter):
@@ -153,31 +183,37 @@ REGISTERED_COMPONENTS: dict[str, dict[str, type[ComponentAdapter]]] = {
     "vad": {
         EnergyVADAdapter.component_name: EnergyVADAdapter,
         NoOpVADAdapter.component_name: NoOpVADAdapter,
+        SherpaOnnxVADAdapter.component_name: SherpaOnnxVADAdapter,
         SileroVADAdapter.component_name: SileroVADAdapter,
+        WebRTCVADAdapter.component_name: WebRTCVADAdapter,
     },
     "segmentation": {
         NoOpSegmentationAdapter.component_name: NoOpSegmentationAdapter,
         VADChunkerAdapter.component_name: VADChunkerAdapter,
     },
     "diarization": {
+        NemoDiarizationAdapter.component_name: NemoDiarizationAdapter,
         NoOpDiarizationAdapter.component_name: NoOpDiarizationAdapter,
+        PicovoiceFalconDiarizationAdapter.component_name: PicovoiceFalconDiarizationAdapter,
         PyannoteCommunityDiarizationAdapter.component_name: PyannoteCommunityDiarizationAdapter,
+        SherpaOnnxDiarizationAdapter.component_name: SherpaOnnxDiarizationAdapter,
     },
     "asr": {
         FasterWhisperASRAdapter.component_name: FasterWhisperASRAdapter,
         NoOpASRAdapter.component_name: NoOpASRAdapter,
+        SherpaOnnxASRAdapter.component_name: SherpaOnnxASRAdapter,
+        VoskASRAdapter.component_name: VoskASRAdapter,
+        WeNetASRAdapter.component_name: WeNetASRAdapter,
         WhisperBaseASRAdapter.component_name: WhisperBaseASRAdapter,
-        WhisperLargeV1ASRAdapter.component_name: WhisperLargeV1ASRAdapter,
-        WhisperLargeV2ASRAdapter.component_name: WhisperLargeV2ASRAdapter,
-        WhisperLargeV3ASRAdapter.component_name: WhisperLargeV3ASRAdapter,
-        WhisperMediumASRAdapter.component_name: WhisperMediumASRAdapter,
         WhisperSmallASRAdapter.component_name: WhisperSmallASRAdapter,
         WhisperTinyASRAdapter.component_name: WhisperTinyASRAdapter,
-        WhisperTurboASRAdapter.component_name: WhisperTurboASRAdapter,
     },
     "speaker_embedding": {
         NoOpSpeakerEmbeddingAdapter.component_name: NoOpSpeakerEmbeddingAdapter,
+        ResemblyzerSpeakerEmbeddingAdapter.component_name: ResemblyzerSpeakerEmbeddingAdapter,
+        SherpaOnnxSpeakerEmbeddingAdapter.component_name: SherpaOnnxSpeakerEmbeddingAdapter,
         SpeechBrainECAPAAdapter.component_name: SpeechBrainECAPAAdapter,
+        WeSpeakerEmbeddingAdapter.component_name: WeSpeakerEmbeddingAdapter,
     },
     "speaker_matching": {
         CosineThresholdSpeakerMatchingAdapter.component_name: CosineThresholdSpeakerMatchingAdapter,

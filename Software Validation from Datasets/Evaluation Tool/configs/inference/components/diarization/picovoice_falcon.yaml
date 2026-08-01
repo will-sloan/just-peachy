@@ -1,0 +1,12 @@
+component:
+  slot: diarization
+  name: picovoice_falcon
+  enabled: true
+  adapter: PicovoiceFalconDiarizer
+  notes: Picovoice Falcon diarization; runtime use requires a PICOVOICE_ACCESS_KEY.
+  params:
+    model_source: picovoice/falcon
+    access_key_env: PICOVOICE_ACCESS_KEY
+    device: best
+    min_turn_sec: 0.05
+

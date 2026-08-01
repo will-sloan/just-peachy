@@ -5,7 +5,9 @@ component:
   adapter: EnergyVADAdapter
   notes: Deterministic offline energy baseline for M5 VAD smoke validation.
   params:
-    threshold: 0.1
+    # Float audio RMS threshold. 0.1 rejected ordinary speech in the bundled
+    # qualification audio; 0.01 is the already-qualified pipeline baseline.
+    threshold: 0.01
     min_speech_ms: 250
     min_silence_ms: 100
     pad_ms: 0

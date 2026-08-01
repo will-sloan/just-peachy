@@ -16,6 +16,7 @@ from app.inference_pipeline.dummy_components import (
 from app.inference_pipeline.pipeline import PipelineRunner
 from app.model_runner.external_stub import ExternalStubRunner
 from app.prediction_io.jsonl import read_utterance_predictions
+from app.prediction_io.rttm import read_rttm_lines
 from app.prediction_io.schema import UtterancePrediction
 
 
@@ -158,3 +159,47 @@ def test_external_stub_run_batch_writes_schema_compatible_jsonl(tmp_path: Path) 
         }
     ]
     assert (predictions_dir / "diagnostics.jsonl").is_file()
+
+
+def test_external_stub_writes_pipeline_diarization_rttm(tmp_path: Path) -> None:
+    class RttmPipeline:
+        def run_one(self, record, run_config, logger):
+            _ = (run_config, logger)
+            return PipelineOutput(
+                recording_id=str(record["recording_id"]),
+                utt_id=str(record["utt_id"]),
+                start_sec=record.get("start_sec"),
+                end_sec=record.get("end_sec"),
+                speaker_label="speaker_00",
+                text="hello",
+                diagnostics={
+                    "diarization_rttm_lines": [
+                        "SPEAKER rec-001 1 1.250000 0.500000 <NA> <NA> speaker_00 <NA> <NA>"
+                    ]
+                },
+            )
+
+    predictions_dir = tmp_path / "predictions"
+    audio_path = write_wav(tmp_path / "input.wav")
+    record = sample_record(audio_path)
+    record["recording_id"] = "rec-001"
+    runner = ExternalStubRunner(pipeline_runner=RttmPipeline())
+
+    result = runner.run_batch(
+        [record],
+        predictions_dir,
+        {
+            "project_root": str(tmp_path),
+            "run_dir": str(tmp_path / "run"),
+            "augmentation": {
+                "mode": "none",
+                "conditions": [{"condition_id": "clean", "mode": "none"}],
+            },
+        },
+        LOGGER,
+    )
+
+    assert result.failed_count == 0
+    assert read_rttm_lines(predictions_dir / "segments.rttm") == [
+        "SPEAKER rec-001 1 1.250000 0.500000 <NA> <NA> speaker_00 <NA> <NA>"
+    ]

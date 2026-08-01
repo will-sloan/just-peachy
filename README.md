@@ -50,7 +50,7 @@ Run artifacts are written below `Evaluation Tool/runs/`.
 |---|---|
 | `core` | Dataset loading, audio processing, metrics, plots, and reports |
 | `inference` | Core plus PyTorch, OpenAI Whisper, SpeechBrain, Silero, and microphone capture |
-| `full` | Inference plus optional Faster-Whisper and pyannote packages |
+| `full` | Inference plus Faster-Whisper, pyannote, Sherpa-ONNX, Vosk, and WeNet packages |
 | `dev` | Inference plus pytest, coverage, Ruff, and mypy |
 
 Examples:
@@ -98,6 +98,7 @@ locations are:
 
 ```text
 models/cache/whisper/
+models/cache/faster_whisper/tiny/
 models/cache/speechbrain/spkrec-ecapa-voxceleb/
 models/cache/pyannote/
 ```
@@ -111,9 +112,22 @@ Download selected assets manually:
   --silero
 ```
 
-Available OpenAI Whisper configurations include `tiny`, `base`, `small`,
-`medium`, `large-v1`, `large-v2`, `large-v3`, and `large-v3-turbo`. Large
-checkpoints need significantly more storage and memory.
+Available OpenAI Whisper configurations are restricted to `tiny`, `base`, and
+`small`. The registry and both Whisper runtime adapters enforce this allowlist
+before loading a model.
+
+Four additional ASR adapters are available in the `full` installation:
+
+| Component | Configuration | Expected local assets |
+|---|---|---|
+| Faster-Whisper Tiny | `components/asr/faster_whisper.yaml` | A local CTranslate2 Tiny model directory |
+| Sherpa-ONNX | `components/asr/sherpa_onnx.yaml` | `tokens.txt` plus streaming transducer `encoder.onnx`, `decoder.onnx`, and `joiner.onnx` |
+| Vosk | `components/asr/vosk.yaml` | An extracted Vosk model directory |
+| WeNet | `components/asr/wenet.yaml` | A WeNet checkpoint directory containing `train.yaml`, `final.pt`, and `units.txt` |
+
+The example configurations look under `models/cache/<backend>/asr`. Model
+downloads are not automatic; update the paths in the component YAML when the
+downloaded artifact uses different filenames.
 
 Pyannote is optional and its model may require accepting the model terms and
 providing a Hugging Face token:
@@ -277,3 +291,6 @@ Run inference-pipeline tests from the Evaluation Tool directory:
 The detailed dataset-evaluation documentation remains in
 `Software Validation from Datasets/Evaluation Tool/README.md`, and inference
 component notes are in `README_inference_pipeline.md` in the same directory.
+
+The VAD, speaker-embedding, and diarization component choices and readiness
+notes are documented in `docs/SWAPPABLE_SPEECH_COMPONENTS.md`.

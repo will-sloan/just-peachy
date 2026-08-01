@@ -21,16 +21,34 @@ from app.inference_pipeline.speaker_embedding.report import (
     summarize_similarity_distribution,
     write_speaker_embedding_report,
 )
+from app.inference_pipeline.speaker_embedding.resemblyzer_adapter import (
+    ResemblyzerSpeakerEmbeddingAdapter,
+    ResemblyzerUnavailableError,
+)
+from app.inference_pipeline.speaker_embedding.sherpa_onnx_adapter import (
+    SherpaOnnxSpeakerEmbeddingAdapter,
+    SherpaOnnxSpeakerEmbeddingUnavailableError,
+)
+from app.inference_pipeline.speaker_embedding.wespeaker_adapter import (
+    WeSpeakerEmbeddingAdapter,
+    WeSpeakerUnavailableError,
+)
 
 __all__ = [
     "DEFAULT_MIN_DURATION_SEC",
     "DeterministicFakeSpeakerEmbedding",
     "NoOpSpeakerEmbedding",
+    "ResemblyzerSpeakerEmbeddingAdapter",
+    "ResemblyzerUnavailableError",
     "SimilarityDistribution",
     "SpeakerEmbedding",
     "SpeakerEmbeddingBase",
     "SpeakerEmbeddingContext",
     "SpeakerEmbeddingRuntimeStats",
+    "SherpaOnnxSpeakerEmbeddingAdapter",
+    "SherpaOnnxSpeakerEmbeddingUnavailableError",
+    "WeSpeakerEmbeddingAdapter",
+    "WeSpeakerUnavailableError",
     "build_speaker_embedding_from_config",
     "component_report_path",
     "cosine_similarity",

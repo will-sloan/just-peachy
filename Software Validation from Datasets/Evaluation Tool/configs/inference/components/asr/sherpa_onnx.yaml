@@ -1,0 +1,20 @@
+component:
+  slot: asr
+  name: sherpa_onnx
+  enabled: true
+  adapter: SherpaOnnxASRAdapter
+  params:
+    model_name: sherpa_onnx_streaming_transducer
+    model_type: transducer
+    language: en
+    sample_rate: 16000
+    feature_dim: 80
+    num_threads: 2
+    provider: cpu
+    decoding_method: greedy_search
+    max_active_paths: 4
+    tail_padding_sec: 0.66
+    tokens: models/cache/sherpa_onnx/asr/sherpa-onnx-streaming-zipformer-en-2023-06-26/tokens.txt
+    encoder: models/cache/sherpa_onnx/asr/sherpa-onnx-streaming-zipformer-en-2023-06-26/encoder-epoch-99-avg-1-chunk-16-left-128.int8.onnx
+    decoder: models/cache/sherpa_onnx/asr/sherpa-onnx-streaming-zipformer-en-2023-06-26/decoder-epoch-99-avg-1-chunk-16-left-128.onnx
+    joiner: models/cache/sherpa_onnx/asr/sherpa-onnx-streaming-zipformer-en-2023-06-26/joiner-epoch-99-avg-1-chunk-16-left-128.int8.onnx

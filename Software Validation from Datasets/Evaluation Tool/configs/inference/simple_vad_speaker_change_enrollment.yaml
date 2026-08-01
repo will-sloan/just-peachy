@@ -1,0 +1,41 @@
+config_name: simple_vad_speaker_change_enrollment
+profile: local_simple_vad_speaker_change_enrollment
+notes: Offline Silero VAD chunks with 2-of-3 temporal speaker-evidence confirmation and cosine enrollment matching.
+future: false
+runtime:
+  device: cpu
+  sample_rate_hz: 16000
+  max_batch_size: 1
+  num_threads: 1
+  precision: float32
+  dry_run: false
+  allow_model_downloads: false
+  cache_dir: models/cache
+components:
+  vad: components/vad/silero.yaml
+  segmentation: components/segmentation/vad_chunks.yaml
+  diarization:
+    name: no_op_diarization
+    enabled: false
+    adapter: NoOpDiarizationAdapter
+    params: {}
+  asr: components/asr/whisper_base.yaml
+  speaker_embedding: components/speaker_embedding/speechbrain_ecapa.yaml
+  speaker_matching:
+    name: cosine_threshold
+    enabled: true
+    adapter: CosineThresholdSpeakerMatcher
+    params:
+      enrollment_db_path: artifacts/enrollment/enrollment_db_speechbrain_ecapa.json
+      threshold: 0.70
+      min_margin: 0.05
+      unknown_label: Unknown
+      scoring_mode: centroid
+      enforce_model_id: true
+      runtime_model_id: speechbrain_ecapa
+      temporal_evidence:
+        enabled: true
+        confirmation_windows: 3
+        confirmation_threshold: 2
+        score_threshold: 0.70
+        unknown_label: Unknown

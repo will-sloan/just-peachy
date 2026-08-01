@@ -506,9 +506,19 @@ def _missing_availability(
     file_value = availability.get("requires_file")
     if file_value is not None:
         path = Path(str(file_value))
-        candidate = path if path.is_absolute() else project_root / "Evaluation Tool" / path
-        if not candidate.exists():
-            missing.append(f"missing local file {candidate}")
+        candidates = _availability_path_candidates(path, project_root)
+        if not any(candidate.exists() for candidate in candidates):
+            missing.append(f"missing local file {candidates[0]}")
+    files_value = availability.get("requires_files")
+    if files_value is not None:
+        if not isinstance(files_value, Sequence) or isinstance(files_value, (str, bytes)):
+            missing.append("requires_files must be a list")
+        else:
+            for value in files_value:
+                path = Path(str(value))
+                candidates = _availability_path_candidates(path, project_root)
+                if not any(candidate.exists() for candidate in candidates):
+                    missing.append(f"missing local file {candidates[0]}")
     whisper_model = availability.get("requires_whisper_model")
     if whisper_model is not None and not _whisper_model_available(
         str(whisper_model),
@@ -517,6 +527,16 @@ def _missing_availability(
     ):
         missing.append(f"missing local Whisper model asset {whisper_model!r}")
     return missing
+
+
+def _availability_path_candidates(path: Path, project_root: Path) -> list[Path]:
+    if path.is_absolute():
+        return [path]
+    return [
+        project_root / "Evaluation Tool" / path,
+        project_root / path,
+        project_root.parent / path,
+    ]
 
 
 def _skipped_result(

@@ -1,9 +1,9 @@
 -r core.txt
 
 # Local inference components used by the validated pipeline.
-torch
-torchaudio
-openai-whisper
-speechbrain
-silero-vad
-sounddevice
+torch==2.11.0
+torchaudio==2.11.0
+openai-whisper==20250625
+speechbrain==1.1.0
+silero-vad==6.2.1
+sounddevice==0.5.5

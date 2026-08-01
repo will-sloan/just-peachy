@@ -5,11 +5,13 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Any, Callable, Mapping
 
+import numpy as np
 import torch
 
 from app.inference_pipeline.audio_io import LoadedAudio
+from app.inference_pipeline.audio_io.resample import resample_audio
 from app.inference_pipeline.contracts import SpeechRegion
-from app.inference_pipeline.errors import InferencePipelineError
+from app.inference_pipeline.errors import ContractValidationError, InferencePipelineError
 from app.inference_pipeline.vad.base import VADBase, VADParameters
 
 
@@ -30,12 +32,22 @@ class SileroVAD(VADBase):
 
     def __post_init__(self) -> None:
         VADBase.__init__(self, self.params)
+        if self.params.sample_rate not in {8000, 16000}:
+            raise ContractValidationError(
+                "Silero VAD sample_rate must be either 8000 or 16000"
+            )
 
     def detect(self, audio: LoadedAudio) -> list[SpeechRegion]:
         waveform = _mono_waveform(audio.waveform)
-        sample_rate = int(audio.sample_rate or self.params.sample_rate)
-        if sample_rate < 1:
+        source_sample_rate = int(audio.sample_rate or self.params.sample_rate)
+        if source_sample_rate < 1:
             raise SileroVADUnavailableError("audio sample_rate must be >= 1")
+        waveform = _resample_waveform(
+            waveform,
+            source_sample_rate=source_sample_rate,
+            target_sample_rate=self.params.sample_rate,
+        )
+        sample_rate = self.params.sample_rate
         if waveform.numel() == 0:
             return []
 
@@ -89,6 +101,23 @@ def _mono_waveform(waveform: torch.Tensor) -> torch.Tensor:
     raise SileroVADUnavailableError(
         "silero vad waveform must have shape [samples] or [channels, samples]"
     )
+
+
+def _resample_waveform(
+    waveform: torch.Tensor,
+    *,
+    source_sample_rate: int,
+    target_sample_rate: int,
+) -> torch.Tensor:
+    if source_sample_rate == target_sample_rate:
+        return waveform
+    samples = np.ascontiguousarray(waveform.numpy(), dtype=np.float32)
+    converted = resample_audio(
+        samples[:, None],
+        source_sample_rate,
+        target_sample_rate,
+    )[:, 0]
+    return torch.from_numpy(np.ascontiguousarray(converted, dtype=np.float32))
 
 
 def _timestamps_to_regions(

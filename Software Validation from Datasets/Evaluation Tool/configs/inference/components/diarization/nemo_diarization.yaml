@@ -1,0 +1,16 @@
+component:
+  slot: diarization
+  name: nemo_diarization
+  enabled: true
+  adapter: NemoDiarizer
+  notes: Current bootstrapped YAML selects NeMo ClusteringDiarizer. The adapter can dispatch NeuralDiarizer for a valid MSDD config, but MSDD is not shipped or qualified by this fragment.
+  params:
+    model_source: nvidia/nemo-speaker-diarization
+    config_path: models/cache/nemo/diarization/config.yaml
+    min_turn_sec: 0.05
+    min_speakers: null
+    max_speakers: null
+    batch_size: 1
+    device: cpu
+    allow_model_downloads: false
+

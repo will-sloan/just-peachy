@@ -198,3 +198,40 @@ def test_non_dry_no_op_config_is_rejected_without_pretending_real_asr() -> None:
             dry_run=False,
             pipeline_runner=None,
         )
+
+
+def test_faster_whisper_availability_accepts_complete_local_tiny_model(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    model_path = tmp_path / "tiny"
+    model_path.mkdir()
+    for filename in ("config.json", "model.bin", "tokenizer.json", "vocabulary.txt"):
+        (model_path / filename).touch()
+    mapping = PipelineConfig.from_yaml_path(CONFIG_ROOT / "cpu_smoke.yaml").to_jsonable()
+    mapping["components"]["asr"] = {
+        "name": "faster_whisper",
+        "enabled": True,
+        "adapter": "FasterWhisperASRAdapter",
+        "params": {
+            "model_size": "tiny",
+            "model_path": str(model_path),
+            "allow_model_downloads": False,
+        },
+    }
+    config = PipelineConfig.from_mapping(mapping)
+    original_find_spec = live_mic_smoke.importlib.util.find_spec
+    monkeypatch.setattr(
+        live_mic_smoke.importlib.util,
+        "find_spec",
+        lambda name: object() if name == "faster_whisper" else original_find_spec(name),
+    )
+
+    availability = live_mic_smoke.inspect_runtime_availability(
+        config,
+        config_path=CONFIG_ROOT / "cpu_smoke.yaml",
+    )
+
+    assert availability["blocker"] is None
+    assert availability["faster_whisper_package_available"] is True
+    assert availability["faster_whisper_model_path"] == str(model_path)

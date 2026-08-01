@@ -20,6 +20,17 @@ $VenvPython = Join-Path $VenvPath "Scripts\python.exe"
 $LogDirectory = Join-Path $ProjectRoot ".install-logs"
 $Timestamp = Get-Date -Format "yyyyMMdd_HHmmss"
 $LogPath = Join-Path $LogDirectory "install_$Timestamp.log"
+$AllowedWhisperModels = @("tiny", "tiny.en", "base", "base.en", "small", "small.en")
+
+function Assert-AllowedWhisperModels {
+    param([Parameter(Mandatory = $true)][string]$Models)
+
+    $selected = @($Models.Split(",") | ForEach-Object { $_.Trim() } | Where-Object { $_ })
+    $rejected = @($selected | Where-Object { $_ -cnotin $AllowedWhisperModels })
+    if ($rejected.Count -gt 0) {
+        throw "Whisper model(s) are prohibited or unsupported: $($rejected -join ', '). Allowed models: $($AllowedWhisperModels -join ', ')"
+    }
+}
 
 function Invoke-Native {
     param(
@@ -122,6 +133,7 @@ function Ensure-FFmpeg {
     }
 }
 
+Assert-AllowedWhisperModels -Models $WhisperModels
 New-Item -ItemType Directory -Path $LogDirectory -Force | Out-Null
 Start-Transcript -Path $LogPath -Force | Out-Null
 Push-Location $ProjectRoot
@@ -145,11 +157,25 @@ try {
     }
 
     Invoke-Native $VenvPython @("-m", "pip", "install", "--upgrade", "pip", "setuptools", "wheel")
-    $requirementsPath = Join-Path $ProjectRoot "requirements\$Profile.txt"
+    # The full profile installs the resolver-safe optional dependencies first,
+    # then installs the two legacy-metadata speaker packages without dependencies.
+    $requirementsProfile = if ($Profile -eq "full") { "optional" } else { $Profile }
+    $requirementsPath = Join-Path $ProjectRoot "requirements\$requirementsProfile.txt"
     if (-not (Test-Path -LiteralPath $requirementsPath -PathType Leaf)) {
         throw "Dependency profile does not exist: $requirementsPath"
     }
+    if ($Profile -eq "full" -and -not (Get-Command "git" -ErrorAction SilentlyContinue)) {
+        throw "Git is required to install the pinned WeNet and WeSpeaker source revisions."
+    }
     Invoke-Native $VenvPython @("-m", "pip", "install", "-r", $requirementsPath)
+    if ($Profile -eq "full") {
+        $speakerRequirements = Join-Path $ProjectRoot "requirements\speaker_backends.txt"
+        Invoke-Native $VenvPython @(
+            "-m", "pip", "install", "--no-deps", "-r", $speakerRequirements
+        )
+        Write-Host "[INFO] NeMo is intentionally excluded from the cross-platform full profile."
+        Write-Host "       Use requirements\nemo.txt in a supported Linux environment."
+    }
 
     if ($Profile -ne "core") {
         Ensure-FFmpeg
@@ -160,12 +186,34 @@ try {
             throw "-DownloadModels requires the inference, full, or dev profile."
         }
         $bootstrapPath = Join-Path $ProjectRoot "scripts\bootstrap_models.py"
-        Invoke-Native $VenvPython @(
+        $modelArguments = @(
             $bootstrapPath,
             "--whisper", $WhisperModels,
             "--speechbrain-ecapa",
             "--silero"
         )
+        if ($Profile -eq "full") {
+            $modelArguments += @(
+                "--sherpa-asr",
+                "--vosk-asr",
+                "--wenet-asr",
+                "--faster-whisper-tiny",
+                "--sherpa-vad",
+                "--sherpa-speaker-embedding",
+                "--sherpa-diarization",
+                "--wespeaker",
+                "--nemo-config"
+            )
+            if ($env:PYANNOTE_AUTH_TOKEN) {
+                $modelArguments += @(
+                    "--pyannote",
+                    "--hf-token-env", "PYANNOTE_AUTH_TOKEN"
+                )
+            } else {
+                Write-Warning "PYANNOTE_AUTH_TOKEN is not set; the gated pyannote model will not be downloaded."
+            }
+        }
+        Invoke-Native $VenvPython $modelArguments
     }
 
     $verifyPath = Join-Path $ProjectRoot "scripts\verify_install.py"

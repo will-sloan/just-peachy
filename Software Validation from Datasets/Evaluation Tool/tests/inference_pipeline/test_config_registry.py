@@ -8,6 +8,7 @@ import yaml
 
 from app.inference_pipeline.config import PipelineConfig
 from app.inference_pipeline.registry import (
+    REGISTERED_COMPONENTS,
     UnknownComponentError,
     dry_run_config,
     resolve_components,
@@ -103,14 +104,9 @@ def test_changing_asr_or_vad_names_changes_resolved_components() -> None:
     ("filename", "adapter_name"),
     [
         ("whisper_small.yaml", "WhisperSmallASRAdapter"),
-        ("whisper_medium.yaml", "WhisperMediumASRAdapter"),
-        ("whisper_large_v1.yaml", "WhisperLargeV1ASRAdapter"),
-        ("whisper_large_v2.yaml", "WhisperLargeV2ASRAdapter"),
-        ("whisper_large_v3.yaml", "WhisperLargeV3ASRAdapter"),
-        ("whisper_turbo.yaml", "WhisperTurboASRAdapter"),
     ],
 )
-def test_expanded_whisper_component_configs_resolve(
+def test_allowed_whisper_component_configs_resolve(
     filename: str,
     adapter_name: str,
 ) -> None:
@@ -121,6 +117,19 @@ def test_expanded_whisper_component_configs_resolve(
     config = PipelineConfig.from_mapping(mapping)
 
     assert resolve_components(config)["asr"].adapter_class.__name__ == adapter_name
+
+
+def test_registered_asr_catalog_contains_only_supported_runtime_choices() -> None:
+    assert set(REGISTERED_COMPONENTS["asr"]) == {
+        "faster_whisper",
+        "no_op_asr",
+        "sherpa_onnx",
+        "vosk",
+        "wenet",
+        "whisper_base",
+        "whisper_small",
+        "whisper_tiny",
+    }
 
 
 def test_unknown_component_name_fails_cleanly() -> None:

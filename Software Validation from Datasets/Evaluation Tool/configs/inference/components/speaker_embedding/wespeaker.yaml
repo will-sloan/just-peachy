@@ -1,0 +1,16 @@
+component:
+  slot: speaker_embedding
+  name: wespeaker
+  enabled: true
+  adapter: WeSpeakerEmbeddingAdapter
+  notes: WeSpeaker embedding adapter; uses a local pretrained model unless downloads are explicitly enabled.
+  params:
+    model_name: wespeaker_english
+    model_source: english
+    model_path: models/cache/wespeaker/english
+    sample_rate_hz: 16000
+    min_duration_sec: 0.75
+    device: cpu
+    dtype: float32
+    allow_model_downloads: false
+

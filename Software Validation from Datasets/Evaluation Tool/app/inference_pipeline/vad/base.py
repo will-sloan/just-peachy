@@ -128,6 +128,14 @@ def build_vad_from_config(config: object) -> VADBase | None:
         from app.inference_pipeline.vad.silero_vad import SileroVAD
 
         return SileroVAD(params)
+    if name == "webrtc_vad":
+        from app.inference_pipeline.vad.webrtc_vad import WebRTCVAD
+
+        return WebRTCVAD(params)
+    if name == "sherpa_onnx_vad":
+        from app.inference_pipeline.vad.sherpa_onnx_vad import SherpaOnnxVAD
+
+        return SherpaOnnxVAD(params)
     raise ContractValidationError(f"unknown vad component {name!r}")
 
 

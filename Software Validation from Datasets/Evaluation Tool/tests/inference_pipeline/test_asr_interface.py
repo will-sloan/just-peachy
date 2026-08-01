@@ -25,7 +25,12 @@ from app.inference_pipeline.asr.metrics import (
     repeated_word_rate,
 )
 from app.inference_pipeline.asr.report import summarize_asr_quality, write_asr_report
-from app.inference_pipeline.asr.whisper_adapter import WhisperASR, WhisperASRUnavailableError
+from app.inference_pipeline.asr.whisper_adapter import (
+    WhisperASR,
+    WhisperASRUnavailableError,
+    _cache_dir_candidates,
+    _download_root,
+)
 from app.inference_pipeline.config import PipelineConfig
 from app.inference_pipeline.contracts import (
     ASRTranscript,
@@ -34,6 +39,7 @@ from app.inference_pipeline.contracts import (
     WordTiming,
 )
 from app.inference_pipeline.dummy_components import DummySpeakerLabeler
+from app.inference_pipeline.errors import ContractValidationError
 from app.inference_pipeline.pipeline import PipelineRunner
 from app.inference_pipeline.registry import resolve_components
 
@@ -66,6 +72,19 @@ def asr_context(segment: AudioSegment | None = None) -> ASRContext:
         dtype="float32",
         language="en",
     )
+
+
+def write_test_audio(path: Path, *, duration_sec: float = 2.0) -> Path:
+    sample_rate = 16000
+    timeline = np.linspace(
+        0.0,
+        duration_sec,
+        int(sample_rate * duration_sec),
+        endpoint=False,
+    )
+    waveform = 0.1 * np.sin(2.0 * np.pi * 220.0 * timeline)
+    sf.write(path, waveform.astype(np.float32), sample_rate)
+    return path
 
 
 def test_fixed_asr_returns_asr_transcript_with_normalized_text() -> None:
@@ -192,41 +211,67 @@ def test_whisper_base_config_resolves_without_model_imports() -> None:
     assert "whisper" not in after_modules - before_modules
 
 
-def test_whisper_adapter_is_lazy_and_reports_unavailable_without_dependency_or_assets() -> None:
+def test_whisper_adapter_is_lazy_and_reports_unavailable_without_dependency_or_assets(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    import app.inference_pipeline.asr.whisper_adapter as whisper_adapter
+
+    monkeypatch.setattr(
+        whisper_adapter,
+        "_local_model_asset_path",
+        lambda *args, **kwargs: None,
+    )
     adapter = WhisperASR({"model_size": "tiny", "allow_model_downloads": False})
 
     assert adapter.model is None
-    try:
+    with pytest.raises(WhisperASRUnavailableError, match="assets are not available"):
         adapter.transcribe(audio_segment(), asr_context())
-    except WhisperASRUnavailableError as exc:
-        assert "Whisper" in str(exc)
-    else:
-        assert adapter.model is not None
 
 
 class RecordingWhisperModel:
-    def __init__(self) -> None:
+    def __init__(self, *, include_words: bool = False) -> None:
         self.calls: list[dict[str, object]] = []
+        self.include_words = include_words
 
-    def transcribe(self, audio_path: str, **kwargs):
-        self.calls.append({"audio_path": audio_path, **kwargs})
-        return {"text": "Hello from Whisper"}
+    def transcribe(self, audio: np.ndarray, **kwargs):
+        self.calls.append({"audio": audio.copy(), **kwargs})
+        result: dict[str, object] = {"text": "Hello from Whisper"}
+        if self.include_words:
+            result["segments"] = [
+                {
+                    "words": [
+                        {
+                            "word": "Hello",
+                            "start": 0.1,
+                            "end": 0.3,
+                            "probability": 0.9,
+                        }
+                    ]
+                }
+            ]
+        return result
 
 
-def test_whisper_adapter_disables_fp16_on_cpu_to_avoid_warning() -> None:
+def test_whisper_adapter_disables_fp16_on_cpu_to_avoid_warning(tmp_path: Path) -> None:
+    path = write_test_audio(tmp_path / "whisper_cpu.wav")
+    segment = audio_segment(path)
     model = RecordingWhisperModel()
     adapter = WhisperASR(
         {"model_size": "tiny", "device": "cpu", "dtype": "float32"},
         model=model,
     )
 
-    transcript = adapter.transcribe(audio_segment(), asr_context())
+    transcript = adapter.transcribe(segment, asr_context(segment))
 
     assert transcript.text == "hello from whisper"
     assert model.calls[0]["fp16"] is False
+    assert isinstance(model.calls[0]["audio"], np.ndarray)
+    assert len(model.calls[0]["audio"]) == 16000
 
 
-def test_whisper_adapter_enables_fp16_only_for_cuda_float16_context() -> None:
+def test_whisper_adapter_enables_fp16_only_for_cuda_float16_context(tmp_path: Path) -> None:
+    path = write_test_audio(tmp_path / "whisper_cuda.wav")
+    segment = audio_segment(path)
     model = RecordingWhisperModel()
     adapter = WhisperASR(
         {"model_size": "tiny", "device": "cuda", "dtype": "float16"},
@@ -235,27 +280,64 @@ def test_whisper_adapter_enables_fp16_only_for_cuda_float16_context() -> None:
     context = ASRContext(
         recording_id="rec-001",
         utt_id="utt-001",
-        source_audio_path=Path("synthetic.wav"),
+        source_audio_path=path,
         device="cuda",
         dtype="float16",
         language="en",
     )
 
-    adapter.transcribe(audio_segment(), context)
+    adapter.transcribe(segment, context)
 
     assert model.calls[0]["fp16"] is True
 
 
-def test_whisper_adapter_passes_configured_beam_size() -> None:
+def test_whisper_adapter_passes_configured_beam_size(tmp_path: Path) -> None:
+    path = write_test_audio(tmp_path / "whisper_beam.wav")
+    segment = audio_segment(path)
     model = RecordingWhisperModel()
     adapter = WhisperASR(
         {"model_size": "tiny", "device": "cpu", "beam_size": 5},
         model=model,
     )
 
-    adapter.transcribe(audio_segment(), asr_context())
+    adapter.transcribe(segment, asr_context(segment))
 
     assert model.calls[0]["beam_size"] == 5
+
+
+def test_whisper_word_timestamps_are_offset_to_source_timeline(tmp_path: Path) -> None:
+    path = write_test_audio(tmp_path / "whisper_words.wav")
+    segment = audio_segment(path)
+    model = RecordingWhisperModel(include_words=True)
+    adapter = WhisperASR(
+        {"model_size": "tiny", "device": "cpu", "word_timestamps": True},
+        model=model,
+    )
+
+    transcript = adapter.transcribe(segment, asr_context(segment))
+
+    assert transcript.words[0].start_sec == pytest.approx(0.35)
+    assert transcript.words[0].end_sec == pytest.approx(0.55)
+    assert transcript.words[0].confidence == pytest.approx(0.9)
+
+
+def test_whisper_adapter_rejects_unapproved_model_size_before_loading() -> None:
+    with pytest.raises(ContractValidationError, match="not permitted"):
+        WhisperASR({"model_size": "unsupported"})
+
+
+def test_whisper_relative_cache_search_includes_repository_root() -> None:
+    cache_dir = Path("models/cache/whisper")
+
+    candidates = _cache_dir_candidates(cache_dir, None)
+
+    assert TOOL_ROOT.parent.parent / cache_dir in candidates
+
+
+def test_whisper_relative_download_cache_targets_repository_root() -> None:
+    cache_dir = Path("models/cache/whisper")
+
+    assert _download_root(cache_dir, None) == TOOL_ROOT.parent.parent / cache_dir
 
 
 class StaticAudioReader:

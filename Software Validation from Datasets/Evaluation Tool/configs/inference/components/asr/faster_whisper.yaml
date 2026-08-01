@@ -1,0 +1,24 @@
+component:
+  slot: asr
+  name: faster_whisper
+  enabled: true
+  adapter: FasterWhisperASRAdapter
+  notes: Offline Faster-Whisper Tiny using a repository-local CTranslate2 model.
+  params:
+    model_family: faster_whisper
+    model_size: tiny
+    model_name: faster_whisper_tiny
+    model_path: models/cache/faster_whisper/tiny
+    cache_dir: models/cache/faster_whisper
+    language: en
+    task: transcribe
+    beam_size: 1
+    word_timestamps: false
+    vad_filter: false
+    condition_on_previous_text: false
+    device: cpu
+    device_index: 0
+    compute_type: int8
+    cpu_threads: 0
+    num_workers: 1
+    allow_model_downloads: false

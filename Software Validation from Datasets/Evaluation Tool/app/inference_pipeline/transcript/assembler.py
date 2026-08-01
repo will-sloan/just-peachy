@@ -194,7 +194,13 @@ def _utterance_speaker_decision(
     if scored:
         label, (_duration_sum, confidence, decision) = max(
             scored.items(),
-            key=lambda item: (item[1][0], item[1][1] if item[1][1] is not None else -1.0),
+            # Equivalent decimal segment lengths can differ by a few binary
+            # floating-point ulps (for example 0.7 versus 1.6 - 0.9).  Round
+            # before ranking so ties remain stable in chronological order.
+            key=lambda item: (
+                round(item[1][0], 9),
+                item[1][1] if item[1][1] is not None else -1.0,
+            ),
         )
         return SpeakerDecision(
             speaker_label=label,

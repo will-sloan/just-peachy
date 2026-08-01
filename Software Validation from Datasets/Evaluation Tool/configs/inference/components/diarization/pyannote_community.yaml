@@ -1,7 +1,7 @@
 component:
   slot: diarization
   name: pyannote_community
-  enabled: false
+  enabled: true
   adapter: PyannoteCommunityDiarizer
   notes: Optional pyannote community diarization helper; disabled by default because model access may be gated.
   params:
