@@ -1,0 +1,54 @@
+{
+  "entries": {
+    "backend_status.json": {
+      "bytes": 2135,
+      "sha256": "CA6774A8D29E779120CCD0733AD015885D7AD40DF58C6EF922BB2180773E65A4"
+    },
+    "diagnostics/alignment_validation.json": {
+      "bytes": 417,
+      "sha256": "86DB5D95AD315981D7D30B61C5160F4D1FD49C9B5304E4E35017C3C350DA5BE6"
+    },
+    "diagnostics/diarization.json": {
+      "bytes": 1326,
+      "sha256": "DF845A0F08BCCB749013CD9E07DB5E4BE7FC5A5C5A9F2C4BD0CB216DFDA1CC59"
+    },
+    "diagnostics/segmentation_provenance.json": {
+      "bytes": 349,
+      "sha256": "52E406E6EE4659381B597F2BB250713D3E7F36334DCAC736A049DBD117771807"
+    },
+    "metrics/summary.json": {
+      "bytes": 2349,
+      "sha256": "0A4F064AA94E8C7786B4CF6DE63DEC7067613C2F0334CA4DE4F0A981A36F50EF"
+    },
+    "predictions/segments.rttm": {
+      "bytes": 79,
+      "sha256": "DDF6B0FB41CC9CFAC226B48A2C2F1CA869AE6F40AC2DF73B637BDDBE554CB625"
+    },
+    "references/reference.rttm": {
+      "bytes": 170,
+      "sha256": "183FDCD10C1AC5F2487E658A5599544F949EE356892589661F89BFF7EC0095C0"
+    },
+    "references/scored_region.uem": {
+      "bytes": 42,
+      "sha256": "AF642404906CB631032D499FC8BC78076895D3813F7B6CB4792B6A4EE57F879B"
+    },
+    "report/scenario_report.json": {
+      "bytes": 4160,
+      "sha256": "120CECE5BB233DA49C5E0769ABCE54E098445962FA62CF182EF78C9F706700C7"
+    },
+    "report/scenario_report.md": {
+      "bytes": 373,
+      "sha256": "2B0CEF4FA170D72335BECD1152B85105E4F3269B84B4F3DE414FF5F9161D0378"
+    },
+    "resolved_component_identity.json": {
+      "bytes": 2581,
+      "sha256": "3F348CB9687A1C19D5875CF0613B3DE27A27E6A235878B6545C4BBF8A44D9733"
+    },
+    "run.json": {
+      "bytes": 2228,
+      "sha256": "88B726B85D1C0B2EF64BB4C14E0E95AFDA31642F9F20E42EC517E870878C4D1F"
+    }
+  },
+  "hash_algorithm": "sha256",
+  "schema_version": "diarization-checksums.v1"
+}

@@ -1,0 +1,1137 @@
+{
+  "comparison_item": {
+    "audio_sha256": "0f9fb212d4002c92675517f209f0265e3c7028f0e501a2070c08a0c70625e2fe",
+    "duration_sec": 4.2400625,
+    "recording_id": "arctic_b0476",
+    "reference_text_sha256": "27d0e3a999263b4f3e9d29a232e592b61f9bb3771172b52cc1d31c3ed89fc9a1"
+  },
+  "rows": [
+    {
+      "asset_identities": [
+        {
+          "acquisition_date": "2026-08-08T00:00:59.629631+00:00",
+          "acquisition_method": "scripts/bootstrap_models.py --faster-whisper-tiny",
+          "artifact_filename": "faster-whisper-tiny snapshot",
+          "asset_id": "faster_whisper_tiny",
+          "backend": "Faster-Whisper",
+          "component": "faster_whisper",
+          "credential_required": false,
+          "environment_profile": "extended-local",
+          "files": [
+            {
+              "bytes": 1,
+              "path": ".cache/huggingface/.gitignore",
+              "sha256": "684888c0ebb17f374298b65ee2807526c066094c701bcc7ebbe1c1095f494fc1"
+            },
+            {
+              "bytes": 195,
+              "path": ".cache/huggingface/CACHEDIR.TAG",
+              "sha256": "e8893e2dcb3f4545ef67a0a5b7b769113d38eef1aa61c7c7ba14659b02af955f"
+            },
+            {
+              "bytes": 103,
+              "path": ".cache/huggingface/download/config.json.metadata",
+              "sha256": "2383017ae6afe1ecda5d8930818671360aed92d47c6e0864425cbbd46af51605"
+            },
+            {
+              "bytes": 128,
+              "path": ".cache/huggingface/download/model.bin.metadata",
+              "sha256": "272942b7d2a0dcd627e750182e9ed8a81f0189b02e41b6b06c6e1109addc1e7a"
+            },
+            {
+              "bytes": 104,
+              "path": ".cache/huggingface/download/tokenizer.json.metadata",
+              "sha256": "7a49693a41d4b80bb61dcefa54c45fef59ebce75f15d5a2b4b415d91e8670d56"
+            },
+            {
+              "bytes": 104,
+              "path": ".cache/huggingface/download/vocabulary.txt.metadata",
+              "sha256": "f29ab01c3aa3768af8ffebeeca44f47dd23a14e2897e84d7619e8f76426e1a75"
+            },
+            {
+              "bytes": 865,
+              "path": ".cache/huggingface/trees/d90ca5fe260221311c53c58e660288d3deb8d356.json",
+              "sha256": "3122220092b7338b5565212c1d4ea8b587deff68de8b7e097828ffd8a4275cb5"
+            },
+            {
+              "bytes": 2249,
+              "path": "config.json",
+              "sha256": "a73a28cdfe1c43ccc7202fa333d1f89c202477271407ae9a7f19afa52039cac8"
+            },
+            {
+              "bytes": 75538270,
+              "path": "model.bin",
+              "sha256": "dcb76c6586fc06cbdac6dd21f14cfd129cc4cdd9dce19bf4ffa62e59cbe6e6d1"
+            },
+            {
+              "bytes": 2203239,
+              "path": "tokenizer.json",
+              "sha256": "fb7b63191e9bb045082c79fd742a3106a12c99513ab30df4a0d47fa6cb6fd0ab"
+            },
+            {
+              "bytes": 459861,
+              "path": "vocabulary.txt",
+              "sha256": "34ce3fe1c5041027b3f8d42912270993f986dbc4bb34cf27f951e34a1e453913"
+            }
+          ],
+          "licence": "MIT model repository",
+          "missing_required_files": [],
+          "model_name": "Systran/faster-whisper-tiny",
+          "model_version": "d90ca5fe260221311c53c58e660288d3deb8d356",
+          "present": true,
+          "sha256": "ba8dca2665ebf86c53ebcae7b78d56162f29a5285358479db43a83068c6ee8cd",
+          "size_bytes": 78205119,
+          "source": "https://huggingface.co/Systran/faster-whisper-tiny",
+          "storage_path": "models/cache/faster_whisper/tiny",
+          "verification_status": "verified"
+        }
+      ],
+      "backend_id": "faster_whisper",
+      "catalog_family": "asr",
+      "catalog_name": "faster_whisper",
+      "component_identity": {
+        "backend_id": "faster_whisper",
+        "config_path": "configs/inference/components/asr/faster_whisper.yaml",
+        "config_sha256": "1846fd2acacc535d3a98c0ad4e80975608aa86ec6ee9c3ccc28af2e1d204a70f",
+        "family": "asr"
+      },
+      "environment_profile": "extended-local",
+      "implicit_downloads_allowed": false,
+      "metrics": {
+        "character_errors": 0,
+        "deletions": 0,
+        "denominator_policy": {
+          "cer_units": "normalized_characters_excluding_whitespace",
+          "duplicate_policy": "first_valid_prediction",
+          "expected_items": 1,
+          "missing_or_failed_hypothesis": "empty_string"
+        },
+        "duplicate_predictions": 0,
+        "empty_prediction_rate": 0.0,
+        "empty_predictions": 0,
+        "expected_items": 1,
+        "failed_items": 0,
+        "failure_rate": 0.0,
+        "hypothesis_characters": 57,
+        "hypothesis_words": 10,
+        "insertions": 0,
+        "macro_cer": 0.0,
+        "macro_wer": 0.0,
+        "malformed_predictions": 0,
+        "micro_cer": 0.0,
+        "micro_wer": 0.0,
+        "missing_prediction_rate": 0.0,
+        "missing_predictions": 0,
+        "reference_characters": 57,
+        "reference_words": 10,
+        "repetition_diagnostics": {
+          "mean_consecutive_duplicate_token_rate": 0.0,
+          "mean_repeated_bigram_rate": 0.0,
+          "mean_repeated_word_rate": 0.2
+        },
+        "schema_version": "core-asr-screening-metrics.v1",
+        "substitutions": 0,
+        "supported_metrics": [
+          "deletions",
+          "duplicate_predictions",
+          "empty_predictions",
+          "hypothesis_words",
+          "insertions",
+          "macro_cer",
+          "macro_wer",
+          "malformed_predictions",
+          "micro_cer",
+          "micro_wer",
+          "missing_predictions",
+          "reference_words",
+          "repetition_diagnostics",
+          "substitutions",
+          "unexpected_predictions"
+        ],
+        "unexpected_predictions": 0,
+        "unsupported_metrics": [
+          {
+            "metric": "hallucinated_silent_output_rate",
+            "reason": "the benchmark items do not provide explicit silence references"
+          }
+        ],
+        "valid_output_rate": 1.0,
+        "valid_predictions": 1,
+        "word_errors": 0
+      },
+      "output_contract_valid": true,
+      "repetitions": 2,
+      "scientific_scope": "screen",
+      "stage8_status": "qualified",
+      "status": "passed",
+      "timing": {
+        "inference_sec": [
+          1.182351,
+          0.284842
+        ],
+        "initialization_sec": 0.6196467000991106,
+        "total_sec": 6.506587
+      },
+      "warnings": []
+    },
+    {
+      "asset_identities": [
+        {
+          "acquisition_date": "2026-08-08T00:00:41.166471+00:00",
+          "acquisition_method": "packaged in resemblyzer==0.1.4",
+          "artifact_filename": "pretrained.pt",
+          "asset_id": "resemblyzer_packaged",
+          "backend": "Resemblyzer",
+          "component": "resemblyzer",
+          "credential_required": false,
+          "environment_profile": "extended-local",
+          "files": [
+            {
+              "bytes": 17090379,
+              "path": "pretrained.pt",
+              "sha256": "39373b86598fa3da9fcddee6142382efe09777e8d37dc9c0561f41f0070f134e"
+            }
+          ],
+          "licence": "Apache-2.0 repository; inspect packaged checkpoint provenance",
+          "missing_required_files": [],
+          "model_name": "pretrained d-vector",
+          "model_version": "resemblyzer-0.1.4",
+          "present": true,
+          "sha256": "fb9ab04c655f4276a77442db9dfbb0960da63b54e9bc0e5b5e69d6416edca3e1",
+          "size_bytes": 17090379,
+          "source": "https://github.com/resemble-ai/Resemblyzer",
+          "storage_path": "environment/Lib/site-packages/resemblyzer/pretrained.pt",
+          "verification_status": "verified"
+        }
+      ],
+      "backend_id": "resemblyzer",
+      "catalog_family": "speaker_embedding",
+      "catalog_name": "resemblyzer",
+      "component_identity": {
+        "backend_id": "resemblyzer",
+        "config_path": "configs/inference/components/speaker_embedding/resemblyzer.yaml",
+        "config_sha256": "a67aa6c4327f6fb65427f5acf139a40afd714795eabe38fdf3f5265299c0c161",
+        "family": "speaker_embedding"
+      },
+      "environment_profile": "extended-local",
+      "implicit_downloads_allowed": false,
+      "metrics": {
+        "clean_to_degraded_drift": null,
+        "dimension": 256,
+        "finite": true,
+        "l2_norms": [
+          1.0000001027958234,
+          1.0000001027958234
+        ],
+        "minimum_duration_status": "too_short",
+        "repeatability_l2_drift": 0.0,
+        "successful_extractions": 2,
+        "unsupported_metrics": [
+          {
+            "metric": "clean_to_degraded_drift",
+            "reason": "the one-item contract smoke has no degraded pair"
+          }
+        ]
+      },
+      "output_contract_valid": true,
+      "repetitions": 2,
+      "scientific_scope": "screen",
+      "stage8_status": "qualified",
+      "status": "passed",
+      "timing": {
+        "inference_sec": [
+          4.783141,
+          0.025888
+        ],
+        "total_sec": 4.936655
+      },
+      "warnings": []
+    },
+    {
+      "asset_identities": [
+        {
+          "acquisition_date": "2024-09-11T13:38:16+00:00",
+          "acquisition_method": "scripts/bootstrap_models.py --sherpa-asr",
+          "artifact_filename": "sherpa-onnx-streaming-zipformer-en-2023-06-26.tar.bz2",
+          "asset_id": "sherpa_onnx_asr",
+          "backend": "Sherpa-ONNX",
+          "component": "sherpa_onnx_asr",
+          "credential_required": false,
+          "environment_profile": "onnx",
+          "files": [
+            {
+              "bytes": 216,
+              "path": "README.md",
+              "sha256": "c914dd28e23310a6dd345ea10495003d3e4820d2ed987181e4c2d67e501b6b76"
+            },
+            {
+              "bytes": 244865,
+              "path": "bpe.model",
+              "sha256": "c53433de083c4a6ad12d034550ef22de68cec62c4f58932a7b6b8b2f1e743fa5"
+            },
+            {
+              "bytes": 540688,
+              "path": "decoder-epoch-99-avg-1-chunk-16-left-128.int8.onnx",
+              "sha256": "780c63ee94c7cfa314211172e5d09b406c0da2beab5c40ea2f54cc95670b76a5"
+            },
+            {
+              "bytes": 2093080,
+              "path": "decoder-epoch-99-avg-1-chunk-16-left-128.onnx",
+              "sha256": "85914f840b71110487ece7a30ebd0bd4b8fb5c2623215bba3aa5ab4c138fc591"
+            },
+            {
+              "bytes": 70108816,
+              "path": "encoder-epoch-99-avg-1-chunk-16-left-128.int8.onnx",
+              "sha256": "5022b2eca5b19d1bc104fcf33e26bc32604b7df553cd2e1f62e31dc7b05e9c87"
+            },
+            {
+              "bytes": 260642850,
+              "path": "encoder-epoch-99-avg-1-chunk-16-left-128.onnx",
+              "sha256": "d1d74ba2fd9ce2186662cec93eab9f9c102d97a18e86dafdaf584776c961ab1d"
+            },
+            {
+              "bytes": 814,
+              "path": "export-onnx-zipformer-online.sh",
+              "sha256": "baac0112609984803a4eb6c46ee177d399d6a1b196db9c28b7a1c167f342030b"
+            },
+            {
+              "bytes": 259416,
+              "path": "joiner-epoch-99-avg-1-chunk-16-left-128.int8.onnx",
+              "sha256": "abd5e30f3f16fc510605c6029dba33f10e4386bd75c5bdc30cf94076864db10d"
+            },
+            {
+              "bytes": 1026462,
+              "path": "joiner-epoch-99-avg-1-chunk-16-left-128.onnx",
+              "sha256": "5fe99bb91ea035ab82765f65955b6a9cd2f8b7ebd320761e432d16e432dcaad9"
+            },
+            {
+              "bytes": 212044,
+              "path": "test_wavs/0.wav",
+              "sha256": "6bc58a4efdf20daac252b6b1502632601a71efe0308f6757dc1eda34891a7e4f"
+            },
+            {
+              "bytes": 534924,
+              "path": "test_wavs/1.wav",
+              "sha256": "5143a6ba93c4b274e2c4ac22deb75c2c48936c853f0519add1de828b6c79cc5a"
+            },
+            {
+              "bytes": 77244,
+              "path": "test_wavs/8k.wav",
+              "sha256": "f6f3c8b33e2534cdc154fe773ad2750f1f6a2ca5096179cdf037ae782456613e"
+            },
+            {
+              "bytes": 449,
+              "path": "test_wavs/trans.txt",
+              "sha256": "b9ac44e7b794abb1a2d5faf0005e98a665971e7ac2ed15435832cc34edaa9100"
+            },
+            {
+              "bytes": 5048,
+              "path": "tokens.txt",
+              "sha256": "49e3c2646595fd907228b3c6787069658f67b17377c60aeb8619c4551b2316fb"
+            }
+          ],
+          "licence": "Apache-2.0 repository; verify model archive terms before redistribution",
+          "missing_required_files": [],
+          "model_name": "sherpa-onnx-streaming-zipformer-en-2023-06-26",
+          "model_version": "2023-06-26",
+          "present": true,
+          "sha256": "5950412343bc8b76fe8c8de484f202514f579e69a5d837f21b5361472a1ab448",
+          "size_bytes": 335746916,
+          "source": "https://github.com/k2-fsa/sherpa-onnx/releases/tag/asr-models",
+          "storage_path": "models/cache/sherpa_onnx/asr/sherpa-onnx-streaming-zipformer-en-2023-06-26",
+          "verification_status": "verified"
+        }
+      ],
+      "backend_id": "sherpa_onnx_asr",
+      "catalog_family": "asr",
+      "catalog_name": "sherpa_onnx",
+      "component_identity": {
+        "backend_id": "sherpa_onnx_asr",
+        "config_path": "configs/inference/components/asr/sherpa_onnx.yaml",
+        "config_sha256": "8c1f86cffea8a497aed699445e00329089ff0baebf08595f606fba263fbb2748",
+        "family": "asr"
+      },
+      "environment_profile": "onnx",
+      "implicit_downloads_allowed": false,
+      "metrics": {
+        "character_errors": 1,
+        "deletions": 0,
+        "denominator_policy": {
+          "cer_units": "normalized_characters_excluding_whitespace",
+          "duplicate_policy": "first_valid_prediction",
+          "expected_items": 1,
+          "missing_or_failed_hypothesis": "empty_string"
+        },
+        "duplicate_predictions": 0,
+        "empty_prediction_rate": 0.0,
+        "empty_predictions": 0,
+        "expected_items": 1,
+        "failed_items": 0,
+        "failure_rate": 0.0,
+        "hypothesis_characters": 56,
+        "hypothesis_words": 10,
+        "insertions": 0,
+        "macro_cer": 0.017543859649122806,
+        "macro_wer": 0.1,
+        "malformed_predictions": 0,
+        "micro_cer": 0.017543859649122806,
+        "micro_wer": 0.1,
+        "missing_prediction_rate": 0.0,
+        "missing_predictions": 0,
+        "reference_characters": 57,
+        "reference_words": 10,
+        "repetition_diagnostics": {
+          "mean_consecutive_duplicate_token_rate": 0.0,
+          "mean_repeated_bigram_rate": 0.0,
+          "mean_repeated_word_rate": 0.2
+        },
+        "schema_version": "core-asr-screening-metrics.v1",
+        "substitutions": 1,
+        "supported_metrics": [
+          "deletions",
+          "duplicate_predictions",
+          "empty_predictions",
+          "hypothesis_words",
+          "insertions",
+          "macro_cer",
+          "macro_wer",
+          "malformed_predictions",
+          "micro_cer",
+          "micro_wer",
+          "missing_predictions",
+          "reference_words",
+          "repetition_diagnostics",
+          "substitutions",
+          "unexpected_predictions"
+        ],
+        "unexpected_predictions": 0,
+        "unsupported_metrics": [
+          {
+            "metric": "hallucinated_silent_output_rate",
+            "reason": "the benchmark items do not provide explicit silence references"
+          }
+        ],
+        "valid_output_rate": 1.0,
+        "valid_predictions": 1,
+        "word_errors": 1
+      },
+      "output_contract_valid": true,
+      "repetitions": 2,
+      "scientific_scope": "screen",
+      "stage8_status": "qualified",
+      "status": "passed",
+      "timing": {
+        "inference_sec": [
+          4.728146,
+          0.515976
+        ],
+        "initialization_sec": 4.32102659996599,
+        "total_sec": 11.234197
+      },
+      "warnings": []
+    },
+    {
+      "asset_identities": [
+        {
+          "acquisition_date": "2024-10-08T12:54:07+00:00",
+          "acquisition_method": "scripts/bootstrap_models.py --sherpa-diarization",
+          "artifact_filename": "sherpa-onnx-pyannote-segmentation-3-0.tar.bz2",
+          "asset_id": "sherpa_onnx_diarization_segmentation",
+          "backend": "Sherpa-ONNX",
+          "component": "sherpa_onnx_diarization",
+          "credential_required": false,
+          "environment_profile": "onnx",
+          "files": [
+            {
+              "bytes": 1061,
+              "path": "LICENSE",
+              "sha256": "14d7016ad68e7394d6e6b78d96cc2ae431c905287b89674cfdf021e79e62b8ba"
+            },
+            {
+              "bytes": 115,
+              "path": "README.md",
+              "sha256": "0380ed76a50efcc421dc62f251ed06e8349688466beac3177bee6e00dc336bfc"
+            },
+            {
+              "bytes": 3953,
+              "path": "export-onnx.py",
+              "sha256": "21df426fc6ca2ad54b5c9e114729990e0a669d602ea4e052f38287f99d32c0b0"
+            },
+            {
+              "bytes": 1540506,
+              "path": "model.int8.onnx",
+              "sha256": "d582f4b4c6b48205de7e0643c57df0df5615a3c176189be3fc461e9d18827b5d"
+            },
+            {
+              "bytes": 5992913,
+              "path": "model.onnx",
+              "sha256": "220ad67ca923bef2fa91f2390c786097bf305bceb5e261d4af67b38e938e1079"
+            },
+            {
+              "bytes": 1985,
+              "path": "run.sh",
+              "sha256": "5844c56ec90b29d0f01056f81e3f66f84ed4ef598bfc8705f86cd290d73138b3"
+            },
+            {
+              "bytes": 857,
+              "path": "show-onnx.py",
+              "sha256": "ace74dd3749e345cfac03a2d869830a99e7425ebc100545d7e8b2b95568ee575"
+            },
+            {
+              "bytes": 15204,
+              "path": "speaker-diarization-onnx.py",
+              "sha256": "51e301c2d02c87351a22582e51e883d4f18e4755d193587e69e1fd7f357132e7"
+            },
+            {
+              "bytes": 2306,
+              "path": "speaker-diarization-torch.py",
+              "sha256": "72f9fa5dd9f4966869acf79ef3b1328398434c70373f462d373895757aa0fae7"
+            },
+            {
+              "bytes": 6883,
+              "path": "vad-onnx.py",
+              "sha256": "4fbd5d74faf7bb34133f3268d1f184f9a43bfa3e3220acf1dbec7e9bef41e848"
+            },
+            {
+              "bytes": 1029,
+              "path": "vad-torch.py",
+              "sha256": "ecd6d40be0229624b7a312a1e2a3cffddeaf432706395df26c76fe588bf8dc66"
+            }
+          ],
+          "licence": "Verify converted-model terms before redistribution",
+          "missing_required_files": [],
+          "model_name": "pyannote-segmentation-3.0 ONNX",
+          "model_version": "3.0",
+          "present": true,
+          "sha256": "705c42c6fe52c84fa34c119f1c10470d48a005a1777ed7cf4ba9db8566b6b184",
+          "size_bytes": 7566812,
+          "source": "https://github.com/k2-fsa/sherpa-onnx/releases/tag/speaker-segmentation-models",
+          "storage_path": "models/cache/sherpa_onnx/diarization/sherpa-onnx-pyannote-segmentation-3-0",
+          "verification_status": "verified"
+        },
+        {
+          "acquisition_date": "2026-08-08T00:15:04.538280+00:00",
+          "acquisition_method": "scripts/bootstrap_models.py --sherpa-speaker-embedding",
+          "artifact_filename": "3dspeaker_speech_eres2net_base_sv_zh-cn_3dspeaker_16k.onnx",
+          "asset_id": "sherpa_onnx_speaker_embedding",
+          "backend": "Sherpa-ONNX",
+          "component": "sherpa_onnx_speaker_embedding",
+          "credential_required": false,
+          "environment_profile": "onnx",
+          "files": [
+            {
+              "bytes": 39593761,
+              "path": "3dspeaker_speech_eres2net_base_sv_zh-cn_3dspeaker_16k.onnx",
+              "sha256": "1a331345f04805badbb495c775a6ddffcdd1a732567d5ec8b3d5749e3c7a5e4b"
+            }
+          ],
+          "licence": "Verify upstream model terms before redistribution",
+          "missing_required_files": [],
+          "model_name": "3D-Speaker ERes2Net base 16k",
+          "model_version": "release asset",
+          "present": true,
+          "sha256": "bd0c6fe268dc71a958d3f49970aeb1df31626bf01027cd699b2aacf3127c416d",
+          "size_bytes": 39593761,
+          "source": "https://github.com/k2-fsa/sherpa-onnx/releases/tag/speaker-recongition-models",
+          "storage_path": "models/cache/sherpa_onnx/speaker_embedding/3dspeaker_speech_eres2net_base_sv_zh-cn_3dspeaker_16k.onnx",
+          "verification_status": "verified"
+        }
+      ],
+      "backend_id": "sherpa_onnx_diarization",
+      "catalog_family": "diarization",
+      "catalog_name": "sherpa_onnx_diarization",
+      "component_identity": {
+        "backend_id": "sherpa_onnx_diarization",
+        "config_path": "configs/inference/components/diarization/sherpa_onnx.yaml",
+        "config_sha256": "00bb4d82219b8c9d505f6ce373625c164d0c4553a96ff06dbaf72b7c715e2dfb",
+        "family": "diarization"
+      },
+      "environment_profile": "onnx",
+      "implicit_downloads_allowed": false,
+      "metrics": {
+        "anonymous_label_consistency": true,
+        "bounded": true,
+        "reference_label_fallback": false,
+        "rttm_conversion": true,
+        "scientific_metrics_emitted": false,
+        "turn_count": 1
+      },
+      "output_contract_valid": true,
+      "repetitions": 2,
+      "scientific_scope": "composition_only",
+      "stage8_status": "qualified",
+      "status": "passed",
+      "timing": {
+        "inference_sec": [
+          0.42376,
+          0.055084
+        ],
+        "total_sec": 0.558594
+      },
+      "warnings": []
+    },
+    {
+      "asset_identities": [
+        {
+          "acquisition_date": "2026-08-08T00:15:04.538280+00:00",
+          "acquisition_method": "scripts/bootstrap_models.py --sherpa-speaker-embedding",
+          "artifact_filename": "3dspeaker_speech_eres2net_base_sv_zh-cn_3dspeaker_16k.onnx",
+          "asset_id": "sherpa_onnx_speaker_embedding",
+          "backend": "Sherpa-ONNX",
+          "component": "sherpa_onnx_speaker_embedding",
+          "credential_required": false,
+          "environment_profile": "onnx",
+          "files": [
+            {
+              "bytes": 39593761,
+              "path": "3dspeaker_speech_eres2net_base_sv_zh-cn_3dspeaker_16k.onnx",
+              "sha256": "1a331345f04805badbb495c775a6ddffcdd1a732567d5ec8b3d5749e3c7a5e4b"
+            }
+          ],
+          "licence": "Verify upstream model terms before redistribution",
+          "missing_required_files": [],
+          "model_name": "3D-Speaker ERes2Net base 16k",
+          "model_version": "release asset",
+          "present": true,
+          "sha256": "bd0c6fe268dc71a958d3f49970aeb1df31626bf01027cd699b2aacf3127c416d",
+          "size_bytes": 39593761,
+          "source": "https://github.com/k2-fsa/sherpa-onnx/releases/tag/speaker-recongition-models",
+          "storage_path": "models/cache/sherpa_onnx/speaker_embedding/3dspeaker_speech_eres2net_base_sv_zh-cn_3dspeaker_16k.onnx",
+          "verification_status": "verified"
+        }
+      ],
+      "backend_id": "sherpa_onnx_speaker_embedding",
+      "catalog_family": "speaker_embedding",
+      "catalog_name": "sherpa_onnx_speaker_embedding",
+      "component_identity": {
+        "backend_id": "sherpa_onnx_speaker_embedding",
+        "config_path": "configs/inference/components/speaker_embedding/sherpa_onnx.yaml",
+        "config_sha256": "57e0d28b235329555f84524259d3e63b0e8dfe99495b8a21063dbc5e938325a4",
+        "family": "speaker_embedding"
+      },
+      "environment_profile": "onnx",
+      "implicit_downloads_allowed": false,
+      "metrics": {
+        "clean_to_degraded_drift": null,
+        "dimension": 512,
+        "finite": true,
+        "l2_norms": [
+          1.0000000012698975,
+          1.0000000012698975
+        ],
+        "minimum_duration_status": "too_short",
+        "repeatability_l2_drift": 0.0,
+        "successful_extractions": 2,
+        "unsupported_metrics": [
+          {
+            "metric": "clean_to_degraded_drift",
+            "reason": "the one-item contract smoke has no degraded pair"
+          }
+        ]
+      },
+      "output_contract_valid": true,
+      "repetitions": 2,
+      "scientific_scope": "screen",
+      "stage8_status": "qualified",
+      "status": "passed",
+      "timing": {
+        "inference_sec": [
+          0.847531,
+          0.193796
+        ],
+        "total_sec": 1.134605
+      },
+      "warnings": []
+    },
+    {
+      "asset_identities": [
+        {
+          "acquisition_date": "2026-08-08T00:15:03.769722+00:00",
+          "acquisition_method": "scripts/bootstrap_models.py --sherpa-vad",
+          "artifact_filename": "silero_vad.onnx",
+          "asset_id": "sherpa_onnx_vad",
+          "backend": "Sherpa-ONNX",
+          "component": "sherpa_onnx_vad",
+          "credential_required": false,
+          "environment_profile": "onnx",
+          "files": [
+            {
+              "bytes": 643854,
+              "path": "silero_vad.onnx",
+              "sha256": "9e2449e1087496d8d4caba907f23e0bd3f78d91fa552479bb9c23ac09cbb1fd6"
+            }
+          ],
+          "licence": "Verify upstream model terms before redistribution",
+          "missing_required_files": [],
+          "model_name": "Silero VAD ONNX",
+          "model_version": "release asset",
+          "present": true,
+          "sha256": "608c32d38d1000e1710b10c0ce26bda8d49c723cb9eeccd0d363d0c976715e47",
+          "size_bytes": 643854,
+          "source": "https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/silero_vad.onnx",
+          "storage_path": "models/cache/sherpa_onnx/vad/silero_vad.onnx",
+          "verification_status": "verified"
+        }
+      ],
+      "backend_id": "sherpa_onnx_vad",
+      "catalog_family": "vad",
+      "catalog_name": "sherpa_onnx_vad",
+      "component_identity": {
+        "backend_id": "sherpa_onnx_vad",
+        "config_path": "configs/inference/components/vad/sherpa_onnx.yaml",
+        "config_sha256": "1f3eebf2e7f70dda23f72f8ff7f3336dc5242c7ed1646bb3d75d6e332f3d4da6",
+        "family": "vad"
+      },
+      "environment_profile": "onnx",
+      "implicit_downloads_allowed": false,
+      "metrics": {
+        "empty_segment_items": 0,
+        "evaluated_items": 1,
+        "policy": {
+          "boundary_tolerance_sec": 0.25,
+          "collar_sec": 0.25,
+          "duration_overlap_uses_collar": false,
+          "effective_boundary_tolerance_sec": 0.5,
+          "too_short_sec": 0.2
+        },
+        "schema_version": "core-vad-screening-metrics.v1",
+        "segment_count": 1,
+        "segment_duration_sec": {
+          "count": 1,
+          "max": 0.31400000000000006,
+          "mean": 0.31400000000000006,
+          "min": 0.31400000000000006,
+          "p50": 0.31400000000000006,
+          "p95": 0.31400000000000006
+        },
+        "segments_per_minute": 14.15073480638552,
+        "supported_metrics": [
+          "segment_count",
+          "segments_per_minute",
+          "segment_duration_sec",
+          "empty_segment_items",
+          "too_short_segments"
+        ],
+        "too_short_segments": 0,
+        "total_audio_sec": 4.2400625,
+        "unsupported_metrics": [
+          {
+            "metric": "speech_precision",
+            "reason": "no VAD reference regions are present for these items"
+          },
+          {
+            "metric": "speech_recall",
+            "reason": "no VAD reference regions are present for these items"
+          },
+          {
+            "metric": "speech_f1",
+            "reason": "no VAD reference regions are present for these items"
+          },
+          {
+            "metric": "missed_speech_duration_sec",
+            "reason": "no VAD reference regions are present for these items"
+          },
+          {
+            "metric": "false_alarm_duration_sec",
+            "reason": "no VAD reference regions are present for these items"
+          },
+          {
+            "metric": "mean_region_iou",
+            "reason": "no VAD reference regions are present for these items"
+          },
+          {
+            "metric": "mean_boundary_deviation_sec",
+            "reason": "no VAD reference regions are present for these items"
+          },
+          {
+            "metric": "fragmentation_rate",
+            "reason": "no VAD reference regions are present for these items"
+          },
+          {
+            "metric": "merge_rate",
+            "reason": "no VAD reference regions are present for these items"
+          }
+        ]
+      },
+      "output_contract_valid": true,
+      "repetitions": 2,
+      "scientific_scope": "screen",
+      "stage8_status": "qualified",
+      "status": "passed",
+      "timing": {
+        "inference_sec": [
+          0.110526,
+          0.032533
+        ],
+        "total_sec": 0.280675
+      },
+      "warnings": []
+    },
+    {
+      "asset_identities": [
+        {
+          "acquisition_date": "2026-08-08T00:00:54.968245+00:00",
+          "acquisition_method": "scripts/bootstrap_models.py --vosk-asr",
+          "artifact_filename": "vosk-model-small-en-us-0.15.zip",
+          "asset_id": "vosk_small_en_us_0_15",
+          "backend": "Vosk",
+          "component": "vosk",
+          "credential_required": false,
+          "environment_profile": "extended-local",
+          "files": [
+            {
+              "bytes": 199,
+              "path": "README",
+              "sha256": "c0cf286e4f7783306c5f6469b37db69228fb16803b03cae661edb2d7bba64ebb"
+            },
+            {
+              "bytes": 15962575,
+              "path": "am/final.mdl",
+              "sha256": "75370a0137f9daf8f469dedd7daa4513ae7a621f03240c6e512e2b50b656a7b6"
+            },
+            {
+              "bytes": 131,
+              "path": "conf/mfcc.conf",
+              "sha256": "1e2228006d01d805ad1c267fee9f79709ca87ac51bd82b0e3f5c69ba543f0fc4"
+            },
+            {
+              "bytes": 290,
+              "path": "conf/model.conf",
+              "sha256": "8f14cb1eeb07c762c371db648c6be688d347236155ca0f64fb13b6567a8ce81f"
+            },
+            {
+              "bytes": 24013795,
+              "path": "graph/Gr.fst",
+              "sha256": "023c8b7e30704a9e37765c635c252e608a02f361235bf94abdcf2a5225d85b20"
+            },
+            {
+              "bytes": 22416994,
+              "path": "graph/HCLr.fst",
+              "sha256": "5caafba3081e1646545ac6bff0dd7a318e53dcbdc86f237909ce1d2ac1293d34"
+            },
+            {
+              "bytes": 102,
+              "path": "graph/disambig_tid.int",
+              "sha256": "9ad87cc166d0998f08f758f47a6223a120dfffcbee805c4849c3aa5e6bb3c0fc"
+            },
+            {
+              "bytes": 1761,
+              "path": "graph/phones/word_boundary.int",
+              "sha256": "da199d9c991e0e84681ddbb34627b915b26302d50a8fdaa23c51e2bc3a50b5c3"
+            },
+            {
+              "bytes": 168048,
+              "path": "ivector/final.dubm",
+              "sha256": "8c5d7dd69d2122313baaf19f61f35dd3fa18b70c62ac0687e311e1c46e6daca7"
+            },
+            {
+              "bytes": 8288887,
+              "path": "ivector/final.ie",
+              "sha256": "3f37faf90c375b9e4740b569398b5829ed9cc07d19be6d441f72c3b71d7efcc6"
+            },
+            {
+              "bytes": 44975,
+              "path": "ivector/final.mat",
+              "sha256": "ddd83586dc5f928cda8738b922c85ffe38fc789cb5f9151a712ca12f37265382"
+            },
+            {
+              "bytes": 1080,
+              "path": "ivector/global_cmvn.stats",
+              "sha256": "33be09afcc80059847a275c3d043b51f1ab954c7c2438ddbbf4745e8ba144ff9"
+            },
+            {
+              "bytes": 95,
+              "path": "ivector/online_cmvn.conf",
+              "sha256": "a2f3571754b64297cb7efb2e7ca3df61995c5a45fcbb97188f90613552bb2dfe"
+            },
+            {
+              "bytes": 35,
+              "path": "ivector/splice.conf",
+              "sha256": "9f0c5f7c82d18eaf25d8bce470efa9f7741f88411fe428774bc0a9bb69a24756"
+            }
+          ],
+          "licence": "Apache-2.0",
+          "missing_required_files": [],
+          "model_name": "vosk-model-small-en-us-0.15",
+          "model_version": "0.15",
+          "present": true,
+          "sha256": "4e399eb6de3b3d00e63d64d5fa97ffc39457d94427a5dad65285795fe31e1f7e",
+          "size_bytes": 70898967,
+          "source": "https://alphacephei.com/vosk/models/vosk-model-small-en-us-0.15.zip",
+          "storage_path": "models/cache/vosk/asr/vosk-model-small-en-us-0.15",
+          "verification_status": "verified"
+        }
+      ],
+      "backend_id": "vosk",
+      "catalog_family": "asr",
+      "catalog_name": "vosk",
+      "component_identity": {
+        "backend_id": "vosk",
+        "config_path": "configs/inference/components/asr/vosk.yaml",
+        "config_sha256": "6a3dd0a092a769395deb9a97619c5fb3998e1d2ffa520e69ed1ca2d031655d41",
+        "family": "asr"
+      },
+      "environment_profile": "extended-local",
+      "implicit_downloads_allowed": false,
+      "metrics": {
+        "character_errors": 1,
+        "deletions": 0,
+        "denominator_policy": {
+          "cer_units": "normalized_characters_excluding_whitespace",
+          "duplicate_policy": "first_valid_prediction",
+          "expected_items": 1,
+          "missing_or_failed_hypothesis": "empty_string"
+        },
+        "duplicate_predictions": 0,
+        "empty_prediction_rate": 0.0,
+        "empty_predictions": 0,
+        "expected_items": 1,
+        "failed_items": 0,
+        "failure_rate": 0.0,
+        "hypothesis_characters": 56,
+        "hypothesis_words": 10,
+        "insertions": 0,
+        "macro_cer": 0.017543859649122806,
+        "macro_wer": 0.1,
+        "malformed_predictions": 0,
+        "micro_cer": 0.017543859649122806,
+        "micro_wer": 0.1,
+        "missing_prediction_rate": 0.0,
+        "missing_predictions": 0,
+        "reference_characters": 57,
+        "reference_words": 10,
+        "repetition_diagnostics": {
+          "mean_consecutive_duplicate_token_rate": 0.0,
+          "mean_repeated_bigram_rate": 0.0,
+          "mean_repeated_word_rate": 0.2
+        },
+        "schema_version": "core-asr-screening-metrics.v1",
+        "substitutions": 1,
+        "supported_metrics": [
+          "deletions",
+          "duplicate_predictions",
+          "empty_predictions",
+          "hypothesis_words",
+          "insertions",
+          "macro_cer",
+          "macro_wer",
+          "malformed_predictions",
+          "micro_cer",
+          "micro_wer",
+          "missing_predictions",
+          "reference_words",
+          "repetition_diagnostics",
+          "substitutions",
+          "unexpected_predictions"
+        ],
+        "unexpected_predictions": 0,
+        "unsupported_metrics": [
+          {
+            "metric": "hallucinated_silent_output_rate",
+            "reason": "the benchmark items do not provide explicit silence references"
+          }
+        ],
+        "valid_output_rate": 1.0,
+        "valid_predictions": 1,
+        "word_errors": 1
+      },
+      "output_contract_valid": true,
+      "repetitions": 2,
+      "scientific_scope": "screen",
+      "stage8_status": "qualified",
+      "status": "passed",
+      "timing": {
+        "inference_sec": [
+          2.094478,
+          1.183945
+        ],
+        "initialization_sec": 0.6993676000274718,
+        "total_sec": 4.325917
+      },
+      "warnings": []
+    },
+    {
+      "asset_identities": [],
+      "backend_id": "webrtc_vad",
+      "catalog_family": "vad",
+      "catalog_name": "webrtc_vad",
+      "component_identity": {
+        "backend_id": "webrtc_vad",
+        "config_path": "configs/inference/components/vad/webrtc.yaml",
+        "config_sha256": "59ef35c465964b8b239ddc3ebd947e53e08f1386a7ec49dc170d43c53d98a29c",
+        "family": "vad"
+      },
+      "environment_profile": "extended-local",
+      "implicit_downloads_allowed": false,
+      "metrics": {
+        "empty_segment_items": 0,
+        "evaluated_items": 1,
+        "policy": {
+          "boundary_tolerance_sec": 0.25,
+          "collar_sec": 0.25,
+          "duration_overlap_uses_collar": false,
+          "effective_boundary_tolerance_sec": 0.5,
+          "too_short_sec": 0.2
+        },
+        "schema_version": "core-vad-screening-metrics.v1",
+        "segment_count": 1,
+        "segment_duration_sec": {
+          "count": 1,
+          "max": 4.17,
+          "mean": 4.17,
+          "min": 4.17,
+          "p50": 4.17,
+          "p95": 4.17
+        },
+        "segments_per_minute": 14.15073480638552,
+        "supported_metrics": [
+          "segment_count",
+          "segments_per_minute",
+          "segment_duration_sec",
+          "empty_segment_items",
+          "too_short_segments"
+        ],
+        "too_short_segments": 0,
+        "total_audio_sec": 4.2400625,
+        "unsupported_metrics": [
+          {
+            "metric": "speech_precision",
+            "reason": "no VAD reference regions are present for these items"
+          },
+          {
+            "metric": "speech_recall",
+            "reason": "no VAD reference regions are present for these items"
+          },
+          {
+            "metric": "speech_f1",
+            "reason": "no VAD reference regions are present for these items"
+          },
+          {
+            "metric": "missed_speech_duration_sec",
+            "reason": "no VAD reference regions are present for these items"
+          },
+          {
+            "metric": "false_alarm_duration_sec",
+            "reason": "no VAD reference regions are present for these items"
+          },
+          {
+            "metric": "mean_region_iou",
+            "reason": "no VAD reference regions are present for these items"
+          },
+          {
+            "metric": "mean_boundary_deviation_sec",
+            "reason": "no VAD reference regions are present for these items"
+          },
+          {
+            "metric": "fragmentation_rate",
+            "reason": "no VAD reference regions are present for these items"
+          },
+          {
+            "metric": "merge_rate",
+            "reason": "no VAD reference regions are present for these items"
+          }
+        ]
+      },
+      "output_contract_valid": true,
+      "repetitions": 2,
+      "scientific_scope": "screen",
+      "stage8_status": "qualified_with_warnings",
+      "status": "passed",
+      "timing": {
+        "inference_sec": [
+          0.184559,
+          0.001123
+        ],
+        "total_sec": 0.305238
+      },
+      "warnings": [
+        "webrtcvad imports deprecated pkg_resources under current setuptools; real outputs remain contract-valid."
+      ]
+    },
+    {
+      "asset_identities": [
+        {
+          "acquisition_date": "2023-02-20T12:29:45+00:00",
+          "acquisition_method": "scripts/bootstrap_models.py --wespeaker",
+          "artifact_filename": "voxceleb_resnet221_LM.tar.gz",
+          "asset_id": "wespeaker_voxceleb_resnet221_lm",
+          "backend": "WeSpeaker",
+          "component": "wespeaker",
+          "credential_required": false,
+          "environment_profile": "wespeaker",
+          "files": [
+            {
+              "bytes": 114410390,
+              "path": "avg_model.pt",
+              "sha256": "47d76239f1e865b273e31e30f691959061ff6565ed6c4e7be9639a65d9662eb5"
+            },
+            {
+              "bytes": 1544,
+              "path": "config.yaml",
+              "sha256": "31511c8e6c60d96d40962e9a261dd8f752b01831b955192b5cbed8367276bbb5"
+            }
+          ],
+          "licence": "Verify model-card and VoxCeleb-derived model terms before redistribution",
+          "missing_required_files": [],
+          "model_name": "voxceleb_resnet221_LM",
+          "model_version": "source-commit-1d4164bdb1dcfee4624093190fd5ecbb19447686",
+          "present": true,
+          "sha256": "bd70550dbfcdaecf387cefcc34d57d1b815fbdd6ee2d62477dd0e1eb176ff962",
+          "size_bytes": 114411934,
+          "source": "https://modelscope.cn/datasets/wenet/wespeaker_pretrained_models",
+          "storage_path": "models/cache/wespeaker/english",
+          "verification_status": "verified"
+        }
+      ],
+      "backend_id": "wespeaker",
+      "catalog_family": "speaker_embedding",
+      "catalog_name": "wespeaker",
+      "component_identity": {
+        "backend_id": "wespeaker",
+        "config_path": "configs/inference/components/speaker_embedding/wespeaker.yaml",
+        "config_sha256": "0c774e10dc235664197d893a9940ff99908242674bc3d60212b223490abab8dd",
+        "family": "speaker_embedding"
+      },
+      "environment_profile": "wespeaker",
+      "implicit_downloads_allowed": false,
+      "metrics": {
+        "clean_to_degraded_drift": null,
+        "dimension": 256,
+        "finite": true,
+        "l2_norms": [
+          1.0000000075801248,
+          1.0000000075801248
+        ],
+        "minimum_duration_status": "too_short",
+        "repeatability_l2_drift": 0.0,
+        "successful_extractions": 2,
+        "unsupported_metrics": [
+          {
+            "metric": "clean_to_degraded_drift",
+            "reason": "the one-item contract smoke has no degraded pair"
+          }
+        ]
+      },
+      "output_contract_valid": true,
+      "repetitions": 2,
+      "scientific_scope": "screen",
+      "stage8_status": "qualified_with_warnings",
+      "status": "passed",
+      "timing": {
+        "inference_sec": [
+          20.891311,
+          1.318441
+        ],
+        "total_sec": 27.986812
+      },
+      "warnings": [
+        "WeSpeaker metadata pins hdbscan==0.8.37; isolated qualification uses the Python-3.12-compatible hdbscan==0.8.44.",
+        "kaldiio imports deprecated pkg_resources under current setuptools.",
+        "The loader reported an unused projection.weight tensor; repeated normalized embeddings were nevertheless valid."
+      ]
+    }
+  ],
+  "runtime_values_comparable_only_within_environment_profile": true,
+  "schema_version": "extended-component-comparison-tables.v1",
+  "scope": "one-item real smoke; not the full small benchmark"
+}

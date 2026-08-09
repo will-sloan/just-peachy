@@ -1,0 +1,101 @@
+{
+  "environment": {
+    "cuda_available": false,
+    "cuda_runtime": null,
+    "device_requested": "cpu",
+    "git_commit": "e7e5516991b95f4e7c915e852fc0b4f5bae7cd11",
+    "gpu": null,
+    "machine": "AMD64",
+    "package_count": 78,
+    "package_freeze_sha256": "a6e506c46d9a5df20d676c3d6763785d2e39d04c931213046f9af1bafcbd60fb",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python": "3.12.7",
+    "python_executable": "<environment>/Scripts/python.exe",
+    "torch": "2.11.0+cpu"
+  },
+  "generated_at": "2026-08-08T00:54:13.809866+00:00",
+  "profile": "nemo-linux-cuda",
+  "results": [
+    {
+      "asset_identities": [
+        {
+          "acquisition_date": null,
+          "acquisition_method": "scripts/bootstrap_models.py --nemo-config",
+          "artifact_filename": "config.yaml",
+          "asset_id": "nemo_diarization_config",
+          "backend": "NVIDIA NeMo",
+          "component": "nemo_diarization",
+          "credential_required": false,
+          "environment_profile": "nemo-linux-cuda",
+          "files": [],
+          "licence": "Apache-2.0 repository",
+          "missing_required_files": [],
+          "model_name": "diar_infer_meeting configuration",
+          "model_version": "NeMo-v2.7.3",
+          "present": false,
+          "sha256": null,
+          "size_bytes": null,
+          "source": "https://github.com/NVIDIA/NeMo/blob/v2.7.3/examples/speaker_tasks/diarization/conf/inference/diar_infer_meeting.yaml",
+          "storage_path": "models/cache/nemo/diarization/config.yaml",
+          "verification_status": "missing"
+        },
+        {
+          "acquisition_date": null,
+          "acquisition_method": "Explicit future Linux bootstrap after config resolution",
+          "artifact_filename": "unresolved",
+          "asset_id": "nemo_active_checkpoints",
+          "backend": "NVIDIA NeMo",
+          "component": "nemo_diarization",
+          "credential_required": false,
+          "environment_profile": "nemo-linux-cuda",
+          "files": [],
+          "licence": "Must be recorded for each selected checkpoint",
+          "missing_required_files": [],
+          "model_name": "active VAD embedding and MSDD checkpoints",
+          "model_version": "unresolved",
+          "present": false,
+          "sha256": null,
+          "size_bytes": null,
+          "source": null,
+          "storage_path": "models/cache/nemo/checkpoints",
+          "verification_status": "missing"
+        }
+      ],
+      "backend_id": "nemo_diarization",
+      "command": "python 'Software Validation from Datasets\\Evaluation Tool\\scripts\\qualify_extended_backends.py' --profile nemo-linux-cuda",
+      "component_identity": {
+        "backend_id": "nemo_diarization",
+        "config_path": "configs/inference/components/diarization/nemo_diarization.yaml",
+        "config_sha256": "0a2f370449a68339463b2ffe58333cbe503b61aaeaf9d3580c6350d510a8d4ba",
+        "family": "diarization"
+      },
+      "credential_presence": {},
+      "device": "cpu",
+      "explanation": "nemo_diarization requires one of ['Linux']; current platform is Windows.",
+      "failure_category": null,
+      "family": "diarization",
+      "implicit_downloads_allowed": false,
+      "package_versions": {
+        "nemo_toolkit": null
+      },
+      "profile": "nemo-linux-cuda",
+      "repetitions": 2,
+      "schema_validation": false,
+      "status": "platform_required",
+      "timing": {},
+      "warnings": []
+    }
+  ],
+  "schema_version": "extended-backend-qualification.v1",
+  "secret_audit": {
+    "credential_presence_only": true,
+    "values_serialized": false
+  },
+  "summary": {
+    "qualified": 0,
+    "status_counts": {
+      "platform_required": 1
+    },
+    "total": 1
+  }
+}

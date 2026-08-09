@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "speaker_protocol_metrics.v1.schema.json",
+  "type": "object",
+  "required": ["schema_version", "counts_reconcile", "failures_preserved_in_denominators", "extraction", "enrollment", "score_distributions", "verification", "calibration_vs_evaluation", "closed_set_identification", "open_set_identification", "probe_failures"],
+  "properties": {
+    "schema_version": {"const": "speaker-protocol-metrics.v1"},
+    "counts_reconcile": {"const": true},
+    "failures_preserved_in_denominators": {"const": true},
+    "calibration_evaluation_separate": {"const": true},
+    "open_closed_set_results_separate": {"const": true}
+  },
+  "additionalProperties": true
+}

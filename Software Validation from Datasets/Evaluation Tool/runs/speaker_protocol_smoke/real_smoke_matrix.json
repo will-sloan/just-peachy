@@ -1,0 +1,64 @@
+{
+  "clean_source_only": true,
+  "degraded_results_claimed": false,
+  "expected_backends": 4,
+  "failed": 0,
+  "identical_item_ids_for_every_backend": true,
+  "implicit_model_downloads_allowed": false,
+  "item_count_per_backend": 8,
+  "manifest_root": "benchmarks/stage10/small",
+  "passed": 4,
+  "private_identity_mapping_included": false,
+  "results": [
+    {
+      "backend_id": "resemblyzer",
+      "backend_identity_hash": "18CA2E6C6337D0728C864B0BE817657CB2F270BDBC33582072F5A1EDAEBE3E53",
+      "calibration_evaluation_separate": true,
+      "embedding_dimension": 256,
+      "environment_profile": "extended-local",
+      "expected_items": 8,
+      "result_path": "runs/speaker_protocol_smoke/results/resemblyzer",
+      "status": "passed",
+      "successful_items": 8,
+      "unknown_label": "Unknown"
+    },
+    {
+      "backend_id": "sherpa_onnx_speaker_embedding",
+      "backend_identity_hash": "F1F5E4F5DA82A89A696FB44F108A8C1A55478A77A94E237600C2D1C8AE0D0A75",
+      "calibration_evaluation_separate": true,
+      "embedding_dimension": 512,
+      "environment_profile": "onnx",
+      "expected_items": 8,
+      "result_path": "runs/speaker_protocol_smoke/results/sherpa_onnx_speaker_embedding",
+      "status": "passed",
+      "successful_items": 8,
+      "unknown_label": "Unknown"
+    },
+    {
+      "backend_id": "speechbrain_ecapa",
+      "backend_identity_hash": "D64F6695332208CACDC6F22146D114F0B5CC2D27F445D344431F7BA1D161474F",
+      "calibration_evaluation_separate": true,
+      "embedding_dimension": 192,
+      "environment_profile": "core-cpu",
+      "expected_items": 8,
+      "result_path": "runs/speaker_protocol_smoke/results/speechbrain_ecapa",
+      "status": "passed",
+      "successful_items": 8,
+      "unknown_label": "Unknown"
+    },
+    {
+      "backend_id": "wespeaker",
+      "backend_identity_hash": "EE51057CAB0C8AE08A090ED7C95E1510055E2216DE593CFE9203021A3C6DC899",
+      "calibration_evaluation_separate": true,
+      "embedding_dimension": 256,
+      "environment_profile": "wespeaker",
+      "expected_items": 8,
+      "result_path": "runs/speaker_protocol_smoke/results/wespeaker",
+      "status": "passed",
+      "successful_items": 8,
+      "unknown_label": "Unknown"
+    }
+  ],
+  "schema_version": "speaker-protocol-real-smoke.v1",
+  "scope": "contract smoke; not full scientific speaker evaluation"
+}

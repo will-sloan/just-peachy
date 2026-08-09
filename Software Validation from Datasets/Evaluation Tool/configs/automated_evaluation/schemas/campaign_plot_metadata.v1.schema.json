@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "campaign-plot-metadata.v1",
+  "title": "Provenance and interpretation metadata for one campaign plot",
+  "type": "object",
+  "required": ["schema_version", "plot_id", "question", "output", "analysis_manifest_id", "analysis_manifest_sha256", "campaign_id", "benchmark_manifests", "scenario_ids", "contract_versions", "data_requirements", "aggregation", "filters", "statistics", "limitations", "interpretation"],
+  "properties": {
+    "schema_version": {"const": "campaign-plot-metadata.v1"},
+    "analysis_manifest_sha256": {"type": "string", "pattern": "^[0-9A-F]{64}$"},
+    "scenario_ids": {"type": "array", "uniqueItems": true},
+    "interpretation": {"type": "string", "minLength": 1}
+  },
+  "additionalProperties": true
+}

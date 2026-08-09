@@ -1,5 +1,11 @@
 # ASR Pipeline Setup and Architecture
 
+> **Historical document.** This file describes the pre-automation pipeline handoff.
+> For the accepted current architecture and operating procedures, use
+> `Software Validation from Datasets/Evaluation Tool/docs/automated_evaluation/current_evaluation_tool_architecture.md`
+> and `system_guide.md`. The final acceptance audit is authoritative when this
+> historical text disagrees with current behavior.
+
 This guide documents the repository as it exists on Windows after a verified
 local run. It covers installation and the existing examples/tests only. It does
 not change the ASR pipeline or implement evaluation-tool integration.

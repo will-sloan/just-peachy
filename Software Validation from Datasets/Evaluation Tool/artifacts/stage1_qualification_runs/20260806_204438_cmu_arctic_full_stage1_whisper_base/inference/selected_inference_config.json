@@ -1,0 +1,15 @@
+{
+  "component_overrides": {},
+  "schema_version": "configured-inference-selection.v1",
+  "selected_inference_config": {
+    "path": "configs/inference/live_mic_whisper_base.yaml",
+    "sha256": "48278A1941899EA87A862A367BDA99A80C65B8735F1565F1B8A11C81A4B0E7EB"
+  },
+  "setting_overrides": {},
+  "source_component_registry": {
+    "path": "configs/automated_evaluation/component_registry.v1.yaml",
+    "registry_version": "1",
+    "schema_version": "component-catalog.v1",
+    "sha256": "41ACBA71B1AADAF2820CC9DA1F95F4B7D84420B9882A3BD95F3008F78F7A4A56"
+  }
+}

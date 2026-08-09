@@ -1,0 +1,71 @@
+{
+  "environment": {
+    "cuda_runtime": "12.8",
+    "gpu": "NVIDIA GeForce RTX 3080",
+    "gpu_count": 1,
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python": "3.12.7",
+    "torch": "2.11.0+cu128"
+  },
+  "generated_at": "2026-08-07T23:52:52.602992+00:00",
+  "policy": {
+    "implicit_downloads_allowed": false,
+    "single_gpu_job_only": true
+  },
+  "results": [
+    {
+      "component": "whisper_tiny",
+      "device": "cuda",
+      "dtype": "float16",
+      "inference_sec": [
+        2.8809847000520676,
+        0.1851728002075106
+      ],
+      "outputs_equal": true,
+      "peak_vram_bytes": 228704256,
+      "status": "qualified"
+    },
+    {
+      "component": "whisper_base",
+      "device": "cuda",
+      "dtype": "float16",
+      "inference_sec": [
+        1.1252705999650061,
+        0.4649873999878764
+      ],
+      "outputs_equal": true,
+      "peak_vram_bytes": 448299008,
+      "status": "qualified"
+    },
+    {
+      "component": "whisper_small",
+      "device": "cuda",
+      "dtype": "float16",
+      "inference_sec": [
+        3.4676543998066336,
+        0.7727900000754744
+      ],
+      "outputs_equal": true,
+      "peak_vram_bytes": 1475008512,
+      "status": "qualified"
+    },
+    {
+      "component": "speechbrain_ecapa",
+      "device": "cuda",
+      "dimension": 192,
+      "dtype": "float32",
+      "inference_sec": [
+        2.3409750999417156,
+        0.02680400013923645
+      ],
+      "peak_vram_bytes": 153949696,
+      "repeatability_l2_drift": 0.0,
+      "status": "qualified"
+    }
+  ],
+  "schema_version": "core-cuda-qualification.v1",
+  "summary": {
+    "qualified": 4,
+    "total": 4
+  }
+}

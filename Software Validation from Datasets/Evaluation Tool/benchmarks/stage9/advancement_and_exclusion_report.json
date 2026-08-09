@@ -1,0 +1,86 @@
+{
+  "decisions": [
+    {
+      "action": "advanced_to_stage9_screening",
+      "backend_id": "faster_whisper",
+      "reason": "Real repeated offline qualification passed.",
+      "status": "qualified"
+    },
+    {
+      "action": "advanced_to_stage9_screening",
+      "backend_id": "sherpa_onnx_asr",
+      "reason": "Real repeated offline qualification passed.",
+      "status": "qualified"
+    },
+    {
+      "action": "advanced_to_stage9_screening",
+      "backend_id": "vosk",
+      "reason": "Real repeated offline qualification passed.",
+      "status": "qualified"
+    },
+    {
+      "action": "excluded",
+      "backend_id": "wenet",
+      "reason": "Missing or incomplete local asset(s): wenet_librispeech_u2pp (final.zip)",
+      "status": "unavailable_asset"
+    },
+    {
+      "action": "advanced_to_stage9_screening",
+      "backend_id": "webrtc_vad",
+      "reason": "Real repeated offline qualification passed with recorded warnings.",
+      "status": "qualified_with_warnings"
+    },
+    {
+      "action": "advanced_to_stage9_screening",
+      "backend_id": "sherpa_onnx_vad",
+      "reason": "Real repeated offline qualification passed.",
+      "status": "qualified"
+    },
+    {
+      "action": "advanced_to_stage9_screening",
+      "backend_id": "resemblyzer",
+      "reason": "Real repeated offline qualification passed.",
+      "status": "qualified"
+    },
+    {
+      "action": "advanced_to_stage9_screening",
+      "backend_id": "wespeaker",
+      "reason": "Real repeated offline qualification passed with recorded warnings.",
+      "status": "qualified_with_warnings"
+    },
+    {
+      "action": "advanced_to_stage9_screening",
+      "backend_id": "sherpa_onnx_speaker_embedding",
+      "reason": "Real repeated offline qualification passed.",
+      "status": "qualified"
+    },
+    {
+      "action": "excluded",
+      "backend_id": "pyannote_community",
+      "reason": "The user must personally accept the upstream terms, then set PYANNOTE_LICENSE_ACCEPTED=1.",
+      "status": "licence_action_required"
+    },
+    {
+      "action": "deferred_to_stage11_after_composition",
+      "backend_id": "sherpa_onnx_diarization",
+      "reason": "Real repeated offline qualification passed.",
+      "status": "qualified"
+    },
+    {
+      "action": "excluded",
+      "backend_id": "picovoice_falcon",
+      "reason": "The user must personally accept the upstream terms, then set PICOVOICE_LICENSE_ACCEPTED=1.",
+      "status": "licence_action_required"
+    },
+    {
+      "action": "excluded",
+      "backend_id": "nemo_diarization",
+      "reason": "nemo_diarization requires one of ['Linux']; current platform is Windows.",
+      "status": "platform_required"
+    }
+  ],
+  "opaque_score_used": false,
+  "plan_id": "extended_screening_0ced26fcac70",
+  "post_screening_advancement": "pending campaign analysis",
+  "schema_version": "extended-advancement-exclusion.v1"
+}

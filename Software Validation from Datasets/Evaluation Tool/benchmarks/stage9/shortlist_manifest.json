@@ -1,0 +1,12 @@
+{
+  "asr": [],
+  "finalists": [],
+  "plan_hash": "0CED26FCAC704D3D13B344634850994E2135E1264C9E95FF3F0515F1BAF8F617",
+  "plan_id": "extended_screening_0ced26fcac70",
+  "schema_version": "extended-shortlist-manifest.v1",
+  "selection_policy": "hard gates plus declared Pareto frontiers; no opaque score",
+  "speaker_embedding": [],
+  "status": "pending_scientific_results",
+  "targeted_combinations": [],
+  "vad_segmentation": []
+}

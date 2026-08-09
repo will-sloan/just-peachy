@@ -1,5 +1,9 @@
 # Speech Evaluation Readiness Plan
 
+> **Historical planning document.** Stages 0–13 now supersede this readiness plan.
+> See `Software Validation from Datasets/Evaluation Tool/docs/automated_evaluation/system_guide.md`
+> for operation and `final_acceptance_audit.md` for accepted scope and limitations.
+
 This document plans the next evaluation-tool phase. It does **not** implement
 campaign generation, metric ranking, or a Cartesian evaluation runner.
 

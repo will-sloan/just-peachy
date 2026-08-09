@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "campaign-result-index.v1",
+  "title": "Exact planned-versus-observed campaign result index",
+  "type": "object",
+  "required": ["schema_version", "result_index_id", "result_index_sha256", "campaign_id", "campaign_manifest_sha256", "planned_scenario_ids", "included_scenario_ids", "scenario_rows", "status_counts", "exact_reconciliation", "created_at_utc"],
+  "properties": {
+    "schema_version": {"const": "campaign-result-index.v1"},
+    "result_index_id": {"type": "string", "pattern": "^result_index_[0-9a-f]{12}$"},
+    "result_index_sha256": {"type": "string", "pattern": "^[0-9A-F]{64}$"},
+    "campaign_manifest_sha256": {"type": "string", "pattern": "^[0-9A-F]{64}$"},
+    "planned_scenario_ids": {"type": "array", "uniqueItems": true},
+    "included_scenario_ids": {"type": "array", "uniqueItems": true},
+    "scenario_rows": {"type": "array"},
+    "exact_reconciliation": {"type": "object", "required": ["planned_count", "indexed_count", "included_count", "duplicate_scenario_ids", "unplanned_merged_scenario_ids", "exact"]}
+  },
+  "additionalProperties": true
+}

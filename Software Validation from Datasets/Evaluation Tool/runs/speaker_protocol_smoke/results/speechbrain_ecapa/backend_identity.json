@@ -1,0 +1,20 @@
+{
+  "aggregation_method": "normalized_mean",
+  "backend_id": "speechbrain_ecapa",
+  "config_hash": "13ACC7E76F621CEA132DCD3419667E791AF0005FDE98EE9AEFD93BC8632215DF",
+  "config_path": "configs/inference/components/speaker_embedding/speechbrain_ecapa.yaml",
+  "embedding_dimension": 192,
+  "environment_profile": "core-cpu",
+  "identity_hash": "D64F6695332208CACDC6F22146D114F0B5CC2D27F445D344431F7BA1D161474F",
+  "model_hash": "2744A8A1A4C9A4C810C436F5121315CC244436C46E25A717275B763AE0E42A3C",
+  "model_id": "speechbrain_ecapa:f47951032c81",
+  "normalization": "l2",
+  "preprocessing": {
+    "channel_count": 1,
+    "dtype": "float32",
+    "sample_rate_hz": 16000
+  },
+  "qualification_status": "qualified",
+  "schema_version": "speaker-backend-identity.v1",
+  "threshold_policy_version": "speaker-threshold-policy.v1"
+}

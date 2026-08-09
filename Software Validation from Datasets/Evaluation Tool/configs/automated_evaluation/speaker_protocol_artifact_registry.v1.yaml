@@ -1,0 +1,36 @@
+schema_version: speaker-protocol-artifact-registry.v1
+hash_algorithm: sha256
+temporary_file_marker: .tmp
+exchange_formats: [json, parquet, npz]
+pickle_allowed: false
+artifacts:
+  - {id: protocol_run, path: protocol_run.json, format: json, schema_version: speaker-protocol-run.v1, required: true, privacy: internal}
+  - {id: backend_identity, path: backend_identity.json, format: json, schema_version: speaker-backend-identity.v1, required: true, privacy: internal}
+  - {id: embedding_index, path: embeddings/index.parquet, format: parquet, schema_version: speaker-embedding-index.v2, required: true, privacy: biometric_sensitive}
+  - {id: embedding_vectors, path: embeddings/*.npz, format: npz, schema_version: speaker-embedding.v2, required: conditional, privacy: biometric_sensitive}
+  - {id: enrollment_metadata, path: enrollment/metadata.json, format: json, schema_version: backend-enrollment.v1, required: true, privacy: biometric_sensitive}
+  - {id: enrollment_index, path: enrollment/index.parquet, format: parquet, schema_version: backend-enrollment-index.v1, required: true, privacy: biometric_sensitive}
+  - {id: enrollment_centroids, path: enrollment/centroids/*.npz, format: npz, schema_version: speaker-enrollment-centroid.v1, required: conditional, privacy: biometric_sensitive}
+  - {id: similarity_scores, path: similarity_scores.parquet, format: parquet, schema_version: speaker-similarity.v2, required: true, privacy: biometric_sensitive}
+  - {id: threshold_sweep, path: threshold_sweep.parquet, format: parquet, schema_version: speaker-threshold-sweep.v1, required: true, privacy: biometric_sensitive}
+  - {id: calibration_results, path: calibration_results.json, format: json, schema_version: speaker-calibration-results.v1, required: true, privacy: biometric_sensitive}
+  - {id: verification_decisions, path: verification_decisions.parquet, format: parquet, schema_version: speaker-verification-decisions.v1, required: true, privacy: biometric_sensitive}
+  - {id: identification_rankings, path: identification_rankings.parquet, format: parquet, schema_version: speaker-identification-rankings.v1, required: true, privacy: biometric_sensitive}
+  - {id: unknown_rejection, path: unknown_rejection_decisions.parquet, format: parquet, schema_version: speaker-unknown-rejection.v1, required: true, privacy: biometric_sensitive}
+  - {id: failures, path: failures.parquet, format: parquet, schema_version: speaker-protocol-failures.v1, required: true, privacy: internal}
+  - {id: metric_summary, path: metrics/summary.json, format: json, schema_version: speaker-protocol-metrics.v1, required: true, privacy: internal}
+  - {id: grouped_metrics, path: metrics/grouped_metrics.parquet, format: parquet, schema_version: speaker-grouped-metrics.v1, required: true, privacy: internal}
+  - {id: checksums, path: checksums.json, format: json, schema_version: speaker-protocol-checksums.v1, required: true, privacy: internal}
+validation:
+  - enrollment and runtime backend identities must match exactly
+  - every successful embedding index row resolves to an NPZ file
+  - calibration and evaluation probe identities must be disjoint
+  - counts must reconcile with the protocol manifest
+  - failed probe decisions preserve Unknown but do not receive rejection credit
+  - checksums cover every artifact except checksums.json itself
+  - private real-name mappings and credential values are forbidden
+downstream_consumers:
+  - speaker_protocol_validator
+  - campaign_merge
+  - speaker_analysis
+  - report_generation

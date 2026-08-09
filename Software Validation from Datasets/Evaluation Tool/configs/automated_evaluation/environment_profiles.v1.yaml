@@ -1,0 +1,191 @@
+schema_version: evaluation-environment-profiles.v1
+generated_against_git_commit: e7e5516991b95f4e7c915e852fc0b4f5bae7cd11
+python_policy: "Use a dedicated Python 3.12 environment per profile; never silently combine mutually incompatible backends."
+dependency_policy: "All direct requirements must be pinned. Git dependencies require an immutable tag or commit. CUDA Torch wheels must be pinned before installation."
+
+host_observation_2026_08_07:
+  os: Windows 11 10.0.26200
+  python: 3.12.7
+  branch: handoff
+  commit: e7e5516991b95f4e7c915e852fc0b4f5bae7cd11
+  upstream_ahead: 0
+  upstream_behind: 0
+  gpu: NVIDIA GeForce RTX 3080
+  gpu_memory_mib: 10240
+  nvidia_driver: "610.62"
+  torch: 2.11.0+cpu
+  torch_cuda_runtime: null
+  cuda_available: false
+  pip_check: passed
+  verifier: "25/26 non-failing: FFmpeg 8.1.2 exists in the WinGet package directory but this Codex process does not see ffmpeg on PATH."
+
+profiles:
+  core_cpu_development:
+    purpose: "Stage 0 contract work and real CPU qualification of the core local pipeline."
+    status: qualified_with_path_mismatch
+    install_profile: dev
+    requirements: [requirements/core.txt, requirements/inference.txt, requirements/dev.txt]
+    device: cpu
+    torch_build: 2.11.0+cpu
+    components:
+      - energy_vad
+      - silero_vad
+      - vad_chunks
+      - whisper_tiny
+      - whisper_base
+      - whisper_small
+      - speechbrain_ecapa
+      - cosine_threshold
+      - disabled/no-op and fixed test components
+    setup_commands:
+      anaconda_prompt:
+        - "cd /d C:\\Users\\amiri\\Documents\\GitHub\\just-peachy"
+        - "py -3.12 -m venv .venv"
+        - ".venv\\Scripts\\activate"
+        - "powershell -ExecutionPolicy Bypass -File scripts\\install.ps1 -Profile dev -Device cpu"
+      verification:
+        - "python scripts\\verify_install.py --profile dev --device cpu --cache-root models/cache --whisper tiny,base,small --require-models"
+        - "python -m pip check"
+    known_mismatches:
+      - "Restart the terminal, or add the WinGet FFmpeg bin directory to PATH, then rerun verification."
+
+  core_cuda:
+    purpose: "Immediate next gate after CPU contract qualification; required before standard/large benchmarks or model selection."
+    status: incompatible_environment
+    install_profile: dev
+    requirements: [requirements/core.txt, requirements/inference.txt, requirements/dev.txt]
+    device: cuda
+    hardware_observed: "RTX 3080 10 GiB; conservative one GPU-heavy scenario at a time."
+    components: [silero_vad, whisper_tiny, whisper_base, whisper_small, speechbrain_ecapa, cosine_threshold]
+    setup_commands:
+      - "Create a separate environment rather than replacing the qualified CPU environment."
+      - "Select and record an official Python-3.12-compatible CUDA Torch 2.11.0 wheel/index; do not use an unpinned CUDA package."
+      - "Run scripts\\install.ps1 -Profile dev -Device cuda only after the CUDA Torch build is installed and pinned."
+      - "Run scripts\\verify_install.py --profile dev --device cuda --cache-root models/cache --whisper tiny,base,small --require-models."
+    blockers:
+      - "Current torch build is CPU-only."
+      - "Exact CUDA Torch wheel/index has not yet been selected and frozen."
+    qualification_gate: "All core CUDA components must pass real inference and artifact inspection before screening benchmarks."
+
+  extended_local_backends:
+    purpose: "Optional local CPU/GPU adapters that are not blockers for the core benchmark."
+    status: unavailable
+    install_profile: full
+    requirements: [requirements/full.txt, requirements/optional.txt, requirements/speaker_backends.txt]
+    components: [faster_whisper, vosk, wenet, webrtc_vad, resemblyzer, wespeaker]
+    setup_commands:
+      - "powershell -ExecutionPolicy Bypass -File scripts\\install.ps1 -Profile full -Device cpu"
+      - "python scripts\\bootstrap_models.py --cache-root models/cache --all-optional"
+      - "python scripts\\qualify_speech_components.py --audio <real-speech.wav> --output runs/component_qualification/extended_local.json"
+    blockers: ["Packages and/or local assets are not installed in the current environment."]
+
+  onnx_backends:
+    purpose: "Isolated Sherpa-ONNX VAD, ASR, embedding, and diarization qualification."
+    status: unavailable
+    install_profile: full
+    requirements: [requirements/optional.txt]
+    components: [sherpa_onnx_vad, sherpa_onnx, sherpa_onnx_speaker_embedding, sherpa_onnx_diarization]
+    setup_commands:
+      - "Install the pinned sherpa-onnx requirement in this profile."
+      - "Bootstrap each SHA-256-verified Sherpa asset with scripts\\bootstrap_models.py."
+      - "Qualify ONNX components independently before any targeted combination test."
+    blockers: ["sherpa-onnx package absent", "local ONNX assets absent"]
+
+  credential_gated_diarization:
+    purpose: "Pyannote Community and Picovoice Falcon without exposing credentials."
+    status: credential_required
+    install_profile: full
+    requirements: [requirements/optional.txt]
+    components: [pyannote_community, picovoice_falcon]
+    credential_environment_variables: [PYANNOTE_AUTH_TOKEN, PICOVOICE_ACCESS_KEY]
+    setup_commands:
+      - "Accept the applicable upstream terms personally."
+      - "Set the credential only in the process environment or an approved secret manager."
+      - "Never place credentials in YAML, JSON, logs, reports, shell history, or transferred artifacts."
+      - "Run isolated qualification and inspect artifacts for accidental secret leakage."
+    blockers: ["Terms/credentials not supplied", "packages and model assets absent"]
+
+  linux_cuda_nemo:
+    purpose: "Platform-specific NeMo diarization qualification."
+    status: platform_required
+    install_profile: nemo
+    requirements: [requirements/nemo.txt]
+    device: cuda
+    supported_os: [linux]
+    components: [nemo_diarization]
+    setup_commands:
+      - "Create a separate Linux Python 3.12 CUDA environment."
+      - "Install a pinned CUDA Torch build, then the pinned NeMo profile."
+      - "Bootstrap and checksum the diarization config/model assets."
+      - "Run real single-scenario qualification before any comparison."
+    blockers: ["Current host is Windows", "CUDA profile not built", "NeMo assets absent"]
+
+  test_only_contract:
+    purpose: "Fast deterministic interface, identity, error-path, and resume-contract tests with no performance claims."
+    status: qualified
+    install_profile: dev
+    requirements: [requirements/core.txt, requirements/dev.txt]
+    device: cpu
+    components: [all_no_op_components, fixed_vad, fixed_segmentation, fixed_asr, fixed_diarization, deterministic_fake_speaker_embedding, dummy_components]
+    setup_commands:
+      - "python -m pytest tests/inference_pipeline tests/automated_evaluation -q"
+    restrictions:
+      - "Never report fake/stub outputs as model accuracy, latency, or readiness evidence."
+
+model_asset_inventory:
+  whisper_tiny:
+    path: models/cache/whisper/tiny.pt
+    bytes: 75572083
+    sha256: 65147644A518D12F04E32D6F3B26FACC3F8DD46E5390956A9424A650C0CE22B9
+    package_version: openai-whisper==20250625
+    terms_status: "No license file copied beside the weight; review upstream terms before redistribution."
+  whisper_base:
+    path: models/cache/whisper/base.pt
+    bytes: 145262807
+    sha256: ED3A0B6B1C0EDF879AD9B11B1AF5A0E6AB5DB9205F891F668F8B0E6C6326E34E
+    package_version: openai-whisper==20250625
+    terms_status: "No license file copied beside the weight; review upstream terms before redistribution."
+  whisper_small:
+    path: models/cache/whisper/small.pt
+    bytes: 483617219
+    sha256: 9ECF779972D90BA49C06D968637D720DD632C55BBF19D441FB42BF17A411E794
+    package_version: openai-whisper==20250625
+    terms_status: "No license file copied beside the weight; review upstream terms before redistribution."
+  speechbrain_ecapa:
+    path: models/cache/speechbrain/spkrec-ecapa-voxceleb
+    source_revision: 0f99f2d0ebe89ac095bcc5903c4dd8f72b367286
+    package_version: speechbrain==1.1.0
+    files:
+      embedding_model.ckpt: {bytes: 83316686, sha256: 0575CB64845E6B9A10DB9BCB74D5AC32B326B8DC90352671D345E2EE3D0126A2}
+      classifier.ckpt: {bytes: 5534328, sha256: FD9E3634FE68BD0A427C95E354C0C677374F62B3F434E45B78599950D860D535}
+      hyperparams.yaml: {bytes: 1919, sha256: 6F78854FA04BA59E761437B76A2575D3ABA5E5016DE3E9B69F0C9A5077FB1A41}
+      label_encoder.ckpt: {bytes: 128619, sha256: E13C3A167BB4112685670EE896D20E2B565AF16B3A4CEEAA8689FA4D22ADB8B9}
+      mean_var_norm_emb.ckpt: {bytes: 1921, sha256: CD70225B05B37BE64FC5A95E24395D804231D43F74B2E1E5A513DB7B69B34C33}
+    terms_status: "No license file copied beside the weights; review the model card/source terms before redistribution."
+
+rir_identity_freeze:
+  source_directory: "../Raw Datasets (Not formatted)/MIT 271 RIRs/Audio"
+  storage_shape: "Flat WAV files, not one folder per environment."
+  selected_scope: [dining_room, bedroom, restaurant]
+  dining_room:
+    status: selected
+    file: h025_Diningroom_8txts.wav
+    bytes: 124112
+    sha256: 940D761A280DCD8FAAB077074E02BADE649E64E47461D80A4F927A01ABBEF5E2
+  bedroom:
+    status: pending_decision
+    candidates: [h001_Bedroom_65txts.wav, h002_Bedroom_62txts.wav, h006_Bedroom_42txts.wav, h008_Bedroom_35txts.wav, h015_Bedroom_174txts.wav, h016_MasterBedroom_15txts.wav, h021_Bedroom_102txts.wav, h023_Bedroom_9txts.wav, h031_Bedroom_7txts.wav, h032_Bedroom_6txts.wav, h098_Bedroom_2txts.wav]
+    rule: "Do not choose silently; freeze one exact filename and hash before scenario generation."
+  restaurant:
+    status: selected
+    file: h093_Restaurant_2txts.wav
+    bytes: 50621
+    sha256: C2CA8A07002943409D31A2C6D6D07BA826AA428FE6EF6CECF2C4FF33D7D4A8A8
+  parking_lot:
+    status: excluded
+    file: h044_ParkingLot_4txts.wav
+    bytes: 135866
+    sha256: F4FADFA8694A92A8D163187AB41D212410AFDEE715D0A85700868AB70E29360B
+    rule: "This is not a kitchen RIR and may not replace any selected environment."
+  acoustic_characterization_required: false
+  use_path: "Existing Evaluation Tool reverberation simulation only."

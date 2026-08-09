@@ -1,0 +1,28 @@
+manifest_schema_version,benchmark_tier,panel,dataset,selection_stratum,requested_count,realized_count,shortfall_count,shortfall_reason
+benchmark-manifest.v1,large,controlled_clean,cmu_arctic,source_selection,900,900,0,
+benchmark-manifest.v1,large,controlled_clean,hifitts,source_selection,1000,300,700,clean reader pool exhausted under eligibility rules
+benchmark-manifest.v1,large,controlled_clean,librispeech,source_selection,2000,760,1240,dev-clean cannot meet balanced speaker/utterance quota under eligibility rules
+benchmark-manifest.v1,large,native_robustness,ami,matched_native_streams,3600,3168,432,"insufficient eligible matched headset/array segments, speakers, or meetings"
+benchmark-manifest.v1,large,native_robustness,chime6,matched_close_farfield,2400,2400,0,
+benchmark-manifest.v1,large,native_robustness,hifitts,source_selection,200,160,40,other reader pool exhausted under eligibility rules
+benchmark-manifest.v1,large,native_robustness,librispeech,source_selection,1000,330,670,dev-other cannot meet balanced speaker/utterance quota under eligibility rules
+benchmark-manifest.v1,large,native_robustness,voices,source_selection,3200,240,2960,test split cannot meet balanced speaker/source/native-condition quota
+benchmark-manifest.v1,large,speaker_protocol,cmu_arctic,known_unknown_protocol,960,960,0,
+benchmark-manifest.v1,small,controlled_clean,cmu_arctic,source_selection,90,90,0,
+benchmark-manifest.v1,small,controlled_clean,hifitts,source_selection,50,15,35,clean reader pool exhausted under eligibility rules
+benchmark-manifest.v1,small,controlled_clean,librispeech,source_selection,60,60,0,
+benchmark-manifest.v1,small,native_robustness,ami,matched_native_streams,80,80,0,
+benchmark-manifest.v1,small,native_robustness,chime6,matched_close_farfield,80,80,0,
+benchmark-manifest.v1,small,native_robustness,hifitts,source_selection,20,16,4,other reader pool exhausted under eligibility rules
+benchmark-manifest.v1,small,native_robustness,librispeech,source_selection,24,24,0,
+benchmark-manifest.v1,small,native_robustness,voices,source_selection,40,40,0,
+benchmark-manifest.v1,small,speaker_protocol,cmu_arctic,known_unknown_protocol,108,108,0,
+benchmark-manifest.v1,standard,controlled_clean,cmu_arctic,source_selection,300,300,0,
+benchmark-manifest.v1,standard,controlled_clean,hifitts,source_selection,200,60,140,clean reader pool exhausted under eligibility rules
+benchmark-manifest.v1,standard,controlled_clean,librispeech,source_selection,400,400,0,
+benchmark-manifest.v1,standard,native_robustness,ami,matched_native_streams,576,518,58,"insufficient eligible matched headset/array segments, speakers, or meetings"
+benchmark-manifest.v1,standard,native_robustness,chime6,matched_close_farfield,480,480,0,
+benchmark-manifest.v1,standard,native_robustness,hifitts,source_selection,50,40,10,other reader pool exhausted under eligibility rules
+benchmark-manifest.v1,standard,native_robustness,librispeech,source_selection,165,165,0,
+benchmark-manifest.v1,standard,native_robustness,voices,source_selection,640,120,520,test split cannot meet balanced speaker/source/native-condition quota
+benchmark-manifest.v1,standard,speaker_protocol,cmu_arctic,known_unknown_protocol,420,420,0,

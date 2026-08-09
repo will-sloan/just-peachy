@@ -1,0 +1,235 @@
+{
+  "calibration_evaluation_separate": true,
+  "calibration_vs_evaluation": {
+    "calibration_eer": {
+      "confidence_interval": {
+        "bootstrap_repetitions": 500,
+        "confidence_level": 0.95,
+        "lower": 0.0,
+        "upper": 0.0
+      },
+      "eer": 0.0,
+      "far": 0.0,
+      "frr": 0.0,
+      "negative_trials": 4,
+      "positive_trials": 2,
+      "threshold": 0.5933922286882365
+    },
+    "evaluation_oracle_eer_diagnostic": {
+      "confidence_interval": {
+        "bootstrap_repetitions": 500,
+        "confidence_level": 0.95,
+        "lower": 0.0,
+        "upper": 0.0
+      },
+      "eer": 0.0,
+      "far": 0.0,
+      "frr": 0.0,
+      "negative_trials": 4,
+      "positive_trials": 2,
+      "threshold": 0.7396310799744108
+    },
+    "evaluation_threshold_recalibrated": false,
+    "operating_threshold_selected_from": "calibration"
+  },
+  "closed_set_identification": {
+    "probe_count": 2,
+    "top_1": {
+      "confidence_interval": {
+        "confidence_level": 0.95,
+        "lower": 0.34238022750665303,
+        "upper": 1.0
+      },
+      "denominator": 2,
+      "numerator": 2,
+      "value": 1.0
+    },
+    "top_3": {
+      "confidence_interval": {
+        "confidence_level": 0.95,
+        "lower": 0.34238022750665303,
+        "upper": 1.0
+      },
+      "denominator": 2,
+      "numerator": 2,
+      "value": 1.0
+    },
+    "top_5": {
+      "confidence_interval": {
+        "confidence_level": 0.95,
+        "lower": 0.34238022750665303,
+        "upper": 1.0
+      },
+      "denominator": 2,
+      "numerator": 2,
+      "value": 1.0
+    }
+  },
+  "counts_reconcile": true,
+  "embedding_drift": {
+    "count": 0,
+    "mean": null,
+    "mean_ci": null,
+    "standard_deviation": null
+  },
+  "enrollment": {
+    "enrollment_failures": 0,
+    "speakers_enrolled": 2,
+    "speakers_requested": 2
+  },
+  "extraction": {
+    "expected_items": 8,
+    "invalid_norms": 0,
+    "observed_items": 8,
+    "short_audio_rejections": 0,
+    "success_rate": {
+      "confidence_interval": {
+        "confidence_level": 0.95,
+        "lower": 0.6755924351161198,
+        "upper": 1.0
+      },
+      "denominator": 8,
+      "numerator": 8,
+      "value": 1.0
+    },
+    "successful_items": 8
+  },
+  "failure_records": 0,
+  "failures_preserved_in_denominators": true,
+  "open_closed_set_results_separate": true,
+  "open_set_identification": {
+    "failed_unknown_probes_credited_as_rejections": false,
+    "false_known_assignment": {
+      "confidence_interval": {
+        "confidence_level": 0.95,
+        "lower": 0.0,
+        "upper": 0.7934506856227626
+      },
+      "denominator": 1,
+      "numerator": 0,
+      "value": 0.0
+    },
+    "known_probe_accuracy": {
+      "confidence_interval": {
+        "confidence_level": 0.95,
+        "lower": 0.34238022750665303,
+        "upper": 1.0
+      },
+      "denominator": 2,
+      "numerator": 2,
+      "value": 1.0
+    },
+    "unknown_label": "Unknown",
+    "unknown_rejection": {
+      "confidence_interval": {
+        "confidence_level": 0.95,
+        "lower": 0.20654931437723745,
+        "upper": 1.0
+      },
+      "denominator": 1,
+      "numerator": 1,
+      "value": 1.0
+    }
+  },
+  "probe_failures": {
+    "confidence_interval": {
+      "confidence_level": 0.95,
+      "lower": 5.551115123125783e-17,
+      "upper": 0.5614970317550454
+    },
+    "denominator": 3,
+    "numerator": 0,
+    "value": 0.0
+  },
+  "schema_version": "speaker-protocol-metrics.v1",
+  "score_distributions": {
+    "different_speaker": {
+      "count": 4,
+      "maximum": 0.2201317216827812,
+      "mean": 0.16939708152390773,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower": 0.11546721426136569,
+        "upper": 0.21925501643918544
+      },
+      "minimum": 0.08057904512089385,
+      "standard_deviation": 0.056517109529708794
+    },
+    "same_speaker": {
+      "count": 2,
+      "maximum": 0.8344946972321245,
+      "mean": 0.7870628886032677,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower": 0.7396310799744108,
+        "upper": 0.8344946972321245
+      },
+      "minimum": 0.7396310799744108,
+      "standard_deviation": 0.047431808628856875
+    }
+  },
+  "verification": {
+    "evaluation_at_calibrated_threshold": {
+      "false_accepts": 0,
+      "false_rejects": 0,
+      "far": 0.0,
+      "far_ci": {
+        "confidence_level": 0.95,
+        "lower": 0.0,
+        "upper": 0.4898908364545973
+      },
+      "frr": 0.0,
+      "frr_ci": {
+        "confidence_level": 0.95,
+        "lower": 0.0,
+        "upper": 0.6576197724933469
+      },
+      "negative_trials": 4,
+      "positive_trials": 2,
+      "tar": 1.0,
+      "tar_ci": {
+        "confidence_level": 0.95,
+        "lower": 0.34238022750665303,
+        "upper": 1.0
+      },
+      "threshold": 0.5933922286882365,
+      "true_accepts": 2,
+      "true_rejects": 4
+    },
+    "evaluation_oracle_eer_diagnostic": {
+      "confidence_interval": {
+        "bootstrap_repetitions": 500,
+        "confidence_level": 0.95,
+        "lower": 0.0,
+        "upper": 0.0
+      },
+      "eer": 0.0,
+      "far": 0.0,
+      "frr": 0.0,
+      "negative_trials": 4,
+      "positive_trials": 2,
+      "threshold": 0.7396310799744108
+    },
+    "operating_threshold": 0.5933922286882365,
+    "operating_threshold_source": "calibration_only",
+    "roc_det_rows": 8,
+    "tar_at_fixed_far": [
+      {
+        "negative_trials": 4,
+        "observed_far": 0.0,
+        "positive_trials": 2,
+        "tar": 1.0,
+        "target_far": 0.01,
+        "threshold": 0.7396310799744108
+      },
+      {
+        "negative_trials": 4,
+        "observed_far": 0.0,
+        "positive_trials": 2,
+        "tar": 1.0,
+        "target_far": 0.05,
+        "threshold": 0.7396310799744108
+      }
+    ]
+  }
+}

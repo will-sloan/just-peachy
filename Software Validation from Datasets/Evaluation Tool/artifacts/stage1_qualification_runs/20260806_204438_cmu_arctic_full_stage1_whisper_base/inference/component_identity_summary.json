@@ -1,0 +1,358 @@
+{
+  "components": {
+    "asr": {
+      "compatibility_rules": [
+        "Reference ASR; offline whole-segment input; downloads disabled."
+      ],
+      "configured_component": {
+        "adapter": "WhisperBaseASRAdapter",
+        "enabled": true,
+        "name": "whisper_base",
+        "notes": "Lazy Whisper base adapter config. Requires local package and model assets; downloads disabled.",
+        "params": {
+          "allow_model_downloads": false,
+          "beam_size": 1,
+          "cache_dir": "models/cache/whisper",
+          "device": "cpu",
+          "dtype": "float32",
+          "language": "en",
+          "model_family": "whisper",
+          "model_name": "whisper_base",
+          "model_size": "base",
+          "word_timestamps": false
+        },
+        "slot": "asr"
+      },
+      "credential_requirements": [],
+      "device_dtype_settings": [
+        "cpu/float32",
+        "cuda/float16-unqualified"
+      ],
+      "enabled": true,
+      "family": "asr",
+      "final_use_category": "core",
+      "hardware_requirements": {
+        "cpu": true,
+        "cuda": true,
+        "gpu": true
+      },
+      "implementation_class": "WhisperASR",
+      "implementation_path": "app/inference_pipeline/asr/whisper_adapter.py",
+      "input_contract": "audio_segments.v1",
+      "model_asset_identity": [
+        {
+          "configured_identity": "models/cache/whisper/base.pt|145262807|sha256:ED3A0B6B1C0EDF879AD9B11B1AF5A0E6AB5DB9205F891F668F8B0E6C6326E34E",
+          "expected_bytes": 145262807,
+          "expected_sha256": "ED3A0B6B1C0EDF879AD9B11B1AF5A0E6AB5DB9205F891F668F8B0E6C6326E34E",
+          "hash_matches": true,
+          "observed_bytes": 145262807,
+          "observed_sha256": "ED3A0B6B1C0EDF879AD9B11B1AF5A0E6AB5DB9205F891F668F8B0E6C6326E34E",
+          "path": "models/cache/whisper/base.pt",
+          "present": true
+        }
+      ],
+      "model_identity": {
+        "cache_dir": "models/cache/whisper",
+        "language": "en",
+        "model_family": "whisper",
+        "model_name": "whisper_base",
+        "model_size": "base"
+      },
+      "name": "whisper_base",
+      "output_contract": "asr_transcript.v1",
+      "qualification_evidence": "runs/component_qualification/cpu_contract_20260807.json asr:whisper_base",
+      "qualification_status": "qualified",
+      "registry_adapter_class": "WhisperBaseASRAdapter",
+      "required_assets": [
+        "models/cache/whisper/base.pt|145262807|sha256:ED3A0B6B1C0EDF879AD9B11B1AF5A0E6AB5DB9205F891F668F8B0E6C6326E34E"
+      ],
+      "required_packages": [
+        "openai-whisper==20250625",
+        "torch==2.11.0",
+        "ffmpeg==8.1.2"
+      ],
+      "resolved_adapter": "WhisperBaseASRAdapter",
+      "resolved_params": {
+        "allow_model_downloads": false,
+        "beam_size": 1,
+        "cache_dir": "models/cache/whisper",
+        "device": "cpu",
+        "dtype": "float32",
+        "language": "en",
+        "model_family": "whisper",
+        "model_name": "whisper_base",
+        "model_size": "base",
+        "word_timestamps": false
+      },
+      "source": {
+        "family": "asr",
+        "name": "whisper_base",
+        "registry_config_path": "configs/inference/components/asr/whisper_base.yaml",
+        "registry_config_sha256": "F881C12FDAA8270269CEE818563195AD35EACF237417AE5FE2598C5B76768E95",
+        "source_path": "configs/inference/components/asr/whisper_base.yaml",
+        "source_sha256": "F881C12FDAA8270269CEE818563195AD35EACF237417AE5FE2598C5B76768E95",
+        "source_type": "component_fragment"
+      },
+      "source_config_path": "configs/inference/components/asr/whisper_base.yaml",
+      "source_config_sha256": "F881C12FDAA8270269CEE818563195AD35EACF237417AE5FE2598C5B76768E95",
+      "supported_operating_systems": [
+        "windows",
+        "linux",
+        "macos"
+      ]
+    },
+    "diarization": {
+      "compatibility_rules": [
+        "Returns no turns; contract-only baseline."
+      ],
+      "configured_component": null,
+      "credential_requirements": [],
+      "device_dtype_settings": [
+        "cpu/float32"
+      ],
+      "enabled": false,
+      "family": "diarization",
+      "final_use_category": "contract_only",
+      "hardware_requirements": {
+        "cpu": true,
+        "cuda": false,
+        "gpu": false
+      },
+      "implementation_class": "NoOpDiarizer",
+      "implementation_path": "app/inference_pipeline/diarization/base.py",
+      "input_contract": "loaded_audio.v1",
+      "model_asset_identity": [],
+      "model_identity": {
+        "component_name": "no_op_diarization"
+      },
+      "name": "no_op_diarization",
+      "output_contract": "speaker_turns.v1",
+      "qualification_evidence": "repository tests",
+      "qualification_status": "contract_qualified",
+      "registry_adapter_class": "NoOpDiarizationAdapter",
+      "required_assets": [],
+      "required_packages": [],
+      "resolved_adapter": "NoOpDiarizationAdapter",
+      "resolved_params": {},
+      "source": {
+        "family": "diarization",
+        "name": "no_op_diarization",
+        "registry_config_path": null,
+        "registry_config_sha256": null,
+        "source_path": "configs/inference/live_mic_whisper_base.yaml",
+        "source_sha256": "48278A1941899EA87A862A367BDA99A80C65B8735F1565F1B8A11C81A4B0E7EB",
+        "source_type": "pipeline_inline"
+      },
+      "source_config_path": null,
+      "source_config_sha256": null,
+      "supported_operating_systems": [
+        "windows",
+        "linux",
+        "macos"
+      ]
+    },
+    "segmentation": {
+      "compatibility_rules": [
+        "Full-record or record-bounded segment baseline."
+      ],
+      "configured_component": null,
+      "credential_requirements": [],
+      "device_dtype_settings": [
+        "cpu/float32"
+      ],
+      "enabled": false,
+      "family": "segmentation",
+      "final_use_category": "core",
+      "hardware_requirements": {
+        "cpu": true,
+        "cuda": false,
+        "gpu": false
+      },
+      "implementation_class": "NoOpSegmenter",
+      "implementation_path": "app/inference_pipeline/segmentation/base.py",
+      "input_contract": "evaluation_record.v1",
+      "model_asset_identity": [],
+      "model_identity": {
+        "component_name": "no_op_segmentation"
+      },
+      "name": "no_op_segmentation",
+      "output_contract": "audio_segments.v1",
+      "qualification_evidence": "repository tests",
+      "qualification_status": "contract_qualified",
+      "registry_adapter_class": "NoOpSegmentationAdapter",
+      "required_assets": [],
+      "required_packages": [],
+      "resolved_adapter": "NoOpSegmentationAdapter",
+      "resolved_params": {
+        "mode": "full_chunk"
+      },
+      "source": {
+        "family": "segmentation",
+        "name": "no_op_segmentation",
+        "registry_config_path": null,
+        "registry_config_sha256": null,
+        "source_path": "configs/inference/live_mic_whisper_base.yaml",
+        "source_sha256": "48278A1941899EA87A862A367BDA99A80C65B8735F1565F1B8A11C81A4B0E7EB",
+        "source_type": "pipeline_inline"
+      },
+      "source_config_path": null,
+      "source_config_sha256": null,
+      "supported_operating_systems": [
+        "windows",
+        "linux",
+        "macos"
+      ]
+    },
+    "speaker_embedding": {
+      "compatibility_rules": [
+        "Returns a disabled/unavailable result; not a recognition candidate."
+      ],
+      "configured_component": null,
+      "credential_requirements": [],
+      "device_dtype_settings": [
+        "cpu/float32"
+      ],
+      "enabled": false,
+      "family": "speaker_embedding",
+      "final_use_category": "contract_only",
+      "hardware_requirements": {
+        "cpu": true,
+        "cuda": false,
+        "gpu": false
+      },
+      "implementation_class": "NoOpSpeakerEmbedding",
+      "implementation_path": "app/inference_pipeline/speaker_embedding/base.py",
+      "input_contract": "audio_segments.v1",
+      "model_asset_identity": [],
+      "model_identity": {
+        "component_name": "no_op_speaker_embedding"
+      },
+      "name": "no_op_speaker_embedding",
+      "output_contract": "speaker_embedding.v1",
+      "qualification_evidence": "repository tests",
+      "qualification_status": "contract_qualified",
+      "registry_adapter_class": "NoOpSpeakerEmbeddingAdapter",
+      "required_assets": [],
+      "required_packages": [],
+      "resolved_adapter": "NoOpSpeakerEmbeddingAdapter",
+      "resolved_params": {},
+      "source": {
+        "family": "speaker_embedding",
+        "name": "no_op_speaker_embedding",
+        "registry_config_path": null,
+        "registry_config_sha256": null,
+        "source_path": "configs/inference/live_mic_whisper_base.yaml",
+        "source_sha256": "48278A1941899EA87A862A367BDA99A80C65B8735F1565F1B8A11C81A4B0E7EB",
+        "source_type": "pipeline_inline"
+      },
+      "source_config_path": null,
+      "source_config_sha256": null,
+      "supported_operating_systems": [
+        "windows",
+        "linux",
+        "macos"
+      ]
+    },
+    "speaker_matching": {
+      "compatibility_rules": [
+        "Returns no assignment; contract-only baseline."
+      ],
+      "configured_component": null,
+      "credential_requirements": [],
+      "device_dtype_settings": [
+        "cpu/float32"
+      ],
+      "enabled": false,
+      "family": "speaker_matching",
+      "final_use_category": "contract_only",
+      "hardware_requirements": {
+        "cpu": true,
+        "cuda": false,
+        "gpu": false
+      },
+      "implementation_class": "NoOpSpeakerMatcher",
+      "implementation_path": "app/inference_pipeline/speaker_matching/base.py",
+      "input_contract": "speaker_embedding.v1",
+      "model_asset_identity": [],
+      "model_identity": {
+        "component_name": "no_op_speaker_matching"
+      },
+      "name": "no_op_speaker_matching",
+      "output_contract": "speaker_decision.v1",
+      "qualification_evidence": "repository tests",
+      "qualification_status": "contract_qualified",
+      "registry_adapter_class": "NoOpSpeakerMatchingAdapter",
+      "required_assets": [],
+      "required_packages": [],
+      "resolved_adapter": "NoOpSpeakerMatchingAdapter",
+      "resolved_params": {},
+      "source": {
+        "family": "speaker_matching",
+        "name": "no_op_speaker_matching",
+        "registry_config_path": null,
+        "registry_config_sha256": null,
+        "source_path": "configs/inference/live_mic_whisper_base.yaml",
+        "source_sha256": "48278A1941899EA87A862A367BDA99A80C65B8735F1565F1B8A11C81A4B0E7EB",
+        "source_type": "pipeline_inline"
+      },
+      "source_config_path": null,
+      "source_config_sha256": null,
+      "supported_operating_systems": [
+        "windows",
+        "linux",
+        "macos"
+      ]
+    },
+    "vad": {
+      "compatibility_rules": [
+        "Full-record baseline; returns one record-bounded speech region."
+      ],
+      "configured_component": null,
+      "credential_requirements": [],
+      "device_dtype_settings": [
+        "cpu/float32"
+      ],
+      "enabled": false,
+      "family": "vad",
+      "final_use_category": "core",
+      "hardware_requirements": {
+        "cpu": true,
+        "cuda": false,
+        "gpu": false
+      },
+      "implementation_class": "NoOpVAD",
+      "implementation_path": "app/inference_pipeline/vad/base.py",
+      "input_contract": "loaded_audio.v1",
+      "model_asset_identity": [],
+      "model_identity": {
+        "component_name": "no_op_vad"
+      },
+      "name": "no_op_vad",
+      "output_contract": "speech_regions.v1",
+      "qualification_evidence": "repository tests",
+      "qualification_status": "contract_qualified",
+      "registry_adapter_class": "NoOpVADAdapter",
+      "required_assets": [],
+      "required_packages": [],
+      "resolved_adapter": "NoOpVADAdapter",
+      "resolved_params": {},
+      "source": {
+        "family": "vad",
+        "name": "no_op_vad",
+        "registry_config_path": null,
+        "registry_config_sha256": null,
+        "source_path": "configs/inference/live_mic_whisper_base.yaml",
+        "source_sha256": "48278A1941899EA87A862A367BDA99A80C65B8735F1565F1B8A11C81A4B0E7EB",
+        "source_type": "pipeline_inline"
+      },
+      "source_config_path": null,
+      "source_config_sha256": null,
+      "supported_operating_systems": [
+        "windows",
+        "linux",
+        "macos"
+      ]
+    }
+  },
+  "schema_version": "resolved-component-identities.v1"
+}

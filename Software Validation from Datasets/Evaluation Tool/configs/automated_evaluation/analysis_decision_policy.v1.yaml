@@ -1,0 +1,54 @@
+schema_version: campaign-decision-policy.v1
+policy_version: 1.0.0
+frozen_before_release_analysis: true
+seed: 3800
+
+statistics_policy:
+  confidence_level: 0.95
+  bootstrap_repetitions: 2000
+  paired_when_shared_items: true
+  cluster_priority: [speaker_id, meeting_id, session_id, source_recording_id, recording_id, item_id]
+  effect_size: paired_standardized_mean_difference
+  multiple_comparison_policy: benjamini_hochberg_when_three_or_more_confirmatory_comparisons
+  always_report: [item_count, duration_sec, absolute_change, relative_change, confidence_interval, effect_size]
+  missing_failure_policy: preserve_and_report; never complete-case silently
+
+shortlist_rules:
+  predeclared: true
+  reference_asr: whisper_base
+  hard_gates:
+    minimum_valid_output_rate: 0.95
+    maximum_failure_rate: 0.05
+    maximum_timeout_rate: 0.01
+    require_contract_qualification: true
+  pareto_objectives:
+    - {metric: micro_wer, direction: minimize}
+    - {metric: real_time_factor, direction: minimize}
+    - {metric: peak_vram_bytes, direction: minimize, required: false}
+    - {metric: failure_rate, direction: minimize}
+  preserve_tradeoffs: true
+  prohibit_wer_only_elimination: true
+  repeated_finalist_minimum: 3
+
+release_gates:
+  common:
+    completion_rate_minimum: 1.0
+    failure_rate_maximum: 0.0
+    mandatory_unexpected_missing_maximum: 0
+    require_manifest_hash_match: true
+    require_scenario_hash_match: true
+    require_validated_included_scenarios: true
+    require_explicit_exclusions: true
+    gpu_concurrency_limit_without_qualification: 1
+  synthetic:
+    requires: [two_worker_merge, timeout_retry, interruption_resume, stop_request, restart_recovery, transfer_checksums, long_path, exact_reconciliation]
+  small:
+    prerequisite_gate: synthetic
+    allowed_tiers: [small]
+  standard:
+    prerequisite_gate: small
+    allowed_tiers: [standard]
+  large:
+    prerequisite_gate: standard
+    allowed_tiers: [large]
+    purpose: release_level_validation_only

@@ -1,0 +1,126 @@
+{
+  "entries": {
+    "backend_identity.json": {
+      "bytes": 813,
+      "privacy_classification": "internal",
+      "sha256": "6D756F0EBEA65D253979ACEB2E3204B6A4CEF27FA2472B2F20D12C7981B410B2"
+    },
+    "calibration_results.json": {
+      "bytes": 785,
+      "privacy_classification": "internal",
+      "sha256": "94809ECA24AE3570D47D308556702E5AF3F6AB06DE57C9A641851620A2016F9C"
+    },
+    "embeddings/emb_0078e88282dddc15.npz": {
+      "bytes": 3608,
+      "privacy_classification": "biometric_sensitive",
+      "sha256": "2A71C7FEB0CDF96577F9B59AD775B0973232CB832D97AFDE4540114F14026FF9"
+    },
+    "embeddings/emb_276c9ace2362cdcd.npz": {
+      "bytes": 3608,
+      "privacy_classification": "biometric_sensitive",
+      "sha256": "E6E03A978917537D3054C8FF261E4B69827FAE0AFF3B8445E698D34D8679613A"
+    },
+    "embeddings/emb_32264736fdd08aed.npz": {
+      "bytes": 3608,
+      "privacy_classification": "biometric_sensitive",
+      "sha256": "8EAAA320DE0F191BDF108AE13BB80A60C37D844CE3B820995216EAD33B953B29"
+    },
+    "embeddings/emb_345f720f8312dbbb.npz": {
+      "bytes": 3608,
+      "privacy_classification": "biometric_sensitive",
+      "sha256": "50F525AB13EEFD345B862027AE4EF4EBB94DB6E6B7779ABFBF7CC69E10835518"
+    },
+    "embeddings/emb_5f7e09dc23cddd3f.npz": {
+      "bytes": 3608,
+      "privacy_classification": "biometric_sensitive",
+      "sha256": "14AD1183C5711E81D4C2DE77DF8F9714E566708071DBBF1B1AD9DBA760983EAE"
+    },
+    "embeddings/emb_98ece456d8a026cf.npz": {
+      "bytes": 3608,
+      "privacy_classification": "biometric_sensitive",
+      "sha256": "04E5757043BB8BCEC63A083BE634281D382EBBE0D23574B493F0A19093F499E0"
+    },
+    "embeddings/emb_a981e2812b225cca.npz": {
+      "bytes": 3608,
+      "privacy_classification": "biometric_sensitive",
+      "sha256": "D32532510AB5530F21806D080473C5864F41EDAE735B36422ADB7E4CDC97C017"
+    },
+    "embeddings/emb_f182a73c215a5a04.npz": {
+      "bytes": 3608,
+      "privacy_classification": "biometric_sensitive",
+      "sha256": "070F5267A803AE6F60E6A7691476DDE1277CADE3A76946F1D60B18770C17966B"
+    },
+    "embeddings/index.parquet": {
+      "bytes": 6249,
+      "privacy_classification": "internal",
+      "sha256": "1C10695A265CE3C5E172B04A778F287AD05DE348323ABB96A2755BFD031D07B9"
+    },
+    "enrollment/centroids/spk_2441b5ce20de.npz": {
+      "bytes": 2522,
+      "privacy_classification": "biometric_sensitive",
+      "sha256": "D5D483498A13A8DAE016FE8EAC72960DB879F0D4D1EE524C8B97AFF206639C1C"
+    },
+    "enrollment/centroids/spk_2e207edb1a34.npz": {
+      "bytes": 2522,
+      "privacy_classification": "biometric_sensitive",
+      "sha256": "3800C883011565C875F56C72B798450D63269E11850CC647B13DE1C02CB9BD6B"
+    },
+    "enrollment/index.parquet": {
+      "bytes": 5596,
+      "privacy_classification": "internal",
+      "sha256": "4B5EF16C019DADB6A1019ED934A452E00376CD657F4387191BF411DBFB0A946B"
+    },
+    "enrollment/metadata.json": {
+      "bytes": 1718,
+      "privacy_classification": "internal",
+      "sha256": "DC3DF2D9E58E637E36297BA56BC25502EF8CD7D09E69ECEDFF96E41B22C15A1E"
+    },
+    "failures.parquet": {
+      "bytes": 1254,
+      "privacy_classification": "internal",
+      "sha256": "A1373D4DD6598A17EBF76BD08C208AE15FF4A4D3AF4F28E141740F83004FDC27"
+    },
+    "identification_rankings.parquet": {
+      "bytes": 2209,
+      "privacy_classification": "internal",
+      "sha256": "384D6D50BA4232A11A39189E19D8278BB88A5F5D8D23343ADEF72BFBE9AC0091"
+    },
+    "metrics/grouped_metrics.parquet": {
+      "bytes": 3035,
+      "privacy_classification": "internal",
+      "sha256": "77746B5E90E717D0B0CF4CF42DA33D26B43D3B57275C5B2993209E75BC96540E"
+    },
+    "metrics/summary.json": {
+      "bytes": 5743,
+      "privacy_classification": "internal",
+      "sha256": "8657C12ADA2AEBFA3BAFED4321C978E55D46A4F16D7035EF9649CFA7A1A6FAF4"
+    },
+    "protocol_run.json": {
+      "bytes": 1453,
+      "privacy_classification": "internal",
+      "sha256": "6475B3658425EEEE823CCD5B916EB74C8F57BB521FAA6BA8834A0D6C4F8E32D7"
+    },
+    "similarity_scores.parquet": {
+      "bytes": 3361,
+      "privacy_classification": "internal",
+      "sha256": "26A7019BA29CAD978B1408E807BDD1BA4851232E79F5F61711960FC9F6BFE06A"
+    },
+    "threshold_sweep.parquet": {
+      "bytes": 6394,
+      "privacy_classification": "internal",
+      "sha256": "F8D74ECC6DDD69DB4841B17A853A6FF1BB8C4868045A4A91F793C21EBCA9FC05"
+    },
+    "unknown_rejection_decisions.parquet": {
+      "bytes": 2966,
+      "privacy_classification": "internal",
+      "sha256": "00310F821AF42B964C3C899E6811EB388AC4245D736651A26FAC2C3DB86CAF70"
+    },
+    "verification_decisions.parquet": {
+      "bytes": 2552,
+      "privacy_classification": "internal",
+      "sha256": "64DBA32415A7241D973C4EED07F08E877492F7225D905674104C699A8CE2056C"
+    }
+  },
+  "hash_algorithm": "sha256",
+  "schema_version": "speaker-protocol-checksums.v1"
+}

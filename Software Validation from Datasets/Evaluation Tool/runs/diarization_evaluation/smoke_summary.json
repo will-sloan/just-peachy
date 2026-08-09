@@ -1,0 +1,47 @@
+{
+  "evaluation_unit_id": "diar_0e112c574a82",
+  "manifest_root": "benchmarks/stage11/small",
+  "results": [
+    {
+      "backend_id": "sherpa_onnx_diarization",
+      "evaluation_unit_id": "diar_0e112c574a82",
+      "reused": false,
+      "status": "succeeded"
+    }
+  ],
+  "schema_version": "diarization-real-smoke-summary.v1",
+  "unavailable_backends": [
+    {
+      "backend_id": "nemo_diarization",
+      "blockers": [
+        "qualification_status:platform_required",
+        "required_package_unavailable",
+        "platform_required:linux",
+        "model_asset_unavailable",
+        "cuda_required"
+      ],
+      "qualification_status": "platform_required"
+    },
+    {
+      "backend_id": "picovoice_falcon",
+      "blockers": [
+        "qualification_status:licence_action_required",
+        "required_package_unavailable",
+        "credential_or_licence_required:PICOVOICE_ACCESS_KEY",
+        "credential_or_licence_required:PICOVOICE_LICENSE_ACCEPTED"
+      ],
+      "qualification_status": "licence_action_required"
+    },
+    {
+      "backend_id": "pyannote_community",
+      "blockers": [
+        "qualification_status:licence_action_required",
+        "required_package_unavailable",
+        "model_asset_unavailable",
+        "credential_or_licence_required:PYANNOTE_AUTH_TOKEN",
+        "credential_or_licence_required:PYANNOTE_LICENSE_ACCEPTED"
+      ],
+      "qualification_status": "licence_action_required"
+    }
+  ]
+}

@@ -1,0 +1,129 @@
+{
+  "candidate_profiles": {
+    "composition__sherpa_onnx_diarization": "onnx",
+    "energy_chunks__whisper_base": "core-cpu",
+    "energy_observe__whisper_base": "core-cpu",
+    "fixed_segments__resemblyzer": "extended-local",
+    "fixed_segments__sherpa_onnx_speaker_embedding": "onnx",
+    "fixed_segments__speechbrain_ecapa": "core-cpu",
+    "fixed_segments__wespeaker": "wespeaker",
+    "full_record__faster_whisper": "extended-local",
+    "full_record__sherpa_onnx": "onnx",
+    "full_record__vosk": "extended-local",
+    "full_record__whisper_base": "core-cpu",
+    "full_record__whisper_small": "core-cpu",
+    "full_record__whisper_tiny": "core-cpu",
+    "sherpa_onnx_chunks__whisper_base": "onnx",
+    "sherpa_onnx_observe__whisper_base": "onnx",
+    "silero_chunks__whisper_base": "core-cpu",
+    "silero_observe__whisper_base": "core-cpu",
+    "webrtc_chunks__whisper_base": "extended-local",
+    "webrtc_observe__whisper_base": "extended-local"
+  },
+  "plan_id": "extended_screening_0ced26fcac70",
+  "profile_pairs": [
+    {
+      "left": "core-cpu",
+      "reason": "same isolated environment",
+      "right": "core-cpu",
+      "single_process_composable": true
+    },
+    {
+      "left": "core-cpu",
+      "reason": "different isolated profiles; compare results but do not compose components",
+      "right": "extended-local",
+      "single_process_composable": false
+    },
+    {
+      "left": "core-cpu",
+      "reason": "different isolated profiles; compare results but do not compose components",
+      "right": "onnx",
+      "single_process_composable": false
+    },
+    {
+      "left": "core-cpu",
+      "reason": "different isolated profiles; compare results but do not compose components",
+      "right": "wespeaker",
+      "single_process_composable": false
+    },
+    {
+      "left": "extended-local",
+      "reason": "different isolated profiles; compare results but do not compose components",
+      "right": "core-cpu",
+      "single_process_composable": false
+    },
+    {
+      "left": "extended-local",
+      "reason": "same isolated environment",
+      "right": "extended-local",
+      "single_process_composable": true
+    },
+    {
+      "left": "extended-local",
+      "reason": "different isolated profiles; compare results but do not compose components",
+      "right": "onnx",
+      "single_process_composable": false
+    },
+    {
+      "left": "extended-local",
+      "reason": "different isolated profiles; compare results but do not compose components",
+      "right": "wespeaker",
+      "single_process_composable": false
+    },
+    {
+      "left": "onnx",
+      "reason": "different isolated profiles; compare results but do not compose components",
+      "right": "core-cpu",
+      "single_process_composable": false
+    },
+    {
+      "left": "onnx",
+      "reason": "different isolated profiles; compare results but do not compose components",
+      "right": "extended-local",
+      "single_process_composable": false
+    },
+    {
+      "left": "onnx",
+      "reason": "same isolated environment",
+      "right": "onnx",
+      "single_process_composable": true
+    },
+    {
+      "left": "onnx",
+      "reason": "different isolated profiles; compare results but do not compose components",
+      "right": "wespeaker",
+      "single_process_composable": false
+    },
+    {
+      "left": "wespeaker",
+      "reason": "different isolated profiles; compare results but do not compose components",
+      "right": "core-cpu",
+      "single_process_composable": false
+    },
+    {
+      "left": "wespeaker",
+      "reason": "different isolated profiles; compare results but do not compose components",
+      "right": "extended-local",
+      "single_process_composable": false
+    },
+    {
+      "left": "wespeaker",
+      "reason": "different isolated profiles; compare results but do not compose components",
+      "right": "onnx",
+      "single_process_composable": false
+    },
+    {
+      "left": "wespeaker",
+      "reason": "same isolated environment",
+      "right": "wespeaker",
+      "single_process_composable": true
+    }
+  ],
+  "profiles": [
+    "core-cpu",
+    "extended-local",
+    "onnx",
+    "wespeaker"
+  ],
+  "schema_version": "extended-environment-compatibility-matrix.v1"
+}

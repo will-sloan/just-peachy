@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import importlib.util
+import inspect
 import time
 from dataclasses import dataclass
 from pathlib import Path
@@ -21,6 +22,7 @@ from app.inference_pipeline.asr.base import (
 )
 from app.inference_pipeline.contracts import ASRTranscript, AudioSegment
 from app.inference_pipeline.errors import ContractValidationError, InferencePipelineError
+from app.resource_telemetry.context import telemetry_span
 
 
 class WeNetASRUnavailableError(InferencePipelineError):
@@ -56,8 +58,18 @@ class WeNetASR(ASRBase):
         model = self._model(context)
         started_at = time.perf_counter()
         try:
-            with temporary_pcm16_wav(audio, prefix="wenet-asr-") as wav_path:
-                result = model.transcribe(str(wav_path))
+            with telemetry_span(
+                "asr_inference",
+                phase="warm_inference",
+                identifiers={
+                    "recording_id": context.recording_id,
+                    "utt_id": context.utt_id,
+                    "segment_index": context.segment_index,
+                },
+                cuda=self.device == "cuda",
+            ):
+                with temporary_pcm16_wav(audio, prefix="wenet-asr-") as wav_path:
+                    result = model.transcribe(str(wav_path))
         except Exception as exc:
             raise WeNetASRUnavailableError(f"WeNet transcription failed: {exc}") from exc
 
@@ -105,9 +117,18 @@ class WeNetASR(ASRBase):
 
         started_at = time.perf_counter()
         try:
-            self.model = wenet.load_model(model_reference, device=self.device)
-            if self.audio_backend == "soundfile":
-                _attach_soundfile_feature_loader(self.model, Path(model_reference))
+            with telemetry_span(
+                "asr_model_load",
+                phase="cold_initialization",
+                cuda=self.device == "cuda",
+            ):
+                self.model = _load_wenet_model(
+                    wenet.load_model,
+                    model_reference=model_reference,
+                    device=self.device,
+                )
+                if self.audio_backend == "soundfile":
+                    _attach_soundfile_feature_loader(self.model, Path(model_reference))
         except Exception as exc:  # pragma: no cover - dependency boundary
             raise WeNetASRUnavailableError(f"WeNet model load failed: {exc}") from exc
         self._load_sec = time.perf_counter() - started_at
@@ -175,6 +196,27 @@ def _prepare_wenet_torch_compatibility() -> None:
     for name, value in compatibility_names.items():
         if not hasattr(torch_conv, name):
             setattr(torch_conv, name, value)
+
+
+def _load_wenet_model(
+    loader: Any,
+    *,
+    model_reference: str,
+    device: str,
+) -> Any:
+    """Call the pinned v3.1 API while retaining compatibility with wrappers.
+
+    WeNet v3.1 names the local path ``model_dir`` and selects devices through
+    an integer ``gpu`` argument. Some downstream wrappers expose the simpler
+    ``load_model(path, device=...)`` API that the original adapter targeted.
+    Signature inspection avoids a failed load or an implicit language lookup.
+    """
+
+    parameters = inspect.signature(loader).parameters
+    if "model_dir" in parameters:
+        gpu = 0 if device == "cuda" else -1
+        return loader(model_dir=model_reference, gpu=gpu)
+    return loader(model_reference, device=device)
 
 
 def _positive_int(value: object, field_name: str) -> int:

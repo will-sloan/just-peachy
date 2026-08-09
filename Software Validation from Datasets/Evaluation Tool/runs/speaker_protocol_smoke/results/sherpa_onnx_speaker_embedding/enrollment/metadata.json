@@ -1,0 +1,52 @@
+{
+  "aggregation_method": "normalized_mean",
+  "backend_identity": {
+    "aggregation_method": "normalized_mean",
+    "backend_id": "sherpa_onnx_speaker_embedding",
+    "config_hash": "57E0D28B235329555F84524259D3E63B0E8DFE99495B8A21063DBC5E938325A4",
+    "config_path": "configs/inference/components/speaker_embedding/sherpa_onnx.yaml",
+    "embedding_dimension": 512,
+    "environment_profile": "onnx",
+    "identity_hash": "F1F5E4F5DA82A89A696FB44F108A8C1A55478A77A94E237600C2D1C8AE0D0A75",
+    "model_hash": "0F70922D562D6B799B78912B098D706E1CBF0CAB0BE8A5561437D5681AD24A28",
+    "model_id": "sherpa_onnx_speaker_embedding:839e8873bd4d",
+    "normalization": "l2",
+    "preprocessing": {
+      "channel_count": 1,
+      "dtype": "float32",
+      "sample_rate_hz": 16000
+    },
+    "qualification_status": "qualified",
+    "schema_version": "speaker-backend-identity.v1",
+    "threshold_policy_version": "speaker-threshold-policy.v1"
+  },
+  "embedding_dimension": 512,
+  "enrollment_hash": "A671EDB32BC903A1DDFE08FB512F5B07AF5AE7E4DA013A66981EA92B4FC77FFB",
+  "normalization": "l2",
+  "preprocessing": {
+    "channel_count": 1,
+    "dtype": "float32",
+    "sample_rate_hz": 16000
+  },
+  "private_identity_mapping_included": false,
+  "schema_version": "backend-enrollment.v1",
+  "speakers": [
+    {
+      "enrollment_item_ids": [
+        "item_1f7a4c394d53447b"
+      ],
+      "requested_exemplars": 1,
+      "speaker_key": "spk_2441b5ce20de",
+      "successful_exemplars": 1
+    },
+    {
+      "enrollment_item_ids": [
+        "item_446a92d4c2fc98b4"
+      ],
+      "requested_exemplars": 1,
+      "speaker_key": "spk_2e207edb1a34",
+      "successful_exemplars": 1
+    }
+  ],
+  "threshold_policy_version": "speaker-threshold-policy.v1"
+}

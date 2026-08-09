@@ -1,0 +1,62 @@
+{
+  "backend_id": "sherpa_onnx_diarization",
+  "environment_profile": "onnx",
+  "family": "diarization",
+  "implementation_class": "SherpaOnnxDiarizer",
+  "model_asset_identity": [
+    {
+      "asset_id": "sherpa_onnx_diarization_segmentation",
+      "configured_identity": "stage8:sherpa_onnx_diarization_segmentation",
+      "inventory_path": "runs/extended_backend_qualification/model_asset_inventory.json",
+      "observed_bytes": 7566812,
+      "observed_sha256": "705C42C6FE52C84FA34C119F1C10470D48A005A1777ED7CF4BA9DB8566B6B184",
+      "path": "models/cache/sherpa_onnx/diarization/sherpa-onnx-pyannote-segmentation-3-0",
+      "present": true,
+      "verification_status": "verified"
+    },
+    {
+      "asset_id": "sherpa_onnx_speaker_embedding",
+      "configured_identity": "stage8:sherpa_onnx_speaker_embedding",
+      "inventory_path": "runs/extended_backend_qualification/model_asset_inventory.json",
+      "observed_bytes": 39593761,
+      "observed_sha256": "BD0C6FE268DC71A958D3F49970AEB1DF31626BF01027CD699B2AACF3127C416D",
+      "path": "models/cache/sherpa_onnx/speaker_embedding/3dspeaker_speech_eres2net_base_sv_zh-cn_3dspeaker_16k.onnx",
+      "present": true,
+      "verification_status": "verified"
+    }
+  ],
+  "model_identity": {
+    "model_source": "sherpa-onnx"
+  },
+  "overrides": {
+    "params.allow_model_downloads": {
+      "final": false,
+      "source": null
+    }
+  },
+  "qualification_evidence": "runs/extended_backend_qualification/onnx.json",
+  "qualification_status": "qualified",
+  "resolved_component": {
+    "adapter": "SherpaOnnxDiarizer",
+    "enabled": true,
+    "name": "sherpa_onnx_diarization",
+    "notes": "Fully local Sherpa-ONNX diarization with pyannote segmentation, speaker embeddings, and clustering.",
+    "params": {
+      "allow_model_downloads": false,
+      "clustering_threshold": 0.5,
+      "embedding_model_path": "models/cache/sherpa_onnx/speaker_embedding/3dspeaker_speech_eres2net_base_sv_zh-cn_3dspeaker_16k.onnx",
+      "min_duration_off": 0.5,
+      "min_duration_on": 0.3,
+      "min_turn_sec": 0.05,
+      "model_source": "sherpa-onnx",
+      "num_clusters": -1,
+      "num_threads": 1,
+      "provider": "cpu",
+      "segmentation_model_path": "models/cache/sherpa_onnx/diarization/sherpa-onnx-pyannote-segmentation-3-0/model.onnx"
+    },
+    "slot": "diarization"
+  },
+  "schema_version": "resolved-diarization-component.v1",
+  "source_config_path": "configs/inference/components/diarization/sherpa_onnx.yaml",
+  "source_config_sha256": "00BB4D82219B8C9D505F6CE373625C164D0C4553A96FF06DBAF72B7C715E2DFB"
+}

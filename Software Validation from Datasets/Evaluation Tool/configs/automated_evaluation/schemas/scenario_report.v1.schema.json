@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "scenario-report.v1",
+  "title": "Machine-readable scenario report",
+  "type": "object",
+  "required": ["schema_version", "scenario_id", "scenario_hash", "completion_state", "counts", "metrics"],
+  "properties": {
+    "schema_version": {"const": "scenario-report.v1"},
+    "scenario_id": {"type": "string", "pattern": "^scenario_[0-9a-f]{12}$"},
+    "scenario_hash": {"type": "string", "pattern": "^[0-9A-F]{64}$"},
+    "completion_state": {"enum": ["complete", "incomplete", "corrupt", "incompatible"]},
+    "counts": {"type": "object", "additionalProperties": {"type": "integer", "minimum": 0}},
+    "metrics": {"type": "object"}
+  }
+}

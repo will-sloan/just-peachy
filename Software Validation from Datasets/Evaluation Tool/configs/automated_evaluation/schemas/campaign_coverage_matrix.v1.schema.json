@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "campaign-coverage-matrix.v1",
+  "title": "Campaign planned-versus-observed coverage matrix",
+  "type": "object",
+  "required": ["schema_version", "status_vocabulary", "rows", "summary", "mandatory_blockers"],
+  "properties": {
+    "schema_version": {"const": "campaign-coverage-matrix.v1"},
+    "status_vocabulary": {"type": "array", "contains": {"const": "unexpected_missing"}},
+    "rows": {"type": "array", "items": {"type": "object", "required": ["category", "name", "status", "mandatory", "planned_count", "observed_count", "reason"], "properties": {"status": {"enum": ["implemented_qualified", "unavailable", "partial", "deferred", "excluded", "unexpected_missing"]}}}},
+    "summary": {"type": "object", "required": ["mandatory_unexpected_missing", "release_blocked"]}
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "model_asset_registry.v1.schema.json",
+  "title": "Stage 8 model asset registry",
+  "type": "object",
+  "required": ["schema_version", "hash_algorithm", "secret_policy", "assets"],
+  "properties": {
+    "schema_version": {"const": "model-asset-registry.v1"},
+    "hash_algorithm": {"const": "sha256"},
+    "secret_policy": {"type": "string"},
+    "assets": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": {
+        "type": "object",
+        "required": ["component", "backend", "model_name", "model_version", "source", "licence", "artifact_filename", "expected_sha256", "acquisition_method", "storage_path", "environment_profile", "credential_requirement", "required_files"],
+        "properties": {
+          "component": {"type": "string"},
+          "backend": {"type": "string"},
+          "model_name": {"type": "string"},
+          "model_version": {"type": ["string", "number"]},
+          "source": {"type": ["string", "null"]},
+          "licence": {"type": "string"},
+          "artifact_filename": {"type": "string"},
+          "expected_sha256": {"type": ["string", "null"], "pattern": "^[0-9a-f]{64}$"},
+          "acquisition_method": {"type": "string"},
+          "storage_path": {"type": "string"},
+          "environment_profile": {"type": "string"},
+          "credential_requirement": {"type": ["string", "null"]},
+          "required_files": {"type": "array", "items": {"type": "string"}}
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,82 @@
+{
+  "environment": {
+    "cuda_available": false,
+    "cuda_runtime": null,
+    "device_requested": "cpu",
+    "git_commit": "e7e5516991b95f4e7c915e852fc0b4f5bae7cd11",
+    "gpu": null,
+    "machine": "AMD64",
+    "package_count": 77,
+    "package_freeze_sha256": "34819f78050166c77ec3e807d5ad8310c68d9519f633c2c79b6a72b08f4844aa",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python": "3.12.7",
+    "python_executable": "<environment>/Scripts/python.exe",
+    "torch": "2.11.0+cpu"
+  },
+  "generated_at": "2026-08-08T00:36:12.611724+00:00",
+  "profile": "wenet",
+  "results": [
+    {
+      "asset_identities": [
+        {
+          "acquisition_date": null,
+          "acquisition_method": "scripts/bootstrap_models.py --wenet-asr",
+          "artifact_filename": "librispeech_u2pp_conformer_exp.tar.gz",
+          "asset_id": "wenet_librispeech_u2pp",
+          "backend": "WeNet",
+          "component": "wenet",
+          "credential_required": false,
+          "environment_profile": "wenet",
+          "files": [],
+          "licence": "Verify model-card terms before redistribution",
+          "missing_required_files": [
+            "final.zip"
+          ],
+          "model_name": "librispeech_u2pp_conformer_exp",
+          "model_version": "9161c07e35d505087c98fef201a2c3ab0995e53a",
+          "present": false,
+          "sha256": null,
+          "size_bytes": null,
+          "source": "https://huggingface.co/openspeech/wenet-models",
+          "storage_path": "models/cache/wenet/asr/librispeech_u2pp_conformer_exp",
+          "verification_status": "missing"
+        }
+      ],
+      "backend_id": "wenet",
+      "command": "python 'Software Validation from Datasets\\Evaluation Tool\\scripts\\qualify_extended_backends.py' --profile wenet",
+      "component_identity": {
+        "backend_id": "wenet",
+        "config_path": "configs/inference/components/asr/wenet.yaml",
+        "config_sha256": "0091354b6c03b257da4131a0427a46ab9f0a986be9c79d7bfa9f764a31fb0448",
+        "family": "asr"
+      },
+      "credential_presence": {},
+      "device": "cpu",
+      "explanation": "Missing or incomplete local asset(s): wenet_librispeech_u2pp (final.zip)",
+      "failure_category": null,
+      "family": "asr",
+      "implicit_downloads_allowed": false,
+      "package_versions": {
+        "wenet": "0.0.0"
+      },
+      "profile": "wenet",
+      "repetitions": 2,
+      "schema_validation": false,
+      "status": "unavailable_asset",
+      "timing": {},
+      "warnings": []
+    }
+  ],
+  "schema_version": "extended-backend-qualification.v1",
+  "secret_audit": {
+    "credential_presence_only": true,
+    "values_serialized": false
+  },
+  "summary": {
+    "qualified": 0,
+    "status_counts": {
+      "unavailable_asset": 1
+    },
+    "total": 1
+  }
+}

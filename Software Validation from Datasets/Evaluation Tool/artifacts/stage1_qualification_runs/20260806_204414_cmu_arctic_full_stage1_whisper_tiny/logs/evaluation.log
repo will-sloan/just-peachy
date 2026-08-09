@@ -1,0 +1,6 @@
+2026-08-06 20:44:16,238 INFO Configured runner selected live_mic_whisper_tiny with 0 warning(s)
+2026-08-06 20:44:16,244 INFO Inference condition: clean
+2026-08-06 20:44:18,792 INFO Configured runner wrote 1 diagnostic row(s) and 0 failure row(s)
+2026-08-06 20:44:18,903 INFO Scored 1 selected recordings
+2026-08-06 20:44:22,419 INFO Created 11 plots
+2026-08-06 20:44:22,502 INFO Wrote report to report/report.md

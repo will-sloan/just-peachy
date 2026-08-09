@@ -1,0 +1,81 @@
+schema_version: artifact-registry.v2
+extends: artifact_registry.v1.yaml
+
+# Stage 5 is an additive contract. All v1 paths and schemas remain unchanged
+# except the resource sample table, whose expanded columns require v2.
+artifact_overrides:
+  resource_usage:
+    producer: resource_telemetry_collector
+    schema_version: resource-usage.v2
+    validation_rules:
+      - parquet_readable
+      - declared_parquet_schema
+      - resource_sample_columns
+      - monotonic_sample_times
+      - no_credentials
+    downstream_consumers:
+      - resource_analysis
+      - report_generation
+      - concurrency_qualification
+
+append_artifacts:
+  - id: component_spans
+    scope: scenario
+    path: resource_logs/component_spans.jsonl
+    producer: component_span_recorder
+    format: jsonl
+    schema_version: component-spans.v1
+    status: conditional
+    condition: telemetry_collected
+    validation_rules:
+      - jsonl_objects
+      - declared_row_schema_version
+      - scenario_id_match
+      - monotonic_span_bounds
+      - no_credentials
+    checksum_policy: sha256
+    privacy_classification: restricted_system
+    downstream_consumers:
+      - component_analysis
+      - report_generation
+      - concurrency_qualification
+
+  - id: resource_summary
+    scope: scenario
+    path: resource_logs/resource_summary.json
+    producer: resource_telemetry_collector
+    format: json
+    schema_version: resource-summary.v1
+    status: conditional
+    condition: telemetry_collected
+    validation_rules:
+      - json_mapping
+      - declared_schema_version
+      - scenario_id_match
+      - no_credentials
+    checksum_policy: sha256
+    privacy_classification: restricted_system
+    downstream_consumers:
+      - resource_analysis
+      - report_generation
+      - concurrency_qualification
+
+  - id: resource_availability
+    scope: scenario
+    path: resource_logs/availability.json
+    producer: resource_telemetry_collector
+    format: json
+    schema_version: resource-availability.v1
+    status: conditional
+    condition: telemetry_collected
+    validation_rules:
+      - json_mapping
+      - declared_schema_version
+      - scenario_id_match
+      - no_credentials
+    checksum_policy: sha256
+    privacy_classification: restricted_system
+    downstream_consumers:
+      - resource_analysis
+      - report_generation
+      - audit

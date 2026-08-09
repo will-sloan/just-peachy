@@ -50,8 +50,13 @@ from app.inference_pipeline.speaker_matching.base import (
     build_speaker_matcher_from_config,
 )
 from app.inference_pipeline.transcript import SegmentPrediction, assemble_transcript
-from app.inference_pipeline.vad.base import VADBase, build_vad_from_config
+from app.inference_pipeline.vad.base import (
+    VADBase,
+    build_vad_from_config,
+    write_regions_jsonable,
+)
 from app.inference_pipeline.typing import JsonObject
+from app.resource_telemetry.context import telemetry_span
 
 
 class AudioReader(Protocol):
@@ -153,7 +158,9 @@ class PipelineRunner:
         )
 
     @classmethod
-    def from_config(cls, config: PipelineConfig | Mapping[str, object]) -> "PipelineRunner":
+    def from_config(
+        cls, config: PipelineConfig | Mapping[str, object]
+    ) -> "PipelineRunner":
         """Build the configured end-to-end pipeline without changing runner APIs."""
 
         pipeline_config = (
@@ -209,23 +216,37 @@ class PipelineRunner:
     ) -> PipelineOutput:
         accumulator = RuntimeAccumulator(device=self.device)
         evaluation_record = EvaluationRecord.from_record(record)
+        telemetry_ids = {
+            "recording_id": evaluation_record.recording_id,
+            "utt_id": evaluation_record.utt_id,
+        }
         self.last_segment_diarization_labels = ()
         self.last_speaker_evidence_updates = ()
 
-        with accumulator.stage("audio_load"):
-            audio = self.audio_reader.load(evaluation_record, run_config)
+        with telemetry_span(
+            "audio_loading", phase="per_item", identifiers=telemetry_ids
+        ):
+            with accumulator.stage("audio_load"):
+                audio = self.audio_reader.load(evaluation_record, run_config)
 
         vad_regions = ()
         if self.vad is not None:
-            with accumulator.stage("vad"):
-                vad_regions = tuple(self.vad.detect(audio))
+            with telemetry_span("vad", phase="per_item", identifiers=telemetry_ids):
+                with accumulator.stage("vad"):
+                    vad_regions = tuple(self.vad.detect(audio))
 
         diarization_turns = ()
         diarization_warnings: tuple[str, ...] = ()
         if self.diarizer is not None:
             try:
-                with accumulator.stage("diarization"):
-                    diarization_turns = tuple(self.diarizer.diarize(audio))
+                with telemetry_span(
+                    "diarization",
+                    phase="per_item",
+                    identifiers=telemetry_ids,
+                    cuda=self.device == "cuda",
+                ):
+                    with accumulator.stage("diarization"):
+                        diarization_turns = tuple(self.diarizer.diarize(audio))
             except DiarizationUnavailableError as exc:
                 diarization_warnings = (f"diarization unavailable: {exc}",)
                 if logger is not None:
@@ -288,7 +309,9 @@ class PipelineRunner:
             segment_count=len(segments),
             segmentation_sec=accumulator.stages.get("segmentation"),
             asr_base_enabled=isinstance(self.asr, ASRBase),
-            asr_segment_count=len(segment_predictions) if isinstance(self.asr, ASRBase) else 1,
+            asr_segment_count=len(segment_predictions)
+            if isinstance(self.asr, ASRBase)
+            else 1,
             speaker_embedding_enabled=self.speaker_embedding is not None,
             speaker_matching_enabled=self.speaker_matcher is not None,
             speaker_decision_count=sum(
@@ -299,7 +322,9 @@ class PipelineRunner:
         )
         runtime_stats = accumulator.stats(
             counters=counters,
-            model_versions=_model_versions(self.asr, self.speaker_embedding, self.diarizer),
+            model_versions=_model_versions(
+                self.asr, self.speaker_embedding, self.diarizer
+            ),
         )
         speaker_warnings = _speaker_configuration_warnings(
             self.speaker_matcher,
@@ -307,6 +332,7 @@ class PipelineRunner:
         )
         diagnostics = {
             **assembly.diagnostics,
+            "vad_regions": write_regions_jsonable(vad_regions),
             "diarization_turns": write_turns_jsonable(diarization_turns),
             "diarization_rttm_lines": speaker_turns_to_rttm_lines(
                 evaluation_record.recording_id,
@@ -358,34 +384,43 @@ class PipelineRunner:
         if self.segmenter is None:
             return (_record_segment(record, audio),)
 
-        with accumulator.stage("segmentation"):
-            if diarization_turns and getattr(self.segmenter, "name", None) == "vad_chunks":
-                labeled_segments: list[tuple[AudioSegment, str]] = []
-                for turn in diarization_turns:
-                    regions = speaker_turns_to_speech_regions((turn,))
-                    labeled_segments.extend(
-                        (segment, str(getattr(turn, "speaker_turn_label")))
-                        for segment in self.segmenter.segment(record, regions, audio)
+        identifiers = {"recording_id": record.recording_id, "utt_id": record.utt_id}
+        with telemetry_span("segmentation", phase="per_item", identifiers=identifiers):
+            with accumulator.stage("segmentation"):
+                if (
+                    diarization_turns
+                    and getattr(self.segmenter, "name", None) == "vad_chunks"
+                ):
+                    labeled_segments: list[tuple[AudioSegment, str]] = []
+                    for turn in diarization_turns:
+                        regions = speaker_turns_to_speech_regions((turn,))
+                        labeled_segments.extend(
+                            (segment, str(getattr(turn, "speaker_turn_label")))
+                            for segment in self.segmenter.segment(
+                                record, regions, audio
+                            )
+                        )
+                    labeled_segments.sort(
+                        key=lambda item: (
+                            _segment_start(item[0]),
+                            _segment_end(item[0]),
+                            item[1],
+                        )
                     )
-                labeled_segments.sort(
-                    key=lambda item: (
-                        _segment_start(item[0]),
-                        _segment_end(item[0]),
-                        item[1],
+                    segments = tuple(item[0] for item in labeled_segments)
+                    self.last_segment_diarization_labels = tuple(
+                        item[1] for item in labeled_segments
                     )
-                )
-                segments = tuple(item[0] for item in labeled_segments)
-                self.last_segment_diarization_labels = tuple(
-                    item[1] for item in labeled_segments
-                )
-            else:
-                segmentation_regions = (
-                    tuple(speaker_turns_to_speech_regions(diarization_turns))
-                    if diarization_turns
-                    else vad_regions
-                )
-                segments = tuple(self.segmenter.segment(record, segmentation_regions, audio))
-                self.last_segment_diarization_labels = tuple(None for _ in segments)
+                else:
+                    segmentation_regions = (
+                        tuple(speaker_turns_to_speech_regions(diarization_turns))
+                        if diarization_turns
+                        else vad_regions
+                    )
+                    segments = tuple(
+                        self.segmenter.segment(record, segmentation_regions, audio)
+                    )
+                    self.last_segment_diarization_labels = tuple(None for _ in segments)
         return segments
 
     def _transcribe_segments(
@@ -399,7 +434,15 @@ class PipelineRunner:
             return ()
 
         if not isinstance(self.asr, ASRBase):
-            transcript = self.asr.transcribe(record, audio, run_config)
+            with telemetry_span(
+                "asr",
+                phase="per_item",
+                identifiers={
+                    "recording_id": record.recording_id,
+                    "utt_id": record.utt_id,
+                },
+            ):
+                transcript = self.asr.transcribe(record, audio, run_config)
             return (
                 SegmentPrediction(
                     segment_index=0,
@@ -421,13 +464,23 @@ class PipelineRunner:
                 dtype=_runtime_dtype(run_config),
                 language=_asr_language(run_config),
             )
-            transcript = self.asr.transcribe(segment, context)
+            with telemetry_span(
+                "asr",
+                phase="per_item",
+                identifiers={
+                    "recording_id": record.recording_id,
+                    "utt_id": record.utt_id,
+                    "segment_index": index,
+                },
+            ):
+                transcript = self.asr.transcribe(segment, context)
             predictions.append(
                 SegmentPrediction(
                     segment_index=index,
                     segment=segment,
                     transcript=transcript,
-                    raw_text=getattr(self.asr, "last_raw_text", None) or transcript.text,
+                    raw_text=getattr(self.asr, "last_raw_text", None)
+                    or transcript.text,
                     normalized_text=(
                         getattr(self.asr, "last_normalized_text", None)
                         or transcript.text
@@ -457,18 +510,32 @@ class PipelineRunner:
                     device=self.device,
                     dtype=_runtime_dtype(run_config),
                 )
-                embedding = self.speaker_embedding.embed(
-                    prediction.segment,
-                    embedding_context,
-                )
-                decision = (
-                    self.speaker_matcher.match(
-                        embedding,
-                        self.enrollment_db or EnrollmentDatabase.empty(),
+                identifiers = {
+                    "recording_id": record.recording_id,
+                    "utt_id": record.utt_id,
+                    "segment_index": prediction.segment_index,
+                }
+                with telemetry_span(
+                    "speaker_embedding",
+                    phase="per_item",
+                    identifiers=identifiers,
+                ):
+                    embedding = self.speaker_embedding.embed(
+                        prediction.segment,
+                        embedding_context,
                     )
-                    if self.speaker_matcher is not None
-                    else None
-                )
+                if self.speaker_matcher is not None:
+                    with telemetry_span(
+                        "speaker_matching",
+                        phase="per_item",
+                        identifiers=identifiers,
+                    ):
+                        decision = self.speaker_matcher.match(
+                            embedding,
+                            self.enrollment_db or EnrollmentDatabase.empty(),
+                        )
+                else:
+                    decision = None
                 labeled.append(
                     SegmentPrediction(
                         segment_index=prediction.segment_index,
@@ -493,7 +560,14 @@ class PipelineRunner:
             start_sec=record.start_sec,
             end_sec=record.end_sec,
         )
-        decision = self.speaker_labeler.label(record, audio, whole_transcript, run_config)
+        with telemetry_span(
+            "speaker_matching",
+            phase="per_item",
+            identifiers={"recording_id": record.recording_id, "utt_id": record.utt_id},
+        ):
+            decision = self.speaker_labeler.label(
+                record, audio, whole_transcript, run_config
+            )
         return tuple(
             SegmentPrediction(
                 segment_index=prediction.segment_index,
@@ -676,7 +750,9 @@ def _speaker_evidence_params(config: PipelineConfig) -> Mapping[str, object] | N
                 f"speaker_matching.params.temporal_evidence.{key} must be an integer"
             )
     score_threshold = data.get("score_threshold", 0.5)
-    if isinstance(score_threshold, bool) or not isinstance(score_threshold, (int, float)):
+    if isinstance(score_threshold, bool) or not isinstance(
+        score_threshold, (int, float)
+    ):
         raise ContractValidationError(
             "speaker_matching.params.temporal_evidence.score_threshold must be a number"
         )
@@ -743,7 +819,9 @@ def _model_versions(
     return versions or None
 
 
-def _mapping_child(config: Mapping[str, object] | None, key: str) -> Mapping[str, object] | None:
+def _mapping_child(
+    config: Mapping[str, object] | None, key: str
+) -> Mapping[str, object] | None:
     value = _mapping_get(config, key)
     return value if isinstance(value, Mapping) else None
 
@@ -797,7 +875,9 @@ def _turn_for_segment(
             continue
         overlaps[label] = overlaps.get(label, 0.0) + overlap
         current = representative.get(label)
-        if current is None or overlap > _turn_overlap(segment, current, record_start_sec):
+        if current is None or overlap > _turn_overlap(
+            segment, current, record_start_sec
+        ):
             representative[label] = turn
 
     if preferred_label and preferred_label in representative:
@@ -1018,7 +1098,9 @@ def _speaker_configuration_warnings(
     if isinstance(enrollment_db, Mapping):
         speakers = enrollment_db.get("speakers") or ()
     else:
-        speakers = getattr(enrollment_db, "speakers", ()) if enrollment_db is not None else ()
+        speakers = (
+            getattr(enrollment_db, "speakers", ()) if enrollment_db is not None else ()
+        )
     if speakers:
         return ()
     return (

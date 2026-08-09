@@ -1,0 +1,11 @@
+{
+  "backend_identity_hash": "F1F5E4F5DA82A89A696FB44F108A8C1A55478A77A94E237600C2D1C8AE0D0A75",
+  "condition": "clean",
+  "degraded_source_audio_misrepresented": false,
+  "expected_items": 8,
+  "failed_items": 0,
+  "failures": [],
+  "implicit_model_downloads_allowed": false,
+  "schema_version": "speaker-extraction-summary.v1",
+  "successful_items": 8
+}

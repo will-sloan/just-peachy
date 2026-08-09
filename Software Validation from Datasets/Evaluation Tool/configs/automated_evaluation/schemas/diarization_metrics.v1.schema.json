@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "diarization_metrics.v1.schema.json",
+  "title": "Stage 11 diarization metrics",
+  "type": "object",
+  "required": ["schema_version", "scoring_policy", "label_semantics", "timebase_validation", "reference_compatible", "metrics_emitted", "predicted_turn_count", "reference_turn_count"],
+  "properties": {
+    "schema_version": {"const": "diarization-metrics.v1"},
+    "metrics_emitted": {"type": "boolean"},
+    "der": {"type": "number", "minimum": 0},
+    "jer": {"type": "number", "minimum": 0},
+    "label_semantics": {"enum": ["anonymous_diarization", "known_speaker", "speaker_change", "full_diarization"]},
+    "scoring_policy": {"type": "object"},
+    "timebase_validation": {"type": "object"},
+    "suppression_reasons": {"type": "array", "items": {"type": "string"}}
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"metrics_emitted": {"const": true}}},
+      "then": {"required": ["der", "jer", "modes"]},
+      "else": {"not": {"anyOf": [{"required": ["der"]}, {"required": ["jer"]}]}}
+    }
+  ],
+  "additionalProperties": true
+}

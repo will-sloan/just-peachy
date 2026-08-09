@@ -1,0 +1,86 @@
+schema_version: speaker-protocol-policy.v1
+manifest_schema_version: speaker-protocol-manifest.v1
+enrollment_schema_version: backend-enrollment.v1
+threshold_policy_version: speaker-threshold-policy.v1
+metrics_schema_version: speaker-protocol-metrics.v1
+seed: 3800
+source_manifest: benchmarks/v1/speaker_protocol.parquet
+authoritative_representation: parquet
+hash_algorithm: sha256
+
+selection:
+  calibration_source_fraction_per_known_speaker: 0.4
+  calibration_unknown_speaker_fraction: 0.34
+  keep_clean_and_degraded_source_variants_together: true
+  require_evaluation_source_per_known_speaker: true
+  require_disjoint_unknown_speakers_between_calibration_and_evaluation: true
+
+privacy:
+  speaker_id_prefix: spk
+  item_id_prefix: item
+  authorized_demographic_fields:
+    - gender
+    - accent_group
+  forbidden_shared_fields:
+    - speaker_id
+    - speaker_code
+    - display_name
+    - real_name
+    - reference_speaker_name
+  private_identity_mapping_policy: outside_shared_campaign_results
+
+enrollment:
+  normalization: l2
+  aggregation_method: normalized_mean
+  preprocessing:
+    channel_count: 1
+    sample_rate_hz: 16000
+    dtype: float32
+  require_exact_backend_identity: true
+  require_exact_model_hash: true
+  require_exact_config_hash: true
+  require_exact_dimension: true
+  require_exact_preprocessing: true
+
+calibration:
+  verification_score: cosine
+  operating_threshold: calibration_eer
+  acceptance_rule: score_greater_than_or_equal_to_threshold
+  unknown_label: Unknown
+  fixed_far_targets:
+    - 0.01
+    - 0.05
+
+metrics:
+  confidence_level: 0.95
+  bootstrap_repetitions: 500
+  bootstrap_seed: 3800
+  top_k:
+    - 1
+    - 3
+    - 5
+  preserve_failures_in_denominators: true
+  separate_open_and_closed_set_results: true
+  authorized_subgroups:
+    - gender
+    - accent_group
+
+backends:
+  speechbrain_ecapa:
+    environment_profile: core-cpu
+    qualification_statuses: [qualified, qualified_with_warnings]
+  resemblyzer:
+    environment_profile: extended-local
+    qualification_statuses: [qualified, qualified_with_warnings]
+  sherpa_onnx_speaker_embedding:
+    environment_profile: onnx
+    qualification_statuses: [qualified, qualified_with_warnings]
+  wespeaker:
+    environment_profile: wespeaker
+    qualification_statuses: [qualified, qualified_with_warnings]
+
+scope_boundaries:
+  - Diarization evaluation remains Stage 11.
+  - Degraded audio must be produced by an approved campaign condition; direct extraction never treats clean source audio as degraded.
+  - Enrollment embeddings are never reused across embedding backends.
+  - Reference speaker identity is used only for scoring and never as a prediction fallback.

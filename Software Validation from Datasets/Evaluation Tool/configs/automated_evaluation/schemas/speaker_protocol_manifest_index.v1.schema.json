@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "speaker_protocol_manifest_index.v1.schema.json",
+  "type": "object",
+  "required": ["schema_version", "protocol_id", "benchmark_tier", "source_manifest", "policy", "artifacts", "leakage_validation", "privacy"],
+  "properties": {
+    "schema_version": {"const": "speaker-protocol-manifest-index.v1"},
+    "protocol_id": {"pattern": "^speaker_protocol_[0-9a-f]{12}$"},
+    "benchmark_tier": {"enum": ["small", "standard", "large"]},
+    "selection_seed": {"const": 3800},
+    "artifacts": {"type": "object", "minProperties": 6},
+    "leakage_validation": {"type": "object"},
+    "privacy": {
+      "type": "object",
+      "properties": {"private_real_name_mapping_included": {"const": false}},
+      "required": ["private_real_name_mapping_included"]
+    }
+  },
+  "additionalProperties": true
+}

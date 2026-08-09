@@ -1,5 +1,10 @@
 # Swappable VAD, Speaker Embedding, and Diarization Components
 
+> **Historical design document.** Current component status, environment boundaries,
+> commands, and limitations are documented under
+> `Software Validation from Datasets/Evaluation Tool/docs/automated_evaluation/`.
+> Use `final_acceptance_audit.md` as the source of truth.
+
 The Evaluation Tool now exposes each requested backend through the existing
 component registry and `PipelineConfig` component slots. Model objects are
 still loaded lazily: resolving a configuration does not load weights, contact a

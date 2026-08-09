@@ -1,0 +1,24 @@
+schema_version: artifact-table-schemas.v1
+parquet_metadata_key: artifact_schema_version
+schemas:
+  item-metrics.v1:
+    required_columns: {recording_id: string, utt_id: string}
+    additional_columns: allowed
+  grouped-metrics.v1:
+    required_columns: {group_key: string, group_value: string, metric_name: string, metric_value: float64}
+    additional_columns: allowed
+  failures.v1:
+    required_columns: {recording_id: string, utt_id: string, error_type: string, message: string}
+    additional_columns: allowed
+  embedding-index.v1:
+    required_columns: {embedding_id: string, recording_id: string, utt_id: string, path: string, dimensions: int64, model_id: string}
+    additional_columns: allowed
+  speaker-similarity.v1:
+    required_columns: {probe_id: string, candidate_speaker_id: string, score: float64, decision: string}
+    additional_columns: allowed
+  resource-usage.v1:
+    required_columns: {elapsed_sec: float64}
+    additional_columns: allowed
+notes:
+  - All columns may be nullable unless a later major schema version says otherwise.
+  - No Parquet artifact may contain Python pickle payloads.

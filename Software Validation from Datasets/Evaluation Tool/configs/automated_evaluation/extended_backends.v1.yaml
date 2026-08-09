@@ -1,0 +1,17 @@
+schema_version: extended-backend-catalog.v1
+qualification_repetitions: 2
+implicit_downloads_allowed: false
+backends:
+  - {id: faster_whisper, family: asr, profile: extended-local, config: configs/inference/components/asr/faster_whisper.yaml, packages: [faster-whisper], assets: [faster_whisper_tiny], platforms: [Windows, Linux, Darwin]}
+  - {id: sherpa_onnx_asr, family: asr, profile: onnx, config: configs/inference/components/asr/sherpa_onnx.yaml, packages: [sherpa-onnx], assets: [sherpa_onnx_asr], platforms: [Windows, Linux, Darwin]}
+  - {id: vosk, family: asr, profile: extended-local, config: configs/inference/components/asr/vosk.yaml, packages: [vosk], assets: [vosk_small_en_us_0_15], platforms: [Windows, Linux, Darwin]}
+  - {id: wenet, family: asr, profile: wenet, config: configs/inference/components/asr/wenet.yaml, packages: [wenet], assets: [wenet_librispeech_u2pp], platforms: [Windows, Linux]}
+  - {id: webrtc_vad, family: vad, profile: extended-local, config: configs/inference/components/vad/webrtc.yaml, packages: [webrtcvad-wheels], assets: [], platforms: [Windows, Linux, Darwin]}
+  - {id: sherpa_onnx_vad, family: vad, profile: onnx, config: configs/inference/components/vad/sherpa_onnx.yaml, packages: [sherpa-onnx], assets: [sherpa_onnx_vad], platforms: [Windows, Linux, Darwin]}
+  - {id: resemblyzer, family: speaker_embedding, profile: extended-local, config: configs/inference/components/speaker_embedding/resemblyzer.yaml, packages: [resemblyzer], assets: [resemblyzer_packaged], platforms: [Windows, Linux, Darwin]}
+  - {id: wespeaker, family: speaker_embedding, profile: wespeaker, config: configs/inference/components/speaker_embedding/wespeaker.yaml, packages: [wespeaker], assets: [wespeaker_voxceleb_resnet221_lm], platforms: [Windows, Linux, Darwin]}
+  - {id: sherpa_onnx_speaker_embedding, family: speaker_embedding, profile: onnx, config: configs/inference/components/speaker_embedding/sherpa_onnx.yaml, packages: [sherpa-onnx], assets: [sherpa_onnx_speaker_embedding], platforms: [Windows, Linux, Darwin]}
+  - {id: pyannote_community, family: diarization, profile: credential-diarization, config: configs/inference/components/diarization/pyannote_community.yaml, packages: [pyannote.audio], assets: [pyannote_community_1], platforms: [Windows, Linux, Darwin], credential_env: PYANNOTE_AUTH_TOKEN, licence_ack_env: PYANNOTE_LICENSE_ACCEPTED}
+  - {id: sherpa_onnx_diarization, family: diarization, profile: onnx, config: configs/inference/components/diarization/sherpa_onnx.yaml, packages: [sherpa-onnx], assets: [sherpa_onnx_diarization_segmentation, sherpa_onnx_speaker_embedding], platforms: [Windows, Linux, Darwin]}
+  - {id: picovoice_falcon, family: diarization, profile: credential-diarization, config: configs/inference/components/diarization/picovoice_falcon.yaml, packages: [pvfalcon], assets: [], platforms: [Windows, Linux, Darwin], credential_env: PICOVOICE_ACCESS_KEY, licence_ack_env: PICOVOICE_LICENSE_ACCEPTED}
+  - {id: nemo_diarization, family: diarization, profile: nemo-linux-cuda, config: configs/inference/components/diarization/nemo_diarization.yaml, packages: [nemo_toolkit], assets: [nemo_diarization_config, nemo_active_checkpoints], platforms: [Linux], cuda_required: true}

@@ -1,0 +1,126 @@
+{
+  "environment": {
+    "cuda_available": false,
+    "cuda_runtime": null,
+    "device_requested": "cpu",
+    "git_commit": "e7e5516991b95f4e7c915e852fc0b4f5bae7cd11",
+    "gpu": null,
+    "machine": "AMD64",
+    "package_count": 83,
+    "package_freeze_sha256": "cc861c6e0d49860f778e89decb4746ef48abd19ff5d67a75228d8b8def97b3cb",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python": "3.12.7",
+    "python_executable": "<environment>/Scripts/python.exe",
+    "torch": "2.11.0+cpu"
+  },
+  "generated_at": "2026-08-08T00:53:51.287620+00:00",
+  "profile": "wespeaker",
+  "results": [
+    {
+      "asset_identities": [
+        {
+          "acquisition_date": "2023-02-20T12:29:45+00:00",
+          "acquisition_method": "scripts/bootstrap_models.py --wespeaker",
+          "artifact_filename": "voxceleb_resnet221_LM.tar.gz",
+          "asset_id": "wespeaker_voxceleb_resnet221_lm",
+          "backend": "WeSpeaker",
+          "component": "wespeaker",
+          "credential_required": false,
+          "environment_profile": "wespeaker",
+          "files": [
+            {
+              "bytes": 114410390,
+              "path": "avg_model.pt",
+              "sha256": "47d76239f1e865b273e31e30f691959061ff6565ed6c4e7be9639a65d9662eb5"
+            },
+            {
+              "bytes": 1544,
+              "path": "config.yaml",
+              "sha256": "31511c8e6c60d96d40962e9a261dd8f752b01831b955192b5cbed8367276bbb5"
+            }
+          ],
+          "licence": "Verify model-card and VoxCeleb-derived model terms before redistribution",
+          "missing_required_files": [],
+          "model_name": "voxceleb_resnet221_LM",
+          "model_version": "source-commit-1d4164bdb1dcfee4624093190fd5ecbb19447686",
+          "present": true,
+          "sha256": "bd70550dbfcdaecf387cefcc34d57d1b815fbdd6ee2d62477dd0e1eb176ff962",
+          "size_bytes": 114411934,
+          "source": "https://modelscope.cn/datasets/wenet/wespeaker_pretrained_models",
+          "storage_path": "models/cache/wespeaker/english",
+          "verification_status": "verified"
+        }
+      ],
+      "backend_id": "wespeaker",
+      "command": "python 'Software Validation from Datasets\\Evaluation Tool\\scripts\\qualify_extended_backends.py' --profile wespeaker",
+      "component_identity": {
+        "backend_id": "wespeaker",
+        "config_path": "configs/inference/components/speaker_embedding/wespeaker.yaml",
+        "config_sha256": "0c774e10dc235664197d893a9940ff99908242674bc3d60212b223490abab8dd",
+        "family": "speaker_embedding"
+      },
+      "credential_presence": {},
+      "details": {
+        "dimension": 256,
+        "finite": true,
+        "identity_recorded": true,
+        "l2_norms": [
+          1.0000000075801248,
+          1.0000000075801248
+        ],
+        "minimum_duration_status": "too_short",
+        "model_name": "wespeaker_english",
+        "pipeline_composition": true,
+        "repeatability_l2_drift": 0.0,
+        "runtime": {
+          "audio_duration_sec": 0.1,
+          "cpu_memory_mb": null,
+          "device": "cpu",
+          "dtype": "float32",
+          "inference_sec": 6.700167432427406e-06,
+          "load_sec": 0.0,
+          "model_name": "wespeaker_english",
+          "peak_gpu_memory_mb": null,
+          "realtime_factor": 6.700167432427406e-05
+        },
+        "valid_real_outputs": 2
+      },
+      "device": "cpu",
+      "explanation": "Real repeated offline qualification passed with recorded warnings.",
+      "failure_category": null,
+      "family": "speaker_embedding",
+      "implicit_downloads_allowed": false,
+      "package_versions": {
+        "wespeaker": "0.0.0"
+      },
+      "profile": "wespeaker",
+      "repetitions": 2,
+      "schema_validation": true,
+      "status": "qualified_with_warnings",
+      "timing": {
+        "inference_sec": [
+          17.683827,
+          1.070205
+        ],
+        "total_sec": 23.256299
+      },
+      "warnings": [
+        "WeSpeaker metadata pins hdbscan==0.8.37; isolated qualification uses the Python-3.12-compatible hdbscan==0.8.44.",
+        "kaldiio imports deprecated pkg_resources under current setuptools.",
+        "The loader reported an unused projection.weight tensor; repeated normalized embeddings were nevertheless valid."
+      ]
+    }
+  ],
+  "schema_version": "extended-backend-qualification.v1",
+  "secret_audit": {
+    "credential_presence_only": true,
+    "values_serialized": false
+  },
+  "summary": {
+    "qualified": 1,
+    "status_counts": {
+      "qualified_with_warnings": 1
+    },
+    "total": 1
+  }
+}

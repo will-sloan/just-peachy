@@ -1,0 +1,186 @@
+schema_version: model-asset-registry.v1
+hash_algorithm: sha256
+secret_policy: No credentials or authenticated URLs may be stored.
+assets:
+  faster_whisper_tiny:
+    component: faster_whisper
+    backend: Faster-Whisper
+    model_name: Systran/faster-whisper-tiny
+    model_version: d90ca5fe260221311c53c58e660288d3deb8d356
+    source: https://huggingface.co/Systran/faster-whisper-tiny
+    licence: MIT model repository
+    artifact_filename: faster-whisper-tiny snapshot
+    expected_sha256: null
+    acquisition_method: scripts/bootstrap_models.py --faster-whisper-tiny
+    storage_path: models/cache/faster_whisper/tiny
+    environment_profile: extended-local
+    credential_requirement: null
+    required_files: [config.json, model.bin, tokenizer.json, vocabulary.txt]
+
+  vosk_small_en_us_0_15:
+    component: vosk
+    backend: Vosk
+    model_name: vosk-model-small-en-us-0.15
+    model_version: "0.15"
+    source: https://alphacephei.com/vosk/models/vosk-model-small-en-us-0.15.zip
+    licence: Apache-2.0
+    artifact_filename: vosk-model-small-en-us-0.15.zip
+    expected_sha256: 30f26242c4eb449f948e42cb302dd7a686cb29a3423a8367f99ff41780942498
+    acquisition_method: scripts/bootstrap_models.py --vosk-asr
+    storage_path: models/cache/vosk/asr/vosk-model-small-en-us-0.15
+    environment_profile: extended-local
+    credential_requirement: null
+    required_files: [am/final.mdl, conf/model.conf, graph/HCLr.fst]
+
+  wenet_librispeech_u2pp:
+    component: wenet
+    backend: WeNet
+    model_name: librispeech_u2pp_conformer_exp
+    model_version: 9161c07e35d505087c98fef201a2c3ab0995e53a
+    source: https://huggingface.co/openspeech/wenet-models
+    licence: Verify model-card terms before redistribution
+    artifact_filename: librispeech_u2pp_conformer_exp.tar.gz
+    expected_sha256: fa95c21b2e11b6c4c887cd5f92eeb4f9390069d4ac7cb7ea156e1594849135d9
+    acquisition_method: scripts/bootstrap_models.py --wenet-asr
+    storage_path: models/cache/wenet/asr/librispeech_u2pp_conformer_exp
+    environment_profile: wenet
+    credential_requirement: null
+    # The pinned v3.1 Python API calls torch.jit.load(final.zip). The available
+    # archive contains final.pt, so it is retained for provenance but does not
+    # satisfy the configured runtime adapter contract.
+    required_files: [final.zip, units.txt]
+
+  sherpa_onnx_asr:
+    component: sherpa_onnx_asr
+    backend: Sherpa-ONNX
+    model_name: sherpa-onnx-streaming-zipformer-en-2023-06-26
+    model_version: "2023-06-26"
+    source: https://github.com/k2-fsa/sherpa-onnx/releases/tag/asr-models
+    licence: Apache-2.0 repository; verify model archive terms before redistribution
+    artifact_filename: sherpa-onnx-streaming-zipformer-en-2023-06-26.tar.bz2
+    expected_sha256: 639e25b578e9e997131402199419c13a941f8e4e198e2da1ce57dbf5cf401282
+    acquisition_method: scripts/bootstrap_models.py --sherpa-asr
+    storage_path: models/cache/sherpa_onnx/asr/sherpa-onnx-streaming-zipformer-en-2023-06-26
+    environment_profile: onnx
+    credential_requirement: null
+    required_files: [tokens.txt, encoder-epoch-99-avg-1-chunk-16-left-128.int8.onnx, decoder-epoch-99-avg-1-chunk-16-left-128.onnx, joiner-epoch-99-avg-1-chunk-16-left-128.int8.onnx]
+
+  sherpa_onnx_vad:
+    component: sherpa_onnx_vad
+    backend: Sherpa-ONNX
+    model_name: Silero VAD ONNX
+    model_version: release asset
+    source: https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/silero_vad.onnx
+    licence: Verify upstream model terms before redistribution
+    artifact_filename: silero_vad.onnx
+    expected_sha256: 9e2449e1087496d8d4caba907f23e0bd3f78d91fa552479bb9c23ac09cbb1fd6
+    acquisition_method: scripts/bootstrap_models.py --sherpa-vad
+    storage_path: models/cache/sherpa_onnx/vad/silero_vad.onnx
+    environment_profile: onnx
+    credential_requirement: null
+    required_files: []
+
+  sherpa_onnx_speaker_embedding:
+    component: sherpa_onnx_speaker_embedding
+    backend: Sherpa-ONNX
+    model_name: 3D-Speaker ERes2Net base 16k
+    model_version: release asset
+    source: https://github.com/k2-fsa/sherpa-onnx/releases/tag/speaker-recongition-models
+    licence: Verify upstream model terms before redistribution
+    artifact_filename: 3dspeaker_speech_eres2net_base_sv_zh-cn_3dspeaker_16k.onnx
+    expected_sha256: 1a331345f04805badbb495c775a6ddffcdd1a732567d5ec8b3d5749e3c7a5e4b
+    acquisition_method: scripts/bootstrap_models.py --sherpa-speaker-embedding
+    storage_path: models/cache/sherpa_onnx/speaker_embedding/3dspeaker_speech_eres2net_base_sv_zh-cn_3dspeaker_16k.onnx
+    environment_profile: onnx
+    credential_requirement: null
+    required_files: []
+
+  sherpa_onnx_diarization_segmentation:
+    component: sherpa_onnx_diarization
+    backend: Sherpa-ONNX
+    model_name: pyannote-segmentation-3.0 ONNX
+    model_version: "3.0"
+    source: https://github.com/k2-fsa/sherpa-onnx/releases/tag/speaker-segmentation-models
+    licence: Verify converted-model terms before redistribution
+    artifact_filename: sherpa-onnx-pyannote-segmentation-3-0.tar.bz2
+    expected_sha256: 24615ee884c897d9d2ba09bb4d30da6bb1b15e685065962db5b02e76e4996488
+    acquisition_method: scripts/bootstrap_models.py --sherpa-diarization
+    storage_path: models/cache/sherpa_onnx/diarization/sherpa-onnx-pyannote-segmentation-3-0
+    environment_profile: onnx
+    credential_requirement: null
+    required_files: [model.onnx]
+
+  resemblyzer_packaged:
+    component: resemblyzer
+    backend: Resemblyzer
+    model_name: pretrained d-vector
+    model_version: resemblyzer-0.1.4
+    source: https://github.com/resemble-ai/Resemblyzer
+    licence: Apache-2.0 repository; inspect packaged checkpoint provenance
+    artifact_filename: pretrained.pt
+    expected_sha256: null
+    acquisition_method: packaged in resemblyzer==0.1.4
+    storage_path: environment/Lib/site-packages/resemblyzer/pretrained.pt
+    environment_profile: extended-local
+    credential_requirement: null
+    required_files: []
+
+  wespeaker_voxceleb_resnet221_lm:
+    component: wespeaker
+    backend: WeSpeaker
+    model_name: voxceleb_resnet221_LM
+    model_version: source-commit-1d4164bdb1dcfee4624093190fd5ecbb19447686
+    source: https://modelscope.cn/datasets/wenet/wespeaker_pretrained_models
+    licence: Verify model-card and VoxCeleb-derived model terms before redistribution
+    artifact_filename: voxceleb_resnet221_LM.tar.gz
+    expected_sha256: 9462705bfafeed7b4a6585638a4d0140ddaf9338471198d014eb2579712f89f6
+    acquisition_method: scripts/bootstrap_models.py --wespeaker
+    storage_path: models/cache/wespeaker/english
+    environment_profile: wespeaker
+    credential_requirement: null
+    required_files: [avg_model.pt, config.yaml]
+
+  pyannote_community_1:
+    component: pyannote_community
+    backend: pyannote.audio
+    model_name: pyannote/speaker-diarization-community-1
+    model_version: gated snapshot
+    source: https://huggingface.co/pyannote/speaker-diarization-community-1
+    licence: User must personally accept Hugging Face model conditions
+    artifact_filename: Hugging Face snapshot
+    expected_sha256: null
+    acquisition_method: scripts/bootstrap_models.py --pyannote --hf-token-env PYANNOTE_AUTH_TOKEN
+    storage_path: models/cache/pyannote
+    environment_profile: credential-diarization
+    credential_requirement: PYANNOTE_AUTH_TOKEN
+    required_files: []
+
+  nemo_diarization_config:
+    component: nemo_diarization
+    backend: NVIDIA NeMo
+    model_name: diar_infer_meeting configuration
+    model_version: NeMo-v2.7.3
+    source: https://github.com/NVIDIA/NeMo/blob/v2.7.3/examples/speaker_tasks/diarization/conf/inference/diar_infer_meeting.yaml
+    licence: Apache-2.0 repository
+    artifact_filename: config.yaml
+    expected_sha256: null
+    acquisition_method: scripts/bootstrap_models.py --nemo-config
+    storage_path: models/cache/nemo/diarization/config.yaml
+    environment_profile: nemo-linux-cuda
+    credential_requirement: null
+    required_files: []
+
+  nemo_active_checkpoints:
+    component: nemo_diarization
+    backend: NVIDIA NeMo
+    model_name: active VAD embedding and MSDD checkpoints
+    model_version: unresolved
+    source: null
+    licence: Must be recorded for each selected checkpoint
+    artifact_filename: unresolved
+    expected_sha256: null
+    acquisition_method: Explicit future Linux bootstrap after config resolution
+    storage_path: models/cache/nemo/checkpoints
+    environment_profile: nemo-linux-cuda
+    credential_requirement: null
+    required_files: []

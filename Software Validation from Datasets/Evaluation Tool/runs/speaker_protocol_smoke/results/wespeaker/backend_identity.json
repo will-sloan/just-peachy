@@ -1,0 +1,20 @@
+{
+  "aggregation_method": "normalized_mean",
+  "backend_id": "wespeaker",
+  "config_hash": "0C774E10DC235664197D893A9940FF99908242674BC3D60212B223490ABAB8DD",
+  "config_path": "configs/inference/components/speaker_embedding/wespeaker.yaml",
+  "embedding_dimension": 256,
+  "environment_profile": "wespeaker",
+  "identity_hash": "EE51057CAB0C8AE08A090ED7C95E1510055E2216DE593CFE9203021A3C6DC899",
+  "model_hash": "840600149EF71052BEDFAA6A17D5E83794DE5D365F7225DEF691002F517C6B79",
+  "model_id": "wespeaker:d0a7906fde51",
+  "normalization": "l2",
+  "preprocessing": {
+    "channel_count": 1,
+    "dtype": "float32",
+    "sample_rate_hz": 16000
+  },
+  "qualification_status": "qualified_with_warnings",
+  "schema_version": "speaker-backend-identity.v1",
+  "threshold_policy_version": "speaker-threshold-policy.v1"
+}

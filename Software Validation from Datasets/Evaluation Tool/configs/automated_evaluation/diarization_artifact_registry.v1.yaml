@@ -1,0 +1,29 @@
+schema_version: diarization-artifact-registry.v1
+hash_algorithm: sha256
+temporary_file_marker: .tmp.
+pickle_allowed: false
+artifacts:
+  - {id: run, path: run.json, format: json, schema_version: diarization-result.v1, required: true, privacy: internal}
+  - {id: backend_status, path: backend_status.json, format: json, schema_version: diarization-backend-status.v1, required: true, privacy: internal}
+  - {id: component_identity, path: resolved_component_identity.json, format: json, schema_version: resolved-diarization-component.v1, required: true, privacy: internal}
+  - {id: prediction_rttm, path: predictions/segments.rttm, format: rttm, schema_version: diarization-rttm.v1, required: true, privacy: pseudonymous}
+  - {id: reference_rttm, path: references/reference.rttm, format: rttm, schema_version: diarization-rttm.v1, required: true, privacy: pseudonymous}
+  - {id: scored_region, path: references/scored_region.uem, format: uem, schema_version: diarization-uem.v1, required: true, privacy: internal}
+  - {id: diagnostics, path: diagnostics/diarization.json, format: json, schema_version: diarization-diagnostics.v1, required: true, privacy: internal}
+  - {id: provenance, path: diagnostics/segmentation_provenance.json, format: json, schema_version: segmentation-provenance.v1, required: true, privacy: internal}
+  - {id: alignment, path: diagnostics/alignment_validation.json, format: json, schema_version: diarization-timebase-validation.v1, required: true, privacy: internal}
+  - {id: metrics, path: metrics/summary.json, format: json, schema_version: diarization-metrics.v1, required: true, privacy: internal}
+  - {id: attributed_transcript, path: predictions/speaker_attributed_transcript.jsonl, format: jsonl, schema_version: speaker-attributed-transcript.v1, required: conditional, privacy: pseudonymous}
+  - {id: report_json, path: report/scenario_report.json, format: json, schema_version: diarization-scenario-report.v1, required: true, privacy: internal}
+  - {id: report_markdown, path: report/scenario_report.md, format: markdown, schema_version: diarization-scenario-report.v1, required: true, privacy: internal}
+  - {id: checksums, path: checksums.json, format: json, schema_version: diarization-checksums.v1, required: true, privacy: internal}
+validation:
+  - RTTM and UEM recording IDs and source-coordinate timebases must align before scoring
+  - anonymous speaker labels remain in the speaker_ namespace and are never rewritten to reference identities
+  - DER and JER are absent when the reference pair is incompatible
+  - speaker-attributed transcripts exist only when real ASR output supports them
+  - all non-checksum artifacts are covered by SHA-256 checksums
+downstream_consumers:
+  - campaign_merge
+  - native_diarization_analysis
+  - scenario_reporter

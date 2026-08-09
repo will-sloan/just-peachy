@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "environment-fingerprint.v1",
+  "title": "Static execution environment fingerprint",
+  "type": "object",
+  "required": ["schema_version", "fingerprint_id", "fingerprint_sha256", "captured_at_utc", "git", "os", "python", "packages", "hardware", "accelerator", "model_hashes", "component_config_hashes", "clock"],
+  "properties": {
+    "schema_version": {"const": "environment-fingerprint.v1"},
+    "fingerprint_id": {"type": "string", "pattern": "^environment_[0-9a-f]{12}$"},
+    "fingerprint_sha256": {"type": "string", "pattern": "^[0-9A-F]{64}$"},
+    "captured_at_utc": {"type": "string", "format": "date-time"},
+    "git": {"type": "object", "required": ["commit", "dirty"]},
+    "os": {"type": "object"},
+    "python": {"type": "object", "required": ["executable", "version"]},
+    "packages": {"type": "object", "required": ["profile_identity", "freeze", "freeze_sha256"]},
+    "hardware": {"type": "object", "required": ["cpu", "logical_cpu_count", "ram_bytes"]},
+    "accelerator": {"type": "object", "required": ["gpus", "driver", "cuda_runtime"]},
+    "model_hashes": {"type": "object"},
+    "component_config_hashes": {"type": "object"},
+    "clock": {"type": "object", "required": ["timezone_name", "utc_offset_seconds", "wall_clock", "wall_clock_resolution_sec", "monotonic_clock", "monotonic_resolution_sec"]}
+  }
+}

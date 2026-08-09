@@ -1,0 +1,11 @@
+{
+  "authoritative_representation": "parquet",
+  "bytes": 15906,
+  "canonicalization_version": "manifest-canonicalization.v1",
+  "hash_algorithm": "sha256",
+  "hash_version": "manifest-hash.v1",
+  "manifest_id": "manifest_b8d439393e04",
+  "rows": 4,
+  "schema_version": "benchmark-manifest.v1",
+  "sha256": "B8D439393E04C39C49AD88888A1514CC0677B047C0A8879EDEC433F681925741"
+}

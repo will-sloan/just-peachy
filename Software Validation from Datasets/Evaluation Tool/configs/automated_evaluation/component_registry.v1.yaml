@@ -1,0 +1,673 @@
+schema_version: component-registry.v1
+registry_version: 1
+status: readiness_freeze
+generated_against_git_commit: e7e5516991b95f4e7c915e852fc0b4f5bae7cd11
+default_seed: 3800
+reference_asr: whisper_base
+smoke_asr: whisper_tiny
+required_candidate_asr:
+  - whisper_small
+excluded_asr_markers:
+  - medium
+  - large
+  - turbo
+
+readiness_status_vocabulary:
+  - qualified
+  - qualified_with_warnings
+  - contract_qualified
+  - unavailable
+  - unavailable_asset
+  - credential_required
+  - licence_action_required
+  - asset_required
+  - platform_required
+  - incompatible_environment
+  - pending_decision
+  - excluded
+
+final_use_categories:
+  - core
+  - extended
+  - platform_specific
+  - credential_gated
+  - contract_only
+  - deferred
+  - excluded
+  - pending_decision
+
+contracts:
+  loaded_audio.v1: app/inference_pipeline/audio_io/loader.py::LoadedAudio
+  speech_regions.v1: app/inference_pipeline/contracts.py::SpeechRegion
+  audio_segments.v1: app/inference_pipeline/contracts.py::AudioSegment
+  asr_transcript.v1: app/inference_pipeline/contracts.py::ASRTranscript
+  speaker_embedding.v1: app/inference_pipeline/speaker_embedding/base.py::SpeakerEmbedding
+  speaker_decision.v1: app/inference_pipeline/speaker_matching/base.py::SpeakerDecision
+  speaker_turns.v1: app/inference_pipeline/diarization/base.py::SpeakerTurnRegion
+  evaluation_record.v1: app/inference_pipeline/contracts.py::EvaluationRecord
+  pipeline_output.v1: app/inference_pipeline/contracts.py::PipelineOutput
+  enrollment_db.v1: app/inference_pipeline/enrollment/schema.py::EnrollmentDatabase
+  temporal_speaker_state.v1: app/inference_pipeline/realtime/speaker_state.py::SpeakerStateUpdate
+
+component_defaults: &component_defaults
+  implementation_class: null
+  implementation_path: null
+  registry_adapter_class: null
+  config_path: null
+  config_sha256: null
+  higher_level_config_references: []
+  packages: []
+  model_assets: []
+  credential_requirements: []
+  environment_profiles: [core-cpu]
+  qualification_backend_id: null
+  supported_parameters: []
+  model_terms: "No component-specific terms are recorded locally; verify upstream terms before redistribution."
+  supported_os: [windows, linux, macos]
+  hardware_support: {cpu: true, gpu: false, cuda: false}
+  device_dtype_support: [cpu/float32]
+  input_contract: null
+  output_contract: null
+  compatibility_constraints: []
+  readiness:
+    status: contract_qualified
+    evidence: repository tests
+    blockers: []
+  intended_final_use_category: contract_only
+
+components:
+  - <<: *component_defaults
+    id: vad.no_op_vad
+    family: vad
+    name: no_op_vad
+    implementation_class: NoOpVAD
+    implementation_path: app/inference_pipeline/vad/base.py
+    registry_adapter_class: NoOpVADAdapter
+    higher_level_config_references: [configs/inference/base.yaml, configs/inference/cpu_smoke.yaml, configs/inference/live_mic_realtime_whisper_base.yaml, configs/inference/live_mic_realtime_whisper_base_speaker_matching.yaml, configs/inference/live_mic_realtime_whisper_tiny.yaml, configs/inference/live_mic_whisper_base.yaml, configs/inference/live_mic_whisper_tiny.yaml, configs/inference/raspberry_pi_future.yaml]
+    input_contract: loaded_audio.v1
+    output_contract: speech_regions.v1
+    compatibility_constraints: ["Full-record baseline; returns one record-bounded speech region."]
+    intended_final_use_category: core
+
+  - <<: *component_defaults
+    id: vad.energy_vad
+    family: vad
+    name: energy_vad
+    implementation_class: EnergyVAD
+    implementation_path: app/inference_pipeline/vad/energy_vad.py
+    registry_adapter_class: EnergyVADAdapter
+    config_path: configs/inference/components/vad/energy.yaml
+    config_sha256: DC7D24B0ED498228B0C4FE076D04CBDA9BE1208A0F716A65618248EF16DCF17C
+    higher_level_config_references: [configs/inference/e2e_named_transcript.yaml]
+    packages: [numpy==2.2.6, torch==2.11.0]
+    environment_profiles: [core-cpu, core-cuda, extended-local, onnx, wenet, wespeaker, credential-diarization]
+    input_contract: loaded_audio.v1
+    output_contract: speech_regions.v1
+    compatibility_constraints: ["Mono 16 kHz float32 LoadedAudio is the configured qualification path."]
+    readiness: {status: qualified, evidence: "runs/component_qualification/cpu_contract_20260807.json vad:energy", blockers: []}
+    intended_final_use_category: core
+
+  - <<: *component_defaults
+    id: vad.silero_vad
+    family: vad
+    name: silero_vad
+    implementation_class: SileroVAD
+    implementation_path: app/inference_pipeline/vad/silero_vad.py
+    registry_adapter_class: SileroVADAdapter
+    config_path: configs/inference/components/vad/silero.yaml
+    config_sha256: 2FBEDC8447D9CF0D9BF0751E65F0789AFDF137025C26A8E281D4D7A7623F1F4E
+    higher_level_config_references: [configs/inference/desktop_gpu.yaml, configs/inference/simple_vad_speaker_change_enrollment.yaml]
+    packages: [silero-vad==6.2.1, torch==2.11.0]
+    environment_profiles: [core-cpu, core-cuda, extended-local, onnx, wenet, wespeaker, credential-diarization]
+    model_assets: ["Packaged silero-vad model assets"]
+    input_contract: loaded_audio.v1
+    output_contract: speech_regions.v1
+    compatibility_constraints: ["Configured for mono 16 kHz audio."]
+    readiness: {status: qualified, evidence: "runs/component_qualification/cpu_contract_20260807.json vad:silero", blockers: []}
+    intended_final_use_category: core
+
+  - <<: *component_defaults
+    id: vad.webrtc_vad
+    family: vad
+    name: webrtc_vad
+    implementation_class: WebRTCVAD
+    implementation_path: app/inference_pipeline/vad/webrtc_vad.py
+    registry_adapter_class: WebRTCVADAdapter
+    config_path: configs/inference/components/vad/webrtc.yaml
+    config_sha256: 59EF35C465964B8B239DDC3EBD947E53E08F1386A7EC49DC170D43C53D98A29C
+    packages: [webrtcvad-wheels==2.0.14]
+    environment_profiles: [extended-local]
+    qualification_backend_id: webrtc_vad
+    input_contract: loaded_audio.v1
+    output_contract: speech_regions.v1
+    compatibility_constraints: ["PCM16 frames; 16 kHz and 10/20/30 ms backend frame constraints."]
+    readiness: {status: qualified_with_warnings, evidence: "runs/extended_backend_qualification/extended-local.json webrtc_vad: two real outputs, bounded regions, silence and VADChunker passed", blockers: ["upstream pkg_resources deprecation warning"]}
+    intended_final_use_category: extended
+
+  - <<: *component_defaults
+    id: vad.sherpa_onnx_vad
+    family: vad
+    name: sherpa_onnx_vad
+    implementation_class: SherpaOnnxVAD
+    implementation_path: app/inference_pipeline/vad/sherpa_onnx_vad.py
+    registry_adapter_class: SherpaOnnxVADAdapter
+    config_path: configs/inference/components/vad/sherpa_onnx.yaml
+    config_sha256: 1F3EEBF2E7F70DDA23F72F8FF7F3336DC5242C7ED1646BB3D75D6E332F3D4DA6
+    packages: [sherpa-onnx==1.13.4]
+    model_assets: [stage8:sherpa_onnx_vad]
+    environment_profiles: [onnx]
+    qualification_backend_id: sherpa_onnx_vad
+    input_contract: loaded_audio.v1
+    output_contract: speech_regions.v1
+    compatibility_constraints: ["ONNX provider is configured as CPU; 16 kHz only."]
+    readiness: {status: qualified, evidence: "runs/extended_backend_qualification/onnx.json sherpa_onnx_vad: two real outputs, silence and VADChunker passed", blockers: []}
+    intended_final_use_category: extended
+
+  - <<: *component_defaults
+    id: segmentation.no_op_segmentation
+    family: segmentation
+    name: no_op_segmentation
+    implementation_class: NoOpSegmenter
+    implementation_path: app/inference_pipeline/segmentation/base.py
+    registry_adapter_class: NoOpSegmentationAdapter
+    higher_level_config_references: [configs/inference/base.yaml, configs/inference/cpu_smoke.yaml, configs/inference/desktop_gpu.yaml, configs/inference/live_mic_realtime_whisper_base.yaml, configs/inference/live_mic_realtime_whisper_base_speaker_matching.yaml, configs/inference/live_mic_realtime_whisper_tiny.yaml, configs/inference/live_mic_whisper_base.yaml, configs/inference/live_mic_whisper_tiny.yaml, configs/inference/raspberry_pi_future.yaml]
+    input_contract: evaluation_record.v1
+    output_contract: audio_segments.v1
+    compatibility_constraints: ["Full-record or record-bounded segment baseline."]
+    intended_final_use_category: core
+
+  - <<: *component_defaults
+    id: segmentation.vad_chunks
+    family: segmentation
+    name: vad_chunks
+    implementation_class: VADChunker
+    implementation_path: app/inference_pipeline/segmentation/vad_chunker.py
+    registry_adapter_class: VADChunkerAdapter
+    config_path: configs/inference/components/segmentation/vad_chunks.yaml
+    config_sha256: 383C755EEB9C4F37B134B13A92308707A001CB038331F8083C6A0E773A7C44A1
+    environment_profiles: [core-cpu, core-cuda, extended-local, onnx, wenet, wespeaker, credential-diarization]
+    higher_level_config_references: [configs/inference/e2e_named_transcript.yaml, configs/inference/simple_vad_speaker_change_enrollment.yaml]
+    input_contract: speech_regions.v1
+    output_contract: audio_segments.v1
+    compatibility_constraints: ["Requires VAD regions; deterministic clipping, padding, merging, and maximum chunk duration."]
+    readiness: {status: qualified, evidence: "CPU qualification compositions for Energy and Silero VAD", blockers: []}
+    intended_final_use_category: core
+
+  - <<: *component_defaults
+    id: asr.no_op_asr
+    family: asr
+    name: no_op_asr
+    implementation_class: NoOpASR
+    implementation_path: app/inference_pipeline/asr/base.py
+    registry_adapter_class: NoOpASRAdapter
+    higher_level_config_references: [configs/inference/base.yaml, configs/inference/cpu_smoke.yaml, configs/inference/e2e_named_transcript.yaml, configs/inference/raspberry_pi_future.yaml]
+    input_contract: audio_segments.v1
+    output_contract: asr_transcript.v1
+    compatibility_constraints: ["Produces an empty contract-valid transcript; never an accuracy candidate."]
+
+  - <<: *component_defaults
+    id: asr.whisper_tiny
+    family: asr
+    name: whisper_tiny
+    implementation_class: WhisperASR
+    implementation_path: app/inference_pipeline/asr/whisper_adapter.py
+    registry_adapter_class: WhisperTinyASRAdapter
+    config_path: configs/inference/components/asr/whisper_tiny.yaml
+    config_sha256: 976D83E05E79DCAE04A4DB398A16165A9D567702044DAC519406F93A3C4B6545
+    higher_level_config_references: [configs/inference/desktop_gpu.yaml, configs/inference/live_mic_whisper_tiny.yaml, configs/inference/live_mic_realtime_whisper_tiny.yaml]
+    packages: [openai-whisper==20250625, torch==2.11.0, ffmpeg==8.1.2]
+    environment_profiles: [core-cpu, core-cuda, extended-local, onnx, wenet, wespeaker, credential-diarization]
+    model_assets: ["models/cache/whisper/tiny.pt|75572083|sha256:65147644A518D12F04E32D6F3B26FACC3F8DD46E5390956A9424A650C0CE22B9"]
+    model_terms: "Upstream Whisper source license metadata is not copied into the cache; internal use qualified, redistribution review required."
+    hardware_support: {cpu: true, gpu: true, cuda: true}
+    device_dtype_support: [cpu/float32, cuda/float16-unqualified]
+    input_contract: audio_segments.v1
+    output_contract: asr_transcript.v1
+    compatibility_constraints: ["Offline whole-segment input; loader downmixes/selects channel; downloads disabled."]
+    readiness: {status: qualified, evidence: "runs/component_qualification/cpu_contract_20260807.json asr:whisper_tiny", blockers: ["CUDA path not yet qualified"]}
+    intended_final_use_category: core
+
+  - <<: *component_defaults
+    id: asr.whisper_base
+    family: asr
+    name: whisper_base
+    implementation_class: WhisperASR
+    implementation_path: app/inference_pipeline/asr/whisper_adapter.py
+    registry_adapter_class: WhisperBaseASRAdapter
+    config_path: configs/inference/components/asr/whisper_base.yaml
+    config_sha256: F881C12FDAA8270269CEE818563195AD35EACF237417AE5FE2598C5B76768E95
+    higher_level_config_references: [configs/inference/live_mic_whisper_base.yaml, configs/inference/live_mic_realtime_whisper_base.yaml, configs/inference/live_mic_realtime_whisper_base_speaker_matching.yaml, configs/inference/simple_vad_speaker_change_enrollment.yaml]
+    packages: [openai-whisper==20250625, torch==2.11.0, ffmpeg==8.1.2]
+    environment_profiles: [core-cpu, core-cuda, extended-local, onnx, wenet, wespeaker, credential-diarization]
+    model_assets: ["models/cache/whisper/base.pt|145262807|sha256:ED3A0B6B1C0EDF879AD9B11B1AF5A0E6AB5DB9205F891F668F8B0E6C6326E34E"]
+    model_terms: "Upstream Whisper source license metadata is not copied into the cache; internal use qualified, redistribution review required."
+    hardware_support: {cpu: true, gpu: true, cuda: true}
+    device_dtype_support: [cpu/float32, cuda/float16-unqualified]
+    input_contract: audio_segments.v1
+    output_contract: asr_transcript.v1
+    compatibility_constraints: ["Reference ASR; offline whole-segment input; downloads disabled."]
+    readiness: {status: qualified, evidence: "runs/component_qualification/cpu_contract_20260807.json asr:whisper_base", blockers: ["CUDA path not yet qualified"]}
+    intended_final_use_category: core
+
+  - <<: *component_defaults
+    id: asr.whisper_small
+    family: asr
+    name: whisper_small
+    implementation_class: WhisperASR
+    implementation_path: app/inference_pipeline/asr/whisper_adapter.py
+    registry_adapter_class: WhisperSmallASRAdapter
+    config_path: configs/inference/components/asr/whisper_small.yaml
+    config_sha256: E4A357172EA5EB3A8C199C47846C522CE8A65EC6455CB6DE17E0895894A9FA65
+    packages: [openai-whisper==20250625, torch==2.11.0, ffmpeg==8.1.2]
+    environment_profiles: [core-cpu, core-cuda, extended-local, onnx, wenet, wespeaker, credential-diarization]
+    model_assets: ["models/cache/whisper/small.pt|483617219|sha256:9ECF779972D90BA49C06D968637D720DD632C55BBF19D441FB42BF17A411E794"]
+    model_terms: "Upstream Whisper source license metadata is not copied into the cache; internal use qualified, redistribution review required."
+    hardware_support: {cpu: true, gpu: true, cuda: true}
+    device_dtype_support: [cpu/float32, cuda/float16-unqualified]
+    input_contract: audio_segments.v1
+    output_contract: asr_transcript.v1
+    compatibility_constraints: ["Required real ASR candidate; downloads disabled; Whisper Large is excluded."]
+    readiness: {status: qualified, evidence: "runs/component_qualification/cpu_contract_20260807.json asr:whisper_small", blockers: ["CUDA path not yet qualified"]}
+    intended_final_use_category: core
+
+  - <<: *component_defaults
+    id: asr.faster_whisper
+    family: asr
+    name: faster_whisper
+    implementation_class: FasterWhisperASR
+    implementation_path: app/inference_pipeline/asr/faster_whisper_adapter.py
+    registry_adapter_class: FasterWhisperASRAdapter
+    config_path: configs/inference/components/asr/faster_whisper.yaml
+    config_sha256: 1846FD2ACACC535D3A98C0AD4E80975608AA86EC6EE9C3CCC28AF2E1D204A70F
+    packages: [faster-whisper==1.2.1]
+    model_assets: [stage8:faster_whisper_tiny]
+    environment_profiles: [extended-local]
+    qualification_backend_id: faster_whisper
+    hardware_support: {cpu: true, gpu: true, cuda: true}
+    device_dtype_support: [cpu/int8, cuda/float16-unqualified]
+    input_contract: audio_segments.v1
+    output_contract: asr_transcript.v1
+    compatibility_constraints: ["Configured as Tiny and local-only; internal VAD filter disabled."]
+    readiness: {status: qualified, evidence: "runs/extended_backend_qualification/extended-local.json faster_whisper: two real local transcripts and silence behavior passed", blockers: []}
+    intended_final_use_category: extended
+
+  - <<: *component_defaults
+    id: asr.sherpa_onnx
+    family: asr
+    name: sherpa_onnx
+    implementation_class: SherpaOnnxASR
+    implementation_path: app/inference_pipeline/asr/sherpa_onnx_adapter.py
+    registry_adapter_class: SherpaOnnxASRAdapter
+    config_path: configs/inference/components/asr/sherpa_onnx.yaml
+    config_sha256: 8C1F86CFFEA8A497AED699445E00329089FF0BAEBF08595F606FBA263FBB2748
+    packages: [sherpa-onnx==1.13.4]
+    model_assets: [stage8:sherpa_onnx_asr]
+    environment_profiles: [onnx]
+    qualification_backend_id: sherpa_onnx_asr
+    input_contract: audio_segments.v1
+    output_contract: asr_transcript.v1
+    compatibility_constraints: ["Streaming transducer is wrapped behind the offline segment contract; CPU provider configured."]
+    readiness: {status: qualified, evidence: "runs/extended_backend_qualification/onnx.json sherpa_onnx_asr: two real local transcripts and silence behavior passed", blockers: []}
+    intended_final_use_category: extended
+
+  - <<: *component_defaults
+    id: asr.vosk
+    family: asr
+    name: vosk
+    implementation_class: VoskASR
+    implementation_path: app/inference_pipeline/asr/vosk_adapter.py
+    registry_adapter_class: VoskASRAdapter
+    config_path: configs/inference/components/asr/vosk.yaml
+    config_sha256: 6A3DD0A092A769395DEB9A97619C5FB3998E1D2FFA520E69ED1CA2D031655D41
+    packages: [vosk==0.3.45]
+    model_assets: [stage8:vosk_small_en_us_0_15]
+    environment_profiles: [extended-local]
+    qualification_backend_id: vosk
+    input_contract: audio_segments.v1
+    output_contract: asr_transcript.v1
+    compatibility_constraints: ["16 kHz PCM16 temporary WAV path."]
+    readiness: {status: qualified, evidence: "runs/extended_backend_qualification/extended-local.json vosk: two real local transcripts and silence behavior passed", blockers: []}
+    intended_final_use_category: extended
+
+  - <<: *component_defaults
+    id: asr.wenet
+    family: asr
+    name: wenet
+    implementation_class: WeNetASR
+    implementation_path: app/inference_pipeline/asr/wenet_adapter.py
+    registry_adapter_class: WeNetASRAdapter
+    config_path: configs/inference/components/asr/wenet.yaml
+    config_sha256: 0091354B6C03B257DA4131A0427A46AB9F0A986BE9C79D7BFA9F764A31FB0448
+    packages: ["wenet @ git tag v3.1.0"]
+    model_assets: [stage8:wenet_librispeech_u2pp]
+    environment_profiles: [wenet]
+    qualification_backend_id: wenet
+    supported_os: [linux, windows-unqualified]
+    input_contract: audio_segments.v1
+    output_contract: asr_transcript.v1
+    compatibility_constraints: ["SoundFile backend; CPU config; Git dependency and local model required."]
+    readiness: {status: unavailable_asset, evidence: "runs/extended_backend_qualification/wenet.json: runtime final.zip is absent; final.pt is not interchangeable", blockers: ["asset_required: compatible final.zip and units.txt"]}
+    intended_final_use_category: extended
+
+  - <<: *component_defaults
+    id: speaker_embedding.no_op_speaker_embedding
+    family: speaker_embedding
+    name: no_op_speaker_embedding
+    implementation_class: NoOpSpeakerEmbedding
+    implementation_path: app/inference_pipeline/speaker_embedding/base.py
+    registry_adapter_class: NoOpSpeakerEmbeddingAdapter
+    higher_level_config_references: [configs/inference/base.yaml, configs/inference/cpu_smoke.yaml, configs/inference/e2e_named_transcript.yaml, configs/inference/live_mic_realtime_whisper_base.yaml, configs/inference/live_mic_realtime_whisper_tiny.yaml, configs/inference/live_mic_whisper_base.yaml, configs/inference/live_mic_whisper_tiny.yaml, configs/inference/raspberry_pi_future.yaml]
+    input_contract: audio_segments.v1
+    output_contract: speaker_embedding.v1
+    compatibility_constraints: ["Returns a disabled/unavailable result; not a recognition candidate."]
+
+  - <<: *component_defaults
+    id: speaker_embedding.speechbrain_ecapa
+    family: speaker_embedding
+    name: speechbrain_ecapa
+    implementation_class: SpeechBrainECAPAAdapter
+    implementation_path: app/inference_pipeline/speaker_embedding/speechbrain_adapter.py
+    registry_adapter_class: SpeechBrainECAPAAdapter
+    config_path: configs/inference/components/speaker_embedding/speechbrain_ecapa.yaml
+    config_sha256: 13ACC7E76F621CEA132DCD3419667E791AF0005FDE98EE9AEFD93BC8632215DF
+    higher_level_config_references: [configs/inference/desktop_gpu.yaml, configs/inference/live_mic_realtime_whisper_base_speaker_matching.yaml, configs/inference/simple_vad_speaker_change_enrollment.yaml]
+    packages: [speechbrain==1.1.0, torch==2.11.0]
+    environment_profiles: [core-cpu, core-cuda, extended-local, onnx, wenet, wespeaker, credential-diarization]
+    model_assets:
+      - "models/cache/speechbrain/spkrec-ecapa-voxceleb/embedding_model.ckpt|83316686|sha256:0575CB64845E6B9A10DB9BCB74D5AC32B326B8DC90352671D345E2EE3D0126A2"
+      - "models/cache/speechbrain/spkrec-ecapa-voxceleb/hyperparams.yaml|1919|sha256:6F78854FA04BA59E761437B76A2575D3ABA5E5016DE3E9B69F0C9A5077FB1A41"
+    model_terms: "Model source speechbrain/spkrec-ecapa-voxceleb; local cache has no copied license file, so redistribution review is required."
+    hardware_support: {cpu: true, gpu: true, cuda: true}
+    device_dtype_support: [cpu/float32, cuda/float32-unqualified]
+    input_contract: audio_segments.v1
+    output_contract: speaker_embedding.v1
+    compatibility_constraints: ["Mono 16 kHz; minimum 0.75 s; 192-dimensional normalized embeddings."]
+    readiness: {status: qualified, evidence: "CPU qualification plus artifacts/speaker_protocol real enrollment/probe build", blockers: ["CUDA path not yet qualified"]}
+    intended_final_use_category: core
+
+  - <<: *component_defaults
+    id: speaker_embedding.resemblyzer
+    family: speaker_embedding
+    name: resemblyzer
+    implementation_class: ResemblyzerSpeakerEmbeddingAdapter
+    implementation_path: app/inference_pipeline/speaker_embedding/resemblyzer_adapter.py
+    registry_adapter_class: ResemblyzerSpeakerEmbeddingAdapter
+    config_path: configs/inference/components/speaker_embedding/resemblyzer.yaml
+    config_sha256: A67AA6C4327F6FB65427F5ACF139A40AFD714795EABE38FDF3F5265299C0C161
+    packages: [resemblyzer==0.1.4]
+    model_assets: [stage8:resemblyzer_packaged]
+    environment_profiles: [extended-local]
+    qualification_backend_id: resemblyzer
+    input_contract: audio_segments.v1
+    output_contract: speaker_embedding.v1
+    compatibility_constraints: ["Mono 16 kHz; minimum 0.75 s."]
+    readiness: {status: qualified, evidence: "runs/extended_backend_qualification/extended-local.json resemblyzer: finite normalized repeatable vectors passed", blockers: []}
+    intended_final_use_category: extended
+
+  - <<: *component_defaults
+    id: speaker_embedding.sherpa_onnx_speaker_embedding
+    family: speaker_embedding
+    name: sherpa_onnx_speaker_embedding
+    implementation_class: SherpaOnnxSpeakerEmbeddingAdapter
+    implementation_path: app/inference_pipeline/speaker_embedding/sherpa_onnx_adapter.py
+    registry_adapter_class: SherpaOnnxSpeakerEmbeddingAdapter
+    config_path: configs/inference/components/speaker_embedding/sherpa_onnx.yaml
+    config_sha256: 57E0D28B235329555F84524259D3E63B0E8DFE99495B8A21063DBC5E938325A4
+    packages: [sherpa-onnx==1.13.4]
+    model_assets: [stage8:sherpa_onnx_speaker_embedding]
+    environment_profiles: [onnx]
+    qualification_backend_id: sherpa_onnx_speaker_embedding
+    input_contract: audio_segments.v1
+    output_contract: speaker_embedding.v1
+    compatibility_constraints: ["CPU ONNX provider; mono 16 kHz; minimum 0.75 s."]
+    readiness: {status: qualified, evidence: "runs/extended_backend_qualification/onnx.json sherpa_onnx_speaker_embedding: finite normalized repeatable vectors passed", blockers: []}
+    intended_final_use_category: extended
+
+  - <<: *component_defaults
+    id: speaker_embedding.wespeaker
+    family: speaker_embedding
+    name: wespeaker
+    implementation_class: WeSpeakerEmbeddingAdapter
+    implementation_path: app/inference_pipeline/speaker_embedding/wespeaker_adapter.py
+    registry_adapter_class: WeSpeakerEmbeddingAdapter
+    config_path: configs/inference/components/speaker_embedding/wespeaker.yaml
+    config_sha256: 0C774E10DC235664197D893A9940FF99908242674BC3D60212B223490ABAB8DD
+    packages: ["wespeaker @ git commit 1d4164bdb1dcfee4624093190fd5ecbb19447686"]
+    model_assets: [stage8:wespeaker_voxceleb_resnet221_lm]
+    environment_profiles: [wespeaker]
+    qualification_backend_id: wespeaker
+    input_contract: audio_segments.v1
+    output_contract: speaker_embedding.v1
+    compatibility_constraints: ["Mono 16 kHz; minimum 0.75 s; downloads disabled."]
+    readiness: {status: qualified_with_warnings, evidence: "runs/extended_backend_qualification/wespeaker.json: finite normalized repeatable vectors passed", blockers: ["isolated hdbscan metadata override and upstream warnings recorded"]}
+    intended_final_use_category: extended
+
+  - <<: *component_defaults
+    id: speaker_matching.no_op_speaker_matching
+    family: speaker_matching
+    name: no_op_speaker_matching
+    implementation_class: NoOpSpeakerMatcher
+    implementation_path: app/inference_pipeline/speaker_matching/base.py
+    registry_adapter_class: NoOpSpeakerMatchingAdapter
+    higher_level_config_references: [configs/inference/base.yaml, configs/inference/cpu_smoke.yaml, configs/inference/desktop_gpu.yaml, configs/inference/e2e_named_transcript.yaml, configs/inference/live_mic_realtime_whisper_base.yaml, configs/inference/live_mic_realtime_whisper_tiny.yaml, configs/inference/live_mic_whisper_base.yaml, configs/inference/live_mic_whisper_tiny.yaml, configs/inference/raspberry_pi_future.yaml]
+    input_contract: speaker_embedding.v1
+    output_contract: speaker_decision.v1
+    compatibility_constraints: ["Returns no assignment; contract-only baseline."]
+
+  - <<: *component_defaults
+    id: speaker_matching.cosine_threshold
+    family: speaker_matching
+    name: cosine_threshold
+    implementation_class: CosineThresholdSpeakerMatcher
+    implementation_path: app/inference_pipeline/speaker_matching/cosine_matcher.py
+    registry_adapter_class: CosineThresholdSpeakerMatchingAdapter
+    config_path: configs/inference/components/speaker_matching/cosine_threshold.yaml
+    config_sha256: 89C4214F764FFF1FE26C7FA21B4B9750D3806EBC17466CA6905B16C21C54C3AD
+    higher_level_config_references: [configs/inference/live_mic_realtime_whisper_base_speaker_matching.yaml, configs/inference/simple_vad_speaker_change_enrollment.yaml]
+    packages: [numpy==2.2.6]
+    environment_profiles: [core-cpu, core-cuda, extended-local, onnx, wenet, wespeaker, credential-diarization]
+    input_contract: speaker_embedding.v1
+    output_contract: speaker_decision.v1
+    compatibility_constraints: ["Embedding model IDs must match; below-threshold or ambiguous output is literal Unknown and must be preserved/scored."]
+    readiness: {status: qualified, evidence: "CPU qualification with SpeechBrain ECAPA and real enrollment database", blockers: ["Threshold requires benchmark calibration before release claims"]}
+    intended_final_use_category: core
+
+  - <<: *component_defaults
+    id: diarization.no_op_diarization
+    family: diarization
+    name: no_op_diarization
+    implementation_class: NoOpDiarizer
+    implementation_path: app/inference_pipeline/diarization/base.py
+    registry_adapter_class: NoOpDiarizationAdapter
+    higher_level_config_references: [configs/inference/base.yaml, configs/inference/cpu_smoke.yaml, configs/inference/e2e_named_transcript.yaml, configs/inference/live_mic_realtime_whisper_base.yaml, configs/inference/live_mic_realtime_whisper_base_speaker_matching.yaml, configs/inference/live_mic_realtime_whisper_tiny.yaml, configs/inference/live_mic_whisper_base.yaml, configs/inference/live_mic_whisper_tiny.yaml, configs/inference/raspberry_pi_future.yaml, configs/inference/simple_vad_speaker_change_enrollment.yaml]
+    input_contract: loaded_audio.v1
+    output_contract: speaker_turns.v1
+    compatibility_constraints: ["Returns no turns; contract-only baseline."]
+
+  - <<: *component_defaults
+    id: diarization.pyannote_community
+    family: diarization
+    name: pyannote_community
+    implementation_class: PyannoteCommunityDiarizer
+    implementation_path: app/inference_pipeline/diarization/pyannote_adapter.py
+    registry_adapter_class: PyannoteCommunityDiarizationAdapter
+    config_path: configs/inference/components/diarization/pyannote_community.yaml
+    config_sha256: A01AB43D01D7DBEFDA9E416B0294A3AAFF83D2F364480212AF1FD92877157AE3
+    higher_level_config_references: [configs/inference/desktop_gpu.yaml]
+    packages: [pyannote.audio==4.0.7]
+    model_assets: [models/cache/pyannote]
+    credential_requirements: [PYANNOTE_AUTH_TOKEN]
+    model_terms: "User must accept the upstream gated model terms; the registry records only the environment-variable name, never the token."
+    hardware_support: {cpu: true, gpu: true, cuda: true}
+    device_dtype_support: [cpu/backend-default, cuda/backend-default-unqualified]
+    input_contract: loaded_audio.v1
+    output_contract: speaker_turns.v1
+    compatibility_constraints: ["Gated model access and package required; downloads remain disabled during benchmark runs."]
+    readiness: {status: credential_required, evidence: "Current CPU qualification has neither package nor token", blockers: ["credential_required: accepted terms and PYANNOTE_AUTH_TOKEN", "unavailable: pyannote.audio not installed", "asset_required: local model cache"]}
+    intended_final_use_category: credential_gated
+
+  - <<: *component_defaults
+    id: diarization.picovoice_falcon
+    family: diarization
+    name: picovoice_falcon
+    implementation_class: PicovoiceFalconDiarizer
+    implementation_path: app/inference_pipeline/diarization/falcon_adapter.py
+    registry_adapter_class: PicovoiceFalconDiarizationAdapter
+    config_path: configs/inference/components/diarization/picovoice_falcon.yaml
+    config_sha256: 7551DAB5FF5346816CE580D205AB9A03031137213A7B6D5A88E26373F609064E
+    packages: [pvfalcon==2.0.1]
+    credential_requirements: [PICOVOICE_ACCESS_KEY]
+    model_terms: "Picovoice account/key terms must be accepted by the user; no key value may be logged or stored in artifacts."
+    input_contract: loaded_audio.v1
+    output_contract: speaker_turns.v1
+    compatibility_constraints: ["Requires pvfalcon and an access key at runtime."]
+    readiness: {status: credential_required, evidence: "Current CPU qualification has neither package nor key", blockers: ["credential_required: PICOVOICE_ACCESS_KEY", "unavailable: pvfalcon not installed"]}
+    intended_final_use_category: credential_gated
+
+  - <<: *component_defaults
+    id: diarization.sherpa_onnx_diarization
+    family: diarization
+    name: sherpa_onnx_diarization
+    implementation_class: SherpaOnnxDiarizer
+    implementation_path: app/inference_pipeline/diarization/sherpa_onnx_adapter.py
+    registry_adapter_class: SherpaOnnxDiarizationAdapter
+    config_path: configs/inference/components/diarization/sherpa_onnx.yaml
+    config_sha256: 00BB4D82219B8C9D505F6CE373625C164D0C4553A96FF06DBAF72B7C715E2DFB
+    packages: [sherpa-onnx==1.13.4]
+    model_assets: [stage8:sherpa_onnx_diarization_segmentation, stage8:sherpa_onnx_speaker_embedding]
+    environment_profiles: [onnx]
+    qualification_backend_id: sherpa_onnx_diarization
+    input_contract: loaded_audio.v1
+    output_contract: speaker_turns.v1
+    compatibility_constraints: ["CPU ONNX provider; segmentation plus embedding assets required."]
+    readiness: {status: qualified, evidence: "runs/extended_backend_qualification/onnx.json sherpa_onnx_diarization: repeated anonymous turns and RTTM conversion passed", blockers: ["scientific diarization evaluation deferred to Stage 11"]}
+    intended_final_use_category: extended
+
+  - <<: *component_defaults
+    id: diarization.nemo_diarization
+    family: diarization
+    name: nemo_diarization
+    implementation_class: NemoDiarizer
+    implementation_path: app/inference_pipeline/diarization/nemo_adapter.py
+    registry_adapter_class: NemoDiarizationAdapter
+    config_path: configs/inference/components/diarization/nemo_diarization.yaml
+    config_sha256: 0A2F370449A68339463B2FFE58333CBE503B61AAEAF9D3580C6350D510A8D4BA
+    packages: ["nemo_toolkit[asr]==2.7.3"]
+    model_assets: [models/cache/nemo/diarization/config.yaml]
+    supported_os: [linux]
+    hardware_support: {cpu: false, gpu: true, cuda: true}
+    device_dtype_support: [cuda/backend-default-unqualified]
+    input_contract: loaded_audio.v1
+    output_contract: speaker_turns.v1
+    compatibility_constraints: ["Separate Linux/CUDA environment; current fragment selects ClusteringDiarizer, not a shipped MSDD config."]
+    readiness: {status: platform_required, evidence: "Current host is Windows with CPU-only Torch and no NeMo asset", blockers: ["platform_required: Linux", "incompatible_environment: CUDA Torch profile not built", "asset_required: diarization config"]}
+    intended_final_use_category: platform_specific
+
+  - <<: *component_defaults
+    id: workflows.enrollment_generation
+    family: workflows
+    name: enrollment_generation
+    implementation_class: build_enrollment_database
+    implementation_path: app/inference_pipeline/enrollment/store.py
+    registry_adapter_class: null
+    higher_level_config_references: [scripts/enroll_speaker.py, configs/inference/simple_vad_speaker_change_enrollment.yaml]
+    packages: [speechbrain==1.1.0, soundfile==0.13.1]
+    input_contract: evaluation_record.v1
+    output_contract: enrollment_db.v1
+    compatibility_constraints: ["Enrollment and probe utterances must remain disjoint; model IDs and source identities are preserved."]
+    readiness: {status: qualified, evidence: "artifacts/speaker_protocol: 12 enrolled speakers, 60 enrollment utterances, 180 probes", blockers: []}
+    intended_final_use_category: core
+
+  - <<: *component_defaults
+    id: workflows.temporal_speaker_evidence
+    family: workflows
+    name: temporal_speaker_evidence
+    implementation_class: SpeakerEvidenceAccumulator
+    implementation_path: app/inference_pipeline/realtime/speaker_state.py
+    registry_adapter_class: null
+    higher_level_config_references: [configs/inference/live_mic_realtime_whisper_base_speaker_matching.yaml]
+    input_contract: speaker_decision.v1
+    output_contract: temporal_speaker_state.v1
+    compatibility_constraints: ["Unknown remains an explicit state/label and is not dropped."]
+    readiness: {status: contract_qualified, evidence: "realtime speaker-state and pipeline tests", blockers: ["No standard benchmark quality qualification yet"]}
+    intended_final_use_category: extended
+
+  - <<: *component_defaults
+    id: test_support.fixed_vad
+    family: test_support
+    name: fixed_vad
+    implementation_class: FixedVAD
+    implementation_path: app/inference_pipeline/vad/base.py
+    input_contract: loaded_audio.v1
+    output_contract: speech_regions.v1
+    compatibility_constraints: ["Tests only; deterministic supplied regions."]
+
+  - <<: *component_defaults
+    id: test_support.fixed_segmentation
+    family: test_support
+    name: fixed_segmentation
+    implementation_class: FixedSegmenter
+    implementation_path: app/inference_pipeline/segmentation/base.py
+    input_contract: speech_regions.v1
+    output_contract: audio_segments.v1
+    compatibility_constraints: ["Tests only; deterministic supplied segments."]
+
+  - <<: *component_defaults
+    id: test_support.fixed_asr
+    family: test_support
+    name: fixed_asr
+    implementation_class: FixedASR
+    implementation_path: app/inference_pipeline/asr/base.py
+    input_contract: audio_segments.v1
+    output_contract: asr_transcript.v1
+    compatibility_constraints: ["Tests only; deterministic supplied transcript."]
+
+  - <<: *component_defaults
+    id: test_support.fixed_diarization
+    family: test_support
+    name: fixed_diarization
+    implementation_class: FixedDiarizer
+    implementation_path: app/inference_pipeline/diarization/base.py
+    input_contract: loaded_audio.v1
+    output_contract: speaker_turns.v1
+    compatibility_constraints: ["Tests only; deterministic supplied turns."]
+
+  - <<: *component_defaults
+    id: test_support.deterministic_fake_speaker_embedding
+    family: test_support
+    name: deterministic_fake_speaker_embedding
+    implementation_class: DeterministicFakeSpeakerEmbedding
+    implementation_path: app/inference_pipeline/speaker_embedding/base.py
+    input_contract: audio_segments.v1
+    output_contract: speaker_embedding.v1
+    compatibility_constraints: ["Tests only; never valid for speaker-performance claims."]
+
+  - <<: *component_defaults
+    id: test_support.dummy_audio_reader
+    family: test_support
+    name: dummy_audio_reader
+    implementation_class: DummyAudioReader
+    implementation_path: app/inference_pipeline/dummy_components.py
+    input_contract: evaluation_record.v1
+    output_contract: audio_segments.v1
+    compatibility_constraints: ["Bridge tests only."]
+
+  - <<: *component_defaults
+    id: test_support.dummy_asr
+    family: test_support
+    name: dummy_asr
+    implementation_class: DummyASRComponent
+    implementation_path: app/inference_pipeline/dummy_components.py
+    input_contract: audio_segments.v1
+    output_contract: asr_transcript.v1
+    compatibility_constraints: ["Bridge tests only."]
+
+  - <<: *component_defaults
+    id: test_support.dummy_speaker_labeler
+    family: test_support
+    name: dummy_speaker_labeler
+    implementation_class: DummySpeakerLabeler
+    implementation_path: app/inference_pipeline/dummy_components.py
+    input_contract: speaker_embedding.v1
+    output_contract: speaker_decision.v1
+    compatibility_constraints: ["Bridge tests only."]

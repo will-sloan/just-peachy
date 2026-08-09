@@ -13,6 +13,11 @@ from app.augmentation import (
     generate_previews,
 )
 from app.augmentation.processor import total_duration_sec
+from app.campaign_analysis.cli import add_analysis_parser
+from app.campaign_executor.cli import add_campaign_parser
+from app.core_screening.cli import add_screening_parser
+from app.diarization_evaluation.cli import add_diarization_parser
+from app.extended_screening.cli import add_extended_screening_parser
 from app.dataset_registry.loader import (
     load_dataset_selection,
     parse_subset_filters,
@@ -24,11 +29,14 @@ from app.dataset_registry.registry import (
     list_datasets,
     mode_help,
 )
+from app.inference_pipeline.resolver import parse_assignments, resolve_pipeline
+from app.model_runner.configured import ConfiguredEvaluatorRunner
 from app.model_runner.external_stub import ExternalStubRunner
 from app.model_runner.simulated import FakeModelRunner
 from app.plotting.plots import build_plots
 from app.reporting.reporter import build_report
 from app.scoring.scorer import score_run
+from app.speaker_protocol.cli import add_speaker_protocol_parser
 from app.utils.json_utils import read_jsonl, write_json, write_jsonl
 from app.utils.logging_utils import setup_run_logger
 from app.utils.paths import find_project_root, safe_relative_to, tool_root
@@ -73,19 +81,35 @@ def build_parser() -> argparse.ArgumentParser:
     add_augmentation_args(run_parser)
     run_parser.set_defaults(func=command_run)
 
-    score_parser = subparsers.add_parser("score", help="Score predictions in an existing run folder")
-    score_parser.add_argument("--run-dir", required=True, type=Path, help="Existing run folder")
+    score_parser = subparsers.add_parser(
+        "score", help="Score predictions in an existing run folder"
+    )
+    score_parser.add_argument(
+        "--run-dir", required=True, type=Path, help="Existing run folder"
+    )
     score_parser.set_defaults(func=command_score)
 
-    report_parser = subparsers.add_parser("report", help="Build plots and reports for an existing scored run")
-    report_parser.add_argument("--run-dir", required=True, type=Path, help="Existing run folder")
+    report_parser = subparsers.add_parser(
+        "report", help="Build plots and reports for an existing scored run"
+    )
+    report_parser.add_argument(
+        "--run-dir", required=True, type=Path, help="Existing run folder"
+    )
     report_parser.set_defaults(func=command_report)
 
-    full_parser = subparsers.add_parser("full", help="Run inference, score, plot, and report")
+    full_parser = subparsers.add_parser(
+        "full", help="Run inference, score, plot, and report"
+    )
     add_selection_args(full_parser)
     add_runner_args(full_parser)
     add_augmentation_args(full_parser)
     full_parser.set_defaults(func=command_full)
+    add_campaign_parser(subparsers)
+    add_screening_parser(subparsers)
+    add_extended_screening_parser(subparsers)
+    add_speaker_protocol_parser(subparsers)
+    add_diarization_parser(subparsers)
+    add_analysis_parser(subparsers)
     return parser
 
 
@@ -269,7 +293,7 @@ def add_selection_args(parser: argparse.ArgumentParser) -> None:
 def add_runner_args(parser: argparse.ArgumentParser) -> None:
     parser.add_argument(
         "--runner",
-        choices=("simulation", "external-stub"),
+        choices=("simulation", "external-stub", "configured"),
         default="simulation",
         help="Model runner implementation.",
     )
@@ -278,6 +302,30 @@ def add_runner_args(parser: argparse.ArgumentParser) -> None:
         choices=("perfect", "noisy", "drop_some"),
         default="perfect",
         help="Fake runner behavior for simulation mode.",
+    )
+    parser.add_argument(
+        "--inference-config",
+        type=Path,
+        default=None,
+        help="Existing higher-level inference YAML used by --runner configured.",
+    )
+    parser.add_argument(
+        "--component",
+        action="append",
+        default=[],
+        help=(
+            "Configured-runner component selection as family=name. Can be repeated; "
+            "the selected component fragment is not modified."
+        ),
+    )
+    parser.add_argument(
+        "--inference-override",
+        action="append",
+        default=[],
+        help=(
+            "Configured-runner setting override as dotted.path=value. Values use YAML "
+            "scalar parsing and every source/final value is recorded."
+        ),
     )
 
 
@@ -343,7 +391,9 @@ def command_list_datasets(args: argparse.Namespace) -> None:
         print(f"  filters: {filter_help(definition)}")
         print(f"  modes: {mode_help(definition)}")
         print(f"  augmentation: {'yes' if definition.supports_augmentation else 'no'}")
-        print(f"  speaker attribution: {'yes' if definition.supports_speaker_attribution else 'no'}")
+        print(
+            f"  speaker attribution: {'yes' if definition.supports_speaker_attribution else 'no'}"
+        )
 
 
 def command_gui(args: argparse.Namespace) -> None:
@@ -403,7 +453,9 @@ def command_full(args: argparse.Namespace) -> None:
 
     print("[3/6] Running inference")
     runner = build_runner(args)
-    runner_result = runner.run_batch(records, run_dir / "predictions", run_config, logger)
+    runner_result = runner.run_batch(
+        records, run_dir / "predictions", run_config, logger
+    )
 
     print("[4/6] Scoring predictions")
     score_result = score_run(run_dir, definition, records, logger)
@@ -433,7 +485,11 @@ def prepare_new_run(
     filters = parse_subset_filters(collect_subset_filter_items(args), definition)
     runs_root = (args.runs_root or (tool_root(project_root) / "runs")).resolve()
 
-    print("[1/6] Loading dataset selection" if command_name == "full" else "[1/4] Loading dataset selection")
+    print(
+        "[1/6] Loading dataset selection"
+        if command_name == "full"
+        else "[1/4] Loading dataset selection"
+    )
     selection = load_dataset_selection(
         project_root=project_root,
         definition=definition,
@@ -455,7 +511,11 @@ def prepare_new_run(
     run_dir = create_run_dir(runs_root, definition.key, command_name, args.run_name)
 
     logger = setup_run_logger(run_dir / "logs" / "evaluation.log")
-    print("[2/6] Preparing augmentation" if command_name == "full" else "[2/4] Preparing augmentation")
+    print(
+        "[2/6] Preparing augmentation"
+        if command_name == "full"
+        else "[2/4] Preparing augmentation"
+    )
     preview_manifest = generate_previews(
         base_records=base_records,
         run_dir=run_dir,
@@ -490,7 +550,16 @@ def prepare_new_run(
         },
         "runner": {
             "name": args.runner,
-            "simulation_mode": args.simulation_mode if args.runner == "simulation" else None,
+            "simulation_mode": args.simulation_mode
+            if args.runner == "simulation"
+            else None,
+            "selected_inference_config_path": (
+                str(args.inference_config.resolve())
+                if args.runner == "configured" and args.inference_config is not None
+                else None
+            ),
+            "component_overrides": list(args.component or []),
+            "setting_overrides": list(args.inference_override or []),
         },
         "prediction_contract": {
             "minimum_file": "predictions/utterances.jsonl",
@@ -499,7 +568,9 @@ def prepare_new_run(
     }
     write_yaml(
         run_dir / "run_config.yaml",
-        relative_artifact_config(run_config, artifact_root=run_dir, project_root=project_root),
+        relative_artifact_config(
+            run_config, artifact_root=run_dir, project_root=project_root
+        ),
     )
     write_json(
         run_dir / "dataset_selection.json",
@@ -514,11 +585,15 @@ def prepare_new_run(
     write_json(run_dir / "augmentation_config.json", run_config["augmentation"])
     write_jsonl(
         run_dir / "dataset_selection_source_records.jsonl",
-        relative_artifact_records(base_records, artifact_root=run_dir, project_root=project_root),
+        relative_artifact_records(
+            base_records, artifact_root=run_dir, project_root=project_root
+        ),
     )
     write_jsonl(
         run_dir / "dataset_selection_records.jsonl",
-        relative_artifact_records(records, artifact_root=run_dir, project_root=project_root),
+        relative_artifact_records(
+            records, artifact_root=run_dir, project_root=project_root
+        ),
     )
 
     print(
@@ -616,6 +691,25 @@ def build_runner(args: argparse.Namespace):
         return FakeModelRunner(args.simulation_mode)
     if args.runner == "external-stub":
         return ExternalStubRunner()
+    if args.runner == "configured":
+        if args.inference_config is None:
+            raise ValueError("--runner configured requires --inference-config")
+        component_values = parse_assignments(args.component, label="--component")
+        component_overrides: dict[str, str] = {}
+        for family, value in component_values.items():
+            if not isinstance(value, str) or not value.strip():
+                raise ValueError(f"--component {family} must select a component name")
+            component_overrides[family] = value.strip()
+        setting_overrides = parse_assignments(
+            args.inference_override,
+            label="--inference-override",
+        )
+        resolution = resolve_pipeline(
+            args.inference_config,
+            component_overrides=component_overrides,
+            setting_overrides=setting_overrides,
+        )
+        return ConfiguredEvaluatorRunner(resolution)
     raise ValueError(f"Unknown runner {args.runner}")
 
 

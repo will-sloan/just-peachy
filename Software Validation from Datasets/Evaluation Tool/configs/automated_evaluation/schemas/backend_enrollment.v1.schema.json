@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "backend_enrollment.v1.schema.json",
+  "type": "object",
+  "required": ["schema_version", "backend_identity", "embedding_dimension", "normalization", "preprocessing", "aggregation_method", "threshold_policy_version", "speakers", "enrollment_hash", "private_identity_mapping_included"],
+  "properties": {
+    "schema_version": {"const": "backend-enrollment.v1"},
+    "embedding_dimension": {"type": "integer", "minimum": 1},
+    "normalization": {"const": "l2"},
+    "threshold_policy_version": {"const": "speaker-threshold-policy.v1"},
+    "speakers": {"type": "array"},
+    "private_identity_mapping_included": {"const": false}
+  },
+  "additionalProperties": true
+}

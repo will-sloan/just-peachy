@@ -1,0 +1,4 @@
+# Install with --no-deps after wespeaker.txt. The immutable source metadata
+# pins hdbscan 0.8.37, which has no supported Python 3.12 Windows wheel; the
+# profile supplies the audited compatible hdbscan 0.8.44 runtime instead.
+wespeaker @ git+https://github.com/wenet-e2e/wespeaker.git@1d4164bdb1dcfee4624093190fd5ecbb19447686

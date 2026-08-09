@@ -19,6 +19,7 @@ from app.inference_pipeline.asr.base import (
 )
 from app.inference_pipeline.contracts import ASRTranscript, AudioSegment, WordTiming
 from app.inference_pipeline.errors import ContractValidationError, InferencePipelineError
+from app.resource_telemetry.context import telemetry_span
 
 
 class VoskASRUnavailableError(InferencePipelineError):
@@ -55,18 +56,27 @@ class VoskASR(ASRBase):
         factory = self._recognizer_factory()
         started_at = time.perf_counter()
         try:
-            recognizer = factory(model, float(audio.sample_rate))
-            if hasattr(recognizer, "SetWords"):
-                recognizer.SetWords(self.words)
-            if hasattr(recognizer, "SetPartialWords"):
-                recognizer.SetPartialWords(self.partial_words)
-            pcm16 = np.clip(audio.samples, -1.0, 1.0)
-            pcm16 = (pcm16 * 32767.0).astype("<i2", copy=False)
-            payload = pcm16.tobytes()
-            bytes_per_chunk = self.chunk_frames * 2
-            for offset in range(0, len(payload), bytes_per_chunk):
-                recognizer.AcceptWaveform(payload[offset : offset + bytes_per_chunk])
-            result = _json_result(recognizer.FinalResult())
+            with telemetry_span(
+                "asr_inference",
+                phase="warm_inference",
+                identifiers={
+                    "recording_id": context.recording_id,
+                    "utt_id": context.utt_id,
+                    "segment_index": context.segment_index,
+                },
+            ):
+                recognizer = factory(model, float(audio.sample_rate))
+                if hasattr(recognizer, "SetWords"):
+                    recognizer.SetWords(self.words)
+                if hasattr(recognizer, "SetPartialWords"):
+                    recognizer.SetPartialWords(self.partial_words)
+                pcm16 = np.clip(audio.samples, -1.0, 1.0)
+                pcm16 = (pcm16 * 32767.0).astype("<i2", copy=False)
+                payload = pcm16.tobytes()
+                bytes_per_chunk = self.chunk_frames * 2
+                for offset in range(0, len(payload), bytes_per_chunk):
+                    recognizer.AcceptWaveform(payload[offset : offset + bytes_per_chunk])
+                result = _json_result(recognizer.FinalResult())
         except Exception as exc:
             raise VoskASRUnavailableError(f"Vosk transcription failed: {exc}") from exc
 
@@ -117,7 +127,8 @@ class VoskASR(ASRBase):
 
         started_at = time.perf_counter()
         try:
-            self.model = vosk.Model(str(model_path))
+            with telemetry_span("asr_model_load", phase="cold_initialization"):
+                self.model = vosk.Model(str(model_path))
         except Exception as exc:  # pragma: no cover - dependency boundary
             raise VoskASRUnavailableError(f"Vosk model load failed: {exc}") from exc
         self._load_sec = time.perf_counter() - started_at

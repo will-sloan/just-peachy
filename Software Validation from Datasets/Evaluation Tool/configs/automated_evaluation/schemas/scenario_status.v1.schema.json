@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "scenario-status.v1",
+  "title": "Scenario execution status and reconciled counts",
+  "type": "object",
+  "required": ["schema_version", "artifact_registry_version", "scenario_id", "scenario_hash", "scenario_type", "state", "counts"],
+  "properties": {
+    "schema_version": {"const": "scenario-status.v1"},
+    "artifact_registry_version": {"const": "artifact-registry.v1"},
+    "scenario_id": {"type": "string", "pattern": "^scenario_[0-9a-f]{12}$"},
+    "scenario_hash": {"type": "string", "pattern": "^[0-9A-F]{64}$"},
+    "scenario_type": {"enum": ["asr", "vad_only", "embedding_extraction", "speaker_verification", "diarization", "synthetic_executor"]},
+    "state": {"enum": ["pending", "running", "successful", "failed", "stopped"]},
+    "counts": {
+      "type": "object",
+      "required": ["selected_items", "successful_items", "failed_items", "diagnostics", "error_records"],
+      "additionalProperties": {"type": "integer", "minimum": 0}
+    }
+  }
+}

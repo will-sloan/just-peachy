@@ -1,0 +1,18 @@
+{
+  "errors": [],
+  "expected_recording_ids": [
+    "diar_0e112c574a82"
+  ],
+  "hypothesis_recording_ids": [
+    "diar_0e112c574a82"
+  ],
+  "reference_recording_ids": [
+    "diar_0e112c574a82"
+  ],
+  "schema_version": "diarization-timebase-validation.v1",
+  "timebase": "source_recording_absolute_seconds",
+  "valid": true,
+  "warnings": [
+    "hypothesis RTTM turn extends outside its UEM and will be clipped"
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "scenario-definition.v1",
+  "title": "Immutable evaluation scenario",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "canonicalization_version",
+    "hash_version",
+    "hash_algorithm",
+    "benchmark_manifest",
+    "panel",
+    "tier",
+    "dataset_slice",
+    "condition",
+    "pipeline",
+    "seed",
+    "repetition",
+    "runtime",
+    "timeout_policy",
+    "resource_policy",
+    "scoring_policy_version",
+    "failure_policy",
+    "scenario_id",
+    "scenario_hash"
+  ],
+  "properties": {
+    "schema_version": {"const": "scenario-definition.v1"},
+    "canonicalization_version": {"const": "scenario-canonicalization.v1"},
+    "hash_version": {"const": "scenario-hash.v1"},
+    "hash_algorithm": {"const": "sha256"},
+    "panel": {"enum": ["controlled_clean", "native_robustness", "speaker_protocol"]},
+    "tier": {"enum": ["small", "standard", "large"]},
+    "seed": {"const": 3800},
+    "repetition": {"type": "integer", "minimum": 1},
+    "scoring_policy_version": {"const": "scoring-policy.v1"},
+    "scenario_id": {"type": "string", "pattern": "^scenario_[0-9a-f]{12}$"},
+    "scenario_hash": {"type": "string", "pattern": "^[0-9A-F]{64}$"},
+    "condition": {
+      "type": "object",
+      "required": ["id", "augmentation", "noise_type", "snr_db", "rir"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "augmentation": {"enum": ["none", "noise", "reverb", "reverb_noise"]},
+        "noise_type": {"type": ["string", "null"]},
+        "snr_db": {"type": ["number", "null"]},
+        "rir": {"type": ["object", "null"]}
+      }
+    }
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "run-config.v1",
+  "title": "Portable resolved scenario run configuration",
+  "type": "object",
+  "required": ["schema_version", "scenario_id", "scenario_hash", "artifact_registry_version", "settings"],
+  "properties": {
+    "schema_version": {"const": "run-config.v1"},
+    "scenario_id": {"type": "string", "pattern": "^scenario_[0-9a-f]{12}$"},
+    "scenario_hash": {"type": "string", "pattern": "^[0-9A-F]{64}$"},
+    "artifact_registry_version": {"const": "artifact-registry.v1"},
+    "settings": {"type": "object"}
+  }
+}

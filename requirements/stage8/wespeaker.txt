@@ -1,0 +1,12 @@
+-r ../inference.txt
+
+fire==0.4.0
+kaldiio==2.17.2
+tableprint==0.9.1
+pypeln==0.4.9
+umap-learn==0.5.6
+hdbscan==0.8.44
+pynndescent==0.6.0
+audioread==3.1.0
+platformdirs==4.4.0
+onnxruntime==1.28.0

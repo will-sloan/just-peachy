@@ -1,0 +1,34 @@
+{
+  "backend_identity": {
+    "aggregation_method": "normalized_mean",
+    "backend_id": "speechbrain_ecapa",
+    "config_hash": "13ACC7E76F621CEA132DCD3419667E791AF0005FDE98EE9AEFD93BC8632215DF",
+    "config_path": "configs/inference/components/speaker_embedding/speechbrain_ecapa.yaml",
+    "embedding_dimension": 192,
+    "environment_profile": "core-cpu",
+    "identity_hash": "D64F6695332208CACDC6F22146D114F0B5CC2D27F445D344431F7BA1D161474F",
+    "model_hash": "2744A8A1A4C9A4C810C436F5121315CC244436C46E25A717275B763AE0E42A3C",
+    "model_id": "speechbrain_ecapa:f47951032c81",
+    "normalization": "l2",
+    "preprocessing": {
+      "channel_count": 1,
+      "dtype": "float32",
+      "sample_rate_hz": 16000
+    },
+    "qualification_status": "qualified",
+    "schema_version": "speaker-backend-identity.v1",
+    "threshold_policy_version": "speaker-threshold-policy.v1"
+  },
+  "backend_identity_hash": "D64F6695332208CACDC6F22146D114F0B5CC2D27F445D344431F7BA1D161474F",
+  "expected_item_ids_sha256": "B4EA6FA19AF85004E98484D0AAA9C4D692B18D5BA879BA5EF2501D271471A615",
+  "expected_items": 8,
+  "observed_items": 8,
+  "private_identity_mapping_included": false,
+  "protocol_id": "speaker_protocol_7610be6695bf",
+  "reference_identity_prediction_fallback": false,
+  "run_id": "speaker_run_84d4904a6d3b",
+  "schema_version": "speaker-protocol-run.v1",
+  "scope": "real_one-item-per-role-smoke",
+  "successful_embeddings": 8,
+  "unknown_label": "Unknown"
+}

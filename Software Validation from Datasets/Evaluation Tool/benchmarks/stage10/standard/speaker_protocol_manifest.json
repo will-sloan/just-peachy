@@ -1,0 +1,74 @@
+{
+  "artifacts": {
+    "calibration": {
+      "bytes": 77903,
+      "path": "calibration.parquet",
+      "rows": 136,
+      "sha256": "7BA8A93D8708B12B8571B40A551829EBCC1F728E013C5E016834081B69CB2862"
+    },
+    "clean_probes": {
+      "bytes": 100437,
+      "path": "clean_probes.parquet",
+      "rows": 180,
+      "sha256": "EF450EAECB1BD4069D18F3916E38372D095F34722DADE900C749DFF8D4C112EF"
+    },
+    "degraded_probes": {
+      "bytes": 101541,
+      "path": "degraded_probes.parquet",
+      "rows": 180,
+      "sha256": "1472CE2C302B73DA6C5F154A89E1DF3860D88DCFB32DE31757312B89DFA8C69E"
+    },
+    "enrollment": {
+      "bytes": 38138,
+      "path": "enrollment.parquet",
+      "rows": 60,
+      "sha256": "59710E71D377226F1FE3C927226AB6E6BAAA877D1D46B7CEE0664222D2E91594"
+    },
+    "known_evaluation": {
+      "bytes": 82569,
+      "path": "known_evaluation.parquet",
+      "rows": 144,
+      "sha256": "DC971236AF9B9BE433B8FBBFA3AEA40952DD0C0E64B7CDCDED02D2EE65CE7AAB"
+    },
+    "unknown_evaluation": {
+      "bytes": 49329,
+      "path": "unknown_evaluation.parquet",
+      "rows": 80,
+      "sha256": "DC9FE6E557708CC00D89E52A67BA5E91BD13D137EB6998765A5F3A09BDCAA995"
+    }
+  },
+  "authoritative_representation": "parquet",
+  "benchmark_tier": "standard",
+  "canonicalization_version": "speaker-protocol-canonicalization.v1",
+  "hash_algorithm": "sha256",
+  "leakage_validation": {
+    "calibration_evaluation_source_disjoint": true,
+    "calibration_evaluation_unknown_speakers_disjoint": true,
+    "clean_degraded_variants_stay_in_one_split": true,
+    "enrollment_probe_source_disjoint": true,
+    "private_identity_mapping_absent": true,
+    "unknown_speakers_not_enrolled": true
+  },
+  "manifest_schema_version": "speaker-protocol-manifest.v1",
+  "policy": {
+    "path": "configs/automated_evaluation/speaker_protocol.v1.yaml",
+    "schema_version": "speaker-protocol-policy.v1",
+    "sha256": "E7E74C554B56A56065036E512103599B013DA5BFFF190D516DE7BF2738AB3CE3"
+  },
+  "privacy": {
+    "authorized_demographic_fields": [
+      "gender",
+      "accent_group"
+    ],
+    "private_real_name_mapping_included": false,
+    "speaker_ids": "deterministic pseudonyms"
+  },
+  "protocol_id": "speaker_protocol_d5ee52f96124",
+  "schema_version": "speaker-protocol-manifest-index.v1",
+  "selection_seed": 3800,
+  "source_manifest": {
+    "path": "benchmarks/v1/speaker_protocol.parquet",
+    "schema_version": "benchmark-manifest.v1",
+    "sha256": "A9B0B28F5C7FDEF51215069521215BB78598DB9497E40BDA6C893181F71288D4"
+  }
+}

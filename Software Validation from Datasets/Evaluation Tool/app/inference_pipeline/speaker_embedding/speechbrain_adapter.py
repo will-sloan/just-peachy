@@ -28,6 +28,7 @@ from app.inference_pipeline.speaker_embedding.base import (
     peak_gpu_memory_mb,
     process_memory_mb,
 )
+from app.resource_telemetry.context import telemetry_span
 
 
 class SpeechBrainUnavailableError(InferencePipelineError):
@@ -103,8 +104,18 @@ class SpeechBrainECAPAAdapter(SpeakerEmbeddingBase):
         model = self._model(context, device)
         waveform = _move_waveform(waveform, device)
 
-        with torch.inference_mode():
-            raw_embedding = _encode_batch(model, waveform)
+        with telemetry_span(
+            "embedding_extraction",
+            phase="warm_inference",
+            identifiers={
+                "recording_id": context.recording_id,
+                "utt_id": context.utt_id,
+                "segment_index": context.segment_index,
+            },
+            cuda=device == "cuda",
+        ):
+            with torch.inference_mode():
+                raw_embedding = _encode_batch(model, waveform)
         vector_tensor = torch.as_tensor(raw_embedding).detach().float().cpu().reshape(-1)
         if vector_tensor.numel() == 0:
             raise SpeechBrainUnavailableError("SpeechBrain returned an empty embedding vector.")
@@ -179,12 +190,17 @@ class SpeechBrainECAPAAdapter(SpeakerEmbeddingBase):
 
         started_at = time.perf_counter()
         try:
-            self.model = EncoderClassifier.from_hparams(
-                source=source,
-                savedir=str(savedir) if savedir is not None else None,
-                run_opts={"device": device},
-                local_strategy=LocalStrategy.COPY,
-            )
+            with telemetry_span(
+                "embedding_model_load",
+                phase="cold_initialization",
+                cuda=device == "cuda",
+            ):
+                self.model = EncoderClassifier.from_hparams(
+                    source=source,
+                    savedir=str(savedir) if savedir is not None else None,
+                    run_opts={"device": device},
+                    local_strategy=LocalStrategy.COPY,
+                )
         except Exception as exc:  # pragma: no cover - dependency boundary
             raise SpeechBrainUnavailableError(f"SpeechBrain model load failed: {exc}") from exc
         self._load_sec = time.perf_counter() - started_at

@@ -1,0 +1,55 @@
+{
+  "profile_pairs": [
+    {
+      "left": "extended-local",
+      "right": "extended-local",
+      "single_process_composable": true
+    },
+    {
+      "left": "extended-local",
+      "right": "onnx",
+      "single_process_composable": false
+    },
+    {
+      "left": "extended-local",
+      "right": "wespeaker",
+      "single_process_composable": false
+    },
+    {
+      "left": "onnx",
+      "right": "extended-local",
+      "single_process_composable": false
+    },
+    {
+      "left": "onnx",
+      "right": "onnx",
+      "single_process_composable": true
+    },
+    {
+      "left": "onnx",
+      "right": "wespeaker",
+      "single_process_composable": false
+    },
+    {
+      "left": "wespeaker",
+      "right": "extended-local",
+      "single_process_composable": false
+    },
+    {
+      "left": "wespeaker",
+      "right": "onnx",
+      "single_process_composable": false
+    },
+    {
+      "left": "wespeaker",
+      "right": "wespeaker",
+      "single_process_composable": true
+    }
+  ],
+  "profiles": [
+    "extended-local",
+    "onnx",
+    "wespeaker"
+  ],
+  "schema_version": "extended-environment-compatibility-matrix.v1"
+}

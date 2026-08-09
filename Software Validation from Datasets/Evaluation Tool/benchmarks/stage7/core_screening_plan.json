@@ -1,0 +1,620 @@
+{
+  "benchmark": {
+    "condition_set": "smoke",
+    "datasets": [
+      "cmu_arctic",
+      "hifitts",
+      "librispeech"
+    ],
+    "item_count": 165,
+    "item_identity_sha256": "7A720E485F41ECBB51CE34446B8A25F1840CCC9CF7FB0583A401066715E5DE95",
+    "manifest": {
+      "authoritative_representation": "parquet",
+      "bytes": 311975,
+      "canonicalization_version": "manifest-canonicalization.v1",
+      "hash_algorithm": "sha256",
+      "hash_version": "manifest-hash.v1",
+      "manifest_id": "manifest_0bd28359f11a",
+      "path": "small_source_manifest.parquet",
+      "rows": 405,
+      "schema_version": "benchmark-manifest.v1",
+      "sha256": "0BD28359F11AB283C349386BB5DFC78E52C3C1E8B4EDE271551F5029C9FC44F6"
+    },
+    "panel": "controlled_clean",
+    "tier": "small"
+  },
+  "candidate_definitions": {
+    "energy_chunks__whisper_base": {
+      "asr": "whisper_base",
+      "candidate_id": "energy_chunks__whisper_base",
+      "component_overrides": {
+        "asr": "whisper_base",
+        "segmentation": "vad_chunks",
+        "vad": "energy_vad"
+      },
+      "components": {
+        "asr": "whisper_base",
+        "diarization": "no_op_diarization",
+        "segmentation": "vad_chunks",
+        "speaker_embedding": "no_op_speaker_embedding",
+        "speaker_matching": "no_op_speaker_matching",
+        "vad": "energy_vad"
+      },
+      "resolved_config_sha256": "8868260FB8AA632264BC594067F9571481BBFDCE50304DF1AAAA3CE8DF974546",
+      "segmentation_strategy": "energy_chunks",
+      "selected_config_path": "configs/inference/live_mic_whisper_base.yaml",
+      "selected_config_sha256": "48278A1941899EA87A862A367BDA99A80C65B8735F1565F1B8A11C81A4B0E7EB"
+    },
+    "energy_observe__whisper_base": {
+      "asr": "whisper_base",
+      "candidate_id": "energy_observe__whisper_base",
+      "component_overrides": {
+        "asr": "whisper_base",
+        "vad": "energy_vad"
+      },
+      "components": {
+        "asr": "whisper_base",
+        "diarization": "no_op_diarization",
+        "segmentation": "no_op_segmentation",
+        "speaker_embedding": "no_op_speaker_embedding",
+        "speaker_matching": "no_op_speaker_matching",
+        "vad": "energy_vad"
+      },
+      "resolved_config_sha256": "C6F74EEC0EA358767FE2F17F7D581C9134ED3AB7EF6DEB833A5073A00275B4F1",
+      "segmentation_strategy": "energy_observe",
+      "selected_config_path": "configs/inference/live_mic_whisper_base.yaml",
+      "selected_config_sha256": "48278A1941899EA87A862A367BDA99A80C65B8735F1565F1B8A11C81A4B0E7EB"
+    },
+    "full_record__whisper_base": {
+      "asr": "whisper_base",
+      "candidate_id": "full_record__whisper_base",
+      "component_overrides": {
+        "asr": "whisper_base"
+      },
+      "components": {
+        "asr": "whisper_base",
+        "diarization": "no_op_diarization",
+        "segmentation": "no_op_segmentation",
+        "speaker_embedding": "no_op_speaker_embedding",
+        "speaker_matching": "no_op_speaker_matching",
+        "vad": "no_op_vad"
+      },
+      "resolved_config_sha256": "08AB2DEAD7917716A08E610FAB4F2A4F086FD4A42F2AD90B469B5AD88612F5BC",
+      "segmentation_strategy": "full_record",
+      "selected_config_path": "configs/inference/live_mic_whisper_base.yaml",
+      "selected_config_sha256": "48278A1941899EA87A862A367BDA99A80C65B8735F1565F1B8A11C81A4B0E7EB"
+    },
+    "full_record__whisper_small": {
+      "asr": "whisper_small",
+      "candidate_id": "full_record__whisper_small",
+      "component_overrides": {
+        "asr": "whisper_small"
+      },
+      "components": {
+        "asr": "whisper_small",
+        "diarization": "no_op_diarization",
+        "segmentation": "no_op_segmentation",
+        "speaker_embedding": "no_op_speaker_embedding",
+        "speaker_matching": "no_op_speaker_matching",
+        "vad": "no_op_vad"
+      },
+      "resolved_config_sha256": "B2AFCA6C66CCA6840EF0865D15601C004E28CECF81B8515B29A49DF5BC429652",
+      "segmentation_strategy": "full_record",
+      "selected_config_path": "configs/inference/live_mic_whisper_base.yaml",
+      "selected_config_sha256": "48278A1941899EA87A862A367BDA99A80C65B8735F1565F1B8A11C81A4B0E7EB"
+    },
+    "full_record__whisper_tiny": {
+      "asr": "whisper_tiny",
+      "candidate_id": "full_record__whisper_tiny",
+      "component_overrides": {
+        "asr": "whisper_tiny"
+      },
+      "components": {
+        "asr": "whisper_tiny",
+        "diarization": "no_op_diarization",
+        "segmentation": "no_op_segmentation",
+        "speaker_embedding": "no_op_speaker_embedding",
+        "speaker_matching": "no_op_speaker_matching",
+        "vad": "no_op_vad"
+      },
+      "resolved_config_sha256": "E6100313634021FA19F05C9E85FA610E4D65B40289CCB75068E72CED94554FB1",
+      "segmentation_strategy": "full_record",
+      "selected_config_path": "configs/inference/live_mic_whisper_base.yaml",
+      "selected_config_sha256": "48278A1941899EA87A862A367BDA99A80C65B8735F1565F1B8A11C81A4B0E7EB"
+    },
+    "silero_chunks__whisper_base": {
+      "asr": "whisper_base",
+      "candidate_id": "silero_chunks__whisper_base",
+      "component_overrides": {
+        "asr": "whisper_base",
+        "segmentation": "vad_chunks",
+        "vad": "silero_vad"
+      },
+      "components": {
+        "asr": "whisper_base",
+        "diarization": "no_op_diarization",
+        "segmentation": "vad_chunks",
+        "speaker_embedding": "no_op_speaker_embedding",
+        "speaker_matching": "no_op_speaker_matching",
+        "vad": "silero_vad"
+      },
+      "resolved_config_sha256": "B379C91321BD293D3EAF76E358E2084A8BF0DF45B197FE0A917240512FC8C988",
+      "segmentation_strategy": "silero_chunks",
+      "selected_config_path": "configs/inference/live_mic_whisper_base.yaml",
+      "selected_config_sha256": "48278A1941899EA87A862A367BDA99A80C65B8735F1565F1B8A11C81A4B0E7EB"
+    },
+    "silero_observe__whisper_base": {
+      "asr": "whisper_base",
+      "candidate_id": "silero_observe__whisper_base",
+      "component_overrides": {
+        "asr": "whisper_base",
+        "vad": "silero_vad"
+      },
+      "components": {
+        "asr": "whisper_base",
+        "diarization": "no_op_diarization",
+        "segmentation": "no_op_segmentation",
+        "speaker_embedding": "no_op_speaker_embedding",
+        "speaker_matching": "no_op_speaker_matching",
+        "vad": "silero_vad"
+      },
+      "resolved_config_sha256": "28925001F876827ED1476D5EB568E0A81BAC9764BE6643603F0786EB08C273D0",
+      "segmentation_strategy": "silero_observe",
+      "selected_config_path": "configs/inference/live_mic_whisper_base.yaml",
+      "selected_config_sha256": "48278A1941899EA87A862A367BDA99A80C65B8735F1565F1B8A11C81A4B0E7EB"
+    }
+  },
+  "methodology": {
+    "failed_and_missing_outputs_in_denominators": true,
+    "fixed_manifest_reuse": true,
+    "full_cartesian_product": false,
+    "one_family_at_a_time": true,
+    "selection": "hard gates, Pareto dominance, then deterministic diverse cap",
+    "slower_candidate_policy": "retain non-dominated accuracy, reliability, and robustness tradeoffs"
+  },
+  "plan_hash": "64A77A1C7E4EDF6D7CCDF54DBB89AE987DAF77DC81E0D458E04006A61DC55D96",
+  "plan_id": "screening_plan_64a77a1c7e4e",
+  "protocol": {
+    "contents": {
+      "advancement": {
+        "asr": {
+          "maximum_candidates": 3,
+          "maximum_failure_rate": 0.05,
+          "maximum_oom_rate": 0.0,
+          "maximum_timeout_rate": 0.0,
+          "minimum_repetitions": 1,
+          "minimum_valid_output_rate": 0.95,
+          "objectives": [
+            {
+              "category": "accuracy",
+              "direction": "min",
+              "metric": "micro_wer",
+              "required": true
+            },
+            {
+              "category": "accuracy",
+              "direction": "min",
+              "metric": "micro_cer",
+              "required": true
+            },
+            {
+              "category": "reliability",
+              "direction": "max",
+              "metric": "valid_output_rate",
+              "required": true
+            },
+            {
+              "category": "robustness",
+              "direction": "min",
+              "metric": "worst_condition_micro_wer",
+              "required": true
+            },
+            {
+              "category": "robustness",
+              "direction": "min",
+              "metric": "max_condition_wer_degradation_vs_clean",
+              "required": true
+            },
+            {
+              "category": "resource",
+              "direction": "min",
+              "metric": "mean_rtf",
+              "required": false
+            }
+          ]
+        },
+        "segmentation": {
+          "maximum_candidates": 2,
+          "maximum_failure_rate": 0.05,
+          "maximum_oom_rate": 0.0,
+          "maximum_timeout_rate": 0.0,
+          "minimum_repetitions": 1,
+          "minimum_valid_output_rate": 0.95,
+          "objectives": [
+            {
+              "category": "accuracy",
+              "direction": "min",
+              "metric": "micro_wer",
+              "required": true
+            },
+            {
+              "category": "accuracy",
+              "direction": "min",
+              "metric": "micro_cer",
+              "required": true
+            },
+            {
+              "category": "reliability",
+              "direction": "max",
+              "metric": "valid_output_rate",
+              "required": true
+            },
+            {
+              "category": "robustness",
+              "direction": "min",
+              "metric": "worst_condition_micro_wer",
+              "required": true
+            },
+            {
+              "category": "robustness",
+              "direction": "min",
+              "metric": "max_condition_wer_degradation_vs_clean",
+              "required": true
+            },
+            {
+              "category": "accuracy",
+              "direction": "max",
+              "metric": "vad.speech_f1",
+              "required": false
+            },
+            {
+              "category": "resource",
+              "direction": "min",
+              "metric": "mean_rtf",
+              "required": false
+            }
+          ]
+        },
+        "targeted_combinations": {
+          "maximum_candidates": 3,
+          "maximum_failure_rate": 0.05,
+          "maximum_oom_rate": 0.0,
+          "maximum_timeout_rate": 0.0,
+          "minimum_repetitions": 1,
+          "minimum_valid_output_rate": 0.95,
+          "objectives": [
+            {
+              "category": "accuracy",
+              "direction": "min",
+              "metric": "micro_wer",
+              "required": true
+            },
+            {
+              "category": "accuracy",
+              "direction": "min",
+              "metric": "micro_cer",
+              "required": true
+            },
+            {
+              "category": "reliability",
+              "direction": "max",
+              "metric": "valid_output_rate",
+              "required": true
+            },
+            {
+              "category": "robustness",
+              "direction": "min",
+              "metric": "worst_condition_micro_wer",
+              "required": true
+            },
+            {
+              "category": "robustness",
+              "direction": "min",
+              "metric": "max_condition_wer_degradation_vs_clean",
+              "required": true
+            },
+            {
+              "category": "resource",
+              "direction": "min",
+              "metric": "mean_rtf",
+              "required": false
+            }
+          ]
+        }
+      },
+      "benchmark": {
+        "condition_set": "smoke",
+        "panel": "controlled_clean",
+        "tier": "small"
+      },
+      "embedding_policy": {
+        "l2_norm_tolerance": 0.0001,
+        "minimum_duration_sec": 0.75
+      },
+      "finalist_validation": {
+        "repetitions": 3
+      },
+      "notes": [
+        "Whisper Base is the configurable reference ASR for VAD and segmentation screening.",
+        "Missing and failed predictions remain in accuracy and reliability denominators.",
+        "A slower component is retained when it offers a non-dominated accuracy, reliability, or robustness tradeoff.",
+        "Speaker verification, identification, calibration, and unknown-rejection metrics are reserved for Stage 10."
+      ],
+      "qualification": {
+        "device": "cpu",
+        "dtype": "float32",
+        "prohibit_model_downloads": true,
+        "repeated_smokes": 2
+      },
+      "reference_asr": "whisper_base",
+      "schema_version": "core-screening-protocol.v1",
+      "seed": 3800,
+      "vad_policy": {
+        "boundary_tolerance_sec": 0.25,
+        "collar_sec": 0.25,
+        "too_short_segment_sec": 0.2
+      }
+    },
+    "path": "configs/automated_evaluation/core_screening.v1.yaml",
+    "sha256": "6B193235E609D938550BF2F6DF09E989D8A4C993758064C882EBC5CA85DC1D7B"
+  },
+  "reference_asr": "whisper_base",
+  "scenario_catalog": {
+    "path": "screening_scenarios.jsonl",
+    "scenario_count": 84,
+    "schema_version": "core-screening-scenario-catalog.v1",
+    "sha256": "A16A39532D057C5EA249C3B1943337FBBDC53CDEF15057754F19C825843F12DB"
+  },
+  "schema_version": "core-screening-plan.v1",
+  "seed": 3800,
+  "stage10_exclusions": [
+    "EER",
+    "FAR",
+    "FRR",
+    "speaker identification",
+    "calibration",
+    "unknown-speaker rejection"
+  ],
+  "stages": [
+    {
+      "candidates": [
+        "segmentation:full_record",
+        "vad:energy_vad",
+        "vad:silero_vad",
+        "segmentation:vad_chunks",
+        "asr:whisper_tiny",
+        "asr:whisper_base",
+        "asr:whisper_small",
+        "speaker_embedding:speechbrain_ecapa",
+        "speaker_matching:cosine_threshold_contract"
+      ],
+      "checks": [
+        "config_resolution",
+        "dependencies",
+        "assets",
+        "model_loading",
+        "device_placement",
+        "valid_output",
+        "schema_validation",
+        "identity_recording",
+        "repeated_smoke_execution"
+      ],
+      "mode": "local_repeated_component_qualification",
+      "name": "Availability and contract qualification",
+      "repetitions": 2,
+      "stage_id": "A",
+      "status": "ready"
+    },
+    {
+      "advancement_rule": "asr",
+      "candidates": [
+        "full_record__whisper_tiny",
+        "full_record__whisper_base",
+        "full_record__whisper_small"
+      ],
+      "fixed": {
+        "segmentation": "full_record",
+        "speaker_processing": "disabled"
+      },
+      "mode": "campaign_scenarios",
+      "name": "ASR screen",
+      "pending_reason": null,
+      "scenario_ids_by_candidate": {
+        "full_record__whisper_base": [
+          "scenario_01aa02f9a7d4",
+          "scenario_10a46594e616",
+          "scenario_3032e61b2ed5",
+          "scenario_416585f6ad95",
+          "scenario_5509d22d611d",
+          "scenario_6b22a27ab5d0",
+          "scenario_8cff9abad3fc",
+          "scenario_985b27ddeab0",
+          "scenario_cfbbf67cac76",
+          "scenario_d40313a3c3f1",
+          "scenario_e179e764d5c6",
+          "scenario_eb7dbc0fccff"
+        ],
+        "full_record__whisper_small": [
+          "scenario_1d9be77481bf",
+          "scenario_203e3c649a3e",
+          "scenario_319c6fcea717",
+          "scenario_349983908f0c",
+          "scenario_5a43cf223e95",
+          "scenario_72eee8b32a23",
+          "scenario_7af3f825c899",
+          "scenario_8b00baf81f43",
+          "scenario_c096247a113b",
+          "scenario_c6862ae88b50",
+          "scenario_d8022479e1d8",
+          "scenario_de144dcd8fe9"
+        ],
+        "full_record__whisper_tiny": [
+          "scenario_082e575c067f",
+          "scenario_0f519e853dbb",
+          "scenario_1370260c8769",
+          "scenario_45cd7caa247d",
+          "scenario_53fd5b65080d",
+          "scenario_63f492f32076",
+          "scenario_7008b766446a",
+          "scenario_73d37e427fd7",
+          "scenario_7980f78fcd8e",
+          "scenario_b64e6d8160c5",
+          "scenario_cd45650cb06c",
+          "scenario_fac16af4e647"
+        ]
+      },
+      "stage_id": "B",
+      "status": "ready",
+      "varied_family": "asr"
+    },
+    {
+      "advancement_rule": "segmentation",
+      "candidates": [
+        "full_record__whisper_base",
+        "energy_observe__whisper_base",
+        "energy_chunks__whisper_base",
+        "silero_observe__whisper_base",
+        "silero_chunks__whisper_base"
+      ],
+      "fixed": {
+        "asr": "whisper_base",
+        "speaker_processing": "disabled"
+      },
+      "mode": "campaign_scenarios",
+      "name": "VAD and segmentation screen",
+      "pending_reason": null,
+      "scenario_ids_by_candidate": {
+        "energy_chunks__whisper_base": [
+          "scenario_0c1b7b831843",
+          "scenario_0d716d0172c2",
+          "scenario_0e5313c0b2e6",
+          "scenario_1666b60257cb",
+          "scenario_4540ec3dc4ca",
+          "scenario_6827b0743635",
+          "scenario_8fdffc102be0",
+          "scenario_9112805aa59d",
+          "scenario_91c1ca203d6c",
+          "scenario_aa0a6ef726de",
+          "scenario_d194eb42c77f",
+          "scenario_e808b561374e"
+        ],
+        "energy_observe__whisper_base": [
+          "scenario_1ad125a2b7cb",
+          "scenario_3bd50c4fa231",
+          "scenario_54f3e7bac1dc",
+          "scenario_6a38bdd81fea",
+          "scenario_6b972e24e8ff",
+          "scenario_717a2dc1baea",
+          "scenario_82e92695866a",
+          "scenario_a70f1d2f26a9",
+          "scenario_b1b30a10bb30",
+          "scenario_dde339cfe796",
+          "scenario_ded6a5dfb299",
+          "scenario_fb4127d6dddd"
+        ],
+        "full_record__whisper_base": [
+          "scenario_01aa02f9a7d4",
+          "scenario_10a46594e616",
+          "scenario_3032e61b2ed5",
+          "scenario_416585f6ad95",
+          "scenario_5509d22d611d",
+          "scenario_6b22a27ab5d0",
+          "scenario_8cff9abad3fc",
+          "scenario_985b27ddeab0",
+          "scenario_cfbbf67cac76",
+          "scenario_d40313a3c3f1",
+          "scenario_e179e764d5c6",
+          "scenario_eb7dbc0fccff"
+        ],
+        "silero_chunks__whisper_base": [
+          "scenario_0074e1a1ce35",
+          "scenario_08606c30064d",
+          "scenario_23c9d704701a",
+          "scenario_2c9d244791c9",
+          "scenario_6db6f07f38fb",
+          "scenario_850204ba1eb2",
+          "scenario_8eb145e08c6f",
+          "scenario_91108cef520d",
+          "scenario_9b245d1490ff",
+          "scenario_deeb7f9e643c",
+          "scenario_e48e267906cc",
+          "scenario_e696eb58394c"
+        ],
+        "silero_observe__whisper_base": [
+          "scenario_09ad4c96f15e",
+          "scenario_11f83f41050a",
+          "scenario_21433115c527",
+          "scenario_3da43c79fe8d",
+          "scenario_52e7dab912ff",
+          "scenario_724c60abfe82",
+          "scenario_8580f635ae30",
+          "scenario_943b22f94e9e",
+          "scenario_9bf05a38e491",
+          "scenario_bc1a24eda19c",
+          "scenario_e51e0520b357",
+          "scenario_f863714c05a6"
+        ]
+      },
+      "stage_id": "C",
+      "status": "ready",
+      "varied_family": "vad_and_segmentation"
+    },
+    {
+      "advancement_rule": "targeted_combinations",
+      "candidates": [],
+      "fixed": {
+        "source": "Stage C shortlist"
+      },
+      "mode": "campaign_scenarios",
+      "name": "Targeted cross-check",
+      "pending_reason": "requires one or two declared Stage C segmentation finalists",
+      "scenario_ids_by_candidate": {},
+      "stage_id": "D",
+      "status": "pending_selection",
+      "varied_family": "qualified_asr_x_shortlisted_segmentation"
+    },
+    {
+      "component": "speechbrain_ecapa",
+      "fixed": {
+        "audio": "identical",
+        "segments": "identical"
+      },
+      "forbidden_metrics": [
+        "EER",
+        "FAR",
+        "FRR",
+        "identification",
+        "unknown_rejection"
+      ],
+      "matcher_scope": "cosine contract and composition only",
+      "metrics": [
+        "extraction_success",
+        "embedding_dimension",
+        "l2_norm",
+        "invalid_vector_count",
+        "repeatability_cosine",
+        "minimum_duration_rejection",
+        "clean_to_degraded_cosine_drift_when_paired"
+      ],
+      "minimum_duration_sec": 0.75,
+      "mode": "local_repeated_embedding_qualification",
+      "name": "ECAPA fixed-segment extraction qualification",
+      "stage_id": "E",
+      "status": "ready"
+    },
+    {
+      "advancement_rule": null,
+      "candidates": [],
+      "fixed": {
+        "repetitions": 3
+      },
+      "mode": "campaign_scenarios",
+      "name": "Repeated finalist validation",
+      "pending_reason": "requires declared Stage D finalists",
+      "scenario_ids_by_candidate": {},
+      "stage_id": "FINAL",
+      "status": "pending_selection",
+      "varied_family": "declared_finalists_only"
+    }
+  ]
+}

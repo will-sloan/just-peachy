@@ -1,0 +1,37 @@
+{
+  "benchmark_manifest_id": "manifest_0bd28359f11a",
+  "conditions": "smoke",
+  "datasets": {
+    "cmu_arctic": 90,
+    "hifitts": 15,
+    "librispeech": 60
+  },
+  "identical_items_required": true,
+  "item_count": 165,
+  "item_set_sha256": "7A720E485F41ECBB51CE34446B8A25F1840CCC9CF7FB0583A401066715E5DE95",
+  "missing_and_failed_outputs_in_denominators": true,
+  "plan_id": "extended_screening_0ced26fcac70",
+  "scenario_count": 228,
+  "scenarios_per_candidate": {
+    "composition__sherpa_onnx_diarization": 12,
+    "energy_chunks__whisper_base": 12,
+    "energy_observe__whisper_base": 12,
+    "fixed_segments__resemblyzer": 12,
+    "fixed_segments__sherpa_onnx_speaker_embedding": 12,
+    "fixed_segments__speechbrain_ecapa": 12,
+    "fixed_segments__wespeaker": 12,
+    "full_record__faster_whisper": 12,
+    "full_record__sherpa_onnx": 12,
+    "full_record__vosk": 12,
+    "full_record__whisper_base": 12,
+    "full_record__whisper_small": 12,
+    "full_record__whisper_tiny": 12,
+    "sherpa_onnx_chunks__whisper_base": 12,
+    "sherpa_onnx_observe__whisper_base": 12,
+    "silero_chunks__whisper_base": 12,
+    "silero_observe__whisper_base": 12,
+    "webrtc_chunks__whisper_base": 12,
+    "webrtc_observe__whisper_base": 12
+  },
+  "schema_version": "extended-benchmark-coverage.v1"
+}

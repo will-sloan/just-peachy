@@ -1,0 +1,89 @@
+[
+  {
+    "manifest": {
+      "dataset": "cmu_arctic",
+      "panel": "controlled_clean",
+      "role": "evaluation",
+      "selection_stratum": "fixture/controlled",
+      "tier": "small"
+    },
+    "record": {
+      "accent": "US English",
+      "accent_group": "native_us",
+      "audio_path_project_relative": "Raw Datasets (Not formatted)/CMU Arctic/fixture-a.wav",
+      "end_sec": 3.25,
+      "gender": "female",
+      "recording_id": "fixture-cmu-a",
+      "reference_text": "a deterministic fixture sentence",
+      "speaker_code": "fix",
+      "speaker_id": "fixture-speaker-a",
+      "speaker_label": "fixture-speaker-a",
+      "start_sec": 0.0,
+      "utt_id": "fixture-utt-a"
+    }
+  },
+  {
+    "manifest": {
+      "dataset": "ami",
+      "panel": "native_robustness",
+      "role": "evaluation",
+      "selection_stratum": "fixture/native",
+      "tier": "small"
+    },
+    "record": {
+      "audio_path_project_relative": "Raw Datasets (Not formatted)/AMI Meeting Corpus/fixture.wav",
+      "end_sec": 5.5,
+      "meeting_id": "FIX1000a",
+      "recording_id": "fixture-ami-array",
+      "reference_text": "native meeting fixture words",
+      "speaker_global_name": "FIF001",
+      "speaker_label": "FIF001",
+      "start_sec": 2.0,
+      "stream_id": "Array1-01",
+      "stream_type": "array",
+      "utt_id": "fixture-segment-1"
+    }
+  },
+  {
+    "manifest": {
+      "dataset": "cmu_arctic",
+      "panel": "speaker_protocol",
+      "protocol_condition": "clean",
+      "role": "enrollment",
+      "selection_stratum": "fixture/enrollment",
+      "tier": "small"
+    },
+    "record": {
+      "audio_path_project_relative": "Raw Datasets (Not formatted)/CMU Arctic/enrollment.wav",
+      "end_sec": 4.0,
+      "gender": "male",
+      "recording_id": "fixture-enrollment",
+      "reference_text": "clean enrollment fixture words",
+      "speaker_id": "fixture-known-speaker",
+      "speaker_label": "fixture-known-speaker",
+      "start_sec": 0.0,
+      "utt_id": "fixture-enrollment-utt"
+    }
+  },
+  {
+    "manifest": {
+      "dataset": "cmu_arctic",
+      "panel": "speaker_protocol",
+      "protocol_condition": "clean",
+      "role": "known_probe",
+      "selection_stratum": "fixture/probe",
+      "tier": "small"
+    },
+    "record": {
+      "audio_path_project_relative": "Raw Datasets (Not formatted)/CMU Arctic/probe.wav",
+      "end_sec": 4.5,
+      "gender": "male",
+      "recording_id": "fixture-probe",
+      "reference_text": "disjoint clean probe fixture words",
+      "speaker_id": "fixture-known-speaker",
+      "speaker_label": "fixture-known-speaker",
+      "start_sec": 0.0,
+      "utt_id": "fixture-probe-utt"
+    }
+  }
+]

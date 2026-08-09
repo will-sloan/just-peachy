@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "extended_screening_plan.v1.schema.json",
+  "type": "object",
+  "required": ["schema_version", "plan_id", "plan_hash", "benchmark", "scenario_catalog", "candidate_definitions", "stages", "methodology"],
+  "properties": {
+    "schema_version": {"const": "extended-screening-plan.v1"},
+    "plan_id": {"type": "string", "pattern": "^extended_screening_[0-9a-f]{12}$"},
+    "plan_hash": {"type": "string", "pattern": "^[0-9A-F]{64}$"},
+    "candidate_definitions": {"type": "object", "minProperties": 1},
+    "stages": {"type": "array", "minItems": 1}
+  }
+}

@@ -1,0 +1,8 @@
+-r ../inference.txt
+
+# v3.1.0 resolves to this immutable commit. The source archive avoids pip's
+# recursive checkout of unrelated TensorRT submodules on Windows.
+wenet @ https://github.com/wenet-e2e/wenet/archive/2d8bb9780f5b23da65abee37fd612a1fa2f2f4e8.zip
+librosa==0.11.0
+langid==1.1.6
+sentencepiece==0.2.1

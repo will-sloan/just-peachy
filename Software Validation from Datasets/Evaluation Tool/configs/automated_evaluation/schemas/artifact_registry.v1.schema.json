@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "artifact-registry.v1",
+  "title": "Campaign artifact registry",
+  "type": "object",
+  "required": ["schema_version", "hash_algorithm", "scenario_profiles", "artifacts"],
+  "properties": {
+    "schema_version": {"const": "artifact-registry.v1"},
+    "hash_algorithm": {"const": "sha256"},
+    "artifacts": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "scope", "path", "producer", "format", "schema_version", "status", "condition", "validation_rules", "checksum_policy", "privacy_classification", "downstream_consumers"],
+        "properties": {
+          "scope": {"enum": ["campaign", "scenario"]},
+          "status": {"enum": ["mandatory", "conditional"]},
+          "checksum_policy": {"enum": ["sha256", "detached_sha256", "self_excluded"]}
+        }
+      }
+    }
+  }
+}

@@ -13,6 +13,7 @@ from tqdm import tqdm
 
 from app.augmentation.processor import RuntimeAugmentor
 from app.prediction_io.schema import UtterancePrediction
+from app.resource_telemetry.context import telemetry_span
 from app.utils.json_utils import write_json
 
 
@@ -55,7 +56,8 @@ class ModelRunner(ABC):
         condition_handles = {}
         started_at = time.perf_counter()
         augmentor = RuntimeAugmentor.from_run_config(run_config, logger)
-        augmentor.prepare()
+        with telemetry_span("augmentation", phase="scenario_setup"):
+            augmentor.prepare()
 
         try:
             with predictions_path.open("w", encoding="utf-8") as handle:
@@ -68,6 +70,10 @@ class ModelRunner(ABC):
                         logger.info("Inference condition: %s", condition)
                         last_condition = condition
                     attempted_count += 1
+                    identifiers = {
+                        "recording_id": record.get("recording_id"),
+                        "utt_id": record.get("utt_id") or record.get("utterance_id"),
+                    }
                     try:
                         with augmentor.materialized_record(record) as inference_record:
                             prediction = self.predict_one(inference_record, run_config, logger)
@@ -78,23 +84,41 @@ class ModelRunner(ABC):
                             record.get("recording_id"),
                             exc,
                         )
+                        try:
+                            self.on_item_failure(
+                                record,
+                                exc,
+                                predictions_dir,
+                                run_config,
+                                logger,
+                            )
+                        except Exception:
+                            logger.exception(
+                                "Runner failure hook failed for %s",
+                                record.get("recording_id"),
+                            )
                         continue
                     if prediction is None:
                         skipped_count += 1
                         continue
-                    row = prediction.to_jsonable()
-                    line = _json_line(row)
-                    handle.write(line)
-                    condition_handle = condition_handles.get(condition)
-                    if condition_handle is None:
-                        condition_dir = predictions_dir / _safe_condition_folder(condition)
-                        condition_dir.mkdir(parents=True, exist_ok=True)
-                        condition_handle = (condition_dir / "utterances.jsonl").open(
-                            "w",
-                            encoding="utf-8",
-                        )
-                        condition_handles[condition] = condition_handle
-                    condition_handle.write(line)
+                    with telemetry_span(
+                        "prediction_serialization",
+                        phase="per_item",
+                        identifiers=identifiers,
+                    ):
+                        row = prediction.to_jsonable()
+                        line = _json_line(row)
+                        handle.write(line)
+                        condition_handle = condition_handles.get(condition)
+                        if condition_handle is None:
+                            condition_dir = predictions_dir / _safe_condition_folder(condition)
+                            condition_dir.mkdir(parents=True, exist_ok=True)
+                            condition_handle = (condition_dir / "utterances.jsonl").open(
+                                "w",
+                                encoding="utf-8",
+                            )
+                            condition_handles[condition] = condition_handle
+                        condition_handle.write(line)
                     condition_prediction_counts[condition] = (
                         condition_prediction_counts.get(condition, 0) + 1
                     )
@@ -146,6 +170,16 @@ class ModelRunner(ABC):
         logger: logging.Logger,
     ) -> None:
         """Optional cleanup hook after predictions are written."""
+
+    def on_item_failure(
+        self,
+        record: dict[str, object],
+        error: Exception,
+        predictions_dir: Path,
+        run_config: dict[str, object],
+        logger: logging.Logger,
+    ) -> None:
+        """Optional hook for runners that persist explicit per-item failures."""
 
     @abstractmethod
     def predict_one(

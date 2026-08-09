@@ -1,0 +1,120 @@
+config_name: live_mic_whisper_tiny
+profile: local_live_mic_whisper_tiny
+notes: Live microphone smoke config. Uses full chunk WAVs with Whisper tiny when local
+  package and model assets already exist.
+future: false
+runtime:
+  device: cpu
+  sample_rate_hz: 16000
+  max_batch_size: 1
+  num_threads: 1
+  precision: float32
+  dry_run: false
+  allow_model_downloads: false
+  cache_dir: models/cache/whisper
+components:
+  vad:
+    name: no_op_vad
+    enabled: false
+    adapter: NoOpVADAdapter
+    params: {}
+    notes: null
+  segmentation:
+    name: no_op_segmentation
+    enabled: false
+    adapter: NoOpSegmentationAdapter
+    params:
+      mode: full_chunk
+    notes: null
+  diarization:
+    name: no_op_diarization
+    enabled: false
+    adapter: NoOpDiarizationAdapter
+    params: {}
+    notes: null
+  asr:
+    name: whisper_tiny
+    enabled: true
+    adapter: WhisperTinyASRAdapter
+    params:
+      model_family: whisper
+      model_size: tiny
+      model_name: whisper_tiny
+      language: en
+      beam_size: 1
+      word_timestamps: false
+      device: cpu
+      dtype: float32
+      allow_model_downloads: false
+      cache_dir: models/cache/whisper
+    notes: Lazy Whisper tiny adapter config. Requires local package and model assets;
+      downloads disabled.
+  speaker_embedding:
+    name: no_op_speaker_embedding
+    enabled: false
+    adapter: NoOpSpeakerEmbeddingAdapter
+    params: {}
+    notes: null
+  speaker_matching:
+    name: no_op_speaker_matching
+    enabled: false
+    adapter: NoOpSpeakerMatchingAdapter
+    params: {}
+    notes: null
+resolution:
+  schema_version: resolved-inference-config.v1
+  selected_config:
+    path: configs/inference/live_mic_whisper_tiny.yaml
+    sha256: 8B2CEB1B9B8B513C705F9DD2E3F976482AE6767450E4DA52AB26960C4BE7E56D
+  component_sources:
+    vad:
+      family: vad
+      name: no_op_vad
+      source_type: pipeline_inline
+      source_path: configs/inference/live_mic_whisper_tiny.yaml
+      source_sha256: 8B2CEB1B9B8B513C705F9DD2E3F976482AE6767450E4DA52AB26960C4BE7E56D
+      registry_config_path: null
+      registry_config_sha256: null
+    segmentation:
+      family: segmentation
+      name: no_op_segmentation
+      source_type: pipeline_inline
+      source_path: configs/inference/live_mic_whisper_tiny.yaml
+      source_sha256: 8B2CEB1B9B8B513C705F9DD2E3F976482AE6767450E4DA52AB26960C4BE7E56D
+      registry_config_path: null
+      registry_config_sha256: null
+    diarization:
+      family: diarization
+      name: no_op_diarization
+      source_type: pipeline_inline
+      source_path: configs/inference/live_mic_whisper_tiny.yaml
+      source_sha256: 8B2CEB1B9B8B513C705F9DD2E3F976482AE6767450E4DA52AB26960C4BE7E56D
+      registry_config_path: null
+      registry_config_sha256: null
+    asr:
+      family: asr
+      name: whisper_tiny
+      source_type: component_fragment
+      source_path: configs/inference/components/asr/whisper_tiny.yaml
+      source_sha256: 976D83E05E79DCAE04A4DB398A16165A9D567702044DAC519406F93A3C4B6545
+      registry_config_path: configs/inference/components/asr/whisper_tiny.yaml
+      registry_config_sha256: 976D83E05E79DCAE04A4DB398A16165A9D567702044DAC519406F93A3C4B6545
+    speaker_embedding:
+      family: speaker_embedding
+      name: no_op_speaker_embedding
+      source_type: pipeline_inline
+      source_path: configs/inference/live_mic_whisper_tiny.yaml
+      source_sha256: 8B2CEB1B9B8B513C705F9DD2E3F976482AE6767450E4DA52AB26960C4BE7E56D
+      registry_config_path: null
+      registry_config_sha256: null
+    speaker_matching:
+      family: speaker_matching
+      name: no_op_speaker_matching
+      source_type: pipeline_inline
+      source_path: configs/inference/live_mic_whisper_tiny.yaml
+      source_sha256: 8B2CEB1B9B8B513C705F9DD2E3F976482AE6767450E4DA52AB26960C4BE7E56D
+      registry_config_path: null
+      registry_config_sha256: null
+  override_history: []
+  warnings: []
+  implicit_model_downloads_prohibited: true

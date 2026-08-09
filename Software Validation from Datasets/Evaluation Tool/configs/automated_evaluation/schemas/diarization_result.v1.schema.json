@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "diarization_result.v1.schema.json",
+  "title": "Stage 11 diarization result",
+  "type": "object",
+  "required": ["schema_version", "status", "evaluation_unit_id", "backend_id", "native_manifest", "record", "reference_version", "scoring_policy_version", "speaker_count_mode", "label_semantics", "environment"],
+  "properties": {
+    "schema_version": {"const": "diarization-result.v1"},
+    "status": {"enum": ["succeeded", "invalid"]},
+    "evaluation_unit_id": {"type": "string", "pattern": "^diar_[0-9a-f]{12}$"},
+    "backend_id": {"type": "string", "minLength": 1},
+    "speaker_count_mode": {"enum": ["estimated", "oracle_diagnostic"]},
+    "label_semantics": {"const": "anonymous_diarization"},
+    "native_manifest": {"type": "object"},
+    "record": {"type": "object"},
+    "environment": {"type": "object"}
+  },
+  "additionalProperties": true
+}

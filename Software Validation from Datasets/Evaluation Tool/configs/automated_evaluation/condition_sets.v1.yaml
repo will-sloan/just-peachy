@@ -1,0 +1,34 @@
+schema_version: condition-sets.v1
+rir_registry_version: rir-registry.v1
+condition_sets:
+  smoke:
+    - {id: clean, augmentation: none, noise_type: null, snr_db: null, rir_id: null}
+    - {id: white_10db, augmentation: noise, noise_type: white, snr_db: 10.0, rir_id: null}
+    - {id: pink_10db, augmentation: noise, noise_type: pink, snr_db: 10.0, rir_id: null}
+    - {id: dining_room_h025, augmentation: reverb, noise_type: null, snr_db: null, rir_id: dining_room_h025}
+  core_controlled:
+    - {id: clean, augmentation: none, noise_type: null, snr_db: null, rir_id: null}
+    - {id: white_20db, augmentation: noise, noise_type: white, snr_db: 20.0, rir_id: null}
+    - {id: white_10db, augmentation: noise, noise_type: white, snr_db: 10.0, rir_id: null}
+    - {id: pink_20db, augmentation: noise, noise_type: pink, snr_db: 20.0, rir_id: null}
+    - {id: pink_10db, augmentation: noise, noise_type: pink, snr_db: 10.0, rir_id: null}
+    - {id: dining_room_h025, augmentation: reverb, noise_type: null, snr_db: null, rir_id: dining_room_h025}
+    - {id: restaurant_h093, augmentation: reverb, noise_type: null, snr_db: null, rir_id: restaurant_h093}
+    - {id: dining_room_h025_pink_10db, augmentation: reverb_noise, noise_type: pink, snr_db: 10.0, rir_id: dining_room_h025}
+    - {id: restaurant_h093_pink_10db, augmentation: reverb_noise, noise_type: pink, snr_db: 10.0, rir_id: restaurant_h093}
+  all_approved_rir_environments:
+    - {id: dining_room_h025, augmentation: reverb, noise_type: null, snr_db: null, rir_id: dining_room_h025}
+    - {id: restaurant_h093, augmentation: reverb, noise_type: null, snr_db: null, rir_id: restaurant_h093}
+  selected_rir_plus_noise_interactions:
+    - {id: dining_room_h025_pink_10db, augmentation: reverb_noise, noise_type: pink, snr_db: 10.0, rir_id: dining_room_h025}
+    - {id: restaurant_h093_pink_10db, augmentation: reverb_noise, noise_type: pink, snr_db: 10.0, rir_id: restaurant_h093}
+  speaker_degraded:
+    - {id: white_10db, augmentation: noise, noise_type: white, snr_db: 10.0, rir_id: null}
+    - {id: pink_10db, augmentation: noise, noise_type: pink, snr_db: 10.0, rir_id: null}
+    - {id: dining_room_h025, augmentation: reverb, noise_type: null, snr_db: null, rir_id: dining_room_h025}
+  native_only:
+    - {id: native, augmentation: none, noise_type: null, snr_db: null, rir_id: null}
+notes:
+  - Bedroom remains in scope but unresolved and therefore absent from executable condition sets.
+  - Kitchen remains unresolved and ParkingLot remains excluded.
+  - Current condition sets do not use generic low/medium/high reverberation labels.

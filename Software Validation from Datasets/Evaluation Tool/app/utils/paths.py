@@ -42,7 +42,10 @@ def find_project_root(start: Path | None = None) -> Path:
 def _looks_like_project_root(path: Path) -> bool:
     return (
         (path / "Normalized Metadata").is_dir()
-        and (path / "RawDatasets").is_dir()
+        and any(
+            (path / alias).is_dir()
+            for alias in PROJECT_ANCHOR_ALIASES["RawDatasets"]
+        )
     )
 
 

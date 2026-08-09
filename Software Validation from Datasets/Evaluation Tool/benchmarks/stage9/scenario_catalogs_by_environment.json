@@ -1,0 +1,58 @@
+{
+  "catalogs": [
+    {
+      "candidate_ids": [
+        "energy_chunks__whisper_base",
+        "energy_observe__whisper_base",
+        "fixed_segments__speechbrain_ecapa",
+        "full_record__whisper_base",
+        "full_record__whisper_small",
+        "full_record__whisper_tiny",
+        "silero_chunks__whisper_base",
+        "silero_observe__whisper_base"
+      ],
+      "environment_profile": "core-cpu",
+      "path": "scenarios_core_cpu.jsonl",
+      "scenario_count": 96,
+      "sha256": "89FC7557B8EDFE4E2C002DB19CC28EB7234191136E9C36D5168ACCAD10265ADD"
+    },
+    {
+      "candidate_ids": [
+        "fixed_segments__resemblyzer",
+        "full_record__faster_whisper",
+        "full_record__vosk",
+        "webrtc_chunks__whisper_base",
+        "webrtc_observe__whisper_base"
+      ],
+      "environment_profile": "extended-local",
+      "path": "scenarios_extended_local.jsonl",
+      "scenario_count": 60,
+      "sha256": "3C126516AD59D55AA4F4E59FBA90FBCE395694AA6248B558C2B88278DC5F59C5"
+    },
+    {
+      "candidate_ids": [
+        "composition__sherpa_onnx_diarization",
+        "fixed_segments__sherpa_onnx_speaker_embedding",
+        "full_record__sherpa_onnx",
+        "sherpa_onnx_chunks__whisper_base",
+        "sherpa_onnx_observe__whisper_base"
+      ],
+      "environment_profile": "onnx",
+      "path": "scenarios_onnx.jsonl",
+      "scenario_count": 60,
+      "sha256": "69F10C477850ACDE6A1EF1AAC89E557AC53D2A1A5F7952718398B2C8A6EE3EB7"
+    },
+    {
+      "candidate_ids": [
+        "fixed_segments__wespeaker"
+      ],
+      "environment_profile": "wespeaker",
+      "path": "scenarios_wespeaker.jsonl",
+      "scenario_count": 12,
+      "sha256": "AB291BA1461656154E3BEB6FBDFCA87F68D858EF948D4EBA2514981CFF67E2ED"
+    }
+  ],
+  "global_scenario_ids_preserved": true,
+  "plan_id": "extended_screening_0ced26fcac70",
+  "schema_version": "extended-environment-scenario-catalogs.v1"
+}

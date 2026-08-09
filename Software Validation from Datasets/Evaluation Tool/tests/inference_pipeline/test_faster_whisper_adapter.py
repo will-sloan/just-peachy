@@ -156,7 +156,13 @@ def test_faster_whisper_loads_explicit_local_model_in_offline_mode(
 
 def test_faster_whisper_missing_local_model_fails_without_download(
     tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
 ) -> None:
+    monkeypatch.setattr(
+        importlib.util,
+        "find_spec",
+        lambda name: SimpleNamespace() if name == "faster_whisper" else None,
+    )
     adapter = FasterWhisperASR(
         {
             "model_size": "tiny",

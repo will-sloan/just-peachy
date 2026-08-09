@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "environment_profiles.stage8.v1.schema.json",
+  "title": "Stage 8 environment profiles",
+  "type": "object",
+  "required": ["schema_version", "profile_contract_version", "secret_policy", "profiles"],
+  "properties": {
+    "schema_version": {"const": "extended-environment-profiles.v1"},
+    "profile_contract_version": {"const": 1},
+    "secret_policy": {"type": "string", "minLength": 1},
+    "profiles": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": {"$ref": "#/$defs/profile"}
+    }
+  },
+  "additionalProperties": true,
+  "$defs": {
+    "stringArray": {"type": "array", "items": {"type": "string"}},
+    "profile": {
+      "type": "object",
+      "required": ["purpose", "operating_systems", "python_version", "requirements", "installation_command", "validation_command", "supported_components", "incompatible_components", "model_assets", "credential_requirements", "hardware", "expected_verifier_output"],
+      "properties": {
+        "purpose": {"type": "string", "minLength": 1},
+        "operating_systems": {"$ref": "#/$defs/stringArray"},
+        "python_version": {"type": "string"},
+        "requirements": {"$ref": "#/$defs/stringArray"},
+        "installation_command": {"type": "string", "minLength": 1},
+        "validation_command": {"type": "string", "minLength": 1},
+        "supported_components": {"$ref": "#/$defs/stringArray"},
+        "incompatible_components": {"$ref": "#/$defs/stringArray"},
+        "model_assets": {"$ref": "#/$defs/stringArray"},
+        "credential_requirements": {"$ref": "#/$defs/stringArray"},
+        "hardware": {"type": "object"},
+        "expected_verifier_output": {"type": "string", "minLength": 1}
+      },
+      "additionalProperties": false
+    }
+  }
+}

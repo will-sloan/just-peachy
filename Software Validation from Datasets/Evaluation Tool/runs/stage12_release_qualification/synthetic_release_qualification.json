@@ -1,0 +1,45 @@
+{
+  "claims": "campaign mechanics only; no model, accuracy, GPU, or scientific performance claim",
+  "command": [
+    "python.exe",
+    "-m",
+    "pytest",
+    "tests/automated_evaluation/test_stage4_campaign_executor.py::test_transient_failure_retries_and_preserves_partial_results",
+    "tests/automated_evaluation/test_stage4_campaign_executor.py::test_timeout_terminates_subprocess",
+    "tests/automated_evaluation/test_stage4_campaign_executor.py::test_interruption_is_restart_safe_and_resumable",
+    "tests/automated_evaluation/test_stage4_campaign_executor.py::test_stop_request_terminates_only_selected_scenario",
+    "tests/automated_evaluation/test_stage4_campaign_executor.py::test_process_restart_recovers_expired_running_lease",
+    "tests/automated_evaluation/test_stage6_campaign_exchange.py::test_complete_two_worker_split_run_transfer_and_merge",
+    "tests/automated_evaluation/test_stage6_campaign_exchange.py::test_transfer_detects_missing_files_and_checksum_corruption",
+    "tests/automated_evaluation/test_stage6_campaign_exchange.py::test_long_transfer_path_remains_portable_in_indexes",
+    "-q",
+    "--basetemp",
+    "<output>/pytest_tmp"
+  ],
+  "evidence": {
+    "exact_reconciliation": true,
+    "interruption_resume": true,
+    "long_path": true,
+    "restart_recovery": true,
+    "stop_request": true,
+    "timeout_retry": true,
+    "transfer_checksums": true,
+    "two_worker_merge": true
+  },
+  "executed_at_utc": "2026-08-08T12:00:15.357792Z",
+  "log": "synthetic_release_qualification.log",
+  "passed": true,
+  "return_code": 0,
+  "schema_version": "synthetic-release-workflow-qualification.v1",
+  "status": "passed",
+  "test_nodes": [
+    "tests/automated_evaluation/test_stage4_campaign_executor.py::test_transient_failure_retries_and_preserves_partial_results",
+    "tests/automated_evaluation/test_stage4_campaign_executor.py::test_timeout_terminates_subprocess",
+    "tests/automated_evaluation/test_stage4_campaign_executor.py::test_interruption_is_restart_safe_and_resumable",
+    "tests/automated_evaluation/test_stage4_campaign_executor.py::test_stop_request_terminates_only_selected_scenario",
+    "tests/automated_evaluation/test_stage4_campaign_executor.py::test_process_restart_recovers_expired_running_lease",
+    "tests/automated_evaluation/test_stage6_campaign_exchange.py::test_complete_two_worker_split_run_transfer_and_merge",
+    "tests/automated_evaluation/test_stage6_campaign_exchange.py::test_transfer_detects_missing_files_and_checksum_corruption",
+    "tests/automated_evaluation/test_stage6_campaign_exchange.py::test_long_transfer_path_remains_portable_in_indexes"
+  ]
+}

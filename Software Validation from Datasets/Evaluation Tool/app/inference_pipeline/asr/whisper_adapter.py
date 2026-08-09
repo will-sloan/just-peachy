@@ -20,6 +20,7 @@ from app.inference_pipeline.asr.base import (
 )
 from app.inference_pipeline.contracts import ASRTranscript, AudioSegment, WordTiming
 from app.inference_pipeline.errors import ContractValidationError, InferencePipelineError
+from app.resource_telemetry.context import telemetry_span
 
 
 class WhisperASRUnavailableError(InferencePipelineError):
@@ -63,7 +64,17 @@ class WhisperASR(ASRBase):
             kwargs["beam_size"] = self.beam_size
         started_at = time.perf_counter()
         try:
-            result = model.transcribe(audio.samples, **kwargs)
+            with telemetry_span(
+                "asr_inference",
+                phase="warm_inference",
+                identifiers={
+                    "recording_id": context.recording_id,
+                    "utt_id": context.utt_id,
+                    "segment_index": context.segment_index,
+                },
+                cuda=self.device == "cuda",
+            ):
+                result = model.transcribe(audio.samples, **kwargs)
         except Exception as exc:  # pragma: no cover - dependency boundary
             raise WhisperASRUnavailableError(f"Whisper transcription failed: {exc}") from exc
         inference_sec = time.perf_counter() - started_at
@@ -115,11 +126,16 @@ class WhisperASR(ASRBase):
         started_at = time.perf_counter()
         download_root = _download_root(self.cache_dir, model_asset)
         try:
-            self.model = whisper.load_model(
-                self.model_size,
-                device=self.device,
-                download_root=str(download_root) if download_root is not None else None,
-            )
+            with telemetry_span(
+                "asr_model_load",
+                phase="cold_initialization",
+                cuda=self.device == "cuda",
+            ):
+                self.model = whisper.load_model(
+                    self.model_size,
+                    device=self.device,
+                    download_root=str(download_root) if download_root is not None else None,
+                )
         except Exception as exc:  # pragma: no cover - dependency boundary
             raise WhisperASRUnavailableError(f"Whisper model load failed: {exc}") from exc
         self._load_sec = time.perf_counter() - started_at

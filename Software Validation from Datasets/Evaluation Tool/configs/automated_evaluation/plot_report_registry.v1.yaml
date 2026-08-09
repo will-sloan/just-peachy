@@ -1,0 +1,237 @@
+schema_version: campaign-plot-report-registry.v1
+registry_version: 1.0.0
+
+defaults: &plot_defaults
+  data_requirements: []
+  aggregation: scenario_level
+  filters: validated included scenarios only
+  statistics: descriptive; paired inference is reported separately
+  limitations: A rendered plot is descriptive and does not override the registered metric limitations.
+  skip_conditions: Skip when required metrics, compatible references, or sufficient groups are absent.
+  interpretation_anchor: interpreting-plots
+
+plots:
+  - <<: *plot_defaults
+    id: pareto_frontier
+    question: Which candidates preserve the best accuracy/resource tradeoffs?
+    data_requirements: [micro_wer, real_time_factor]
+    handler: scatter
+    x_metric: real_time_factor
+    y_metric: micro_wer
+    output: plots/pareto_frontier.png
+    interpretation_anchor: pareto-frontiers
+  - <<: *plot_defaults
+    id: wer_cer_comparison
+    question: How do ASR error rates compare across scenarios?
+    data_requirements: [micro_wer]
+    handler: bars
+    primary_metric: micro_wer
+    output: plots/wer_cer_comparison.png
+    interpretation_anchor: asr-plots
+  - <<: *plot_defaults
+    id: robustness_degradation
+    question: How much does controlled degradation change supported quality metrics?
+    data_requirements: [micro_wer]
+    handler: condition_bars
+    primary_metric: micro_wer
+    output: plots/robustness_degradation.png
+    interpretation_anchor: robustness-plots
+  - <<: *plot_defaults
+    id: exact_rir_heatmap
+    question: How does each exact approved RIR affect candidate performance?
+    data_requirements: [micro_wer, exact_rir_identity]
+    handler: rir_heatmap
+    primary_metric: micro_wer
+    output: plots/exact_rir_heatmap.png
+    interpretation_anchor: exact-rir-plots
+  - <<: *plot_defaults
+    id: native_condition
+    question: How does performance vary across native datasets and conditions?
+    data_requirements: [native_panel, micro_wer]
+    handler: panel_bars
+    primary_metric: micro_wer
+    output: plots/native_condition.png
+    interpretation_anchor: native-condition-plots
+  - <<: *plot_defaults
+    id: reliability_failure
+    question: Which scenarios failed, went missing, or produced invalid results?
+    data_requirements: [scenario_completion]
+    handler: status_counts
+    output: plots/reliability_failure.png
+    interpretation_anchor: completeness-and-reliability
+  - <<: *plot_defaults
+    id: latency_tail
+    question: Which candidates have acceptable mean and tail latency?
+    data_requirements: [latency_p95_sec]
+    handler: bars
+    primary_metric: latency_p95_sec
+    output: plots/latency_tail.png
+    interpretation_anchor: performance-and-resources
+  - <<: *plot_defaults
+    id: resource_utilization
+    question: Which candidates consume the most measured resources?
+    data_requirements: [peak_rss_bytes]
+    handler: bars
+    primary_metric: peak_rss_bytes
+    output: plots/resource_utilization.png
+    interpretation_anchor: performance-and-resources
+  - <<: *plot_defaults
+    id: cpu_ram_vram
+    question: How do CPU, RAM, and VRAM peaks compare?
+    data_requirements: [peak_rss_bytes]
+    handler: bars
+    primary_metric: peak_rss_bytes
+    output: plots/cpu_ram_vram.png
+    interpretation_anchor: performance-and-resources
+  - <<: *plot_defaults
+    id: throughput
+    question: How much audio is processed per unit wall time?
+    data_requirements: [throughput_audio_sec_per_wall_sec]
+    handler: bars
+    primary_metric: throughput_audio_sec_per_wall_sec
+    output: plots/throughput.png
+    interpretation_anchor: performance-and-resources
+  - <<: *plot_defaults
+    id: segmentation_quality
+    question: How do VAD and segmentation choices affect speech coverage and false alarms?
+    data_requirements: [vad_speech_recall]
+    handler: bars
+    primary_metric: vad_speech_recall
+    output: plots/segmentation_quality.png
+    interpretation_anchor: vad-and-segmentation
+  - <<: *plot_defaults
+    id: speaker_score_distribution
+    question: How separated are same-speaker and different-speaker scores?
+    data_requirements: [speaker_similarity_scores]
+    handler: speaker_distribution
+    output: plots/speaker_score_distribution.png
+    interpretation_anchor: speaker-protocol-plots
+  - <<: *plot_defaults
+    id: roc_det
+    question: What verification tradeoff is available across thresholds?
+    data_requirements: [speaker_threshold_sweep]
+    handler: roc_det
+    output: plots/roc_det.png
+    interpretation_anchor: speaker-protocol-plots
+  - <<: *plot_defaults
+    id: threshold_operating
+    question: Where do calibrated speaker operating points lie?
+    data_requirements: [speaker_threshold_sweep]
+    handler: threshold
+    output: plots/threshold_operating.png
+    interpretation_anchor: speaker-protocol-plots
+  - <<: *plot_defaults
+    id: embedding_drift
+    question: How stable are embeddings under approved degradation?
+    data_requirements: [embedding_drift]
+    handler: bars
+    primary_metric: embedding_drift
+    output: plots/embedding_drift.png
+    interpretation_anchor: speaker-protocol-plots
+  - <<: *plot_defaults
+    id: diarization_outcomes
+    question: How do valid diarization outcomes compare?
+    data_requirements: [diarization_der]
+    handler: bars
+    primary_metric: diarization_der
+    output: plots/diarization_outcomes.png
+    interpretation_anchor: diarization-plots
+  - <<: *plot_defaults
+    id: machine_comparison
+    question: Do compatible results differ materially by machine environment?
+    data_requirements: [multiple_environment_fingerprints, latency_p95_sec]
+    handler: environment_bars
+    primary_metric: latency_p95_sec
+    output: plots/machine_comparison.png
+    interpretation_anchor: machine-comparisons
+  - <<: *plot_defaults
+    id: coverage_reconciliation
+    question: Does observed result coverage match the planned campaign?
+    data_requirements: [scenario_completion]
+    handler: status_counts
+    output: plots/coverage_reconciliation.png
+    interpretation_anchor: completeness-and-reliability
+  - <<: *plot_defaults
+    id: subgroup_fairness
+    question: Which authorized subgroup slices warrant closer investigation?
+    data_requirements: [authorized_subgroup_metric]
+    handler: subgroup
+    output: plots/subgroup_fairness.png
+    interpretation_anchor: subgroup-analysis
+  - <<: *plot_defaults
+    id: qualitative_error
+    question: Which explicit failure and error categories recur most often?
+    data_requirements: [failure_records]
+    handler: failure_categories
+    output: plots/qualitative_error.png
+    interpretation_anchor: qualitative-error-analysis
+
+tables:
+  - <<: *plot_defaults
+    id: scenario_index
+    question: Which planned scenarios were included, failed, missing, invalid, or excluded?
+    data_requirements: [analysis_manifest]
+    aggregation: one_row_per_planned_scenario
+    output: tables/scenario_index.csv
+    interpretation_anchor: completeness-and-reliability
+  - <<: *plot_defaults
+    id: scenario_metric_values
+    question: Which registered scenario metrics are supported and where did they come from?
+    data_requirements: [analysis_manifest, metric_values]
+    aggregation: one_row_per_scenario_and_registered_metric
+    output: tables/scenario_metric_values.parquet
+    interpretation_anchor: metric-registry
+  - <<: *plot_defaults
+    id: paired_comparisons
+    question: What are the declared paired effects, uncertainty, and unmatched counts?
+    data_requirements: [analysis_manifest]
+    aggregation: one_row_per_declared_comparison
+    output: tables/comparisons.csv
+    interpretation_anchor: statistical-methods-and-assumptions
+  - <<: *plot_defaults
+    id: failure_categories
+    question: Which explicit scenario/item failure categories were observed?
+    data_requirements: [analysis_manifest]
+    aggregation: scenario_and_failure_category_counts
+    output: tables/failure_categories.csv
+    interpretation_anchor: qualitative-error-analysis
+  - <<: *plot_defaults
+    id: coverage_matrix
+    question: Does every planned framework dimension have an explicit observed status?
+    data_requirements: [coverage_matrix]
+    aggregation: one_row_per_coverage_dimension
+    output: tables/coverage_matrix.csv
+    interpretation_anchor: coverage-reconciliation
+  - <<: *plot_defaults
+    id: repeated_finalist_variance
+    question: How variable are repeated runs of an otherwise identical finalist?
+    data_requirements: [analysis_manifest, metric_values]
+    aggregation: sample_variance_by_pipeline_condition_and_metric
+    output: tables/repeated_finalist_variance.csv
+    interpretation_anchor: statistical-methods-and-assumptions
+
+reports:
+  - <<: *plot_defaults
+    id: campaign_summary
+    question: What was planned, completed, compared, excluded, and learned?
+    data_requirements: [analysis_manifest, coverage_matrix]
+    output: report/campaign_report.md
+    interpretation_anchor: campaign-report
+  - <<: *plot_defaults
+    id: machine_readable_summary
+    question: Can another analyst reproduce every report statement?
+    data_requirements: [analysis_manifest, metric_values, plot_status]
+    output: report/campaign_report.json
+    interpretation_anchor: campaign-report
+  - <<: *plot_defaults
+    id: coverage_report
+    question: Are all mandatory components, panels, artifacts, metrics, plots, reports, and commands accounted for?
+    data_requirements: [coverage_matrix]
+    output: report/coverage_report.md
+    interpretation_anchor: coverage-reconciliation
+  - <<: *plot_defaults
+    id: release_qualification
+    question: Which preregistered release gates pass or block progression?
+    data_requirements: [release_gate_results]
+    output: report/release_qualification.json
+    interpretation_anchor: release-gates

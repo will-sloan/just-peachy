@@ -6,7 +6,6 @@ import contextlib
 import hashlib
 import logging
 import shutil
-import tempfile
 from pathlib import Path
 from typing import Iterator
 
@@ -22,6 +21,7 @@ from app.augmentation.audio import (
 )
 from app.augmentation.config import AugmentationCondition, AugmentationPlan
 from app.utils.json_utils import write_json
+from app.resource_telemetry.context import telemetry_span
 
 
 class RuntimeAugmentor:
@@ -75,19 +75,25 @@ class RuntimeAugmentor:
     def materialized_record(self, record: dict[str, object]) -> Iterator[dict[str, object]]:
         """Yield a record whose inference path points at source or temp augmented audio."""
 
+        identifiers = {
+            "recording_id": record.get("recording_id"),
+            "utt_id": record.get("utt_id") or record.get("utterance_id"),
+        }
         if self.plan.mode == "none":
-            current = dict(record)
-            current["inference_audio_path"] = current.get("audio_path_resolved")
-            current["inference_audio_project_relative"] = current.get("audio_path_project_relative")
+            with telemetry_span("augmentation", phase="per_item", identifiers=identifiers):
+                current = dict(record)
+                current["inference_audio_path"] = current.get("audio_path_resolved")
+                current["inference_audio_project_relative"] = current.get("audio_path_project_relative")
             yield current
             return
 
         temp_path = self._temp_path_for(record)
         try:
-            self.write_augmented_audio(record, temp_path)
-            current = dict(record)
-            current["inference_audio_path"] = str(temp_path)
-            current["inference_audio_project_relative"] = None
+            with telemetry_span("augmentation", phase="per_item", identifiers=identifiers):
+                self.write_augmented_audio(record, temp_path)
+                current = dict(record)
+                current["inference_audio_path"] = str(temp_path)
+                current["inference_audio_project_relative"] = None
             yield current
         finally:
             if not self.plan.keep_temp_audio and temp_path.exists():

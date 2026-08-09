@@ -1,0 +1,499 @@
+{
+  "environment": {
+    "cuda_available": false,
+    "cuda_runtime": null,
+    "device_requested": "cpu",
+    "git_commit": "e7e5516991b95f4e7c915e852fc0b4f5bae7cd11",
+    "gpu": null,
+    "machine": "AMD64",
+    "package_count": 68,
+    "package_freeze_sha256": "d88638b4955ab0dada065ef0821ece33a8f02764c1c40946f99b753ce9219b16",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python": "3.12.7",
+    "python_executable": "<environment>/Scripts/python.exe",
+    "torch": "2.11.0+cpu"
+  },
+  "generated_at": "2026-08-08T00:15:44.771955+00:00",
+  "profile": "onnx",
+  "results": [
+    {
+      "asset_identities": [
+        {
+          "acquisition_date": "2024-09-11T13:38:16+00:00",
+          "acquisition_method": "scripts/bootstrap_models.py --sherpa-asr",
+          "artifact_filename": "sherpa-onnx-streaming-zipformer-en-2023-06-26.tar.bz2",
+          "asset_id": "sherpa_onnx_asr",
+          "backend": "Sherpa-ONNX",
+          "component": "sherpa_onnx_asr",
+          "credential_required": false,
+          "environment_profile": "onnx",
+          "files": [
+            {
+              "bytes": 216,
+              "path": "README.md",
+              "sha256": "c914dd28e23310a6dd345ea10495003d3e4820d2ed987181e4c2d67e501b6b76"
+            },
+            {
+              "bytes": 244865,
+              "path": "bpe.model",
+              "sha256": "c53433de083c4a6ad12d034550ef22de68cec62c4f58932a7b6b8b2f1e743fa5"
+            },
+            {
+              "bytes": 540688,
+              "path": "decoder-epoch-99-avg-1-chunk-16-left-128.int8.onnx",
+              "sha256": "780c63ee94c7cfa314211172e5d09b406c0da2beab5c40ea2f54cc95670b76a5"
+            },
+            {
+              "bytes": 2093080,
+              "path": "decoder-epoch-99-avg-1-chunk-16-left-128.onnx",
+              "sha256": "85914f840b71110487ece7a30ebd0bd4b8fb5c2623215bba3aa5ab4c138fc591"
+            },
+            {
+              "bytes": 70108816,
+              "path": "encoder-epoch-99-avg-1-chunk-16-left-128.int8.onnx",
+              "sha256": "5022b2eca5b19d1bc104fcf33e26bc32604b7df553cd2e1f62e31dc7b05e9c87"
+            },
+            {
+              "bytes": 260642850,
+              "path": "encoder-epoch-99-avg-1-chunk-16-left-128.onnx",
+              "sha256": "d1d74ba2fd9ce2186662cec93eab9f9c102d97a18e86dafdaf584776c961ab1d"
+            },
+            {
+              "bytes": 814,
+              "path": "export-onnx-zipformer-online.sh",
+              "sha256": "baac0112609984803a4eb6c46ee177d399d6a1b196db9c28b7a1c167f342030b"
+            },
+            {
+              "bytes": 259416,
+              "path": "joiner-epoch-99-avg-1-chunk-16-left-128.int8.onnx",
+              "sha256": "abd5e30f3f16fc510605c6029dba33f10e4386bd75c5bdc30cf94076864db10d"
+            },
+            {
+              "bytes": 1026462,
+              "path": "joiner-epoch-99-avg-1-chunk-16-left-128.onnx",
+              "sha256": "5fe99bb91ea035ab82765f65955b6a9cd2f8b7ebd320761e432d16e432dcaad9"
+            },
+            {
+              "bytes": 212044,
+              "path": "test_wavs/0.wav",
+              "sha256": "6bc58a4efdf20daac252b6b1502632601a71efe0308f6757dc1eda34891a7e4f"
+            },
+            {
+              "bytes": 534924,
+              "path": "test_wavs/1.wav",
+              "sha256": "5143a6ba93c4b274e2c4ac22deb75c2c48936c853f0519add1de828b6c79cc5a"
+            },
+            {
+              "bytes": 77244,
+              "path": "test_wavs/8k.wav",
+              "sha256": "f6f3c8b33e2534cdc154fe773ad2750f1f6a2ca5096179cdf037ae782456613e"
+            },
+            {
+              "bytes": 449,
+              "path": "test_wavs/trans.txt",
+              "sha256": "b9ac44e7b794abb1a2d5faf0005e98a665971e7ac2ed15435832cc34edaa9100"
+            },
+            {
+              "bytes": 5048,
+              "path": "tokens.txt",
+              "sha256": "49e3c2646595fd907228b3c6787069658f67b17377c60aeb8619c4551b2316fb"
+            }
+          ],
+          "licence": "Apache-2.0 repository; verify model archive terms before redistribution",
+          "model_name": "sherpa-onnx-streaming-zipformer-en-2023-06-26",
+          "model_version": "2023-06-26",
+          "present": true,
+          "sha256": "5950412343bc8b76fe8c8de484f202514f579e69a5d837f21b5361472a1ab448",
+          "size_bytes": 335746916,
+          "source": "https://github.com/k2-fsa/sherpa-onnx/releases/tag/asr-models",
+          "storage_path": "models/cache/sherpa_onnx/asr/sherpa-onnx-streaming-zipformer-en-2023-06-26",
+          "verification_status": "verified"
+        }
+      ],
+      "backend_id": "sherpa_onnx_asr",
+      "command": "python 'Software Validation from Datasets\\Evaluation Tool\\scripts\\qualify_extended_backends.py' --profile onnx",
+      "component_identity": {
+        "backend_id": "sherpa_onnx_asr",
+        "config_path": "configs/inference/components/asr/sherpa_onnx.yaml",
+        "config_sha256": "8c1f86cffea8a497aed699445e00329089ff0baebf08595f606fba263fbb2748",
+        "family": "asr"
+      },
+      "credential_presence": {},
+      "details": {
+        "empty_or_no_speech_behavior": {
+          "empty": true,
+          "text": "",
+          "valid": true
+        },
+        "identity_recorded": true,
+        "model_name": "sherpa_onnx_streaming_transducer",
+        "pipeline_composition": true,
+        "precision": null,
+        "repeated_output_equal": true,
+        "runtime": {
+          "audio_duration_sec": 1.0,
+          "cpu_memory_mb": null,
+          "device": "cpu",
+          "dtype": "float32",
+          "inference_sec": 0.11049719993025064,
+          "load_sec": 3.875159699935466,
+          "model_name": "sherpa_onnx_streaming_transducer",
+          "peak_gpu_memory_mb": null,
+          "realtime_factor": 0.11049719993025064
+        },
+        "transcripts": [
+          "the reorganization of these countries took the form of revolution",
+          "the reorganization of these countries took the form of revolution"
+        ],
+        "valid_real_outputs": 2
+      },
+      "device": "cpu",
+      "explanation": "Real repeated offline qualification passed.",
+      "failure_category": null,
+      "family": "asr",
+      "implicit_downloads_allowed": false,
+      "package_versions": {
+        "sherpa-onnx": "1.13.4"
+      },
+      "profile": "onnx",
+      "repetitions": 2,
+      "schema_validation": true,
+      "status": "qualified",
+      "timing": {
+        "inference_sec": [
+          4.568734,
+          0.337653
+        ],
+        "initialization_sec": 3.875159699935466,
+        "total_sec": 22.665078
+      },
+      "warnings": []
+    },
+    {
+      "asset_identities": [
+        {
+          "acquisition_date": "2026-08-08T00:15:03.769722+00:00",
+          "acquisition_method": "scripts/bootstrap_models.py --sherpa-vad",
+          "artifact_filename": "silero_vad.onnx",
+          "asset_id": "sherpa_onnx_vad",
+          "backend": "Sherpa-ONNX",
+          "component": "sherpa_onnx_vad",
+          "credential_required": false,
+          "environment_profile": "onnx",
+          "files": [
+            {
+              "bytes": 643854,
+              "path": "silero_vad.onnx",
+              "sha256": "9e2449e1087496d8d4caba907f23e0bd3f78d91fa552479bb9c23ac09cbb1fd6"
+            }
+          ],
+          "licence": "Verify upstream model terms before redistribution",
+          "model_name": "Silero VAD ONNX",
+          "model_version": "release asset",
+          "present": true,
+          "sha256": "608c32d38d1000e1710b10c0ce26bda8d49c723cb9eeccd0d363d0c976715e47",
+          "size_bytes": 643854,
+          "source": "https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/silero_vad.onnx",
+          "storage_path": "models/cache/sherpa_onnx/vad/silero_vad.onnx",
+          "verification_status": "verified"
+        }
+      ],
+      "backend_id": "sherpa_onnx_vad",
+      "command": "python 'Software Validation from Datasets\\Evaluation Tool\\scripts\\qualify_extended_backends.py' --profile onnx",
+      "component_identity": {
+        "backend_id": "sherpa_onnx_vad",
+        "config_path": "configs/inference/components/vad/sherpa_onnx.yaml",
+        "config_sha256": "1f3eebf2e7f70dda23f72f8ff7f3336dc5242c7ed1646bb3d75d6e332f3d4da6",
+        "family": "vad"
+      },
+      "credential_presence": {},
+      "details": {
+        "bounded": true,
+        "chunk_count": 1,
+        "monotonic_nonoverlapping": true,
+        "no_speech_region_count": 0,
+        "pipeline_composition": true,
+        "region_count": 1,
+        "regions": [
+          {
+            "channel_index": null,
+            "confidence": null,
+            "end_sec": 4.224,
+            "label": "speech",
+            "start_sec": 3.91
+          }
+        ],
+        "repeated_output_equal": true,
+        "vad_chunker_compatible": true
+      },
+      "device": "cpu",
+      "explanation": "Real repeated offline qualification passed.",
+      "failure_category": null,
+      "family": "vad",
+      "implicit_downloads_allowed": false,
+      "package_versions": {
+        "sherpa-onnx": "1.13.4"
+      },
+      "profile": "onnx",
+      "repetitions": 2,
+      "schema_validation": true,
+      "status": "qualified",
+      "timing": {
+        "inference_sec": [
+          0.11054,
+          0.03184
+        ],
+        "total_sec": 0.279697
+      },
+      "warnings": []
+    },
+    {
+      "asset_identities": [
+        {
+          "acquisition_date": "2026-08-08T00:15:04.538280+00:00",
+          "acquisition_method": "scripts/bootstrap_models.py --sherpa-speaker-embedding",
+          "artifact_filename": "3dspeaker_speech_eres2net_base_sv_zh-cn_3dspeaker_16k.onnx",
+          "asset_id": "sherpa_onnx_speaker_embedding",
+          "backend": "Sherpa-ONNX",
+          "component": "sherpa_onnx_speaker_embedding",
+          "credential_required": false,
+          "environment_profile": "onnx",
+          "files": [
+            {
+              "bytes": 39593761,
+              "path": "3dspeaker_speech_eres2net_base_sv_zh-cn_3dspeaker_16k.onnx",
+              "sha256": "1a331345f04805badbb495c775a6ddffcdd1a732567d5ec8b3d5749e3c7a5e4b"
+            }
+          ],
+          "licence": "Verify upstream model terms before redistribution",
+          "model_name": "3D-Speaker ERes2Net base 16k",
+          "model_version": "release asset",
+          "present": true,
+          "sha256": "bd0c6fe268dc71a958d3f49970aeb1df31626bf01027cd699b2aacf3127c416d",
+          "size_bytes": 39593761,
+          "source": "https://github.com/k2-fsa/sherpa-onnx/releases/tag/speaker-recongition-models",
+          "storage_path": "models/cache/sherpa_onnx/speaker_embedding/3dspeaker_speech_eres2net_base_sv_zh-cn_3dspeaker_16k.onnx",
+          "verification_status": "verified"
+        }
+      ],
+      "backend_id": "sherpa_onnx_speaker_embedding",
+      "command": "python 'Software Validation from Datasets\\Evaluation Tool\\scripts\\qualify_extended_backends.py' --profile onnx",
+      "component_identity": {
+        "backend_id": "sherpa_onnx_speaker_embedding",
+        "config_path": "configs/inference/components/speaker_embedding/sherpa_onnx.yaml",
+        "config_sha256": "57e0d28b235329555f84524259d3e63b0e8dfe99495b8a21063dbc5e938325a4",
+        "family": "speaker_embedding"
+      },
+      "credential_presence": {},
+      "details": {
+        "dimension": 512,
+        "finite": true,
+        "identity_recorded": true,
+        "l2_norms": [
+          1.0000000012698975,
+          1.0000000012698975
+        ],
+        "minimum_duration_status": "too_short",
+        "model_name": "3dspeaker_eres2net_base",
+        "pipeline_composition": true,
+        "repeatability_l2_drift": 0.0,
+        "runtime": {
+          "audio_duration_sec": 0.1,
+          "cpu_memory_mb": null,
+          "device": "cpu",
+          "dtype": "float32",
+          "inference_sec": 0.0010315000545233488,
+          "load_sec": 0.0,
+          "model_name": "3dspeaker_eres2net_base",
+          "peak_gpu_memory_mb": null,
+          "realtime_factor": 0.010315000545233488
+        },
+        "valid_real_outputs": 2
+      },
+      "device": "cpu",
+      "explanation": "Real repeated offline qualification passed.",
+      "failure_category": null,
+      "family": "speaker_embedding",
+      "implicit_downloads_allowed": false,
+      "package_versions": {
+        "sherpa-onnx": "1.13.4"
+      },
+      "profile": "onnx",
+      "repetitions": 2,
+      "schema_validation": true,
+      "status": "qualified",
+      "timing": {
+        "inference_sec": [
+          0.561743,
+          0.19075
+        ],
+        "total_sec": 0.857674
+      },
+      "warnings": []
+    },
+    {
+      "asset_identities": [
+        {
+          "acquisition_date": "2024-10-08T12:54:07+00:00",
+          "acquisition_method": "scripts/bootstrap_models.py --sherpa-diarization",
+          "artifact_filename": "sherpa-onnx-pyannote-segmentation-3-0.tar.bz2",
+          "asset_id": "sherpa_onnx_diarization_segmentation",
+          "backend": "Sherpa-ONNX",
+          "component": "sherpa_onnx_diarization",
+          "credential_required": false,
+          "environment_profile": "onnx",
+          "files": [
+            {
+              "bytes": 1061,
+              "path": "LICENSE",
+              "sha256": "14d7016ad68e7394d6e6b78d96cc2ae431c905287b89674cfdf021e79e62b8ba"
+            },
+            {
+              "bytes": 115,
+              "path": "README.md",
+              "sha256": "0380ed76a50efcc421dc62f251ed06e8349688466beac3177bee6e00dc336bfc"
+            },
+            {
+              "bytes": 3953,
+              "path": "export-onnx.py",
+              "sha256": "21df426fc6ca2ad54b5c9e114729990e0a669d602ea4e052f38287f99d32c0b0"
+            },
+            {
+              "bytes": 1540506,
+              "path": "model.int8.onnx",
+              "sha256": "d582f4b4c6b48205de7e0643c57df0df5615a3c176189be3fc461e9d18827b5d"
+            },
+            {
+              "bytes": 5992913,
+              "path": "model.onnx",
+              "sha256": "220ad67ca923bef2fa91f2390c786097bf305bceb5e261d4af67b38e938e1079"
+            },
+            {
+              "bytes": 1985,
+              "path": "run.sh",
+              "sha256": "5844c56ec90b29d0f01056f81e3f66f84ed4ef598bfc8705f86cd290d73138b3"
+            },
+            {
+              "bytes": 857,
+              "path": "show-onnx.py",
+              "sha256": "ace74dd3749e345cfac03a2d869830a99e7425ebc100545d7e8b2b95568ee575"
+            },
+            {
+              "bytes": 15204,
+              "path": "speaker-diarization-onnx.py",
+              "sha256": "51e301c2d02c87351a22582e51e883d4f18e4755d193587e69e1fd7f357132e7"
+            },
+            {
+              "bytes": 2306,
+              "path": "speaker-diarization-torch.py",
+              "sha256": "72f9fa5dd9f4966869acf79ef3b1328398434c70373f462d373895757aa0fae7"
+            },
+            {
+              "bytes": 6883,
+              "path": "vad-onnx.py",
+              "sha256": "4fbd5d74faf7bb34133f3268d1f184f9a43bfa3e3220acf1dbec7e9bef41e848"
+            },
+            {
+              "bytes": 1029,
+              "path": "vad-torch.py",
+              "sha256": "ecd6d40be0229624b7a312a1e2a3cffddeaf432706395df26c76fe588bf8dc66"
+            }
+          ],
+          "licence": "Verify converted-model terms before redistribution",
+          "model_name": "pyannote-segmentation-3.0 ONNX",
+          "model_version": "3.0",
+          "present": true,
+          "sha256": "705c42c6fe52c84fa34c119f1c10470d48a005a1777ed7cf4ba9db8566b6b184",
+          "size_bytes": 7566812,
+          "source": "https://github.com/k2-fsa/sherpa-onnx/releases/tag/speaker-segmentation-models",
+          "storage_path": "models/cache/sherpa_onnx/diarization/sherpa-onnx-pyannote-segmentation-3-0",
+          "verification_status": "verified"
+        },
+        {
+          "acquisition_date": "2026-08-08T00:15:04.538280+00:00",
+          "acquisition_method": "scripts/bootstrap_models.py --sherpa-speaker-embedding",
+          "artifact_filename": "3dspeaker_speech_eres2net_base_sv_zh-cn_3dspeaker_16k.onnx",
+          "asset_id": "sherpa_onnx_speaker_embedding",
+          "backend": "Sherpa-ONNX",
+          "component": "sherpa_onnx_speaker_embedding",
+          "credential_required": false,
+          "environment_profile": "onnx",
+          "files": [
+            {
+              "bytes": 39593761,
+              "path": "3dspeaker_speech_eres2net_base_sv_zh-cn_3dspeaker_16k.onnx",
+              "sha256": "1a331345f04805badbb495c775a6ddffcdd1a732567d5ec8b3d5749e3c7a5e4b"
+            }
+          ],
+          "licence": "Verify upstream model terms before redistribution",
+          "model_name": "3D-Speaker ERes2Net base 16k",
+          "model_version": "release asset",
+          "present": true,
+          "sha256": "bd0c6fe268dc71a958d3f49970aeb1df31626bf01027cd699b2aacf3127c416d",
+          "size_bytes": 39593761,
+          "source": "https://github.com/k2-fsa/sherpa-onnx/releases/tag/speaker-recongition-models",
+          "storage_path": "models/cache/sherpa_onnx/speaker_embedding/3dspeaker_speech_eres2net_base_sv_zh-cn_3dspeaker_16k.onnx",
+          "verification_status": "verified"
+        }
+      ],
+      "backend_id": "sherpa_onnx_diarization",
+      "command": "python 'Software Validation from Datasets\\Evaluation Tool\\scripts\\qualify_extended_backends.py' --profile onnx",
+      "component_identity": {
+        "backend_id": "sherpa_onnx_diarization",
+        "config_path": "configs/inference/components/diarization/sherpa_onnx.yaml",
+        "config_sha256": "00bb4d82219b8c9d505f6ce373625c164d0c4553a96ff06dbaf72b7c715e2dfb",
+        "family": "diarization"
+      },
+      "credential_presence": {},
+      "details": {
+        "anonymous_label_consistency": true,
+        "bounded": true,
+        "der_jer_ready_claimed": false,
+        "pipeline_composition": true,
+        "reference_label_fallback": false,
+        "repeated_output_equal": true,
+        "rttm_conversion": true,
+        "rttm_line_count": 1,
+        "segmentation_provenance": [
+          "sherpa_onnx_diarization"
+        ],
+        "speaker_labels": [
+          "speaker_01"
+        ],
+        "turn_count": 1
+      },
+      "device": "cpu",
+      "explanation": "Real repeated offline qualification passed.",
+      "failure_category": null,
+      "family": "diarization",
+      "implicit_downloads_allowed": false,
+      "package_versions": {
+        "sherpa-onnx": "1.13.4"
+      },
+      "profile": "onnx",
+      "repetitions": 2,
+      "schema_validation": true,
+      "status": "qualified",
+      "timing": {
+        "inference_sec": [
+          0.395997,
+          0.055915
+        ],
+        "total_sec": 0.541238
+      },
+      "warnings": []
+    }
+  ],
+  "schema_version": "extended-backend-qualification.v1",
+  "secret_audit": {
+    "credential_presence_only": true,
+    "values_serialized": false
+  },
+  "summary": {
+    "qualified": 4,
+    "status_counts": {
+      "qualified": 4
+    },
+    "total": 4
+  }
+}

@@ -1,0 +1,279 @@
+schema_version: campaign-metric-registry.v1
+registry_version: 1.0.0
+policy: Emit a metric only when every required field and semantic prerequisite is present.
+
+defaults: &metric_defaults
+  version: 1.0.0
+  scenario_types: [asr, vad_only, embedding_extraction, speaker_verification, diarization, synthetic_executor]
+  required_fields: []
+  numerator: null
+  denominator: null
+  aggregation: scenario_value
+  missing_policy: retain_null_and_record_reason
+  failure_policy: failed_and_missing_items_remain_in_denominators_when_defined
+  grouping: [scenario_id]
+  statistics: [count, mean, confidence_interval_when_replicated]
+  limitations: Scenario summaries are comparable only under compatible benchmark and scoring contracts.
+  plots: []
+  tables: [scenario_metric_values]
+  interpretation_anchor: metric-registry
+
+metrics:
+  - <<: *metric_defaults
+    name: scenario_completion
+    purpose: Indicate whether the existing artifact validator accepted the scenario.
+    source_paths: [analysis.validation_complete]
+    formula: 1 for a validated included result; 0 for every other planned scenario.
+    numerator: validated included scenarios
+    denominator: planned scenarios
+    aggregation: campaign_proportion
+    plots: [coverage_reconciliation, reliability_failure]
+    interpretation_anchor: completeness-and-reliability
+
+  - <<: *metric_defaults
+    name: failure_rate
+    purpose: Preserve execution failures in campaign reliability comparisons.
+    source_paths: [derived.failure_rate, metrics_summary.metrics.failure_rate, scenario_report.metrics.failure_rate]
+    formula: failed items divided by selected items, or failed scenarios divided by planned scenarios at campaign level.
+    numerator: failed items or failed scenarios
+    denominator: selected items or planned scenarios
+    aggregation: weighted_rate
+    plots: [reliability_failure]
+    interpretation_anchor: completeness-and-reliability
+
+  - <<: *metric_defaults
+    name: micro_wer
+    purpose: Measure aggregate word recognition error over the declared scoring population.
+    scenario_types: [asr]
+    required_fields: [substitutions, insertions, deletions, reference_words]
+    source_paths: [metrics_summary.metrics.micro_wer, metrics_summary.metrics.aggregate_wer, metrics_summary.micro_wer, scenario_report.metrics.micro_wer]
+    formula: (substitutions + insertions + deletions) / reference_words
+    numerator: substitutions + insertions + deletions
+    denominator: reference_words
+    aggregation: micro
+    grouping: [scenario_id, dataset, panel, condition_id]
+    statistics: [paired_cluster_bootstrap, absolute_change, relative_change, effect_size]
+    plots: [pareto_frontier, wer_cer_comparison, robustness_degradation, exact_rir_heatmap, native_condition, subgroup_fairness]
+    tables: [asr_comparison, paired_comparison]
+    interpretation_anchor: asr-metrics
+    item_field: wer
+
+  - <<: *metric_defaults
+    name: micro_cer
+    purpose: Measure aggregate character recognition error over the declared scoring population.
+    scenario_types: [asr]
+    required_fields: [character_errors, reference_characters]
+    source_paths: [metrics_summary.metrics.micro_cer, metrics_summary.micro_cer, scenario_report.metrics.micro_cer]
+    formula: character_errors / reference_characters
+    numerator: character errors
+    denominator: reference characters
+    aggregation: micro
+    grouping: [scenario_id, dataset, panel, condition_id]
+    statistics: [paired_cluster_bootstrap, absolute_change, relative_change, effect_size]
+    plots: [wer_cer_comparison, robustness_degradation]
+    tables: [asr_comparison, paired_comparison]
+    interpretation_anchor: asr-metrics
+    item_field: cer
+
+  - <<: *metric_defaults
+    name: vad_speech_recall
+    purpose: Measure retained reference speech duration where compatible VAD references exist.
+    scenario_types: [vad_only, asr]
+    required_fields: [reference_speech_duration_sec, detected_reference_overlap_sec]
+    source_paths: [metrics_summary.metrics.speech_recall, metrics_summary.metrics.vad_speech_recall, scenario_report.metrics.speech_recall]
+    formula: detected reference overlap / reference speech duration
+    numerator: detected reference speech overlap seconds
+    denominator: reference speech seconds
+    aggregation: duration_weighted_rate
+    plots: [segmentation_quality]
+    tables: [vad_comparison]
+    interpretation_anchor: vad-and-segmentation
+    item_field: speech_recall
+
+  - <<: *metric_defaults
+    name: vad_false_alarm_duration_sec
+    purpose: Measure predicted speech outside compatible reference speech regions.
+    scenario_types: [vad_only, asr, diarization]
+    required_fields: [predicted_speech_duration_sec, reference_overlap_sec]
+    source_paths: [metrics_summary.metrics.false_alarm_duration_sec, metrics_summary.metrics.false_alarm_sec, scenario_report.metrics.false_alarm_duration_sec]
+    formula: predicted speech duration minus reference overlap duration
+    numerator: false alarm speech seconds
+    denominator: null
+    aggregation: sum
+    plots: [segmentation_quality, diarization_outcomes]
+    tables: [vad_comparison, diarization_comparison]
+    interpretation_anchor: vad-and-segmentation
+    item_field: false_alarm_duration_sec
+
+  - <<: *metric_defaults
+    name: latency_p95_sec
+    purpose: Quantify tail scenario or item latency.
+    source_paths: [metrics_summary.metrics.latency_p95_sec, metrics_summary.metrics.p95_latency_sec, resource_summary.latency.p95_sec, scenario_report.metrics.latency_p95_sec]
+    formula: empirical 95th percentile of valid measured latency spans
+    numerator: null
+    denominator: null
+    aggregation: percentile
+    plots: [pareto_frontier, latency_tail, machine_comparison]
+    tables: [performance_comparison]
+    interpretation_anchor: performance-and-resources
+    item_field: latency_sec
+
+  - <<: *metric_defaults
+    name: real_time_factor
+    purpose: Compare wall inference time with processed audio duration.
+    source_paths: [metrics_summary.metrics.mean_rtf, metrics_summary.metrics.total_rtf, metrics_summary.metrics.real_time_factor, scenario_report.metrics.mean_rtf]
+    formula: inference wall seconds / processed audio seconds
+    numerator: inference wall seconds
+    denominator: processed audio seconds
+    aggregation: duration_weighted_ratio
+    plots: [pareto_frontier, latency_tail, throughput]
+    tables: [performance_comparison]
+    interpretation_anchor: performance-and-resources
+    item_field: rtf
+
+  - <<: *metric_defaults
+    name: throughput_audio_sec_per_wall_sec
+    purpose: Quantify processed audio throughput.
+    source_paths: [metrics_summary.metrics.throughput_audio_sec_per_wall_sec, resource_summary.throughput_audio_sec_per_wall_sec, scenario_report.metrics.throughput_audio_sec_per_wall_sec]
+    formula: processed audio seconds / inference wall seconds
+    numerator: processed audio seconds
+    denominator: inference wall seconds
+    aggregation: ratio_of_totals
+    plots: [throughput, machine_comparison]
+    tables: [performance_comparison]
+    interpretation_anchor: performance-and-resources
+
+  - <<: *metric_defaults
+    name: peak_cpu_percent
+    purpose: Compare peak observed process-tree CPU utilization.
+    source_paths: [resource_summary.resources.process_cpu_percent.maximum, resource_summary.resources.process_cpu_percent.max, resource_summary.peak.process_cpu_percent]
+    formula: maximum valid sampled process-tree CPU percent
+    aggregation: maximum
+    plots: [cpu_ram_vram, resource_utilization, machine_comparison]
+    tables: [resource_comparison]
+    interpretation_anchor: performance-and-resources
+
+  - <<: *metric_defaults
+    name: peak_rss_bytes
+    purpose: Compare peak observed process-tree resident memory.
+    source_paths: [resource_summary.resources.process_rss_bytes.maximum, resource_summary.resources.process_rss_bytes.max, resource_summary.peak.process_rss_bytes]
+    formula: maximum valid sampled process-tree RSS bytes
+    aggregation: maximum
+    plots: [cpu_ram_vram, resource_utilization, machine_comparison]
+    tables: [resource_comparison]
+    interpretation_anchor: performance-and-resources
+
+  - <<: *metric_defaults
+    name: peak_vram_bytes
+    purpose: Compare peak observed GPU memory while preserving unsupported sensors as null.
+    source_paths: [resource_summary.resources.gpu_memory_used_bytes.maximum, resource_summary.resources.gpu_memory_used_bytes.max, resource_summary.peak.gpu_memory_used_bytes]
+    formula: maximum valid sampled current VRAM bytes
+    aggregation: maximum
+    plots: [cpu_ram_vram, resource_utilization, machine_comparison]
+    tables: [resource_comparison]
+    interpretation_anchor: performance-and-resources
+
+  - <<: *metric_defaults
+    name: embedding_eer
+    purpose: Compare equal-error rate from held-out speaker verification trials.
+    scenario_types: [speaker_verification]
+    required_fields: [held_out_same_speaker_scores, held_out_different_speaker_scores]
+    source_paths: [metrics_summary.metrics.eer.eer, metrics_summary.eer.eer, scenario_report.metrics.eer.eer]
+    formula: interpolated operating point where FAR and FRR are closest
+    numerator: false accepts and false rejects at EER threshold
+    denominator: held-out different-speaker and same-speaker trials
+    aggregation: held_out_trial_operating_point
+    grouping: [scenario_id, embedding_backend, condition_id]
+    statistics: [cluster_bootstrap_by_speaker, confidence_interval]
+    plots: [speaker_score_distribution, roc_det, threshold_operating, embedding_drift]
+    tables: [speaker_protocol_comparison]
+    interpretation_anchor: speaker-protocol-metrics
+
+  - <<: *metric_defaults
+    name: speaker_top1_accuracy
+    purpose: Measure closed-set top-1 speaker identification on held-out probes.
+    scenario_types: [speaker_verification]
+    required_fields: [top1_correct, valid_known_probes]
+    source_paths: [metrics_summary.metrics.closed_set.top1_accuracy.value, metrics_summary.metrics.top1_accuracy.value, scenario_report.metrics.closed_set.top1_accuracy.value]
+    formula: correct top-1 known-speaker decisions / valid known probes
+    numerator: correct top-1 decisions
+    denominator: valid known probes
+    aggregation: proportion
+    plots: [speaker_score_distribution, subgroup_fairness]
+    tables: [speaker_protocol_comparison]
+    interpretation_anchor: speaker-protocol-metrics
+
+  - <<: *metric_defaults
+    name: unknown_rejection_rate
+    purpose: Measure correct rejection of held-out unknown speakers.
+    scenario_types: [speaker_verification]
+    required_fields: [correct_unknown_rejections, unknown_probes]
+    source_paths: [metrics_summary.metrics.open_set.unknown_rejection.value, metrics_summary.metrics.unknown_rejection.value, scenario_report.metrics.open_set.unknown_rejection.value]
+    formula: correctly rejected unknown probes / valid unknown probes
+    numerator: correctly rejected unknown probes
+    denominator: valid unknown probes
+    aggregation: proportion
+    plots: [threshold_operating, subgroup_fairness]
+    tables: [speaker_protocol_comparison]
+    interpretation_anchor: speaker-protocol-metrics
+
+  - <<: *metric_defaults
+    name: embedding_drift
+    purpose: Quantify paired clean-to-degraded embedding cosine-distance drift.
+    scenario_types: [embedding_extraction, speaker_verification]
+    required_fields: [paired_clean_embedding, paired_degraded_embedding]
+    source_paths: [metrics_summary.metrics.clean_to_degraded_drift.mean, metrics_summary.metrics.embedding_drift.mean, scenario_report.metrics.clean_to_degraded_drift.mean]
+    formula: mean of one minus paired cosine similarity
+    numerator: sum paired cosine distances
+    denominator: valid clean/degraded pairs
+    aggregation: paired_mean
+    plots: [embedding_drift, robustness_degradation]
+    tables: [speaker_protocol_comparison]
+    interpretation_anchor: speaker-protocol-metrics
+    item_field: embedding_drift
+
+  - <<: *metric_defaults
+    name: diarization_der
+    purpose: Measure diarization error only for validated RTTM/UEM/reference timebases.
+    scenario_types: [diarization]
+    required_fields: [reference_speaker_time_sec, missed_speech_sec, false_alarm_sec, speaker_confusion_sec]
+    source_paths: [metrics_summary.metrics.der, metrics_summary.der, scenario_report.metrics.der]
+    formula: (missed speech + false alarm + speaker confusion) / reference speaker time
+    numerator: missed speech + false alarm + speaker confusion seconds
+    denominator: reference speaker time seconds
+    aggregation: duration_weighted_rate
+    grouping: [scenario_id, dataset, meeting_id, overlap_policy]
+    statistics: [cluster_bootstrap_by_meeting, confidence_interval]
+    plots: [diarization_outcomes, native_condition]
+    tables: [diarization_comparison]
+    interpretation_anchor: diarization-metrics
+    item_field: der
+
+  - <<: *metric_defaults
+    name: diarization_jer
+    purpose: Measure speaker-set Jaccard error only for compatible diarization references.
+    scenario_types: [diarization]
+    required_fields: [reference_rttm, prediction_rttm, scored_region]
+    source_paths: [metrics_summary.metrics.jer, metrics_summary.jer, scenario_report.metrics.jer]
+    formula: permutation-aware mean speaker Jaccard error under the declared scoring policy
+    numerator: speaker Jaccard error sum
+    denominator: reference speakers
+    aggregation: speaker_macro
+    grouping: [scenario_id, dataset, meeting_id, overlap_policy]
+    statistics: [cluster_bootstrap_by_meeting, confidence_interval]
+    plots: [diarization_outcomes, native_condition]
+    tables: [diarization_comparison]
+    interpretation_anchor: diarization-metrics
+    item_field: jer
+
+  - <<: *metric_defaults
+    name: synthetic_success
+    purpose: Qualify campaign execution and analysis contracts without claiming model quality.
+    scenario_types: [synthetic_executor]
+    source_paths: [metrics_summary.metrics.synthetic_success, scenario_report.metrics.synthetic_success]
+    formula: 1 only for the synthetic success fixture
+    numerator: successful synthetic fixtures
+    denominator: planned synthetic fixtures
+    aggregation: proportion
+    plots: [coverage_reconciliation, reliability_failure]
+    interpretation_anchor: synthetic-release-rehearsal

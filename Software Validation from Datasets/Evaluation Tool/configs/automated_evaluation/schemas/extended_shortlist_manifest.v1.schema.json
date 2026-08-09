@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "extended_shortlist_manifest.v1.schema.json",
+  "type": "object",
+  "required": ["schema_version", "plan_id", "asr", "vad_segmentation", "speaker_embedding", "targeted_combinations", "status", "selection_policy"],
+  "properties": {
+    "schema_version": {"const": "extended-shortlist-manifest.v1"},
+    "asr": {"type": "array", "items": {"type": "string"}},
+    "vad_segmentation": {"type": "array", "items": {"type": "string"}},
+    "speaker_embedding": {"type": "array", "items": {"type": "string"}},
+    "targeted_combinations": {"type": "array", "items": {"type": "string"}}
+  }
+}

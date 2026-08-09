@@ -1,0 +1,13 @@
+{
+  "diagnostics": "predictions/diagnostics.jsonl",
+  "failures": "predictions/failures.jsonl",
+  "files": {
+    "component_identity_summary": "inference/component_identity_summary.json",
+    "configuration_warnings": "inference/configuration_warnings.json",
+    "resolved_inference_config": "inference/resolved_inference_config.yaml",
+    "selected_inference_config": "inference/selected_inference_config.json"
+  },
+  "predictions": "predictions/utterances.jsonl",
+  "runner": "configured",
+  "schema_version": "configured-runner-artifacts.v1"
+}

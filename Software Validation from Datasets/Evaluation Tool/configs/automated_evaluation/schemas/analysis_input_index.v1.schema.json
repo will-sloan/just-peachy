@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "analysis-input-index.v1",
+  "title": "Portable handoff index for later campaign analysis",
+  "type": "object",
+  "required": ["schema_version", "analysis_input_id", "analysis_input_sha256", "campaign_id", "campaign_manifest_sha256", "merged_result_index", "scenario_results", "missing_scenario_ids", "created_at_utc"],
+  "properties": {
+    "schema_version": {"const": "analysis-input-index.v1"},
+    "analysis_input_id": {"type": "string", "pattern": "^analysis_input_[0-9a-f]{12}$"},
+    "analysis_input_sha256": {"type": "string", "pattern": "^[0-9A-F]{64}$"},
+    "campaign_id": {"type": "string"},
+    "campaign_manifest_sha256": {"type": "string", "pattern": "^[0-9A-F]{64}$"},
+    "merged_result_index": {"type": "object"},
+    "scenario_results": {"type": "array"},
+    "missing_scenario_ids": {"type": "array"},
+    "created_at_utc": {"type": "string", "format": "date-time"}
+  }
+}

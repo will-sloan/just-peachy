@@ -1,0 +1,820 @@
+{
+  "authoritative_representation": "parquet",
+  "manifest_identities": {
+    "large": {
+      "authoritative_representation": "parquet",
+      "bytes": 5815776,
+      "canonicalization_version": "manifest-canonicalization.v1",
+      "hash_algorithm": "sha256",
+      "hash_version": "manifest-hash.v1",
+      "manifest_id": "manifest_bc207e61b820",
+      "path": "large_source_manifest.parquet",
+      "rows": 8258,
+      "schema_version": "benchmark-manifest.v1",
+      "sha256": "BC207E61B82052F06CCB9FFFE038B6DFE7B1C65C21843D08905946114238DE88"
+    },
+    "small": {
+      "authoritative_representation": "parquet",
+      "bytes": 311975,
+      "canonicalization_version": "manifest-canonicalization.v1",
+      "hash_algorithm": "sha256",
+      "hash_version": "manifest-hash.v1",
+      "manifest_id": "manifest_0bd28359f11a",
+      "path": "small_source_manifest.parquet",
+      "rows": 405,
+      "schema_version": "benchmark-manifest.v1",
+      "sha256": "0BD28359F11AB283C349386BB5DFC78E52C3C1E8B4EDE271551F5029C9FC44F6"
+    },
+    "speaker_protocol": {
+      "authoritative_representation": "parquet",
+      "bytes": 971506,
+      "canonicalization_version": "manifest-canonicalization.v1",
+      "hash_algorithm": "sha256",
+      "hash_version": "manifest-hash.v1",
+      "manifest_id": "manifest_a9b0b28f5c7f",
+      "path": "speaker_protocol.parquet",
+      "rows": 1488,
+      "schema_version": "benchmark-manifest.v1",
+      "sha256": "A9B0B28F5C7FDEF51215069521215BB78598DB9497E40BDA6C893181F71288D4"
+    },
+    "standard": {
+      "authoritative_representation": "parquet",
+      "bytes": 1509928,
+      "canonicalization_version": "manifest-canonicalization.v1",
+      "hash_algorithm": "sha256",
+      "hash_version": "manifest-hash.v1",
+      "manifest_id": "manifest_55d9e81b041b",
+      "path": "standard_source_manifest.parquet",
+      "rows": 2083,
+      "schema_version": "benchmark-manifest.v1",
+      "sha256": "55D9E81B041BB589FAAB173E76BE89B59AAFAF3C6B02409201EA7A5F10AA01C0"
+    }
+  },
+  "manifest_schema_version": "benchmark-manifest.v1",
+  "schema_version": "benchmark-manifest-summary.v1",
+  "selection_seed": 3800,
+  "shortfalls": [
+    {
+      "benchmark_tier": "small",
+      "dataset": "hifitts",
+      "manifest_schema_version": "benchmark-manifest.v1",
+      "panel": "controlled_clean",
+      "realized_count": 15,
+      "requested_count": 50,
+      "selection_stratum": "source_selection",
+      "shortfall_count": 35,
+      "shortfall_reason": "clean reader pool exhausted under eligibility rules"
+    },
+    {
+      "benchmark_tier": "small",
+      "dataset": "hifitts",
+      "manifest_schema_version": "benchmark-manifest.v1",
+      "panel": "native_robustness",
+      "realized_count": 16,
+      "requested_count": 20,
+      "selection_stratum": "source_selection",
+      "shortfall_count": 4,
+      "shortfall_reason": "other reader pool exhausted under eligibility rules"
+    },
+    {
+      "benchmark_tier": "standard",
+      "dataset": "hifitts",
+      "manifest_schema_version": "benchmark-manifest.v1",
+      "panel": "controlled_clean",
+      "realized_count": 60,
+      "requested_count": 200,
+      "selection_stratum": "source_selection",
+      "shortfall_count": 140,
+      "shortfall_reason": "clean reader pool exhausted under eligibility rules"
+    },
+    {
+      "benchmark_tier": "standard",
+      "dataset": "ami",
+      "manifest_schema_version": "benchmark-manifest.v1",
+      "panel": "native_robustness",
+      "realized_count": 518,
+      "requested_count": 576,
+      "selection_stratum": "matched_native_streams",
+      "shortfall_count": 58,
+      "shortfall_reason": "insufficient eligible matched headset/array segments, speakers, or meetings"
+    },
+    {
+      "benchmark_tier": "standard",
+      "dataset": "voices",
+      "manifest_schema_version": "benchmark-manifest.v1",
+      "panel": "native_robustness",
+      "realized_count": 120,
+      "requested_count": 640,
+      "selection_stratum": "source_selection",
+      "shortfall_count": 520,
+      "shortfall_reason": "test split cannot meet balanced speaker/source/native-condition quota"
+    },
+    {
+      "benchmark_tier": "standard",
+      "dataset": "hifitts",
+      "manifest_schema_version": "benchmark-manifest.v1",
+      "panel": "native_robustness",
+      "realized_count": 40,
+      "requested_count": 50,
+      "selection_stratum": "source_selection",
+      "shortfall_count": 10,
+      "shortfall_reason": "other reader pool exhausted under eligibility rules"
+    },
+    {
+      "benchmark_tier": "large",
+      "dataset": "librispeech",
+      "manifest_schema_version": "benchmark-manifest.v1",
+      "panel": "controlled_clean",
+      "realized_count": 760,
+      "requested_count": 2000,
+      "selection_stratum": "source_selection",
+      "shortfall_count": 1240,
+      "shortfall_reason": "dev-clean cannot meet balanced speaker/utterance quota under eligibility rules"
+    },
+    {
+      "benchmark_tier": "large",
+      "dataset": "hifitts",
+      "manifest_schema_version": "benchmark-manifest.v1",
+      "panel": "controlled_clean",
+      "realized_count": 300,
+      "requested_count": 1000,
+      "selection_stratum": "source_selection",
+      "shortfall_count": 700,
+      "shortfall_reason": "clean reader pool exhausted under eligibility rules"
+    },
+    {
+      "benchmark_tier": "large",
+      "dataset": "ami",
+      "manifest_schema_version": "benchmark-manifest.v1",
+      "panel": "native_robustness",
+      "realized_count": 3168,
+      "requested_count": 3600,
+      "selection_stratum": "matched_native_streams",
+      "shortfall_count": 432,
+      "shortfall_reason": "insufficient eligible matched headset/array segments, speakers, or meetings"
+    },
+    {
+      "benchmark_tier": "large",
+      "dataset": "voices",
+      "manifest_schema_version": "benchmark-manifest.v1",
+      "panel": "native_robustness",
+      "realized_count": 240,
+      "requested_count": 3200,
+      "selection_stratum": "source_selection",
+      "shortfall_count": 2960,
+      "shortfall_reason": "test split cannot meet balanced speaker/source/native-condition quota"
+    },
+    {
+      "benchmark_tier": "large",
+      "dataset": "librispeech",
+      "manifest_schema_version": "benchmark-manifest.v1",
+      "panel": "native_robustness",
+      "realized_count": 330,
+      "requested_count": 1000,
+      "selection_stratum": "source_selection",
+      "shortfall_count": 670,
+      "shortfall_reason": "dev-other cannot meet balanced speaker/utterance quota under eligibility rules"
+    },
+    {
+      "benchmark_tier": "large",
+      "dataset": "hifitts",
+      "manifest_schema_version": "benchmark-manifest.v1",
+      "panel": "native_robustness",
+      "realized_count": 160,
+      "requested_count": 200,
+      "selection_stratum": "source_selection",
+      "shortfall_count": 40,
+      "shortfall_reason": "other reader pool exhausted under eligibility rules"
+    }
+  ],
+  "summaries": {
+    "large": {
+      "groups": {
+        "controlled_clean/cmu_arctic": {
+          "accent_distribution": {
+            "Canadian English": 50,
+            "German-accented English": 100,
+            "Indian English": 250,
+            "Israeli-accented English": 50,
+            "Scottish English": 50,
+            "US English": 400
+          },
+          "gender_distribution": {
+            "female": 300,
+            "male": 600
+          },
+          "realized_count": 900,
+          "requested_count": 900,
+          "shortfalls": [],
+          "speaker_count": 18,
+          "total_duration_sec": 3115.455665
+        },
+        "controlled_clean/hifitts": {
+          "accent_distribution": {},
+          "gender_distribution": {
+            "female": 100,
+            "male": 200
+          },
+          "realized_count": 300,
+          "requested_count": 1000,
+          "shortfalls": [
+            {
+              "benchmark_tier": "large",
+              "dataset": "hifitts",
+              "manifest_schema_version": "benchmark-manifest.v1",
+              "panel": "controlled_clean",
+              "realized_count": 300,
+              "requested_count": 1000,
+              "selection_stratum": "source_selection",
+              "shortfall_count": 700,
+              "shortfall_reason": "clean reader pool exhausted under eligibility rules"
+            }
+          ],
+          "speaker_count": 3,
+          "total_duration_sec": 1455.28
+        },
+        "controlled_clean/librispeech": {
+          "accent_distribution": {},
+          "gender_distribution": {
+            "F": 400,
+            "M": 360
+          },
+          "realized_count": 760,
+          "requested_count": 2000,
+          "shortfalls": [
+            {
+              "benchmark_tier": "large",
+              "dataset": "librispeech",
+              "manifest_schema_version": "benchmark-manifest.v1",
+              "panel": "controlled_clean",
+              "realized_count": 760,
+              "requested_count": 2000,
+              "selection_stratum": "source_selection",
+              "shortfall_count": 1240,
+              "shortfall_reason": "dev-clean cannot meet balanced speaker/utterance quota under eligibility rules"
+            }
+          ],
+          "speaker_count": 38,
+          "total_duration_sec": 4962.375249
+        },
+        "native_robustness/ami": {
+          "accent_distribution": {},
+          "gender_distribution": {
+            "F": 1179,
+            "M": 1989
+          },
+          "realized_count": 3168,
+          "requested_count": 3600,
+          "shortfalls": [
+            {
+              "benchmark_tier": "large",
+              "dataset": "ami",
+              "manifest_schema_version": "benchmark-manifest.v1",
+              "panel": "native_robustness",
+              "realized_count": 3168,
+              "requested_count": 3600,
+              "selection_stratum": "matched_native_streams",
+              "shortfall_count": 432,
+              "shortfall_reason": "insufficient eligible matched headset/array segments, speakers, or meetings"
+            }
+          ],
+          "speaker_count": 38,
+          "total_duration_sec": 15368.097
+        },
+        "native_robustness/chime6": {
+          "accent_distribution": {},
+          "gender_distribution": {},
+          "realized_count": 2400,
+          "requested_count": 2400,
+          "shortfalls": [],
+          "speaker_count": 24,
+          "total_duration_sec": 8367.54
+        },
+        "native_robustness/hifitts": {
+          "accent_distribution": {},
+          "gender_distribution": {
+            "female": 100,
+            "male": 60
+          },
+          "realized_count": 160,
+          "requested_count": 200,
+          "shortfalls": [
+            {
+              "benchmark_tier": "large",
+              "dataset": "hifitts",
+              "manifest_schema_version": "benchmark-manifest.v1",
+              "panel": "native_robustness",
+              "realized_count": 160,
+              "requested_count": 200,
+              "selection_stratum": "source_selection",
+              "shortfall_count": 40,
+              "shortfall_reason": "other reader pool exhausted under eligibility rules"
+            }
+          ],
+          "speaker_count": 8,
+          "total_duration_sec": 746.33
+        },
+        "native_robustness/librispeech": {
+          "accent_distribution": {},
+          "gender_distribution": {
+            "F": 160,
+            "M": 170
+          },
+          "realized_count": 330,
+          "requested_count": 1000,
+          "shortfalls": [
+            {
+              "benchmark_tier": "large",
+              "dataset": "librispeech",
+              "manifest_schema_version": "benchmark-manifest.v1",
+              "panel": "native_robustness",
+              "realized_count": 330,
+              "requested_count": 1000,
+              "selection_stratum": "source_selection",
+              "shortfall_count": 670,
+              "shortfall_reason": "dev-other cannot meet balanced speaker/utterance quota under eligibility rules"
+            }
+          ],
+          "speaker_count": 33,
+          "total_duration_sec": 2018.130185
+        },
+        "native_robustness/voices": {
+          "accent_distribution": {},
+          "gender_distribution": {
+            "F": 96,
+            "M": 144
+          },
+          "realized_count": 240,
+          "requested_count": 3200,
+          "shortfalls": [
+            {
+              "benchmark_tier": "large",
+              "dataset": "voices",
+              "manifest_schema_version": "benchmark-manifest.v1",
+              "panel": "native_robustness",
+              "realized_count": 240,
+              "requested_count": 3200,
+              "selection_stratum": "source_selection",
+              "shortfall_count": 2960,
+              "shortfall_reason": "test split cannot meet balanced speaker/source/native-condition quota"
+            }
+          ],
+          "speaker_count": 13,
+          "total_duration_sec": 2864.0
+        }
+      },
+      "overall": {
+        "accent_distribution": {
+          "Canadian English": 50,
+          "German-accented English": 100,
+          "Indian English": 250,
+          "Israeli-accented English": 50,
+          "Scottish English": 50,
+          "US English": 400
+        },
+        "gender_distribution": {
+          "F": 1835,
+          "M": 2663,
+          "female": 500,
+          "male": 860
+        },
+        "realized_count": 8258,
+        "speaker_count": 173,
+        "total_duration_sec": 38897.208099
+      }
+    },
+    "small": {
+      "groups": {
+        "controlled_clean/cmu_arctic": {
+          "accent_distribution": {
+            "Canadian English": 5,
+            "German-accented English": 10,
+            "Indian English": 25,
+            "Israeli-accented English": 5,
+            "Scottish English": 5,
+            "US English": 40
+          },
+          "gender_distribution": {
+            "female": 30,
+            "male": 60
+          },
+          "realized_count": 90,
+          "requested_count": 90,
+          "shortfalls": [],
+          "speaker_count": 18,
+          "total_duration_sec": 277.55188
+        },
+        "controlled_clean/hifitts": {
+          "accent_distribution": {},
+          "gender_distribution": {
+            "female": 5,
+            "male": 10
+          },
+          "realized_count": 15,
+          "requested_count": 50,
+          "shortfalls": [
+            {
+              "benchmark_tier": "small",
+              "dataset": "hifitts",
+              "manifest_schema_version": "benchmark-manifest.v1",
+              "panel": "controlled_clean",
+              "realized_count": 15,
+              "requested_count": 50,
+              "selection_stratum": "source_selection",
+              "shortfall_count": 35,
+              "shortfall_reason": "clean reader pool exhausted under eligibility rules"
+            }
+          ],
+          "speaker_count": 3,
+          "total_duration_sec": 73.61
+        },
+        "controlled_clean/librispeech": {
+          "accent_distribution": {},
+          "gender_distribution": {
+            "F": 30,
+            "M": 30
+          },
+          "realized_count": 60,
+          "requested_count": 60,
+          "shortfalls": [],
+          "speaker_count": 12,
+          "total_duration_sec": 404.38
+        },
+        "native_robustness/ami": {
+          "accent_distribution": {},
+          "gender_distribution": {
+            "M": 80
+          },
+          "realized_count": 80,
+          "requested_count": 80,
+          "shortfalls": [],
+          "speaker_count": 8,
+          "total_duration_sec": 389.022
+        },
+        "native_robustness/chime6": {
+          "accent_distribution": {},
+          "gender_distribution": {},
+          "realized_count": 80,
+          "requested_count": 80,
+          "shortfalls": [],
+          "speaker_count": 8,
+          "total_duration_sec": 349.24
+        },
+        "native_robustness/hifitts": {
+          "accent_distribution": {},
+          "gender_distribution": {
+            "female": 10,
+            "male": 6
+          },
+          "realized_count": 16,
+          "requested_count": 20,
+          "shortfalls": [
+            {
+              "benchmark_tier": "small",
+              "dataset": "hifitts",
+              "manifest_schema_version": "benchmark-manifest.v1",
+              "panel": "native_robustness",
+              "realized_count": 16,
+              "requested_count": 20,
+              "selection_stratum": "source_selection",
+              "shortfall_count": 4,
+              "shortfall_reason": "other reader pool exhausted under eligibility rules"
+            }
+          ],
+          "speaker_count": 8,
+          "total_duration_sec": 76.69
+        },
+        "native_robustness/librispeech": {
+          "accent_distribution": {},
+          "gender_distribution": {
+            "F": 12,
+            "M": 12
+          },
+          "realized_count": 24,
+          "requested_count": 24,
+          "shortfalls": [],
+          "speaker_count": 12,
+          "total_duration_sec": 144.09
+        },
+        "native_robustness/voices": {
+          "accent_distribution": {},
+          "gender_distribution": {
+            "F": 20,
+            "M": 20
+          },
+          "realized_count": 40,
+          "requested_count": 40,
+          "shortfalls": [],
+          "speaker_count": 10,
+          "total_duration_sec": 494.04
+        }
+      },
+      "overall": {
+        "accent_distribution": {
+          "Canadian English": 5,
+          "German-accented English": 10,
+          "Indian English": 25,
+          "Israeli-accented English": 5,
+          "Scottish English": 5,
+          "US English": 40
+        },
+        "gender_distribution": {
+          "F": 62,
+          "M": 142,
+          "female": 45,
+          "male": 76
+        },
+        "realized_count": 405,
+        "speaker_count": 78,
+        "total_duration_sec": 2208.62388
+      }
+    },
+    "speaker_protocol": {
+      "large": {
+        "groups": {
+          "speaker_protocol/cmu_arctic": {
+            "accent_distribution": {
+              "Canadian English": 50,
+              "German-accented English": 105,
+              "Indian English": 270,
+              "Israeli-accented English": 55,
+              "Scottish English": 55,
+              "US English": 425
+            },
+            "gender_distribution": {
+              "female": 325,
+              "male": 635
+            },
+            "realized_count": 960,
+            "requested_count": 960,
+            "shortfalls": [],
+            "speaker_count": 18,
+            "total_duration_sec": 3218.366252
+          }
+        },
+        "overall": {
+          "accent_distribution": {
+            "Canadian English": 50,
+            "German-accented English": 105,
+            "Indian English": 270,
+            "Israeli-accented English": 55,
+            "Scottish English": 55,
+            "US English": 425
+          },
+          "gender_distribution": {
+            "female": 325,
+            "male": 635
+          },
+          "realized_count": 960,
+          "speaker_count": 18,
+          "total_duration_sec": 3218.366252
+        }
+      },
+      "small": {
+        "groups": {
+          "speaker_protocol/cmu_arctic": {
+            "accent_distribution": {
+              "Indian English": 39,
+              "Israeli-accented English": 13,
+              "US English": 56
+            },
+            "gender_distribution": {
+              "female": 59,
+              "male": 49
+            },
+            "realized_count": 108,
+            "requested_count": 108,
+            "shortfalls": [],
+            "speaker_count": 9,
+            "total_duration_sec": 378.019381
+          }
+        },
+        "overall": {
+          "accent_distribution": {
+            "Indian English": 39,
+            "Israeli-accented English": 13,
+            "US English": 56
+          },
+          "gender_distribution": {
+            "female": 59,
+            "male": 49
+          },
+          "realized_count": 108,
+          "speaker_count": 9,
+          "total_duration_sec": 378.019381
+        }
+      },
+      "standard": {
+        "groups": {
+          "speaker_protocol/cmu_arctic": {
+            "accent_distribution": {
+              "Canadian English": 20,
+              "German-accented English": 45,
+              "Indian English": 120,
+              "Israeli-accented English": 25,
+              "Scottish English": 25,
+              "US English": 185
+            },
+            "gender_distribution": {
+              "female": 145,
+              "male": 275
+            },
+            "realized_count": 420,
+            "requested_count": 420,
+            "shortfalls": [],
+            "speaker_count": 18,
+            "total_duration_sec": 1423.429254
+          }
+        },
+        "overall": {
+          "accent_distribution": {
+            "Canadian English": 20,
+            "German-accented English": 45,
+            "Indian English": 120,
+            "Israeli-accented English": 25,
+            "Scottish English": 25,
+            "US English": 185
+          },
+          "gender_distribution": {
+            "female": 145,
+            "male": 275
+          },
+          "realized_count": 420,
+          "speaker_count": 18,
+          "total_duration_sec": 1423.429254
+        }
+      }
+    },
+    "standard": {
+      "groups": {
+        "controlled_clean/cmu_arctic": {
+          "accent_distribution": {
+            "Canadian English": 20,
+            "German-accented English": 20,
+            "Indian English": 80,
+            "Israeli-accented English": 20,
+            "Scottish English": 10,
+            "US English": 150
+          },
+          "gender_distribution": {
+            "female": 120,
+            "male": 180
+          },
+          "realized_count": 300,
+          "requested_count": 300,
+          "shortfalls": [],
+          "speaker_count": 18,
+          "total_duration_sec": 989.796203
+        },
+        "controlled_clean/hifitts": {
+          "accent_distribution": {},
+          "gender_distribution": {
+            "female": 20,
+            "male": 40
+          },
+          "realized_count": 60,
+          "requested_count": 200,
+          "shortfalls": [
+            {
+              "benchmark_tier": "standard",
+              "dataset": "hifitts",
+              "manifest_schema_version": "benchmark-manifest.v1",
+              "panel": "controlled_clean",
+              "realized_count": 60,
+              "requested_count": 200,
+              "selection_stratum": "source_selection",
+              "shortfall_count": 140,
+              "shortfall_reason": "clean reader pool exhausted under eligibility rules"
+            }
+          ],
+          "speaker_count": 3,
+          "total_duration_sec": 298.56
+        },
+        "controlled_clean/librispeech": {
+          "accent_distribution": {},
+          "gender_distribution": {
+            "F": 200,
+            "M": 200
+          },
+          "realized_count": 400,
+          "requested_count": 400,
+          "shortfalls": [],
+          "speaker_count": 40,
+          "total_duration_sec": 2648.040373
+        },
+        "native_robustness/ami": {
+          "accent_distribution": {},
+          "gender_distribution": {
+            "F": 144,
+            "M": 374
+          },
+          "realized_count": 518,
+          "requested_count": 576,
+          "shortfalls": [
+            {
+              "benchmark_tier": "standard",
+              "dataset": "ami",
+              "manifest_schema_version": "benchmark-manifest.v1",
+              "panel": "native_robustness",
+              "realized_count": 518,
+              "requested_count": 576,
+              "selection_stratum": "matched_native_streams",
+              "shortfall_count": 58,
+              "shortfall_reason": "insufficient eligible matched headset/array segments, speakers, or meetings"
+            }
+          ],
+          "speaker_count": 23,
+          "total_duration_sec": 2433.756
+        },
+        "native_robustness/chime6": {
+          "accent_distribution": {},
+          "gender_distribution": {},
+          "realized_count": 480,
+          "requested_count": 480,
+          "shortfalls": [],
+          "speaker_count": 16,
+          "total_duration_sec": 1839.14
+        },
+        "native_robustness/hifitts": {
+          "accent_distribution": {},
+          "gender_distribution": {
+            "female": 25,
+            "male": 15
+          },
+          "realized_count": 40,
+          "requested_count": 50,
+          "shortfalls": [
+            {
+              "benchmark_tier": "standard",
+              "dataset": "hifitts",
+              "manifest_schema_version": "benchmark-manifest.v1",
+              "panel": "native_robustness",
+              "realized_count": 40,
+              "requested_count": 50,
+              "selection_stratum": "source_selection",
+              "shortfall_count": 10,
+              "shortfall_reason": "other reader pool exhausted under eligibility rules"
+            }
+          ],
+          "speaker_count": 8,
+          "total_duration_sec": 188.91
+        },
+        "native_robustness/librispeech": {
+          "accent_distribution": {},
+          "gender_distribution": {
+            "F": 80,
+            "M": 85
+          },
+          "realized_count": 165,
+          "requested_count": 165,
+          "shortfalls": [],
+          "speaker_count": 33,
+          "total_duration_sec": 1013.234999
+        },
+        "native_robustness/voices": {
+          "accent_distribution": {},
+          "gender_distribution": {
+            "F": 48,
+            "M": 72
+          },
+          "realized_count": 120,
+          "requested_count": 640,
+          "shortfalls": [
+            {
+              "benchmark_tier": "standard",
+              "dataset": "voices",
+              "manifest_schema_version": "benchmark-manifest.v1",
+              "panel": "native_robustness",
+              "realized_count": 120,
+              "requested_count": 640,
+              "selection_stratum": "source_selection",
+              "shortfall_count": 520,
+              "shortfall_reason": "test split cannot meet balanced speaker/source/native-condition quota"
+            }
+          ],
+          "speaker_count": 13,
+          "total_duration_sec": 1432.0
+        }
+      },
+      "overall": {
+        "accent_distribution": {
+          "Canadian English": 20,
+          "German-accented English": 20,
+          "Indian English": 80,
+          "Israeli-accented English": 20,
+          "Scottish English": 10,
+          "US English": 150
+        },
+        "gender_distribution": {
+          "F": 472,
+          "M": 731,
+          "female": 165,
+          "male": 235
+        },
+        "realized_count": 2083,
+        "speaker_count": 152,
+        "total_duration_sec": 10843.437575
+      }
+    }
+  }
+}

@@ -2,6 +2,16 @@
 
 Local dataset-aware batch evaluation for normalized speech metadata.
 
+## Automated campaign documentation
+
+For the accepted unattended benchmarking framework, start with the
+[owner/operator system guide](docs/automated_evaluation/system_guide.md), use the
+[quick reference](docs/automated_evaluation/quick_reference.md) for commands, and
+consult the [final acceptance audit](docs/automated_evaluation/final_acceptance_audit.md)
+for the release verdict and authoritative limitations. The compact
+[current architecture map](docs/automated_evaluation/current_evaluation_tool_architecture.md)
+explains the integration boundary.
+
 This tool reads normalized metadata from the project-level `Normalized Metadata/`
 folder and writes all run artifacts under `Evaluation Tool/runs/`. It does not
 modify raw datasets and does not create a persistent augmented copy of a corpus.
@@ -226,27 +236,44 @@ The scorer works when only `utterances.jsonl` exists. For AMI and CHiME-6,
 overlap check by matching each reference segment to the predicted RTTM segment
 with the largest time overlap.
 
-## External Inference Integration
+## Inference Integration
 
 The evaluator calls a model runner one selected item at a time. For augmented
 runs, the runner receives a temporary WAV path in `inference_audio_path`. That
 temporary file is valid during the call and is removed after inference unless a
 preview was explicitly requested.
 
-The current external stub is:
+The existing external stub remains available at:
 
 ```text
 app/model_runner/external_stub.py
 ```
-
-Real integration means replacing `ExternalStubRunner.predict_one()` with a call
-to another ASR system and returning `UtterancePrediction(...)`.
 
 Example stub run:
 
 ```bash
 python run_evaluation.py run --dataset hifitts --reader-split 6097_clean --max-recordings 25 --runner external-stub --run-name hifitts_real_stub
 ```
+
+To execute one of the repository's existing inference compositions through the
+ordinary Evaluation Tool lifecycle, use the additive configured runner:
+
+```bash
+python run_evaluation.py full --dataset cmu_arctic --max-recordings 1 --augmentation none --runner configured --inference-config configs/inference/live_mic_whisper_base.yaml --run-name configured_base_smoke
+```
+
+The selected higher-level YAML is never modified. Select an existing component
+fragment or override a supported runtime/component setting explicitly when
+needed:
+
+```bash
+python run_evaluation.py full --dataset cmu_arctic --max-recordings 1 --runner configured --inference-config configs/inference/live_mic_whisper_tiny.yaml --component asr=whisper_base --inference-override runtime.num_threads=2 --run-name configured_override_smoke
+```
+
+The resolver validates the composition against the Stage 0 registry, records
+source and final override values, and rejects any configuration that enables
+implicit model downloads. Missing packages, credentials, platforms, or local
+model assets are reported as unavailable rather than downloaded.
 
 ## Augmentation Options
 
@@ -586,8 +613,17 @@ runs/<timestamp>_<dataset>_<command>[_run_name]/
   predictions/
     utterances.jsonl
     runner_summary.json
+    diagnostics.jsonl                 # configured runner
+    failures.jsonl                    # configured runner
+    segments.rttm                     # when diarization emits RTTM
     <condition_id>/
       utterances.jsonl
+  inference/                           # configured runner
+    selected_inference_config.json
+    resolved_inference_config.yaml
+    component_identity_summary.json
+    configuration_warnings.json
+    configured_runner_artifacts.json
   metrics/
     aggregate_metrics.json
     per_recording_metrics.csv
@@ -811,3 +847,280 @@ audio, and declare condition columns as group metrics.
 
 Full DER scoring and corpus-scale persistent augmentation are not part of this
 phase.
+
+## Immutable Benchmark and Scenario Contracts
+
+Stage 2 adds deterministic, versioned benchmark definitions without running
+inference. `benchmarks/v1/*.parquet` are the authoritative frozen source
+manifests for the `small`, `standard`, `large`, and `speaker_protocol` tiers.
+Selection uses seed `3800` and a stable hash of dataset key, source recording
+ID, and utterance ID, so it does not depend on dataframe order. No source audio
+is copied.
+
+The controlled panel contains eligible clean CMU Arctic, LibriSpeech, and
+HiFiTTS rows. Native AMI, VOiCES, CHiME-6, approved LibriSpeech `other`, and
+approved HiFiTTS `other` rows are marked `native_only`; scenario validation
+rejects synthetic augmentation for them. Speaker enrollment and probe source
+utterances are disjoint.
+
+Build the contracts from Anaconda Prompt or Command Prompt:
+
+```bat
+cd /d C:\Users\amiri\Documents\GitHub\just-peachy
+.venv\Scripts\activate
+cd "Software Validation from Datasets\Evaluation Tool"
+python scripts\build_benchmark_contracts.py --output benchmarks\v1
+```
+
+The command writes manifest identities and summaries, a selection audit, an
+exact RIR audit, and canonical scenario JSONL. It resolves configuration/model
+identity only: it never loads a model or runs inference. See
+`benchmarks/v1/README.md` for inputs, outputs, current hashes, PowerShell usage,
+and validation commands.
+
+## Campaign Artifact Validation Contracts
+
+Stage 3 defines the future `automated_runs/<campaign_id>` exchange layout and
+versioned schemas before campaign execution is implemented. The artifact
+registry records the path, producer, format, schema, mandatory or conditional
+rule, validator, checksum policy, privacy class, and downstream consumers for
+every campaign/scenario artifact.
+
+Scenario artifacts are published through a temporary file, flushed, validated,
+checksummed, atomically renamed, and indexed in `checksums.json`. The read-only
+validator reports exactly one state: `complete`, `incomplete`, `corrupt`, or
+`incompatible`. Pickle is not an exchange format, and optional words, RTTM,
+embedding, similarity, or diarization files are required only when declared by
+the resolved scenario and supported by real pipeline output.
+
+Validate the registry from Anaconda Prompt or Command Prompt:
+
+```bat
+cd /d C:\Users\amiri\Documents\GitHub\just-peachy
+.venv\Scripts\activate
+cd "Software Validation from Datasets\Evaluation Tool"
+python scripts\validate_campaign_artifacts.py --registry-only
+python -m pytest tests\automated_evaluation\test_stage3_artifact_contracts.py -q --basetemp artifacts\pytest_stage3
+```
+
+Stage 3 does not add inference scheduling, retries, worker assignment, campaign
+databases, resource telemetry, or result merging. See
+`app/artifact_contracts/README.md` for the full directory model, inputs,
+outputs, PowerShell commands, and completion rules.
+
+## Persistent Campaign Execution
+
+Stage 4 adds a restart-safe campaign queue over the existing configured runner,
+immutable scenarios, and artifact validator. Detailed scenario state, attempts,
+heartbeats, leases, stop requests, exception categories, and retry eligibility
+are stored in `automated_runs/<campaign_id>/database/campaign.sqlite`. Validated
+successes skip automatically; corrupt or incomplete successes do not skip and
+are never silently overwritten.
+
+Plan and inspect without running inference:
+
+```bat
+cd /d C:\Users\amiri\Documents\GitHub\just-peachy
+.venv\Scripts\activate
+cd "Software Validation from Datasets\Evaluation Tool"
+python run_evaluation.py campaign plan --dry-run
+python run_evaluation.py campaign status --campaign-root automated_runs\<campaign_id>
+```
+
+Run or resume selected work:
+
+```bat
+python run_evaluation.py campaign run --campaign-root automated_runs\<campaign_id> --worker-id amir --scenario-id <scenario_id>
+python run_evaluation.py campaign resume --campaign-root automated_runs\<campaign_id> --worker-id amir
+python run_evaluation.py campaign stop --campaign-root automated_runs\<campaign_id> --scenario-id <scenario_id> --reason "operator request"
+python run_evaluation.py campaign validate-artifacts --campaign-root automated_runs\<campaign_id>
+```
+
+The executor runs one scenario subprocess at a time, prohibits implicit model
+downloads through the frozen pipeline configuration, preserves failed attempt
+outputs under `audit/partial_results/`, and validates Stage 3 completeness before
+committing success. See `app/campaign_executor/README.md` for every command,
+input/output contract, state, and recovery rule.
+
+## Resource Telemetry and Component Timing
+
+Stage 5 adds telemetry around the existing campaign subprocess and component
+boundaries without changing prediction content. Campaign CLI runs collect typed
+CPU, process-tree, RAM, disk, GPU, VRAM, sensor, and active-component samples at
+a configurable one-second default interval. Cold initialization, warm inference,
+per-item, scenario post-processing, and total scenario spans are saved separately.
+
+## Worker Assignment and Independent Result Merge
+
+Stage 6 divides one immutable campaign into deterministic, validated worker
+assignments while preserving global scenario IDs. Each worker uses a complete
+repository clone and an independent campaign copy on local disk; no SQLite
+database is shared over a network drive. Completed scenario folders are exported
+with a worker assignment, environment fingerprint, complete file inventory, and
+SHA-256 tree identities.
+
+```bat
+python run_evaluation.py campaign assign --campaign-root automated_runs\<campaign_id> --worker-id amir --environment-profile core-cpu --partition-index 0 --partition-count 2
+python run_evaluation.py campaign validate-assignments --campaign-root automated_runs\<campaign_id>
+python run_evaluation.py campaign run-assignment --campaign-root automated_runs\<campaign_id> --assignment automated_runs\<campaign_id>\worker_assignments\worker_amir.yaml --environment-profile core-cpu
+python run_evaluation.py campaign export-results --campaign-root automated_runs\<campaign_id> --assignment automated_runs\<campaign_id>\worker_assignments\worker_amir.yaml --environment-profile core-cpu --destination C:\transfer\transfer_amir
+python run_evaluation.py campaign merge-results --campaign-root automated_runs\<campaign_id> --transfer-root C:\transfer\transfer_amir --transfer-root C:\transfer\transfer_friend
+```
+
+Merge validation rejects incomplete transfers and conflicting duplicate results,
+records byte-identical duplicates and machine differences, and writes portable
+merged and analysis input indexes. See `app/campaign_exchange/README.md` for the
+full copy workflow, selectors, inputs, outputs, commands, and tests.
+
+```bat
+python run_evaluation.py campaign run --campaign-root automated_runs\<campaign_id> --worker-id amir --telemetry --telemetry-interval-sec 1.0
+python -m pytest tests\automated_evaluation\test_stage5_resource_telemetry.py -q --basetemp artifacts\pytest_stage5
+```
+
+Outputs are atomic `artifact-registry.v2` files under each scenario's
+`resource_logs/` directory. CPU telemetry works without NVIDIA tooling;
+unsupported GPU fields remain null with reasons. The executor still permits only
+one scenario subprocess per machine. The current CPU-only Torch environment does
+not qualify CUDA event timing; use the separately pinned CUDA environment for
+that next gate. See `app/resource_telemetry/README.md`.
+
+## Core Component Qualification and Screening
+
+Stage 7 adds an explicit scientific screen for full-record input, Energy and
+Silero VAD, VADChunker, Whisper Tiny/Base/Small, SpeechBrain ECAPA extraction,
+and cosine-matcher contract composition. Whisper Base is the configurable
+reference ASR for VAD/segmentation experiments. The initial plan contains only
+the one-family-at-a-time Stage B/C comparisons; Stage D and repeated finalists
+are generated only after explicit shortlist decisions, avoiding a full
+Cartesian product.
+
+```bat
+cd /d C:\Users\amiri\Documents\GitHub\just-peachy
+.venv\Scripts\activate
+cd "Software Validation from Datasets\Evaluation Tool"
+python run_evaluation.py screening plan
+python run_evaluation.py screening qualify --repetitions 2
+```
+
+The planner reuses the immutable small manifest and released scenario hash.
+Qualification uses local assets only and records unavailable components instead
+of downloading them. Analysis consumes the Stage 6 merged-result index, retains
+missing/failed items in denominators, emits only metrics supported by available
+references/outputs, and applies declared reliability gates plus Pareto
+advancement. Speaker verification, identification, calibration, EER, FAR, FRR,
+and unknown-rejection scoring remain reserved for Stage 10. See
+`app/core_screening/README.md` for all inputs, outputs, commands, and tests.
+
+## Extended Backend Setup and Qualification
+
+Stage 8 isolates optional ASR, VAD, speaker-embedding, and diarization stacks
+from the Stage 0–7 environment. It pins package/profile inputs, explicitly
+bootstraps registered model assets, hashes observed files, runs each real adapter
+twice with implicit downloads disabled, validates its output contract, and gives
+every scoped backend one machine-readable status. Installation or import alone
+never counts as qualification.
+
+```bat
+cd /d C:\Users\amiri\Documents\GitHub\just-peachy
+powershell -ExecutionPolicy Bypass -File scripts\install_stage8_profile.ps1 -Profile extended-local -DownloadModels
+.stage8-envs\extended-local\Scripts\python.exe "Software Validation from Datasets\Evaluation Tool\scripts\qualify_extended_backends.py" --profile extended-local
+cd "Software Validation from Datasets\Evaluation Tool"
+..\..\.venv\Scripts\python.exe scripts\consolidate_stage8_qualification.py
+```
+
+The current machine has real qualification for Faster-Whisper, Vosk, WebRTC
+VAD, Resemblyzer, four Sherpa-ONNX roles, and WeSpeaker. WeNet still needs a
+compatible `final.zip`; pyannote and Falcon require the user's own licence and
+credential actions; NeMo requires a dedicated Linux/CUDA profile. No secret is
+stored. See `docs/automated_evaluation/extended_backend_setup.md` for exact
+operator actions and `app/extended_backends/README.md` for inputs, outputs,
+Anaconda Prompt, Command Prompt, PowerShell, and test commands. Stage 8 does not
+add these candidates to scientific benchmark screening.
+
+## Extended Backend Scientific Screening
+
+Stage 9 admits only the nine backends with real Stage 8 qualification. The
+component catalog and normal resolver now retain an explicit isolated
+environment profile and reject components that cannot coexist. The released
+plan compares extended ASR, VAD/segmentation, and embedding extraction against
+the corresponding core controls on the same 165 small-tier controlled-clean
+items without generating a full Cartesian product. Sherpa diarization is
+composition-only; Stage 10 owns speaker recognition and Stage 11 owns
+diarization science.
+
+```bat
+cd /d C:\Users\amiri\Documents\GitHub\just-peachy
+.venv\Scripts\activate
+cd "Software Validation from Datasets\Evaluation Tool"
+python run_evaluation.py extended-screening plan
+python run_evaluation.py extended-screening smoke --rerun
+```
+
+The plan writes 228 global scenarios and separate `core_cpu`, `extended_local`,
+`onnx`, and `wespeaker` catalogs under `benchmarks/stage9`. Each catalog can be
+given directly to `campaign plan` and run with its matching interpreter. All
+global scenario IDs survive the split and later merge. The fresh real smoke
+passed 9/9 eligible backends on one identical utterance; it is explicitly not a
+scientific shortlist. See `app/extended_screening/README.md` for Anaconda
+Prompt, Command Prompt, PowerShell, campaign, analysis, input/output, and test
+instructions, and `docs/automated_evaluation/phase_9_report.md` for the phase
+boundary and evidence.
+
+## Speaker Enrollment and Recognition
+
+Stage 10 derives privacy-safe enrollment, calibration, known-evaluation,
+unknown-evaluation, clean-probe, and degraded-probe manifests from the frozen
+speaker panel. Enrollment artifacts are bound to one exact embedding backend,
+model/config identity, dimension, preprocessing policy, and threshold policy.
+The scorer keeps open-set and closed-set metrics separate and preserves the
+literal `Unknown` label without reference fallback.
+
+```bat
+python run_evaluation.py speaker-protocol build-manifests --tier small
+python run_evaluation.py speaker-protocol smoke --rerun
+```
+
+See `app/speaker_protocol/README.md` for Anaconda Prompt, Command Prompt,
+PowerShell, inputs, outputs, and scientific-run instructions, and
+`docs/automated_evaluation/phase_10_report.md` for released counts and evidence.
+
+## Diarization and Native-Condition Evaluation
+
+Stage 11 builds immutable AMI, CHiME-6, and VOiCES native scoring views, runs
+only qualified and locally authorized diarization backends, preserves anonymous
+labels and effective segmentation provenance, validates RTTM/UEM timebases, and
+emits DER/JER only for compatible references. Sherpa-ONNX is currently
+executable from the Stage 8 ONNX environment; pyannote, Falcon, and NeMo remain
+explicitly blocked by their recorded licence, credential, asset, or platform
+prerequisites.
+
+```bat
+python run_evaluation.py diarization build-manifest --tier small
+..\..\.stage8-envs\onnx\Scripts\python.exe run_evaluation.py diarization smoke --manifest-root benchmarks\stage11\small
+```
+
+See `app/diarization_evaluation/README.md` for inputs, outputs, Anaconda Prompt,
+Command Prompt, PowerShell, validation, and grouped-analysis instructions, and
+`docs/automated_evaluation/stage_11_diarization.md` for the scientific boundary.
+
+## Campaign Analysis, Plots, Reports, and Release Gates
+
+Stage 12 consumes a validated Stage 6 merge without rerunning inference. It
+builds an exact planned-versus-observed scenario index, preserves failed and
+missing work, reuses existing scenario metrics/reports, runs explicitly
+declared paired cluster-bootstrap comparisons, creates only eligible plots,
+reconciles complete coverage, and evaluates frozen synthetic → small →
+standard → large release gates.
+
+```bat
+python run_evaluation.py campaign validate-merged --campaign-root automated_runs\<campaign_id>
+python run_evaluation.py analysis run --campaign-root automated_runs\<campaign_id> --prerequisite-evidence C:\results\previous_gate.json
+python run_evaluation.py analysis qualify-synthetic --project-root . --output-root runs\stage12_release_qualification
+```
+
+Every generated plot has a provenance/interpretation sidecar. Every unsupported
+metric or plot has an explicit availability or skip reason. GPU concurrency
+remains one until separately qualified. See `app/campaign_analysis/README.md`
+for Anaconda Prompt, Command Prompt, PowerShell, inputs, outputs, and tests, and
+`docs/automated_evaluation/analysis_guide.md` for the standalone analyst
+workflow and metric/statistical interpretation.

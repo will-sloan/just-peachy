@@ -1,0 +1,3 @@
+# Install the official pinned CUDA wheel pair before this file. The local
+# version suffix (for example +cu128) satisfies these exact public versions.
+-r ../dev.txt

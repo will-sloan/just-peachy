@@ -1,0 +1,26 @@
+schema_version: extended-qualification-registry.v1
+registry_version: 1
+source_summary:
+  path: runs/extended_backend_qualification/qualification_summary.json
+  sha256: bc175d85f29990efe8ac16bfb26bf832c0ce47c447df4d8adc132da1e483d133
+  schema_version: extended-backend-qualification-summary.v1
+qualified_statuses: [qualified, qualified_with_warnings]
+stage9_policy:
+  scientific_screening_requires_real_stage8_output: true
+  incompatible_profiles_must_not_compose: true
+  diarization_scientific_evaluation_stage: 11
+  speaker_recognition_metrics_stage: 10
+backends:
+  - {backend_id: faster_whisper, catalog_family: asr, catalog_name: faster_whisper, profile: extended-local, status: qualified, disposition: screen, evidence_path: runs/extended_backend_qualification/extended-local.json}
+  - {backend_id: sherpa_onnx_asr, catalog_family: asr, catalog_name: sherpa_onnx, profile: onnx, status: qualified, disposition: screen, evidence_path: runs/extended_backend_qualification/onnx.json}
+  - {backend_id: vosk, catalog_family: asr, catalog_name: vosk, profile: extended-local, status: qualified, disposition: screen, evidence_path: runs/extended_backend_qualification/extended-local.json}
+  - {backend_id: wenet, catalog_family: asr, catalog_name: wenet, profile: wenet, status: unavailable_asset, disposition: exclude, evidence_path: runs/extended_backend_qualification/wenet.json}
+  - {backend_id: webrtc_vad, catalog_family: vad, catalog_name: webrtc_vad, profile: extended-local, status: qualified_with_warnings, disposition: screen, evidence_path: runs/extended_backend_qualification/extended-local.json}
+  - {backend_id: sherpa_onnx_vad, catalog_family: vad, catalog_name: sherpa_onnx_vad, profile: onnx, status: qualified, disposition: screen, evidence_path: runs/extended_backend_qualification/onnx.json}
+  - {backend_id: resemblyzer, catalog_family: speaker_embedding, catalog_name: resemblyzer, profile: extended-local, status: qualified, disposition: screen, evidence_path: runs/extended_backend_qualification/extended-local.json}
+  - {backend_id: wespeaker, catalog_family: speaker_embedding, catalog_name: wespeaker, profile: wespeaker, status: qualified_with_warnings, disposition: screen, evidence_path: runs/extended_backend_qualification/wespeaker.json}
+  - {backend_id: sherpa_onnx_speaker_embedding, catalog_family: speaker_embedding, catalog_name: sherpa_onnx_speaker_embedding, profile: onnx, status: qualified, disposition: screen, evidence_path: runs/extended_backend_qualification/onnx.json}
+  - {backend_id: pyannote_community, catalog_family: diarization, catalog_name: pyannote_community, profile: credential-diarization, status: licence_action_required, disposition: exclude, evidence_path: runs/extended_backend_qualification/credential-diarization.json}
+  - {backend_id: sherpa_onnx_diarization, catalog_family: diarization, catalog_name: sherpa_onnx_diarization, profile: onnx, status: qualified, disposition: composition_only, evidence_path: runs/extended_backend_qualification/onnx.json}
+  - {backend_id: picovoice_falcon, catalog_family: diarization, catalog_name: picovoice_falcon, profile: credential-diarization, status: licence_action_required, disposition: exclude, evidence_path: runs/extended_backend_qualification/credential-diarization.json}
+  - {backend_id: nemo_diarization, catalog_family: diarization, catalog_name: nemo_diarization, profile: nemo-linux-cuda, status: platform_required, disposition: exclude, evidence_path: runs/extended_backend_qualification/nemo-linux-cuda.json}

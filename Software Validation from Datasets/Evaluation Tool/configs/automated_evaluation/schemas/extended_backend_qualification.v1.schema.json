@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "extended_backend_qualification.v1.schema.json",
+  "title": "Stage 8 extended backend qualification",
+  "type": "object",
+  "required": ["schema_version", "generated_at", "profile", "environment", "secret_audit", "summary", "results"],
+  "properties": {
+    "schema_version": {"const": "extended-backend-qualification.v1"},
+    "generated_at": {"type": "string"},
+    "profile": {"type": "string"},
+    "environment": {"type": "object"},
+    "secret_audit": {
+      "type": "object",
+      "required": ["values_serialized", "credential_presence_only"],
+      "properties": {
+        "values_serialized": {"const": false},
+        "credential_presence_only": {"const": true}
+      },
+      "additionalProperties": false
+    },
+    "summary": {"type": "object"},
+    "results": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["backend_id", "family", "profile", "status", "explanation", "package_versions", "asset_identities", "device", "schema_validation", "timing", "warnings", "failure_category", "command"],
+        "properties": {
+          "backend_id": {"type": "string"},
+          "family": {"enum": ["asr", "vad", "speaker_embedding", "diarization"]},
+          "profile": {"type": "string"},
+          "status": {"enum": ["qualified", "qualified_with_warnings", "unavailable_package", "unavailable_asset", "credential_required", "licence_action_required", "platform_required", "cuda_required", "configuration_error", "runtime_failure", "contract_failure", "unsuitable", "deferred"]},
+          "explanation": {"type": "string"},
+          "package_versions": {"type": "object"},
+          "asset_identities": {"type": "array"},
+          "device": {"type": "string"},
+          "schema_validation": {"type": "boolean"},
+          "timing": {"type": "object"},
+          "warnings": {"type": "array", "items": {"type": "string"}},
+          "failure_category": {"type": ["string", "null"]},
+          "command": {"type": "string"}
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": false
+}

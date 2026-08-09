@@ -1,0 +1,148 @@
+{
+  "bedroom_candidates": [
+    {
+      "bytes": 46514,
+      "filename": "h001_Bedroom_65txts.wav",
+      "sha256": "B8B7BA6E0C12608C9A6FD6E4B21F1E1823C37555B5AF3196A6FA509EA67A5B71",
+      "status": "candidate_unapproved"
+    },
+    {
+      "bytes": 52115,
+      "filename": "h002_Bedroom_62txts.wav",
+      "sha256": "A6743780EE36A4C09B1B6D6F4D905182B1EC40214A6A90D40C9CDA0747EA0D07",
+      "status": "candidate_unapproved"
+    },
+    {
+      "bytes": 34700,
+      "filename": "h006_Bedroom_42txts.wav",
+      "sha256": "61CC46D382E9B36DB7824739F09AF89D2F657B79E2DB3DB6C8EFC8759739A157",
+      "status": "candidate_unapproved"
+    },
+    {
+      "bytes": 43697,
+      "filename": "h008_Bedroom_35txts.wav",
+      "sha256": "0BC477FE73CB0D8185A29F63AA0A0435AE5D5BD5B0152CC12563EBD7E0C29ECD",
+      "status": "candidate_unapproved"
+    },
+    {
+      "bytes": 58538,
+      "filename": "h015_Bedroom_174txts.wav",
+      "sha256": "CFF0F9B4AC5F3A6788D8DC19378ED2C2171E2A47B83669BB368B7270F2A47FF6",
+      "status": "candidate_unapproved"
+    },
+    {
+      "bytes": 92201,
+      "filename": "h016_MasterBedroom_15txts.wav",
+      "sha256": "913E77756981F852AEFC0DF7464F850898610DA6137AD23AE31CB4F1DFFA9ECC",
+      "status": "candidate_unapproved"
+    },
+    {
+      "bytes": 54938,
+      "filename": "h021_Bedroom_102txts.wav",
+      "sha256": "7E76783B96CFCB60F8A81C044877E419D2B2BCC641BFF1E41165F4F62E0B1E04",
+      "status": "candidate_unapproved"
+    },
+    {
+      "bytes": 25379,
+      "filename": "h023_Bedroom_9txts.wav",
+      "sha256": "135236ED53D00CA1A5906E8A290343B6943C2447EA345D2AECC1B12E6CD91BB1",
+      "status": "candidate_unapproved"
+    },
+    {
+      "bytes": 69677,
+      "filename": "h031_Bedroom_7txts.wav",
+      "sha256": "050F65182BC6504F16630FC00E55BBA64D8E7B629BEC0A3D963398A4EA5F2C3F",
+      "status": "candidate_unapproved"
+    },
+    {
+      "bytes": 84854,
+      "filename": "h032_Bedroom_6txts.wav",
+      "sha256": "B35C7E5BC6C54873C23AEA71FB763BF24C5B1A3302AF7EBECE8A59CB1152A708",
+      "status": "candidate_unapproved"
+    },
+    {
+      "bytes": 55901,
+      "filename": "h098_Bedroom_2txts.wav",
+      "sha256": "5DEC32C8F64CE1400B0D9789C61F17226047A5BEB6B7C5C6DB299E58AB70D9C2",
+      "status": "candidate_unapproved"
+    }
+  ],
+  "collection_count_discrepancy_note": "Collection label implies 271 WAVs, but the inspected directory contains 270.",
+  "collection_label_expected_wav_count": 271,
+  "collection_root_project_relative": "Raw Datasets (Not formatted)/MIT 271 RIRs/Audio",
+  "collection_wav_count": 270,
+  "records": [
+    {
+      "actual_relative_path": "Raw Datasets (Not formatted)/MIT 271 RIRs/Audio/h025_Diningroom_8txts.wav",
+      "discrepancy_note": null,
+      "environment": "DiningRoom",
+      "expected_bytes": 124112,
+      "expected_sha256": "940D761A280DCD8FAAB077074E02BADE649E64E47461D80A4F927A01ABBEF5E2",
+      "identity_matches": true,
+      "observed_bytes": 124112,
+      "observed_sha256": "940D761A280DCD8FAAB077074E02BADE649E64E47461D80A4F927A01ABBEF5E2",
+      "requested_identifier": "h025_Diningroom_8txts.wav",
+      "resolved_identifier": "h025_Diningroom_8txts.wav",
+      "rir_id": "dining_room_h025",
+      "status": "approved"
+    },
+    {
+      "actual_relative_path": null,
+      "discrepancy_note": "Multiple real bedroom RIRs exist; no exact file has been approved, so no bedroom scenario may be emitted.",
+      "environment": "Bedroom",
+      "expected_bytes": null,
+      "expected_sha256": null,
+      "identity_matches": null,
+      "observed_bytes": null,
+      "observed_sha256": null,
+      "requested_identifier": "Bedroom exact file pending approval",
+      "resolved_identifier": null,
+      "rir_id": "bedroom_unresolved",
+      "status": "unresolved"
+    },
+    {
+      "actual_relative_path": "Raw Datasets (Not formatted)/MIT 271 RIRs/Audio/h093_Restaurant_2txts.wav",
+      "discrepancy_note": null,
+      "environment": "Restaurant",
+      "expected_bytes": 50621,
+      "expected_sha256": "C2CA8A07002943409D31A2C6D6D07BA826AA428FE6EF6CECF2C4FF33D7D4A8A8",
+      "identity_matches": true,
+      "observed_bytes": 50621,
+      "observed_sha256": "C2CA8A07002943409D31A2C6D6D07BA826AA428FE6EF6CECF2C4FF33D7D4A8A8",
+      "requested_identifier": "h093_Restaurant_2txts.wav",
+      "resolved_identifier": "h093_Restaurant_2txts.wav",
+      "rir_id": "restaurant_h093",
+      "status": "approved"
+    },
+    {
+      "actual_relative_path": null,
+      "discrepancy_note": "The requested file does not exist. The actual h044 file is ParkingLot and must never be substituted; other kitchen files are present but unapproved.",
+      "environment": "Kitchen",
+      "expected_bytes": null,
+      "expected_sha256": null,
+      "identity_matches": null,
+      "observed_bytes": null,
+      "observed_sha256": null,
+      "requested_identifier": "h044_Kitchen_3txts.wav",
+      "resolved_identifier": null,
+      "rir_id": "kitchen_h044_unresolved",
+      "status": "unresolved"
+    },
+    {
+      "actual_relative_path": "Raw Datasets (Not formatted)/MIT 271 RIRs/Audio/h044_ParkingLot_4txts.wav",
+      "discrepancy_note": "Accurate ParkingLot identity retained for audit only; excluded from approved controlled conditions and never labeled Kitchen.",
+      "environment": "ParkingLot",
+      "expected_bytes": 135866,
+      "expected_sha256": "F4FADFA8694A92A8D163187AB41D212410AFDEE715D0A85700868AB70E29360B",
+      "identity_matches": true,
+      "observed_bytes": 135866,
+      "observed_sha256": "F4FADFA8694A92A8D163187AB41D212410AFDEE715D0A85700868AB70E29360B",
+      "requested_identifier": "h044_ParkingLot_4txts.wav",
+      "resolved_identifier": "h044_ParkingLot_4txts.wav",
+      "rir_id": "parking_lot_h044",
+      "status": "excluded"
+    }
+  ],
+  "registry_schema_version": "rir-registry.v1",
+  "schema_version": "rir-audit.v1"
+}

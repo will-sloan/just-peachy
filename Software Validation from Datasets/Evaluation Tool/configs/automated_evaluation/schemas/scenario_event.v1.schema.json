@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "scenario-event-rows.v1",
+  "title": "Scenario event and error JSONL row contracts",
+  "$defs": {
+    "event": {
+      "type": "object",
+      "required": ["schema_version", "scenario_id", "timestamp_utc", "event_type"],
+      "properties": {"schema_version": {"const": "scenario-events.v1"}}
+    },
+    "error": {
+      "type": "object",
+      "required": ["schema_version", "scenario_id", "timestamp_utc", "error_type", "message"],
+      "properties": {"schema_version": {"const": "scenario-errors.v1"}}
+    }
+  }
+}

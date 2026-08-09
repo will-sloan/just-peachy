@@ -1,0 +1,464 @@
+{
+  "environment": {
+    "cuda_available": false,
+    "cuda_runtime": null,
+    "device_requested": "cpu",
+    "git_commit": "e7e5516991b95f4e7c915e852fc0b4f5bae7cd11",
+    "gpu": null,
+    "machine": "AMD64",
+    "package_count": 88,
+    "package_freeze_sha256": "26c3aa1cb9d333f9d1f7a7c6a3f0a971d8b9a356fce9a5c4320f91d5a50d07e5",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python": "3.12.7",
+    "python_executable": "<environment>/Scripts/python.exe",
+    "torch": "2.11.0+cpu"
+  },
+  "generated_at": "2026-08-08T02:11:26.413691+00:00",
+  "profile": "extended-local",
+  "results": [
+    {
+      "asset_identities": [
+        {
+          "acquisition_date": "2026-08-08T00:00:59.629631+00:00",
+          "acquisition_method": "scripts/bootstrap_models.py --faster-whisper-tiny",
+          "artifact_filename": "faster-whisper-tiny snapshot",
+          "asset_id": "faster_whisper_tiny",
+          "backend": "Faster-Whisper",
+          "component": "faster_whisper",
+          "credential_required": false,
+          "environment_profile": "extended-local",
+          "files": [
+            {
+              "bytes": 1,
+              "path": ".cache/huggingface/.gitignore",
+              "sha256": "684888c0ebb17f374298b65ee2807526c066094c701bcc7ebbe1c1095f494fc1"
+            },
+            {
+              "bytes": 195,
+              "path": ".cache/huggingface/CACHEDIR.TAG",
+              "sha256": "e8893e2dcb3f4545ef67a0a5b7b769113d38eef1aa61c7c7ba14659b02af955f"
+            },
+            {
+              "bytes": 103,
+              "path": ".cache/huggingface/download/config.json.metadata",
+              "sha256": "2383017ae6afe1ecda5d8930818671360aed92d47c6e0864425cbbd46af51605"
+            },
+            {
+              "bytes": 128,
+              "path": ".cache/huggingface/download/model.bin.metadata",
+              "sha256": "272942b7d2a0dcd627e750182e9ed8a81f0189b02e41b6b06c6e1109addc1e7a"
+            },
+            {
+              "bytes": 104,
+              "path": ".cache/huggingface/download/tokenizer.json.metadata",
+              "sha256": "7a49693a41d4b80bb61dcefa54c45fef59ebce75f15d5a2b4b415d91e8670d56"
+            },
+            {
+              "bytes": 104,
+              "path": ".cache/huggingface/download/vocabulary.txt.metadata",
+              "sha256": "f29ab01c3aa3768af8ffebeeca44f47dd23a14e2897e84d7619e8f76426e1a75"
+            },
+            {
+              "bytes": 865,
+              "path": ".cache/huggingface/trees/d90ca5fe260221311c53c58e660288d3deb8d356.json",
+              "sha256": "3122220092b7338b5565212c1d4ea8b587deff68de8b7e097828ffd8a4275cb5"
+            },
+            {
+              "bytes": 2249,
+              "path": "config.json",
+              "sha256": "a73a28cdfe1c43ccc7202fa333d1f89c202477271407ae9a7f19afa52039cac8"
+            },
+            {
+              "bytes": 75538270,
+              "path": "model.bin",
+              "sha256": "dcb76c6586fc06cbdac6dd21f14cfd129cc4cdd9dce19bf4ffa62e59cbe6e6d1"
+            },
+            {
+              "bytes": 2203239,
+              "path": "tokenizer.json",
+              "sha256": "fb7b63191e9bb045082c79fd742a3106a12c99513ab30df4a0d47fa6cb6fd0ab"
+            },
+            {
+              "bytes": 459861,
+              "path": "vocabulary.txt",
+              "sha256": "34ce3fe1c5041027b3f8d42912270993f986dbc4bb34cf27f951e34a1e453913"
+            }
+          ],
+          "licence": "MIT model repository",
+          "missing_required_files": [],
+          "model_name": "Systran/faster-whisper-tiny",
+          "model_version": "d90ca5fe260221311c53c58e660288d3deb8d356",
+          "present": true,
+          "sha256": "ba8dca2665ebf86c53ebcae7b78d56162f29a5285358479db43a83068c6ee8cd",
+          "size_bytes": 78205119,
+          "source": "https://huggingface.co/Systran/faster-whisper-tiny",
+          "storage_path": "models/cache/faster_whisper/tiny",
+          "verification_status": "verified"
+        }
+      ],
+      "backend_id": "faster_whisper",
+      "command": "python 'C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\Software Validation from Datasets\\Evaluation Tool\\scripts\\qualify_extended_backends.py' --profile extended-local --audio 'C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\Software Validation from Datasets\\Raw Datasets (Not formatted)\\CMU Arctic\\cmu_us_aew_arctic\\wav\\arctic_b0476.wav' --output 'C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\Software Validation from Datasets\\Evaluation Tool\\runs\\extended_screening\\profile_evidence\\extended-local.json'",
+      "component_identity": {
+        "backend_id": "faster_whisper",
+        "config_path": "configs/inference/components/asr/faster_whisper.yaml",
+        "config_sha256": "1846fd2acacc535d3a98c0ad4e80975608aa86ec6ee9c3ccc28af2e1d204a70f",
+        "family": "asr"
+      },
+      "credential_presence": {},
+      "details": {
+        "empty_or_no_speech_behavior": {
+          "empty": true,
+          "text": "",
+          "valid": true
+        },
+        "identity_recorded": true,
+        "model_name": "faster_whisper_tiny",
+        "pipeline_composition": true,
+        "precision": "int8",
+        "repeated_output_equal": true,
+        "runtime": {
+          "audio_duration_sec": 1.0,
+          "cpu_memory_mb": null,
+          "device": "cpu",
+          "dtype": "int8",
+          "inference_sec": 0.29003819986246526,
+          "load_sec": 0.6196467000991106,
+          "model_name": "faster_whisper_tiny",
+          "peak_gpu_memory_mb": null,
+          "realtime_factor": 0.29003819986246526
+        },
+        "transcripts": [
+          "the reorganization of these countries took the form of revolution.",
+          "the reorganization of these countries took the form of revolution."
+        ],
+        "valid_real_outputs": 2
+      },
+      "device": "cpu",
+      "explanation": "Real repeated offline qualification passed.",
+      "failure_category": null,
+      "family": "asr",
+      "implicit_downloads_allowed": false,
+      "package_versions": {
+        "faster-whisper": "1.2.1"
+      },
+      "profile": "extended-local",
+      "repetitions": 2,
+      "schema_validation": true,
+      "status": "qualified",
+      "timing": {
+        "inference_sec": [
+          1.182351,
+          0.284842
+        ],
+        "initialization_sec": 0.6196467000991106,
+        "total_sec": 6.506587
+      },
+      "warnings": []
+    },
+    {
+      "asset_identities": [
+        {
+          "acquisition_date": "2026-08-08T00:00:54.968245+00:00",
+          "acquisition_method": "scripts/bootstrap_models.py --vosk-asr",
+          "artifact_filename": "vosk-model-small-en-us-0.15.zip",
+          "asset_id": "vosk_small_en_us_0_15",
+          "backend": "Vosk",
+          "component": "vosk",
+          "credential_required": false,
+          "environment_profile": "extended-local",
+          "files": [
+            {
+              "bytes": 199,
+              "path": "README",
+              "sha256": "c0cf286e4f7783306c5f6469b37db69228fb16803b03cae661edb2d7bba64ebb"
+            },
+            {
+              "bytes": 15962575,
+              "path": "am/final.mdl",
+              "sha256": "75370a0137f9daf8f469dedd7daa4513ae7a621f03240c6e512e2b50b656a7b6"
+            },
+            {
+              "bytes": 131,
+              "path": "conf/mfcc.conf",
+              "sha256": "1e2228006d01d805ad1c267fee9f79709ca87ac51bd82b0e3f5c69ba543f0fc4"
+            },
+            {
+              "bytes": 290,
+              "path": "conf/model.conf",
+              "sha256": "8f14cb1eeb07c762c371db648c6be688d347236155ca0f64fb13b6567a8ce81f"
+            },
+            {
+              "bytes": 24013795,
+              "path": "graph/Gr.fst",
+              "sha256": "023c8b7e30704a9e37765c635c252e608a02f361235bf94abdcf2a5225d85b20"
+            },
+            {
+              "bytes": 22416994,
+              "path": "graph/HCLr.fst",
+              "sha256": "5caafba3081e1646545ac6bff0dd7a318e53dcbdc86f237909ce1d2ac1293d34"
+            },
+            {
+              "bytes": 102,
+              "path": "graph/disambig_tid.int",
+              "sha256": "9ad87cc166d0998f08f758f47a6223a120dfffcbee805c4849c3aa5e6bb3c0fc"
+            },
+            {
+              "bytes": 1761,
+              "path": "graph/phones/word_boundary.int",
+              "sha256": "da199d9c991e0e84681ddbb34627b915b26302d50a8fdaa23c51e2bc3a50b5c3"
+            },
+            {
+              "bytes": 168048,
+              "path": "ivector/final.dubm",
+              "sha256": "8c5d7dd69d2122313baaf19f61f35dd3fa18b70c62ac0687e311e1c46e6daca7"
+            },
+            {
+              "bytes": 8288887,
+              "path": "ivector/final.ie",
+              "sha256": "3f37faf90c375b9e4740b569398b5829ed9cc07d19be6d441f72c3b71d7efcc6"
+            },
+            {
+              "bytes": 44975,
+              "path": "ivector/final.mat",
+              "sha256": "ddd83586dc5f928cda8738b922c85ffe38fc789cb5f9151a712ca12f37265382"
+            },
+            {
+              "bytes": 1080,
+              "path": "ivector/global_cmvn.stats",
+              "sha256": "33be09afcc80059847a275c3d043b51f1ab954c7c2438ddbbf4745e8ba144ff9"
+            },
+            {
+              "bytes": 95,
+              "path": "ivector/online_cmvn.conf",
+              "sha256": "a2f3571754b64297cb7efb2e7ca3df61995c5a45fcbb97188f90613552bb2dfe"
+            },
+            {
+              "bytes": 35,
+              "path": "ivector/splice.conf",
+              "sha256": "9f0c5f7c82d18eaf25d8bce470efa9f7741f88411fe428774bc0a9bb69a24756"
+            }
+          ],
+          "licence": "Apache-2.0",
+          "missing_required_files": [],
+          "model_name": "vosk-model-small-en-us-0.15",
+          "model_version": "0.15",
+          "present": true,
+          "sha256": "4e399eb6de3b3d00e63d64d5fa97ffc39457d94427a5dad65285795fe31e1f7e",
+          "size_bytes": 70898967,
+          "source": "https://alphacephei.com/vosk/models/vosk-model-small-en-us-0.15.zip",
+          "storage_path": "models/cache/vosk/asr/vosk-model-small-en-us-0.15",
+          "verification_status": "verified"
+        }
+      ],
+      "backend_id": "vosk",
+      "command": "python 'C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\Software Validation from Datasets\\Evaluation Tool\\scripts\\qualify_extended_backends.py' --profile extended-local --audio 'C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\Software Validation from Datasets\\Raw Datasets (Not formatted)\\CMU Arctic\\cmu_us_aew_arctic\\wav\\arctic_b0476.wav' --output 'C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\Software Validation from Datasets\\Evaluation Tool\\runs\\extended_screening\\profile_evidence\\extended-local.json'",
+      "component_identity": {
+        "backend_id": "vosk",
+        "config_path": "configs/inference/components/asr/vosk.yaml",
+        "config_sha256": "6a3dd0a092a769395deb9a97619c5fb3998e1d2ffa520e69ed1ca2d031655d41",
+        "family": "asr"
+      },
+      "credential_presence": {},
+      "details": {
+        "empty_or_no_speech_behavior": {
+          "empty": true,
+          "text": "",
+          "valid": true
+        },
+        "identity_recorded": true,
+        "model_name": "vosk_local",
+        "pipeline_composition": true,
+        "precision": null,
+        "repeated_output_equal": true,
+        "runtime": {
+          "audio_duration_sec": 1.0,
+          "cpu_memory_mb": null,
+          "device": "cpu",
+          "dtype": "float32",
+          "inference_sec": 0.6252448000013828,
+          "load_sec": 0.6993676000274718,
+          "model_name": "vosk_local",
+          "peak_gpu_memory_mb": null,
+          "realtime_factor": 0.6252448000013828
+        },
+        "transcripts": [
+          "the reorganization of these countries took the form of revolution",
+          "the reorganization of these countries took the form of revolution"
+        ],
+        "valid_real_outputs": 2
+      },
+      "device": "cpu",
+      "explanation": "Real repeated offline qualification passed.",
+      "failure_category": null,
+      "family": "asr",
+      "implicit_downloads_allowed": false,
+      "package_versions": {
+        "vosk": "0.3.45"
+      },
+      "profile": "extended-local",
+      "repetitions": 2,
+      "schema_validation": true,
+      "status": "qualified",
+      "timing": {
+        "inference_sec": [
+          2.094478,
+          1.183945
+        ],
+        "initialization_sec": 0.6993676000274718,
+        "total_sec": 4.325917
+      },
+      "warnings": []
+    },
+    {
+      "asset_identities": [],
+      "backend_id": "webrtc_vad",
+      "command": "python 'C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\Software Validation from Datasets\\Evaluation Tool\\scripts\\qualify_extended_backends.py' --profile extended-local --audio 'C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\Software Validation from Datasets\\Raw Datasets (Not formatted)\\CMU Arctic\\cmu_us_aew_arctic\\wav\\arctic_b0476.wav' --output 'C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\Software Validation from Datasets\\Evaluation Tool\\runs\\extended_screening\\profile_evidence\\extended-local.json'",
+      "component_identity": {
+        "backend_id": "webrtc_vad",
+        "config_path": "configs/inference/components/vad/webrtc.yaml",
+        "config_sha256": "59ef35c465964b8b239ddc3ebd947e53e08f1386a7ec49dc170d43c53d98a29c",
+        "family": "vad"
+      },
+      "credential_presence": {},
+      "details": {
+        "bounded": true,
+        "chunk_count": 1,
+        "monotonic_nonoverlapping": true,
+        "no_speech_region_count": 0,
+        "pipeline_composition": true,
+        "region_count": 1,
+        "regions": [
+          {
+            "channel_index": null,
+            "confidence": null,
+            "end_sec": 4.17,
+            "label": "speech",
+            "start_sec": 0.0
+          }
+        ],
+        "repeated_output_equal": false,
+        "vad_chunker_compatible": true
+      },
+      "device": "cpu",
+      "explanation": "Real repeated offline qualification passed with recorded warnings.",
+      "failure_category": null,
+      "family": "vad",
+      "implicit_downloads_allowed": false,
+      "package_versions": {
+        "webrtcvad-wheels": "2.0.14"
+      },
+      "profile": "extended-local",
+      "repetitions": 2,
+      "schema_validation": true,
+      "status": "qualified_with_warnings",
+      "timing": {
+        "inference_sec": [
+          0.184559,
+          0.001123
+        ],
+        "total_sec": 0.305238
+      },
+      "warnings": [
+        "webrtcvad imports deprecated pkg_resources under current setuptools; real outputs remain contract-valid."
+      ]
+    },
+    {
+      "asset_identities": [
+        {
+          "acquisition_date": "2026-08-08T00:00:41.166471+00:00",
+          "acquisition_method": "packaged in resemblyzer==0.1.4",
+          "artifact_filename": "pretrained.pt",
+          "asset_id": "resemblyzer_packaged",
+          "backend": "Resemblyzer",
+          "component": "resemblyzer",
+          "credential_required": false,
+          "environment_profile": "extended-local",
+          "files": [
+            {
+              "bytes": 17090379,
+              "path": "pretrained.pt",
+              "sha256": "39373b86598fa3da9fcddee6142382efe09777e8d37dc9c0561f41f0070f134e"
+            }
+          ],
+          "licence": "Apache-2.0 repository; inspect packaged checkpoint provenance",
+          "missing_required_files": [],
+          "model_name": "pretrained d-vector",
+          "model_version": "resemblyzer-0.1.4",
+          "present": true,
+          "sha256": "fb9ab04c655f4276a77442db9dfbb0960da63b54e9bc0e5b5e69d6416edca3e1",
+          "size_bytes": 17090379,
+          "source": "https://github.com/resemble-ai/Resemblyzer",
+          "storage_path": "environment/Lib/site-packages/resemblyzer/pretrained.pt",
+          "verification_status": "verified"
+        }
+      ],
+      "backend_id": "resemblyzer",
+      "command": "python 'C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\Software Validation from Datasets\\Evaluation Tool\\scripts\\qualify_extended_backends.py' --profile extended-local --audio 'C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\Software Validation from Datasets\\Raw Datasets (Not formatted)\\CMU Arctic\\cmu_us_aew_arctic\\wav\\arctic_b0476.wav' --output 'C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\Software Validation from Datasets\\Evaluation Tool\\runs\\extended_screening\\profile_evidence\\extended-local.json'",
+      "component_identity": {
+        "backend_id": "resemblyzer",
+        "config_path": "configs/inference/components/speaker_embedding/resemblyzer.yaml",
+        "config_sha256": "a67aa6c4327f6fb65427f5acf139a40afd714795eabe38fdf3f5265299c0c161",
+        "family": "speaker_embedding"
+      },
+      "credential_presence": {},
+      "details": {
+        "dimension": 256,
+        "finite": true,
+        "identity_recorded": true,
+        "l2_norms": [
+          1.0000001027958234,
+          1.0000001027958234
+        ],
+        "minimum_duration_status": "too_short",
+        "model_name": "resemblyzer",
+        "pipeline_composition": true,
+        "repeatability_l2_drift": 0.0,
+        "runtime": {
+          "audio_duration_sec": 0.1,
+          "cpu_memory_mb": null,
+          "device": "cpu",
+          "dtype": "float32",
+          "inference_sec": 0.0009258999489247799,
+          "load_sec": 0.0,
+          "model_name": "resemblyzer",
+          "peak_gpu_memory_mb": null,
+          "realtime_factor": 0.009258999489247799
+        },
+        "valid_real_outputs": 2
+      },
+      "device": "cpu",
+      "explanation": "Real repeated offline qualification passed.",
+      "failure_category": null,
+      "family": "speaker_embedding",
+      "implicit_downloads_allowed": false,
+      "package_versions": {
+        "resemblyzer": "0.1.4"
+      },
+      "profile": "extended-local",
+      "repetitions": 2,
+      "schema_validation": true,
+      "status": "qualified",
+      "timing": {
+        "inference_sec": [
+          4.783141,
+          0.025888
+        ],
+        "total_sec": 4.936655
+      },
+      "warnings": []
+    }
+  ],
+  "schema_version": "extended-backend-qualification.v1",
+  "secret_audit": {
+    "credential_presence_only": true,
+    "values_serialized": false
+  },
+  "summary": {
+    "qualified": 4,
+    "status_counts": {
+      "qualified": 3,
+      "qualified_with_warnings": 1
+    },
+    "total": 4
+  }
+}

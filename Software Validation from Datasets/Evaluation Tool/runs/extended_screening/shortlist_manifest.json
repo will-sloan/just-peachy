@@ -1,0 +1,10 @@
+{
+  "asr": [],
+  "plan_id": "pending-full-small-screen",
+  "schema_version": "extended-shortlist-manifest.v1",
+  "selection_policy": "the one-item smoke cannot advance candidates",
+  "speaker_embedding": [],
+  "status": "smoke_passed_scientific_shortlist_pending",
+  "targeted_combinations": [],
+  "vad_segmentation": []
+}

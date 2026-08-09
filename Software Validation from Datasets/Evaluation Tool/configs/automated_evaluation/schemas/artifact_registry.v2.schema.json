@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "artifact-registry.v2",
+  "title": "Additive Stage 5 campaign artifact registry source",
+  "type": "object",
+  "required": ["schema_version", "extends", "artifact_overrides", "append_artifacts"],
+  "properties": {
+    "schema_version": {"const": "artifact-registry.v2"},
+    "extends": {"const": "artifact_registry.v1.yaml"},
+    "artifact_overrides": {
+      "type": "object",
+      "required": ["resource_usage"]
+    },
+    "append_artifacts": {
+      "type": "array",
+      "minItems": 3,
+      "items": {
+        "type": "object",
+        "required": [
+          "id", "scope", "path", "producer", "format", "schema_version",
+          "status", "condition", "validation_rules", "checksum_policy",
+          "privacy_classification", "downstream_consumers"
+        ],
+        "properties": {
+          "scope": {"const": "scenario"},
+          "status": {"const": "conditional"},
+          "checksum_policy": {"const": "sha256"}
+        }
+      }
+    }
+  },
+  "additionalProperties": false
+}

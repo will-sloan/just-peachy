@@ -1,0 +1,139 @@
+{
+  "benchmark_manifest": {
+    "bytes": 1234,
+    "manifest_id": "manifest_aaaaaaaaaaaa",
+    "path": "benchmarks/v1/small_source_manifest.parquet",
+    "rows": 4,
+    "schema_version": "benchmark-manifest.v1",
+    "sha256": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+  },
+  "canonicalization_version": "scenario-canonicalization.v1",
+  "condition": {
+    "augmentation": "reverb_noise",
+    "id": "dining_room_h025_pink_10db",
+    "noise_type": "pink",
+    "rir": {
+      "environment": "DiningRoom",
+      "relative_path": "Raw Datasets (Not formatted)/MIT 271 RIRs/Audio/h025_Diningroom_8txts.wav",
+      "resolved_identifier": "h025_Diningroom_8txts.wav",
+      "rir_id": "dining_room_h025",
+      "sha256": "940D761A280DCD8FAAB077074E02BADE649E64E47461D80A4F927A01ABBEF5E2"
+    },
+    "snr_db": 10.0
+  },
+  "dataset_slice": {
+    "dataset": "cmu_arctic",
+    "filters": {
+      "benchmark_tier": "small",
+      "panel": "controlled_clean",
+      "protocol_condition": null,
+      "role": null
+    },
+    "row_count": 4,
+    "slice_id": "controlled_clean:small:cmu_arctic"
+  },
+  "failure_policy": {
+    "continue_after_item_failure": true,
+    "max_item_retries": 0,
+    "max_missing_prediction_rate": 0.05
+  },
+  "hash_algorithm": "sha256",
+  "hash_version": "scenario-hash.v1",
+  "panel": "controlled_clean",
+  "pipeline": {
+    "components": {
+      "asr": {
+        "adapter": "FixtureASRAdapter",
+        "config_contents": {
+          "adapter": "FixtureASRAdapter",
+          "enabled": true,
+          "name": "fixture_asr",
+          "notes": null,
+          "params": {
+            "beam_size": 1
+          }
+        },
+        "config_contents_sha256": "1AFD8F5452C2CB6EAFAF4DB9D28CE992F894BB6E6A1E02D35BE1D3611C39487E",
+        "enabled": true,
+        "family": "asr",
+        "implementation_class": "FixtureASR",
+        "name": "fixture_asr",
+        "qualification_status": "contract_qualified",
+        "source_config_sha256": "CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC"
+      }
+    },
+    "models": {
+      "asr": {
+        "assets": [
+          {
+            "configured_identity": "fixture-model",
+            "expected_bytes": 100,
+            "expected_sha256": "DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD",
+            "hash_matches": true,
+            "observed_bytes": 100,
+            "observed_sha256": "DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD",
+            "present": true
+          }
+        ],
+        "model_identity": {
+          "model_name": "fixture-model"
+        }
+      }
+    },
+    "pipeline_id": "fixture_pipeline",
+    "resolved_config_contents": {
+      "components": {},
+      "config_name": "fixture_pipeline",
+      "future": false,
+      "notes": null,
+      "profile": "fixture",
+      "runtime": {
+        "allow_model_downloads": false,
+        "cache_dir": "models/cache/fixture",
+        "device": "cpu",
+        "dry_run": false,
+        "max_batch_size": 1,
+        "num_threads": 1,
+        "precision": "float32",
+        "sample_rate_hz": 16000
+      }
+    },
+    "resolved_config_sha256": "9088D00FE24779FAB10150826F07E19192345933FD9333212072FB617602E813",
+    "selected_config_contents": {
+      "config_name": "fixture_pipeline"
+    },
+    "selected_config_sha256": "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+  },
+  "repetition": 1,
+  "resource_policy": {
+    "collect_cpu": true,
+    "collect_gpu": true,
+    "gpu_concurrency": 1,
+    "sample_interval_seconds": 1.0
+  },
+  "runtime": {
+    "batch_size": 1,
+    "device": "cpu",
+    "dtype": "float32",
+    "settings": {
+      "allow_model_downloads": false,
+      "cache_dir": "models/cache/fixture",
+      "device": "cpu",
+      "dry_run": false,
+      "max_batch_size": 1,
+      "num_threads": 1,
+      "precision": "float32",
+      "sample_rate_hz": 16000
+    }
+  },
+  "scenario_hash": "6F56CA56FD53B71B33A9297238095B896C018F192895272204EFDE44B2B3AF77",
+  "scenario_id": "scenario_6f56ca56fd53",
+  "schema_version": "scenario-definition.v1",
+  "scoring_policy_version": "scoring-policy.v1",
+  "seed": 3800,
+  "tier": "small",
+  "timeout_policy": {
+    "on_timeout": "fail_scenario",
+    "timeout_seconds": 14400
+  }
+}

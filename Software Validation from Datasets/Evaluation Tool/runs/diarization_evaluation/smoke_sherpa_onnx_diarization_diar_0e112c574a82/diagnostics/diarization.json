@@ -1,0 +1,42 @@
+{
+  "anonymous_labels_preserved": true,
+  "audio": {
+    "channel_policy": {
+      "output_channels": 1,
+      "policy": "mono",
+      "source_channels": 1
+    },
+    "duration_sec": 5.456,
+    "model_channel_count": 1,
+    "model_sample_rate_hz": 16000,
+    "source_channel_count": 1,
+    "source_sample_rate_hz": 16000
+  },
+  "backend_id": "sherpa_onnx_diarization",
+  "evaluation_unit_id": "diar_0e112c574a82",
+  "label_semantics": "anonymous_diarization",
+  "predicted_speaker_count": 1,
+  "predicted_turn_count": 1,
+  "reference_identity_mapping_applied": false,
+  "schema_version": "diarization-diagnostics.v1",
+  "source_timing_offset_sec": 663.184,
+  "speaker_attributed_transcript_status": "not_produced_no_asr_in_standalone_diarization_run",
+  "timing": {
+    "audio_loading_sec": 0.002941400045529008,
+    "diarization_inference_sec": 0.9598042001016438
+  },
+  "turns": [
+    {
+      "channel_index": null,
+      "confidence": null,
+      "is_overlap": false,
+      "label_semantics": "anonymous_diarization",
+      "record_relative_end_sec": 5.481594085693359,
+      "record_relative_start_sec": 0.03096874989569187,
+      "source": "sherpa_onnx_diarization",
+      "source_absolute_end_sec": 668.6655940856933,
+      "source_absolute_start_sec": 663.2149687498957,
+      "speaker_label": "speaker_01"
+    }
+  ]
+}

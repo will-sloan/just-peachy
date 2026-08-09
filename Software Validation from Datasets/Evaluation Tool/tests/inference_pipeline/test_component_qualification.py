@@ -12,6 +12,7 @@ from scripts.qualify_speech_components import (
     _component_fragments,
     _config_with_components,
     _read_component_fragment,
+    _reference_asr_fragment,
     _summary,
 )
 
@@ -58,6 +59,13 @@ def test_asr_qualification_config_uses_full_record_and_disables_unrelated_slots(
     assert config.components["speaker_matching"].enabled is False
     assert config.runtime.dry_run is False
     assert config.runtime.allow_model_downloads is False
+
+
+def test_component_qualification_uses_whisper_base_as_reference_asr() -> None:
+    reference = _reference_asr_fragment()
+
+    assert reference["name"] == "whisper_base"
+    assert reference["params"]["model_size"] == "base"
 
 
 def test_qualification_summary_distinguishes_unavailable_from_failed() -> None:

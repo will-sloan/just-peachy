@@ -1,0 +1,71 @@
+{
+  "artifacts": {
+    "manifest": {
+      "bytes": 47919,
+      "path": "native_diarization_manifest.parquet",
+      "sha256": "1AD929CB7874C4A3E0B30F0612AE2D8C9D8290C6DC596DBD06E115D636F83A30"
+    },
+    "reference_rttm": {
+      "bytes": 30305,
+      "path": "references.rttm",
+      "sha256": "BC21BABC3B7EF443F8F8D68FB5DAEF832BF54809A17DA241429B0231B62088E0"
+    },
+    "reference_transcripts": {
+      "bytes": 87306,
+      "path": "reference_transcripts.jsonl",
+      "sha256": "12E5B1505246CCD4A289A897AC938692D6335C9154959948F1ADE0F2CFE572BF"
+    },
+    "scored_regions_uem": {
+      "bytes": 8464,
+      "path": "scored_regions.uem",
+      "sha256": "B5891B889967A4F36DB3281CB80CEC36AE1388B354CE6774BB59A38F9F39987A"
+    }
+  },
+  "authoritative_representation": "parquet",
+  "benchmark_tier": "small",
+  "canonicalization_version": "native-diarization-canonicalization.v1",
+  "counts": {
+    "by_dataset": {
+      "ami": {
+        "cpwer_eligible": 44,
+        "der_jer_eligible": 80,
+        "units": 80
+      },
+      "chime6": {
+        "cpwer_eligible": 0,
+        "der_jer_eligible": 80,
+        "units": 80
+      },
+      "voices": {
+        "cpwer_eligible": 0,
+        "der_jer_eligible": 0,
+        "units": 40
+      }
+    },
+    "cpwer_eligible": 44,
+    "der_jer_eligible": 160,
+    "evaluation_units": 200
+  },
+  "hash_algorithm": "sha256",
+  "manifest_id": "native_diarization_c7ee96923354",
+  "manifest_schema_version": "native-diarization-manifest.v1",
+  "policy": {
+    "path": "configs/automated_evaluation/diarization_evaluation.v1.yaml",
+    "schema_version": "diarization-evaluation-policy.v1",
+    "sha256": "7BBEF01ADF4989BD571286AD68E317C55204CE5F6E2B1CFE78C9967674D942AC"
+  },
+  "reference_schema_version": "native-diarization-reference.v1",
+  "schema_version": "native-diarization-manifest-index.v1",
+  "scientific_constraints": {
+    "absolute_source_timing_preserved": true,
+    "anonymous_predictions_must_not_be_mapped_to_reference_identities": true,
+    "synthetic_augmentation_allowed": false,
+    "voices_der_jer_suppressed": true
+  },
+  "selection_seed": 3800,
+  "source_manifest": {
+    "path": "benchmarks/v1/small_source_manifest.parquet",
+    "schema_version": "benchmark-manifest.v1",
+    "sha256": "0BD28359F11AB283C349386BB5DFC78E52C3C1E8B4EDE271551F5029C9FC44F6"
+  }
+}

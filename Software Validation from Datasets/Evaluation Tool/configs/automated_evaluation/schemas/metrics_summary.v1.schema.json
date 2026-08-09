@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "metrics-summary.v1",
+  "title": "Scenario metric summary",
+  "type": "object",
+  "required": ["schema_version", "scenario_id", "scenario_hash", "counts", "metrics"],
+  "properties": {
+    "schema_version": {"const": "metrics-summary.v1"},
+    "scenario_id": {"type": "string", "pattern": "^scenario_[0-9a-f]{12}$"},
+    "scenario_hash": {"type": "string", "pattern": "^[0-9A-F]{64}$"},
+    "counts": {"type": "object", "additionalProperties": {"type": "integer", "minimum": 0}},
+    "metrics": {"type": "object"}
+  }
+}

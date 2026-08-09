@@ -1,0 +1,14 @@
+{
+  "diagnostic_only": false,
+  "diarization_replaced_external_vad": false,
+  "effective_source": "backend_internal",
+  "external_vad_affected_final_segments": false,
+  "oracle_reference_used": false,
+  "processing_chain": [
+    "backend_internal"
+  ],
+  "requested_sources": [
+    "diarizer"
+  ],
+  "schema_version": "segmentation-provenance.v1"
+}

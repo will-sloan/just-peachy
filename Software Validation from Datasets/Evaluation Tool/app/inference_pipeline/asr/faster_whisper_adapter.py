@@ -19,6 +19,7 @@ from app.inference_pipeline.asr.base import (
 )
 from app.inference_pipeline.contracts import ASRTranscript, AudioSegment, WordTiming
 from app.inference_pipeline.errors import ContractValidationError, InferencePipelineError
+from app.resource_telemetry.context import telemetry_span
 
 
 class FasterWhisperASRUnavailableError(InferencePipelineError):
@@ -99,8 +100,18 @@ class FasterWhisperASR(ASRBase):
 
         started_at = time.perf_counter()
         try:
-            raw_segments, info = model.transcribe(audio.samples, **kwargs)
-            segments = tuple(raw_segments)
+            with telemetry_span(
+                "asr_inference",
+                phase="warm_inference",
+                identifiers={
+                    "recording_id": context.recording_id,
+                    "utt_id": context.utt_id,
+                    "segment_index": context.segment_index,
+                },
+                cuda=self.device == "cuda",
+            ):
+                raw_segments, info = model.transcribe(audio.samples, **kwargs)
+                segments = tuple(raw_segments)
         except Exception as exc:  # pragma: no cover - dependency boundary
             raise FasterWhisperASRUnavailableError(
                 f"Faster-Whisper transcription failed: {exc}"
@@ -174,16 +185,21 @@ class FasterWhisperASR(ASRBase):
 
         started_at = time.perf_counter()
         try:
-            self.model = faster_whisper.WhisperModel(
-                model_source,
-                device=self.device,
-                device_index=self.device_index,
-                compute_type=self.compute_type,
-                cpu_threads=self.cpu_threads,
-                num_workers=self.num_workers,
-                download_root=download_root,
-                local_files_only=not self.allow_model_downloads,
-            )
+            with telemetry_span(
+                "asr_model_load",
+                phase="cold_initialization",
+                cuda=self.device == "cuda",
+            ):
+                self.model = faster_whisper.WhisperModel(
+                    model_source,
+                    device=self.device,
+                    device_index=self.device_index,
+                    compute_type=self.compute_type,
+                    cpu_threads=self.cpu_threads,
+                    num_workers=self.num_workers,
+                    download_root=download_root,
+                    local_files_only=not self.allow_model_downloads,
+                )
         except Exception as exc:  # pragma: no cover - dependency boundary
             mode = "local-only" if not self.allow_model_downloads else "download-enabled"
             raise FasterWhisperASRUnavailableError(

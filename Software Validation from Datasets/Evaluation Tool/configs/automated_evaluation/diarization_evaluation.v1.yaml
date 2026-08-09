@@ -1,0 +1,47 @@
+schema_version: diarization-evaluation-policy.v1
+native_manifest_schema_version: native-diarization-manifest.v1
+reference_schema_version: native-diarization-reference.v1
+scoring_policy_version: diarization-scoring-policy.v1
+selection_seed: 3800
+authoritative_representation: parquet
+hash_algorithm: sha256
+implicit_model_downloads_allowed: false
+synthetic_augmentation_allowed: false
+source_manifests:
+  small: benchmarks/v1/small_source_manifest.parquet
+  standard: benchmarks/v1/standard_source_manifest.parquet
+  large: benchmarks/v1/large_source_manifest.parquet
+native_datasets:
+  ami:
+    normalized_segments: ../Normalized Metadata/AMI/segments.parquet
+    reference_version: AMI-manual-1.6.1-normalized
+    eligible_streams: [array, headset]
+    reference_policy: recording_aligned_manual_segments
+  chime6:
+    normalized_segments: ../Normalized Metadata/CHiME_6/segments.parquet
+    reference_version: CHiME-6-normalized-transcriptions
+    eligible_streams: [farfield_array, participant_close]
+    reference_policy: session_aligned_segments
+  voices:
+    normalized_segments: null
+    reference_version: VOiCES-devkit-normalized
+    eligible_streams: []
+    reference_policy: condition_only_no_fine_speech_timing
+scoring:
+  version: diarization-scoring-policy.v1
+  collar_sec: 0.25
+  overlap_modes: [overlap_aware, overlap_excluded]
+  require_uem: true
+  speaker_count_mode: estimated
+  reference_version: native-diarization-reference.v1
+backend_internal_segmentation:
+  - pyannote_community
+  - sherpa_onnx_diarization
+  - picovoice_falcon
+  - nemo_diarization
+semantic_rules:
+  preserve_anonymous_labels: true
+  anonymous_labels_are_named_identities: false
+  reference_identity_mapping_allowed: false
+  oracle_reference_diagnostic_only: true
+  unknown_label: Unknown

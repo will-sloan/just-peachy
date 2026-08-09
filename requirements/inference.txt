@@ -7,3 +7,4 @@ openai-whisper==20250625
 speechbrain==1.1.0
 silero-vad==6.2.1
 sounddevice==0.5.5
+nvidia-ml-py==13.610.43

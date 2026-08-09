@@ -1,0 +1,52 @@
+{
+  "aggregation_method": "normalized_mean",
+  "backend_identity": {
+    "aggregation_method": "normalized_mean",
+    "backend_id": "resemblyzer",
+    "config_hash": "A67AA6C4327F6FB65427F5ACF139A40AFD714795EABE38FDF3F5265299C0C161",
+    "config_path": "configs/inference/components/speaker_embedding/resemblyzer.yaml",
+    "embedding_dimension": 256,
+    "environment_profile": "extended-local",
+    "identity_hash": "18CA2E6C6337D0728C864B0BE817657CB2F270BDBC33582072F5A1EDAEBE3E53",
+    "model_hash": "4836436918987956D78F2128C7300EB8AE43AD03DFB5E23DCB0F020524EA3FB6",
+    "model_id": "resemblyzer:6a921b369fcb",
+    "normalization": "l2",
+    "preprocessing": {
+      "channel_count": 1,
+      "dtype": "float32",
+      "sample_rate_hz": 16000
+    },
+    "qualification_status": "qualified",
+    "schema_version": "speaker-backend-identity.v1",
+    "threshold_policy_version": "speaker-threshold-policy.v1"
+  },
+  "embedding_dimension": 256,
+  "enrollment_hash": "2563131A306E3F48FEE04DF45B063C57FBEB7B8948B0CCEFF6BBBF82B81AC86D",
+  "normalization": "l2",
+  "preprocessing": {
+    "channel_count": 1,
+    "dtype": "float32",
+    "sample_rate_hz": 16000
+  },
+  "private_identity_mapping_included": false,
+  "schema_version": "backend-enrollment.v1",
+  "speakers": [
+    {
+      "enrollment_item_ids": [
+        "item_1f7a4c394d53447b"
+      ],
+      "requested_exemplars": 1,
+      "speaker_key": "spk_2441b5ce20de",
+      "successful_exemplars": 1
+    },
+    {
+      "enrollment_item_ids": [
+        "item_446a92d4c2fc98b4"
+      ],
+      "requested_exemplars": 1,
+      "speaker_key": "spk_2e207edb1a34",
+      "successful_exemplars": 1
+    }
+  ],
+  "threshold_policy_version": "speaker-threshold-policy.v1"
+}

@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "checksums.v1",
+  "title": "Scenario artifact checksum index",
+  "type": "object",
+  "required": ["schema_version", "artifact_registry_version", "hash_algorithm", "scenario_id", "updated_at_utc", "entries"],
+  "properties": {
+    "schema_version": {"const": "checksums.v1"},
+    "artifact_registry_version": {"const": "artifact-registry.v1"},
+    "hash_algorithm": {"const": "sha256"},
+    "scenario_id": {"type": "string", "pattern": "^scenario_[0-9a-f]{12}$"},
+    "updated_at_utc": {"type": "string", "format": "date-time"},
+    "entries": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["artifact_id", "schema_version", "bytes", "sha256"],
+        "properties": {
+          "bytes": {"type": "integer", "minimum": 0},
+          "sha256": {"type": "string", "pattern": "^[0-9A-F]{64}$"}
+        }
+      }
+    }
+  }
+}

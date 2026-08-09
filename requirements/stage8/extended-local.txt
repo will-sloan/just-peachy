@@ -1,0 +1,6 @@
+-r ../inference.txt
+
+faster-whisper==1.2.1
+vosk==0.3.45
+webrtcvad-wheels==2.0.14
+resemblyzer==0.1.4

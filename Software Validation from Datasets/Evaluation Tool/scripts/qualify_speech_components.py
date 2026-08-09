@@ -449,13 +449,12 @@ def _component_fragments(slot: str) -> tuple[Path, ...]:
 
 
 def _reference_asr_fragment() -> dict[str, object]:
-    for name in ("vosk.yaml", "sherpa_onnx.yaml", "whisper_tiny.yaml"):
-        candidate = COMPONENT_ROOT / "asr" / name
-        if candidate.is_file():
-            fragment = _read_component_fragment(candidate)
-            _assert_permitted_asr(fragment, candidate)
-            return fragment
-    raise FileNotFoundError("no permitted reference ASR component is configured")
+    candidate = COMPONENT_ROOT / "asr" / "whisper_base.yaml"
+    if candidate.is_file():
+        fragment = _read_component_fragment(candidate)
+        _assert_permitted_asr(fragment, candidate)
+        return fragment
+    raise FileNotFoundError("Whisper Base reference ASR component is not configured")
 
 
 def _assert_permitted_asr(component: Mapping[str, object], path: Path) -> None:

@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "campaign-release-qualification.v1",
+  "title": "Predeclared staged release qualification",
+  "type": "object",
+  "required": ["schema_version", "campaign_id", "analysis_manifest_id", "decision_policy_version", "target_gate", "status", "passed", "checks", "counts", "gpu_concurrency_limit", "limitations"],
+  "properties": {
+    "schema_version": {"const": "campaign-release-qualification.v1"},
+    "status": {"enum": ["passed", "blocked"]},
+    "passed": {"type": "boolean"},
+    "checks": {"type": "array", "items": {"type": "object", "required": ["name", "passed", "observed", "required"]}},
+    "gpu_concurrency_limit": {"const": 1}
+  },
+  "additionalProperties": true
+}

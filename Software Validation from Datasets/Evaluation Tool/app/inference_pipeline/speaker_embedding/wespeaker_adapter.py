@@ -24,6 +24,7 @@ from app.inference_pipeline.speaker_embedding.base import (
     SpeakerEmbeddingBase,
     SpeakerEmbeddingContext,
 )
+from app.resource_telemetry.context import telemetry_span
 
 
 class WeSpeakerUnavailableError(InferencePipelineError):
@@ -87,8 +88,18 @@ class WeSpeakerEmbeddingAdapter(SpeakerEmbeddingBase):
             )
         model = self._model(context)
         try:
-            pcm = torch.from_numpy(audio.samples).unsqueeze(0)
-            vector = model.extract_embedding_from_pcm(pcm, audio.sample_rate)
+            with telemetry_span(
+                "embedding_extraction",
+                phase="warm_inference",
+                identifiers={
+                    "recording_id": context.recording_id,
+                    "utt_id": context.utt_id,
+                    "segment_index": context.segment_index,
+                },
+                cuda=self.configured_device == "cuda",
+            ):
+                pcm = torch.from_numpy(audio.samples).unsqueeze(0)
+                vector = model.extract_embedding_from_pcm(pcm, audio.sample_rate)
         except Exception as exc:
             raise WeSpeakerUnavailableError(
                 f"WeSpeaker embedding extraction failed: {exc}"
@@ -136,14 +147,19 @@ class WeSpeakerEmbeddingAdapter(SpeakerEmbeddingBase):
             import wespeaker  # type: ignore[import-not-found]
 
             started_at = time.perf_counter()
-            if Path(reference).exists() and hasattr(wespeaker, "load_model_local"):
-                self.model = wespeaker.load_model_local(reference)
-            else:
-                self.model = wespeaker.load_model(reference)
-            if hasattr(self.model, "set_device"):
-                self.model.set_device(self.configured_device)
-            if hasattr(self.model, "set_resample_rate"):
-                self.model.set_resample_rate(self.sample_rate_hz)
+            with telemetry_span(
+                "embedding_model_load",
+                phase="cold_initialization",
+                cuda=self.configured_device == "cuda",
+            ):
+                if Path(reference).exists() and hasattr(wespeaker, "load_model_local"):
+                    self.model = wespeaker.load_model_local(reference)
+                else:
+                    self.model = wespeaker.load_model(reference)
+                if hasattr(self.model, "set_device"):
+                    self.model.set_device(self.configured_device)
+                if hasattr(self.model, "set_resample_rate"):
+                    self.model.set_resample_rate(self.sample_rate_hz)
             self._load_sec = time.perf_counter() - started_at
         except Exception as exc:  # pragma: no cover - dependency boundary
             raise WeSpeakerUnavailableError(f"WeSpeaker model load failed: {exc}") from exc

@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "speaker_protocol_policy.v1.schema.json",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "manifest_schema_version",
+    "enrollment_schema_version",
+    "threshold_policy_version",
+    "metrics_schema_version",
+    "seed",
+    "source_manifest",
+    "selection",
+    "privacy",
+    "enrollment",
+    "calibration",
+    "metrics",
+    "backends"
+  ],
+  "properties": {
+    "schema_version": {"const": "speaker-protocol-policy.v1"},
+    "manifest_schema_version": {"const": "speaker-protocol-manifest.v1"},
+    "enrollment_schema_version": {"const": "backend-enrollment.v1"},
+    "threshold_policy_version": {"const": "speaker-threshold-policy.v1"},
+    "metrics_schema_version": {"const": "speaker-protocol-metrics.v1"},
+    "seed": {"const": 3800},
+    "source_manifest": {"type": "string", "minLength": 1},
+    "selection": {"type": "object"},
+    "privacy": {"type": "object"},
+    "enrollment": {"type": "object"},
+    "calibration": {"type": "object"},
+    "metrics": {"type": "object"},
+    "backends": {"type": "object", "minProperties": 1}
+  },
+  "additionalProperties": true
+}

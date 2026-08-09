@@ -1,0 +1,8 @@
+{
+  "backend_count": 9,
+  "full_small_screen_pending": true,
+  "identical_item_for_every_backend": true,
+  "item_count": 1,
+  "schema_version": "extended-benchmark-coverage.v1",
+  "scope": "real smoke"
+}

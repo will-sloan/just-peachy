@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "worker-result-transfer.v1",
+  "title": "Independent worker result transfer",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "hash_version",
+    "hash_algorithm",
+    "transfer_id",
+    "transfer_sha256",
+    "campaign_id",
+    "campaign_manifest_sha256",
+    "assignment_id",
+    "assignment_sha256",
+    "worker_id",
+    "environment_fingerprint_id",
+    "environment_fingerprint_sha256",
+    "supporting_files",
+    "scenario_results",
+    "unexported_scenarios",
+    "created_at_utc"
+  ],
+  "properties": {
+    "schema_version": {"const": "worker-result-transfer.v1"},
+    "hash_version": {"const": "worker-result-transfer-hash.v1"},
+    "hash_algorithm": {"const": "sha256"},
+    "transfer_id": {"type": "string", "pattern": "^transfer_[0-9a-f]{12}$"},
+    "transfer_sha256": {"type": "string", "pattern": "^[0-9A-F]{64}$"},
+    "campaign_id": {"type": "string"},
+    "campaign_manifest_sha256": {"type": "string", "pattern": "^[0-9A-F]{64}$"},
+    "assignment_id": {"type": "string", "pattern": "^assignment_[0-9a-f]{12}$"},
+    "assignment_sha256": {"type": "string", "pattern": "^[0-9A-F]{64}$"},
+    "worker_id": {"type": "string"},
+    "environment_fingerprint_id": {"type": "string", "pattern": "^environment_[0-9a-f]{12}$"},
+    "environment_fingerprint_sha256": {"type": "string", "pattern": "^[0-9A-F]{64}$"},
+    "supporting_files": {"type": "object"},
+    "scenario_results": {"type": "array"},
+    "unexported_scenarios": {"type": "array"},
+    "created_at_utc": {"type": "string", "format": "date-time"}
+  }
+}

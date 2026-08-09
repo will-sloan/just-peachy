@@ -1,0 +1,35 @@
+schema_version: automated-evaluation-contracts.v1
+released_contracts:
+  benchmark_manifest:
+    schema_version: benchmark-manifest.v1
+    canonicalization_version: manifest-canonicalization.v1
+    hash_version: manifest-hash.v1
+    hash_algorithm: sha256
+    authoritative_representation: parquet
+    hash_input: exact canonical Parquet file bytes
+  scenario:
+    schema_version: scenario-definition.v1
+    canonicalization_version: scenario-canonicalization.v1
+    hash_version: scenario-hash.v1
+    hash_algorithm: sha256
+    hash_input: canonical UTF-8 JSON identity payload
+canonicalization_rules:
+  dictionaries: NFC-normalize string keys, reject post-normalization duplicates, sort by Unicode code point
+  arrays: preserve order; callers sort arrays only when the field contract declares them semantically unordered
+  strings: NFC Unicode, no trimming or case folding unless a field-specific schema says otherwise
+  path_separators: project-relative path fields use forward slashes
+  project_relative_paths: reject drive letters, roots, empty components, dot components, and parent traversal
+  floats: finite IEEE-754 binary64 only; shortest round-trip decimal, lowercase exponent, explicit decimal point, negative zero normalized to 0.0
+  integers: base-10 with no leading zeros; integers remain distinct from floats
+  booleans: lowercase JSON true or false
+  null_and_absent: explicit null and an absent field are distinct; required scenario condition fields may not be absent
+  unicode: UTF-8, NFC, emitted without ASCII escaping
+  timestamps: forbidden in v1 identity payloads; future permitted timestamps require a new contract or explicit RFC3339 UTC field rule
+scenario_identity_exclusions:
+  - worker
+  - machine
+  - absolute paths
+  - output path
+  - start time
+  - retry number
+breaking_change_policy: Any schema, canonicalization, identity-field, or hash-input change requires a new public version and golden fixtures. Old IDs are never recomputed under new rules.

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "merge-validation-report.v1",
+  "title": "Worker result merge validation report",
+  "type": "object",
+  "required": ["schema_version", "campaign_id", "campaign_manifest_sha256", "status", "validated_transfers", "invalid_transfers", "duplicates", "conflicts", "environment_summary", "environment_differences", "merged_scenario_ids", "missing_scenario_ids", "created_at_utc"],
+  "properties": {
+    "schema_version": {"const": "merge-validation-report.v1"},
+    "campaign_id": {"type": "string"},
+    "campaign_manifest_sha256": {"type": "string", "pattern": "^[0-9A-F]{64}$"},
+    "status": {"enum": ["accepted", "accepted_with_warnings", "rejected"]},
+    "validated_transfers": {"type": "array"},
+    "invalid_transfers": {"type": "array"},
+    "duplicates": {"type": "array"},
+    "conflicts": {"type": "array"},
+    "environment_summary": {"type": "array"},
+    "environment_differences": {"type": "array"},
+    "merged_scenario_ids": {"type": "array"},
+    "missing_scenario_ids": {"type": "array"},
+    "created_at_utc": {"type": "string", "format": "date-time"}
+  }
+}

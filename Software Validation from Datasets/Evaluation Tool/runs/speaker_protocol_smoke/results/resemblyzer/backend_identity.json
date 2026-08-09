@@ -1,0 +1,20 @@
+{
+  "aggregation_method": "normalized_mean",
+  "backend_id": "resemblyzer",
+  "config_hash": "A67AA6C4327F6FB65427F5ACF139A40AFD714795EABE38FDF3F5265299C0C161",
+  "config_path": "configs/inference/components/speaker_embedding/resemblyzer.yaml",
+  "embedding_dimension": 256,
+  "environment_profile": "extended-local",
+  "identity_hash": "18CA2E6C6337D0728C864B0BE817657CB2F270BDBC33582072F5A1EDAEBE3E53",
+  "model_hash": "4836436918987956D78F2128C7300EB8AE43AD03DFB5E23DCB0F020524EA3FB6",
+  "model_id": "resemblyzer:6a921b369fcb",
+  "normalization": "l2",
+  "preprocessing": {
+    "channel_count": 1,
+    "dtype": "float32",
+    "sample_rate_hz": 16000
+  },
+  "qualification_status": "qualified",
+  "schema_version": "speaker-backend-identity.v1",
+  "threshold_policy_version": "speaker-threshold-policy.v1"
+}

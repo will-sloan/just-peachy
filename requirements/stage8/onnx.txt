@@ -1,0 +1,3 @@
+-r ../inference.txt
+
+sherpa-onnx==1.13.4

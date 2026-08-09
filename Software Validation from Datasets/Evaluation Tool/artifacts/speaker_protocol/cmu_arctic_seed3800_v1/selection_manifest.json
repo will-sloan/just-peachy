@@ -1,0 +1,64 @@
+{
+  "augmentation_policy": "Enrollment remains clean. Degraded probes reuse the same probe item identities and source audio; no new utterance selection.",
+  "counts": {
+    "enrollment_items": 60,
+    "known_probe_items": 120,
+    "known_speakers": 12,
+    "speakers_total": 18,
+    "unknown_probe_items": 60,
+    "unknown_speakers": 6
+  },
+  "dataset_id": "cmu_arctic",
+  "enrollment_database": {
+    "embedding_dimension": 192,
+    "exemplar_count": 60,
+    "model_id": "speechbrain_ecapa",
+    "path": "enrollment_db_speechbrain_ecapa.json",
+    "schema_version": "m10.enrollment_db.v1",
+    "sha256": "adb817b7bcc720877cd412ecb0f92fb62926b0f570793de358f834a18aaa5907",
+    "speaker_count": 12,
+    "validation": "passed_cpu_artifact_validation"
+  },
+  "items_path": "items.jsonl",
+  "items_sha256": "70905e77057571df961a04ad03a5c14da1802a00e6db126dca7f669aca409877",
+  "known_speaker_codes": [
+    "aew",
+    "ahw",
+    "aup",
+    "axb",
+    "clb",
+    "eey",
+    "fem",
+    "jmk",
+    "ksp",
+    "lnh",
+    "rms",
+    "rxr"
+  ],
+  "leakage_controls": [
+    "No utterance_id appears in both enrollment and probe roles for a speaker.",
+    "Unknown speakers have no enrollment items.",
+    "Source files are referenced in place and protected by SHA-256."
+  ],
+  "protocol_id": "cmu_arctic_seed3800_v1",
+  "schema_version": "speaker_protocol_selection.v1",
+  "seed": 3800,
+  "selection_algorithm": "SHA-256 ordering of seed|speaker|speaker_id for stratified held-out speakers and seed|item|speaker_id|utterance_id for utterances; minimum duration 1.0 s",
+  "source_metadata_path": "Software Validation from Datasets/Normalized Metadata/CMU_Arctic/utterances.parquet",
+  "source_metadata_sha256": "0469d015d7747b45723505e8498c781d2a098e6066a30b5a8d1d179784091b88",
+  "status": "prepared_not_qualified",
+  "unknown_label_policy": "Preserve and score the literal label 'Unknown'; never omit an unknown prediction.",
+  "unknown_speaker_codes": [
+    "awb",
+    "bdl",
+    "gka",
+    "ljm",
+    "slp",
+    "slt"
+  ],
+  "unknown_speaker_quotas_by_accent_group": {
+    "native_us": 3,
+    "non_native_or_accented": 2,
+    "other_english": 1
+  }
+}

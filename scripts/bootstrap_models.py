@@ -14,6 +14,7 @@ import tarfile
 import tempfile
 import urllib.request
 import zipfile
+from urllib.parse import urlsplit, urlunsplit
 from pathlib import Path
 from typing import Callable
 
@@ -137,7 +138,11 @@ def download_file(
             )
         print(f"Using cached asset {destination}")
         return destination
-    print(f"Downloading {url} to {destination}")
+    # Public model indexes may return temporary signed object-store URLs.
+    # Query values are unnecessary for audit logs and may contain signatures.
+    split_url = urlsplit(url)
+    log_url = urlunsplit((split_url.scheme, split_url.netloc, split_url.path, "", ""))
+    print(f"Downloading {log_url} to {destination}")
     temporary = destination.with_suffix(destination.suffix + ".part")
     try:
         request = urllib.request.Request(url, headers={"User-Agent": "just-peachy/1"})

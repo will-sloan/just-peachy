@@ -1,0 +1,120 @@
+config_name: live_mic_whisper_base
+profile: local_live_mic_whisper_base
+notes: Live microphone smoke config. Uses full chunk WAVs with Whisper base when local
+  package and model assets already exist.
+future: false
+runtime:
+  device: cpu
+  sample_rate_hz: 16000
+  max_batch_size: 1
+  num_threads: 1
+  precision: float32
+  dry_run: false
+  allow_model_downloads: false
+  cache_dir: models/cache/whisper
+components:
+  vad:
+    name: no_op_vad
+    enabled: false
+    adapter: NoOpVADAdapter
+    params: {}
+    notes: null
+  segmentation:
+    name: no_op_segmentation
+    enabled: false
+    adapter: NoOpSegmentationAdapter
+    params:
+      mode: full_chunk
+    notes: null
+  diarization:
+    name: no_op_diarization
+    enabled: false
+    adapter: NoOpDiarizationAdapter
+    params: {}
+    notes: null
+  asr:
+    name: whisper_base
+    enabled: true
+    adapter: WhisperBaseASRAdapter
+    params:
+      model_family: whisper
+      model_size: base
+      model_name: whisper_base
+      language: en
+      beam_size: 1
+      word_timestamps: false
+      device: cpu
+      dtype: float32
+      allow_model_downloads: false
+      cache_dir: models/cache/whisper
+    notes: Lazy Whisper base adapter config. Requires local package and model assets;
+      downloads disabled.
+  speaker_embedding:
+    name: no_op_speaker_embedding
+    enabled: false
+    adapter: NoOpSpeakerEmbeddingAdapter
+    params: {}
+    notes: null
+  speaker_matching:
+    name: no_op_speaker_matching
+    enabled: false
+    adapter: NoOpSpeakerMatchingAdapter
+    params: {}
+    notes: null
+resolution:
+  schema_version: resolved-inference-config.v1
+  selected_config:
+    path: configs/inference/live_mic_whisper_base.yaml
+    sha256: 48278A1941899EA87A862A367BDA99A80C65B8735F1565F1B8A11C81A4B0E7EB
+  component_sources:
+    vad:
+      family: vad
+      name: no_op_vad
+      source_type: pipeline_inline
+      source_path: configs/inference/live_mic_whisper_base.yaml
+      source_sha256: 48278A1941899EA87A862A367BDA99A80C65B8735F1565F1B8A11C81A4B0E7EB
+      registry_config_path: null
+      registry_config_sha256: null
+    segmentation:
+      family: segmentation
+      name: no_op_segmentation
+      source_type: pipeline_inline
+      source_path: configs/inference/live_mic_whisper_base.yaml
+      source_sha256: 48278A1941899EA87A862A367BDA99A80C65B8735F1565F1B8A11C81A4B0E7EB
+      registry_config_path: null
+      registry_config_sha256: null
+    diarization:
+      family: diarization
+      name: no_op_diarization
+      source_type: pipeline_inline
+      source_path: configs/inference/live_mic_whisper_base.yaml
+      source_sha256: 48278A1941899EA87A862A367BDA99A80C65B8735F1565F1B8A11C81A4B0E7EB
+      registry_config_path: null
+      registry_config_sha256: null
+    asr:
+      family: asr
+      name: whisper_base
+      source_type: component_fragment
+      source_path: configs/inference/components/asr/whisper_base.yaml
+      source_sha256: F881C12FDAA8270269CEE818563195AD35EACF237417AE5FE2598C5B76768E95
+      registry_config_path: configs/inference/components/asr/whisper_base.yaml
+      registry_config_sha256: F881C12FDAA8270269CEE818563195AD35EACF237417AE5FE2598C5B76768E95
+    speaker_embedding:
+      family: speaker_embedding
+      name: no_op_speaker_embedding
+      source_type: pipeline_inline
+      source_path: configs/inference/live_mic_whisper_base.yaml
+      source_sha256: 48278A1941899EA87A862A367BDA99A80C65B8735F1565F1B8A11C81A4B0E7EB
+      registry_config_path: null
+      registry_config_sha256: null
+    speaker_matching:
+      family: speaker_matching
+      name: no_op_speaker_matching
+      source_type: pipeline_inline
+      source_path: configs/inference/live_mic_whisper_base.yaml
+      source_sha256: 48278A1941899EA87A862A367BDA99A80C65B8735F1565F1B8A11C81A4B0E7EB
+      registry_config_path: null
+      registry_config_sha256: null
+  override_history: []
+  warnings: []
+  implicit_model_downloads_prohibited: true

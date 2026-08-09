@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "extended_qualification_registry.v1.schema.json",
+  "type": "object",
+  "required": ["schema_version", "source_summary", "qualified_statuses", "backends"],
+  "properties": {
+    "schema_version": {"const": "extended-qualification-registry.v1"},
+    "source_summary": {"type": "object"},
+    "qualified_statuses": {"type": "array", "items": {"type": "string"}},
+    "backends": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["backend_id", "catalog_family", "catalog_name", "profile", "status", "disposition", "evidence_path"]
+      }
+    }
+  }
+}

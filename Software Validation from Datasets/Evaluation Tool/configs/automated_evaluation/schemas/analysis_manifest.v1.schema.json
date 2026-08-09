@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "analysis-manifest.v1",
+  "title": "Standalone campaign analysis manifest",
+  "type": "object",
+  "required": ["schema_version", "analysis_manifest_id", "analysis_manifest_sha256", "hash_version", "hash_algorithm", "campaign", "contract_versions", "benchmark_manifests", "source_indexes", "registries", "result_index", "scenario_index", "status_counts", "worker_assignments", "merge", "failed_missing_invalid_excluded", "created_at_utc"],
+  "properties": {
+    "schema_version": {"const": "analysis-manifest.v1"},
+    "analysis_manifest_id": {"type": "string", "pattern": "^analysis_[0-9a-f]{12}$"},
+    "analysis_manifest_sha256": {"type": "string", "pattern": "^[0-9A-F]{64}$"},
+    "hash_version": {"const": "campaign-analysis-hash.v1"},
+    "hash_algorithm": {"const": "sha256"},
+    "campaign": {"type": "object", "required": ["campaign_id", "campaign_manifest_path", "campaign_manifest_sha256", "artifact_registry_version", "scenario_schema_version"]},
+    "benchmark_manifests": {"type": "array"},
+    "scenario_index": {"type": "array", "items": {"type": "object", "required": ["scenario_id", "scenario_hash", "analysis_status", "analysis_reason", "validation_complete", "artifact_paths"]}},
+    "failed_missing_invalid_excluded": {"type": "array"},
+    "created_at_utc": {"type": "string", "format": "date-time"}
+  },
+  "additionalProperties": true
+}

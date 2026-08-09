@@ -21,6 +21,7 @@ from app.inference_pipeline.speaker_embedding.base import (
     SpeakerEmbeddingBase,
     SpeakerEmbeddingContext,
 )
+from app.resource_telemetry.context import telemetry_span
 
 
 class ResemblyzerUnavailableError(InferencePipelineError):
@@ -72,8 +73,18 @@ class ResemblyzerSpeakerEmbeddingAdapter(SpeakerEmbeddingBase):
             )
         encoder, preprocess = self._encoder(context)
         try:
-            prepared = preprocess(audio.samples, source_sr=audio.sample_rate)
-            vector = encoder.embed_utterance(prepared)
+            with telemetry_span(
+                "embedding_extraction",
+                phase="warm_inference",
+                identifiers={
+                    "recording_id": context.recording_id,
+                    "utt_id": context.utt_id,
+                    "segment_index": context.segment_index,
+                },
+                cuda=self.configured_device == "cuda",
+            ):
+                prepared = preprocess(audio.samples, source_sr=audio.sample_rate)
+                vector = encoder.embed_utterance(prepared)
         except Exception as exc:
             raise ResemblyzerUnavailableError(
                 f"Resemblyzer embedding extraction failed: {exc}"
@@ -110,8 +121,13 @@ class ResemblyzerSpeakerEmbeddingAdapter(SpeakerEmbeddingBase):
                     resolve_embedding_model_path(self.weights_path, context)
                 )
             started_at = time.perf_counter()
-            self.encoder = VoiceEncoder(**kwargs)
-            self.preprocess_fn = preprocess_wav
+            with telemetry_span(
+                "embedding_model_load",
+                phase="cold_initialization",
+                cuda=self.configured_device == "cuda",
+            ):
+                self.encoder = VoiceEncoder(**kwargs)
+                self.preprocess_fn = preprocess_wav
             self._load_sec = time.perf_counter() - started_at
         except Exception as exc:  # pragma: no cover - dependency boundary
             raise ResemblyzerUnavailableError(

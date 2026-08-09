@@ -1,0 +1,52 @@
+{
+  "decisions": [
+    {
+      "action": "smoke_passed_full_small_screen_pending",
+      "backend_id": "faster_whisper",
+      "reason": "one-item output contract passed; advancement requires the declared full screening metrics"
+    },
+    {
+      "action": "smoke_passed_full_small_screen_pending",
+      "backend_id": "resemblyzer",
+      "reason": "one-item output contract passed; advancement requires the declared full screening metrics"
+    },
+    {
+      "action": "smoke_passed_full_small_screen_pending",
+      "backend_id": "sherpa_onnx_asr",
+      "reason": "one-item output contract passed; advancement requires the declared full screening metrics"
+    },
+    {
+      "action": "composition_passed_science_deferred_to_stage11",
+      "backend_id": "sherpa_onnx_diarization",
+      "reason": "one-item output contract passed; advancement requires the declared full screening metrics"
+    },
+    {
+      "action": "smoke_passed_full_small_screen_pending",
+      "backend_id": "sherpa_onnx_speaker_embedding",
+      "reason": "one-item output contract passed; advancement requires the declared full screening metrics"
+    },
+    {
+      "action": "smoke_passed_full_small_screen_pending",
+      "backend_id": "sherpa_onnx_vad",
+      "reason": "one-item output contract passed; advancement requires the declared full screening metrics"
+    },
+    {
+      "action": "smoke_passed_full_small_screen_pending",
+      "backend_id": "vosk",
+      "reason": "one-item output contract passed; advancement requires the declared full screening metrics"
+    },
+    {
+      "action": "smoke_passed_full_small_screen_pending",
+      "backend_id": "webrtc_vad",
+      "reason": "one-item output contract passed; advancement requires the declared full screening metrics"
+    },
+    {
+      "action": "smoke_passed_full_small_screen_pending",
+      "backend_id": "wespeaker",
+      "reason": "one-item output contract passed; advancement requires the declared full screening metrics"
+    }
+  ],
+  "opaque_score_used": false,
+  "schema_version": "extended-advancement-exclusion.v1",
+  "scope": "smoke gate"
+}

@@ -1,0 +1,25 @@
+{
+  "acceptance_rule": "score >= threshold",
+  "backend_identity_hash": "18CA2E6C6337D0728C864B0BE817657CB2F270BDBC33582072F5A1EDAEBE3E53",
+  "calibration_eer": {
+    "confidence_interval": {
+      "bootstrap_repetitions": 500,
+      "confidence_level": 0.95,
+      "lower": 0.0,
+      "upper": 0.0
+    },
+    "eer": 0.0,
+    "far": 0.0,
+    "frr": 0.0,
+    "negative_trials": 4,
+    "positive_trials": 2,
+    "threshold": 0.7266744105592388
+  },
+  "evaluation_probes_used_to_select_threshold": false,
+  "operating_threshold": 0.7266744105592388,
+  "protocol_id": "speaker_protocol_7610be6695bf",
+  "schema_version": "speaker-calibration-results.v1",
+  "threshold_policy_version": "speaker-threshold-policy.v1",
+  "threshold_source": "calibration_only",
+  "unknown_label": "Unknown"
+}

@@ -1,0 +1,67 @@
+schema_version: benchmark-targets.v1
+selection_seed: 3800
+manifest_schema_version: benchmark-manifest.v1
+canonicalization_version: manifest-canonicalization.v1
+hash_version: manifest-hash.v1
+hash_algorithm: sha256
+
+eligibility:
+  whole_file_duration_sec: [2.0, 15.0]
+  segment_duration_sec: [2.0, 12.0]
+  word_count: [4, 45]
+
+tiers:
+  small:
+    controlled_clean:
+      cmu_arctic: {core_speakers: 12, core_items_per_speaker: 5, extension_items_per_speaker: 5}
+      librispeech: {split: dev-clean, speakers: 12, items_per_speaker: 5}
+      hifitts: {quality: clean, items_per_reader: 5}
+    native_robustness:
+      ami: {meetings: 2, speakers_per_meeting: 4, segments_per_speaker: 5, array_streams: [Array1-01]}
+      voices: {split: test, speakers: 10, source_utterances_per_speaker: 1, conditions_per_source: 4}
+      chime6: {sessions: 2, speakers_per_session: 4, segments_per_speaker: 5, farfield_microphones: [U01_CH1]}
+      librispeech: {split: dev-other, speakers: 12, items_per_speaker: 2}
+      hifitts: {quality: other, items_per_reader: 2}
+    speaker_protocol:
+      known_speakers: 6
+      unknown_speakers: 3
+      enrollment_per_known_speaker: 3
+      probes_per_speaker: 5
+  standard:
+    controlled_clean:
+      cmu_arctic: {core_speakers: 12, core_items_per_speaker: 20, extension_items_per_speaker: 10}
+      librispeech: {split: dev-clean, speakers: 40, items_per_speaker: 10}
+      hifitts: {quality: clean, items_per_reader: 20}
+    native_robustness:
+      ami: {meetings: 6, speakers_per_meeting: 4, segments_per_speaker: 12, array_streams: [Array1-01]}
+      voices: {split: test, speakers: 40, source_utterances_per_speaker: 2, conditions_per_source: 8}
+      chime6: {sessions: 4, speakers_per_session: 4, segments_per_speaker: 15, farfield_microphones: [U01_CH1]}
+      librispeech: {split: dev-other, speakers: 33, items_per_speaker: 5}
+      hifitts: {quality: other, items_per_reader: 5}
+    speaker_protocol:
+      known_speakers: 12
+      unknown_speakers: 6
+      enrollment_per_known_speaker: 5
+      probes_per_speaker: 10
+  large:
+    controlled_clean:
+      cmu_arctic: {core_speakers: 12, core_items_per_speaker: 50, extension_items_per_speaker: 50}
+      librispeech: {split: dev-clean, speakers: 100, items_per_speaker: 20}
+      hifitts: {quality: clean, items_per_reader: 100}
+    native_robustness:
+      ami: {meetings: 12, speakers_per_meeting: 4, segments_per_speaker: 25, array_streams: [Array1-01, Array1-02]}
+      voices: {split: test, speakers: 100, source_utterances_per_speaker: 2, conditions_per_source: 16}
+      chime6: {sessions: 8, speakers_per_session: 4, segments_per_speaker: 25, farfield_microphones: [U01_CH1, U02_CH1]}
+      librispeech: {split: dev-other, speakers: 100, items_per_speaker: 10}
+      hifitts: {quality: other, items_per_reader: 20}
+    speaker_protocol:
+      known_speakers: 12
+      unknown_speakers: 6
+      enrollment_per_known_speaker: 5
+      probes_per_speaker: 25
+
+notes:
+  - Counts are source/evaluation-row targets before controlled condition expansion.
+  - LibriSpeech dev-clean/dev-other contain only 40 and 33 speakers respectively; large-tier shortfalls are reported rather than filled from train or test.
+  - HiFiTTS clean and other reader counts are taken from actual normalized metadata; quality labels are never reassigned.
+  - Speaker protocol v1 is derived from CMU Arctic to preserve the already qualified 12-known/6-unknown protocol boundary.

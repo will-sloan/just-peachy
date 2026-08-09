@@ -1,0 +1,34 @@
+{
+  "backend_identity": {
+    "aggregation_method": "normalized_mean",
+    "backend_id": "resemblyzer",
+    "config_hash": "A67AA6C4327F6FB65427F5ACF139A40AFD714795EABE38FDF3F5265299C0C161",
+    "config_path": "configs/inference/components/speaker_embedding/resemblyzer.yaml",
+    "embedding_dimension": 256,
+    "environment_profile": "extended-local",
+    "identity_hash": "18CA2E6C6337D0728C864B0BE817657CB2F270BDBC33582072F5A1EDAEBE3E53",
+    "model_hash": "4836436918987956D78F2128C7300EB8AE43AD03DFB5E23DCB0F020524EA3FB6",
+    "model_id": "resemblyzer:6a921b369fcb",
+    "normalization": "l2",
+    "preprocessing": {
+      "channel_count": 1,
+      "dtype": "float32",
+      "sample_rate_hz": 16000
+    },
+    "qualification_status": "qualified",
+    "schema_version": "speaker-backend-identity.v1",
+    "threshold_policy_version": "speaker-threshold-policy.v1"
+  },
+  "backend_identity_hash": "18CA2E6C6337D0728C864B0BE817657CB2F270BDBC33582072F5A1EDAEBE3E53",
+  "expected_item_ids_sha256": "B4EA6FA19AF85004E98484D0AAA9C4D692B18D5BA879BA5EF2501D271471A615",
+  "expected_items": 8,
+  "observed_items": 8,
+  "private_identity_mapping_included": false,
+  "protocol_id": "speaker_protocol_7610be6695bf",
+  "reference_identity_prediction_fallback": false,
+  "run_id": "speaker_run_1161347b1440",
+  "schema_version": "speaker-protocol-run.v1",
+  "scope": "real_one-item-per-role-smoke",
+  "successful_embeddings": 8,
+  "unknown_label": "Unknown"
+}

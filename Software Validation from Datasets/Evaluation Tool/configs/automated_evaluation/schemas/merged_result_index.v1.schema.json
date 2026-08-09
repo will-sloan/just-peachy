@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "merged-result-index.v1",
+  "title": "Validated merged scenario result index",
+  "type": "object",
+  "required": ["schema_version", "index_id", "index_sha256", "campaign_id", "campaign_manifest_sha256", "scenario_results", "missing_scenario_ids", "updated_at_utc"],
+  "properties": {
+    "schema_version": {"const": "merged-result-index.v1"},
+    "index_id": {"type": "string", "pattern": "^merge_index_[0-9a-f]{12}$"},
+    "index_sha256": {"type": "string", "pattern": "^[0-9A-F]{64}$"},
+    "campaign_id": {"type": "string"},
+    "campaign_manifest_sha256": {"type": "string", "pattern": "^[0-9A-F]{64}$"},
+    "scenario_results": {"type": "array"},
+    "missing_scenario_ids": {"type": "array"},
+    "updated_at_utc": {"type": "string", "format": "date-time"}
+  }
+}

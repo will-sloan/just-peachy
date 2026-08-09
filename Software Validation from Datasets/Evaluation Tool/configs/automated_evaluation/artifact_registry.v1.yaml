@@ -1,0 +1,390 @@
+schema_version: artifact-registry.v1
+checksum_manifest_schema_version: checksums.v1
+hash_algorithm: sha256
+temporary_file_marker: ".tmp-"
+allowed_formats: [json, jsonl, yaml, parquet, rttm, npz, text, sqlite, sha256]
+privacy_classes:
+  - public_contract
+  - internal
+  - sensitive_transcript
+  - biometric_sensitive
+  - restricted_system
+
+scenario_profiles:
+  asr:
+    required_artifacts: [resolved_scenario, run_config, scenario_status, utterance_predictions, diagnostics, item_metrics, grouped_metrics, metrics_summary, failures, events, runner_log, errors, scenario_report_json, scenario_report_markdown, checksums]
+  vad_only:
+    required_artifacts: [resolved_scenario, run_config, scenario_status, diagnostics, vad_regions, item_metrics, grouped_metrics, metrics_summary, failures, events, runner_log, errors, scenario_report_json, scenario_report_markdown, checksums]
+  embedding_extraction:
+    required_artifacts: [resolved_scenario, run_config, scenario_status, diagnostics, embedding_index, embedding_npz, item_metrics, grouped_metrics, metrics_summary, failures, events, runner_log, errors, scenario_report_json, scenario_report_markdown, checksums]
+  speaker_verification:
+    required_artifacts: [resolved_scenario, run_config, scenario_status, diagnostics, embedding_index, embedding_npz, similarity_scores, item_metrics, grouped_metrics, metrics_summary, failures, events, runner_log, errors, scenario_report_json, scenario_report_markdown, checksums]
+  diarization:
+    required_artifacts: [resolved_scenario, run_config, scenario_status, diagnostics, segments_rttm, diarization_diagnostics, item_metrics, grouped_metrics, metrics_summary, failures, events, runner_log, errors, scenario_report_json, scenario_report_markdown, checksums]
+  synthetic_executor:
+    required_artifacts: [resolved_scenario, run_config, scenario_status, diagnostics, metrics_summary, failures, events, runner_log, errors, scenario_report_json, scenario_report_markdown, checksums]
+
+artifacts:
+  - id: campaign_manifest
+    scope: campaign
+    path: campaign_manifest.json
+    producer: campaign_definition_builder
+    format: json
+    schema_version: campaign-manifest.v1
+    status: mandatory
+    condition: always
+    validation_rules: [json_mapping, declared_schema_version, campaign_id, unique_scenario_ids, portable_manifest_paths]
+    checksum_policy: detached_sha256
+    privacy_classification: internal
+    downstream_consumers: [campaign_validator, future_executor, result_merger, analysis_loader]
+  - id: campaign_manifest_checksum
+    scope: campaign
+    path: campaign_manifest.sha256
+    producer: atomic_artifact_store
+    format: sha256
+    schema_version: detached-sha256.v1
+    status: mandatory
+    condition: always
+    validation_rules: [uppercase_sha256, matches_campaign_manifest]
+    checksum_policy: self_excluded
+    privacy_classification: public_contract
+    downstream_consumers: [campaign_validator, transfer_validator]
+  - id: benchmark_manifest
+    scope: campaign
+    path: benchmark_manifests/*.parquet
+    producer: benchmark_contract_builder
+    format: parquet
+    schema_version: benchmark-manifest.v1
+    status: conditional
+    condition: campaign_references_benchmark
+    validation_rules: [parquet_readable, benchmark_manifest_v1, identity_matches_campaign]
+    checksum_policy: sha256
+    privacy_classification: sensitive_transcript
+    downstream_consumers: [future_executor, scoring, analysis_loader]
+  - id: worker_assignment
+    scope: campaign
+    path: worker_assignments/*.yaml
+    producer: future_partition_planner
+    format: yaml
+    schema_version: worker-assignment.v1
+    status: conditional
+    condition: campaign_is_partitioned
+    validation_rules: [yaml_mapping, declared_schema_version, portable_paths, unique_scenario_ids]
+    checksum_policy: sha256
+    privacy_classification: internal
+    downstream_consumers: [future_worker, merge_validator]
+  - id: campaign_database
+    scope: campaign
+    path: database/campaign.sqlite
+    producer: future_campaign_executor
+    format: sqlite
+    schema_version: campaign-database.v1
+    status: conditional
+    condition: executor_database_initialized
+    validation_rules: [sqlite_header, schema_version_table]
+    checksum_policy: sha256
+    privacy_classification: internal
+    downstream_consumers: [future_executor, recovery_tool, result_merger]
+  - id: environment_fingerprint
+    scope: campaign
+    path: audit/environment_fingerprints/*.json
+    producer: environment_fingerprint_collector
+    format: json
+    schema_version: environment-fingerprint.v1
+    status: conditional
+    condition: campaign_execution_started
+    validation_rules: [json_mapping, declared_schema_version, fingerprint_hash, no_credentials]
+    checksum_policy: sha256
+    privacy_classification: restricted_system
+    downstream_consumers: [compatibility_validator, analysis_loader, audit]
+  - id: analysis_manifest
+    scope: campaign
+    path: analysis/analysis_manifest.json
+    producer: future_analysis_exporter
+    format: json
+    schema_version: analysis-manifest.v1
+    status: conditional
+    condition: analysis_handoff_created
+    validation_rules: [json_mapping, declared_schema_version, portable_paths]
+    checksum_policy: sha256
+    privacy_classification: internal
+    downstream_consumers: [analysis_loader, plotting, report_generation]
+
+  - id: resolved_scenario
+    scope: scenario
+    path: resolved_scenario.json
+    producer: scenario_resolver
+    format: json
+    schema_version: scenario-definition.v1
+    status: mandatory
+    condition: always
+    validation_rules: [json_mapping, scenario_definition_v1, stored_scenario_hash]
+    checksum_policy: sha256
+    privacy_classification: internal
+    downstream_consumers: [completion_validator, future_executor, scoring, analysis_loader]
+  - id: run_config
+    scope: scenario
+    path: run_config.yaml
+    producer: future_executor
+    format: yaml
+    schema_version: run-config.v1
+    status: mandatory
+    condition: always
+    validation_rules: [yaml_mapping, declared_schema_version, scenario_id_match, portable_paths, no_credentials]
+    checksum_policy: sha256
+    privacy_classification: internal
+    downstream_consumers: [future_executor, recovery_tool, audit]
+  - id: scenario_status
+    scope: scenario
+    path: status.json
+    producer: future_executor
+    format: json
+    schema_version: scenario-status.v1
+    status: mandatory
+    condition: always
+    validation_rules: [json_mapping, scenario_status_v1, scenario_id_match, scenario_hash_match, nonnegative_counts]
+    checksum_policy: sha256
+    privacy_classification: internal
+    downstream_consumers: [completion_validator, recovery_tool, result_merger]
+  - id: utterance_predictions
+    scope: scenario
+    path: predictions/utterances.jsonl
+    producer: configured_evaluator_runner
+    format: jsonl
+    schema_version: utterance-prediction.v1
+    status: conditional
+    condition: scenario_type_asr
+    validation_rules: [jsonl_objects, exact_utterance_fields, identity_and_bounds]
+    checksum_policy: sha256
+    privacy_classification: sensitive_transcript
+    downstream_consumers: [scoring, completion_validator, analysis_loader]
+  - id: diagnostics
+    scope: scenario
+    path: predictions/diagnostics.jsonl
+    producer: configured_evaluator_runner
+    format: jsonl
+    schema_version: prediction-diagnostics.v1
+    status: mandatory
+    condition: always
+    validation_rules: [jsonl_objects, recording_and_utterance_ids, no_credentials]
+    checksum_policy: sha256
+    privacy_classification: internal
+    downstream_consumers: [completion_validator, failure_analysis, report_generation]
+  - id: words
+    scope: scenario
+    path: predictions/words.jsonl
+    producer: configured_evaluator_runner
+    format: jsonl
+    schema_version: word-prediction.v1
+    status: conditional
+    condition: capability_word_timestamps
+    validation_rules: [jsonl_objects, exact_word_fields, identity_and_bounds]
+    checksum_policy: sha256
+    privacy_classification: sensitive_transcript
+    downstream_consumers: [timestamp_scoring, analysis_loader]
+  - id: vad_regions
+    scope: scenario
+    path: predictions/vad_regions.jsonl
+    producer: future_vad_result_adapter
+    format: jsonl
+    schema_version: vad-regions.v1
+    status: conditional
+    condition: scenario_type_vad_only
+    validation_rules: [jsonl_objects, recording_and_utterance_ids, time_region_bounds]
+    checksum_policy: sha256
+    privacy_classification: internal
+    downstream_consumers: [vad_scoring, completion_validator, analysis_loader]
+  - id: segments_rttm
+    scope: scenario
+    path: predictions/segments.rttm
+    producer: configured_evaluator_runner
+    format: rttm
+    schema_version: rttm-speaker.v1
+    status: conditional
+    condition: active_diarization
+    validation_rules: [utf8_text, rttm_parseable, nonnegative_segments]
+    checksum_policy: sha256
+    privacy_classification: internal
+    downstream_consumers: [diarization_scoring, completion_validator, analysis_loader]
+  - id: embedding_npz
+    scope: scenario
+    path: predictions/embeddings/*.npz
+    producer: future_embedding_result_adapter
+    format: npz
+    schema_version: speaker-embedding.v1
+    status: conditional
+    condition: active_speaker_embedding
+    validation_rules: [npz_no_pickle, embedding_array, finite_values]
+    checksum_policy: sha256
+    privacy_classification: biometric_sensitive
+    downstream_consumers: [embedding_index, speaker_scoring, completion_validator]
+  - id: embedding_index
+    scope: scenario
+    path: predictions/embeddings/index.parquet
+    producer: future_embedding_result_adapter
+    format: parquet
+    schema_version: embedding-index.v1
+    status: conditional
+    condition: active_speaker_embedding
+    validation_rules: [parquet_readable, declared_parquet_schema, embedding_index_columns, portable_paths]
+    checksum_policy: sha256
+    privacy_classification: biometric_sensitive
+    downstream_consumers: [speaker_scoring, completion_validator, analysis_loader]
+  - id: similarity_scores
+    scope: scenario
+    path: predictions/similarity_scores.parquet
+    producer: future_speaker_result_adapter
+    format: parquet
+    schema_version: speaker-similarity.v1
+    status: conditional
+    condition: active_speaker_matching
+    validation_rules: [parquet_readable, declared_parquet_schema, similarity_score_columns]
+    checksum_policy: sha256
+    privacy_classification: biometric_sensitive
+    downstream_consumers: [speaker_scoring, completion_validator, analysis_loader]
+  - id: diarization_diagnostics
+    scope: scenario
+    path: predictions/diarization_diagnostics.jsonl
+    producer: future_diarization_result_adapter
+    format: jsonl
+    schema_version: diarization-diagnostics.v1
+    status: conditional
+    condition: active_diarization
+    validation_rules: [jsonl_objects, recording_and_utterance_ids, no_credentials]
+    checksum_policy: sha256
+    privacy_classification: internal
+    downstream_consumers: [diarization_scoring, failure_analysis, analysis_loader]
+
+  - id: item_metrics
+    scope: scenario
+    path: metrics/item_metrics.parquet
+    producer: scoring
+    format: parquet
+    schema_version: item-metrics.v1
+    status: conditional
+    condition: non_synthetic_scenario
+    validation_rules: [parquet_readable, declared_parquet_schema, item_metric_identity_columns]
+    checksum_policy: sha256
+    privacy_classification: sensitive_transcript
+    downstream_consumers: [completion_validator, grouped_metrics, analysis_loader]
+  - id: grouped_metrics
+    scope: scenario
+    path: metrics/grouped_metrics.parquet
+    producer: scoring
+    format: parquet
+    schema_version: grouped-metrics.v1
+    status: conditional
+    condition: non_synthetic_scenario
+    validation_rules: [parquet_readable, declared_parquet_schema, grouped_metric_columns]
+    checksum_policy: sha256
+    privacy_classification: internal
+    downstream_consumers: [report_generation, analysis_loader]
+  - id: metrics_summary
+    scope: scenario
+    path: metrics/summary.json
+    producer: scoring
+    format: json
+    schema_version: metrics-summary.v1
+    status: mandatory
+    condition: always
+    validation_rules: [json_mapping, declared_schema_version, scenario_id_match, nonnegative_counts]
+    checksum_policy: sha256
+    privacy_classification: internal
+    downstream_consumers: [completion_validator, report_generation, analysis_loader]
+  - id: failures
+    scope: scenario
+    path: metrics/failures.parquet
+    producer: configured_evaluator_runner
+    format: parquet
+    schema_version: failures.v1
+    status: mandatory
+    condition: always
+    validation_rules: [parquet_readable, declared_parquet_schema, failure_columns, no_credentials]
+    checksum_policy: sha256
+    privacy_classification: internal
+    downstream_consumers: [completion_validator, recovery_tool, failure_analysis]
+  - id: resource_usage
+    scope: scenario
+    path: resource_logs/resource_usage.parquet
+    producer: future_telemetry_collector
+    format: parquet
+    schema_version: resource-usage.v1
+    status: conditional
+    condition: telemetry_collected
+    validation_rules: [parquet_readable, declared_parquet_schema, monotonic_sample_times]
+    checksum_policy: sha256
+    privacy_classification: restricted_system
+    downstream_consumers: [future_resource_analysis, report_generation]
+
+  - id: events
+    scope: scenario
+    path: logs/events.jsonl
+    producer: future_executor
+    format: jsonl
+    schema_version: scenario-events.v1
+    status: mandatory
+    condition: always
+    validation_rules: [jsonl_objects, declared_row_schema_version, scenario_id_match, rfc3339_utc, no_credentials]
+    checksum_policy: sha256
+    privacy_classification: internal
+    downstream_consumers: [completion_validator, recovery_tool, audit]
+  - id: runner_log
+    scope: scenario
+    path: logs/runner.log
+    producer: future_executor
+    format: text
+    schema_version: runner-log.v1
+    status: mandatory
+    condition: always
+    validation_rules: [utf8_text, no_credentials]
+    checksum_policy: sha256
+    privacy_classification: internal
+    downstream_consumers: [failure_analysis, audit]
+  - id: errors
+    scope: scenario
+    path: logs/errors.jsonl
+    producer: future_executor
+    format: jsonl
+    schema_version: scenario-errors.v1
+    status: mandatory
+    condition: always
+    validation_rules: [jsonl_objects, declared_row_schema_version, scenario_id_match, no_credentials]
+    checksum_policy: sha256
+    privacy_classification: internal
+    downstream_consumers: [completion_validator, failure_analysis, audit]
+  - id: scenario_report_json
+    scope: scenario
+    path: report/scenario_report.json
+    producer: report_generation
+    format: json
+    schema_version: scenario-report.v1
+    status: mandatory
+    condition: always
+    validation_rules: [json_mapping, declared_schema_version, scenario_id_match, completion_state]
+    checksum_policy: sha256
+    privacy_classification: internal
+    downstream_consumers: [completion_validator, result_merger, analysis_loader]
+  - id: scenario_report_markdown
+    scope: scenario
+    path: report/scenario_report.md
+    producer: report_generation
+    format: text
+    schema_version: scenario-report-markdown.v1
+    status: mandatory
+    condition: always
+    validation_rules: [utf8_text, nonempty]
+    checksum_policy: sha256
+    privacy_classification: internal
+    downstream_consumers: [human_review, result_merger]
+  - id: checksums
+    scope: scenario
+    path: checksums.json
+    producer: atomic_artifact_store
+    format: json
+    schema_version: checksums.v1
+    status: mandatory
+    condition: always
+    validation_rules: [json_mapping, declared_schema_version, scenario_id_match, uppercase_sha256, registered_paths_only]
+    checksum_policy: self_excluded
+    privacy_classification: public_contract
+    downstream_consumers: [completion_validator, transfer_validator, result_merger]
