@@ -421,6 +421,39 @@ def test_stop_request_terminates_only_selected_scenario(tmp_path: Path) -> None:
     assert state.scenario("campaign_stage4test", str(scenario["scenario_id"])).state == "stopped"
 
 
+def test_controlled_stop_can_be_explicitly_resumed(tmp_path: Path) -> None:
+    scenario = _scenario(max_retries=0)
+    root, state = _plan(tmp_path, [scenario])
+    first = _executor(root, {scenario["scenario_id"]: ["sleep"]})
+    thread = threading.Thread(target=first.run, daemon=True)
+    thread.start()
+    _wait_for_state(
+        state,
+        "campaign_stage4test",
+        str(scenario["scenario_id"]),
+        "running",
+    )
+    state.request_stop(
+        "campaign_stage4test",
+        scenario_id=str(scenario["scenario_id"]),
+        reason="operator pause",
+    )
+    thread.join(timeout=5)
+    stopped = state.scenario("campaign_stage4test", str(scenario["scenario_id"]))
+    assert stopped.state == "stopped"
+    assert stopped.attempt_count == stopped.max_attempts == 1
+
+    queued = state.resume_stopped(
+        "campaign_stage4test", scenario_ids=[str(scenario["scenario_id"])]
+    )
+    assert queued == (scenario["scenario_id"],)
+    resumed = _executor(root, {scenario["scenario_id"]: ["success"]}).run()
+    final = state.scenario("campaign_stage4test", str(scenario["scenario_id"]))
+    assert resumed.succeeded == 1
+    assert final.state == "succeeded"
+    assert final.attempt_count == final.max_attempts == 2
+
+
 def test_interruption_is_restart_safe_and_resumable(tmp_path: Path) -> None:
     scenario = _scenario()
     root, state = _plan(tmp_path, [scenario])

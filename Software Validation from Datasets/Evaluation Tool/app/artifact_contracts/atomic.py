@@ -190,7 +190,7 @@ class ScenarioArtifactStore:
                 self._phase("after_validate", target)
                 entry = checksum_entry(temporary, definition)
                 self._phase("after_checksum", target)
-                _replace_with_retry(temporary, target)
+                replace_file_with_retry(temporary, target)
                 _fsync_directory(target.parent)
                 self._phase("after_replace", target)
                 manifest = self._read_checksum_manifest()
@@ -204,7 +204,7 @@ class ScenarioArtifactStore:
                 self._phase("after_checksum_manifest", target)
                 return entry
             except BaseException:
-                _best_effort_unlink(temporary)
+                best_effort_unlink(temporary)
                 raise
 
     def _read_checksum_manifest(self) -> dict[str, object]:
@@ -247,10 +247,10 @@ class ScenarioArtifactStore:
                 self.registry.get("checksums"),
                 scenario_id=self.scenario_id,
             )
-            _replace_with_retry(temporary, path)
+            replace_file_with_retry(temporary, path)
             _fsync_directory(path.parent)
         finally:
-            _best_effort_unlink(temporary)
+            best_effort_unlink(temporary)
 
     def _checksum_payload(self, entries: Mapping[str, object]) -> dict[str, object]:
         return {
@@ -378,13 +378,13 @@ def _atomic_bytes(
             handle.flush()
             os.fsync(handle.fileno())
         validator(temporary)
-        _replace_with_retry(temporary, target)
+        replace_file_with_retry(temporary, target)
         _fsync_directory(target.parent)
     finally:
-        _best_effort_unlink(temporary)
+        best_effort_unlink(temporary)
 
 
-def _replace_with_retry(source: Path, target: Path) -> None:
+def replace_file_with_retry(source: Path, target: Path) -> None:
     """Retry only transient Windows sharing violations during atomic replacement."""
 
     for attempt in range(len(_FILE_OPERATION_RETRY_DELAYS_SEC) + 1):
@@ -399,7 +399,7 @@ def _replace_with_retry(source: Path, target: Path) -> None:
             time.sleep(_FILE_OPERATION_RETRY_DELAYS_SEC[attempt])
 
 
-def _best_effort_unlink(path: Path) -> None:
+def best_effort_unlink(path: Path) -> None:
     """Remove a temporary file without masking the publication's primary error."""
 
     for attempt in range(len(_FILE_OPERATION_RETRY_DELAYS_SEC) + 1):

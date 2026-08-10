@@ -123,18 +123,29 @@ Four additional ASR adapters are available in the `full` installation:
 | Faster-Whisper Tiny | `components/asr/faster_whisper.yaml` | A local CTranslate2 Tiny model directory |
 | Sherpa-ONNX | `components/asr/sherpa_onnx.yaml` | `tokens.txt` plus streaming transducer `encoder.onnx`, `decoder.onnx`, and `joiner.onnx` |
 | Vosk | `components/asr/vosk.yaml` | An extracted Vosk model directory |
-| WeNet | `components/asr/wenet.yaml` | A WeNet checkpoint directory containing `train.yaml`, `final.pt`, and `units.txt` |
+| WeNet | `components/asr/wenet.yaml` | A WeNet checkpoint directory containing the runtime-required `final.zip` and `units.txt` |
 
 The example configurations look under `models/cache/<backend>/asr`. Model
 downloads are not automatic; update the paths in the component YAML when the
 downloaded artifact uses different filenames.
 
-Pyannote is optional and its model may require accepting the model terms and
-providing a Hugging Face token:
+Pyannote is optional and its model requires the owner to accept the Community-1
+model terms and provide a Hugging Face token through the project-approved
+variable. The acknowledgement variable records that the owner performed the
+licence action; it is not a substitute for accepting the terms on Hugging Face.
 
 ```powershell
-$env:HF_TOKEN = "your-token"
-./.venv/Scripts/python.exe scripts/bootstrap_models.py --pyannote
+$env:PYANNOTE_LICENSE_ACCEPTED = "yes"
+$pyannoteSecureToken = Read-Host -AsSecureString "Hugging Face token"
+$pyannoteTokenPointer = [Runtime.InteropServices.Marshal]::SecureStringToBSTR($pyannoteSecureToken)
+try {
+  $env:PYANNOTE_AUTH_TOKEN = [Runtime.InteropServices.Marshal]::PtrToStringBSTR($pyannoteTokenPointer)
+} finally {
+  [Runtime.InteropServices.Marshal]::ZeroFreeBSTR($pyannoteTokenPointer)
+}
+./.venv/Scripts/python.exe scripts/bootstrap_models.py `
+  --pyannote `
+  --hf-token-env PYANNOTE_AUTH_TOKEN
 ```
 
 Do not place tokens in YAML files, commands committed to Git, or installation

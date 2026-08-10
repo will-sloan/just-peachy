@@ -13,7 +13,11 @@ import uuid
 
 import yaml
 
-from app.artifact_contracts.atomic import file_sha256
+from app.artifact_contracts.atomic import (
+    best_effort_unlink,
+    file_sha256,
+    replace_file_with_retry,
+)
 from app.benchmark_contracts.canonical import canonical_sha256
 
 
@@ -84,10 +88,10 @@ def atomic_write_bytes(path: Path, content: bytes) -> None:
             handle.write(content)
             handle.flush()
             os.fsync(handle.fileno())
-        os.replace(temporary, target)
+        replace_file_with_retry(temporary, target)
         _fsync_directory(target.parent)
     finally:
-        temporary.unlink(missing_ok=True)
+        best_effort_unlink(temporary)
 
 
 def atomic_copy_tree(source: Path, destination: Path) -> None:

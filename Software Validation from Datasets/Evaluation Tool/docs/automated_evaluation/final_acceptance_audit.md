@@ -259,3 +259,74 @@ The handbook was produced only after the final verdict above was present.
 - The handbook states every limitation in this audit and does not promote smoke/synthetic evidence to a scientific conclusion.
 
 Documentation readiness is accepted. The final verdict remains **`release_ready_with_documented_limitations`**.
+
+## Stage 14 operational-readiness addendum — 2026-08-10
+
+The Phase 13 verdict above remains the acceptance of the framework contracts.
+It is **not** launch authorization for the scientific massive campaign. Stage
+14's narrower operational verdict is **`NOT_READY_TO_LAUNCH`**, as recorded in
+`operational_launch_readiness.md` and `launch_control_sheet.md`.
+
+The audit base remains commit
+`4e1c1e7cea17bfdea87f4af6c4ae1d23d5052f44`. Stage 14 source, tests,
+configuration, scripts, and documentation are currently uncommitted. Therefore
+that commit must not be represented as containing this launch package. A new
+reviewed commit, post-commit runtime binding on both clean clones, and another
+genuine clean-clone validation are mandatory before launch. Runtime binding is
+used because a tracked file cannot contain the hash of the commit that contains
+that same file without creating a circular identity.
+
+### Operational corrections
+
+| Finding | Root cause and observed impact | Correction / changed files | Verification |
+|---|---|---|---|
+| `P14-OP-001` — iterator exhausted during final publication | JSONL readers return iterators, but final publication counted and reused them; a real completed evaluator pass could fail at artifact publication | Materialize prediction, diagnostic, and failure streams once in `app/campaign_executor/runtime.py`; regression in `test_campaign_runtime_publication.py` | Included in focused and full suites; real install smoke publishes complete artifacts |
+| `P14-OP-002` — assignment validation assumed artifact registry v1 | A v2 campaign could fail worker assignment validation despite a valid recorded registry | Resolve the campaign-recorded registry in `app/campaign_exchange/assignments.py`; Stage 6 regression | Frozen v2 massive assignments validate 20+21, no overlap/missing |
+| `P14-OP-003` — idempotent analysis re-index could replace an identical immutable contract | A needless Windows replace could fail under a transient indexer/antivirus handle | Retain byte-identical contracts and still reject changed content in `app/campaign_analysis/index.py`; Stage 12 regression | Repeated analysis-index test passes on Windows |
+| `P14-OP-004` — controlled `stopped` work had no explicit route back to pending, and generic resume was unsafe for two workers | Operators could stop safely but could not resume that work without manual state intervention; a global action risked touching another assignment | Add explicit `stopped → pending`, `resume_stopped`, CLI support, and assignment-scoped `--resume-stopped` in state/CLI/exchange execution; update READMEs | Stage 4/6 tests prove only the selected assignment is requeued; bounded real stop/resume rehearsal passed |
+| `P14-OP-005` — portable `RawDatasets` metadata anchor did not resolve an accepted local raw-data alias | Genuine clean-clone real inference failed although the operator-supplied dataset existed under `Raw Datasets (Not formatted)` | Preserve the public metadata path while resolving an existing approved alias in `app/utils/paths.py`; path regression | Clean-clone CMU Arctic Base run then produced one prediction, metrics, 11 plots, and report |
+| `P14-OP-006` — Stage 6 JSON/YAML atomic writer lacked bounded Windows sharing-lock retry | Complete 20-scenario preflight inspection succeeded but publishing its replacement JSON raised WinError 5 | Reuse public bounded file replacement/cleanup helpers from `app/artifact_contracts/atomic.py` in `app/campaign_exchange/common.py`; Stage 3/6 lock regressions | Injected WinError 5 and 32 tests pass; full A preflight now publishes successfully |
+| `P14-OP-007` — final commit identity was self-referential | Updating a tracked package to contain the commit that includes its own update would always create another commit hash | Keep candidate evidence immutable; add deterministic `--bind-current-commit` materialization and ignored `release_binding.json` containing both final assignment identities | Stage 14 regression binds both assignments to a simulated new HEAD, retains all 41 IDs, and reports zero overlap |
+
+### Revalidation after corrections
+
+- Final automated-evaluation suite: **242 passed, 2 expected skips**, two
+  third-party deprecation warnings, 233.03 seconds.
+- Protected non-automated suite: **337 passed**, two third-party deprecation
+  warnings, 12.74 seconds; GUI validation harness passed.
+- Final Stage 3/6/14 set: **55 passed**; broader pre-binding Stage
+  4/6/12/14/runtime/path set: **64 passed**.
+- Ruff check passed for every changed Python file; new Stage 14 Python files
+  also pass Ruff formatting checks. `pip check` reports no broken requirements.
+- All seven launch PowerShell helpers parse successfully.
+- All six campaign roots validate: install smoke 1, component canary 15,
+  two-worker shakedown 2, small 26, standard 41, massive candidate 41.
+- Frozen materialization reproduces campaign SHA-256
+  `FF833023B2CBFCC58C4CB65038BBF97A4A791296BE8AC7C09B6AA948C66046D4`
+  and assignments `assignment_5014479496c7` (20) and
+  `assignment_53642fa92b2a` (21), with zero overlap and zero missing IDs.
+- Machine A's strict full assignment preflight inspected **20/20 scenarios,
+  12,368 item executions, and 2,750 unique audio files**. Every scenario-
+  specific input, header/bound, component, model, RIR, pipeline, RAM, disk, and
+  output check passed. The assignment correctly remains blocked by the dirty
+  candidate tree and missing FFmpeg.
+- Machine B remains `NOT_YET_TESTED`. Its 21-scenario assignment passed a
+  complete static cross-check on A (13,430 item executions and 2,622 unique
+  source files), but no B hardware, environment, local data, output, disk, or
+  runtime claim is made.
+
+### Launch-gate disposition
+
+The genuine remote clean clone at `4e1c1e7…` created a new environment,
+verified Whisper Tiny/Base/Small and ECAPA assets (25/26 verifier checks; only
+FFmpeg missing), and completed one real CMU Arctic → Whisper Base → prediction
+→ scoring → plots → report run. This validates the committed core workflow
+with manual data/model setup, but not the uncommitted launch package.
+
+The 41-scenario massive candidate is a Whisper Base CPU full-record reference
+and robustness surface. It is not a multi-backend finalist campaign and cannot
+support component-selection claims. Component canary execution, small and
+standard scientific gates, finalist selection, Stage 14 commit/freeze, FFmpeg
+on A, and the actual Machine B profile/full preflight remain mandatory. The
+Phase 13 framework acceptance therefore coexists with the Stage 14 operational
+verdict **`NOT_READY_TO_LAUNCH`**.

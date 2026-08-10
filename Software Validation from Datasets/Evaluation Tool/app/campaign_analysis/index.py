@@ -514,9 +514,17 @@ def _materialize_registries(campaign: Path, registries) -> dict[str, object]:
     for key, source in sources.items():
         target = destination / source.name
         payload = source.read_bytes()
-        if target.is_file() and target.read_bytes() != payload:
-            raise AnalysisContractError(f"refusing to overwrite changed analysis contract: {target}")
-        atomic_write_bytes(target, payload)
+        if target.is_file():
+            if target.read_bytes() != payload:
+                raise AnalysisContractError(
+                    f"refusing to overwrite changed analysis contract: {target}"
+                )
+            # Keep an identical immutable contract in place. On Windows, an
+            # indexing/antivirus handle can prevent os.replace even though no
+            # content change is needed; avoiding the replacement is safer and
+            # preserves byte stability.
+        else:
+            atomic_write_bytes(target, payload)
         identities[key] = _identity(target, campaign)
     return identities
 

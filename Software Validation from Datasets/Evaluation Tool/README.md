@@ -4,11 +4,16 @@ Local dataset-aware batch evaluation for normalized speech metadata.
 
 ## Automated campaign documentation
 
-For the accepted unattended benchmarking framework, start with the
-[owner/operator system guide](docs/automated_evaluation/system_guide.md), use the
-[quick reference](docs/automated_evaluation/quick_reference.md) for commands, and
-consult the [final acceptance audit](docs/automated_evaluation/final_acceptance_audit.md)
-for the release verdict and authoritative limitations. The compact
+For the current two-machine campaign, start with the
+[launch control sheet](docs/automated_evaluation/launch_control_sheet.md). Its
+operational verdict is currently `NOT_READY_TO_LAUNCH`. Use the
+[quick campaign start](docs/automated_evaluation/quick_start_campaign.md) and
+[two-machine runbook](docs/automated_evaluation/two_machine_launch_runbook.md)
+for exact commands. The broader
+[owner/operator system guide](docs/automated_evaluation/system_guide.md) explains
+the framework, while the
+[final acceptance audit](docs/automated_evaluation/final_acceptance_audit.md)
+records accepted contracts and authoritative limitations. The compact
 [current architecture map](docs/automated_evaluation/current_evaluation_tool_architecture.md)
 explains the integration boundary.
 

@@ -80,7 +80,11 @@ Each worker runs only their assignment:
 
 ```bat
 python run_evaluation.py campaign run-assignment --campaign-root automated_runs\campaign_example01 --assignment automated_runs\campaign_example01\worker_assignments\worker_amir.yaml --environment-profile core-cpu
+python run_evaluation.py campaign run-assignment --campaign-root automated_runs\campaign_example01 --assignment automated_runs\campaign_example01\worker_assignments\worker_amir.yaml --environment-profile core-cpu --resume-stopped
 ```
+
+The second form is an explicit recovery action. It requeues stopped IDs in that
+validated assignment only and leaves every other worker's stopped work alone.
 
 Export completed results on each machine:
 
@@ -124,6 +128,9 @@ python run_evaluation.py campaign merge-results --campaign-root automated_runs/c
 - Missing global work remains in `missing_scenario_ids`.
 - The merged index contains only portable, campaign-relative paths and global scenario IDs.
 - Existing merged results are revalidated before an incremental merge.
+- JSON/YAML exchange publication uses the same bounded Windows transient-lock
+  retry as scenario artifacts. A persistent access error still fails without
+  weakening atomic replacement or checksum rules.
 
 ## Tests
 

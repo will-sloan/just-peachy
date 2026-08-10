@@ -155,6 +155,14 @@ def add_campaign_parser(subparsers: argparse._SubParsersAction) -> None:
         "--telemetry", action=argparse.BooleanOptionalAction, default=True
     )
     assignment_run.add_argument("--telemetry-interval-sec", type=float, default=1.0)
+    assignment_run.add_argument(
+        "--resume-stopped",
+        action="store_true",
+        help=(
+            "explicitly requeue stopped scenarios from this assignment only before "
+            "running"
+        ),
+    )
     assignment_run.add_argument("--dry-run", action="store_true")
     assignment_run.set_defaults(func=command_campaign_run_assignment)
 
@@ -248,6 +256,9 @@ def command_campaign_run(args: argparse.Namespace) -> None:
         args.scenario_id,
         parse_scenario_range(args.scenario_range),
     )
+    if args.campaign_action == "resume" and not args.dry_run:
+        _root, campaign_id, state = _campaign_state(args.campaign_root)
+        state.resume_stopped(campaign_id, scenario_ids=selected or None)
     executor = CampaignExecutor(
         args.campaign_root.resolve(),
         project_root=project_root,
@@ -361,6 +372,7 @@ def command_campaign_run_assignment(args: argparse.Namespace) -> None:
         minimum_free_disk_bytes=int(args.minimum_free_disk_gb * 1024**3),
         telemetry_enabled=args.telemetry,
         telemetry_interval_sec=args.telemetry_interval_sec,
+        resume_stopped=args.resume_stopped,
     )
 
 

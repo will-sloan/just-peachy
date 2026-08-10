@@ -59,6 +59,7 @@ def run_worker_assignment(
     minimum_free_disk_bytes: int = 5 * 1024**3,
     telemetry_enabled: bool = True,
     telemetry_interval_sec: float = 1.0,
+    resume_stopped: bool = False,
 ) -> ExecutorResult:
     """Validate local identity, then delegate unchanged execution to Stage 4."""
 
@@ -70,6 +71,14 @@ def run_worker_assignment(
         actual_git_commit=current_git_commit(project_root.resolve()),
         actual_environment_profile=environment_profile,
     )
+    scenario_ids = tuple(str(item) for item in validation["scenario_ids"])
+    if resume_stopped and not dry_run:
+        manifest = read_json_mapping(campaign / "campaign_manifest.json")
+        state = CampaignStateStore(campaign / "database" / "campaign.sqlite")
+        state.resume_stopped(
+            str(manifest["campaign_id"]),
+            scenario_ids=scenario_ids,
+        )
     executor = CampaignExecutor(
         campaign,
         project_root=project_root.resolve(),
@@ -81,7 +90,7 @@ def run_worker_assignment(
         telemetry_interval_sec=telemetry_interval_sec,
     )
     return executor.run(
-        scenario_ids=tuple(str(item) for item in validation["scenario_ids"]),
+        scenario_ids=scenario_ids,
         max_scenarios=max_scenarios,
         dry_run=dry_run,
     )

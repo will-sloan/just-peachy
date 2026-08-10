@@ -19,6 +19,18 @@ Resumes/
 # Local real-model qualification artifacts (recreated by the qualification script)
 Software Validation from Datasets/Evaluation Tool/runs/component_qualification/
 Software Validation from Datasets/Evaluation Tool/runs/component_readiness_*/
+# New evaluator runs are machine-local evidence. Existing historical fixtures
+# already tracked by Git remain tracked; the placeholder remains available.
+Software Validation from Datasets/Evaluation Tool/runs/*/
+!Software Validation from Datasets/Evaluation Tool/runs/.gitkeep
+
+# Generated automated-evaluation runtime state and launch-day evidence. The
+# frozen launch specification, coverage summary, templates, and scripts remain
+# version controlled; executions and machine-local profiles do not.
+Software Validation from Datasets/Evaluation Tool/automated_runs/
+Software Validation from Datasets/Evaluation Tool/artifacts/launch_readiness/
+Software Validation from Datasets/Evaluation Tool/artifacts/pytest_stage14*/
+transfer_packages/
 
 
 # Python cache

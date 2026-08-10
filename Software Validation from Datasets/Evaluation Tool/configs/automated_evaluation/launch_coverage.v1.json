@@ -1,0 +1,57 @@
+{
+  "schema_version": "launch-coverage.v1",
+  "campaign_id": "campaign_05_massive_release",
+  "campaign_manifest_sha256": "FF833023B2CBFCC58C4CB65038BBF97A4A791296BE8AC7C09B6AA948C66046D4",
+  "scope_classification": "frozen_candidate_reference_and_robustness_campaign",
+  "scenario_count": 41,
+  "item_execution_count": 25798,
+  "repeated_audio_hours": 33.7201212253,
+  "unique_source_rows": 8258,
+  "unique_source_audio_hours": 10.80478,
+  "panels": {
+    "controlled_clean": {"scenario_count": 27, "item_execution_count": 17640, "audio_hours": 23.83278},
+    "native_robustness": {"scenario_count": 5, "item_execution_count": 6298, "audio_hours": 8.15669},
+    "speaker_protocol": {"scenario_count": 9, "item_execution_count": 1860, "audio_hours": 1.73065}
+  },
+  "datasets_by_scenario_count": {
+    "cmu_arctic": 18,
+    "librispeech": 10,
+    "hifitts": 10,
+    "ami": 1,
+    "voices": 1,
+    "chime6": 1
+  },
+  "conditions_by_scenario_count": {
+    "clean": 6,
+    "native": 5,
+    "white_10db": 5,
+    "white_20db": 3,
+    "pink_10db": 5,
+    "pink_20db": 3,
+    "dining_room_h025": 5,
+    "restaurant_h093": 3,
+    "dining_room_h025_pink_10db": 3,
+    "restaurant_h093_pink_10db": 3
+  },
+  "active_components": {
+    "asr": ["whisper_base"],
+    "vad": [],
+    "segmentation": [],
+    "speaker_embedding": [],
+    "speaker_matching": [],
+    "diarization": []
+  },
+  "worker_assignments": {
+    "machine_a": {"scenario_count": 20, "item_execution_count": 12368, "audio_hours": 16.8829979939},
+    "machine_b": {"scenario_count": 21, "item_execution_count": 13430, "audio_hours": 16.8371232314}
+  },
+  "explicit_exclusions": [
+    "Bedroom RIR is unresolved and has no substitute.",
+    "ParkingLot is not represented as Kitchen or Bedroom.",
+    "Synthetic augmentation is absent from native_robustness scenarios.",
+    "Whisper Tiny, Whisper Small, extended ASR, VAD alternatives, embedding backends, speaker matching, and diarization are not active in this frozen candidate because release-level scientific shortlist evidence is pending.",
+    "pyannote and Falcon are credential/licence gated; NeMo is Linux/CUDA/checkpoint gated; WeNet lacks the required final.zip runtime asset."
+  ],
+  "scientific_release_limitation": "This is not yet a multi-backend finalist campaign and must not be used to claim component superiority.",
+  "readiness": "NOT_READY_TO_LAUNCH"
+}

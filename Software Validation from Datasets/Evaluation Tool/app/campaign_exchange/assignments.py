@@ -9,6 +9,7 @@ from typing import Mapping, Sequence
 
 from app.artifact_contracts.atomic import file_sha256, validate_campaign_manifest_pair
 from app.artifact_contracts.layout import validate_scenario_id
+from app.artifact_contracts.registry import registry_for_campaign
 from app.benchmark_contracts.scenario import validate_scenario
 from app.campaign_executor.planner import parse_scenario_range, validate_campaign
 
@@ -490,7 +491,7 @@ def assignment_environment_hashes(
 
 
 def _campaign_manifest(root: Path) -> dict[str, object]:
-    validate_campaign_manifest_pair(root)
+    validate_campaign_manifest_pair(root, registry=registry_for_campaign(root))
     return read_json_mapping(root / "campaign_manifest.json")
 
 

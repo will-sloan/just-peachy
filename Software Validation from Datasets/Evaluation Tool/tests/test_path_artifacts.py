@@ -24,6 +24,30 @@ def test_windows_raw_dataset_metadata_path_rebases_to_canonical_relative_path(
     assert resolved == project_root / expected
 
 
+def test_metadata_path_resolves_through_existing_raw_dataset_alias(tmp_path: Path) -> None:
+    project_root = tmp_path / "Software Validation from Datasets"
+    actual = (
+        project_root
+        / "Raw Datasets (Not formatted)"
+        / "CMU Arctic"
+        / "cmu_us_aew_arctic"
+        / "wav"
+        / "arctic_a0001.wav"
+    )
+    actual.parent.mkdir(parents=True)
+    actual.write_bytes(b"audio")
+    metadata_path = (
+        r"C:\source\Software Validation from Datasets\Raw Datasets (Not formatted)"
+        r"\CMU Arctic\cmu_us_aew_arctic\wav\arctic_a0001.wav"
+    )
+
+    relative = metadata_path_to_project_relative(metadata_path, project_root)
+    resolved = resolve_metadata_path(metadata_path, project_root)
+
+    assert relative == Path("RawDatasets/CMU Arctic/cmu_us_aew_arctic/wav/arctic_a0001.wav")
+    assert resolved == actual
+
+
 def test_artifact_record_uses_relative_paths_and_omits_resolved_runtime_fields(
     tmp_path: Path,
 ) -> None:

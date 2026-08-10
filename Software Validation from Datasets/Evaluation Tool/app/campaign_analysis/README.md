@@ -6,6 +6,10 @@ This package turns a validated Stage 6 campaign handoff into a standalone result
 
 Only scenarios present in the validated Stage 6 merged-result index and accepted by the existing Stage 3 completion validator are included in scientific analysis. Planned failed, missing, invalid, complete-but-unmerged, and explicitly excluded scenarios remain in every denominator and report.
 
+Re-running `analysis index` is idempotent. On Windows, an existing byte-identical
+analysis contract is retained instead of being replaced, avoiding a needless
+sharing-lock failure while preserving checksum and incompatibility checks.
+
 ## Inputs
 
 - `automated_runs/<campaign_id>/campaign_manifest.json` and detached checksum;

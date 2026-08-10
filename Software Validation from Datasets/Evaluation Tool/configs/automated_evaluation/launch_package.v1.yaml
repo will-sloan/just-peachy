@@ -1,0 +1,190 @@
+schema_version: launch-package.v1
+readiness_state: NOT_READY_TO_LAUNCH
+generated_at_utc: '2026-08-10T19:55:00Z'
+repository:
+  remote: https://github.com/will-sloan/just-peachy.git
+  branch: handoff
+  commit_binding_policy: post_commit_runtime_head
+  expected_commit: 4e1c1e7cea17bfdea87f4af6c4ae1d23d5052f44
+  freeze_status: candidate_evidence_commit_with_prompt14_source_uncommitted
+campaigns:
+  - {id: campaign_00_install_smoke, scenario_count: 1, manifest_sha256: 27E537E026C36C45B96F6A4B79DBFBCD75A239B618D72846AADA143FC2B78864, execution_status: real_passed_and_analyzed}
+  - {id: campaign_01_component_canary, scenario_count: 15, manifest_sha256: 52E592C8D3231E2530C7B54C3175FC6598595749E549C1FBCDFCEB7FD7DA7438, execution_status: generated_validated_not_fully_executed}
+  - {id: campaign_02_two_machine_shakedown, scenario_count: 2, manifest_sha256: B290BFEE3DA94011F813F130CC33B09346AAB439347278101F9A9016711EE420, execution_status: real_local_two_worker_rehearsal_passed}
+  - {id: campaign_03_small_release, scenario_count: 26, manifest_sha256: 42B85DFE66FBB724CC9F5A8BC8C636A2DC948F837CE20D411433EC6206EDA379, execution_status: generated_validated_not_run}
+  - {id: campaign_04_standard_release, scenario_count: 41, manifest_sha256: BF3A8E8A7B9D2C953828983987D249FFF311C3672D3E4EE8D30CF47CB4DA47E7, execution_status: generated_validated_not_run}
+  - {id: campaign_05_massive_release, scenario_count: 41, manifest_sha256: FF833023B2CBFCC58C4CB65038BBF97A4A791296BE8AC7C09B6AA948C66046D4, execution_status: frozen_candidate_not_launch_ready}
+massive_campaign:
+  campaign_id: campaign_05_massive_release
+  campaign_root: automated_runs/campaign_05_massive_release
+  created_at_utc: '2026-08-10T18:26:53.516596Z'
+  campaign_manifest_sha256: FF833023B2CBFCC58C4CB65038BBF97A4A791296BE8AC7C09B6AA948C66046D4
+  source_catalog:
+    path: benchmarks/v1/resolved_scenarios.jsonl
+    sha256: 24AD135F8F2F2450EED78D910727FC63B585958602D28429B3B46B5A1060367E
+  default_max_retries: 1
+  seed: 3800
+  scenario_count: 41
+  item_execution_count: 25798
+  repeated_audio_hours: 33.7201212253
+  unique_source_row_count: 8258
+  unique_source_audio_hours: 10.80478
+  environment_profile: core-cpu
+  device: cpu
+  dtype: float32
+  concurrency: one_scenario_per_machine
+  benchmark_manifests:
+    - {path: benchmarks/v1/large_source_manifest.parquet, sha256: BC207E61B82052F06CCB9FFFE038B6DFE7B1C65C21843D08905946114238DE88}
+    - {path: benchmarks/v1/speaker_protocol.parquet, sha256: A9B0B28F5C7FDEF51215069521215BB78598DB9497E40BDA6C893181F71288D4}
+  required_model_assets:
+    - path: models/cache/whisper/base.pt
+      bytes: 145262807
+      sha256: ED3A0B6B1C0EDF879AD9B11B1AF5A0E6AB5DB9205F891F668F8B0E6C6326E34E
+  required_credentials: []
+  required_rirs:
+    - {id: dining_room_h025, path: 'Raw Datasets (Not formatted)/MIT 271 RIRs/Audio/h025_Diningroom_8txts.wav', sha256: 940D761A280DCD8FAAB077074E02BADE649E64E47461D80A4F927A01ABBEF5E2}
+    - {id: restaurant_h093, path: 'Raw Datasets (Not formatted)/MIT 271 RIRs/Audio/h093_Restaurant_2txts.wav', sha256: C2CA8A07002943409D31A2C6D6D07BA826AA428FE6EF6CECF2C4FF33D7D4A8A8}
+  scenario_ids:
+    - scenario_02f58268fd87
+    - scenario_07da609639b3
+    - scenario_08825fd5ee71
+    - scenario_0b6e93bcea20
+    - scenario_0e18c1796f15
+    - scenario_2e4d2cc5df05
+    - scenario_332b685b7232
+    - scenario_3518d2024b06
+    - scenario_45eaa4ba9a89
+    - scenario_475a0e23709b
+    - scenario_475b21dad747
+    - scenario_47dc51f63258
+    - scenario_485cda29abcf
+    - scenario_4b3a678744f5
+    - scenario_52beb0f30e70
+    - scenario_539607d790dd
+    - scenario_5650a448b5e5
+    - scenario_567eaf121925
+    - scenario_5689233464f7
+    - scenario_5d87eacc4e19
+    - scenario_602d9c4d2834
+    - scenario_6ce2b882e1f2
+    - scenario_6ff85cd24530
+    - scenario_76678d134e97
+    - scenario_8c5dda5ec218
+    - scenario_90aeeb6043c1
+    - scenario_9456e3b23d72
+    - scenario_a1c45287057a
+    - scenario_a3cba6997de4
+    - scenario_a6d3a860e725
+    - scenario_aa68e5cd98f7
+    - scenario_b7ab3fb31bfb
+    - scenario_bc0fc7ea1e55
+    - scenario_c0dd02e0665a
+    - scenario_c4e2a222fd82
+    - scenario_c7fcf44948bc
+    - scenario_c84b6c9fb8e4
+    - scenario_ca7367824b25
+    - scenario_d5119507a0f4
+    - scenario_d7936db0bad9
+    - scenario_ebb96a24d7e4
+  workers:
+    machine_a:
+      worker_id: machine_a
+      assignment_path: worker_assignments/machine_a.yaml
+      assignment_id: assignment_5014479496c7
+      assignment_sha256: 5014479496C7A64708449EF0AD02BA591DA0E21CFBA8832F9156618FDD36589F
+      created_at_utc: '2026-08-10T18:28:24.369083Z'
+      scenario_count: 20
+      item_execution_count: 12368
+      audio_hours: 16.8829979939
+      estimated_runtime_hours: {low: 3.45993, point: 4.07862, high: 6.24238}
+      estimated_artifact_bytes: 2308510319
+      notes: Deterministic longest-processing-time balance v1 using frozen audio duration and Machine A CPU estimate.
+      scenario_ids:
+        - scenario_0e18c1796f15
+        - scenario_332b685b7232
+        - scenario_3518d2024b06
+        - scenario_475b21dad747
+        - scenario_485cda29abcf
+        - scenario_4b3a678744f5
+        - scenario_539607d790dd
+        - scenario_5650a448b5e5
+        - scenario_567eaf121925
+        - scenario_6ce2b882e1f2
+        - scenario_8c5dda5ec218
+        - scenario_90aeeb6043c1
+        - scenario_9456e3b23d72
+        - scenario_a3cba6997de4
+        - scenario_aa68e5cd98f7
+        - scenario_b7ab3fb31bfb
+        - scenario_bc0fc7ea1e55
+        - scenario_c7fcf44948bc
+        - scenario_ca7367824b25
+        - scenario_ebb96a24d7e4
+    machine_b:
+      worker_id: machine_b
+      assignment_path: worker_assignments/machine_b.yaml
+      assignment_id: assignment_53642fa92b2a
+      assignment_sha256: 53642FA92B2AE31526C7948432E620B32BFC871954C69C2FDB0688A16AFF2020
+      created_at_utc: '2026-08-10T18:28:30.458973Z'
+      scenario_count: 21
+      item_execution_count: 13430
+      audio_hours: 16.8371232314
+      estimated_runtime_hours: {low: 3.45492, point: 4.07339, high: 6.2430}
+      estimated_artifact_bytes: 2472892612
+      notes: Deterministic longest-processing-time balance v1 using frozen audio duration and Machine A CPU estimate.
+      scenario_ids:
+        - scenario_02f58268fd87
+        - scenario_07da609639b3
+        - scenario_08825fd5ee71
+        - scenario_0b6e93bcea20
+        - scenario_2e4d2cc5df05
+        - scenario_45eaa4ba9a89
+        - scenario_475a0e23709b
+        - scenario_47dc51f63258
+        - scenario_52beb0f30e70
+        - scenario_5689233464f7
+        - scenario_5d87eacc4e19
+        - scenario_602d9c4d2834
+        - scenario_6ff85cd24530
+        - scenario_76678d134e97
+        - scenario_a1c45287057a
+        - scenario_a6d3a860e725
+        - scenario_c0dd02e0665a
+        - scenario_c4e2a222fd82
+        - scenario_c84b6c9fb8e4
+        - scenario_d5119507a0f4
+        - scenario_d7936db0bad9
+blockers:
+  - launch package changes are not committed or available from a clean clone; final runtime assignments and release_binding.json must be generated with --bind-current-commit after publication
+  - Machine A worktree is dirty and FFmpeg is absent
+  - Machine B profile and complete assignment preflight are not yet available
+  - component canary has not been fully executed across its required environments
+  - scientific shortlist is pending; the massive candidate is a Whisper Base reference/robustness campaign, not a multi-backend finalist campaign
+  - small and standard scientific release gates have not passed, so large-gate execution is premature
+  - Bedroom RIR is unresolved and deliberately excluded without substitution
+readiness_evidence:
+  clean_clone:
+    status: fresh_clone_ready_with_manual_prerequisites
+    tested_commit: 4e1c1e7cea17bfdea87f4af6c4ae1d23d5052f44
+    verifier: {passed: 25, total: 26, blocker: FFmpeg missing}
+    real_base_run: {selected: 1, predictions: 1, failures: 0, missing: 0, plots: 11, report: true}
+    stage14_launch_package_present_in_tested_commit: false
+  machine_a:
+    status: NOT_READY_TO_LAUNCH
+    complete_assignment_preflight: true
+    assigned_scenarios: 20
+    preflighted_scenarios: 20
+    scenario_specific_ready: 20
+    item_executions: 12368
+    unique_source_audio_files: 2750
+    blockers: [repository_clean, system:ffmpeg]
+  machine_b:
+    status: NOT_YET_TESTED
+    actual_machine_profile_available: false
+    static_cross_check_machine: machine_a
+    assigned_scenarios: 21
+    statically_preflighted_scenarios: 21
+    scenario_specific_ready_on_machine_a: 21
+    item_executions: 13430
+    unique_source_audio_files_on_machine_a: 2622
+    limitation: Static source/model/RIR/pipeline checks on A do not establish B hardware, environment, data, output, disk, or runtime readiness.

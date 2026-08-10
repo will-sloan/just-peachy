@@ -9,8 +9,13 @@ import sys
 
 import pytest
 
+from app.artifact_contracts import atomic as atomic_module
 from app.artifact_contracts.atomic import file_sha256
 from app.artifact_contracts.environment import finalize_environment_fingerprint
+from app.artifact_contracts.registry import (
+    LATEST_ARTIFACT_REGISTRY_VERSION,
+    ArtifactRegistry,
+)
 from app.benchmark_contracts.canonical import canonical_sha256
 from app.benchmark_contracts.scenario import finalize_scenario
 from app.campaign_exchange import (
@@ -20,6 +25,7 @@ from app.campaign_exchange import (
     export_worker_results,
     merge_worker_results,
     prepare_worker_campaign_copy,
+    run_worker_assignment,
     validate_assignment_set,
     validate_merged_results,
     validate_worker_assignment,
@@ -29,9 +35,10 @@ from app.campaign_exchange.assignments import (
     ASSIGNMENT_HASH_EXCLUSIONS,
     assignment_environment_hashes,
 )
-from app.campaign_exchange.common import content_hash
+from app.campaign_exchange.common import atomic_write_json, content_hash
 from app.campaign_executor.executor import CampaignExecutor
 from app.campaign_executor.planner import plan_campaign
+from app.campaign_executor.state import CampaignStateStore
 from app.cli.main import build_parser
 
 
@@ -41,6 +48,32 @@ FIXTURES = Path(__file__).resolve().parent / "fixtures" / "stage2"
 COMMIT_A = "a" * 40
 COMMIT_B = "b" * 40
 CREATED = datetime(2032, 1, 2, 3, 4, 5, tzinfo=timezone.utc)
+
+
+def test_exchange_json_publication_retries_transient_windows_lock(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    target = tmp_path / "preflight.json"
+    atomic_write_json(target, {"value": "old"})
+    original_replace = atomic_module.os.replace
+    attempts = 0
+
+    def access_denied_once(source: Path, destination: Path) -> None:
+        nonlocal attempts
+        attempts += 1
+        if attempts == 1:
+            error = PermissionError("simulated Windows access denial")
+            error.winerror = 5
+            raise error
+        original_replace(source, destination)
+
+    monkeypatch.setattr(atomic_module.os, "replace", access_denied_once)
+    atomic_write_json(target, {"value": "new"})
+
+    assert attempts == 2
+    assert json.loads(target.read_text(encoding="utf-8")) == {"value": "new"}
+    assert not list(tmp_path.glob("*.tmp-*"))
 
 
 def _scenario(
@@ -76,6 +109,7 @@ def _plan(
     scenarios: list[dict[str, object]],
     *,
     campaign_id: str = "campaign_stage6test",
+    registry: ArtifactRegistry | None = None,
 ) -> Path:
     catalog_root = tmp_path / "catalog"
     catalog_root.mkdir(parents=True)
@@ -90,6 +124,7 @@ def _plan(
         automated_runs_root=tmp_path / "automated_runs",
         campaign_id=campaign_id,
         created_at=CREATED,
+        registry=registry,
     ).campaign_root
 
 
@@ -248,6 +283,22 @@ def test_two_worker_partition_is_deterministic_nonoverlapping_and_complete(
     assert report["overlaps"] == []
 
 
+def test_worker_assignment_accepts_current_v2_campaign_registry(tmp_path: Path) -> None:
+    root = _plan(
+        tmp_path,
+        _scenarios(2),
+        registry=ArtifactRegistry.load_version(LATEST_ARTIFACT_REGISTRY_VERSION),
+    )
+    manifest = json.loads((root / "campaign_manifest.json").read_text(encoding="utf-8"))
+    assert manifest["artifact_registry_version"] == "artifact-registry.v2"
+
+    assignment, assignment_path = _assignment(root, "amir")
+
+    assert assignment_path.is_file()
+    assert assignment["scenario_ids"] == manifest["scenario_ids"]
+    assert validate_worker_assignment(root, assignment_path)["valid"] is True
+
+
 def test_assignment_supports_all_selectors_and_stable_cap(tmp_path: Path) -> None:
     root = _plan(tmp_path, _scenarios())
     manifest = json.loads((root / "campaign_manifest.json").read_text(encoding="utf-8"))
@@ -316,6 +367,54 @@ def test_assignment_set_rejects_mismatched_expected_commits(tmp_path: Path) -> N
     _assignment(root, "second", scenario_ids=ids[2:], expected_git_commit=COMMIT_B)
     with pytest.raises(CampaignExchangeError, match="different Git commits"):
         validate_assignment_set(root)
+
+
+def test_assignment_resume_requeues_only_that_workers_stopped_scenarios(
+    tmp_path: Path, monkeypatch
+) -> None:
+    root = _plan(tmp_path, _scenarios(2))
+    scenario_ids = json.loads((root / "campaign_manifest.json").read_text())["scenario_ids"]
+    assignment, assignment_path = _assignment(
+        root,
+        "amir",
+        scenario_ids=[scenario_ids[0]],
+    )
+    state = CampaignStateStore(root / "database" / "campaign.sqlite")
+    for scenario_id in scenario_ids:
+        state.request_stop(
+            "campaign_stage6test",
+            scenario_id=scenario_id,
+            reason="operator pause",
+        )
+
+    captured: dict[str, object] = {}
+
+    class FakeExecutor:
+        def __init__(self, *_args, **_kwargs) -> None:
+            pass
+
+        def run(self, *, scenario_ids, max_scenarios, dry_run):
+            captured["scenario_ids"] = scenario_ids
+            captured["dry_run"] = dry_run
+            return object()
+
+    monkeypatch.setattr("app.campaign_exchange.execution.CampaignExecutor", FakeExecutor)
+    monkeypatch.setattr(
+        "app.campaign_exchange.execution.current_git_commit",
+        lambda _root: COMMIT_A,
+    )
+    run_worker_assignment(
+        root,
+        assignment_path,
+        project_root=PROJECT_ROOT,
+        environment_profile="test_only_contract",
+        resume_stopped=True,
+        telemetry_enabled=False,
+    )
+
+    assert captured["scenario_ids"] == tuple(assignment["scenario_ids"])
+    assert state.scenario("campaign_stage6test", scenario_ids[0]).state == "pending"
+    assert state.scenario("campaign_stage6test", scenario_ids[1]).state == "stopped"
 
 
 @pytest.mark.parametrize(

@@ -114,7 +114,21 @@ def resolve_metadata_path(metadata_path: str | Path | None, project_root: Path) 
         return None
     if relative.is_absolute():
         return relative
-    return project_root / relative
+    canonical = project_root / relative
+    if canonical.exists() or not relative.parts:
+        return canonical
+
+    # Historical normalized metadata uses the portable ``RawDatasets`` anchor,
+    # while the checked-out data directory may use one of the accepted aliases.
+    # Keep the public relative-path contract unchanged and resolve through the
+    # first existing local alias at runtime.
+    first = relative.parts[0]
+    aliases = PROJECT_ANCHOR_ALIASES.get(first, ())
+    for alias in aliases:
+        candidate = project_root / alias / Path(*relative.parts[1:])
+        if candidate.exists():
+            return candidate
+    return canonical
 
 
 def safe_relative_to(path: Path, root: Path) -> str:

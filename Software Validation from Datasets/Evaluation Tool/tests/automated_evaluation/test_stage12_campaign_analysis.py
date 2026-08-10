@@ -120,6 +120,22 @@ def test_analysis_manifest_is_byte_stable_for_unchanged_inputs(tmp_path: Path) -
     assert payload == (root / "analysis" / "analysis_manifest.json").read_bytes()
 
 
+def test_unchanged_analysis_contracts_are_not_replaced(tmp_path: Path, monkeypatch) -> None:
+    root = _two_worker_campaign(tmp_path, count=2)
+    build_analysis_manifest(root)
+    from app.campaign_analysis import index as index_module
+
+    real_atomic_write = index_module.atomic_write_bytes
+
+    def guarded_write(path: Path, payload: bytes) -> None:
+        if path.parent.name == "contracts" and path.exists():
+            raise AssertionError("an unchanged materialized contract must not be replaced")
+        real_atomic_write(path, payload)
+
+    monkeypatch.setattr(index_module, "atomic_write_bytes", guarded_write)
+    build_analysis_manifest(root)
+
+
 def test_partial_merge_keeps_missing_scenarios_visible_and_blocks_release(tmp_path: Path) -> None:
     root = _plan(tmp_path, _scenarios(3), campaign_id="campaign_stage12partial")
     assignment, assignment_path = _assignment(root, "amir")

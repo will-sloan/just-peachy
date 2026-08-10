@@ -340,9 +340,12 @@ def _publish_final_artifacts(
     scenario_id = str(scenario["scenario_id"])
     scenario_hash = str(scenario["scenario_hash"])
     store = ScenarioArtifactStore(scenario_root, scenario_id, registry=registry)
-    predictions = read_jsonl(work_dir / "predictions" / "utterances.jsonl")
-    diagnostics = read_jsonl(work_dir / "predictions" / "diagnostics.jsonl")
-    raw_failures = read_jsonl(work_dir / "predictions" / "failures.jsonl")
+    # ``read_jsonl`` deliberately returns an iterator. Publication needs to
+    # count, reconcile, and then write these rows, so materialize each stream
+    # exactly once before any length checks or repeated iteration.
+    predictions = list(read_jsonl(work_dir / "predictions" / "utterances.jsonl"))
+    diagnostics = list(read_jsonl(work_dir / "predictions" / "diagnostics.jsonl"))
+    raw_failures = list(read_jsonl(work_dir / "predictions" / "failures.jsonl"))
     failures = [
         {
             "recording_id": str(row.get("recording_id") or ""),

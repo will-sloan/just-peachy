@@ -62,7 +62,10 @@ ALLOWED_TRANSITIONS: Mapping[str, frozenset[str]] = {
     "succeeded": frozenset({"invalid"}),
     "succeeded_with_warnings": frozenset({"invalid"}),
     "failed_terminal": frozenset({"invalid"}),
-    "stopped": frozenset(),
+    # A stop is terminal until an operator explicitly invokes campaign resume.
+    # Resume grants a replacement attempt because a controlled stop is not a
+    # model/runtime failure.
+    "stopped": frozenset({"pending"}),
     "invalid": frozenset(),
 }
 
@@ -766,6 +769,69 @@ class CampaignStateStore:
                 )
                 reset.append(str(scenario_id))
         return tuple(reset)
+
+    def resume_stopped(
+        self,
+        campaign_id: str,
+        *,
+        scenario_ids: Sequence[str] | None = None,
+    ) -> tuple[str, ...]:
+        """Explicitly requeue operator-stopped work and clear matching stop flags."""
+
+        now = self._now_text()
+        resumed: list[str] = []
+        with self._transaction() as connection:
+            campaign = connection.execute(
+                "SELECT campaign_id FROM campaigns WHERE campaign_id = ?",
+                (campaign_id,),
+            ).fetchone()
+            if campaign is None:
+                raise CampaignStateError(f"unknown campaign {campaign_id}")
+            connection.execute(
+                """
+                UPDATE campaigns
+                SET stop_requested = 0, stop_reason = NULL, updated_at_utc = ?
+                WHERE campaign_id = ?
+                """,
+                (now, campaign_id),
+            )
+            clauses = ["campaign_id = ?", "state = 'stopped'"]
+            parameters: list[object] = [campaign_id]
+            if scenario_ids:
+                placeholders = ",".join("?" for _ in scenario_ids)
+                clauses.append(f"scenario_id IN ({placeholders})")
+                parameters.extend(scenario_ids)
+            rows = connection.execute(
+                f"SELECT scenario_id, state FROM scenarios WHERE {' AND '.join(clauses)} "
+                "ORDER BY ordinal, scenario_id",
+                parameters,
+            ).fetchall()
+            for scenario_id, current in rows:
+                self._require_transition(str(current), "pending")
+                connection.execute(
+                    """
+                    UPDATE scenarios
+                    SET state = 'pending', stop_requested = 0, stop_reason = NULL,
+                        ended_at_utc = NULL, retry_eligible = 0,
+                        max_attempts = CASE
+                            WHEN max_attempts <= attempt_count THEN attempt_count + 1
+                            ELSE max_attempts
+                        END,
+                        updated_at_utc = ?
+                    WHERE campaign_id = ? AND scenario_id = ?
+                    """,
+                    (now, campaign_id, scenario_id),
+                )
+                self._insert_event(
+                    connection,
+                    campaign_id,
+                    str(scenario_id),
+                    "stopped_scenario_resumed",
+                    {"replacement_attempt_granted": True},
+                    now,
+                )
+                resumed.append(str(scenario_id))
+        return tuple(resumed)
 
     def record_event(
         self,

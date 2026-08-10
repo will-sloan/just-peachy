@@ -61,6 +61,10 @@ Detailed states are `pending`, `assigned`, `running`, `succeeded`, `succeeded_wi
 - Interrupted/stale work remains resumable even when the ordinary failure retry budget is exhausted.
 - Before a retry, partial prediction/metric/report outputs move to `audit/partial_results`; they are never silently deleted.
 - Campaign and scenario stop requests are polled while a subprocess runs.
+- A deliberate `stopped` state remains terminal until the operator explicitly
+  requeues it. Generic `campaign resume` can do this with its documented
+  stopped-resume option; distributed operators should use assignment-scoped
+  resume so they cannot requeue another worker's stopped work.
 
 ## Anaconda Prompt or Command Prompt
 
@@ -94,7 +98,11 @@ Stage 6 assignment-scoped execution uses the same executor and accepts no extra 
 
 ```bat
 python run_evaluation.py campaign run-assignment --campaign-root automated_runs\campaign_example01 --assignment automated_runs\campaign_example01\worker_assignments\worker_amir.yaml --environment-profile core-cpu
+python run_evaluation.py campaign run-assignment --campaign-root automated_runs\campaign_example01 --assignment automated_runs\campaign_example01\worker_assignments\worker_amir.yaml --environment-profile core-cpu --resume-stopped
 ```
+
+`--resume-stopped` requeues only stopped scenario IDs contained in that exact
+validated assignment. It leaves every other worker's states untouched.
 
 See `app/campaign_exchange/README.md` for deterministic selectors, the one-time independent campaign copy, transfer validation, merge behavior, and analysis handoff.
 

@@ -2,8 +2,43 @@
 
 This directory records the contracts, evidence, and operating instructions for extending the Evaluation Tool into an unattended campaign runner. Stage 0 froze readiness and protected interfaces. Stage 1 added a runtime component catalog, a scenario-independent pipeline resolver, and a configured evaluator runner. Stage 2 added immutable benchmark manifests, exact RIR/condition registries, canonical scenario expansion, and released versioned hash contracts. Stage 3 defines typed campaign/scenario artifacts, atomic publication, checksums, completion validation, and static environment fingerprints. Stage 4 adds persistent campaign state and restart-safe execution. Stage 5 adds scenario/component resource telemetry. Stage 6 adds deterministic worker assignments and conflict-safe merging. Stage 7 adds targeted core component qualification and screening contracts. Stage 8 adds isolated extended-backend environments, assets, and independent real qualification. Stage 9 integrates only those real-qualified backends into environment-aware staged screening, real smoke evidence, per-environment campaign catalogs, and separate model-quality/runtime analysis. Stage 10 adds privacy-safe speaker enrollment, calibration, verification, identification, and unknown rejection. Stage 11 adds reference-safe native diarization execution and scoring. Stage 12 adds standalone campaign analysis, statistical comparisons, eligibility-gated plots, coverage reconciliation, reports, and preregistered staged release gates. Shared database coordination and unqualified GPU concurrency remain intentionally excluded.
 
+## Runtime publication correction (2026-08-10)
+
+Real configured scenarios read standardized JSONL predictions, diagnostics, and
+failures through an iterator. Artifact publication now materializes each stream
+once before count reconciliation and atomic publication. This prevents a
+completed inference/scoring pass from failing at the final `len(predictions)`
+step. The regression is covered by
+`tests/automated_evaluation/test_campaign_runtime_publication.py`.
+
+Worker-assignment validation also resolves the artifact registry recorded by the
+campaign instead of assuming the historical v1 registry. Current
+`artifact-registry.v2` campaigns can therefore be partitioned, validated, and
+prepared for independent machines without weakening version checks.
+
 ## Start here
 
+- [Launch control sheet](launch_control_sheet.md): actual campaign hash,
+  Machine A/B status, blockers, batches, exact launch/export/merge/analysis
+  commands, counts, time, disk, and final report path. Current verdict:
+  `NOT_READY_TO_LAUNCH`.
+- [Operational launch readiness](operational_launch_readiness.md): evidence-
+  based Stage 14 verdict and readiness matrix.
+- [Campaign quick start](quick_start_campaign.md): shortest clean-clone-to-
+  campaign path.
+- [Two-machine launch runbook](two_machine_launch_runbook.md): complete setup,
+  execution, transfer, merge, and recovery workflow.
+- [Massive campaign guide](massive_campaign_guide.md): exact scientific scope,
+  coverage, exclusions, size, runtime, and limitations.
+- [Machine A readiness](machine_a_readiness.md) and
+  [Machine B setup/checklist](machine_b_setup.md): actual A evidence and the
+  required B handoff.
+- [Credentials/assets](credential_and_asset_setup.md),
+  [manual actions](manual_actions_required.md), and
+  [final launch checklist](final_launch_checklist.md).
+- [Command verification matrix](command_verification_matrix.md) and
+  [fresh-clone validation](fresh_clone_validation.md).
+- [Campaign Core01 run guide](campaign_core01_run_guide.md): exact first real Whisper Base campaign scope, balanced two-worker split, execution, transfer, merge, and analysis commands.
 - [System guide](system_guide.md): complete owner/operator manual.
 - [Quick reference](quick_reference.md): concise verified command workflows.
 - [Current architecture](current_evaluation_tool_architecture.md): implementation and integration map.
