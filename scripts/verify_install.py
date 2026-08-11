@@ -127,8 +127,38 @@ def cuda_check(device: str) -> CheckResult:
             "DEVICE",
         )
     if available:
-        name = torch.cuda.get_device_name(0)
-        return CheckResult("CUDA", "PRESENT", name, device == "cuda", "DEVICE")
+        if torch.version.cuda is None or "+cpu" in str(torch.__version__).lower():
+            return CheckResult(
+                "CUDA",
+                "MISSING" if device == "cuda" else "OPTIONAL",
+                f"CPU-only PyTorch build detected: torch={torch.__version__}",
+                device == "cuda",
+                "DEVICE",
+            )
+        try:
+            name = torch.cuda.get_device_name(0)
+            probe = torch.empty(1, device="cuda:0")
+            torch.cuda.synchronize(0)
+            del probe
+        except Exception as exc:
+            return CheckResult(
+                "CUDA",
+                "MISSING" if device == "cuda" else "OPTIONAL",
+                f"CUDA device 0 could not be opened: {type(exc).__name__}: {exc}",
+                device == "cuda",
+                "DEVICE",
+            )
+        cudnn = torch.backends.cudnn.version()
+        return CheckResult(
+            "CUDA",
+            "PRESENT",
+            (
+                f"{name}; torch={torch.__version__}; "
+                f"torch CUDA runtime={torch.version.cuda}; cuDNN={cudnn}"
+            ),
+            device == "cuda",
+            "DEVICE",
+        )
     return CheckResult(
         "CUDA",
         "OPTIONAL",

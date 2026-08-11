@@ -72,9 +72,10 @@ class WhisperASR(ASRBase):
                     "utt_id": context.utt_id,
                     "segment_index": context.segment_index,
                 },
-                cuda=self.device == "cuda",
+                cuda=_is_cuda_device(self.device),
             ):
                 result = model.transcribe(audio.samples, **kwargs)
+                _synchronize_cuda(self.device)
         except Exception as exc:  # pragma: no cover - dependency boundary
             raise WhisperASRUnavailableError(f"Whisper transcription failed: {exc}") from exc
         inference_sec = time.perf_counter() - started_at
@@ -90,6 +91,7 @@ class WhisperASR(ASRBase):
         )
         self.last_raw_text = raw_text
         self.last_normalized_text = normalized_text
+        gpu_memory = _gpu_memory_snapshot(self.device)
         self.last_runtime_stats = ASRRuntimeStats.from_timings(
             model_name=self.model_name,
             load_sec=self._load_sec,
@@ -97,7 +99,10 @@ class WhisperASR(ASRBase):
             audio_duration_sec=audio.duration_sec,
             device=self.device,
             dtype=self.dtype,
-            peak_gpu_memory_mb=_peak_gpu_memory_mb(self.device),
+            gpu_memory_allocated_mb=gpu_memory["allocated_mb"],
+            gpu_memory_reserved_mb=gpu_memory["reserved_mb"],
+            peak_gpu_memory_mb=gpu_memory["peak_allocated_mb"],
+            peak_gpu_memory_reserved_mb=gpu_memory["peak_reserved_mb"],
             cpu_memory_mb=None,
         )
         return ASRTranscript(
@@ -123,22 +128,25 @@ class WhisperASR(ASRBase):
 
         import whisper  # type: ignore[import-not-found]
 
+        _reset_peak_gpu_memory(self.device)
         started_at = time.perf_counter()
         download_root = _download_root(self.cache_dir, model_asset)
         try:
             with telemetry_span(
                 "asr_model_load",
                 phase="cold_initialization",
-                cuda=self.device == "cuda",
+                cuda=_is_cuda_device(self.device),
             ):
                 self.model = whisper.load_model(
                     self.model_size,
                     device=self.device,
                     download_root=str(download_root) if download_root is not None else None,
                 )
+                _synchronize_cuda(self.device)
         except Exception as exc:  # pragma: no cover - dependency boundary
             raise WhisperASRUnavailableError(f"Whisper model load failed: {exc}") from exc
         self._load_sec = time.perf_counter() - started_at
+        _validate_model_device(self.model, self.device)
         return self.model
 
 
@@ -236,16 +244,81 @@ def _words_from_result(
     return tuple(words)
 
 
-def _peak_gpu_memory_mb(device: str) -> float | None:
-    if device == "cuda" and torch.cuda.is_available():
-        return torch.cuda.max_memory_allocated() / (1024 * 1024)
-    return None
+def _gpu_memory_snapshot(device: str) -> dict[str, float | None]:
+    torch_device = _cuda_device(device)
+    if torch_device is None:
+        return {
+            "allocated_mb": None,
+            "reserved_mb": None,
+            "peak_allocated_mb": None,
+            "peak_reserved_mb": None,
+        }
+    divisor = 1024 * 1024
+    device_index = torch_device.index if torch_device.index is not None else 0
+    return {
+        "allocated_mb": torch.cuda.memory_allocated(device_index) / divisor,
+        "reserved_mb": torch.cuda.memory_reserved(device_index) / divisor,
+        "peak_allocated_mb": torch.cuda.max_memory_allocated(device_index) / divisor,
+        "peak_reserved_mb": torch.cuda.max_memory_reserved(device_index) / divisor,
+    }
+
+
+def _reset_peak_gpu_memory(device: str) -> None:
+    torch_device = _cuda_device(device)
+    if torch_device is not None:
+        device_index = torch_device.index if torch_device.index is not None else 0
+        with torch.cuda.device(device_index):
+            # PyTorch 2.11's Windows CUDA allocator rejects an explicit device
+            # argument here even though the default-device form is supported.
+            torch.cuda.reset_peak_memory_stats()
+
+
+def _synchronize_cuda(device: str) -> None:
+    torch_device = _cuda_device(device)
+    if torch_device is not None:
+        torch.cuda.synchronize(torch_device.index if torch_device.index is not None else 0)
+
+
+def _validate_model_device(model: object, configured_device: str) -> None:
+    expected = _cuda_device(configured_device)
+    if expected is None:
+        return
+    parameters = getattr(model, "parameters", None)
+    if not callable(parameters):
+        raise WhisperASRUnavailableError(
+            "Whisper model does not expose parameters for CUDA placement verification."
+        )
+    try:
+        observed = next(parameters()).device
+    except (StopIteration, TypeError, AttributeError) as exc:
+        raise WhisperASRUnavailableError(
+            "Whisper model device placement could not be verified."
+        ) from exc
+    if observed.type != "cuda" or observed.index not in (None, expected.index):
+        raise WhisperASRUnavailableError(
+            f"Whisper model resolved to {observed}, expected {expected}; CPU fallback is prohibited."
+        )
+
+
+def _cuda_device(device: str) -> torch.device | None:
+    if not _is_cuda_device(device) or not torch.cuda.is_available():
+        return None
+    try:
+        return torch.device(device)
+    except (RuntimeError, ValueError) as exc:
+        raise WhisperASRUnavailableError(f"Invalid CUDA device {device!r}") from exc
+
+
+def _is_cuda_device(device: str) -> bool:
+    return str(device).strip().lower() == "cuda" or str(device).strip().lower().startswith(
+        "cuda:"
+    )
 
 
 def _use_fp16(device: str, dtype: str, context: ASRContext) -> bool:
     runtime_device = str(context.device or device)
     runtime_dtype = str(context.dtype or dtype)
-    return runtime_device == "cuda" and runtime_dtype == "float16"
+    return _is_cuda_device(runtime_device) and runtime_dtype == "float16"
 
 
 def _optional_string(value: object) -> str | None:

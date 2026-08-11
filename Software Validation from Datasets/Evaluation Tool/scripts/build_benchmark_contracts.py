@@ -4,8 +4,10 @@ from __future__ import annotations
 
 import argparse
 from collections import Counter
+import json
 from pathlib import Path
 import sys
+from types import SimpleNamespace
 
 
 TOOL_ROOT = Path(__file__).resolve().parents[1]
@@ -13,7 +15,7 @@ if str(TOOL_ROOT) not in sys.path:
     sys.path.insert(0, str(TOOL_ROOT))
 
 from app.benchmark_contracts.manifest import BenchmarkManifestBuilder  # noqa: E402
-from app.benchmark_contracts.manifest_io import read_manifest  # noqa: E402
+from app.benchmark_contracts.manifest_io import file_sha256, read_manifest  # noqa: E402
 from app.benchmark_contracts.rir_registry import (  # noqa: E402
     RIRRegistry,
     load_condition_sets,
@@ -41,6 +43,24 @@ def main() -> int:
         help="Software Validation from Datasets root; auto-detected by default.",
     )
     parser.add_argument(
+        "--reuse-manifests-from",
+        type=Path,
+        help=(
+            "reuse already-frozen Parquet manifests and identities from this "
+            "benchmark directory instead of rebuilding normalized metadata"
+        ),
+    )
+    parser.add_argument(
+        "--scenario-catalog-name",
+        default="resolved_scenarios.jsonl",
+        help="output filename for scenario definitions within --output",
+    )
+    parser.add_argument(
+        "--scenario-summary-name",
+        default="scenario_catalog_summary.json",
+        help="output filename for the scenario catalog summary within --output",
+    )
+    parser.add_argument(
         "--output",
         type=Path,
         default=TOOL_ROOT / "benchmarks" / "v1",
@@ -66,13 +86,17 @@ def main() -> int:
     )
     args = parser.parse_args()
 
-    project_root = find_project_root(args.project_root)
     output = args.output.resolve()
     registry = RIRRegistry.load()
-    result = BenchmarkManifestBuilder(
-        project_root,
-        rir_registry=registry,
-    ).build_all(output)
+    if args.reuse_manifests_from is not None:
+        result = _reuse_manifest_result(args.reuse_manifests_from.resolve())
+        output.mkdir(parents=True, exist_ok=True)
+    else:
+        project_root = find_project_root(args.project_root)
+        result = BenchmarkManifestBuilder(
+            project_root,
+            rir_registry=registry,
+        ).build_all(output)
 
     scenario_count = 0
     if not args.skip_scenarios:
@@ -110,12 +134,12 @@ def main() -> int:
         scenarios.sort(key=lambda item: str(item["scenario_id"]))
         if len({str(item["scenario_id"]) for item in scenarios}) != len(scenarios):
             raise RuntimeError("scenario ID collision across manifest files")
-        write_jsonl(output / "resolved_scenarios.jsonl", scenarios)
+        write_jsonl(output / args.scenario_catalog_name, scenarios)
         counts = Counter(
             (str(item["tier"]), str(item["panel"])) for item in scenarios
         )
         write_json(
-            output / "scenario_catalog_summary.json",
+            output / args.scenario_summary_name,
             {
                 "schema_version": "scenario-catalog-summary.v1",
                 "scenario_schema_version": "scenario-definition.v1",
@@ -141,6 +165,30 @@ def main() -> int:
         print(f"  scenarios: {scenario_count}")
     print("No inference was run.")
     return 0
+
+
+def _reuse_manifest_result(source: Path) -> SimpleNamespace:
+    summary_path = source / "manifest_summary.json"
+    payload = json.loads(summary_path.read_text(encoding="utf-8"))
+    identities = payload.get("manifest_identities")
+    if not isinstance(identities, dict):
+        raise ValueError(f"manifest identities are missing from {summary_path}")
+    required = {"small", "standard", "large", "speaker_protocol"}
+    if set(identities) != required:
+        raise ValueError(
+            f"manifest identity set differs: expected {sorted(required)}, got {sorted(identities)}"
+        )
+    paths: dict[str, Path] = {}
+    for key, identity in identities.items():
+        if not isinstance(identity, dict):
+            raise ValueError(f"manifest identity {key!r} must be an object")
+        path = source / str(identity["path"])
+        if not path.is_file():
+            raise FileNotFoundError(path)
+        if file_sha256(path) != str(identity["sha256"]):
+            raise ValueError(f"manifest hash differs for {path}")
+        paths[str(key)] = path
+    return SimpleNamespace(manifest_identities=identities, manifest_paths=paths)
 
 
 if __name__ == "__main__":

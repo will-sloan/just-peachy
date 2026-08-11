@@ -1,9 +1,33 @@
 # Credential, licence, and model-asset setup
 
-The frozen Whisper Base campaign candidate requires **no API key**. Pyannote,
+The CPU and CUDA Whisper Base campaigns require **no API key**. Pyannote,
 Falcon, NeMo, and WeNet are excluded from its runnable work. The steps below are
 for future component qualification and must be performed only by the owner of
 the relevant account/licence.
+
+## Production CPU/CUDA asset setup
+
+Both modes require the same local asset and prohibit inference-time downloads:
+
+- path: `models/cache/whisper/base.pt`;
+- bytes: 145,262,807;
+- SHA-256: `ED3A0B6B1C0EDF879AD9B11B1AF5A0E6AB5DB9205F891F668F8B0E6C6326E34E`.
+
+Use the supported setup front door from the repository root:
+
+```powershell
+# CPU environment and model
+powershell -ExecutionPolicy Bypass -File scripts\prepare_execution_mode.ps1 -Mode cpu -InstallFFmpeg -DownloadModels
+
+# CUDA environment and the same model (run instead for CUDA)
+powershell -ExecutionPolicy Bypass -File scripts\prepare_execution_mode.ps1 -Mode cuda -InstallFFmpeg -DownloadModels
+```
+
+The CPU environment is `.venv` with CPU PyTorch. CUDA is isolated in
+`.stage8-envs/core-cuda` with PyTorch 2.11.0+cu128. Neither command changes raw
+datasets. Licensed datasets and the exact Dining Room and Restaurant RIRs must
+be linked locally by the operator. Bedroom remains unresolved and must not be
+substituted.
 
 Check presence without revealing values:
 

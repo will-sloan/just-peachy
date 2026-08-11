@@ -30,6 +30,8 @@ def build_parser() -> argparse.ArgumentParser:
     )
     _common(machine)
     machine.add_argument("--credential-name", action="append", default=[])
+    machine.add_argument("--device", help="selected execution device, for example cuda:0")
+    machine.add_argument("--dtype", help="selected execution dtype, for example float16")
     machine.add_argument("--output", required=True, type=Path)
 
     credentials = subparsers.add_parser(
@@ -84,6 +86,8 @@ def main(argv: list[str] | None = None) -> int:
                 project_root=args.project_root,
                 environment_profile=args.environment_profile,
                 output_root=args.output_root,
+                selected_device=args.device,
+                execution_dtype=args.dtype,
                 credential_names=args.credential_name,
             )
             atomic_write_json(args.output.resolve(), profile)

@@ -1,51 +1,51 @@
-# Fresh-clone validation
+# Fresh CPU and CUDA clone validation
 
-Verdict: **`fresh_clone_ready_with_manual_prerequisites`** for the remote
-`handoff` commit `4e1c1e7cea17bfdea87f4af6c4ae1d23d5052f44`. This proves the committed
-Evaluation Tool can reach a real Whisper Base result; it does not prove that
-the uncommitted Stage 14 launch package is reproducible from GitHub.
+Use two new clones, for example `just-peachy-launch-a-cpu-final` and `just-peachy-launch-a-gpu`. Preserve the historical `just-peachy-launch-a`. Do not copy `.venv` or `.stage8-envs` between checkouts.
 
-## Executed evidence
+## Procedure
 
-| Check | Observed result |
-|---|---|
-| Genuine clone | `git clone https://github.com/will-sloan/just-peachy.git`; branch `handoff`; exact remote commit above |
-| Disposable clone | `<disposable-workspace>/prompt14-clean-clone` (portable privacy-safe location recorded in shared evidence) |
-| Environment | New clone-local `.venv`; no reuse of the development `.venv` |
-| Install | `powershell -ExecutionPolicy Bypass -File install.ps1 -Profile dev -Device cpu` succeeded |
-| Activation | `powershell -ExecutionPolicy Bypass` activation succeeded; `activate.bat` succeeded in cmd; plain PowerShell activation is blocked by this machine's execution policy unless process bypass is used |
-| Dependency consistency | `pip check` reported no broken requirements |
-| Verifier | 25/26 checks after core asset bootstrap; only FFmpeg remained absent; CUDA correctly reported optional/unavailable in the CPU environment |
-| Model acquisition | Repository bootstrap downloaded Whisper Tiny, Base, and Small and prepared SpeechBrain ECAPA; no inference-time download was enabled |
-| Dataset access | Operator-supplied raw data was linked into the clone; the metadata alias-resolution defect found during this test is corrected in the current Stage 14 worktree |
-| Real run | One CMU Arctic utterance through configured Whisper Base, standardized prediction, diagnostics, scoring, 11 plots, and report |
-| Real result | 1 selected, 1 prediction, 0 failures, 0 missing; aggregate WER 0.25 for this smoke only |
+```powershell
+# Create the CPU clone
+git clone <repository-url-or-approved-local-source> C:\Users\amiri\Documents\GitHub\just-peachy-launch-a-cpu-final
+Set-Location C:\Users\amiri\Documents\GitHub\just-peachy-launch-a-cpu-final
+git switch handoff
+git checkout <FINAL_LAUNCH_COMMIT>
+git status --short
+powershell -ExecutionPolicy Bypass -File scripts\prepare_execution_mode.ps1 -Mode cpu -InstallFFmpeg -DownloadModels
+$Python = Join-Path (Get-Location) '.venv\Scripts\python.exe'
 
-Real run artifacts are under
-`runs/prompt14_clean_clone/20260810_150810_cmu_arctic_full_prompt14_clean_clone_real`
-inside the disposable clone. The hypothesis was “author of the danger trail,
-fill up steels, etc.” for `CMU_ARCTIC_aew_arctic_a0001`; IDs and the
-0.0–3.880063 second bounds were retained.
+# Create the CUDA clone in a separate shell
+git clone <repository-url-or-approved-local-source> C:\Users\amiri\Documents\GitHub\just-peachy-launch-a-gpu
+Set-Location C:\Users\amiri\Documents\GitHub\just-peachy-launch-a-gpu
+git switch handoff
+git checkout <FINAL_LAUNCH_COMMIT>
+git status --short
+powershell -ExecutionPolicy Bypass -File scripts\prepare_execution_mode.ps1 -Mode cuda -InstallFFmpeg -DownloadModels
+$Python = Join-Path (Get-Location) '.stage8-envs\core-cuda\Scripts\python.exe'
 
-Clean-clone Whisper identities were Tiny 75,572,083 bytes / SHA-256
-`65147644A518D12F04E32D6F3B26FACC3F8DD46E5390956A9424A650C0CE22B9`,
-Base 145,262,807 /
-`ED3A0B6B1C0EDF879AD9B11B1AF5A0E6AB5DB9205F891F668F8B0E6C6326E34E`,
-and Small 483,617,219 /
-`9ECF779972D90BA49C06D968637D720DD632C55BBF19D441FB42BF17A411E794`.
+& $Python -m pip check
+```
 
-## Manual prerequisites
+Make licensed datasets and the MIT RIR directory available through approved local directory junctions or equivalent read-only links. Never copy raw audio into Git or campaign output folders. Verify `ffmpeg -version` in the same shell.
 
-1. Install FFmpeg and reopen the terminal so `where.exe ffmpeg` succeeds.
-2. Supply licensed datasets locally; they are not cloned from GitHub.
-3. Bootstrap the exact required models with repository tooling before running;
-   Tiny, Base, Small, and ECAPA were all verified in the clean clone, and
-   implicit runtime downloads remain prohibited.
-4. Commit and push Stage 14 once, repeat this clean-clone test at that new
-   commit, and run `python scripts/materialize_launch_campaign.py
-   --bind-current-commit` in both clones. Their generated
-   `release_binding.json` files must be byte-identical.
+```powershell
+$Repo = (Get-Location).Path
+$Eval = Join-Path $Repo 'Software Validation from Datasets\Evaluation Tool'
+& $Python "$Eval\scripts\materialize_launch_campaign.py" --launch-package "$Eval\configs\automated_evaluation\<SELECTED_LAUNCH_PACKAGE>" --automated-runs-root "$Eval\automated_runs" --bind-current-commit
+Get-Content "$Eval\automated_runs\<SELECTED_CAMPAIGN>\worker_assignments\release_binding.json"
+```
 
-The portable machine-readable evidence is
-`artifacts/launch_readiness/fresh_clone_validation.json` in the development
-workspace.
+The binding must name the checked-out final commit. Run one real CMU Arctic smoke through the normal evaluator, then execute the complete Machine A profile and assignment preflight from `machine_a_readiness.md`.
+
+## Acceptance evidence
+
+- Git worktree clean before runtime outputs; generated environments, caches, and runs remain ignored.
+- CPU clone: Python 3.12, CPU-only PyTorch, device `cpu`, dtype `float32`, and `pip check` passes.
+- CUDA clone: Python 3.12 and `torch==2.11.0+cu128`; CUDA runtime 12.8; `pip check` passes.
+- CUDA clone: RTX 3080 selected as `cuda:0`; real evaluator allocator VRAM is nonzero. CPU clone never requires NVIDIA tooling.
+- Whisper Base exact size/hash present; no inference-time download.
+- Campaign validates at 41 scenarios and assignments are non-overlapping.
+- Runtime assignment and release-binding identities bind to the final commit.
+- Both matching Machine A wrappers, each in its own clone, say `READY_TO_LAUNCH` for 20/20 scenarios with `-PreflightOnly` and do not start inference.
+
+This establishes Machine A technical readiness only. It does not pass Machine B or the scientific gates and does not authorize the massive run.

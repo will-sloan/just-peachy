@@ -1,5 +1,15 @@
 # Automated Speech Evaluation System Guide
 
+> **Current operational update (2026-08-10):** CPU and CUDA are first-class,
+> isolated modes through the same evaluator. CPU uses `core-cpu` / `cpu` /
+> `float32`; Machine A CUDA is real-qualified with `core-cuda` / `cuda:0` /
+> `float32`. The campaigns are `campaign_05_massive_release` and
+> `campaign_06_massive_release_cuda`, with distinct scenario identities. Global massive launch is not authorized until Machine B
+> and the canary/small/standard gates pass. Use
+> [Launch control sheet](launch_control_sheet.md) for commands and
+> [CUDA qualification report](gpu_qualification_report.md) for evidence. CPU
+> examples later in this broad manual remain valid first-class CPU operations.
+
 ## What This System Does
 
 This system turns the existing Evaluation Tool into a reproducible speech-pipeline laboratory. It takes fixed audio selections, runs explicitly identified speech components under controlled or native conditions, records every result and failure, and builds comparisons that another person can reproduce.
@@ -513,7 +523,7 @@ Conditional artifacts such as `predictions/words.jsonl`, `segments.rttm`, embedd
 
 ## Worked end-to-end evidence trace
 
-No real scientific campaign exists yet, so this guide does not fabricate one. The accepted end-to-end trace is the validated Stage 12 synthetic two-worker campaign; it proves orchestration and analysis mechanics only. A separate real Stage 1 Whisper Base one-item trace proves the configured evaluator boundary.
+No completed scientific release campaign exists yet. The accepted end-to-end trace below is the validated Stage 12 synthetic two-worker campaign; it proves orchestration and analysis mechanics only. Real Stage 1 and 2026-08-10 CUDA evaluator traces prove the configured evaluator and GPU boundaries, but the CUDA massive successor has not been launched.
 
 ### Validated synthetic campaign trace
 

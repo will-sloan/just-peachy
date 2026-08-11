@@ -9,21 +9,34 @@ performance reports.
 The currently validated desktop path is Windows with Python 3.12. Python
 3.10-3.12 is accepted by the installer.
 
-## Quick Start
+## Quick Start: choose CPU or CUDA
 
-Open PowerShell in the repository root:
+CPU and CUDA are separate, explicit, supported execution modes. They use the
+same evaluator and campaign engine but isolated Python environments. There is
+no silent fallback between them.
+
+Open PowerShell in the repository root and choose exactly one mode:
 
 ```powershell
-Set-ExecutionPolicy -Scope Process Bypass
-./install.ps1 -Profile inference -InstallFFmpeg -DownloadModels
+# CPU: creates .venv with torch 2.11.0+cpu
+powershell -ExecutionPolicy Bypass -File scripts\prepare_execution_mode.ps1 -Mode cpu -InstallFFmpeg -DownloadModels
+
+# CUDA: creates .stage8-envs\core-cuda with torch 2.11.0+cu128
+powershell -ExecutionPolicy Bypass -File scripts\prepare_execution_mode.ps1 -Mode cuda -InstallFFmpeg -DownloadModels
 ```
 
-The installer creates `.venv`, installs the local inference stack, downloads
-Whisper base plus SpeechBrain ECAPA and Silero assets, and runs verification.
-It does not require activation, but the environment can be activated with:
+The CPU command uses `.venv`; the CUDA command uses
+`.stage8-envs\core-cuda`. Both bootstrap the exact local Whisper Base asset plus
+the approved ECAPA/Silero support assets required by the `dev` verifier, then
+run that verifier. The frozen massive campaigns still execute Whisper Base
+only. Activation is optional:
 
 ```powershell
+# CPU
 ./.venv/Scripts/Activate.ps1
+
+# CUDA
+./.stage8-envs/core-cuda/Scripts/Activate.ps1
 ```
 
 Run the prerecorded realtime example:
@@ -58,9 +71,14 @@ Examples:
 ```powershell
 ./install.ps1 -Profile core
 ./install.ps1 -Profile inference -InstallFFmpeg
-./install.ps1 -Profile full -Device cuda
+./install.ps1 -Profile full -Device cpu
 ./install.ps1 -Profile dev
 ```
+
+Use `scripts\prepare_execution_mode.ps1 -Mode cuda` for the supported CUDA
+installation. `install.ps1` remains the CPU environment installer; its
+`-Device` parameter controls verification expectations and does not select a
+CUDA wheel source.
 
 Useful installer options:
 
@@ -224,8 +242,12 @@ test CUDA, both the pipeline runtime and ASR component must select `cuda` and
   --allow-model-downloads
 ```
 
-`install.ps1 -Device cuda` verifies that the installed PyTorch build can see
-the GPU. It does not silently replace PyTorch with a different CUDA wheel.
+The supported CUDA setup is
+`scripts\prepare_execution_mode.ps1 -Mode cuda`. It installs pinned PyTorch
+2.11.0 CUDA 12.8 wheels into `.stage8-envs\core-cuda`, preserving the CPU
+`.venv`. Explicit CUDA configurations fail if that environment cannot open the
+requested device; they never fall back to CPU. The active Whisper Base launch
+campaign uses explicit `cuda:0` and `float32`.
 
 ## Troubleshooting
 

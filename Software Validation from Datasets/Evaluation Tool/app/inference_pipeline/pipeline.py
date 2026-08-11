@@ -352,6 +352,12 @@ class PipelineRunner:
                 runtime_stats,
                 audio_duration_sec=_audio_duration(evaluation_record, audio),
             ),
+            "asr_backend_runtime": (
+                self.asr.last_runtime_stats.to_jsonable()
+                if isinstance(self.asr, ASRBase)
+                and self.asr.last_runtime_stats is not None
+                else None
+            ),
         }
         self.last_diagnostics = diagnostics
 

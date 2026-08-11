@@ -1,114 +1,43 @@
-# Operational launch readiness
+# Operational launch readiness — CPU and CUDA
 
 ## Verdict
 
 **`NOT_READY_TO_LAUNCH`**
 
-The repository now contains a reproducible candidate campaign specification,
-complete-assignment preflight, deterministic non-overlapping worker manifests,
-launch/export/merge/analysis wrappers, and a real bounded two-worker rehearsal.
-The operators must not start the massive campaign yet: Stage 14 is uncommitted,
-Machine A lacks FFmpeg, Machine B has not been tested, the component canary is
-incomplete, small/standard release gates have not passed, and the current
-candidate contains only Whisper Base—not a screening-approved finalist set.
+The CPU and CUDA implementations are supported and isolated. Machine A CUDA has real evaluator/VRAM/benchmark evidence; CPU has preserved real evaluator evidence and must be revalidated in a new final clone. Both become machine-ready only after post-commit complete preflight. Machine B and scientific gate evidence do not yet exist.
 
 ## Readiness matrix
 
-| Area | Machine A | Machine B | Massive campaign impact |
+| Requirement | Machine A | Machine B | Global consequence |
 |---|---|---|---|
-| Git clone | `PASS_WITH_WARNING` — genuine remote clone/run passed at `4e1`; Stage 14 not in that commit | `NOT_YET_TESTED` | Final commit-bound package cannot launch |
-| Core environment | `PASS_WITH_WARNING` — Python/PyTorch/pip pass; FFmpeg missing | `NOT_YET_TESTED` | A blocked; B unknown |
-| CUDA | `NOT_APPLICABLE` to CPU candidate; prior core CUDA evidence exists | `NOT_YET_TESTED` | No CUDA work in candidate |
-| Models | `PASS` for exact Whisper Base | `NOT_YET_TESTED` | B must hash exact asset |
-| Datasets | `PASS` for all 20 assigned scenarios | `NOT_YET_TESTED` | B must resolve all 21 |
-| RIR | `PASS` for Dining/Restaurant assigned work | `NOT_YET_TESTED` | Bedroom excluded; no substitute |
-| Extended local | `PASS_WITH_WARNING` in retained qualification evidence | `NOT_YET_TESTED` | Excluded from candidate |
-| ONNX | `PASS_WITH_WARNING` in retained qualification evidence | `NOT_YET_TESTED` | Excluded from candidate |
-| WeNet | `BLOCKED` — `final.zip` unavailable | `NOT_YET_TESTED` | Excluded |
-| WeSpeaker | `PASS_WITH_WARNING` in retained evidence | `NOT_YET_TESTED` | Excluded |
-| pyannote | `MANUAL_ACTION_REQUIRED` | `NOT_YET_TESTED` | Credential-gated and excluded; not a current blocker |
-| Falcon | `MANUAL_ACTION_REQUIRED` | `NOT_YET_TESTED` | Credential-gated and excluded; not a current blocker |
-| NeMo | `BLOCKED` on current Windows/core profile | `NOT_YET_TESTED` | Linux/checkpoints required; excluded |
-| Campaign assignment | `PASS_WITH_WARNING` — 20/20 scenario-specific checks, assignment-wide blocked | `NOT_YET_TESTED` | Provisional split only |
-| Transfer | `PASS` in local two-worker rehearsal | `NOT_YET_TESTED` | Massive transfer not yet possible |
-| Merge | `PASS` in local two-worker rehearsal | `NOT_YET_TESTED` | Mechanics proven, real B handoff absent |
-| Analysis | `PASS` in bounded rehearsal; Windows idempotence defect corrected | `NOT_YET_TESTED` | Massive analysis awaits 41 merged scenarios and standard evidence |
+| CPU runtime (`core-cpu`/`cpu`/float32) | Preserved real smoke; new clean clone pending | Not tested | CPU launch blocked until both pass |
+| CUDA runtime (`core-cuda`/`cuda:0`/float32) | Passed: 2.11.0+cu128 on RTX 3080 | Not tested | CUDA launch blocked until B passes |
+| CUDA nonzero VRAM evidence | Passed: 418.89 MiB peak allocated | Not tested | Required only for CUDA launch |
+| Exact Whisper Base model hash | Passed | Not tested | Blocked until selected workers pass |
+| Complete assignment preflight | Development check passed except dirty worktree; clean clone pending | Not tested | Blocked |
+| Campaign/assignment binding | Candidate frozen; final commit binding pending | Pending | Blocked |
+| Credentials | None required | None required | Clear |
+| Canary/small/standard gates | Not passed for either final campaign | Shared requirement | Blocked |
 
-## Massive campaign status
+CPU-only machines are supported and do not need NVIDIA tooling. CUDA machines must use CUDA-enabled PyTorch and may not fall back. A two-worker launch must use assignments from one coherent CPU or CUDA campaign; mixed profiles are a separately identified comparison, not interchangeable work.
 
-- ID/hash: `campaign_05_massive_release` /
-  `FF833023B2CBFCC58C4CB65038BBF97A4A791296BE8AC7C09B6AA948C66046D4`.
-- Scope: 41 Whisper Base CPU/full-record ASR scenarios; 25,798 item
-  executions; 33.720121 repeated audio hours.
-- A: 20 scenarios, 16.882998 hours, estimated 4.08 hours
-  (3.46–6.24), 2.15 GiB artifacts.
-- B: 21 scenarios, 16.837123 hours, **provisional** 4.07 hours
-  (3.45–6.24), 2.30 GiB artifacts.
-- Required credentials: none. Blocked optional families: pyannote, Falcon,
-  NeMo, WeNet; all extended/component alternatives are excluded from this
-  candidate pending selection.
-- Machine A command:
-  `powershell -ExecutionPolicy Bypass -File scripts/launch_campaign_machine_a.ps1`.
-- Machine B command:
-  `powershell -ExecutionPolicy Bypass -File scripts/launch_campaign_machine_b.ps1`.
-- Merge command:
-  `powershell -ExecutionPolicy Bypass -File scripts/merge_massive_campaign.ps1 -MachineATransfer <A> -MachineBTransfer <B>`.
-- Analysis command:
-  `powershell -ExecutionPolicy Bypass -File scripts/analyze_massive_campaign.ps1 -PrerequisiteEvidence automated_runs/campaign_04_standard_release/analysis/report/release_qualification.json`.
+## Frozen candidates
 
-These launch commands are listed for handoff; they are not currently authorized.
+- CPU: `campaign_05_massive_release`; manifest `FF833023B2CBFCC58C4CB65038BBF97A4A791296BE8AC7C09B6AA948C66046D4`; catalog `24AD135F8F2F2450EED78D910727FC63B585958602D28429B3B46B5A1060367E`; `core-cpu` / `cpu` / `float32`.
+- CUDA: `campaign_06_massive_release_cuda`; manifest `A101D43DD3784EEFD1F8738594A13556DD4F9908C55B96F983FBF6B8F628753D`; catalog `1FCDEB638470AE55FC0F4EB88DBB77BF7AB8D5B06704DD1CCFCD5D6C3102B511`; `core-cuda` / `cuda:0` / `float32`.
+- Work: 41 scenarios; 25,798 item executions; 33.720 repeated audio hours.
+- Model: exact Whisper Base checkpoint; no credentials; no implicit downloads.
+- RIRs: Dining Room and Restaurant. Bedroom unresolved and excluded.
 
-## Execution evidence
+Both campaigns are supported public contracts. A CUDA result may not be placed under a CPU scenario ID, or vice versa.
 
-- Genuine clean clone, new `.venv`, install, activation in PowerShell/cmd,
-  `pip check`, Tiny/Base/Small plus ECAPA bootstrap/verification, and one real
-  end-to-end CMU Arctic Base run passed. FFmpeg is the sole verifier failure.
-- Installation smoke: one real scenario succeeded and was analyzed.
-- Component canary: 15 scenarios generated/validated, not fully executed.
-- Local two-worker shakedown: two real scenarios split, stopped/resumed,
-  exported, transfer-validated, merged 2/2 without conflicts, and analyzed.
-- Small (26), standard (41), and massive candidate (41) campaigns generate and
-  validate, but none of the scientific gates has been run.
-- Machine A complete assignment: 20/20 scenarios and 12,368 item executions
-  inspected; all local scenario requirements pass. Global dirty/FFmpeg blockers
-  correctly prevent launch.
-- Machine B: remains `NOT_YET_TESTED`. Its complete 21-scenario assignment was
-  statically cross-checked on A (21/21 scenario-specific checks, 13,430 item
-  executions, 2,622 unique files), but that is explicitly not B environment,
-  dataset, output, disk, hardware, or runtime evidence.
+## Evidence required to change the verdict
 
-## Representative expected outputs
+1. Final committed checkout reproduced in the separate CPU and GPU Machine A validation clones.
+2. Each selected runtime binding names that exact commit.
+3. The selected clean-clone Machine A report says `READY_TO_LAUNCH` for 20/20 scenarios.
+4. Machine B environment, real smoke, bounded measurement, and 21/21 preflight pass.
+5. Both release bindings and assignment sets agree.
+6. Canary, small, and standard reports are approved for the exact selected CPU or CUDA configuration.
 
-These are format examples, not fabricated scientific results:
-
-```text
-preflight: verdict=READY_TO_LAUNCH, assigned=21, preflighted=21,
-           blocked=0, complete_assignment_preflight=true
-campaign plan/validation: campaign_id + manifest_sha256 + scenario_count
-status: pending/running/succeeded/failed/stopped counts
-transfer: valid=true, worker_id, scenario_ids, unexported_scenario_ids=[]
-merge: status=accepted, merged_scenario_ids=41, missing=[], conflicts=[]
-coverage: planned=41, included=41, mandatory_unexpected_missing=0
-release status: passed only when all checks and standard prerequisite pass
-```
-
-The actual bounded rehearsal produced an accepted merge with two validated
-transfers, two merged scenario IDs, no missing IDs, and no conflicts. The final
-report path will be
-`automated_runs/campaign_05_massive_release/analysis/report/campaign_report.md`.
-
-## Exact next actions
-
-1. Review/commit/push Stage 14 once; check out that exact commit in both clean
-   clones; run `python scripts/materialize_launch_campaign.py --bind-current-commit`
-   on both; require byte-identical `release_binding.json` files; repeat
-   clean-clone evidence.
-2. Install FFmpeg and rerun A's complete preflight.
-3. Run the component canary, then small and standard gates; select/freeze the
-   actual finalists.
-4. Have the second operator complete `machine_b_setup.md` and return both JSON
-   evidence files. Rebalance/regenerate assignments if B measurements require it.
-5. Only when both full preflights and scientific prerequisites pass, change the
-   control-sheet verdict and execute the two launch wrappers.
-
-Use [launch_control_sheet.md](launch_control_sheet.md) on launch day.
+Only then may the launch control sheet be signed off. The expected final report path is `automated_runs/campaign_05_massive_release/analysis/report/campaign_report.md` for CPU or `automated_runs/campaign_06_massive_release_cuda/analysis/report/campaign_report.md` for CUDA.

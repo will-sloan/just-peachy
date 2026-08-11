@@ -3,21 +3,21 @@ generated_against_git_commit: e7e5516991b95f4e7c915e852fc0b4f5bae7cd11
 python_policy: "Use a dedicated Python 3.12 environment per profile; never silently combine mutually incompatible backends."
 dependency_policy: "All direct requirements must be pinned. Git dependencies require an immutable tag or commit. CUDA Torch wheels must be pinned before installation."
 
-host_observation_2026_08_07:
+host_observation_core_cuda_2026_08_10:
   os: Windows 11 10.0.26200
   python: 3.12.7
   branch: handoff
-  commit: e7e5516991b95f4e7c915e852fc0b4f5bae7cd11
-  upstream_ahead: 0
-  upstream_behind: 0
+  qualification_base_commit: 257eeed7630a1273d03b7ea336a7d6d9979ae9c7
+  dirty_during_qualification: true
   gpu: NVIDIA GeForce RTX 3080
   gpu_memory_mib: 10240
   nvidia_driver: "610.62"
-  torch: 2.11.0+cpu
-  torch_cuda_runtime: null
-  cuda_available: false
+  torch: 2.11.0+cu128
+  torch_cuda_runtime: "12.8"
+  cudnn: 91900
+  cuda_available: true
   pip_check: passed
-  verifier: "25/26 non-failing: FFmpeg 8.1.2 exists in the WinGet package directory but this Codex process does not see ffmpeg on PATH."
+  verifier: "core-cuda 24/24 non-failing with FFmpeg 8.1.2 visible on PATH; pip check passed."
 
 profiles:
   core_cpu_development:
@@ -51,21 +51,26 @@ profiles:
 
   core_cuda:
     purpose: "Immediate next gate after CPU contract qualification; required before standard/large benchmarks or model selection."
-    status: incompatible_environment
-    install_profile: dev
-    requirements: [requirements/core.txt, requirements/inference.txt, requirements/dev.txt]
-    device: cuda
+    status: qualified
+    install_profile: core-cuda
+    requirements: [requirements/stage8/core-cuda.txt]
+    device: cuda:0
+    dtype: float32
+    torch_build: 2.11.0+cu128
+    torch_cuda_runtime: "12.8"
+    cudnn: 91900
     hardware_observed: "RTX 3080 10 GiB; conservative one GPU-heavy scenario at a time."
     components: [silero_vad, whisper_tiny, whisper_base, whisper_small, speechbrain_ecapa, cosine_threshold]
     setup_commands:
-      - "Create a separate environment rather than replacing the qualified CPU environment."
-      - "Select and record an official Python-3.12-compatible CUDA Torch 2.11.0 wheel/index; do not use an unpinned CUDA package."
-      - "Run scripts\\install.ps1 -Profile dev -Device cuda only after the CUDA Torch build is installed and pinned."
-      - "Run scripts\\verify_install.py --profile dev --device cuda --cache-root models/cache --whisper tiny,base,small --require-models."
-    blockers:
-      - "Current torch build is CPU-only."
-      - "Exact CUDA Torch wheel/index has not yet been selected and frozen."
-    qualification_gate: "All core CUDA components must pass real inference and artifact inspection before screening benchmarks."
+      - "powershell -ExecutionPolicy Bypass -File scripts\\install_stage8_profile.ps1 -Profile core-cuda"
+      - ".stage8-envs\\core-cuda\\Scripts\\python.exe scripts\\verify_install.py --profile dev --device cuda --cache-root models/cache --whisper base --require-models"
+      - "python scripts\\run_cuda_qualification.py --max-recordings 5 from the Evaluation Tool with core-cuda active"
+    blockers: []
+    qualification_evidence:
+      - "Real one-item ordinary evaluator: 1 prediction, 0 failures, 0 missing, 11 plots, report present, cuda:0, nonzero VRAM."
+      - "Five identical CMU Arctic records: CUDA float32 and float16 each produced 5/5 predictions with transcripts identical to CPU float32."
+      - "CUDA float32 selected operationally because measured inference speedup was 1.79x versus CPU, compared with 1.36x for float16."
+    qualification_gate: "Machine-specific full assignment preflight and scientific canary/small/standard gates remain required."
 
   extended_local_backends:
     purpose: "Optional local CPU/GPU adapters that are not blockers for the core benchmark."

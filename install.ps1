@@ -22,6 +22,14 @@ $Timestamp = Get-Date -Format "yyyyMMdd_HHmmss"
 $LogPath = Join-Path $LogDirectory "install_$Timestamp.log"
 $AllowedWhisperModels = @("tiny", "tiny.en", "base", "base.en", "small", "small.en")
 
+if ($Device -eq "cuda") {
+    throw (
+        "install.ps1 manages the isolated CPU .venv and does not select CUDA wheels. " +
+        "Use: powershell -ExecutionPolicy Bypass -File " +
+        "scripts\prepare_execution_mode.ps1 -Mode cuda -InstallFFmpeg -DownloadModels"
+    )
+}
+
 function Assert-AllowedWhisperModels {
     param([Parameter(Mandatory = $true)][string]$Models)
 

@@ -83,7 +83,7 @@ components:
     implementation_class: NoOpVAD
     implementation_path: app/inference_pipeline/vad/base.py
     registry_adapter_class: NoOpVADAdapter
-    higher_level_config_references: [configs/inference/base.yaml, configs/inference/cpu_smoke.yaml, configs/inference/live_mic_realtime_whisper_base.yaml, configs/inference/live_mic_realtime_whisper_base_speaker_matching.yaml, configs/inference/live_mic_realtime_whisper_tiny.yaml, configs/inference/live_mic_whisper_base.yaml, configs/inference/live_mic_whisper_tiny.yaml, configs/inference/raspberry_pi_future.yaml]
+    higher_level_config_references: [configs/inference/base.yaml, configs/inference/cpu_smoke.yaml, configs/inference/live_mic_realtime_whisper_base.yaml, configs/inference/live_mic_realtime_whisper_base_speaker_matching.yaml, configs/inference/live_mic_realtime_whisper_tiny.yaml, configs/inference/live_mic_whisper_base.yaml, configs/inference/live_mic_whisper_tiny.yaml, configs/inference/raspberry_pi_future.yaml, configs/inference/whisper_base_cuda_float16.yaml, configs/inference/whisper_base_cuda_float32.yaml]
     input_contract: loaded_audio.v1
     output_contract: speech_regions.v1
     compatibility_constraints: ["Full-record baseline; returns one record-bounded speech region."]
@@ -170,7 +170,7 @@ components:
     implementation_class: NoOpSegmenter
     implementation_path: app/inference_pipeline/segmentation/base.py
     registry_adapter_class: NoOpSegmentationAdapter
-    higher_level_config_references: [configs/inference/base.yaml, configs/inference/cpu_smoke.yaml, configs/inference/desktop_gpu.yaml, configs/inference/live_mic_realtime_whisper_base.yaml, configs/inference/live_mic_realtime_whisper_base_speaker_matching.yaml, configs/inference/live_mic_realtime_whisper_tiny.yaml, configs/inference/live_mic_whisper_base.yaml, configs/inference/live_mic_whisper_tiny.yaml, configs/inference/raspberry_pi_future.yaml]
+    higher_level_config_references: [configs/inference/base.yaml, configs/inference/cpu_smoke.yaml, configs/inference/desktop_gpu.yaml, configs/inference/live_mic_realtime_whisper_base.yaml, configs/inference/live_mic_realtime_whisper_base_speaker_matching.yaml, configs/inference/live_mic_realtime_whisper_tiny.yaml, configs/inference/live_mic_whisper_base.yaml, configs/inference/live_mic_whisper_tiny.yaml, configs/inference/raspberry_pi_future.yaml, configs/inference/whisper_base_cuda_float16.yaml, configs/inference/whisper_base_cuda_float32.yaml]
     input_contract: evaluation_record.v1
     output_contract: audio_segments.v1
     compatibility_constraints: ["Full-record or record-bounded segment baseline."]
@@ -236,17 +236,17 @@ components:
     registry_adapter_class: WhisperBaseASRAdapter
     config_path: configs/inference/components/asr/whisper_base.yaml
     config_sha256: F881C12FDAA8270269CEE818563195AD35EACF237417AE5FE2598C5B76768E95
-    higher_level_config_references: [configs/inference/live_mic_whisper_base.yaml, configs/inference/live_mic_realtime_whisper_base.yaml, configs/inference/live_mic_realtime_whisper_base_speaker_matching.yaml, configs/inference/simple_vad_speaker_change_enrollment.yaml]
+    higher_level_config_references: [configs/inference/live_mic_whisper_base.yaml, configs/inference/live_mic_realtime_whisper_base.yaml, configs/inference/live_mic_realtime_whisper_base_speaker_matching.yaml, configs/inference/simple_vad_speaker_change_enrollment.yaml, configs/inference/whisper_base_cuda_float32.yaml, configs/inference/whisper_base_cuda_float16.yaml]
     packages: [openai-whisper==20250625, torch==2.11.0, ffmpeg==8.1.2]
     environment_profiles: [core-cpu, core-cuda, extended-local, onnx, wenet, wespeaker, credential-diarization]
     model_assets: ["models/cache/whisper/base.pt|145262807|sha256:ED3A0B6B1C0EDF879AD9B11B1AF5A0E6AB5DB9205F891F668F8B0E6C6326E34E"]
     model_terms: "Upstream Whisper source license metadata is not copied into the cache; internal use qualified, redistribution review required."
     hardware_support: {cpu: true, gpu: true, cuda: true}
-    device_dtype_support: [cpu/float32, cuda/float16-unqualified]
+    device_dtype_support: [cpu/float32, cuda/float32, cuda/float16]
     input_contract: audio_segments.v1
     output_contract: asr_transcript.v1
     compatibility_constraints: ["Reference ASR; offline whole-segment input; downloads disabled."]
-    readiness: {status: qualified, evidence: "runs/component_qualification/cpu_contract_20260807.json asr:whisper_base", blockers: ["CUDA path not yet qualified"]}
+    readiness: {status: qualified, evidence: "CPU: runs/component_qualification/cpu_contract_20260807.json asr:whisper_base; CUDA float32/float16: docs/automated_evaluation/gpu_qualification_report.md", blockers: []}
     intended_final_use_category: core
 
   - <<: *component_defaults
@@ -356,7 +356,7 @@ components:
     implementation_class: NoOpSpeakerEmbedding
     implementation_path: app/inference_pipeline/speaker_embedding/base.py
     registry_adapter_class: NoOpSpeakerEmbeddingAdapter
-    higher_level_config_references: [configs/inference/base.yaml, configs/inference/cpu_smoke.yaml, configs/inference/e2e_named_transcript.yaml, configs/inference/live_mic_realtime_whisper_base.yaml, configs/inference/live_mic_realtime_whisper_tiny.yaml, configs/inference/live_mic_whisper_base.yaml, configs/inference/live_mic_whisper_tiny.yaml, configs/inference/raspberry_pi_future.yaml]
+    higher_level_config_references: [configs/inference/base.yaml, configs/inference/cpu_smoke.yaml, configs/inference/e2e_named_transcript.yaml, configs/inference/live_mic_realtime_whisper_base.yaml, configs/inference/live_mic_realtime_whisper_tiny.yaml, configs/inference/live_mic_whisper_base.yaml, configs/inference/live_mic_whisper_tiny.yaml, configs/inference/raspberry_pi_future.yaml, configs/inference/whisper_base_cuda_float16.yaml, configs/inference/whisper_base_cuda_float32.yaml]
     input_contract: audio_segments.v1
     output_contract: speaker_embedding.v1
     compatibility_constraints: ["Returns a disabled/unavailable result; not a recognition candidate."]
@@ -449,7 +449,7 @@ components:
     implementation_class: NoOpSpeakerMatcher
     implementation_path: app/inference_pipeline/speaker_matching/base.py
     registry_adapter_class: NoOpSpeakerMatchingAdapter
-    higher_level_config_references: [configs/inference/base.yaml, configs/inference/cpu_smoke.yaml, configs/inference/desktop_gpu.yaml, configs/inference/e2e_named_transcript.yaml, configs/inference/live_mic_realtime_whisper_base.yaml, configs/inference/live_mic_realtime_whisper_tiny.yaml, configs/inference/live_mic_whisper_base.yaml, configs/inference/live_mic_whisper_tiny.yaml, configs/inference/raspberry_pi_future.yaml]
+    higher_level_config_references: [configs/inference/base.yaml, configs/inference/cpu_smoke.yaml, configs/inference/desktop_gpu.yaml, configs/inference/e2e_named_transcript.yaml, configs/inference/live_mic_realtime_whisper_base.yaml, configs/inference/live_mic_realtime_whisper_tiny.yaml, configs/inference/live_mic_whisper_base.yaml, configs/inference/live_mic_whisper_tiny.yaml, configs/inference/raspberry_pi_future.yaml, configs/inference/whisper_base_cuda_float16.yaml, configs/inference/whisper_base_cuda_float32.yaml]
     input_contract: speaker_embedding.v1
     output_contract: speaker_decision.v1
     compatibility_constraints: ["Returns no assignment; contract-only baseline."]
@@ -479,7 +479,7 @@ components:
     implementation_class: NoOpDiarizer
     implementation_path: app/inference_pipeline/diarization/base.py
     registry_adapter_class: NoOpDiarizationAdapter
-    higher_level_config_references: [configs/inference/base.yaml, configs/inference/cpu_smoke.yaml, configs/inference/e2e_named_transcript.yaml, configs/inference/live_mic_realtime_whisper_base.yaml, configs/inference/live_mic_realtime_whisper_base_speaker_matching.yaml, configs/inference/live_mic_realtime_whisper_tiny.yaml, configs/inference/live_mic_whisper_base.yaml, configs/inference/live_mic_whisper_tiny.yaml, configs/inference/raspberry_pi_future.yaml, configs/inference/simple_vad_speaker_change_enrollment.yaml]
+    higher_level_config_references: [configs/inference/base.yaml, configs/inference/cpu_smoke.yaml, configs/inference/e2e_named_transcript.yaml, configs/inference/live_mic_realtime_whisper_base.yaml, configs/inference/live_mic_realtime_whisper_base_speaker_matching.yaml, configs/inference/live_mic_realtime_whisper_tiny.yaml, configs/inference/live_mic_whisper_base.yaml, configs/inference/live_mic_whisper_tiny.yaml, configs/inference/raspberry_pi_future.yaml, configs/inference/simple_vad_speaker_change_enrollment.yaml, configs/inference/whisper_base_cuda_float16.yaml, configs/inference/whisper_base_cuda_float32.yaml]
     input_contract: loaded_audio.v1
     output_contract: speaker_turns.v1
     compatibility_constraints: ["Returns no turns; contract-only baseline."]

@@ -1,17 +1,20 @@
 [CmdletBinding()]
 param(
     [string]$MachineATransfer = "",
-    [string]$MachineBTransfer = ""
+    [string]$MachineBTransfer = "",
+    [string]$CampaignId = "campaign_05_massive_release",
+    [string]$EnvironmentProfile = "core-cpu",
+    [string]$PythonRelativePath = ".venv\Scripts\python.exe"
 )
 
 . (Join-Path $PSScriptRoot "launch_common.ps1")
-$context = Get-LaunchContext -WorkerId "machine_a"
+$context = Get-LaunchContext -WorkerId "machine_a" -CampaignId $CampaignId -EnvironmentProfile $EnvironmentProfile -PythonRelativePath $PythonRelativePath
 Show-LaunchIdentity -Context $context
 if (-not $MachineATransfer) {
-    $MachineATransfer = Join-Path $context.RepositoryRoot "transfer_packages\campaign_05_massive_release\machine_a"
+    $MachineATransfer = Join-Path $context.RepositoryRoot "transfer_packages\$CampaignId\machine_a"
 }
 if (-not $MachineBTransfer) {
-    $MachineBTransfer = Join-Path $context.RepositoryRoot "transfer_packages\campaign_05_massive_release\machine_b"
+    $MachineBTransfer = Join-Path $context.RepositoryRoot "transfer_packages\$CampaignId\machine_b"
 }
 $MachineATransfer = [System.IO.Path]::GetFullPath($MachineATransfer)
 $MachineBTransfer = [System.IO.Path]::GetFullPath($MachineBTransfer)
@@ -33,4 +36,4 @@ Invoke-Checked -FilePath $context.Python -Arguments @(
     $runEvaluation, "campaign", "validate-merged",
     "--campaign-root", $context.CampaignRoot
 )
-Write-Host "Merged and validated 41-scenario campaign: $($context.CampaignRoot)"
+Write-Host "Merged and validated campaign: $($context.CampaignRoot)"

@@ -1,11 +1,16 @@
 [CmdletBinding()]
-param([string]$Destination = "")
+param(
+    [string]$Destination = "",
+    [string]$CampaignId = "campaign_05_massive_release",
+    [string]$EnvironmentProfile = "core-cpu",
+    [string]$PythonRelativePath = ".venv\Scripts\python.exe"
+)
 
 . (Join-Path $PSScriptRoot "launch_common.ps1")
-$context = Get-LaunchContext -WorkerId "machine_b"
+$context = Get-LaunchContext -WorkerId "machine_b" -CampaignId $CampaignId -EnvironmentProfile $EnvironmentProfile -PythonRelativePath $PythonRelativePath
 Show-LaunchIdentity -Context $context
 if (-not $Destination) {
-    $Destination = Join-Path $context.RepositoryRoot "transfer_packages\campaign_05_massive_release\machine_b"
+    $Destination = Join-Path $context.RepositoryRoot "transfer_packages\$CampaignId\machine_b"
 }
 $Destination = [System.IO.Path]::GetFullPath($Destination)
 if (Test-Path -LiteralPath $Destination) {
@@ -18,7 +23,7 @@ Invoke-Checked -FilePath $context.Python -Arguments @(
     "--campaign-root", $context.CampaignRoot,
     "--assignment", $context.Assignment,
     "--destination", $Destination,
-    "--environment-profile", "core-cpu"
+    "--environment-profile", $EnvironmentProfile
 )
 $manifest = Get-Content -Raw -LiteralPath (Join-Path $Destination "transfer_manifest.json") | ConvertFrom-Json
 if (@($manifest.unexported_scenarios).Count -ne 0) {

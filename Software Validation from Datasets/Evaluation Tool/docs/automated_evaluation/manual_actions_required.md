@@ -1,21 +1,37 @@
-# Manual actions required
+# Manual actions required before either massive campaign
 
-Only actions that still require an owner/operator are listed here.
+CPU and CUDA are first-class supported modes. The massive campaign remains blocked by clean-clone, second-machine, and scientific evidence—not by an API key.
 
-| Action | Why needed | Who | Exact steps | How to verify | Blocks | Required before massive launch? |
-|---|---|---|---|---|---|---|
-| Review, commit, and push Stage 14 | Current launch scripts/specification are not in commit `4e1c1e7…`; tracked files cannot safely embed the hash of their own future commit | Repository owner | Review diff; commit and push once; make two clean clones at that exact commit; on each run `python scripts/materialize_launch_campaign.py --bind-current-commit`; do not hand-edit the package or assignments afterward | Both clones report the same `git rev-parse HEAD`; generated `release_binding.json` files are byte-identical and bind both assignments to that HEAD; full preflights report clean | Entire launch package | **Yes** |
-| Install FFmpeg on A | Whisper runtime and launch preflight require it | Amir | From root run `powershell -ExecutionPolicy Bypass -File install.ps1 -Profile dev -Device cpu -InstallFFmpeg`; reopen shell | `where.exe ffmpeg` and `ffmpeg -version` pass | Machine A assignment | **Yes** |
-| Set up and profile B | B has not been observed; its runtime estimate and assignment compatibility are provisional | Second operator | Follow `machine_b_setup.md`; send profile, full assignment preflight, verifier result, smoke summary | 21/21 scenarios preflighted; `READY_TO_LAUNCH`; coordinator validates evidence | Machine B assignment and two-machine launch claim | **Yes** |
-| Make licensed datasets available on B | Raw corpora are not supplied by Git clone | Dataset license holder / second operator | Copy or locally mount the same authorized corpus layout; do not copy audio into campaign folders | Full assignment preflight resolves and reads every selected file/bound | B scenarios | **Yes** |
-| Run component canary | Generated catalog is not full execution evidence | Amir/coordinator | Run only locally available canary scenarios in their required profiles; retain blocked entries explicitly | All included components have real pass/fail evidence | Scientific shortlist | **Yes** before freezing a final multi-backend campaign |
-| Run small then standard gates | Large release policy requires staged evidence | Both operators/coordinator | Execute/analyze `campaign_03_small_release`; advance only if passed; repeat for `campaign_04_standard_release` | Passed `release_qualification.json` at each stage | Large release analysis/authorization | **Yes** |
-| Freeze screening-based finalists | Current 41-scenario candidate is Whisper Base only, not the requested final multi-component comparison | Scientific owner | Review canary/small/standard results; select non-dominated backends; regenerate and freeze final large scenarios/assignments | Coverage includes approved finalists and excludes unavailable work with reasons | Scientific validity of massive campaign | **Yes** |
-| Accept pyannote terms and create token | Personal gated access cannot be delegated | Account owner | Follow `credential_and_asset_setup.md` | Presence check plus two real qualifications | Optional pyannote backend | No for current candidate; yes only if added later |
-| Obtain Falcon AccessKey and accept terms | Personal/licensed service access | Account owner | Follow `credential_and_asset_setup.md` | Presence check plus two real qualifications | Optional Falcon backend | No for current candidate; yes only if added later |
-| Acquire compatible WeNet `final.zip` | Approved archive does not satisfy adapter contract | Scientific owner | Locate an official/licence-approved exact asset; record identity/hash; do not rename `final.pt` | WeNet qualifier produces two real transcripts | Optional WeNet backend | No for current candidate; yes only if added later |
-| Prepare Linux/CUDA NeMo host/checkpoints | Windows core profile is incompatible and active checkpoints are unresolved | Owner of Linux GPU host | Follow repository NeMo setup, acquire/hash local active checkpoints, qualify | Linux CUDA profile and real NeMo output pass | Optional NeMo backend | No for current candidate; yes only if added later |
-| Confirm transfer/coordinator disk | Export and merge duplicate artifacts temporarily | Both workers/coordinator | Keep run reserve plus export space; coordinator keeps at least 15 GiB free for current estimates | Preflight disk check and filesystem free-space check pass | Export/merge | **Yes** |
+| Owner | Required action | Exact completion evidence | Blocks massive launch |
+|---|---|---|---|
+| Amir | Use separate clean CPU and GPU clones at the final commit; materialize each selected campaign with `--bind-current-commit` | Clean Git status in each clone; each release binding names the checked-out commit | Yes |
+| Amir | Create a new clean CPU validation clone and run the CPU real smoke plus complete assignment preflight | CPU `machine_a_assignment_preflight.json` says `READY_TO_LAUNCH` | Yes |
+| Amir | Run the complete Machine A assignment preflight | `machine_a_assignment_preflight.json` says `READY_TO_LAUNCH`, 20/20 scenarios, 12,368 items | Yes |
+| Machine B operator | Install the selected `core-cpu` or `core-cuda` profile; verify hardware, model, datasets, RIRs, and disk | Matching Machine B profile plus full 21-scenario preflight says `READY_TO_LAUNCH` | Yes |
+| Scientific owner | Run/approve component canary | Accepted canary evidence for the exact selected Whisper Base configuration | Yes |
+| Scientific owner | Run/approve small gate | Accepted small-tier report; no hidden missing/failures | Yes |
+| Scientific owner | Run/approve standard gate | Accepted standard-tier prerequisite evidence supplied to analysis | Yes |
+| Both operators | Confirm assignments do not overlap and release bindings match | Assignment-set validation passes on both clones | Yes |
+| Both operators | Close GPU-heavy applications before timed runs | Operator log records a quiescent GPU | Recommended |
 
-Bedroom remains unresolved and deliberately excluded. No human should replace it
-with ParkingLot, Kitchen, or another RIR.
+## No credential work is required
+
+The campaign uses Whisper Base only. It does not use pyannote, Picovoice Falcon, hosted APIs, or credential-gated models. Do not create or distribute API keys for this campaign.
+
+## Select one coherent distributed mode
+
+Both workers may run the CPU campaign, or both may run the CUDA campaign after independent qualification. Do not combine a CPU assignment with CUDA scenarios or a CUDA assignment with CPU execution. A mixed-hardware study requires separately identified CPU and CUDA scenarios and must be analyzed as a hardware/profile comparison—not merged as one homogeneous campaign.
+
+## Required local assets
+
+- `models/cache/whisper/base.pt`, 145,262,807 bytes, SHA-256 `ED3A0B6B1C0EDF879AD9B11B1AF5A0E6AB5DB9205F891F668F8B0E6C6326E34E`.
+- Licensed dataset folders made available locally without committing or copying raw audio into campaign results.
+- Dining Room RIR `h025_Diningroom_8txts.wav`, SHA-256 `940D761A280DCD8FAAB077074E02BADE649E64E47461D80A4F927A01ABBEF5E2`.
+- Restaurant RIR `h093_Restaurant_2txts.wav`, SHA-256 `C2CA8A07002943409D31A2C6D6D07BA826AA428FE6EF6CECF2C4FF33D7D4A8A8`.
+- FFmpeg on `PATH`.
+
+Bedroom remains unresolved. It is not part of either 41-scenario executable campaign and must not be replaced.
+
+## Machine B decision rule
+
+Machine B must run the same result-affecting mode as Machine A. For the CPU campaign that is `core-cpu`, `cpu`, `float32`; for the CUDA campaign it is `core-cuda`, `cuda:0`, `float32`. Both use the Whisper Base hash above and the frozen batch/runtime settings. A different CPU or GPU model is permitted and recorded as environment metadata, but switching CPU/CUDA mode or dtype changes scientific scenario identity and requires the corresponding separately generated scenarios and assignments. Run one GPU-heavy scenario at a time.

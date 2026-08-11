@@ -168,6 +168,59 @@ def test_resolved_config_is_loadable_and_artifacts_include_identities(tmp_path: 
     )
 
 
+@pytest.mark.parametrize("dtype", ["float32", "float16"])
+def test_cuda_whisper_base_config_resolves_explicit_device_dtype_and_profile(
+    dtype: str,
+) -> None:
+    resolution = resolve_pipeline(CONFIG_ROOT / f"whisper_base_cuda_{dtype}.yaml")
+
+    assert resolution.environment_profile == "core-cuda"
+    assert resolution.pipeline_config.runtime.device == "cuda:0"
+    assert resolution.pipeline_config.runtime.precision == dtype
+    params = resolution.pipeline_config.components["asr"].params
+    assert params["device"] == "cuda:0"
+    assert params["dtype"] == dtype
+    assert params["allow_model_downloads"] is False
+
+
+@pytest.mark.parametrize(
+    ("override", "message"),
+    [
+        ({"runtime.device": "cpu"}, "requires a CUDA runtime device"),
+        ({"runtime.precision": "float16"}, "component dtype"),
+    ],
+)
+def test_resolver_prohibits_cuda_device_or_dtype_fallback(
+    override: dict[str, object], message: str
+) -> None:
+    with pytest.raises(PipelineResolutionError, match=message):
+        resolve_pipeline(
+            CONFIG_ROOT / "whisper_base_cuda_float32.yaml",
+            setting_overrides=override,
+        )
+
+
+def test_resolver_rejects_cpu_environment_for_cuda_runtime() -> None:
+    with pytest.raises(PipelineResolutionError, match="core-cpu"):
+        resolve_pipeline(
+            CONFIG_ROOT / "whisper_base_cuda_float32.yaml",
+            environment_profile="core-cpu",
+        )
+
+
+def test_resolver_accepts_only_catalog_declared_backend_compute_type() -> None:
+    resolution = resolve_pipeline(
+        CONFIG_ROOT / "live_mic_whisper_base.yaml",
+        component_overrides={"asr": "faster_whisper"},
+        environment_profile="extended-local",
+    )
+
+    params = resolution.pipeline_config.components["asr"].params
+    assert resolution.pipeline_config.runtime.precision == "float32"
+    assert params["compute_type"] == "int8"
+    assert resolution.environment_profile == "extended-local"
+
+
 @pytest.mark.parametrize(
     ("component_overrides", "setting_overrides", "message"),
     [

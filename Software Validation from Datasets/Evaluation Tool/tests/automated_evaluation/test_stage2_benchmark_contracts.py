@@ -176,6 +176,28 @@ def test_resolved_config_change_with_matching_hash_changes_scenario_id() -> None
     assert scenario_identity(changed) != original
 
 
+@pytest.mark.parametrize(
+    ("device", "dtype"),
+    [("cuda:0", "float32"), ("cuda:0", "float16")],
+)
+def test_device_and_dtype_changes_create_new_scenario_ids(
+    device: str, dtype: str
+) -> None:
+    source = _scenario_source()
+    original = scenario_identity(source)
+    changed = deepcopy(source)
+    changed["runtime"]["device"] = device
+    changed["runtime"]["dtype"] = dtype
+    changed["runtime"]["settings"]["device"] = device
+    changed["runtime"]["settings"]["precision"] = dtype
+    changed["pipeline"]["resolved_config_contents"]["runtime"]["device"] = device
+    changed["pipeline"]["resolved_config_contents"]["runtime"]["precision"] = dtype
+    changed["pipeline"]["resolved_config_sha256"] = canonical_sha256(
+        changed["pipeline"]["resolved_config_contents"]
+    )
+    assert scenario_identity(changed) != original
+
+
 def test_resolved_and_component_content_hash_mismatches_are_rejected() -> None:
     source = _scenario_source()
     source["pipeline"]["resolved_config_sha256"] = "1" * 64

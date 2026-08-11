@@ -83,6 +83,8 @@ def collect_machine_profile(
     project_root: Path,
     environment_profile: str,
     output_root: Path,
+    selected_device: str | None = None,
+    execution_dtype: str | None = None,
     credential_names: Sequence[str] = (),
 ) -> dict[str, object]:
     """Capture a privacy-safe, secret-free launch profile for the current machine."""
@@ -149,6 +151,12 @@ def collect_machine_profile(
         },
         "runtime": {"torch": torch_profile, "ffmpeg": ffmpeg},
         "credentials": credentials,
+    }
+    profile["execution_policy"] = {
+        "environment_profile": environment_profile,
+        "selected_device": selected_device,
+        "execution_dtype": execution_dtype,
+        "implicit_device_fallback_allowed": False,
     }
     identity = _canonical_json_bytes(
         {key: value for key, value in profile.items() if key != "captured_at_utc"}
@@ -258,6 +266,12 @@ def preflight_worker_assignment(
         expected_environment_profile=expected_environment_profile,
         machine_profile=machine_profile,
     )
+    runtime_checks = _execution_runtime_checks(
+        scenarios.values(),
+        expected_environment_profile=expected_environment_profile,
+        machine_profile=machine_profile,
+    )
+    shared_checks.extend(runtime_checks)
     package_checks = _package_checks(active_entries)
     credential_checks = _credential_checks(active_entries)
     model_asset_checks = _model_asset_checks(scenarios.values(), repository)
@@ -536,12 +550,11 @@ def _component_checks(
         _mapping(machine_profile.get("runtime", {}), "runtime").get("torch", {}),
         "torch runtime",
     )
-    devices = {
-        str(_mapping(scenario["runtime"], "runtime")["device"]).lower()
-        for scenario in scenarios
-    }
-    dtypes = {
-        str(_mapping(scenario["runtime"], "runtime")["dtype"]).lower()
+    requested_pairs = {
+        (
+            _device_family(_mapping(scenario["runtime"], "runtime")["device"]),
+            str(_mapping(scenario["runtime"], "runtime")["dtype"]).lower(),
+        )
         for scenario in scenarios
     }
     checks: list[dict[str, object]] = []
@@ -557,7 +570,7 @@ def _component_checks(
         supported_device_dtype = {
             value.lower() for value in entry.device_dtype_settings
         }
-        for device in devices:
+        for device, dtype in requested_pairs:
             if device == "cpu" and not bool(entry.hardware_requirements.get("cpu")):
                 reasons.append("cpu_not_supported")
             if device.startswith("cuda"):
@@ -570,10 +583,9 @@ def _component_checks(
                     reasons.append("cuda_runtime_unavailable")
                 if not hardware.get("gpus"):
                     reasons.append("gpu_not_detected")
-            for dtype in dtypes:
-                requested = f"{device}/{dtype}"
-                if supported_device_dtype and requested not in supported_device_dtype:
-                    reasons.append(f"unsupported={requested}")
+            requested = f"{device}/{dtype}"
+            if supported_device_dtype and requested not in supported_device_dtype:
+                reasons.append(f"unsupported={requested}")
         checks.append(
             {
                 "id": f"component:{entry.family}:{entry.name}",
@@ -584,6 +596,92 @@ def _component_checks(
                 "detail": "; ".join(reasons) if reasons else "qualified and compatible",
             }
         )
+    return checks
+
+
+def _execution_runtime_checks(
+    scenarios: Iterable[Mapping[str, object]],
+    *,
+    expected_environment_profile: str,
+    machine_profile: Mapping[str, object],
+) -> list[dict[str, object]]:
+    pairs = {
+        (
+            _normalized_device(_mapping(scenario["runtime"], "runtime")["device"]),
+            str(_mapping(scenario["runtime"], "runtime")["dtype"]).strip().lower(),
+        )
+        for scenario in scenarios
+    }
+    checks: list[dict[str, object]] = []
+    expected_family = "cuda" if expected_environment_profile == "core-cuda" else "cpu"
+    families = {_device_family(device) for device, _dtype in pairs}
+    checks.append(
+        _check(
+            "profile_device_consistency",
+            families == {expected_family},
+            f"profile={expected_environment_profile}; scenario_device_families={sorted(families)}",
+        )
+    )
+    execution_policy = _mapping(
+        machine_profile.get("execution_policy", {}), "execution policy"
+    )
+    selected_device = execution_policy.get("selected_device")
+    selected_dtype = execution_policy.get("execution_dtype")
+    if selected_device is not None:
+        checks.append(
+            _check(
+                "selected_device_identity",
+                {_normalized_device(selected_device)} == {device for device, _dtype in pairs},
+                f"machine={selected_device}; scenarios={sorted(device for device, _dtype in pairs)}",
+            )
+        )
+    if selected_dtype is not None:
+        checks.append(
+            _check(
+                "selected_dtype_identity",
+                {str(selected_dtype).strip().lower()} == {dtype for _device, dtype in pairs},
+                f"machine={selected_dtype}; scenarios={sorted(dtype for _device, dtype in pairs)}",
+            )
+        )
+    if expected_family != "cuda":
+        return checks
+
+    runtime = _mapping(machine_profile.get("runtime", {}), "runtime")
+    torch_runtime = _mapping(runtime.get("torch", {}), "torch runtime")
+    version = str(torch_runtime.get("version") or "")
+    checks.extend(
+        [
+            _check(
+                "cuda_torch_build",
+                bool(torch_runtime.get("available"))
+                and bool(torch_runtime.get("cuda_runtime"))
+                and "+cpu" not in version.lower(),
+                f"torch={version or None}; cuda_runtime={torch_runtime.get('cuda_runtime')}",
+            ),
+            _check(
+                "cuda_runtime_available",
+                bool(torch_runtime.get("cuda_available")),
+                f"torch.cuda.is_available={bool(torch_runtime.get('cuda_available'))}",
+            ),
+            _check(
+                "cuda_device_open",
+                bool(torch_runtime.get("allocation_probe_succeeded")),
+                str(torch_runtime.get("allocation_probe_reason") or "CUDA allocation probe passed"),
+            ),
+        ]
+    )
+    device_count = int(torch_runtime.get("device_count") or 0)
+    requested_indices = {
+        _cuda_index(device) for device, _dtype in pairs if _device_family(device) == "cuda"
+    }
+    checks.append(
+        _check(
+            "cuda_device_index",
+            bool(requested_indices)
+            and all(index is not None and 0 <= index < device_count for index in requested_indices),
+            f"requested={sorted(index for index in requested_indices if index is not None)}; device_count={device_count}",
+        )
+    )
     return checks
 
 
@@ -914,16 +1012,58 @@ def _torch_profile() -> dict[str, object]:
             "cuda_available": False,
             "reason": f"{type(exc).__name__}: {_safe_message(exc)}",
         }
+    available = bool(torch.cuda.is_available())
+    device_count = int(torch.cuda.device_count()) if available else 0
+    allocation_probe_succeeded = False
+    allocation_probe_reason: str | None = "CUDA unavailable"
+    device_names: list[str] = []
+    if available:
+        device_names = [str(torch.cuda.get_device_name(index)) for index in range(device_count)]
+        try:
+            probe = torch.empty(1, device="cuda:0")
+            torch.cuda.synchronize(0)
+            del probe
+        except Exception as exc:  # noqa: BLE001 - hardware diagnostic boundary
+            allocation_probe_reason = f"{type(exc).__name__}: {_safe_message(exc)}"
+        else:
+            allocation_probe_succeeded = True
+            allocation_probe_reason = None
     return {
         "available": True,
         "version": str(torch.__version__),
-        "cuda_available": bool(torch.cuda.is_available()),
+        "cuda_available": available,
         "cuda_runtime": str(torch.version.cuda) if torch.version.cuda else None,
-        "device_count": int(torch.cuda.device_count())
-        if torch.cuda.is_available()
-        else 0,
+        "cudnn_version": (
+            int(torch.backends.cudnn.version())
+            if torch.backends.cudnn.version() is not None
+            else None
+        ),
+        "device_count": device_count,
+        "device_names": device_names,
+        "allocation_probe_succeeded": allocation_probe_succeeded,
+        "allocation_probe_reason": allocation_probe_reason,
         "reason": None,
     }
+
+
+def _normalized_device(value: object) -> str:
+    device = str(value).strip().lower()
+    return "cuda:0" if device == "cuda" else device
+
+
+def _device_family(value: object) -> str:
+    device = _normalized_device(value)
+    return "cuda" if device.startswith("cuda:") else device
+
+
+def _cuda_index(value: object) -> int | None:
+    device = _normalized_device(value)
+    if not device.startswith("cuda:"):
+        return None
+    try:
+        return int(device.split(":", 1)[1])
+    except ValueError:
+        return None
 
 
 def _nvidia_gpus() -> list[dict[str, object]]:

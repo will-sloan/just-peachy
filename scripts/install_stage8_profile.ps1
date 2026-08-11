@@ -55,6 +55,12 @@ function New-IsolatedEnvironment {
 
 function Model-BootstrapArguments {
     switch ($Profile) {
+        "core-cuda" {
+            return @(
+                "--whisper", "base", "--speechbrain-ecapa", "--silero",
+                "--device", "cuda"
+            )
+        }
         "extended-local" { return @("--faster-whisper-tiny", "--vosk-asr") }
         "onnx" { return @("--sherpa-asr", "--sherpa-vad", "--sherpa-speaker-embedding", "--sherpa-diarization") }
         "wenet" { return @("--wenet-asr") }

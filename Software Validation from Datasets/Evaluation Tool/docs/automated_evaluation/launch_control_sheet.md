@@ -1,65 +1,104 @@
-# Launch control sheet — campaign_05_massive_release
+# Launch control sheet — CPU and CUDA campaigns
 
-> **Launch verdict: `NOT_READY_TO_LAUNCH`. Do not run either launch command until both assignment preflights return `READY_TO_LAUNCH` and the small/standard gates have passed.**
+> Overall verdict: **`NOT_READY_TO_LAUNCH`**. CPU and CUDA are supported execution modes. Machine A must finish clean-clone preflight for the selected mode; Machine B and the canary/small/standard scientific gates remain mandatory.
 
-| Final operational fact | Value |
+## Frozen identities
+
+| Field | Value |
 |---|---|
-| Repository remote | `https://github.com/will-sloan/just-peachy.git` |
-| Candidate branch / evidence commit | `handoff` / `4e1c1e7cea17bfdea87f4af6c4ae1d23d5052f44` |
-| Repository freeze | Not frozen: Stage 14 changes are uncommitted. After one reviewed commit/push, each clean clone must run `python scripts/materialize_launch_campaign.py --bind-current-commit` and compare its generated `worker_assignments/release_binding.json`. |
-| Campaign ID | `campaign_05_massive_release` |
-| Campaign SHA-256 | `FF833023B2CBFCC58C4CB65038BBF97A4A791296BE8AC7C09B6AA948C66046D4` |
-| Benchmark hashes | large `BC207E61B82052F06CCB9FFFE038B6DFE7B1C65C21843D08905946114238DE88`; speaker `A9B0B28F5C7FDEF51215069521215BB78598DB9497E40BDA6C893181F71288D4` |
-| Expected completion | 41 global scenarios; 25,798 item executions; 33.720121 repeated audio hours |
-| Scientific scope | Whisper Base, CPU/float32, full-record ASR reference/robustness candidate; not a finalized multi-backend release campaign |
+| Branch | `handoff` |
+| CPU campaign | `campaign_05_massive_release`; SHA `FF833023B2CBFCC58C4CB65038BBF97A4A791296BE8AC7C09B6AA948C66046D4` |
+| CPU catalog | SHA `24AD135F8F2F2450EED78D910727FC63B585958602D28429B3B46B5A1060367E` |
+| CUDA campaign | `campaign_06_massive_release_cuda`; SHA `A101D43DD3784EEFD1F8738594A13556DD4F9908C55B96F983FBF6B8F628753D` |
+| CUDA catalog | SHA `1FCDEB638470AE55FC0F4EB88DBB77BF7AB8D5B06704DD1CCFCD5D6C3102B511` |
+| Large manifest | `BC207E61B82052F06CCB9FFFE038B6DFE7B1C65C21843D08905946114238DE88` |
+| Speaker manifest | `A9B0B28F5C7FDEF51215069521215BB78598DB9497E40BDA6C893181F71288D4` |
+| CPU runtime | `core-cpu`; `cpu`; `float32`; `.venv` |
+| CUDA runtime | `core-cuda`; `cuda:0`; `float32`; `.stage8-envs/core-cuda` |
+| Model | Whisper Base; 145,262,807 bytes; SHA-256 `ED3A0B6B1C0EDF879AD9B11B1AF5A0E6AB5DB9205F891F668F8B0E6C6326E34E` |
+| Credentials | None |
 
-| Machine | Readiness | Assignment / batch | Work | Runtime estimate | Output estimate |
-|---|---|---|---:|---:|---:|
-| A | `NOT_READY_TO_LAUNCH`: all 20 assigned scenarios have resolvable local inputs, model/RIR identities and compatible `core-cpu`; blocked by dirty source tree and missing FFmpeg | A1 candidate: `assignment_5014479496c7`, SHA `5014479496C7A64708449EF0AD02BA591DA0E21CFBA8832F9156618FDD36589F`; final launch identity comes from `release_binding.json` | 20 scenarios; 12,368 items; 16.882998 h | 4.08 h point; 3.46–6.24 h | 2.15 GiB artifacts; 7.15 GiB minimum free including reserve |
-| B | `NOT_YET_TESTED`; all 21 scenarios passed a static source/model/RIR/pipeline cross-check on A, but B's actual environment/data/output/disk/hardware remain unverified | B1 candidate: `assignment_53642fa92b2a`, SHA `53642FA92B2AE31526C7948432E620B32BFC871954C69C2FDB0688A16AFF2020`; final launch identity comes from `release_binding.json` | 21 scenarios; 13,430 items; 16.837123 h | 4.07 h point; 3.45–6.24 h, **provisional from A CPU rate** | 2.30 GiB artifacts; 7.30 GiB minimum free including reserve |
+Both campaigns are supported. They preserve the same scientific coverage but have distinct scenario IDs because device is result-affecting. Never run one campaign with the other profile.
 
-Manual blockers remaining: review/commit/push the Stage 14 launch package once; check out that exact commit on both clean clones; run the post-commit binding command on both machines and confirm byte-identical `release_binding.json` files; install FFmpeg on A; set up B and return its profile/full preflight; execute the component canary; run and pass the small then standard scientific gates; freeze a screening-based finalist campaign. Bedroom is unresolved and excluded without substitution. ParkingLot is not Bedroom or Kitchen.
+## Capacity and assignment plan
 
-Required environment: root `.venv`, Python 3.12, `core-cpu`, PyTorch CPU, FFmpeg. Required model: `models/cache/whisper/base.pt`, 145,262,807 bytes, SHA-256 `ED3A0B6B1C0EDF879AD9B11B1AF5A0E6AB5DB9205F891F668F8B0E6C6326E34E`. Required credentials for this candidate: **none**. Pyannote/Falcon credentials are optional and those backends are excluded.
+| Worker | Candidate assignment | Scenarios | Items | Audio | Measured estimate | State |
+|---|---|---:|---:|---:|---:|---|
+| Machine A | `assignment_01f0cf86b339` | 20 | 12,368 | 16.883 h | 3.40 h; 2.81–5.18 h | CUDA-qualified; final clean binding/preflight required |
+| Machine B | `assignment_ea9976889bd2` | 21 | 13,430 | 16.837 h | 3.40 h; 2.81–5.17 h provisional | Not tested |
+| Total | non-overlapping | 41 | 25,798 | 33.720 h | about 3.4 h parallel after both machines qualify | Not authorized |
 
-From `Software Validation from Datasets/Evaluation Tool`, after every blocker is cleared:
+Estimated result storage is 2.15 GiB for A and 2.30 GiB for B. Keep at least 7.2 GiB free on each worker and at least 15 GiB on the merge machine. Runtime assignment IDs/hashes and the release-binding hash must be read from the materialized `release_binding.json`; they intentionally bind to the exact checked-out commit.
 
-```powershell
-# Both clean clones, before preflight or launch
-python scripts/materialize_launch_campaign.py --bind-current-commit
-Get-FileHash automated_runs/campaign_05_massive_release/worker_assignments/release_binding.json -Algorithm SHA256
+CPU candidate assignments are `assignment_5014479496c7` (A) and `assignment_53642fa92b2a` (B). CUDA candidate assignments are shown in the table. Candidate IDs freeze coverage; final runtime assignment IDs bind to the exact launch commit.
 
-# Machine A — batch A1
-powershell -ExecutionPolicy Bypass -File scripts/launch_campaign_machine_a.ps1
+## Choose and prepare one mode
 
-# Machine B — batch B1
-powershell -ExecutionPolicy Bypass -File scripts/launch_campaign_machine_b.ps1
-```
+Run from the repository root in PowerShell:
 
 ```powershell
-# On either worker clone
-python run_evaluation.py campaign status --campaign-root automated_runs/campaign_05_massive_release
-python run_evaluation.py campaign stop --campaign-root automated_runs/campaign_05_massive_release --reason "operator request"
-powershell -ExecutionPolicy Bypass -File scripts/launch_campaign_machine_a.ps1 -ResumeStopped  # A only
-powershell -ExecutionPolicy Bypass -File scripts/launch_campaign_machine_b.ps1 -ResumeStopped  # B only
+$Repo = (Get-Location).Path
+$Eval = Join-Path $Repo 'Software Validation from Datasets\Evaluation Tool'
+$Python = Join-Path $Repo '.stage8-envs\core-cuda\Scripts\python.exe'
+
+# CPU
+powershell -ExecutionPolicy Bypass -File scripts\prepare_execution_mode.ps1 -Mode cpu -InstallFFmpeg -DownloadModels
+$Python = Join-Path $Repo '.venv\Scripts\python.exe'
+& $Python "$Eval\scripts\materialize_launch_campaign.py" --launch-package "$Eval\configs\automated_evaluation\launch_package.v1.yaml" --automated-runs-root "$Eval\automated_runs" --bind-current-commit
+powershell -ExecutionPolicy Bypass -File "$Eval\scripts\launch_campaign_machine_a.ps1" -PreflightOnly
+
+# CUDA
+powershell -ExecutionPolicy Bypass -File scripts\prepare_execution_mode.ps1 -Mode cuda -InstallFFmpeg -DownloadModels
+$Python = Join-Path $Repo '.stage8-envs\core-cuda\Scripts\python.exe'
+& $Python "$Eval\scripts\materialize_launch_campaign.py" --launch-package "$Eval\configs\automated_evaluation\launch_package.gpu.v1.yaml" --automated-runs-root "$Eval\automated_runs" --bind-current-commit
+powershell -ExecutionPolicy Bypass -File "$Eval\scripts\launch_campaign_machine_a_gpu.ps1" -PreflightOnly
 ```
+
+Inspect the selected campaign's exact runtime binding, then launch only after `-PreflightOnly` passes:
 
 ```powershell
-# Export only after that worker reports complete
-powershell -ExecutionPolicy Bypass -File scripts/export_machine_a_results.ps1
-powershell -ExecutionPolicy Bypass -File scripts/export_machine_b_results.ps1
+Get-Content "$Eval\automated_runs\<SELECTED_CAMPAIGN>\worker_assignments\release_binding.json"
+# CPU
+powershell -ExecutionPolicy Bypass -File "$Eval\scripts\launch_campaign_machine_a.ps1"
+# CUDA
+powershell -ExecutionPolicy Bypass -File "$Eval\scripts\launch_campaign_machine_a_gpu.ps1"
 ```
 
-Transfer exactly `transfer_packages/campaign_05_massive_release/machine_a` and `transfer_packages/campaign_05_massive_release/machine_b`. Allow about 2.15 GiB and 2.30 GiB respectively; keep at least 15 GiB free on the coordinator for both transfers, merged copies, analysis, and reserve.
+Machine B uses `launch_campaign_machine_b.ps1` for CPU or `launch_campaign_machine_b_gpu.ps1` for CUDA, only after its own complete preflight passes.
+
+## Control and transfer
+
+CPU:
 
 ```powershell
-# Coordinator
-powershell -ExecutionPolicy Bypass -File scripts/merge_massive_campaign.ps1 `
-  -MachineATransfer C:/campaign_transfers/campaign_05_massive_release/machine_a `
-  -MachineBTransfer C:/campaign_transfers/campaign_05_massive_release/machine_b
-
-powershell -ExecutionPolicy Bypass -File scripts/analyze_massive_campaign.ps1 `
-  -PrerequisiteEvidence automated_runs/campaign_04_standard_release/analysis/report/release_qualification.json
+$Python = Join-Path $Repo '.venv\Scripts\python.exe'
+$Campaign = Join-Path $Eval 'automated_runs\campaign_05_massive_release'
+& $Python "$Eval\run_evaluation.py" campaign status --campaign-root $Campaign
+& $Python "$Eval\run_evaluation.py" campaign stop --campaign-root $Campaign --reason 'operator request'
+powershell -ExecutionPolicy Bypass -File "$Eval\scripts\launch_campaign_machine_a.ps1" -ResumeStopped
+powershell -ExecutionPolicy Bypass -File "$Eval\scripts\export_machine_a_results.ps1" -Destination C:\campaign_transfers\campaign_05_massive_release\machine_a
+powershell -ExecutionPolicy Bypass -File "$Eval\scripts\export_machine_b_results.ps1" -Destination C:\campaign_transfers\campaign_05_massive_release\machine_b
+powershell -ExecutionPolicy Bypass -File "$Eval\scripts\merge_massive_campaign.ps1" -MachineATransfer C:\campaign_transfers\campaign_05_massive_release\machine_a -MachineBTransfer C:\campaign_transfers\campaign_05_massive_release\machine_b
+powershell -ExecutionPolicy Bypass -File "$Eval\scripts\analyze_massive_campaign.ps1" -PrerequisiteEvidence C:\approved\standard_gate.json
 ```
 
-Expected final report: `automated_runs/campaign_05_massive_release/analysis/report/campaign_report.md`. Final completion requires 41/41 checksum-valid merged scenarios and a passed standard-gate prerequisite; validation alone is not scientific release approval.
+CUDA:
+
+```powershell
+& $Python "$Eval\run_evaluation.py" campaign status --campaign-root "$Eval\automated_runs\campaign_06_massive_release_cuda"
+& $Python "$Eval\run_evaluation.py" campaign stop --campaign-root "$Eval\automated_runs\campaign_06_massive_release_cuda" --reason 'operator request'
+powershell -ExecutionPolicy Bypass -File "$Eval\scripts\launch_campaign_machine_a_gpu.ps1" -ResumeStopped
+powershell -ExecutionPolicy Bypass -File "$Eval\scripts\export_machine_a_gpu_results.ps1" -Destination C:\campaign_transfers\campaign_06_massive_release_cuda\machine_a
+powershell -ExecutionPolicy Bypass -File "$Eval\scripts\export_machine_b_gpu_results.ps1" -Destination C:\campaign_transfers\campaign_06_massive_release_cuda\machine_b
+powershell -ExecutionPolicy Bypass -File "$Eval\scripts\merge_gpu_campaign.ps1" -MachineATransfer C:\campaign_transfers\campaign_06_massive_release_cuda\machine_a -MachineBTransfer C:\campaign_transfers\campaign_06_massive_release_cuda\machine_b
+powershell -ExecutionPolicy Bypass -File "$Eval\scripts\analyze_gpu_campaign.ps1" -PrerequisiteEvidence C:\approved\standard_gate.json
+```
+
+Expected final count: 41 checksum-valid merged scenarios. Expected report is `automated_runs/campaign_05_massive_release/analysis/report/campaign_report.md` for CPU or `automated_runs/campaign_06_massive_release_cuda/analysis/report/campaign_report.md` for CUDA.
+
+## Manual blockers
+
+1. Finish final clean-clone CPU and CUDA bindings and complete both Machine A preflights.
+2. Install, profile, and fully preflight Machine B; do not copy Machine A evidence.
+3. Pass and approve the component canary, small, and standard gates for the selected execution mode.
+4. Keep Bedroom unresolved and excluded; never substitute ParkingLot or Kitchen.

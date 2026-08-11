@@ -1,8 +1,13 @@
 [CmdletBinding()]
-param([string]$PrerequisiteEvidence = "")
+param(
+    [string]$PrerequisiteEvidence = "",
+    [string]$CampaignId = "campaign_05_massive_release",
+    [string]$EnvironmentProfile = "core-cpu",
+    [string]$PythonRelativePath = ".venv\Scripts\python.exe"
+)
 
 . (Join-Path $PSScriptRoot "launch_common.ps1")
-$context = Get-LaunchContext -WorkerId "machine_a"
+$context = Get-LaunchContext -WorkerId "machine_a" -CampaignId $CampaignId -EnvironmentProfile $EnvironmentProfile -PythonRelativePath $PythonRelativePath
 Show-LaunchIdentity -Context $context
 $runEvaluation = Join-Path $context.EvaluationRoot "run_evaluation.py"
 Invoke-Checked -FilePath $context.Python -Arguments @(

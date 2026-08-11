@@ -370,7 +370,8 @@ def _compatibility_warnings_and_errors(
             "speaker matching requires an active speaker embedding component"
         )
 
-    device = config.runtime.device.strip().lower()
+    device = _normalized_device(config.runtime.device)
+    dtype = config.runtime.precision.strip().lower()
     if device.startswith("cuda"):
         for family, component in active.items():
             entry = catalog.get(family, component.name)
@@ -413,15 +414,40 @@ def _compatibility_warnings_and_errors(
             )
         params = component.params or {}
         component_device = params.get("device")
-        if component_device is not None and str(component_device).lower() != device:
-            warnings.append(
+        if component_device is not None and _normalized_device(component_device) != device:
+            raise PipelineResolutionError(
                 f"{family}.{component.name} component device={component_device} differs "
-                f"from runtime device={config.runtime.device}"
+                f"from runtime device={config.runtime.device}; implicit device fallback is prohibited"
+            )
+        component_dtype = params.get("dtype")
+        if component_dtype is not None and str(component_dtype).strip().lower() != dtype:
+            raise PipelineResolutionError(
+                f"{family}.{component.name} component dtype={component_dtype} differs "
+                f"from runtime precision={config.runtime.precision}; implicit dtype selection is prohibited"
             )
         provider = params.get("provider")
         if provider is not None and device.startswith("cuda") and str(provider).lower() == "cpu":
-            warnings.append(
-                f"{family}.{component.name} provider=cpu while runtime device is CUDA"
+            raise PipelineResolutionError(
+                f"{family}.{component.name} provider=cpu while runtime device is CUDA; "
+                "implicit CPU fallback is prohibited"
+            )
+        device_family = _device_family(device)
+        requested_device_dtype = f"{device_family}/{dtype}"
+        supported_device_dtype = {
+            value.strip().lower() for value in entry.device_dtype_settings
+        }
+        backend_compute_type = params.get("compute_type")
+        declared_candidates = {requested_device_dtype, f"{device_family}/backend-default"}
+        if backend_compute_type is not None:
+            declared_candidates.add(
+                f"{device_family}/{str(backend_compute_type).strip().lower()}"
+            )
+        if supported_device_dtype and not (
+            declared_candidates & supported_device_dtype
+        ):
+            raise PipelineResolutionError(
+                f"{family}.{component.name} does not declare support for "
+                f"{requested_device_dtype} or its configured backend compute type"
             )
 
     if config.runtime.dry_run:
@@ -442,6 +468,7 @@ def _resolve_environment_profile(
         for family, component in config.components.items()
         if component.enabled and not component.name.startswith("no_op_")
     ]
+    device_family = _device_family(config.runtime.device)
     if requested is not None:
         profile = requested.strip()
         if not profile:
@@ -456,6 +483,7 @@ def _resolve_environment_profile(
                 f"environment profile {profile!r} is incompatible with: "
                 + ", ".join(sorted(incompatible))
             )
+        _validate_profile_device(profile, device_family)
         return profile
 
     if not active_entries:
@@ -470,6 +498,16 @@ def _resolve_environment_profile(
         raise PipelineResolutionError(
             "active components have no common environment profile: " + names
         )
+    configured_profile = config.profile.strip()
+    if configured_profile in compatible:
+        _validate_profile_device(configured_profile, device_family)
+        return configured_profile
+    if device_family == "cuda":
+        if "core-cuda" not in compatible:
+            raise PipelineResolutionError(
+                "CUDA runtime has no compatible core-cuda environment profile"
+            )
+        return "core-cuda"
     non_core = sorted(profile for profile in compatible if profile != "core-cpu")
     constrained = [
         entry
@@ -482,6 +520,29 @@ def _resolve_environment_profile(
     if "core-cpu" in compatible:
         return "core-cpu"
     return sorted(compatible)[0]
+
+
+def _normalized_device(value: object) -> str:
+    device = str(value).strip().lower()
+    if device == "cuda":
+        return "cuda:0"
+    return device
+
+
+def _device_family(value: object) -> str:
+    device = _normalized_device(value)
+    return "cuda" if device.startswith("cuda:") else device
+
+
+def _validate_profile_device(profile: str, device_family: str) -> None:
+    if profile == "core-cuda" and device_family != "cuda":
+        raise PipelineResolutionError(
+            f"environment profile {profile!r} requires a CUDA runtime device"
+        )
+    if profile == "core-cpu" and device_family != "cpu":
+        raise PipelineResolutionError(
+            f"environment profile {profile!r} cannot execute runtime device {device_family!r}"
+        )
 
 
 def _prohibit_model_downloads(config: PipelineConfig) -> None:

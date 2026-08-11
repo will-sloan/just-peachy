@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from copy import deepcopy
 from datetime import datetime, timezone
 import hashlib
 import json
@@ -20,6 +21,7 @@ from app.inference_pipeline.catalog import ComponentCatalogEntry
 from app.launch_readiness import credential_readiness, preflight_worker_assignment
 from app.launch_readiness.preflight import (
     LAUNCH_PREFLIGHT_SCHEMA_VERSION,
+    _execution_runtime_checks,
     _inspect_audio,
     _model_asset_checks,
 )
@@ -304,6 +306,67 @@ def test_launch_probe_cli_exposes_machine_and_assignment_commands() -> None:
         .bind_current_commit
         is True
     )
+    parsed = parser.parse_args(
+        [
+            "machine",
+            *common,
+            "--device",
+            "cuda:0",
+            "--dtype",
+            "float32",
+            "--output",
+            "profile.json",
+        ]
+    )
+    assert parsed.device == "cuda:0"
+    assert parsed.dtype == "float32"
+
+
+def test_cuda_preflight_rejects_cpu_torch_and_accepts_explicit_cuda_runtime() -> None:
+    scenario = {"runtime": {"device": "cuda:0", "dtype": "float32"}}
+    cpu_profile = {
+        "runtime": {
+            "torch": {
+                "available": True,
+                "version": "2.11.0+cpu",
+                "cuda_available": False,
+                "cuda_runtime": None,
+                "device_count": 0,
+                "allocation_probe_succeeded": False,
+                "allocation_probe_reason": "CUDA unavailable",
+            }
+        },
+        "execution_policy": {"selected_device": "cuda:0", "execution_dtype": "float32"},
+    }
+    failed = _execution_runtime_checks(
+        [scenario],
+        expected_environment_profile="core-cuda",
+        machine_profile=cpu_profile,
+    )
+    assert {row["id"] for row in failed if not row["ready"]} >= {
+        "cuda_torch_build",
+        "cuda_runtime_available",
+        "cuda_device_open",
+        "cuda_device_index",
+    }
+
+    cuda_profile = deepcopy(cpu_profile)
+    cuda_profile["runtime"]["torch"].update(
+        {
+            "version": "2.11.0+cu128",
+            "cuda_available": True,
+            "cuda_runtime": "12.8",
+            "device_count": 1,
+            "allocation_probe_succeeded": True,
+            "allocation_probe_reason": None,
+        }
+    )
+    passed = _execution_runtime_checks(
+        [scenario],
+        expected_environment_profile="core-cuda",
+        machine_profile=cuda_profile,
+    )
+    assert all(row["ready"] for row in passed)
 
 
 def test_credential_readiness_reports_presence_only(monkeypatch) -> None:
@@ -344,6 +407,68 @@ def test_frozen_launch_package_has_complete_non_overlapping_worker_coverage() ->
         "dining_room_h025",
         "restaurant_h093",
     }
+
+
+def test_gpu_launch_package_preserves_cpu_coverage_with_new_identities() -> None:
+    cpu_package_path = (
+        TOOL_ROOT / "configs" / "automated_evaluation" / "launch_package.v1.yaml"
+    )
+    gpu_package_path = (
+        TOOL_ROOT
+        / "configs"
+        / "automated_evaluation"
+        / "launch_package.gpu.v1.yaml"
+    )
+    cpu = yaml.safe_load(cpu_package_path.read_text(encoding="utf-8"))
+    gpu = yaml.safe_load(gpu_package_path.read_text(encoding="utf-8"))
+    cpu_massive = cpu["massive_campaign"]
+    massive = gpu["massive_campaign"]
+
+    assert gpu["reference_cpu_campaign"]["campaign_manifest_sha256"] == (
+        cpu_massive["campaign_manifest_sha256"]
+    )
+    assert gpu["reference_cpu_campaign"]["preserved"] is True
+    assert massive["campaign_id"] == "campaign_06_massive_release_cuda"
+    assert massive["environment_profile"] == "core-cuda"
+    assert massive["device"] == "cuda:0"
+    assert massive["dtype"] == "float32"
+    assert massive["scenario_count"] == cpu_massive["scenario_count"] == 41
+    assert massive["item_execution_count"] == cpu_massive["item_execution_count"]
+    assert set(massive["scenario_ids"]).isdisjoint(cpu_massive["scenario_ids"])
+    machine_a = set(massive["workers"]["machine_a"]["scenario_ids"])
+    machine_b = set(massive["workers"]["machine_b"]["scenario_ids"])
+    assert machine_a.isdisjoint(machine_b)
+    assert machine_a | machine_b == set(massive["scenario_ids"])
+
+
+def test_cpu_and_cuda_launch_wrappers_support_preflight_only() -> None:
+    wrapper_names = (
+        "launch_campaign_machine_a.ps1",
+        "launch_campaign_machine_b.ps1",
+        "launch_campaign_machine_a_gpu.ps1",
+        "launch_campaign_machine_b_gpu.ps1",
+    )
+    for name in wrapper_names:
+        text = (TOOL_ROOT / "scripts" / name).read_text(encoding="utf-8-sig")
+        assert "[switch]$PreflightOnly" in text
+        assert "if ($PreflightOnly)" in text
+        assert "inference was not started" in text
+
+
+def test_first_class_setup_script_keeps_cpu_and_cuda_isolated() -> None:
+    text = (
+        TOOL_ROOT.parents[1] / "scripts" / "prepare_execution_mode.ps1"
+    ).read_text(encoding="utf-8-sig")
+    assert '[ValidateSet("cpu", "cuda")]' in text
+    assert '.venv\\Scripts\\python.exe' in text
+    assert '.stage8-envs\\core-cuda\\Scripts\\python.exe' in text
+    assert '"--device", "cpu"' in text
+    assert '"--device", "cuda"' in text
+    stage8 = (TOOL_ROOT.parents[1] / "scripts" / "install_stage8_profile.ps1").read_text(
+        encoding="utf-8-sig"
+    )
+    assert '"--speechbrain-ecapa"' in stage8
+    assert '"--silero"' in stage8
 
 
 def test_post_commit_materialization_binds_assignments_without_source_edit(

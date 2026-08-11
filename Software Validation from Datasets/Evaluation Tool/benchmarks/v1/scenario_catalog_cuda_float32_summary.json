@@ -1,0 +1,19 @@
+{
+  "counts": {
+    "large/controlled_clean": 27,
+    "large/native_robustness": 5,
+    "large/speaker_protocol": 9,
+    "small/controlled_clean": 12,
+    "small/native_robustness": 5,
+    "small/speaker_protocol": 9,
+    "standard/controlled_clean": 27,
+    "standard/native_robustness": 5,
+    "standard/speaker_protocol": 9
+  },
+  "pipeline_ids": [
+    "whisper_base_cuda_float32"
+  ],
+  "scenario_count": 108,
+  "scenario_schema_version": "scenario-definition.v1",
+  "schema_version": "scenario-catalog-summary.v1"
+}

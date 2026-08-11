@@ -1,0 +1,182 @@
+blockers:
+- Machine B has not completed CUDA installation, machine profiling, or full-assignment
+  preflight.
+- Component canary, small, and standard scientific gates remain required before massive
+  execution.
+- Bedroom RIR remains unresolved and excluded without substitution.
+campaigns:
+- execution_status: gpu_candidate_not_launched
+  id: campaign_06_massive_release_cuda
+  manifest_sha256: A101D43DD3784EEFD1F8738594A13556DD4F9908C55B96F983FBF6B8F628753D
+  scenario_count: 41
+generated_at_utc: '2026-08-10T20:42:59.751030-04:00'
+massive_campaign:
+  benchmark_manifests:
+  - path: benchmarks/v1/large_source_manifest.parquet
+    sha256: BC207E61B82052F06CCB9FFFE038B6DFE7B1C65C21843D08905946114238DE88
+  - path: benchmarks/v1/speaker_protocol.parquet
+    sha256: A9B0B28F5C7FDEF51215069521215BB78598DB9497E40BDA6C893181F71288D4
+  campaign_id: campaign_06_massive_release_cuda
+  campaign_manifest_sha256: A101D43DD3784EEFD1F8738594A13556DD4F9908C55B96F983FBF6B8F628753D
+  campaign_root: automated_runs/campaign_06_massive_release_cuda
+  concurrency: one_scenario_per_machine
+  created_at_utc: '2026-08-10T18:26:53.516596Z'
+  default_max_retries: 1
+  device: cuda:0
+  dtype: float32
+  environment_profile: core-cuda
+  item_execution_count: 25798
+  repeated_audio_hours: 33.7201212253
+  required_credentials: []
+  required_model_assets:
+  - bytes: 145262807
+    path: models/cache/whisper/base.pt
+    sha256: ED3A0B6B1C0EDF879AD9B11B1AF5A0E6AB5DB9205F891F668F8B0E6C6326E34E
+  required_rirs:
+  - id: dining_room_h025
+    path: Raw Datasets (Not formatted)/MIT 271 RIRs/Audio/h025_Diningroom_8txts.wav
+    sha256: 940D761A280DCD8FAAB077074E02BADE649E64E47461D80A4F927A01ABBEF5E2
+  - id: restaurant_h093
+    path: Raw Datasets (Not formatted)/MIT 271 RIRs/Audio/h093_Restaurant_2txts.wav
+    sha256: C2CA8A07002943409D31A2C6D6D07BA826AA428FE6EF6CECF2C4FF33D7D4A8A8
+  scenario_count: 41
+  scenario_ids:
+  - scenario_04ad75f26f54
+  - scenario_230218662ac7
+  - scenario_26199be9a758
+  - scenario_28e92d3ba0fd
+  - scenario_2ca1c93809ee
+  - scenario_373ffafaf136
+  - scenario_39cad7bebd74
+  - scenario_3cc83b8c3dd3
+  - scenario_46468bb3c08b
+  - scenario_4ea70d449fb1
+  - scenario_5249f074ffee
+  - scenario_55a010c27420
+  - scenario_584aab644687
+  - scenario_5bf02b056c4b
+  - scenario_5dcb49422782
+  - scenario_6815bcc4dba5
+  - scenario_738806368c84
+  - scenario_760862089d7b
+  - scenario_929819dee505
+  - scenario_930a3ba4a45f
+  - scenario_9557a450dd76
+  - scenario_a37f506afed1
+  - scenario_a46bcbfba22d
+  - scenario_a4b712812094
+  - scenario_a9c545ba437e
+  - scenario_abaa141b72ba
+  - scenario_ac1d1a16a245
+  - scenario_b0e20deee8f2
+  - scenario_b68e4a244471
+  - scenario_b6a644b4ab05
+  - scenario_baf3b29bc5c2
+  - scenario_bb5570a7b816
+  - scenario_bdcb19a5777f
+  - scenario_c3d9d110f895
+  - scenario_c5ebf796c113
+  - scenario_d2b7252fc183
+  - scenario_d5e921bf67e1
+  - scenario_d9d1c02edc30
+  - scenario_e48e91cdf9b0
+  - scenario_e888b8ae305f
+  - scenario_f72d733663d9
+  seed: 3800
+  source_catalog:
+    path: benchmarks/v1/resolved_scenarios_cuda_float32.jsonl
+    sha256: 1FCDEB638470AE55FC0F4EB88DBB77BF7AB8D5B06704DD1CCFCD5D6C3102B511
+  unique_source_audio_hours: 10.80478
+  unique_source_row_count: 8258
+  workers:
+    machine_a:
+      assignment_id: assignment_01f0cf86b339
+      assignment_path: worker_assignments/machine_a.yaml
+      assignment_sha256: 01F0CF86B339D68D837A647C61F18210D174675127304B43B987F077B3E031F1
+      audio_hours: 16.8829979939
+      created_at_utc: '2026-08-10T18:28:24.369083Z'
+      estimated_artifact_bytes: 2308510319
+      estimated_runtime_hours:
+        high: 5.17601
+        low: 2.81239
+        point: 3.40498
+      item_execution_count: 12368
+      notes: Coverage-preserving mapping from the frozen CPU assignment. Machine-specific
+        CUDA readiness must be proven independently.
+      scenario_count: 20
+      scenario_ids:
+      - scenario_04ad75f26f54
+      - scenario_28e92d3ba0fd
+      - scenario_373ffafaf136
+      - scenario_46468bb3c08b
+      - scenario_5249f074ffee
+      - scenario_584aab644687
+      - scenario_760862089d7b
+      - scenario_9557a450dd76
+      - scenario_a46bcbfba22d
+      - scenario_a9c545ba437e
+      - scenario_abaa141b72ba
+      - scenario_ac1d1a16a245
+      - scenario_b68e4a244471
+      - scenario_baf3b29bc5c2
+      - scenario_bb5570a7b816
+      - scenario_bdcb19a5777f
+      - scenario_c3d9d110f895
+      - scenario_c5ebf796c113
+      - scenario_d2b7252fc183
+      - scenario_e48e91cdf9b0
+      worker_id: machine_a
+    machine_b:
+      assignment_id: assignment_ea9976889bd2
+      assignment_path: worker_assignments/machine_b.yaml
+      assignment_sha256: EA9976889BD22D3E749C5F40D6C5C825B5601987AEFE2C47F67CC67393C983D4
+      audio_hours: 16.8371232314
+      created_at_utc: '2026-08-10T18:28:30.458973Z'
+      estimated_artifact_bytes: 2472892612
+      estimated_runtime_hours:
+        high: 5.1678
+        low: 2.81061
+        point: 3.40159
+      item_execution_count: 13430
+      notes: Coverage-preserving mapping from the frozen CPU assignment. Machine-specific
+        CUDA readiness must be proven independently.
+      scenario_count: 21
+      scenario_ids:
+      - scenario_230218662ac7
+      - scenario_26199be9a758
+      - scenario_2ca1c93809ee
+      - scenario_39cad7bebd74
+      - scenario_3cc83b8c3dd3
+      - scenario_4ea70d449fb1
+      - scenario_55a010c27420
+      - scenario_5bf02b056c4b
+      - scenario_5dcb49422782
+      - scenario_6815bcc4dba5
+      - scenario_738806368c84
+      - scenario_929819dee505
+      - scenario_930a3ba4a45f
+      - scenario_a37f506afed1
+      - scenario_a4b712812094
+      - scenario_b0e20deee8f2
+      - scenario_b6a644b4ab05
+      - scenario_d5e921bf67e1
+      - scenario_d9d1c02edc30
+      - scenario_e888b8ae305f
+      - scenario_f72d733663d9
+      worker_id: machine_b
+readiness_state: NOT_READY_TO_LAUNCH
+reference_cpu_campaign:
+  campaign_id: campaign_05_massive_release
+  campaign_manifest_sha256: FF833023B2CBFCC58C4CB65038BBF97A4A791296BE8AC7C09B6AA948C66046D4
+  device: cpu
+  dtype: float32
+  environment_profile: core-cpu
+  preserved: true
+  source_catalog_sha256: 24AD135F8F2F2450EED78D910727FC63B585958602D28429B3B46B5A1060367E
+repository:
+  branch: handoff
+  commit_binding_policy: post_commit_runtime_head
+  expected_commit: 257eeed7630a1273d03b7ea336a7d6d9979ae9c7
+  freeze_status: gpu_candidate_evidence_commit_before_final_binding
+  remote: https://github.com/will-sloan/just-peachy.git
+schema_version: launch-package.v1

@@ -80,7 +80,10 @@ class ASRRuntimeStats:
     realtime_factor: float | None = None
     device: str = "cpu"
     dtype: str = "float32"
+    gpu_memory_allocated_mb: float | None = None
+    gpu_memory_reserved_mb: float | None = None
     peak_gpu_memory_mb: float | None = None
+    peak_gpu_memory_reserved_mb: float | None = None
     cpu_memory_mb: float | None = None
 
     @classmethod
@@ -93,7 +96,10 @@ class ASRRuntimeStats:
         audio_duration_sec: float | None,
         device: str,
         dtype: str,
+        gpu_memory_allocated_mb: float | None = None,
+        gpu_memory_reserved_mb: float | None = None,
         peak_gpu_memory_mb: float | None = None,
+        peak_gpu_memory_reserved_mb: float | None = None,
         cpu_memory_mb: float | None = None,
     ) -> "ASRRuntimeStats":
         duration = audio_duration_sec if audio_duration_sec and audio_duration_sec > 0 else None
@@ -106,7 +112,10 @@ class ASRRuntimeStats:
             realtime_factor=realtime_factor,
             device=device,
             dtype=dtype,
+            gpu_memory_allocated_mb=gpu_memory_allocated_mb,
+            gpu_memory_reserved_mb=gpu_memory_reserved_mb,
             peak_gpu_memory_mb=peak_gpu_memory_mb,
+            peak_gpu_memory_reserved_mb=peak_gpu_memory_reserved_mb,
             cpu_memory_mb=cpu_memory_mb,
         )
 
@@ -119,7 +128,10 @@ class ASRRuntimeStats:
             "realtime_factor": self.realtime_factor,
             "device": self.device,
             "dtype": self.dtype,
+            "gpu_memory_allocated_mb": self.gpu_memory_allocated_mb,
+            "gpu_memory_reserved_mb": self.gpu_memory_reserved_mb,
             "peak_gpu_memory_mb": self.peak_gpu_memory_mb,
+            "peak_gpu_memory_reserved_mb": self.peak_gpu_memory_reserved_mb,
             "cpu_memory_mb": self.cpu_memory_mb,
         }
 

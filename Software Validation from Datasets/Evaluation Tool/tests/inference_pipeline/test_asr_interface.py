@@ -269,19 +269,22 @@ def test_whisper_adapter_disables_fp16_on_cpu_to_avoid_warning(tmp_path: Path) -
     assert len(model.calls[0]["audio"]) == 16000
 
 
-def test_whisper_adapter_enables_fp16_only_for_cuda_float16_context(tmp_path: Path) -> None:
+@pytest.mark.parametrize("device", ["cuda", "cuda:0"])
+def test_whisper_adapter_enables_fp16_only_for_cuda_float16_context(
+    tmp_path: Path, device: str
+) -> None:
     path = write_test_audio(tmp_path / "whisper_cuda.wav")
     segment = audio_segment(path)
     model = RecordingWhisperModel()
     adapter = WhisperASR(
-        {"model_size": "tiny", "device": "cuda", "dtype": "float16"},
+        {"model_size": "tiny", "device": device, "dtype": "float16"},
         model=model,
     )
     context = ASRContext(
         recording_id="rec-001",
         utt_id="utt-001",
         source_audio_path=path,
-        device="cuda",
+        device=device,
         dtype="float16",
         language="en",
     )

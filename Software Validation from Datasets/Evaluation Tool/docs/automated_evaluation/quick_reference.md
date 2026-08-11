@@ -2,7 +2,32 @@
 
 Use these commands from `Software Validation from Datasets\Evaluation Tool` after activating the correct environment. Replace example campaign IDs, worker IDs, scenario IDs, and transfer paths. See [System guide](system_guide.md) for meaning, prerequisites, and limitations.
 
-## Activate and verify core CPU
+## Supported Machine A campaigns
+
+Choose CPU (`core-cpu`, `cpu`, float32) or CUDA (`core-cuda`, `cuda:0`,
+float32). Both are first-class and use Whisper Base through the same evaluator.
+From the repository root:
+
+```powershell
+# CPU
+powershell -ExecutionPolicy Bypass -File scripts\prepare_execution_mode.ps1 -Mode cpu -InstallFFmpeg -DownloadModels
+
+# CUDA (use instead)
+powershell -ExecutionPolicy Bypass -File scripts\prepare_execution_mode.ps1 -Mode cuda -InstallFFmpeg -DownloadModels
+$Repo = (Get-Location).Path
+$Eval = Join-Path $Repo 'Software Validation from Datasets\Evaluation Tool'
+$Python = Join-Path $Repo '.stage8-envs\core-cuda\Scripts\python.exe'
+& $Python scripts\bootstrap_models.py --cache-root models\cache --whisper base --device cuda
+& $Python scripts\verify_install.py --profile dev --device cuda --cache-root models\cache --whisper base --require-models
+& $Python "$Eval\scripts\materialize_launch_campaign.py" --launch-package "$Eval\configs\automated_evaluation\launch_package.gpu.v1.yaml" --automated-runs-root "$Eval\automated_runs" --bind-current-commit
+powershell -ExecutionPolicy Bypass -File "$Eval\scripts\launch_campaign_machine_a_gpu.ps1"
+```
+
+The wrapper runs full preflight before inference. The massive run remains
+unauthorized until Machine B and canary/small/standard gates pass. See
+[Launch control sheet](launch_control_sheet.md).
+
+## Supported core CPU
 
 From the repository root:
 

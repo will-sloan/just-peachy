@@ -165,7 +165,9 @@ def test_all_required_environment_profiles_are_defined() -> None:
         "test_only_contract",
     }
     assert profiles["core_cpu_development"]["device"] == "cpu"
-    assert profiles["core_cuda"]["status"] == "incompatible_environment"
+    assert profiles["core_cuda"]["status"] == "qualified"
+    assert profiles["core_cuda"]["device"] == "cuda:0"
+    assert profiles["core_cuda"]["dtype"] == "float32"
     assert profiles["credential_gated_diarization"][
         "credential_environment_variables"
     ] == ["PYANNOTE_AUTH_TOKEN", "PICOVOICE_ACCESS_KEY"]
