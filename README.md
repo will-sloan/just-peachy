@@ -9,7 +9,30 @@ performance reports.
 The currently validated desktop path is Windows with Python 3.12. Python
 3.10-3.12 is accepted by the installer.
 
-## Quick Start: choose CPU or CUDA
+## Production quick start
+
+The supported operator path is documented in [`START_HERE.md`](START_HERE.md).
+For Machine A's preferred CUDA mode, run from the repository root:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\setup_worker.ps1 -MachineId machine_a -Device cuda
+powershell -ExecutionPolicy Bypass -File scripts\verify_worker.ps1 -MachineId machine_a -Device cuda
+powershell -ExecutionPolicy Bypass -File scripts\launch_worker.ps1 -MachineId machine_a -Device cuda
+```
+
+Setup automatically creates the isolated environment, handles FFmpeg,
+downloads or reuses all credential-free production models, verifies hashes,
+discovers or links authorized datasets, materializes the frozen campaign,
+generates assignments, and validates the release binding. No API key or normal
+configuration-file edit is required. If licensed datasets cannot be found,
+the only local override is `-DatasetRoot`. Each high-level command refreshes
+the process PATH, so a WinGet FFmpeg installation can be used immediately
+without reopening the operator terminal.
+
+CPU is equally supported by changing `-Device cuda` to `-Device cpu`. The two
+modes have distinct scenario identities and never fall back to one another.
+
+## Lower-level installation: choose CPU or CUDA
 
 CPU and CUDA are separate, explicit, supported execution modes. They use the
 same evaluator and campaign engine but isolated Python environments. There is
@@ -26,10 +49,10 @@ powershell -ExecutionPolicy Bypass -File scripts\prepare_execution_mode.ps1 -Mod
 ```
 
 The CPU command uses `.venv`; the CUDA command uses
-`.stage8-envs\core-cuda`. Both bootstrap the exact local Whisper Base asset plus
-the approved ECAPA/Silero support assets required by the `dev` verifier, then
-run that verifier. The frozen massive campaigns still execute Whisper Base
-only. Activation is optional:
+`.stage8-envs\core-cuda`. Both bootstrap Whisper Tiny, Base, and Small plus the
+approved ECAPA/Silero support assets, then run the verifier. The frozen massive
+campaigns execute the selected Whisper Base production pipeline. Activation is
+optional:
 
 ```powershell
 # CPU
@@ -109,10 +132,10 @@ requirements/
 The legacy Evaluation Tool requirements entry point delegates to
 `requirements/core.txt`, so existing commands remain valid.
 
-## Model Assets
+## Model assets
 
-Model downloads are deliberately separate from package installation. Cache
-locations are:
+The supported `setup_worker.ps1` path downloads, verifies, and reuses every
+production model automatically. Cache locations are:
 
 ```text
 models/cache/whisper/
@@ -121,7 +144,8 @@ models/cache/speechbrain/spkrec-ecapa-voxceleb/
 models/cache/pyannote/
 ```
 
-Download selected assets manually:
+Developers using the lower-level installer can invoke the same idempotent
+bootstrap directly:
 
 ```powershell
 ./.venv/Scripts/python.exe scripts/bootstrap_models.py `
@@ -134,7 +158,8 @@ Available OpenAI Whisper configurations are restricted to `tiny`, `base`, and
 `small`. The registry and both Whisper runtime adapters enforce this allowlist
 before loading a model.
 
-Four additional ASR adapters are available in the `full` installation:
+Four additional experimental ASR adapters are available in the `full`
+installation, but they are outside the credential-free production campaigns:
 
 | Component | Configuration | Expected local assets |
 |---|---|---|

@@ -1,5 +1,10 @@
 # Command verification matrix
 
+> Historical Stage 13 command audit. For the supported production interface and
+> current acceptance evidence, use the root `START_HERE.md`,
+> `launch_control_sheet.md`, and `operational_launch_readiness.md`. Placeholder
+> and optional-backend commands below are not production launch steps.
+
 Audit date: 2026-08-10. Working directory is the repository root for install/
 activation commands and `Software Validation from Datasets/Evaluation Tool`
 for `run_evaluation.py` and launch scripts. The root `.venv` is used unless an

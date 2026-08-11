@@ -33,7 +33,11 @@ def evaluate_release_gates(
     *,
     prerequisite_evidence: Mapping[str, object] | None = None,
 ) -> dict[str, object]:
-    scenarios = [row for row in analysis_manifest["scenario_index"] if isinstance(row, Mapping)]
+    scenarios = [
+        row
+        for row in _items(analysis_manifest.get("scenario_index"), "scenario index")
+        if isinstance(row, Mapping)
+    ]
     planned = len(scenarios)
     included = sum(row.get("analysis_status") == "included" for row in scenarios)
     failed = sum(row.get("analysis_status") in {"failed", "invalid"} for row in scenarios)
@@ -41,23 +45,26 @@ def evaluate_release_gates(
     tiers = sorted({str(row.get("tier")) for row in scenarios})
     synthetic = bool(scenarios) and all(row.get("scenario_type") == "synthetic_executor" for row in scenarios)
     target_gate = "synthetic" if synthetic else (tiers[0] if len(tiers) == 1 else "mixed")
-    common = decision_policy["release_gates"]["common"]
+    release_gates = _mapping(decision_policy.get("release_gates"), "release gates")
+    common = _mapping(release_gates.get("common"), "common release gate")
     completion_rate = included / planned if planned else 0.0
     failure_rate = failed / planned if planned else 0.0
-    mandatory_missing = int(coverage["summary"]["mandatory_unexpected_missing"])
+    coverage_summary = _mapping(coverage.get("summary"), "coverage summary")
+    mandatory_missing = int(str(coverage_summary["mandatory_unexpected_missing"]))
     checks = [
-        _check("completion_rate", completion_rate >= float(common["completion_rate_minimum"]), completion_rate, common["completion_rate_minimum"]),
-        _check("failure_rate", failure_rate <= float(common["failure_rate_maximum"]), failure_rate, common["failure_rate_maximum"]),
-        _check("mandatory_unexpected_missing", mandatory_missing <= int(common["mandatory_unexpected_missing_maximum"]), mandatory_missing, common["mandatory_unexpected_missing_maximum"]),
+        _check("completion_rate", completion_rate >= float(str(common["completion_rate_minimum"])), completion_rate, common["completion_rate_minimum"]),
+        _check("failure_rate", failure_rate <= float(str(common["failure_rate_maximum"])), failure_rate, common["failure_rate_maximum"]),
+        _check("mandatory_unexpected_missing", mandatory_missing <= int(str(common["mandatory_unexpected_missing_maximum"])), mandatory_missing, common["mandatory_unexpected_missing_maximum"]),
         _check("exact_scenario_reconciliation", len(scenarios) == planned and missing == 0, {"planned": planned, "indexed": len(scenarios), "missing_or_excluded": missing}, "all planned scenarios indexed and included"),
         _check("validated_included_scenarios", all(row.get("validation_complete") for row in scenarios if row.get("analysis_status") == "included"), included, "every included scenario validates"),
     ]
     prerequisite = _prerequisite(target_gate, decision_policy, prerequisite_evidence)
     checks.append(prerequisite)
     passed = all(bool(item["passed"]) for item in checks)
-    return {
+    campaign = _mapping(analysis_manifest.get("campaign"), "analysis campaign")
+    result: dict[str, object] = {
         "schema_version": RELEASE_SCHEMA_VERSION,
-        "campaign_id": analysis_manifest["campaign"]["campaign_id"],
+        "campaign_id": campaign["campaign_id"],
         "analysis_manifest_id": analysis_manifest["analysis_manifest_id"],
         "decision_policy_version": decision_policy["policy_version"],
         "target_gate": target_gate,
@@ -71,13 +78,14 @@ def evaluate_release_gates(
             "missing_or_excluded": missing,
         },
         "next_gate": {"synthetic": "small", "small": "standard", "standard": "large", "large": None}.get(target_gate),
-        "gpu_concurrency_limit": int(common["gpu_concurrency_limit_without_qualification"]),
+        "gpu_concurrency_limit": int(str(common["gpu_concurrency_limit_without_qualification"])),
         "limitations": [
             "A contract gate is not a model-quality claim.",
             "Small, standard, and large gates require their own completed campaign evidence.",
             "GPU concurrency remains one until a separate sustained concurrency qualification passes.",
         ],
     }
+    return result
 
 
 def qualify_synthetic_release(
@@ -125,6 +133,8 @@ def qualify_synthetic_release(
     }
     result = {
         "schema_version": "synthetic-release-workflow-qualification.v1",
+        "target_gate": "synthetic",
+        "next_gate": "small",
         "status": "passed" if passed else "failed",
         "passed": passed,
         "executed_at_utc": datetime.now(timezone.utc).isoformat(timespec="microseconds").replace("+00:00", "Z"),
@@ -150,14 +160,27 @@ def _prerequisite(
     policy: Mapping[str, object],
     evidence: Mapping[str, object] | None,
 ) -> dict[str, object]:
-    gate = policy["release_gates"].get(target_gate)
+    release_gates = _mapping(policy.get("release_gates"), "release gates")
+    gate = release_gates.get(target_gate)
     if not isinstance(gate, Mapping):
         return _check("recognized_release_tier", False, target_gate, "synthetic, small, standard, or large")
     if target_gate == "synthetic":
-        required = [str(item) for item in gate["requires"]]
+        required = [str(item) for item in _items(gate.get("requires"), "required evidence")]
         values = evidence.get("evidence", evidence) if isinstance(evidence, Mapping) else {}
         missing = [name for name in required if not isinstance(values, Mapping) or values.get(name) is not True]
         return _check("synthetic_workflow_evidence", not missing, {"missing": missing}, required)
     prerequisite = str(gate["prerequisite_gate"])
     passed = bool(evidence and evidence.get("target_gate") == prerequisite and evidence.get("passed") is True)
     return _check("prerequisite_gate", passed, evidence.get("target_gate") if evidence else None, prerequisite)
+
+
+def _mapping(value: object, label: str) -> Mapping[str, object]:
+    if not isinstance(value, Mapping):
+        raise AnalysisContractError(f"{label} must be a mapping")
+    return value
+
+
+def _items(value: object, label: str) -> list[object]:
+    if not isinstance(value, list):
+        raise AnalysisContractError(f"{label} must be a list")
+    return value

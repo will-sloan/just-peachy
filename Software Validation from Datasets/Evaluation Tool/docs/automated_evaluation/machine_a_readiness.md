@@ -1,73 +1,94 @@
-# Machine A CPU and CUDA readiness
+# Machine A readiness
 
 ## Verdict
 
-**Machine A is technically ready for either supported mode. Separate CPU and CUDA clean clones both passed setup, real evaluator smoke, release binding, and complete assignment preflight. Global massive launch is not authorized.**
+**Machine A is `READY_TO_LAUNCH` in the preferred CUDA mode and remains qualified for the explicit CPU fallback.** The final clean CPU and CUDA clones used only the documented setup and verification commands, did not copy environments, and passed real evaluator inference, release binding, and complete 20-scenario assignment preflight.
 
-The CPU path uses `.venv`, PyTorch 2.11.0+cpu, `core-cpu`, `cpu`, and `float32`. The CUDA path uses `.stage8-envs/core-cuda`, PyTorch 2.11.0+cu128, `core-cuda`, `cuda:0`, and `float32`. Each campaign assigns Machine A 20 scenarios, 12,368 item executions, 2,750 unique source files, and 16.882998 repeated audio hours. The authoritative reports in each clean clone say `READY_TO_LAUNCH` with no blockers.
+This does not fabricate Machine B readiness. The two-machine launch remains pending until B passes its own physical 21-scenario preflight.
 
-## Hardware and runtime evidence
+## Current machine profile
 
-| Field | Value |
+| Field | Qualified value |
 |---|---|
-| OS | Windows 11 (`10.0.26200`) |
+| Operating system | Windows 11, build family `10.0.26200`, AMD64 |
 | CPU | 8 physical / 16 logical cores |
-| RAM | about 64 GiB |
-| GPU | NVIDIA GeForce RTX 3080 |
+| RAM | 68,641,923,072 bytes, about 64 GiB |
+| GPU | NVIDIA GeForce RTX 3080, index 0 |
+| GPU UUID | Recorded in local machine profile; excluded from shared scientific identity |
 | VRAM | 10,240 MiB |
-| Driver | 610.62 |
+| NVIDIA driver | 610.62 |
 | Python | 3.12.7 |
-| PyTorch | 2.11.0+cu128 |
-| CUDA runtime / cuDNN | 12.8 / 91900 |
-| Profile | `core-cuda` |
-| Device / dtype | `cuda:0` / `float32` |
-| Whisper peak allocator VRAM | 418.89 MiB allocated; 426 MiB reserved |
+| CPU PyTorch | 2.11.0+cpu; CUDA unavailable by design |
+| CUDA PyTorch | 2.11.0+cu128; CUDA runtime 12.8 |
+| Production CUDA mode | `core-cuda`, `cuda:0`, `float32` |
+| CPU fallback mode | `core-cpu`, `cpu`, `float32` |
+| FFmpeg | 8.1.2 |
 | Credentials | None |
 
-CPU has no CUDA prerequisite and must report GPU measurements as unavailable rather than fabricating zeros. CUDA requires the exact GPU profile and fails on CPU-only PyTorch.
+CUDA float32 is the production recommendation. In the bounded identical-source comparison it preserved the same predictions, WER 0.1463414634, and CER 0.1444444444 as CPU float32 and CUDA float16, while producing the strongest measured inference speedup. CUDA float16 remains qualified evidence but is not the selected production campaign identity.
 
-`torch.cuda.is_available()` was true, the selected device opened successfully, the model parameter device was CUDA, and real evaluator diagnostics showed nonzero allocated and reserved VRAM. See `gpu_qualification_report.md`.
+## Real inference evidence
 
-## Final clean-clone evidence
-
-| Check | CPU clone | CUDA clone |
+| Check | CPU | CUDA |
 |---|---|---|
-| Clone | `just-peachy-launch-a-cpu-final` | `just-peachy-launch-a-gpu` |
-| Dependency check | No broken requirements | No broken requirements |
-| Real evaluator smoke | 1 selected; 1 prediction; 0 missing; 0 failed; WER 0.25 | 1 selected; 1 prediction; 0 missing; 0 failed; WER 0.25 |
-| Resolved execution | `core-cpu`; `cpu`; `float32` | `core-cuda`; `cuda:0`; `float32` |
-| Runtime evidence | 2.03 s pipeline time; GPU fields unavailable | 2.35 s pipeline time; 418.89 MiB peak allocated; 426 MiB peak reserved |
-| Prediction comparison | Same utterance ID and transcript | Same utterance ID and transcript |
-| Release binding | Valid and bound to checked-out commit | Valid and bound to checked-out commit |
-| Full Machine A preflight | `READY_TO_LAUNCH`; 20/20; 12,368 items | `READY_TO_LAUNCH`; 20/20; 12,368 items |
+| Requested/observed device | `cpu` / `cpu` | `cuda` / `cuda:0` |
+| Dtype | `float32` | `float32` |
+| Selected items | 1 | 1 |
+| Predictions / failures | 1 / 0 | 1 / 0 |
+| WER / CER | 0.25 / 0.162162 | 0.25 / 0.162162 |
+| Model allocator peak | GPU unavailable, recorded explicitly | 418.89 MiB allocated; 426 MiB reserved |
+| Required outputs | Prediction JSONL, metrics, plots, and Markdown report | Prediction JSONL, metrics, plots, and Markdown report |
 
-The one-item ordinary evaluator report does not emit CER, so no CER value is inferred for this smoke. The separate fixed five-item qualification reports WER 0.1463414634 and CER 0.1444444444 for CPU, CUDA float32, and CUDA float16 with identical transcripts.
+The CUDA verifier fails if the evaluator reports CPU or zero allocated VRAM. CPU verification never requires NVIDIA tooling and does not invent GPU values.
 
-## Capacity
+## Models, datasets, and RIRs
 
-Measured CUDA pipeline RTF gives a 3.40-hour point estimate and 2.81–5.18-hour range for Machine A, including 20 seconds of initialization allowance per scenario. Keep at least 7.2 GiB free. This is a bounded estimate, not a guarantee; desktop GPU activity contaminated device-wide utilization samples. Measure a separate bounded estimate before selecting the CPU campaign.
+Setup automatically downloaded or reused and verified Whisper Tiny, Base, Small, SpeechBrain ECAPA, and Silero. Inference is offline and prohibits implicit model download.
 
-## CPU clean-clone preflight-only
+The setup command discovered the existing authorized Machine A dataset tree and exposed it to each clean clone without copying raw audio. Complete assignment preflight resolved all required AMI, CHiME-6, CMU Arctic, HiFiTTS, LibriSpeech, and VOiCES source rows. Exact Dining and Restaurant RIR files and hashes passed. Bedroom remains excluded unresolved with no replacement.
+
+## Massive CUDA assignment
+
+| Field | Machine A value |
+|---|---:|
+| Campaign | `campaign_06_massive_release_cuda` |
+| Assigned scenarios | 20 |
+| Item executions | 12,368 |
+| Unique source audio files | 2,750 |
+| Repeated audio | 16.882998 hours |
+| CUDA runtime estimate | 2.81-5.18 hours; point 3.40 hours |
+| Estimated artifacts | 2.31 GB |
+| Disk policy | Artifact estimate plus 5 GiB reserve; checked at launch |
+
+Preflight checks every assigned scenario, not a sample. It validates commit, release binding, both assignments, environment profile, packages, models, source files and bounds, RIRs, output writability, system RAM, disk capacity, and GPU capability.
+
+## Exact commands
+
+Preferred CUDA:
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File scripts\prepare_execution_mode.ps1 -Mode cpu -InstallFFmpeg -DownloadModels
-$Eval = Join-Path (Get-Location) 'Software Validation from Datasets\Evaluation Tool'
-$Python = Join-Path (Get-Location) '.venv\Scripts\python.exe'
-& $Python "$Eval\scripts\materialize_launch_campaign.py" --launch-package "$Eval\configs\automated_evaluation\launch_package.v1.yaml" --automated-runs-root "$Eval\automated_runs" --bind-current-commit
-powershell -ExecutionPolicy Bypass -File "$Eval\scripts\launch_campaign_machine_a.ps1" -PreflightOnly
+powershell -ExecutionPolicy Bypass -File scripts\setup_worker.ps1 -MachineId machine_a -Device cuda
+powershell -ExecutionPolicy Bypass -File scripts\verify_worker.ps1 -MachineId machine_a -Device cuda
+powershell -ExecutionPolicy Bypass -File scripts\launch_worker.ps1 -MachineId machine_a -Device cuda -PreflightOnly
+powershell -ExecutionPolicy Bypass -File scripts\launch_worker.ps1 -MachineId machine_a -Device cuda
 ```
 
-## CUDA clean-clone preflight-only
-
-From the clean clone root after licensed-data linking:
+Explicit CPU fallback:
 
 ```powershell
-$Repo = (Get-Location).Path
-powershell -ExecutionPolicy Bypass -File scripts\prepare_execution_mode.ps1 -Mode cuda -InstallFFmpeg -DownloadModels
-$Eval = Join-Path $Repo 'Software Validation from Datasets\Evaluation Tool'
-$Python = Join-Path $Repo '.stage8-envs\core-cuda\Scripts\python.exe'
-& $Python "$Eval\scripts\materialize_launch_campaign.py" --launch-package "$Eval\configs\automated_evaluation\launch_package.gpu.v1.yaml" --automated-runs-root "$Eval\automated_runs" --bind-current-commit
-powershell -ExecutionPolicy Bypass -File "$Eval\scripts\launch_campaign_machine_a_gpu.ps1" -PreflightOnly
+powershell -ExecutionPolicy Bypass -File scripts\setup_worker.ps1 -MachineId machine_a -Device cpu
+powershell -ExecutionPolicy Bypass -File scripts\verify_worker.ps1 -MachineId machine_a -Device cpu
+powershell -ExecutionPolicy Bypass -File scripts\launch_worker.ps1 -MachineId machine_a -Device cpu -PreflightOnly
+powershell -ExecutionPolicy Bypass -File scripts\launch_worker.ps1 -MachineId machine_a -Device cpu
 ```
 
-These commands passed in the final validation clones. Rerun the matching command immediately before launch; proceed only if it returns zero and still reports `READY_TO_LAUNCH` with 20/20 scenarios and no blockers.
+Do not run CPU and CUDA assignments as if they belong to one campaign. Their globally stable scenario IDs are intentionally different.
+
+## Evidence locations
+
+- Local setup: `Software Validation from Datasets/Evaluation Tool/artifacts/production_setup/machine_a_<device>.json`.
+- Real verifier: `Software Validation from Datasets/Evaluation Tool/artifacts/production_verification/machine_a/<device>/worker_verification.json`.
+- Machine profile and preflight: `Software Validation from Datasets/Evaluation Tool/artifacts/launch_readiness`.
+- CPU/CUDA benchmark: `Software Validation from Datasets/Evaluation Tool/artifacts/gpu_qualification/comparison/whisper_base_cuda_qualification.json`.
+
+These are machine-local evidence. Shared scenario artifacts retain privacy-safe environment identity and checksums without exposing credentials or absolute dataset paths.

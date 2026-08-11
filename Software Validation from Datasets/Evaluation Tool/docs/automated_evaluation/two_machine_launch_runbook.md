@@ -1,105 +1,98 @@
-# Two-machine CPU/CUDA launch runbook
+# Two-machine launch runbook
 
-## Gate zero
+> Both operators clone the complete repository. Each setup command generates a non-overlapping worker assignment with globally stable scenario IDs. No shared SQLite database or network-drive coordinator is used.
 
-First select one campaign mode for both assignments: CPU or CUDA. Do not mix profiles under one campaign. Do not start until both complete preflights return `READY_TO_LAUNCH`, both checkouts use the same final commit/release binding, and canary/small/standard approval exists.
+## 1. Select one campaign mode
 
-## Shared frozen work
+| Mode | Campaign | Profile | Device and dtype | Machine A share | Machine B share |
+|---|---|---|---|---|---|
+| CUDA, recommended | `campaign_06_massive_release_cuda` | `core-cuda` | `cuda:0`, `float32` | 20 scenarios / 12,368 items | 21 scenarios / 13,430 items |
+| CPU | `campaign_05_massive_release` | `core-cpu` | `cpu`, `float32` | 20 scenarios / 12,368 items | 21 scenarios / 13,430 items |
 
-| Machine | Scenarios | Items | Repeated audio | CPU candidate | CUDA candidate |
-|---|---:|---:|---:|---|---|
-| A | 20 | 12,368 | 16.883 h | `assignment_5014479496c7` | `assignment_01f0cf86b339` |
-| B | 21 | 13,430 | 16.837 h | `assignment_53642fa92b2a` | `assignment_ea9976889bd2` |
+Do not merge CPU and CUDA work into one campaign. Device and dtype are result-affecting scenario identity fields.
 
-Candidate IDs document the coverage split. After `--bind-current-commit`, use the exact runtime IDs/hashes in each clone's `release_binding.json`. The global scenario IDs remain unchanged and assignments must have zero overlap.
+## 2. Clone, setup, and verify
 
-## Setup on both machines — CPU
-
-```powershell
-Set-Location <CLONE_ROOT>
-powershell -ExecutionPolicy Bypass -File scripts\prepare_execution_mode.ps1 -Mode cpu -InstallFFmpeg -DownloadModels
-$Repo = (Get-Location).Path
-$Eval = Join-Path $Repo 'Software Validation from Datasets\Evaluation Tool'
-$Python = Join-Path $Repo '.venv\Scripts\python.exe'
-& $Python "$Eval\scripts\materialize_launch_campaign.py" --launch-package "$Eval\configs\automated_evaluation\launch_package.v1.yaml" --automated-runs-root "$Eval\automated_runs" --bind-current-commit
-```
-
-## Setup on both machines — CUDA (use instead)
+Machine A CUDA:
 
 ```powershell
-Set-Location <CLONE_ROOT>
-powershell -ExecutionPolicy Bypass -File scripts\prepare_execution_mode.ps1 -Mode cuda -InstallFFmpeg -DownloadModels
-$Repo = (Get-Location).Path
-$Eval = Join-Path $Repo 'Software Validation from Datasets\Evaluation Tool'
-$Python = Join-Path $Repo '.stage8-envs\core-cuda\Scripts\python.exe'
-& $Python "$Eval\scripts\materialize_launch_campaign.py" --launch-package "$Eval\configs\automated_evaluation\launch_package.gpu.v1.yaml" --automated-runs-root "$Eval\automated_runs" --bind-current-commit
+git clone --branch handoff https://github.com/will-sloan/just-peachy.git
+cd just-peachy
+powershell -ExecutionPolicy Bypass -File scripts\setup_worker.ps1 -MachineId machine_a -Device cuda
+powershell -ExecutionPolicy Bypass -File scripts\verify_worker.ps1 -MachineId machine_a -Device cuda
 ```
 
-Set `$Python` and the launch package to the selected mode. Make the same licensed source paths and exact Dining/Restaurant RIR files available locally. Run each matching wrapper with `-PreflightOnly`. Compare both `release_binding.json` files before launch.
-
-## Launch — CPU
-
-After both CPU preflights pass:
+Machine B CUDA:
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File "$Eval\scripts\launch_campaign_machine_a.ps1"
-powershell -ExecutionPolicy Bypass -File "$Eval\scripts\launch_campaign_machine_b.ps1"
+git clone --branch handoff https://github.com/will-sloan/just-peachy.git
+cd just-peachy
+powershell -ExecutionPolicy Bypass -File scripts\setup_worker.ps1 -MachineId machine_b -Device cuda
+powershell -ExecutionPolicy Bypass -File scripts\verify_worker.ps1 -MachineId machine_b -Device cuda
 ```
 
-## Launch — CUDA (use instead)
+For CPU, replace `cuda` with `cpu` on both machines. If discovery fails, only the affected operator reruns setup with `-DatasetRoot`.
 
-After both CUDA preflights pass:
+Verification must finish with a clean release binding, one real prediction, and full assignment preflight: 20/20 on A and 21/21 on B. Machine B is not considered verified until this occurs physically on B.
+
+## 3. Launch independently
+
+Machine A:
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File "$Eval\scripts\launch_campaign_machine_a_gpu.ps1"
-powershell -ExecutionPolicy Bypass -File "$Eval\scripts\launch_campaign_machine_b_gpu.ps1"
+powershell -ExecutionPolicy Bypass -File scripts\launch_worker.ps1 -MachineId machine_a -Device cuda
 ```
 
-## Status, controlled stop, and assignment-scoped resume
+Machine B:
 
 ```powershell
-# CPU selection:
-$Campaign = Join-Path $Eval 'automated_runs\campaign_05_massive_release'
-# For CUDA, replace the previous line with:
-# $Campaign = Join-Path $Eval 'automated_runs\campaign_06_massive_release_cuda'
-& $Python "$Eval\run_evaluation.py" campaign status --campaign-root $Campaign
-& $Python "$Eval\run_evaluation.py" campaign stop --campaign-root $Campaign --reason 'operator request'
+powershell -ExecutionPolicy Bypass -File scripts\launch_worker.ps1 -MachineId machine_b -Device cuda
 ```
 
-Resume on A or B with its own wrapper and `-ResumeStopped`. Completed checksum-valid scenarios are skipped; partial artifacts are preserved; the other worker's assignment is not claimed.
+The workers may start at different times. Each local database leases only scenarios in that worker's immutable assignment. One GPU-heavy scenario runs at a time per machine.
 
-## Export and transfer
-
-CPU:
+## 4. Control a worker
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File "$Eval\scripts\export_machine_a_results.ps1" -Destination C:\campaign_transfers\campaign_05_massive_release\machine_a
-powershell -ExecutionPolicy Bypass -File "$Eval\scripts\export_machine_b_results.ps1" -Destination C:\campaign_transfers\campaign_05_massive_release\machine_b
+powershell -ExecutionPolicy Bypass -File scripts\worker_control.ps1 -Action status -MachineId machine_a -Device cuda
+powershell -ExecutionPolicy Bypass -File scripts\worker_control.ps1 -Action stop -MachineId machine_a -Device cuda
+powershell -ExecutionPolicy Bypass -File scripts\worker_control.ps1 -Action resume -MachineId machine_a -Device cuda
 ```
 
-CUDA (use instead):
+Use the correct machine ID on each computer. A stop is persistent. Resume is assignment-scoped, preserves completed work, validates successes, and never silently overwrites artifacts.
+
+## 5. Export each completed assignment
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File "$Eval\scripts\export_machine_a_gpu_results.ps1" -Destination C:\campaign_transfers\campaign_06_massive_release_cuda\machine_a
-powershell -ExecutionPolicy Bypass -File "$Eval\scripts\export_machine_b_gpu_results.ps1" -Destination C:\campaign_transfers\campaign_06_massive_release_cuda\machine_b
+powershell -ExecutionPolicy Bypass -File scripts\export_worker.ps1 -MachineId machine_a -Device cuda
+powershell -ExecutionPolicy Bypass -File scripts\export_worker.ps1 -MachineId machine_b -Device cuda
 ```
 
-Transfer those two folders intact. Do not move the live campaign database or share SQLite over a network drive.
+Each export is checksum-validated and rejected if assigned scenarios remain incomplete. Transfer only these folders:
 
-## Coordinator merge and analysis
+```text
+transfer_packages/
+  campaign_06_massive_release_cuda/
+    machine_a/
+    machine_b/
+```
 
-CPU:
+## 6. Merge and analyze
+
+On the coordinator clone:
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File "$Eval\scripts\merge_massive_campaign.ps1" -MachineATransfer C:\campaign_transfers\campaign_05_massive_release\machine_a -MachineBTransfer C:\campaign_transfers\campaign_05_massive_release\machine_b
-powershell -ExecutionPolicy Bypass -File "$Eval\scripts\analyze_massive_campaign.ps1" -PrerequisiteEvidence C:\approved\standard_gate.json
+powershell -ExecutionPolicy Bypass -File scripts\coordinator.ps1 -Action merge -Device cuda
+powershell -ExecutionPolicy Bypass -File scripts\coordinator.ps1 -Action analyze -Device cuda `
+  -PrerequisiteEvidence "Software Validation from Datasets\Evaluation Tool\automated_runs\campaign_04_standard_release_cuda\analysis\report\release_qualification.json"
 ```
 
-CUDA (use instead):
+Merge validates both transfers, checks all 41 global IDs, recognizes byte-identical duplicates, rejects conflicts, reports environment differences, and refuses missing or corrupt content. Analysis consumes the merged index and passed standard-gate evidence.
 
-```powershell
-powershell -ExecutionPolicy Bypass -File "$Eval\scripts\merge_gpu_campaign.ps1" -MachineATransfer C:\campaign_transfers\campaign_06_massive_release_cuda\machine_a -MachineBTransfer C:\campaign_transfers\campaign_06_massive_release_cuda\machine_b
-powershell -ExecutionPolicy Bypass -File "$Eval\scripts\analyze_gpu_campaign.ps1" -PrerequisiteEvidence C:\approved\standard_gate.json
-```
+## Recovery rules
 
-Merge must report 41 checksum-valid, globally unique scenarios and no conflicting duplicate. The final report is under the selected campaign's `analysis/report/campaign_report.md`.
+- If power or inference stops unexpectedly, run `status`, then the same worker's `resume` command.
+- If setup or preflight reports a missing dataset, supply the authorized root; never copy raw audio into a campaign.
+- If CUDA fails, repair CUDA or intentionally start a separate CPU campaign. Never reinterpret CUDA scenario IDs as CPU work.
+- If a transfer is interrupted, discard only the incomplete copied destination and recopy the original validated export. Do not modify its contents.
+- If duplicate results differ, preserve both folders and investigate; the coordinator must not choose one silently.

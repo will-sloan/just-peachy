@@ -3,11 +3,13 @@
 ## Purpose
 
 These scripts are thin launch-day wrappers around the existing Evaluation Tool
-CLI. They materialize the frozen campaign candidate, inspect every assigned
-scenario, run exactly one worker assignment, export checksummed results, merge
-independent transfers, and invoke the existing analysis workflow. They do not
-implement a second executor, store secrets, download models, or enable parallel
-GPU jobs.
+CLI. The root-level `scripts/setup_worker.ps1`, `verify_worker.ps1`, and
+`launch_worker.ps1` are the normal public interface. They automatically select
+these lower-level CPU/CUDA wrappers, materialize the frozen campaign, validate
+the release binding and every assigned scenario, run exactly one worker
+assignment, export checksummed results, merge independent transfers, and invoke
+the existing analysis workflow. They do not implement a second executor, store
+secrets, or enable parallel GPU jobs.
 
 ## Inputs and outputs
 
@@ -21,13 +23,13 @@ campaign in `automated_runs`; machine-local preflight JSON is written to
 
 ## PowerShell
 
-Run from `Software Validation from Datasets/Evaluation Tool`:
+Run the supported high-level interface from the repository root:
 
 ```powershell
-python scripts/materialize_launch_campaign.py --bind-current-commit
-powershell -ExecutionPolicy Bypass -File scripts/launch_campaign_machine_a.ps1 -PreflightOnly
-powershell -ExecutionPolicy Bypass -File scripts/launch_campaign_machine_a.ps1
-powershell -ExecutionPolicy Bypass -File scripts/launch_campaign_machine_b.ps1
+powershell -ExecutionPolicy Bypass -File scripts\setup_worker.ps1 -MachineId machine_a -Device cuda
+powershell -ExecutionPolicy Bypass -File scripts\verify_worker.ps1 -MachineId machine_a -Device cuda
+powershell -ExecutionPolicy Bypass -File scripts\launch_worker.ps1 -MachineId machine_a -Device cuda -PreflightOnly
+powershell -ExecutionPolicy Bypass -File scripts\launch_worker.ps1 -MachineId machine_a -Device cuda
 ```
 
 The CPU wrappers bind `campaign_05_massive_release`, `core-cpu`, `cpu`, and
@@ -53,17 +55,21 @@ powershell -ExecutionPolicy Bypass -File scripts/analyze_massive_campaign.ps1 `
   -PrerequisiteEvidence automated_runs/campaign_04_standard_release/analysis/report/release_qualification.json
 ```
 
-Each launch wrapper first validates the global campaign, both assignments, the
-local machine profile, and every scenario in its assignment. A preflight
-blocker returns non-zero before inference starts. Export refuses to overwrite a
+Each launch wrapper first validates the global campaign, release-binding
+checksum/content, Git commit, launch-package hash, both assignments, local
+machine profile, and every scenario in its assignment. A preflight blocker
+returns non-zero before inference starts. Export refuses to overwrite a
 destination and refuses to call a partial transfer complete.
 
-`--bind-current-commit` is the clean post-commit release path. It avoids an
+`--bind-current-commit` is the clean post-commit release path used automatically
+by worker setup. It avoids an
 impossible self-referential commit hash in a tracked file by deterministically
 binding both ignored runtime assignments to the checkout's actual HEAD. Both
 machines must compare
-`automated_runs/campaign_05_massive_release/worker_assignments/release_binding.json`;
-the files must be byte-identical before launch. Omit the flag only to reproduce
+`automated_runs/campaign_05_massive_release/worker_assignments/release_binding.json`
+and `release_binding.sha256`; the files must be byte-identical before launch.
+The high-level validator reports `release binding: PASS` or `FAIL`; the operator
+does not inspect JSON manually. Omit the flag only to reproduce
 the pre-commit candidate identities recorded in the versioned package.
 
 ## Anaconda Prompt or Command Prompt

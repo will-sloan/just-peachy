@@ -57,7 +57,7 @@ function Model-BootstrapArguments {
     switch ($Profile) {
         "core-cuda" {
             return @(
-                "--whisper", "base", "--speechbrain-ecapa", "--silero",
+                "--whisper", "tiny,base,small", "--speechbrain-ecapa", "--silero",
                 "--device", "cuda"
             )
         }

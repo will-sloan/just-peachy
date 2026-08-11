@@ -1,6 +1,12 @@
 # Automated Evaluation Quick Reference
 
-Use these commands from `Software Validation from Datasets\Evaluation Tool` after activating the correct environment. Replace example campaign IDs, worker IDs, scenario IDs, and transfer paths. See [System guide](system_guide.md) for meaning, prerequisites, and limitations.
+> **Production operators:** use the root [`START_HERE.md`](../../../../START_HERE.md)
+> commands. They select the interpreter, campaign, assignment, model paths, and
+> device automatically; no activation, placeholder replacement, credential, or
+> configuration edit is part of routine operation. The lower-level examples in
+> this reference are retained for development and diagnostics.
+
+See [System guide](system_guide.md) for meaning, prerequisites, and limitations.
 
 ## Supported Machine A campaigns
 

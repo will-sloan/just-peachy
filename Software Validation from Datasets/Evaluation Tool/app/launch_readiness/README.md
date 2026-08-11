@@ -2,13 +2,21 @@
 
 ## Purpose
 
-This package provides the final machine and complete-assignment checks required before a frozen campaign is launched. It verifies every assigned scenario, not a sample. It does not run inference, download models, install packages, or expose credential values.
+This package provides the final machine, release-binding, and
+complete-assignment checks required before a frozen campaign is launched. It
+verifies every assigned scenario, not a sample. It does not run inference,
+download models, install packages, or expose credential values.
 
 The checks cover campaign and assignment identity, Git commit and dirty state, environment profile, component qualification and compatibility, package versions, credential presence, model asset sizes and hashes, every selected source-audio file and segment bound, exact RIR files and hashes, output writability, RAM, and estimated disk capacity. A report says `READY_TO_LAUNCH` only when all assigned scenarios pass.
 
 ## Inputs and outputs
 
-Inputs are a complete repository clone, project data directory, frozen campaign, worker assignment YAML, environment-profile label, machine ID, and local output directory. Outputs are a privacy-safe machine profile JSON and an assignment-preflight JSON. Credential names and presence may be recorded; values are never recorded.
+Inputs are a complete repository clone, project data directory, frozen
+campaign, worker assignment YAML, release binding/checksum, launch package,
+environment-profile label, machine ID, and local output directory. Outputs are
+a privacy-safe machine profile JSON, release-binding validation JSON, and an
+assignment-preflight JSON. Credential values are never recorded; the supported
+production campaign requires no credentials.
 
 ## Anaconda Prompt or Command Prompt
 
@@ -49,7 +57,18 @@ required by the frozen Whisper Base massive-campaign candidate.
 
 ## PowerShell
 
-The same commands work in PowerShell using backticks instead of carets for line continuation. Use the exact commands generated in `docs/automated_evaluation/launch_control_sheet.md` for the frozen release campaign.
+The normal operator does not run these low-level probes manually. From the
+repository root use:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\setup_worker.ps1 -MachineId machine_a -Device cuda
+powershell -ExecutionPolicy Bypass -File scripts\verify_worker.ps1 -MachineId machine_a -Device cuda
+powershell -ExecutionPolicy Bypass -File scripts\launch_worker.ps1 -MachineId machine_a -Device cuda -PreflightOnly
+```
+
+The launch wrapper first validates `release_binding.json` and its SHA-256
+sidecar against Git HEAD, the frozen launch package, both assignments, and the
+global campaign. The same commands accept `cpu` explicitly.
 
 ## Frozen campaign materialization and assignment-safe resume
 
@@ -72,5 +91,5 @@ cd /d C:\Users\amiri\Documents\GitHub\just-peachy
 .venv\Scripts\activate
 cd "Software Validation from Datasets\Evaluation Tool"
 python -m pytest tests\automated_evaluation\test_stage14_launch_readiness.py -q
-python -m ruff check --no-cache app\launch_readiness scripts\launch_readiness_probe.py tests\automated_evaluation\test_stage14_launch_readiness.py
+python -m ruff check --no-cache app\launch_readiness scripts\launch_readiness_probe.py scripts\validate_release_binding.py tests\automated_evaluation\test_stage14_launch_readiness.py
 ```

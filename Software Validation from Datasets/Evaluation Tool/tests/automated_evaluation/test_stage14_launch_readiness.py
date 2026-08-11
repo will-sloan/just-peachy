@@ -18,7 +18,12 @@ from app.benchmark_contracts.scenario import finalize_scenario
 from app.campaign_exchange import create_worker_assignment
 from app.campaign_executor.planner import plan_campaign
 from app.inference_pipeline.catalog import ComponentCatalogEntry
-from app.launch_readiness import credential_readiness, preflight_worker_assignment
+from app.launch_readiness import (
+    ReleaseBindingError,
+    credential_readiness,
+    preflight_worker_assignment,
+    validate_release_binding,
+)
 from app.launch_readiness.preflight import (
     LAUNCH_PREFLIGHT_SCHEMA_VERSION,
     _execution_runtime_checks,
@@ -514,3 +519,171 @@ def test_post_commit_materialization_binds_assignments_without_source_edit(
     assert assignment_b["expected_git_commit"] == bound_commit
     assert report["assignment_validation"]["assigned_scenario_count"] == 41
     assert report["assignment_validation"]["overlaps"] == []
+    checksum = (
+        campaign_root / "worker_assignments" / "release_binding.sha256"
+    ).read_text(encoding="ascii").strip()
+    assert checksum == f"{file_sha256(campaign_root / 'worker_assignments' / 'release_binding.json')}  release_binding.json"
+
+
+def test_release_binding_validator_checks_commit_package_and_checksum(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    bound_commit = "c" * 40
+    monkeypatch.setattr(materializer, "current_git_commit", lambda _root: bound_commit)
+    package_path = (
+        TOOL_ROOT / "configs" / "automated_evaluation" / "launch_package.v1.yaml"
+    )
+    materialized = materializer.materialize(
+        package_path,
+        tmp_path / "runs",
+        bind_current_commit=True,
+    )
+    campaign_root = Path(str(materialized["campaign_root"]))
+    monkeypatch.setattr(
+        "app.launch_readiness.release_binding.current_git_commit",
+        lambda _root: bound_commit,
+    )
+
+    report = validate_release_binding(
+        campaign_root,
+        repository_root=tmp_path,
+        expected_environment_profile="core-cpu",
+        worker_id="machine_a",
+        launch_package_path=package_path,
+    )
+
+    assert report["status"] == "PASS"
+    assert report["bound_git_commit"] == bound_commit
+    assert report["assignment_set"]["missing_scenario_ids"] == []
+
+    binding_path = campaign_root / "worker_assignments" / "release_binding.json"
+    binding_path.write_text("{}\n", encoding="utf-8")
+    with pytest.raises(ReleaseBindingError, match="checksum"):
+        validate_release_binding(
+            campaign_root,
+            repository_root=tmp_path,
+            expected_environment_profile="core-cpu",
+            worker_id="machine_a",
+            launch_package_path=package_path,
+        )
+
+
+def test_rebinding_archives_only_unstarted_assignments(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    package_path = (
+        TOOL_ROOT / "configs" / "automated_evaluation" / "launch_package.v1.yaml"
+    )
+    first_commit = "d" * 40
+    second_commit = "e" * 40
+    monkeypatch.setattr(materializer, "current_git_commit", lambda _root: first_commit)
+    first = materializer.materialize(
+        package_path,
+        tmp_path / "runs",
+        bind_current_commit=True,
+    )
+    campaign_root = Path(str(first["campaign_root"]))
+    first_assignment = yaml.safe_load(
+        (campaign_root / "worker_assignments" / "machine_a.yaml").read_text(
+            encoding="utf-8"
+        )
+    )
+
+    monkeypatch.setattr(materializer, "current_git_commit", lambda _root: second_commit)
+    materializer.materialize(
+        package_path,
+        tmp_path / "runs",
+        bind_current_commit=True,
+    )
+
+    archived = (
+        campaign_root
+        / "worker_assignments"
+        / "history"
+        / f"machine_a_{first_assignment['assignment_id']}.yaml"
+    )
+    current = yaml.safe_load(
+        (campaign_root / "worker_assignments" / "machine_a.yaml").read_text(
+            encoding="utf-8"
+        )
+    )
+    assert archived.is_file()
+    assert current["expected_git_commit"] == second_commit
+
+
+def test_rebinding_refuses_after_campaign_work_state_changes(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    package_path = (
+        TOOL_ROOT / "configs" / "automated_evaluation" / "launch_package.v1.yaml"
+    )
+    monkeypatch.setattr(materializer, "current_git_commit", lambda _root: "f" * 40)
+    first = materializer.materialize(
+        package_path,
+        tmp_path / "runs",
+        bind_current_commit=True,
+    )
+    campaign_root = Path(str(first["campaign_root"]))
+    manifest = json.loads(
+        (campaign_root / "campaign_manifest.json").read_text(encoding="utf-8")
+    )
+    from app.campaign_executor.state import CampaignStateStore
+
+    state = CampaignStateStore(campaign_root / "database" / "campaign.sqlite")
+    state.request_stop(
+        str(manifest["campaign_id"]),
+        scenario_id=str(manifest["scenario_ids"][0]),
+        reason="fixture changed state",
+    )
+    monkeypatch.setattr(materializer, "current_git_commit", lambda _root: "1" * 40)
+
+    with pytest.raises(materializer.LaunchPackageError, match="work has started"):
+        materializer.materialize(
+            package_path,
+            tmp_path / "runs",
+            bind_current_commit=True,
+        )
+
+
+def test_production_entrypoints_cover_automatic_cpu_cuda_operation() -> None:
+    repository = TOOL_ROOT.parents[1]
+    setup = (repository / "scripts" / "setup_worker.ps1").read_text(
+        encoding="utf-8-sig"
+    )
+    verify = (repository / "scripts" / "verify_worker.ps1").read_text(
+        encoding="utf-8-sig"
+    )
+    launch = (repository / "scripts" / "launch_worker.ps1").read_text(
+        encoding="utf-8-sig"
+    )
+    control = (repository / "scripts" / "worker_control.ps1").read_text(
+        encoding="utf-8-sig"
+    )
+    assert 'ValidateSet("cpu", "cuda")' in setup
+    assert '"-InstallFFmpeg", "-DownloadModels"' in setup
+    assert "JUST_PEACHY_DATASET_ROOT" in setup
+    assert "New-Item -ItemType Junction" in setup
+    for relative_path, expected_sha256 in (
+        (
+            r"models\cache\whisper\tiny.pt",
+            "65147644A518D12F04E32D6F3B26FACC3F8DD46E5390956A9424A650C0CE22B9",
+        ),
+        (
+            r"models\cache\whisper\base.pt",
+            "ED3A0B6B1C0EDF879AD9B11B1AF5A0E6AB5DB9205F891F668F8B0E6C6326E34E",
+        ),
+        (
+            r"models\cache\whisper\small.pt",
+            "9ECF779972D90BA49C06D968637D720DD632C55BBF19D441FB42BF17A411E794",
+        ),
+    ):
+        assert f'"{relative_path}" = "{expected_sha256}"' in setup
+    assert "validate_release_binding.py" in setup
+    assert '"--require-models"' in verify
+    assert "-PreflightOnly" in verify
+    assert "[switch]$PreflightOnly" in launch
+    assert 'ValidateSet("status", "stop", "resume")' in control
+    assert '"--assignment", $context.Assignment' in control

@@ -114,6 +114,47 @@ def merge_worker_results(
                 }
             )
 
+    # A process interruption can occur after a scenario directory is
+    # atomically published but before the merged index is published.  Recover
+    # only byte-identical directories.  A differing unindexed directory is a
+    # conflict and is never overwritten silently.
+    for scenario_id, candidate in sorted(candidates.items()):
+        target = scenario_target_root / scenario_id
+        if not target.exists():
+            continue
+        observed_hash = directory_sha256(target)
+        if observed_hash == candidate["tree_sha256"]:
+            candidate["recovered_unindexed_target"] = True
+            duplicate_rows.append(
+                {
+                    "scenario_id": scenario_id,
+                    "classification": "byte_identical_interrupted_publication",
+                    "sources": [str(target), candidate["source"]],
+                }
+            )
+        else:
+            conflicts.append(
+                {
+                    "scenario_id": scenario_id,
+                    "classification": "conflicting_unindexed_result",
+                    "existing_tree_sha256": observed_hash,
+                    "incoming_tree_sha256": candidate["tree_sha256"],
+                    "incoming_source": candidate["source"],
+                }
+            )
+
+    if scenario_target_root.is_dir():
+        recognized_targets = set(existing_rows) | set(candidates)
+        for target in sorted(scenario_target_root.iterdir()):
+            if target.is_dir() and target.name not in recognized_targets:
+                conflicts.append(
+                    {
+                        "scenario_id": target.name,
+                        "classification": "unrecognized_unindexed_result",
+                        "existing_tree_sha256": directory_sha256(target),
+                    }
+                )
+
     timestamp = utc_timestamp(created_at)
     if invalid or conflicts:
         report = _merge_report(
@@ -136,6 +177,8 @@ def merge_worker_results(
 
     for scenario_id, candidate in sorted(candidates.items()):
         target = scenario_target_root / scenario_id
+        if candidate.get("recovered_unindexed_target") is True:
+            continue
         if target.exists():
             raise MergeRejectedError(
                 f"unindexed merged scenario already exists; refusing overwrite: {target}"
@@ -264,9 +307,8 @@ def _load_existing_index(
     if not path.is_file():
         if required:
             raise CampaignExchangeError("merged result index is missing")
-        scenario_root = merged_root / "scenarios"
-        if scenario_root.is_dir() and any(scenario_root.iterdir()):
-            raise CampaignExchangeError("merged scenarios exist without an index")
+        # The caller reconciles any directories left after an interrupted
+        # publication against incoming checksums before creating a new index.
         return {}
     index = read_json_mapping(path)
     if index.get("schema_version") != MERGED_INDEX_SCHEMA_VERSION:

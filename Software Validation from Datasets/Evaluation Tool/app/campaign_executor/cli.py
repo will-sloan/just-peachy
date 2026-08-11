@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+from collections import Counter
 from dataclasses import asdict
 import json
 from pathlib import Path
@@ -91,6 +92,12 @@ def add_campaign_parser(subparsers: argparse._SubParsersAction) -> None:
 
     status = actions.add_parser("status", help="Show queue and terminal-state counts")
     status.add_argument("--campaign-root", required=True, type=Path)
+    status.add_argument(
+        "--assignment",
+        type=Path,
+        default=None,
+        help="Restrict status counts to one validated worker assignment",
+    )
     status.set_defaults(func=command_campaign_status)
 
     stop = actions.add_parser("stop", help="Request a campaign or scenario stop")
@@ -277,8 +284,41 @@ def command_campaign_run(args: argparse.Namespace) -> None:
 
 
 def command_campaign_status(args: argparse.Namespace) -> None:
-    _root, campaign_id, state = _campaign_state(args.campaign_root)
-    print(json.dumps(state.summary(campaign_id), indent=2))
+    root, campaign_id, state = _campaign_state(args.campaign_root)
+    campaign_summary = state.summary(campaign_id)
+    if args.assignment is None:
+        print(json.dumps(campaign_summary, indent=2))
+        return
+    assignment = validate_worker_assignment(root, args.assignment.resolve())
+    selected_ids = set(assignment["scenario_ids"])
+    selected = [
+        row for row in state.scenarios(campaign_id) if row.scenario_id in selected_ids
+    ]
+    if len(selected) != len(selected_ids):
+        raise ValueError("assignment status could not reconcile every scenario")
+    counts = dict(sorted(Counter(row.state for row in selected).items()))
+    complete = sum(
+        count
+        for name, count in counts.items()
+        if name in {"succeeded", "succeeded_with_warnings"}
+    )
+    print(
+        json.dumps(
+            {
+                "schema_version": "worker-assignment-status-summary.v1",
+                "campaign_id": campaign_id,
+                "assignment_id": assignment["assignment_id"],
+                "worker_id": assignment["worker_id"],
+                "total_scenarios": len(selected),
+                "complete_scenarios": complete,
+                "remaining_scenarios": len(selected) - complete,
+                "state_counts": counts,
+                "stop_requested": campaign_summary["stop_requested"],
+                "stop_reason": campaign_summary["stop_reason"],
+            },
+            indent=2,
+        )
+    )
 
 
 def command_campaign_stop(args: argparse.Namespace) -> None:

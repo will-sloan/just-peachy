@@ -27,8 +27,9 @@ from app.campaign_exchange import (  # noqa: E402
     current_git_commit,
     validate_assignment_set,
 )
-from app.campaign_exchange.common import atomic_write_json  # noqa: E402
+from app.campaign_exchange.common import atomic_write_bytes, atomic_write_json  # noqa: E402
 from app.campaign_executor.planner import plan_campaign, validate_campaign  # noqa: E402
+from app.campaign_executor.state import CampaignStateStore  # noqa: E402
 
 
 class LaunchPackageError(RuntimeError):
@@ -94,8 +95,12 @@ def materialize(
         scenario_catalog=catalog,
         automated_runs_root=automated_runs_root.resolve(),
         campaign_id=campaign_id,
-        scenario_ids=[str(value) for value in massive["scenario_ids"]],
-        default_max_retries=int(massive["default_max_retries"]),
+        scenario_ids=[
+            str(value) for value in _items(massive.get("scenario_ids"), "scenario IDs")
+        ],
+        default_max_retries=_integer(
+            massive.get("default_max_retries"), "default max retries"
+        ),
         created_at=_timestamp(str(massive["created_at_utc"])),
         registry=ArtifactRegistry.load_version(LATEST_ARTIFACT_REGISTRY_VERSION),
     )
@@ -110,6 +115,12 @@ def materialize(
     assignment_paths: list[Path] = []
     assignment_results: dict[str, object] = {}
     workers = _mapping(massive.get("workers"), "workers")
+    if bind_current_commit:
+        _archive_stale_pending_assignments(
+            campaign_root,
+            workers,
+            bound_commit=bound_commit,
+        )
     for worker_name in ("machine_a", "machine_b"):
         worker = _mapping(workers.get(worker_name), worker_name)
         relative_assignment = Path(str(worker["assignment_path"]))
@@ -119,7 +130,10 @@ def materialize(
             worker_id=str(worker["worker_id"]),
             expected_git_commit=bound_commit,
             expected_environment_profile=str(massive["environment_profile"]),
-            scenario_ids=[str(value) for value in worker["scenario_ids"]],
+            scenario_ids=[
+                str(value)
+                for value in _items(worker.get("scenario_ids"), "worker scenario IDs")
+            ],
             notes=str(worker["notes"]),
             created_at=_timestamp(str(worker["created_at_utc"])),
             output_path=output,
@@ -153,6 +167,14 @@ def materialize(
     }
     release_binding_path = campaign_root / "worker_assignments" / "release_binding.json"
     atomic_write_json(release_binding_path, release_binding)
+    release_binding_hash = file_sha256(release_binding_path)
+    release_binding_hash_path = (
+        campaign_root / "worker_assignments" / "release_binding.sha256"
+    )
+    atomic_write_bytes(
+        release_binding_hash_path,
+        f"{release_binding_hash}  release_binding.json\n".encode("ascii"),
+    )
     return {
         "schema_version": "launch-campaign-materialization.v1",
         "campaign_id": campaign_id,
@@ -163,11 +185,67 @@ def materialize(
         "assignment_validation": validation,
         "release_binding": {
             "path": release_binding_path.relative_to(campaign_root).as_posix(),
-            "sha256": file_sha256(release_binding_path),
+            "sha256": release_binding_hash,
+            "sha256_path": release_binding_hash_path.relative_to(
+                campaign_root
+            ).as_posix(),
             **release_binding,
         },
         "valid": True,
     }
+
+
+def _archive_stale_pending_assignments(
+    campaign_root: Path,
+    workers: Mapping[str, object],
+    *,
+    bound_commit: str,
+) -> None:
+    """Preserve stale bindings only when no scenario work has started.
+
+    Runtime assignments bind a frozen campaign to a checkout after publication.
+    Re-running setup at a newer checkout may therefore need a new assignment
+    identity.  Moving an assignment after work starts would make result
+    provenance ambiguous, so this path is intentionally limited to an entirely
+    pending campaign.
+    """
+
+    stale: list[tuple[Path, Mapping[str, object]]] = []
+    for worker_name in ("machine_a", "machine_b"):
+        worker = _mapping(workers.get(worker_name), worker_name)
+        path = campaign_root / Path(str(worker["assignment_path"]))
+        if not path.is_file():
+            continue
+        existing = _read_mapping(path)
+        if str(existing.get("expected_git_commit") or "") != bound_commit:
+            stale.append((path, existing))
+    if not stale:
+        return
+
+    manifest = json.loads(
+        (campaign_root / "campaign_manifest.json").read_text(encoding="utf-8")
+    )
+    state = CampaignStateStore(campaign_root / "database" / "campaign.sqlite")
+    summary = state.summary(str(manifest["campaign_id"]))
+    expected = len(manifest["scenario_ids"])
+    if summary["state_counts"] != {"pending": expected}:
+        raise LaunchPackageError(
+            "refusing to rebind stale assignments after campaign work has started"
+        )
+
+    history = campaign_root / "worker_assignments" / "history"
+    history.mkdir(parents=True, exist_ok=True)
+    for path, existing in stale:
+        assignment_id = str(existing.get("assignment_id") or "unknown")
+        target = history / f"{path.stem}_{assignment_id}.yaml"
+        if target.exists():
+            if target.read_bytes() != path.read_bytes():
+                raise LaunchPackageError(
+                    f"stale assignment history conflicts: {target}"
+                )
+            path.unlink()
+        else:
+            path.replace(target)
 
 
 def _read_mapping(path: Path) -> Mapping[str, object]:
@@ -179,6 +257,18 @@ def _mapping(value: object, label: str) -> Mapping[str, object]:
     if not isinstance(value, Mapping):
         raise LaunchPackageError(f"{label} must be a mapping")
     return value
+
+
+def _items(value: object, label: str) -> list[object]:
+    if not isinstance(value, list):
+        raise LaunchPackageError(f"{label} must be a list")
+    return value
+
+
+def _integer(value: object, label: str) -> int:
+    if isinstance(value, bool) or not isinstance(value, (int, str)):
+        raise LaunchPackageError(f"{label} must be an integer")
+    return int(value)
 
 
 def _timestamp(value: str) -> datetime:
@@ -193,7 +283,7 @@ def main(argv: list[str] | None = None) -> int:
             args.automated_runs_root,
             bind_current_commit=args.bind_current_commit,
         )
-    except (LaunchPackageError, FileNotFoundError, KeyError, ValueError) as exc:
+    except (RuntimeError, FileNotFoundError, KeyError, ValueError) as exc:
         print(
             f"launch materialization failed: {type(exc).__name__}: {exc}",
             file=sys.stderr,

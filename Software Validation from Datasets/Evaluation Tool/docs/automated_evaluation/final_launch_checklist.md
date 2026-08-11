@@ -1,54 +1,77 @@
-# Final CPU/CUDA launch checklist
+# Final launch checklist
 
-Check every item. Any unchecked blocking item means do not launch the massive campaign.
+## Production completion
 
-## Repository and contracts
+- [x] CPU setup is automatic, isolated, idempotent, and verified from a clean clone.
+- [x] CUDA setup is automatic, isolated, idempotent, and verified from a clean clone.
+- [x] Whisper Tiny, Base, Small, SpeechBrain ECAPA, and Silero are installed by setup; configured model hashes validate.
+- [x] FFmpeg is installed or detected automatically and wrappers refresh PATH without a terminal restart.
+- [x] No production API key, credential, license acceptance, or hosted account is required.
+- [x] Authorized Machine A datasets are discovered/linked automatically without copying raw audio.
+- [x] CPU real evaluator smoke produces one valid prediction, metrics, plots, and report.
+- [x] CUDA real evaluator smoke uses `cuda:0` on the RTX 3080 and records nonzero VRAM.
+- [x] CPU and CUDA float32 are distinct canonical scientific identities; CUDA cannot silently fall back.
+- [x] The 7-scenario executable canary and all 9 active component qualifications pass.
+- [x] The 26-scenario CUDA small campaign executes and passes release qualification.
+- [x] The 41-scenario CUDA standard campaign executes and passes release qualification.
+- [x] The 41-scenario CUDA massive campaign validates with two non-overlapping assignments and a checksummed release binding.
+- [x] Machine A's complete 20-scenario/12,368-item CUDA preflight says `READY_TO_LAUNCH`.
+- [x] A real six-case CUDA rehearsal proves execution, status, controlled stop, assignment resume, export, transfer validation, merge, and analysis.
+- [x] A bounded CPU campaign run proves the CPU executor path after CUDA integration.
+- [x] Relevant tests, Ruff, mypy, PowerShell parsing, CPU/CUDA `pip check`, Markdown consistency, DOCX generation, and rendered-page QA pass.
+- [x] Raw datasets, model caches, environments, runtime databases, secrets, and large run output are excluded from Git.
 
-- [ ] Both machines are on branch `handoff` at the same approved final commit.
-- [ ] `git status --short` is clean before runtime artifacts.
-- [ ] One mode is selected on both workers: CPU campaign `campaign_05_massive_release` or CUDA campaign `campaign_06_massive_release_cuda`.
-- [ ] Selected campaign and scenario catalog hashes match the launch control sheet.
-- [ ] Runtime `release_binding.json` names the checked-out commit on both machines.
-- [ ] Assignment validation reports 20 A scenarios, 21 B scenarios, zero overlap, and 41 total.
-- [ ] Preserved CPU campaign files and identities are unchanged.
+## Release identity
 
-## Environment and assets
+- [ ] Both physical workers have cloned the same published `handoff` commit.
+- [ ] Both setup reports name the same selected campaign mode.
+- [ ] Both launch preflights print `release binding: PASS`.
+- [ ] Both release bindings name the current `git rev-parse HEAD`, the same campaign manifest hash, and matching launch-package hash.
+- [ ] Machine A assignment is 20 scenarios; Machine B assignment is 21; overlap is zero; union is all 41.
+- [ ] Both operators selected CUDA campaign `campaign_06_massive_release_cuda`, or both explicitly selected CPU campaign `campaign_05_massive_release`.
+- [ ] The matching standard release-qualification artifact exists and has `passed: true`.
 
-- [ ] CPU workers use `.venv`, `core-cpu`, `cpu`, float32, CPU PyTorch, and require no GPU.
-- [ ] CUDA workers use `.stage8-envs/core-cuda`, `core-cuda`, `cuda:0`, float32, CUDA PyTorch, and nonzero VRAM.
-- [ ] Both modes pass `pip check`, verifier, real evaluator smoke, and no-fallback checks.
-- [ ] Whisper Base is 145,262,807 bytes with SHA `ED3A0B6B1C0EDF879AD9B11B1AF5A0E6AB5DB9205F891F668F8B0E6C6326E34E`.
-- [ ] FFmpeg is visible in the launch shell.
-- [ ] Every licensed source file and segment bound is readable.
-- [ ] Dining and Restaurant RIR hashes pass; Bedroom remains excluded without substitution.
-- [ ] A has at least 7.2 GiB and B at least 7.3 GiB free; coordinator has at least 15 GiB.
-- [ ] No campaign credentials are required or present in shared artifacts.
+## Machine A launch-day checks
 
-## Readiness and scientific authorization
+- [x] Final acceptance proved Windows 11, RTX 3080 with 10,240 MiB VRAM, driver 610.62, Python 3.12.7, PyTorch 2.11.0+cu128, CUDA 12.8, and FFmpeg 8.1.2.
+- [x] Final acceptance proved all Machine A models, sources, bounds, Dining/Restaurant RIRs, output location, RAM, and estimated disk reserve.
+- [ ] Rerun immediately before launch:
 
-- [x] Machine A CPU and CUDA clean-clone preflights each said `READY_TO_LAUNCH`, 20/20 scenarios, 12,368 items.
-- [ ] Machine B complete preflight says `READY_TO_LAUNCH`, 21/21 scenarios, 13,430 items.
-- [ ] Machine B runtime estimate was measured on its own hardware.
-- [ ] Component canary is approved for the exact selected CPU or CUDA configuration.
-- [ ] Small gate is approved.
-- [ ] Standard gate is approved and prerequisite evidence is frozen.
-- [ ] For CUDA, both operators close unrelated GPU-heavy applications and record launch time; CPU operators record a quiescent system.
-- [ ] For CUDA, one GPU-heavy scenario at a time is configured on each machine.
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\verify_worker.ps1 -MachineId machine_a -Device cuda
+```
 
-## Execution and completion
+- [ ] Confirm `READY_TO_LAUNCH`, 20/20 scenarios, 12,368 items, and zero blockers.
 
-- [ ] Both matching wrappers pass `-PreflightOnly` before launch.
-- [ ] CPU uses unsuffixed launch wrappers; CUDA uses `_gpu` launch wrappers.
-- [ ] Operators know the status, controlled stop, and `-ResumeStopped` commands.
-- [ ] Each assignment completes with checksum-valid artifacts and no unexplained missing/failed items.
-- [ ] Each worker exports its own transfer folder; transfer checksums validate.
-- [ ] Merge reports 41/41 global scenarios, no missing work, and no conflicting duplicate.
-- [ ] Analysis receives the approved standard-gate evidence.
-- [ ] Final report exists at `automated_runs/campaign_05_massive_release/analysis/report/campaign_report.md` for CPU or `automated_runs/campaign_06_massive_release_cuda/analysis/report/campaign_report.md` for CUDA.
+## Machine B required checks
 
-## Sign-off
+- [ ] Machine B has physically run setup; no Machine A profile is being reused as proof.
+- [ ] Authorized AMI, CHiME-6, CMU Arctic, HiFiTTS, LibriSpeech, VOiCES, Dining RIR, and Restaurant RIR assets resolve on B.
+- [ ] The selected CPU or CUDA environment passes `pip check` and real evaluator verification.
+- [ ] For CUDA, B reports its actual GPU and records nonzero evaluator VRAM; no CPU fallback occurred.
+- [ ] B output is writable and free disk exceeds its estimated 2.47 GB artifacts plus 5 GiB reserve.
+- [ ] B preflight says `READY_TO_LAUNCH`, 21/21 scenarios, 13,430 items, and zero blockers.
 
-- [ ] Amir approves Machine A evidence.
-- [ ] Machine B operator approves Machine B evidence.
-- [ ] Scientific owner authorizes the massive run.
-- [ ] Final verdict has been changed from `NOT_AUTHORIZED_FOR_MASSIVE_LAUNCH` only after all blocking boxes above are checked.
+Machine B physical qualification is the only current external launch blocker. Optional Pyannote, Falcon, NeMo, WeNet, and Bedroom RIR work is not required.
+
+## Execute and control
+
+- [ ] Machine A runs `launch_worker.ps1 -MachineId machine_a -Device cuda`.
+- [ ] Machine B runs `launch_worker.ps1 -MachineId machine_b -Device cuda`.
+- [ ] Each operator confirms assignment-scoped status with `worker_control.ps1 -Action status`.
+- [ ] If stopping, record the reason and use the same machine ID for assignment-scoped resume.
+- [ ] Every worker scenario finishes `succeeded` or `succeeded_with_warnings`; no invalid, terminal failure, timeout, OOM, or unresolved temporary file remains.
+
+## Export, transfer, merge, and report
+
+- [ ] Each operator runs `export_worker.ps1` only after its assignment is complete.
+- [ ] Both transfer manifests validate and report zero unexported scenarios.
+- [ ] Copy only `transfer_packages/campaign_06_massive_release_cuda/machine_a` and `machine_b` to the coordinator.
+- [ ] Coordinator merge validates checksums, reconciles all 41 IDs, and reports zero missing or conflicting duplicate.
+- [ ] Coordinator analysis uses `campaign_04_standard_release_cuda/analysis/report/release_qualification.json` as prerequisite evidence.
+- [ ] Final report exists at `automated_runs/campaign_06_massive_release_cuda/analysis/report/campaign_report.md`.
+- [ ] Archive the campaign manifest, assignments, release binding, transfer manifests, merged index, release qualification, and final report together.
+
+## Launch authorization
+
+Authorize the two-machine run only when every unchecked item above the execution section is completed. Do not edit frozen manifests to bypass a failure; correct the stated machine/data condition and rerun setup or verification.

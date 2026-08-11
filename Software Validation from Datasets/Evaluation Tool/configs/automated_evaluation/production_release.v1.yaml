@@ -1,0 +1,99 @@
+schema_version: production-release.v1
+seed: 3800
+
+production_scope:
+  credentials_required: []
+  active_components:
+    asr: [whisper_tiny, whisper_base, whisper_small]
+    vad: [no_op_vad, energy_vad, silero_vad]
+    segmentation: [no_op_segmentation, vad_chunks]
+    speaker_embedding: [no_op_speaker_embedding, speechbrain_ecapa]
+    speaker_matching: [no_op_speaker_matching, cosine_threshold]
+    diarization: [no_op_diarization]
+  excluded_optional_backends:
+    - pyannote_community
+    - picovoice_falcon
+    - nemo_diarization
+    - wenet
+    - sherpa_onnx
+    - vosk
+    - faster_whisper
+    - resemblyzer
+    - wespeaker
+    - webrtc_vad
+  required_models:
+    - {id: whisper_tiny, path: models/cache/whisper/tiny.pt, sha256: 65147644A518D12F04E32D6F3B26FACC3F8DD46E5390956A9424A650C0CE22B9}
+    - {id: whisper_base, path: models/cache/whisper/base.pt, sha256: ED3A0B6B1C0EDF879AD9B11B1AF5A0E6AB5DB9205F891F668F8B0E6C6326E34E}
+    - {id: whisper_small, path: models/cache/whisper/small.pt, sha256: 9ECF779972D90BA49C06D968637D720DD632C55BBF19D441FB42BF17A411E794}
+    - {id: speechbrain_ecapa, path: models/cache/speechbrain/spkrec-ecapa-voxceleb/embedding_model.ckpt, sha256: 0575CB64845E6B9A10DB9BCB74D5AC32B326B8DC90352671D345E2EE3D0126A2}
+  rir_policy:
+    approved: [dining_room_h025, restaurant_h093]
+    unresolved_excluded: [bedroom]
+    forbidden_substitutions: [parking_lot_for_bedroom, kitchen_for_bedroom]
+
+catalogs:
+  core_cpu: benchmarks/stage9/scenarios_core_cpu.jsonl
+  cpu: benchmarks/v1/resolved_scenarios.jsonl
+  cuda: benchmarks/v1/resolved_scenarios_cuda_float32.jsonl
+
+campaigns:
+  canary:
+    created_at_utc: '2026-08-10T20:00:00Z'
+    ids:
+      cpu: campaign_01_core_canary_cpu_v2
+      cuda: campaign_01_core_canary_cuda_v2
+    source: core_cpu
+    expected_scenario_count: 7
+    component_signatures:
+      - {asr: whisper_base}
+      - {asr: whisper_tiny}
+      - {asr: whisper_small}
+      - {asr: whisper_base, vad: energy_vad}
+      - {asr: whisper_base, vad: silero_vad}
+      - {asr: whisper_base, vad: energy_vad, segmentation: vad_chunks}
+      - {asr: whisper_base, vad: silero_vad, segmentation: vad_chunks}
+  small:
+    created_at_utc: '2026-08-10T18:33:57.269611Z'
+    ids:
+      cpu: campaign_03_small_release
+      cuda: campaign_03_small_release_cuda
+    tier: small
+    expected_scenario_count: 26
+  standard:
+    created_at_utc: '2026-08-10T18:34:06.768094Z'
+    ids:
+      cpu: campaign_04_standard_release
+      cuda: campaign_04_standard_release_cuda
+    tier: standard
+    expected_scenario_count: 41
+  massive:
+    ids:
+      cpu: campaign_05_massive_release
+      cuda: campaign_06_massive_release_cuda
+    launch_packages:
+      cpu: configs/automated_evaluation/launch_package.v1.yaml
+      cuda: configs/automated_evaluation/launch_package.gpu.v1.yaml
+  rehearsal:
+    created_at_utc: '2026-08-10T20:30:00Z'
+    ids:
+      cpu: campaign_07_massive_rehearsal_cpu
+      cuda: campaign_07_massive_rehearsal_cuda
+    expected_scenario_count: 6
+    selectors:
+      - {panel: controlled_clean, tier: small, dataset: cmu_arctic, condition: clean}
+      - {panel: controlled_clean, tier: small, dataset: cmu_arctic, condition: white_10db}
+      - {panel: controlled_clean, tier: small, dataset: cmu_arctic, condition: dining_room_h025}
+      - {panel: native_robustness, tier: small, dataset: ami, condition: native}
+      - {panel: speaker_protocol, tier: small, condition: clean, role: known_probe}
+      - {panel: controlled_clean, tier: standard, dataset: cmu_arctic, condition: restaurant_h093_pink_10db}
+
+execution:
+  profiles: {cpu: core-cpu, cuda: core-cuda}
+  devices: {cpu: cpu, cuda: 'cuda:0'}
+  dtypes: {cpu: float32, cuda: float32}
+  gate_worker_id: machine_a_gate
+  rehearsal_worker_id: machine_a_rehearsal
+  telemetry_enabled: true
+  telemetry_interval_sec: 1.0
+  minimum_free_disk_gb: 5.0
+  gpu_concurrency: 1

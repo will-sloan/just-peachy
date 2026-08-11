@@ -1,55 +1,78 @@
 # Fresh CPU and CUDA clone validation
 
-## Executed result
+## Final result
 
-Machine A validation completed in two newly created clones without copying environments from development. CPU setup produced PyTorch 2.11.0+cpu; CUDA setup produced PyTorch 2.11.0+cu128 with CUDA 12.8 and cuDNN 91900 on the RTX 3080. Both passed `pip check`, the 24-check repository verifier, exact Whisper Base hash validation, real ordinary-evaluator smoke, campaign materialization, release binding, and complete assignment preflight. Both Git worktrees were clean at preflight. The historical `just-peachy-launch-a` clone remained untouched.
+Two new clean Machine A clones were created from the final release commit. No `.venv`, `.stage8-envs`, model cache, campaign database, or runtime artifact was copied from development. Each clone used only the high-level operator commands in `START_HERE.md`.
 
-Use two new clones, for example `just-peachy-launch-a-cpu-final` and `just-peachy-launch-a-gpu`. Preserve the historical `just-peachy-launch-a`. Do not copy `.venv` or `.stage8-envs` between checkouts.
+| Acceptance check | CPU clone | CUDA clone |
+|---|---|---|
+| Clone path | `C:/Users/amiri/Documents/GitHub/just-peachy-production-cpu-20260811` | `C:/Users/amiri/Documents/GitHub/just-peachy-production-cuda-20260811` |
+| Setup | PASS; new `.venv`, pinned CPU packages | PASS; new `.stage8-envs/core-cuda`, pinned CUDA packages |
+| Package integrity | `pip check` PASS | `pip check` PASS |
+| FFmpeg | 8.1.2 discovered without terminal restart | 8.1.2 discovered without terminal restart |
+| Models | Tiny/Base/Small, ECAPA, Silero bootstrapped/reused and verified | Same production assets verified |
+| Dataset setup | Existing licensed Machine A tree discovered and linked automatically | Existing licensed Machine A tree discovered and linked automatically |
+| Real evaluator | 1 prediction, 0 failures, CPU/float32 | 1 prediction, 0 failures, `cuda:0`/float32, nonzero VRAM |
+| Campaign | CPU massive materialized and validated | CUDA massive materialized and validated |
+| Release binding | Current clean-clone HEAD and both assignments validated | Current clean-clone HEAD and both assignments validated |
+| Machine A preflight | `READY_TO_LAUNCH`, 20/20, 12,368 items | `READY_TO_LAUNCH`, 20/20, 12,368 items |
 
-## Procedure
+The historical clone `C:/Users/amiri/Documents/GitHub/just-peachy-launch-a` was not modified.
 
-```powershell
-# Create the CPU clone
-git clone <repository-url-or-approved-local-source> C:\Users\amiri\Documents\GitHub\just-peachy-launch-a-cpu-final
-Set-Location C:\Users\amiri\Documents\GitHub\just-peachy-launch-a-cpu-final
-git switch handoff
-git checkout <FINAL_LAUNCH_COMMIT>
-git status --short
-powershell -ExecutionPolicy Bypass -File scripts\prepare_execution_mode.ps1 -Mode cpu -InstallFFmpeg -DownloadModels
-$Python = Join-Path (Get-Location) '.venv\Scripts\python.exe'
-
-# Create the CUDA clone in a separate shell
-git clone <repository-url-or-approved-local-source> C:\Users\amiri\Documents\GitHub\just-peachy-launch-a-gpu
-Set-Location C:\Users\amiri\Documents\GitHub\just-peachy-launch-a-gpu
-git switch handoff
-git checkout <FINAL_LAUNCH_COMMIT>
-git status --short
-powershell -ExecutionPolicy Bypass -File scripts\prepare_execution_mode.ps1 -Mode cuda -InstallFFmpeg -DownloadModels
-$Python = Join-Path (Get-Location) '.stage8-envs\core-cuda\Scripts\python.exe'
-
-& $Python -m pip check
-```
-
-Make licensed datasets and the MIT RIR directory available through approved local directory junctions or equivalent read-only links. Never copy raw audio into Git or campaign output folders. Verify `ffmpeg -version` in the same shell.
+## Reproducible CPU procedure
 
 ```powershell
-$Repo = (Get-Location).Path
-$Eval = Join-Path $Repo 'Software Validation from Datasets\Evaluation Tool'
-& $Python "$Eval\scripts\materialize_launch_campaign.py" --launch-package "$Eval\configs\automated_evaluation\<SELECTED_LAUNCH_PACKAGE>" --automated-runs-root "$Eval\automated_runs" --bind-current-commit
-Get-Content "$Eval\automated_runs\<SELECTED_CAMPAIGN>\worker_assignments\release_binding.json"
+git clone --branch handoff https://github.com/will-sloan/just-peachy.git `
+  C:\Users\amiri\Documents\GitHub\just-peachy-production-cpu-20260811
+Set-Location C:\Users\amiri\Documents\GitHub\just-peachy-production-cpu-20260811
+powershell -ExecutionPolicy Bypass -File scripts\setup_worker.ps1 -MachineId machine_a -Device cpu
+powershell -ExecutionPolicy Bypass -File scripts\verify_worker.ps1 -MachineId machine_a -Device cpu
 ```
 
-The binding must name the checked-out final commit. Run one real CMU Arctic smoke through the normal evaluator, then execute the complete Machine A profile and assignment preflight from `machine_a_readiness.md`.
+`verify_worker.ps1` includes the real one-item CPU evaluator smoke and the same full preflight used at launch. No manual activation is required.
 
-## Acceptance evidence
+## Reproducible CUDA procedure
 
-- Git worktree clean before runtime outputs; generated environments, caches, and runs remain ignored.
-- CPU clone: Python 3.12, CPU-only PyTorch, device `cpu`, dtype `float32`, and `pip check` passes.
-- CUDA clone: Python 3.12 and `torch==2.11.0+cu128`; CUDA runtime 12.8; `pip check` passes.
-- CUDA clone: RTX 3080 selected as `cuda:0`; real evaluator allocator VRAM is nonzero. CPU clone never requires NVIDIA tooling.
-- Whisper Base exact size/hash present; no inference-time download.
-- Campaign validates at 41 scenarios and assignments are non-overlapping.
-- Runtime assignment and release-binding identities bind to the final commit.
-- Both matching Machine A wrappers, each in its own clone, say `READY_TO_LAUNCH` for 20/20 scenarios with `-PreflightOnly` and do not start inference.
+```powershell
+git clone --branch handoff https://github.com/will-sloan/just-peachy.git `
+  C:\Users\amiri\Documents\GitHub\just-peachy-production-cuda-20260811
+Set-Location C:\Users\amiri\Documents\GitHub\just-peachy-production-cuda-20260811
+powershell -ExecutionPolicy Bypass -File scripts\setup_worker.ps1 -MachineId machine_a -Device cuda
+powershell -ExecutionPolicy Bypass -File scripts\verify_worker.ps1 -MachineId machine_a -Device cuda
+```
 
-This establishes Machine A technical readiness only. It does not pass Machine B or the scientific gates and does not authorize the massive run. Repeat materialization and `-PreflightOnly` after any future commit change because runtime assignment and release-binding hashes intentionally bind to the exact checkout.
+CUDA setup installs the official pinned CUDA PyTorch wheels into its own environment. Verification requires `torch.cuda.is_available() == True`, identifies the RTX 3080, runs the real ordinary evaluator, confirms `cuda:0` and float32, and requires nonzero peak allocator VRAM. CUDA failure is terminal; there is no CPU fallback.
+
+## What setup proved
+
+- The checkout itself contains every production script, config, manifest source, schema, and operator document.
+- Setup is idempotent and performs repository sanity checks, environment creation, package installation, `pip check`, FFmpeg handling, model bootstrap, model verification, dataset discovery/linking, RIR checks, massive materialization, assignment generation, release binding, and report initialization.
+- Existing licensed datasets are shared through an approved Windows junction; raw contents are neither copied nor changed.
+- Inference cannot download a missing model implicitly.
+- Runtime outputs remain ignored, and `git status --short` stays clean after setup/verify.
+
+## Optional dataset-root fallback
+
+Only if automatic discovery genuinely fails:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\setup_worker.ps1 `
+  -MachineId machine_a -Device cuda `
+  -DatasetRoot "D:\authorized\Raw Datasets (Not formatted)"
+```
+
+This is the only supported routine machine-local override. Do not edit dataset mappings or frozen manifests.
+
+## Evidence to inspect
+
+```powershell
+git status --short
+powershell -ExecutionPolicy Bypass -File scripts\launch_worker.ps1 -MachineId machine_a -Device cuda -PreflightOnly
+powershell -ExecutionPolicy Bypass -File scripts\worker_control.ps1 -Action status -MachineId machine_a -Device cuda
+```
+
+The first command should print nothing. Preflight must print release-binding `PASS` and finish `READY_TO_LAUNCH` without starting massive inference. Status must identify only Machine A's 20 assigned scenarios.
+
+## Scope of this proof
+
+Fresh-clone acceptance establishes reproducible Machine A CPU and CUDA setup and operation from the final commit. It does not claim that the physical Machine B has run. B must repeat its matching commands with `machine_b` and provide authorized datasets if discovery cannot find them.

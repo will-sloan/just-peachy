@@ -23,6 +23,14 @@ TOOL_ROOT = Path(__file__).resolve().parents[1]
 DOCS_ROOT = TOOL_ROOT / "docs" / "automated_evaluation"
 OUTPUT_ROOT = DOCS_ROOT / "Word Documents"
 
+# Document skill preset: compact_reference_guide. First-page pattern:
+# customer_pack (left-aligned operational title stack). Geometry is explicit so
+# Word and LibreOffice produce the same operator artifact.
+CONTENT_WIDTH_DXA = 9360
+TABLE_INDENT_DXA = 120
+TABLE_CELL_TOP_BOTTOM_DXA = 80
+TABLE_CELL_START_END_DXA = 120
+
 DOCUMENTS = {
     "1_launch_control_sheet.docx": "launch_control_sheet.md",
     "2_manual_actions_required.docx": "manual_actions_required.md",
@@ -59,7 +67,12 @@ def _set_cell_shading(cell, fill: str) -> None:
     shading.set(qn("w:fill"), fill)
 
 
-def _set_cell_margins(cell, value: int = 80) -> None:
+def _set_cell_margins(
+    cell,
+    *,
+    top_bottom: int = TABLE_CELL_TOP_BOTTOM_DXA,
+    start_end: int = TABLE_CELL_START_END_DXA,
+) -> None:
     properties = cell._tc.get_or_add_tcPr()
     margins = properties.first_child_found_in("w:tcMar")
     if margins is None:
@@ -70,8 +83,76 @@ def _set_cell_margins(cell, value: int = 80) -> None:
         if node is None:
             node = OxmlElement(f"w:{edge}")
             margins.append(node)
+        value = top_bottom if edge in {"top", "bottom"} else start_end
         node.set(qn("w:w"), str(value))
         node.set(qn("w:type"), "dxa")
+
+
+def _set_width(node, tag: str, width: int) -> None:
+    element = node.find(qn(tag))
+    if element is None:
+        element = OxmlElement(tag)
+        node.append(element)
+    element.set(qn("w:w"), str(width))
+    element.set(qn("w:type"), "dxa")
+
+
+def _table_widths(rows: list[list[str]]) -> list[int]:
+    column_count = max(len(row) for row in rows)
+    if column_count == 1:
+        return [CONTENT_WIDTH_DXA]
+    if column_count == 2:
+        return [2700, 6660]
+    lengths = []
+    for column in range(column_count):
+        longest = max(
+            (
+                len(_plain(row[column])) if column < len(row) else 0
+                for row in rows
+            ),
+            default=1,
+        )
+        lengths.append(max(8, min(longest, 42)))
+    widths = [
+        max(1080, int(CONTENT_WIDTH_DXA * value / sum(lengths)))
+        for value in lengths
+    ]
+    widths[-1] += CONTENT_WIDTH_DXA - sum(widths)
+    if widths[-1] < 1080:
+        shortage = 1080 - widths[-1]
+        widths[-1] = 1080
+        donor = max(range(len(widths) - 1), key=widths.__getitem__)
+        widths[donor] -= shortage
+    return widths
+
+
+def _set_table_geometry(table, widths: list[int]) -> None:
+    table.autofit = False
+    properties = table._tbl.tblPr
+    _set_width(properties, "w:tblW", CONTENT_WIDTH_DXA)
+    indent = properties.find(qn("w:tblInd"))
+    if indent is None:
+        indent = OxmlElement("w:tblInd")
+        properties.append(indent)
+    indent.set(qn("w:w"), str(TABLE_INDENT_DXA))
+    indent.set(qn("w:type"), "dxa")
+    layout = properties.find(qn("w:tblLayout"))
+    if layout is None:
+        layout = OxmlElement("w:tblLayout")
+        properties.append(layout)
+    layout.set(qn("w:type"), "fixed")
+
+    grid = table._tbl.tblGrid
+    for child in list(grid):
+        grid.remove(child)
+    for width in widths:
+        column = OxmlElement("w:gridCol")
+        column.set(qn("w:w"), str(width))
+        grid.append(column)
+    for row in table.rows:
+        for index, cell in enumerate(row.cells):
+            cell.width = Inches(widths[index] / 1440)
+            _set_width(cell._tc.get_or_add_tcPr(), "w:tcW", widths[index])
 
 
 def _plain(text: str) -> str:
@@ -99,54 +180,83 @@ def _add_page_number(paragraph) -> None:
 
 def _configure_document(document: Document, source_name: str) -> None:
     section = document.sections[0]
-    section.top_margin = Inches(0.5)
-    section.bottom_margin = Inches(0.5)
-    section.left_margin = Inches(0.58)
-    section.right_margin = Inches(0.58)
+    section.page_width = Inches(8.5)
+    section.page_height = Inches(11)
+    section.top_margin = Inches(1.0)
+    section.bottom_margin = Inches(1.0)
+    section.left_margin = Inches(1.0)
+    section.right_margin = Inches(1.0)
+    section.header_distance = Inches(0.492)
+    section.footer_distance = Inches(0.492)
 
     normal = document.styles["Normal"]
-    normal.font.name = "Aptos"
-    normal.font.size = Pt(9)
-    normal.paragraph_format.space_after = Pt(2)
-    normal.paragraph_format.line_spacing = 1.0
-    for name, size, color in (
-        ("Title", 21, "17365D"),
-        ("Heading 1", 14.5, "17365D"),
-        ("Heading 2", 11.5, "2F5597"),
-        ("Heading 3", 10, "365F91"),
+    normal.font.name = "Calibri"
+    normal.font.size = Pt(11)
+    normal.paragraph_format.space_before = Pt(0)
+    normal.paragraph_format.space_after = Pt(6)
+    normal.paragraph_format.line_spacing = 1.25
+    for name, size, color, before, after in (
+        ("Title", 26, "0B2545", 0, 8),
+        ("Heading 1", 16, "2E74B5", 18, 10),
+        ("Heading 2", 13, "2E74B5", 14, 7),
+        ("Heading 3", 12, "1F4D78", 10, 5),
     ):
         style = document.styles[name]
-        style.font.name = "Aptos Display"
+        style.font.name = "Calibri"
         style.font.size = Pt(size)
         style.font.color.rgb = RGBColor.from_string(color)
         style.font.bold = True
         style.paragraph_format.keep_with_next = True
-        style.paragraph_format.space_before = Pt(5)
-        style.paragraph_format.space_after = Pt(2)
+        style.paragraph_format.space_before = Pt(before)
+        style.paragraph_format.space_after = Pt(after)
+        style.paragraph_format.line_spacing = 1.0
+    subtitle = document.styles["Subtitle"]
+    subtitle.font.name = "Calibri"
+    subtitle.font.size = Pt(10)
+    subtitle.font.color.rgb = RGBColor.from_string("595959")
+    subtitle.paragraph_format.space_before = Pt(0)
+    subtitle.paragraph_format.space_after = Pt(16)
+    subtitle.paragraph_format.line_spacing = 1.0
+    for name in ("List Bullet", "List Number"):
+        style = document.styles[name]
+        style.font.name = "Calibri"
+        style.font.size = Pt(11)
+        style.paragraph_format.left_indent = Inches(0.375)
+        style.paragraph_format.first_line_indent = Inches(-0.188)
+        style.paragraph_format.space_after = Pt(4)
+        style.paragraph_format.line_spacing = 1.25
 
     header = section.header.paragraphs[0]
-    header.text = "JUST PEACHY  |  AUTOMATED SPEECH EVALUATION  |  CPU + CUDA OPERATIONS"
+    header.text = "JUST PEACHY | AUTOMATED SPEECH EVALUATION | CPU + CUDA OPERATIONS"
     header.style = document.styles["Caption"]
     header.runs[0].font.color.rgb = RGBColor(89, 89, 89)
-    header.runs[0].font.size = Pt(7.5)
+    header.runs[0].font.size = Pt(8)
     footer = section.footer.paragraphs[0]
-    footer.add_run(f"Canonical source: {source_name}    ")
+    footer_run = footer.add_run(f"Canonical source: {source_name}    ")
+    footer_run.font.name = "Calibri"
+    footer_run.font.size = Pt(8)
+    footer_run.font.color.rgb = RGBColor.from_string("595959")
     _add_page_number(footer)
+    for run in footer.runs:
+        run.font.name = "Calibri"
+        run.font.size = Pt(8)
+        run.font.color.rgb = RGBColor.from_string("595959")
 
 
 def _add_code(document: Document, lines: list[str]) -> None:
     table = document.add_table(rows=1, cols=1)
     table.alignment = WD_TABLE_ALIGNMENT.CENTER
-    table.autofit = True
+    _set_table_geometry(table, [CONTENT_WIDTH_DXA])
     cell = table.cell(0, 0)
     _set_cell_shading(cell, "F2F4F7")
-    _set_cell_margins(cell, 110)
+    _set_cell_margins(cell, top_bottom=110, start_end=120)
     paragraph = cell.paragraphs[0]
     paragraph.paragraph_format.space_after = Pt(0)
     run = paragraph.add_run("\n".join(lines))
     run.font.name = "Consolas"
-    run.font.size = Pt(6.8)
-    document.add_paragraph().paragraph_format.space_after = Pt(0)
+    run.font.size = Pt(7.5)
+    spacer = document.add_paragraph()
+    spacer.paragraph_format.space_after = Pt(4)
 
 
 def _add_table(document: Document, rows: list[list[str]]) -> None:
@@ -160,32 +270,34 @@ def _add_table(document: Document, rows: list[list[str]]) -> None:
         cells = table.add_row().cells
         for column, value in enumerate(values):
             cells[column].vertical_alignment = WD_CELL_VERTICAL_ALIGNMENT.CENTER
-            _set_cell_margins(cells[column], 65)
+            _set_cell_margins(cells[column])
             paragraph = cells[column].paragraphs[0]
             paragraph.paragraph_format.space_after = Pt(0)
             run = paragraph.add_run(_plain(value.strip()))
-            run.font.size = Pt(7.2)
+            run.font.size = Pt(9)
             if row_index == 0:
                 run.bold = True
-                run.font.color.rgb = RGBColor(255, 255, 255)
-                _set_cell_shading(cells[column], "2F5597")
+                run.font.color.rgb = RGBColor.from_string("1F4D78")
+                _set_cell_shading(cells[column], "E8EEF5")
         if row_index == 0:
             row_properties = table.rows[0]._tr.get_or_add_trPr()
             repeat = OxmlElement("w:tblHeader")
             repeat.set(qn("w:val"), "true")
             row_properties.append(repeat)
+    _set_table_geometry(table, _table_widths(rows))
 
 
 def _add_blockquote(document: Document, text: str) -> None:
     table = document.add_table(rows=1, cols=1)
+    _set_table_geometry(table, [CONTENT_WIDTH_DXA])
     cell = table.cell(0, 0)
     _set_cell_shading(cell, "FFF2CC")
-    _set_cell_margins(cell, 120)
+    _set_cell_margins(cell, top_bottom=120, start_end=120)
     paragraph = cell.paragraphs[0]
     paragraph.paragraph_format.space_after = Pt(0)
     run = paragraph.add_run(_plain(text))
     run.bold = True
-    run.font.color.rgb = RGBColor(127, 96, 0)
+    run.font.color.rgb = RGBColor.from_string("7A5A00")
 
 
 def convert_markdown(source: Path, destination: Path) -> None:
@@ -229,7 +341,9 @@ def convert_markdown(source: Path, destination: Path) -> None:
             if first_heading and level == 1:
                 paragraph = document.add_paragraph(style="Title")
                 paragraph.add_run(text)
-                subtitle = document.add_paragraph("Operational contract • generated from version-controlled Markdown")
+                subtitle = document.add_paragraph(
+                    "Operational contract | generated from version-controlled Markdown"
+                )
                 subtitle.style = document.styles["Subtitle"]
                 first_heading = False
             else:
@@ -244,7 +358,7 @@ def convert_markdown(source: Path, destination: Path) -> None:
             continue
         checklist = re.match(r"^- \[([ xX])\]\s+(.+)$", stripped)
         if checklist:
-            marker = "☒" if checklist.group(1).lower() == "x" else "☐"
+            marker = "[x]" if checklist.group(1).lower() == "x" else "[ ]"
             paragraph = document.add_paragraph(style="List Bullet")
             paragraph.add_run(f"{marker} {_plain(checklist.group(2))}")
             index += 1

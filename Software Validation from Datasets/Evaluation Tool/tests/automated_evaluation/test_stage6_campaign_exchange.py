@@ -35,7 +35,8 @@ from app.campaign_exchange.assignments import (
     ASSIGNMENT_HASH_EXCLUSIONS,
     assignment_environment_hashes,
 )
-from app.campaign_exchange.common import atomic_write_json, content_hash
+from app.campaign_exchange import common as exchange_common
+from app.campaign_exchange.common import atomic_copy_tree, atomic_write_json, content_hash
 from app.campaign_executor.executor import CampaignExecutor
 from app.campaign_executor.planner import plan_campaign
 from app.campaign_executor.state import CampaignStateStore
@@ -73,6 +74,34 @@ def test_exchange_json_publication_retries_transient_windows_lock(
 
     assert attempts == 2
     assert json.loads(target.read_text(encoding="utf-8")) == {"value": "new"}
+    assert not list(tmp_path.glob("*.tmp-*"))
+
+
+def test_exchange_tree_publication_retries_transient_windows_lock(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    source = tmp_path / "source"
+    destination = tmp_path / "destination"
+    source.mkdir()
+    (source / "result.json").write_text('{"valid": true}\n', encoding="utf-8")
+    original_replace = exchange_common.os.replace
+    attempts = 0
+
+    def access_denied_once(source_path: Path, destination_path: Path) -> None:
+        nonlocal attempts
+        attempts += 1
+        if attempts == 1:
+            error = PermissionError("simulated Windows directory access denial")
+            error.winerror = 5
+            raise error
+        original_replace(source_path, destination_path)
+
+    monkeypatch.setattr(exchange_common.os, "replace", access_denied_once)
+    atomic_copy_tree(source, destination)
+
+    assert attempts == 2
+    assert (destination / "result.json").read_text(encoding="utf-8") == '{"valid": true}\n'
     assert not list(tmp_path.glob("*.tmp-*"))
 
 
@@ -519,6 +548,27 @@ def test_byte_identical_duplicate_is_recognized(tmp_path: Path) -> None:
     assert report["conflicts"] == []
 
 
+def test_merge_recovers_byte_identical_unindexed_publication(tmp_path: Path) -> None:
+    root = _plan(tmp_path, _scenarios(1))
+    assignment, path = _assignment(root, "amir")
+    _execute(root, "amir", assignment["scenario_ids"])
+    transfer = tmp_path / "transfer"
+    _export(root, assignment, path, transfer, machine="A")
+    scenario_id = assignment["scenario_ids"][0]
+    target = root / "analysis" / "merged_results" / "scenarios" / scenario_id
+    target.parent.mkdir(parents=True, exist_ok=True)
+    shutil.copytree(transfer / "scenarios" / scenario_id, target)
+
+    report = merge_worker_results(root, [transfer], created_at=CREATED)
+
+    assert report["conflicts"] == []
+    assert any(
+        item["classification"] == "byte_identical_interrupted_publication"
+        for item in report["duplicates"]
+    )
+    assert validate_merged_results(root)["scenario_count"] == 1
+
+
 def test_conflicting_duplicate_is_rejected_without_overwrite(tmp_path: Path) -> None:
     scenarios = _scenarios(1)
     root_a = _plan(tmp_path / "a", scenarios)
@@ -562,6 +612,44 @@ def test_long_transfer_path_remains_portable_in_indexes(tmp_path: Path) -> None:
     )
     assert "\\" not in index["scenario_results"][0]["relative_path"]
     assert str(tmp_path) not in json.dumps(index)
+
+
+def test_assignment_status_reports_only_the_selected_worker(
+    tmp_path: Path,
+    capsys: pytest.CaptureFixture[str],
+) -> None:
+    scenarios = _scenarios(2)
+    root = _plan(tmp_path, scenarios)
+    assignment, assignment_path = _assignment(
+        root,
+        "amir",
+        scenario_ids=[str(scenarios[0]["scenario_id"])],
+    )
+    _execute(root, "amir", assignment["scenario_ids"])
+    capsys.readouterr()
+    args = build_parser().parse_args(
+        [
+            "campaign",
+            "status",
+            "--campaign-root",
+            str(root),
+            "--assignment",
+            str(assignment_path),
+        ]
+    )
+
+    args.func(args)
+
+    report = json.loads(capsys.readouterr().out)
+    assert report["schema_version"] == "worker-assignment-status-summary.v1"
+    assert report["assignment_id"] == assignment["assignment_id"]
+    assert report["worker_id"] == "amir"
+    assert report["total_scenarios"] == 1
+    assert report["complete_scenarios"] == 1
+    assert report["remaining_scenarios"] == 0
+    assert report["state_counts"] == {"succeeded": 1}
+    assert report["stop_requested"] is False
+    assert report["stop_reason"] is None
 
 
 def test_stage6_cli_and_public_schemas_are_available() -> None:

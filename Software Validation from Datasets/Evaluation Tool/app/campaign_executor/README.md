@@ -78,6 +78,7 @@ python run_evaluation.py campaign plan --campaign-id campaign_example01 --scenar
 python run_evaluation.py campaign validate --campaign-root automated_runs\campaign_example01
 python run_evaluation.py campaign list --campaign-root automated_runs\campaign_example01
 python run_evaluation.py campaign status --campaign-root automated_runs\campaign_example01
+python run_evaluation.py campaign status --campaign-root automated_runs\campaign_example01 --assignment automated_runs\campaign_example01\worker_assignments\worker_amir.yaml
 python run_evaluation.py campaign run --campaign-root automated_runs\campaign_example01 --worker-id amir
 python run_evaluation.py campaign resume --campaign-root automated_runs\campaign_example01 --worker-id amir
 python run_evaluation.py campaign stop --campaign-root automated_runs\campaign_example01 --scenario-id scenario_0123456789ab --reason "operator request"
@@ -91,6 +92,10 @@ Telemetry is enabled by default for CLI `run` and `resume`. Set the interval or 
 python run_evaluation.py campaign run --campaign-root automated_runs\campaign_example01 --worker-id amir --telemetry --telemetry-interval-sec 1.0
 python run_evaluation.py campaign run --campaign-root automated_runs\campaign_example01 --worker-id amir --no-telemetry
 ```
+
+Assignment-scoped status reports that worker's total, completed, remaining,
+and per-state counts together with the persistent campaign stop flag and reason.
+It does not include another worker's scenario counts.
 
 See `app/resource_telemetry/README.md` for inputs, outputs, sensor availability, CUDA timing, privacy, and tests.
 

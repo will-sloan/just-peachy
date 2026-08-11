@@ -109,7 +109,11 @@ def atomic_copy_tree(source: Path, destination: Path) -> None:
     )
     try:
         shutil.copytree(source_root, temporary, copy_function=shutil.copy2)
-        os.replace(temporary, destination_root)
+        # Windows indexing, antivirus, and Explorer can briefly retain a
+        # handle after copytree closes its files.  Directory publication uses
+        # the same bounded sharing-violation retry policy as atomic files so a
+        # transient WinError 5/32/33 cannot strand an otherwise valid export.
+        replace_file_with_retry(temporary, destination_root)
         _fsync_directory(destination_root.parent)
     finally:
         if temporary.exists():

@@ -1,67 +1,71 @@
-# CPU or CUDA campaign quick start
+# Quick-start campaign
 
-Choose CPU (`campaign_05_massive_release`) or CUDA (`campaign_06_massive_release_cuda`). Both use Whisper Base and explicit float32 through the same evaluator. Do not launch either massive campaign until Machine B and canary/small/standard gates are approved.
+Use these commands from the repository root. CUDA is the recommended Machine A mode after qualification; CPU remains a fully supported explicit fallback. Two workers contributing to one result set must select the same mode.
 
-## Common shell variables
-
-Run from the selected clean clone root:
+## CUDA worker
 
 ```powershell
-$Repo = (Get-Location).Path
-$Eval = Join-Path $Repo 'Software Validation from Datasets\Evaluation Tool'
+powershell -ExecutionPolicy Bypass -File scripts\setup_worker.ps1 -MachineId machine_a -Device cuda
+powershell -ExecutionPolicy Bypass -File scripts\verify_worker.ps1 -MachineId machine_a -Device cuda
+powershell -ExecutionPolicy Bypass -File scripts\launch_worker.ps1 -MachineId machine_a -Device cuda
 ```
 
-## CPU path
+## CPU worker
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File scripts\prepare_execution_mode.ps1 -Mode cpu -InstallFFmpeg -DownloadModels
-$Python = Join-Path $Repo '.venv\Scripts\python.exe'
-& $Python "$Eval\scripts\materialize_launch_campaign.py" --launch-package "$Eval\configs\automated_evaluation\launch_package.v1.yaml" --automated-runs-root "$Eval\automated_runs" --bind-current-commit
-$Campaign = Join-Path $Eval 'automated_runs\campaign_05_massive_release'
-& $Python "$Eval\run_evaluation.py" campaign validate --campaign-root $Campaign
-Get-Content "$Campaign\worker_assignments\release_binding.json"
-powershell -ExecutionPolicy Bypass -File "$Eval\scripts\launch_campaign_machine_a.ps1" -PreflightOnly
+powershell -ExecutionPolicy Bypass -File scripts\setup_worker.ps1 -MachineId machine_a -Device cpu
+powershell -ExecutionPolicy Bypass -File scripts\verify_worker.ps1 -MachineId machine_a -Device cpu
+powershell -ExecutionPolicy Bypass -File scripts\launch_worker.ps1 -MachineId machine_a -Device cpu
 ```
 
-Launch only after preflight says `READY_TO_LAUNCH`:
+Change `machine_a` to `machine_b` on the second computer. If authorized datasets cannot be discovered, add one `-DatasetRoot` argument to setup; do not edit configuration files.
+
+## Preflight without inference
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File "$Eval\scripts\launch_campaign_machine_a.ps1"
+powershell -ExecutionPolicy Bypass -File scripts\launch_worker.ps1 -MachineId machine_a -Device cuda -PreflightOnly
 ```
 
-## CUDA path
+This is the same release-binding, campaign, assignment, machine, dataset, model, RIR, disk, and output validation used at launch. A zero exit and `READY_TO_LAUNCH` are required.
+
+## Release owner gates
+
+Before the massive campaign, run the component canary, small campaign, and standard campaign in order:
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File scripts\prepare_execution_mode.ps1 -Mode cuda -InstallFFmpeg -DownloadModels
-$Python = Join-Path $Repo '.stage8-envs\core-cuda\Scripts\python.exe'
-& $Python "$Eval\scripts\materialize_launch_campaign.py" --launch-package "$Eval\configs\automated_evaluation\launch_package.gpu.v1.yaml" --automated-runs-root "$Eval\automated_runs" --bind-current-commit
-$Campaign = Join-Path $Eval 'automated_runs\campaign_06_massive_release_cuda'
-& $Python "$Eval\run_evaluation.py" campaign validate --campaign-root $Campaign
-Get-Content "$Campaign\worker_assignments\release_binding.json"
-powershell -ExecutionPolicy Bypass -File "$Eval\scripts\launch_campaign_machine_a_gpu.ps1" -PreflightOnly
+powershell -ExecutionPolicy Bypass -File scripts\run_release_gates.ps1 -Device cuda -Through all
 ```
 
-Launch only after preflight says `READY_TO_LAUNCH` and the smoke recorded nonzero VRAM:
+The CUDA chain uses the canonical CPU component canary, followed by explicit CUDA small and standard scenarios. Use `-Device cpu` only for the independent CPU hierarchy.
+
+## Status, stop, and resume
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File "$Eval\scripts\launch_campaign_machine_a_gpu.ps1"
+powershell -ExecutionPolicy Bypass -File scripts\worker_control.ps1 -Action status -MachineId machine_a -Device cuda
+powershell -ExecutionPolicy Bypass -File scripts\worker_control.ps1 -Action stop -MachineId machine_a -Device cuda -Reason "planned maintenance"
+powershell -ExecutionPolicy Bypass -File scripts\worker_control.ps1 -Action resume -MachineId machine_a -Device cuda
 ```
 
-## Status, stop, resume, and export
+Resume requeues stopped work only from the named worker assignment. Completed scenarios validate and skip.
 
-Use the `$Python` and `$Campaign` selected above.
+## Export
 
 ```powershell
-& $Python "$Eval\run_evaluation.py" campaign status --campaign-root $Campaign
-& $Python "$Eval\run_evaluation.py" campaign stop --campaign-root $Campaign --reason 'operator request'
-
-# CPU resume/export
-powershell -ExecutionPolicy Bypass -File "$Eval\scripts\launch_campaign_machine_a.ps1" -ResumeStopped
-powershell -ExecutionPolicy Bypass -File "$Eval\scripts\export_machine_a_results.ps1" -Destination C:\campaign_transfers\campaign_05_massive_release\machine_a
-
-# CUDA resume/export
-powershell -ExecutionPolicy Bypass -File "$Eval\scripts\launch_campaign_machine_a_gpu.ps1" -ResumeStopped
-powershell -ExecutionPolicy Bypass -File "$Eval\scripts\export_machine_a_gpu_results.ps1" -Destination C:\campaign_transfers\campaign_06_massive_release_cuda\machine_a
+powershell -ExecutionPolicy Bypass -File scripts\export_worker.ps1 -MachineId machine_a -Device cuda
 ```
 
-The wrappers repeat repository, campaign, assignment, profile, model, dataset, RIR, device/dtype, and disk checks. CPU does not require CUDA. CUDA never falls back to CPU.
+The default output is `transfer_packages\campaign_06_massive_release_cuda\machine_a`. Existing folders are never overwritten. CPU uses `campaign_05_massive_release`.
+
+## Coordinator
+
+Place both worker transfer folders under the same coordinator clone, then run:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\coordinator.ps1 -Action merge -Device cuda
+powershell -ExecutionPolicy Bypass -File scripts\coordinator.ps1 -Action analyze -Device cuda `
+  -PrerequisiteEvidence "Software Validation from Datasets\Evaluation Tool\automated_runs\campaign_04_standard_release_cuda\analysis\report\release_qualification.json"
+```
+
+Expected final scenario count is 41. The final report is `Software Validation from Datasets\Evaluation Tool\automated_runs\campaign_06_massive_release_cuda\analysis\report\campaign_report.md`.
+
+For CPU, replace `cuda` with `cpu`; analysis evidence comes from `campaign_04_standard_release`, and the final campaign is `campaign_05_massive_release`.

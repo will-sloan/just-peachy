@@ -22,6 +22,12 @@ function Get-LaunchContext {
     $assignment = Join-Path $campaignRoot "worker_assignments\$WorkerId.yaml"
     $profile = Join-Path $evaluationRoot "artifacts\launch_readiness\${WorkerId}_profile.json"
     $preflight = Join-Path $evaluationRoot "artifacts\launch_readiness\${WorkerId}_assignment_preflight.json"
+    $bindingValidation = Join-Path $evaluationRoot "artifacts\launch_readiness\${WorkerId}_${CampaignId}_release_binding.json"
+    $launchPackage = Join-Path $evaluationRoot $(if ($Device -like "cuda*") {
+        "configs\automated_evaluation\launch_package.gpu.v1.yaml"
+    } else {
+        "configs\automated_evaluation\launch_package.v1.yaml"
+    })
     foreach ($required in @($python, (Join-Path $evaluationRoot "run_evaluation.py"), $campaignRoot, $assignment)) {
         if (-not (Test-Path -LiteralPath $required)) {
             throw "Required launch path is missing: $required"
@@ -44,6 +50,8 @@ function Get-LaunchContext {
         Assignment = $assignment
         Profile = $profile
         Preflight = $preflight
+        BindingValidation = $bindingValidation
+        LaunchPackage = $launchPackage
     }
 }
 
@@ -73,6 +81,16 @@ function Invoke-WorkerPreflight {
     $runEvaluation = Join-Path $Context.EvaluationRoot "run_evaluation.py"
     $otherWorker = if ($Context.WorkerId -eq "machine_a") { "machine_b" } else { "machine_a" }
     $otherAssignment = Join-Path $Context.CampaignRoot "worker_assignments\$otherWorker.yaml"
+
+    Invoke-Checked -FilePath $Context.Python -Arguments @(
+        (Join-Path $Context.EvaluationRoot "scripts\validate_release_binding.py"),
+        "--campaign-root", $Context.CampaignRoot,
+        "--repository-root", $Context.RepositoryRoot,
+        "--environment-profile", $Context.EnvironmentProfile,
+        "--worker-id", $Context.WorkerId,
+        "--launch-package", $Context.LaunchPackage,
+        "--output", $Context.BindingValidation
+    )
 
     Invoke-Checked -FilePath $Context.Python -Arguments @(
         $runEvaluation, "campaign", "validate", "--campaign-root", $Context.CampaignRoot

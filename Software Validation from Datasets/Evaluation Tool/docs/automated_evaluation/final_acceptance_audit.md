@@ -1,5 +1,10 @@
 # Final Acceptance Audit
 
+> Historical Stage 13 audit retained for traceability. Its commit and verdict
+> describe the 2026-08-08 checkpoint, not the current production handoff. Use
+> `operational_launch_readiness.md` and `launch_control_sheet.md` for current
+> CPU/CUDA status and launch decisions.
+
 ## Document control
 
 | Field | Value |

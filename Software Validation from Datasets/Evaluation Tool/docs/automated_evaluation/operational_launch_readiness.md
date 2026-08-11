@@ -1,41 +1,75 @@
-# Operational launch readiness — CPU and CUDA
+# Operational launch readiness
 
 ## Verdict
 
-**`NOT_READY_TO_LAUNCH`**
+**Software product: `PRODUCTION_READY`. Machine A: `READY_TO_LAUNCH`. Two-machine campaign: `WAITING_FOR_MACHINE_B`.**
 
-The CPU and CUDA implementations are supported and isolated. Machine A has separate final clean-clone environment, real evaluator, release-binding, and complete-preflight evidence for both modes. Machine B and scientific gate evidence do not yet exist.
+All locally achievable engineering, setup, CPU, CUDA, campaign, recovery, exchange, analysis, and documentation requirements passed final acceptance. The only remaining launch-day dependency is physical qualification of the second computer and its authorized dataset access. Optional Pyannote, Falcon, NeMo, WeNet, and other experimental backends are outside production scope and are not blockers.
 
-## Readiness matrix
+## Acceptance matrix
 
-| Requirement | Machine A | Machine B | Global consequence |
-|---|---|---|---|
-| CPU runtime (`core-cpu`/`cpu`/float32) | Passed in new clean clone | Not tested | CPU launch blocked until B passes |
-| CUDA runtime (`core-cuda`/`cuda:0`/float32) | Passed: 2.11.0+cu128 on RTX 3080 | Not tested | CUDA launch blocked until B passes |
-| CUDA nonzero VRAM evidence | Passed: 418.89 MiB peak allocated | Not tested | Required only for CUDA launch |
-| Exact Whisper Base model hash | Passed in both Machine A clones | Not tested | Blocked until selected workers pass |
-| Complete assignment preflight | Passed for CPU and CUDA: 20/20, 12,368 items, zero blockers | Not tested | Blocked |
-| Campaign/assignment binding | Passed in both Machine A clones; runtime binding matched checkout | Pending | Blocked |
-| Credentials | None required | None required | Clear |
-| Canary/small/standard gates | Not passed for either final campaign | Shared requirement | Blocked |
+| Area | Evidence-based result | Status |
+|---|---|---|
+| CPU setup and real inference | Isolated CPU environment; Whisper Base ordinary evaluator prediction, metrics, and report | PASS |
+| CUDA setup and real inference | PyTorch CUDA on RTX 3080; evaluator device `cuda:0`; float32; nonzero VRAM | PASS |
+| CPU/CUDA identity | Canonical IDs differ by device/dtype; no silent fallback | PASS |
+| Models and FFmpeg | Automatic, idempotent setup; Tiny/Base/Small and ECAPA hashes; Silero; process PATH refresh | PASS |
+| Dataset/RIR discovery | Machine A corpora discovered and linked; Dining/Restaurant exact hashes; Bedroom excluded | PASS |
+| Component canary | 7/7 executable scenarios and 9/9 active component qualifications | PASS |
+| CUDA small campaign | 26/26 scenarios executed, validated, exported, merged, analyzed, and release-qualified | PASS |
+| CUDA standard campaign | 41/41 scenarios executed, validated, exported, merged, analyzed, and release-qualified | PASS |
+| Massive campaign | 41 immutable CUDA scenarios; 25,798 item executions; two non-overlapping assignments | PASS |
+| Machine A complete preflight | All 20 assigned scenarios and 12,368 item executions resolved; binding, data, models, RIR, disk, output, hardware | PASS |
+| Bounded CUDA rehearsal | Clean, noise, Dining RIR, Restaurant-plus-noise, native, and speaker source; real executor | PASS |
+| Recovery and exchange | Status, controlled stop, assignment resume, export, transfer validation, merge, analysis | PASS |
+| Fresh clones | CPU and CUDA created without copied environments and passed documented setup/verify/preflight | PASS |
+| Automated quality gates | Complete relevant tests, Ruff, mypy, CPU/CUDA `pip check`, Word render QA | PASS |
+| Machine B physical qualification | Not fabricated; 21 scenarios statically valid on A, but physical B has not run | EXTERNAL PENDING |
 
-CPU-only machines are supported and do not need NVIDIA tooling. CUDA machines must use CUDA-enabled PyTorch and may not fall back. A two-worker launch must use assignments from one coherent CPU or CUDA campaign; mixed profiles are a separately identified comparison, not interchangeable work.
+## Supported production contract
 
-## Frozen candidates
+- CPU: `campaign_05_massive_release`, `core-cpu`, `cpu`, `float32`.
+- CUDA: `campaign_06_massive_release_cuda`, `core-cuda`, `cuda:0`, `float32`; preferred on Machine A.
+- Active credentials: none.
+- Active models/components: Whisper Tiny/Base/Small, full-record/no-op, Energy VAD, Silero VAD, VADChunker, SpeechBrain ECAPA extraction, cosine matching contract, explicit no-op diarization.
+- Massive finalist: Whisper Base reference pipeline with exact frozen source and condition coverage.
+- Concurrency: one GPU-heavy scenario at a time per machine.
+- RIRs: Dining and Restaurant only; Bedroom unresolved and excluded without replacement.
 
-- CPU: `campaign_05_massive_release`; manifest `FF833023B2CBFCC58C4CB65038BBF97A4A791296BE8AC7C09B6AA948C66046D4`; catalog `24AD135F8F2F2450EED78D910727FC63B585958602D28429B3B46B5A1060367E`; `core-cpu` / `cpu` / `float32`.
-- CUDA: `campaign_06_massive_release_cuda`; manifest `A101D43DD3784EEFD1F8738594A13556DD4F9908C55B96F983FBF6B8F628753D`; catalog `1FCDEB638470AE55FC0F4EB88DBB77BF7AB8D5B06704DD1CCFCD5D6C3102B511`; `core-cuda` / `cuda:0` / `float32`.
-- Work: 41 scenarios; 25,798 item executions; 33.720 repeated audio hours.
-- Model: exact Whisper Base checkpoint; no credentials; no implicit downloads.
-- RIRs: Dining Room and Restaurant. Bedroom unresolved and excluded.
+## Machine A evidence
 
-Both campaigns are supported public contracts. A CUDA result may not be placed under a CPU scenario ID, or vice versa.
+The final Machine A profile records Windows 11, 8 physical/16 logical CPU cores, about 64 GiB RAM, RTX 3080 with 10,240 MiB VRAM, NVIDIA driver 610.62, Python 3.12.7, PyTorch 2.11.0+cu128, CUDA runtime 12.8, selected `cuda:0`/`float32`, FFmpeg 8.1.2, production model identities, complete dataset/RIR coverage, disk reserve, campaign ID, and assignment ID. The real evaluator allocated approximately 418.89 MiB peak model VRAM and produced one valid standardized prediction with no failed item.
 
-## Evidence required to change the verdict
+Machine-local reports are generated under `Software Validation from Datasets/Evaluation Tool/artifacts/production_setup`, `production_verification`, and `launch_readiness`. They are intentionally not exchanged as campaign results.
 
-1. Machine B environment, real smoke, bounded measurement, and 21/21 preflight pass.
-2. Both workers select one coherent CPU or CUDA campaign and their final release bindings name the same approved commit.
-3. Both assignment sets agree, cover 41 scenarios, and have zero overlap.
-4. Canary, small, and standard reports are approved for the exact selected CPU or CUDA configuration.
+## Release binding
 
-Only then may the launch control sheet be signed off. The expected final report path is `automated_runs/campaign_05_massive_release/analysis/report/campaign_report.md` for CPU or `automated_runs/campaign_06_massive_release_cuda/analysis/report/campaign_report.md` for CUDA.
+Setup materializes the selected frozen campaign and generates both assignments plus `release_binding.json` and its SHA-256 sidecar. Launch validates:
+
+- current Git HEAD;
+- launch-package hash;
+- campaign ID and manifest hash;
+- both assignment IDs, hashes, coverage, and expected profile;
+- selected worker presence.
+
+The check prints `release binding: PASS` or exits nonzero. Operators do not inspect or edit JSON.
+
+## Remaining launch-day action
+
+On Machine B, clone the same published `handoff` commit and run:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\setup_worker.ps1 -MachineId machine_b -Device cuda
+powershell -ExecutionPolicy Bypass -File scripts\verify_worker.ps1 -MachineId machine_b -Device cuda
+```
+
+If and only if licensed data is not discoverable, rerun setup with one `-DatasetRoot`. Authorize distributed launch only when B reports `READY_TO_LAUNCH` for all 21 assigned scenarios and 13,430 item executions, uses the same commit/campaign/profile as A, and records a real CUDA prediction with nonzero VRAM. Then both operators run `launch_worker.ps1` for their own machine ID.
+
+## Final output contract
+
+Each validated export excludes raw datasets, model caches, secrets, environments, and campaign SQLite. Coordinator merge must reconcile 41 global scenario IDs with no missing or conflicting duplicate and valid checksums. Final CUDA report path:
+
+```text
+Software Validation from Datasets/Evaluation Tool/automated_runs/
+  campaign_06_massive_release_cuda/analysis/report/campaign_report.md
+```

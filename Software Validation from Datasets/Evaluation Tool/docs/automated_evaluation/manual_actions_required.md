@@ -1,37 +1,60 @@
-# Manual actions required before either massive campaign
+# Manual actions required
 
-CPU and CUDA are first-class supported modes. Machine A clean-clone qualification is complete. The massive campaign remains blocked by second-machine and scientific evidence—not by an API key.
+The supported production workflow is clone, setup, verify, and launch. Normal operation requires no edits to Python, YAML, JSON, manifests, paths, hashes, device settings, or assignments.
 
-| Owner | Required action | Exact completion evidence | Blocks massive launch |
-|---|---|---|---|
-| Amir | Use separate clean CPU and GPU clones; materialize each campaign with `--bind-current-commit` | **Completed:** both clones were clean and both release bindings named the checked-out commit | No |
-| Amir | Run the real CPU and CUDA evaluator smokes | **Completed:** each selected one item, produced one prediction, and had zero missing or failed items; CUDA recorded nonzero VRAM | No |
-| Amir | Run both complete Machine A assignment preflights | **Completed:** both reports say `READY_TO_LAUNCH`, 20/20 scenarios, 12,368 items | No |
-| Machine B operator | Install the selected `core-cpu` or `core-cuda` profile; verify hardware, model, datasets, RIRs, and disk | Matching Machine B profile plus full 21-scenario preflight says `READY_TO_LAUNCH` | Yes |
-| Scientific owner | Run/approve component canary | Accepted canary evidence for the exact selected Whisper Base configuration | Yes |
-| Scientific owner | Run/approve small gate | Accepted small-tier report; no hidden missing/failures | Yes |
-| Scientific owner | Run/approve standard gate | Accepted standard-tier prerequisite evidence supplied to analysis | Yes |
-| Both operators | Confirm assignments do not overlap and release bindings match | Assignment-set validation passes on both clones | Yes |
-| Both operators | Close GPU-heavy applications before timed runs | Operator log records a quiescent GPU | Recommended |
+## Human actions
 
-## No credential work is required
+| Owner | Action | Completion evidence |
+|---|---|---|
+| Release owner | Publish the final `handoff` commit and ensure both operators clone it | Both `git rev-parse HEAD` values match; release-binding validation says `PASS` |
+| Machine A operator | Run CUDA setup and verification | Real RTX 3080 inference with nonzero VRAM; 20/20 assignment preflight says `READY_TO_LAUNCH` |
+| Machine B operator | Make licensed datasets available, then run matching setup and verification | Physical B profile plus 21/21 preflight says `READY_TO_LAUNCH` |
+| Both operators | Agree on one mode and start their own assignment | Same campaign ID, distinct assignment IDs, no overlap |
+| Each operator | Monitor; use controlled stop/resume when needed | Completed assignment with validated scenario artifacts |
+| Each operator | Run export and copy the generated transfer folder | `transfer_manifest.json` validates; no unexported scenarios |
+| Coordinator | Place both transfers in the expected folder and run merge plus analysis | 41 scenarios merged, zero missing/conflicting IDs, final report generated |
 
-The campaign uses Whisper Base only. It does not use pyannote, Picovoice Falcon, hosted APIs, or credential-gated models. Do not create or distribute API keys for this campaign.
+## Only unavoidable local input
 
-## Select one coherent distributed mode
+Licensed speech datasets must already exist on each machine or an authorized mounted drive. Setup discovers a complete local/sibling tree automatically. If it cannot, the operator supplies one path:
 
-Both workers may run the CPU campaign, or both may run the CUDA campaign after independent qualification. Do not combine a CPU assignment with CUDA scenarios or a CUDA assignment with CPU execution. A mixed-hardware study requires separately identified CPU and CUDA scenarios and must be analyzed as a hardware/profile comparison—not merged as one homogeneous campaign.
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\setup_worker.ps1 `
+  -MachineId machine_b -Device cuda `
+  -DatasetRoot "D:\authorized\Raw Datasets (Not formatted)"
+```
 
-## Required local assets
+The project does not download, fabricate, copy, or modify licensed source audio.
 
-- `models/cache/whisper/base.pt`, 145,262,807 bytes, SHA-256 `ED3A0B6B1C0EDF879AD9B11B1AF5A0E6AB5DB9205F891F668F8B0E6C6326E34E`.
-- Licensed dataset folders made available locally without committing or copying raw audio into campaign results.
-- Dining Room RIR `h025_Diningroom_8txts.wav`, SHA-256 `940D761A280DCD8FAAB077074E02BADE649E64E47461D80A4F927A01ABBEF5E2`.
-- Restaurant RIR `h093_Restaurant_2txts.wav`, SHA-256 `C2CA8A07002943409D31A2C6D6D07BA826AA428FE6EF6CECF2C4FF33D7D4A8A8`.
-- FFmpeg on `PATH`.
+## No credential work
 
-Bedroom remains unresolved. It is not part of either 41-scenario executable campaign and must not be replaced.
+No production API key or account token is required. Pyannote, Falcon, NeMo, WeNet, and other optional experimental backends are outside the release scope. Do not acquire credentials or models for them as part of this launch.
 
-## Machine B decision rule
+## Commands operators actually run
 
-Machine B must run the same result-affecting mode as Machine A. For the CPU campaign that is `core-cpu`, `cpu`, `float32`; for the CUDA campaign it is `core-cuda`, `cuda:0`, `float32`. Both use the Whisper Base hash above and the frozen batch/runtime settings. A different CPU or GPU model is permitted and recorded as environment metadata, but switching CPU/CUDA mode or dtype changes scientific scenario identity and requires the corresponding separately generated scenarios and assignments. Run one GPU-heavy scenario at a time.
+Machine A:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\setup_worker.ps1 -MachineId machine_a -Device cuda
+powershell -ExecutionPolicy Bypass -File scripts\verify_worker.ps1 -MachineId machine_a -Device cuda
+powershell -ExecutionPolicy Bypass -File scripts\launch_worker.ps1 -MachineId machine_a -Device cuda
+powershell -ExecutionPolicy Bypass -File scripts\export_worker.ps1 -MachineId machine_a -Device cuda
+```
+
+Machine B uses the same four commands with `machine_b`. A CPU campaign uses `cpu` on both machines.
+
+Coordinator:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\coordinator.ps1 -Action merge -Device cuda
+powershell -ExecutionPolicy Bypass -File scripts\coordinator.ps1 -Action analyze -Device cuda `
+  -PrerequisiteEvidence "Software Validation from Datasets\Evaluation Tool\automated_runs\campaign_04_standard_release_cuda\analysis\report\release_qualification.json"
+```
+
+## Stop conditions
+
+Do not launch when either worker preflight is not `READY_TO_LAUNCH`, commits or campaign hashes differ, the standard gate has not passed, datasets/RIRs are missing, CUDA verification did not record nonzero VRAM for a CUDA campaign, disk reserve fails, or assignments overlap. Fix the stated condition and rerun the same command; do not edit frozen artifacts.
+
+## Not a blocker
+
+Bedroom RIR remains excluded without substitution. Optional credential-gated or unresolved experimental backends remain out of scope. These facts do not block the Dining/Restaurant, Whisper, VAD, ECAPA, CPU, or CUDA production workflow.

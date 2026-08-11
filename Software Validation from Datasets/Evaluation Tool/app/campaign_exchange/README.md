@@ -128,6 +128,12 @@ python run_evaluation.py campaign merge-results --campaign-root automated_runs/c
 - Missing global work remains in `missing_scenario_ids`.
 - The merged index contains only portable, campaign-relative paths and global scenario IDs.
 - Existing merged results are revalidated before an incremental merge.
+- Windows directory publication retries only transient access-denied/sharing
+  violations using the same bounded policy as atomic file publication.
+- If interruption occurs after a scenario directory is published but before
+  the merged index is written, a later merge recovers it only when its complete
+  tree hash is byte-identical to the validated incoming result. Conflicting or
+  unrecognized unindexed directories reject the merge and are never overwritten.
 - JSON/YAML exchange publication uses the same bounded Windows transient-lock
   retry as scenario artifacts. A persistent access error still fails without
   weakening atomic replacement or checksum rules.

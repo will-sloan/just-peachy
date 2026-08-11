@@ -29,10 +29,23 @@ Software Validation from Datasets/Evaluation Tool/runs/*/
 # version controlled; executions and machine-local profiles do not.
 Software Validation from Datasets/Evaluation Tool/automated_runs/
 Software Validation from Datasets/Evaluation Tool/artifacts/launch_readiness/
-Software Validation from Datasets/Evaluation Tool/artifacts/pytest_stage14*/
+Software Validation from Datasets/Evaluation Tool/artifacts/gpu_qualification/
+Software Validation from Datasets/Evaluation Tool/artifacts/production_completion/
+Software Validation from Datasets/Evaluation Tool/artifacts/production_release/
+Software Validation from Datasets/Evaluation Tool/artifacts/production_setup/
+Software Validation from Datasets/Evaluation Tool/artifacts/production_verification/
+Software Validation from Datasets/Evaluation Tool/artifacts/pytest_*/
+Software Validation from Datasets/Evaluation Tool/artifacts/word_build_*/
+Software Validation from Datasets/Evaluation Tool/artifacts/word_qa*/
 transfer_packages/
+
+# Local portable office/rendering bundles used only for documentation QA.
+loqa_*/
 
 
 # Python cache
 __pycache__/
 *.pyc
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
