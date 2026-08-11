@@ -37,6 +37,12 @@ DOCUMENTS = {
     "999_final_launch_checklist.docx": "final_launch_checklist.md",
 }
 
+# Dense operator briefs are allowed deliberate section breaks when an automatic
+# split would leave only a small command fragment on the following page.
+PAGE_BREAK_BEFORE = {
+    "machine_a_readiness.md": {"Final clean-clone evidence"},
+}
+
 
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description=__doc__)
@@ -227,6 +233,8 @@ def convert_markdown(source: Path, destination: Path) -> None:
                 subtitle.style = document.styles["Subtitle"]
                 first_heading = False
             else:
+                if text in PAGE_BREAK_BEFORE.get(source.name, set()):
+                    document.add_page_break()
                 document.add_heading(text, level=level)
             index += 1
             continue

@@ -4,18 +4,18 @@
 
 **`NOT_READY_TO_LAUNCH`**
 
-The CPU and CUDA implementations are supported and isolated. Machine A CUDA has real evaluator/VRAM/benchmark evidence; CPU has preserved real evaluator evidence and must be revalidated in a new final clone. Both become machine-ready only after post-commit complete preflight. Machine B and scientific gate evidence do not yet exist.
+The CPU and CUDA implementations are supported and isolated. Machine A has separate final clean-clone environment, real evaluator, release-binding, and complete-preflight evidence for both modes. Machine B and scientific gate evidence do not yet exist.
 
 ## Readiness matrix
 
 | Requirement | Machine A | Machine B | Global consequence |
 |---|---|---|---|
-| CPU runtime (`core-cpu`/`cpu`/float32) | Preserved real smoke; new clean clone pending | Not tested | CPU launch blocked until both pass |
+| CPU runtime (`core-cpu`/`cpu`/float32) | Passed in new clean clone | Not tested | CPU launch blocked until B passes |
 | CUDA runtime (`core-cuda`/`cuda:0`/float32) | Passed: 2.11.0+cu128 on RTX 3080 | Not tested | CUDA launch blocked until B passes |
 | CUDA nonzero VRAM evidence | Passed: 418.89 MiB peak allocated | Not tested | Required only for CUDA launch |
-| Exact Whisper Base model hash | Passed | Not tested | Blocked until selected workers pass |
-| Complete assignment preflight | Development check passed except dirty worktree; clean clone pending | Not tested | Blocked |
-| Campaign/assignment binding | Candidate frozen; final commit binding pending | Pending | Blocked |
+| Exact Whisper Base model hash | Passed in both Machine A clones | Not tested | Blocked until selected workers pass |
+| Complete assignment preflight | Passed for CPU and CUDA: 20/20, 12,368 items, zero blockers | Not tested | Blocked |
+| Campaign/assignment binding | Passed in both Machine A clones; runtime binding matched checkout | Pending | Blocked |
 | Credentials | None required | None required | Clear |
 | Canary/small/standard gates | Not passed for either final campaign | Shared requirement | Blocked |
 
@@ -33,11 +33,9 @@ Both campaigns are supported public contracts. A CUDA result may not be placed u
 
 ## Evidence required to change the verdict
 
-1. Final committed checkout reproduced in the separate CPU and GPU Machine A validation clones.
-2. Each selected runtime binding names that exact commit.
-3. The selected clean-clone Machine A report says `READY_TO_LAUNCH` for 20/20 scenarios.
-4. Machine B environment, real smoke, bounded measurement, and 21/21 preflight pass.
-5. Both release bindings and assignment sets agree.
-6. Canary, small, and standard reports are approved for the exact selected CPU or CUDA configuration.
+1. Machine B environment, real smoke, bounded measurement, and 21/21 preflight pass.
+2. Both workers select one coherent CPU or CUDA campaign and their final release bindings name the same approved commit.
+3. Both assignment sets agree, cover 41 scenarios, and have zero overlap.
+4. Canary, small, and standard reports are approved for the exact selected CPU or CUDA configuration.
 
 Only then may the launch control sheet be signed off. The expected final report path is `automated_runs/campaign_05_massive_release/analysis/report/campaign_report.md` for CPU or `automated_runs/campaign_06_massive_release_cuda/analysis/report/campaign_report.md` for CUDA.

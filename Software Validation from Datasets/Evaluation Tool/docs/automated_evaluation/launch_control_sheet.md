@@ -1,6 +1,6 @@
 # Launch control sheet — CPU and CUDA campaigns
 
-> Overall verdict: **`NOT_READY_TO_LAUNCH`**. CPU and CUDA are supported execution modes. Machine A must finish clean-clone preflight for the selected mode; Machine B and the canary/small/standard scientific gates remain mandatory.
+> Overall verdict: **`NOT_READY_TO_LAUNCH`**. CPU and CUDA are supported execution modes, and Machine A passed separate clean-clone setup, real evaluator smoke, release binding, and complete 20-scenario preflight for both. Machine B and the canary/small/standard scientific gates remain mandatory.
 
 ## Frozen identities
 
@@ -24,7 +24,7 @@ Both campaigns are supported. They preserve the same scientific coverage but hav
 
 | Worker | Candidate assignment | Scenarios | Items | Audio | Measured estimate | State |
 |---|---|---:|---:|---:|---:|---|
-| Machine A | `assignment_01f0cf86b339` | 20 | 12,368 | 16.883 h | 3.40 h; 2.81–5.18 h | CUDA-qualified; final clean binding/preflight required |
+| Machine A | `assignment_01f0cf86b339` | 20 | 12,368 | 16.883 h | 3.40 h; 2.81–5.18 h | CPU and CUDA clean-clone preflights passed 20/20 |
 | Machine B | `assignment_ea9976889bd2` | 21 | 13,430 | 16.837 h | 3.40 h; 2.81–5.17 h provisional | Not tested |
 | Total | non-overlapping | 41 | 25,798 | 33.720 h | about 3.4 h parallel after both machines qualify | Not authorized |
 
@@ -98,7 +98,7 @@ Expected final count: 41 checksum-valid merged scenarios. Expected report is `au
 
 ## Manual blockers
 
-1. Finish final clean-clone CPU and CUDA bindings and complete both Machine A preflights.
-2. Install, profile, and fully preflight Machine B; do not copy Machine A evidence.
+1. Install, profile, run a real smoke, and fully preflight Machine B; do not copy Machine A evidence.
+2. Confirm both workers materialize the same selected CPU or CUDA campaign at the same approved final commit and retain zero-overlap assignments.
 3. Pass and approve the component canary, small, and standard gates for the selected execution mode.
 4. Keep Bedroom unresolved and excluded; never substitute ParkingLot or Kitchen.

@@ -2,9 +2,9 @@
 
 ## Verdict
 
-**Both implementations are qualified; separate final clean-clone preflights are required. Global massive launch is not authorized.**
+**Machine A is technically ready for either supported mode. Separate CPU and CUDA clean clones both passed setup, real evaluator smoke, release binding, and complete assignment preflight. Global massive launch is not authorized.**
 
-The preserved CPU path uses `.venv`, PyTorch 2.11.0+cpu, `core-cpu`, `cpu`, and `float32`. The CUDA path uses an isolated environment and the evidence below. Each campaign assigns Machine A 20 scenarios, 12,368 item executions, 2,750 unique source files, and 16.882998 repeated audio hours. The authoritative launch verdict for each mode must come from its post-commit clean clone.
+The CPU path uses `.venv`, PyTorch 2.11.0+cpu, `core-cpu`, `cpu`, and `float32`. The CUDA path uses `.stage8-envs/core-cuda`, PyTorch 2.11.0+cu128, `core-cuda`, `cuda:0`, and `float32`. Each campaign assigns Machine A 20 scenarios, 12,368 item executions, 2,750 unique source files, and 16.882998 repeated audio hours. The authoritative reports in each clean clone say `READY_TO_LAUNCH` with no blockers.
 
 ## Hardware and runtime evidence
 
@@ -27,6 +27,21 @@ The preserved CPU path uses `.venv`, PyTorch 2.11.0+cpu, `core-cpu`, `cpu`, and 
 CPU has no CUDA prerequisite and must report GPU measurements as unavailable rather than fabricating zeros. CUDA requires the exact GPU profile and fails on CPU-only PyTorch.
 
 `torch.cuda.is_available()` was true, the selected device opened successfully, the model parameter device was CUDA, and real evaluator diagnostics showed nonzero allocated and reserved VRAM. See `gpu_qualification_report.md`.
+
+## Final clean-clone evidence
+
+| Check | CPU clone | CUDA clone |
+|---|---|---|
+| Clone | `just-peachy-launch-a-cpu-final` | `just-peachy-launch-a-gpu` |
+| Dependency check | No broken requirements | No broken requirements |
+| Real evaluator smoke | 1 selected; 1 prediction; 0 missing; 0 failed; WER 0.25 | 1 selected; 1 prediction; 0 missing; 0 failed; WER 0.25 |
+| Resolved execution | `core-cpu`; `cpu`; `float32` | `core-cuda`; `cuda:0`; `float32` |
+| Runtime evidence | 2.03 s pipeline time; GPU fields unavailable | 2.35 s pipeline time; 418.89 MiB peak allocated; 426 MiB peak reserved |
+| Prediction comparison | Same utterance ID and transcript | Same utterance ID and transcript |
+| Release binding | Valid and bound to checked-out commit | Valid and bound to checked-out commit |
+| Full Machine A preflight | `READY_TO_LAUNCH`; 20/20; 12,368 items | `READY_TO_LAUNCH`; 20/20; 12,368 items |
+
+The one-item ordinary evaluator report does not emit CER, so no CER value is inferred for this smoke. The separate fixed five-item qualification reports WER 0.1463414634 and CER 0.1444444444 for CPU, CUDA float32, and CUDA float16 with identical transcripts.
 
 ## Capacity
 
@@ -55,4 +70,4 @@ $Python = Join-Path $Repo '.stage8-envs\core-cuda\Scripts\python.exe'
 powershell -ExecutionPolicy Bypass -File "$Eval\scripts\launch_campaign_machine_a_gpu.ps1" -PreflightOnly
 ```
 
-Launch only if the final command returns zero and the report says `READY_TO_LAUNCH` with 20/20 scenarios and no blockers.
+These commands passed in the final validation clones. Rerun the matching command immediately before launch; proceed only if it returns zero and still reports `READY_TO_LAUNCH` with 20/20 scenarios and no blockers.

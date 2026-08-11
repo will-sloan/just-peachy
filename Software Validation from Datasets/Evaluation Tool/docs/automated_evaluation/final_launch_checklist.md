@@ -26,7 +26,7 @@ Check every item. Any unchecked blocking item means do not launch the massive ca
 
 ## Readiness and scientific authorization
 
-- [ ] Machine A complete preflight says `READY_TO_LAUNCH`, 20/20 scenarios, 12,368 items.
+- [x] Machine A CPU and CUDA clean-clone preflights each said `READY_TO_LAUNCH`, 20/20 scenarios, 12,368 items.
 - [ ] Machine B complete preflight says `READY_TO_LAUNCH`, 21/21 scenarios, 13,430 items.
 - [ ] Machine B runtime estimate was measured on its own hardware.
 - [ ] Component canary is approved for the exact selected CPU or CUDA configuration.

@@ -116,6 +116,10 @@ C:\Users\amiri\anaconda3\python.exe "Software Validation from Datasets\Evaluatio
 After generation, render every document with the approved document-rendering
 tool and inspect every page before publishing it. The Markdown source remains
 canonical; edit Markdown and regenerate rather than hand-editing a `.docx`.
+The generator applies one deliberate page break before `Final clean-clone
+evidence` in the Machine A brief so its two-page layout remains balanced after
+readiness evidence is added; content still comes only from the canonical
+Markdown.
 
 ## CUDA successor campaign
 

@@ -1,5 +1,9 @@
 # Fresh CPU and CUDA clone validation
 
+## Executed result
+
+Machine A validation completed in two newly created clones without copying environments from development. CPU setup produced PyTorch 2.11.0+cpu; CUDA setup produced PyTorch 2.11.0+cu128 with CUDA 12.8 and cuDNN 91900 on the RTX 3080. Both passed `pip check`, the 24-check repository verifier, exact Whisper Base hash validation, real ordinary-evaluator smoke, campaign materialization, release binding, and complete assignment preflight. Both Git worktrees were clean at preflight. The historical `just-peachy-launch-a` clone remained untouched.
+
 Use two new clones, for example `just-peachy-launch-a-cpu-final` and `just-peachy-launch-a-gpu`. Preserve the historical `just-peachy-launch-a`. Do not copy `.venv` or `.stage8-envs` between checkouts.
 
 ## Procedure
@@ -48,4 +52,4 @@ The binding must name the checked-out final commit. Run one real CMU Arctic smok
 - Runtime assignment and release-binding identities bind to the final commit.
 - Both matching Machine A wrappers, each in its own clone, say `READY_TO_LAUNCH` for 20/20 scenarios with `-PreflightOnly` and do not start inference.
 
-This establishes Machine A technical readiness only. It does not pass Machine B or the scientific gates and does not authorize the massive run.
+This establishes Machine A technical readiness only. It does not pass Machine B or the scientific gates and does not authorize the massive run. Repeat materialization and `-PreflightOnly` after any future commit change because runtime assignment and release-binding hashes intentionally bind to the exact checkout.

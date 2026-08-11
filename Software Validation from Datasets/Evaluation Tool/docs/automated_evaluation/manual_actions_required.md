@@ -1,12 +1,12 @@
 # Manual actions required before either massive campaign
 
-CPU and CUDA are first-class supported modes. The massive campaign remains blocked by clean-clone, second-machine, and scientific evidence—not by an API key.
+CPU and CUDA are first-class supported modes. Machine A clean-clone qualification is complete. The massive campaign remains blocked by second-machine and scientific evidence—not by an API key.
 
 | Owner | Required action | Exact completion evidence | Blocks massive launch |
 |---|---|---|---|
-| Amir | Use separate clean CPU and GPU clones at the final commit; materialize each selected campaign with `--bind-current-commit` | Clean Git status in each clone; each release binding names the checked-out commit | Yes |
-| Amir | Create a new clean CPU validation clone and run the CPU real smoke plus complete assignment preflight | CPU `machine_a_assignment_preflight.json` says `READY_TO_LAUNCH` | Yes |
-| Amir | Run the complete Machine A assignment preflight | `machine_a_assignment_preflight.json` says `READY_TO_LAUNCH`, 20/20 scenarios, 12,368 items | Yes |
+| Amir | Use separate clean CPU and GPU clones; materialize each campaign with `--bind-current-commit` | **Completed:** both clones were clean and both release bindings named the checked-out commit | No |
+| Amir | Run the real CPU and CUDA evaluator smokes | **Completed:** each selected one item, produced one prediction, and had zero missing or failed items; CUDA recorded nonzero VRAM | No |
+| Amir | Run both complete Machine A assignment preflights | **Completed:** both reports say `READY_TO_LAUNCH`, 20/20 scenarios, 12,368 items | No |
 | Machine B operator | Install the selected `core-cpu` or `core-cuda` profile; verify hardware, model, datasets, RIRs, and disk | Matching Machine B profile plus full 21-scenario preflight says `READY_TO_LAUNCH` | Yes |
 | Scientific owner | Run/approve component canary | Accepted canary evidence for the exact selected Whisper Base configuration | Yes |
 | Scientific owner | Run/approve small gate | Accepted small-tier report; no hidden missing/failures | Yes |
