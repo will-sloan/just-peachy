@@ -18,6 +18,12 @@ prepared for independent machines without weakening version checks.
 
 ## Start here
 
+- [Edge research quick start](edge_research_quick_start.md): prepare, verify,
+  globally dry-plan, run one scenario, stop, resume, and analyze the new edge and
+  native-streaming campaigns without manual environment activation.
+- [Edge component expansion handoff](edge_component_expansion_handoff.md): exact
+  components, licences, asset hashes, qualifications, catalogs, campaign counts,
+  commands, exclusions, and the recommended first experiment.
 - [Launch control sheet](launch_control_sheet.md): actual campaign hash,
   Machine A/B status, blockers, batches, exact launch/export/merge/analysis
   commands, counts, time, disk, and final report path. Current verdict:

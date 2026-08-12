@@ -131,7 +131,7 @@ def qualify_synthetic_release(
         "long_path": passed,
         "exact_reconciliation": passed,
     }
-    result = {
+    result: dict[str, object] = {
         "schema_version": "synthetic-release-workflow-qualification.v1",
         "target_gate": "synthetic",
         "next_gate": "small",

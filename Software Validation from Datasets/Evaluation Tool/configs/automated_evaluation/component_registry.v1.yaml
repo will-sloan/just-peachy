@@ -23,6 +23,8 @@ readiness_status_vocabulary:
   - asset_required
   - platform_required
   - incompatible_environment
+  - license_review_required
+  - commercial_use_unverified
   - pending_decision
   - excluded
 
@@ -41,6 +43,7 @@ contracts:
   speech_regions.v1: app/inference_pipeline/contracts.py::SpeechRegion
   audio_segments.v1: app/inference_pipeline/contracts.py::AudioSegment
   asr_transcript.v1: app/inference_pipeline/contracts.py::ASRTranscript
+  streaming_diagnostics.v1: app/inference_pipeline/asr/streaming.py::build_streaming_diagnostics
   speaker_embedding.v1: app/inference_pipeline/speaker_embedding/base.py::SpeakerEmbedding
   speaker_decision.v1: app/inference_pipeline/speaker_matching/base.py::SpeakerDecision
   speaker_turns.v1: app/inference_pipeline/diarization/base.py::SpeakerTurnRegion
@@ -100,7 +103,7 @@ components:
     config_sha256: DC7D24B0ED498228B0C4FE076D04CBDA9BE1208A0F716A65618248EF16DCF17C
     higher_level_config_references: [configs/inference/e2e_named_transcript.yaml]
     packages: [numpy==2.2.6, torch==2.11.0]
-    environment_profiles: [core-cpu, core-cuda, extended-local, onnx, wenet, wespeaker, credential-diarization]
+    environment_profiles: [core-cpu, core-cuda, extended-local, onnx, wenet, wespeaker, credential-diarization, edge-cpu, moonshine-edge]
     input_contract: loaded_audio.v1
     output_contract: speech_regions.v1
     compatibility_constraints: ["Mono 16 kHz float32 LoadedAudio is the configured qualification path."]
@@ -118,7 +121,7 @@ components:
     config_sha256: 2FBEDC8447D9CF0D9BF0751E65F0789AFDF137025C26A8E281D4D7A7623F1F4E
     higher_level_config_references: [configs/inference/desktop_gpu.yaml, configs/inference/simple_vad_speaker_change_enrollment.yaml]
     packages: [silero-vad==6.2.1, torch==2.11.0]
-    environment_profiles: [core-cpu, core-cuda, extended-local, onnx, wenet, wespeaker, credential-diarization]
+    environment_profiles: [core-cpu, core-cuda, extended-local, onnx, wenet, wespeaker, credential-diarization, edge-cpu, moonshine-edge]
     model_assets: ["Packaged silero-vad model assets"]
     input_contract: loaded_audio.v1
     output_contract: speech_regions.v1
@@ -136,7 +139,7 @@ components:
     config_path: configs/inference/components/vad/webrtc.yaml
     config_sha256: 59EF35C465964B8B239DDC3EBD947E53E08F1386A7EC49DC170D43C53D98A29C
     packages: [webrtcvad-wheels==2.0.14]
-    environment_profiles: [extended-local]
+    environment_profiles: [extended-local, edge-cpu, moonshine-edge]
     qualification_backend_id: webrtc_vad
     input_contract: loaded_audio.v1
     output_contract: speech_regions.v1
@@ -164,6 +167,29 @@ components:
     intended_final_use_category: extended
 
   - <<: *component_defaults
+    id: vad.fsmn_vad
+    family: vad
+    name: fsmn_vad
+    implementation_class: FSMNVAD
+    implementation_path: app/inference_pipeline/vad/fsmn_vad.py
+    registry_adapter_class: FSMNVADAdapter
+    config_path: configs/inference/components/vad/fsmn.yaml
+    config_sha256: 1F36695F0F6BC8A8594FDF06B20AB59DC9D65DA6CBAFE53E81D28F9732A0BC0E
+    packages: [funasr-onnx==0.4.2, numpy==1.26.4]
+    model_assets: [stage8:fsmn_vad_quantized]
+    environment_profiles: [edge-cpu]
+    qualification_backend_id: fsmn_vad
+    supported_os: [windows, linux]
+    hardware_support: {cpu: true, gpu: false, cuda: false}
+    device_dtype_support: [cpu/float32]
+    input_contract: loaded_audio.v1
+    output_contract: speech_regions.v1
+    compatibility_constraints: ["16 kHz mono float32 input; local quantized ONNX asset; FunASR NumPy constraint requires edge-cpu isolation; downloads disabled."]
+    model_terms: "Exact iic/speech_fsmn_vad_zh-cn-16k-common-onnx checkpoint is Apache-2.0; funasr-onnx runtime is MIT."
+    readiness: {status: qualified, evidence: "runs/edge_backend_qualification/edge-cpu.json fsmn_vad: repeated real speech, silence, and VADChunker qualification passed", blockers: []}
+    intended_final_use_category: extended
+
+  - <<: *component_defaults
     id: segmentation.no_op_segmentation
     family: segmentation
     name: no_op_segmentation
@@ -185,7 +211,7 @@ components:
     registry_adapter_class: VADChunkerAdapter
     config_path: configs/inference/components/segmentation/vad_chunks.yaml
     config_sha256: 383C755EEB9C4F37B134B13A92308707A001CB038331F8083C6A0E773A7C44A1
-    environment_profiles: [core-cpu, core-cuda, extended-local, onnx, wenet, wespeaker, credential-diarization]
+    environment_profiles: [core-cpu, core-cuda, extended-local, onnx, wenet, wespeaker, credential-diarization, edge-cpu, moonshine-edge]
     higher_level_config_references: [configs/inference/e2e_named_transcript.yaml, configs/inference/simple_vad_speaker_change_enrollment.yaml]
     input_contract: speech_regions.v1
     output_contract: audio_segments.v1
@@ -216,7 +242,7 @@ components:
     config_sha256: 976D83E05E79DCAE04A4DB398A16165A9D567702044DAC519406F93A3C4B6545
     higher_level_config_references: [configs/inference/desktop_gpu.yaml, configs/inference/live_mic_whisper_tiny.yaml, configs/inference/live_mic_realtime_whisper_tiny.yaml]
     packages: [openai-whisper==20250625, torch==2.11.0, ffmpeg==8.1.2]
-    environment_profiles: [core-cpu, core-cuda, extended-local, onnx, wenet, wespeaker, credential-diarization]
+    environment_profiles: [core-cpu, core-cuda, extended-local, onnx, wenet, wespeaker, credential-diarization, edge-cpu]
     model_assets: ["models/cache/whisper/tiny.pt|75572083|sha256:65147644A518D12F04E32D6F3B26FACC3F8DD46E5390956A9424A650C0CE22B9"]
     model_terms: "Upstream Whisper source license metadata is not copied into the cache; internal use qualified, redistribution review required."
     hardware_support: {cpu: true, gpu: true, cuda: true}
@@ -238,7 +264,7 @@ components:
     config_sha256: F881C12FDAA8270269CEE818563195AD35EACF237417AE5FE2598C5B76768E95
     higher_level_config_references: [configs/inference/live_mic_whisper_base.yaml, configs/inference/live_mic_realtime_whisper_base.yaml, configs/inference/live_mic_realtime_whisper_base_speaker_matching.yaml, configs/inference/simple_vad_speaker_change_enrollment.yaml, configs/inference/whisper_base_cuda_float32.yaml, configs/inference/whisper_base_cuda_float16.yaml]
     packages: [openai-whisper==20250625, torch==2.11.0, ffmpeg==8.1.2]
-    environment_profiles: [core-cpu, core-cuda, extended-local, onnx, wenet, wespeaker, credential-diarization]
+    environment_profiles: [core-cpu, core-cuda, extended-local, onnx, wenet, wespeaker, credential-diarization, edge-cpu]
     model_assets: ["models/cache/whisper/base.pt|145262807|sha256:ED3A0B6B1C0EDF879AD9B11B1AF5A0E6AB5DB9205F891F668F8B0E6C6326E34E"]
     model_terms: "Upstream Whisper source license metadata is not copied into the cache; internal use qualified, redistribution review required."
     hardware_support: {cpu: true, gpu: true, cuda: true}
@@ -311,6 +337,98 @@ components:
     intended_final_use_category: extended
 
   - <<: *component_defaults
+    id: asr.sherpa_onnx_streaming_zipformer_20m_int8
+    family: asr
+    name: sherpa_onnx_streaming_zipformer_20m_int8
+    implementation_class: SherpaOnnxStreamingZipformer20MInt8ASR
+    implementation_path: app/inference_pipeline/asr/sherpa_onnx_adapter.py
+    registry_adapter_class: SherpaOnnxStreamingZipformer20MInt8ASRAdapter
+    config_path: configs/inference/components/asr/sherpa_onnx_streaming_zipformer_20m_int8.yaml
+    config_sha256: 044BE2444A469510C16CE4D69A8D5324543990D69A80181911409457AB1FB5A6
+    packages: [sherpa-onnx==1.13.4]
+    model_assets: [stage8:sherpa_onnx_streaming_zipformer_20m_int8]
+    environment_profiles: [onnx]
+    qualification_backend_id: sherpa_onnx_streaming_zipformer_20m_int8
+    supported_os: [windows, linux]
+    hardware_support: {cpu: true, gpu: false, cuda: false}
+    device_dtype_support: [cpu/float32]
+    input_contract: audio_segments.v1
+    output_contract: asr_transcript.v1
+    compatibility_constraints: ["Native stateful streaming replay; 16 kHz mono; INT8 encoder/decoder/joiner; deterministic 100 ms chunks; downloads disabled."]
+    model_terms: "Sherpa-ONNX runtime and exact 2023-02-17 20M English model lineage are Apache-2.0."
+    readiness: {status: qualified, evidence: "runs/edge_backend_qualification/onnx-edge.json sherpa_onnx_streaming_zipformer_20m_int8: repeated real native-streaming transcript qualification passed", blockers: []}
+    intended_final_use_category: extended
+
+  - <<: *component_defaults
+    id: asr.moonshine_streaming_tiny
+    family: asr
+    name: moonshine_streaming_tiny
+    implementation_class: MoonshineStreamingASR
+    implementation_path: app/inference_pipeline/asr/moonshine_streaming_adapter.py
+    registry_adapter_class: MoonshineStreamingTinyASRAdapter
+    config_path: configs/inference/components/asr/moonshine_streaming_tiny.yaml
+    config_sha256: C2FFF4C1DEECBFAB08863269764E40C04DBCE2DEDAD7BB369E1B14FE08121A8F
+    packages: [moonshine-voice==0.1.1]
+    model_assets: [stage8:moonshine_streaming_tiny_en]
+    environment_profiles: [moonshine-edge]
+    qualification_backend_id: moonshine_streaming_tiny
+    supported_os: [windows, linux]
+    hardware_support: {cpu: true, gpu: false, cuda: false}
+    device_dtype_support: [cpu/float32]
+    input_contract: audio_segments.v1
+    output_contract: asr_transcript.v1
+    compatibility_constraints: ["Native Moonshine streaming state; English 16 kHz mono; deterministic 100 ms replay; downloads disabled."]
+    model_terms: "Moonshine Voice code and English streaming model are MIT; exact quantized_26_07_30 asset is pinned."
+    readiness: {status: qualified, evidence: "runs/edge_backend_qualification/moonshine-edge.json moonshine_streaming_tiny: repeated real native-streaming transcript qualification passed", blockers: []}
+    intended_final_use_category: extended
+
+  - <<: *component_defaults
+    id: asr.moonshine_streaming_small
+    family: asr
+    name: moonshine_streaming_small
+    implementation_class: MoonshineStreamingASR
+    implementation_path: app/inference_pipeline/asr/moonshine_streaming_adapter.py
+    registry_adapter_class: MoonshineStreamingSmallASRAdapter
+    config_path: configs/inference/components/asr/moonshine_streaming_small.yaml
+    config_sha256: 24FA21FEE0754DEDEEF4DA4B2B0C1DC012F8F9A829AD6C24D343C0ED9E31D625
+    packages: [moonshine-voice==0.1.1]
+    model_assets: [stage8:moonshine_streaming_small_en]
+    environment_profiles: [moonshine-edge]
+    qualification_backend_id: moonshine_streaming_small
+    supported_os: [windows, linux]
+    hardware_support: {cpu: true, gpu: false, cuda: false}
+    device_dtype_support: [cpu/float32]
+    input_contract: audio_segments.v1
+    output_contract: asr_transcript.v1
+    compatibility_constraints: ["Native Moonshine streaming state; English 16 kHz mono; deterministic 100 ms replay; downloads disabled."]
+    model_terms: "Moonshine Voice code and English streaming model are MIT; exact quantized_26_07_30 asset is pinned."
+    readiness: {status: qualified, evidence: "runs/edge_backend_qualification/moonshine-edge.json moonshine_streaming_small: repeated real native-streaming transcript qualification passed", blockers: []}
+    intended_final_use_category: extended
+
+  - <<: *component_defaults
+    id: asr.moonshine_streaming_medium
+    family: asr
+    name: moonshine_streaming_medium
+    implementation_class: MoonshineStreamingASR
+    implementation_path: app/inference_pipeline/asr/moonshine_streaming_adapter.py
+    registry_adapter_class: MoonshineStreamingMediumASRAdapter
+    config_path: configs/inference/components/asr/moonshine_streaming_medium.yaml
+    config_sha256: 54DE903DAE4BDF5585C2B6FA174650BEC417005B5E52C59F573AF0C37FD302C3
+    packages: [moonshine-voice==0.1.1]
+    model_assets: [stage8:moonshine_streaming_medium_en]
+    environment_profiles: [moonshine-edge]
+    qualification_backend_id: moonshine_streaming_medium
+    supported_os: [windows, linux]
+    hardware_support: {cpu: true, gpu: false, cuda: false}
+    device_dtype_support: [cpu/float32]
+    input_contract: audio_segments.v1
+    output_contract: asr_transcript.v1
+    compatibility_constraints: ["Native Moonshine streaming state; English 16 kHz mono; deterministic 100 ms replay; downloads disabled."]
+    model_terms: "Moonshine Voice code and English streaming model are MIT; exact quantized_26_07_30 asset is pinned."
+    readiness: {status: qualified, evidence: "runs/edge_backend_qualification/moonshine-edge.json moonshine_streaming_medium: repeated real native-streaming transcript qualification passed", blockers: []}
+    intended_final_use_category: extended
+
+  - <<: *component_defaults
     id: asr.vosk
     family: asr
     name: vosk
@@ -372,7 +490,7 @@ components:
     config_sha256: 13ACC7E76F621CEA132DCD3419667E791AF0005FDE98EE9AEFD93BC8632215DF
     higher_level_config_references: [configs/inference/desktop_gpu.yaml, configs/inference/live_mic_realtime_whisper_base_speaker_matching.yaml, configs/inference/simple_vad_speaker_change_enrollment.yaml]
     packages: [speechbrain==1.1.0, torch==2.11.0]
-    environment_profiles: [core-cpu, core-cuda, extended-local, onnx, wenet, wespeaker, credential-diarization]
+    environment_profiles: [core-cpu, core-cuda, extended-local, onnx, wenet, wespeaker, credential-diarization, edge-cpu]
     model_assets:
       - "models/cache/speechbrain/spkrec-ecapa-voxceleb/embedding_model.ckpt|83316686|sha256:0575CB64845E6B9A10DB9BCB74D5AC32B326B8DC90352671D345E2EE3D0126A2"
       - "models/cache/speechbrain/spkrec-ecapa-voxceleb/hyperparams.yaml|1919|sha256:6F78854FA04BA59E761437B76A2575D3ABA5E5016DE3E9B69F0C9A5077FB1A41"
@@ -424,6 +542,52 @@ components:
     intended_final_use_category: extended
 
   - <<: *component_defaults
+    id: speaker_embedding.campplus_speaker_embedding
+    family: speaker_embedding
+    name: campplus_speaker_embedding
+    implementation_class: CAMPlusSpeakerEmbeddingAdapter
+    implementation_path: app/inference_pipeline/speaker_embedding/sherpa_onnx_adapter.py
+    registry_adapter_class: CAMPlusSpeakerEmbeddingCatalogAdapter
+    config_path: configs/inference/components/speaker_embedding/campplus.yaml
+    config_sha256: B148098431A23BF06979D65DBE40CACF68EACEC401FA0CE0569C7CFF68B2EDB4
+    packages: [sherpa-onnx==1.13.4]
+    model_assets: [stage8:campplus_en_voxceleb]
+    environment_profiles: [onnx]
+    qualification_backend_id: campplus_speaker_embedding
+    supported_os: [windows, linux]
+    hardware_support: {cpu: true, gpu: false, cuda: false}
+    device_dtype_support: [cpu/float32]
+    input_contract: audio_segments.v1
+    output_contract: speaker_embedding.v1
+    compatibility_constraints: ["16 kHz mono; minimum 0.5 s; backend-specific Stage 10 enrollment required; downloads disabled."]
+    model_terms: "Exact iic/speech_campplus_sv_en_voxceleb_16k v1.0.2 checkpoint and 3D-Speaker lineage are Apache-2.0."
+    readiness: {status: qualified, evidence: "runs/edge_backend_qualification/onnx-edge.json campplus_speaker_embedding: repeated real finite normalized 512-dimensional embedding qualification passed", blockers: []}
+    intended_final_use_category: extended
+
+  - <<: *component_defaults
+    id: speaker_embedding.eres2net_base_speaker_embedding
+    family: speaker_embedding
+    name: eres2net_base_speaker_embedding
+    implementation_class: ERes2NetBaseSpeakerEmbeddingAdapter
+    implementation_path: app/inference_pipeline/speaker_embedding/sherpa_onnx_adapter.py
+    registry_adapter_class: ERes2NetBaseSpeakerEmbeddingCatalogAdapter
+    config_path: configs/inference/components/speaker_embedding/eres2net_base.yaml
+    config_sha256: E197E2382AE98AEF24ECC6833F6A8D528BAD6788EC472DB14A9DD56516DC1EE4
+    packages: [sherpa-onnx==1.13.4]
+    model_assets: [stage8:eres2net_base_3dspeaker]
+    environment_profiles: [onnx]
+    qualification_backend_id: eres2net_base_speaker_embedding
+    supported_os: [windows, linux]
+    hardware_support: {cpu: true, gpu: false, cuda: false}
+    device_dtype_support: [cpu/float32]
+    input_contract: audio_segments.v1
+    output_contract: speaker_embedding.v1
+    compatibility_constraints: ["16 kHz mono; minimum 0.5 s; backend-specific Stage 10 enrollment required; downloads disabled."]
+    model_terms: "Exact iic/speech_eres2net_base_sv_zh-cn_3dspeaker_16k v1.0.1 checkpoint and 3D-Speaker lineage are Apache-2.0."
+    readiness: {status: qualified, evidence: "runs/edge_backend_qualification/onnx-edge.json eres2net_base_speaker_embedding: repeated real finite normalized 512-dimensional embedding qualification passed", blockers: []}
+    intended_final_use_category: extended
+
+  - <<: *component_defaults
     id: speaker_embedding.wespeaker
     family: speaker_embedding
     name: wespeaker
@@ -465,7 +629,7 @@ components:
     config_sha256: 89C4214F764FFF1FE26C7FA21B4B9750D3806EBC17466CA6905B16C21C54C3AD
     higher_level_config_references: [configs/inference/live_mic_realtime_whisper_base_speaker_matching.yaml, configs/inference/simple_vad_speaker_change_enrollment.yaml]
     packages: [numpy==2.2.6]
-    environment_profiles: [core-cpu, core-cuda, extended-local, onnx, wenet, wespeaker, credential-diarization]
+    environment_profiles: [core-cpu, core-cuda, extended-local, onnx, wenet, wespeaker, credential-diarization, edge-cpu]
     input_contract: speaker_embedding.v1
     output_contract: speaker_decision.v1
     compatibility_constraints: ["Embedding model IDs must match; below-threshold or ambiguous output is literal Unknown and must be preserved/scored."]

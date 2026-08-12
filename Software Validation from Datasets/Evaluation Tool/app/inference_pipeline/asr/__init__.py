@@ -29,6 +29,11 @@ from app.inference_pipeline.asr.report import (
 from app.inference_pipeline.asr.sherpa_onnx_adapter import (
     SherpaOnnxASR,
     SherpaOnnxASRUnavailableError,
+    SherpaOnnxStreamingZipformer20MInt8ASR,
+)
+from app.inference_pipeline.asr.moonshine_streaming_adapter import (
+    MoonshineStreamingASR,
+    MoonshineStreamingASRUnavailableError,
 )
 from app.inference_pipeline.asr.vosk_adapter import VoskASR, VoskASRUnavailableError
 from app.inference_pipeline.asr.wenet_adapter import WeNetASR, WeNetASRUnavailableError
@@ -42,8 +47,11 @@ __all__ = [
     "FasterWhisperASRUnavailableError",
     "FixedASR",
     "NoOpASR",
+    "MoonshineStreamingASR",
+    "MoonshineStreamingASRUnavailableError",
     "SherpaOnnxASR",
     "SherpaOnnxASRUnavailableError",
+    "SherpaOnnxStreamingZipformer20MInt8ASR",
     "VoskASR",
     "VoskASRUnavailableError",
     "WeNetASR",

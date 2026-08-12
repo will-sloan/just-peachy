@@ -129,6 +129,8 @@ def _execute_scenario_impl(
     definition = get_dataset(str(scenario["dataset_slice"]["dataset"]))
     run_config: dict[str, object] = {
         "command": "campaign-scenario",
+        "scenario_id": scenario_id,
+        "scenario_hash": scenario["scenario_hash"],
         "project_root": str(project_root),
         "run_dir": str(work_dir),
         "dataset": {
@@ -433,6 +435,12 @@ def _publish_final_artifacts(
         raise ValueError("runner outcome counts do not reconcile")
     store.publish_jsonl("predictions/utterances.jsonl", predictions)
     store.publish_jsonl("predictions/diagnostics.jsonl", diagnostics)
+    streaming_source = work_dir / "predictions" / "streaming_diagnostics.jsonl"
+    if streaming_source.is_file():
+        streaming_rows = list(read_jsonl(streaming_source))
+        store.publish_jsonl(
+            "predictions/streaming_diagnostics.jsonl", streaming_rows
+        )
     store.publish_parquet("metrics/item_metrics.parquet", item_table)
     store.publish_parquet("metrics/grouped_metrics.parquet", grouped_table)
     store.publish_parquet("metrics/failures.parquet", failure_table)

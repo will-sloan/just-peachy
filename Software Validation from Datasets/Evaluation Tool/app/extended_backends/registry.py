@@ -86,7 +86,31 @@ def inspect_asset(asset_id: str, registry: Mapping[str, object] | None = None) -
     ]
     files = _file_inventory(resolved) if present else []
     total_bytes = sum(int(item["bytes"]) for item in files)
-    identity = _tree_identity(files) if files else None
+    identity = (
+        str(files[0]["sha256"])
+        if files and resolved is not None and resolved.is_file()
+        else _tree_identity(files) if files else None
+    )
+    expected_identity = definition.get("expected_sha256")
+    identity_scope = str(
+        definition.get("expected_sha256_scope")
+        or ("installed_file" if resolved is not None and resolved.is_file() else "source_archive")
+    )
+    expected_size = definition.get("expected_size_bytes")
+    hash_matches = (
+        identity == str(expected_identity).lower()
+        if present
+        and expected_identity is not None
+        and identity is not None
+        and identity_scope in {"installed_file", "installed_tree"}
+        else None
+    )
+    size_matches = (
+        total_bytes == int(expected_size)
+        if present and expected_size is not None
+        else None
+    )
+    verified = present and hash_matches is not False and size_matches is not False
     acquisition_date = (
         datetime.fromtimestamp(
             max(_file_mtime(resolved, str(item["path"])) for item in files),
@@ -103,6 +127,15 @@ def inspect_asset(asset_id: str, registry: Mapping[str, object] | None = None) -
         "model_version": str(definition["model_version"]),
         "source": definition["source"],
         "licence": definition["licence"],
+        "licence_evidence": list(definition.get("licence_evidence", ())),
+        "commercial_disposition": definition.get("commercial_disposition"),
+        "upstream_model_revision": definition.get("upstream_model_revision"),
+        "conversion_provenance": definition.get("conversion_provenance"),
+        "parameter_count": definition.get("parameter_count"),
+        "sample_rate_hz": definition.get("sample_rate_hz"),
+        "streaming": bool(definition.get("streaming", False)),
+        "expected_size_bytes": definition.get("expected_size_bytes"),
+        "expected_sha256_scope": identity_scope,
         "artifact_filename": definition["artifact_filename"],
         "storage_path": str(definition["storage_path"]).replace("\\", "/"),
         "environment_profile": definition["environment_profile"],
@@ -113,8 +146,12 @@ def inspect_asset(asset_id: str, registry: Mapping[str, object] | None = None) -
         "missing_required_files": missing_required_files,
         "size_bytes": total_bytes if present else None,
         "sha256": identity,
+        "hash_matches": hash_matches,
+        "size_matches": size_matches,
         "files": files,
-        "verification_status": "verified" if present else "missing",
+        "verification_status": (
+            "verified" if verified else "mismatch" if present else "missing"
+        ),
     }
 
 

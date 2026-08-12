@@ -1,0 +1,21 @@
+# Isolated FSMN profile. FunASR-ONNX 0.4.2 requires NumPy <=1.26.4, so this
+# profile deliberately does not inherit requirements/core.txt (NumPy 2.2.6).
+numpy==1.26.4
+pandas==2.3.3
+pyarrow==21.0.0
+PyYAML==6.0.3
+scipy==1.15.3
+soundfile==0.13.1
+tqdm==4.67.1
+matplotlib==3.10.7
+scikit-learn==1.7.2
+jiwer==4.0.0
+psutil==7.2.2
+
+torch==2.11.0
+torchaudio==2.11.0
+openai-whisper==20250625
+silero-vad==6.2.1
+webrtcvad-wheels==2.0.14
+funasr-onnx==0.4.2
+nvidia-ml-py==13.610.43

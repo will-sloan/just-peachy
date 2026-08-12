@@ -136,6 +136,10 @@ def build_vad_from_config(config: object) -> VADBase | None:
         from app.inference_pipeline.vad.sherpa_onnx_vad import SherpaOnnxVAD
 
         return SherpaOnnxVAD(params)
+    if name == "fsmn_vad":
+        from app.inference_pipeline.vad.fsmn_vad import FSMNVAD
+
+        return FSMNVAD(params)
     raise ContractValidationError(f"unknown vad component {name!r}")
 
 

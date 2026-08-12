@@ -69,6 +69,11 @@ class SherpaOnnxVADAdapter(ComponentAdapter):
     component_name = "sherpa_onnx_vad"
 
 
+class FSMNVADAdapter(ComponentAdapter):
+    component_slot = "vad"
+    component_name = "fsmn_vad"
+
+
 class NoOpSegmentationAdapter(ComponentAdapter):
     component_slot = "segmentation"
     component_name = "no_op_segmentation"
@@ -134,6 +139,26 @@ class SherpaOnnxASRAdapter(ComponentAdapter):
     component_name = "sherpa_onnx"
 
 
+class SherpaOnnxStreamingZipformer20MInt8ASRAdapter(ComponentAdapter):
+    component_slot = "asr"
+    component_name = "sherpa_onnx_streaming_zipformer_20m_int8"
+
+
+class MoonshineStreamingTinyASRAdapter(ComponentAdapter):
+    component_slot = "asr"
+    component_name = "moonshine_streaming_tiny"
+
+
+class MoonshineStreamingSmallASRAdapter(ComponentAdapter):
+    component_slot = "asr"
+    component_name = "moonshine_streaming_small"
+
+
+class MoonshineStreamingMediumASRAdapter(ComponentAdapter):
+    component_slot = "asr"
+    component_name = "moonshine_streaming_medium"
+
+
 class VoskASRAdapter(ComponentAdapter):
     component_slot = "asr"
     component_name = "vosk"
@@ -164,6 +189,16 @@ class SherpaOnnxSpeakerEmbeddingAdapter(ComponentAdapter):
     component_name = "sherpa_onnx_speaker_embedding"
 
 
+class CAMPlusSpeakerEmbeddingCatalogAdapter(ComponentAdapter):
+    component_slot = "speaker_embedding"
+    component_name = "campplus_speaker_embedding"
+
+
+class ERes2NetBaseSpeakerEmbeddingCatalogAdapter(ComponentAdapter):
+    component_slot = "speaker_embedding"
+    component_name = "eres2net_base_speaker_embedding"
+
+
 class ResemblyzerSpeakerEmbeddingAdapter(ComponentAdapter):
     component_slot = "speaker_embedding"
     component_name = "resemblyzer"
@@ -182,6 +217,7 @@ class CosineThresholdSpeakerMatchingAdapter(ComponentAdapter):
 REGISTERED_COMPONENTS: dict[str, dict[str, type[ComponentAdapter]]] = {
     "vad": {
         EnergyVADAdapter.component_name: EnergyVADAdapter,
+        FSMNVADAdapter.component_name: FSMNVADAdapter,
         NoOpVADAdapter.component_name: NoOpVADAdapter,
         SherpaOnnxVADAdapter.component_name: SherpaOnnxVADAdapter,
         SileroVADAdapter.component_name: SileroVADAdapter,
@@ -200,8 +236,12 @@ REGISTERED_COMPONENTS: dict[str, dict[str, type[ComponentAdapter]]] = {
     },
     "asr": {
         FasterWhisperASRAdapter.component_name: FasterWhisperASRAdapter,
+        MoonshineStreamingMediumASRAdapter.component_name: MoonshineStreamingMediumASRAdapter,
+        MoonshineStreamingSmallASRAdapter.component_name: MoonshineStreamingSmallASRAdapter,
+        MoonshineStreamingTinyASRAdapter.component_name: MoonshineStreamingTinyASRAdapter,
         NoOpASRAdapter.component_name: NoOpASRAdapter,
         SherpaOnnxASRAdapter.component_name: SherpaOnnxASRAdapter,
+        SherpaOnnxStreamingZipformer20MInt8ASRAdapter.component_name: SherpaOnnxStreamingZipformer20MInt8ASRAdapter,
         VoskASRAdapter.component_name: VoskASRAdapter,
         WeNetASRAdapter.component_name: WeNetASRAdapter,
         WhisperBaseASRAdapter.component_name: WhisperBaseASRAdapter,
@@ -209,6 +249,8 @@ REGISTERED_COMPONENTS: dict[str, dict[str, type[ComponentAdapter]]] = {
         WhisperTinyASRAdapter.component_name: WhisperTinyASRAdapter,
     },
     "speaker_embedding": {
+        CAMPlusSpeakerEmbeddingCatalogAdapter.component_name: CAMPlusSpeakerEmbeddingCatalogAdapter,
+        ERes2NetBaseSpeakerEmbeddingCatalogAdapter.component_name: ERes2NetBaseSpeakerEmbeddingCatalogAdapter,
         NoOpSpeakerEmbeddingAdapter.component_name: NoOpSpeakerEmbeddingAdapter,
         ResemblyzerSpeakerEmbeddingAdapter.component_name: ResemblyzerSpeakerEmbeddingAdapter,
         SherpaOnnxSpeakerEmbeddingAdapter.component_name: SherpaOnnxSpeakerEmbeddingAdapter,

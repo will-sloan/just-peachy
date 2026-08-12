@@ -1,0 +1,16 @@
+component:
+  slot: speaker_embedding
+  name: eres2net_base_speaker_embedding
+  enabled: true
+  adapter: ERes2NetBaseSpeakerEmbeddingCatalogAdapter
+  notes: 3D-Speaker ERes2Net-base through Sherpa-ONNX; distinct from the historical Sherpa embedding control.
+  params:
+    model_name: eres2net_base_3dspeaker_16k_v1_0_1
+    model_path: models/cache/sherpa_onnx/speaker_embedding/3dspeaker_speech_eres2net_base_sv_zh-cn_3dspeaker_16k.onnx
+    sample_rate_hz: 16000
+    min_duration_sec: 0.5
+    num_threads: 1
+    provider: cpu
+    device: cpu
+    dtype: float32
+    allow_model_downloads: false

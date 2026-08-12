@@ -319,6 +319,37 @@ def _validate_jsonl_row(
             raise ArtifactSchemaError(f"word line {line_number} word must be a string")
     elif artifact_id in {"diagnostics", "diarization_diagnostics"}:
         _require_row_fields(row, ("recording_id", "utt_id"), line_number)
+    elif artifact_id == "streaming_diagnostics":
+        _require_row_fields(
+            row,
+            (
+                "schema_version",
+                "scenario_id",
+                "recording_id",
+                "utt_id",
+                "start_sec",
+                "end_sec",
+                "streaming",
+            ),
+            line_number,
+        )
+        if row.get("schema_version") != definition.schema_version:
+            raise IncompatibleArtifactError(
+                f"unsupported streaming diagnostics schema at line {line_number}"
+            )
+        if scenario_id is not None and row.get("scenario_id") != scenario_id:
+            raise ArtifactSchemaError(
+                f"streaming diagnostics line {line_number} scenario mismatch"
+            )
+        streaming = row.get("streaming")
+        if not isinstance(streaming, Mapping):
+            raise ArtifactSchemaError(
+                f"streaming diagnostics line {line_number} payload must be a mapping"
+            )
+        if streaming.get("schema_version") != "streaming-diagnostics.v1":
+            raise IncompatibleArtifactError(
+                f"unsupported streaming payload schema at line {line_number}"
+            )
     elif artifact_id == "vad_regions":
         _require_row_fields(
             row, ("recording_id", "utt_id", "start_sec", "end_sec"), line_number

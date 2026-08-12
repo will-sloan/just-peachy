@@ -1,0 +1,20 @@
+component:
+  slot: asr
+  name: moonshine_streaming_tiny
+  enabled: true
+  adapter: MoonshineStreamingTinyASRAdapter
+  notes: Native Moonshine Voice English streaming Tiny with deterministic file replay.
+  params:
+    model_name: moonshine_streaming_tiny_en_quantized_26_07_30
+    model_arch: tiny-streaming
+    model_path: models/cache/moonshine/download.moonshine.ai/model/tiny-streaming-en/quantized_26_07_30
+    language: en
+    sample_rate: 16000
+    allow_model_downloads: false
+    options: {}
+    streaming:
+      chunk_duration_ms: 100
+      update_interval_ms: 500
+      reset_policy: per_segment
+      endpoint_policy: backend_default
+      real_time_pacing: false

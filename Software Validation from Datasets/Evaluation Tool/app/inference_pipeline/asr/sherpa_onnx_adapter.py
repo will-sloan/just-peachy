@@ -16,6 +16,12 @@ from app.inference_pipeline.asr.base import (
     ASRRuntimeStats,
     normalize_text,
 )
+from app.inference_pipeline.asr.streaming import (
+    StreamingReplayConfig,
+    StreamingUpdate,
+    build_streaming_diagnostics,
+    iter_audio_chunks,
+)
 from app.inference_pipeline.contracts import ASRTranscript, AudioSegment
 from app.inference_pipeline.errors import ContractValidationError, InferencePipelineError
 
@@ -56,11 +62,21 @@ class SherpaOnnxASR(ASRBase):
             "tail_padding_sec",
         )
         self.language = _optional_string(self.params.get("language"))
+        replay = self.params.get("streaming")
+        if replay is not None and not isinstance(replay, Mapping):
+            raise ContractValidationError("sherpa streaming params must be a mapping")
+        self.replay = StreamingReplayConfig.from_mapping(replay)
+        self.native_streaming_replay = bool(
+            self.params.get("native_streaming_replay", False)
+        )
         self._load_sec: float | None = None
+        self.last_streaming_diagnostics: dict[str, object] | None = None
 
     def transcribe(self, audio_segment: AudioSegment, context: ASRContext) -> ASRTranscript:
         audio = load_segment_audio(audio_segment, target_sample_rate=self.sample_rate)
         recognizer = self._recognizer(context)
+        if self.native_streaming_replay:
+            return self._transcribe_streaming(audio_segment, context, audio, recognizer)
         started_at = time.perf_counter()
         try:
             stream = recognizer.create_stream()
@@ -99,6 +115,104 @@ class SherpaOnnxASR(ASRBase):
             audio_duration_sec=audio.duration_sec,
             device="cuda" if self.provider.lower().startswith("cuda") else "cpu",
             dtype="float32",
+        )
+        return ASRTranscript(
+            text=normalized_text,
+            language=self.language or context.language,
+            start_sec=audio_segment.start_sec,
+            end_sec=audio_segment.end_sec,
+        )
+
+    def _transcribe_streaming(
+        self,
+        audio_segment: AudioSegment,
+        context: ASRContext,
+        audio: Any,
+        recognizer: Any,
+    ) -> ASRTranscript:
+        started_at = time.perf_counter()
+        updates: list[StreamingUpdate] = []
+        chunk_count = 0
+        end_of_input_wall_sec = 0.0
+        try:
+            stream = recognizer.create_stream()
+            for chunk, audio_end_sec in iter_audio_chunks(
+                audio.samples,
+                sample_rate=audio.sample_rate,
+                chunk_duration_ms=self.replay.chunk_duration_ms,
+            ):
+                stream.accept_waveform(audio.sample_rate, chunk)
+                chunk_count += 1
+                while recognizer.is_ready(stream):
+                    _decode_stream(recognizer, stream)
+                raw_partial = _result_text(recognizer.get_result(stream))
+                if raw_partial:
+                    updates.append(
+                        StreamingUpdate(
+                            sequence=len(updates) + 1,
+                            audio_end_sec=audio_end_sec,
+                            wall_time_sec=time.perf_counter() - started_at,
+                            text=raw_partial,
+                            is_final=False,
+                            event_type="chunk_decoded",
+                        )
+                    )
+            end_of_input_wall_sec = time.perf_counter() - started_at
+            if self.tail_padding_sec:
+                stream.accept_waveform(
+                    audio.sample_rate,
+                    np.zeros(
+                        int(round(self.tail_padding_sec * audio.sample_rate)),
+                        dtype=np.float32,
+                    ),
+                )
+            stream.input_finished()
+            decode_steps = 0
+            max_decode_steps = max(1000, len(audio.samples) + 1)
+            while recognizer.is_ready(stream):
+                _decode_stream(recognizer, stream)
+                decode_steps += 1
+                if decode_steps > max_decode_steps:
+                    raise RuntimeError("sherpa-onnx recognizer did not finish decoding")
+            result = recognizer.get_result(stream)
+        except Exception as exc:
+            raise SherpaOnnxASRUnavailableError(
+                f"sherpa-onnx streaming replay failed: {exc}"
+            ) from exc
+
+        final_emitted_wall_sec = time.perf_counter() - started_at
+        raw_text = _result_text(result)
+        updates.append(
+            StreamingUpdate(
+                sequence=len(updates) + 1,
+                audio_end_sec=audio.duration_sec,
+                wall_time_sec=final_emitted_wall_sec,
+                text=raw_text,
+                is_final=True,
+                event_type="input_finished",
+            )
+        )
+        normalized_text = normalize_text(raw_text)
+        self.last_raw_text = raw_text
+        self.last_normalized_text = normalized_text
+        self.last_runtime_stats = ASRRuntimeStats.from_timings(
+            model_name=self.model_name,
+            load_sec=self._load_sec,
+            inference_sec=final_emitted_wall_sec,
+            audio_duration_sec=audio.duration_sec,
+            device="cuda" if self.provider.lower().startswith("cuda") else "cpu",
+            dtype="float32",
+        )
+        self.last_streaming_diagnostics = build_streaming_diagnostics(
+            backend_id=self.model_name,
+            replay=self.replay,
+            updates=updates,
+            audio_duration_sec=audio.duration_sec,
+            processing_sec=final_emitted_wall_sec,
+            initialization_sec=self._load_sec,
+            end_of_input_wall_sec=end_of_input_wall_sec,
+            final_emitted_wall_sec=final_emitted_wall_sec,
+            chunk_count=chunk_count,
         )
         return ASRTranscript(
             text=normalized_text,
@@ -187,3 +301,16 @@ def _non_negative_float(value: object, field_name: str) -> float:
 
 def _optional_string(value: object) -> str | None:
     return None if value is None or not str(value).strip() else str(value)
+
+
+class SherpaOnnxStreamingZipformer20MInt8ASR(SherpaOnnxASR):
+    """Distinct edge component retaining the existing Sherpa ASR as a control."""
+
+    name = "sherpa_onnx_streaming_zipformer_20m_int8"
+
+    def __post_init__(self) -> None:
+        super().__post_init__()
+        if not self.native_streaming_replay:
+            raise ContractValidationError(
+                "the 20M edge component requires native_streaming_replay=true"
+            )

@@ -1,0 +1,200 @@
+{
+  "default_worker_id": "amir",
+  "global_preflight_required": true,
+  "implicit_model_downloads_allowed": false,
+  "jobs": [
+    {
+      "campaign_id": "campaign_edge_screen_v1",
+      "catalog": "benchmarks/edge_research/scenarios_edge_screen_edge_cpu.jsonl",
+      "catalog_sha256": "B342B8D69FEEE742CA54334A898BB0C9656A3D73598E837AFDA500ED2B014334",
+      "enabled_by_default": true,
+      "environment_profile": "edge-cpu",
+      "expected_scenario_count": 36,
+      "job_id": "edge_screen_edge_cpu",
+      "kind": "asr_campaign",
+      "one_gpu_job_at_a_time": true,
+      "streaming": false
+    },
+    {
+      "campaign_id": "campaign_edge_stream_moon_v1",
+      "catalog": "benchmarks/edge_research/scenarios_edge_stream_moonshine_edge.jsonl",
+      "catalog_sha256": "2B1FFF778C274BC40B508C7D2A0325D0F357AA428BD89D081B6A3334D4B58C65",
+      "enabled_by_default": true,
+      "environment_profile": "moonshine-edge",
+      "expected_scenario_count": 36,
+      "job_id": "edge_stream_moonshine_edge",
+      "kind": "asr_campaign",
+      "one_gpu_job_at_a_time": true,
+      "streaming": true
+    },
+    {
+      "campaign_id": "campaign_edge_stream_onnx_v1",
+      "catalog": "benchmarks/edge_research/scenarios_edge_stream_onnx.jsonl",
+      "catalog_sha256": "174853D610E6D2902C8D21CC885E7EBEBFA2A8D69A10AFC60B2A4F965B726634",
+      "enabled_by_default": true,
+      "environment_profile": "onnx",
+      "expected_scenario_count": 12,
+      "job_id": "edge_stream_onnx",
+      "kind": "asr_campaign",
+      "one_gpu_job_at_a_time": true,
+      "streaming": true
+    },
+    {
+      "campaign_id": "campaign_edge_combo_moon_v1",
+      "catalog": "benchmarks/edge_research/scenarios_edge_combo_moonshine_edge.jsonl",
+      "catalog_sha256": "8BFA1EA41A105D2339F9FDAB5F8496D514B44AAF4C6700108E214D0A077093D8",
+      "enabled_by_default": false,
+      "environment_profile": "moonshine-edge",
+      "expected_scenario_count": 216,
+      "job_id": "edge_combo_moonshine_edge",
+      "kind": "asr_campaign",
+      "one_gpu_job_at_a_time": true,
+      "streaming": true
+    },
+    {
+      "campaign_id": "campaign_edge_combo_onnx_v1",
+      "catalog": "benchmarks/edge_research/scenarios_edge_combo_onnx.jsonl",
+      "catalog_sha256": "40FC59FD5564E63381B270D16BC7B7B73FAD9B18A1F598DC722982360EE66D22",
+      "enabled_by_default": false,
+      "environment_profile": "onnx",
+      "expected_scenario_count": 72,
+      "job_id": "edge_combo_onnx",
+      "kind": "asr_campaign",
+      "one_gpu_job_at_a_time": true,
+      "streaming": true
+    },
+    {
+      "campaign_id": "campaign_edge_lg_mtiny_v1",
+      "catalog": "benchmarks/edge_research/scenarios_edge_large_moon_tiny.jsonl",
+      "catalog_sha256": "A1FDF81CC793F7A96167387DEDDAE0DB6E9B38A2A8C9B23C7BDB0F082EA3B6B5",
+      "enabled_by_default": false,
+      "environment_profile": "moonshine-edge",
+      "expected_scenario_count": 32,
+      "job_id": "edge_large_moon_tiny",
+      "kind": "asr_campaign",
+      "one_gpu_job_at_a_time": true,
+      "streaming": true
+    },
+    {
+      "campaign_id": "campaign_edge_lg_msmall_v1",
+      "catalog": "benchmarks/edge_research/scenarios_edge_large_moon_small.jsonl",
+      "catalog_sha256": "8E5DC97269CDBCD7B29A19FD8E7AA9F40CBAF355527FA313B585908E2719E893",
+      "enabled_by_default": false,
+      "environment_profile": "moonshine-edge",
+      "expected_scenario_count": 32,
+      "job_id": "edge_large_moon_small",
+      "kind": "asr_campaign",
+      "one_gpu_job_at_a_time": true,
+      "streaming": true
+    },
+    {
+      "campaign_id": "campaign_edge_lg_mmed_v1",
+      "catalog": "benchmarks/edge_research/scenarios_edge_large_moon_medium.jsonl",
+      "catalog_sha256": "0C6142DB4DC524643A0DCDC635C61BE6DF775950151EA3E80280A8D360CBFB84",
+      "enabled_by_default": false,
+      "environment_profile": "moonshine-edge",
+      "expected_scenario_count": 32,
+      "job_id": "edge_large_moon_medium",
+      "kind": "asr_campaign",
+      "one_gpu_job_at_a_time": true,
+      "streaming": true
+    },
+    {
+      "campaign_id": "campaign_edge_lg_sh20_v1",
+      "catalog": "benchmarks/edge_research/scenarios_edge_large_sherpa20.jsonl",
+      "catalog_sha256": "F6DF09D181528951FE198AB2D57B72EEAE51D3C2C6080E6FB9F79AA0F670CC3C",
+      "enabled_by_default": false,
+      "environment_profile": "onnx",
+      "expected_scenario_count": 32,
+      "job_id": "edge_large_sherpa20",
+      "kind": "asr_campaign",
+      "one_gpu_job_at_a_time": true,
+      "streaming": true
+    },
+    {
+      "campaign_id": "campaign_edge_lg_wbase_v1",
+      "catalog": "benchmarks/edge_research/scenarios_edge_large_whisper_base_control.jsonl",
+      "catalog_sha256": "D3B0902E7837E4556DA9704647B375E868F2095C5A336743483C4D195BD13B71",
+      "enabled_by_default": false,
+      "environment_profile": "core-cpu",
+      "expected_scenario_count": 32,
+      "job_id": "edge_large_whisper_base_control",
+      "kind": "asr_campaign",
+      "one_gpu_job_at_a_time": true,
+      "streaming": false
+    },
+    {
+      "backend_ids": [
+        "campplus_speaker_embedding",
+        "eres2net_base_speaker_embedding"
+      ],
+      "campaign_id": "campaign_spk10_edge_sm_v1",
+      "clean_extraction_items_per_backend": 63,
+      "degraded_probe_requirement": "Use the approved campaign augmentation path; direct Stage 10 extraction continues to reject degraded rows by contract.",
+      "enabled_by_default": false,
+      "environment_profile": "onnx",
+      "execution_status": "planned",
+      "expected_backend_runs": 2,
+      "job_id": "speaker_protocol_small",
+      "kind": "speaker_protocol_plan",
+      "manifest_root": "benchmarks/stage10/small",
+      "source_rows_by_role": {
+        "calibration": 34,
+        "enrollment": 18,
+        "known_evaluation": 36,
+        "unknown_evaluation": 20
+      },
+      "tier": "small"
+    },
+    {
+      "backend_ids": [
+        "campplus_speaker_embedding",
+        "eres2net_base_speaker_embedding"
+      ],
+      "campaign_id": "campaign_spk10_edge_std_v1",
+      "clean_extraction_items_per_backend": 240,
+      "degraded_probe_requirement": "Use the approved campaign augmentation path; direct Stage 10 extraction continues to reject degraded rows by contract.",
+      "enabled_by_default": false,
+      "environment_profile": "onnx",
+      "execution_status": "planned",
+      "expected_backend_runs": 2,
+      "job_id": "speaker_protocol_standard",
+      "kind": "speaker_protocol_plan",
+      "manifest_root": "benchmarks/stage10/standard",
+      "source_rows_by_role": {
+        "calibration": 136,
+        "enrollment": 60,
+        "known_evaluation": 144,
+        "unknown_evaluation": 80
+      },
+      "tier": "standard"
+    },
+    {
+      "backend_ids": [
+        "campplus_speaker_embedding",
+        "eres2net_base_speaker_embedding"
+      ],
+      "campaign_id": "campaign_spk10_edge_lg_v1",
+      "clean_extraction_items_per_backend": 510,
+      "degraded_probe_requirement": "Use the approved campaign augmentation path; direct Stage 10 extraction continues to reject degraded rows by contract.",
+      "enabled_by_default": false,
+      "environment_profile": "onnx",
+      "execution_status": "planned",
+      "expected_backend_runs": 2,
+      "job_id": "speaker_protocol_large",
+      "kind": "speaker_protocol_plan",
+      "manifest_root": "benchmarks/stage10/large",
+      "source_rows_by_role": {
+        "calibration": 340,
+        "enrollment": 60,
+        "known_evaluation": 360,
+        "unknown_evaluation": 200
+      },
+      "tier": "large"
+    }
+  ],
+  "queue_hash": "BA4D06480FB2A9F8622719B7D3A5ABDD89F1E6E90731CAE3B5CB71C6397B0679",
+  "schema_version": "edge-research-queue.v1",
+  "sequential_execution_only": true,
+  "single_machine_first": true
+}

@@ -26,6 +26,8 @@ from app.inference_pipeline.speaker_embedding.resemblyzer_adapter import (
     ResemblyzerUnavailableError,
 )
 from app.inference_pipeline.speaker_embedding.sherpa_onnx_adapter import (
+    CAMPlusSpeakerEmbeddingAdapter,
+    ERes2NetBaseSpeakerEmbeddingAdapter,
     SherpaOnnxSpeakerEmbeddingAdapter,
     SherpaOnnxSpeakerEmbeddingUnavailableError,
 )
@@ -35,8 +37,10 @@ from app.inference_pipeline.speaker_embedding.wespeaker_adapter import (
 )
 
 __all__ = [
+    "CAMPlusSpeakerEmbeddingAdapter",
     "DEFAULT_MIN_DURATION_SEC",
     "DeterministicFakeSpeakerEmbedding",
+    "ERes2NetBaseSpeakerEmbeddingAdapter",
     "NoOpSpeakerEmbedding",
     "ResemblyzerSpeakerEmbeddingAdapter",
     "ResemblyzerUnavailableError",

@@ -75,10 +75,7 @@ def merge_worker_results(
         packages.append((transfer, transfer_manifest, validation))
 
     environment_summary, environment_differences = _environment_comparison(packages)
-    commits = {
-        str(item[2]["environment_fingerprint"]["git"]["commit"])
-        for item in packages
-    }
+    commits = {str(item.get("git_commit") or "") for item in environment_summary}
     if len(commits) > 1:
         invalid.append(
             {
@@ -101,7 +98,9 @@ def merge_worker_results(
                     "sources": [existing.get("primary_source"), candidate["source"]],
                 }
             )
-            candidate["duplicate_sources"].append(candidate["source"])
+            _items(candidate.get("duplicate_sources"), "duplicate sources").append(
+                candidate["source"]
+            )
             candidates.pop(scenario_id)
         else:
             conflicts.append(
@@ -199,7 +198,13 @@ def merge_worker_results(
             "campaign_id": manifest["campaign_id"],
             "campaign_manifest_sha256": campaign_hash,
             "scenario_results": [rows[key] for key in sorted(rows)],
-            "missing_scenario_ids": sorted(set(manifest["scenario_ids"]) - set(rows)),
+            "missing_scenario_ids": sorted(
+                {
+                    str(value)
+                    for value in _items(manifest.get("scenario_ids"), "scenario IDs")
+                }
+                - set(rows)
+            ),
             "updated_at_utc": timestamp,
         }
     )
@@ -262,8 +267,8 @@ def _candidate_results(
             "worker_id": manifest["worker_id"],
             "environment_fingerprint_id": manifest["environment_fingerprint_id"],
         }
-        for raw in manifest["scenario_results"]:
-            result = dict(raw)
+        for raw in _items(manifest.get("scenario_results"), "scenario results"):
+            result = dict(_mapping(raw, "scenario result"))
             scenario_id = str(result["scenario_id"])
             candidate = {
                 "scenario_id": scenario_id,
@@ -279,7 +284,9 @@ def _candidate_results(
             if previous is None:
                 candidates[scenario_id] = candidate
             elif previous["tree_sha256"] == candidate["tree_sha256"]:
-                previous["duplicate_sources"].append(source)
+                _items(previous.get("duplicate_sources"), "duplicate sources").append(
+                    source
+                )
                 duplicates.append(
                     {
                         "scenario_id": scenario_id,
@@ -397,15 +404,16 @@ def _analysis_input_index(
     campaign: Path, merged_index: Mapping[str, object], *, timestamp: str
 ) -> dict[str, object]:
     rows = []
-    for raw in merged_index["scenario_results"]:
-        row = dict(raw)
+    for raw in _items(merged_index.get("scenario_results"), "merged scenario results"):
+        row = dict(_mapping(raw, "merged scenario result"))
+        primary_source = _mapping(row.get("primary_source"), "primary source")
         rows.append(
             {
                 "scenario_id": row["scenario_id"],
                 "scenario_hash": row["scenario_hash"],
                 "result_root": row["relative_path"],
                 "artifact_paths": row["artifact_paths"],
-                "environment_fingerprint_id": row["primary_source"][
+                "environment_fingerprint_id": primary_source[
                     "environment_fingerprint_id"
                 ],
             }
@@ -437,21 +445,31 @@ def _environment_comparison(
 ) -> tuple[list[dict[str, object]], list[dict[str, object]]]:
     summaries: list[dict[str, object]] = []
     for _root, manifest, validation in packages:
-        fingerprint = validation["environment_fingerprint"]
+        fingerprint = _mapping(
+            validation.get("environment_fingerprint"), "environment fingerprint"
+        )
+        git = _mapping(fingerprint.get("git"), "fingerprint Git identity")
+        packages_identity = _mapping(
+            fingerprint.get("packages"), "fingerprint package identity"
+        )
+        os_identity = _mapping(fingerprint.get("os"), "fingerprint OS identity")
+        python_identity = _mapping(
+            fingerprint.get("python"), "fingerprint Python identity"
+        )
         summaries.append(
             {
                 "worker_id": manifest["worker_id"],
                 "transfer_id": manifest["transfer_id"],
                 "fingerprint_id": fingerprint["fingerprint_id"],
-                "git_commit": fingerprint["git"]["commit"],
-                "git_dirty": fingerprint["git"]["dirty"],
-                "environment_profile": fingerprint["packages"]["profile_identity"],
-                "package_freeze_sha256": fingerprint["packages"]["freeze_sha256"],
+                "git_commit": git["commit"],
+                "git_dirty": git["dirty"],
+                "environment_profile": packages_identity["profile_identity"],
+                "package_freeze_sha256": packages_identity["freeze_sha256"],
                 "os": {
-                    key: fingerprint["os"].get(key)
+                    key: os_identity.get(key)
                     for key in ("system", "release", "machine")
                 },
-                "python_version": fingerprint["python"].get("version"),
+                "python_version": python_identity.get("version"),
                 "hardware": fingerprint["hardware"],
                 "accelerator": fingerprint["accelerator"],
             }
@@ -466,7 +484,7 @@ def _environment_comparison(
         "hardware",
         "accelerator",
     )
-    differences = []
+    differences: list[dict[str, object]] = []
     for field in fields:
         values = {str(item[field]) for item in summaries}
         if len(values) > 1:
@@ -522,9 +540,27 @@ def _merge_report(
         "environment_summary": [dict(item) for item in environment_summary],
         "environment_differences": [dict(item) for item in environment_differences],
         "merged_scenario_ids": list(merged_ids),
-        "missing_scenario_ids": sorted(set(manifest["scenario_ids"]) - set(merged_ids)),
+        "missing_scenario_ids": sorted(
+            {
+                str(value)
+                for value in _items(manifest.get("scenario_ids"), "scenario IDs")
+            }
+            - set(merged_ids)
+        ),
         "created_at_utc": timestamp,
     }
+
+
+def _mapping(value: object, label: str) -> Mapping[str, object]:
+    if not isinstance(value, Mapping):
+        raise CampaignExchangeError(f"{label} must be a mapping")
+    return value
+
+
+def _items(value: object, label: str) -> list[object]:
+    if not isinstance(value, list):
+        raise CampaignExchangeError(f"{label} must be a list")
+    return value
 
 
 __all__ = [

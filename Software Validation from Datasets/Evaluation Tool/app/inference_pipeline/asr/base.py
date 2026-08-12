@@ -260,6 +260,22 @@ def build_asr_from_config(config: object) -> ASRBase | None:
         from app.inference_pipeline.asr.sherpa_onnx_adapter import SherpaOnnxASR
 
         return SherpaOnnxASR(params)
+    if name == "sherpa_onnx_streaming_zipformer_20m_int8":
+        from app.inference_pipeline.asr.sherpa_onnx_adapter import (
+            SherpaOnnxStreamingZipformer20MInt8ASR,
+        )
+
+        return SherpaOnnxStreamingZipformer20MInt8ASR(params)
+    if name in {
+        "moonshine_streaming_tiny",
+        "moonshine_streaming_small",
+        "moonshine_streaming_medium",
+    }:
+        from app.inference_pipeline.asr.moonshine_streaming_adapter import (
+            MoonshineStreamingASR,
+        )
+
+        return MoonshineStreamingASR(params)
     if name == "vosk":
         from app.inference_pipeline.asr.vosk_adapter import VoskASR
 

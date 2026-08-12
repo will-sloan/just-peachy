@@ -1,0 +1,440 @@
+{
+  "environment": {
+    "cuda_available": false,
+    "cuda_runtime": null,
+    "device_requested": "cpu",
+    "git_commit": "b78df94cf1b8c4c9a1ea684a0a64b7bd37020838",
+    "gpu": null,
+    "machine": "AMD64",
+    "package_count": 70,
+    "package_freeze_sha256": "e47a893fa6c1254f4630d13dc4a9b61b3a0f3f33c80ac91b6d358231b52d50a8",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python": "3.12.7",
+    "python_executable": "<environment>/Scripts/python.exe",
+    "torch": "2.11.0+cpu"
+  },
+  "generated_at": "2026-08-12T01:54:02.725389+00:00",
+  "profile": "moonshine-edge",
+  "results": [
+    {
+      "asset_identities": [
+        {
+          "acquisition_date": "2026-08-12T01:00:02.374784+00:00",
+          "acquisition_method": "scripts/bootstrap_models.py --moonshine-streaming tiny",
+          "artifact_filename": "quantized_26_07_30 directory",
+          "asset_id": "moonshine_streaming_tiny_en",
+          "backend": "Moonshine Voice",
+          "commercial_disposition": "commercial_permissive",
+          "component": "moonshine_streaming_tiny",
+          "conversion_provenance": "Useful Sensors native Moonshine Voice quantized distribution",
+          "credential_required": false,
+          "environment_profile": "moonshine-edge",
+          "expected_sha256_scope": "installed_tree",
+          "expected_size_bytes": 51441771,
+          "files": [
+            {
+              "bytes": 1319664,
+              "path": "adapter.ort",
+              "sha256": "22ecc949e146c49667fda28d102d4e30749a107dc88a396292aa8f277ef1347c"
+            },
+            {
+              "bytes": 1287544,
+              "path": "cross_kv.ort",
+              "sha256": "143a36667b8d05fd9d04e8c337b7ee121f37ef299aea6b3d82bdb3d3401950b4"
+            },
+            {
+              "bytes": 32583720,
+              "path": "decoder_kv.ort",
+              "sha256": "8852553f312adb6c9aa4d17418015049b30f412209ee569d336548c0044627de"
+            },
+            {
+              "bytes": 7675440,
+              "path": "encoder.ort",
+              "sha256": "a8414e1a5dedf9f2093d7680601dd8a9b0433e7020260eafe0e370ead91134ca"
+            },
+            {
+              "bytes": 8324920,
+              "path": "frontend.ort",
+              "sha256": "271a563251f11e6311949530f8025ed4d345c5d69d4ac1efa74093779927d636"
+            },
+            {
+              "bytes": 509,
+              "path": "streaming_config.json",
+              "sha256": "74fe5ddebd63b17caf59e8a3b18c17547ff7bce1642050edbb1c3962674f8950"
+            },
+            {
+              "bytes": 249974,
+              "path": "tokenizer.bin",
+              "sha256": "6884b35fd6377d4c4d32336a0bc152f36b64d1e45b6503683cdc238250a8472d"
+            }
+          ],
+          "hash_matches": true,
+          "licence": "MIT (English Moonshine model family)",
+          "licence_evidence": [
+            "https://github.com/usefulsensors/moonshine/blob/main/README.md",
+            "https://huggingface.co/UsefulSensors/moonshine-streaming-tiny"
+          ],
+          "missing_required_files": [],
+          "model_name": "Moonshine Streaming English Tiny quantized",
+          "model_version": "quantized_26_07_30",
+          "parameter_count": 34000000,
+          "present": true,
+          "sample_rate_hz": 16000,
+          "sha256": "285467a3d614f5bfdc98660ff40a0b95ba005dac26f8ef4b9046c44a9d43911c",
+          "size_bytes": 51441771,
+          "size_matches": true,
+          "source": "https://download.moonshine.ai/model/tiny-streaming-en/quantized_26_07_30",
+          "storage_path": "models/cache/moonshine/download.moonshine.ai/model/tiny-streaming-en/quantized_26_07_30",
+          "streaming": true,
+          "upstream_model_revision": "quantized_26_07_30",
+          "verification_status": "verified"
+        }
+      ],
+      "backend_id": "moonshine_streaming_tiny",
+      "command": "python scripts/qualify_extended_backends.py --profile moonshine-edge --backend moonshine_streaming_tiny --backend moonshine_streaming_small --backend moonshine_streaming_medium --output runs/edge_backend_qualification/moonshine-edge.json",
+      "component_identity": {
+        "backend_id": "moonshine_streaming_tiny",
+        "config_path": "configs/inference/components/asr/moonshine_streaming_tiny.yaml",
+        "config_sha256": "c2fff4c1deecbfab08863269764e40c04dbce2dedad7bb369e1b14fe08121a8f",
+        "family": "asr"
+      },
+      "credential_presence": {},
+      "details": {
+        "empty_or_no_speech_behavior": {
+          "empty": true,
+          "text": "",
+          "valid": true
+        },
+        "identity_recorded": true,
+        "model_name": "moonshine_streaming_tiny_en_quantized_26_07_30",
+        "pipeline_composition": true,
+        "precision": null,
+        "repeated_output_equal": true,
+        "runtime": {
+          "audio_duration_sec": 1.0,
+          "cpu_memory_mb": null,
+          "device": "cpu",
+          "dtype": "float32",
+          "gpu_memory_allocated_mb": null,
+          "gpu_memory_reserved_mb": null,
+          "inference_sec": 0.007329000160098076,
+          "load_sec": 0.3503218996338546,
+          "model_name": "moonshine_streaming_tiny_en_quantized_26_07_30",
+          "peak_gpu_memory_mb": null,
+          "peak_gpu_memory_reserved_mb": null,
+          "realtime_factor": 0.007329000160098076
+        },
+        "transcripts": [
+          "the reorganization of these countries took the form of revolution.",
+          "the reorganization of these countries took the form of revolution."
+        ],
+        "valid_real_outputs": 2
+      },
+      "device": "cpu",
+      "explanation": "Real repeated offline qualification passed.",
+      "failure_category": null,
+      "family": "asr",
+      "implicit_downloads_allowed": false,
+      "package_versions": {
+        "moonshine-voice": "0.1.1"
+      },
+      "profile": "moonshine-edge",
+      "repetitions": 2,
+      "schema_validation": true,
+      "status": "qualified",
+      "timing": {
+        "inference_sec": [
+          1.34071,
+          0.841481
+        ],
+        "initialization_sec": 0.3503218996338546,
+        "total_sec": 11.564398
+      },
+      "warnings": []
+    },
+    {
+      "asset_identities": [
+        {
+          "acquisition_date": "2026-08-12T01:00:26.788024+00:00",
+          "acquisition_method": "scripts/bootstrap_models.py --moonshine-streaming small",
+          "artifact_filename": "quantized_26_07_30 directory",
+          "asset_id": "moonshine_streaming_small_en",
+          "backend": "Moonshine Voice",
+          "commercial_disposition": "commercial_permissive",
+          "component": "moonshine_streaming_small",
+          "conversion_provenance": "Useful Sensors native Moonshine Voice quantized distribution",
+          "credential_required": false,
+          "environment_profile": "moonshine-edge",
+          "expected_sha256_scope": "installed_tree",
+          "expected_size_bytes": 165489086,
+          "files": [
+            {
+              "bytes": 2870368,
+              "path": "adapter.ort",
+              "sha256": "c665f742364febad597cc9ac1e0b341ffbee0e24a1466e2f3bde95e6e4771762"
+            },
+            {
+              "bytes": 5356536,
+              "path": "cross_kv.ort",
+              "sha256": "e2d3417144e9514055ebfefe8dcc4c0a55a55adcb8530435844c75c53e352bf6"
+            },
+            {
+              "bytes": 81878600,
+              "path": "decoder_kv.ort",
+              "sha256": "1a05465b1dd955858dfcbee039c0020fb5dd982b0f5094c34e61735d518d771b"
+            },
+            {
+              "bytes": 44148576,
+              "path": "encoder.ort",
+              "sha256": "2d4d973e91e8aca08c51e7e7efa28a46ab265b63d809d5294d18b86bcd85b993"
+            },
+            {
+              "bytes": 30984520,
+              "path": "frontend.ort",
+              "sha256": "d1be8145bc9ef3e8625bb7bcb7a5b2930eeb828c91d6c1897bc215d7de6f2b93"
+            },
+            {
+              "bytes": 512,
+              "path": "streaming_config.json",
+              "sha256": "26f02b6afb22d60871a5efd85c3d38e569cc0ddb6c5eb6e93d3260152ae8a47a"
+            },
+            {
+              "bytes": 249974,
+              "path": "tokenizer.bin",
+              "sha256": "6884b35fd6377d4c4d32336a0bc152f36b64d1e45b6503683cdc238250a8472d"
+            }
+          ],
+          "hash_matches": true,
+          "licence": "MIT (English Moonshine model family)",
+          "licence_evidence": [
+            "https://github.com/usefulsensors/moonshine/blob/main/README.md",
+            "https://huggingface.co/UsefulSensors/moonshine-streaming-small"
+          ],
+          "missing_required_files": [],
+          "model_name": "Moonshine Streaming English Small quantized",
+          "model_version": "quantized_26_07_30",
+          "parameter_count": 123000000,
+          "present": true,
+          "sample_rate_hz": 16000,
+          "sha256": "56ab2918138d593ef6caae027e7987c64023893bcde2409e7dc3b6907e9e811c",
+          "size_bytes": 165489086,
+          "size_matches": true,
+          "source": "https://download.moonshine.ai/model/small-streaming-en/quantized_26_07_30",
+          "storage_path": "models/cache/moonshine/download.moonshine.ai/model/small-streaming-en/quantized_26_07_30",
+          "streaming": true,
+          "upstream_model_revision": "quantized_26_07_30",
+          "verification_status": "verified"
+        }
+      ],
+      "backend_id": "moonshine_streaming_small",
+      "command": "python scripts/qualify_extended_backends.py --profile moonshine-edge --backend moonshine_streaming_tiny --backend moonshine_streaming_small --backend moonshine_streaming_medium --output runs/edge_backend_qualification/moonshine-edge.json",
+      "component_identity": {
+        "backend_id": "moonshine_streaming_small",
+        "config_path": "configs/inference/components/asr/moonshine_streaming_small.yaml",
+        "config_sha256": "24fa21fee0754dedeef4da4b2b0c1dc012f8f9a829ad6c24d343c0ed9e31d625",
+        "family": "asr"
+      },
+      "credential_presence": {},
+      "details": {
+        "empty_or_no_speech_behavior": {
+          "empty": true,
+          "text": "",
+          "valid": true
+        },
+        "identity_recorded": true,
+        "model_name": "moonshine_streaming_small_en_quantized_26_07_30",
+        "pipeline_composition": true,
+        "precision": null,
+        "repeated_output_equal": true,
+        "runtime": {
+          "audio_duration_sec": 1.0,
+          "cpu_memory_mb": null,
+          "device": "cpu",
+          "dtype": "float32",
+          "gpu_memory_allocated_mb": null,
+          "gpu_memory_reserved_mb": null,
+          "inference_sec": 0.008115599863231182,
+          "load_sec": 0.7920293998904526,
+          "model_name": "moonshine_streaming_small_en_quantized_26_07_30",
+          "peak_gpu_memory_mb": null,
+          "peak_gpu_memory_reserved_mb": null,
+          "realtime_factor": 0.008115599863231182
+        },
+        "transcripts": [
+          "the reorganization of these countries took the form of revolution.",
+          "the reorganization of these countries took the form of revolution."
+        ],
+        "valid_real_outputs": 2
+      },
+      "device": "cpu",
+      "explanation": "Real repeated offline qualification passed.",
+      "failure_category": null,
+      "family": "asr",
+      "implicit_downloads_allowed": false,
+      "package_versions": {
+        "moonshine-voice": "0.1.1"
+      },
+      "profile": "moonshine-edge",
+      "repetitions": 2,
+      "schema_validation": true,
+      "status": "qualified",
+      "timing": {
+        "inference_sec": [
+          2.432178,
+          1.402045
+        ],
+        "initialization_sec": 0.7920293998904526,
+        "total_sec": 4.071182
+      },
+      "warnings": []
+    },
+    {
+      "asset_identities": [
+        {
+          "acquisition_date": "2026-08-12T01:00:38.412334+00:00",
+          "acquisition_method": "scripts/bootstrap_models.py --moonshine-streaming medium",
+          "artifact_filename": "quantized_26_07_30 directory",
+          "asset_id": "moonshine_streaming_medium_en",
+          "backend": "Moonshine Voice",
+          "commercial_disposition": "commercial_permissive",
+          "component": "moonshine_streaming_medium",
+          "conversion_provenance": "Useful Sensors native Moonshine Voice quantized distribution",
+          "credential_required": false,
+          "environment_profile": "moonshine-edge",
+          "expected_sha256_scope": "installed_tree",
+          "expected_size_bytes": 304690919,
+          "files": [
+            {
+              "bytes": 3651296,
+              "path": "adapter.ort",
+              "sha256": "3f2a287def57cc094367a0eec3c4f5fc36a32ec420e86764b696920991b20281"
+            },
+            {
+              "bytes": 11643776,
+              "path": "cross_kv.ort",
+              "sha256": "642f6e21cd305be79342207c6f9e6b681d469d55bc48c72b27b84846fb71fd1e"
+            },
+            {
+              "bytes": 146972408,
+              "path": "decoder_kv.ort",
+              "sha256": "193bb366492b74fc4ad338c6778e8d8eb916aaa11b5aa264f9057f4db7759486"
+            },
+            {
+              "bytes": 94705376,
+              "path": "encoder.ort",
+              "sha256": "12915e76ebac7dd287c5ea63965d06103a53ba1ce242a4a34f318f3958c60c37"
+            },
+            {
+              "bytes": 47467576,
+              "path": "frontend.ort",
+              "sha256": "100a4cbc1e96f4f5586330ff60d5f6240813dbb399a0b9c6a187a9491ab716cc"
+            },
+            {
+              "bytes": 513,
+              "path": "streaming_config.json",
+              "sha256": "28e83b7a28e91472692a035e0dae3116422ae43aeb2bef5ed822c44ce89b88af"
+            },
+            {
+              "bytes": 249974,
+              "path": "tokenizer.bin",
+              "sha256": "6884b35fd6377d4c4d32336a0bc152f36b64d1e45b6503683cdc238250a8472d"
+            }
+          ],
+          "hash_matches": true,
+          "licence": "MIT (English Moonshine model family)",
+          "licence_evidence": [
+            "https://github.com/usefulsensors/moonshine/blob/main/README.md",
+            "https://huggingface.co/UsefulSensors/moonshine-streaming-medium"
+          ],
+          "missing_required_files": [],
+          "model_name": "Moonshine Streaming English Medium quantized",
+          "model_version": "quantized_26_07_30",
+          "parameter_count": 245000000,
+          "present": true,
+          "sample_rate_hz": 16000,
+          "sha256": "d697b820001e512f82cd0b6b476ae5bbc551250ea5bf73b8ceb60039b167bc3a",
+          "size_bytes": 304690919,
+          "size_matches": true,
+          "source": "https://download.moonshine.ai/model/medium-streaming-en/quantized_26_07_30",
+          "storage_path": "models/cache/moonshine/download.moonshine.ai/model/medium-streaming-en/quantized_26_07_30",
+          "streaming": true,
+          "upstream_model_revision": "quantized_26_07_30",
+          "verification_status": "verified"
+        }
+      ],
+      "backend_id": "moonshine_streaming_medium",
+      "command": "python scripts/qualify_extended_backends.py --profile moonshine-edge --backend moonshine_streaming_tiny --backend moonshine_streaming_small --backend moonshine_streaming_medium --output runs/edge_backend_qualification/moonshine-edge.json",
+      "component_identity": {
+        "backend_id": "moonshine_streaming_medium",
+        "config_path": "configs/inference/components/asr/moonshine_streaming_medium.yaml",
+        "config_sha256": "54de903dae4bdf5585c2b6fa174650bec417005b5e52c59f573af0c37fd302c3",
+        "family": "asr"
+      },
+      "credential_presence": {},
+      "details": {
+        "empty_or_no_speech_behavior": {
+          "empty": true,
+          "text": "",
+          "valid": true
+        },
+        "identity_recorded": true,
+        "model_name": "moonshine_streaming_medium_en_quantized_26_07_30",
+        "pipeline_composition": true,
+        "precision": null,
+        "repeated_output_equal": true,
+        "runtime": {
+          "audio_duration_sec": 1.0,
+          "cpu_memory_mb": null,
+          "device": "cpu",
+          "dtype": "float32",
+          "gpu_memory_allocated_mb": null,
+          "gpu_memory_reserved_mb": null,
+          "inference_sec": 0.0052869003266096115,
+          "load_sec": 1.2748687001876533,
+          "model_name": "moonshine_streaming_medium_en_quantized_26_07_30",
+          "peak_gpu_memory_mb": null,
+          "peak_gpu_memory_reserved_mb": null,
+          "realtime_factor": 0.0052869003266096115
+        },
+        "transcripts": [
+          "the reorganization of these countries took the form of revolution.",
+          "the reorganization of these countries took the form of revolution."
+        ],
+        "valid_real_outputs": 2
+      },
+      "device": "cpu",
+      "explanation": "Real repeated offline qualification passed.",
+      "failure_category": null,
+      "family": "asr",
+      "implicit_downloads_allowed": false,
+      "package_versions": {
+        "moonshine-voice": "0.1.1"
+      },
+      "profile": "moonshine-edge",
+      "repetitions": 2,
+      "schema_validation": true,
+      "status": "qualified",
+      "timing": {
+        "inference_sec": [
+          3.256306,
+          2.014246
+        ],
+        "initialization_sec": 1.2748687001876533,
+        "total_sec": 5.543353
+      },
+      "warnings": []
+    }
+  ],
+  "schema_version": "extended-backend-qualification.v1",
+  "secret_audit": {
+    "credential_presence_only": true,
+    "values_serialized": false
+  },
+  "summary": {
+    "qualified": 3,
+    "status_counts": {
+      "qualified": 3
+    },
+    "total": 3
+  }
+}

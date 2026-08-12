@@ -1,7 +1,7 @@
 [CmdletBinding()]
 param(
     [Parameter(Mandatory = $true)]
-    [ValidateSet("core-cuda", "extended-local", "onnx", "wenet", "wespeaker", "credential-diarization")]
+    [ValidateSet("core-cuda", "extended-local", "onnx", "wenet", "wespeaker", "credential-diarization", "edge-cpu", "moonshine-edge")]
     [string]$Profile,
 
     [string]$Python = "",
@@ -62,7 +62,12 @@ function Model-BootstrapArguments {
             )
         }
         "extended-local" { return @("--faster-whisper-tiny", "--vosk-asr") }
-        "onnx" { return @("--sherpa-asr", "--sherpa-vad", "--sherpa-speaker-embedding", "--sherpa-diarization") }
+        "onnx" {
+            return @(
+                "--sherpa-asr", "--sherpa-vad", "--sherpa-speaker-embedding", "--sherpa-diarization",
+                "--sherpa-streaming-20m", "--campplus", "--eres2net-base"
+            )
+        }
         "wenet" { return @("--wenet-asr") }
         "wespeaker" { return @("--wespeaker") }
         "credential-diarization" {
@@ -70,6 +75,17 @@ function Model-BootstrapArguments {
                 throw "pyannote model bootstrap requires PYANNOTE_LICENSE_ACCEPTED=1 and PYANNOTE_AUTH_TOKEN. Secret values are never logged."
             }
             return @("--pyannote", "--hf-token-env", "PYANNOTE_AUTH_TOKEN")
+        }
+        "edge-cpu" {
+            return @(
+                "--whisper", "base",
+                "--silero",
+                "--fsmn-vad",
+                "--device", "cpu"
+            )
+        }
+        "moonshine-edge" {
+            return @("--moonshine-streaming", "tiny,small,medium")
         }
         default { return @() }
     }
@@ -97,6 +113,12 @@ try {
             "-m", "pip", "install",
             "torch==2.11.0", "torchaudio==2.11.0",
             "--index-url", "https://download.pytorch.org/whl/cu128"
+        )
+    } elseif ($Profile -in @("edge-cpu", "moonshine-edge")) {
+        Invoke-Native $EnvironmentPython @(
+            "-m", "pip", "install",
+            "torch==2.11.0", "torchaudio==2.11.0",
+            "--index-url", "https://download.pytorch.org/whl/cpu"
         )
     }
     $RequirementsPath = Join-Path $ProjectRoot "requirements\stage8\$Profile.txt"

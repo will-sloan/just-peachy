@@ -17,6 +17,12 @@ TOOL_ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_POLICY_PATH = (
     TOOL_ROOT / "configs" / "automated_evaluation" / "speaker_protocol.v1.yaml"
 )
+EDGE_BACKEND_EXTENSION_PATH = (
+    TOOL_ROOT
+    / "configs"
+    / "automated_evaluation"
+    / "speaker_backend_extension.edge.v1.yaml"
+)
 POLICY_SCHEMA_VERSION = "speaker-protocol-policy.v1"
 MANIFEST_SCHEMA_VERSION = "speaker-protocol-manifest.v1"
 ENROLLMENT_SCHEMA_VERSION = "backend-enrollment.v1"
@@ -180,12 +186,27 @@ def load_policy(path: Path = DEFAULT_POLICY_PATH) -> dict[str, object]:
 def eligible_embedding_backends(
     policy: Mapping[str, object] | None = None,
     catalog: ComponentCatalog | None = None,
+    backend_ids: set[str] | None = None,
 ) -> dict[str, dict[str, object]]:
     active_policy = dict(policy or load_policy())
     declared = _mapping(active_policy.get("backends"), "backends")
+    extension = yaml.safe_load(EDGE_BACKEND_EXTENSION_PATH.read_text(encoding="utf-8")) or {}
+    if not isinstance(extension, Mapping) or extension.get("schema_version") != (
+        "speaker-backend-extension.edge.v1"
+    ):
+        raise SpeakerProtocolError("edge speaker backend extension is incompatible")
+    extension_backends = _mapping(extension.get("backends"), "edge backends")
+    overlap = set(declared) & set(extension_backends)
+    if overlap:
+        raise SpeakerProtocolError(
+            f"edge speaker backend extension duplicates base policy: {sorted(overlap)}"
+        )
+    declared.update(extension_backends)
     active_catalog = catalog or ComponentCatalog.load()
     result: dict[str, dict[str, object]] = {}
     for backend_id, raw in declared.items():
+        if backend_ids is not None and str(backend_id) not in backend_ids:
+            continue
         row = _mapping(raw, f"backends.{backend_id}")
         entry = active_catalog.get("speaker_embedding", str(backend_id))
         allowed = {str(value) for value in row.get("qualification_statuses", [])}
@@ -199,7 +220,7 @@ def eligible_embedding_backends(
         if profile not in entry.environment_profiles:
             raise SpeakerProtocolError(f"{backend_id} is incompatible with profile {profile}")
         if any(asset.get("present") is False for asset in entry.model_asset_identity):
-            raise SpeakerProtocolError(f"{backend_id} has a missing model asset")
+            continue
         result[str(backend_id)] = {
             "backend_id": str(backend_id),
             "environment_profile": profile,
@@ -221,7 +242,9 @@ def backend_identity(
 ) -> BackendIdentity:
     active_policy = dict(policy or load_policy())
     active_catalog = catalog or ComponentCatalog.load()
-    eligible = eligible_embedding_backends(active_policy, active_catalog)
+    eligible = eligible_embedding_backends(
+        active_policy, active_catalog, backend_ids={backend_id}
+    )
     if backend_id not in eligible:
         raise SpeakerProtocolError(f"embedding backend is not Stage 10-qualified: {backend_id}")
     entry = active_catalog.get("speaker_embedding", backend_id)

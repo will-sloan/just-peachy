@@ -312,14 +312,14 @@ def test_two_worker_partition_is_deterministic_nonoverlapping_and_complete(
     assert report["overlaps"] == []
 
 
-def test_worker_assignment_accepts_current_v2_campaign_registry(tmp_path: Path) -> None:
+def test_worker_assignment_accepts_current_campaign_registry(tmp_path: Path) -> None:
     root = _plan(
         tmp_path,
         _scenarios(2),
         registry=ArtifactRegistry.load_version(LATEST_ARTIFACT_REGISTRY_VERSION),
     )
     manifest = json.loads((root / "campaign_manifest.json").read_text(encoding="utf-8"))
-    assert manifest["artifact_registry_version"] == "artifact-registry.v2"
+    assert manifest["artifact_registry_version"] == LATEST_ARTIFACT_REGISTRY_VERSION
 
     assignment, assignment_path = _assignment(root, "amir")
 

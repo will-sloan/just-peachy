@@ -1,0 +1,10 @@
+schema_version: speaker-backend-extension.edge.v1
+extends_policy: speaker-protocol-policy.v1
+purpose: Add qualified edge embedding backends without changing frozen Stage 10 source-split identities.
+backends:
+  campplus_speaker_embedding:
+    environment_profile: onnx
+    qualification_statuses: [qualified, qualified_with_warnings]
+  eres2net_base_speaker_embedding:
+    environment_profile: onnx
+    qualification_statuses: [qualified, qualified_with_warnings]

@@ -1,0 +1,17 @@
+component:
+  slot: vad
+  name: fsmn_vad
+  enabled: true
+  adapter: FSMNVADAdapter
+  notes: FunASR Deep-FSMN VAD using the pinned local quantized ONNX checkpoint.
+  params:
+    model_path: models/cache/funasr/vad/speech_fsmn_vad_zh-cn-16k-common-onnx
+    sample_rate: 16000
+    threshold: 0.1
+    min_speech_ms: 250
+    min_silence_ms: 100
+    pad_ms: 0
+    quantize: true
+    device_id: "-1"
+    intra_op_num_threads: 2
+    allow_model_downloads: false

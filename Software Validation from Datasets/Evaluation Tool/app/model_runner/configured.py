@@ -66,6 +66,7 @@ class ConfiguredEvaluatorRunner(ModelRunner):
         self.resolution = resolution
         self.pipeline_runner = pipeline_runner
         self._diagnostics_rows: list[dict[str, object]] = []
+        self._streaming_rows: list[dict[str, object]] = []
         self._failure_rows: list[dict[str, object]] = []
         self._diarization_rttm_lines: list[str] = []
 
@@ -78,6 +79,7 @@ class ConfiguredEvaluatorRunner(ModelRunner):
     ) -> None:
         _ = records
         self._diagnostics_rows = []
+        self._streaming_rows = []
         self._failure_rows = []
         self._diarization_rttm_lines = []
         run_dir = _run_dir(predictions_dir, run_config)
@@ -93,6 +95,7 @@ class ConfiguredEvaluatorRunner(ModelRunner):
                 },
                 "predictions": "predictions/utterances.jsonl",
                 "diagnostics": "predictions/diagnostics.jsonl",
+                "streaming_diagnostics": "predictions/streaming_diagnostics.jsonl",
                 "failures": "predictions/failures.jsonl",
             },
         )
@@ -129,6 +132,16 @@ class ConfiguredEvaluatorRunner(ModelRunner):
         ]
         write_jsonl(predictions_dir / "diagnostics.jsonl", diagnostics)
         write_jsonl(predictions_dir / "failures.jsonl", failures)
+        if self._streaming_rows:
+            streaming = [
+                relative_artifact_config(
+                    row,
+                    artifact_root=predictions_dir,
+                    project_root=project_root,
+                )
+                for row in self._streaming_rows
+            ]
+            write_jsonl(predictions_dir / "streaming_diagnostics.jsonl", streaming)
         if self._diarization_rttm_lines:
             lines = list(dict.fromkeys(self._diarization_rttm_lines))
             write_rttm_lines(predictions_dir / "segments.rttm", lines)
@@ -168,6 +181,20 @@ class ConfiguredEvaluatorRunner(ModelRunner):
             )
 
         diagnostics = dict(validated.diagnostics or {})
+        streaming = diagnostics.get("streaming")
+        if isinstance(streaming, Mapping):
+            self._streaming_rows.append(
+                {
+                    "schema_version": "streaming-diagnostics-row.v1",
+                    "scenario_id": str(run_config.get("scenario_id") or ""),
+                    "recording_id": validated.recording_id,
+                    "utt_id": validated.utt_id,
+                    "start_sec": validated.start_sec,
+                    "end_sec": validated.end_sec,
+                    "provenance": _record_provenance(record),
+                    "streaming": dict(streaming),
+                }
+            )
         rttm_lines = diagnostics.get("diarization_rttm_lines")
         if isinstance(rttm_lines, list):
             self._diarization_rttm_lines.extend(

@@ -1,0 +1,396 @@
+{
+  "environment": {
+    "cuda_available": false,
+    "cuda_runtime": null,
+    "device_requested": "cpu",
+    "git_commit": "b78df94cf1b8c4c9a1ea684a0a64b7bd37020838",
+    "gpu": null,
+    "machine": "AMD64",
+    "package_count": 68,
+    "package_freeze_sha256": "d88638b4955ab0dada065ef0821ece33a8f02764c1c40946f99b753ce9219b16",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python": "3.12.7",
+    "python_executable": "<environment>/Scripts/python.exe",
+    "torch": "2.11.0+cpu"
+  },
+  "generated_at": "2026-08-12T01:54:34.333318+00:00",
+  "profile": "onnx",
+  "results": [
+    {
+      "asset_identities": [
+        {
+          "acquisition_date": "2024-01-03T02:39:16+00:00",
+          "acquisition_method": "scripts/bootstrap_models.py --sherpa-streaming-20m",
+          "artifact_filename": "sherpa-onnx-streaming-zipformer-en-20M-2023-02-17.tar.bz2",
+          "asset_id": "sherpa_onnx_streaming_zipformer_20m_int8",
+          "backend": "Sherpa-ONNX",
+          "commercial_disposition": "commercial_permissive",
+          "component": "sherpa_onnx_streaming_zipformer_20m_int8",
+          "conversion_provenance": "Official Sherpa-ONNX asr-models release converted from the cited Icefall checkpoint",
+          "credential_required": false,
+          "environment_profile": "onnx",
+          "expected_sha256_scope": "installed_tree",
+          "expected_size_bytes": 136398588,
+          "files": [
+            {
+              "bytes": 304,
+              "path": "README.md",
+              "sha256": "505f6b0e8a39f066a0794c4fb0b5689533d3bcd9d1dc5e5f47ccffeef1af9877"
+            },
+            {
+              "bytes": 539499,
+              "path": "decoder-epoch-99-avg-1.int8.onnx",
+              "sha256": "21e2a2acd961b3ac72f55be2f10f1a285e1b0b0ba010d7c0b6eab141411b163c"
+            },
+            {
+              "bytes": 2092272,
+              "path": "decoder-epoch-99-avg-1.onnx",
+              "sha256": "45a7f940ecfb53d89fa270ad11b88b961e53a317203eb24b1c8e95ed208b0f30"
+            },
+            {
+              "bytes": 42845182,
+              "path": "encoder-epoch-99-avg-1.int8.onnx",
+              "sha256": "3810755ce7c3ab26b42a8bcf39d191308fa27fb0f53358823ba46141d03b7eb3"
+            },
+            {
+              "bytes": 88804590,
+              "path": "encoder-epoch-99-avg-1.onnx",
+              "sha256": "f77a22f4ff94604e1afb2aeb13504d7699363528c047c97d3436087c95c9b659"
+            },
+            {
+              "bytes": 998,
+              "path": "export-onnx-en-20M.sh",
+              "sha256": "76abe8e1f8f134fa33a1df07d21240a7c8e7033be1d7c9587d45ed36a46d2e59"
+            },
+            {
+              "bytes": 259572,
+              "path": "joiner-epoch-99-avg-1.int8.onnx",
+              "sha256": "e085d73b593cf9b0707f370dbd656d58327d3fe36d80d849202ef81df02cb01e"
+            },
+            {
+              "bytes": 1026462,
+              "path": "joiner-epoch-99-avg-1.onnx",
+              "sha256": "343e17dffa4f386ca206e00d3c406908f68f473c3d35968d6c3cddd5b8559a94"
+            },
+            {
+              "bytes": 212044,
+              "path": "test_wavs/0.wav",
+              "sha256": "6bc58a4efdf20daac252b6b1502632601a71efe0308f6757dc1eda34891a7e4f"
+            },
+            {
+              "bytes": 534924,
+              "path": "test_wavs/1.wav",
+              "sha256": "5143a6ba93c4b274e2c4ac22deb75c2c48936c853f0519add1de828b6c79cc5a"
+            },
+            {
+              "bytes": 77244,
+              "path": "test_wavs/8k.wav",
+              "sha256": "f6f3c8b33e2534cdc154fe773ad2750f1f6a2ca5096179cdf037ae782456613e"
+            },
+            {
+              "bytes": 449,
+              "path": "test_wavs/trans.txt",
+              "sha256": "b9ac44e7b794abb1a2d5faf0005e98a665971e7ac2ed15435832cc34edaa9100"
+            },
+            {
+              "bytes": 5048,
+              "path": "tokens.txt",
+              "sha256": "49e3c2646595fd907228b3c6787069658f67b17377c60aeb8619c4551b2316fb"
+            }
+          ],
+          "hash_matches": true,
+          "licence": "Apache-2.0 model and Sherpa-ONNX runtime",
+          "licence_evidence": [
+            "https://huggingface.co/csukuangfj/sherpa-onnx-streaming-zipformer-en-20M-2023-02-17",
+            "https://huggingface.co/desh2608/icefall-asr-librispeech-pruned-transducer-stateless7-streaming-small"
+          ],
+          "missing_required_files": [],
+          "model_name": "sherpa-onnx-streaming-zipformer-en-20M-2023-02-17",
+          "model_version": "2023-02-17",
+          "parameter_count": 20000000,
+          "present": true,
+          "sample_rate_hz": 16000,
+          "sha256": "f8edd2bfe4ba76b9fdac18f09740bb3dc4eb9c87acc3ca3d6c604e9b26bb36d5",
+          "size_bytes": 136398588,
+          "size_matches": true,
+          "source": "https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-streaming-zipformer-en-20M-2023-02-17.tar.bz2",
+          "storage_path": "models/cache/sherpa_onnx/asr/sherpa-onnx-streaming-zipformer-en-20M-2023-02-17",
+          "streaming": true,
+          "upstream_model_revision": "cfcf32372c56b6bead52b9474102ff65fc2d1ebc",
+          "verification_status": "verified"
+        }
+      ],
+      "backend_id": "sherpa_onnx_streaming_zipformer_20m_int8",
+      "command": "python scripts/qualify_extended_backends.py --profile onnx --backend sherpa_onnx_streaming_zipformer_20m_int8 --backend campplus_speaker_embedding --backend eres2net_base_speaker_embedding --output runs/edge_backend_qualification/onnx-edge.json",
+      "component_identity": {
+        "backend_id": "sherpa_onnx_streaming_zipformer_20m_int8",
+        "config_path": "configs/inference/components/asr/sherpa_onnx_streaming_zipformer_20m_int8.yaml",
+        "config_sha256": "044be2444a469510c16ce4d69a8d5324543990d69a80181911409457ab1fb5a6",
+        "family": "asr"
+      },
+      "credential_presence": {},
+      "details": {
+        "empty_or_no_speech_behavior": {
+          "empty": true,
+          "text": "",
+          "valid": true
+        },
+        "identity_recorded": true,
+        "model_name": "sherpa_onnx_streaming_zipformer_en_20m_int8_2023_02_17",
+        "pipeline_composition": true,
+        "precision": null,
+        "repeated_output_equal": true,
+        "runtime": {
+          "audio_duration_sec": 1.0,
+          "cpu_memory_mb": null,
+          "device": "cpu",
+          "dtype": "float32",
+          "gpu_memory_allocated_mb": null,
+          "gpu_memory_reserved_mb": null,
+          "inference_sec": 0.03717759996652603,
+          "load_sec": 0.8489168998785317,
+          "model_name": "sherpa_onnx_streaming_zipformer_en_20m_int8_2023_02_17",
+          "peak_gpu_memory_mb": null,
+          "peak_gpu_memory_reserved_mb": null,
+          "realtime_factor": 0.03717759996652603
+        },
+        "transcripts": [
+          "organization of these countries took the form of revolution",
+          "organization of these countries took the form of revolution"
+        ],
+        "valid_real_outputs": 2
+      },
+      "device": "cpu",
+      "explanation": "Real repeated offline qualification passed.",
+      "failure_category": null,
+      "family": "asr",
+      "implicit_downloads_allowed": false,
+      "package_versions": {
+        "sherpa-onnx": "1.13.4"
+      },
+      "profile": "onnx",
+      "repetitions": 2,
+      "schema_validation": true,
+      "status": "qualified",
+      "timing": {
+        "inference_sec": [
+          1.031403,
+          0.136254
+        ],
+        "initialization_sec": 0.8489168998785317,
+        "total_sec": 26.845139
+      },
+      "warnings": []
+    },
+    {
+      "asset_identities": [
+        {
+          "acquisition_date": "2026-08-12T01:01:26.414621+00:00",
+          "acquisition_method": "scripts/bootstrap_models.py --campplus",
+          "artifact_filename": "3dspeaker_speech_campplus_sv_en_voxceleb_16k.onnx",
+          "asset_id": "campplus_en_voxceleb",
+          "backend": "Sherpa-ONNX / 3D-Speaker",
+          "commercial_disposition": "commercial_permissive",
+          "component": "campplus_speaker_embedding",
+          "conversion_provenance": "Official Sherpa-ONNX speaker-recognition release converted from the exact ModelScope checkpoint",
+          "credential_required": false,
+          "environment_profile": "onnx",
+          "expected_sha256_scope": "installed_file",
+          "expected_size_bytes": 29596978,
+          "files": [
+            {
+              "bytes": 29596978,
+              "path": "3dspeaker_speech_campplus_sv_en_voxceleb_16k.onnx",
+              "sha256": "357a834f702b80161e5b981182c038e18553c1f2ca752ed6cec2052365d4129b"
+            }
+          ],
+          "hash_matches": true,
+          "licence": "Apache-2.0",
+          "licence_evidence": [
+            "https://modelscope.cn/models/iic/speech_campplus_sv_en_voxceleb_16k",
+            "https://github.com/modelscope/3D-Speaker"
+          ],
+          "missing_required_files": [],
+          "model_name": "iic/speech_campplus_sv_en_voxceleb_16k",
+          "model_version": "v1.0.2",
+          "parameter_count": 7180000,
+          "present": true,
+          "sample_rate_hz": 16000,
+          "sha256": "357a834f702b80161e5b981182c038e18553c1f2ca752ed6cec2052365d4129b",
+          "size_bytes": 29596978,
+          "size_matches": true,
+          "source": "https://modelscope.cn/models/iic/speech_campplus_sv_en_voxceleb_16k",
+          "storage_path": "models/cache/sherpa_onnx/speaker_embedding/3dspeaker_speech_campplus_sv_en_voxceleb_16k.onnx",
+          "streaming": false,
+          "upstream_model_revision": "v1.0.2",
+          "verification_status": "verified"
+        }
+      ],
+      "backend_id": "campplus_speaker_embedding",
+      "command": "python scripts/qualify_extended_backends.py --profile onnx --backend sherpa_onnx_streaming_zipformer_20m_int8 --backend campplus_speaker_embedding --backend eres2net_base_speaker_embedding --output runs/edge_backend_qualification/onnx-edge.json",
+      "component_identity": {
+        "backend_id": "campplus_speaker_embedding",
+        "config_path": "configs/inference/components/speaker_embedding/campplus.yaml",
+        "config_sha256": "b148098431a23bf06979d65dbe40cacf68eacec401fa0ce0569c7cff68b2edb4",
+        "family": "speaker_embedding"
+      },
+      "credential_presence": {},
+      "details": {
+        "dimension": 512,
+        "finite": true,
+        "identity_recorded": true,
+        "l2_norms": [
+          1.0000000395480189,
+          1.0000000395480189
+        ],
+        "minimum_duration_status": "too_short",
+        "model_name": "campplus_en_voxceleb_16k_v1_0_2",
+        "pipeline_composition": true,
+        "repeatability_l2_drift": 0.0,
+        "runtime": {
+          "audio_duration_sec": 0.1,
+          "cpu_memory_mb": null,
+          "device": "cpu",
+          "dtype": "float32",
+          "inference_sec": 0.0012934999540448189,
+          "load_sec": 0.0,
+          "model_name": "campplus_en_voxceleb_16k_v1_0_2",
+          "peak_gpu_memory_mb": null,
+          "realtime_factor": 0.012934999540448189
+        },
+        "valid_real_outputs": 2
+      },
+      "device": "cpu",
+      "explanation": "Real repeated offline qualification passed.",
+      "failure_category": null,
+      "family": "speaker_embedding",
+      "implicit_downloads_allowed": false,
+      "package_versions": {
+        "sherpa-onnx": "1.13.4"
+      },
+      "profile": "onnx",
+      "repetitions": 2,
+      "schema_validation": true,
+      "status": "qualified",
+      "timing": {
+        "inference_sec": [
+          0.568258,
+          0.074632
+        ],
+        "total_sec": 0.712566
+      },
+      "warnings": []
+    },
+    {
+      "asset_identities": [
+        {
+          "acquisition_date": "2026-08-08T00:15:04.538280+00:00",
+          "acquisition_method": "scripts/bootstrap_models.py --eres2net-base",
+          "artifact_filename": "3dspeaker_speech_eres2net_base_sv_zh-cn_3dspeaker_16k.onnx",
+          "asset_id": "eres2net_base_3dspeaker",
+          "backend": "Sherpa-ONNX / 3D-Speaker",
+          "commercial_disposition": "commercial_permissive",
+          "component": "eres2net_base_speaker_embedding",
+          "conversion_provenance": "Official Sherpa-ONNX speaker-recognition release converted from the exact ModelScope checkpoint",
+          "credential_required": false,
+          "environment_profile": "onnx",
+          "expected_sha256_scope": "installed_file",
+          "expected_size_bytes": 39593761,
+          "files": [
+            {
+              "bytes": 39593761,
+              "path": "3dspeaker_speech_eres2net_base_sv_zh-cn_3dspeaker_16k.onnx",
+              "sha256": "1a331345f04805badbb495c775a6ddffcdd1a732567d5ec8b3d5749e3c7a5e4b"
+            }
+          ],
+          "hash_matches": true,
+          "licence": "Apache-2.0",
+          "licence_evidence": [
+            "https://modelscope.cn/models/iic/speech_eres2net_base_sv_zh-cn_3dspeaker_16k",
+            "https://github.com/modelscope/3D-Speaker"
+          ],
+          "missing_required_files": [],
+          "model_name": "iic/speech_eres2net_base_sv_zh-cn_3dspeaker_16k",
+          "model_version": "v1.0.1",
+          "parameter_count": 4600000,
+          "present": true,
+          "sample_rate_hz": 16000,
+          "sha256": "1a331345f04805badbb495c775a6ddffcdd1a732567d5ec8b3d5749e3c7a5e4b",
+          "size_bytes": 39593761,
+          "size_matches": true,
+          "source": "https://modelscope.cn/models/iic/speech_eres2net_base_sv_zh-cn_3dspeaker_16k",
+          "storage_path": "models/cache/sherpa_onnx/speaker_embedding/3dspeaker_speech_eres2net_base_sv_zh-cn_3dspeaker_16k.onnx",
+          "streaming": false,
+          "upstream_model_revision": "v1.0.1",
+          "verification_status": "verified"
+        }
+      ],
+      "backend_id": "eres2net_base_speaker_embedding",
+      "command": "python scripts/qualify_extended_backends.py --profile onnx --backend sherpa_onnx_streaming_zipformer_20m_int8 --backend campplus_speaker_embedding --backend eres2net_base_speaker_embedding --output runs/edge_backend_qualification/onnx-edge.json",
+      "component_identity": {
+        "backend_id": "eres2net_base_speaker_embedding",
+        "config_path": "configs/inference/components/speaker_embedding/eres2net_base.yaml",
+        "config_sha256": "e197e2382ae98aef24ecc6833f6a8d528bad6788ec472db14a9dd56516dc1ee4",
+        "family": "speaker_embedding"
+      },
+      "credential_presence": {},
+      "details": {
+        "dimension": 512,
+        "finite": true,
+        "identity_recorded": true,
+        "l2_norms": [
+          1.0000000012698975,
+          1.0000000012698975
+        ],
+        "minimum_duration_status": "too_short",
+        "model_name": "eres2net_base_3dspeaker_16k_v1_0_1",
+        "pipeline_composition": true,
+        "repeatability_l2_drift": 0.0,
+        "runtime": {
+          "audio_duration_sec": 0.1,
+          "cpu_memory_mb": null,
+          "device": "cpu",
+          "dtype": "float32",
+          "inference_sec": 0.001128499861806631,
+          "load_sec": 0.0,
+          "model_name": "eres2net_base_3dspeaker_16k_v1_0_1",
+          "peak_gpu_memory_mb": null,
+          "realtime_factor": 0.011284998618066311
+        },
+        "valid_real_outputs": 2
+      },
+      "device": "cpu",
+      "explanation": "Real repeated offline qualification passed.",
+      "failure_category": null,
+      "family": "speaker_embedding",
+      "implicit_downloads_allowed": false,
+      "package_versions": {
+        "sherpa-onnx": "1.13.4"
+      },
+      "profile": "onnx",
+      "repetitions": 2,
+      "schema_validation": true,
+      "status": "qualified",
+      "timing": {
+        "inference_sec": [
+          0.534639,
+          0.182291
+        ],
+        "total_sec": 0.788119
+      },
+      "warnings": []
+    }
+  ],
+  "schema_version": "extended-backend-qualification.v1",
+  "secret_audit": {
+    "credential_presence_only": true,
+    "values_serialized": false
+  },
+  "summary": {
+    "qualified": 3,
+    "status_counts": {
+      "qualified": 3
+    },
+    "total": 3
+  }
+}

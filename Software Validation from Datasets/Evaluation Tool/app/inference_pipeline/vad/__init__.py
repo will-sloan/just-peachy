@@ -15,9 +15,12 @@ from app.inference_pipeline.vad.sherpa_onnx_vad import (
     SherpaOnnxVADUnavailableError,
 )
 from app.inference_pipeline.vad.webrtc_vad import WebRTCVAD, WebRTCVADUnavailableError
+from app.inference_pipeline.vad.fsmn_vad import FSMNVAD, FSMNVADUnavailableError
 
 __all__ = [
     "FixedVAD",
+    "FSMNVAD",
+    "FSMNVADUnavailableError",
     "NoOpVAD",
     "SherpaOnnxVAD",
     "SherpaOnnxVADUnavailableError",

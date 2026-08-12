@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "artifact-registry.v3",
+  "title": "Additive native-streaming artifact registry source",
+  "type": "object",
+  "required": ["schema_version", "extends", "append_artifacts"],
+  "properties": {
+    "schema_version": {"const": "artifact-registry.v3"},
+    "extends": {"const": "artifact_registry.v2.yaml"},
+    "append_artifacts": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "id", "scope", "path", "producer", "format", "schema_version",
+          "status", "condition", "validation_rules", "checksum_policy",
+          "privacy_classification", "downstream_consumers"
+        ],
+        "properties": {
+          "id": {"const": "streaming_diagnostics"},
+          "scope": {"const": "scenario"},
+          "path": {"const": "predictions/streaming_diagnostics.jsonl"},
+          "format": {"const": "jsonl"},
+          "status": {"const": "conditional"},
+          "checksum_policy": {"const": "sha256"}
+        }
+      }
+    }
+  },
+  "additionalProperties": false
+}

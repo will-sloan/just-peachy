@@ -1,0 +1,29 @@
+component:
+  slot: asr
+  name: sherpa_onnx_streaming_zipformer_20m_int8
+  enabled: true
+  adapter: SherpaOnnxStreamingZipformer20MInt8ASRAdapter
+  notes: Distinct 20M-class English INT8 streaming Zipformer edge candidate.
+  params:
+    model_name: sherpa_onnx_streaming_zipformer_en_20m_int8_2023_02_17
+    model_type: transducer
+    language: en
+    sample_rate: 16000
+    feature_dim: 80
+    num_threads: 2
+    provider: cpu
+    decoding_method: greedy_search
+    max_active_paths: 4
+    tail_padding_sec: 0.66
+    native_streaming_replay: true
+    allow_model_downloads: false
+    streaming:
+      chunk_duration_ms: 100
+      update_interval_ms: 500
+      reset_policy: per_segment
+      endpoint_policy: input_finished
+      real_time_pacing: false
+    tokens: models/cache/sherpa_onnx/asr/sherpa-onnx-streaming-zipformer-en-20M-2023-02-17/tokens.txt
+    encoder: models/cache/sherpa_onnx/asr/sherpa-onnx-streaming-zipformer-en-20M-2023-02-17/encoder-epoch-99-avg-1.int8.onnx
+    decoder: models/cache/sherpa_onnx/asr/sherpa-onnx-streaming-zipformer-en-20M-2023-02-17/decoder-epoch-99-avg-1.int8.onnx
+    joiner: models/cache/sherpa_onnx/asr/sherpa-onnx-streaming-zipformer-en-20M-2023-02-17/joiner-epoch-99-avg-1.int8.onnx

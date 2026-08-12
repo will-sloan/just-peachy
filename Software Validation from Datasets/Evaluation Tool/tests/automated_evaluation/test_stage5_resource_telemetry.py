@@ -139,14 +139,18 @@ def _sampler(
     )
 
 
-def test_v2_registry_is_additive_and_v1_remains_frozen() -> None:
+def test_latest_registry_is_additive_and_v1_remains_frozen() -> None:
     v1 = ArtifactRegistry.load()
-    v2 = ArtifactRegistry.load_version(LATEST_ARTIFACT_REGISTRY_VERSION)
+    v2 = ArtifactRegistry.load_version("artifact-registry.v2")
+    latest = ArtifactRegistry.load_version(LATEST_ARTIFACT_REGISTRY_VERSION)
     assert v1.schema_version == ARTIFACT_REGISTRY_VERSION
     assert v1.get("resource_usage").schema_version == "resource-usage.v1"
     assert v2.get("resource_usage").schema_version == "resource-usage.v2"
     assert {"component_spans", "resource_summary", "resource_availability"}.issubset(
         {artifact.artifact_id for artifact in v2.artifacts}
+    )
+    assert latest.get("streaming_diagnostics").schema_version == (
+        "streaming-diagnostics-row.v1"
     )
 
 

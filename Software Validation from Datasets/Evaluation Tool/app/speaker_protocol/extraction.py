@@ -39,7 +39,9 @@ def extract_clean_protocol_embeddings(
 ) -> dict[str, object]:
     """Extract only clean source rows; degraded rows require campaign augmentation."""
 
-    if component_name not in eligible_embedding_backends():
+    if component_name not in eligible_embedding_backends(
+        backend_ids={component_name}
+    ):
         raise SpeakerProtocolError(f"backend is not qualified for Stage 10: {component_name}")
     rows = []
     for kind in ("enrollment", "calibration", "known_evaluation", "unknown_evaluation"):

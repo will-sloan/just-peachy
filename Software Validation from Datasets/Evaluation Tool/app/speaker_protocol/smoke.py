@@ -32,14 +32,21 @@ def build_real_speaker_smoke(
     manifest_root: Path = DEFAULT_MANIFEST_ROOT,
     output_root: Path = DEFAULT_OUTPUT_ROOT,
     rerun: bool = False,
+    backend_ids: set[str] | None = None,
 ) -> dict[str, object]:
+    manifest_root = manifest_root.resolve()
+    output_root = output_root.resolve()
     if not (manifest_root / "speaker_protocol_manifest.json").is_file():
         build_protocol_manifests(manifest_root, tier="small")
     rows = _smoke_rows(manifest_root)
     selected_ids = sorted(
         str(row["item_id"]) for values in rows.values() for row in values
     )
-    backends = eligible_embedding_backends()
+    backends = eligible_embedding_backends(backend_ids=backend_ids)
+    if backend_ids is not None:
+        unknown = sorted(backend_ids - set(backends))
+        if unknown:
+            raise ValueError(f"unknown or unqualified Stage 10 backend(s): {unknown}")
     results = []
     for backend_id, backend in sorted(backends.items()):
         extraction_root = output_root / "extractions" / backend_id
@@ -113,6 +120,7 @@ def build_real_speaker_smoke(
         "scope": "contract smoke; not full scientific speaker evaluation",
         "manifest_root": manifest_root.relative_to(TOOL_ROOT).as_posix(),
         "expected_backends": len(backends),
+        "selected_backend_ids": sorted(backends),
         "passed": sum(1 for row in results if row["status"] == "passed"),
         "failed": sum(1 for row in results if row["status"] != "passed"),
         "identical_item_ids_for_every_backend": True,
@@ -198,6 +206,16 @@ def _interpreter(profile: str) -> Path:
         / "Scripts"
         / "python.exe",
         "onnx": REPOSITORY_ROOT / ".stage8-envs" / "onnx" / "Scripts" / "python.exe",
+        "edge-cpu": REPOSITORY_ROOT
+        / ".stage8-envs"
+        / "edge-cpu"
+        / "Scripts"
+        / "python.exe",
+        "moonshine-edge": REPOSITORY_ROOT
+        / ".stage8-envs"
+        / "moonshine-edge"
+        / "Scripts"
+        / "python.exe",
         "wespeaker": REPOSITORY_ROOT
         / ".stage8-envs"
         / "wespeaker"

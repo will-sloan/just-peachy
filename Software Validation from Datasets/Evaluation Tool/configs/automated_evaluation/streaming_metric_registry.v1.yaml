@@ -1,0 +1,52 @@
+schema_version: streaming-metric-registry.v1
+registry_version: 1.0.0
+policy: Missing backend observations remain null with an explicit availability reason; they are never converted to zero.
+metrics:
+  - name: time_to_first_partial_sec
+    unit: seconds
+    scenario_families: [asr]
+    required_fields: [streaming.metrics.time_to_first_partial_sec]
+    aggregation: item_distribution_with_scenario_mean_and_percentiles
+    missing_policy: null_with_streaming_availability_reason
+    definition: Monotonic wall time from replay start until the first non-empty non-final hypothesis.
+    limitations: Replay is intentionally unpaced and is not a claim about microphone-network latency.
+  - name: finalization_latency_sec
+    unit: seconds
+    scenario_families: [asr]
+    required_fields: [streaming.metrics.finalization_latency_sec]
+    aggregation: item_distribution_with_scenario_mean_and_percentiles
+    missing_policy: null_with_streaming_availability_reason
+    definition: Monotonic wall time between consuming the final input sample and emitting the final hypothesis.
+    limitations: Backend endpoint policy and replay chunk size are result-affecting covariates.
+  - name: partial_hypothesis_churn_tokens
+    unit: token_edits
+    scenario_families: [asr]
+    required_fields: [streaming.metrics.partial_hypothesis_churn_tokens]
+    aggregation: item_distribution_with_scenario_mean_and_percentiles
+    missing_policy: null_when_partial_hypotheses_are_not_exposed
+    definition: Sum of token edit distances between consecutive non-empty partial hypotheses.
+    limitations: Tokenization is whitespace based and intended for within-contract comparisons.
+  - name: final_prefix_stability
+    unit: proportion
+    scenario_families: [asr]
+    required_fields: [streaming.metrics.final_prefix_stability]
+    aggregation: item_distribution_with_scenario_mean_and_confidence_interval_when_replicated
+    missing_policy: null_when_no_partial_or_final_tokens_exist
+    definition: Longest common token prefix of the last partial and final transcript divided by final token count.
+    limitations: This captures only the last partial-to-final transition.
+  - name: streaming_real_time_factor
+    unit: wall_seconds_per_audio_second
+    scenario_families: [asr]
+    required_fields: [streaming.metrics.streaming_rtf]
+    aggregation: duration_weighted_ratio
+    missing_policy: null_when_audio_duration_is_zero_or_unavailable
+    definition: Total native streaming replay processing wall seconds divided by consumed audio seconds.
+    limitations: Compare only within compatible hardware, environment, chunking, and endpoint contracts.
+  - name: streaming_update_count
+    unit: updates
+    scenario_families: [asr]
+    required_fields: [streaming.metrics.hypothesis_update_count]
+    aggregation: item_distribution_with_scenario_sum_and_mean
+    missing_policy: null_when_backend_updates_are_unobservable
+    definition: Number of observable partial and final hypothesis updates emitted during one replay.
+    limitations: Backends with different update policies are not directly comparable without conditioning on configuration.

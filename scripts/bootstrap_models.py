@@ -110,6 +110,46 @@ NEMO_DIARIZATION_CONFIG_URL = (
     "diarization/conf/inference/diar_infer_meeting.yaml"
 )
 
+SHERPA_STREAMING_20M_ARCHIVE = (
+    "sherpa-onnx-streaming-zipformer-en-20M-2023-02-17.tar.bz2"
+)
+SHERPA_STREAMING_20M_DIRECTORY = (
+    "sherpa-onnx-streaming-zipformer-en-20M-2023-02-17"
+)
+SHERPA_STREAMING_20M_URL = (
+    "https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/"
+    f"{SHERPA_STREAMING_20M_ARCHIVE}"
+)
+SHERPA_STREAMING_20M_ARCHIVE_SHA256 = (
+    "9c559283e8498d3fe95913c79ca1cb454bb26281ac2b102b41306c7d752765d9"
+)
+SHERPA_STREAMING_20M_MARKERS = (
+    "tokens.txt",
+    "encoder-epoch-99-avg-1.int8.onnx",
+    "decoder-epoch-99-avg-1.int8.onnx",
+    "joiner-epoch-99-avg-1.int8.onnx",
+)
+CAMPPLUS_FILENAME = "3dspeaker_speech_campplus_sv_en_voxceleb_16k.onnx"
+CAMPPLUS_URL = (
+    "https://github.com/k2-fsa/sherpa-onnx/releases/download/"
+    f"speaker-recongition-models/{CAMPPLUS_FILENAME}"
+)
+CAMPPLUS_SHA256 = "357a834f702b80161e5b981182c038e18553c1f2ca752ed6cec2052365d4129b"
+FSMN_BASE_URL = (
+    "https://modelscope.cn/models/iic/"
+    "speech_fsmn_vad_zh-cn-16k-common-onnx/resolve/master"
+)
+FSMN_FILES = {
+    "am.mvn": "6820fef9687708c4fc3fab2530179c8fcea6262daa25514380056cd8f6eb1754",
+    "config.yaml": "2ef334f2d7776edd86ed696296774f87550206c256bfabc597872ad861831589",
+    "model_quant.onnx": "5289eb2aa3c9af2d7a4284bcfa7c3ceb81d360814ed4203239b6c5d0569da8a1",
+}
+MOONSHINE_STREAMING_ARCHES = {
+    "tiny": "TINY_STREAMING",
+    "small": "SMALL_STREAMING",
+    "medium": "MEDIUM_STREAMING",
+}
+
 
 def file_sha256(path: Path) -> str:
     """Return the lowercase SHA-256 digest for one file."""
@@ -309,6 +349,68 @@ def download_sherpa_asr(cache_root: Path) -> None:
         archive_directory=SHERPA_ASR_DIRECTORY,
         markers=SHERPA_ASR_MARKERS,
     )
+
+
+def download_sherpa_streaming_20m(cache_root: Path) -> None:
+    archive = download_file(
+        SHERPA_STREAMING_20M_URL,
+        cache_root / "downloads" / SHERPA_STREAMING_20M_ARCHIVE,
+        expected_sha256=SHERPA_STREAMING_20M_ARCHIVE_SHA256,
+    )
+    install_model_archive(
+        archive,
+        destination=(
+            cache_root / "sherpa_onnx" / "asr" / SHERPA_STREAMING_20M_DIRECTORY
+        ),
+        archive_directory=SHERPA_STREAMING_20M_DIRECTORY,
+        markers=SHERPA_STREAMING_20M_MARKERS,
+    )
+
+
+def download_campplus(cache_root: Path) -> None:
+    download_file(
+        CAMPPLUS_URL,
+        cache_root / "sherpa_onnx" / "speaker_embedding" / CAMPPLUS_FILENAME,
+        expected_sha256=CAMPPLUS_SHA256,
+    )
+
+
+def download_fsmn_vad(cache_root: Path) -> None:
+    destination = (
+        cache_root / "funasr" / "vad" / "speech_fsmn_vad_zh-cn-16k-common-onnx"
+    )
+    for filename, digest in FSMN_FILES.items():
+        download_file(
+            f"{FSMN_BASE_URL}/{filename}",
+            destination / filename,
+            expected_sha256=digest,
+        )
+
+
+def download_moonshine_streaming(cache_root: Path, sizes: list[str]) -> None:
+    if not sizes:
+        return
+    try:
+        from moonshine_voice.download import get_model_for_language
+        from moonshine_voice.moonshine_api import ModelArch
+    except ImportError as exc:
+        raise RuntimeError(
+            "moonshine-voice must be installed before downloading Moonshine assets"
+        ) from exc
+    for size in sizes:
+        architecture = getattr(ModelArch, MOONSHINE_STREAMING_ARCHES[size])
+        path, _arch = get_model_for_language(
+            "en", architecture, cache_root=cache_root / "moonshine"
+        )
+        print(f"Prepared Moonshine streaming {size}: {path}")
+
+
+def download_edge_models(cache_root: Path) -> None:
+    download_moonshine_streaming(cache_root, ["tiny", "small", "medium"])
+    download_sherpa_streaming_20m(cache_root)
+    download_campplus(cache_root)
+    download_sherpa_embedding(cache_root)
+    download_fsmn_vad(cache_root)
 
 
 def download_vosk_asr(cache_root: Path) -> None:
@@ -515,6 +617,20 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--sherpa-diarization", action="store_true")
     parser.add_argument("--wespeaker", action="store_true")
     parser.add_argument("--nemo-config", action="store_true")
+    parser.add_argument("--sherpa-streaming-20m", action="store_true")
+    parser.add_argument("--campplus", action="store_true")
+    parser.add_argument("--eres2net-base", action="store_true")
+    parser.add_argument("--fsmn-vad", action="store_true")
+    parser.add_argument(
+        "--moonshine-streaming",
+        default="",
+        help="Comma-separated Moonshine English streaming sizes: tiny,small,medium.",
+    )
+    parser.add_argument(
+        "--edge-models",
+        action="store_true",
+        help="Prepare every approved required edge component asset.",
+    )
     parser.add_argument("--hf-token-env", default="PYANNOTE_AUTH_TOKEN")
     parser.add_argument(
         "--device",
@@ -537,6 +653,18 @@ def main(argv: list[str] | None = None) -> int:
         return 2
     cache_root = args.cache_root.expanduser().resolve()
     cache_root.mkdir(parents=True, exist_ok=True)
+    moonshine_sizes = [
+        item.strip().lower()
+        for item in args.moonshine_streaming.split(",")
+        if item.strip()
+    ]
+    unknown_moonshine = sorted(set(moonshine_sizes) - set(MOONSHINE_STREAMING_ARCHES))
+    if unknown_moonshine:
+        print(
+            f"[FAIL] Unknown Moonshine streaming size(s): {unknown_moonshine}",
+            file=sys.stderr,
+        )
+        return 2
     tasks: list[tuple[str, Callable[[], None]]] = []
     if whisper_models:
         tasks.append(("Whisper", lambda: download_whisper(whisper_models, cache_root)))
@@ -585,6 +713,30 @@ def main(argv: list[str] | None = None) -> int:
                 lambda: download_nemo_config(cache_root),
             )
         )
+    if moonshine_sizes:
+        tasks.append(
+            (
+                "Moonshine streaming English",
+                lambda: download_moonshine_streaming(cache_root, moonshine_sizes),
+            )
+        )
+    if args.sherpa_streaming_20m:
+        tasks.append(
+            (
+                "Sherpa-ONNX streaming Zipformer 20M INT8",
+                lambda: download_sherpa_streaming_20m(cache_root),
+            )
+        )
+    if args.campplus:
+        tasks.append(("CAM++ English VoxCeleb", lambda: download_campplus(cache_root)))
+    if args.eres2net_base:
+        tasks.append(
+            ("ERes2Net-base", lambda: download_sherpa_embedding(cache_root))
+        )
+    if args.fsmn_vad:
+        tasks.append(("FSMN-VAD", lambda: download_fsmn_vad(cache_root)))
+    if args.edge_models:
+        tasks.append(("Approved edge model bundle", lambda: download_edge_models(cache_root)))
     if not tasks:
         print(
             "No models selected. Choose an approved Whisper, SpeechBrain, Silero, "

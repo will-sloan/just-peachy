@@ -1,0 +1,6 @@
+-r ../inference.txt
+
+# Moonshine ships its own native ONNX Runtime. Keep it out of Sherpa/FunASR
+# processes because Windows DLL API versions cannot be safely co-loaded.
+moonshine-voice==0.1.1
+webrtcvad-wheels==2.0.14

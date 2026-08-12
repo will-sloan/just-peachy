@@ -59,6 +59,34 @@ profiles:
     hardware: {cpu: required, gpu: optional, cuda: not_used_by_profile}
     expected_verifier_output: All available Sherpa adapters load verified local ONNX files and emit contract-valid outputs.
 
+  edge-cpu:
+    purpose: Isolate FSMN-VAD's NumPy 1.26 and Python ONNX Runtime from the qualified core, Sherpa, and Moonshine environments.
+    operating_systems: [windows, linux]
+    python_version: "3.12"
+    requirements: [requirements/stage8/edge-cpu.txt]
+    installation_command: powershell -ExecutionPolicy Bypass -File scripts\install_stage8_profile.ps1 -Profile edge-cpu -DownloadModels
+    validation_command: .stage8-envs\edge-cpu\Scripts\python.exe "Software Validation from Datasets\Evaluation Tool\scripts\qualify_extended_backends.py" --profile edge-cpu
+    supported_components: [fsmn_vad, whisper_base, energy_vad, silero_vad, webrtc_vad, vad_chunks]
+    incompatible_components: [moonshine_streaming_tiny, moonshine_streaming_small, moonshine_streaming_medium, sherpa_onnx_streaming_zipformer_20m_int8, sherpa_onnx_vad, cuda_runtime, nemo_diarization]
+    model_assets: [fsmn_vad_quantized, whisper_base]
+    credential_requirements: []
+    hardware: {cpu: required, gpu: optional_unqualified, cuda: not_used_by_profile}
+    expected_verifier_output: FSMN-VAD emits two real contract-valid outputs and composes with the fixed Whisper Base controls without loading another ONNX runtime family.
+
+  moonshine-edge:
+    purpose: Isolate Moonshine Voice's bundled native ONNX Runtime while supporting core VAD controls and deterministic streaming replay.
+    operating_systems: [windows, linux]
+    python_version: "3.12"
+    requirements: [requirements/stage8/moonshine-edge.txt]
+    installation_command: powershell -ExecutionPolicy Bypass -File scripts\install_stage8_profile.ps1 -Profile moonshine-edge -DownloadModels
+    validation_command: .stage8-envs\moonshine-edge\Scripts\python.exe "Software Validation from Datasets\Evaluation Tool\scripts\qualify_extended_backends.py" --profile moonshine-edge
+    supported_components: [moonshine_streaming_tiny, moonshine_streaming_small, moonshine_streaming_medium, energy_vad, silero_vad, webrtc_vad, vad_chunks]
+    incompatible_components: [sherpa_onnx_streaming_zipformer_20m_int8, sherpa_onnx_vad, fsmn_vad, cuda_runtime]
+    model_assets: [moonshine_streaming_tiny_en, moonshine_streaming_small_en, moonshine_streaming_medium_en]
+    credential_requirements: []
+    hardware: {cpu: required, gpu: optional_unqualified, cuda: not_used_by_profile}
+    expected_verifier_output: Tiny, Small, and Medium each emit two real local transcripts plus streaming-diagnostics.v1 in independent backend qualification processes.
+
   wenet:
     purpose: WeNet ASR at v3.1.0 commit 2d8bb9780f5b23da65abee37fd612a1fa2f2f4e8.
     operating_systems: [linux, windows]

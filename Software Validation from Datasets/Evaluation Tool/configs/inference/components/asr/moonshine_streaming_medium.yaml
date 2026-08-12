@@ -1,0 +1,20 @@
+component:
+  slot: asr
+  name: moonshine_streaming_medium
+  enabled: true
+  adapter: MoonshineStreamingMediumASRAdapter
+  notes: Native Moonshine Voice English streaming Medium with deterministic file replay.
+  params:
+    model_name: moonshine_streaming_medium_en_quantized_26_07_30
+    model_arch: medium-streaming
+    model_path: models/cache/moonshine/download.moonshine.ai/model/medium-streaming-en/quantized_26_07_30
+    language: en
+    sample_rate: 16000
+    allow_model_downloads: false
+    options: {}
+    streaming:
+      chunk_duration_ms: 100
+      update_interval_ms: 500
+      reset_policy: per_segment
+      endpoint_policy: backend_default
+      real_time_pacing: false

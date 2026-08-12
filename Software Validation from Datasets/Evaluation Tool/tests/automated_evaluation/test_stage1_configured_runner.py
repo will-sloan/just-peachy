@@ -83,9 +83,16 @@ def _run_config(run_dir: Path) -> dict[str, object]:
 
 
 class StaticPipeline:
-    def __init__(self, *, speaker_label: str | None = None, text: str | None = "model text"):
+    def __init__(
+        self,
+        *,
+        speaker_label: str | None = None,
+        text: str | None = "model text",
+        diagnostics: dict[str, object] | None = None,
+    ):
         self.speaker_label = speaker_label
         self.text = text
+        self.diagnostics = diagnostics or {"component": "static"}
 
     def predict(self, record, config):
         _ = config
@@ -96,14 +103,42 @@ class StaticPipeline:
             end_sec=record.get("end_sec"),
             speaker_label=self.speaker_label,
             text=self.text,  # type: ignore[arg-type]
-            diagnostics={"component": "static"},
+            diagnostics=self.diagnostics,
         )
+
+
+def test_runner_publishes_typed_streaming_diagnostics(tmp_path: Path) -> None:
+    resolution = resolve_pipeline(CONFIG_ROOT / "live_mic_whisper_tiny.yaml")
+    run_dir = tmp_path / "run"
+    record = _record(REAL_AUDIO)
+    runner = ConfiguredEvaluatorRunner(
+        resolution,
+        pipeline_runner=StaticPipeline(
+            diagnostics={
+                "streaming": {
+                    "schema_version": "streaming-diagnostics.v1",
+                    "backend_id": "test",
+                    "metrics": {"streaming_rtf": 0.5},
+                }
+            }
+        ),
+    )
+    config = _run_config(run_dir)
+    config["scenario_id"] = "scenario_0123456789ab"
+
+    runner.run_batch([record], run_dir / "predictions", config, LOGGER)
+    rows = list(read_jsonl(run_dir / "predictions" / "streaming_diagnostics.jsonl"))
+
+    assert rows[0]["schema_version"] == "streaming-diagnostics-row.v1"
+    assert rows[0]["scenario_id"] == "scenario_0123456789ab"
+    assert rows[0]["recording_id"] == record["recording_id"]
+    assert rows[0]["streaming"]["metrics"]["streaming_rtf"] == 0.5
 
 
 def test_catalog_discovers_every_runtime_family_and_verifies_sources() -> None:
     catalog = ComponentCatalog.load()
 
-    assert len(catalog.entries) == 27
+    assert len(catalog.entries) >= 27
     assert {entry.family for entry in catalog.entries} == set(COMPONENT_SLOTS)
     whisper_base = catalog.get("asr", "whisper_base")
     assert whisper_base.implementation_class == "WhisperASR"
@@ -115,6 +150,10 @@ def test_catalog_discovers_every_runtime_family_and_verifies_sources() -> None:
     assert whisper_base.model_identity["model_size"] == "base"
     assert whisper_base.model_asset_identity[0]["hash_matches"] is True
     assert whisper_base.model_asset_identity[0]["present"] is True
+    assert catalog.get("asr", "moonshine_streaming_tiny").output_contract == (
+        "asr_transcript.v1"
+    )
+    assert catalog.get("vad", "fsmn_vad").environment_profiles == ("edge-cpu",)
 
 
 def test_project_root_discovery_accepts_the_repository_raw_dataset_alias() -> None:

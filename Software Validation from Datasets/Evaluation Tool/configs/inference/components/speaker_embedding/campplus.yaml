@@ -1,0 +1,16 @@
+component:
+  slot: speaker_embedding
+  name: campplus_speaker_embedding
+  enabled: true
+  adapter: CAMPlusSpeakerEmbeddingCatalogAdapter
+  notes: English VoxCeleb CAM++ through Sherpa-ONNX; backend-specific Stage 10 enrollment required.
+  params:
+    model_name: campplus_en_voxceleb_16k_v1_0_2
+    model_path: models/cache/sherpa_onnx/speaker_embedding/3dspeaker_speech_campplus_sv_en_voxceleb_16k.onnx
+    sample_rate_hz: 16000
+    min_duration_sec: 0.5
+    num_threads: 1
+    provider: cpu
+    device: cpu
+    dtype: float32
+    allow_model_downloads: false

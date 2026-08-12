@@ -1,0 +1,44 @@
+{
+  "clean_source_only": true,
+  "degraded_results_claimed": false,
+  "expected_backends": 2,
+  "failed": 0,
+  "identical_item_ids_for_every_backend": true,
+  "implicit_model_downloads_allowed": false,
+  "item_count_per_backend": 8,
+  "manifest_root": "benchmarks/stage10/small",
+  "passed": 2,
+  "private_identity_mapping_included": false,
+  "results": [
+    {
+      "backend_id": "campplus_speaker_embedding",
+      "backend_identity_hash": "65681DFF59725948F908FF07CEEB0365839A06F6CF55E9E29498F6FEF03352F5",
+      "calibration_evaluation_separate": true,
+      "embedding_dimension": 512,
+      "environment_profile": "onnx",
+      "expected_items": 8,
+      "result_path": "runs/edge_speaker_protocol_smoke/results/campplus_speaker_embedding",
+      "status": "passed",
+      "successful_items": 8,
+      "unknown_label": "Unknown"
+    },
+    {
+      "backend_id": "eres2net_base_speaker_embedding",
+      "backend_identity_hash": "12B278AB272D0877CA6509176AD4453C4AA9C22459C8093509BF9E072702DFAE",
+      "calibration_evaluation_separate": true,
+      "embedding_dimension": 512,
+      "environment_profile": "onnx",
+      "expected_items": 8,
+      "result_path": "runs/edge_speaker_protocol_smoke/results/eres2net_base_speaker_embedding",
+      "status": "passed",
+      "successful_items": 8,
+      "unknown_label": "Unknown"
+    }
+  ],
+  "schema_version": "speaker-protocol-real-smoke.v1",
+  "scope": "contract smoke; not full scientific speaker evaluation",
+  "selected_backend_ids": [
+    "campplus_speaker_embedding",
+    "eres2net_base_speaker_embedding"
+  ]
+}

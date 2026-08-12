@@ -53,6 +53,7 @@ def add_speaker_protocol_parser(subparsers: argparse._SubParsersAction) -> None:
     smoke.add_argument("--manifest-root", type=Path, default=None)
     smoke.add_argument("--output-root", type=Path, default=None)
     smoke.add_argument("--rerun", action="store_true")
+    smoke.add_argument("--backend", action="append", default=[])
     smoke.set_defaults(func=_smoke)
 
     validate = commands.add_parser("validate", help="Validate manifests or protocol results")
@@ -100,7 +101,10 @@ def _evaluate(args: argparse.Namespace) -> None:
 
 
 def _smoke(args: argparse.Namespace) -> None:
-    kwargs = {"rerun": args.rerun}
+    kwargs = {
+        "rerun": args.rerun,
+        "backend_ids": set(args.backend) or None,
+    }
     if args.manifest_root is not None:
         kwargs["manifest_root"] = args.manifest_root
     if args.output_root is not None:

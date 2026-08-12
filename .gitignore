@@ -15,6 +15,7 @@ models/
 
 # Personal documents stay local and outside Git.
 Resumes/
+~$*.docx
 
 # Local real-model qualification artifacts (recreated by the qualification script)
 Software Validation from Datasets/Evaluation Tool/runs/component_qualification/
@@ -23,6 +24,15 @@ Software Validation from Datasets/Evaluation Tool/runs/component_readiness_*/
 # already tracked by Git remain tracked; the placeholder remains available.
 Software Validation from Datasets/Evaluation Tool/runs/*/
 !Software Validation from Datasets/Evaluation Tool/runs/.gitkeep
+!Software Validation from Datasets/Evaluation Tool/runs/edge_backend_qualification/
+Software Validation from Datasets/Evaluation Tool/runs/edge_backend_qualification/*
+!Software Validation from Datasets/Evaluation Tool/runs/edge_backend_qualification/moonshine-edge.json
+!Software Validation from Datasets/Evaluation Tool/runs/edge_backend_qualification/onnx-edge.json
+!Software Validation from Datasets/Evaluation Tool/runs/edge_backend_qualification/edge-cpu.json
+!Software Validation from Datasets/Evaluation Tool/runs/edge_speaker_protocol_smoke/
+Software Validation from Datasets/Evaluation Tool/runs/edge_speaker_protocol_smoke/*
+!Software Validation from Datasets/Evaluation Tool/runs/edge_speaker_protocol_smoke/real_smoke_matrix.json
+!Software Validation from Datasets/Evaluation Tool/runs/edge_speaker_protocol_smoke/real_smoke_matrix.json.sha256
 
 # Generated automated-evaluation runtime state and launch-day evidence. The
 # frozen launch specification, coverage summary, templates, and scripts remain

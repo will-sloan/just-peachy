@@ -10,9 +10,9 @@ import yaml
 
 
 ARTIFACT_REGISTRY_VERSION = "artifact-registry.v1"
-LATEST_ARTIFACT_REGISTRY_VERSION = "artifact-registry.v2"
+LATEST_ARTIFACT_REGISTRY_VERSION = "artifact-registry.v3"
 SUPPORTED_ARTIFACT_REGISTRY_VERSIONS = frozenset(
-    {ARTIFACT_REGISTRY_VERSION, LATEST_ARTIFACT_REGISTRY_VERSION}
+    {ARTIFACT_REGISTRY_VERSION, "artifact-registry.v2", LATEST_ARTIFACT_REGISTRY_VERSION}
 )
 CHECKSUMS_SCHEMA_VERSION = "checksums.v1"
 SCENARIO_TYPES = frozenset(
@@ -25,7 +25,9 @@ SCENARIO_TYPES = frozenset(
         "synthetic_executor",
     }
 )
-SCENARIO_CAPABILITIES = frozenset({"word_timestamps", "telemetry"})
+SCENARIO_CAPABILITIES = frozenset(
+    {"word_timestamps", "telemetry", "streaming_diagnostics"}
+)
 
 
 class ArtifactRegistryError(ValueError):
@@ -227,10 +229,16 @@ class ArtifactRegistry:
             required.add("words")
         if "telemetry" in capabilities:
             required.add("resource_usage")
-            if self.schema_version == LATEST_ARTIFACT_REGISTRY_VERSION:
+            if self.schema_version != ARTIFACT_REGISTRY_VERSION:
                 required.update(
                     {"component_spans", "resource_summary", "resource_availability"}
                 )
+        if "streaming_diagnostics" in capabilities:
+            if self.schema_version != LATEST_ARTIFACT_REGISTRY_VERSION:
+                raise ArtifactRegistryError(
+                    "streaming diagnostics require artifact-registry.v3"
+                )
+            required.add("streaming_diagnostics")
         return tuple(sorted(required))
 
 

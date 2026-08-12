@@ -492,12 +492,16 @@ def _preflight_status(
             "unavailable_package",
             "Missing pinned distribution(s): " + ", ".join(missing_packages),
         )
-    missing_assets = sorted(str(item["asset_id"]) for item in assets if not item["present"])
+    missing_assets = sorted(
+        str(item["asset_id"])
+        for item in assets
+        if not item["present"] or item.get("verification_status") == "mismatch"
+    )
     if missing_assets:
         missing_details = [
             f"{item['asset_id']} ({', '.join(str(value) for value in item.get('missing_required_files', ())) or 'path absent'})"
             for item in assets
-            if not item["present"]
+            if not item["present"] or item.get("verification_status") == "mismatch"
         ]
         return (
             "unavailable_asset",

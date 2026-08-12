@@ -1,0 +1,26 @@
+schema_version: artifact-registry.v3
+extends: artifact_registry.v2.yaml
+
+# Native-streaming replay diagnostics are optional for ordinary ASR scenarios and
+# mandatory only when the immutable scenario declares the matching capability.
+append_artifacts:
+  - id: streaming_diagnostics
+    scope: scenario
+    path: predictions/streaming_diagnostics.jsonl
+    producer: configured_evaluator_runner
+    format: jsonl
+    schema_version: streaming-diagnostics-row.v1
+    status: conditional
+    condition: capability_streaming_diagnostics
+    validation_rules:
+      - jsonl_objects
+      - declared_row_schema_version
+      - scenario_id_match
+      - recording_and_utterance_ids
+      - no_credentials
+    checksum_policy: sha256
+    privacy_classification: sensitive_transcript
+    downstream_consumers:
+      - completion_validator
+      - streaming_analysis
+      - report_generation

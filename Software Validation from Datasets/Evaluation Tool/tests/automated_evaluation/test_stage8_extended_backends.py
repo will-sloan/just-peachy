@@ -42,6 +42,7 @@ def test_environment_profile_schema_and_required_profiles() -> None:
         "wespeaker",
         "credential-diarization",
         "nemo-linux-cuda",
+        "edge-cpu",
     } <= set(payload["profiles"])
 
 
@@ -249,7 +250,16 @@ def test_catalog_has_one_status_path_for_every_required_backend() -> None:
         "picovoice_falcon",
         "nemo_diarization",
     }
-    assert required == {item["id"] for item in catalog["backends"]}
+    assert required <= {item["id"] for item in catalog["backends"]}
+    assert {
+        "moonshine_streaming_tiny",
+        "moonshine_streaming_small",
+        "moonshine_streaming_medium",
+        "sherpa_onnx_streaming_zipformer_20m_int8",
+        "fsmn_vad",
+        "campplus_speaker_embedding",
+        "eres2net_base_speaker_embedding",
+    } <= {item["id"] for item in catalog["backends"]}
 
 
 def test_schema_documents_are_valid_json() -> None:

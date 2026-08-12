@@ -1,0 +1,135 @@
+{
+  "environment": {
+    "cuda_available": false,
+    "cuda_runtime": null,
+    "device_requested": "cpu",
+    "git_commit": "b78df94cf1b8c4c9a1ea684a0a64b7bd37020838",
+    "gpu": null,
+    "machine": "AMD64",
+    "package_count": 70,
+    "package_freeze_sha256": "e729f41e5edcbbd1635205591bacb73834e3bd536e41b9103dc559122cfcc65a",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python": "3.12.7",
+    "python_executable": "<environment>/Scripts/python.exe",
+    "torch": "2.11.0+cpu"
+  },
+  "generated_at": "2026-08-12T01:54:45.271503+00:00",
+  "profile": "edge-cpu",
+  "results": [
+    {
+      "asset_identities": [
+        {
+          "acquisition_date": "2026-08-12T01:01:30.015803+00:00",
+          "acquisition_method": "scripts/bootstrap_models.py --fsmn-vad",
+          "artifact_filename": "speech_fsmn_vad_zh-cn-16k-common-onnx directory",
+          "asset_id": "fsmn_vad_quantized",
+          "backend": "FunASR-ONNX",
+          "commercial_disposition": "commercial_permissive",
+          "component": "fsmn_vad",
+          "conversion_provenance": "ModelScope-published quantized ONNX checkpoint consumed directly by funasr-onnx",
+          "credential_required": false,
+          "environment_profile": "edge-cpu",
+          "expected_sha256_scope": "installed_tree",
+          "expected_size_bytes": 515999,
+          "files": [
+            {
+              "bytes": 8040,
+              "path": "am.mvn",
+              "sha256": "6820fef9687708c4fc3fab2530179c8fcea6262daa25514380056cd8f6eb1754"
+            },
+            {
+              "bytes": 1215,
+              "path": "config.yaml",
+              "sha256": "2ef334f2d7776edd86ed696296774f87550206c256bfabc597872ad861831589"
+            },
+            {
+              "bytes": 506744,
+              "path": "model_quant.onnx",
+              "sha256": "5289eb2aa3c9af2d7a4284bcfa7c3ceb81d360814ed4203239b6c5d0569da8a1"
+            }
+          ],
+          "hash_matches": true,
+          "licence": "Apache-2.0 model; MIT funasr-onnx runtime",
+          "licence_evidence": [
+            "https://modelscope.cn/models/iic/speech_fsmn_vad_zh-cn-16k-common-onnx",
+            "https://pypi.org/project/funasr-onnx/"
+          ],
+          "missing_required_files": [],
+          "model_name": "iic/speech_fsmn_vad_zh-cn-16k-common-onnx",
+          "model_version": "master-f436483dfd1bf3eb1b410133ff86ecc9e10abc4a",
+          "parameter_count": null,
+          "present": true,
+          "sample_rate_hz": 16000,
+          "sha256": "42a97051d20b99486fbc4f583316eeba7d4f0ea499fee664dc49068861a08e42",
+          "size_bytes": 515999,
+          "size_matches": true,
+          "source": "https://modelscope.cn/models/iic/speech_fsmn_vad_zh-cn-16k-common-onnx",
+          "storage_path": "models/cache/funasr/vad/speech_fsmn_vad_zh-cn-16k-common-onnx",
+          "streaming": true,
+          "upstream_model_revision": "f436483dfd1bf3eb1b410133ff86ecc9e10abc4a",
+          "verification_status": "verified"
+        }
+      ],
+      "backend_id": "fsmn_vad",
+      "command": "python scripts/qualify_extended_backends.py --profile edge-cpu --backend fsmn_vad --output runs/edge_backend_qualification/edge-cpu.json",
+      "component_identity": {
+        "backend_id": "fsmn_vad",
+        "config_path": "configs/inference/components/vad/fsmn.yaml",
+        "config_sha256": "1f36695f0f6bc8a8594fdf06b20ab59dc9d65da6cbafe53e81d28f9732a0bc0e",
+        "family": "vad"
+      },
+      "credential_presence": {},
+      "details": {
+        "bounded": true,
+        "chunk_count": 1,
+        "monotonic_nonoverlapping": true,
+        "no_speech_region_count": 0,
+        "pipeline_composition": true,
+        "region_count": 1,
+        "regions": [
+          {
+            "channel_index": null,
+            "confidence": null,
+            "end_sec": 4.22,
+            "label": "speech",
+            "start_sec": 0.0
+          }
+        ],
+        "repeated_output_equal": true,
+        "vad_chunker_compatible": true
+      },
+      "device": "cpu",
+      "explanation": "Real repeated offline qualification passed.",
+      "failure_category": null,
+      "family": "vad",
+      "implicit_downloads_allowed": false,
+      "package_versions": {
+        "funasr-onnx": "0.4.2"
+      },
+      "profile": "edge-cpu",
+      "repetitions": 2,
+      "schema_validation": true,
+      "status": "qualified",
+      "timing": {
+        "inference_sec": [
+          0.48049,
+          0.025613
+        ],
+        "total_sec": 7.800405
+      },
+      "warnings": []
+    }
+  ],
+  "schema_version": "extended-backend-qualification.v1",
+  "secret_audit": {
+    "credential_presence_only": true,
+    "values_serialized": false
+  },
+  "summary": {
+    "qualified": 1,
+    "status_counts": {
+      "qualified": 1
+    },
+    "total": 1
+  }
+}

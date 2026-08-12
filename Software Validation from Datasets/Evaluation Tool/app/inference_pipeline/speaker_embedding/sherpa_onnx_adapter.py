@@ -128,3 +128,15 @@ class SherpaOnnxSpeakerEmbeddingAdapter(SpeakerEmbeddingBase):
                 f"Sherpa-ONNX speaker embedding model load failed: {exc}"
             ) from exc
         return self.extractor
+
+
+class CAMPlusSpeakerEmbeddingAdapter(SherpaOnnxSpeakerEmbeddingAdapter):
+    """Commercial-permissive English VoxCeleb CAM++ ONNX component."""
+
+    name = "campplus_speaker_embedding"
+
+
+class ERes2NetBaseSpeakerEmbeddingAdapter(SherpaOnnxSpeakerEmbeddingAdapter):
+    """Commercial-permissive 3D-Speaker ERes2Net-base ONNX component."""
+
+    name = "eres2net_base_speaker_embedding"

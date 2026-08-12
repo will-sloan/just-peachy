@@ -358,6 +358,11 @@ class PipelineRunner:
                 and self.asr.last_runtime_stats is not None
                 else None
             ),
+            "streaming": (
+                getattr(self.asr, "last_streaming_diagnostics", None)
+                if isinstance(self.asr, ASRBase)
+                else None
+            ),
         }
         self.last_diagnostics = diagnostics
 

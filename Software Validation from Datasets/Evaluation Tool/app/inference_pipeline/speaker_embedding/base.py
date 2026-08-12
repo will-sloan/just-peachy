@@ -477,6 +477,18 @@ def build_speaker_embedding_from_config(config: object) -> SpeakerEmbeddingBase 
         )
 
         return SherpaOnnxSpeakerEmbeddingAdapter(params)
+    if name == "campplus_speaker_embedding":
+        from app.inference_pipeline.speaker_embedding.sherpa_onnx_adapter import (
+            CAMPlusSpeakerEmbeddingAdapter,
+        )
+
+        return CAMPlusSpeakerEmbeddingAdapter(params)
+    if name == "eres2net_base_speaker_embedding":
+        from app.inference_pipeline.speaker_embedding.sherpa_onnx_adapter import (
+            ERes2NetBaseSpeakerEmbeddingAdapter,
+        )
+
+        return ERes2NetBaseSpeakerEmbeddingAdapter(params)
     if name == "resemblyzer":
         from app.inference_pipeline.speaker_embedding.resemblyzer_adapter import (
             ResemblyzerSpeakerEmbeddingAdapter,
