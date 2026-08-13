@@ -3,7 +3,7 @@
     "cuda_available": false,
     "cuda_runtime": null,
     "device_requested": "cpu",
-    "git_commit": "b78df94cf1b8c4c9a1ea684a0a64b7bd37020838",
+    "git_commit": "94151fc9a068b7438a62c9eb6f3256afa86b746e",
     "gpu": null,
     "machine": "AMD64",
     "package_count": 70,
@@ -13,7 +13,7 @@
     "python_executable": "<environment>/Scripts/python.exe",
     "torch": "2.11.0+cpu"
   },
-  "generated_at": "2026-08-12T01:54:45.271503+00:00",
+  "generated_at": "2026-08-13T15:25:59.179033+00:00",
   "profile": "edge-cpu",
   "results": [
     {
@@ -71,7 +71,7 @@
         }
       ],
       "backend_id": "fsmn_vad",
-      "command": "python scripts/qualify_extended_backends.py --profile edge-cpu --backend fsmn_vad --output runs/edge_backend_qualification/edge-cpu.json",
+      "command": "python 'scripts\\qualify_extended_backends.py' --profile edge-cpu --backend fsmn_vad --output 'runs\\edge_backend_qualification\\edge-cpu.json'",
       "component_identity": {
         "backend_id": "fsmn_vad",
         "config_path": "configs/inference/components/vad/fsmn.yaml",
@@ -112,10 +112,10 @@
       "status": "qualified",
       "timing": {
         "inference_sec": [
-          0.48049,
-          0.025613
+          0.704909,
+          0.027946
         ],
-        "total_sec": 7.800405
+        "total_sec": 9.060474
       },
       "warnings": []
     }
