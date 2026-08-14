@@ -30,7 +30,7 @@ Bedroom remains unresolved without substitution.
 - Deterministic streaming replay, partial/final diagnostics, stability/churn/latency/RTF
   metrics, a v3 artifact contract, and an additive streaming metric registry.
 - Three pinned profiles: `moonshine-edge`, `onnx`, and `edge-cpu`.
-- Ten environment-homogeneous ASR campaign catalogs, two union research catalogs, five
+- Twelve environment-homogeneous ASR campaign catalogs, two union research catalogs, seven
   opt-in large paths, and Stage 10 small/standard/large plans.
 - `prepare_edge_research.ps1`, `verify_edge_research.ps1`, and
   `run_edge_research.ps1` with global plan-only preflight and sequential execution.
@@ -77,10 +77,19 @@ Exact asset hashes:
 | `campaign_edge_lg_mmed_v1` | large robustness | 32 | `moonshine-edge` | no |
 | `campaign_edge_lg_sh20_v1` | large robustness | 32 | `onnx` | no |
 | `campaign_edge_lg_wbase_v1` | large reference | 32 | `core-cpu` | no |
+| `campaign_edge_lg_shorig_v1` | original Sherpa-ONNX ASR isolation | 32 | `onnx` | no |
+| `campaign_edge_lg_wsmall_v1` | Whisper Small ASR isolation | 32 | `core-cpu` | no |
 
-The ten executable catalogs contain 532 scenario rows in total; the default queue is 84.
+The twelve executable catalogs contain 596 scenario rows in total; the default queue is 84.
 The union catalogs are analysis/design aids and are not executable as one process because
 their environment profiles differ.
+
+`campaign_edge_lg_shorig_v1` preserves the existing `sherpa_onnx` offline-segment adapter
+contract and its `sherpa-onnx-streaming-zipformer-en-2023-06-26` checkpoint. It is distinct
+from the native-stateful `sherpa_onnx_streaming_zipformer_20m_int8` campaign.
+`campaign_edge_lg_wsmall_v1` uses the existing local `whisper_small` / OpenAI Whisper
+`small.pt` checkpoint. Both new large catalogs use the exact no-op ASR-isolation components
+and frozen 8,258-row large manifest used by the existing large catalogs.
 
 Stage 10 plans are `campaign_spk10_edge_sm_v1` (63 clean items/backend),
 `campaign_spk10_edge_std_v1` (240), and `campaign_spk10_edge_lg_v1` (510). They are
@@ -120,8 +129,8 @@ Set-Location 'Software Validation from Datasets\Evaluation Tool'
 - CAM++ and ERes2Net produced finite, normalized, repeatable 512-dimensional vectors.
 - Stage 10 selected-backend smoke passed 8/8 items for each backend, preserved `Unknown`,
   and kept calibration/evaluation separate.
-- All 10 catalogs validate; all 532 scenario identities validate.
-- Complete dry-plan passed for all 10 campaigns. The default PowerShell plan passed at
+- All 12 catalogs validate; all 596 scenario identities validate.
+- Complete dry-plan passed for all 12 campaigns. The default PowerShell plan passed at
   exact counts 36 + 36 + 12.
 - Source preflight checked 8,663 frozen manifest rows with zero missing audio.
 - Focused automated tests and final static checks are recorded in the completing Codex

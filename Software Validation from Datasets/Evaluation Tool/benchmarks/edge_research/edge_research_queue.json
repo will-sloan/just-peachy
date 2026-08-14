@@ -112,6 +112,30 @@
       "streaming": true
     },
     {
+      "campaign_id": "campaign_edge_lg_shorig_v1",
+      "catalog": "benchmarks/edge_research/scenarios_edge_large_sherpa_original.jsonl",
+      "catalog_sha256": "F78403C2789000B161067D480FEDFFC042AD31F06625A2FE5B08327B40827018",
+      "enabled_by_default": false,
+      "environment_profile": "onnx",
+      "expected_scenario_count": 32,
+      "job_id": "edge_large_sherpa_original",
+      "kind": "asr_campaign",
+      "one_gpu_job_at_a_time": true,
+      "streaming": false
+    },
+    {
+      "campaign_id": "campaign_edge_lg_wsmall_v1",
+      "catalog": "benchmarks/edge_research/scenarios_edge_large_whisper_small.jsonl",
+      "catalog_sha256": "58A12D098DD6B12EEFA738FFC9937580B29369C834B9D8F692FB21ABBE3C8A5A",
+      "enabled_by_default": false,
+      "environment_profile": "core-cpu",
+      "expected_scenario_count": 32,
+      "job_id": "edge_large_whisper_small",
+      "kind": "asr_campaign",
+      "one_gpu_job_at_a_time": true,
+      "streaming": false
+    },
+    {
       "campaign_id": "campaign_edge_lg_wbase_v1",
       "catalog": "benchmarks/edge_research/scenarios_edge_large_whisper_base_control.jsonl",
       "catalog_sha256": "D3B0902E7837E4556DA9704647B375E868F2095C5A336743483C4D195BD13B71",
@@ -193,7 +217,7 @@
       "tier": "large"
     }
   ],
-  "queue_hash": "BA4D06480FB2A9F8622719B7D3A5ABDD89F1E6E90731CAE3B5CB71C6397B0679",
+  "queue_hash": "0D7AA831EECDC7647F788BE258C9EF842695E560D09074FDD7428E84715E4604",
   "schema_version": "edge-research-queue.v1",
   "sequential_execution_only": true,
   "single_machine_first": true

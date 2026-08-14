@@ -190,6 +190,18 @@ def build_edge_research_plan(
     large_candidates = (
         *streaming,
         Candidate(
+            "sherpa_original",
+            "large_asr_isolation",
+            "onnx",
+            {"asr": "sherpa_onnx"},
+        ),
+        Candidate(
+            "whisper_small",
+            "large_asr_isolation",
+            "core-cpu",
+            {"asr": "whisper_small"},
+        ),
+        Candidate(
             "whisper_base_control", "large_reference", "core-cpu", {"asr": "whisper_base"}
         ),
     )
@@ -347,7 +359,9 @@ def verify_edge_research_plan(
         ("asr", "moonshine_streaming_tiny"),
         ("asr", "moonshine_streaming_small"),
         ("asr", "moonshine_streaming_medium"),
+        ("asr", "sherpa_onnx"),
         ("asr", "sherpa_onnx_streaming_zipformer_20m_int8"),
+        ("asr", "whisper_small"),
         ("vad", "fsmn_vad"),
         ("speaker_embedding", "campplus_speaker_embedding"),
         ("speaker_embedding", "eres2net_base_speaker_embedding"),
@@ -530,6 +544,8 @@ def _large_campaign_id(candidate_id: str) -> str:
         "moon_small": "campaign_edge_lg_msmall_v1",
         "moon_medium": "campaign_edge_lg_mmed_v1",
         "sherpa20": "campaign_edge_lg_sh20_v1",
+        "sherpa_original": "campaign_edge_lg_shorig_v1",
+        "whisper_small": "campaign_edge_lg_wsmall_v1",
         "whisper_base_control": "campaign_edge_lg_wbase_v1",
     }
     return values[candidate_id]

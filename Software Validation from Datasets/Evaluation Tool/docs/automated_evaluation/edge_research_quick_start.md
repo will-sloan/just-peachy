@@ -141,12 +141,25 @@ These are frozen and dry-plan successfully but are disabled by default:
 | `campaign_edge_lg_mmed_v1` | 32 | Moonshine Medium large controlled/native robustness |
 | `campaign_edge_lg_sh20_v1` | 32 | Sherpa20 large controlled/native robustness |
 | `campaign_edge_lg_wbase_v1` | 32 | Whisper Base large reference |
+| `campaign_edge_lg_shorig_v1` | 32 | Original Sherpa-ONNX offline-contract large ASR isolation (`onnx`) |
+| `campaign_edge_lg_wsmall_v1` | 32 | Whisper Small large ASR isolation (`core-cpu`) |
 
 Select one explicitly, for example:
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File scripts\run_edge_research.ps1 -Action Plan -CampaignId campaign_edge_combo_moon_v1
 ```
+
+For the frozen five-ASR large study, plan only—do not run—these exact campaigns:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\run_edge_research.ps1 -Action Plan -CampaignId campaign_edge_lg_shorig_v1,campaign_edge_lg_wsmall_v1,campaign_edge_lg_wbase_v1,campaign_edge_lg_mmed_v1,campaign_edge_lg_msmall_v1
+```
+
+All five use the same 8,258-row large manifest and 32-scenario ASR-isolation design.
+Original `sherpa_onnx` is deliberately non-native-streaming in this catalog because its
+existing adapter preserves the offline segment contract; it is not the distinct native
+`sherpa_onnx_streaming_zipformer_20m_int8` component.
 
 ## Stage 10 plans
 
