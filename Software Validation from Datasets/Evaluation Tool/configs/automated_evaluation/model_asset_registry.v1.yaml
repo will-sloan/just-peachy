@@ -65,6 +65,54 @@ assets:
     credential_requirement: null
     required_files: [tokens.txt, encoder-epoch-99-avg-1-chunk-16-left-128.int8.onnx, decoder-epoch-99-avg-1-chunk-16-left-128.onnx, joiner-epoch-99-avg-1-chunk-16-left-128.int8.onnx]
 
+  sherpa_onnx_libri_giga_zipformer_2023_06_21:
+    component: sherpa_onnx_libri_giga_zipformer_2023_06_21
+    backend: Sherpa-ONNX
+    model_name: csukuangfj/sherpa-onnx-streaming-zipformer-en-2023-06-21
+    model_version: "2023-06-21"
+    upstream_model_revision: 9a65b6ea94c311ca770c2bf895b30f456a22d703
+    source_checkpoint: marcoyang/icefall-libri-giga-pruned-transducer-stateless7-streaming-2023-04-04
+    source_checkpoint_revision: df8a1ee67abb67244b87d8011ec64ba46c6e97c0
+    source: https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-streaming-zipformer-en-2023-06-21.tar.bz2
+    licence: Apache-2.0 model weights; training-data provenance review is recorded separately
+    licence_evidence:
+      - https://huggingface.co/csukuangfj/sherpa-onnx-streaming-zipformer-en-2023-06-21
+      - https://huggingface.co/marcoyang/icefall-libri-giga-pruned-transducer-stateless7-streaming-2023-04-04
+      - https://github.com/k2-fsa/sherpa-onnx/blob/master/LICENSE
+      - https://github.com/microsoft/onnxruntime/blob/main/LICENSE
+      - https://www.openslr.org/12
+      - https://huggingface.co/datasets/speechcolab/gigaspeech
+    commercial_disposition: commercial_deployment_review_required_due_to_gigaspeech_training_provenance
+    commercial_model_license: permissive
+    commercial_deployment_review: required_due_to_gigaspeech_training_provenance
+    conversion_provenance: Official Sherpa-ONNX release converted from the exact cited Icefall LibriSpeech+GigaSpeech checkpoint
+    parameter_count: 70369391
+    parameter_count_approximate: true
+    sample_rate_hz: 16000
+    streaming: false
+    upstream_native_streaming_capable: true
+    training_corpora: [LibriSpeech, GigaSpeech]
+    known_training_domain_overlap: [LibriSpeech]
+    language_support: [English]
+    expected_size_bytes: 546279902
+    active_model_size_bytes: 190180941
+    artifact_filename: sherpa-onnx-streaming-zipformer-en-2023-06-21.tar.bz2
+    expected_sha256: 8ad24aa63b28ffb15a5b91461e4d05b19e3237c3f5ca7a6d3557d0fac0a9dfdf
+    expected_sha256_scope: installed_tree
+    source_archive_size_bytes: 506956414
+    source_archive_sha256: 455f40e556aa2b20ac9d3bffd603b58002075c1193b4070938540c11efe0a4da
+    source_archive_path: models/cache/downloads/sherpa-onnx-streaming-zipformer-en-2023-06-21.tar.bz2
+    acquisition_method: scripts/bootstrap_models.py --sherpa-libri-giga
+    storage_path: models/cache/sherpa_onnx/asr/sherpa-onnx-streaming-zipformer-en-2023-06-21
+    environment_profile: onnx
+    credential_requirement: null
+    required_files: [tokens.txt, encoder-epoch-99-avg-1.int8.onnx, decoder-epoch-99-avg-1.onnx, joiner-epoch-99-avg-1.int8.onnx]
+    result_affecting_files:
+      - {path: tokens.txt, bytes: 5048, sha256: 49e3c2646595fd907228b3c6787069658f67b17377c60aeb8619c4551b2316fb, precision: token_table}
+      - {path: encoder-epoch-99-avg-1.int8.onnx, bytes: 187823992, sha256: 32c98281c7bd8b63e3e142d007251b37f120572e8fdea9a4f5a79ce22b10ec4f, precision: int8}
+      - {path: decoder-epoch-99-avg-1.onnx, bytes: 2092566, sha256: 9da02b77cb08826756ec6a88635f35a40374e4164e7c6359121a9145958a6ceb, precision: float32}
+      - {path: joiner-epoch-99-avg-1.int8.onnx, bytes: 259335, sha256: 831477d390e59a61f1b6a6f763b9903e6c6366ff6034f1ddba613be82637122f, precision: int8}
+
   sherpa_onnx_vad:
     component: sherpa_onnx_vad
     backend: Sherpa-ONNX

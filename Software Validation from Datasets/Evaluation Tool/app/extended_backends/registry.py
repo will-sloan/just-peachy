@@ -31,7 +31,9 @@ def load_environment_profiles(path: Path | None = None) -> dict[str, object]:
 
 
 def load_model_asset_registry(path: Path | None = None) -> dict[str, object]:
-    payload = _read_yaml(path or AUTOMATION_CONFIG_ROOT / "model_asset_registry.v1.yaml")
+    payload = _read_yaml(
+        path or AUTOMATION_CONFIG_ROOT / "model_asset_registry.v1.yaml"
+    )
     validate_model_asset_registry(payload)
     return payload
 
@@ -43,7 +45,9 @@ def load_backend_catalog(path: Path | None = None) -> dict[str, object]:
     backends = payload.get("backends")
     if not isinstance(backends, list) or not backends:
         raise ValueError("extended backend catalog must contain backends")
-    identifiers = [str(item.get("id")) for item in backends if isinstance(item, Mapping)]
+    identifiers = [
+        str(item.get("id")) for item in backends if isinstance(item, Mapping)
+    ]
     if len(identifiers) != len(set(identifiers)):
         raise ValueError("extended backend identifiers must be unique")
     return payload
@@ -62,7 +66,9 @@ def package_available(distribution: str) -> bool:
     return package_version(distribution) is not None
 
 
-def inspect_asset(asset_id: str, registry: Mapping[str, object] | None = None) -> dict[str, object]:
+def inspect_asset(
+    asset_id: str, registry: Mapping[str, object] | None = None
+) -> dict[str, object]:
     """Return a portable, content-addressed asset observation."""
 
     source = dict(registry or load_model_asset_registry())
@@ -86,15 +92,25 @@ def inspect_asset(asset_id: str, registry: Mapping[str, object] | None = None) -
     ]
     files = _file_inventory(resolved) if present else []
     total_bytes = sum(int(item["bytes"]) for item in files)
+    result_affecting_verification = _verify_result_affecting_files(
+        resolved,
+        definition.get("result_affecting_files"),
+    )
     identity = (
         str(files[0]["sha256"])
         if files and resolved is not None and resolved.is_file()
-        else _tree_identity(files) if files else None
+        else _tree_identity(files)
+        if files
+        else None
     )
     expected_identity = definition.get("expected_sha256")
     identity_scope = str(
         definition.get("expected_sha256_scope")
-        or ("installed_file" if resolved is not None and resolved.is_file() else "source_archive")
+        or (
+            "installed_file"
+            if resolved is not None and resolved.is_file()
+            else "source_archive"
+        )
     )
     expected_size = definition.get("expected_size_bytes")
     hash_matches = (
@@ -110,7 +126,18 @@ def inspect_asset(asset_id: str, registry: Mapping[str, object] | None = None) -
         if present and expected_size is not None
         else None
     )
-    verified = present and hash_matches is not False and size_matches is not False
+    result_affecting_matches = (
+        all(bool(item["matches"]) for item in result_affecting_verification)
+        if result_affecting_verification
+        else None
+    )
+    verified = (
+        present
+        and hash_matches is not False
+        and size_matches is not False
+        and result_affecting_matches is not False
+    )
+    source_archive = _inspect_source_archive(definition)
     acquisition_date = (
         datetime.fromtimestamp(
             max(_file_mtime(resolved, str(item["path"])) for item in files),
@@ -129,12 +156,27 @@ def inspect_asset(asset_id: str, registry: Mapping[str, object] | None = None) -
         "licence": definition["licence"],
         "licence_evidence": list(definition.get("licence_evidence", ())),
         "commercial_disposition": definition.get("commercial_disposition"),
+        "commercial_model_license": definition.get("commercial_model_license"),
+        "commercial_deployment_review": definition.get("commercial_deployment_review"),
         "upstream_model_revision": definition.get("upstream_model_revision"),
+        "source_checkpoint": definition.get("source_checkpoint"),
+        "source_checkpoint_revision": definition.get("source_checkpoint_revision"),
         "conversion_provenance": definition.get("conversion_provenance"),
         "parameter_count": definition.get("parameter_count"),
+        "parameter_count_approximate": definition.get("parameter_count_approximate"),
         "sample_rate_hz": definition.get("sample_rate_hz"),
         "streaming": bool(definition.get("streaming", False)),
+        "upstream_native_streaming_capable": bool(
+            definition.get("upstream_native_streaming_capable", False)
+        ),
+        "training_corpora": list(definition.get("training_corpora", ())),
+        "known_training_domain_overlap": list(
+            definition.get("known_training_domain_overlap", ())
+        ),
+        "language_support": list(definition.get("language_support", ())),
         "expected_size_bytes": definition.get("expected_size_bytes"),
+        "active_model_size_bytes": definition.get("active_model_size_bytes"),
+        "source_archive": source_archive,
         "expected_sha256_scope": identity_scope,
         "artifact_filename": definition["artifact_filename"],
         "storage_path": str(definition["storage_path"]).replace("\\", "/"),
@@ -148,6 +190,8 @@ def inspect_asset(asset_id: str, registry: Mapping[str, object] | None = None) -
         "sha256": identity,
         "hash_matches": hash_matches,
         "size_matches": size_matches,
+        "result_affecting_files": result_affecting_verification,
+        "result_affecting_files_match": result_affecting_matches,
         "files": files,
         "verification_status": (
             "verified" if verified else "mismatch" if present else "missing"
@@ -187,15 +231,22 @@ def _asset_is_complete(path: Path | None, required_files: tuple[str, ...]) -> bo
         return path.stat().st_size > 0
     if not required_files:
         return any(candidate.is_file() for candidate in path.rglob("*"))
-    return all((path / relative).is_file() and (path / relative).stat().st_size > 0 for relative in required_files)
+    return all(
+        (path / relative).is_file() and (path / relative).stat().st_size > 0
+        for relative in required_files
+    )
 
 
 def _file_inventory(path: Path | None) -> list[dict[str, object]]:
     if path is None:
         return []
-    candidates = [path] if path.is_file() else sorted(
-        (item for item in path.rglob("*") if item.is_file()),
-        key=lambda item: item.relative_to(path).as_posix(),
+    candidates = (
+        [path]
+        if path.is_file()
+        else sorted(
+            (item for item in path.rglob("*") if item.is_file()),
+            key=lambda item: item.relative_to(path).as_posix(),
+        )
     )
     rows: list[dict[str, object]] = []
     for item in candidates:
@@ -208,6 +259,69 @@ def _file_inventory(path: Path | None) -> list[dict[str, object]]:
             }
         )
     return rows
+
+
+def _verify_result_affecting_files(
+    root: Path | None,
+    definitions: object,
+) -> list[dict[str, object]]:
+    if root is None or not root.is_dir() or not isinstance(definitions, list):
+        return []
+    rows: list[dict[str, object]] = []
+    for raw in definitions:
+        if not isinstance(raw, Mapping):
+            continue
+        relative = str(raw["path"])
+        candidate = root / Path(relative)
+        expected_bytes = int(raw["bytes"])
+        expected_sha256 = str(raw["sha256"]).lower()
+        observed_bytes = candidate.stat().st_size if candidate.is_file() else None
+        observed_sha256 = _sha256(candidate) if candidate.is_file() else None
+        rows.append(
+            {
+                "path": relative,
+                "precision": str(raw["precision"]),
+                "expected_bytes": expected_bytes,
+                "observed_bytes": observed_bytes,
+                "expected_sha256": expected_sha256,
+                "observed_sha256": observed_sha256,
+                "matches": (
+                    observed_bytes == expected_bytes
+                    and observed_sha256 == expected_sha256
+                ),
+            }
+        )
+    return rows
+
+
+def _inspect_source_archive(
+    definition: Mapping[str, object],
+) -> dict[str, object] | None:
+    relative = definition.get("source_archive_path")
+    if not relative:
+        return None
+    path = REPOSITORY_ROOT / Path(str(relative))
+    expected_bytes = definition.get("source_archive_size_bytes")
+    expected_sha256 = definition.get("source_archive_sha256")
+    present = path.is_file()
+    observed_bytes = path.stat().st_size if present else None
+    observed_sha256 = _sha256(path) if present else None
+    return {
+        "path": str(relative).replace("\\", "/"),
+        "present": present,
+        "expected_bytes": expected_bytes,
+        "observed_bytes": observed_bytes,
+        "expected_sha256": expected_sha256,
+        "observed_sha256": observed_sha256,
+        "matches": (
+            present
+            and (expected_bytes is None or observed_bytes == int(expected_bytes))
+            and (
+                expected_sha256 is None
+                or observed_sha256 == str(expected_sha256).lower()
+            )
+        ),
+    }
 
 
 def _file_mtime(root: Path, relative: str) -> float:

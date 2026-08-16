@@ -139,6 +139,11 @@ class SherpaOnnxASRAdapter(ComponentAdapter):
     component_name = "sherpa_onnx"
 
 
+class SherpaOnnxLibriGigaZipformer20230621ASRAdapter(ComponentAdapter):
+    component_slot = "asr"
+    component_name = "sherpa_onnx_libri_giga_zipformer_2023_06_21"
+
+
 class SherpaOnnxStreamingZipformer20MInt8ASRAdapter(ComponentAdapter):
     component_slot = "asr"
     component_name = "sherpa_onnx_streaming_zipformer_20m_int8"
@@ -241,6 +246,7 @@ REGISTERED_COMPONENTS: dict[str, dict[str, type[ComponentAdapter]]] = {
         MoonshineStreamingTinyASRAdapter.component_name: MoonshineStreamingTinyASRAdapter,
         NoOpASRAdapter.component_name: NoOpASRAdapter,
         SherpaOnnxASRAdapter.component_name: SherpaOnnxASRAdapter,
+        SherpaOnnxLibriGigaZipformer20230621ASRAdapter.component_name: SherpaOnnxLibriGigaZipformer20230621ASRAdapter,
         SherpaOnnxStreamingZipformer20MInt8ASRAdapter.component_name: SherpaOnnxStreamingZipformer20MInt8ASRAdapter,
         VoskASRAdapter.component_name: VoskASRAdapter,
         WeNetASRAdapter.component_name: WeNetASRAdapter,
@@ -340,7 +346,6 @@ def dry_run_config(config: PipelineConfig) -> JsonObject:
         "notes": config.notes,
         "runtime": config.runtime.to_jsonable(),
         "components": {
-            slot: component.to_jsonable()
-            for slot, component in resolved.items()
+            slot: component.to_jsonable() for slot, component in resolved.items()
         },
     }

@@ -89,7 +89,7 @@ profiles:
     status: unavailable
     install_profile: full
     requirements: [requirements/optional.txt]
-    components: [sherpa_onnx_vad, sherpa_onnx, sherpa_onnx_speaker_embedding, sherpa_onnx_diarization]
+    components: [sherpa_onnx_vad, sherpa_onnx, sherpa_onnx_libri_giga_zipformer_2023_06_21, sherpa_onnx_speaker_embedding, sherpa_onnx_diarization]
     setup_commands:
       - "Install the pinned sherpa-onnx requirement in this profile."
       - "Bootstrap each SHA-256-verified Sherpa asset with scripts\\bootstrap_models.py."

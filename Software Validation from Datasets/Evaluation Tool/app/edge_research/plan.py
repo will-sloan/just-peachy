@@ -28,7 +28,18 @@ QUEUE_SCHEMA_VERSION = "edge-research-queue.v1"
 TOOL_ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_BENCHMARK_ROOT = TOOL_ROOT / "benchmarks" / "v1"
 DEFAULT_OUTPUT_ROOT = TOOL_ROOT / "benchmarks" / "edge_research"
-DEFAULT_PIPELINE_PATH = TOOL_ROOT / "configs" / "inference" / "live_mic_whisper_base.yaml"
+DEFAULT_PIPELINE_PATH = (
+    TOOL_ROOT / "configs" / "inference" / "live_mic_whisper_base.yaml"
+)
+FROZEN_LARGE_CATALOG_SHA256 = {
+    "scenarios_edge_large_moon_tiny.jsonl": "A1FDF81CC793F7A96167387DEDDAE0DB6E9B38A2A8C9B23C7BDB0F082EA3B6B5",
+    "scenarios_edge_large_moon_small.jsonl": "8E5DC97269CDBCD7B29A19FD8E7AA9F40CBAF355527FA313B585908E2719E893",
+    "scenarios_edge_large_moon_medium.jsonl": "0C6142DB4DC524643A0DCDC635C61BE6DF775950151EA3E80280A8D360CBFB84",
+    "scenarios_edge_large_sherpa20.jsonl": "F6DF09D181528951FE198AB2D57B72EEAE51D3C2C6080E6FB9F79AA0F670CC3C",
+    "scenarios_edge_large_sherpa_original.jsonl": "F78403C2789000B161067D480FEDFFC042AD31F06625A2FE5B08327B40827018",
+    "scenarios_edge_large_whisper_base_control.jsonl": "D3B0902E7837E4556DA9704647B375E868F2095C5A336743483C4D195BD13B71",
+    "scenarios_edge_large_whisper_small.jsonl": "58A12D098DD6B12EEFA738FFC9937580B29369C834B9D8F692FB21ABBE3C8A5A",
+}
 
 
 @dataclass(frozen=True)
@@ -72,7 +83,9 @@ def build_edge_research_plan(
     small_path = benchmark_root / "small_source_manifest.parquet"
     small_identity = _manifest_identity(summary, "small", small_path, output_root)
     small_controlled = [
-        row for row in read_manifest(small_path) if row.get("panel") == "controlled_clean"
+        row
+        for row in read_manifest(small_path)
+        if row.get("panel") == "controlled_clean"
     ]
     if not small_controlled:
         raise ValueError("small benchmark has no controlled-clean rows")
@@ -196,13 +209,22 @@ def build_edge_research_plan(
             {"asr": "sherpa_onnx"},
         ),
         Candidate(
+            "sherpa_libri_giga",
+            "large_asr_isolation",
+            "onnx",
+            {"asr": "sherpa_onnx_libri_giga_zipformer_2023_06_21"},
+        ),
+        Candidate(
             "whisper_small",
             "large_asr_isolation",
             "core-cpu",
             {"asr": "whisper_small"},
         ),
         Candidate(
-            "whisper_base_control", "large_reference", "core-cpu", {"asr": "whisper_base"}
+            "whisper_base_control",
+            "large_reference",
+            "core-cpu",
+            {"asr": "whisper_base"},
         ),
     )
     for candidate in large_candidates:
@@ -298,7 +320,10 @@ def verify_edge_research_plan(
 
     output_root = output_root.resolve()
     queue = read_json(output_root / "edge_research_queue.json")
-    if not isinstance(queue, Mapping) or queue.get("schema_version") != QUEUE_SCHEMA_VERSION:
+    if (
+        not isinstance(queue, Mapping)
+        or queue.get("schema_version") != QUEUE_SCHEMA_VERSION
+    ):
         raise ValueError("edge research queue is missing or incompatible")
     observed_hash = canonical_sha256(
         {key: value for key, value in queue.items() if key != "queue_hash"}
@@ -360,6 +385,7 @@ def verify_edge_research_plan(
         ("asr", "moonshine_streaming_small"),
         ("asr", "moonshine_streaming_medium"),
         ("asr", "sherpa_onnx"),
+        ("asr", "sherpa_onnx_libri_giga_zipformer_2023_06_21"),
         ("asr", "sherpa_onnx_streaming_zipformer_20m_int8"),
         ("asr", "whisper_small"),
         ("vad", "fsmn_vad"),
@@ -370,9 +396,13 @@ def verify_edge_research_plan(
     for family, name in sorted(required_components):
         entry = component_catalog.get(family, name)
         if entry.qualification_status not in {"qualified", "qualified_with_warnings"}:
-            raise ValueError(f"required edge component is not qualified: {family}.{name}")
+            raise ValueError(
+                f"required edge component is not qualified: {family}.{name}"
+            )
         if any(asset.get("present") is False for asset in entry.model_asset_identity):
-            raise FileNotFoundError(f"required edge model asset is missing: {family}.{name}")
+            raise FileNotFoundError(
+                f"required edge model asset is missing: {family}.{name}"
+            )
     return {
         "schema_version": "edge-research-verification.v1",
         "status": "ready",
@@ -497,7 +527,7 @@ def _add_catalog_group(
         candidate_ids[candidate.candidate_id] = sorted(ids)
     rows = [rows_by_id[key] for key in sorted(rows_by_id)]
     path = output_root / f"scenarios_{name}.jsonl"
-    write_jsonl(path, rows)
+    _write_catalog_preserving_frozen(path, rows)
     catalog_rows[name] = rows
     metadata.append(
         {
@@ -515,26 +545,46 @@ def _add_catalog_group(
     )
 
 
-def _write_union_catalog(path: Path, groups: Sequence[Sequence[dict[str, object]]]) -> None:
+def _write_union_catalog(
+    path: Path, groups: Sequence[Sequence[dict[str, object]]]
+) -> None:
     rows: dict[str, dict[str, object]] = {}
     for group in groups:
         for row in group:
             rows[str(row["scenario_id"])] = row
-    write_jsonl(path, [rows[key] for key in sorted(rows)])
+    _write_catalog_preserving_frozen(path, [rows[key] for key in sorted(rows)])
+
+
+def _write_catalog_preserving_frozen(
+    path: Path,
+    rows: list[dict[str, object]],
+) -> None:
+    expected_sha256 = FROZEN_LARGE_CATALOG_SHA256.get(path.name)
+    if expected_sha256 is not None:
+        if not path.is_file() or file_sha256(path) != expected_sha256:
+            raise ValueError(f"frozen large catalog changed unexpectedly: {path}")
+        if load_scenario_catalog(path) != rows:
+            raise ValueError(
+                f"generated design differs from frozen large catalog: {path}"
+            )
+        return
+    if path.is_file() and load_scenario_catalog(path) == rows:
+        return
+    write_jsonl(path, rows)
 
 
 def _manifest_identity(
     summary: Mapping[str, object], tier: str, path: Path, output_root: Path
 ) -> dict[str, object]:
     identities = summary.get("manifest_identities")
-    if not isinstance(identities, Mapping) or not isinstance(identities.get(tier), Mapping):
+    if not isinstance(identities, Mapping) or not isinstance(
+        identities.get(tier), Mapping
+    ):
         raise ValueError(f"manifest summary has no {tier} identity")
     identity = dict(identities[tier])
     if file_sha256(path) != identity.get("sha256"):
         raise ValueError(f"{tier} manifest hash mismatch")
-    identity["path"] = Path(
-        *("..", "v1", path.name)
-    ).as_posix()
+    identity["path"] = Path(*("..", "v1", path.name)).as_posix()
     return identity
 
 
@@ -545,6 +595,7 @@ def _large_campaign_id(candidate_id: str) -> str:
         "moon_medium": "campaign_edge_lg_mmed_v1",
         "sherpa20": "campaign_edge_lg_sh20_v1",
         "sherpa_original": "campaign_edge_lg_shorig_v1",
+        "sherpa_libri_giga": "campaign_edge_lg_shgiga_v1",
         "whisper_small": "campaign_edge_lg_wsmall_v1",
         "whisper_base_control": "campaign_edge_lg_wbase_v1",
     }
@@ -576,8 +627,15 @@ def _stage10_plans() -> list[dict[str, object]]:
         root = TOOL_ROOT / "benchmarks" / "stage10" / tier
         counts = {}
         clean_ids: set[str] = set()
-        for kind in ("enrollment", "calibration", "known_evaluation", "unknown_evaluation"):
-            rows = read_protocol_rows(root / MANIFEST_FILENAMES[kind], expected_kind=kind)
+        for kind in (
+            "enrollment",
+            "calibration",
+            "known_evaluation",
+            "unknown_evaluation",
+        ):
+            rows = read_protocol_rows(
+                root / MANIFEST_FILENAMES[kind], expected_kind=kind
+            )
             counts[kind] = len(rows)
             clean_ids.update(
                 str(row["item_id"])

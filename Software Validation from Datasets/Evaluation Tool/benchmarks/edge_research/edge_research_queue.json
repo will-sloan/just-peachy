@@ -124,6 +124,18 @@
       "streaming": false
     },
     {
+      "campaign_id": "campaign_edge_lg_shgiga_v1",
+      "catalog": "benchmarks/edge_research/scenarios_edge_large_sherpa_libri_giga.jsonl",
+      "catalog_sha256": "7594A3FCE50410DD574F5EA1ABAB9C4362B0A1B8428275FECB6983555A15C4D2",
+      "enabled_by_default": false,
+      "environment_profile": "onnx",
+      "expected_scenario_count": 32,
+      "job_id": "edge_large_sherpa_libri_giga",
+      "kind": "asr_campaign",
+      "one_gpu_job_at_a_time": true,
+      "streaming": false
+    },
+    {
       "campaign_id": "campaign_edge_lg_wsmall_v1",
       "catalog": "benchmarks/edge_research/scenarios_edge_large_whisper_small.jsonl",
       "catalog_sha256": "58A12D098DD6B12EEFA738FFC9937580B29369C834B9D8F692FB21ABBE3C8A5A",
@@ -217,7 +229,7 @@
       "tier": "large"
     }
   ],
-  "queue_hash": "0D7AA831EECDC7647F788BE258C9EF842695E560D09074FDD7428E84715E4604",
+  "queue_hash": "2162E7B1B0F662564A0522BBCE2F076D78875822571FAED197E23AC3193A188C",
   "schema_version": "edge-research-queue.v1",
   "sequential_execution_only": true,
   "single_machine_first": true

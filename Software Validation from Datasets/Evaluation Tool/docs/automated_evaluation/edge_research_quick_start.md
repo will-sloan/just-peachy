@@ -9,6 +9,11 @@ dataset loaders, augmentation, scoring, plots, reports, restart safety, and immu
 scenario hashes. It does not make Raspberry Pi performance claims and it does not
 enable parallel model jobs.
 
+An additive opt-in component,
+`sherpa_onnx_libri_giga_zipformer_2023_06_21`, extends the completed large comparison
+without changing its historical catalogs. It uses the existing `onnx` environment and
+segment contract; its separate 32-scenario campaign is disabled by default.
+
 The first-time path is: **prepare -> verify -> plan -> run one scenario -> resume**.
 The first three steps run no campaign inference.
 
@@ -143,6 +148,7 @@ These are frozen and dry-plan successfully but are disabled by default:
 | `campaign_edge_lg_wbase_v1` | 32 | Whisper Base large reference |
 | `campaign_edge_lg_shorig_v1` | 32 | Original Sherpa-ONNX offline-contract large ASR isolation (`onnx`) |
 | `campaign_edge_lg_wsmall_v1` | 32 | Whisper Small large ASR isolation (`core-cpu`) |
+| `campaign_edge_lg_shgiga_v1` | 32 | LibriSpeech+GigaSpeech Sherpa large ASR isolation (`onnx`, segment contract) |
 
 Select one explicitly, for example:
 
@@ -160,6 +166,17 @@ All five use the same 8,258-row large manifest and 32-scenario ASR-isolation des
 Original `sherpa_onnx` is deliberately non-native-streaming in this catalog because its
 existing adapter preserves the offline segment contract; it is not the distinct native
 `sherpa_onnx_streaming_zipformer_20m_int8` component.
+
+Plan only the additive Libri+Giga campaign—without running inference—with:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\run_edge_research.ps1 -Action Plan -CampaignId campaign_edge_lg_shgiga_v1
+```
+
+The model was trained on LibriSpeech and GigaSpeech, so LibriSpeech-derived evaluation
+is known near/in-domain overlap and aggregate WER must not be described as purely
+out-of-distribution. See `sherpa_libri_giga_zipformer_2023_06_21.md` for exact hashes
+and the GigaSpeech commercial-provenance review caveat.
 
 ## Stage 10 plans
 

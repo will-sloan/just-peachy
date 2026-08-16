@@ -762,6 +762,53 @@
       "streaming": false
     },
     {
+      "campaign_id": "campaign_edge_lg_shgiga_v1",
+      "candidate_count": 1,
+      "candidate_ids": {
+        "sherpa_libri_giga": [
+          "scenario_00b234af335b",
+          "scenario_0b7e7e5a49b7",
+          "scenario_1474d1a83332",
+          "scenario_1881315c449f",
+          "scenario_1ae6ba602aad",
+          "scenario_4f48f6d48eed",
+          "scenario_57bedad6700c",
+          "scenario_62e62fdc7280",
+          "scenario_71f0261277ae",
+          "scenario_7817773214e0",
+          "scenario_799ce1056608",
+          "scenario_82719aaec334",
+          "scenario_8498e90f9a06",
+          "scenario_9446f9e543e5",
+          "scenario_964a7598f380",
+          "scenario_969482db72de",
+          "scenario_9e69f81dc663",
+          "scenario_a5fb1aeb48d7",
+          "scenario_ad49d2674657",
+          "scenario_b678507e9e47",
+          "scenario_b82259e71c98",
+          "scenario_be89f4ce8f58",
+          "scenario_c5011678b50e",
+          "scenario_c6cba8805f17",
+          "scenario_db33c7d6dcd5",
+          "scenario_de83e5ecf419",
+          "scenario_e55e87d65cc9",
+          "scenario_e9c283bcac2f",
+          "scenario_ef423a428ea3",
+          "scenario_f4207b5a85ce",
+          "scenario_f55a936b5785",
+          "scenario_fc3e7f326eea"
+        ]
+      },
+      "catalog_id": "edge_large_sherpa_libri_giga",
+      "enabled_by_default": false,
+      "environment_profile": "onnx",
+      "path": "benchmarks/edge_research/scenarios_edge_large_sherpa_libri_giga.jsonl",
+      "scenario_count": 32,
+      "sha256": "7594A3FCE50410DD574F5EA1ABAB9C4362B0A1B8428275FECB6983555A15C4D2",
+      "streaming": false
+    },
+    {
       "campaign_id": "campaign_edge_lg_wsmall_v1",
       "candidate_count": 1,
       "candidate_ids": {
@@ -875,12 +922,12 @@
     "one_environment_per_campaign": true,
     "raspberry_pi_performance_claimed": false
   },
-  "plan_hash": "DF1646EFE917437A085EB4186774E0FF4AAF2C7E9317D3BBCC90DDE2680FF23B",
-  "plan_id": "edge_research_df1646efe917",
+  "plan_hash": "66DCB81BB1CFE5A2D9E583F0A8A71A20AA6F01FF06CCC4C55D05CE1BB75A0385",
+  "plan_id": "edge_research_66dcb81bb1cf",
   "queue": {
     "enabled_job_count": 3,
     "path": "edge_research_queue.json",
-    "sha256": "03CFCA2A80691009B4DB71F52CD08C9FA8CAB87C35AE462419C13A7437EFD4D6"
+    "sha256": "0A8D93D115AA4B0C668CA95831EB392BA4F4ADD5C09BA891EDBCF29C95FC957B"
   },
   "schema_version": "edge-research-plan.v1",
   "seed": 3800,

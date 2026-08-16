@@ -20,13 +20,16 @@ import soundfile as sf
 
 from app.inference_pipeline.asr.base import NoOpASR
 from app.inference_pipeline.asr.faster_whisper_adapter import FasterWhisperASR
+from app.inference_pipeline.asr.moonshine_streaming_adapter import MoonshineStreamingASR
 from app.inference_pipeline.asr.sherpa_onnx_adapter import SherpaOnnxASR
 from app.inference_pipeline.asr.vosk_adapter import VoskASR
 from app.inference_pipeline.asr.wenet_adapter import WeNetASR
 from app.inference_pipeline.asr.whisper_adapter import WhisperASR
 from app.inference_pipeline.config import PipelineConfig
 from app.inference_pipeline.diarization.base import NoOpDiarizer
-from app.inference_pipeline.diarization.pyannote_adapter import PyannoteCommunityDiarizer
+from app.inference_pipeline.diarization.pyannote_adapter import (
+    PyannoteCommunityDiarizer,
+)
 from app.inference_pipeline.pipeline import PipelineRunner
 from app.inference_pipeline.registry import REGISTERED_COMPONENTS, resolve_components
 from app.inference_pipeline.segmentation.base import NoOpSegmenter
@@ -43,7 +46,9 @@ class ComponentCase:
     component: Mapping[str, object]
 
 
-def _whisper_component(name: str, model_size: str, adapter: str) -> Mapping[str, object]:
+def _whisper_component(
+    name: str, model_size: str, adapter: str
+) -> Mapping[str, object]:
     return {
         "name": name,
         "enabled": True,
@@ -150,6 +155,50 @@ ASR_CASES = (
         },
     ),
     ComponentCase(
+        "sherpa_onnx_libri_giga_zipformer_2023_06_21",
+        {
+            "name": "sherpa_onnx_libri_giga_zipformer_2023_06_21",
+            "enabled": True,
+            "adapter": "SherpaOnnxLibriGigaZipformer20230621ASRAdapter",
+            "params": {
+                "sample_rate": 16000,
+                "tail_padding_sec": 0,
+                "native_streaming_replay": False,
+            },
+        },
+    ),
+    ComponentCase(
+        "sherpa_onnx_streaming_zipformer_20m_int8",
+        {
+            "name": "sherpa_onnx_streaming_zipformer_20m_int8",
+            "enabled": True,
+            "adapter": "SherpaOnnxStreamingZipformer20MInt8ASRAdapter",
+            "params": {
+                "sample_rate": 16000,
+                "tail_padding_sec": 0,
+                "native_streaming_replay": True,
+            },
+        },
+    ),
+    *(
+        ComponentCase(
+            f"moonshine_streaming_{size}",
+            {
+                "name": f"moonshine_streaming_{size}",
+                "enabled": True,
+                "adapter": f"MoonshineStreaming{size.title()}ASRAdapter",
+                "params": {
+                    "model_name": f"moonshine_streaming_{size}",
+                    "model_arch": f"{size}-streaming",
+                    "sample_rate": 16000,
+                    "language": "en",
+                    "allow_model_downloads": False,
+                },
+            },
+        )
+        for size in ("tiny", "small", "medium")
+    ),
+    ComponentCase(
         "vosk",
         {
             "name": "vosk",
@@ -221,7 +270,9 @@ class RecordingFasterWhisperModel:
 
     def transcribe(self, samples: np.ndarray, **kwargs: object):
         self.calls.append({"samples": samples.copy(), **kwargs})
-        segments = iter([SimpleNamespace(text="faster whisper matrix transcript", words=None)])
+        segments = iter(
+            [SimpleNamespace(text="faster whisper matrix transcript", words=None)]
+        )
         return segments, SimpleNamespace(language="en")
 
 
@@ -251,6 +302,31 @@ class MatrixSherpaRecognizer:
     def get_result(self, stream: MatrixSherpaStream) -> str:
         _ = stream
         return "sherpa matrix transcript"
+
+
+class MatrixMoonshineStream:
+    def start(self) -> None:
+        return None
+
+    def add_listener(self, listener: object) -> None:
+        _ = listener
+
+    def add_audio(self, samples: list[float], sample_rate: int) -> None:
+        _ = (samples, sample_rate)
+
+    def stop(self) -> SimpleNamespace:
+        return SimpleNamespace(
+            lines=(SimpleNamespace(text="moonshine matrix transcript", words=()),)
+        )
+
+    def close(self) -> None:
+        return None
+
+
+class MatrixMoonshineTranscriber:
+    def create_stream(self, update_interval: float) -> MatrixMoonshineStream:
+        _ = update_interval
+        return MatrixMoonshineStream()
 
 
 class MatrixVoskRecognizer:
@@ -301,7 +377,9 @@ def _matrix_config(
     asr: ComponentCase,
     diarization: ComponentCase,
 ) -> PipelineConfig:
-    mapping = PipelineConfig.from_yaml_path(CONFIG_ROOT / "cpu_smoke.yaml").to_jsonable()
+    mapping = PipelineConfig.from_yaml_path(
+        CONFIG_ROOT / "cpu_smoke.yaml"
+    ).to_jsonable()
     mapping["config_name"] = (
         f"matrix_{segmentation.case_id}_{asr.case_id}_{diarization.case_id}"
     )
@@ -381,9 +459,13 @@ def test_every_runnable_segmentation_asr_diarization_combination(
         pipeline.asr.model = faster_whisper_model
     if isinstance(pipeline.asr, SherpaOnnxASR):
         pipeline.asr.recognizer = MatrixSherpaRecognizer()
+    if isinstance(pipeline.asr, MoonshineStreamingASR):
+        pipeline.asr.transcriber = MatrixMoonshineTranscriber()
     if isinstance(pipeline.asr, VoskASR):
         pipeline.asr.model = "matrix-vosk-model"
-        pipeline.asr.recognizer_factory = lambda model, sample_rate: MatrixVoskRecognizer()
+        pipeline.asr.recognizer_factory = (
+            lambda model, sample_rate: MatrixVoskRecognizer()
+        )
     if isinstance(pipeline.asr, WeNetASR):
         pipeline.asr.model = MatrixWeNetModel()
 
@@ -450,8 +532,7 @@ def test_every_runnable_segmentation_asr_diarization_combination(
         assert diarization_pipeline is not None
         assert len(diarization_pipeline.calls) == 1
         assert [
-            row["speaker_turn_label"]
-            for row in output.diagnostics["diarization_turns"]
+            row["speaker_turn_label"] for row in output.diagnostics["diarization_turns"]
         ] == ["speaker_00", "speaker_01"]
 
     if asr.case_id == "no_op":
@@ -469,8 +550,12 @@ def test_every_runnable_segmentation_asr_diarization_combination(
         assert len(faster_whisper_model.calls) == expected_segments
         assert all(call["beam_size"] == 1 for call in faster_whisper_model.calls)
         assert all(call["vad_filter"] is False for call in faster_whisper_model.calls)
-    elif asr.case_id == "sherpa_onnx":
+    elif isinstance(pipeline.asr, SherpaOnnxASR):
         assert isinstance(pipeline.asr, SherpaOnnxASR)
+    elif isinstance(pipeline.asr, MoonshineStreamingASR):
+        assert (pipeline.asr.last_streaming_diagnostics is not None) == (
+            expected_segments > 0
+        )
     elif asr.case_id == "vosk":
         assert isinstance(pipeline.asr, VoskASR)
     else:
@@ -501,9 +586,4 @@ def test_matrix_explicitly_covers_every_registered_component_name() -> None:
 
 
 def test_matrix_contains_every_cartesian_combination() -> None:
-    assert (
-        len(SEGMENTATION_CASES)
-        * len(ASR_CASES)
-        * len(DIARIZATION_CASES)
-        == 72
-    )
+    assert len(SEGMENTATION_CASES) * len(ASR_CASES) * len(DIARIZATION_CASES) == 117

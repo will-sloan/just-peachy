@@ -102,8 +102,14 @@ class ASRRuntimeStats:
         peak_gpu_memory_reserved_mb: float | None = None,
         cpu_memory_mb: float | None = None,
     ) -> "ASRRuntimeStats":
-        duration = audio_duration_sec if audio_duration_sec and audio_duration_sec > 0 else None
-        realtime_factor = inference_sec / duration if inference_sec is not None and duration else None
+        duration = (
+            audio_duration_sec
+            if audio_duration_sec and audio_duration_sec > 0
+            else None
+        )
+        realtime_factor = (
+            inference_sec / duration if inference_sec is not None and duration else None
+        )
         return cls(
             model_name=model_name,
             load_sec=load_sec,
@@ -147,7 +153,9 @@ class ASRBase(ABC):
         self.last_normalized_text: str | None = None
 
     @abstractmethod
-    def transcribe(self, audio_segment: AudioSegment, context: ASRContext) -> ASRTranscript:
+    def transcribe(
+        self, audio_segment: AudioSegment, context: ASRContext
+    ) -> ASRTranscript:
         """Transcribe one model-ready audio segment."""
 
 
@@ -160,7 +168,9 @@ class NoOpASR(ASRBase):
         super().__init__()
         self.text = text
 
-    def transcribe(self, audio_segment: AudioSegment, context: ASRContext) -> ASRTranscript:
+    def transcribe(
+        self, audio_segment: AudioSegment, context: ASRContext
+    ) -> ASRTranscript:
         started_at = time.perf_counter()
         _ = context
         normalized = normalize_text(self.text)
@@ -199,7 +209,9 @@ class FixedASR(ASRBase):
         self.words = tuple(words)
         self.language = language
 
-    def transcribe(self, audio_segment: AudioSegment, context: ASRContext) -> ASRTranscript:
+    def transcribe(
+        self, audio_segment: AudioSegment, context: ASRContext
+    ) -> ASRTranscript:
         started_at = time.perf_counter()
         normalized = normalize_text(self.raw_text)
         self.last_raw_text = self.raw_text
@@ -260,6 +272,12 @@ def build_asr_from_config(config: object) -> ASRBase | None:
         from app.inference_pipeline.asr.sherpa_onnx_adapter import SherpaOnnxASR
 
         return SherpaOnnxASR(params)
+    if name == "sherpa_onnx_libri_giga_zipformer_2023_06_21":
+        from app.inference_pipeline.asr.sherpa_onnx_adapter import (
+            SherpaOnnxLibriGigaZipformer20230621ASR,
+        )
+
+        return SherpaOnnxLibriGigaZipformer20230621ASR(params)
     if name == "sherpa_onnx_streaming_zipformer_20m_int8":
         from app.inference_pipeline.asr.sherpa_onnx_adapter import (
             SherpaOnnxStreamingZipformer20MInt8ASR,

@@ -49,6 +49,11 @@ try {
             "--output", "runs\edge_backend_qualification\onnx-edge.json"
         )
         Invoke-Checked $ProfilePython["onnx"] @(
+            "scripts\qualify_extended_backends.py", "--profile", "onnx",
+            "--backend", "sherpa_onnx_libri_giga_zipformer_2023_06_21",
+            "--output", "runs\edge_backend_qualification\onnx-libri-giga.json"
+        )
+        Invoke-Checked $ProfilePython["onnx"] @(
             "run_evaluation.py", "speaker-protocol", "smoke",
             "--backend", "campplus_speaker_embedding", "--backend", "eres2net_base_speaker_embedding",
             "--output-root", "runs\edge_speaker_protocol_smoke", "--rerun"

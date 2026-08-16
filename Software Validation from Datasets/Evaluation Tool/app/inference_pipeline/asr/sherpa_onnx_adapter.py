@@ -9,7 +9,10 @@ from typing import Any, Mapping
 
 import numpy as np
 
-from app.inference_pipeline.asr.audio_utils import load_segment_audio, resolve_model_path
+from app.inference_pipeline.asr.audio_utils import (
+    load_segment_audio,
+    resolve_model_path,
+)
 from app.inference_pipeline.asr.base import (
     ASRBase,
     ASRContext,
@@ -23,7 +26,10 @@ from app.inference_pipeline.asr.streaming import (
     iter_audio_chunks,
 )
 from app.inference_pipeline.contracts import ASRTranscript, AudioSegment
-from app.inference_pipeline.errors import ContractValidationError, InferencePipelineError
+from app.inference_pipeline.errors import (
+    ContractValidationError,
+    InferencePipelineError,
+)
 
 
 class SherpaOnnxASRUnavailableError(InferencePipelineError):
@@ -48,9 +54,15 @@ class SherpaOnnxASR(ASRBase):
             raise ContractValidationError(
                 "sherpa_onnx model_type must be 'transducer' for this adapter"
             )
-        self.sample_rate = _positive_int(self.params.get("sample_rate", 16000), "sample_rate")
-        self.feature_dim = _positive_int(self.params.get("feature_dim", 80), "feature_dim")
-        self.num_threads = _positive_int(self.params.get("num_threads", 2), "num_threads")
+        self.sample_rate = _positive_int(
+            self.params.get("sample_rate", 16000), "sample_rate"
+        )
+        self.feature_dim = _positive_int(
+            self.params.get("feature_dim", 80), "feature_dim"
+        )
+        self.num_threads = _positive_int(
+            self.params.get("num_threads", 2), "num_threads"
+        )
         self.provider = str(self.params.get("provider", "cpu"))
         self.decoding_method = str(self.params.get("decoding_method", "greedy_search"))
         self.max_active_paths = _positive_int(
@@ -72,7 +84,9 @@ class SherpaOnnxASR(ASRBase):
         self._load_sec: float | None = None
         self.last_streaming_diagnostics: dict[str, object] | None = None
 
-    def transcribe(self, audio_segment: AudioSegment, context: ASRContext) -> ASRTranscript:
+    def transcribe(
+        self, audio_segment: AudioSegment, context: ASRContext
+    ) -> ASRTranscript:
         audio = load_segment_audio(audio_segment, target_sample_rate=self.sample_rate)
         recognizer = self._recognizer(context)
         if self.native_streaming_replay:
@@ -313,4 +327,18 @@ class SherpaOnnxStreamingZipformer20MInt8ASR(SherpaOnnxASR):
         if not self.native_streaming_replay:
             raise ContractValidationError(
                 "the 20M edge component requires native_streaming_replay=true"
+            )
+
+
+class SherpaOnnxLibriGigaZipformer20230621ASR(SherpaOnnxASR):
+    """LibriSpeech+GigaSpeech checkpoint using the comparable segment contract."""
+
+    name = "sherpa_onnx_libri_giga_zipformer_2023_06_21"
+
+    def __post_init__(self) -> None:
+        super().__post_init__()
+        if self.native_streaming_replay:
+            raise ContractValidationError(
+                "the Libri+Giga large-study component requires "
+                "native_streaming_replay=false"
             )

@@ -37,6 +37,21 @@ SHERPA_ASR_MARKERS = (
     "decoder-epoch-99-avg-1-chunk-16-left-128.onnx",
     "joiner-epoch-99-avg-1-chunk-16-left-128.int8.onnx",
 )
+SHERPA_LIBRI_GIGA_ARCHIVE = "sherpa-onnx-streaming-zipformer-en-2023-06-21.tar.bz2"
+SHERPA_LIBRI_GIGA_DIRECTORY = "sherpa-onnx-streaming-zipformer-en-2023-06-21"
+SHERPA_LIBRI_GIGA_URL = (
+    "https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/"
+    f"{SHERPA_LIBRI_GIGA_ARCHIVE}"
+)
+SHERPA_LIBRI_GIGA_ARCHIVE_SHA256 = (
+    "455f40e556aa2b20ac9d3bffd603b58002075c1193b4070938540c11efe0a4da"
+)
+SHERPA_LIBRI_GIGA_MARKERS = (
+    "tokens.txt",
+    "encoder-epoch-99-avg-1.int8.onnx",
+    "decoder-epoch-99-avg-1.onnx",
+    "joiner-epoch-99-avg-1.int8.onnx",
+)
 
 VOSK_ASR_ARCHIVE = "vosk-model-small-en-us-0.15.zip"
 VOSK_ASR_DIRECTORY = "vosk-model-small-en-us-0.15"
@@ -70,13 +85,10 @@ FASTER_WHISPER_MARKERS = (
 )
 
 SHERPA_VAD_URL = (
-    "https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/"
-    "silero_vad.onnx"
+    "https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/silero_vad.onnx"
 )
 SHERPA_VAD_SHA256 = "9e2449e1087496d8d4caba907f23e0bd3f78d91fa552479bb9c23ac09cbb1fd6"
-SHERPA_EMBEDDING_FILENAME = (
-    "3dspeaker_speech_eres2net_base_sv_zh-cn_3dspeaker_16k.onnx"
-)
+SHERPA_EMBEDDING_FILENAME = "3dspeaker_speech_eres2net_base_sv_zh-cn_3dspeaker_16k.onnx"
 SHERPA_EMBEDDING_URL = (
     "https://github.com/k2-fsa/sherpa-onnx/releases/download/"
     f"speaker-recongition-models/{SHERPA_EMBEDDING_FILENAME}"
@@ -102,8 +114,7 @@ WESPEAKER_CONFIG_SHA256 = (
     "31511c8e6c60d96d40962e9a261dd8f752b01831b955192b5cbed8367276bbb5"
 )
 WESPEAKER_MODELSCOPE_INDEX = (
-    "https://modelscope.cn/api/v1/datasets/wenet/"
-    "wespeaker_pretrained_models/oss/tree"
+    "https://modelscope.cn/api/v1/datasets/wenet/wespeaker_pretrained_models/oss/tree"
 )
 NEMO_DIARIZATION_CONFIG_URL = (
     "https://raw.githubusercontent.com/NVIDIA/NeMo/v2.7.3/examples/speaker_tasks/"
@@ -113,9 +124,7 @@ NEMO_DIARIZATION_CONFIG_URL = (
 SHERPA_STREAMING_20M_ARCHIVE = (
     "sherpa-onnx-streaming-zipformer-en-20M-2023-02-17.tar.bz2"
 )
-SHERPA_STREAMING_20M_DIRECTORY = (
-    "sherpa-onnx-streaming-zipformer-en-20M-2023-02-17"
-)
+SHERPA_STREAMING_20M_DIRECTORY = "sherpa-onnx-streaming-zipformer-en-20M-2023-02-17"
 SHERPA_STREAMING_20M_URL = (
     "https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/"
     f"{SHERPA_STREAMING_20M_ARCHIVE}"
@@ -351,6 +360,20 @@ def download_sherpa_asr(cache_root: Path) -> None:
     )
 
 
+def download_sherpa_libri_giga(cache_root: Path) -> None:
+    archive = download_file(
+        SHERPA_LIBRI_GIGA_URL,
+        cache_root / "downloads" / SHERPA_LIBRI_GIGA_ARCHIVE,
+        expected_sha256=SHERPA_LIBRI_GIGA_ARCHIVE_SHA256,
+    )
+    install_model_archive(
+        archive,
+        destination=(cache_root / "sherpa_onnx" / "asr" / SHERPA_LIBRI_GIGA_DIRECTORY),
+        archive_directory=SHERPA_LIBRI_GIGA_DIRECTORY,
+        markers=SHERPA_LIBRI_GIGA_MARKERS,
+    )
+
+
 def download_sherpa_streaming_20m(cache_root: Path) -> None:
     archive = download_file(
         SHERPA_STREAMING_20M_URL,
@@ -407,6 +430,7 @@ def download_moonshine_streaming(cache_root: Path, sizes: list[str]) -> None:
 
 def download_edge_models(cache_root: Path) -> None:
     download_moonshine_streaming(cache_root, ["tiny", "small", "medium"])
+    download_sherpa_libri_giga(cache_root)
     download_sherpa_streaming_20m(cache_root)
     download_campplus(cache_root)
     download_sherpa_embedding(cache_root)
@@ -609,6 +633,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--silero", action="store_true")
     parser.add_argument("--pyannote", action="store_true")
     parser.add_argument("--sherpa-asr", action="store_true")
+    parser.add_argument("--sherpa-libri-giga", action="store_true")
     parser.add_argument("--vosk-asr", action="store_true")
     parser.add_argument("--wenet-asr", action="store_true")
     parser.add_argument("--faster-whisper-tiny", action="store_true")
@@ -680,6 +705,13 @@ def main(argv: list[str] | None = None) -> int:
         )
     if args.sherpa_asr:
         tasks.append(("Sherpa-ONNX ASR", lambda: download_sherpa_asr(cache_root)))
+    if args.sherpa_libri_giga:
+        tasks.append(
+            (
+                "Sherpa-ONNX LibriSpeech+GigaSpeech Zipformer",
+                lambda: download_sherpa_libri_giga(cache_root),
+            )
+        )
     if args.vosk_asr:
         tasks.append(("Vosk ASR", lambda: download_vosk_asr(cache_root)))
     if args.wenet_asr:
@@ -730,13 +762,13 @@ def main(argv: list[str] | None = None) -> int:
     if args.campplus:
         tasks.append(("CAM++ English VoxCeleb", lambda: download_campplus(cache_root)))
     if args.eres2net_base:
-        tasks.append(
-            ("ERes2Net-base", lambda: download_sherpa_embedding(cache_root))
-        )
+        tasks.append(("ERes2Net-base", lambda: download_sherpa_embedding(cache_root)))
     if args.fsmn_vad:
         tasks.append(("FSMN-VAD", lambda: download_fsmn_vad(cache_root)))
     if args.edge_models:
-        tasks.append(("Approved edge model bundle", lambda: download_edge_models(cache_root)))
+        tasks.append(
+            ("Approved edge model bundle", lambda: download_edge_models(cache_root))
+        )
     if not tasks:
         print(
             "No models selected. Choose an approved Whisper, SpeechBrain, Silero, "

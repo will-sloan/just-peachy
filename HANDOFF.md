@@ -18,10 +18,13 @@ not a claim that any added backend is the best model.
 
 - Repository: `C:\Users\amiri\Documents\GitHub\just-peachy`
 - Branch: `codex/edge-component-expansion`
-- Current implementation commit: `94151fc9a068b7438a62c9eb6f3256afa86b746e`
+- Current implementation commit: run `git rev-parse HEAD`; the latest additive Sherpa
+  Libri+Giga integration commit is recorded in its completing Codex handoff.
 - Accepted baseline: `b78df94cf1b8c4c9a1ea684a0a64b7bd37020838`
 - The edge expansion is committed locally and was not pushed.
-- No long research campaign has been run. Preserve all existing campaign results.
+- The prior five-model large study has been completed. Preserve every existing campaign
+  root, result, assignment, export, merge, and Stage 12 artifact. The additive
+  `campaign_edge_lg_shgiga_v1` has only been qualified and dry-planned; it was not run.
 - `Resumes/` is intentionally local and ignored by Git.
 - At handoff, `HANDOFF.md` is the only untracked file. It is documentation only.
 
@@ -87,6 +90,7 @@ The important implementation boundaries are:
 |---|---|---|
 | Moonshine Streaming English Tiny, Small, Medium | `moonshine-edge` | CPU-qualified |
 | Sherpa-ONNX Streaming Zipformer English 20M INT8 | `onnx` | CPU-qualified |
+| Sherpa-ONNX LibriSpeech+GigaSpeech Zipformer 2023-06-21 | `onnx` | CPU-qualified; segment-contract campaign |
 | FSMN-VAD | `edge-cpu` | CPU-qualified |
 | CAM++ and ERes2Net Base speaker embeddings | `onnx` | CPU-qualified; Stage 10 smoke passed |
 
@@ -110,13 +114,13 @@ Default campaigns: 84 scenarios total.
 | `campaign_edge_stream_moon_v1` | `moonshine-edge` | 36 |
 | `campaign_edge_stream_onnx_v1` | `onnx` | 12 |
 
-There are 532 frozen ASR scenarios in ten catalogs, including optional combination
+There are 628 frozen ASR scenarios in thirteen catalogs, including optional combination
 and large campaigns. Catalogs, queue, and plan are under
 `Software Validation from Datasets/Evaluation Tool/benchmarks/edge_research/`.
 
 Optional, disabled campaigns are `campaign_edge_combo_moon_v1` (216),
-`campaign_edge_combo_onnx_v1` (72), and five `campaign_edge_lg_*_v1` catalogs
-(32 each). Stage 10 plans are also disabled:
+`campaign_edge_combo_onnx_v1` (72), and eight `campaign_edge_lg_*_v1` catalogs
+(32 each), including the additive `campaign_edge_lg_shgiga_v1`. Stage 10 plans are also disabled:
 `campaign_spk10_edge_sm_v1` (63 clean items/backend),
 `campaign_spk10_edge_std_v1` (240), and `campaign_spk10_edge_lg_v1` (510).
 
@@ -141,10 +145,11 @@ process because their scenarios require different environment profiles.
 
 ## Verification already completed
 
-- Seven added backends passed repeated real qualification.
+- Eight added backends passed repeated real qualification, including the separate
+  LibriSpeech+GigaSpeech Sherpa component.
 - CAM++ and ERes2Net Stage 10 smoke passed for both backends with `Unknown`
   preserved.
-- All 10 catalogs and 532 scenario identities validate.
+- All 13 catalogs and 628 scenario identities validate.
 - Source preflight checked 8,663 frozen manifest rows with zero missing inputs.
 - Default dry-plan passed: 36 + 36 + 12 scenarios.
 - Focused tests passed (118 passed, 2 skipped; final Stage 10 file: 16 passed),

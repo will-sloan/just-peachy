@@ -29,6 +29,7 @@ from app.inference_pipeline.asr.report import (
 from app.inference_pipeline.asr.sherpa_onnx_adapter import (
     SherpaOnnxASR,
     SherpaOnnxASRUnavailableError,
+    SherpaOnnxLibriGigaZipformer20230621ASR,
     SherpaOnnxStreamingZipformer20MInt8ASR,
 )
 from app.inference_pipeline.asr.moonshine_streaming_adapter import (
@@ -51,6 +52,7 @@ __all__ = [
     "MoonshineStreamingASRUnavailableError",
     "SherpaOnnxASR",
     "SherpaOnnxASRUnavailableError",
+    "SherpaOnnxLibriGigaZipformer20230621ASR",
     "SherpaOnnxStreamingZipformer20MInt8ASR",
     "VoskASR",
     "VoskASRUnavailableError",

@@ -37,33 +37,58 @@ EXISTING_LARGE_CATALOGS = {
         "D3B0902E7837E4556DA9704647B375E868F2095C5A336743483C4D195BD13B71",
         "core-cpu",
     ),
+    "campaign_edge_lg_shorig_v1": (
+        "benchmarks/edge_research/scenarios_edge_large_sherpa_original.jsonl",
+        "F78403C2789000B161067D480FEDFFC042AD31F06625A2FE5B08327B40827018",
+        "onnx",
+    ),
+    "campaign_edge_lg_wsmall_v1": (
+        "benchmarks/edge_research/scenarios_edge_large_whisper_small.jsonl",
+        "58A12D098DD6B12EEFA738FFC9937580B29369C834B9D8F692FB21ABBE3C8A5A",
+        "core-cpu",
+    ),
 }
 
 
 def test_edge_queue_catalog_counts_and_profile_isolation() -> None:
-    queue = json.loads((EDGE_ROOT / "edge_research_queue.json").read_text(encoding="utf-8"))
+    queue = json.loads(
+        (EDGE_ROOT / "edge_research_queue.json").read_text(encoding="utf-8")
+    )
     asr_jobs = [row for row in queue["jobs"] if row["kind"] == "asr_campaign"]
 
-    assert len(asr_jobs) == 12
-    assert sum(int(row["expected_scenario_count"]) for row in asr_jobs) == 596
-    assert sum(
-        int(row["expected_scenario_count"])
-        for row in asr_jobs
-        if row["enabled_by_default"]
-    ) == 84
+    assert len(asr_jobs) == 13
+    assert sum(int(row["expected_scenario_count"]) for row in asr_jobs) == 628
+    assert (
+        sum(
+            int(row["expected_scenario_count"])
+            for row in asr_jobs
+            if row["enabled_by_default"]
+        )
+        == 84
+    )
     for job in asr_jobs:
         rows = load_scenario_catalog(TOOL_ROOT / job["catalog"])
         assert len(rows) == job["expected_scenario_count"]
-        assert {
-            row["pipeline"]["environment_profile"] for row in rows
-        } == {job["environment_profile"]}
+        assert {row["pipeline"]["environment_profile"] for row in rows} == {
+            job["environment_profile"]
+        }
 
 
 def test_existing_large_catalogs_remain_frozen() -> None:
-    queue = json.loads((EDGE_ROOT / "edge_research_queue.json").read_text(encoding="utf-8"))
-    jobs = {row["campaign_id"]: row for row in queue["jobs"] if row["kind"] == "asr_campaign"}
+    queue = json.loads(
+        (EDGE_ROOT / "edge_research_queue.json").read_text(encoding="utf-8")
+    )
+    jobs = {
+        row["campaign_id"]: row
+        for row in queue["jobs"]
+        if row["kind"] == "asr_campaign"
+    }
 
-    for campaign_id, (relative_path, expected_sha256, profile) in EXISTING_LARGE_CATALOGS.items():
+    for campaign_id, (
+        relative_path,
+        expected_sha256,
+        profile,
+    ) in EXISTING_LARGE_CATALOGS.items():
         job = jobs[campaign_id]
         assert job["catalog"] == relative_path
         assert job["catalog_sha256"] == expected_sha256
@@ -72,9 +97,15 @@ def test_existing_large_catalogs_remain_frozen() -> None:
         assert file_sha256(TOOL_ROOT / relative_path) == expected_sha256
 
 
-def test_new_large_asr_isolation_catalogs() -> None:
-    queue = json.loads((EDGE_ROOT / "edge_research_queue.json").read_text(encoding="utf-8"))
-    jobs = {row["campaign_id"]: row for row in queue["jobs"] if row["kind"] == "asr_campaign"}
+def test_additive_large_asr_isolation_catalogs() -> None:
+    queue = json.loads(
+        (EDGE_ROOT / "edge_research_queue.json").read_text(encoding="utf-8")
+    )
+    jobs = {
+        row["campaign_id"]: row
+        for row in queue["jobs"]
+        if row["kind"] == "asr_campaign"
+    }
     expected = {
         "campaign_edge_lg_shorig_v1": (
             "benchmarks/edge_research/scenarios_edge_large_sherpa_original.jsonl",
@@ -85,6 +116,11 @@ def test_new_large_asr_isolation_catalogs() -> None:
             "benchmarks/edge_research/scenarios_edge_large_whisper_small.jsonl",
             "whisper_small",
             "core-cpu",
+        ),
+        "campaign_edge_lg_shgiga_v1": (
+            "benchmarks/edge_research/scenarios_edge_large_sherpa_libri_giga.jsonl",
+            "sherpa_onnx_libri_giga_zipformer_2023_06_21",
+            "onnx",
         ),
     }
 
@@ -120,11 +156,15 @@ def test_new_large_asr_isolation_catalogs() -> None:
                 "speaker_matching": "no_op_speaker_matching",
                 "diarization": "no_op_diarization",
             }
-            assert "streaming_diagnostics" not in row["artifact_contract"]["capabilities"]
+            assert (
+                "streaming_diagnostics" not in row["artifact_contract"]["capabilities"]
+            )
 
 
 def test_streaming_catalogs_require_streaming_diagnostics() -> None:
-    queue = json.loads((EDGE_ROOT / "edge_research_queue.json").read_text(encoding="utf-8"))
+    queue = json.loads(
+        (EDGE_ROOT / "edge_research_queue.json").read_text(encoding="utf-8")
+    )
     for job in queue["jobs"]:
         if job.get("kind") != "asr_campaign" or not job.get("streaming"):
             continue

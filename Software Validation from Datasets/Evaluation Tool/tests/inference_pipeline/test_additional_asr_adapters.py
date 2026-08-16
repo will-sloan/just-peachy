@@ -10,7 +10,10 @@ import pytest
 import soundfile as sf
 
 from app.inference_pipeline.asr.base import ASRContext, build_asr_from_config
-from app.inference_pipeline.asr.sherpa_onnx_adapter import SherpaOnnxASR
+from app.inference_pipeline.asr.sherpa_onnx_adapter import (
+    SherpaOnnxASR,
+    SherpaOnnxLibriGigaZipformer20230621ASR,
+)
 from app.inference_pipeline.asr.vosk_adapter import VoskASR
 from app.inference_pipeline.asr.wenet_adapter import WeNetASR
 from app.inference_pipeline.config import PipelineConfig
@@ -111,6 +114,22 @@ def test_sherpa_adapter_crops_resamples_and_decodes(tmp_path: Path) -> None:
     assert adapter.last_runtime_stats.audio_duration_sec == pytest.approx(1.0)
 
 
+def test_libri_giga_sherpa_identity_preserves_segment_contract(tmp_path: Path) -> None:
+    path = _write_stereo_audio(tmp_path / "sherpa-libri-giga.wav")
+    recognizer = FakeSherpaRecognizer()
+    adapter = SherpaOnnxLibriGigaZipformer20230621ASR(
+        {"sample_rate": 16000, "tail_padding_sec": 0},
+        recognizer=recognizer,
+    )
+
+    transcript = adapter.transcribe(_segment(path), _context(path))
+
+    assert adapter.name == "sherpa_onnx_libri_giga_zipformer_2023_06_21"
+    assert adapter.native_streaming_replay is False
+    assert transcript.text == "hello from sherpa"
+    assert recognizer.decode_count == 1
+
+
 class FakeVoskRecognizer:
     def __init__(self) -> None:
         self.payloads: list[bytes] = []
@@ -208,6 +227,12 @@ def test_wenet_adapter_uses_temporary_mono_pcm16_wav(tmp_path: Path) -> None:
     ("component_file", "adapter_name", "runtime_class", "module_name"),
     (
         ("sherpa_onnx.yaml", "SherpaOnnxASRAdapter", SherpaOnnxASR, "sherpa_onnx"),
+        (
+            "sherpa_onnx_libri_giga_zipformer_2023_06_21.yaml",
+            "SherpaOnnxLibriGigaZipformer20230621ASRAdapter",
+            SherpaOnnxLibriGigaZipformer20230621ASR,
+            "sherpa_onnx",
+        ),
         ("vosk.yaml", "VoskASRAdapter", VoskASR, "vosk"),
         ("wenet.yaml", "WeNetASRAdapter", WeNetASR, "wenet"),
     ),
@@ -219,7 +244,9 @@ def test_new_asr_component_configs_resolve_without_importing_optional_packages(
     module_name: str,
 ) -> None:
     before_modules = set(sys.modules)
-    mapping = PipelineConfig.from_yaml_path(CONFIG_ROOT / "cpu_smoke.yaml").to_jsonable()
+    mapping = PipelineConfig.from_yaml_path(
+        CONFIG_ROOT / "cpu_smoke.yaml"
+    ).to_jsonable()
     mapping["components"]["asr"] = f"components/asr/{component_file}"
 
     config = PipelineConfig.from_mapping(

@@ -65,7 +65,7 @@ function Model-BootstrapArguments {
         "onnx" {
             return @(
                 "--sherpa-asr", "--sherpa-vad", "--sherpa-speaker-embedding", "--sherpa-diarization",
-                "--sherpa-streaming-20m", "--campplus", "--eres2net-base"
+                "--sherpa-libri-giga", "--sherpa-streaming-20m", "--campplus", "--eres2net-base"
             )
         }
         "wenet" { return @("--wenet-asr") }

@@ -112,7 +112,9 @@ def test_allowed_whisper_component_configs_resolve(
 ) -> None:
     mapping = load_config("cpu_smoke.yaml").to_jsonable()
     component_path = CONFIG_ROOT / "components" / "asr" / filename
-    component_mapping = yaml.safe_load(component_path.read_text(encoding="utf-8"))["component"]
+    component_mapping = yaml.safe_load(component_path.read_text(encoding="utf-8"))[
+        "component"
+    ]
     mapping["components"]["asr"] = component_mapping
     config = PipelineConfig.from_mapping(mapping)
 
@@ -122,8 +124,13 @@ def test_allowed_whisper_component_configs_resolve(
 def test_registered_asr_catalog_contains_only_supported_runtime_choices() -> None:
     assert set(REGISTERED_COMPONENTS["asr"]) == {
         "faster_whisper",
+        "moonshine_streaming_medium",
+        "moonshine_streaming_small",
+        "moonshine_streaming_tiny",
         "no_op_asr",
         "sherpa_onnx",
+        "sherpa_onnx_libri_giga_zipformer_2023_06_21",
+        "sherpa_onnx_streaming_zipformer_20m_int8",
         "vosk",
         "wenet",
         "whisper_base",

@@ -19,7 +19,7 @@ inference YAML fragments, approved condition sets, and Stage 10 manifests. Outpu
 written under `benchmarks/edge_research`: the plan, queue, per-environment JSONL scenario
 catalogs, hashes, and Stage 10 execution-plan metadata. Source audio is never copied.
 
-## Frozen large five-ASR study
+## Frozen large study and additive Libri+Giga candidate
 
 The opt-in large ASR-isolation catalog set uses the frozen large manifest
 `manifest_bc207e61b820` (`BC207E61B82052F06CCB9FFFE038B6DFE7B1C65C21843D08905946114238DE88`,
@@ -33,11 +33,16 @@ The opt-in large ASR-isolation catalog set uses the frozen large manifest
 | `campaign_edge_lg_wbase_v1` | `whisper_base` | `core-cpu` | no |
 | `campaign_edge_lg_mmed_v1` | `moonshine_streaming_medium` | `moonshine-edge` | yes |
 | `campaign_edge_lg_msmall_v1` | `moonshine_streaming_small` | `moonshine-edge` | yes |
+| `campaign_edge_lg_shgiga_v1` | `sherpa_onnx_libri_giga_zipformer_2023_06_21` | `onnx` | no; segment contract for matched comparison |
 
 `sherpa_onnx` is the prior `sherpa-onnx-streaming-zipformer-en-2023-06-26` checkpoint
 behind `SherpaOnnxASRAdapter`; it is distinct from
 `sherpa_onnx_streaming_zipformer_20m_int8`. `whisper_small` is the local OpenAI Whisper
 `small.pt` checkpoint. All model downloads remain disabled during planning and inference.
+The additive `campaign_edge_lg_shgiga_v1` uses the separate 2023-06-21 checkpoint trained
+on LibriSpeech and GigaSpeech. The upstream model is streaming-capable, but this campaign
+keeps `streaming=false` to match the Original Sherpa segment contract. Its known
+LibriSpeech training-domain overlap must be considered when interpreting aggregate WER.
 
 From an Anaconda Prompt or PowerShell at the repository root, regenerate and validate
 the frozen definitions, then dry-plan only the five selected campaigns:
@@ -50,3 +55,15 @@ powershell -ExecutionPolicy Bypass -File scripts\run_edge_research.ps1 -Action P
 This command reads frozen manifests/catalogs and writes no campaign artifacts; its output
 is one 32-scenario dry-plan per campaign. Do not use `-Action Run` until an operator has
 reviewed the frozen catalog identities and the planned queue.
+
+To dry-plan only the additive Libri+Giga campaign from the repository root:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\run_edge_research.ps1 -Action Plan -CampaignId campaign_edge_lg_shgiga_v1
+```
+
+The input catalog is
+`benchmarks/edge_research/scenarios_edge_large_sherpa_libri_giga.jsonl`; the command
+prints exactly 32 scenarios and starts no inference. See
+`docs/automated_evaluation/sherpa_libri_giga_zipformer_2023_06_21.md` for model setup,
+asset hashes, licensing provenance, and qualification outputs.

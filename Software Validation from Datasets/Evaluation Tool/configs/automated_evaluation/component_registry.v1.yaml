@@ -360,6 +360,29 @@ components:
     intended_final_use_category: extended
 
   - <<: *component_defaults
+    id: asr.sherpa_onnx_libri_giga_zipformer_2023_06_21
+    family: asr
+    name: sherpa_onnx_libri_giga_zipformer_2023_06_21
+    implementation_class: SherpaOnnxLibriGigaZipformer20230621ASR
+    implementation_path: app/inference_pipeline/asr/sherpa_onnx_adapter.py
+    registry_adapter_class: SherpaOnnxLibriGigaZipformer20230621ASRAdapter
+    config_path: configs/inference/components/asr/sherpa_onnx_libri_giga_zipformer_2023_06_21.yaml
+    config_sha256: A9D5B6788F2A3FD3855520BB7E26AA9BC1BA95C75E563DF68A78E21C494CFAE8
+    packages: [sherpa-onnx==1.13.4]
+    model_assets: [stage8:sherpa_onnx_libri_giga_zipformer_2023_06_21]
+    environment_profiles: [onnx]
+    qualification_backend_id: sherpa_onnx_libri_giga_zipformer_2023_06_21
+    supported_os: [windows, linux, macos]
+    hardware_support: {cpu: true, gpu: false, cuda: false}
+    device_dtype_support: [cpu/float32, cpu/mixed-int8-float32]
+    input_contract: audio_segments.v1
+    output_contract: asr_transcript.v1
+    compatibility_constraints: ["16 kHz mono; INT8 encoder, FP32 decoder, INT8 joiner; greedy search; segment contract; downloads disabled."]
+    model_terms: "Apache-2.0 weights; GigaSpeech training provenance requires a separate commercial deployment review."
+    readiness: {status: qualified, evidence: "runs/edge_backend_qualification/onnx-libri-giga.json: exact frozen assets and repeated bounded segment-mode transcripts passed", blockers: []}
+    intended_final_use_category: extended
+
+  - <<: *component_defaults
     id: asr.moonshine_streaming_tiny
     family: asr
     name: moonshine_streaming_tiny

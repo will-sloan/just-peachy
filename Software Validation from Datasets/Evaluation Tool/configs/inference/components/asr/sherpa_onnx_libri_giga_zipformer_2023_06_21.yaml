@@ -1,0 +1,29 @@
+component:
+  slot: asr
+  name: sherpa_onnx_libri_giga_zipformer_2023_06_21
+  enabled: true
+  adapter: SherpaOnnxLibriGigaZipformer20230621ASRAdapter
+  notes: Distinct English LibriSpeech+GigaSpeech Zipformer; large study uses the comparable segment contract.
+  params:
+    model_name: sherpa_onnx_libri_giga_zipformer_2023_06_21
+    model_type: transducer
+    language: en
+    sample_rate: 16000
+    feature_dim: 80
+    num_threads: 2
+    provider: cpu
+    decoding_method: greedy_search
+    max_active_paths: 4
+    tail_padding_sec: 0.66
+    native_streaming_replay: false
+    allow_model_downloads: false
+    upstream_native_streaming_capable: true
+    benchmark_streaming_mode: segment_contract
+    precision:
+      encoder: int8
+      decoder: float32
+      joiner: int8
+    tokens: models/cache/sherpa_onnx/asr/sherpa-onnx-streaming-zipformer-en-2023-06-21/tokens.txt
+    encoder: models/cache/sherpa_onnx/asr/sherpa-onnx-streaming-zipformer-en-2023-06-21/encoder-epoch-99-avg-1.int8.onnx
+    decoder: models/cache/sherpa_onnx/asr/sherpa-onnx-streaming-zipformer-en-2023-06-21/decoder-epoch-99-avg-1.onnx
+    joiner: models/cache/sherpa_onnx/asr/sherpa-onnx-streaming-zipformer-en-2023-06-21/joiner-epoch-99-avg-1.int8.onnx

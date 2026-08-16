@@ -6,6 +6,8 @@ runtime backend, records explicit unavailable states for gated backends, and
 checks a small set of meaningful end-to-end compositions.
 """
 
+# ruff: noqa: E402 -- imports follow the deliberate local sys.path bootstrap.
+
 from __future__ import annotations
 
 import argparse
@@ -35,7 +37,10 @@ from app.inference_pipeline.audio_io import load_audio
 from app.inference_pipeline.config import PipelineConfig
 from app.inference_pipeline.contracts import AudioSegment
 from app.inference_pipeline.diarization import build_diarizer_from_config
-from app.inference_pipeline.enrollment import EnrollmentDatabase, add_enrollment_exemplar
+from app.inference_pipeline.enrollment import (
+    EnrollmentDatabase,
+    add_enrollment_exemplar,
+)
 from app.inference_pipeline.pipeline import PipelineRunner
 from app.inference_pipeline.speaker_embedding import (
     SpeakerEmbeddingContext,
@@ -287,10 +292,11 @@ def _qualify_diarization(
     if output.errors or not output.text.strip() or len(diagnostic_turns) < 1:
         raise RuntimeError("diarization + segmentation + ASR composition failed")
     if not any(
-        isinstance(item, Mapping) and item.get("speaker_decision")
-        for item in items
+        isinstance(item, Mapping) and item.get("speaker_decision") for item in items
     ):
-        raise RuntimeError("diarization labels were not propagated to transcript segments")
+        raise RuntimeError(
+            "diarization labels were not propagated to transcript segments"
+        )
     return {
         "turn_count": len(turns),
         "speaker_labels": sorted({turn.speaker_turn_label for turn in turns}),
@@ -359,7 +365,11 @@ def _qualify_speaker_path(
     runner.speaker_matcher = matcher
     runner.enrollment_db = database
     output = runner.predict(record, _run_config())
-    if output.errors or not output.text.strip() or output.speaker_label != "Qualification":
+    if (
+        output.errors
+        or not output.text.strip()
+        or output.speaker_label != "Qualification"
+    ):
         raise RuntimeError("embedding + cosine matcher + ASR composition failed")
     return {
         "dimension": len(embedding.vector),
@@ -464,8 +474,11 @@ def _assert_permitted_asr(component: Mapping[str, object], path: Path) -> None:
         raise ValueError(f"ASR params must be a mapping: {path}")
     model_size = str(params.get("model_size") or "").lower()
     combined = f"{name} {model_size} {path.name.lower()}"
-    if any(marker in combined for marker in FORBIDDEN_WHISPER_MARKERS):
-        raise RuntimeError(f"prohibited Whisper model found in runnable ASR catalog: {path}")
+    is_whisper = name.startswith("whisper_") or name == "faster_whisper"
+    if is_whisper and any(marker in combined for marker in FORBIDDEN_WHISPER_MARKERS):
+        raise RuntimeError(
+            f"prohibited Whisper model found in runnable ASR catalog: {path}"
+        )
     if name.startswith("whisper_") and model_size not in ALLOWED_WHISPER_SIZES:
         raise RuntimeError(f"Whisper size is not permitted: {model_size!r}")
     if name == "faster_whisper" and model_size not in ALLOWED_WHISPER_SIZES:
@@ -515,8 +528,7 @@ def _resolve_audio_path(value: Path | None) -> Path:
             raise FileNotFoundError(f"qualification audio does not exist: {candidate}")
         return candidate
     candidates = (
-        REPO_ROOT
-        / "models/cache/sherpa_onnx/asr/"
+        REPO_ROOT / "models/cache/sherpa_onnx/asr/"
         "sherpa-onnx-streaming-zipformer-en-2023-06-26/test_wavs/0.wav",
         TOOL_ROOT / "tests/fixtures/audio/component_qualification.wav",
     )

@@ -55,6 +55,15 @@ def test_model_asset_registry_schema_and_identity_fields() -> None:
     )
     assert asset["environment_profile"] == "extended-local"
 
+    libri_giga = payload["assets"]["sherpa_onnx_libri_giga_zipformer_2023_06_21"]
+    assert libri_giga["expected_sha256_scope"] == "installed_tree"
+    assert libri_giga["active_model_size_bytes"] == 190180941
+    assert libri_giga["commercial_model_license"] == "permissive"
+    assert libri_giga["commercial_deployment_review"] == (
+        "required_due_to_gigaspeech_training_provenance"
+    )
+    assert libri_giga["known_training_domain_overlap"] == ["LibriSpeech"]
+
 
 def test_asset_detection_distinguishes_missing_from_corrupt() -> None:
     registry = load_model_asset_registry()
@@ -64,7 +73,9 @@ def test_asset_detection_distinguishes_missing_from_corrupt() -> None:
     assert "sha256" in asset
 
 
-def test_credential_status_never_requires_reading_value(monkeypatch: pytest.MonkeyPatch) -> None:
+def test_credential_status_never_requires_reading_value(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
     definition = {
         "id": "gated",
         "platforms": ["Windows", "Linux", "Darwin"],
@@ -190,7 +201,9 @@ def test_credential_gated_output_schema_and_secret_redaction(
     serialized = destination.read_text(encoding="utf-8")
     assert secret not in serialized
     assert payload["secret_audit"]["values_serialized"] is False
-    assert all(result["status"] in QUALIFICATION_STATUSES for result in payload["results"])
+    assert all(
+        result["status"] in QUALIFICATION_STATUSES for result in payload["results"]
+    )
 
 
 def test_vad_adapter_contract_and_chunker_composition() -> None:
@@ -256,6 +269,7 @@ def test_catalog_has_one_status_path_for_every_required_backend() -> None:
         "moonshine_streaming_small",
         "moonshine_streaming_medium",
         "sherpa_onnx_streaming_zipformer_20m_int8",
+        "sherpa_onnx_libri_giga_zipformer_2023_06_21",
         "fsmn_vad",
         "campplus_speaker_embedding",
         "eres2net_base_speaker_embedding",

@@ -1,0 +1,267 @@
+{
+  "environment": {
+    "cuda_available": false,
+    "cuda_runtime": null,
+    "device_requested": "cpu",
+    "git_commit": "5b811f6f19f9ee1d80c0ddb9065530ccc717c8be",
+    "gpu": null,
+    "machine": "AMD64",
+    "package_count": 68,
+    "package_freeze_sha256": "d88638b4955ab0dada065ef0821ece33a8f02764c1c40946f99b753ce9219b16",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python": "3.12.7",
+    "python_executable": "<environment>/Scripts/python.exe",
+    "torch": "2.11.0+cpu"
+  },
+  "generated_at": "2026-08-16T20:20:56.076280+00:00",
+  "profile": "onnx",
+  "results": [
+    {
+      "asset_identities": [
+        {
+          "acquisition_date": "2024-04-23T06:57:48+00:00",
+          "acquisition_method": "scripts/bootstrap_models.py --sherpa-libri-giga",
+          "active_model_size_bytes": 190180941,
+          "artifact_filename": "sherpa-onnx-streaming-zipformer-en-2023-06-21.tar.bz2",
+          "asset_id": "sherpa_onnx_libri_giga_zipformer_2023_06_21",
+          "backend": "Sherpa-ONNX",
+          "commercial_deployment_review": "required_due_to_gigaspeech_training_provenance",
+          "commercial_disposition": "commercial_deployment_review_required_due_to_gigaspeech_training_provenance",
+          "commercial_model_license": "permissive",
+          "component": "sherpa_onnx_libri_giga_zipformer_2023_06_21",
+          "conversion_provenance": "Official Sherpa-ONNX release converted from the exact cited Icefall LibriSpeech+GigaSpeech checkpoint",
+          "credential_required": false,
+          "environment_profile": "onnx",
+          "expected_sha256_scope": "installed_tree",
+          "expected_size_bytes": 546279902,
+          "files": [
+            {
+              "bytes": 231,
+              "path": "README.md",
+              "sha256": "eca6e2608d835c6b7ad596b659006dab216ab364928358a96d414e3e1ea4de04"
+            },
+            {
+              "bytes": 539246,
+              "path": "decoder-epoch-99-avg-1.int8.onnx",
+              "sha256": "093e23c90869898f761f60aa3363f96d43b9c6e5c06a57860c3a5b3407ab8320"
+            },
+            {
+              "bytes": 2092566,
+              "path": "decoder-epoch-99-avg-1.onnx",
+              "sha256": "9da02b77cb08826756ec6a88635f35a40374e4164e7c6359121a9145958a6ceb"
+            },
+            {
+              "bytes": 187823992,
+              "path": "encoder-epoch-99-avg-1.int8.onnx",
+              "sha256": "32c98281c7bd8b63e3e142d007251b37f120572e8fdea9a4f5a79ce22b10ec4f"
+            },
+            {
+              "bytes": 353707185,
+              "path": "encoder-epoch-99-avg-1.onnx",
+              "sha256": "b584884daad8cd4e60a5258e6da11876460089f1c4d3b5a92e19f0f104edb77a"
+            },
+            {
+              "bytes": 1233,
+              "path": "export-onnx-stateless7-streaming-multi.sh",
+              "sha256": "774cdd5adcc586d208e0904b19b5b5aa57a77dfc764799ff07f4c505a91412d6"
+            },
+            {
+              "bytes": 259335,
+              "path": "joiner-epoch-99-avg-1.int8.onnx",
+              "sha256": "831477d390e59a61f1b6a6f763b9903e6c6366ff6034f1ddba613be82637122f"
+            },
+            {
+              "bytes": 1026405,
+              "path": "joiner-epoch-99-avg-1.onnx",
+              "sha256": "bd5c26ad6a41cbd90c2cfa239c0b55b145af878ce1d79b4739d90f8be93359ba"
+            },
+            {
+              "bytes": 212044,
+              "path": "test_wavs/0.wav",
+              "sha256": "6bc58a4efdf20daac252b6b1502632601a71efe0308f6757dc1eda34891a7e4f"
+            },
+            {
+              "bytes": 534924,
+              "path": "test_wavs/1.wav",
+              "sha256": "5143a6ba93c4b274e2c4ac22deb75c2c48936c853f0519add1de828b6c79cc5a"
+            },
+            {
+              "bytes": 77244,
+              "path": "test_wavs/8k.wav",
+              "sha256": "f6f3c8b33e2534cdc154fe773ad2750f1f6a2ca5096179cdf037ae782456613e"
+            },
+            {
+              "bytes": 449,
+              "path": "test_wavs/trans.txt",
+              "sha256": "b9ac44e7b794abb1a2d5faf0005e98a665971e7ac2ed15435832cc34edaa9100"
+            },
+            {
+              "bytes": 5048,
+              "path": "tokens.txt",
+              "sha256": "49e3c2646595fd907228b3c6787069658f67b17377c60aeb8619c4551b2316fb"
+            }
+          ],
+          "hash_matches": true,
+          "known_training_domain_overlap": [
+            "LibriSpeech"
+          ],
+          "language_support": [
+            "English"
+          ],
+          "licence": "Apache-2.0 model weights; training-data provenance review is recorded separately",
+          "licence_evidence": [
+            "https://huggingface.co/csukuangfj/sherpa-onnx-streaming-zipformer-en-2023-06-21",
+            "https://huggingface.co/marcoyang/icefall-libri-giga-pruned-transducer-stateless7-streaming-2023-04-04",
+            "https://github.com/k2-fsa/sherpa-onnx/blob/master/LICENSE",
+            "https://github.com/microsoft/onnxruntime/blob/main/LICENSE",
+            "https://www.openslr.org/12",
+            "https://huggingface.co/datasets/speechcolab/gigaspeech"
+          ],
+          "missing_required_files": [],
+          "model_name": "csukuangfj/sherpa-onnx-streaming-zipformer-en-2023-06-21",
+          "model_version": "2023-06-21",
+          "parameter_count": 70369391,
+          "parameter_count_approximate": true,
+          "present": true,
+          "result_affecting_files": [
+            {
+              "expected_bytes": 5048,
+              "expected_sha256": "49e3c2646595fd907228b3c6787069658f67b17377c60aeb8619c4551b2316fb",
+              "matches": true,
+              "observed_bytes": 5048,
+              "observed_sha256": "49e3c2646595fd907228b3c6787069658f67b17377c60aeb8619c4551b2316fb",
+              "path": "tokens.txt",
+              "precision": "token_table"
+            },
+            {
+              "expected_bytes": 187823992,
+              "expected_sha256": "32c98281c7bd8b63e3e142d007251b37f120572e8fdea9a4f5a79ce22b10ec4f",
+              "matches": true,
+              "observed_bytes": 187823992,
+              "observed_sha256": "32c98281c7bd8b63e3e142d007251b37f120572e8fdea9a4f5a79ce22b10ec4f",
+              "path": "encoder-epoch-99-avg-1.int8.onnx",
+              "precision": "int8"
+            },
+            {
+              "expected_bytes": 2092566,
+              "expected_sha256": "9da02b77cb08826756ec6a88635f35a40374e4164e7c6359121a9145958a6ceb",
+              "matches": true,
+              "observed_bytes": 2092566,
+              "observed_sha256": "9da02b77cb08826756ec6a88635f35a40374e4164e7c6359121a9145958a6ceb",
+              "path": "decoder-epoch-99-avg-1.onnx",
+              "precision": "float32"
+            },
+            {
+              "expected_bytes": 259335,
+              "expected_sha256": "831477d390e59a61f1b6a6f763b9903e6c6366ff6034f1ddba613be82637122f",
+              "matches": true,
+              "observed_bytes": 259335,
+              "observed_sha256": "831477d390e59a61f1b6a6f763b9903e6c6366ff6034f1ddba613be82637122f",
+              "path": "joiner-epoch-99-avg-1.int8.onnx",
+              "precision": "int8"
+            }
+          ],
+          "result_affecting_files_match": true,
+          "sample_rate_hz": 16000,
+          "sha256": "8ad24aa63b28ffb15a5b91461e4d05b19e3237c3f5ca7a6d3557d0fac0a9dfdf",
+          "size_bytes": 546279902,
+          "size_matches": true,
+          "source": "https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-streaming-zipformer-en-2023-06-21.tar.bz2",
+          "source_archive": {
+            "expected_bytes": 506956414,
+            "expected_sha256": "455f40e556aa2b20ac9d3bffd603b58002075c1193b4070938540c11efe0a4da",
+            "matches": true,
+            "observed_bytes": 506956414,
+            "observed_sha256": "455f40e556aa2b20ac9d3bffd603b58002075c1193b4070938540c11efe0a4da",
+            "path": "models/cache/downloads/sherpa-onnx-streaming-zipformer-en-2023-06-21.tar.bz2",
+            "present": true
+          },
+          "source_checkpoint": "marcoyang/icefall-libri-giga-pruned-transducer-stateless7-streaming-2023-04-04",
+          "source_checkpoint_revision": "df8a1ee67abb67244b87d8011ec64ba46c6e97c0",
+          "storage_path": "models/cache/sherpa_onnx/asr/sherpa-onnx-streaming-zipformer-en-2023-06-21",
+          "streaming": false,
+          "training_corpora": [
+            "LibriSpeech",
+            "GigaSpeech"
+          ],
+          "upstream_model_revision": "9a65b6ea94c311ca770c2bf895b30f456a22d703",
+          "upstream_native_streaming_capable": true,
+          "verification_status": "verified"
+        }
+      ],
+      "backend_id": "sherpa_onnx_libri_giga_zipformer_2023_06_21",
+      "command": "python 'scripts\\qualify_extended_backends.py' --profile onnx --backend sherpa_onnx_libri_giga_zipformer_2023_06_21 --audio '..\\..\\models\\cache\\sherpa_onnx\\asr\\sherpa-onnx-streaming-zipformer-en-2023-06-21\\test_wavs\\0.wav' --output 'runs\\edge_backend_qualification\\onnx-libri-giga.json'",
+      "component_identity": {
+        "backend_id": "sherpa_onnx_libri_giga_zipformer_2023_06_21",
+        "config_path": "configs/inference/components/asr/sherpa_onnx_libri_giga_zipformer_2023_06_21.yaml",
+        "config_sha256": "a9d5b6788f2a3fd3855520bb7e26aa9bc1ba95c75e563df68a78e21c494cfae8",
+        "family": "asr"
+      },
+      "credential_presence": {},
+      "details": {
+        "empty_or_no_speech_behavior": {
+          "empty": true,
+          "text": "",
+          "valid": true
+        },
+        "identity_recorded": true,
+        "model_name": "sherpa_onnx_libri_giga_zipformer_2023_06_21",
+        "pipeline_composition": true,
+        "precision": null,
+        "repeated_output_equal": true,
+        "runtime": {
+          "audio_duration_sec": 1.0,
+          "cpu_memory_mb": null,
+          "device": "cpu",
+          "dtype": "float32",
+          "gpu_memory_allocated_mb": null,
+          "gpu_memory_reserved_mb": null,
+          "inference_sec": 0.06972450000466779,
+          "load_sec": 1.3366837000357918,
+          "model_name": "sherpa_onnx_libri_giga_zipformer_2023_06_21",
+          "peak_gpu_memory_mb": null,
+          "peak_gpu_memory_reserved_mb": null,
+          "realtime_factor": 0.06972450000466779
+        },
+        "transcripts": [
+          "after early nightfall the yellow lamps would light up here and there the squalid quarter of the brothels",
+          "after early nightfall the yellow lamps would light up here and there the squalid quarter of the brothels"
+        ],
+        "valid_real_outputs": 2
+      },
+      "device": "cpu",
+      "explanation": "Real repeated offline qualification passed.",
+      "failure_category": null,
+      "family": "asr",
+      "implicit_downloads_allowed": false,
+      "package_versions": {
+        "sherpa-onnx": "1.13.4"
+      },
+      "profile": "onnx",
+      "repetitions": 2,
+      "schema_validation": true,
+      "status": "qualified",
+      "timing": {
+        "inference_sec": [
+          1.717482,
+          0.360627
+        ],
+        "initialization_sec": 1.3366837000357918,
+        "total_sec": 10.63206
+      },
+      "warnings": []
+    }
+  ],
+  "schema_version": "extended-backend-qualification.v1",
+  "secret_audit": {
+    "credential_presence_only": true,
+    "values_serialized": false
+  },
+  "summary": {
+    "qualified": 1,
+    "status_counts": {
+      "qualified": 1
+    },
+    "total": 1
+  }
+}

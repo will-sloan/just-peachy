@@ -4,6 +4,7 @@ implicit_downloads_allowed: false
 backends:
   - {id: faster_whisper, family: asr, profile: extended-local, config: configs/inference/components/asr/faster_whisper.yaml, packages: [faster-whisper], assets: [faster_whisper_tiny], platforms: [Windows, Linux, Darwin]}
   - {id: sherpa_onnx_asr, family: asr, profile: onnx, config: configs/inference/components/asr/sherpa_onnx.yaml, packages: [sherpa-onnx], assets: [sherpa_onnx_asr], platforms: [Windows, Linux, Darwin]}
+  - {id: sherpa_onnx_libri_giga_zipformer_2023_06_21, family: asr, profile: onnx, config: configs/inference/components/asr/sherpa_onnx_libri_giga_zipformer_2023_06_21.yaml, packages: [sherpa-onnx], assets: [sherpa_onnx_libri_giga_zipformer_2023_06_21], platforms: [Windows, Linux, Darwin]}
   - {id: vosk, family: asr, profile: extended-local, config: configs/inference/components/asr/vosk.yaml, packages: [vosk], assets: [vosk_small_en_us_0_15], platforms: [Windows, Linux, Darwin]}
   - {id: wenet, family: asr, profile: wenet, config: configs/inference/components/asr/wenet.yaml, packages: [wenet], assets: [wenet_librispeech_u2pp], platforms: [Windows, Linux]}
   - {id: webrtc_vad, family: vad, profile: extended-local, config: configs/inference/components/vad/webrtc.yaml, packages: [webrtcvad-wheels], assets: [], platforms: [Windows, Linux, Darwin]}

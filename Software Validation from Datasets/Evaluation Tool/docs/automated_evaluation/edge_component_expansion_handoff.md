@@ -30,8 +30,10 @@ Bedroom remains unresolved without substitution.
 - Deterministic streaming replay, partial/final diagnostics, stability/churn/latency/RTF
   metrics, a v3 artifact contract, and an additive streaming metric registry.
 - Three pinned profiles: `moonshine-edge`, `onnx`, and `edge-cpu`.
-- Twelve environment-homogeneous ASR campaign catalogs, two union research catalogs, seven
-  opt-in large paths, and Stage 10 small/standard/large plans.
+- Thirteen environment-homogeneous ASR campaign catalogs, two union research catalogs,
+  eight opt-in large paths, and Stage 10 small/standard/large plans.
+- A separate LibriSpeech+GigaSpeech Sherpa-ONNX 2023-06-21 component and opt-in
+  32-scenario large ASR-isolation campaign, without changing historical catalogs.
 - `prepare_edge_research.ps1`, `verify_edge_research.ps1`, and
   `run_edge_research.ps1` with global plan-only preflight and sequential execution.
 - This handoff and `edge_research_quick_start.md`.
@@ -47,6 +49,7 @@ actions; inference always has downloads disabled.
 | `moonshine_streaming_small` | ASR | `moonshine-edge` | MIT / MIT | permissive | 165,489,086 B | 123M | CPU qualified; GPU unqualified | native | qualified; same evidence |
 | `moonshine_streaming_medium` | ASR | `moonshine-edge` | MIT / MIT | permissive | 304,690,919 B | 245M | CPU qualified; GPU unqualified | native | qualified; same evidence |
 | `sherpa_onnx_streaming_zipformer_20m_int8` | ASR | `onnx` | Apache-2.0 / Apache-2.0 | permissive | 136,398,588 B | 20M | CPU qualified; GPU not used | native | qualified; `runs/edge_backend_qualification/onnx-edge.json` |
+| `sherpa_onnx_libri_giga_zipformer_2023_06_21` | ASR | `onnx` | Apache-2.0 weights/runtime | model license permissive; GigaSpeech provenance review required | 546,279,902 B cached tree; 190,180,941 B active | approximately 70,369,391 | CPU qualified | upstream native; campaign segment contract | qualified; `runs/edge_backend_qualification/onnx-libri-giga.json` |
 | `fsmn_vad` | VAD | `edge-cpu` | MIT runtime / Apache-2.0 model | permissive | 515,999 B | not published locally | CPU qualified | incremental backend | qualified; `runs/edge_backend_qualification/edge-cpu.json` |
 | `campplus_speaker_embedding` | embedding | `onnx` | Apache-2.0 / Apache-2.0 | permissive | 29,596,978 B | 7.18M | CPU qualified | no | qualified; `runs/edge_backend_qualification/onnx-edge.json`; Stage 10 `runs/edge_speaker_protocol_smoke/real_smoke_matrix.json` |
 | `eres2net_base_speaker_embedding` | embedding | `onnx` | Apache-2.0 / Apache-2.0 | permissive | 39,593,761 B | 4.6M | CPU qualified | no | qualified; same evidence |
@@ -59,6 +62,7 @@ Exact asset hashes:
 | Moonshine Small | installed tree | `56ab2918138d593ef6caae027e7987c64023893bcde2409e7dc3b6907e9e811c` |
 | Moonshine Medium | installed tree | `d697b820001e512f82cd0b6b476ae5bbc551250ea5bf73b8ceb60039b167bc3a` |
 | Sherpa20 INT8 | installed tree | `f8edd2bfe4ba76b9fdac18f09740bb3dc4eb9c87acc3ca3d6c604e9b26bb36d5` |
+| Sherpa Libri+Giga 2023-06-21 | installed tree | `8ad24aa63b28ffb15a5b91461e4d05b19e3237c3f5ca7a6d3557d0fac0a9dfdf` |
 | CAM++ | installed file | `357a834f702b80161e5b981182c038e18553c1f2ca752ed6cec2052365d4129b` |
 | ERes2Net Base | installed file | `1a331345f04805badbb495c775a6ddffcdd1a732567d5ec8b3d5749e3c7a5e4b` |
 | FSMN-VAD | installed tree | `42a97051d20b99486fbc4f583316eeba7d4f0ea499fee664dc49068861a08e42` |
@@ -79,8 +83,9 @@ Exact asset hashes:
 | `campaign_edge_lg_wbase_v1` | large reference | 32 | `core-cpu` | no |
 | `campaign_edge_lg_shorig_v1` | original Sherpa-ONNX ASR isolation | 32 | `onnx` | no |
 | `campaign_edge_lg_wsmall_v1` | Whisper Small ASR isolation | 32 | `core-cpu` | no |
+| `campaign_edge_lg_shgiga_v1` | Sherpa Libri+Giga ASR isolation | 32 | `onnx` | no |
 
-The twelve executable catalogs contain 596 scenario rows in total; the default queue is 84.
+The thirteen executable catalogs contain 628 scenario rows in total; the default queue is 84.
 The union catalogs are analysis/design aids and are not executable as one process because
 their environment profiles differ.
 
@@ -88,8 +93,9 @@ their environment profiles differ.
 contract and its `sherpa-onnx-streaming-zipformer-en-2023-06-26` checkpoint. It is distinct
 from the native-stateful `sherpa_onnx_streaming_zipformer_20m_int8` campaign.
 `campaign_edge_lg_wsmall_v1` uses the existing local `whisper_small` / OpenAI Whisper
-`small.pt` checkpoint. Both new large catalogs use the exact no-op ASR-isolation components
-and frozen 8,258-row large manifest used by the existing large catalogs.
+`small.pt` checkpoint. The additive Libri+Giga catalog and the prior two additions use
+the exact no-op ASR-isolation components and frozen 8,258-row large manifest used by the
+existing large catalogs. The LibriSpeech evaluation overlap is explicitly recorded.
 
 Stage 10 plans are `campaign_spk10_edge_sm_v1` (63 clean items/backend),
 `campaign_spk10_edge_std_v1` (240), and `campaign_spk10_edge_lg_v1` (510). They are
@@ -123,14 +129,15 @@ Set-Location 'Software Validation from Datasets\Evaluation Tool'
 
 ## What was actually tested
 
-- Profile-specific repeated real qualification passed for all seven new backends.
+- Profile-specific repeated real qualification passed for the seven prior additions and
+  the additive Libri+Giga Sherpa backend.
 - Every streaming ASR consumed deterministic 100 ms chunks with backend state retained,
   emitted a final transcript, and produced `streaming-diagnostics.v1` without downloads.
 - CAM++ and ERes2Net produced finite, normalized, repeatable 512-dimensional vectors.
 - Stage 10 selected-backend smoke passed 8/8 items for each backend, preserved `Unknown`,
   and kept calibration/evaluation separate.
-- All 12 catalogs validate; all 596 scenario identities validate.
-- Complete dry-plan passed for all 12 campaigns. The default PowerShell plan passed at
+- All 13 catalogs validate; all 628 scenario identities validate.
+- Complete dry-plan passed for all 13 campaigns. The default PowerShell plan passed at
   exact counts 36 + 36 + 12.
 - Source preflight checked 8,663 frozen manifest rows with zero missing audio.
 - Focused automated tests and final static checks are recorded in the completing Codex

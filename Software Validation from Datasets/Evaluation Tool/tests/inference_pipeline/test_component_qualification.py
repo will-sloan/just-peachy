@@ -25,7 +25,12 @@ def test_every_runnable_asr_fragment_obeys_whisper_safety_policy() -> None:
 
     assert {path.name for path in fragments} == {
         "faster_whisper.yaml",
+        "moonshine_streaming_medium.yaml",
+        "moonshine_streaming_small.yaml",
+        "moonshine_streaming_tiny.yaml",
         "sherpa_onnx.yaml",
+        "sherpa_onnx_libri_giga_zipformer_2023_06_21.yaml",
+        "sherpa_onnx_streaming_zipformer_20m_int8.yaml",
         "vosk.yaml",
         "wenet.yaml",
         "whisper_base.yaml",
@@ -45,7 +50,9 @@ def test_qualification_hard_rejects_prohibited_whisper_sizes(model_size: str) ->
         _assert_permitted_asr(component, Path(f"whisper_{model_size}.yaml"))
 
 
-def test_asr_qualification_config_uses_full_record_and_disables_unrelated_slots() -> None:
+def test_asr_qualification_config_uses_full_record_and_disables_unrelated_slots() -> (
+    None
+):
     asr = _read_component_fragment(COMPONENT_ROOT / "asr" / "vosk.yaml")
 
     config = _config_with_components(asr=asr)
