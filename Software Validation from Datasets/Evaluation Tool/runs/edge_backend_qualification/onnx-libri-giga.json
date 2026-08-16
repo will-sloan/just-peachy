@@ -3,7 +3,7 @@
     "cuda_available": false,
     "cuda_runtime": null,
     "device_requested": "cpu",
-    "git_commit": "5b811f6f19f9ee1d80c0ddb9065530ccc717c8be",
+    "git_commit": "bdc0bd6c21ac92121410e58e64a06fa8feda796d",
     "gpu": null,
     "machine": "AMD64",
     "package_count": 68,
@@ -13,7 +13,7 @@
     "python_executable": "<environment>/Scripts/python.exe",
     "torch": "2.11.0+cpu"
   },
-  "generated_at": "2026-08-16T20:20:56.076280+00:00",
+  "generated_at": "2026-08-16T20:41:04.803678+00:00",
   "profile": "onnx",
   "results": [
     {
@@ -216,12 +216,12 @@
           "dtype": "float32",
           "gpu_memory_allocated_mb": null,
           "gpu_memory_reserved_mb": null,
-          "inference_sec": 0.06972450000466779,
-          "load_sec": 1.3366837000357918,
+          "inference_sec": 0.06802700000116602,
+          "load_sec": 1.3417886999668553,
           "model_name": "sherpa_onnx_libri_giga_zipformer_2023_06_21",
           "peak_gpu_memory_mb": null,
           "peak_gpu_memory_reserved_mb": null,
-          "realtime_factor": 0.06972450000466779
+          "realtime_factor": 0.06802700000116602
         },
         "transcripts": [
           "after early nightfall the yellow lamps would light up here and there the squalid quarter of the brothels",
@@ -243,11 +243,11 @@
       "status": "qualified",
       "timing": {
         "inference_sec": [
-          1.717482,
-          0.360627
+          1.733199,
+          0.367468
         ],
-        "initialization_sec": 1.3366837000357918,
-        "total_sec": 10.63206
+        "initialization_sec": 1.3417886999668553,
+        "total_sec": 5.079159
       },
       "warnings": []
     }
