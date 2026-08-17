@@ -1,4 +1,4 @@
-# Training Tool: Phase-2 data freeze
+# Training Tool: Phase-2 data freeze and Phase-3 acquisition gate
 
 ## Purpose
 
@@ -81,6 +81,50 @@ VOiCES original-source identifiers are normalized to the corresponding LibriSpee
 Future code can use `training_data.registry.select_records(frame, strict=True, commercial_policy='straightforward')`, or the `review_gated` policy for CHiME-6. This tool deliberately returns candidates only; it does not freeze a future split.
 
 When Common Voice arrives, create a new additive registry/freeze version from this one plus its exact release. Do not overwrite this Phase-2 snapshot.
+
+## Phase 3: pinned Common Voice English acquisition
+
+Phase 3 pins **Common Voice Scripted Speech 26.0 - English**, locale `en`, corpus release `cv-corpus-26.0-2026-06-12`, released 2026-06-17. The official Mozilla Data Collective record identifies the dataset as `cmqim2hn800ssnr07gvmpcnwu`, licenses it under `CC0-1.0`, and publishes archive size `94,639,372,950` bytes and SHA-256 `6809228E6AB506D18F6A1EBC830056450F8266C8F513D6038BDB0FC88A49E6CB`.
+
+The immutable release record is [common_voice_release.v1.json](training_data/common_voice_release.v1.json). [common_voice.py](training_data/common_voice.py) uses Mozilla's official `datacollective` Python SDK. The SDK resumes an interrupted download when its `.part` and `.checksum` state remain in the same directory. The wrapper refuses an unexpected filename, byte size, or SHA-256 and never stores or prints the API key.
+
+Inputs:
+
+- the existing `JP_TRAINING_ROOT` setting;
+- an `MDC_API_KEY` supplied only through the current shell;
+- the pinned Mozilla dataset ID and published archive identity.
+
+Outputs, all ignored by Git, are beneath:
+
+```text
+<JP_TRAINING_ROOT>/datasets/common_voice/english/cv-corpus-26.0-2026-06-12/
+  source/common-voice-scripted-speech-26-0-englis-c84784ae.tar.gz
+  metadata/acquisition_manifest.json
+```
+
+This acquisition command does **not** extract the archive, select speakers, create splits, alter evaluation, or create a Phase-3 freeze. Those operations remain blocked until the exact archive verifies.
+
+### One-time authenticated setup and continuation
+
+1. Open the [official Mozilla dataset record](https://datacollective.mozillafoundation.org/datasets/cmqim2hn800ssnr07gvmpcnwu), sign in or create an account, read and accept the dataset conditions, and confirm the Common Voice prohibitions on speaker identification and redistribution.
+2. In Mozilla Data Collective, open **Account -> Credentials** and create or retrieve an API key.
+3. In Anaconda Prompt or PowerShell, run the following. Do not put the key in a `.env` file inside this repository and do not commit it.
+
+```powershell
+Set-Location 'C:\Users\amiri\Documents\GitHub\just-peachy\Software Validation from Datasets\Training Tool'
+..\..\.venv\Scripts\python.exe -m pip install datacollective
+$env:MDC_API_KEY = Read-Host 'Mozilla Data Collective API key'
+..\..\.venv\Scripts\python.exe -m training_data.common_voice status
+..\..\.venv\Scripts\python.exe -m training_data.common_voice acquire
+```
+
+In classic Anaconda Prompt (`cmd.exe`), use `set /p MDC_API_KEY=Mozilla Data Collective API key:` instead of the PowerShell `Read-Host` line. Rerun the same `acquire` command after any interruption; the official SDK resumes automatically. After it reports `download_complete: true`, continue Phase 3 with archive extraction, real metadata/age-schema inspection, older-speaker selection, leakage checks, speaker-disjoint splits, and a successor freeze derived from `training_freeze_7a88aec7492f`.
+
+Before authentication, the safe diagnostic command is:
+
+```powershell
+..\..\.venv\Scripts\python.exe -m training_data.common_voice status
+```
 
 ## Test
 
