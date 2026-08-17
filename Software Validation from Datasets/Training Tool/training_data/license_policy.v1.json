@@ -1,6 +1,6 @@
 {
   "schema_version": "training-license-policy.v1",
-  "policy_id": "license_policy_phase2_local_v1",
+  "policy_id": "license_policy_phase2_ami_relicense_v2",
   "not_legal_advice": true,
   "verification_date": "2026-08-17",
   "datasets": {
@@ -52,18 +52,44 @@
     },
     "ami": {
       "dataset_version": "local_ami_corpus",
-      "license_id": "CC-BY-NC-SA-2.5",
-      "license_name": "Creative Commons Attribution-NonCommercial-ShareAlike 2.5",
-      "evidence_type": "local_license_file",
-      "local_license_logical_path": "Raw Datasets (Not formatted)/AMI Meeting Corpus/headset/LICENCE.txt",
-      "local_license_sha256": "C39AC48E6402C22BE00A96FC2020BFADF8408A182EA2D73D0547DFF745C4C571",
-      "evidence_note": "The local corpus licence contradicts the prompt's starting expectation of CC BY 4.0; the local licence controls this registry classification.",
-      "commercial_training_status": "prohibited_for_intended_commercial_use",
-      "technical_training_status": "eligible_for_noncommercial_research",
-      "commercial_release_review_status": "permission_required",
+      "license_id": "CC-BY-4.0",
+      "license_name": "Creative Commons Attribution 4.0",
+      "evidence_type": "historical_local_license_and_authoritative_relicensing",
+      "historical_license": {
+        "license_id": "CC-BY-NC-SA-2.5",
+        "license_name": "Creative Commons Attribution-NonCommercial-ShareAlike 2.5",
+        "local_license_logical_path": "Raw Datasets (Not formatted)/AMI Meeting Corpus/headset/LICENCE.txt",
+        "local_license_sha256": "C39AC48E6402C22BE00A96FC2020BFADF8408A182EA2D73D0547DFF745C4C571",
+        "evidence_note": "Legacy local corpus licence retained as historical provenance; it predates the maintainer's later explicit relicensing."
+      },
+      "effective_license": {
+        "license_id": "CC-BY-4.0",
+        "license_name": "Creative Commons Attribution 4.0",
+        "effective_date": "2017-04-10",
+        "evidence_kind": "authoritative_maintainer_relicensing",
+        "explicit_relicensing": true,
+        "same_corpus_material": true,
+        "verification_status": "verified",
+        "official_source_record": "https://groups.inf.ed.ac.uk/ami/download/",
+        "official_license_record": "https://groups.inf.ed.ac.uk/ami/corpus/license.shtml",
+        "evidence_note": "AMI maintainers state that the 10-Apr-2017 release's annotations were unchanged and its licence was altered to CC BY 4.0; the current official corpus licence is CC BY 4.0.",
+        "terms": {
+          "license_id": "CC-BY-4.0",
+          "license_name": "Creative Commons Attribution 4.0",
+          "commercial_training_status": "allowed_with_attribution",
+          "technical_training_status": "eligible",
+          "commercial_release_review_status": "normal_attribution_provenance_review",
+          "attribution_required": true,
+          "sharealike_flag": false,
+          "noncommercial_flag": false
+        }
+      },
+      "commercial_training_status": "allowed_with_attribution",
+      "technical_training_status": "eligible",
+      "commercial_release_review_status": "normal_attribution_provenance_review",
       "attribution_required": true,
-      "sharealike_flag": true,
-      "noncommercial_flag": true
+      "sharealike_flag": false,
+      "noncommercial_flag": false
     },
     "chime6": {
       "dataset_version": "local_chime6",

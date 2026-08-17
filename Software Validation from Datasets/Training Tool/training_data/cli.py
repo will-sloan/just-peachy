@@ -25,7 +25,10 @@ def _summary_path(root: Path) -> Path:
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     sub = parser.add_subparsers(dest="command", required=True)
-    sub.add_parser("build", help="create the ignored local metadata freeze")
+    build = sub.add_parser("build", help="create the ignored local metadata freeze")
+    build.add_argument("--output-root", type=Path, default=None, help="successor workspace; defaults to JP_TRAINING_ROOT")
+    build.add_argument("--parent-freeze", type=Path, default=None, help="immutable parent freeze for a correction successor")
+    build.add_argument("--correction-reason", default=None, help="recorded only when --parent-freeze is provided")
     verify = sub.add_parser("verify-freeze", help="check freeze self-hash and benchmark identities")
     verify.add_argument("--path", type=Path, default=None)
     sub.add_parser("summary", help="print the generated registry summary")
@@ -36,7 +39,8 @@ def main() -> int:
     args = parser.parse_args()
     root = training_root().path
     if args.command == "build":
-        print(json.dumps(build_freeze(POLICY_ROOT, TOOL_ROOT, data_root().path, root), indent=2, sort_keys=True))
+        output_root = args.output_root or root
+        print(json.dumps(build_freeze(POLICY_ROOT, TOOL_ROOT, data_root().path, output_root, parent_freeze=args.parent_freeze, correction_reason=args.correction_reason), indent=2, sort_keys=True))
     elif args.command == "verify-freeze":
         result = verify_freeze_details(args.path or root / "registries" / "training_data_freeze_manifest.json", TOOL_ROOT)
         print(json.dumps(result, indent=2, sort_keys=True))

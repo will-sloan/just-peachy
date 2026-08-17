@@ -6,6 +6,7 @@ import sys
 from pathlib import Path
 
 import pandas as pd
+import pytest
 
 
 TRAINING_TOOL = Path(__file__).resolve().parents[1]
@@ -14,6 +15,7 @@ sys.path.insert(0, str(TRAINING_TOOL))
 from training_data.registry import (  # noqa: E402
     _apply_policy_and_firewall,
     _cross_key,
+    effective_policy_terms,
     _frame_hash,
     _json_hash,
     evaluation_inputs,
@@ -91,6 +93,51 @@ def test_review_gated_selection_is_not_straightforward_commercial() -> None:
     )
     assert select_records(frame, commercial_policy="straightforward")["source_item_id"].tolist() == ["libri"]
     assert select_records(frame, commercial_policy="review_gated")["source_item_id"].tolist() == ["chime"]
+
+
+def test_verified_maintainer_relicensing_supersedes_historical_local_license() -> None:
+    historical = {
+        "license_id": "CC-BY-NC-SA-2.5",
+        "local_license_logical_path": "legacy/LICENCE.txt",
+    }
+    policy = {
+        "license_id": historical["license_id"],
+        "historical_license": historical,
+        "effective_license": {
+            "effective_date": "2017-04-10",
+            "evidence_kind": "authoritative_maintainer_relicensing",
+            "explicit_relicensing": True,
+            "same_corpus_material": True,
+            "verification_status": "verified",
+            "terms": {
+                "license_id": "CC-BY-4.0", "license_name": "CC BY 4.0",
+                "commercial_training_status": "allowed_with_attribution",
+                "technical_training_status": "eligible",
+                "commercial_release_review_status": "normal_attribution_provenance_review",
+                "attribution_required": True, "sharealike_flag": False, "noncommercial_flag": False,
+            },
+        },
+    }
+    resolved = effective_policy_terms(policy)
+    assert resolved["license_id"] == "CC-BY-4.0"
+    assert resolved["historical_license"] == historical
+    assert resolved["commercial_training_status"] == "allowed_with_attribution"
+
+
+def test_unverified_internet_claim_cannot_override_historical_license() -> None:
+    policy = {
+        "license_id": "CC-BY-NC-SA-2.5",
+        "effective_license": {
+            "effective_date": "2017-04-10",
+            "evidence_kind": "internet_claim",
+            "explicit_relicensing": True,
+            "same_corpus_material": True,
+            "verification_status": "unverified",
+            "terms": {},
+        },
+    }
+    with pytest.raises(ValueError, match="authoritative maintainer"):
+        effective_policy_terms(policy)
 
 
 def test_verify_freeze_rejects_changed_evaluation_manifest(tmp_path: Path) -> None:

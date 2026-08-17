@@ -12,7 +12,7 @@ The existing Just-Peachy evaluation universe remains test-only. Future training-
 - Every benchmark parquet beneath `Evaluation Tool/benchmarks` that has source identities. This includes the v1 Small, Standard, Large, speaker-protocol, and later source-identified benchmark material.
 - [license_policy.v1.json](training_data/license_policy.v1.json), the versioned policy and evidence record.
 
-The CMU Arctic entry is CC0-1.0 based on an operator-supplied local classification. Local files independently verify the LibriSpeech, HiFiTTS, and CHiME-6 entries. The local AMI `LICENCE.txt` says CC BY-NC-SA 2.5, so AMI is visible for non-commercial research but cannot enter the intended-commercial selection branch. CHiME-6 is technically eligible but review-gated; this is not a legal conclusion about model weights.
+The CMU Arctic entry is CC0-1.0 based on an operator-supplied local classification. Local files independently verify the LibriSpeech, HiFiTTS, and CHiME-6 entries. AMI preserves its locally bundled historical CC BY-NC-SA 2.5 `LICENCE.txt` as provenance, but the AMI maintainers relicensed the unchanged core corpus under CC BY 4.0 on 10 April 2017. The registry therefore uses CC BY 4.0 as AMI's effective current licence: intended-commercial training is allowed with attribution. CHiME-6 is technically eligible but review-gated; this is not a legal conclusion about model weights.
 
 ## Outputs
 
@@ -26,6 +26,8 @@ The CMU Arctic entry is CC0-1.0 based on an operator-supplied local classificati
 
 Absolute `resolved_audio_path` fields are diagnostic-only. They never participate in canonical hashes. `source_available` means the normalized metadata supplied a rebasable path; the freeze intentionally does not run a slow per-audio filesystem probe or hash raw audio.
 
+For a policy correction, preserve the existing freeze and build to a separate successor directory with `--parent-freeze`. The successor records the parent ID and hash in its own freeze manifest.
+
 ## Run from Anaconda Prompt, Command Prompt, or PowerShell
 
 Use the repository virtual environment (or replace its Python executable with the Python from the activated Anaconda environment). Quote the directory because it contains spaces.
@@ -36,6 +38,15 @@ Set-Location 'C:\Users\amiri\Documents\GitHub\just-peachy\Software Validation fr
 ..\..\.venv\Scripts\python.exe -m training_data.cli verify-freeze
 ..\..\.venv\Scripts\python.exe -m training_data.cli summary
 ..\..\.venv\Scripts\python.exe -m training_data.cli preview-pool robust_plus_chime
+```
+
+Create the AMI CC BY 4.0 correction successor without overwriting the historical Phase-2 output:
+
+```powershell
+$parent = '..\..\training\registries\training_data_freeze_manifest.json'
+$successor = '..\..\training\successors\ami_cc_by_4_0_2017_04_10'
+..\..\.venv\Scripts\python.exe -m training_data.cli build --output-root $successor --parent-freeze $parent --correction-reason ami_cc_by_4_0_relicensing_2017_04_10
+..\..\.venv\Scripts\python.exe -m training_data.cli verify-freeze --path "$successor\registries\training_data_freeze_manifest.json"
 ```
 
 To write data and generated registries somewhere other than the checkout, set the Phase-1 resolver inputs before running:

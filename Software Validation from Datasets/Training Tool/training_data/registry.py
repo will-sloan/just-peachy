@@ -8,6 +8,7 @@ from __future__ import annotations
 import hashlib
 import json
 from collections import defaultdict
+from datetime import date
 from pathlib import Path
 from typing import Any, Iterable
 
@@ -140,20 +141,58 @@ def load_policy(source_root: Path) -> dict[str, Any]:
     return json.loads((source_root / "license_policy.v1.json").read_text(encoding="utf-8"))
 
 
+def effective_policy_terms(dataset_policy: dict[str, Any]) -> dict[str, Any]:
+    """Resolve a narrowly specified, verified maintainer relicensing record.
+
+    A bundled legacy licence file remains provenance evidence.  It can be
+    superseded only by a policy record that explicitly asserts a later,
+    authoritative maintainer relicensing of the same corpus material.  This
+    intentionally rejects an unverified internet claim.
+    """
+    effective = dataset_policy.get("effective_license")
+    if effective is None:
+        return dict(dataset_policy)
+    if not isinstance(effective, dict):
+        raise ValueError("effective_license must be an object")
+    if effective.get("evidence_kind") != "authoritative_maintainer_relicensing":
+        raise ValueError("effective_license requires authoritative maintainer relicensing evidence")
+    if effective.get("same_corpus_material") is not True or effective.get("explicit_relicensing") is not True:
+        raise ValueError("effective_license must explicitly cover the same corpus material")
+    if effective.get("verification_status") != "verified":
+        raise ValueError("effective_license must be verified before it can supersede historical evidence")
+    date.fromisoformat(str(effective.get("effective_date", "")))
+    terms = effective.get("terms")
+    required = {
+        "license_id", "license_name", "commercial_training_status", "technical_training_status",
+        "commercial_release_review_status", "attribution_required", "sharealike_flag", "noncommercial_flag",
+    }
+    if not isinstance(terms, dict) or required - set(terms):
+        raise ValueError("effective_license terms are incomplete")
+    resolved = dict(dataset_policy)
+    resolved.update(terms)
+    return resolved
+
+
 def _policy_evidence(policy: dict[str, Any], data_root: Path) -> dict[str, Any]:
     """Validate only small local licence files, never raw audio."""
     records: dict[str, Any] = {}
     for dataset, value in policy["datasets"].items():
         record = {key: content for key, content in value.items() if key != "notes"}
-        logical = value.get("local_license_logical_path")
-        if logical:
+        evidence_records = [("local", value)]
+        historical = value.get("historical_license")
+        if isinstance(historical, dict):
+            evidence_records.append(("historical", historical))
+        for label, candidate in evidence_records:
+            logical = candidate.get("local_license_logical_path")
+            if not logical:
+                continue
             path = data_root / logical
             if not path.is_file():
                 raise FileNotFoundError(f"Required local licence evidence is missing for {dataset}: {path}")
             observed = hashlib.sha256(path.read_bytes()).hexdigest().upper()
-            if observed != value.get("local_license_sha256"):
+            if observed != candidate.get("local_license_sha256"):
                 raise ValueError(f"Local licence evidence changed for {dataset}: {logical}")
-            record["local_license_verified_sha256"] = observed
+            record[f"{label}_license_verified_sha256"] = observed
         records[dataset] = record
     return records
 
@@ -312,7 +351,7 @@ def _base_frame(dataset: str, recordings: pd.DataFrame, utterances: pd.DataFrame
 def _apply_policy_and_firewall(frame: pd.DataFrame, policy: dict[str, Any], exclusion: pd.DataFrame) -> pd.DataFrame:
     out = frame.copy()
     dataset = str(out["dataset_id"].iloc[0])
-    terms = policy["datasets"][dataset]
+    terms = effective_policy_terms(policy["datasets"][dataset])
     same_dataset = exclusion.loc[exclusion["dataset"].eq(dataset)]
     exact_utterances = set(same_dataset["source_utterance_id"].dropna().astype(str))
     exact_recordings = set(
@@ -444,7 +483,7 @@ def _audit_markdown(summary: dict[str, Any], freeze: dict[str, Any]) -> str:
         "",
         "## Policy notes",
         "",
-        "- AMI is marked `prohibited_for_intended_commercial_use`: its local `LICENCE.txt` identifies CC BY-NC-SA 2.5, which overrides the prompt's starting expectation.",
+        "- AMI retains a historical local CC BY-NC-SA 2.5 licence file, but the verified 2017-04-10 authoritative maintainer relicensing of the unchanged core corpus makes CC BY 4.0 the effective current policy.",
         "- CHiME-6 is technically eligible but only through the review-gated branch; this is not a conclusion about trained-model licence consequences.",
         "- CMU Arctic's CC0 entry is an operator-supplied local licence assertion, recorded as such rather than treated as independent legal advice.",
         "- VOiCES/LibriSpeech source keys are compared across dataset IDs. HiFiTTS/LibriSpeech has no fabricated item-level link.",
@@ -456,7 +495,29 @@ def _audit_markdown(summary: dict[str, Any], freeze: dict[str, Any]) -> str:
     return "\n".join(lines) + "\n"
 
 
-def build_freeze(source_root: Path, tool_root: Path, data_root: Path, output_root: Path) -> dict[str, Any]:
+def _parent_freeze_reference(path: Path) -> dict[str, str]:
+    parent = json.loads(path.read_text(encoding="utf-8"))
+    expected = parent.get("training_data_freeze_sha256")
+    payload = dict(parent)
+    payload.pop("training_data_freeze_sha256", None)
+    payload.pop("training_data_freeze_id", None)
+    if expected != _json_hash(payload):
+        raise ValueError(f"Parent freeze self-hash does not match: {path}")
+    return {
+        "training_data_freeze_id": str(parent["training_data_freeze_id"]),
+        "training_data_freeze_sha256": str(expected),
+    }
+
+
+def build_freeze(
+    source_root: Path,
+    tool_root: Path,
+    data_root: Path,
+    output_root: Path,
+    *,
+    parent_freeze: Path | None = None,
+    correction_reason: str | None = None,
+) -> dict[str, Any]:
     policy = load_policy(source_root)
     evidence = _policy_evidence(policy, data_root)
     exclusion, manifests = evaluation_inputs(tool_root)
@@ -506,6 +567,9 @@ def build_freeze(source_root: Path, tool_root: Path, data_root: Path, output_roo
         "evaluation_manifests": manifests,
         "code_schema_versions": {"registry": SCHEMA, "exclusion": EXCLUSION_SCHEMA},
     }
+    if parent_freeze is not None:
+        freeze["parent_freeze"] = _parent_freeze_reference(parent_freeze)
+        freeze["correction_reason"] = correction_reason or "policy_correction"
     freeze["training_data_freeze_sha256"] = _json_hash(freeze)
     freeze["training_data_freeze_id"] = f"training_freeze_{freeze['training_data_freeze_sha256'][:12].lower()}"
     _write_json(registries / "training_data_registry_summary.json", summary)
