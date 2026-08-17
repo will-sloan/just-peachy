@@ -1,0 +1,103 @@
+{
+  "schema_version": "training-license-policy.v1",
+  "policy_id": "license_policy_phase2_local_v1",
+  "not_legal_advice": true,
+  "verification_date": "2026-08-17",
+  "datasets": {
+    "cmu_arctic": {
+      "dataset_version": "local_cmu_us_arctic_collection",
+      "license_id": "CC0-1.0",
+      "license_name": "CC0 1.0 Universal",
+      "evidence_type": "operator_supplied_local_license_assertion",
+      "evidence_note": "Operator supplied the CC0 1.0 Universal classification on 2026-08-17. The local do_arctic.txt is a BSD-style script licence and is not treated as audio-corpus licence evidence.",
+      "identity_resolution": "standard CMU ARCTIC speech databases (not L2-ARCTIC)",
+      "identity_evidence": "Normalized records use cmu_us_<speaker>_arctic speakers and arctic_aNNNN prompts; 18 local speakers were found. No L2-ARCTIC identity marker appears in the normalized metadata.",
+      "commercial_training_status": "allowed",
+      "technical_training_status": "eligible",
+      "commercial_release_review_status": "normal_provenance_review",
+      "attribution_required": false,
+      "sharealike_flag": false,
+      "noncommercial_flag": false
+    },
+    "librispeech": {
+      "dataset_version": "local_openslr_slr12",
+      "license_id": "CC-BY-4.0",
+      "license_name": "Creative Commons Attribution 4.0",
+      "evidence_type": "local_license_file_and_official_source",
+      "local_license_logical_path": "Raw Datasets (Not formatted)/LibreSpeech/test-clean/LibriSpeech/LICENSE.TXT",
+      "local_license_sha256": "908B0B565AE9BF61B7B41447CB0B83564F320375723BCC884EC30E5537A0D5DC",
+      "official_source_record": "https://www.openslr.org/12/",
+      "commercial_training_status": "allowed_with_attribution",
+      "technical_training_status": "eligible",
+      "commercial_release_review_status": "normal_attribution_provenance_review",
+      "attribution_required": true,
+      "sharealike_flag": false,
+      "noncommercial_flag": false
+    },
+    "hifitts": {
+      "dataset_version": "hi_fi_tts_v0",
+      "license_id": "CC-BY-4.0",
+      "license_name": "Creative Commons Attribution 4.0",
+      "evidence_type": "local_license_file_and_official_source",
+      "local_license_logical_path": "Raw Datasets (Not formatted)/Hi Fi TTS/hi_fi_tts_v0/LICENSE.txt",
+      "local_license_sha256": "27A903CAB1081B055DBA1BCEF7B543572318EB2F255EC8999103F368F845DF24",
+      "official_source_record": "https://www.openslr.org/109/",
+      "commercial_training_status": "allowed_with_attribution",
+      "technical_training_status": "eligible",
+      "commercial_release_review_status": "normal_attribution_provenance_review",
+      "attribution_required": true,
+      "sharealike_flag": false,
+      "noncommercial_flag": false,
+      "notes": "Local v0 provenance is LibriVox/Project Gutenberg derived. This registry does not infer HiFiTTS/LibriSpeech item overlap without a source-level mapping."
+    },
+    "ami": {
+      "dataset_version": "local_ami_corpus",
+      "license_id": "CC-BY-NC-SA-2.5",
+      "license_name": "Creative Commons Attribution-NonCommercial-ShareAlike 2.5",
+      "evidence_type": "local_license_file",
+      "local_license_logical_path": "Raw Datasets (Not formatted)/AMI Meeting Corpus/headset/LICENCE.txt",
+      "local_license_sha256": "C39AC48E6402C22BE00A96FC2020BFADF8408A182EA2D73D0547DFF745C4C571",
+      "evidence_note": "The local corpus licence contradicts the prompt's starting expectation of CC BY 4.0; the local licence controls this registry classification.",
+      "commercial_training_status": "prohibited_for_intended_commercial_use",
+      "technical_training_status": "eligible_for_noncommercial_research",
+      "commercial_release_review_status": "permission_required",
+      "attribution_required": true,
+      "sharealike_flag": true,
+      "noncommercial_flag": true
+    },
+    "chime6": {
+      "dataset_version": "local_chime6",
+      "license_id": "CC-BY-SA-4.0",
+      "license_name": "Creative Commons Attribution-ShareAlike 4.0",
+      "evidence_type": "local_license_file",
+      "local_license_logical_path": "Raw Datasets (Not formatted)/CHiME 6/LICENSE.txt",
+      "local_license_sha256": "CA409FE97288E31831C13A7AA5D4A937878D367CE92A881FC2C37ABE8285A6E3",
+      "commercial_training_status": "allowed_but_release_review_required",
+      "technical_training_status": "eligible",
+      "commercial_release_review_status": "required",
+      "attribution_required": true,
+      "sharealike_flag": true,
+      "noncommercial_flag": false
+    },
+    "voices": {
+      "dataset_version": "local_voices_devkit",
+      "license_id": "CC-BY-4.0",
+      "license_name": "Creative Commons Attribution 4.0",
+      "evidence_type": "official_source_record",
+      "official_source_record": "https://aws.amazon.com/marketplace/pp/prodview-dehlgn62tbufi",
+      "commercial_training_status": "allowed_with_attribution",
+      "technical_training_status": "eligible",
+      "commercial_release_review_status": "normal_attribution_provenance_review",
+      "attribution_required": true,
+      "sharealike_flag": false,
+      "noncommercial_flag": false
+    },
+    "gigaspeech": {
+      "local_training_source": false,
+      "commercial_training_status": "permission_required",
+      "technical_training_status": "blocked_pending_explicit_approval",
+      "commercial_release_review_status": "required",
+      "notes": "Blocked pending explicit approval and legal review; pretrained-model provenance is separate."
+    }
+  }
+}

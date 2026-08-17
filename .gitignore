@@ -13,6 +13,10 @@ Software Validation from Datasets/Raw Datasets (Not formatted)/
 RawDatasets/
 models/
 
+# Phase-2 generated training-data freezes are local, potentially large, and
+# rooted through JP_TRAINING_ROOT. Source, policy, and tests remain tracked.
+training/
+
 # Personal documents stay local and outside Git.
 Resumes/
 ~$*.docx
