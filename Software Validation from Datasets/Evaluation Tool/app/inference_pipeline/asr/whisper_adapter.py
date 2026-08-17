@@ -21,6 +21,7 @@ from app.inference_pipeline.asr.base import (
 from app.inference_pipeline.contracts import ASRTranscript, AudioSegment, WordTiming
 from app.inference_pipeline.errors import ContractValidationError, InferencePipelineError
 from app.resource_telemetry.context import telemetry_span
+from app.utils.paths import model_root, resolve_model_path_from_logical
 
 
 class WhisperASRUnavailableError(InferencePipelineError):
@@ -168,8 +169,7 @@ def _download_root(cache_dir: Path | None, model_asset: Path | None) -> Path | N
         return model_asset.parent
     if cache_dir is None or cache_dir.is_absolute():
         return cache_dir
-    repository_root = Path(__file__).resolve().parents[5]
-    return repository_root / cache_dir
+    return resolve_model_path_from_logical(cache_dir)
 
 
 def _cache_dir_candidates(cache_dir: Path | None, context: ASRContext | None) -> list[Path]:
@@ -177,17 +177,19 @@ def _cache_dir_candidates(cache_dir: Path | None, context: ASRContext | None) ->
     if cache_dir is not None:
         candidates.append(cache_dir)
         if not cache_dir.is_absolute():
-            candidates.append(Path.cwd() / cache_dir)
-            tool_root = Path(__file__).resolve().parents[3]
-            candidates.append(tool_root / cache_dir)
-            candidates.append(tool_root.parent / cache_dir)
-            candidates.append(tool_root.parent.parent / cache_dir)
-            project_root = _project_root_from_context(context)
-            if project_root is not None:
-                candidates.append(project_root / "Evaluation Tool" / cache_dir)
-                candidates.append(project_root / cache_dir)
-                candidates.append(project_root.parent / cache_dir)
-    candidates.append(Path.home() / ".cache" / "whisper")
+            candidates.append(resolve_model_path_from_logical(cache_dir))
+            if model_root().source != "environment override":
+                project_root = _project_root_from_context(context)
+                if project_root is not None:
+                    candidates.extend(
+                        (
+                            project_root / "Evaluation Tool" / cache_dir,
+                            project_root / cache_dir,
+                            project_root.parent / cache_dir,
+                        )
+                    )
+    if model_root().source != "environment override":
+        candidates.append(Path.home() / ".cache" / "whisper")
     return _dedupe_paths(candidates)
 
 

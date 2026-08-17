@@ -29,6 +29,7 @@ from app.inference_pipeline.speaker_embedding.base import (
     process_memory_mb,
 )
 from app.resource_telemetry.context import telemetry_span
+from app.utils.paths import model_root, resolve_model_path_from_logical
 
 
 class SpeechBrainUnavailableError(InferencePipelineError):
@@ -286,9 +287,9 @@ def _resolve_relative_path(path: Path, context: SpeakerEmbeddingContext) -> Path
     expanded = path.expanduser()
     if expanded.is_absolute():
         return expanded
-    candidates = [Path.cwd() / expanded]
+    candidates = [resolve_model_path_from_logical(expanded)]
     project_root = _project_root_from_context(context)
-    if project_root is not None:
+    if project_root is not None and model_root().source != "environment override":
         candidates.extend(
             [
                 project_root / "Evaluation Tool" / expanded,

@@ -41,6 +41,7 @@ from app.inference_pipeline.asr.base import (  # noqa: E402
 from app.inference_pipeline.config import PipelineConfig  # noqa: E402
 from app.inference_pipeline.pipeline import AudioLoaderAdapter, PipelineRunner  # noqa: E402
 from app.utils.json_utils import write_json  # noqa: E402
+from app.utils.paths import model_root, resolve_model_path_from_logical  # noqa: E402
 
 
 class LiveMicSmokeError(RuntimeError):
@@ -596,9 +597,6 @@ def resolve_config_path(path: Path | str) -> Path:
     candidate = Path(path).expanduser()
     if candidate.is_absolute():
         return candidate.resolve()
-    cwd_candidate = Path.cwd() / candidate
-    if cwd_candidate.is_file():
-        return cwd_candidate.resolve()
     return (TOOL_ROOT / candidate).resolve()
 
 
@@ -907,17 +905,11 @@ def _whisper_model_asset_candidates(
     if cache_dir is not None:
         directories.append(cache_dir)
         if not cache_dir.is_absolute():
-            directories.extend(
-                [
-                    Path.cwd() / cache_dir,
-                    TOOL_ROOT / cache_dir,
-                    PROJECT_ROOT / "Evaluation Tool" / cache_dir,
-                    PROJECT_ROOT / cache_dir,
-                    PROJECT_ROOT.parent / cache_dir,
-                    config_path.parent / cache_dir,
-                ]
-            )
-    directories.append(Path.home() / ".cache" / "whisper")
+            directories.append(resolve_model_path_from_logical(cache_dir))
+            if model_root().source != "environment override":
+                directories.append(config_path.parent / cache_dir)
+    if model_root().source != "environment override":
+        directories.append(Path.home() / ".cache" / "whisper")
     return [_path / expected_name for _path in _dedupe_paths(directories)]
 
 
@@ -928,16 +920,10 @@ def _faster_whisper_model_candidates(
 ) -> list[Path]:
     if model_path.is_absolute():
         return [model_path]
-    return _dedupe_paths(
-        [
-            model_path,
-            Path.cwd() / model_path,
-            TOOL_ROOT / model_path,
-            PROJECT_ROOT / model_path,
-            PROJECT_ROOT.parent / model_path,
-            config_path.parent / model_path,
-        ]
-    )
+    candidates = [resolve_model_path_from_logical(model_path)]
+    if model_root().source != "environment override":
+        candidates.append(config_path.parent / model_path)
+    return _dedupe_paths(candidates)
 
 
 def _is_complete_faster_model(path: Path) -> bool:

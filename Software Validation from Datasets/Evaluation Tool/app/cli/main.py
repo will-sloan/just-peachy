@@ -39,7 +39,7 @@ from app.scoring.scorer import score_run
 from app.speaker_protocol.cli import add_speaker_protocol_parser
 from app.utils.json_utils import read_jsonl, write_json, write_jsonl
 from app.utils.logging_utils import setup_run_logger
-from app.utils.paths import find_project_root, safe_relative_to, tool_root
+from app.utils.paths import find_project_root, run_root, safe_relative_to
 from app.utils.run_artifacts import (
     create_run_dir,
     ensure_run_subdirs,
@@ -483,7 +483,7 @@ def prepare_new_run(
     definition = get_dataset(args.dataset)
     validate_augmentation_allowed(args, definition)
     filters = parse_subset_filters(collect_subset_filter_items(args), definition)
-    runs_root = (args.runs_root or (tool_root(project_root) / "runs")).resolve()
+    runs_root = (args.runs_root or run_root().path).resolve()
 
     print(
         "[1/6] Loading dataset selection"

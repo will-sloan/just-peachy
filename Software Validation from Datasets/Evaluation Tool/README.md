@@ -2,6 +2,13 @@
 
 Local dataset-aware batch evaluation for normalized speech metadata.
 
+## Portable locations
+
+The existing repository-relative layout remains the default. For optional
+external dataset, model-cache, run, or future-training roots, use the concise
+[portability guide](../PORTABILITY.md), including its Anaconda Prompt, Command
+Prompt, PowerShell, and Linux/WSL commands and non-invasive path diagnostic.
+
 ## Automated campaign documentation
 
 For the current two-machine campaign, start with the

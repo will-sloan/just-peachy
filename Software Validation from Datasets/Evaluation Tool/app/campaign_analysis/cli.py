@@ -11,6 +11,7 @@ from .index import build_analysis_manifest, validate_analysis_manifest
 from .release import evaluate_release_gates, qualify_synthetic_release
 from .statistics import paired_comparison
 from .contracts import load_registries
+from app.utils.paths import find_project_root
 
 
 def add_analysis_parser(subparsers: argparse._SubParsersAction) -> None:
@@ -49,7 +50,7 @@ def add_analysis_parser(subparsers: argparse._SubParsersAction) -> None:
     release.set_defaults(func=command_release_status)
 
     qualify = commands.add_parser("qualify-synthetic", help="Run the model-free two-machine workflow qualification")
-    qualify.add_argument("--project-root", type=Path, default=Path.cwd())
+    qualify.add_argument("--project-root", type=Path, default=None)
     qualify.add_argument("--output-root", required=True, type=Path)
     qualify.set_defaults(func=command_qualify_synthetic)
 
@@ -88,7 +89,8 @@ def command_release_status(args: argparse.Namespace) -> None:
 
 
 def command_qualify_synthetic(args: argparse.Namespace) -> None:
-    print(json.dumps(qualify_synthetic_release(args.project_root, args.output_root), indent=2))
+    project_root = find_project_root(args.project_root) if args.project_root else find_project_root()
+    print(json.dumps(qualify_synthetic_release(project_root, args.output_root), indent=2))
 
 
 def _campaign(parser: argparse.ArgumentParser) -> None:

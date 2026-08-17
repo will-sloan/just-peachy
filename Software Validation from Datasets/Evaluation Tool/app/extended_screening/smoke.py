@@ -20,14 +20,14 @@ from app.extended_screening.contracts import (
     eligible_backend_rows,
     load_qualification_registry,
 )
+from app.utils.paths import data_root, repository_root
 
 
 TOOL_ROOT = Path(__file__).resolve().parents[2]
-REPOSITORY_ROOT = TOOL_ROOT.parent.parent
+REPOSITORY_ROOT = repository_root().path
 DEFAULT_OUTPUT_ROOT = TOOL_ROOT / "runs" / "extended_screening"
 DEFAULT_AUDIO = (
-    REPOSITORY_ROOT
-    / "Software Validation from Datasets"
+    data_root().path
     / "Raw Datasets (Not formatted)"
     / "CMU Arctic"
     / "cmu_us_aew_arctic"

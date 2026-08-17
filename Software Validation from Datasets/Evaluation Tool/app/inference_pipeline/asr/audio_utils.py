@@ -16,6 +16,7 @@ from app.inference_pipeline.audio_io.resample import resample_audio
 from app.inference_pipeline.audio_io.segments import resolve_segment_frames
 from app.inference_pipeline.contracts import AudioSegment
 from app.inference_pipeline.errors import ContractValidationError
+from app.utils.paths import model_root, resolve_model_path_from_logical
 
 
 @dataclass(frozen=True)
@@ -102,13 +103,9 @@ def temporary_pcm16_wav(audio: ASRAudio, *, prefix: str) -> Iterator[Path]:
 
 
 def _relative_candidates(path: Path, context: ASRContext | None) -> list[Path]:
-    tool_root = Path(__file__).resolve().parents[3]
-    candidates = [
-        Path.cwd() / path,
-        tool_root / path,
-        tool_root.parent / path,
-        tool_root.parent.parent / path,
-    ]
+    candidates = [resolve_model_path_from_logical(path)]
+    if model_root().source == "environment override":
+        return candidates
     project_root = _project_root(context)
     if project_root is not None:
         candidates.extend(

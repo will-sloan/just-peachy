@@ -15,6 +15,7 @@ from app.speaker_protocol.evaluation import (
     evaluate_protocol_rows,
     observations_from_npz,
 )
+from app.utils.paths import repository_root
 from app.speaker_protocol.extraction import load_backend_identity
 from app.speaker_protocol.manifests import (
     build_protocol_manifests,
@@ -22,7 +23,7 @@ from app.speaker_protocol.manifests import (
 )
 
 
-REPOSITORY_ROOT = TOOL_ROOT.parent.parent
+REPOSITORY_ROOT = repository_root().path
 DEFAULT_MANIFEST_ROOT = TOOL_ROOT / "benchmarks" / "stage10" / "small"
 DEFAULT_OUTPUT_ROOT = TOOL_ROOT / "runs" / "speaker_protocol_smoke"
 

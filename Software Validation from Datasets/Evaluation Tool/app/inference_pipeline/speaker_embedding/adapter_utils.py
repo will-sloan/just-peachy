@@ -25,6 +25,7 @@ from app.inference_pipeline.speaker_embedding.base import (
     peak_gpu_memory_mb,
     process_memory_mb,
 )
+from app.utils.paths import model_root, resolve_model_path_from_logical
 
 
 @dataclass(frozen=True)
@@ -137,14 +138,8 @@ def resolve_embedding_model_path(
     if configured.is_absolute():
         candidates = [configured]
     else:
-        tool_root = Path(__file__).resolve().parents[3]
-        candidates = [
-            Path.cwd() / configured,
-            tool_root / configured,
-            tool_root.parent / configured,
-            tool_root.parent.parent / configured,
-        ]
-        if isinstance(context.run_config, Mapping):
+        candidates = [resolve_model_path_from_logical(configured)]
+        if model_root().source != "environment override" and isinstance(context.run_config, Mapping):
             project_value = context.run_config.get("project_root")
             if project_value is not None:
                 project_root = Path(str(project_value)).expanduser()

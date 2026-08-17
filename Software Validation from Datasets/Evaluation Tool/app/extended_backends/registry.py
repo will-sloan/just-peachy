@@ -15,10 +15,11 @@ from app.extended_backends.contracts import (
     validate_environment_profiles,
     validate_model_asset_registry,
 )
+from app.utils.paths import repository_root, resolve_model_path_from_logical
 
 
 TOOL_ROOT = Path(__file__).resolve().parents[2]
-REPOSITORY_ROOT = TOOL_ROOT.parent.parent
+REPOSITORY_ROOT = repository_root().path
 AUTOMATION_CONFIG_ROOT = TOOL_ROOT / "configs" / "automated_evaluation"
 
 
@@ -221,7 +222,7 @@ def _resolve_asset_path(asset_id: str, definition: Mapping[str, object]) -> Path
             if spec is not None and spec.origin:
                 return Path(spec.origin).resolve().parent / "pretrained.pt"
         return None
-    return REPOSITORY_ROOT / Path(storage)
+    return resolve_model_path_from_logical(storage)
 
 
 def _asset_is_complete(path: Path | None, required_files: tuple[str, ...]) -> bool:
@@ -300,7 +301,7 @@ def _inspect_source_archive(
     relative = definition.get("source_archive_path")
     if not relative:
         return None
-    path = REPOSITORY_ROOT / Path(str(relative))
+    path = resolve_model_path_from_logical(str(relative))
     expected_bytes = definition.get("source_archive_size_bytes")
     expected_sha256 = definition.get("source_archive_sha256")
     present = path.is_file()
