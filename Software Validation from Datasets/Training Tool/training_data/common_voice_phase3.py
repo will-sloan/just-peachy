@@ -1224,6 +1224,36 @@ def _accent_tokens(raw_accents: object) -> list[str]:
     return sorted({token.strip() for token in value.split("|") if token.strip()})
 
 
+def _accent_inventory(frame: pd.DataFrame) -> tuple[dict[str, dict[str, Any]], int, int]:
+    accent_speakers: defaultdict[str, set[str]] = defaultdict(set)
+    accent_clips: Counter[str] = Counter()
+    accent_seconds: Counter[str] = Counter()
+    multiple_accent_speakers: set[str] = set()
+    unspecified_accent_speakers: set[str] = set()
+    for row in frame.itertuples(index=False):
+        # Common Voice v26 uses ``|`` between multiple selections so commas
+        # inside labels (for example regional country lists) remain literal.
+        tokens = _accent_tokens(row.accents)
+        if not tokens:
+            tokens = ["unspecified"]
+            unspecified_accent_speakers.add(str(row.speaker_id))
+        if len(tokens) > 1:
+            multiple_accent_speakers.add(str(row.speaker_id))
+        for accent in tokens:
+            accent_speakers[accent].add(str(row.speaker_id))
+            accent_clips[accent] += 1
+            accent_seconds[accent] += float(row.duration_seconds)
+    inventory = {
+        accent: {
+            "speaker_incidence": len(accent_speakers[accent]),
+            "clip_incidence": accent_clips[accent],
+            "hours": accent_seconds[accent] / 3600,
+        }
+        for accent in sorted(accent_clips)
+    }
+    return inventory, len(unspecified_accent_speakers), len(multiple_accent_speakers)
+
+
 def build_registry_and_freeze(
     paths: Phase3Paths,
     release: dict[str, Any],
@@ -1466,35 +1496,16 @@ def build_registry_and_freeze(
     if bool(eligible.loc[eligible["training_role"].eq("heldout"), "strict_training_eligible"].any()):
         raise Phase3Error("Heldout lock invariant failed")
 
-    accents: dict[str, dict[str, Any]] = {}
-    accent_speakers: defaultdict[str, set[str]] = defaultdict(set)
-    accent_clips: Counter[str] = Counter()
-    accent_seconds: Counter[str] = Counter()
-    multiple_accent_speakers: set[str] = set()
-    unspecified_accent_speakers: set[str] = set()
-    for row in eligible.itertuples(index=False):
-        # Common Voice v26 uses ``|`` between multiple selections so commas
-        # inside labels (for example regional country lists) remain literal.
-        tokens = _accent_tokens(row.accents)
-        if not tokens:
-            tokens = ["unspecified"]
-            unspecified_accent_speakers.add(str(row.speaker_id))
-        if len(tokens) > 1:
-            multiple_accent_speakers.add(str(row.speaker_id))
-        for accent in tokens:
-            accent_speakers[accent].add(str(row.speaker_id))
-            accent_clips[accent] += 1
-            accent_seconds[accent] += float(row.duration_seconds)
-    for accent in sorted(accent_clips):
-        accents[accent] = {
-            "speaker_incidence": len(accent_speakers[accent]),
-            "clip_incidence": accent_clips[accent],
-            "hours": accent_seconds[accent] / 3600,
-        }
+    accents, unspecified_accent_speaker_count, multiple_accent_speaker_count = _accent_inventory(eligible)
 
     phase2 = pd.read_parquet(phase2_registry_path)
     phase2_stats = {dataset: _phase2_pool_stats(phase2, dataset) for dataset in ("cmu_arctic", "ami", "chime6", "voices", "librispeech", "hifitts")}
     age_train = eligible.loc[eligible["training_role"].eq("train")]
+    age_train_accents, _, _ = _accent_inventory(age_train)
+    age_train_distribution = {
+        age_bin: {**values["train"], "underpowered": values["underpowered"]}
+        for age_bin, values in split_summary["per_age"].items()
+    }
     age_component = {
         "dataset": "common_voice_older_train",
         "records": int(len(age_train)),
@@ -1506,8 +1517,8 @@ def build_registry_and_freeze(
     pool_previews = {
         "age": {
             **age_component,
-            "age_distribution": split_summary["per_age"],
-            "accent_distribution": accents,
+            "age_distribution": age_train_distribution,
+            "accent_distribution": age_train_accents,
             "prepared_audio_root": "JP_TRAINING_ROOT:" + paths.prepared_root.relative_to(paths.training_root).as_posix(),
         },
         "cmu": phase2_stats["cmu_arctic"],
@@ -1520,6 +1531,9 @@ def build_registry_and_freeze(
     pool_previews["age_robust_cmu"] = _combine_pool(
         "age_robust_cmu", [age_component, *robust_components, phase2_stats["cmu_arctic"]], review=True
     )
+    for name in ("age_robust", "age_robust_cmu"):
+        pool_previews[name]["age_distribution"] = age_train_distribution
+        pool_previews[name]["accent_distribution"] = age_train_accents
     for name, preview in pool_previews.items():
         preview["preview_id"] = f"{name}_pool_preview_{_json_hash(preview)[:12].lower()}"
 
@@ -1584,8 +1598,8 @@ def build_registry_and_freeze(
         "leakage": leakage,
         "accent_filter_policy": "none",
         "accent_inventory": accents,
-        "older_speakers_with_unspecified_accent": len(unspecified_accent_speakers),
-        "older_speakers_with_multiple_accents": len(multiple_accent_speakers),
+        "older_speakers_with_unspecified_accent": unspecified_accent_speaker_count,
+        "older_speakers_with_multiple_accents": multiple_accent_speaker_count,
         "accent_categories_excluded": 0,
         "pool_previews": pool_previews,
         "phase2_dataset_stats": phase2_stats,
@@ -1611,8 +1625,8 @@ def build_registry_and_freeze(
     accent_audit = {
         "accent_filter_policy": "none",
         "inventory": accents,
-        "older_speakers_with_unspecified_accent": len(unspecified_accent_speakers),
-        "older_speakers_with_multiple_accents": len(multiple_accent_speakers),
+        "older_speakers_with_unspecified_accent": unspecified_accent_speaker_count,
+        "older_speakers_with_multiple_accents": multiple_accent_speaker_count,
         "accent_categories_excluded": 0,
     }
     for filename, title, payload in (

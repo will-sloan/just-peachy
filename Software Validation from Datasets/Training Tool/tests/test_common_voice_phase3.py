@@ -18,6 +18,7 @@ sys.path.insert(0, str(TRAINING_TOOL))
 from training_data.common_voice_phase3 import (  # noqa: E402
     Phase3Error,
     Phase3Paths,
+    _accent_inventory,
     _accent_tokens,
     _apply_common_voice_eligibility,
     _evaluation_content_hash_index,
@@ -258,6 +259,21 @@ def test_accent_separator_preserves_commas_inside_labels() -> None:
     regional = "Southern African (South Africa, Zimbabwe, Namibia)"
     assert _accent_tokens(regional) == [regional]
     assert _accent_tokens(f"United States English|{regional}") == [regional, "United States English"]
+
+
+def test_accent_inventory_is_scoped_to_the_supplied_pool() -> None:
+    frame = pd.DataFrame(
+        [
+            {"speaker_id": "train-a", "accents": "Canadian English", "duration_seconds": 2.0},
+            {"speaker_id": "train-b", "accents": "", "duration_seconds": 3.0},
+        ]
+    )
+    inventory, unspecified, multiple = _accent_inventory(frame.iloc[:1])
+    assert inventory == {
+        "Canadian English": {"speaker_incidence": 1, "clip_incidence": 1, "hours": 2 / 3600}
+    }
+    assert unspecified == 0
+    assert multiple == 0
 
 
 def test_speaker_split_is_deterministic_disjoint_and_age_stratified() -> None:
