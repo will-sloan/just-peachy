@@ -1218,6 +1218,12 @@ def _combine_pool(name: str, components: list[dict[str, Any]], *, review: bool) 
     }
 
 
+def _accent_tokens(raw_accents: object) -> list[str]:
+    """Decode v26 multi-accent values without splitting commas inside labels."""
+    value = "" if pd.isna(raw_accents) else str(raw_accents)
+    return sorted({token.strip() for token in value.split("|") if token.strip()})
+
+
 def build_registry_and_freeze(
     paths: Phase3Paths,
     release: dict[str, Any],
@@ -1467,8 +1473,9 @@ def build_registry_and_freeze(
     multiple_accent_speakers: set[str] = set()
     unspecified_accent_speakers: set[str] = set()
     for row in eligible.itertuples(index=False):
-        raw_accents = "" if pd.isna(row.accents) else str(row.accents)
-        tokens = sorted({token.strip() for token in raw_accents.split(",") if token.strip()})
+        # Common Voice v26 uses ``|`` between multiple selections so commas
+        # inside labels (for example regional country lists) remain literal.
+        tokens = _accent_tokens(row.accents)
         if not tokens:
             tokens = ["unspecified"]
             unspecified_accent_speakers.add(str(row.speaker_id))

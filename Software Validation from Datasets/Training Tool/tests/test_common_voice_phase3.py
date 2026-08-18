@@ -18,6 +18,7 @@ sys.path.insert(0, str(TRAINING_TOOL))
 from training_data.common_voice_phase3 import (  # noqa: E402
     Phase3Error,
     Phase3Paths,
+    _accent_tokens,
     _apply_common_voice_eligibility,
     _evaluation_content_hash_index,
     _validate_audio_file,
@@ -45,7 +46,7 @@ def _metadata() -> dict[str, bytes]:
         "up_votes", "down_votes", "age", "gender", "accents", "variant", "locale",
     ]
     validated = [
-        ["older-a", "a.mp3", "s1", "One sentence", "general", 2, 0, "sixties", "", "us,canada", "", "en"],
+        ["older-a", "a.mp3", "s1", "One sentence", "general", 2, 0, "sixties", "", "us|canada", "", "en"],
         ["older-b", "b.mp3", "s2", "Another sentence", "general", 2, 0, "seventies", "", "", "", "en"],
         ["young", "young.mp3", "s3", "Young sentence", "general", 2, 0, "thirties", "", "england", "", "en"],
         ["missing-age", "missing.mp3", "s4", "Missing age", "general", 2, 0, "", "", "us", "", "en"],
@@ -206,7 +207,7 @@ def test_selective_materialization_is_resumable_and_preserves_accents(
     database = __import__("sqlite3").connect(paths.state / "common_voice_phase3.sqlite3")
     accents = dict(database.execute("SELECT path, accents FROM candidates"))
     database.close()
-    assert accents["a.mp3"] == "us,canada"
+    assert accents["a.mp3"] == "us|canada"
 
 
 def test_audio_validation_accepts_mp3_and_rejects_corruption(tmp_path: Path) -> None:
@@ -251,6 +252,12 @@ def test_heldout_lock_applies_to_strict_and_relaxed_training() -> None:
     assert frame["strict_training_eligible"].tolist() == [True, True, False, False]
     assert frame["relaxed_training_eligible"].tolist() == [True, True, False, False]
     assert frame["commercial_training_eligible"].tolist() == [True, True, True, False]
+
+
+def test_accent_separator_preserves_commas_inside_labels() -> None:
+    regional = "Southern African (South Africa, Zimbabwe, Namibia)"
+    assert _accent_tokens(regional) == [regional]
+    assert _accent_tokens(f"United States English|{regional}") == [regional, "United States English"]
 
 
 def test_speaker_split_is_deterministic_disjoint_and_age_stratified() -> None:
