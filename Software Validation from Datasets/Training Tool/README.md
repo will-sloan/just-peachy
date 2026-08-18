@@ -106,7 +106,7 @@ This acquisition command does **not** extract the archive, select speakers, crea
 
 ### One-time authenticated setup and continuation
 
-1. Open the [official Mozilla dataset record](https://datacollective.mozillafoundation.org/datasets/cmqim2hn800ssnr07gvmpcnwu), sign in or create an account, read and accept the dataset conditions, and confirm the Common Voice prohibitions on speaker identification and redistribution.
+1. Open the [official Mozilla dataset record](https://mozilladatacollective.com/datasets/cmqim2hn800ssnr07gvmpcnwu), sign in or create an account, read and accept the dataset conditions, and confirm the Common Voice prohibitions on speaker identification and redistribution.
 2. In Mozilla Data Collective, open **Account -> Credentials** and create or retrieve an API key.
 3. In Anaconda Prompt or PowerShell, run the following. Do not put the key in a `.env` file inside this repository and do not commit it.
 
@@ -125,6 +125,42 @@ Before authentication, the safe diagnostic command is:
 ```powershell
 ..\..\.venv\Scripts\python.exe -m training_data.common_voice status
 ```
+
+### Selectively prepare an operator-downloaded archive
+
+When the authenticated archive already exists under `JP_DATA_ROOT/Raw Datasets (Not formatted)`, it may have an operator-friendly local name such as `Common Voice.gz`. The local filename is not scientific identity: the Phase-3 workflow discovers the single size-matching file, detects gzip from its content, and accepts it only after the compressed SHA-256 exactly matches the pinned Mozilla archive.
+
+The workflow performs two sequential archive traversals:
+
+1. verify the complete compressed SHA-256 while indexing members and preserving the original metadata files;
+2. extract every missing validated age>=60 MP3 in one streaming traversal.
+
+It does not full-extract Common Voice and does not reopen the archive once per clip. The selected MP3s and resume state are stored beneath `JP_TRAINING_ROOT`:
+
+```text
+<JP_TRAINING_ROOT>/datasets/common_voice/english/cv-corpus-26.0-2026-06-12/prepared/en/
+  metadata/original/
+  metadata/derived/
+  clips/
+  state/
+```
+
+The additive Phase-3 registry, audits, membership manifest, license evidence, and freeze are written beneath:
+
+```text
+<JP_TRAINING_ROOT>/successors/common_voice_26_english_phase3/
+```
+
+Run from Anaconda Prompt or PowerShell:
+
+```powershell
+Set-Location 'C:\Users\amiri\Documents\GitHub\just-peachy\Software Validation from Datasets\Training Tool'
+..\..\.venv\Scripts\python.exe -m training_data.common_voice phase3-status
+..\..\.venv\Scripts\python.exe -m training_data.common_voice phase3-run
+..\..\.venv\Scripts\python.exe -m training_data.common_voice phase3-verify
+```
+
+`phase3-run` is resumable. A completed source audit is reused when its pinned identity and metadata are present. During selective materialization, completed MP3s and their validation rows are reused; a rerun makes one archive pass only for missing selected members. The workflow also hashes every source-audio file referenced by the frozen evaluation exclusion index, stores a portable content-hash-index identity in the successor freeze, and caches file hashes by size and modification time for later reruns. Inputs are the verified source archive, corrected Phase-2 freeze, Phase-2 registry, evaluation exclusion index, and the evaluation audio it references. Outputs are selected original MP3s, exact original TSVs, derived Parquet registries, deterministic train/dev/heldout membership, audits, pool previews, and an immutable successor freeze. No Icefall installation, training manifest, model training, inference, or ONNX export occurs.
 
 ## Test
 

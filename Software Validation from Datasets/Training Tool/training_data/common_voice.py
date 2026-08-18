@@ -1,9 +1,4 @@
-"""Pin and acquire the Phase-3 Common Voice archive through Mozilla's SDK.
-
-This module intentionally stops at a verified source archive. Extraction,
-metadata normalization, older-speaker selection, and Phase-3 freezing happen
-only after the authenticated acquisition has completed.
-"""
+"""Acquire or selectively prepare the pinned Phase-3 Common Voice release."""
 from __future__ import annotations
 
 import argparse
@@ -22,7 +17,7 @@ TOOL_ROOT = SOURCE_ROOT.parent / "Evaluation Tool"
 RELEASE_PATH = Path(__file__).with_name("common_voice_release.v1.json")
 sys.path.insert(0, str(TOOL_ROOT))
 
-from app.utils.paths import training_root  # noqa: E402
+from app.utils.paths import data_root, training_root  # noqa: E402
 
 
 class AcquisitionBlocked(RuntimeError):
@@ -182,7 +177,10 @@ def acquire(
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("command", choices=("status", "acquire", "verify-archive"))
+    parser.add_argument(
+        "command",
+        choices=("status", "acquire", "verify-archive", "phase3-status", "phase3-run", "phase3-verify"),
+    )
     parser.add_argument("--training-root", type=Path, default=None)
     args = parser.parse_args()
     release = load_release()
@@ -192,9 +190,51 @@ def main() -> int:
             result = status(root, release)
         elif args.command == "verify-archive":
             result = verify_archive(archive_path(root, release), release)
+        elif args.command == "phase3-status":
+            from training_data.common_voice_phase3 import detect_archive_format, discover_archive
+
+            source = discover_archive(data_root().path, release)
+            result = {
+                "archive_found": True,
+                "archive_actual_filename": source.name,
+                "archive_bytes": source.stat().st_size,
+                "archive_detected_format": detect_archive_format(source),
+                "archive_logical_root": "JP_DATA_ROOT",
+                "archive_relative_path": source.relative_to(data_root().path).as_posix(),
+            }
+        elif args.command == "phase3-run":
+            from training_data.common_voice_phase3 import run_phase3
+            from training_data.registry import verify_freeze_details
+
+            parent_root = root / "successors" / "ami_cc_by_4_0_2017_04_10"
+            parent_freeze = parent_root / "registries" / "training_data_freeze_manifest.json"
+            parent_check = verify_freeze_details(parent_freeze, TOOL_ROOT)
+            if not parent_check["valid"]:
+                raise ValueError(f"Corrected Phase-2 parent is invalid: {parent_check['reasons']}")
+            result = run_phase3(
+                data_root=data_root().path,
+                training_root=root,
+                tool_root=TOOL_ROOT,
+                parent_freeze_path=parent_freeze,
+                evaluation_exclusion_path=parent_root / "registries" / "evaluation_exclusion_index.parquet",
+                phase2_registry_path=parent_root / "registries" / "training_data_registry.parquet",
+            )
+        elif args.command == "phase3-verify":
+            from training_data.common_voice_phase3 import verify_phase3_freeze
+
+            parent_root = root / "successors" / "ami_cc_by_4_0_2017_04_10"
+            phase3_root = root / "successors" / "common_voice_26_english_phase3" / "registries"
+            result = verify_phase3_freeze(
+                phase3_root / "training_data_freeze_phase3.json",
+                parent_freeze_path=parent_root / "registries" / "training_data_freeze_manifest.json",
+                registry_path=phase3_root / "common_voice_older_registry.parquet",
+                split_path=phase3_root / "common_voice_older_split.parquet",
+            )
+            if not result["valid"]:
+                raise ValueError(f"Phase-3 freeze is invalid: {result['reasons']}")
         else:
             result = acquire(root, release)
-    except (AcquisitionBlocked, FileNotFoundError, ValueError) as error:
+    except (AcquisitionBlocked, FileNotFoundError, RuntimeError, ValueError) as error:
         print(json.dumps({"complete": False, "error": str(error)}, indent=2), file=sys.stderr)
         return 2
     print(json.dumps(result, indent=2, sort_keys=True))
