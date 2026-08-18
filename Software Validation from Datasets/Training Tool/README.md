@@ -1,10 +1,10 @@
-# Training Tool: Phase-2 data freeze and Phase-3 acquisition gate
+# Training Tool: Phase-2/3 data freezes and Phase-4 training manifests
 
 ## Purpose
 
-This additive tool freezes a local inventory of speech metadata, licence/provenance policy, and an evaluation-leakage firewall. It is a research/compliance aid, not legal advice. It never decodes audio, downloads data, installs Icefall, trains a model, changes the Evaluation Tool, or creates train/dev/test splits.
+The Phase-2 builder freezes a local inventory of speech metadata, licence/provenance policy, and an evaluation-leakage firewall. The Phase-3 workflow selectively prepares Common Voice and freezes its speaker-disjoint roles. The Phase-4 workflow creates deterministic framework-neutral TRAIN/DEV/MONITOR manifests from those immutable inputs. This is a research/compliance aid, not legal advice. None of these workflows installs Icefall, trains a model, changes the Evaluation Tool, or creates new evaluation sets.
 
-The existing Just-Peachy evaluation universe remains test-only. Future training-manifest work must select from this registry rather than move or regenerate evaluation data.
+The existing Just-Peachy evaluation universe remains test-only. Phase-4 training manifests select from the frozen registries rather than move or regenerate evaluation data.
 
 ## Inputs
 
@@ -168,3 +168,77 @@ Set-Location 'C:\Users\amiri\Documents\GitHub\just-peachy\Software Validation fr
 Set-Location 'C:\Users\amiri\Documents\GitHub\just-peachy\Software Validation from Datasets\Training Tool'
 ..\..\.venv\Scripts\python.exe -m pytest -q tests
 ```
+
+## Phase 4: deterministic training manifests and sampling bundles
+
+Phase 4 turns the immutable Phase-3 data universe into framework-neutral TRAIN,
+DEV, and MONITOR manifests. It does not install Icefall or k2, extract features,
+train or fine-tune a model, export ONNX, or run an Evaluation Tool campaign.
+
+Inputs:
+
+- the verified Phase-3 freeze `training_freeze_phase3_086685615728` and its
+  frozen Common Voice registry/split;
+- the corrected Phase-2 registry and evaluation-exclusion index;
+- the existing deployed Original Sherpa and LibriSpeech+GigaSpeech Sherpa ONNX
+  assets, read only to record exact deployment hashes and lineage references;
+- the existing frozen evaluation manifests and scenario catalogs, read only for
+  an immutability audit.
+
+Outputs are ignored local metadata below
+`<JP_TRAINING_ROOT>/successors/phase4_training_manifests_v1/`:
+
+- `source_manifests/`: deterministic AGE, AMI, CHiME, VOiCES, and exploratory
+  CMU TRAIN Parquets plus the explicit empty strict-CMU descriptor;
+- `development/`: deterministic per-source DEV Parquets;
+- `monitoring/`: an approximately five-hour, broad-speaker LibriSpeech clean
+  regression monitor that is never gradient eligible;
+- `policies/`: source grouping, rotating acoustic-view, speaker balancing,
+  square-root dataset weighting, DEV/checkpoint, CMU interpretation, Large-use,
+  and licence propagation policies;
+- `bundles/`: eight immutable source-reference bundles, including the three
+  combined bundles and their full-precision weights;
+- `registries/`: the 12-row model plan, initialization references, summary, and
+  immutable Phase-4 successor freeze;
+- `audits/`: split overlap, sampling, dataset contribution, heldout, monitor,
+  structure, and before/after immutability evidence.
+
+Canonical IDs use logical roots plus relative paths. Physical absolute paths are
+excluded from source manifests, policy and bundle hashes, and the Phase-4 freeze.
+AMI and VOiCES source speech is counted once regardless of microphone or
+retransmission view count. CHiME rows are treated according to the observed
+registry structure: one canonical utterance row, not 48 fabricated views.
+
+Run from Anaconda Prompt, Command Prompt, or PowerShell with the repository
+environment (or replace the executable with the Python from an activated
+Anaconda environment):
+
+```powershell
+Set-Location 'C:\Users\amiri\Documents\GitHub\just-peachy\Software Validation from Datasets\Training Tool'
+..\..\.venv\Scripts\python.exe -m training_data.phase4 status
+..\..\.venv\Scripts\python.exe -m training_data.phase4 run
+..\..\.venv\Scripts\python.exe -m training_data.phase4 verify
+```
+
+In classic Anaconda Prompt (`cmd.exe`), the same commands work after:
+
+```bat
+cd /d "C:\Users\amiri\Documents\GitHub\just-peachy\Software Validation from Datasets\Training Tool"
+..\..\.venv\Scripts\python.exe -m training_data.phase4 status
+..\..\.venv\Scripts\python.exe -m training_data.phase4 run
+..\..\.venv\Scripts\python.exe -m training_data.phase4 verify
+```
+
+Portable overrides use the existing Phase-1 resolver; no second path system is
+introduced:
+
+```powershell
+$env:JP_REPO_ROOT = 'D:\checkouts\just-peachy'
+$env:JP_DATA_ROOT = 'D:\just-peachy-data\Software Validation from Datasets'
+$env:JP_TRAINING_ROOT = 'D:\just-peachy-training'
+$env:JP_MODEL_ROOT = 'D:\just-peachy-models'
+..\..\.venv\Scripts\python.exe -m training_data.phase4 status
+```
+
+`run` refuses to replace a valid existing Phase-4 freeze. A future scientific
+change must use a new additive successor/version rather than mutating this one.
