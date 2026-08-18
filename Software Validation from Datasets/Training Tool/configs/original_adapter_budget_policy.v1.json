@@ -1,0 +1,14 @@
+{
+  "schema_version": "original-adapter-training-budget-policy.v1",
+  "policy_id": "original_adapter_budget_policy_250c2dc05ffb",
+  "policy_sha256": "250C2DC05FFB7FF372C76DDC9CFA23A48F1C7DB590877A22E77404A68D48E3C7",
+  "mass_definition": "sum over bundle sources of frozen dataset probability multiplied by unique source-group audio hours",
+  "source_passes": 4,
+  "effective_audio_seconds_per_optimizer_step": 90,
+  "minimum_optimizer_steps": 1500,
+  "maximum_optimizer_steps": 20000,
+  "rounding": "ceiling",
+  "formula": "ceil(clamp(source_passes * weighted_unique_source_hours * 3600 / effective_audio_seconds_per_optimizer_step, minimum_optimizer_steps, maximum_optimizer_steps))",
+  "early_stop_policy": "after 6 full DEV checks without at least 0.001 absolute WER improvement",
+  "rationale": "One deterministic sampled-audio exposure rule scales every experiment, protects tiny CMU and VOiCES bundles with a bounded minimum and protects the larger AGE/AMI mixtures from unbounded schedules with a fixed maximum. DEV early stopping remains the final bound."
+}

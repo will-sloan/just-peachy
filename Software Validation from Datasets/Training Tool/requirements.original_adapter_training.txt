@@ -1,0 +1,16 @@
+# Install torch/torchaudio and k2 from their pinned CUDA indexes first; see README.md.
+lhotse==1.33.0
+sentencepiece==0.2.1
+tensorboard==2.20.0
+typeguard==4.4.4
+dill==0.4.0
+soundfile==0.13.1
+jiwer==4.0.0
+pytest==9.0.2
+urllib3==2.5.0
+requests==2.32.5
+kaldialign==0.9.2
+num2words==0.5.14
+pypinyin==0.50.0
+pandas==2.3.3
+pyarrow==21.0.0

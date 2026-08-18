@@ -1,0 +1,58 @@
+{
+  "schema_version": "original-adapter-provenance.v1",
+  "provenance_id": "original_adapter_provenance_5fe9ae90b0ce",
+  "provenance_sha256": "5FE9AE90B0CE9D5156F1D2CE2ED5C53D2F66AD706F73814CD1C043E3385FF867",
+  "baseline_continuity": "strong_lineage_requires_reconstructed_baseline",
+  "phase6_reconstructed_original_baseline_required": true,
+  "local_deployed_component_id": "asr.sherpa_onnx",
+  "local_deployed_model_id": "sherpa-onnx-streaming-zipformer-en-2023-06-26",
+  "local_deployed_assets": {
+    "encoder_sha256": "5022B2ECA5B19D1BC104FCF33E26BC32604B7DF553CD2E1F62E31DC7B05E9C87",
+    "decoder_sha256": "85914F840B71110487ECE7A30EBD0BD4B8FB5C2623215BBA3AA5AB4C138FC591",
+    "joiner_sha256": "ABD5E30F3F16FC510605C6029DBA33F10E4386BD75C5BDC30CF94076864DB10D",
+    "tokens_sha256": "49E3C2646595FD907228B3C6787069658F67B17377C60AEB8619C4551B2316FB"
+  },
+  "candidate": {
+    "checkpoint_id": "zengwei_librispeech_streaming_zipformer_2023_05_17_37cb5606808f",
+    "checkpoint_source": "Zengwei/icefall-asr-librispeech-streaming-zipformer-2023-05-17@37cb5606808f3d5e55a3fc73554bdf757d82465a",
+    "checkpoint_sha256": "E44BB7C8D3985A7CF0089020D227AECD71E323DCAAABCAED90E4A792E1385342",
+    "architecture_signature": "Zipformer2 causal 2,2,3,4,3,2 encoders; dims 192,256,384,512,384,256; transducer decoder/joiner 512; 66,110,931 checkpoint elements",
+    "tokenizer_signature": "SentencePiece BPE-500; blank_id=0; vocab_size=500",
+    "tokenizer_sha256": "C53433DE083C4A6AD12D034550EF22DE68CEC62C4F58932A7B6B8B2F1E743FA5"
+  },
+  "structural_load": {
+    "checkpoint_tensor_count": 839,
+    "checkpoint_element_count": 66110931,
+    "unexpected_keys": 0,
+    "non_adapter_missing_keys": 0,
+    "adapter_missing_keys": 256,
+    "total_parameters_with_adapters": 66872275,
+    "trainable_adapter_parameters": 761344,
+    "trainable_percent": 1.13850470916385
+  },
+  "bounded_continuity_smoke": {
+    "selection": "five shortest rows of clean_regression_monitor_manifest_d5a22fe5e6bd ordered by duration_seconds then source_registry_row_id",
+    "items": 5,
+    "reference_words": 28,
+    "deployed_original_wer": 0.0,
+    "candidate_unadapted_wer": 0.0,
+    "transcript_exact_match_count": 5,
+    "major_qualitative_divergences": [],
+    "deployed_decoder": "Sherpa-ONNX online greedy_search, int8 encoder/joiner, chunk 16, left context 128, 0.66 s tail padding",
+    "candidate_decoder": "Icefall PyTorch greedy_search, float32 checkpoint, chunk 16, left context 128, 0.66 s tail padding"
+  },
+  "official_lineage_evidence": [
+    "The official Sherpa-ONNX model card names the Zengwei Icefall checkpoint as its source.",
+    "The official Icefall PR 1058 is the streaming Zipformer lineage recorded by both repositories.",
+    "The candidate loads completely into the pinned architecture and uses the byte-identical deployment token table.",
+    "Exact historical ONNX export byte correspondence is not documented and current upstream ONNX bytes differ."
+  ],
+  "phase6_requirement": {
+    "export_unadapted_original_trainable_baseline": true,
+    "same_checkpoint": true,
+    "same_tokenizer": true,
+    "same_export_toolchain_as_adapters": true,
+    "adapter_contribution": "disabled_or_absent",
+    "export_during_phase5": false
+  }
+}

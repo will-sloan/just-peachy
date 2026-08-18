@@ -1,0 +1,68 @@
+{
+  "schema_version": "original-adapter-training-recipe.v1",
+  "recipe_id": "original_adapter_recipe_94be54407fb2",
+  "recipe_sha256": "94BE54407FB240CD6EC9650E1B34A6539BE55AC1CF917BBB2F5E45D7C9AF8A36",
+  "initialization": {
+    "checkpoint_id": "zengwei_librispeech_streaming_zipformer_2023_05_17_37cb5606808f",
+    "checkpoint_sha256": "E44BB7C8D3985A7CF0089020D227AECD71E323DCAAABCAED90E4A792E1385342",
+    "tokenizer_id": "sentencepiece_bpe500_c53433de083c",
+    "tokenizer_sha256": "C53433DE083C4A6AD12D034550EF22DE68CEC62C4F58932A7B6B8B2F1E743FA5"
+  },
+  "implementation": {
+    "id": "icefall_zipformer2_residual_adapter_dim16_3f848bb6d0ac",
+    "icefall_commit": "3f848bb6d0acc970c9b294a30ca0a04a7c9c78d1",
+    "recipe_path": "egs/librispeech/ASR/zipformer_adapter",
+    "adapter_dim": 16,
+    "adapter_insertions_per_encoder_layer": 4,
+    "trainable_name_substring": "adapter"
+  },
+  "model": {
+    "causal": true,
+    "chunk_size": "16,32,64,-1",
+    "left_context_frames": "64,128,256,-1",
+    "feature_dim": 80,
+    "context_size": 2,
+    "use_transducer": true,
+    "use_ctc": false
+  },
+  "optimization": {
+    "optimizer": "Icefall ScaledAdam",
+    "scheduler": "Icefall Eden",
+    "base_lr": 0.045,
+    "lr_batches": 7500,
+    "lr_epochs": 3.5,
+    "prune_range": 5,
+    "lm_scale": 0.25,
+    "am_scale": 0.0,
+    "simple_loss_scale": 0.5,
+    "warm_step": 2000,
+    "precision": "fp16",
+    "gradient_accumulation": 2,
+    "microbatch_max_duration_seconds": 45,
+    "effective_batch_target_seconds": 90,
+    "gradient_clip_scale": 2.0,
+    "short_utterance_padding": "right-pad with zeros to max(1.0 second, 0.05 second per BPE token) so every frozen Phase-4 row remains loss-compatible",
+    "long_utterance_policy": "retain as an oversize singleton without truncation"
+  },
+  "control": {
+    "training_seed": 20260818,
+    "checkpoint_interval_optimizer_steps": 250,
+    "dev_interval_optimizer_steps": 500,
+    "heartbeat_interval_optimizer_steps": 1,
+    "early_stop_patience_dev_checks": 6,
+    "early_stop_min_absolute_wer_improvement": 0.001,
+    "clean_monitor_relative_wer_regression_warning": 0.15,
+    "canary_initialization_steps": 50,
+    "canary_measured_steps": 200,
+    "canary_eval_max_source_groups_per_domain": 64,
+    "full_eval_max_source_groups_per_domain": null,
+    "general_rehearsal_enabled": false
+  },
+  "selection": {
+    "single_source_objective": "source DEV WER",
+    "combined_objective": "equal-weight macro mean of per-domain DEV WER",
+    "clean_monitor_role": "secondary diagnostic only",
+    "large_used": false,
+    "common_voice_heldout_used": false
+  }
+}
