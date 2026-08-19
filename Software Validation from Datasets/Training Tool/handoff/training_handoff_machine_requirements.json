@@ -1,0 +1,27 @@
+{
+  "SCHEMA_VERSION": "training-handoff-machine-requirements.v1",
+  "TARGET": {
+    "GPU": "NVIDIA RTX 3090",
+    "VRAM_GIB": 24,
+    "HOST_OS": "Windows with WSL2 and NVIDIA WSL CUDA support",
+    "WSL_DISTRO": "configured with JP_WSL_DISTRO or validated default discovery"
+  },
+  "FROZEN_SCIENTIFIC_RECIPE": {
+    "PRECISION": "FP16 mixed precision",
+    "MICROBATCH_TARGET_SECONDS": 45,
+    "GRADIENT_ACCUMULATION": 2,
+    "EFFECTIVE_BATCH_TARGET_SECONDS": 90,
+    "ADAPTER_DIMENSION": 16,
+    "DEFAULT_MAX_PARALLEL_ADAPTER_JOBS": 1
+  },
+  "ROOTS": ["JP_REPO_ROOT", "JP_DATA_ROOT", "JP_TRAINING_ROOT", "JP_MODEL_ROOT", "JP_RUN_ROOT"],
+  "PARALLEL_GATE": {
+    "MAXIMUM_SUPPORTED": 2,
+    "DEFAULT": 1,
+    "MINIMUM_AGGREGATE_THROUGHPUT_IMPROVEMENT": 0.25,
+    "REQUIRES_BOUNDED_ONE_VS_TWO_PROCESS_BENCHMARK": true,
+    "THREE_OR_MORE_JOBS_AUTOMATICALLY_ALLOWED": false,
+    "GPU_LARGE_EVALUATION_DURING_TRAINING": false
+  },
+  "DISK_GUIDANCE": "Allow room for the external raw-data tree, machine-local manifests, isolated run directories, checkpoints, and export artifacts; do not place environments or checkpoints in Git."
+}

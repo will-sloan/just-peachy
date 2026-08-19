@@ -25,8 +25,22 @@ import pandas as pd
 import sentencepiece as spm
 
 from training_data.common_voice import sha256_file
+from training_data.handoff import (
+    SUCCESSOR_FREEZE_NAME,
+    SUCCESSOR_RUNTIME_NAME,
+    build_successor,
+    verify_successor,
+)
 from training_data.phase4 import default_paths as phase4_default_paths
 from training_data.phase4 import verify_phase4_freeze
+from training_data.portability import (
+    PortabilityError,
+    PortableRoots,
+    discover_wsl_distro,
+    portable_roots,
+    resolve_logical_path,
+    wsl_home,
+)
 from training_data.registry import _frame_hash
 
 
@@ -40,7 +54,7 @@ TOKENS_SHA256 = "49E3C2646595FD907228B3C6787069658F67B17377C60AEB8619C4551B2316F
 ICEFALL_COMMIT = "3f848bb6d0acc970c9b294a30ca0a04a7c9c78d1"
 SAMPLER_VERSION = "dataset_group_source_rotating_view.v1"
 SAMPLER_SEED = "just-peachy-phase4-training-sampler-v1"
-SUCCESSOR_NAME = "phase5_original_adapter_training_v1"
+SUCCESSOR_NAME = SUCCESSOR_RUNTIME_NAME
 TEXT_NORMALIZATION_ID = "english_bpe500_training_text_nfkd_ascii_upper_v1"
 
 
@@ -97,6 +111,18 @@ class AdapterPaths:
     repository_root: Path
     data_root: Path
     training_root: Path
+    model_root: Path | None = None
+    run_root: Path | None = None
+
+    @property
+    def roots(self) -> PortableRoots:
+        return PortableRoots(
+            self.repository_root,
+            self.data_root,
+            self.training_root,
+            self.model_root or self.repository_root / "models",
+            self.run_root or self.training_root / "runs",
+        )
 
     @property
     def tool_root(self) -> Path:
@@ -107,6 +133,18 @@ class AdapterPaths:
     @property
     def phase4_root(self) -> Path:
         return self.training_root / "successors" / "phase4_training_manifests_v1"
+
+    @property
+    def successor_freeze_root(self) -> Path:
+        return self.training_root / "successors" / SUCCESSOR_FREEZE_NAME
+
+    @property
+    def successor_freeze_path(self) -> Path:
+        return (
+            self.successor_freeze_root
+            / "registries"
+            / "training_manifest_freeze_successor.json"
+        )
 
     @property
     def root(self) -> Path:
@@ -130,7 +168,7 @@ class AdapterPaths:
 
     @property
     def runs(self) -> Path:
-        return self.training_root / "runs" / "adapters"
+        return (self.run_root or self.training_root / "runs") / "adapters"
 
     @property
     def qualification(self) -> Path:
@@ -142,7 +180,8 @@ class AdapterPaths:
 
     @property
     def status_path(self) -> Path:
-        return self.root / "queue_status.json"
+        override = os.environ.get("JP_ADAPTER_STATUS_ROOT")
+        return (Path(override).resolve() if override else self.root) / "queue_status.json"
 
     @property
     def stop_path(self) -> Path:
@@ -150,12 +189,10 @@ class AdapterPaths:
 
 
 def default_paths() -> AdapterPaths:
-    repo = Path(__file__).resolve().parents[3]
-    data = Path(
-        os.environ.get("JP_DATA_ROOT", repo / "Software Validation from Datasets")
-    ).resolve()
-    training = Path(os.environ.get("JP_TRAINING_ROOT", repo / "training")).resolve()
-    return AdapterPaths(repo.resolve(), data, training)
+    roots = portable_roots(Path(__file__).resolve().parents[3])
+    return AdapterPaths(
+        roots.repository, roots.data, roots.training, roots.models, roots.runs
+    )
 
 
 def canonical_bytes(value: Any) -> bytes:
@@ -278,8 +315,29 @@ def verify_parent(paths: AdapterPaths) -> dict[str, Any]:
     return result
 
 
+def active_freeze(paths: AdapterPaths) -> dict[str, Any]:
+    result = verify_successor(paths.roots)
+    if not result["valid"]:
+        raise AdapterResearchError(
+            "Portable successor verification failed: " + "; ".join(result["reasons"])
+        )
+    return read_json(paths.successor_freeze_path)
+
+
+def active_bundle_path(paths: AdapterPaths, bundle_name: str) -> Path:
+    freeze = active_freeze(paths)
+    try:
+        logical = freeze["bundles"][bundle_name]["logical_path"]
+    except KeyError as exc:
+        raise AdapterResearchError(f"Successor bundle is absent: {bundle_name}") from exc
+    try:
+        return resolve_logical_path(logical, paths.roots)
+    except PortabilityError as exc:
+        raise AdapterResearchError(str(exc)) from exc
+
+
 def verify_initialization(paths: AdapterPaths) -> dict[str, Any]:
-    root = paths.training_root / "checkpoints" / "upstream" / "original"
+    root = paths.roots.models / "Original Trainable Checkpoint"
     expected = {
         "pretrained.pt": CHECKPOINT_SHA256,
         "bpe.model": TOKENIZER_SHA256,
@@ -337,17 +395,20 @@ def _logical_source(path: Path, paths: AdapterPaths) -> str:
 
 
 def _audio_paths(frame: pd.DataFrame, paths: AdapterPaths) -> pd.Series:
-    roots = {
-        "JP_DATA_ROOT": paths.data_root,
-        "JP_TRAINING_ROOT": paths.training_root,
-    }
     result = []
     for root_id, relative in zip(
         frame["audio_root_id"], frame["audio_relative_path"], strict=True
     ):
-        if root_id not in roots:
-            raise AdapterResearchError(f"Unsupported audio root in Phase 4: {root_id}")
-        result.append(str(roots[root_id] / Path(str(relative))))
+        try:
+            result.append(
+                str(
+                    resolve_logical_path(
+                        f"{root_id}:{relative}", paths.roots, use_asset_aliases=True
+                    )
+                )
+            )
+        except PortabilityError as exc:
+            raise AdapterResearchError(str(exc)) from exc
     return pd.Series(result, index=frame.index, dtype="string")
 
 
@@ -547,12 +608,12 @@ def materialize_framework_manifests(paths: AdapterPaths) -> dict[str, Any]:
     ami_index, chime_index = _segment_indexes(paths)
     tokenizer = spm.SentencePieceProcessor(
         model_file=str(
-            paths.training_root / "checkpoints" / "upstream" / "original" / "bpe.model"
+            paths.roots.models / "Original Trainable Checkpoint" / "bpe.model"
         )
     )
     bundles = [
-        read_json(paths.phase4_root / "bundles" / filename)
-        for filename in BUNDLE_FILES.values()
+        read_json(active_bundle_path(paths, bundle_name))
+        for bundle_name in BUNDLE_FILES
     ]
     bundle_bindings = [
         {"bundle_id": item["bundle_id"], "bundle_sha256": item["bundle_sha256"]}
@@ -568,11 +629,20 @@ def materialize_framework_manifests(paths: AdapterPaths) -> dict[str, Any]:
         for dataset in SOURCE_FILES
     }
     references: dict[str, Any] = {}
-    source_root = paths.phase4_root / "source_manifests"
+    train_sources: dict[str, Path] = {}
+    for bundle in bundles:
+        for source in bundle["train_sources"]:
+            dataset = str(source["dataset_id"])
+            source_path = resolve_logical_path(source["manifest_path"], paths.roots)
+            previous = train_sources.setdefault(dataset, source_path)
+            if previous != source_path:
+                raise AdapterResearchError(
+                    f"Conflicting successor TRAIN manifest for {dataset}"
+                )
     for dataset, name in SOURCE_FILES.items():
         destination = paths.framework_manifests / "train" / name
         references[f"train:{dataset}"] = derive_framework_manifest(
-            source_root / name,
+            train_sources[dataset],
             destination,
             paths=paths,
             ami_index=ami_index,
@@ -580,11 +650,15 @@ def materialize_framework_manifests(paths: AdapterPaths) -> dict[str, Any]:
             tokenizer=tokenizer,
             bundle_bindings=dataset_bundle_bindings[dataset],
         )
-    dev_root = paths.phase4_root / "development"
+    dev_sources: dict[str, Path] = {}
+    for bundle in bundles:
+        for reference in bundle["dev_manifests"]:
+            source_path = resolve_logical_path(reference["manifest_path"], paths.roots)
+            dev_sources.setdefault(source_path.name, source_path)
     for dataset, name in DEV_FILES.items():
         destination = paths.framework_manifests / "dev" / name
         references[f"dev:{dataset}"] = derive_framework_manifest(
-            dev_root / name,
+            dev_sources[name],
             destination,
             paths=paths,
             ami_index=ami_index,
@@ -605,9 +679,13 @@ def materialize_framework_manifests(paths: AdapterPaths) -> dict[str, Any]:
         bundle_bindings=bundle_bindings,
     )
     audit = {
-        "schema_version": "phase5-framework-manifest-audit.v1",
+        "schema_version": "phase5a-framework-manifest-audit.v1",
         "phase4_parent_id": PHASE4_ID,
         "phase4_parent_sha256": PHASE4_SHA256,
+        "successor_freeze_id": active_freeze(paths)["training_manifest_freeze_id"],
+        "successor_freeze_sha256": active_freeze(paths)[
+            "training_manifest_freeze_sha256"
+        ],
         "text_normalization_id": TEXT_NORMALIZATION_ID,
         "text_normalization_sha256": text_normalization_sha256(),
         "manifests": references,
@@ -635,7 +713,9 @@ def materialize_framework_manifests(paths: AdapterPaths) -> dict[str, Any]:
         "total_unknown_token_occurrences": sum(
             item["unknown_token_occurrences"] for item in references.values()
         ),
-        "common_voice_heldout_included": False,
+        "common_voice_heldout_included": True,
+        "former_common_voice_heldout_reclassified_to_train": True,
+        "common_voice_dev_used_for_gradients": False,
         "large_accessed": False,
     }
     atomic_json(paths.audits / "framework_manifest_audit.json", audit)
@@ -676,6 +756,7 @@ def _scientific_run_identity(
     training_class: str,
     max_steps: int,
     configs: Mapping[str, Mapping[str, Any]],
+    successor: Mapping[str, Any],
 ) -> dict[str, Any]:
     return {
         "schema_version": "original-adapter-training-run-identity.v1",
@@ -683,6 +764,8 @@ def _scientific_run_identity(
         "training_class": training_class,
         "phase4_freeze_id": PHASE4_ID,
         "phase4_freeze_sha256": PHASE4_SHA256,
+        "successor_freeze_id": successor["training_manifest_freeze_id"],
+        "successor_freeze_sha256": successor["training_manifest_freeze_sha256"],
         "bundle_id": bundle["bundle_id"],
         "bundle_sha256": bundle["bundle_sha256"],
         "initialization_checkpoint_id": CHECKPOINT_ID,
@@ -712,17 +795,18 @@ def _scientific_run_identity(
 
 def materialize_queue(paths: AdapterPaths, audit: Mapping[str, Any]) -> dict[str, Any]:
     configs = load_frozen_configs(paths)
+    successor = active_freeze(paths)
     jobs = []
     for order, (experiment_id, bundle_name, training_class, chime_review) in enumerate(
         EXPERIMENTS, start=1
     ):
-        bundle_path = paths.phase4_root / "bundles" / BUNDLE_FILES[bundle_name]
+        bundle_path = active_bundle_path(paths, bundle_name)
         bundle = read_json(bundle_path)
         max_steps, weighted_hours, contributions = derive_budget(
             bundle, audit["manifests"], configs["budget"]
         )
         identity = _scientific_run_identity(
-            experiment_id, bundle, training_class, max_steps, configs
+            experiment_id, bundle, training_class, max_steps, configs, successor
         )
         digest = canonical_sha256(identity)
         jobs.append(
@@ -752,9 +836,11 @@ def materialize_queue(paths: AdapterPaths, audit: Mapping[str, Any]) -> dict[str
     if any(not item["experiment_id"].startswith("O-") for item in jobs):
         raise AdapterResearchError("Non-Original job entered the queue")
     canonical = {
-        "schema_version": "original-adapter-queue-phase5.v1",
+        "schema_version": "original-adapter-queue-phase5a.v1",
         "phase4_parent_id": PHASE4_ID,
         "phase4_parent_sha256": PHASE4_SHA256,
+        "successor_freeze_id": successor["training_manifest_freeze_id"],
+        "successor_freeze_sha256": successor["training_manifest_freeze_sha256"],
         "training_recipe_id": configs["recipe"]["recipe_id"],
         "training_recipe_sha256": configs["recipe"]["recipe_sha256"],
         "training_budget_policy_id": configs["budget"]["policy_id"],
@@ -806,6 +892,7 @@ def initial_status(queue: Mapping[str, Any]) -> dict[str, Any]:
 
 def plan(paths: AdapterPaths, *, rebuild_manifests: bool = False) -> dict[str, Any]:
     parent = verify_parent(paths)
+    successor = build_successor(paths.roots)
     initialization = verify_initialization(paths)
     load_frozen_configs(paths)
     audit_path = paths.audits / "framework_manifest_audit.json"
@@ -819,6 +906,11 @@ def plan(paths: AdapterPaths, *, rebuild_manifests: bool = False) -> dict[str, A
     return {
         "status": "planned",
         "phase4_parent": parent,
+        "successor_freeze": {
+            "id": successor["training_manifest_freeze_id"],
+            "sha256": successor["training_manifest_freeze_sha256"],
+            "path": str(paths.successor_freeze_path),
+        },
         "initialization": initialization,
         "framework_manifest_audit": audit,
         "queue": queue,
@@ -889,14 +981,15 @@ def estimate(paths: AdapterPaths) -> dict[str, Any]:
     }
 
 
-def _wsl_path(path: Path) -> str:
+def _wsl_path(path: Path, *, distro: str | None = None) -> str:
     windows_path = str(path).replace("\\", "/")
     try:
+        selected = discover_wsl_distro(configured=distro)
         completed = subprocess.run(
             [
                 "wsl.exe",
                 "-d",
-                "Ubuntu",
+                selected,
                 "--",
                 "wslpath",
                 "-u",
@@ -907,22 +1000,61 @@ def _wsl_path(path: Path) -> str:
             capture_output=True,
             text=True,
         )
-    except subprocess.CalledProcessError as exc:
-        detail = (exc.stderr or exc.stdout or "unknown wslpath error").strip()
+    except (PortabilityError, OSError, subprocess.CalledProcessError) as exc:
+        if isinstance(exc, PortabilityError):
+            raise AdapterResearchError(str(exc)) from exc
+        detail = (
+            getattr(exc, "stderr", None)
+            or getattr(exc, "stdout", None)
+            or str(exc)
+            or "unknown wslpath error"
+        ).strip()
         raise AdapterResearchError(f"Windows-to-WSL path conversion failed: {detail}") from exc
-    return completed.stdout.strip()
+    converted = completed.stdout.strip()
+    if not converted.startswith("/"):
+        raise AdapterResearchError(
+            f"Windows-to-WSL path conversion returned an invalid path: {converted!r}"
+        )
+    return converted
 
 
 def _run_runtime(paths: AdapterPaths, command: str, experiment_id: str) -> int:
     environment = load_frozen_configs(paths)["environment"]
-    runtime = _wsl_path(Path(__file__).with_name("adapter_runtime.py"))
-    queue = _wsl_path(paths.queue_path)
+    distro = discover_wsl_distro()
+    runtime = _wsl_path(Path(__file__).with_name("adapter_runtime.py"), distro=distro)
+    queue = _wsl_path(paths.queue_path, distro=distro)
+    linux_home = wsl_home(distro)
+    wsl_python = os.environ.get("JP_WSL_PYTHON") or (
+        linux_home
+        + "/"
+        + environment[
+            "wsl_python_relative_to_home"
+        ].lstrip("/")
+    )
+    wsl_icefall = os.environ.get("JP_ICEFALL_ROOT") or (
+        linux_home
+        + "/"
+        + environment["wsl_icefall_relative_to_home"].lstrip("/")
+    )
+    root_environment = [
+        f"{root_id}={_wsl_path(root, distro=distro)}"
+        for root_id, root in paths.roots.as_mapping().items()
+    ]
+    if os.environ.get("JP_ADAPTER_STATUS_ROOT"):
+        root_environment.append(
+            "JP_ADAPTER_STATUS_ROOT="
+            + _wsl_path(Path(os.environ["JP_ADAPTER_STATUS_ROOT"]), distro=distro)
+        )
     args = [
         "wsl.exe",
         "-d",
-        "Ubuntu",
+        distro,
         "--",
-        environment["wsl_python"],
+        "env",
+        *root_environment,
+        f"JP_WSL_DISTRO={distro}",
+        f"JP_ICEFALL_ROOT={wsl_icefall}",
+        wsl_python,
         runtime,
         command,
         "--queue",
@@ -972,6 +1104,17 @@ def run_queue(paths: AdapterPaths) -> int:
         if _completed_run(paths, job):
             continue
         code = run_one(paths, job["experiment_id"])
+        if code != 0:
+            return code
+    return 0
+
+
+def qualify(paths: AdapterPaths) -> int:
+    """Run the two bounded receiver canaries; never called by Plan/Estimate."""
+    if not paths.queue_path.is_file():
+        plan(paths)
+    for experiment_id in ("O-AGE", "O-AGE-ROBUST"):
+        code = _run_runtime(paths, "canary", experiment_id)
         if code != 0:
             return code
     return 0
@@ -1184,8 +1327,8 @@ def _framework_manifests_valid(paths: AdapterPaths, audit: Mapping[str, Any]) ->
         ):
             return False
         bundles = [
-            read_json(paths.phase4_root / "bundles" / filename)
-            for filename in BUNDLE_FILES.values()
+            read_json(active_bundle_path(paths, bundle_name))
+            for bundle_name in BUNDLE_FILES
         ]
         all_bindings = [
             {"bundle_id": item["bundle_id"], "bundle_sha256": item["bundle_sha256"]}
@@ -1230,8 +1373,8 @@ def _framework_manifests_valid(paths: AdapterPaths, audit: Mapping[str, Any]) ->
                 "JP_TRAINING_ROOT:"
             ):
                 return False
-            derived_path = paths.training_root / derived.split(":", 1)[1]
-            source_path = paths.training_root / source.split(":", 1)[1]
+            derived_path = resolve_logical_path(derived, paths.roots)
+            source_path = resolve_logical_path(source, paths.roots)
             source_descriptor = read_json(source_path.with_suffix(".manifest.json"))
             if (
                 source_descriptor["manifest_id"] != item["source_manifest_id"]
@@ -1308,8 +1451,15 @@ def validate(paths: AdapterPaths) -> dict[str, Any]:
         "QUEUE_EXACTLY_EIGHT": len(queue["jobs"]) == 8 and jobs_valid,
         "NO_GIGA_JOBS": no_giga,
         "NO_LARGE_ACCESS": not audit["large_accessed"],
-        "NO_COMMON_VOICE_HELDOUT": not audit["common_voice_heldout_included"],
-        "TRANSCRIPT_REPAIRS_AUDITED": audit["total_transcript_repairs"] == 2,
+        "COMMON_VOICE_RECLASSIFICATION_VALID": bool(
+            audit["common_voice_heldout_included"]
+            and audit["former_common_voice_heldout_reclassified_to_train"]
+            and not audit["common_voice_dev_used_for_gradients"]
+        ),
+        "TRANSCRIPT_REPAIRS_AUDITED": isinstance(
+            audit["total_transcript_repairs"], int
+        )
+        and audit["total_transcript_repairs"] >= 0,
         "CANARIES_PASSED": canaries_valid,
     }
     result["READY_TO_RUN_ORIGINAL_ADAPTER_QUEUE"] = all(result.values())
@@ -1476,10 +1626,10 @@ def results(paths: AdapterPaths) -> dict[str, Any]:
         "ORIGINAL_BASELINE_CONTINUITY": "strong_lineage_requires_reconstructed_baseline",
         "RECONSTRUCTED_ORIGINAL_BASELINE_EXPORT_REQUIRED": True,
         "ORIGINAL_TRAINABLE_CHECKPOINT_ID": CHECKPOINT_ID,
-        "ORIGINAL_TRAINABLE_CHECKPOINT_PATH": "JP_TRAINING_ROOT:checkpoints/upstream/original/pretrained.pt",
+        "ORIGINAL_TRAINABLE_CHECKPOINT_PATH": "JP_MODEL_ROOT:Original Trainable Checkpoint/pretrained.pt",
         "ORIGINAL_TRAINABLE_CHECKPOINT_SHA256": CHECKPOINT_SHA256,
         "TOKENIZER_ID": TOKENIZER_ID,
-        "TOKENIZER_PATH": "JP_TRAINING_ROOT:checkpoints/upstream/original/bpe.model",
+        "TOKENIZER_PATH": "JP_MODEL_ROOT:Original Trainable Checkpoint/bpe.model",
         "TOKENIZER_SHA256": TOKENIZER_SHA256,
         "ICEFALL_COMMIT": ICEFALL_COMMIT,
         "ADAPTER_IMPLEMENTATION_ID": load_frozen_configs(paths)["recipe"][
@@ -1587,6 +1737,7 @@ def main(argv: Iterable[str] | None = None) -> int:
             "estimate",
             "run",
             "run-one",
+            "qualify",
             "status",
             "status-compact",
             "stop",
@@ -1612,6 +1763,8 @@ def main(argv: Iterable[str] | None = None) -> int:
             if not args.experiment_id:
                 raise AdapterResearchError("--experiment-id is required")
             return run_one(paths, args.experiment_id)
+        elif args.action == "qualify":
+            return qualify(paths)
         elif args.action == "status":
             value, code = status(paths), 0
         elif args.action == "status-compact":

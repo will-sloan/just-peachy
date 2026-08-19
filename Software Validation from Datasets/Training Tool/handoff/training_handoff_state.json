@@ -1,0 +1,101 @@
+{
+  "SCHEMA_VERSION": "training-handoff-state.v1",
+  "REPOSITORY": {
+    "BRANCH": "codex/edge-component-expansion",
+    "STARTING_COMMIT": "76c4091692b937b53f97d475cc17cff32efd5998",
+    "FINAL_COMMIT_READBACK": "git rev-parse HEAD",
+    "OPERATOR_OWNED_WORKTREE_EXCLUSIONS": [
+      "Software Validation from Datasets/Evaluation Tool/runs/edge_backend_qualification/*.json",
+      "Software Validation from Datasets/Evaluation Tool/runs/extended_backend_qualification/*.json",
+      "Software Validation from Datasets/Evaluation Tool/artifacts/research_queue_logs/"
+    ]
+  },
+  "PORTABLE_ROOTS": [
+    "JP_REPO_ROOT",
+    "JP_DATA_ROOT",
+    "JP_TRAINING_ROOT",
+    "JP_MODEL_ROOT",
+    "JP_RUN_ROOT"
+  ],
+  "WSL_DISTRO_CONFIGURATION": "JP_WSL_DISTRO or validated runtime discovery",
+  "PARENT_PHASE4": {
+    "ID": "training_manifest_freeze_phase4_cc2909f344d0",
+    "SHA256": "CC2909F344D01E9007EF648BA71277188DF26741CBEA5D1D2B0933116CE6DF92",
+    "MODIFIED": false
+  },
+  "SUCCESSOR_TRAINING_FREEZE": {
+    "ID": "training_manifest_freeze_successor_d11f526adfba",
+    "SHA256": "D11F526ADFBA9DA1316CFCDA18B5423F011F3CE8CB48B6BF877B0207D00516CC",
+    "PATH": "JP_TRAINING_ROOT:successors/phase5a_portable_training_freeze_v1/registries/training_manifest_freeze_successor.json"
+  },
+  "COMMON_VOICE": {
+    "RELEASE": "cv-corpus-26.0-2026-06-12 / English 26.0",
+    "LICENSE": "CC0-1.0",
+    "RECEIVER_ACQUISITION": "independent download through Mozilla Data Collective under the receiver's own access",
+    "ARCHIVE_PATH": "JP_DATA_ROOT:Raw Datasets (Not formatted)/Common Voice.gz",
+    "ARCHIVE_BYTES": 94639372950,
+    "ARCHIVE_SHA256": "6809228E6AB506D18F6A1EBC830056450F8266C8F513D6038BDB0FC88A49E6CB",
+    "PREPARED_PATH": "JP_DATA_ROOT:Raw Datasets (Not formatted)/Common Voice/cv-corpus-26.0-2026-06-12/prepared/en",
+    "PREPARED_FILES": 101428,
+    "PREPARED_BYTES": 7299277413,
+    "PREPARED_256_FILE_SAMPLE_SHA256": "FC54DEEC8CDA1D199026C8AEEF6A9E9387E1A13F6BDCCDD6544A65696203A57D",
+    "LEGACY_PATH_COMPATIBILITY": "junction plus portable resolver alias",
+    "FORMER_HELDOUT_RECLASSIFIED_TO_TRAIN": true,
+    "FINAL_HELDOUT_REQUIRED": false,
+    "AGE_TRAIN": {
+      "MANIFEST_ID": "age_train_manifest_90232912fe93",
+      "MANIFEST_SHA256": "90232912FE9347DB76EEE5B5CF4436F09B346F0D80C2BAC0B47D213663651716",
+      "RECORDS": 91123,
+      "HOURS": 139.79333974338232,
+      "SPEAKERS": 1217
+    },
+    "AGE_DEV": {
+      "MANIFEST_ID": "age_dev_manifest_6fd3d4dfacb7",
+      "MANIFEST_SHA256": "6FD3D4DFACB798A9C359C4DA48AB35800CC0A54E5737809A87438DAA50B4C4D6",
+      "RECORDS": 10288,
+      "HOURS": 18.055174539930555,
+      "SPEAKERS": 35,
+      "USED_FOR_GRADIENTS": false
+    }
+  },
+  "BUNDLES": {
+    "AGE": "age_bundle_6c15a716a5e6",
+    "ROBUST": "robust_bundle_204aa1c051dd",
+    "AGE_ROBUST": "age_robust_bundle_90dde6962bda",
+    "AGE_ROBUST_CMU_EXPLORATORY": "age_robust_cmu_exploratory_bundle_f7c98d9e6362"
+  },
+  "QUEUE": {
+    "ID": "adapter_queue_22d65f9ff187",
+    "SHA256": "22D65F9FF187EDCEE288E2ACDE913089AC32E4062A0BD6FD80D666E3D017F3FA",
+    "PATH": "JP_TRAINING_ROOT:successors/phase5a_original_adapter_training_v1/registries/original_adapter_queue.json",
+    "TOTAL_ADAPTER_JOBS": 8,
+    "GIGA_ADAPTER_JOBS": 0
+  },
+  "TRAINING_SYSTEM": {
+    "CHECKPOINT_ID": "zengwei_librispeech_streaming_zipformer_2023_05_17_37cb5606808f",
+    "CHECKPOINT_SHA256": "E44BB7C8D3985A7CF0089020D227AECD71E323DCAAABCAED90E4A792E1385342",
+    "TOKENIZER_ID": "sentencepiece_bpe500_c53433de083c",
+    "TOKENIZER_SHA256": "C53433DE083C4A6AD12D034550EF22DE68CEC62C4F58932A7B6B8B2F1E743FA5",
+    "ICEFALL_COMMIT": "3f848bb6d0acc970c9b294a30ca0a04a7c9c78d1",
+    "RECIPE_ID": "original_adapter_recipe_94be54407fb2",
+    "RECIPE_SHA256": "94BE54407FB240CD6EC9650E1B34A6539BE55AC1CF917BBB2F5E45D7C9AF8A36",
+    "BUDGET_POLICY_ID": "original_adapter_budget_policy_250c2dc05ffb",
+    "BUDGET_POLICY_SHA256": "250C2DC05FFB7FF372C76DDC9CFA23A48F1C7DB590877A22E77404A68D48E3C7",
+    "SCIENTIFIC_RECIPE_CHANGED": false
+  },
+  "VALIDATION": {
+    "PLAN_PASSED": true,
+    "ESTIMATE_PASSED": true,
+    "ESTIMATE_CALIBRATED": false,
+    "ESTIMATE_NOTE": "ETA unavailable until receiver canaries pass; no ETA was fabricated",
+    "TRAINING_STARTED": false,
+    "CANARIES_RERUN": false,
+    "LARGE_RUN": false,
+    "ONNX_EXPORT_RUN": false
+  },
+  "PARALLELISM": {
+    "DEFAULT_MAX_PARALLEL_ADAPTER_JOBS": 1,
+    "MAXIMUM_SUPPORTED": 2,
+    "PARALLEL_TWO_REQUIRES_MEASURED_GATE": true
+  }
+}

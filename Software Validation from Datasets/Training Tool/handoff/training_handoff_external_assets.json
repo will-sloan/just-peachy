@@ -1,0 +1,51 @@
+{
+  "SCHEMA_VERSION": "training-handoff-external-assets.v1",
+  "ORIGINAL_CHECKPOINT": {
+    "ID": "zengwei_librispeech_streaming_zipformer_2023_05_17_37cb5606808f",
+    "REVISION": "37cb5606808f3d5e55a3fc73554bdf757d82465a",
+    "SOURCE": "https://huggingface.co/Zengwei/icefall-asr-librispeech-streaming-zipformer-2023-05-17",
+    "FILES": {
+      "pretrained.pt": "E44BB7C8D3985A7CF0089020D227AECD71E323DCAAABCAED90E4A792E1385342",
+      "bpe.model": "C53433DE083C4A6AD12D034550EF22DE68CEC62C4F58932A7B6B8B2F1E743FA5",
+      "tokens.txt": "49E3C2646595FD907228B3C6787069658F67B17377C60AEB8619C4551B2316FB"
+    },
+    "LOGICAL_DESTINATION": "JP_MODEL_ROOT:Original Trainable Checkpoint",
+    "GIT_TRACKED": false
+  },
+  "ICEFALL": {
+    "SOURCE": "https://github.com/k2-fsa/icefall.git",
+    "COMMIT": "3f848bb6d0acc970c9b294a30ca0a04a7c9c78d1",
+    "DESTINATION_RELATIVE_TO_WSL_HOME": ".local/share/just-peachy/toolchains/icefall",
+    "GIT_TRACKED_IN_THIS_REPOSITORY": false
+  },
+  "PYTHON_ENVIRONMENT": {
+    "PYTHON": "3.11.15",
+    "DESTINATION_RELATIVE_TO_WSL_HOME": ".local/share/just-peachy/envs/original_adapter_training",
+    "LOCK": "configs/original_adapter_environment_lock.v1.json",
+    "REQUIREMENTS": "requirements.original_adapter_training.txt",
+    "WINDOWS_CONTROL_REQUIREMENTS": "requirements.handoff_control.txt",
+    "CREDENTIALS_STORED_IN_GIT": false
+  },
+  "TRAINED_MODEL_TRANSFER": {
+    "MANIFEST_SCHEMA": "trained-model-transfer-manifest.v1",
+    "COMMAND": "python -m training_data.handoff package-model --experiment-id O-AGE",
+    "BINARY_TRANSPORT": "operator-selected; no proprietary service is assumed",
+    "NORMAL_GIT_HISTORY": false
+  },
+  "FUTURE_LARGE_EVALUATION_ASSETS": {
+    "AUTHORITATIVE_REGISTRY": "Software Validation from Datasets/Evaluation Tool/configs/automated_evaluation/model_asset_registry.v1.yaml",
+    "HISTORICAL_ORIGINAL_BASELINE": {
+      "ASSET_ID": "sherpa_onnx_asr",
+      "ACQUISITION_COMMAND": "python scripts/bootstrap_models.py --sherpa-asr",
+      "STORAGE_PATH_RELATIVE_TO_EVALUATION_TOOL": "models/cache/sherpa_onnx/asr/sherpa-onnx-streaming-zipformer-en-2023-06-26"
+    },
+    "GIGA_BASELINE": {
+      "ASSET_ID": "sherpa_onnx_libri_giga_zipformer_2023_06_21",
+      "ACQUISITION_COMMAND": "python scripts/bootstrap_models.py --sherpa-libri-giga",
+      "STORAGE_PATH_RELATIVE_TO_EVALUATION_TOOL": "models/cache/sherpa_onnx/asr/sherpa-onnx-streaming-zipformer-en-2023-06-21",
+      "COMMERCIAL_DEPLOYMENT_REVIEW_REQUIRED": true
+    },
+    "FUTURE_OUTPUTS": "reconstructed Original baseline and successful adapter/full-fine-tune ONNX exports; not created by this handoff",
+    "GIT_TRACKED": false
+  }
+}

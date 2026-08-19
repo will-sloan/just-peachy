@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "trained-model-transfer-manifest.v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "experiment_id",
+    "checkpoint_id",
+    "checkpoint_sha256",
+    "checkpoint_size",
+    "bundle_id",
+    "training_recipe_id",
+    "model_lineage",
+    "export_readiness",
+    "transport",
+    "transfer_manifest_sha256"
+  ],
+  "properties": {
+    "schema_version": {"const": "trained-model-transfer-manifest.v1"},
+    "experiment_id": {"type": "string", "pattern": "^O-"},
+    "checkpoint_id": {"type": "string", "minLength": 1},
+    "checkpoint_sha256": {"type": "string", "pattern": "^[A-F0-9]{64}$"},
+    "checkpoint_size": {"type": "integer", "minimum": 1},
+    "bundle_id": {"type": "string", "minLength": 1},
+    "training_recipe_id": {"type": "string", "minLength": 1},
+    "model_lineage": {"type": "string", "minLength": 1},
+    "export_readiness": {"type": "boolean"},
+    "transport": {"type": "string", "minLength": 1},
+    "transfer_manifest_sha256": {"type": "string", "pattern": "^[A-F0-9]{64}$"}
+  }
+}

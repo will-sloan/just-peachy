@@ -55,15 +55,17 @@ def test_wsl_path_normalizes_windows_backslashes(monkeypatch: pytest.MonkeyPatch
     captured: list[str] = []
 
     def fake_run(args: list[str], **_: object) -> subprocess.CompletedProcess[str]:
+        if args[-3:] == ["test", "-x", "/usr/bin/wslpath"]:
+            return subprocess.CompletedProcess(args, 0, "", "")
         captured.extend(args)
         return subprocess.CompletedProcess(args, 0, "/mnt/c/work/queue.json\n", "")
 
     monkeypatch.setattr("training_data.adapter_research.subprocess.run", fake_run)
-    assert _wsl_path(Path(r"C:\work\queue.json")) == "/mnt/c/work/queue.json"
+    assert _wsl_path(Path(r"C:\work\queue.json"), distro="TestDistro") == "/mnt/c/work/queue.json"
     assert captured == [
         "wsl.exe",
         "-d",
-        "Ubuntu",
+        "TestDistro",
         "--",
         "wslpath",
         "-u",
@@ -78,11 +80,13 @@ def test_wsl_path_preserves_spaces_as_one_argument(
     captured: list[str] = []
 
     def fake_run(args: list[str], **_: object) -> subprocess.CompletedProcess[str]:
+        if args[-3:] == ["test", "-x", "/usr/bin/wslpath"]:
+            return subprocess.CompletedProcess(args, 0, "", "")
         captured.extend(args)
         return subprocess.CompletedProcess(args, 0, "/mnt/c/Training Tool/queue.json\n", "")
 
     monkeypatch.setattr("training_data.adapter_research.subprocess.run", fake_run)
-    assert _wsl_path(Path(r"C:\Training Tool\queue.json")) == (
+    assert _wsl_path(Path(r"C:\Training Tool\queue.json"), distro="TestDistro") == (
         "/mnt/c/Training Tool/queue.json"
     )
     assert captured[-1] == "C:/Training Tool/queue.json"
@@ -91,11 +95,40 @@ def test_wsl_path_preserves_spaces_as_one_argument(
 
 def test_wsl_path_reports_conversion_failure(monkeypatch: pytest.MonkeyPatch) -> None:
     def fake_run(args: list[str], **_: object) -> subprocess.CompletedProcess[str]:
+        if args[-3:] == ["test", "-x", "/usr/bin/wslpath"]:
+            return subprocess.CompletedProcess(args, 0, "", "")
         raise subprocess.CalledProcessError(1, args, stderr="wslpath: bad path")
 
     monkeypatch.setattr("training_data.adapter_research.subprocess.run", fake_run)
     with pytest.raises(AdapterResearchError, match="wslpath: bad path"):
-        _wsl_path(Path(r"C:\missing\queue.json"))
+        _wsl_path(Path(r"C:\missing\queue.json"), distro="TestDistro")
+
+
+def test_wsl_path_converts_current_queue_without_splitting(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    observed: list[list[str]] = []
+
+    def fake_run(args: list[str], **_: object) -> subprocess.CompletedProcess[str]:
+        if args[-3:] == ["test", "-x", "/usr/bin/wslpath"]:
+            return subprocess.CompletedProcess(args, 0, "", "")
+        observed.append(args)
+        return subprocess.CompletedProcess(args, 0, "/mnt/c/queue.json\n", "")
+
+    monkeypatch.setattr("training_data.adapter_research.subprocess.run", fake_run)
+    queue = (
+        REPOSITORY
+        / "training"
+        / "successors"
+        / "phase5a_original_adapter_training_v1"
+        / "registries"
+        / "original_adapter_queue.json"
+    )
+    assert _wsl_path(queue, distro="TestDistro") == "/mnt/c/queue.json"
+    assert len(observed) == 1
+    assert observed[0][-1].endswith(
+        "training/successors/phase5a_original_adapter_training_v1/registries/original_adapter_queue.json"
+    )
 
 
 def test_phase4_parent_identity_is_frozen() -> None:
@@ -106,7 +139,7 @@ def test_phase4_parent_identity_is_frozen() -> None:
 
 
 def test_checkpoint_and_tokenizer_hashes_when_local_assets_are_present() -> None:
-    root = REPOSITORY / "training" / "checkpoints" / "upstream" / "original"
+    root = REPOSITORY / "models" / "Original Trainable Checkpoint"
     if not root.is_dir():
         pytest.skip("machine-local Phase-5 initialization cache is absent")
     assert sha256_file(root / "pretrained.pt") == CHECKPOINT_SHA256

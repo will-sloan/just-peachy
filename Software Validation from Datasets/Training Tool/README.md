@@ -169,6 +169,50 @@ Set-Location 'C:\Users\amiri\Documents\GitHub\just-peachy\Software Validation fr
 ..\..\.venv\Scripts\python.exe -m pytest -q tests
 ```
 
+## Portable RTX 3090 receiver handoff and additive AGE successor
+
+The tracked [handoff runbook](handoff/training_handoff_commands.md) prepares a
+second Windows/WSL2 machine without assuming a Windows username, drive letter,
+Linux username, or WSL distribution name. The five inputs are
+`JP_REPO_ROOT`, `JP_DATA_ROOT`, `JP_TRAINING_ROOT`, `JP_MODEL_ROOT`, and
+`JP_RUN_ROOT`; `JP_WSL_DISTRO` may be explicit or the unique WSL default is
+validated at runtime.
+
+Purpose: reproduce the additive successor that retires Common Voice final
+heldout evaluation and reclassifies the former heldout rows into AGE TRAIN,
+while leaving Phase 3, Phase 4, the sampler, and the qualified adapter recipe
+unchanged. Inputs are the immutable Phase-3/Phase-4 freezes and external assets.
+Outputs are ignored machine-local successor manifests/queues and tracked small
+handoff metadata; no audio, checkpoint, environment, Icefall checkout, run log,
+training, export, or Large evaluation is added to Git.
+
+Run from PowerShell or Anaconda Prompt:
+
+```powershell
+Set-Location 'D:\Work\just-peachy'
+$env:JP_REPO_ROOT = (Get-Location).Path
+$env:JP_DATA_ROOT = 'D:\JustPeachyData'
+$env:JP_TRAINING_ROOT = 'D:\JustPeachyTraining'
+$env:JP_MODEL_ROOT = 'D:\JustPeachyModels'
+$env:JP_RUN_ROOT = 'D:\JustPeachyRuns'
+$env:JP_WSL_DISTRO = 'Ubuntu-24.04'
+powershell -ExecutionPolicy Bypass -File 'Software Validation from Datasets\Training Tool\scripts\bootstrap_training_machine.ps1' -Action Diagnose
+powershell -ExecutionPolicy Bypass -File 'Software Validation from Datasets\Training Tool\scripts\run_adapter_research.ps1' -Action Plan
+powershell -ExecutionPolicy Bypass -File 'Software Validation from Datasets\Training Tool\scripts\run_adapter_research.ps1' -Action Estimate
+```
+
+In classic Command Prompt/Anaconda Prompt, use `set JP_REPO_ROOT=...` (and the
+other roots) before calling the same PowerShell scripts. The bootstrap actions,
+inputs, outputs, model download, Common Voice selective materialization,
+qualification gate, serial/parallel run commands, and transfer-manifest command
+are documented in the handoff runbook. `MAX_PARALLEL_ADAPTER_JOBS` defaults to
+1; two independent processes remain blocked until a bounded RTX 3090 benchmark
+shows at least 25% aggregate throughput improvement with all integrity gates.
+After externally acquiring the datasets, use the dry-by-default
+`bootstrap_training_machine.ps1 -Action MaterializeData` action; add `-Apply`
+to reproduce the complete Phase-2-to-successor data chain and consolidate the
+selectively materialized Common Voice tree below `JP_DATA_ROOT`.
+
 ## Phase 4: deterministic training manifests and sampling bundles
 
 Phase 4 turns the immutable Phase-3 data universe into framework-neutral TRAIN,

@@ -53,9 +53,18 @@ from training_data.adapter_research import (  # noqa: E402
     stable_u64,
     utc_now,
 )
+from training_data.portability import (  # noqa: E402
+    PortableRoots,
+    resolve_logical_path,
+)
 
 
-ICEFALL_ROOT = Path("/home/amiri/.local/share/just-peachy/toolchains/icefall")
+ICEFALL_ROOT = Path(
+    os.environ.get(
+        "JP_ICEFALL_ROOT",
+        Path.home() / ".local" / "share" / "just-peachy" / "toolchains" / "icefall",
+    )
+)
 RECIPE_ROOT = ICEFALL_ROOT / "egs" / "librispeech" / "ASR" / "zipformer_adapter"
 if not ICEFALL_ROOT.joinpath(".git").exists():
     raise RuntimeError("Pinned Icefall checkout metadata is unavailable")
@@ -98,15 +107,37 @@ class RuntimePaths:
 
     @property
     def training_root(self) -> Path:
-        return self.phase5_root.parent.parent
+        return Path(os.environ.get("JP_TRAINING_ROOT", self.phase5_root.parent.parent)).resolve()
 
     @property
     def repository_root(self) -> Path:
-        return TOOL_ROOT.parents[1]
+        return Path(os.environ.get("JP_REPO_ROOT", TOOL_ROOT.parents[1])).resolve()
 
     @property
     def data_root(self) -> Path:
-        return TOOL_ROOT.parent
+        return Path(
+            os.environ.get(
+                "JP_DATA_ROOT", self.repository_root / "Software Validation from Datasets"
+            )
+        ).resolve()
+
+    @property
+    def model_root(self) -> Path:
+        return Path(os.environ.get("JP_MODEL_ROOT", self.repository_root / "models")).resolve()
+
+    @property
+    def run_root(self) -> Path:
+        return Path(os.environ.get("JP_RUN_ROOT", self.training_root / "runs")).resolve()
+
+    @property
+    def roots(self) -> PortableRoots:
+        return PortableRoots(
+            self.repository_root,
+            self.data_root,
+            self.training_root,
+            self.model_root,
+            self.run_root,
+        )
 
     @property
     def tool_root(self) -> Path:
@@ -122,7 +153,7 @@ class RuntimePaths:
 
     @property
     def runs(self) -> Path:
-        return self.training_root / "runs" / "adapters"
+        return self.run_root / "adapters"
 
     @property
     def qualification(self) -> Path:
@@ -134,7 +165,8 @@ class RuntimePaths:
 
     @property
     def status_path(self) -> Path:
-        return self.phase5_root / "queue_status.json"
+        override = os.environ.get("JP_ADAPTER_STATUS_ROOT")
+        return (Path(override).resolve() if override else self.phase5_root) / "queue_status.json"
 
 
 def _configs(paths: RuntimePaths) -> dict[str, dict[str, Any]]:
@@ -174,6 +206,8 @@ def _verify_training_system_commit(paths: RuntimePaths) -> None:
     source_paths = (
         "Software Validation from Datasets/Training Tool/training_data/adapter_research.py",
         "Software Validation from Datasets/Training Tool/training_data/adapter_runtime.py",
+        "Software Validation from Datasets/Training Tool/training_data/handoff.py",
+        "Software Validation from Datasets/Training Tool/training_data/portability.py",
         "Software Validation from Datasets/Training Tool/configs/original_adapter_recipe.v1.json",
         "Software Validation from Datasets/Training Tool/configs/original_adapter_budget_policy.v1.json",
         "Software Validation from Datasets/Training Tool/configs/original_adapter_environment_lock.v1.json",
@@ -333,21 +367,30 @@ class FrozenBundleSampler:
 
 
 def _resolve_audio(row: pd.Series, paths: RuntimePaths) -> Path:
-    roots = {"JP_DATA_ROOT": paths.data_root, "JP_TRAINING_ROOT": paths.training_root}
     root_id = str(row["audio_root_id"])
-    if root_id not in roots:
-        raise AdapterResearchError(f"Unsupported audio root: {root_id}")
-    return roots[root_id] / str(row["audio_relative_path"])
+    return resolve_logical_path(
+        f"{root_id}:{row['audio_relative_path']}", paths.roots
+    )
 
 
 def _logical_training_path(path: Path, paths: RuntimePaths) -> str:
-    relative = path.resolve().relative_to(paths.training_root.resolve())
-    return "JP_TRAINING_ROOT:" + relative.as_posix()
+    resolved = path.resolve()
+    for root_id, root in (
+        ("JP_RUN_ROOT", paths.run_root),
+        ("JP_TRAINING_ROOT", paths.training_root),
+        ("JP_MODEL_ROOT", paths.model_root),
+    ):
+        try:
+            relative = resolved.relative_to(root.resolve())
+        except ValueError:
+            continue
+        return f"{root_id}:" + relative.as_posix()
+    raise AdapterResearchError(f"Artifact is outside portable roots: {path}")
 
 
 def _checkpoint_path(value: str, *, paths: RuntimePaths, run_dir: Path) -> Path:
-    if value.startswith("JP_TRAINING_ROOT:"):
-        return paths.training_root / value.split(":", 1)[1]
+    if value.startswith("JP_") and ":" in value:
+        return resolve_logical_path(value, paths.roots)
     candidate = Path(value)
     return candidate if candidate.is_absolute() else run_dir / candidate
 
@@ -405,7 +448,7 @@ def build_model(
     *,
     device: torch.device,
 ) -> tuple[torch.nn.Module, Any, spm.SentencePieceProcessor, list[str]]:
-    checkpoint_root = paths.training_root / "checkpoints" / "upstream" / "original"
+    checkpoint_root = paths.model_root / "Original Trainable Checkpoint"
     if sha256_file(checkpoint_root / "pretrained.pt") != CHECKPOINT_SHA256:
         raise AdapterResearchError("Original checkpoint hash changed")
     args = icefall_train.get_parser().parse_args(
@@ -903,20 +946,7 @@ def run_job(
     device = torch.device("cuda", 0)
     torch.cuda.set_device(device)
     torch.cuda.reset_peak_memory_stats(device)
-    bundle_path = (
-        paths.phase4_root
-        / "bundles"
-        / {
-            "AGE": "age.json",
-            "AMI": "ami.json",
-            "CHIME": "chime.json",
-            "VOICES": "voices.json",
-            "ROBUST": "robust.json",
-            "AGE_ROBUST": "age_robust.json",
-            "CMU_EXPLORATORY": "cmu_exploratory.json",
-            "AGE_ROBUST_CMU_EXPLORATORY": "age_robust_cmu_exploratory.json",
-        }[job["bundle_name"]]
-    )
+    bundle_path = resolve_logical_path(job["bundle_path"], paths.roots)
     bundle = read_json(bundle_path)
     bundle_canonical = {
         key: value
@@ -928,7 +958,7 @@ def run_job(
         or bundle["bundle_id"] != job["bundle_id"]
         or bundle["bundle_sha256"] != job["bundle_sha256"]
     ):
-        raise AdapterResearchError("Frozen Phase-4 bundle identity changed")
+        raise AdapterResearchError("Frozen successor bundle identity changed")
     run_dir = (
         paths.qualification / "canaries" / job["experiment_id"]
         if canary
