@@ -890,12 +890,26 @@ def estimate(paths: AdapterPaths) -> dict[str, Any]:
 
 
 def _wsl_path(path: Path) -> str:
-    completed = subprocess.run(
-        ["wsl.exe", "-d", "Ubuntu", "--", "wslpath", "-a", str(path)],
-        check=True,
-        capture_output=True,
-        text=True,
-    )
+    windows_path = str(path).replace("\\", "/")
+    try:
+        completed = subprocess.run(
+            [
+                "wsl.exe",
+                "-d",
+                "Ubuntu",
+                "--",
+                "wslpath",
+                "-u",
+                "-a",
+                windows_path,
+            ],
+            check=True,
+            capture_output=True,
+            text=True,
+        )
+    except subprocess.CalledProcessError as exc:
+        detail = (exc.stderr or exc.stdout or "unknown wslpath error").strip()
+        raise AdapterResearchError(f"Windows-to-WSL path conversion failed: {detail}") from exc
     return completed.stdout.strip()
 
 
