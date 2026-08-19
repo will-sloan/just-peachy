@@ -1,5 +1,5 @@
 {
   "schema_version": "original-adapter-system-commit-lock.v1",
-  "phase5_training_system_commit": "2c2b8f3dda1da96043b6eb77d9fa8765b8fc1ad0",
+  "phase5_training_system_commit": "f997e012f6d0008044beedffa4ba1db733189c01",
   "scope": "The committed Phase-5 control plane, CUDA runtime, recipe, budget, environment, and provenance files required for every full Original adapter run."
 }
