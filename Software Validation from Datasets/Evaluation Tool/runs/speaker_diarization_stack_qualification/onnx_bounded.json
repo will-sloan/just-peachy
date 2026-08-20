@@ -3,7 +3,7 @@
     "cuda_available": false,
     "cuda_runtime": null,
     "device_requested": "cpu",
-    "git_commit": "4a170baf5d2a2236650508f6e582f1eb85557a78",
+    "git_commit": "4b549247465de2676c569bc5701e38ef2fc98a12",
     "gpu": null,
     "machine": "AMD64",
     "package_count": 68,
@@ -13,7 +13,7 @@
     "python_executable": "<environment>/Scripts/python.exe",
     "torch": "2.11.0+cpu"
   },
-  "generated_at": "2026-08-20T02:01:34.993559+00:00",
+  "generated_at": "2026-08-20T02:07:40.534079+00:00",
   "profile": "onnx",
   "results": [
     {
@@ -219,10 +219,10 @@
       "status": "qualified",
       "timing": {
         "inference_sec": [
-          0.393232,
-          0.045287
+          0.356897,
+          0.045206
         ],
-        "total_sec": 3.098357
+        "total_sec": 3.103943
       },
       "warnings": []
     },
@@ -309,11 +309,11 @@
           "cpu_memory_mb": null,
           "device": "cpu",
           "dtype": "float32",
-          "inference_sec": 0.0006921000021975487,
+          "inference_sec": 0.0006549000099767,
           "load_sec": 0.0,
           "model_name": "campplus_en_voxceleb_16k_v1_0_2",
           "peak_gpu_memory_mb": null,
-          "realtime_factor": 0.0069210000219754875
+          "realtime_factor": 0.0065490000997669995
         },
         "valid_real_outputs": 2
       },
@@ -331,10 +331,10 @@
       "status": "qualified",
       "timing": {
         "inference_sec": [
-          0.503155,
-          0.065035
+          0.471404,
+          0.062161
         ],
-        "total_sec": 0.625041
+        "total_sec": 0.589085
       },
       "warnings": []
     },
@@ -421,11 +421,11 @@
           "cpu_memory_mb": null,
           "device": "cpu",
           "dtype": "float32",
-          "inference_sec": 0.0007639999967068434,
+          "inference_sec": 0.0007468000112567097,
           "load_sec": 0.0,
           "model_name": "eres2net_base_3dspeaker_16k_v1_0_1",
           "peak_gpu_memory_mb": null,
-          "realtime_factor": 0.007639999967068434
+          "realtime_factor": 0.007468000112567097
         },
         "valid_real_outputs": 2
       },
@@ -443,10 +443,10 @@
       "status": "qualified",
       "timing": {
         "inference_sec": [
-          0.434467,
-          0.165431
+          0.399609,
+          0.160993
         ],
-        "total_sec": 0.656416
+        "total_sec": 0.611497
       },
       "warnings": []
     },
@@ -547,10 +547,10 @@
       "status": "qualified",
       "timing": {
         "inference_sec": [
-          0.672004,
-          0.173552
+          0.644305,
+          0.16687
         ],
-        "total_sec": 0.926111
+        "total_sec": 0.872636
       },
       "warnings": []
     }

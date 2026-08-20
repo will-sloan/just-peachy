@@ -3,7 +3,7 @@
     "cuda_available": false,
     "cuda_runtime": null,
     "device_requested": "cpu",
-    "git_commit": "4a170baf5d2a2236650508f6e582f1eb85557a78",
+    "git_commit": "4b549247465de2676c569bc5701e38ef2fc98a12",
     "gpu": null,
     "machine": "AMD64",
     "package_count": 83,
@@ -13,7 +13,7 @@
     "python_executable": "<environment>/Scripts/python.exe",
     "torch": "2.11.0+cpu"
   },
-  "generated_at": "2026-08-20T02:01:57.015746+00:00",
+  "generated_at": "2026-08-20T02:08:02.000128+00:00",
   "profile": "wespeaker",
   "results": [
     {
@@ -133,11 +133,11 @@
           "cpu_memory_mb": null,
           "device": "cpu",
           "dtype": "float32",
-          "inference_sec": 5.700014298781753e-06,
+          "inference_sec": 4.5000051613897085e-06,
           "load_sec": 0.0,
           "model_name": "wespeaker_english",
           "peak_gpu_memory_mb": null,
-          "realtime_factor": 5.7000142987817526e-05
+          "realtime_factor": 4.5000051613897085e-05
         },
         "valid_real_outputs": 2
       },
@@ -155,10 +155,10 @@
       "status": "qualified_with_warnings",
       "timing": {
         "inference_sec": [
-          12.174103,
-          0.952765
+          11.670011,
+          0.928267
         ],
-        "total_sec": 15.923844
+        "total_sec": 15.335537
       },
       "warnings": [
         "WeSpeaker metadata pins hdbscan==0.8.37; isolated qualification uses the Python-3.12-compatible hdbscan==0.8.44.",
@@ -297,10 +297,10 @@
       "status": "qualified",
       "timing": {
         "inference_sec": [
-          2.239675,
-          1.80774
+          2.221287,
+          1.902081
         ],
-        "total_sec": 4.188907
+        "total_sec": 4.263775
       },
       "warnings": []
     }

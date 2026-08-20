@@ -3,7 +3,7 @@
     "cuda_available": false,
     "cuda_runtime": null,
     "device_requested": "cpu",
-    "git_commit": "4a170baf5d2a2236650508f6e582f1eb85557a78",
+    "git_commit": "4b549247465de2676c569bc5701e38ef2fc98a12",
     "gpu": null,
     "machine": "AMD64",
     "package_count": 41,
@@ -13,7 +13,7 @@
     "python_executable": "<environment>/Scripts/python.exe",
     "torch": "2.11.0+cpu"
   },
-  "generated_at": "2026-08-20T02:01:28.104384+00:00",
+  "generated_at": "2026-08-20T02:07:33.767180+00:00",
   "profile": "redimnet2",
   "results": [
     {
@@ -492,11 +492,11 @@
           "cpu_memory_mb": null,
           "device": "cpu",
           "dtype": "float32",
-          "inference_sec": 3.5999983083456755e-06,
+          "inference_sec": 2.800021320581436e-06,
           "load_sec": 0.0,
           "model_name": "redimnet2_b2_vox2_lm_v1_0_0",
           "peak_gpu_memory_mb": null,
-          "realtime_factor": 3.5999983083456755e-05
+          "realtime_factor": 2.800021320581436e-05
         },
         "valid_real_outputs": 2
       },
@@ -515,10 +515,10 @@
       "status": "qualified",
       "timing": {
         "inference_sec": [
-          0.41996,
-          0.126007
+          0.407995,
+          0.125195
         ],
-        "total_sec": 3.147954
+        "total_sec": 3.130895
       },
       "warnings": []
     }
