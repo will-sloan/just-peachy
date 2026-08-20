@@ -297,6 +297,21 @@ def test_calibration_and_evaluation_score_tables_are_distinct(synthetic_result):
     assert calibration.isdisjoint(evaluation)
 
 
+def test_stage10_smoke_resolves_new_isolated_profiles_and_external_paths(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+):
+    from app.speaker_protocol import smoke
+
+    interpreter = tmp_path / ".stage8-envs" / "redimnet2" / "Scripts" / "python.exe"
+    interpreter.parent.mkdir(parents=True)
+    interpreter.touch()
+    monkeypatch.setattr(smoke, "REPOSITORY_ROOT", tmp_path)
+
+    assert smoke._interpreter("redimnet2") == interpreter
+    external = tmp_path / "external results" / "speaker smoke"
+    assert smoke._display_path(external) == str(external)
+
+
 @pytest.mark.parametrize(
     "backend_id",
     [

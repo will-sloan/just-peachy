@@ -49,7 +49,11 @@ rem Run the real ECAPA and extended-backend contract smoke
 "C:\Users\amiri\Documents\GitHub\just-peachy\.venv\Scripts\python.exe" run_evaluation.py speaker-protocol smoke --rerun
 ```
 
-The smoke command invokes each matching isolated interpreter automatically. To extract clean protocol embeddings manually in a specific environment:
+The smoke command invokes each matching isolated interpreter automatically.
+It resolves `core-cpu` through `.venv` and other qualified profiles through
+`.stage8-envs/<profile>`. An explicit `--output-root` may be inside or outside
+the repository; external paths remain absolute in the smoke matrix. To extract
+clean protocol embeddings manually in a specific environment:
 
 ```bat
 rem ECAPA

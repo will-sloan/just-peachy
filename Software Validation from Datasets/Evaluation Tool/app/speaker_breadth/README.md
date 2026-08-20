@@ -14,6 +14,9 @@ It does not select models, run diarization, tune enrollment duration, or downloa
 - Runtime `-Backends`: the 2–3 finalist IDs chosen after the six-model Stage 10 analysis.
 
 The wrapper resolves backend environments from the existing Stage 10 policy and extension registry. It uses `.venv` for `core-cpu` and `.stage8-envs/<profile>` for isolated profiles.
+When an explicit configuration path is outside the Evaluation Tool, provenance
+records its absolute path; repository configurations remain portable relative
+paths.
 
 ## Run from Anaconda Prompt or PowerShell
 

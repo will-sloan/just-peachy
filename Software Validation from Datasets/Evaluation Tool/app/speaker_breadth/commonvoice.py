@@ -538,7 +538,7 @@ def _write_protocol_manifests(
             "sha256": file_sha256(paths["validated_metadata"]).upper(),
         },
         "policy": {
-            "path": config_source.relative_to(TOOL_ROOT).as_posix(),
+            "path": _display_tool_path(config_source),
             "sha256": file_sha256(config_source).upper(),
             "schema_version": SCHEMA_VERSION,
         },
@@ -928,7 +928,7 @@ def _provenance(
         "metadata_file_hashes": state["metadata_file_hashes"],
         "source_archive_sha256": state["source_archive_sha256"],
         "selected_materialization_membership_sha256": state["candidate_membership_list_sha256"],
-        "selection_config_path": config_source.relative_to(TOOL_ROOT).as_posix(),
+        "selection_config_path": _display_tool_path(config_source),
         "selection_config_sha256": file_sha256(config_source).upper(),
         "selection_seed": 3800,
         "selection_algorithm_version": SELECTION_ALGORITHM_VERSION,
@@ -1166,6 +1166,15 @@ def _git_sha() -> str:
         text=True,
     )
     return completed.stdout.strip()
+
+
+def _display_tool_path(path: Path) -> str:
+    """Use a portable tool-relative path when possible, otherwise an absolute path."""
+
+    try:
+        return path.resolve().relative_to(TOOL_ROOT).as_posix()
+    except ValueError:
+        return str(path.resolve())
 
 
 def _mapping(value: object, name: str) -> dict[str, object]:

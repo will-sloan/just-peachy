@@ -104,7 +104,7 @@ def build_real_speaker_smoke(
                         "calibration_evaluation_separate"
                     ],
                     "unknown_label": metrics["open_set_identification"]["unknown_label"],
-                    "result_path": result_root.relative_to(TOOL_ROOT).as_posix(),
+                    "result_path": _display_path(result_root),
                 }
             )
         except Exception as exc:  # backend failure isolation
@@ -119,7 +119,7 @@ def build_real_speaker_smoke(
     payload = {
         "schema_version": "speaker-protocol-real-smoke.v1",
         "scope": "contract smoke; not full scientific speaker evaluation",
-        "manifest_root": manifest_root.relative_to(TOOL_ROOT).as_posix(),
+        "manifest_root": _display_path(manifest_root),
         "expected_backends": len(backends),
         "selected_backend_ids": sorted(backends),
         "passed": sum(1 for row in results if row["status"] == "passed"),
@@ -199,34 +199,28 @@ def _first(
 
 
 def _interpreter(profile: str) -> Path:
-    values = {
-        "core-cpu": REPOSITORY_ROOT / ".venv" / "Scripts" / "python.exe",
-        "extended-local": REPOSITORY_ROOT
-        / ".stage8-envs"
-        / "extended-local"
-        / "Scripts"
-        / "python.exe",
-        "onnx": REPOSITORY_ROOT / ".stage8-envs" / "onnx" / "Scripts" / "python.exe",
-        "edge-cpu": REPOSITORY_ROOT
-        / ".stage8-envs"
-        / "edge-cpu"
-        / "Scripts"
-        / "python.exe",
-        "moonshine-edge": REPOSITORY_ROOT
-        / ".stage8-envs"
-        / "moonshine-edge"
-        / "Scripts"
-        / "python.exe",
-        "wespeaker": REPOSITORY_ROOT
-        / ".stage8-envs"
-        / "wespeaker"
-        / "Scripts"
-        / "python.exe",
-    }
-    path = values.get(profile)
-    if path is None or not path.is_file():
+    if profile == "core-cpu":
+        path = REPOSITORY_ROOT / ".venv" / "Scripts" / "python.exe"
+    else:
+        path = (
+            REPOSITORY_ROOT
+            / ".stage8-envs"
+            / profile
+            / "Scripts"
+            / "python.exe"
+        )
+    if not path.is_file():
         raise FileNotFoundError(f"Stage 10 environment interpreter is unavailable: {profile}")
     return path
+
+
+def _display_path(path: Path) -> str:
+    """Prefer a portable tool-relative path while allowing external run roots."""
+
+    try:
+        return path.relative_to(TOOL_ROOT).as_posix()
+    except ValueError:
+        return str(path)
 
 
 def _write_json(path: Path, value: Mapping[str, object]) -> None:

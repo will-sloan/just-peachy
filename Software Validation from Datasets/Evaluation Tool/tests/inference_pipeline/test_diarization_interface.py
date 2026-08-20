@@ -238,7 +238,11 @@ def test_pyannote_adapter_maps_backend_labels_to_anonymous_turns(tmp_path: Path)
     assert [turn.speaker_turn_label for turn in result] == ["speaker_00", "speaker_01"]
     assert all(turn.speaker_turn_label not in {"Alice", "Bob"} for turn in result)
     assert [turn.is_overlap for turn in result] == [True, True]
-    assert fake_pipeline.calls == [(str(audio_path), {})]
+    assert len(fake_pipeline.calls) == 1
+    audio_input, kwargs = fake_pipeline.calls[0]
+    assert kwargs == {}
+    assert audio_input["sample_rate"] == 16000
+    assert tuple(audio_input["waveform"].shape) == (1, 32000)
 
 
 def test_pyannote_uses_only_loaded_record_waveform(tmp_path: Path) -> None:
@@ -248,11 +252,14 @@ def test_pyannote_uses_only_loaded_record_waveform(tmp_path: Path) -> None:
         def __init__(self) -> None:
             super().__init__()
             self.observed_duration: float | None = None
-            self.observed_path: Path | None = None
+            self.observed_input: object | None = None
 
         def __call__(self, audio_input, **kwargs):
-            self.observed_path = Path(audio_input)
-            self.observed_duration = float(sf.info(self.observed_path).duration)
+            self.observed_input = audio_input
+            self.observed_duration = (
+                float(audio_input["waveform"].shape[-1])
+                / float(audio_input["sample_rate"])
+            )
             return super().__call__(audio_input, **kwargs)
 
     fake_pipeline = InspectingPipeline()
@@ -271,9 +278,9 @@ def test_pyannote_uses_only_loaded_record_waveform(tmp_path: Path) -> None:
     diarizer.diarize(audio)
 
     assert fake_pipeline.observed_duration == pytest.approx(1.0)
-    assert fake_pipeline.observed_path is not None
-    assert fake_pipeline.observed_path != source_path
-    assert not fake_pipeline.observed_path.exists()
+    assert isinstance(fake_pipeline.observed_input, dict)
+    assert fake_pipeline.observed_input["sample_rate"] == 16000
+    assert tuple(fake_pipeline.observed_input["waveform"].shape) == (1, 16000)
 
 
 def test_pyannote_adapter_reports_unavailable_without_optional_dependency(tmp_path: Path) -> None:
