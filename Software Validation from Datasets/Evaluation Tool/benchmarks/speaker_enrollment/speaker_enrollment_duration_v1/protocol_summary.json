@@ -1,0 +1,21 @@
+{
+  "audio_slices": 20574,
+  "calibration_unknown_speakers": 47,
+  "duration_quantity": "available_audio_duration",
+  "enrollment_sets": 9945,
+  "evaluation_unknown_speakers": 92,
+  "full_scientific_study_run": false,
+  "known_speakers": 221,
+  "phase_a_configurations": 20,
+  "phase_b_configurations": 25,
+  "phase_c_configurations": 45,
+  "phase_d_requires_reference_selection": true,
+  "phase_e_requires_operator_decision_gate": true,
+  "probe_parents_per_speaker_per_split": 3,
+  "probe_variants": 13944,
+  "protocol_id": "speaker_enrollment_duration_v1_8ee8b2aa42d1",
+  "schema_version": "speaker-enrollment-duration-protocol.v1",
+  "selection_seed": 3800,
+  "source_protocol_id": "commonvoice_60plus_v1_27e72793b4c0",
+  "speech_style": "prompted_read"
+}

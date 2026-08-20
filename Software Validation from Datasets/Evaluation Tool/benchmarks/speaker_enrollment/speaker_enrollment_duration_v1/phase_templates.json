@@ -1,0 +1,27 @@
+{
+  "JointFrontier": {
+    "decision_gate_schema": {
+      "enrollment_configuration_ids": [
+        "cfg_selected_after_phases_a_to_c"
+      ],
+      "probe_durations_sec": [
+        "selected_after_phase_d"
+      ],
+      "schema_version": "speaker-enrollment-joint-decision.v1"
+    },
+    "requires_decision_gate": true
+  },
+  "ProbeDuration": {
+    "probe_durations_sec": [
+      0.5,
+      0.75,
+      1.0,
+      1.5,
+      2.0,
+      3.0,
+      5.0
+    ],
+    "requires_reference_enrollment_configuration_id": true
+  },
+  "schema_version": "speaker-enrollment-phase-templates.v1"
+}

@@ -1,0 +1,30 @@
+{
+  "files": [
+    {
+      "path": "calibration.json",
+      "sha256": "E5FF0B1599A33690F9B06087C6A8E385E58A0AF67E022F53D38095686043C01C",
+      "size_bytes": 544
+    },
+    {
+      "path": "configuration_result.json",
+      "sha256": "D860B24587AF105FC0AF98BAC576E1673103EBA0955FB2C7E4AAFA419AEEA891",
+      "size_bytes": 5241
+    },
+    {
+      "path": "probe_decisions.csv",
+      "sha256": "185EF3734BF4A174A9379E690A984214DB59730127D16345C7039F8A143AF14F",
+      "size_bytes": 847
+    },
+    {
+      "path": "score_trials.npz",
+      "sha256": "ED06A70BBABF940E92E783004E3775190C8B78E279D344E8D5798C1DBB98C79D",
+      "size_bytes": 1701
+    },
+    {
+      "path": "speaker_results.csv",
+      "sha256": "947380174E7EF6EAEA150F2AA3044E07A9A9F27ACCCBD8D119B8092E31327CF5",
+      "size_bytes": 411
+    }
+  ],
+  "schema_version": "speaker-enrollment-result-checksums.v1"
+}

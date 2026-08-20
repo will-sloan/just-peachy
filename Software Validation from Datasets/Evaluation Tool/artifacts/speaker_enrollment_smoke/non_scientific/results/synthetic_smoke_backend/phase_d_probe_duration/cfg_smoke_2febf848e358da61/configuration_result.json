@@ -1,0 +1,190 @@
+{
+  "backend_embedding_dimension": 4,
+  "backend_id": "synthetic_smoke_backend",
+  "backend_identity_hash": "F1F1503111DDBD84F06DDDCDB2D3D6AE2D4DFB67B9A70AF38C61986AFAD1DBC1",
+  "calibration_eer": {
+    "eer": 0.0,
+    "far": 0.0,
+    "frr": 0.0,
+    "negative_trials": 4,
+    "positive_trials": 2,
+    "threshold": 0.9999988778168901
+  },
+  "configuration": {
+    "aggregation_method": "normalized_mean",
+    "configuration_id": "cfg_smoke_2febf848e358da61",
+    "enrollment_basis": "natural_utterance_count",
+    "enrollment_count": 2,
+    "enrollment_target_audio_sec": "",
+    "phase": "ProbeDuration",
+    "probe_duration_label": "0p75s",
+    "probe_target_audio_sec": 0.75,
+    "reference_configuration_id": "NON_SCIENTIFIC_SMOKE",
+    "repetition": 0,
+    "schema_version": "speaker-enrollment-configuration.v1",
+    "selection_family_id": "count_n2_rep0"
+  },
+  "configuration_identity_hash": "2FEBF848E358DA61E35C48E658F4CC47B3AF3BF68A2AEE31083A066E26A80319",
+  "evaluation_at_calibrated_threshold": {
+    "false_accepts": 0,
+    "false_rejects": 2,
+    "far": 0.0,
+    "far_ci": {
+      "confidence_level": 0.95,
+      "lower": 0.0,
+      "upper": 0.4898908364545973
+    },
+    "frr": 1.0,
+    "frr_ci": {
+      "confidence_level": 0.95,
+      "lower": 0.34238022750665303,
+      "upper": 1.0
+    },
+    "negative_trials": 4,
+    "positive_trials": 2,
+    "tar": 0.0,
+    "tar_ci": {
+      "confidence_level": 0.95,
+      "lower": 0.0,
+      "upper": 0.6576197724933469
+    },
+    "threshold": 0.9999988778168901,
+    "true_accepts": 0,
+    "true_rejects": 4
+  },
+  "evaluation_eer_oracle_diagnostic": {
+    "eer": 0.0,
+    "far": 0.0,
+    "frr": 0.0,
+    "negative_trials": 4,
+    "positive_trials": 2,
+    "threshold": 0.9999719458168207
+  },
+  "evaluation_used_for_threshold": false,
+  "extraction": {
+    "failed_probes": 0,
+    "invalid_enrollment_speakers": 0,
+    "nan_or_inf_scores": 0,
+    "required_slices": 10,
+    "technically_invalid_probes": 0
+  },
+  "metrics": {
+    "failed_unknown_probes_credited_as_rejections": false,
+    "false_known_attribution": {
+      "denominator": 1,
+      "numerator": 0,
+      "value": 0.0
+    },
+    "far": 0.0,
+    "frr": 1.0,
+    "known_false_unknown": {
+      "denominator": 2,
+      "numerator": 2,
+      "value": 1.0
+    },
+    "known_open_set_correct": {
+      "denominator": 2,
+      "numerator": 0,
+      "value": 0.0
+    },
+    "tar": 0.0,
+    "top1_identification": {
+      "denominator": 2,
+      "numerator": 2,
+      "value": 1.0
+    },
+    "top3_identification": {
+      "denominator": 2,
+      "numerator": 2,
+      "value": 1.0
+    },
+    "top5_identification": {
+      "denominator": 2,
+      "numerator": 2,
+      "value": 1.0
+    },
+    "unknown_rejection": {
+      "denominator": 1,
+      "numerator": 1,
+      "value": 1.0
+    },
+    "valid_probe_rate": {
+      "denominator": 3,
+      "numerator": 3,
+      "value": 1.0
+    },
+    "verification_accuracy": {
+      "denominator": 6,
+      "numerator": 4,
+      "value": 0.6666666666666666
+    }
+  },
+  "operating_threshold": 0.9999988778168901,
+  "product_decision_automatic": false,
+  "protocol_id": "speaker_enrollment_duration_v1_8ee8b2aa42d1_NON_SCIENTIFIC_SMOKE",
+  "representation_cost": {
+    "aggregation_runtime_measured_separately": true,
+    "enrollment_aggregation_runtime_sec": 3.940000897273421e-05,
+    "estimated_bytes_per_speaker_float32": 16.0,
+    "estimated_cosine_comparisons": 6,
+    "mean_source_templates_per_speaker": 2.0,
+    "probe_scoring_runtime_sec": 0.00017579999985173345,
+    "stored_templates_per_speaker": 1.0
+  },
+  "schema_version": "speaker-enrollment-configuration-result.v1",
+  "score_distributions": {
+    "different_known_speaker": {
+      "count": 2,
+      "maximum": 0.09976060310775703,
+      "mean": 0.09975757780332624,
+      "minimum": 0.09975455249889545,
+      "standard_deviation": 3.0253044307898547e-06
+    },
+    "known_vs_unknown_impostor": {
+      "count": 2,
+      "maximum": -0.7377603188719617,
+      "mean": -0.7377694237201018,
+      "minimum": -0.7377785285682418,
+      "standard_deviation": 9.1048481400402e-06
+    },
+    "same_speaker": {
+      "count": 2,
+      "maximum": 0.9999875314152217,
+      "mean": 0.9999797386160212,
+      "minimum": 0.9999719458168207,
+      "standard_deviation": 7.79279920049003e-06
+    }
+  },
+  "session_diversity": "unavailable",
+  "source_protocol_id": "commonvoice_60plus_v1_27e72793b4c0",
+  "speech_style": "prompted_read",
+  "statistics": {
+    "bootstrap_cluster": "speaker",
+    "bootstrap_repetitions": 500,
+    "bootstrap_seed": 3800,
+    "confidence_intervals_generated_by": "Analyze",
+    "confidence_level": 0.95
+  },
+  "status": "complete",
+  "tar_at_fixed_far": {
+    "0.01": {
+      "negative_trials": 4,
+      "observed_far": 0.0,
+      "positive_trials": 2,
+      "tar": 1.0,
+      "target_far": 0.01,
+      "threshold": 0.9999719458168207
+    },
+    "0.05": {
+      "negative_trials": 4,
+      "observed_far": 0.0,
+      "positive_trials": 2,
+      "tar": 1.0,
+      "target_far": 0.05,
+      "threshold": 0.9999719458168207
+    }
+  },
+  "threshold_artifact_id": "threshold_e8875f8ff074578e4720",
+  "threshold_policy": "calibration_eer_per_configuration",
+  "threshold_source": "calibration_only"
+}

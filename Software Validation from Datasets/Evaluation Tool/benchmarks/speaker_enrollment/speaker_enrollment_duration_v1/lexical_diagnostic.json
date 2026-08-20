@@ -1,0 +1,11 @@
+{
+  "diagnostic_only": true,
+  "enrollment_transcript_hashes_present": 1105,
+  "formal_repeated_phrase_comparison_performed": false,
+  "known_speakers": 221,
+  "overlap_hashes_by_speaker": {},
+  "same_speaker_enrollment_probe_overlap_count": 0,
+  "same_speaker_enrollment_probe_overlap_speakers": 0,
+  "schema_version": "speaker-enrollment-lexical-diagnostic.v1",
+  "selected_probe_transcript_hashes_present": 1326
+}

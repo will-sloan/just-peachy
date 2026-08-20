@@ -1,0 +1,4 @@
+backend,speaker_key,partition,configuration_count,probe_count,correct_rate,false_known_count,false_unknown_count,configuration_accuracy_sd,age_category,gender,accent
+synthetic_smoke_backend,spk_cv60p_01dce8674e8b5cec13af,known,6,6,0.16666666666666666,0,5,0.37267799624996495,sixties,female_feminine,United States English
+synthetic_smoke_backend,spk_cv60p_08579a16fbd977cead07,known,6,6,0.5,0,3,0.5,sixties,male_masculine,United States English
+synthetic_smoke_backend,spk_cv60p_096062c5ed5419f7c172,unknown,6,6,1.0,0,0,0.0,seventies,female_feminine,United States English

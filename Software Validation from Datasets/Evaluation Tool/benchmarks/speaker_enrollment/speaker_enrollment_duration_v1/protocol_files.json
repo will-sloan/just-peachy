@@ -1,0 +1,70 @@
+{
+  "files": [
+    {
+      "path": "audio_slices.tsv",
+      "sha256": "00955EAA227934EA3283197DB4017E845ECBD9C983E6CB8098D07F0C00C876D1",
+      "size_bytes": 11224596
+    },
+    {
+      "path": "cohort.tsv",
+      "sha256": "2B6CDE5C9E9A88D4432A035FB9EA60B50B20D7ED1C6D4F6FF33C1F60A4545FA1",
+      "size_bytes": 36954
+    },
+    {
+      "path": "configurations.tsv",
+      "sha256": "BAB6CC9D9890BBE5BDD77CF38C88C60073FC29B288D4D7E44218FD6BD44BB22C",
+      "size_bytes": 13831
+    },
+    {
+      "path": "enrollment_sets.tsv",
+      "sha256": "4922425EA91925597F56B95C0CC6B6846F03AFB38BEA6A401E912D284917229F",
+      "size_bytes": 3594460
+    },
+    {
+      "path": "feasibility_audit.json",
+      "sha256": "EE07B78857F0707D29185130C4E7B0E1F86477964A42AA3F6F0B709946873841",
+      "size_bytes": 5138
+    },
+    {
+      "path": "lexical_diagnostic.json",
+      "sha256": "BD5B920799B891EDF9E1D57D03DA2A65B94C5334AD13FEA085828C54FC3CFE48",
+      "size_bytes": 417
+    },
+    {
+      "path": "phase_templates.json",
+      "sha256": "2FB9D2F577908B49F7C20DD55A3FE4E29143CDF7DA2FE36541F76C374347055B",
+      "size_bytes": 588
+    },
+    {
+      "path": "probe_parents.tsv",
+      "sha256": "98B0B48260775145D4E7372787F6A710EE6FE4D29AE98DE0641EC38043D7914E",
+      "size_bytes": 383510
+    },
+    {
+      "path": "probe_variants.tsv",
+      "sha256": "3C47F20B531979153AEF701360FE637C9D42786F35DBE4D3445E93262DFA28DB",
+      "size_bytes": 2903234
+    },
+    {
+      "path": "protocol_summary.json",
+      "sha256": "D790BE02368DF052F38565083D0DD2688726994E65B8B93048BCA199DD30DE16",
+      "size_bytes": 760
+    },
+    {
+      "path": "provenance.json",
+      "sha256": "3CB7119C3DE4ED8A73C6957EC4FCAF4108DE84254B6925A149277526F59BF5C2",
+      "size_bytes": 713
+    },
+    {
+      "path": "README.md",
+      "sha256": "C3584B27B96DAA9658095AA49A492D9A5FB4E54E7CD9F028FEA15301EB706FAD",
+      "size_bytes": 1564
+    },
+    {
+      "path": "selection_config.yaml",
+      "sha256": "D27B89FAB02F0A664DA4B49F64D21BFCB74875ACC72582E53F22A3DD7528A013",
+      "size_bytes": 2576
+    }
+  ],
+  "schema_version": "speaker-enrollment-file-index.v1"
+}

@@ -1,0 +1,159 @@
+{
+  "audit_id": "audit_f814515511dd1d86",
+  "clip_duration_sec": {
+    "count": 11685,
+    "maximum": 18.580125,
+    "mean": 5.584613645870775,
+    "median": 5.5155,
+    "minimum": 1.108125,
+    "p05": 2.717625,
+    "p25": 4.252125,
+    "p75": 6.7755,
+    "p95": 8.717625
+  },
+  "clips_per_speaker": {
+    "count": 957,
+    "maximum": 25.0,
+    "mean": 12.210031347962383,
+    "median": 10.0,
+    "minimum": 5.0,
+    "p05": 5.0,
+    "p25": 5.0,
+    "p75": 15.0,
+    "p95": 25.0
+  },
+  "design_adjustments": [
+    {
+      "decision": "excluded_from_primary_v1_grid",
+      "eligible_paired_known_speakers": 0,
+      "reason": "severe paired-cohort collapse; retained in the audit for a future secondary protocol",
+      "requested": "optional 10.0-second nested probe prefix"
+    },
+    {
+      "decision": "five deterministic repetitions retain the same complete set at N=5",
+      "eligible_source_enrollment_clips_per_speaker": 5,
+      "reason": "the frozen upstream split has exactly five enrollment clips; order changes do not create new evidence",
+      "requested": "five independent enrollment selections at N=5"
+    }
+  ],
+  "known_enrollment_total_sec": {
+    "count": 272,
+    "maximum": 42.820125,
+    "mean": 27.907658625,
+    "median": 28.151625000000003,
+    "minimum": 11.348625,
+    "p05": 17.476800000000004,
+    "p25": 24.158625,
+    "p75": 32.18371875,
+    "p95": 37.16548125
+  },
+  "model_inference_performed": false,
+  "probe_support": {
+    "0p50s": {
+      "calibration_unknown_speakers": 48,
+      "evaluation_unknown_speakers": 93,
+      "known_calibration_speakers": 272,
+      "known_evaluation_speakers": 272,
+      "known_paired_with_20_sec_enrollment": 243,
+      "minimum_parent_probes_per_partition": 3
+    },
+    "0p75s": {
+      "calibration_unknown_speakers": 48,
+      "evaluation_unknown_speakers": 93,
+      "known_calibration_speakers": 272,
+      "known_evaluation_speakers": 272,
+      "known_paired_with_20_sec_enrollment": 243,
+      "minimum_parent_probes_per_partition": 3
+    },
+    "10p00s": {
+      "calibration_unknown_speakers": 0,
+      "evaluation_unknown_speakers": 3,
+      "known_calibration_speakers": 0,
+      "known_evaluation_speakers": 1,
+      "known_paired_with_20_sec_enrollment": 0,
+      "minimum_parent_probes_per_partition": 3
+    },
+    "1p00s": {
+      "calibration_unknown_speakers": 48,
+      "evaluation_unknown_speakers": 93,
+      "known_calibration_speakers": 272,
+      "known_evaluation_speakers": 272,
+      "known_paired_with_20_sec_enrollment": 243,
+      "minimum_parent_probes_per_partition": 3
+    },
+    "1p50s": {
+      "calibration_unknown_speakers": 48,
+      "evaluation_unknown_speakers": 93,
+      "known_calibration_speakers": 272,
+      "known_evaluation_speakers": 272,
+      "known_paired_with_20_sec_enrollment": 243,
+      "minimum_parent_probes_per_partition": 3
+    },
+    "2p00s": {
+      "calibration_unknown_speakers": 48,
+      "evaluation_unknown_speakers": 93,
+      "known_calibration_speakers": 272,
+      "known_evaluation_speakers": 272,
+      "known_paired_with_20_sec_enrollment": 243,
+      "minimum_parent_probes_per_partition": 3
+    },
+    "3p00s": {
+      "calibration_unknown_speakers": 48,
+      "evaluation_unknown_speakers": 93,
+      "known_calibration_speakers": 271,
+      "known_evaluation_speakers": 272,
+      "known_paired_with_20_sec_enrollment": 243,
+      "minimum_parent_probes_per_partition": 3
+    },
+    "5p00s": {
+      "calibration_unknown_speakers": 47,
+      "evaluation_unknown_speakers": 92,
+      "known_calibration_speakers": 232,
+      "known_evaluation_speakers": 251,
+      "known_paired_with_20_sec_enrollment": 221,
+      "minimum_parent_probes_per_partition": 3
+    }
+  },
+  "recommended_core": {
+    "calibration_unknown_keys_sha256": "AE150DF8F693DC2B378015FE840DD6C6F0D459FEC2BE99C27AEE93AD38C0A325",
+    "calibration_unknown_speakers": 47,
+    "evaluation_unknown_keys_sha256": "18A63BDD6C8BB61C84B29218B1ECB3BE390A0E02566F664398800EF5F441EA43",
+    "evaluation_unknown_speakers": 92,
+    "known_speaker_keys_sha256": "5C91320FD253B49F4694AA307BE15F39E331D55152DE152F64F778FDBEF2C147",
+    "known_speakers": 221
+  },
+  "requested_core_requirements": {
+    "enrollment_audio_sec": 20.0,
+    "enrollment_clips": 5,
+    "probe_parent_duration_sec": 5.0,
+    "probe_parents_per_split": 3
+  },
+  "schema_version": "speaker-enrollment-feasibility-audit.v1",
+  "source_clips": {
+    "calibration": 3920,
+    "enrollment": 1360,
+    "evaluation": 6405,
+    "total": 11685
+  },
+  "source_protocol_id": "commonvoice_60plus_v1_27e72793b4c0",
+  "source_protocol_root": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\Software Validation from Datasets\\Evaluation Tool\\benchmarks\\speaker_breadth\\commonvoice_60plus_v1",
+  "source_speakers": {
+    "calibration_unknown": 48,
+    "evaluation_unknown": 93,
+    "known": 272,
+    "total": 413
+  },
+  "speakers_supporting_enrollment_audio_sec": {
+    "10p00s": 272,
+    "1p00s": 272,
+    "20p00s": 243,
+    "2p00s": 272,
+    "5p00s": 272
+  },
+  "speakers_supporting_enrollment_count": {
+    "1": 272,
+    "2": 272,
+    "3": 272,
+    "5": 272
+  }
+}

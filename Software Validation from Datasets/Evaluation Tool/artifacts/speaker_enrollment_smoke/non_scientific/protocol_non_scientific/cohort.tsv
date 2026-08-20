@@ -1,0 +1,5 @@
+speaker_key	study_role	age_category	gender	accent	variant	locale	session_id	device_id	speech_style
+spk_cv60p_046614b19ff166c52f15	calibration_unknown	sixties	male_masculine	United States English		en			prompted_read
+spk_cv60p_096062c5ed5419f7c172	evaluation_unknown	seventies	female_feminine	United States English		en			prompted_read
+spk_cv60p_01dce8674e8b5cec13af	known	sixties	female_feminine	United States English		en			prompted_read
+spk_cv60p_08579a16fbd977cead07	known	sixties	male_masculine	United States English		en			prompted_read

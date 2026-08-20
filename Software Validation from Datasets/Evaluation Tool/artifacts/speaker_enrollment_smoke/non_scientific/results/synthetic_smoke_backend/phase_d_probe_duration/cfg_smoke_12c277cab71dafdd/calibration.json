@@ -1,0 +1,16 @@
+{
+  "backend_identity_hash": "F1F1503111DDBD84F06DDDCDB2D3D6AE2D4DFB67B9A70AF38C61986AFAD1DBC1",
+  "calibration_eer": {
+    "eer": 0.0,
+    "far": 0.0,
+    "frr": 0.0,
+    "negative_trials": 4,
+    "positive_trials": 2,
+    "threshold": 0.9999920199819652
+  },
+  "configuration_identity_hash": "12C277CAB71DAFDD949EBE1F8B8ABD381979B293448D45FE6BA11B3E8427EA9A",
+  "evaluation_used": false,
+  "schema_version": "speaker-enrollment-calibration.v1",
+  "threshold": 0.9999920199819652,
+  "threshold_artifact_id": "threshold_0f9758d9f01377b7d215"
+}

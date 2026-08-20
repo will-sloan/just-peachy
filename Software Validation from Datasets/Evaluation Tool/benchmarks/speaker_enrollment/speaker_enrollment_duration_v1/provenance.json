@@ -1,0 +1,14 @@
+{
+  "protocol_id": "speaker_enrollment_duration_v1_8ee8b2aa42d1",
+  "raw_audio_copied": false,
+  "schema_version": "speaker-enrollment-provenance.v1",
+  "selection_config_sha256": "D27B89FAB02F0A664DA4B49F64D21BFCB74875ACC72582E53F22A3DD7528A013",
+  "session_diversity": "unavailable",
+  "source_protocol_id": "commonvoice_60plus_v1_27e72793b4c0",
+  "source_protocol_manifest_sha256": "8B9E2B26D9D437286BC9AC4933484C03FD854AF1A1B7C73AD5B1006D95A4913E",
+  "source_protocol_root_supplied_explicitly": true,
+  "source_selection_sha256": "C2A6666569D53FB4ED96B55FF6090BE884E9F05F120E7B6C3225152292FB9566",
+  "speaker_breadth_protocol_modified": false,
+  "speech_style": "prompted_read",
+  "stage10_modified": false
+}

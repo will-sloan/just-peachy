@@ -1,0 +1,4 @@
+speaker_key,partition,probe_count,valid_probe_count,correct_count,top1_correct_count,false_known_count,false_unknown_count,enrollment_status,enrollment_audio_sec,enrollment_utterances,distinct_enrollment_texts
+spk_cv60p_01dce8674e8b5cec13af,known,1,1,0,1,0,1,ok,10.487312,2,2
+spk_cv60p_08579a16fbd977cead07,known,1,1,1,1,0,0,ok,11.480250,2,2
+spk_cv60p_096062c5ed5419f7c172,unknown,1,1,1,0,0,0,not_applicable,,,

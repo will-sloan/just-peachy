@@ -1,0 +1,76 @@
+schema_version: speaker-enrollment-duration-policy.v1
+protocol_version: speaker_enrollment_duration_v1
+selection_algorithm_version: speaker-enrollment-duration-selection.v1
+source_protocol_type: commonvoice_60plus_speaker_breadth
+default_source_protocol_root: benchmarks/speaker_breadth/commonvoice_60plus_v1
+seed: 3800
+
+paired_cohort:
+  enrollment_clips_per_known: 5
+  enrollment_audio_sec_required: 20.0
+  probe_parents_per_speaker_per_split: 3
+  probe_parent_min_duration_sec: 5.0
+  retain_all_feasible_unknown_speakers: true
+
+enrollment_counts: [1, 2, 3, 5]
+enrollment_audio_budgets_sec: [1.0, 2.0, 5.0, 10.0, 20.0]
+probe_durations_sec: [0.50, 0.75, 1.00, 1.50, 2.00, 3.00, 5.00]
+optional_probe_durations_sec: [10.00]
+aggregation_methods:
+  - normalized_mean
+  - duration_weighted_mean
+  - multi_template_mean_score
+enrollment_selection_repetitions: 5
+
+duration_policy:
+  version: available-audio-prefix.v1
+  start_sec: 0.0
+  end_rounding_decimals: 6
+  pad_short_audio: false
+  duration_quantity: available_audio_duration
+  speech_start_alignment: source_file_start
+
+calibration:
+  threshold_policy: calibration_eer_per_configuration
+  acceptance_rule: score_greater_than_or_equal_to_threshold
+  evaluation_used_for_threshold: false
+  fixed_far_targets: [0.01, 0.05]
+  unknown_label: Unknown
+
+metrics:
+  top_k: [1, 3, 5]
+  bootstrap_seed: 3800
+  bootstrap_repetitions: 500
+  confidence_level: 0.95
+  bootstrap_cluster: speaker
+
+phase_design:
+  EnrollmentCount:
+    enrollment_basis: natural_utterance_count
+    aggregation_method: normalized_mean
+    probe_duration: natural
+  EnrollmentDuration:
+    enrollment_basis: available_audio_budget
+    aggregation_method: normalized_mean
+    probe_duration: natural
+  Aggregation:
+    enrollment_basis: natural_utterance_count
+    enrollment_counts: [2, 3, 5]
+    probe_duration: natural
+  ProbeDuration:
+    requires_reference_enrollment_configuration: true
+  JointFrontier:
+    requires_operator_decision_gate: true
+
+scientific_labels:
+  speech_style: prompted_read
+  session_diversity: unavailable
+  primary_enrollment_quality: source_clean_reference
+
+scope_boundaries:
+  - Existing Stage 10 manifests and results are immutable inputs.
+  - The Common Voice speaker-breadth protocol is an immutable source protocol.
+  - Unknown speakers are never enrolled.
+  - Probe duration is available waveform duration, not measured voiced-speech duration.
+  - Backend minimum-duration failures are retained as TECHNICALLY_INVALID and are never padded.
+  - Phase E points require an explicit decision after inspecting Phases A through D.

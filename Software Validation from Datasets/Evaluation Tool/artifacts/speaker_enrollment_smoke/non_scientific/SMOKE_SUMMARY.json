@@ -1,0 +1,27 @@
+{
+  "aggregation_methods": [
+    "normalized_mean",
+    "duration_weighted_mean"
+  ],
+  "analysis_completed": true,
+  "backend": "synthetic_smoke_backend",
+  "calibration_unknown_speakers": 1,
+  "configurations": 6,
+  "enrollment_counts": [
+    1,
+    2
+  ],
+  "evaluation_unknown_speakers": 1,
+  "known_speakers": 2,
+  "label": "NON-SCIENTIFIC",
+  "model_inference_performed": false,
+  "output_root": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\Software Validation from Datasets\\Evaluation Tool\\artifacts\\speaker_enrollment_smoke\\non_scientific",
+  "passed": true,
+  "probe_durations_sec": [
+    0.75,
+    3.0
+  ],
+  "schema_version": "speaker-enrollment-smoke.v1",
+  "scientific_evidence": false,
+  "valid_results": 6
+}

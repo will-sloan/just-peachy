@@ -1,0 +1,9 @@
+{
+  "calibration_unknown_speakers": 1,
+  "evaluation_unknown_speakers": 1,
+  "known_speakers": 2,
+  "non_scientific": true,
+  "protocol_id": "speaker_enrollment_duration_v1_8ee8b2aa42d1_NON_SCIENTIFIC_SMOKE",
+  "schema_version": "speaker-enrollment-duration-protocol.v1",
+  "source_protocol_id": "commonvoice_60plus_v1_27e72793b4c0"
+}

@@ -1,0 +1,7 @@
+schema_version	phase	reference_configuration_id	selection_family_id	enrollment_basis	enrollment_count	enrollment_target_audio_sec	repetition	aggregation_method	probe_duration_label	probe_target_audio_sec	configuration_id
+speaker-enrollment-configuration.v1	ProbeDuration	NON_SCIENTIFIC_SMOKE	count_n1_rep0	natural_utterance_count	1		0	normalized_mean	0p75s	0.75	cfg_smoke_12c277cab71dafdd
+speaker-enrollment-configuration.v1	ProbeDuration	NON_SCIENTIFIC_SMOKE	count_n1_rep0	natural_utterance_count	1		0	normalized_mean	3p00s	3.0	cfg_smoke_0a0859a14c93b05d
+speaker-enrollment-configuration.v1	ProbeDuration	NON_SCIENTIFIC_SMOKE	count_n2_rep0	natural_utterance_count	2		0	normalized_mean	0p75s	0.75	cfg_smoke_2febf848e358da61
+speaker-enrollment-configuration.v1	ProbeDuration	NON_SCIENTIFIC_SMOKE	count_n2_rep0	natural_utterance_count	2		0	normalized_mean	3p00s	3.0	cfg_smoke_547b33b0d6f8507b
+speaker-enrollment-configuration.v1	ProbeDuration	NON_SCIENTIFIC_SMOKE	count_n2_rep0	natural_utterance_count	2		0	duration_weighted_mean	0p75s	0.75	cfg_smoke_86e2f2144e6136e1
+speaker-enrollment-configuration.v1	ProbeDuration	NON_SCIENTIFIC_SMOKE	count_n2_rep0	natural_utterance_count	2		0	duration_weighted_mean	3p00s	3.0	cfg_smoke_6ba3bf38b7dcc7b1

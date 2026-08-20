@@ -1,0 +1,6 @@
+backend,subgroup_field,subgroup_value,speaker_count,trial_count,descriptive_correct_rate,missing_data,field_missing_speaker_rate,inferential_claim
+synthetic_smoke_backend,age_category,seventies,1,6,1.0,False,0.0,False
+synthetic_smoke_backend,age_category,sixties,2,12,0.3333333333333333,False,0.0,False
+synthetic_smoke_backend,gender,female_feminine,2,12,0.5833333333333334,False,0.0,False
+synthetic_smoke_backend,gender,male_masculine,1,6,0.5,False,0.0,False
+synthetic_smoke_backend,accent,United States English,3,18,0.5555555555555556,False,0.0,False

@@ -1,0 +1,30 @@
+{
+  "automatic_product_decision": false,
+  "backends": [
+    "synthetic_smoke_backend"
+  ],
+  "bootstrap": {
+    "cluster": "speaker",
+    "confidence_level": 0.95,
+    "eer_and_fixed_far_method": "speaker-cluster bootstrap with 2001 fixed cosine-score bins",
+    "repetitions": 20,
+    "seed": 3800
+  },
+  "completed_configurations": 6,
+  "joint_frontier_present": false,
+  "plots": [
+    "probe_duration_false_known.png",
+    "probe_duration_known_identification.png"
+  ],
+  "protocol_id": "speaker_enrollment_duration_v1_8ee8b2aa42d1_NON_SCIENTIFIC_SMOKE",
+  "schema_version": "speaker-enrollment-analysis-manifest.v1",
+  "score_extraction_rerun": false,
+  "source_result_roots": [
+    "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\Software Validation from Datasets\\Evaluation Tool\\artifacts\\speaker_enrollment_smoke\\non_scientific\\results\\synthetic_smoke_backend\\phase_d_probe_duration\\cfg_smoke_0a0859a14c93b05d",
+    "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\Software Validation from Datasets\\Evaluation Tool\\artifacts\\speaker_enrollment_smoke\\non_scientific\\results\\synthetic_smoke_backend\\phase_d_probe_duration\\cfg_smoke_12c277cab71dafdd",
+    "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\Software Validation from Datasets\\Evaluation Tool\\artifacts\\speaker_enrollment_smoke\\non_scientific\\results\\synthetic_smoke_backend\\phase_d_probe_duration\\cfg_smoke_2febf848e358da61",
+    "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\Software Validation from Datasets\\Evaluation Tool\\artifacts\\speaker_enrollment_smoke\\non_scientific\\results\\synthetic_smoke_backend\\phase_d_probe_duration\\cfg_smoke_547b33b0d6f8507b",
+    "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\Software Validation from Datasets\\Evaluation Tool\\artifacts\\speaker_enrollment_smoke\\non_scientific\\results\\synthetic_smoke_backend\\phase_d_probe_duration\\cfg_smoke_6ba3bf38b7dcc7b1",
+    "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\Software Validation from Datasets\\Evaluation Tool\\artifacts\\speaker_enrollment_smoke\\non_scientific\\results\\synthetic_smoke_backend\\phase_d_probe_duration\\cfg_smoke_86e2f2144e6136e1"
+  ]
+}

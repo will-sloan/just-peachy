@@ -1,0 +1,361 @@
+speaker_key	study_role	age_category	gender	accent	variant	locale	session_id	device_id	speech_style
+spk_cv60p_046614b19ff166c52f15	calibration_unknown	sixties	male_masculine	United States English		en			prompted_read
+spk_cv60p_0e44c5e10a2ec232c43f	calibration_unknown	sixties	male_masculine	United States English		en			prompted_read
+spk_cv60p_1103f9edf1358b0ae08c	calibration_unknown	sixties	female_feminine			en			prompted_read
+spk_cv60p_1a91abaf44eb2ef085f1	calibration_unknown	seventies	female_feminine	United States English		en			prompted_read
+spk_cv60p_1d592501204ee5662d60	calibration_unknown	sixties	male_masculine			en			prompted_read
+spk_cv60p_2058222e2f4a4456614e	calibration_unknown	sixties	male_masculine	England English		en			prompted_read
+spk_cv60p_2848bed7fc5f0bddcef6	calibration_unknown	sixties	female_feminine	United States English		en			prompted_read
+spk_cv60p_290ff00bd7827c9ef79a	calibration_unknown	sixties	male_masculine	Canadian English		en			prompted_read
+spk_cv60p_299818ff992f539ffc73	calibration_unknown	sixties	female_feminine	United States English		en			prompted_read
+spk_cv60p_38f0e6a5f9e698535be1	calibration_unknown	sixties	female_feminine	New Zealand English		en			prompted_read
+spk_cv60p_3f113679384ee8ba4efe	calibration_unknown	seventies	male_masculine	England English		en			prompted_read
+spk_cv60p_4eed8c24efd96fa3477c	calibration_unknown	sixties	female_feminine			en			prompted_read
+spk_cv60p_51607c1fed6663dec0f8	calibration_unknown	sixties	female_feminine	United States English		en			prompted_read
+spk_cv60p_568e045cd17cc36248a7	calibration_unknown	sixties	female_feminine	United States English		en			prompted_read
+spk_cv60p_57ebb3abbdf68977ced1	calibration_unknown	sixties	female_feminine			en			prompted_read
+spk_cv60p_5a9ebf9fe07052317c9e	calibration_unknown	seventies	male_masculine	Canadian English		en			prompted_read
+spk_cv60p_5d5e7367c0342ea3ad4a	calibration_unknown	sixties	male_masculine	England English		en			prompted_read
+spk_cv60p_6375f249cca2b5e69aeb	calibration_unknown	eighties	male_masculine			en			prompted_read
+spk_cv60p_702a802c3bf2a5fffbc5	calibration_unknown	sixties	male_masculine	United States English		en			prompted_read
+spk_cv60p_7098993a6644e294e97a	calibration_unknown	seventies	female_feminine			en			prompted_read
+spk_cv60p_849286714e0aefb7c695	calibration_unknown	seventies	female_feminine	United States English		en			prompted_read
+spk_cv60p_88ff6dec1281433028f7	calibration_unknown	sixties	male_masculine	United States English		en			prompted_read
+spk_cv60p_8d34c9b8ec1fc4315b04	calibration_unknown	sixties	female_feminine	United States English		en			prompted_read
+spk_cv60p_8e0b1008462b6126c5a0	calibration_unknown	eighties	female_feminine	England English		en			prompted_read
+spk_cv60p_96ea92afa9dc19ed2ac0	calibration_unknown	sixties	male_masculine	Australian English		en			prompted_read
+spk_cv60p_9b37f6edc743e0e6c2af	calibration_unknown	sixties	male_masculine	United States English		en			prompted_read
+spk_cv60p_9e56728750fff8631106	calibration_unknown	sixties	male_masculine	United States English		en			prompted_read
+spk_cv60p_a255c3f6554500282325	calibration_unknown	sixties	male_masculine	United States English		en			prompted_read
+spk_cv60p_a25e39946ae4a550f6a7	calibration_unknown	seventies	male_masculine	England English		en			prompted_read
+spk_cv60p_a4f2feed4ce9e92fd445	calibration_unknown	sixties	male_masculine	England English		en			prompted_read
+spk_cv60p_ab1b44d7cb7123e2b0a7	calibration_unknown	sixties	female_feminine	United States English|Texas		en			prompted_read
+spk_cv60p_abdc83a13b1892eb7380	calibration_unknown	seventies	male_masculine	England English		en			prompted_read
+spk_cv60p_b5493c78f7d9c05d48ca	calibration_unknown	sixties	male_masculine	Canadian English		en			prompted_read
+spk_cv60p_ba09db5af530d0ddaf91	calibration_unknown	sixties	male_masculine	United States English		en			prompted_read
+spk_cv60p_cd15e51c9f328b26c5be	calibration_unknown	sixties	male_masculine	United States English		en			prompted_read
+spk_cv60p_ce2f99865c948434897d	calibration_unknown	sixties	male_masculine	England English		en			prompted_read
+spk_cv60p_cf06074b30bf2a148bd6	calibration_unknown	sixties	male_masculine	England English		en			prompted_read
+spk_cv60p_d723aec4916ec972268c	calibration_unknown	seventies	male_masculine	England English		en			prompted_read
+spk_cv60p_dbd1fd6a8e6761bc2439	calibration_unknown	sixties	male_masculine	Scottish English		en			prompted_read
+spk_cv60p_de3ff5356b23da88afd5	calibration_unknown	sixties	male_masculine	England English		en			prompted_read
+spk_cv60p_de52b0c644d40c0107b3	calibration_unknown	sixties	male_masculine	United States English		en			prompted_read
+spk_cv60p_e323af91fd1e4d2ca9c6	calibration_unknown	sixties	male_masculine	United States English		en			prompted_read
+spk_cv60p_e6b278909ff77527d1ea	calibration_unknown	eighties	female_feminine			en			prompted_read
+spk_cv60p_e8d31e186654a9359289	calibration_unknown	sixties	male_masculine	Canadian English		en			prompted_read
+spk_cv60p_ed688fee4ba0f36c7f0c	calibration_unknown	seventies	female_feminine			en			prompted_read
+spk_cv60p_ef574a1cd65eafd80970	calibration_unknown	sixties	female_feminine	United States English		en			prompted_read
+spk_cv60p_fc88ccea7c3037b30ea9	calibration_unknown	sixties	female_feminine	United States English		en			prompted_read
+spk_cv60p_096062c5ed5419f7c172	evaluation_unknown	seventies	female_feminine	United States English		en			prompted_read
+spk_cv60p_09cde4a9ec6190b913e6	evaluation_unknown	seventies	male_masculine	Welsh English		en			prompted_read
+spk_cv60p_0d191cd0ebd931786139	evaluation_unknown	sixties	male_masculine			en			prompted_read
+spk_cv60p_1007101f74fbabcca946	evaluation_unknown	sixties	male_masculine			en			prompted_read
+spk_cv60p_10f17cf002c12d413fc6	evaluation_unknown	sixties	male_masculine			en			prompted_read
+spk_cv60p_11017cbe41983149acb9	evaluation_unknown	seventies	female_feminine	United States English		en			prompted_read
+spk_cv60p_11136d2ef77b1a2d7bd8	evaluation_unknown	sixties	female_feminine			en			prompted_read
+spk_cv60p_125f489e23909b96fd98	evaluation_unknown	seventies	male_masculine			en			prompted_read
+spk_cv60p_1473a9edac2112e8e689	evaluation_unknown	sixties	female_feminine	United States English		en			prompted_read
+spk_cv60p_169f2097a90e48103da8	evaluation_unknown	sixties	male_masculine			en			prompted_read
+spk_cv60p_176cb11f778ea2b422dd	evaluation_unknown	sixties	male_masculine			en			prompted_read
+spk_cv60p_19b682ef014fcc88bee7	evaluation_unknown	sixties	female_feminine			en			prompted_read
+spk_cv60p_1a57ec933ca8aa0f4cd6	evaluation_unknown	sixties	female_feminine	United States English		en			prompted_read
+spk_cv60p_1c1b529780d6fd48b0c1	evaluation_unknown	sixties	male_masculine	India and South Asia (India, Pakistan, Sri Lanka)		en			prompted_read
+spk_cv60p_27f4e679b27a06f21a36	evaluation_unknown	sixties	female_feminine			en			prompted_read
+spk_cv60p_2b225bb104d8035db811	evaluation_unknown	seventies	male_masculine			en			prompted_read
+spk_cv60p_341b421a57431dbaabf0	evaluation_unknown	sixties	female_feminine			en			prompted_read
+spk_cv60p_356b26290a3774e69443	evaluation_unknown	seventies	male_masculine	Canadian English		en			prompted_read
+spk_cv60p_37d90884698bec408ba8	evaluation_unknown	seventies	male_masculine	United States English		en			prompted_read
+spk_cv60p_3832a257a2507bb42077	evaluation_unknown	sixties	male_masculine	Australian English		en			prompted_read
+spk_cv60p_388a75527e8127ff7473	evaluation_unknown	sixties	male_masculine	United States English|North Indiana		en			prompted_read
+spk_cv60p_3953427ce451f578c760	evaluation_unknown	seventies	male_masculine	United States English		en			prompted_read
+spk_cv60p_3c18170ab79f2623fe34	evaluation_unknown	sixties	female_feminine	United States English		en			prompted_read
+spk_cv60p_3c56648ed18daab9f1ce	evaluation_unknown	seventies	female_feminine	England English		en			prompted_read
+spk_cv60p_3d6b336f98b896b68228	evaluation_unknown	sixties	male_masculine	United States English		en			prompted_read
+spk_cv60p_4000bc71ae050c617f7c	evaluation_unknown	sixties	female_feminine	Welsh English		en			prompted_read
+spk_cv60p_4269a03c32d75dfad82d	evaluation_unknown	sixties	female_feminine			en			prompted_read
+spk_cv60p_43cc238960dcfa28968e	evaluation_unknown	sixties	male_masculine	England English		en			prompted_read
+spk_cv60p_44110f6bbe02e8a493f8	evaluation_unknown	seventies	male_masculine	Australian English		en			prompted_read
+spk_cv60p_477fe8ed8e9a86b7395d	evaluation_unknown	sixties	female_feminine	United States English		en			prompted_read
+spk_cv60p_496e5538a41a8c5ed0e2	evaluation_unknown	sixties	male_masculine	England English		en			prompted_read
+spk_cv60p_5056f27462ecb4a1fd36	evaluation_unknown	sixties	male_masculine	England English		en			prompted_read
+spk_cv60p_50722fdfc32a63b50f51	evaluation_unknown	sixties	female_feminine	United States English		en			prompted_read
+spk_cv60p_5170552896dab0e39269	evaluation_unknown	seventies	female_feminine	United States English		en			prompted_read
+spk_cv60p_519ea298d12c75c40132	evaluation_unknown	sixties	female_feminine	United States English		en			prompted_read
+spk_cv60p_536ecf314e88c4f4bb13	evaluation_unknown	sixties	female_feminine	United States English		en			prompted_read
+spk_cv60p_54470a7be35c40560dbc	evaluation_unknown	sixties	female_feminine	New Zealand English		en			prompted_read
+spk_cv60p_551e772ffb4e7250e031	evaluation_unknown	sixties	female_feminine			en			prompted_read
+spk_cv60p_5626ef6a04e63d3446bc	evaluation_unknown	sixties	male_masculine	United States English		en			prompted_read
+spk_cv60p_59aa1f2161a2fa47cbfa	evaluation_unknown	seventies	female_feminine	Australian English		en			prompted_read
+spk_cv60p_5c4e573cb5f0cdab91fd	evaluation_unknown	sixties	male_masculine	United States English		en			prompted_read
+spk_cv60p_5d3a05aa5b90d84a24c1	evaluation_unknown	sixties	male_masculine	Canadian English		en			prompted_read
+spk_cv60p_6217e9d3659fbdd4a5f6	evaluation_unknown	seventies	male_masculine	Australian English		en			prompted_read
+spk_cv60p_648a7fde0abd0ef00921	evaluation_unknown	sixties	female_feminine	Australian English		en			prompted_read
+spk_cv60p_6b0b7d1a89a6865b6ad6	evaluation_unknown	sixties	female_feminine	England English		en			prompted_read
+spk_cv60p_6b7ea6247d6b8f6382c0	evaluation_unknown	sixties	male_masculine	Canadian English		en			prompted_read
+spk_cv60p_6c3d93a953dc335b9bb8	evaluation_unknown	sixties	female_feminine			en			prompted_read
+spk_cv60p_6e3c3beaaf36af35190d	evaluation_unknown	sixties	female_feminine	United States English		en			prompted_read
+spk_cv60p_6e45d93d03243f51eb92	evaluation_unknown	sixties	female_feminine	England English		en			prompted_read
+spk_cv60p_6f85329895f0bcf84154	evaluation_unknown	sixties	male_masculine	England English		en			prompted_read
+spk_cv60p_74f2d6724b6cb53c4ce3	evaluation_unknown	eighties	male_masculine	Australian English		en			prompted_read
+spk_cv60p_7980c0e7f37b6da75639	evaluation_unknown	seventies	female_feminine			en			prompted_read
+spk_cv60p_7b2011c668f5b4ff5efb	evaluation_unknown	seventies	male_masculine			en			prompted_read
+spk_cv60p_808ed2f050392e28683f	evaluation_unknown	sixties	female_feminine	Scottish English		en			prompted_read
+spk_cv60p_809f26702be7c2576230	evaluation_unknown	seventies	male_masculine	United States English		en			prompted_read
+spk_cv60p_863ccc8f423ccc1ceaa6	evaluation_unknown	seventies	female_feminine	United States English		en			prompted_read
+spk_cv60p_8c074c9b8064d0e9afa4	evaluation_unknown	sixties	male_masculine	England English		en			prompted_read
+spk_cv60p_8f661a6ff83bfb54b2a0	evaluation_unknown	nineties	male_masculine	United States English		en			prompted_read
+spk_cv60p_9585a532aaba677ee105	evaluation_unknown	sixties	male_masculine	Australian English		en			prompted_read
+spk_cv60p_968b9abb6e363d8f02d6	evaluation_unknown	sixties	male_masculine	United States English		en			prompted_read
+spk_cv60p_979334c9e2ae19d8e547	evaluation_unknown	seventies	female_feminine	United States English		en			prompted_read
+spk_cv60p_9c85a10ec1f2484ce248	evaluation_unknown	sixties	female_feminine	United States English		en			prompted_read
+spk_cv60p_a58742d56c3dff5160fc	evaluation_unknown	seventies	female_feminine	United States English		en			prompted_read
+spk_cv60p_aec947832a33b35f5eb0	evaluation_unknown	sixties	female_feminine	United States English		en			prompted_read
+spk_cv60p_aff18aec3cbba436c074	evaluation_unknown	sixties	male_masculine	England English		en			prompted_read
+spk_cv60p_b394e962d948fbd3a3fa	evaluation_unknown	sixties	female_feminine	United States English		en			prompted_read
+spk_cv60p_b996a8411acc553dde54	evaluation_unknown	sixties	female_feminine	Australian English		en			prompted_read
+spk_cv60p_bf65f20b3333546e7781	evaluation_unknown	sixties	female_feminine			en			prompted_read
+spk_cv60p_cb37b9fb93c8d1accf23	evaluation_unknown	sixties	male_masculine			en			prompted_read
+spk_cv60p_d1410f8c1a336bb6f689	evaluation_unknown	seventies	male_masculine	United States English		en			prompted_read
+spk_cv60p_d267c744779647ab2a97	evaluation_unknown	sixties	male_masculine	England English		en			prompted_read
+spk_cv60p_d33d466093f43ba400b3	evaluation_unknown	sixties	male_masculine			en			prompted_read
+spk_cv60p_d7cde57826cb652fc1dc	evaluation_unknown	sixties	male_masculine			en			prompted_read
+spk_cv60p_dca520031e9771f34e79	evaluation_unknown	sixties	female_feminine	United States English		en			prompted_read
+spk_cv60p_e1e1b6c795f33ff01324	evaluation_unknown	seventies	female_feminine			en			prompted_read
+spk_cv60p_e39522f34e09c70852ed	evaluation_unknown	sixties	male_masculine			en			prompted_read
+spk_cv60p_e4a70054b2ac5e329ecc	evaluation_unknown	sixties	male_masculine	Australian English		en			prompted_read
+spk_cv60p_e5fea073ab8a3722b08f	evaluation_unknown	sixties	male_masculine	Australian English		en			prompted_read
+spk_cv60p_eb602174c7b4d5b68588	evaluation_unknown	sixties	female_feminine			en			prompted_read
+spk_cv60p_ecaa475cf00e22e162b1	evaluation_unknown	seventies	male_masculine	England English|Southern African (South Africa, Zimbabwe, Namibia)		en			prompted_read
+spk_cv60p_ed4dc929b132c8a7b25d	evaluation_unknown	seventies	female_feminine	United States English		en			prompted_read
+spk_cv60p_ee24b571dd888c5f45cf	evaluation_unknown	sixties	female_feminine			en			prompted_read
+spk_cv60p_f024ca27572ee503e15e	evaluation_unknown	seventies	male_masculine	Scottish English		en			prompted_read
+spk_cv60p_f07a5b4bc8010b31386f	evaluation_unknown	sixties	male_masculine	Canadian English		en			prompted_read
+spk_cv60p_f2e42b6a9b8a9b916a12	evaluation_unknown	seventies	male_masculine	United States English		en			prompted_read
+spk_cv60p_f35b0fb0923ce5432475	evaluation_unknown	sixties	male_masculine			en			prompted_read
+spk_cv60p_f40110e87f6832fe4da8	evaluation_unknown	sixties	female_feminine			en			prompted_read
+spk_cv60p_f7cccfdfaeafc38cd936	evaluation_unknown	seventies	female_feminine			en			prompted_read
+spk_cv60p_fac86d6db5ecc5052d77	evaluation_unknown	sixties	male_masculine	New Zealand English		en			prompted_read
+spk_cv60p_fd4c88c2ed696f971d2e	evaluation_unknown	sixties	male_masculine	United States English		en			prompted_read
+spk_cv60p_fed63e443a75a8e57661	evaluation_unknown	sixties	female_feminine	United States English		en			prompted_read
+spk_cv60p_fee07d3523860a9e9638	evaluation_unknown	sixties	female_feminine	United States English		en			prompted_read
+spk_cv60p_01dce8674e8b5cec13af	known	sixties	female_feminine	United States English		en			prompted_read
+spk_cv60p_08579a16fbd977cead07	known	sixties	male_masculine	United States English		en			prompted_read
+spk_cv60p_08981d1ad6c045110319	known	sixties	male_masculine	Australian English		en			prompted_read
+spk_cv60p_0a3aa9fe51ef7270bae1	known	sixties	male_masculine	United States English		en			prompted_read
+spk_cv60p_0c0e5bd08d2c1daf7bdd	known	sixties		United States English		en			prompted_read
+spk_cv60p_0c63f046cc9bc4afe775	known	sixties	male_masculine			en			prompted_read
+spk_cv60p_0d32d791146c051f810a	known	sixties	male_masculine	England English		en			prompted_read
+spk_cv60p_0d9d539f1f6eb8e32543	known	seventies	male_masculine	United States English		en			prompted_read
+spk_cv60p_0df892065691030d0f81	known	sixties	female_feminine	Canadian English		en			prompted_read
+spk_cv60p_0f18eb44f4b22f233bc8	known	sixties	male_masculine	United States English		en			prompted_read
+spk_cv60p_124ec81e0efbb4b6bd62	known	seventies	male_masculine	Australian English		en			prompted_read
+spk_cv60p_134d4fe977132beb055b	known	sixties	male_masculine	United States English		en			prompted_read
+spk_cv60p_145799b301b51e8435c8	known	sixties	female_feminine	United States English		en			prompted_read
+spk_cv60p_145fd9200883e10daa59	known	seventies	male_masculine	England English		en			prompted_read
+spk_cv60p_148493dd08dfedce3e1a	known	sixties	female_feminine	Canadian English		en			prompted_read
+spk_cv60p_155c656a52574ed87921	known	sixties	male_masculine	Canadian English		en			prompted_read
+spk_cv60p_167a9ea6f15aaa24a046	known	sixties	female_feminine			en			prompted_read
+spk_cv60p_181bc7c1203a92e01fbf	known	sixties	male_masculine	United States English		en			prompted_read
+spk_cv60p_184d87eec1f846b641f9	known	sixties	female_feminine			en			prompted_read
+spk_cv60p_1a1ea9b6cdf6ed2bc366	known	sixties	male_masculine	Southern African (South Africa, Zimbabwe, Namibia)		en			prompted_read
+spk_cv60p_1b3d487bc71ecbb9574c	known	sixties	female_feminine	United States English		en			prompted_read
+spk_cv60p_1ba1796feb10a183c308	known	sixties	female_feminine	England English		en			prompted_read
+spk_cv60p_1be22887c2a06d8bb0ff	known	sixties	male_masculine	England English		en			prompted_read
+spk_cv60p_1dacda72641393e3ad82	known	sixties	male_masculine			en			prompted_read
+spk_cv60p_1fd07d2492676aa7551a	known	sixties	male_masculine	United States English		en			prompted_read
+spk_cv60p_2060c8c01fb00b9b5003	known	sixties	male_masculine	Canadian English		en			prompted_read
+spk_cv60p_208a2c678419e8552106	known	sixties	male_masculine			en			prompted_read
+spk_cv60p_216009680c5a47eb3af1	known	seventies	male_masculine	England English		en			prompted_read
+spk_cv60p_21c06d8e70ea7c4ed80d	known	sixties	female_feminine	United States English		en			prompted_read
+spk_cv60p_21e5c579570e20c01a45	known	seventies	male_masculine	England English		en			prompted_read
+spk_cv60p_2392c630c00051d4b3f2	known	sixties	male_masculine			en			prompted_read
+spk_cv60p_243397abdc57b3f3395d	known	sixties	female_feminine			en			prompted_read
+spk_cv60p_249432b973ed04ebce78	known	seventies	female_feminine			en			prompted_read
+spk_cv60p_2563af60ee2107a6526a	known	sixties	male_masculine	United States English		en			prompted_read
+spk_cv60p_293ea4c0e3f80046242d	known	seventies	female_feminine	England English		en			prompted_read
+spk_cv60p_29872a4766bf26a117c8	known	eighties	male_masculine	United States English		en			prompted_read
+spk_cv60p_2b61a05c59a604ed6437	known	sixties	female_feminine			en			prompted_read
+spk_cv60p_2c51d56999cc6b042611	known	eighties	male_masculine			en			prompted_read
+spk_cv60p_2d5079bbfac00cc95cbb	known	sixties	female_feminine			en			prompted_read
+spk_cv60p_2dd656985dd7acd26f52	known	sixties	female_feminine	United States English		en			prompted_read
+spk_cv60p_2e127fdc05571aadc1c9	known	sixties	male_masculine			en			prompted_read
+spk_cv60p_2f611031a1b890bdb723	known	sixties	male_masculine	United States English		en			prompted_read
+spk_cv60p_31b591891d75d9c130ef	known	sixties	female_feminine	United States English		en			prompted_read
+spk_cv60p_345897306666a38e4891	known	sixties	female_feminine	England English		en			prompted_read
+spk_cv60p_34c9fc4b3c70b3b79b35	known	sixties	male_masculine	England English		en			prompted_read
+spk_cv60p_3568b859aeca3a96b99b	known	sixties	female_feminine	United States English		en			prompted_read
+spk_cv60p_35b6cef8d4c4d0678c54	known	seventies	female_feminine			en			prompted_read
+spk_cv60p_35f483412a99fb4b9f35	known	sixties	male_masculine	England English		en			prompted_read
+spk_cv60p_3719eab5ab2900689ac3	known	sixties	female_feminine	United States English|Midwestern States (Michigan)		en			prompted_read
+spk_cv60p_3794bd4e2760bc118a8c	known	sixties				en			prompted_read
+spk_cv60p_3919931f1915e4bdbac1	known	sixties	female_feminine	Australian English		en			prompted_read
+spk_cv60p_399e61fea02364245604	known	sixties	male_masculine	New Zealand English		en			prompted_read
+spk_cv60p_3a49605aa73674261bbc	known	sixties		United States English		en			prompted_read
+spk_cv60p_3a78980ba31a02fe094f	known	sixties	female_feminine	United States English		en			prompted_read
+spk_cv60p_3cf4df088c1b10dccd18	known	eighties	male_masculine	United States English		en			prompted_read
+spk_cv60p_3d8a0960675ba1d66230	known	seventies	male_masculine	New Zealand English		en			prompted_read
+spk_cv60p_3dbb8d0d83ddca7d12e6	known	sixties	male_masculine			en			prompted_read
+spk_cv60p_3e81b83f0548ce9081c6	known	seventies	male_masculine	United States English		en			prompted_read
+spk_cv60p_3faf1399e4136241f9f2	known	sixties	female_feminine			en			prompted_read
+spk_cv60p_42407f31a954f1663763	known	sixties	female_feminine	United States English		en			prompted_read
+spk_cv60p_4431f70acfc3aad84564	known	seventies	female_feminine			en			prompted_read
+spk_cv60p_44fe2a8f6ee2e3970349	known	sixties	female_feminine	United States English|United States, west coast English		en			prompted_read
+spk_cv60p_45451e446957c3095f63	known	sixties	male_masculine	England English		en			prompted_read
+spk_cv60p_46145e8836024315fbed	known	sixties	male_masculine	Canadian English		en			prompted_read
+spk_cv60p_478eecdbab0bf4be78bb	known	sixties	male_masculine	England English		en			prompted_read
+spk_cv60p_48e01928f9614d171467	known	sixties	female_feminine	Southern African (South Africa, Zimbabwe, Namibia)		en			prompted_read
+spk_cv60p_49ec6f9c3cbcd9eab5e3	known	eighties		England English		en			prompted_read
+spk_cv60p_4fcda1fa993713816baa	known	sixties	female_feminine	Canadian English		en			prompted_read
+spk_cv60p_520321098c7de7ba5c0b	known	sixties	male_masculine	England English		en			prompted_read
+spk_cv60p_52ce6748a1bf18657b24	known	sixties	male_masculine	United States English		en			prompted_read
+spk_cv60p_531f724d2dfa65fee9cf	known	sixties	male_masculine	United States English		en			prompted_read
+spk_cv60p_5400fac00a35fbf0edc5	known	sixties	female_feminine			en			prompted_read
+spk_cv60p_54ad2065a619c0e3d795	known	sixties	female_feminine	England English		en			prompted_read
+spk_cv60p_5509f332a0dc9c191c3e	known	sixties	female_feminine			en			prompted_read
+spk_cv60p_561e4fe01861b6f6c81f	known	seventies	male_masculine	New Zealand English		en			prompted_read
+spk_cv60p_56b59113f00bd25dadfa	known	sixties	male_masculine	England English		en			prompted_read
+spk_cv60p_56dcf38684a7f9bae69a	known	seventies	male_masculine	United States English		en			prompted_read
+spk_cv60p_56eaba5ee78fec74c6df	known	sixties	male_masculine	United States English		en			prompted_read
+spk_cv60p_59911828a146acb26845	known	seventies	male_masculine	England English		en			prompted_read
+spk_cv60p_5a1922f215c61c1d51c3	known	seventies	male_masculine	United States English		en			prompted_read
+spk_cv60p_5e3a07e04f9dab5d469a	known	sixties	male_masculine			en			prompted_read
+spk_cv60p_5e70a043653b84d89220	known	sixties	female_feminine	Canadian English		en			prompted_read
+spk_cv60p_5f64794f419049bd2249	known	sixties	female_feminine	United States English		en			prompted_read
+spk_cv60p_646dc476c61641d5f4cf	known	eighties	male_masculine	United States English		en			prompted_read
+spk_cv60p_64956f68e8047bb297fb	known	sixties	female_feminine	England English		en			prompted_read
+spk_cv60p_65bc5fda3630fc0f327b	known	sixties	female_feminine	Canadian English		en			prompted_read
+spk_cv60p_65d6a9977df692c3ed90	known	sixties	female_feminine	Canadian English		en			prompted_read
+spk_cv60p_66d86a9b111f91cc3e78	known	seventies	male_masculine			en			prompted_read
+spk_cv60p_676e10b7313826e2989a	known	sixties	female_feminine	United States English		en			prompted_read
+spk_cv60p_67a1b54d5bd133ef3c6e	known	seventies	female_feminine	England English		en			prompted_read
+spk_cv60p_68c67ac574a67c4a4ed1	known	sixties	female_feminine	England English		en			prompted_read
+spk_cv60p_692746bc2e001f9e85b9	known	seventies	male_masculine			en			prompted_read
+spk_cv60p_69afea94a2ad4d3604eb	known	sixties	male_masculine			en			prompted_read
+spk_cv60p_6a6fd0d1d3aa881d0ab0	known	sixties	female_feminine	United States English		en			prompted_read
+spk_cv60p_6aac2a3db60ca741263d	known	sixties	male_masculine	United States English		en			prompted_read
+spk_cv60p_6bf1477076db68b977a7	known	seventies	female_feminine			en			prompted_read
+spk_cv60p_6cb9a369ecdc2b0f45ce	known	sixties	male_masculine	Australian English		en			prompted_read
+spk_cv60p_6d70841b58daa52620e2	known	sixties	male_masculine	Canadian English		en			prompted_read
+spk_cv60p_708796d6a7eb8baa64dd	known	seventies	female_feminine			en			prompted_read
+spk_cv60p_70f9950698099971829e	known	sixties	male_masculine	United States English		en			prompted_read
+spk_cv60p_716fe9abbba22f746312	known	sixties	female_feminine	United States English		en			prompted_read
+spk_cv60p_71d7af109fcb5c33c07b	known	seventies	male_masculine	United States English		en			prompted_read
+spk_cv60p_72b2b60ab39b42ebbcdc	known	sixties	male_masculine	United States English		en			prompted_read
+spk_cv60p_735755bf756b7e4244f1	known	seventies	male_masculine	Scottish English		en			prompted_read
+spk_cv60p_738002afcf1d8f572f44	known	sixties	female_feminine	United States English		en			prompted_read
+spk_cv60p_75f9f220a9df1cb8dc1c	known	seventies	female_feminine			en			prompted_read
+spk_cv60p_761990b1d973c9a11aa6	known	seventies	male_masculine	England English		en			prompted_read
+spk_cv60p_79486096aee9feaa1ed2	known	sixties	male_masculine	Australian English		en			prompted_read
+spk_cv60p_7a17c51dd20af713b88c	known	sixties	male_masculine	United States English		en			prompted_read
+spk_cv60p_7a9922a7cc510347d9cf	known	seventies	male_masculine			en			prompted_read
+spk_cv60p_7b1d65fd13359b5e13fd	known	sixties	female_feminine	United States English		en			prompted_read
+spk_cv60p_843fad25a04b7ca70f94	known	seventies	female_feminine	United States English		en			prompted_read
+spk_cv60p_8560ddf3e797d24dd13e	known	sixties	male_masculine	United States English		en			prompted_read
+spk_cv60p_8640ec381463fbf39e0f	known	sixties	female_feminine	Canadian English		en			prompted_read
+spk_cv60p_86483fef727d27997cd7	known	sixties	female_feminine			en			prompted_read
+spk_cv60p_88a657abdf18c72ebdcc	known	seventies	female_feminine	United States English		en			prompted_read
+spk_cv60p_8966c9bdf011bba0b1bf	known	sixties	male_masculine	Canadian English		en			prompted_read
+spk_cv60p_89ddf3e4d88c42a162cc	known	sixties	male_masculine	United States English		en			prompted_read
+spk_cv60p_8ac33688df5414d5ba1d	known	sixties	male_masculine	Canadian English		en			prompted_read
+spk_cv60p_8ade9274923d0fffbc7e	known	sixties	female_feminine	New Zealand English		en			prompted_read
+spk_cv60p_8ae710d29c388c287d5c	known	sixties	female_feminine	United States English		en			prompted_read
+spk_cv60p_90fcf4221a5e46ca0068	known	sixties	female_feminine			en			prompted_read
+spk_cv60p_934b6346e91feb034f6d	known	sixties	female_feminine	United States English		en			prompted_read
+spk_cv60p_94528b525f8bd0436658	known	sixties	female_feminine	United States English		en			prompted_read
+spk_cv60p_9460ba8d1d80095e80dc	known	seventies	male_masculine	Canadian English		en			prompted_read
+spk_cv60p_96696db05a35cf46d5ea	known	seventies	female_feminine	United States English		en			prompted_read
+spk_cv60p_9921f771ef6c3794c77e	known	seventies	male_masculine	England English		en			prompted_read
+spk_cv60p_9a020ea4bde8e7fccc41	known	sixties	male_masculine	United States English		en			prompted_read
+spk_cv60p_9a6e56b7e95840d6422e	known	seventies	male_masculine	United States English		en			prompted_read
+spk_cv60p_9ca80e077c199f265d59	known	sixties	female_feminine	United States English		en			prompted_read
+spk_cv60p_9ddacff68bc943a5cb0e	known	seventies	male_masculine	United States English		en			prompted_read
+spk_cv60p_9e868dfb5e6259625a13	known	sixties	male_masculine			en			prompted_read
+spk_cv60p_9f8959cf4b73289d06a5	known	sixties	female_feminine	United States English		en			prompted_read
+spk_cv60p_9fb159dc547b3118eb3b	known	seventies	male_masculine	England English		en			prompted_read
+spk_cv60p_a168199f03fd41cbecff	known	sixties	female_feminine	United States English		en			prompted_read
+spk_cv60p_a185d57c3e111e16aa4c	known	seventies	male_masculine	England English		en			prompted_read
+spk_cv60p_a1e0528dcd54805c61bc	known	sixties	female_feminine	Scottish English		en			prompted_read
+spk_cv60p_a3463a59bb7093d340ed	known	sixties	female_feminine	United States English		en			prompted_read
+spk_cv60p_a3efb04c754884ca1b1a	known	sixties	female_feminine	Australian English		en			prompted_read
+spk_cv60p_a3f0512964b7e1dbfea6	known	sixties	male_masculine	Southern African (South Africa, Zimbabwe, Namibia)		en			prompted_read
+spk_cv60p_a5cd351fdc1dc1067250	known	seventies	male_masculine	Scottish English		en			prompted_read
+spk_cv60p_a5daf924b6947a25faac	known	seventies	female_feminine	United States English		en			prompted_read
+spk_cv60p_a73e9a106712a722f414	known	sixties	male_masculine	England English		en			prompted_read
+spk_cv60p_a77b0264857443b36f96	known	sixties	male_masculine	United States English		en			prompted_read
+spk_cv60p_a98133d2600a570f8578	known	sixties	male_masculine	Southern African (South Africa, Zimbabwe, Namibia)		en			prompted_read
+spk_cv60p_a9e3d149296076122246	known	sixties	female_feminine	United States English		en			prompted_read
+spk_cv60p_ab613c435d1a6ec462b7	known	sixties	male_masculine	United States English		en			prompted_read
+spk_cv60p_abcbeca8e794eeccae6a	known	seventies	female_feminine			en			prompted_read
+spk_cv60p_acb36e244c68f245d933	known	seventies	male_masculine	United States English		en			prompted_read
+spk_cv60p_afab89987a107418ebbc	known	sixties	male_masculine	Scottish English		en			prompted_read
+spk_cv60p_b55c12197aa44c28f7ab	known	sixties	male_masculine	England English		en			prompted_read
+spk_cv60p_b5d4db9d42d77249ce4d	known	sixties	female_feminine			en			prompted_read
+spk_cv60p_b5e4405a3ec3e909a264	known	sixties	female_feminine	United States English		en			prompted_read
+spk_cv60p_b5f8a20d579b227537d7	known	seventies	male_masculine	England English		en			prompted_read
+spk_cv60p_b62c115bfea1fd8db1c4	known	sixties	female_feminine			en			prompted_read
+spk_cv60p_b6c10209c68e3590afa0	known	sixties	female_feminine	United States English		en			prompted_read
+spk_cv60p_b7887eadcd750e06a401	known	sixties	male_masculine			en			prompted_read
+spk_cv60p_b81edc634e49274c77a9	known	sixties	female_feminine			en			prompted_read
+spk_cv60p_b98ca15268a138fbfa46	known	eighties	male_masculine	England English		en			prompted_read
+spk_cv60p_bbead3ee13f40d424e66	known	sixties	female_feminine	United States English		en			prompted_read
+spk_cv60p_bc64d624bfe98d91b1e9	known	seventies	female_feminine			en			prompted_read
+spk_cv60p_bce7db155c96d97b66f6	known	sixties	male_masculine			en			prompted_read
+spk_cv60p_bd48e6b45b8347f3fe5c	known	sixties	female_feminine	United States English		en			prompted_read
+spk_cv60p_bdfa78e9c98b9fd4d558	known	sixties	male_masculine	United States English		en			prompted_read
+spk_cv60p_be1eb7da7b61c1faa785	known	seventies	male_masculine	England English		en			prompted_read
+spk_cv60p_be92d7aa18dd13bbff8d	known	seventies	male_masculine	Australian English		en			prompted_read
+spk_cv60p_bf432cf95a8e79e3dba5	known	sixties	female_feminine			en			prompted_read
+spk_cv60p_bfa5fc531d1a20f46a0e	known	sixties	male_masculine			en			prompted_read
+spk_cv60p_c04f82b0a480d84d38d5	known	sixties	female_feminine	United States English		en			prompted_read
+spk_cv60p_c0ca88c7f62b3d8ce308	known	sixties	male_masculine			en			prompted_read
+spk_cv60p_c2d4df3ce4073eee3234	known	sixties	female_feminine	United States English		en			prompted_read
+spk_cv60p_c2f12d52d07154dcf1ce	known	sixties	male_masculine	Southern African (South Africa, Zimbabwe, Namibia)		en			prompted_read
+spk_cv60p_c39262d6c8666a513668	known	seventies	male_masculine	Australian English		en			prompted_read
+spk_cv60p_c3b533ecda6f4efe165d	known	seventies	female_feminine	Australian English		en			prompted_read
+spk_cv60p_c587b4ba88fae031fb91	known	seventies	male_masculine	United States English		en			prompted_read
+spk_cv60p_c5ce4ac474643eb461a2	known	sixties	female_feminine	England English		en			prompted_read
+spk_cv60p_c7a87452575b2665d949	known	sixties	male_masculine	United States English		en			prompted_read
+spk_cv60p_cddfdc35b7d937cf8f3f	known	sixties	female_feminine	Canadian English		en			prompted_read
+spk_cv60p_cfb348e67d971c7aafd8	known	seventies	male_masculine			en			prompted_read
+spk_cv60p_d632d3706d6b5080c0bc	known	sixties	male_masculine	Canadian English		en			prompted_read
+spk_cv60p_d6e1f96fcccf68dde7a5	known	seventies	male_masculine			en			prompted_read
+spk_cv60p_d763dc7000295779743a	known	sixties	male_masculine	United States English		en			prompted_read
+spk_cv60p_d90f39da1a51a4cf421c	known	sixties	male_masculine			en			prompted_read
+spk_cv60p_da2f25855ac96ddd9804	known	sixties	female_feminine			en			prompted_read
+spk_cv60p_da67763f18f07b3a7550	known	sixties	female_feminine	United States English		en			prompted_read
+spk_cv60p_dad6004d9a91ef14be19	known	seventies	male_masculine	United States English		en			prompted_read
+spk_cv60p_db48e312dcdcfe79c65a	known	sixties	female_feminine	Canadian English		en			prompted_read
+spk_cv60p_db52ca2cf76270494dc4	known	seventies	female_feminine	United States English		en			prompted_read
+spk_cv60p_dbc800ec83e49a709ab1	known	sixties	male_masculine	United States English		en			prompted_read
+spk_cv60p_dc81ad28a2ebcb8ffb9f	known	sixties	male_masculine	England English		en			prompted_read
+spk_cv60p_dd00867aad717e38df64	known	seventies	male_masculine	United States English		en			prompted_read
+spk_cv60p_defd59cbd3cb53deaf22	known	sixties	male_masculine			en			prompted_read
+spk_cv60p_df1dceac784af4746e59	known	sixties	female_feminine	United States English		en			prompted_read
+spk_cv60p_df27ef907fc55ac4fa7d	known	sixties	female_feminine			en			prompted_read
+spk_cv60p_dfcca81bc835a42c33c7	known	sixties	male_masculine	United States English		en			prompted_read
+spk_cv60p_e075aee5405e6ae53e2f	known	seventies	male_masculine	Australian English		en			prompted_read
+spk_cv60p_e0b8313789e46e3454f4	known	eighties	male_masculine	England English		en			prompted_read
+spk_cv60p_e545d3fabf838868c6ec	known	sixties	female_feminine	Australian English		en			prompted_read
+spk_cv60p_e7dfad922809b5432211	known	seventies	female_feminine	United States English		en			prompted_read
+spk_cv60p_ea0a4b4a759f6fee4480	known	eighties	female_feminine	United States English|Pacific Northwest		en			prompted_read
+spk_cv60p_ea957c5a2a72ea530635	known	sixties	male_masculine	England English		en			prompted_read
+spk_cv60p_eaceb6b3cc9ac0ac7b3f	known	sixties	male_masculine	England English		en			prompted_read
+spk_cv60p_ebc71628287e92374317	known	seventies	male_masculine	Australian English		en			prompted_read
+spk_cv60p_ec89ae42b48331534b25	known	sixties	male_masculine	United States English		en			prompted_read
+spk_cv60p_ed41087f41c55880a91e	known	seventies	male_masculine	England English		en			prompted_read
+spk_cv60p_ed80497343f8acf94424	known	sixties	male_masculine	United States English		en			prompted_read
+spk_cv60p_ee45bbe34442dbf826c9	known	sixties	female_feminine			en			prompted_read
+spk_cv60p_ee64a603ebf7a58d4ebd	known	sixties	male_masculine	Australian English		en			prompted_read
+spk_cv60p_f0152c0bbce8637a4d3e	known	seventies	male_masculine	Scottish English		en			prompted_read
+spk_cv60p_f16086dc13fc9802148d	known	sixties	female_feminine	United States English		en			prompted_read
+spk_cv60p_f1c49fc25ea47c4555c1	known	sixties	female_feminine			en			prompted_read
+spk_cv60p_f6011714cdaf04aa1641	known	sixties	male_masculine	England English		en			prompted_read
+spk_cv60p_f7e91fb4a39bb4dddfa3	known	sixties	male_masculine	India and South Asia (India, Pakistan, Sri Lanka)		en			prompted_read
+spk_cv60p_f84e8a57e3a22cd7d70a	known	sixties	male_masculine	England English		en			prompted_read
+spk_cv60p_f95edf59ef4c012918b8	known	sixties	female_feminine	Southern African (South Africa, Zimbabwe, Namibia)		en			prompted_read
+spk_cv60p_f9d1d3a30c92838a09d0	known	sixties	female_feminine	Canadian English		en			prompted_read
+spk_cv60p_fb195fe8ec4a9b4c6813	known	nineties	male_masculine	England English		en			prompted_read
+spk_cv60p_fd6b8bf8a59791964ff1	known	sixties	female_feminine	United States English		en			prompted_read
+spk_cv60p_fda12d985e33f592d255	known	sixties	male_masculine			en			prompted_read
+spk_cv60p_fe2cbbffa0c9b6f18c55	known	sixties	female_feminine	United States English		en			prompted_read
+spk_cv60p_fe517951e672f0b4b4dc	known	sixties	male_masculine	United States English		en			prompted_read
