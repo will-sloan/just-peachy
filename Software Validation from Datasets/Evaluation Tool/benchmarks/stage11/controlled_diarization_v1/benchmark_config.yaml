@@ -1,0 +1,202 @@
+schema_version: controlled-diarization-benchmark-config.v1
+benchmark_version: controlled_diarization_v1
+seed: 3800
+speech_style: prompted_read
+evaluation_locked: true
+sample_rate_hz: 16000
+channels: 1
+audio_subtype: PCM_16
+implicit_model_downloads_allowed: false
+source_speaker_pool_manifest: benchmarks/speaker_breadth/commonvoice_60plus_v1/speaker_protocol_manifest.json
+panel:
+  smoke:
+    speaker_pool_count: 12
+    recording_count: 8
+    scientific: false
+  development:
+    speaker_pool_count: 60
+    factorial_replicates: 2
+    single_speaker_controls: 6
+    recording_count: 60
+  evaluation:
+    speaker_pool_count: 120
+    factorial_replicates: 4
+    single_speaker_controls: 12
+    recording_count: 120
+  long_session_challenge:
+    enabled: false
+    planned_recordings: 12
+    target_duration_sec: 300
+factors:
+  speaker_counts:
+  - 2
+  - 3
+  - 5
+  turn_cadence:
+  - relaxed
+  - standard
+  - rapid
+  overlap_profiles:
+  - none
+  - backchannel
+  - moderate
+  cadence_source_duration_sec:
+    relaxed:
+    - 2.4
+    - 7.0
+    standard:
+    - 1.4
+    - 4.5
+    rapid:
+    - 0.7
+    - 2.75
+  gap_sec:
+    relaxed:
+    - 0.5
+    - 1.5
+    standard:
+    - 0.15
+    - 0.75
+    rapid:
+    - 0.0
+    - 0.25
+  overlap_event_sec:
+    backchannel:
+    - 0.2
+    - 0.7
+    moderate:
+    - 0.5
+    - 1.5
+generation:
+  generation_algorithm_version: controlled-diarization-placement.v2
+  target_duration_sec: 60.0
+  target_duration_sec_by_cadence:
+    relaxed: 60.0
+    standard: 60.0
+    rapid: 48.0
+  minimum_duration_sec: 45.0
+  maximum_duration_sec: 75.0
+  minimum_non_adjacent_turns_per_speaker: 3
+  target_peak_dbfs: -3.0
+  source_trim_policy: deterministic_boundary_rms_v1
+  trim_frame_ms: 20
+  trim_threshold_dbfs: -60.0
+  trim_padding_ms: 20
+  internal_pauses_removed: false
+  exact_source_clip_reuse_allowed: false
+  source_clip_reuse_warning_threshold: 1
+  backchannel_semantics_claimed: false
+  backchannel_realized_kind: short_overlap
+scoring:
+  primary:
+    version: diarization-scoring-policy.v1
+    collar_sec: 0.0
+    overlap_modes:
+    - overlap_aware
+    - overlap_excluded
+    require_uem: true
+    speaker_count_mode: estimated
+    reference_version: controlled-synthetic-placement-reference.v1
+  practical_diagnostic:
+    version: diarization-scoring-policy.v1
+    collar_sec: 0.25
+    overlap_modes:
+    - overlap_aware
+    - overlap_excluded
+    require_uem: true
+    speaker_count_mode: estimated
+    reference_version: controlled-synthetic-placement-reference.v1
+  boundary_tolerances_sec:
+  - 0.25
+  - 0.5
+  bootstrap_seed: 3800
+  bootstrap_repetitions: 2000
+human_review:
+  target_recordings: 27
+  statuses:
+  - NOT_REVIEWED
+  - PASS
+  - BOUNDARY_ISSUE
+  - SOURCE_AUDIO_ISSUE
+pipelines:
+  schema_version: controlled-diarization-pipeline-registry.v1
+  definitions:
+  - pipeline_id: modular_energy_campplus
+    kind: full_diarizer
+    environment_profile: onnx
+    component_name: modular_energy_campplus
+    segmentation: lightweight_energy_vad_windows
+    embedding: campplus_speaker_embedding
+    clustering: agglomerative_cosine_engineering_v1
+    execution_status: SOFTWARE_QUALIFIED_DEVELOPMENT_CALIBRATION_REQUIRED
+    diagnostic_only: false
+    configuration:
+      speaker_count_mode: estimated
+  - pipeline_id: modular_pyannote_campplus
+    kind: full_diarizer
+    environment_profile: credential-diarization
+    component_name: modular_pyannote_campplus
+    segmentation: pyannote_segmentation_3_0
+    embedding: campplus_speaker_embedding
+    clustering: agglomerative_cosine_engineering_v1
+    execution_status: SOFTWARE_QUALIFIED_DEVELOPMENT_CALIBRATION_REQUIRED
+    diagnostic_only: false
+    configuration:
+      speaker_count_mode: estimated
+  - pipeline_id: sherpa_onnx_diarization
+    kind: full_diarizer
+    environment_profile: onnx
+    component_name: sherpa_onnx_diarization
+    segmentation: sherpa_onnx_backend_internal
+    embedding: sherpa_onnx_speaker_embedding
+    clustering: sherpa_onnx_backend_internal
+    execution_status: STAGE11_AUTHORIZED
+    diagnostic_only: false
+    configuration:
+      speaker_count_mode: estimated
+  - pipeline_id: modular_energy_wespeaker
+    kind: full_diarizer
+    environment_profile: wespeaker
+    component_name: modular_energy_wespeaker
+    segmentation: lightweight_energy_vad_windows
+    embedding: wespeaker_resnet221_lm
+    clustering: agglomerative_cosine_engineering_v1
+    execution_status: SOFTWARE_QUALIFIED_DEVELOPMENT_CALIBRATION_REQUIRED
+    diagnostic_only: false
+    configuration:
+      speaker_count_mode: estimated
+  - pipeline_id: pyannote_community1
+    kind: full_diarizer
+    environment_profile: credential-diarization
+    component_name: pyannote_community
+    segmentation: pyannote_community1_internal
+    embedding: pyannote_community1_internal
+    clustering: pyannote_community1_internal
+    execution_status: SOFTWARE_QUALIFIED_DEFAULT_ONLY
+    diagnostic_only: false
+    configuration:
+      speaker_count_mode: estimated
+      comparison: off_the_shelf_default
+  - pipeline_id: oracle_turn_campplus_diagnostic
+    kind: oracle_turn_clustering
+    environment_profile: onnx
+    component_name: campplus_speaker_embedding
+    segmentation: oracle_synthetic_placement_turns
+    embedding: campplus_speaker_embedding
+    clustering: agglomerative_cosine_engineering_v1
+    execution_status: DIAGNOSTIC_DEVELOPMENT_ONLY
+    diagnostic_only: true
+    configuration:
+      clustering_threshold: 0.55
+      overlap_cases_allowed: false
+  - pipeline_id: modular_pyannote_selected_embedding
+    kind: unresolved_modular
+    environment_profile: UNRESOLVED
+    component_name: null
+    segmentation: pyannote_segmentation_3_0
+    embedding: SELECTED_EMBEDDING_REQUIRED
+    clustering: SELECTED_CLUSTERING_CONFIG_REQUIRED
+    execution_status: NOT_INTEGRATED
+    diagnostic_only: false
+    configuration:
+      selection_gate: speaker_research_finalist_required

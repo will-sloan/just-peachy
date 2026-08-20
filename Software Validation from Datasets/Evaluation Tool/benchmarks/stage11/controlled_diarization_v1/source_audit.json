@@ -1,0 +1,38 @@
+{
+  "benchmark_version": "controlled_diarization_v1",
+  "cadence_eligible_clip_counts": {
+    "rapid": 3339,
+    "relaxed": 60176,
+    "standard": 24004
+  },
+  "canonical_source_manifest": "Raw Datasets (Not formatted)/Common Voice/cv-corpus-26.0-2026-06-12/prepared/en/metadata/original/validated.tsv",
+  "canonical_source_manifest_sha256": "368EAD1AB9D7F5E11F6EDD3B840DE7602DF1524220EE238BB068479048D6BBC5",
+  "development_speaker_candidates": 272,
+  "estimated_generated_audio_sec": 11280.0,
+  "evaluation_speaker_candidates": 272,
+  "limitations": [
+    "Common Voice speech is prompted/read; only the placement schedule is synthetic.",
+    "The backchannel factor is realized as short_overlap because transcript text is not used to assert semantics.",
+    "Clip-duration feasibility is based on the canonical Common Voice duration table; Prepare revalidates decoded audio."
+  ],
+  "preferred_60_development_120_evaluation_feasible": true,
+  "required_disjoint_speakers": 192,
+  "reserved_enrollment_clip_count": 1360,
+  "reserved_enrollment_feasible": true,
+  "schema_version": "controlled-diarization-source-audit.v1",
+  "source_path": "Raw Datasets (Not formatted)/Common Voice/cv-corpus-26.0-2026-06-12",
+  "source_pool_manifest": "benchmarks/speaker_breadth/commonvoice_60plus_v1/speaker_protocol_manifest.json",
+  "source_speaker_pool_used": "commonvoice_60plus_v1_27e72793b4c0",
+  "speaker_clip_count_distribution": {
+    "maximum": 10155,
+    "mean": 279.71691176470586,
+    "median": 75.0,
+    "minimum": 24,
+    "p25": 37.0,
+    "p75": 151.0
+  },
+  "speaker_count": 272,
+  "speaker_disjoint_split_feasible": true,
+  "usable_clip_count": 76083,
+  "valid": true
+}

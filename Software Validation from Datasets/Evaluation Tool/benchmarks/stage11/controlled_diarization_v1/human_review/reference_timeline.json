@@ -1,0 +1,3205 @@
+{
+  "cases": [
+    {
+      "case_id": "cd_1fd3df72e0cf2efc",
+      "duration_sec": 60.6631875,
+      "turns": [
+        {
+          "end_sec": 4.12,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 0.0
+        },
+        {
+          "end_sec": 9.3361875,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 4.8561875
+        },
+        {
+          "end_sec": 15.4729375,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 10.8129375
+        },
+        {
+          "end_sec": 20.7353125,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 16.3553125
+        },
+        {
+          "end_sec": 26.18225,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 22.06225
+        },
+        {
+          "end_sec": 31.4613125,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 26.9253125
+        },
+        {
+          "end_sec": 35.2748125,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 32.0148125
+        },
+        {
+          "end_sec": 40.4220625,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 36.1820625
+        },
+        {
+          "end_sec": 45.7655,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 41.3855
+        },
+        {
+          "end_sec": 50.67875,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 46.57875
+        },
+        {
+          "end_sec": 55.899,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 52.059
+        },
+        {
+          "end_sec": 60.6631875,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 56.4031875
+        }
+      ]
+    },
+    {
+      "case_id": "cd_21bbd3e6f06aa6f6",
+      "duration_sec": 63.917,
+      "turns": [
+        {
+          "end_sec": 5.16,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 0.0
+        },
+        {
+          "end_sec": 12.839375,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 6.339375
+        },
+        {
+          "end_sec": 17.6985,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 13.8185
+        },
+        {
+          "end_sec": 24.68925,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 18.76925
+        },
+        {
+          "end_sec": 29.950375,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 26.070375
+        },
+        {
+          "end_sec": 37.5964375,
+          "overlap_indicator": true,
+          "speaker": "SPK00",
+          "start_sec": 30.7564375
+        },
+        {
+          "end_sec": 42.1291875,
+          "overlap_indicator": true,
+          "speaker": "SPK01",
+          "start_sec": 37.1491875
+        },
+        {
+          "end_sec": 49.886125,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 42.926125
+        },
+        {
+          "end_sec": 55.98925,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 51.20925
+        },
+        {
+          "end_sec": 63.917,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 56.917
+        }
+      ]
+    },
+    {
+      "case_id": "cd_4289581912db3305",
+      "duration_sec": 66.599125,
+      "turns": [
+        {
+          "end_sec": 4.94,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 0.0
+        },
+        {
+          "end_sec": 11.5355625,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 6.3555625
+        },
+        {
+          "end_sec": 17.3380625,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 12.1380625
+        },
+        {
+          "end_sec": 24.0855625,
+          "overlap_indicator": true,
+          "speaker": "SPK01",
+          "start_sec": 18.8055625
+        },
+        {
+          "end_sec": 27.8765625,
+          "overlap_indicator": true,
+          "speaker": "SPK00",
+          "start_sec": 23.2365625
+        },
+        {
+          "end_sec": 34.103125,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 28.383125
+        },
+        {
+          "end_sec": 40.884875,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 35.424875
+        },
+        {
+          "end_sec": 48.077,
+          "overlap_indicator": true,
+          "speaker": "SPK01",
+          "start_sec": 42.317
+        },
+        {
+          "end_sec": 53.114875,
+          "overlap_indicator": true,
+          "speaker": "SPK00",
+          "start_sec": 47.554875
+        },
+        {
+          "end_sec": 59.8169375,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 54.0569375
+        },
+        {
+          "end_sec": 66.599125,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 60.779125
+        }
+      ]
+    },
+    {
+      "case_id": "cd_4fedff53cc1faff2",
+      "duration_sec": 61.730125,
+      "turns": [
+        {
+          "end_sec": 2.88,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 0.0
+        },
+        {
+          "end_sec": 6.291875,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 3.179875
+        },
+        {
+          "end_sec": 9.609625,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 6.669625
+        },
+        {
+          "end_sec": 12.90475,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 9.79275
+        },
+        {
+          "end_sec": 16.1744375,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 13.0944375
+        },
+        {
+          "end_sec": 18.9400625,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 16.8400625
+        },
+        {
+          "end_sec": 22.73925,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 19.67925
+        },
+        {
+          "end_sec": 26.551875,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 23.271875
+        },
+        {
+          "end_sec": 30.2018125,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 26.8818125
+        },
+        {
+          "end_sec": 33.4413125,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 30.5013125
+        },
+        {
+          "end_sec": 37.438625,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 33.978625
+        },
+        {
+          "end_sec": 40.96225,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 37.84225
+        },
+        {
+          "end_sec": 44.321,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 41.121
+        },
+        {
+          "end_sec": 47.021,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 44.541
+        },
+        {
+          "end_sec": 50.5690625,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 47.2890625
+        },
+        {
+          "end_sec": 53.975625,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 50.895625
+        },
+        {
+          "end_sec": 57.78125,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 54.52125
+        },
+        {
+          "end_sec": 61.730125,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 58.190125
+        }
+      ]
+    },
+    {
+      "case_id": "cd_1e4b28f18380167d",
+      "duration_sec": 63.0811875,
+      "turns": [
+        {
+          "end_sec": 4.64,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 0.0
+        },
+        {
+          "end_sec": 7.5036875,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 5.1436875
+        },
+        {
+          "end_sec": 13.23725,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 7.97725
+        },
+        {
+          "end_sec": 16.7388125,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 13.4188125
+        },
+        {
+          "end_sec": 22.79975,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 17.37575
+        },
+        {
+          "end_sec": 26.3544375,
+          "overlap_indicator": true,
+          "speaker": "SPK01",
+          "start_sec": 23.2744375
+        },
+        {
+          "end_sec": 30.8769375,
+          "overlap_indicator": true,
+          "speaker": "SPK00",
+          "start_sec": 25.6969375
+        },
+        {
+          "end_sec": 34.6496875,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 31.3296875
+        },
+        {
+          "end_sec": 40.3773125,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 34.8573125
+        },
+        {
+          "end_sec": 44.1701875,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 41.0301875
+        },
+        {
+          "end_sec": 50.3641875,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 44.8201875
+        },
+        {
+          "end_sec": 54.6105625,
+          "overlap_indicator": true,
+          "speaker": "SPK01",
+          "start_sec": 51.0305625
+        },
+        {
+          "end_sec": 59.493875,
+          "overlap_indicator": true,
+          "speaker": "SPK00",
+          "start_sec": 53.933875
+        },
+        {
+          "end_sec": 63.0811875,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 59.9211875
+        }
+      ]
+    },
+    {
+      "case_id": "cd_0eaa0a991cc906fa",
+      "duration_sec": 63.07625,
+      "turns": [
+        {
+          "end_sec": 2.84,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 0.0
+        },
+        {
+          "end_sec": 6.8963125,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 3.5763125
+        },
+        {
+          "end_sec": 10.8113125,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 7.0513125
+        },
+        {
+          "end_sec": 15.6478125,
+          "overlap_indicator": true,
+          "speaker": "SPK01",
+          "start_sec": 11.0678125
+        },
+        {
+          "end_sec": 18.705,
+          "overlap_indicator": true,
+          "speaker": "SPK00",
+          "start_sec": 14.965
+        },
+        {
+          "end_sec": 24.1161875,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 19.0601875
+        },
+        {
+          "end_sec": 28.5369375,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 24.8169375
+        },
+        {
+          "end_sec": 32.016125,
+          "overlap_indicator": true,
+          "speaker": "SPK01",
+          "start_sec": 28.916125
+        },
+        {
+          "end_sec": 35.110875,
+          "overlap_indicator": true,
+          "speaker": "SPK00",
+          "start_sec": 30.990875
+        },
+        {
+          "end_sec": 39.380625,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 35.400625
+        },
+        {
+          "end_sec": 43.79875,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 39.77875
+        },
+        {
+          "end_sec": 49.5211875,
+          "overlap_indicator": true,
+          "speaker": "SPK01",
+          "start_sec": 44.3211875
+        },
+        {
+          "end_sec": 52.7268125,
+          "overlap_indicator": true,
+          "speaker": "SPK00",
+          "start_sec": 48.1868125
+        },
+        {
+          "end_sec": 58.311375,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 52.931375
+        },
+        {
+          "end_sec": 63.07625,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 58.99625
+        }
+      ]
+    },
+    {
+      "case_id": "cd_450a34d562cd5b4d",
+      "duration_sec": 50.070875,
+      "turns": [
+        {
+          "end_sec": 2.18,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 0.0
+        },
+        {
+          "end_sec": 4.4030625,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 2.4030625
+        },
+        {
+          "end_sec": 6.96025,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 4.60025
+        },
+        {
+          "end_sec": 9.455,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 7.095
+        },
+        {
+          "end_sec": 12.1696875,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 9.5296875
+        },
+        {
+          "end_sec": 14.4308125,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 12.3708125
+        },
+        {
+          "end_sec": 17.092,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 14.532
+        },
+        {
+          "end_sec": 19.3063125,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 17.1663125
+        },
+        {
+          "end_sec": 22.1625,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 19.5025
+        },
+        {
+          "end_sec": 24.2410625,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 22.2410625
+        },
+        {
+          "end_sec": 27.541,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 24.445
+        },
+        {
+          "end_sec": 30.425375,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 27.765375
+        },
+        {
+          "end_sec": 33.2250625,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 30.5250625
+        },
+        {
+          "end_sec": 35.960625,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 33.320625
+        },
+        {
+          "end_sec": 38.7788125,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 35.9988125
+        },
+        {
+          "end_sec": 41.714125,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 38.934125
+        },
+        {
+          "end_sec": 44.643625,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 41.803625
+        },
+        {
+          "end_sec": 47.0220625,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 44.8020625
+        },
+        {
+          "end_sec": 50.070875,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 47.210875
+        }
+      ]
+    },
+    {
+      "case_id": "cd_54c0dd85a57af441",
+      "duration_sec": 48.64975,
+      "turns": [
+        {
+          "end_sec": 2.136,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 0.0
+        },
+        {
+          "end_sec": 3.1905625,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 2.2705625
+        },
+        {
+          "end_sec": 5.48625,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 3.25025
+        },
+        {
+          "end_sec": 6.5206875,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 5.6606875
+        },
+        {
+          "end_sec": 8.9205,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 6.5885
+        },
+        {
+          "end_sec": 9.6435625,
+          "overlap_indicator": true,
+          "speaker": "SPK01",
+          "start_sec": 9.0835625
+        },
+        {
+          "end_sec": 11.3370625,
+          "overlap_indicator": true,
+          "speaker": "SPK00",
+          "start_sec": 8.9810625
+        },
+        {
+          "end_sec": 13.0564375,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 11.5564375
+        },
+        {
+          "end_sec": 15.45825,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 13.08225
+        },
+        {
+          "end_sec": 16.5961875,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 15.6561875
+        },
+        {
+          "end_sec": 19.216,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 16.824
+        },
+        {
+          "end_sec": 20.016,
+          "overlap_indicator": true,
+          "speaker": "SPK01",
+          "start_sec": 19.236
+        },
+        {
+          "end_sec": 21.6345,
+          "overlap_indicator": true,
+          "speaker": "SPK00",
+          "start_sec": 19.6825
+        },
+        {
+          "end_sec": 22.815125,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 21.815125
+        },
+        {
+          "end_sec": 25.1373125,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 22.9613125
+        },
+        {
+          "end_sec": 26.0606875,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 25.2406875
+        },
+        {
+          "end_sec": 28.533625,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 26.113625
+        },
+        {
+          "end_sec": 29.5383125,
+          "overlap_indicator": true,
+          "speaker": "SPK01",
+          "start_sec": 28.6583125
+        },
+        {
+          "end_sec": 31.5549375,
+          "overlap_indicator": true,
+          "speaker": "SPK00",
+          "start_sec": 28.9789375
+        },
+        {
+          "end_sec": 32.701625,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 31.561625
+        },
+        {
+          "end_sec": 35.39875,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 32.91875
+        },
+        {
+          "end_sec": 36.8958125,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 35.4758125
+        },
+        {
+          "end_sec": 39.3558125,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 36.9758125
+        },
+        {
+          "end_sec": 40.14425,
+          "overlap_indicator": true,
+          "speaker": "SPK01",
+          "start_sec": 39.38425
+        },
+        {
+          "end_sec": 42.41475,
+          "overlap_indicator": true,
+          "speaker": "SPK00",
+          "start_sec": 39.73475
+        },
+        {
+          "end_sec": 44.254,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 42.494
+        },
+        {
+          "end_sec": 47.01925,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 44.35925
+        },
+        {
+          "end_sec": 48.64975,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 47.22975
+        }
+      ]
+    },
+    {
+      "case_id": "cd_277111dbbda6830c",
+      "duration_sec": 50.0525625,
+      "turns": [
+        {
+          "end_sec": 2.4,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 0.0
+        },
+        {
+          "end_sec": 4.25175,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 2.47575
+        },
+        {
+          "end_sec": 6.81125,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 4.45125
+        },
+        {
+          "end_sec": 8.691375,
+          "overlap_indicator": true,
+          "speaker": "SPK01",
+          "start_sec": 6.867375
+        },
+        {
+          "end_sec": 9.8508125,
+          "overlap_indicator": true,
+          "speaker": "SPK00",
+          "start_sec": 7.4708125
+        },
+        {
+          "end_sec": 11.843375,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 10.039375
+        },
+        {
+          "end_sec": 14.4915625,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 12.0315625
+        },
+        {
+          "end_sec": 16.5505625,
+          "overlap_indicator": true,
+          "speaker": "SPK01",
+          "start_sec": 14.6545625
+        },
+        {
+          "end_sec": 17.8191875,
+          "overlap_indicator": true,
+          "speaker": "SPK00",
+          "start_sec": 15.2991875
+        },
+        {
+          "end_sec": 19.9558125,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 17.9398125
+        },
+        {
+          "end_sec": 22.7921875,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 20.1121875
+        },
+        {
+          "end_sec": 24.922125,
+          "overlap_indicator": true,
+          "speaker": "SPK01",
+          "start_sec": 22.906125
+        },
+        {
+          "end_sec": 26.6299375,
+          "overlap_indicator": true,
+          "speaker": "SPK00",
+          "start_sec": 23.6059375
+        },
+        {
+          "end_sec": 28.788125,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 26.772125
+        },
+        {
+          "end_sec": 31.4798125,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 28.8198125
+        },
+        {
+          "end_sec": 33.6545625,
+          "overlap_indicator": true,
+          "speaker": "SPK01",
+          "start_sec": 31.6385625
+        },
+        {
+          "end_sec": 35.326625,
+          "overlap_indicator": true,
+          "speaker": "SPK00",
+          "start_sec": 32.286625
+        },
+        {
+          "end_sec": 37.5101875,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 35.5141875
+        },
+        {
+          "end_sec": 40.5245625,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 37.6645625
+        },
+        {
+          "end_sec": 42.761875,
+          "overlap_indicator": true,
+          "speaker": "SPK01",
+          "start_sec": 40.717875
+        },
+        {
+          "end_sec": 44.6289375,
+          "overlap_indicator": true,
+          "speaker": "SPK00",
+          "start_sec": 41.7889375
+        },
+        {
+          "end_sec": 46.961125,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 44.825125
+        },
+        {
+          "end_sec": 50.0525625,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 47.1925625
+        }
+      ]
+    },
+    {
+      "case_id": "cd_4bece14c99fe707e",
+      "duration_sec": 64.08,
+      "turns": [
+        {
+          "end_sec": 3.08,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 0.0
+        },
+        {
+          "end_sec": 6.846625,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 3.586625
+        },
+        {
+          "end_sec": 9.2815,
+          "overlap_indicator": false,
+          "speaker": "SPK02",
+          "start_sec": 7.6215
+        },
+        {
+          "end_sec": 13.7163125,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 10.3763125
+        },
+        {
+          "end_sec": 17.77525,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 14.57525
+        },
+        {
+          "end_sec": 22.24775,
+          "overlap_indicator": false,
+          "speaker": "SPK02",
+          "start_sec": 18.40775
+        },
+        {
+          "end_sec": 27.4240625,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 23.3920625
+        },
+        {
+          "end_sec": 30.6161875,
+          "overlap_indicator": false,
+          "speaker": "SPK02",
+          "start_sec": 28.6761875
+        },
+        {
+          "end_sec": 34.8269375,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 31.7069375
+        },
+        {
+          "end_sec": 39.993125,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 36.213125
+        },
+        {
+          "end_sec": 44.426375,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 41.446375
+        },
+        {
+          "end_sec": 48.891125,
+          "overlap_indicator": false,
+          "speaker": "SPK02",
+          "start_sec": 45.011125
+        },
+        {
+          "end_sec": 53.6878125,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 50.3878125
+        },
+        {
+          "end_sec": 58.9106875,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 54.7346875
+        },
+        {
+          "end_sec": 64.08,
+          "overlap_indicator": false,
+          "speaker": "SPK02",
+          "start_sec": 59.6
+        }
+      ]
+    },
+    {
+      "case_id": "cd_1e28cb29be71bc05",
+      "duration_sec": 63.4151875,
+      "turns": [
+        {
+          "end_sec": 2.88,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 0.0
+        },
+        {
+          "end_sec": 7.1495,
+          "overlap_indicator": false,
+          "speaker": "SPK02",
+          "start_sec": 3.4495
+        },
+        {
+          "end_sec": 10.9785,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 8.3985
+        },
+        {
+          "end_sec": 15.4201875,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 12.0201875
+        },
+        {
+          "end_sec": 20.368625,
+          "overlap_indicator": false,
+          "speaker": "SPK02",
+          "start_sec": 16.688625
+        },
+        {
+          "end_sec": 24.043125,
+          "overlap_indicator": true,
+          "speaker": "SPK00",
+          "start_sec": 21.663125
+        },
+        {
+          "end_sec": 27.1474375,
+          "overlap_indicator": true,
+          "speaker": "SPK02",
+          "start_sec": 23.3874375
+        },
+        {
+          "end_sec": 31.4564375,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 28.0364375
+        },
+        {
+          "end_sec": 34.9571875,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 32.0571875
+        },
+        {
+          "end_sec": 39.1376875,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 35.7176875
+        },
+        {
+          "end_sec": 44.2321875,
+          "overlap_indicator": false,
+          "speaker": "SPK02",
+          "start_sec": 40.4721875
+        },
+        {
+          "end_sec": 47.3760625,
+          "overlap_indicator": true,
+          "speaker": "SPK00",
+          "start_sec": 44.8960625
+        },
+        {
+          "end_sec": 51.015375,
+          "overlap_indicator": true,
+          "speaker": "SPK02",
+          "start_sec": 47.115375
+        },
+        {
+          "end_sec": 55.992625,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 52.292625
+        },
+        {
+          "end_sec": 58.8994375,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 56.7194375
+        },
+        {
+          "end_sec": 63.4151875,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 60.1551875
+        }
+      ]
+    },
+    {
+      "case_id": "cd_31b35639b5ff6d13",
+      "duration_sec": 61.2838125,
+      "turns": [
+        {
+          "end_sec": 3.5,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 0.0
+        },
+        {
+          "end_sec": 7.845875,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 4.945875
+        },
+        {
+          "end_sec": 11.689125,
+          "overlap_indicator": false,
+          "speaker": "SPK02",
+          "start_sec": 8.889125
+        },
+        {
+          "end_sec": 15.856125,
+          "overlap_indicator": true,
+          "speaker": "SPK00",
+          "start_sec": 12.776125
+        },
+        {
+          "end_sec": 17.5899375,
+          "overlap_indicator": true,
+          "speaker": "SPK01",
+          "start_sec": 14.9699375
+        },
+        {
+          "end_sec": 22.1515,
+          "overlap_indicator": false,
+          "speaker": "SPK02",
+          "start_sec": 18.4115
+        },
+        {
+          "end_sec": 25.8669375,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 22.8469375
+        },
+        {
+          "end_sec": 29.2035625,
+          "overlap_indicator": true,
+          "speaker": "SPK01",
+          "start_sec": 26.9835625
+        },
+        {
+          "end_sec": 31.0874375,
+          "overlap_indicator": true,
+          "speaker": "SPK02",
+          "start_sec": 27.9474375
+        },
+        {
+          "end_sec": 34.437625,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 31.617625
+        },
+        {
+          "end_sec": 39.177625,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 35.917625
+        },
+        {
+          "end_sec": 44.2300625,
+          "overlap_indicator": true,
+          "speaker": "SPK02",
+          "start_sec": 40.0700625
+        },
+        {
+          "end_sec": 46.8614375,
+          "overlap_indicator": true,
+          "speaker": "SPK00",
+          "start_sec": 43.3214375
+        },
+        {
+          "end_sec": 52.2006875,
+          "overlap_indicator": false,
+          "speaker": "SPK02",
+          "start_sec": 47.7406875
+        },
+        {
+          "end_sec": 56.406125,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 53.686125
+        },
+        {
+          "end_sec": 61.2838125,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 57.7638125
+        }
+      ]
+    },
+    {
+      "case_id": "cd_3ac2f8e954a12909",
+      "duration_sec": 61.79775,
+      "turns": [
+        {
+          "end_sec": 1.38,
+          "overlap_indicator": false,
+          "speaker": "SPK02",
+          "start_sec": 0.0
+        },
+        {
+          "end_sec": 4.0013125,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 1.6013125
+        },
+        {
+          "end_sec": 6.309375,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 4.189375
+        },
+        {
+          "end_sec": 9.0454375,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 6.5854375
+        },
+        {
+          "end_sec": 11.75675,
+          "overlap_indicator": false,
+          "speaker": "SPK02",
+          "start_sec": 9.29675
+        },
+        {
+          "end_sec": 14.543625,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 12.403625
+        },
+        {
+          "end_sec": 16.8836875,
+          "overlap_indicator": false,
+          "speaker": "SPK02",
+          "start_sec": 14.8436875
+        },
+        {
+          "end_sec": 19.8948125,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 17.4148125
+        },
+        {
+          "end_sec": 22.1860625,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 20.2660625
+        },
+        {
+          "end_sec": 25.5078125,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 22.9078125
+        },
+        {
+          "end_sec": 28.1136875,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 25.8536875
+        },
+        {
+          "end_sec": 31.042375,
+          "overlap_indicator": false,
+          "speaker": "SPK02",
+          "start_sec": 28.462375
+        },
+        {
+          "end_sec": 33.731875,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 31.291875
+        },
+        {
+          "end_sec": 35.940625,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 34.140625
+        },
+        {
+          "end_sec": 38.3253125,
+          "overlap_indicator": false,
+          "speaker": "SPK02",
+          "start_sec": 36.2853125
+        },
+        {
+          "end_sec": 41.7815625,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 39.0615625
+        },
+        {
+          "end_sec": 44.7153125,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 42.4553125
+        },
+        {
+          "end_sec": 47.5441875,
+          "overlap_indicator": false,
+          "speaker": "SPK02",
+          "start_sec": 45.3641875
+        },
+        {
+          "end_sec": 51.3729375,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 48.0329375
+        },
+        {
+          "end_sec": 55.056625,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 52.096625
+        },
+        {
+          "end_sec": 58.3230625,
+          "overlap_indicator": false,
+          "speaker": "SPK02",
+          "start_sec": 55.3430625
+        },
+        {
+          "end_sec": 61.79775,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 58.78975
+        }
+      ]
+    },
+    {
+      "case_id": "cd_4b1dfe9de8d6227b",
+      "duration_sec": 62.611875,
+      "turns": [
+        {
+          "end_sec": 3.92,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 0.0
+        },
+        {
+          "end_sec": 7.5351875,
+          "overlap_indicator": false,
+          "speaker": "SPK02",
+          "start_sec": 4.2231875
+        },
+        {
+          "end_sec": 10.8704375,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 7.9704375
+        },
+        {
+          "end_sec": 14.8776875,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 11.1376875
+        },
+        {
+          "end_sec": 18.3785625,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 15.5185625
+        },
+        {
+          "end_sec": 21.1559375,
+          "overlap_indicator": true,
+          "speaker": "SPK02",
+          "start_sec": 18.6159375
+        },
+        {
+          "end_sec": 23.7161875,
+          "overlap_indicator": true,
+          "speaker": "SPK00",
+          "start_sec": 20.7361875
+        },
+        {
+          "end_sec": 26.7668125,
+          "overlap_indicator": false,
+          "speaker": "SPK02",
+          "start_sec": 24.0468125
+        },
+        {
+          "end_sec": 31.144125,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 27.184125
+        },
+        {
+          "end_sec": 33.832125,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 31.412125
+        },
+        {
+          "end_sec": 37.1526875,
+          "overlap_indicator": false,
+          "speaker": "SPK02",
+          "start_sec": 34.3126875
+        },
+        {
+          "end_sec": 41.7896875,
+          "overlap_indicator": true,
+          "speaker": "SPK01",
+          "start_sec": 37.7896875
+        },
+        {
+          "end_sec": 44.4051875,
+          "overlap_indicator": true,
+          "speaker": "SPK02",
+          "start_sec": 41.2811875
+        },
+        {
+          "end_sec": 47.764,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 44.644
+        },
+        {
+          "end_sec": 51.3813125,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 48.2813125
+        },
+        {
+          "end_sec": 54.576875,
+          "overlap_indicator": false,
+          "speaker": "SPK02",
+          "start_sec": 51.756875
+        },
+        {
+          "end_sec": 59.2856875,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 55.1696875
+        },
+        {
+          "end_sec": 62.611875,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 59.871875
+        }
+      ]
+    },
+    {
+      "case_id": "cd_437c3a100bd1739e",
+      "duration_sec": 60.9769375,
+      "turns": [
+        {
+          "end_sec": 3.3,
+          "overlap_indicator": false,
+          "speaker": "SPK02",
+          "start_sec": 0.0
+        },
+        {
+          "end_sec": 7.054625,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 3.794625
+        },
+        {
+          "end_sec": 10.641375,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 7.561375
+        },
+        {
+          "end_sec": 14.556625,
+          "overlap_indicator": true,
+          "speaker": "SPK02",
+          "start_sec": 11.276625
+        },
+        {
+          "end_sec": 16.28875,
+          "overlap_indicator": true,
+          "speaker": "SPK00",
+          "start_sec": 13.72875
+        },
+        {
+          "end_sec": 20.0570625,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 16.6570625
+        },
+        {
+          "end_sec": 23.836375,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 20.576375
+        },
+        {
+          "end_sec": 27.328125,
+          "overlap_indicator": true,
+          "speaker": "SPK02",
+          "start_sec": 24.528125
+        },
+        {
+          "end_sec": 29.1845625,
+          "overlap_indicator": true,
+          "speaker": "SPK01",
+          "start_sec": 26.4845625
+        },
+        {
+          "end_sec": 33.1829375,
+          "overlap_indicator": false,
+          "speaker": "SPK02",
+          "start_sec": 29.6429375
+        },
+        {
+          "end_sec": 37.1090625,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 33.6290625
+        },
+        {
+          "end_sec": 41.111,
+          "overlap_indicator": true,
+          "speaker": "SPK00",
+          "start_sec": 37.651
+        },
+        {
+          "end_sec": 43.2405625,
+          "overlap_indicator": true,
+          "speaker": "SPK02",
+          "start_sec": 39.6405625
+        },
+        {
+          "end_sec": 46.5279375,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 43.8079375
+        },
+        {
+          "end_sec": 50.5418125,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 47.0818125
+        },
+        {
+          "end_sec": 54.312,
+          "overlap_indicator": true,
+          "speaker": "SPK00",
+          "start_sec": 50.732
+        },
+        {
+          "end_sec": 56.67975,
+          "overlap_indicator": true,
+          "speaker": "SPK02",
+          "start_sec": 53.09975
+        },
+        {
+          "end_sec": 60.9769375,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 57.3969375
+        }
+      ]
+    },
+    {
+      "case_id": "cd_1ae1aa8be958002a",
+      "duration_sec": 49.960125,
+      "turns": [
+        {
+          "end_sec": 2.26,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 0.0
+        },
+        {
+          "end_sec": 4.8924375,
+          "overlap_indicator": false,
+          "speaker": "SPK02",
+          "start_sec": 2.4764375
+        },
+        {
+          "end_sec": 5.93375,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 5.13375
+        },
+        {
+          "end_sec": 8.849625,
+          "overlap_indicator": false,
+          "speaker": "SPK02",
+          "start_sec": 6.117625
+        },
+        {
+          "end_sec": 11.9340625,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 9.0740625
+        },
+        {
+          "end_sec": 13.629875,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 12.049875
+        },
+        {
+          "end_sec": 16.5200625,
+          "overlap_indicator": false,
+          "speaker": "SPK02",
+          "start_sec": 13.6800625
+        },
+        {
+          "end_sec": 18.09875,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 16.57875
+        },
+        {
+          "end_sec": 20.741125,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 18.321125
+        },
+        {
+          "end_sec": 21.5278125,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 20.7678125
+        },
+        {
+          "end_sec": 24.674125,
+          "overlap_indicator": false,
+          "speaker": "SPK02",
+          "start_sec": 21.694125
+        },
+        {
+          "end_sec": 27.7666875,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 24.7666875
+        },
+        {
+          "end_sec": 31.2255,
+          "overlap_indicator": false,
+          "speaker": "SPK02",
+          "start_sec": 27.8055
+        },
+        {
+          "end_sec": 34.226375,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 31.306375
+        },
+        {
+          "end_sec": 35.3445,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 34.3845
+        },
+        {
+          "end_sec": 38.5725625,
+          "overlap_indicator": false,
+          "speaker": "SPK02",
+          "start_sec": 35.5725625
+        },
+        {
+          "end_sec": 41.024,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 38.784
+        },
+        {
+          "end_sec": 44.114875,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 41.214875
+        },
+        {
+          "end_sec": 46.8931875,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 44.2531875
+        },
+        {
+          "end_sec": 49.960125,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 46.920125
+        }
+      ]
+    },
+    {
+      "case_id": "cd_05d1d20b4bda0c4d",
+      "duration_sec": 48.222875,
+      "turns": [
+        {
+          "end_sec": 1.44,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 0.0
+        },
+        {
+          "end_sec": 3.3835625,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 1.4435625
+        },
+        {
+          "end_sec": 4.31125,
+          "overlap_indicator": false,
+          "speaker": "SPK02",
+          "start_sec": 3.41125
+        },
+        {
+          "end_sec": 5.71525,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 4.51525
+        },
+        {
+          "end_sec": 6.5238125,
+          "overlap_indicator": false,
+          "speaker": "SPK02",
+          "start_sec": 5.9038125
+        },
+        {
+          "end_sec": 8.6131875,
+          "overlap_indicator": true,
+          "speaker": "SPK01",
+          "start_sec": 6.6931875
+        },
+        {
+          "end_sec": 9.1574375,
+          "overlap_indicator": true,
+          "speaker": "SPK02",
+          "start_sec": 8.0974375
+        },
+        {
+          "end_sec": 10.676375,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 9.236375
+        },
+        {
+          "end_sec": 12.722625,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 10.698625
+        },
+        {
+          "end_sec": 13.4865,
+          "overlap_indicator": false,
+          "speaker": "SPK02",
+          "start_sec": 12.9065
+        },
+        {
+          "end_sec": 15.0343125,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 13.7343125
+        },
+        {
+          "end_sec": 17.321125,
+          "overlap_indicator": true,
+          "speaker": "SPK01",
+          "start_sec": 15.181125
+        },
+        {
+          "end_sec": 18.170875,
+          "overlap_indicator": true,
+          "speaker": "SPK00",
+          "start_sec": 16.770875
+        },
+        {
+          "end_sec": 18.65125,
+          "overlap_indicator": false,
+          "speaker": "SPK02",
+          "start_sec": 18.19125
+        },
+        {
+          "end_sec": 21.1826875,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 18.7826875
+        },
+        {
+          "end_sec": 21.6531875,
+          "overlap_indicator": false,
+          "speaker": "SPK02",
+          "start_sec": 21.2531875
+        },
+        {
+          "end_sec": 23.4335,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 21.6735
+        },
+        {
+          "end_sec": 25.98925,
+          "overlap_indicator": true,
+          "speaker": "SPK01",
+          "start_sec": 23.60925
+        },
+        {
+          "end_sec": 26.312,
+          "overlap_indicator": true,
+          "speaker": "SPK02",
+          "start_sec": 25.692
+        },
+        {
+          "end_sec": 28.76025,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 26.38025
+        },
+        {
+          "end_sec": 30.56775,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 28.96775
+        },
+        {
+          "end_sec": 33.0784375,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 30.6384375
+        },
+        {
+          "end_sec": 33.86375,
+          "overlap_indicator": false,
+          "speaker": "SPK02",
+          "start_sec": 33.22375
+        },
+        {
+          "end_sec": 35.6118125,
+          "overlap_indicator": true,
+          "speaker": "SPK00",
+          "start_sec": 33.9718125
+        },
+        {
+          "end_sec": 37.680125,
+          "overlap_indicator": true,
+          "speaker": "SPK01",
+          "start_sec": 35.200125
+        },
+        {
+          "end_sec": 38.9295625,
+          "overlap_indicator": false,
+          "speaker": "SPK02",
+          "start_sec": 37.8695625
+        },
+        {
+          "end_sec": 40.7436875,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 38.9836875
+        },
+        {
+          "end_sec": 43.492625,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 40.972625
+        },
+        {
+          "end_sec": 45.174375,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 43.494375
+        },
+        {
+          "end_sec": 46.285375,
+          "overlap_indicator": true,
+          "speaker": "SPK02",
+          "start_sec": 45.225375
+        },
+        {
+          "end_sec": 47.365375,
+          "overlap_indicator": true,
+          "speaker": "SPK00",
+          "start_sec": 45.685375
+        },
+        {
+          "end_sec": 48.222875,
+          "overlap_indicator": false,
+          "speaker": "SPK02",
+          "start_sec": 47.502875
+        }
+      ]
+    },
+    {
+      "case_id": "cd_011df4ec0cae60e3",
+      "duration_sec": 49.9435,
+      "turns": [
+        {
+          "end_sec": 2.08,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 0.0
+        },
+        {
+          "end_sec": 4.8238125,
+          "overlap_indicator": false,
+          "speaker": "SPK02",
+          "start_sec": 2.2958125
+        },
+        {
+          "end_sec": 7.3015,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 4.8775
+        },
+        {
+          "end_sec": 10.0565625,
+          "overlap_indicator": true,
+          "speaker": "SPK02",
+          "start_sec": 7.4765625
+        },
+        {
+          "end_sec": 10.7251875,
+          "overlap_indicator": true,
+          "speaker": "SPK01",
+          "start_sec": 8.5851875
+        },
+        {
+          "end_sec": 13.43,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 10.958
+        },
+        {
+          "end_sec": 16.4904375,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 13.5304375
+        },
+        {
+          "end_sec": 19.1411875,
+          "overlap_indicator": true,
+          "speaker": "SPK02",
+          "start_sec": 16.5211875
+        },
+        {
+          "end_sec": 20.1998125,
+          "overlap_indicator": true,
+          "speaker": "SPK00",
+          "start_sec": 17.7278125
+        },
+        {
+          "end_sec": 23.331625,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 20.291625
+        },
+        {
+          "end_sec": 25.857,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 23.337
+        },
+        {
+          "end_sec": 28.6305625,
+          "overlap_indicator": true,
+          "speaker": "SPK02",
+          "start_sec": 26.0305625
+        },
+        {
+          "end_sec": 29.8580625,
+          "overlap_indicator": true,
+          "speaker": "SPK00",
+          "start_sec": 27.1940625
+        },
+        {
+          "end_sec": 33.12575,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 30.04575
+        },
+        {
+          "end_sec": 35.891125,
+          "overlap_indicator": false,
+          "speaker": "SPK02",
+          "start_sec": 33.131125
+        },
+        {
+          "end_sec": 38.867875,
+          "overlap_indicator": true,
+          "speaker": "SPK00",
+          "start_sec": 36.107875
+        },
+        {
+          "end_sec": 40.3813125,
+          "overlap_indicator": true,
+          "speaker": "SPK02",
+          "start_sec": 37.6013125
+        },
+        {
+          "end_sec": 43.5069375,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 40.4069375
+        },
+        {
+          "end_sec": 46.5234375,
+          "overlap_indicator": false,
+          "speaker": "SPK02",
+          "start_sec": 43.7434375
+        },
+        {
+          "end_sec": 49.9435,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 46.7235
+        }
+      ]
+    },
+    {
+      "case_id": "cd_28e6619e9f98ad4d",
+      "duration_sec": 63.16,
+      "turns": [
+        {
+          "end_sec": 3.2,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 0.0
+        },
+        {
+          "end_sec": 7.2298125,
+          "overlap_indicator": false,
+          "speaker": "SPK03",
+          "start_sec": 4.3498125
+        },
+        {
+          "end_sec": 11.161125,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 8.661125
+        },
+        {
+          "end_sec": 15.28675,
+          "overlap_indicator": false,
+          "speaker": "SPK02",
+          "start_sec": 12.04675
+        },
+        {
+          "end_sec": 20.357875,
+          "overlap_indicator": false,
+          "speaker": "SPK04",
+          "start_sec": 16.637875
+        },
+        {
+          "end_sec": 24.6969375,
+          "overlap_indicator": false,
+          "speaker": "SPK03",
+          "start_sec": 21.5969375
+        },
+        {
+          "end_sec": 29.145,
+          "overlap_indicator": false,
+          "speaker": "SPK02",
+          "start_sec": 25.925
+        },
+        {
+          "end_sec": 34.1431875,
+          "overlap_indicator": false,
+          "speaker": "SPK04",
+          "start_sec": 30.4031875
+        },
+        {
+          "end_sec": 37.761875,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 34.821875
+        },
+        {
+          "end_sec": 41.9428125,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 38.7228125
+        },
+        {
+          "end_sec": 45.70325,
+          "overlap_indicator": false,
+          "speaker": "SPK03",
+          "start_sec": 42.46325
+        },
+        {
+          "end_sec": 49.804875,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 46.944875
+        },
+        {
+          "end_sec": 53.52925,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 50.56925
+        },
+        {
+          "end_sec": 58.1266875,
+          "overlap_indicator": false,
+          "speaker": "SPK02",
+          "start_sec": 54.9066875
+        },
+        {
+          "end_sec": 63.16,
+          "overlap_indicator": false,
+          "speaker": "SPK04",
+          "start_sec": 59.404
+        }
+      ]
+    },
+    {
+      "case_id": "cd_40654dbe5ecbcc08",
+      "duration_sec": 68.25925,
+      "turns": [
+        {
+          "end_sec": 3.72,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 0.0
+        },
+        {
+          "end_sec": 8.93525,
+          "overlap_indicator": false,
+          "speaker": "SPK02",
+          "start_sec": 4.85125
+        },
+        {
+          "end_sec": 14.6075,
+          "overlap_indicator": false,
+          "speaker": "SPK03",
+          "start_sec": 10.2475
+        },
+        {
+          "end_sec": 18.033,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 15.373
+        },
+        {
+          "end_sec": 22.1698125,
+          "overlap_indicator": false,
+          "speaker": "SPK04",
+          "start_sec": 19.0018125
+        },
+        {
+          "end_sec": 27.8,
+          "overlap_indicator": true,
+          "speaker": "SPK02",
+          "start_sec": 23.6
+        },
+        {
+          "end_sec": 31.2135,
+          "overlap_indicator": true,
+          "speaker": "SPK00",
+          "start_sec": 27.3735
+        },
+        {
+          "end_sec": 35.6645,
+          "overlap_indicator": false,
+          "speaker": "SPK04",
+          "start_sec": 32.4245
+        },
+        {
+          "end_sec": 41.236125,
+          "overlap_indicator": false,
+          "speaker": "SPK03",
+          "start_sec": 36.836125
+        },
+        {
+          "end_sec": 45.207125,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 41.887125
+        },
+        {
+          "end_sec": 50.1204375,
+          "overlap_indicator": false,
+          "speaker": "SPK02",
+          "start_sec": 45.8564375
+        },
+        {
+          "end_sec": 54.117875,
+          "overlap_indicator": true,
+          "speaker": "SPK04",
+          "start_sec": 50.877875
+        },
+        {
+          "end_sec": 57.5165,
+          "overlap_indicator": true,
+          "speaker": "SPK01",
+          "start_sec": 53.9165
+        },
+        {
+          "end_sec": 63.0390625,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 58.9190625
+        },
+        {
+          "end_sec": 68.25925,
+          "overlap_indicator": false,
+          "speaker": "SPK03",
+          "start_sec": 63.85925
+        }
+      ]
+    },
+    {
+      "case_id": "cd_0fa65b01318fe434",
+      "duration_sec": 63.4234375,
+      "turns": [
+        {
+          "end_sec": 2.94,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 0.0
+        },
+        {
+          "end_sec": 8.3045625,
+          "overlap_indicator": false,
+          "speaker": "SPK03",
+          "start_sec": 4.1245625
+        },
+        {
+          "end_sec": 13.159,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 8.839
+        },
+        {
+          "end_sec": 16.38875,
+          "overlap_indicator": true,
+          "speaker": "SPK04",
+          "start_sec": 13.96875
+        },
+        {
+          "end_sec": 18.2794375,
+          "overlap_indicator": true,
+          "speaker": "SPK02",
+          "start_sec": 15.8194375
+        },
+        {
+          "end_sec": 22.5035625,
+          "overlap_indicator": false,
+          "speaker": "SPK04",
+          "start_sec": 19.4435625
+        },
+        {
+          "end_sec": 26.38575,
+          "overlap_indicator": false,
+          "speaker": "SPK02",
+          "start_sec": 23.72575
+        },
+        {
+          "end_sec": 32.124875,
+          "overlap_indicator": true,
+          "speaker": "SPK00",
+          "start_sec": 27.864875
+        },
+        {
+          "end_sec": 34.44025,
+          "overlap_indicator": true,
+          "speaker": "SPK01",
+          "start_sec": 31.52425
+        },
+        {
+          "end_sec": 39.7179375,
+          "overlap_indicator": false,
+          "speaker": "SPK03",
+          "start_sec": 35.2939375
+        },
+        {
+          "end_sec": 43.5019375,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 40.6339375
+        },
+        {
+          "end_sec": 47.4751875,
+          "overlap_indicator": true,
+          "speaker": "SPK04",
+          "start_sec": 44.7751875
+        },
+        {
+          "end_sec": 50.4074375,
+          "overlap_indicator": true,
+          "speaker": "SPK00",
+          "start_sec": 46.2474375
+        },
+        {
+          "end_sec": 55.9881875,
+          "overlap_indicator": false,
+          "speaker": "SPK03",
+          "start_sec": 51.4881875
+        },
+        {
+          "end_sec": 58.4443125,
+          "overlap_indicator": false,
+          "speaker": "SPK02",
+          "start_sec": 56.8243125
+        },
+        {
+          "end_sec": 63.4234375,
+          "overlap_indicator": false,
+          "speaker": "SPK03",
+          "start_sec": 59.4634375
+        }
+      ]
+    },
+    {
+      "case_id": "cd_2e3913e9cfb11b98",
+      "duration_sec": 61.7353125,
+      "turns": [
+        {
+          "end_sec": 2.6,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 0.0
+        },
+        {
+          "end_sec": 3.951125,
+          "overlap_indicator": false,
+          "speaker": "SPK03",
+          "start_sec": 2.911125
+        },
+        {
+          "end_sec": 5.798125,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 4.458125
+        },
+        {
+          "end_sec": 9.935,
+          "overlap_indicator": false,
+          "speaker": "SPK02",
+          "start_sec": 6.519
+        },
+        {
+          "end_sec": 13.45325,
+          "overlap_indicator": false,
+          "speaker": "SPK04",
+          "start_sec": 10.33325
+        },
+        {
+          "end_sec": 17.199875,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 13.959875
+        },
+        {
+          "end_sec": 21.3536875,
+          "overlap_indicator": false,
+          "speaker": "SPK02",
+          "start_sec": 17.7536875
+        },
+        {
+          "end_sec": 23.05,
+          "overlap_indicator": false,
+          "speaker": "SPK03",
+          "start_sec": 21.71
+        },
+        {
+          "end_sec": 26.2840625,
+          "overlap_indicator": false,
+          "speaker": "SPK04",
+          "start_sec": 23.6040625
+        },
+        {
+          "end_sec": 28.757375,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 26.897375
+        },
+        {
+          "end_sec": 32.7788125,
+          "overlap_indicator": false,
+          "speaker": "SPK02",
+          "start_sec": 29.0188125
+        },
+        {
+          "end_sec": 34.0315,
+          "overlap_indicator": false,
+          "speaker": "SPK03",
+          "start_sec": 32.9915
+        },
+        {
+          "end_sec": 37.86,
+          "overlap_indicator": false,
+          "speaker": "SPK04",
+          "start_sec": 34.692
+        },
+        {
+          "end_sec": 39.6830625,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 38.3030625
+        },
+        {
+          "end_sec": 42.5886875,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 39.9086875
+        },
+        {
+          "end_sec": 44.1621875,
+          "overlap_indicator": false,
+          "speaker": "SPK03",
+          "start_sec": 43.1421875
+        },
+        {
+          "end_sec": 46.2958125,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 44.6358125
+        },
+        {
+          "end_sec": 50.0491875,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 46.4691875
+        },
+        {
+          "end_sec": 53.430625,
+          "overlap_indicator": false,
+          "speaker": "SPK04",
+          "start_sec": 50.262625
+        },
+        {
+          "end_sec": 57.8141875,
+          "overlap_indicator": false,
+          "speaker": "SPK02",
+          "start_sec": 54.0741875
+        },
+        {
+          "end_sec": 61.7353125,
+          "overlap_indicator": false,
+          "speaker": "SPK04",
+          "start_sec": 58.5433125
+        }
+      ]
+    },
+    {
+      "case_id": "cd_0b1c2cc6a945a2c9",
+      "duration_sec": 60.6130625,
+      "turns": [
+        {
+          "end_sec": 1.36,
+          "overlap_indicator": false,
+          "speaker": "SPK03",
+          "start_sec": 0.0
+        },
+        {
+          "end_sec": 5.1435625,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 1.7435625
+        },
+        {
+          "end_sec": 8.0901875,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 5.6101875
+        },
+        {
+          "end_sec": 10.7425,
+          "overlap_indicator": false,
+          "speaker": "SPK02",
+          "start_sec": 8.6225
+        },
+        {
+          "end_sec": 13.8675,
+          "overlap_indicator": false,
+          "speaker": "SPK04",
+          "start_sec": 11.4875
+        },
+        {
+          "end_sec": 17.0965,
+          "overlap_indicator": true,
+          "speaker": "SPK00",
+          "start_sec": 14.5565
+        },
+        {
+          "end_sec": 20.28625,
+          "overlap_indicator": true,
+          "speaker": "SPK04",
+          "start_sec": 16.62625
+        },
+        {
+          "end_sec": 22.2,
+          "overlap_indicator": false,
+          "speaker": "SPK03",
+          "start_sec": 20.82
+        },
+        {
+          "end_sec": 25.8029375,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 22.6429375
+        },
+        {
+          "end_sec": 28.5103125,
+          "overlap_indicator": false,
+          "speaker": "SPK02",
+          "start_sec": 26.1903125
+        },
+        {
+          "end_sec": 33.1168125,
+          "overlap_indicator": false,
+          "speaker": "SPK04",
+          "start_sec": 29.2168125
+        },
+        {
+          "end_sec": 36.5555625,
+          "overlap_indicator": true,
+          "speaker": "SPK01",
+          "start_sec": 33.6355625
+        },
+        {
+          "end_sec": 38.4375625,
+          "overlap_indicator": true,
+          "speaker": "SPK02",
+          "start_sec": 35.8975625
+        },
+        {
+          "end_sec": 42.48225,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 38.86225
+        },
+        {
+          "end_sec": 44.7365625,
+          "overlap_indicator": false,
+          "speaker": "SPK03",
+          "start_sec": 43.1165625
+        },
+        {
+          "end_sec": 49.351625,
+          "overlap_indicator": false,
+          "speaker": "SPK04",
+          "start_sec": 45.351625
+        },
+        {
+          "end_sec": 53.8971875,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 49.9771875
+        },
+        {
+          "end_sec": 57.057625,
+          "overlap_indicator": true,
+          "speaker": "SPK02",
+          "start_sec": 54.577625
+        },
+        {
+          "end_sec": 60.6130625,
+          "overlap_indicator": true,
+          "speaker": "SPK01",
+          "start_sec": 56.8530625
+        }
+      ]
+    },
+    {
+      "case_id": "cd_08c992df363a80dd",
+      "duration_sec": 60.2954375,
+      "turns": [
+        {
+          "end_sec": 2.18,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 0.0
+        },
+        {
+          "end_sec": 4.3665625,
+          "overlap_indicator": false,
+          "speaker": "SPK04",
+          "start_sec": 2.8905625
+        },
+        {
+          "end_sec": 6.8391875,
+          "overlap_indicator": false,
+          "speaker": "SPK03",
+          "start_sec": 4.6391875
+        },
+        {
+          "end_sec": 9.029,
+          "overlap_indicator": true,
+          "speaker": "SPK02",
+          "start_sec": 7.309
+        },
+        {
+          "end_sec": 11.983125,
+          "overlap_indicator": true,
+          "speaker": "SPK01",
+          "start_sec": 8.179125
+        },
+        {
+          "end_sec": 14.2694375,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 12.4494375
+        },
+        {
+          "end_sec": 16.91725,
+          "overlap_indicator": false,
+          "speaker": "SPK03",
+          "start_sec": 14.91725
+        },
+        {
+          "end_sec": 20.201875,
+          "overlap_indicator": true,
+          "speaker": "SPK02",
+          "start_sec": 17.161875
+        },
+        {
+          "end_sec": 21.49925,
+          "overlap_indicator": true,
+          "speaker": "SPK04",
+          "start_sec": 19.29925
+        },
+        {
+          "end_sec": 25.703,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 21.923
+        },
+        {
+          "end_sec": 27.993625,
+          "overlap_indicator": false,
+          "speaker": "SPK04",
+          "start_sec": 26.273625
+        },
+        {
+          "end_sec": 29.3800625,
+          "overlap_indicator": true,
+          "speaker": "SPK00",
+          "start_sec": 28.1800625
+        },
+        {
+          "end_sec": 32.1424375,
+          "overlap_indicator": true,
+          "speaker": "SPK01",
+          "start_sec": 28.3424375
+        },
+        {
+          "end_sec": 36.6250625,
+          "overlap_indicator": false,
+          "speaker": "SPK02",
+          "start_sec": 32.6850625
+        },
+        {
+          "end_sec": 39.5655625,
+          "overlap_indicator": false,
+          "speaker": "SPK03",
+          "start_sec": 36.7855625
+        },
+        {
+          "end_sec": 43.991,
+          "overlap_indicator": true,
+          "speaker": "SPK02",
+          "start_sec": 40.151
+        },
+        {
+          "end_sec": 44.75375,
+          "overlap_indicator": true,
+          "speaker": "SPK04",
+          "start_sec": 43.15375
+        },
+        {
+          "end_sec": 47.5238125,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 45.4038125
+        },
+        {
+          "end_sec": 50.9234375,
+          "overlap_indicator": false,
+          "speaker": "SPK03",
+          "start_sec": 47.7434375
+        },
+        {
+          "end_sec": 55.252,
+          "overlap_indicator": true,
+          "speaker": "SPK01",
+          "start_sec": 51.372
+        },
+        {
+          "end_sec": 56.0679375,
+          "overlap_indicator": true,
+          "speaker": "SPK00",
+          "start_sec": 54.0879375
+        },
+        {
+          "end_sec": 58.1930625,
+          "overlap_indicator": false,
+          "speaker": "SPK03",
+          "start_sec": 56.5330625
+        },
+        {
+          "end_sec": 60.2954375,
+          "overlap_indicator": false,
+          "speaker": "SPK04",
+          "start_sec": 58.7554375
+        }
+      ]
+    },
+    {
+      "case_id": "cd_28e5f12765f81304",
+      "duration_sec": 50.3055,
+      "turns": [
+        {
+          "end_sec": 3.312,
+          "overlap_indicator": false,
+          "speaker": "SPK02",
+          "start_sec": 0.0
+        },
+        {
+          "end_sec": 6.2295,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 3.3495
+        },
+        {
+          "end_sec": 8.7308125,
+          "overlap_indicator": false,
+          "speaker": "SPK03",
+          "start_sec": 6.3108125
+        },
+        {
+          "end_sec": 10.8495625,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 8.7695625
+        },
+        {
+          "end_sec": 14.1954375,
+          "overlap_indicator": false,
+          "speaker": "SPK04",
+          "start_sec": 11.0034375
+        },
+        {
+          "end_sec": 17.2549375,
+          "overlap_indicator": false,
+          "speaker": "SPK02",
+          "start_sec": 14.2149375
+        },
+        {
+          "end_sec": 20.40025,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 17.26025
+        },
+        {
+          "end_sec": 23.68275,
+          "overlap_indicator": false,
+          "speaker": "SPK04",
+          "start_sec": 20.64275
+        },
+        {
+          "end_sec": 26.3428125,
+          "overlap_indicator": false,
+          "speaker": "SPK03",
+          "start_sec": 23.8828125
+        },
+        {
+          "end_sec": 28.6915625,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 26.4715625
+        },
+        {
+          "end_sec": 31.751125,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 28.791125
+        },
+        {
+          "end_sec": 35.0841875,
+          "overlap_indicator": false,
+          "speaker": "SPK02",
+          "start_sec": 31.9041875
+        },
+        {
+          "end_sec": 37.703625,
+          "overlap_indicator": false,
+          "speaker": "SPK03",
+          "start_sec": 35.263625
+        },
+        {
+          "end_sec": 40.012375,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 37.792375
+        },
+        {
+          "end_sec": 43.4343125,
+          "overlap_indicator": false,
+          "speaker": "SPK04",
+          "start_sec": 40.2143125
+        },
+        {
+          "end_sec": 47.0453125,
+          "overlap_indicator": false,
+          "speaker": "SPK02",
+          "start_sec": 43.6453125
+        },
+        {
+          "end_sec": 50.3055,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 47.2855
+        }
+      ]
+    },
+    {
+      "case_id": "cd_0041bec3c1c874db",
+      "duration_sec": 48.4719375,
+      "turns": [
+        {
+          "end_sec": 1.32,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 0.0
+        },
+        {
+          "end_sec": 3.3798125,
+          "overlap_indicator": false,
+          "speaker": "SPK03",
+          "start_sec": 1.4558125
+        },
+        {
+          "end_sec": 4.009375,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 3.469375
+        },
+        {
+          "end_sec": 5.0104375,
+          "overlap_indicator": false,
+          "speaker": "SPK04",
+          "start_sec": 4.2304375
+        },
+        {
+          "end_sec": 6.1111875,
+          "overlap_indicator": false,
+          "speaker": "SPK02",
+          "start_sec": 5.2311875
+        },
+        {
+          "end_sec": 7.016625,
+          "overlap_indicator": true,
+          "speaker": "SPK04",
+          "start_sec": 6.216625
+        },
+        {
+          "end_sec": 6.915625,
+          "overlap_indicator": true,
+          "speaker": "SPK00",
+          "start_sec": 6.395625
+        },
+        {
+          "end_sec": 9.5625625,
+          "overlap_indicator": false,
+          "speaker": "SPK03",
+          "start_sec": 7.0665625
+        },
+        {
+          "end_sec": 12.19425,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 9.77425
+        },
+        {
+          "end_sec": 12.8201875,
+          "overlap_indicator": false,
+          "speaker": "SPK02",
+          "start_sec": 12.2201875
+        },
+        {
+          "end_sec": 13.2815,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 12.8415
+        },
+        {
+          "end_sec": 14.349125,
+          "overlap_indicator": true,
+          "speaker": "SPK02",
+          "start_sec": 13.529125
+        },
+        {
+          "end_sec": 15.994375,
+          "overlap_indicator": true,
+          "speaker": "SPK03",
+          "start_sec": 13.754375
+        },
+        {
+          "end_sec": 16.995875,
+          "overlap_indicator": false,
+          "speaker": "SPK04",
+          "start_sec": 16.195875
+        },
+        {
+          "end_sec": 18.61475,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 17.17475
+        },
+        {
+          "end_sec": 20.3944375,
+          "overlap_indicator": false,
+          "speaker": "SPK04",
+          "start_sec": 18.7344375
+        },
+        {
+          "end_sec": 21.0563125,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 20.5563125
+        },
+        {
+          "end_sec": 23.7156875,
+          "overlap_indicator": true,
+          "speaker": "SPK03",
+          "start_sec": 21.1356875
+        },
+        {
+          "end_sec": 25.058,
+          "overlap_indicator": true,
+          "speaker": "SPK01",
+          "start_sec": 23.178
+        },
+        {
+          "end_sec": 25.705375,
+          "overlap_indicator": false,
+          "speaker": "SPK02",
+          "start_sec": 25.265375
+        },
+        {
+          "end_sec": 26.86325,
+          "overlap_indicator": false,
+          "speaker": "SPK04",
+          "start_sec": 25.90325
+        },
+        {
+          "end_sec": 28.319375,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 26.899375
+        },
+        {
+          "end_sec": 31.179125,
+          "overlap_indicator": false,
+          "speaker": "SPK03",
+          "start_sec": 28.383125
+        },
+        {
+          "end_sec": 32.139,
+          "overlap_indicator": true,
+          "speaker": "SPK02",
+          "start_sec": 31.299
+        },
+        {
+          "end_sec": 32.1875,
+          "overlap_indicator": true,
+          "speaker": "SPK00",
+          "start_sec": 31.7675
+        },
+        {
+          "end_sec": 34.2178125,
+          "overlap_indicator": false,
+          "speaker": "SPK04",
+          "start_sec": 32.3378125
+        },
+        {
+          "end_sec": 34.8279375,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 34.2279375
+        },
+        {
+          "end_sec": 38.1203125,
+          "overlap_indicator": false,
+          "speaker": "SPK03",
+          "start_sec": 35.0003125
+        },
+        {
+          "end_sec": 40.2103125,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 38.2903125
+        },
+        {
+          "end_sec": 41.087875,
+          "overlap_indicator": true,
+          "speaker": "SPK02",
+          "start_sec": 40.287875
+        },
+        {
+          "end_sec": 40.9906875,
+          "overlap_indicator": true,
+          "speaker": "SPK00",
+          "start_sec": 40.5306875
+        },
+        {
+          "end_sec": 41.692375,
+          "overlap_indicator": true,
+          "speaker": "SPK02",
+          "start_sec": 41.012375
+        },
+        {
+          "end_sec": 45.01975,
+          "overlap_indicator": false,
+          "speaker": "SPK03",
+          "start_sec": 41.87975
+        },
+        {
+          "end_sec": 46.247,
+          "overlap_indicator": false,
+          "speaker": "SPK04",
+          "start_sec": 45.067
+        },
+        {
+          "end_sec": 48.4719375,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 46.3119375
+        }
+      ]
+    },
+    {
+      "case_id": "cd_5d84ec1e7fe30661",
+      "duration_sec": 49.0226875,
+      "turns": [
+        {
+          "end_sec": 2.656,
+          "overlap_indicator": false,
+          "speaker": "SPK03",
+          "start_sec": 0.0
+        },
+        {
+          "end_sec": 5.777375,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 2.897375
+        },
+        {
+          "end_sec": 8.781,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 5.949
+        },
+        {
+          "end_sec": 11.2456875,
+          "overlap_indicator": true,
+          "speaker": "SPK04",
+          "start_sec": 8.8456875
+        },
+        {
+          "end_sec": 12.5094375,
+          "overlap_indicator": true,
+          "speaker": "SPK02",
+          "start_sec": 10.5694375
+        },
+        {
+          "end_sec": 15.6298125,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 12.7258125
+        },
+        {
+          "end_sec": 17.8740625,
+          "overlap_indicator": false,
+          "speaker": "SPK02",
+          "start_sec": 15.8540625
+        },
+        {
+          "end_sec": 20.1893125,
+          "overlap_indicator": true,
+          "speaker": "SPK03",
+          "start_sec": 17.9493125
+        },
+        {
+          "end_sec": 21.3870625,
+          "overlap_indicator": true,
+          "speaker": "SPK04",
+          "start_sec": 19.2270625
+        },
+        {
+          "end_sec": 24.631625,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 21.571625
+        },
+        {
+          "end_sec": 27.7471875,
+          "overlap_indicator": false,
+          "speaker": "SPK04",
+          "start_sec": 24.6871875
+        },
+        {
+          "end_sec": 31.487625,
+          "overlap_indicator": true,
+          "speaker": "SPK03",
+          "start_sec": 27.887625
+        },
+        {
+          "end_sec": 34.245625,
+          "overlap_indicator": true,
+          "speaker": "SPK01",
+          "start_sec": 30.885625
+        },
+        {
+          "end_sec": 37.5086875,
+          "overlap_indicator": false,
+          "speaker": "SPK00",
+          "start_sec": 34.3086875
+        },
+        {
+          "end_sec": 40.604125,
+          "overlap_indicator": false,
+          "speaker": "SPK02",
+          "start_sec": 37.524125
+        },
+        {
+          "end_sec": 43.146875,
+          "overlap_indicator": true,
+          "speaker": "SPK04",
+          "start_sec": 40.666875
+        },
+        {
+          "end_sec": 45.0563125,
+          "overlap_indicator": true,
+          "speaker": "SPK00",
+          "start_sec": 41.8563125
+        },
+        {
+          "end_sec": 49.0226875,
+          "overlap_indicator": false,
+          "speaker": "SPK01",
+          "start_sec": 45.2506875
+        }
+      ]
+    }
+  ],
+  "human_annotation": false,
+  "schema_version": "controlled-diarization-review-timeline.v1",
+  "timing_reference": "synthetic_placement_timing_reference"
+}

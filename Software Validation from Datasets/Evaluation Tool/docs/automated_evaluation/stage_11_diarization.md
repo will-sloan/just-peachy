@@ -23,3 +23,13 @@ The v1 policy records a 0.25-second collar, both overlap-aware and overlap-exclu
 Sherpa-ONNX remains the only backend authorized by the frozen Stage 11 scientific registry. Separately, the official pyannote Community-1 pipeline and four modular segmentation/embedding/clustering configurations now pass bounded software qualification with pinned local assets. That software readiness does not amend the frozen Stage 11 authorization, establish a clustering calibration, or create scientific DER/JER results. Falcon retains `licence_action_required`; NeMo retains `platform_required`. These are explicit availability results, not failures hidden from reports. No backend may download a model or obtain credentials during execution.
 
 The prepared modular configurations are `modular_energy_campplus`, `modular_pyannote_campplus`, `modular_pyannote_eres2net`, and `modular_energy_wespeaker`. They emit backend-local anonymous `speaker_XX` labels and use independent engineering-only clustering policy IDs. A future Stage 11 comparison requires additive authorization, frozen calibration/qualification evidence, and a fresh result root; it must not reinterpret these bounded smokes as scientific accuracy.
+
+## Additive controlled benchmark
+
+`controlled_diarization_v1` adds a model-independent synthetic-placement panel
+without replacing the native AMI/CHiME-6/VOiCES views or their existing Sherpa
+smoke. It contains speaker-disjoint development and evaluation pools, exact
+sample-placement JSON/RTTM references, protected evaluation assets, runtime-
+selected pipeline identities, a development freeze gate, restart-safe isolated
+execution, and factor-level analysis. See
+`controlled_diarization_benchmark.md` and `app/controlled_diarization/README.md`.

@@ -17,6 +17,7 @@ from app.campaign_analysis.cli import add_analysis_parser
 from app.campaign_executor.cli import add_campaign_parser
 from app.core_screening.cli import add_screening_parser
 from app.diarization_evaluation.cli import add_diarization_parser
+from app.controlled_diarization.cli import add_controlled_diarization_parser
 from app.extended_screening.cli import add_extended_screening_parser
 from app.dataset_registry.loader import (
     load_dataset_selection,
@@ -113,6 +114,7 @@ def build_parser() -> argparse.ArgumentParser:
     add_speaker_breadth_parser(subparsers)
     add_speaker_enrollment_parser(subparsers)
     add_diarization_parser(subparsers)
+    add_controlled_diarization_parser(subparsers)
     add_analysis_parser(subparsers)
     return parser
 

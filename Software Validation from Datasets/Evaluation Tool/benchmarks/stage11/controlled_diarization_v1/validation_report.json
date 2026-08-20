@@ -1,0 +1,35 @@
+{
+  "balance": {
+    "case_counts": {
+      "development": 60,
+      "evaluation": 120,
+      "smoke": 8
+    },
+    "reserved_enrollment_clips": 960,
+    "reused_source_clips": 0,
+    "source_speaker_counts": {
+      "development": 60,
+      "evaluation": 120,
+      "smoke": 12
+    },
+    "unique_mixture_clips": 3528
+  },
+  "case_counts": {
+    "development": 60,
+    "evaluation": 120,
+    "smoke": 8
+  },
+  "checks": {
+    "factor_balance": "PASS",
+    "generated_audio": "PASS",
+    "reserved_enrollment_disjointness": "PASS",
+    "source_clip_reuse": "PASS",
+    "source_integrity": "PASS",
+    "speaker_disjointness": "PASS",
+    "timing_and_rttm": "PASS"
+  },
+  "errors": [],
+  "schema_version": "controlled-diarization-validation-report.v1",
+  "valid": true,
+  "warnings": []
+}
