@@ -1,0 +1,20 @@
+component:
+  slot: speaker_embedding
+  name: redimnet2_b2_speaker_embedding
+  enabled: true
+  adapter: ReDimNet2B2SpeakerEmbeddingAdapter
+  notes: Official native PalabraAI ReDimNet2-B2 VoxCeleb2 large-margin checkpoint; Stage 10 backend-specific enrollment is required.
+  params:
+    model_name: redimnet2_b2_vox2_lm_v1_0_0
+    model_source: https://github.com/PalabraAI/redimnet2
+    source_revision: cdc875670034dd7068013ca2ab21ec083a040ff8
+    source_path: models/cache/redimnet2/source-cdc875670034dd7068013ca2ab21ec083a040ff8
+    checkpoint_revision: v1.0.0
+    model_path: models/cache/redimnet2/b2-vox2-lm.pt
+    sample_rate_hz: 16000
+    embedding_dim: 192
+    min_duration_sec: 0.5
+    num_threads: 1
+    device: cpu
+    dtype: float32
+    allow_model_downloads: false

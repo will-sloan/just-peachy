@@ -52,9 +52,9 @@ profiles:
     requirements: [requirements/stage8/onnx.txt]
     installation_command: powershell -ExecutionPolicy Bypass -File scripts\install_stage8_profile.ps1 -Profile onnx -DownloadModels
     validation_command: .stage8-envs\onnx\Scripts\python.exe "Software Validation from Datasets\Evaluation Tool\scripts\qualify_extended_backends.py" --profile onnx
-    supported_components: [sherpa_onnx_asr, sherpa_onnx_libri_giga_zipformer_2023_06_21, sherpa_onnx_vad, sherpa_onnx_speaker_embedding, sherpa_onnx_diarization, whisper_tiny, whisper_base, whisper_small, energy_vad, silero_vad, vad_chunks, speechbrain_ecapa]
+    supported_components: [sherpa_onnx_asr, sherpa_onnx_libri_giga_zipformer_2023_06_21, sherpa_onnx_vad, sherpa_onnx_speaker_embedding, campplus_speaker_embedding, eres2net_base_speaker_embedding, sherpa_onnx_diarization, modular_energy_campplus, whisper_tiny, whisper_base, whisper_small, energy_vad, silero_vad, vad_chunks, speechbrain_ecapa]
     incompatible_components: []
-    model_assets: [sherpa_onnx_asr, sherpa_onnx_libri_giga_zipformer_2023_06_21, sherpa_onnx_vad, sherpa_onnx_speaker_embedding, sherpa_onnx_diarization_segmentation]
+    model_assets: [sherpa_onnx_asr, sherpa_onnx_libri_giga_zipformer_2023_06_21, sherpa_onnx_vad, sherpa_onnx_speaker_embedding, campplus_en_voxceleb, eres2net_base_3dspeaker, sherpa_onnx_diarization_segmentation]
     credential_requirements: []
     hardware: {cpu: required, gpu: optional, cuda: not_used_by_profile}
     expected_verifier_output: All available Sherpa adapters load verified local ONNX files and emit contract-valid outputs.
@@ -108,26 +108,40 @@ profiles:
     requirements: [requirements/stage8/wespeaker.txt]
     installation_command: powershell -ExecutionPolicy Bypass -File scripts\install_stage8_profile.ps1 -Profile wespeaker -DownloadModels
     validation_command: .stage8-envs\wespeaker\Scripts\python.exe "Software Validation from Datasets\Evaluation Tool\scripts\qualify_extended_backends.py" --profile wespeaker
-    supported_components: [wespeaker, whisper_tiny, whisper_base, whisper_small, energy_vad, silero_vad, vad_chunks, speechbrain_ecapa]
+    supported_components: [wespeaker, modular_energy_wespeaker, whisper_tiny, whisper_base, whisper_small, energy_vad, silero_vad, vad_chunks, speechbrain_ecapa]
     incompatible_components: []
     model_assets: [wespeaker_voxceleb_resnet221_lm]
     credential_requirements: []
     hardware: {cpu: required, gpu: optional_unqualified, cuda: optional_unqualified}
     expected_verifier_output: A finite normalized embedding is repeatable and minimum-duration behavior is recorded.
 
+  redimnet2:
+    purpose: Official native ReDimNet2-B2 extraction isolated from every existing speaker environment.
+    operating_systems: [windows, linux, macos]
+    python_version: "3.12"
+    requirements: [requirements/stage8/redimnet2.txt]
+    installation_command: powershell -ExecutionPolicy Bypass -File scripts\install_stage8_profile.ps1 -Profile redimnet2 -DownloadModels
+    validation_command: .stage8-envs\redimnet2\Scripts\python.exe "Software Validation from Datasets\Evaluation Tool\scripts\qualify_extended_backends.py" --profile redimnet2
+    supported_components: [redimnet2_b2_speaker_embedding]
+    incompatible_components: []
+    model_assets: [redimnet2_b2_vox2_lm, redimnet2_official_source]
+    credential_requirements: []
+    hardware: {cpu: required, gpu: optional_unqualified, cuda: optional_unqualified}
+    expected_verifier_output: The pinned official B2 checkpoint loads and produces a finite normalized 192-dimensional embedding twice with stable identity.
+
   credential-diarization:
-    purpose: Credential-gated pyannote Community-1 and Picovoice Falcon qualification.
+    purpose: Isolated pyannote segmentation/Community-1 and Picovoice Falcon qualification.
     operating_systems: [windows, linux, macos]
     python_version: "3.12"
     requirements: [requirements/stage8/credential-diarization.txt]
     installation_command: powershell -ExecutionPolicy Bypass -File scripts\install_stage8_profile.ps1 -Profile credential-diarization -DownloadModels
     validation_command: .stage8-envs\credential-diarization\Scripts\python.exe "Software Validation from Datasets\Evaluation Tool\scripts\qualify_extended_backends.py" --profile credential-diarization
-    supported_components: [pyannote_community, picovoice_falcon]
+    supported_components: [pyannote_community, modular_pyannote_campplus, modular_pyannote_eres2net, picovoice_falcon]
     incompatible_components: []
-    model_assets: [pyannote_community_1]
-    credential_requirements: [PYANNOTE_AUTH_TOKEN, PICOVOICE_ACCESS_KEY]
+    model_assets: [pyannote_community_1, pyannote_segmentation_3_0]
+    credential_requirements: [huggingface_cli_login, PICOVOICE_ACCESS_KEY]
     hardware: {cpu: required, gpu: optional, cuda: optional}
-    expected_verifier_output: Licence acknowledgement and credential presence are checked without serializing secret values; real turns are required for qualification.
+    expected_verifier_output: Stored Hugging Face authentication presence is checked without serializing secret values; local gated snapshots and real anonymous turns are required for qualification.
 
   nemo-linux-cuda:
     purpose: NeMo composite diarization in a dedicated Linux/CUDA environment.

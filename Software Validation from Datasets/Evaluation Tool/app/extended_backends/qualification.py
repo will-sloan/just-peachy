@@ -486,6 +486,12 @@ def _preflight_status(
             "credential_required",
             f"Credential environment variable {credential_env} is not present.",
         )
+    credential_source = definition.get("credential_source")
+    if credential_source == "huggingface_cli" and not _huggingface_token_present():
+        return (
+            "credential_required",
+            "Hugging Face CLI login is not present in the isolated environment.",
+        )
     missing_packages = sorted(name for name, version in versions.items() if version is None)
     if missing_packages:
         return (
@@ -661,7 +667,21 @@ def _credential_presence(definition: Mapping[str, object]) -> dict[str, bool]:
         for name in (definition.get("credential_env"), definition.get("licence_ack_env"))
         if name
     ]
-    return {name: bool(os.environ.get(name)) for name in names}
+    result = {name: bool(os.environ.get(name)) for name in names}
+    if definition.get("credential_source") == "huggingface_cli":
+        result["huggingface_cli"] = _huggingface_token_present()
+    return result
+
+
+def _huggingface_token_present() -> bool:
+    """Check stored Hugging Face authentication without exposing its value."""
+
+    try:
+        from huggingface_hub import get_token
+
+        return bool(get_token())
+    except (ImportError, OSError):
+        return False
 
 
 def _environment_fingerprint(device: str) -> dict[str, object]:
@@ -799,5 +819,9 @@ def _sha256(path: Path) -> str:
 def _atomic_write_json(path: Path, payload: Mapping[str, object]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     temporary = path.with_name(f".{path.name}.tmp")
-    temporary.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    temporary.write_text(
+        json.dumps(payload, indent=2, sort_keys=True) + "\n",
+        encoding="utf-8",
+        newline="\n",
+    )
     os.replace(temporary, path)

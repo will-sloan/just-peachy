@@ -1,0 +1,538 @@
+{
+  "environment": {
+    "cuda_available": false,
+    "cuda_runtime": null,
+    "device_requested": "cpu",
+    "git_commit": "4a170baf5d2a2236650508f6e582f1eb85557a78",
+    "gpu": null,
+    "machine": "AMD64",
+    "package_count": 41,
+    "package_freeze_sha256": "dabd04a37d7855751deef99ed05134c40a4c1c51be0ae5dfc039365c3623e932",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python": "3.12.7",
+    "python_executable": "<environment>/Scripts/python.exe",
+    "torch": "2.11.0+cpu"
+  },
+  "generated_at": "2026-08-20T02:01:28.104384+00:00",
+  "profile": "redimnet2",
+  "results": [
+    {
+      "asset_identities": [
+        {
+          "acquisition_date": "2026-08-20T01:44:51.432640+00:00",
+          "acquisition_method": "scripts/bootstrap_models.py --redimnet2-b2",
+          "active_model_size_bytes": null,
+          "artifact_filename": "b2-vox2-lm.pt",
+          "asset_id": "redimnet2_b2_vox2_lm",
+          "backend": "Official native ReDimNet2",
+          "commercial_deployment_review": null,
+          "commercial_disposition": "commercial_permissive",
+          "commercial_model_license": null,
+          "component": "redimnet2_b2_speaker_embedding",
+          "conversion_provenance": "Official native PyTorch checkpoint; no conversion",
+          "credential_required": false,
+          "environment_profile": "redimnet2",
+          "expected_sha256_scope": "installed_file",
+          "expected_size_bytes": 15897450,
+          "files": [
+            {
+              "bytes": 15897450,
+              "path": "b2-vox2-lm.pt",
+              "sha256": "0545a29679a87fe1c662d2bbd05e3b3fe0d1b392832729abaa135e4079a2f77a"
+            }
+          ],
+          "hash_matches": true,
+          "known_training_domain_overlap": [],
+          "language_support": [],
+          "licence": "MIT; the official repository states that it contains the implementation and pretrained weights and declares the distribution MIT",
+          "licence_evidence": [
+            "https://github.com/PalabraAI/redimnet2",
+            "https://github.com/PalabraAI/redimnet2/releases/tag/v1.0.0"
+          ],
+          "missing_required_files": [],
+          "model_name": "PalabraAI ReDimNet2-B2 VoxCeleb2 large-margin",
+          "model_version": "v1.0.0",
+          "parameter_count": 3600000,
+          "parameter_count_approximate": true,
+          "present": true,
+          "result_affecting_files": [],
+          "result_affecting_files_match": null,
+          "sample_rate_hz": 16000,
+          "sha256": "0545a29679a87fe1c662d2bbd05e3b3fe0d1b392832729abaa135e4079a2f77a",
+          "size_bytes": 15897450,
+          "size_matches": true,
+          "source": "https://github.com/PalabraAI/redimnet2/releases/tag/v1.0.0",
+          "source_archive": null,
+          "source_checkpoint": "b2-vox2-lm.pt",
+          "source_checkpoint_revision": "v1.0.0",
+          "storage_path": "models/cache/redimnet2/b2-vox2-lm.pt",
+          "streaming": false,
+          "training_corpora": [
+            "VoxCeleb2-dev"
+          ],
+          "upstream_model_revision": "v1.0.0",
+          "upstream_native_streaming_capable": false,
+          "verification_status": "verified"
+        },
+        {
+          "acquisition_date": "2026-07-30T13:11:31+00:00",
+          "acquisition_method": "scripts/bootstrap_models.py --redimnet2-b2",
+          "active_model_size_bytes": null,
+          "artifact_filename": "redimnet2-cdc875670034dd7068013ca2ab21ec083a040ff8.tar.gz",
+          "asset_id": "redimnet2_official_source",
+          "backend": "Official native ReDimNet2",
+          "commercial_deployment_review": null,
+          "commercial_disposition": "commercial_permissive",
+          "commercial_model_license": null,
+          "component": "redimnet2_b2_speaker_embedding",
+          "conversion_provenance": "Exact official source archive, used directly by the native adapter",
+          "credential_required": false,
+          "environment_profile": "redimnet2",
+          "expected_sha256_scope": "installed_tree",
+          "expected_size_bytes": 2036261,
+          "files": [
+            {
+              "bytes": 13,
+              "path": ".gitignore",
+              "sha256": "aafc5f08b55c32eec2912e3c75b20c952f2c42977f02aa19772437285694fc12"
+            },
+            {
+              "bytes": 1067,
+              "path": "LICENSE",
+              "sha256": "3d5a4bf9936a7d09dd770588c0d7cb116fc16916a0310d71fb1fff5d64562101"
+            },
+            {
+              "bytes": 6947,
+              "path": "README.md",
+              "sha256": "c142ffff7a29ff7f948ac9e6c6fc463aeadfb1fa45ca2647735e7e52f14144d0"
+            },
+            {
+              "bytes": 2362,
+              "path": "applications/speaker_rec/README.md",
+              "sha256": "2a7eab7bfb6481ad9001d1f815f66ccf90ae35c43920a159c0634be194797fa3"
+            },
+            {
+              "bytes": 8597,
+              "path": "applications/speaker_rec/examples/vb2_vox2_cnc2/README.md",
+              "sha256": "cff6b8607a1b33c54614f2abed8edac28da119a948b8a163436e48a5b8acde54"
+            },
+            {
+              "bytes": 3913,
+              "path": "applications/speaker_rec/examples/vb2_vox2_cnc2/recipes/redimnet2/b3/lm.yaml",
+              "sha256": "3ebf89f27314077367a616cda4d7a7718565d6c1a2b49a0ff61ea58aa7819cfb"
+            },
+            {
+              "bytes": 3886,
+              "path": "applications/speaker_rec/examples/vb2_vox2_cnc2/recipes/redimnet2/b3/ptn.yaml",
+              "sha256": "96956e852d00d4493cb496dcbf6aab9e704ccd9b8493fedf9890b549dd65d55c"
+            },
+            {
+              "bytes": 4699,
+              "path": "applications/speaker_rec/examples/vb2_vox2_cnc2/recipes/redimnet2/b6/lm.yaml",
+              "sha256": "91cf7bbd104ae3691fc210f06a8f39005b5d4c7911dbbe0d3532455dfc994926"
+            },
+            {
+              "bytes": 4319,
+              "path": "applications/speaker_rec/examples/vb2_vox2_cnc2/recipes/redimnet2/b6/ptn.yaml",
+              "sha256": "2c22a7ebdf4bb68369ba334ae2abb9ad87281eb8bec2ae4d8ca5a25a99e50fe2"
+            },
+            {
+              "bytes": 8138,
+              "path": "applications/speaker_rec/examples/vb2_vox2_cnc2/scripts/filter_datalist_by_duration.py",
+              "sha256": "8735d5622f0d2bc7e74c46ee7b41b0e54fbd6a3abc3edd6bdd2682bdba9ef598"
+            },
+            {
+              "bytes": 2655,
+              "path": "applications/speaker_rec/examples/vb2_vox2_cnc2/scripts/gen_datalists.py",
+              "sha256": "4a9c764211142928b9021550912556a482f4f7bf96f7b4cc3efb0763a99c0cd1"
+            },
+            {
+              "bytes": 4373,
+              "path": "applications/speaker_rec/examples/vb2_vox2_cnc2/scripts/infer_durations_sf.py",
+              "sha256": "4a938ee68bf8edda125533b5ee8f0df71892204fbd1287bcc40fb7d765032ef4"
+            },
+            {
+              "bytes": 6173,
+              "path": "applications/speaker_rec/examples/vb2_vox2_cnc2/scripts/join_datalists.py",
+              "sha256": "5159715d3cd614fc0eff0738f4d83042d742f69252eccbcbe5dfbcae7297955f"
+            },
+            {
+              "bytes": 6632,
+              "path": "applications/speaker_rec/examples/vb2_vox2_cnc2/scripts/prepare_vox2_vb2_cnc2_data.sh",
+              "sha256": "c03c791be44ba5c1876876b96405341f16cdbac68c9673f523d4b541fce90d1a"
+            },
+            {
+              "bytes": 8818,
+              "path": "applications/speaker_rec/examples/vb2_vox2_cnc2/scripts/prepare_vox2_vb2_cnc2_lm_data.sh",
+              "sha256": "4d29d0e9142ead559fa8e11e4f6f90c8ace4506ffc6792928fdc3506a166cf6e"
+            },
+            {
+              "bytes": 9005,
+              "path": "applications/speaker_rec/examples/vox2/README.md",
+              "sha256": "19dbbec7a803062c3a80cca5391bc09fc8d77602f4e101dd896d57d557892e39"
+            },
+            {
+              "bytes": 2308,
+              "path": "applications/speaker_rec/examples/vox2/recipes/redimnet2/b0/lm.yaml",
+              "sha256": "84f8ec70b298ffdd18f70fd92b9145bd1381e07e8ed92cbc1ea10d6eb6b5e1f4"
+            },
+            {
+              "bytes": 2284,
+              "path": "applications/speaker_rec/examples/vox2/recipes/redimnet2/b0/ptn.yaml",
+              "sha256": "5e17f743f4e4fa6343369fb7eabfe4c2f4b1c1a4179b3189330879dfd094ab58"
+            },
+            {
+              "bytes": 2288,
+              "path": "applications/speaker_rec/examples/vox2/recipes/redimnet2/b1/lm.yaml",
+              "sha256": "7a84d5bf644bf480bb719c7791fb7b5224c66399641b35de08dc90427c66db23"
+            },
+            {
+              "bytes": 2265,
+              "path": "applications/speaker_rec/examples/vox2/recipes/redimnet2/b1/ptn.yaml",
+              "sha256": "df4a811c54f0f41edb51e87a02a3f2acb6f1b42f6974c74aaa3b3a4a4be1081d"
+            },
+            {
+              "bytes": 2288,
+              "path": "applications/speaker_rec/examples/vox2/recipes/redimnet2/b2/lm.yaml",
+              "sha256": "172ff3f51b516986b2372b9ca2f0ffc5dc26401629670d934edd5c799b472727"
+            },
+            {
+              "bytes": 2265,
+              "path": "applications/speaker_rec/examples/vox2/recipes/redimnet2/b2/ptn.yaml",
+              "sha256": "99289940c12792db8e7a530af3f7ce0ce223835cc64b13741188b930a374a0c1"
+            },
+            {
+              "bytes": 2084,
+              "path": "applications/speaker_rec/examples/vox2/recipes/redimnet2/b3/lm.yaml",
+              "sha256": "df7162511ed3dd7760185fa3f3c5fbe6a82b1e8903d1be3ec1bb24465343bebf"
+            },
+            {
+              "bytes": 2051,
+              "path": "applications/speaker_rec/examples/vox2/recipes/redimnet2/b3/ptn.yaml",
+              "sha256": "4dc5145b789e36fa74f8fa1eb61e3c3cc24fedca121762e9bfb5673192016741"
+            },
+            {
+              "bytes": 2288,
+              "path": "applications/speaker_rec/examples/vox2/recipes/redimnet2/b4/lm.yaml",
+              "sha256": "220ad14663ce8ba381e69ad96acd22bf439c76d52ace89cc057b8248ed4c9335"
+            },
+            {
+              "bytes": 2265,
+              "path": "applications/speaker_rec/examples/vox2/recipes/redimnet2/b4/ptn.yaml",
+              "sha256": "37b122331e53b640e392691936d95ae5ab83bdbafd921d3af83e1da4d64b4b76"
+            },
+            {
+              "bytes": 2308,
+              "path": "applications/speaker_rec/examples/vox2/recipes/redimnet2/b5/lm.yaml",
+              "sha256": "bc802d3efb49f32a774286c50a88e1218697576bf052f00ef1bf59e87df8bb9c"
+            },
+            {
+              "bytes": 2285,
+              "path": "applications/speaker_rec/examples/vox2/recipes/redimnet2/b5/ptn.yaml",
+              "sha256": "cf586e4f2d07cc306e8d4820ad853bbdc113cee3a91ee83580e8767cc4918bf8"
+            },
+            {
+              "bytes": 2313,
+              "path": "applications/speaker_rec/examples/vox2/recipes/redimnet2/b6/lm.yaml",
+              "sha256": "08b5cb855afbcfe97478c5cd5cb7e990d9b1060ff5346f28f09cc388dfa94857"
+            },
+            {
+              "bytes": 2290,
+              "path": "applications/speaker_rec/examples/vox2/recipes/redimnet2/b6/ptn.yaml",
+              "sha256": "3e18c94966077cdeb6656d336483a3f9c37e9b37b7abc7864ce6d308e2c7ed7a"
+            },
+            {
+              "bytes": 40802,
+              "path": "applications/speaker_rec/examples/vox2/scripts/prepare_data.py",
+              "sha256": "6298ce24a498f79c6dda21060ba2555c629406453e3a4f8936d1eb13c8e3d987"
+            },
+            {
+              "bytes": 1038,
+              "path": "applications/speaker_rec/launch.md",
+              "sha256": "f0da2d119d87f8aaf93f54de174990f221dbb46943bcc1d8f2e512956a1ddf6f"
+            },
+            {
+              "bytes": 1117,
+              "path": "applications/speaker_rec/launch.sh",
+              "sha256": "d567c2c696e5bf8de159fab661d8a3010c1e41b93ef4a5a40cf805aefef786b5"
+            },
+            {
+              "bytes": 717,
+              "path": "applications/speaker_rec/pyproject.toml",
+              "sha256": "3d1f4577811d8f20497697ae5b07a171a13288b7f442bbf411621406f3ae1bfa"
+            },
+            {
+              "bytes": 0,
+              "path": "applications/speaker_rec/wespeaker_lite/__init__.py",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "bytes": 0,
+              "path": "applications/speaker_rec/wespeaker_lite/bin/__init__.py",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "bytes": 25924,
+              "path": "applications/speaker_rec/wespeaker_lite/bin/train.py",
+              "sha256": "5f78d4860db991781f0e0cd1252516a0f43b9d97adb7f0f84080db6f70338da5"
+            },
+            {
+              "bytes": 0,
+              "path": "applications/speaker_rec/wespeaker_lite/dataset/__init__.py",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "bytes": 16962,
+              "path": "applications/speaker_rec/wespeaker_lite/dataset/augs.py",
+              "sha256": "deb04b60d5b7624f54c942a82236903ca064d6adf5f4e62fecc18e405edf5640"
+            },
+            {
+              "bytes": 14165,
+              "path": "applications/speaker_rec/wespeaker_lite/dataset/dataset.py",
+              "sha256": "b50a4e34adfe5f64f823436c0c008caa86686b556e71989b54e4e99fab50d79c"
+            },
+            {
+              "bytes": 3058,
+              "path": "applications/speaker_rec/wespeaker_lite/dataset/lmdb_data.py",
+              "sha256": "8f25ed873af91f9c8cd2179d84ee3bcc3abc238e8e7912b70b5d6ee929e36447"
+            },
+            {
+              "bytes": 18926,
+              "path": "applications/speaker_rec/wespeaker_lite/dataset/processor.py",
+              "sha256": "8d6e5fdd083c376bd59c3de9953b5aaf1c78c21f41b40b6770c2b5228931cf6a"
+            },
+            {
+              "bytes": 0,
+              "path": "applications/speaker_rec/wespeaker_lite/models/__init__.py",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "bytes": 11983,
+              "path": "applications/speaker_rec/wespeaker_lite/models/mix_augs.py",
+              "sha256": "6e91a75ff103d30d48c3f01a9aa0e7297951b5924a54b348e7af4abaac862034"
+            },
+            {
+              "bytes": 21035,
+              "path": "applications/speaker_rec/wespeaker_lite/models/projections.py",
+              "sha256": "6ef578b2566abf75acfb340047aae5816033dbac3f84a45aea451729f5f7de50"
+            },
+            {
+              "bytes": 1327,
+              "path": "applications/speaker_rec/wespeaker_lite/models/speaker_model.py",
+              "sha256": "34de3d84da7ff5741d6bc092b11112dfaef51b423db5346a132fc2eb88620fe6"
+            },
+            {
+              "bytes": 0,
+              "path": "applications/speaker_rec/wespeaker_lite/utils/__init__.py",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "bytes": 1456,
+              "path": "applications/speaker_rec/wespeaker_lite/utils/checkpoint.py",
+              "sha256": "3a73598f56c8740f3eb0fc62bcc91f74b78026ace58a0229fd040bb973f68699"
+            },
+            {
+              "bytes": 14194,
+              "path": "applications/speaker_rec/wespeaker_lite/utils/executor.py",
+              "sha256": "793d32db88cd8f766412a4acdee8e03009c4ce5fd8debd3e1d29e6faf5cfeb42"
+            },
+            {
+              "bytes": 1452,
+              "path": "applications/speaker_rec/wespeaker_lite/utils/file_utils.py",
+              "sha256": "8036a08dfb94f0e6707b806f1d166e094bc0a6e6ace0977ddb19ef429fb92ebf"
+            },
+            {
+              "bytes": 7897,
+              "path": "applications/speaker_rec/wespeaker_lite/utils/schedulers.py",
+              "sha256": "242889d1877b51398848861a1c4e4d901de32ff0613ab402866afb778ce34b71"
+            },
+            {
+              "bytes": 13117,
+              "path": "applications/speaker_rec/wespeaker_lite/utils/utils.py",
+              "sha256": "cfba48171df47e6cbb8b68f54f7e4535f76db6b9713dd1889a13407c4a7a085f"
+            },
+            {
+              "bytes": 145130,
+              "path": "assets/pareto.png",
+              "sha256": "e0ddcee4d4a9416d6c62cf4d66867dbaeb026525bc5aee4dd7f26683583bd6b3"
+            },
+            {
+              "bytes": 1483614,
+              "path": "assets/scheme.png",
+              "sha256": "434655355eabf56f7581548761bdc78eff7ff15647fdb827858cb31a027c2bf2"
+            },
+            {
+              "bytes": 929,
+              "path": "hubconf.py",
+              "sha256": "325d5dfa4db8377ca76d71ecf4b652a2ebf54e77179c7ce50f77759b32de6ddd"
+            },
+            {
+              "bytes": 1710,
+              "path": "redimnet2/__init__.py",
+              "sha256": "a1035c35f9707dfc1b943252b2627e367c92eb2ace06bbdb1a0e39000494753b"
+            },
+            {
+              "bytes": 15397,
+              "path": "redimnet2/layers/attention.py",
+              "sha256": "979627de7cb100102ab02b40d97c5d4a6c26db3f386220c873bb887937de7e21"
+            },
+            {
+              "bytes": 12825,
+              "path": "redimnet2/layers/blocks.py",
+              "sha256": "27d7b3dd4f184b28a33232d9877e33492ba2b3ab9ab5140b5157310dfb74f872"
+            },
+            {
+              "bytes": 4552,
+              "path": "redimnet2/layers/convnext.py",
+              "sha256": "0d82c2c448e5dcaed5311462b5a6f694126b56ed6d8f7dfa99bcf73469a7445d"
+            },
+            {
+              "bytes": 5503,
+              "path": "redimnet2/layers/features.py",
+              "sha256": "5ef8dfb33c3330bddb3c65f693bfe0df597056a287ced99450550e4f5ba34979"
+            },
+            {
+              "bytes": 17553,
+              "path": "redimnet2/layers/features_tf.py",
+              "sha256": "cef93647e5a4241c76dd00328200dc2fa5bf428b168f75d23284697a27983498"
+            },
+            {
+              "bytes": 2833,
+              "path": "redimnet2/layers/layernorm.py",
+              "sha256": "23900399027f6cae34b260e5778e076e0942ef886204b401221fe7c0c21bcabc"
+            },
+            {
+              "bytes": 11893,
+              "path": "redimnet2/layers/poolings.py",
+              "sha256": "f03849e5944e9fa6a7392b60cf3722e3e537a3e5cfd2988bd992c92ffc39a6a6"
+            },
+            {
+              "bytes": 3306,
+              "path": "redimnet2/layers/redim_structural.py",
+              "sha256": "93bae419bfdf11868c9e52dfb95578762b9c0a81e27a32ce930adcaefe457738"
+            },
+            {
+              "bytes": 3965,
+              "path": "redimnet2/layers/resblocks.py",
+              "sha256": "f79fbc2c7a6d88e9aa5efc4f5764ad137eafe1f5481b33ff7ed8811ee6a80778"
+            },
+            {
+              "bytes": 18673,
+              "path": "redimnet2/redimnet2.py",
+              "sha256": "3b6bb2b9e8a5766d1286ea18b76f94cfacdd6e895cf4b996efbaf5c5f146dc5b"
+            },
+            {
+              "bytes": 29,
+              "path": "requirements.txt",
+              "sha256": "053d043313aee66f53bdac14563a95e159174c27374388033e7ead4de6017d66"
+            }
+          ],
+          "hash_matches": true,
+          "known_training_domain_overlap": [],
+          "language_support": [],
+          "licence": "MIT",
+          "licence_evidence": [
+            "https://github.com/PalabraAI/redimnet2/blob/cdc875670034dd7068013ca2ab21ec083a040ff8/LICENSE"
+          ],
+          "missing_required_files": [],
+          "model_name": "PalabraAI ReDimNet2 official source",
+          "model_version": "cdc875670034dd7068013ca2ab21ec083a040ff8",
+          "parameter_count": null,
+          "parameter_count_approximate": null,
+          "present": true,
+          "result_affecting_files": [],
+          "result_affecting_files_match": null,
+          "sample_rate_hz": 16000,
+          "sha256": "9ad9348bcb79c38e17e63ecd904bf79fac6dde05a3bf55afef9bad53a5ab3210",
+          "size_bytes": 2036261,
+          "size_matches": true,
+          "source": "https://github.com/PalabraAI/redimnet2",
+          "source_archive": {
+            "expected_bytes": 1118945,
+            "expected_sha256": "48ccf0de4d9a7a2f5c0aeccab7d286d1120ee2564074c7c2f7f38311ac8ff028",
+            "matches": true,
+            "observed_bytes": 1118945,
+            "observed_sha256": "48ccf0de4d9a7a2f5c0aeccab7d286d1120ee2564074c7c2f7f38311ac8ff028",
+            "path": "models/cache/downloads/redimnet2-cdc875670034dd7068013ca2ab21ec083a040ff8.tar.gz",
+            "present": true
+          },
+          "source_checkpoint": null,
+          "source_checkpoint_revision": null,
+          "storage_path": "models/cache/redimnet2/source-cdc875670034dd7068013ca2ab21ec083a040ff8",
+          "streaming": false,
+          "training_corpora": [],
+          "upstream_model_revision": "cdc875670034dd7068013ca2ab21ec083a040ff8",
+          "upstream_native_streaming_capable": false,
+          "verification_status": "verified"
+        }
+      ],
+      "backend_id": "redimnet2_b2_speaker_embedding",
+      "command": "python 'C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\Software Validation from Datasets\\Evaluation Tool\\scripts\\qualify_extended_backends.py' --profile redimnet2 --backend redimnet2_b2_speaker_embedding --output 'C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\Software Validation from Datasets\\Evaluation Tool\\runs\\speaker_diarization_stack_qualification\\redimnet2_bounded.json'",
+      "component_identity": {
+        "backend_id": "redimnet2_b2_speaker_embedding",
+        "config_path": "configs/inference/components/speaker_embedding/redimnet2_b2.yaml",
+        "config_sha256": "5523f883c91ffab5b99a2c79a4bfd972ce88ea2c0ad9754bae87ea577498ae38",
+        "family": "speaker_embedding"
+      },
+      "credential_presence": {},
+      "details": {
+        "dimension": 192,
+        "finite": true,
+        "identity_recorded": true,
+        "l2_norms": [
+          1.0000000077712006,
+          1.0000000077712006
+        ],
+        "minimum_duration_status": "too_short",
+        "model_name": "redimnet2_b2_vox2_lm_v1_0_0",
+        "pipeline_composition": true,
+        "repeatability_l2_drift": 0.0,
+        "runtime": {
+          "audio_duration_sec": 0.1,
+          "cpu_memory_mb": null,
+          "device": "cpu",
+          "dtype": "float32",
+          "inference_sec": 3.5999983083456755e-06,
+          "load_sec": 0.0,
+          "model_name": "redimnet2_b2_vox2_lm_v1_0_0",
+          "peak_gpu_memory_mb": null,
+          "realtime_factor": 3.5999983083456755e-05
+        },
+        "valid_real_outputs": 2
+      },
+      "device": "cpu",
+      "explanation": "Real repeated offline qualification passed.",
+      "failure_category": null,
+      "family": "speaker_embedding",
+      "implicit_downloads_allowed": false,
+      "package_versions": {
+        "torch": "2.11.0+cpu",
+        "torchaudio": "2.11.0+cpu"
+      },
+      "profile": "redimnet2",
+      "repetitions": 2,
+      "schema_validation": true,
+      "status": "qualified",
+      "timing": {
+        "inference_sec": [
+          0.41996,
+          0.126007
+        ],
+        "total_sec": 3.147954
+      },
+      "warnings": []
+    }
+  ],
+  "schema_version": "extended-backend-qualification.v1",
+  "secret_audit": {
+    "credential_presence_only": true,
+    "values_serialized": false
+  },
+  "summary": {
+    "qualified": 1,
+    "status_counts": {
+      "qualified": 1
+    },
+    "total": 1
+  }
+}

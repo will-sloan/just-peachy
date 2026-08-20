@@ -37,6 +37,10 @@ from app.inference_pipeline.diarization.sherpa_onnx_adapter import (
     SherpaOnnxDiarizationUnavailableError,
     SherpaOnnxDiarizer,
 )
+from app.inference_pipeline.diarization.modular_adapter import (
+    ModularClusteringDiarizer,
+    ModularDiarizationUnavailableError,
+)
 
 __all__ = [
     "DiarizationBase",
@@ -48,6 +52,8 @@ __all__ = [
     "NemoDiarizationUnavailableError",
     "NemoDiarizer",
     "NoOpDiarizer",
+    "ModularClusteringDiarizer",
+    "ModularDiarizationUnavailableError",
     "PyannoteCommunityDiarizer",
     "PyannoteDiarizationUnavailableError",
     "PicovoiceFalconDiarizer",

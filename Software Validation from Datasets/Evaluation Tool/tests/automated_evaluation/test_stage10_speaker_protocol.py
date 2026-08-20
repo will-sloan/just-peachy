@@ -142,10 +142,12 @@ def synthetic_result(tmp_path_factory, smoke_rows, synthetic_identity):
 def test_all_and_only_qualified_embedding_backends_are_in_scope():
     assert set(eligible_embedding_backends()) == {
         "speechbrain_ecapa",
+        "resemblyzer",
         "sherpa_onnx_speaker_embedding",
         "wespeaker",
         "campplus_speaker_embedding",
         "eres2net_base_speaker_embedding",
+        "redimnet2_b2_speaker_embedding",
     }
 
 

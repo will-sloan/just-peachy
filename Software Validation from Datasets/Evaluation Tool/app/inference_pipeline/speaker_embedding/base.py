@@ -489,6 +489,12 @@ def build_speaker_embedding_from_config(config: object) -> SpeakerEmbeddingBase 
         )
 
         return ERes2NetBaseSpeakerEmbeddingAdapter(params)
+    if name == "redimnet2_b2_speaker_embedding":
+        from app.inference_pipeline.speaker_embedding.redimnet2_adapter import (
+            ReDimNet2B2SpeakerEmbeddingAdapter,
+        )
+
+        return ReDimNet2B2SpeakerEmbeddingAdapter(params)
     if name == "resemblyzer":
         from app.inference_pipeline.speaker_embedding.resemblyzer_adapter import (
             ResemblyzerSpeakerEmbeddingAdapter,

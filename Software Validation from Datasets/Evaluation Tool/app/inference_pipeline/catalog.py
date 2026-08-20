@@ -320,24 +320,35 @@ def _stage8_asset_identity(asset_id: str, repository_root: Path) -> JsonObject:
         ),
         "present": False,
     }
-    if not inventory_path.is_file():
-        return identity
-    import json
+    row: Mapping[str, object] | None = None
+    if inventory_path.is_file():
+        import json
 
-    payload = json.loads(inventory_path.read_text(encoding="utf-8"))
-    assets = payload.get("assets") if isinstance(payload, Mapping) else None
-    if not isinstance(assets, list):
-        return identity
-    row = next(
-        (
-            item
-            for item in assets
-            if isinstance(item, Mapping) and str(item.get("asset_id")) == asset_id
-        ),
-        None,
-    )
+        payload = json.loads(inventory_path.read_text(encoding="utf-8"))
+        assets = payload.get("assets") if isinstance(payload, Mapping) else None
+        if isinstance(assets, list):
+            row = next(
+                (
+                    item
+                    for item in assets
+                    if isinstance(item, Mapping) and str(item.get("asset_id")) == asset_id
+                ),
+                None,
+            )
+    # The consolidated inventory is an observed report and can legitimately lag an
+    # additive registry entry.  Inspect only the missing row from the authoritative
+    # Stage 8 registry so newly qualified assets do not require rewriting unrelated
+    # operator-owned inventory evidence.
     if row is None:
-        return identity
+        try:
+            from app.extended_backends.registry import inspect_asset
+
+            row = inspect_asset(asset_id)
+            identity["identity_source"] = "live_stage8_registry_inspection"
+        except (KeyError, OSError, ValueError):
+            return identity
+    else:
+        identity["identity_source"] = "observed_model_asset_inventory"
     observed_sha = row.get("sha256")
     identity.update(
         {

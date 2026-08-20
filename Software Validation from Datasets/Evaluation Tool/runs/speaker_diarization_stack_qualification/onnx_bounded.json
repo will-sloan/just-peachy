@@ -1,0 +1,570 @@
+{
+  "environment": {
+    "cuda_available": false,
+    "cuda_runtime": null,
+    "device_requested": "cpu",
+    "git_commit": "4a170baf5d2a2236650508f6e582f1eb85557a78",
+    "gpu": null,
+    "machine": "AMD64",
+    "package_count": 68,
+    "package_freeze_sha256": "d88638b4955ab0dada065ef0821ece33a8f02764c1c40946f99b753ce9219b16",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python": "3.12.7",
+    "python_executable": "<environment>/Scripts/python.exe",
+    "torch": "2.11.0+cpu"
+  },
+  "generated_at": "2026-08-20T02:01:34.993559+00:00",
+  "profile": "onnx",
+  "results": [
+    {
+      "asset_identities": [
+        {
+          "acquisition_date": "2024-10-08T12:54:07+00:00",
+          "acquisition_method": "scripts/bootstrap_models.py --sherpa-diarization",
+          "active_model_size_bytes": null,
+          "artifact_filename": "sherpa-onnx-pyannote-segmentation-3-0.tar.bz2",
+          "asset_id": "sherpa_onnx_diarization_segmentation",
+          "backend": "Sherpa-ONNX",
+          "commercial_deployment_review": null,
+          "commercial_disposition": "commercial_permissive",
+          "commercial_model_license": null,
+          "component": "sherpa_onnx_diarization",
+          "conversion_provenance": null,
+          "credential_required": false,
+          "environment_profile": "onnx",
+          "expected_sha256_scope": "source_archive",
+          "expected_size_bytes": null,
+          "files": [
+            {
+              "bytes": 1061,
+              "path": "LICENSE",
+              "sha256": "14d7016ad68e7394d6e6b78d96cc2ae431c905287b89674cfdf021e79e62b8ba"
+            },
+            {
+              "bytes": 115,
+              "path": "README.md",
+              "sha256": "0380ed76a50efcc421dc62f251ed06e8349688466beac3177bee6e00dc336bfc"
+            },
+            {
+              "bytes": 3953,
+              "path": "export-onnx.py",
+              "sha256": "21df426fc6ca2ad54b5c9e114729990e0a669d602ea4e052f38287f99d32c0b0"
+            },
+            {
+              "bytes": 1540506,
+              "path": "model.int8.onnx",
+              "sha256": "d582f4b4c6b48205de7e0643c57df0df5615a3c176189be3fc461e9d18827b5d"
+            },
+            {
+              "bytes": 5992913,
+              "path": "model.onnx",
+              "sha256": "220ad67ca923bef2fa91f2390c786097bf305bceb5e261d4af67b38e938e1079"
+            },
+            {
+              "bytes": 1985,
+              "path": "run.sh",
+              "sha256": "5844c56ec90b29d0f01056f81e3f66f84ed4ef598bfc8705f86cd290d73138b3"
+            },
+            {
+              "bytes": 857,
+              "path": "show-onnx.py",
+              "sha256": "ace74dd3749e345cfac03a2d869830a99e7425ebc100545d7e8b2b95568ee575"
+            },
+            {
+              "bytes": 15204,
+              "path": "speaker-diarization-onnx.py",
+              "sha256": "51e301c2d02c87351a22582e51e883d4f18e4755d193587e69e1fd7f357132e7"
+            },
+            {
+              "bytes": 2306,
+              "path": "speaker-diarization-torch.py",
+              "sha256": "72f9fa5dd9f4966869acf79ef3b1328398434c70373f462d373895757aa0fae7"
+            },
+            {
+              "bytes": 6883,
+              "path": "vad-onnx.py",
+              "sha256": "4fbd5d74faf7bb34133f3268d1f184f9a43bfa3e3220acf1dbec7e9bef41e848"
+            },
+            {
+              "bytes": 1029,
+              "path": "vad-torch.py",
+              "sha256": "ecd6d40be0229624b7a312a1e2a3cffddeaf432706395df26c76fe588bf8dc66"
+            }
+          ],
+          "hash_matches": null,
+          "known_training_domain_overlap": [],
+          "language_support": [],
+          "licence": "MIT converted model package; Apache-2.0 Sherpa-ONNX code",
+          "licence_evidence": [
+            "https://github.com/k2-fsa/sherpa-onnx/releases/tag/speaker-segmentation-models",
+            "https://huggingface.co/pyannote/segmentation-3.0",
+            "https://github.com/k2-fsa/sherpa-onnx"
+          ],
+          "missing_required_files": [],
+          "model_name": "pyannote-segmentation-3.0 ONNX",
+          "model_version": "3.0",
+          "parameter_count": null,
+          "parameter_count_approximate": null,
+          "present": true,
+          "result_affecting_files": [],
+          "result_affecting_files_match": null,
+          "sample_rate_hz": 16000,
+          "sha256": "705c42c6fe52c84fa34c119f1c10470d48a005a1777ed7cf4ba9db8566b6b184",
+          "size_bytes": 7566812,
+          "size_matches": null,
+          "source": "https://github.com/k2-fsa/sherpa-onnx/releases/tag/speaker-segmentation-models",
+          "source_archive": null,
+          "source_checkpoint": null,
+          "source_checkpoint_revision": null,
+          "storage_path": "models/cache/sherpa_onnx/diarization/sherpa-onnx-pyannote-segmentation-3-0",
+          "streaming": false,
+          "training_corpora": [],
+          "upstream_model_revision": null,
+          "upstream_native_streaming_capable": false,
+          "verification_status": "verified"
+        },
+        {
+          "acquisition_date": "2026-08-08T00:15:04.538280+00:00",
+          "acquisition_method": "scripts/bootstrap_models.py --sherpa-speaker-embedding",
+          "active_model_size_bytes": null,
+          "artifact_filename": "3dspeaker_speech_eres2net_base_sv_zh-cn_3dspeaker_16k.onnx",
+          "asset_id": "sherpa_onnx_speaker_embedding",
+          "backend": "Sherpa-ONNX",
+          "commercial_deployment_review": null,
+          "commercial_disposition": "commercial_permissive",
+          "commercial_model_license": null,
+          "component": "sherpa_onnx_speaker_embedding",
+          "conversion_provenance": null,
+          "credential_required": false,
+          "environment_profile": "onnx",
+          "expected_sha256_scope": "installed_file",
+          "expected_size_bytes": 39593761,
+          "files": [
+            {
+              "bytes": 39593761,
+              "path": "3dspeaker_speech_eres2net_base_sv_zh-cn_3dspeaker_16k.onnx",
+              "sha256": "1a331345f04805badbb495c775a6ddffcdd1a732567d5ec8b3d5749e3c7a5e4b"
+            }
+          ],
+          "hash_matches": true,
+          "known_training_domain_overlap": [],
+          "language_support": [],
+          "licence": "Apache-2.0 3D-Speaker checkpoint; Apache-2.0 Sherpa-ONNX code",
+          "licence_evidence": [
+            "https://modelscope.cn/models/iic/speech_eres2net_base_sv_zh-cn_3dspeaker_16k",
+            "https://github.com/modelscope/3D-Speaker",
+            "https://github.com/k2-fsa/sherpa-onnx"
+          ],
+          "missing_required_files": [],
+          "model_name": "3D-Speaker ERes2Net base 16k",
+          "model_version": "release asset",
+          "parameter_count": null,
+          "parameter_count_approximate": null,
+          "present": true,
+          "result_affecting_files": [],
+          "result_affecting_files_match": null,
+          "sample_rate_hz": 16000,
+          "sha256": "1a331345f04805badbb495c775a6ddffcdd1a732567d5ec8b3d5749e3c7a5e4b",
+          "size_bytes": 39593761,
+          "size_matches": true,
+          "source": "https://github.com/k2-fsa/sherpa-onnx/releases/tag/speaker-recongition-models",
+          "source_archive": null,
+          "source_checkpoint": null,
+          "source_checkpoint_revision": null,
+          "storage_path": "models/cache/sherpa_onnx/speaker_embedding/3dspeaker_speech_eres2net_base_sv_zh-cn_3dspeaker_16k.onnx",
+          "streaming": false,
+          "training_corpora": [],
+          "upstream_model_revision": null,
+          "upstream_native_streaming_capable": false,
+          "verification_status": "verified"
+        }
+      ],
+      "backend_id": "sherpa_onnx_diarization",
+      "command": "python 'C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\Software Validation from Datasets\\Evaluation Tool\\scripts\\qualify_extended_backends.py' --profile onnx --backend sherpa_onnx_diarization --backend campplus_speaker_embedding --backend eres2net_base_speaker_embedding --backend modular_energy_campplus --output 'C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\Software Validation from Datasets\\Evaluation Tool\\runs\\speaker_diarization_stack_qualification\\onnx_bounded.json'",
+      "component_identity": {
+        "backend_id": "sherpa_onnx_diarization",
+        "config_path": "configs/inference/components/diarization/sherpa_onnx.yaml",
+        "config_sha256": "00bb4d82219b8c9d505f6ce373625c164d0c4553a96ff06dbaf72b7c715e2dfb",
+        "family": "diarization"
+      },
+      "credential_presence": {},
+      "details": {
+        "anonymous_label_consistency": true,
+        "bounded": true,
+        "der_jer_ready_claimed": false,
+        "pipeline_composition": true,
+        "reference_label_fallback": false,
+        "repeated_output_equal": true,
+        "rttm_conversion": true,
+        "rttm_line_count": 1,
+        "segmentation_provenance": [
+          "sherpa_onnx_diarization"
+        ],
+        "speaker_labels": [
+          "speaker_01"
+        ],
+        "turn_count": 1
+      },
+      "device": "cpu",
+      "explanation": "Real repeated offline qualification passed.",
+      "failure_category": null,
+      "family": "diarization",
+      "implicit_downloads_allowed": false,
+      "package_versions": {
+        "sherpa-onnx": "1.13.4"
+      },
+      "profile": "onnx",
+      "repetitions": 2,
+      "schema_validation": true,
+      "status": "qualified",
+      "timing": {
+        "inference_sec": [
+          0.393232,
+          0.045287
+        ],
+        "total_sec": 3.098357
+      },
+      "warnings": []
+    },
+    {
+      "asset_identities": [
+        {
+          "acquisition_date": "2026-08-12T01:01:26.414621+00:00",
+          "acquisition_method": "scripts/bootstrap_models.py --campplus",
+          "active_model_size_bytes": null,
+          "artifact_filename": "3dspeaker_speech_campplus_sv_en_voxceleb_16k.onnx",
+          "asset_id": "campplus_en_voxceleb",
+          "backend": "Sherpa-ONNX / 3D-Speaker",
+          "commercial_deployment_review": null,
+          "commercial_disposition": "commercial_permissive",
+          "commercial_model_license": null,
+          "component": "campplus_speaker_embedding",
+          "conversion_provenance": "Official Sherpa-ONNX speaker-recognition release converted from the exact ModelScope checkpoint",
+          "credential_required": false,
+          "environment_profile": "onnx",
+          "expected_sha256_scope": "installed_file",
+          "expected_size_bytes": 29596978,
+          "files": [
+            {
+              "bytes": 29596978,
+              "path": "3dspeaker_speech_campplus_sv_en_voxceleb_16k.onnx",
+              "sha256": "357a834f702b80161e5b981182c038e18553c1f2ca752ed6cec2052365d4129b"
+            }
+          ],
+          "hash_matches": true,
+          "known_training_domain_overlap": [],
+          "language_support": [],
+          "licence": "Apache-2.0",
+          "licence_evidence": [
+            "https://modelscope.cn/models/iic/speech_campplus_sv_en_voxceleb_16k",
+            "https://github.com/modelscope/3D-Speaker"
+          ],
+          "missing_required_files": [],
+          "model_name": "iic/speech_campplus_sv_en_voxceleb_16k",
+          "model_version": "v1.0.2",
+          "parameter_count": 7180000,
+          "parameter_count_approximate": null,
+          "present": true,
+          "result_affecting_files": [],
+          "result_affecting_files_match": null,
+          "sample_rate_hz": 16000,
+          "sha256": "357a834f702b80161e5b981182c038e18553c1f2ca752ed6cec2052365d4129b",
+          "size_bytes": 29596978,
+          "size_matches": true,
+          "source": "https://modelscope.cn/models/iic/speech_campplus_sv_en_voxceleb_16k",
+          "source_archive": null,
+          "source_checkpoint": null,
+          "source_checkpoint_revision": null,
+          "storage_path": "models/cache/sherpa_onnx/speaker_embedding/3dspeaker_speech_campplus_sv_en_voxceleb_16k.onnx",
+          "streaming": false,
+          "training_corpora": [],
+          "upstream_model_revision": "v1.0.2",
+          "upstream_native_streaming_capable": false,
+          "verification_status": "verified"
+        }
+      ],
+      "backend_id": "campplus_speaker_embedding",
+      "command": "python 'C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\Software Validation from Datasets\\Evaluation Tool\\scripts\\qualify_extended_backends.py' --profile onnx --backend sherpa_onnx_diarization --backend campplus_speaker_embedding --backend eres2net_base_speaker_embedding --backend modular_energy_campplus --output 'C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\Software Validation from Datasets\\Evaluation Tool\\runs\\speaker_diarization_stack_qualification\\onnx_bounded.json'",
+      "component_identity": {
+        "backend_id": "campplus_speaker_embedding",
+        "config_path": "configs/inference/components/speaker_embedding/campplus.yaml",
+        "config_sha256": "b148098431a23bf06979d65dbe40cacf68eacec401fa0ce0569c7cff68b2edb4",
+        "family": "speaker_embedding"
+      },
+      "credential_presence": {},
+      "details": {
+        "dimension": 512,
+        "finite": true,
+        "identity_recorded": true,
+        "l2_norms": [
+          1.0000000395480189,
+          1.0000000395480189
+        ],
+        "minimum_duration_status": "too_short",
+        "model_name": "campplus_en_voxceleb_16k_v1_0_2",
+        "pipeline_composition": true,
+        "repeatability_l2_drift": 0.0,
+        "runtime": {
+          "audio_duration_sec": 0.1,
+          "cpu_memory_mb": null,
+          "device": "cpu",
+          "dtype": "float32",
+          "inference_sec": 0.0006921000021975487,
+          "load_sec": 0.0,
+          "model_name": "campplus_en_voxceleb_16k_v1_0_2",
+          "peak_gpu_memory_mb": null,
+          "realtime_factor": 0.0069210000219754875
+        },
+        "valid_real_outputs": 2
+      },
+      "device": "cpu",
+      "explanation": "Real repeated offline qualification passed.",
+      "failure_category": null,
+      "family": "speaker_embedding",
+      "implicit_downloads_allowed": false,
+      "package_versions": {
+        "sherpa-onnx": "1.13.4"
+      },
+      "profile": "onnx",
+      "repetitions": 2,
+      "schema_validation": true,
+      "status": "qualified",
+      "timing": {
+        "inference_sec": [
+          0.503155,
+          0.065035
+        ],
+        "total_sec": 0.625041
+      },
+      "warnings": []
+    },
+    {
+      "asset_identities": [
+        {
+          "acquisition_date": "2026-08-08T00:15:04.538280+00:00",
+          "acquisition_method": "scripts/bootstrap_models.py --eres2net-base",
+          "active_model_size_bytes": null,
+          "artifact_filename": "3dspeaker_speech_eres2net_base_sv_zh-cn_3dspeaker_16k.onnx",
+          "asset_id": "eres2net_base_3dspeaker",
+          "backend": "Sherpa-ONNX / 3D-Speaker",
+          "commercial_deployment_review": null,
+          "commercial_disposition": "commercial_permissive",
+          "commercial_model_license": null,
+          "component": "eres2net_base_speaker_embedding",
+          "conversion_provenance": "Official Sherpa-ONNX speaker-recognition release converted from the exact ModelScope checkpoint",
+          "credential_required": false,
+          "environment_profile": "onnx",
+          "expected_sha256_scope": "installed_file",
+          "expected_size_bytes": 39593761,
+          "files": [
+            {
+              "bytes": 39593761,
+              "path": "3dspeaker_speech_eres2net_base_sv_zh-cn_3dspeaker_16k.onnx",
+              "sha256": "1a331345f04805badbb495c775a6ddffcdd1a732567d5ec8b3d5749e3c7a5e4b"
+            }
+          ],
+          "hash_matches": true,
+          "known_training_domain_overlap": [],
+          "language_support": [],
+          "licence": "Apache-2.0",
+          "licence_evidence": [
+            "https://modelscope.cn/models/iic/speech_eres2net_base_sv_zh-cn_3dspeaker_16k",
+            "https://github.com/modelscope/3D-Speaker"
+          ],
+          "missing_required_files": [],
+          "model_name": "iic/speech_eres2net_base_sv_zh-cn_3dspeaker_16k",
+          "model_version": "v1.0.1",
+          "parameter_count": 4600000,
+          "parameter_count_approximate": null,
+          "present": true,
+          "result_affecting_files": [],
+          "result_affecting_files_match": null,
+          "sample_rate_hz": 16000,
+          "sha256": "1a331345f04805badbb495c775a6ddffcdd1a732567d5ec8b3d5749e3c7a5e4b",
+          "size_bytes": 39593761,
+          "size_matches": true,
+          "source": "https://modelscope.cn/models/iic/speech_eres2net_base_sv_zh-cn_3dspeaker_16k",
+          "source_archive": null,
+          "source_checkpoint": null,
+          "source_checkpoint_revision": null,
+          "storage_path": "models/cache/sherpa_onnx/speaker_embedding/3dspeaker_speech_eres2net_base_sv_zh-cn_3dspeaker_16k.onnx",
+          "streaming": false,
+          "training_corpora": [],
+          "upstream_model_revision": "v1.0.1",
+          "upstream_native_streaming_capable": false,
+          "verification_status": "verified"
+        }
+      ],
+      "backend_id": "eres2net_base_speaker_embedding",
+      "command": "python 'C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\Software Validation from Datasets\\Evaluation Tool\\scripts\\qualify_extended_backends.py' --profile onnx --backend sherpa_onnx_diarization --backend campplus_speaker_embedding --backend eres2net_base_speaker_embedding --backend modular_energy_campplus --output 'C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\Software Validation from Datasets\\Evaluation Tool\\runs\\speaker_diarization_stack_qualification\\onnx_bounded.json'",
+      "component_identity": {
+        "backend_id": "eres2net_base_speaker_embedding",
+        "config_path": "configs/inference/components/speaker_embedding/eres2net_base.yaml",
+        "config_sha256": "e197e2382ae98aef24ecc6833f6a8d528bad6788ec472db14a9dd56516dc1ee4",
+        "family": "speaker_embedding"
+      },
+      "credential_presence": {},
+      "details": {
+        "dimension": 512,
+        "finite": true,
+        "identity_recorded": true,
+        "l2_norms": [
+          1.0000000012698975,
+          1.0000000012698975
+        ],
+        "minimum_duration_status": "too_short",
+        "model_name": "eres2net_base_3dspeaker_16k_v1_0_1",
+        "pipeline_composition": true,
+        "repeatability_l2_drift": 0.0,
+        "runtime": {
+          "audio_duration_sec": 0.1,
+          "cpu_memory_mb": null,
+          "device": "cpu",
+          "dtype": "float32",
+          "inference_sec": 0.0007639999967068434,
+          "load_sec": 0.0,
+          "model_name": "eres2net_base_3dspeaker_16k_v1_0_1",
+          "peak_gpu_memory_mb": null,
+          "realtime_factor": 0.007639999967068434
+        },
+        "valid_real_outputs": 2
+      },
+      "device": "cpu",
+      "explanation": "Real repeated offline qualification passed.",
+      "failure_category": null,
+      "family": "speaker_embedding",
+      "implicit_downloads_allowed": false,
+      "package_versions": {
+        "sherpa-onnx": "1.13.4"
+      },
+      "profile": "onnx",
+      "repetitions": 2,
+      "schema_validation": true,
+      "status": "qualified",
+      "timing": {
+        "inference_sec": [
+          0.434467,
+          0.165431
+        ],
+        "total_sec": 0.656416
+      },
+      "warnings": []
+    },
+    {
+      "asset_identities": [
+        {
+          "acquisition_date": "2026-08-12T01:01:26.414621+00:00",
+          "acquisition_method": "scripts/bootstrap_models.py --campplus",
+          "active_model_size_bytes": null,
+          "artifact_filename": "3dspeaker_speech_campplus_sv_en_voxceleb_16k.onnx",
+          "asset_id": "campplus_en_voxceleb",
+          "backend": "Sherpa-ONNX / 3D-Speaker",
+          "commercial_deployment_review": null,
+          "commercial_disposition": "commercial_permissive",
+          "commercial_model_license": null,
+          "component": "campplus_speaker_embedding",
+          "conversion_provenance": "Official Sherpa-ONNX speaker-recognition release converted from the exact ModelScope checkpoint",
+          "credential_required": false,
+          "environment_profile": "onnx",
+          "expected_sha256_scope": "installed_file",
+          "expected_size_bytes": 29596978,
+          "files": [
+            {
+              "bytes": 29596978,
+              "path": "3dspeaker_speech_campplus_sv_en_voxceleb_16k.onnx",
+              "sha256": "357a834f702b80161e5b981182c038e18553c1f2ca752ed6cec2052365d4129b"
+            }
+          ],
+          "hash_matches": true,
+          "known_training_domain_overlap": [],
+          "language_support": [],
+          "licence": "Apache-2.0",
+          "licence_evidence": [
+            "https://modelscope.cn/models/iic/speech_campplus_sv_en_voxceleb_16k",
+            "https://github.com/modelscope/3D-Speaker"
+          ],
+          "missing_required_files": [],
+          "model_name": "iic/speech_campplus_sv_en_voxceleb_16k",
+          "model_version": "v1.0.2",
+          "parameter_count": 7180000,
+          "parameter_count_approximate": null,
+          "present": true,
+          "result_affecting_files": [],
+          "result_affecting_files_match": null,
+          "sample_rate_hz": 16000,
+          "sha256": "357a834f702b80161e5b981182c038e18553c1f2ca752ed6cec2052365d4129b",
+          "size_bytes": 29596978,
+          "size_matches": true,
+          "source": "https://modelscope.cn/models/iic/speech_campplus_sv_en_voxceleb_16k",
+          "source_archive": null,
+          "source_checkpoint": null,
+          "source_checkpoint_revision": null,
+          "storage_path": "models/cache/sherpa_onnx/speaker_embedding/3dspeaker_speech_campplus_sv_en_voxceleb_16k.onnx",
+          "streaming": false,
+          "training_corpora": [],
+          "upstream_model_revision": "v1.0.2",
+          "upstream_native_streaming_capable": false,
+          "verification_status": "verified"
+        }
+      ],
+      "backend_id": "modular_energy_campplus",
+      "command": "python 'C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\Software Validation from Datasets\\Evaluation Tool\\scripts\\qualify_extended_backends.py' --profile onnx --backend sherpa_onnx_diarization --backend campplus_speaker_embedding --backend eres2net_base_speaker_embedding --backend modular_energy_campplus --output 'C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\Software Validation from Datasets\\Evaluation Tool\\runs\\speaker_diarization_stack_qualification\\onnx_bounded.json'",
+      "component_identity": {
+        "backend_id": "modular_energy_campplus",
+        "config_path": "configs/inference/components/diarization/modular_energy_campplus.yaml",
+        "config_sha256": "6986e79f4fce71162f83dc1a7d7dc487495e90f48036748a9302fc2c256f8ae0",
+        "family": "diarization"
+      },
+      "credential_presence": {},
+      "details": {
+        "anonymous_label_consistency": true,
+        "bounded": true,
+        "der_jer_ready_claimed": false,
+        "pipeline_composition": true,
+        "reference_label_fallback": false,
+        "repeated_output_equal": true,
+        "rttm_conversion": true,
+        "rttm_line_count": 1,
+        "segmentation_provenance": [
+          "modular_clustering:energy_vad:diarization_energy_campplus_engineering_v1"
+        ],
+        "speaker_labels": [
+          "speaker_00"
+        ],
+        "turn_count": 1
+      },
+      "device": "cpu",
+      "explanation": "Real repeated offline qualification passed.",
+      "failure_category": null,
+      "family": "diarization",
+      "implicit_downloads_allowed": false,
+      "package_versions": {
+        "sherpa-onnx": "1.13.4"
+      },
+      "profile": "onnx",
+      "repetitions": 2,
+      "schema_validation": true,
+      "status": "qualified",
+      "timing": {
+        "inference_sec": [
+          0.672004,
+          0.173552
+        ],
+        "total_sec": 0.926111
+      },
+      "warnings": []
+    }
+  ],
+  "schema_version": "extended-backend-qualification.v1",
+  "secret_audit": {
+    "credential_presence_only": true,
+    "values_serialized": false
+  },
+  "summary": {
+    "qualified": 4,
+    "status_counts": {
+      "qualified": 4
+    },
+    "total": 4
+  }
+}

@@ -314,6 +314,12 @@ def build_diarizer_from_config(config: object) -> DiarizationBase | None:
         from app.inference_pipeline.diarization.nemo_adapter import NemoDiarizer
 
         return NemoDiarizer(params)
+    if name.startswith("modular_"):
+        from app.inference_pipeline.diarization.modular_adapter import (
+            ModularClusteringDiarizer,
+        )
+
+        return ModularClusteringDiarizer(params)
     raise ContractValidationError(f"unknown diarization component {name!r}")
 
 

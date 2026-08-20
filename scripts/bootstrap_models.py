@@ -144,6 +144,27 @@ CAMPPLUS_URL = (
     f"speaker-recongition-models/{CAMPPLUS_FILENAME}"
 )
 CAMPPLUS_SHA256 = "357a834f702b80161e5b981182c038e18553c1f2ca752ed6cec2052365d4129b"
+REDIMNET2_SOURCE_REVISION = "cdc875670034dd7068013ca2ab21ec083a040ff8"
+REDIMNET2_SOURCE_ARCHIVE = f"redimnet2-{REDIMNET2_SOURCE_REVISION}.tar.gz"
+REDIMNET2_SOURCE_URL = (
+    "https://github.com/PalabraAI/redimnet2/archive/"
+    f"{REDIMNET2_SOURCE_REVISION}.tar.gz"
+)
+REDIMNET2_SOURCE_SHA256 = (
+    "48ccf0de4d9a7a2f5c0aeccab7d286d1120ee2564074c7c2f7f38311ac8ff028"
+)
+REDIMNET2_B2_FILENAME = "b2-vox2-lm.pt"
+REDIMNET2_B2_URL = (
+    "https://github.com/PalabraAI/redimnet2/releases/download/v1.0.0/"
+    f"{REDIMNET2_B2_FILENAME}"
+)
+REDIMNET2_B2_SHA256 = (
+    "0545a29679a87fe1c662d2bbd05e3b3fe0d1b392832729abaa135e4079a2f77a"
+)
+PYANNOTE_SEGMENTATION_REPOSITORY = "pyannote/segmentation-3.0"
+PYANNOTE_SEGMENTATION_REVISION = "e66f3d3b9eb0873085418a7b813d3b369bf160bb"
+PYANNOTE_COMMUNITY_REPOSITORY = "pyannote/speaker-diarization-community-1"
+PYANNOTE_COMMUNITY_REVISION = "3533c8cf8e369892e6b79ff1bf80f7b0286a54ee"
 FSMN_BASE_URL = (
     "https://modelscope.cn/models/iic/"
     "speech_fsmn_vad_zh-cn-16k-common-onnx/resolve/master"
@@ -398,6 +419,27 @@ def download_campplus(cache_root: Path) -> None:
     )
 
 
+def download_redimnet2_b2(cache_root: Path) -> None:
+    """Install the pinned official native source and B2 LM checkpoint."""
+
+    source_archive = download_file(
+        REDIMNET2_SOURCE_URL,
+        cache_root / "downloads" / REDIMNET2_SOURCE_ARCHIVE,
+        expected_sha256=REDIMNET2_SOURCE_SHA256,
+    )
+    install_model_archive(
+        source_archive,
+        destination=cache_root / "redimnet2" / f"source-{REDIMNET2_SOURCE_REVISION}",
+        archive_directory=f"redimnet2-{REDIMNET2_SOURCE_REVISION}",
+        markers=("LICENSE", "hubconf.py", "redimnet2/redimnet2.py"),
+    )
+    download_file(
+        REDIMNET2_B2_URL,
+        cache_root / "redimnet2" / REDIMNET2_B2_FILENAME,
+        expected_sha256=REDIMNET2_B2_SHA256,
+    )
+
+
 def download_fsmn_vad(cache_root: Path) -> None:
     destination = (
         cache_root / "funasr" / "vad" / "speech_fsmn_vad_zh-cn-16k-common-onnx"
@@ -585,32 +627,81 @@ def download_nemo_config(cache_root: Path) -> None:
 
 
 def download_pyannote(cache_root: Path, token_env: str) -> None:
-    from pyannote.audio import Pipeline
+    from huggingface_hub import HfApi, get_token, snapshot_download
 
-    token = os.environ.get(token_env)
+    token = os.environ.get(token_env) or get_token()
     if not token:
         raise RuntimeError(
-            f"{token_env} is not set; pyannote community model access requires "
-            "a Hugging Face token"
+            "Hugging Face authentication is missing; run the official interactive "
+            "'hf auth login' command in this isolated environment"
         )
-    destination = cache_root / "pyannote"
-    destination.mkdir(parents=True, exist_ok=True)
-    source = "pyannote/speaker-diarization-community-1"
-    print(f"Downloading {source} to {destination}")
-    try:
-        pipeline = Pipeline.from_pretrained(
-            source,
-            token=token,
-            cache_dir=str(destination),
+    api = HfApi(token=token)
+    for repository, revision, directory_name, licence in (
+        (
+            PYANNOTE_SEGMENTATION_REPOSITORY,
+            PYANNOTE_SEGMENTATION_REVISION,
+            "segmentation-3.0",
+            "MIT",
+        ),
+        (
+            PYANNOTE_COMMUNITY_REPOSITORY,
+            PYANNOTE_COMMUNITY_REVISION,
+            "speaker-diarization-community-1",
+            "CC-BY-4.0",
+        ),
+    ):
+        observed_revision = str(api.model_info(repository, revision=revision).sha)
+        if observed_revision != revision:
+            raise RuntimeError(
+                f"{repository} resolved to {observed_revision}, expected {revision}"
+            )
+        destination = cache_root / "pyannote" / directory_name
+        marker = destination / ".just-peachy-snapshot.json"
+        if destination.exists():
+            existing = (
+                json.loads(marker.read_text(encoding="utf-8"))
+                if marker.is_file()
+                else {}
+            )
+            if existing.get("revision") == revision:
+                print(f"Verified existing pinned snapshot {repository}@{revision}")
+                continue
+            raise RuntimeError(
+                f"refusing to mix a different snapshot into {destination}"
+            )
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        temporary = Path(
+            tempfile.mkdtemp(prefix=f".{directory_name}-", dir=destination.parent)
         )
-    except TypeError:
-        pipeline = Pipeline.from_pretrained(
-            source,
-            use_auth_token=token,
-            cache_dir=str(destination),
-        )
-    del pipeline
-    gc.collect()
+        try:
+            print(f"Downloading pinned snapshot {repository}@{revision}")
+            snapshot_download(
+                repo_id=repository,
+                revision=revision,
+                token=token,
+                local_dir=temporary,
+            )
+            metadata_cache = temporary / ".cache"
+            if metadata_cache.is_dir():
+                shutil.rmtree(metadata_cache)
+            (temporary / ".just-peachy-snapshot.json").write_text(
+                json.dumps(
+                    {
+                        "schema_version": "just-peachy-huggingface-snapshot.v1",
+                        "repository": repository,
+                        "revision": revision,
+                        "licence": licence,
+                    },
+                    indent=2,
+                    sort_keys=True,
+                )
+                + "\n",
+                encoding="utf-8",
+            )
+            os.replace(temporary, destination)
+        finally:
+            if temporary.exists():
+                shutil.rmtree(temporary)
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -645,6 +736,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--sherpa-streaming-20m", action="store_true")
     parser.add_argument("--campplus", action="store_true")
     parser.add_argument("--eres2net-base", action="store_true")
+    parser.add_argument("--redimnet2-b2", action="store_true")
     parser.add_argument("--fsmn-vad", action="store_true")
     parser.add_argument(
         "--moonshine-streaming",
@@ -763,6 +855,8 @@ def main(argv: list[str] | None = None) -> int:
         tasks.append(("CAM++ English VoxCeleb", lambda: download_campplus(cache_root)))
     if args.eres2net_base:
         tasks.append(("ERes2Net-base", lambda: download_sherpa_embedding(cache_root)))
+    if args.redimnet2_b2:
+        tasks.append(("ReDimNet2-B2", lambda: download_redimnet2_b2(cache_root)))
     if args.fsmn_vad:
         tasks.append(("FSMN-VAD", lambda: download_fsmn_vad(cache_root)))
     if args.edge_models:

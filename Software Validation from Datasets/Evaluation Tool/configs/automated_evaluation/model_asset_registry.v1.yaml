@@ -134,12 +134,17 @@ assets:
     model_name: 3D-Speaker ERes2Net base 16k
     model_version: release asset
     source: https://github.com/k2-fsa/sherpa-onnx/releases/tag/speaker-recongition-models
-    licence: Verify upstream model terms before redistribution
+    licence: Apache-2.0 3D-Speaker checkpoint; Apache-2.0 Sherpa-ONNX code
+    licence_evidence: [https://modelscope.cn/models/iic/speech_eres2net_base_sv_zh-cn_3dspeaker_16k, https://github.com/modelscope/3D-Speaker, https://github.com/k2-fsa/sherpa-onnx]
+    commercial_disposition: commercial_permissive
     artifact_filename: 3dspeaker_speech_eres2net_base_sv_zh-cn_3dspeaker_16k.onnx
+    expected_size_bytes: 39593761
     expected_sha256: 1a331345f04805badbb495c775a6ddffcdd1a732567d5ec8b3d5749e3c7a5e4b
+    expected_sha256_scope: installed_file
     acquisition_method: scripts/bootstrap_models.py --sherpa-speaker-embedding
     storage_path: models/cache/sherpa_onnx/speaker_embedding/3dspeaker_speech_eres2net_base_sv_zh-cn_3dspeaker_16k.onnx
     environment_profile: onnx
+    sample_rate_hz: 16000
     credential_requirement: null
     required_files: []
 
@@ -149,12 +154,15 @@ assets:
     model_name: pyannote-segmentation-3.0 ONNX
     model_version: "3.0"
     source: https://github.com/k2-fsa/sherpa-onnx/releases/tag/speaker-segmentation-models
-    licence: Verify converted-model terms before redistribution
+    licence: MIT converted model package; Apache-2.0 Sherpa-ONNX code
+    licence_evidence: [https://github.com/k2-fsa/sherpa-onnx/releases/tag/speaker-segmentation-models, https://huggingface.co/pyannote/segmentation-3.0, https://github.com/k2-fsa/sherpa-onnx]
+    commercial_disposition: commercial_permissive
     artifact_filename: sherpa-onnx-pyannote-segmentation-3-0.tar.bz2
     expected_sha256: 24615ee884c897d9d2ba09bb4d30da6bb1b15e685065962db5b02e76e4996488
     acquisition_method: scripts/bootstrap_models.py --sherpa-diarization
     storage_path: models/cache/sherpa_onnx/diarization/sherpa-onnx-pyannote-segmentation-3-0
     environment_profile: onnx
+    sample_rate_hz: 16000
     credential_requirement: null
     required_files: [model.onnx]
 
@@ -177,11 +185,27 @@ assets:
     component: wespeaker
     backend: WeSpeaker
     model_name: voxceleb_resnet221_LM
-    model_version: source-commit-1d4164bdb1dcfee4624093190fd5ecbb19447686
+    model_version: voxceleb_resnet221_LM archive with source-commit-1d4164bdb1dcfee4624093190fd5ecbb19447686
+    upstream_model_revision: voxceleb_resnet221_LM
     source: https://modelscope.cn/datasets/wenet/wespeaker_pretrained_models
-    licence: Verify model-card and VoxCeleb-derived model terms before redistribution
+    licence: CC BY 4.0 pretrained weight; Apache-2.0 WeSpeaker code
+    licence_evidence: [https://github.com/wenet-e2e/wespeaker/blob/master/docs/pretrained.md, https://github.com/wenet-e2e/wespeaker]
+    commercial_disposition: commercial_permissive_with_attribution
+    conversion_provenance: Official WeSpeaker pretrained archive, consumed by native WeSpeaker code without conversion
+    parameter_count: null
+    sample_rate_hz: 16000
+    streaming: false
+    training_corpora: [VoxCeleb2-dev]
+    source_archive_size_bytes: 105902456
+    source_archive_sha256: 9462705bfafeed7b4a6585638a4d0140ddaf9338471198d014eb2579712f89f6
+    source_archive_path: models/cache/downloads/voxceleb_resnet221_LM.tar.gz
     artifact_filename: voxceleb_resnet221_LM.tar.gz
-    expected_sha256: 9462705bfafeed7b4a6585638a4d0140ddaf9338471198d014eb2579712f89f6
+    expected_size_bytes: 114411934
+    expected_sha256: bd70550dbfcdaecf387cefcc34d57d1b815fbdd6ee2d62477dd0e1eb176ff962
+    expected_sha256_scope: installed_tree
+    result_affecting_files:
+      - {path: avg_model.pt, precision: pytorch_float32, bytes: 114410390, sha256: 47d76239f1e865b273e31e30f691959061ff6565ed6c4e7be9639a65d9662eb5}
+      - {path: config.yaml, precision: yaml_configuration, bytes: 1544, sha256: 31511c8e6c60d96d40962e9a261dd8f752b01831b955192b5cbed8367276bbb5}
     acquisition_method: scripts/bootstrap_models.py --wespeaker
     storage_path: models/cache/wespeaker/english
     environment_profile: wespeaker
@@ -192,16 +216,58 @@ assets:
     component: pyannote_community
     backend: pyannote.audio
     model_name: pyannote/speaker-diarization-community-1
-    model_version: gated snapshot
+    model_version: 3533c8cf8e369892e6b79ff1bf80f7b0286a54ee
+    upstream_model_revision: 3533c8cf8e369892e6b79ff1bf80f7b0286a54ee
     source: https://huggingface.co/pyannote/speaker-diarization-community-1
-    licence: User must personally accept Hugging Face model conditions
+    licence: CC BY 4.0
+    licence_evidence: [https://huggingface.co/pyannote/speaker-diarization-community-1]
+    commercial_disposition: commercial_permissive_with_attribution
+    conversion_provenance: Official complete pyannote.audio pipeline snapshot; no component substitution
+    parameter_count: null
+    sample_rate_hz: 16000
+    streaming: false
     artifact_filename: Hugging Face snapshot
-    expected_sha256: null
-    acquisition_method: scripts/bootstrap_models.py --pyannote --hf-token-env PYANNOTE_AUTH_TOKEN
-    storage_path: models/cache/pyannote
+    expected_size_bytes: 33695785
+    expected_sha256: dc71e4bd2f63c0c2700d1cabac7833c80e1162e44ebc2097aeb91af240be636f
+    expected_sha256_scope: installed_tree
+    result_affecting_files:
+      - {path: config.yaml, precision: yaml_configuration, bytes: 444, sha256: 5ce2bfa9a938dc132cec1172592d65173cbb8f444ea1e4133f10f9391de155be}
+      - {path: segmentation/pytorch_model.bin, precision: pytorch_float32, bytes: 5906507, sha256: 7ad24338d844fb95985486eb1a464e32d229f6d7a03c9abe60f978bacf3f816e}
+      - {path: embedding/pytorch_model.bin, precision: pytorch_float32, bytes: 26646242, sha256: 6f10ff60898a1d185fa22e1d11e0bfa8a92efec811f11bca48cb8cafebefd929}
+      - {path: plda/plda.npz, precision: numpy_float64, bytes: 133852, sha256: 9b77bcd840692710dd3496f62ecfeed8d8e5f002fd991b785079b244eab7d255}
+      - {path: plda/xvec_transform.npz, precision: numpy_float64, bytes: 134376, sha256: 325f1ce8e48f7e55e9c8aa47e05d2766b7c48c4b25b8de8dd751e7a4cc5fbe8f}
+    acquisition_method: hf auth login followed by scripts/bootstrap_models.py --pyannote
+    storage_path: models/cache/pyannote/speaker-diarization-community-1
     environment_profile: credential-diarization
-    credential_requirement: PYANNOTE_AUTH_TOKEN
-    required_files: []
+    credential_requirement: huggingface_cli_login_for_acquisition
+    required_files: [config.yaml]
+
+  pyannote_segmentation_3_0:
+    component: modular_pyannote_campplus
+    backend: pyannote.audio
+    model_name: pyannote/segmentation-3.0
+    model_version: e66f3d3b9eb0873085418a7b813d3b369bf160bb
+    upstream_model_revision: e66f3d3b9eb0873085418a7b813d3b369bf160bb
+    source: https://huggingface.co/pyannote/segmentation-3.0
+    licence: MIT
+    licence_evidence: [https://huggingface.co/pyannote/segmentation-3.0]
+    commercial_disposition: commercial_permissive
+    conversion_provenance: Official native PyTorch checkpoint; used as speech-activity segmentation before independently configured speaker embeddings
+    parameter_count: null
+    sample_rate_hz: 16000
+    streaming: false
+    artifact_filename: Hugging Face snapshot
+    expected_size_bytes: 5982542
+    expected_sha256: 0bd17acc0afbd3ae9b78f0ac2912d660297d59d9c107cf75bb75b39dcb8c7e14
+    expected_sha256_scope: installed_tree
+    result_affecting_files:
+      - {path: config.yaml, precision: yaml_configuration, bytes: 399, sha256: fa65a47a751602f04cc570135007d76859b69e8f9f1bfdf5878a5145980d4263}
+      - {path: pytorch_model.bin, precision: pytorch_float32, bytes: 5905440, sha256: da85c29829d4002daedd676e012936488234d9255e65e86dfab9bec6b1729298}
+    acquisition_method: hf auth login followed by scripts/bootstrap_models.py --pyannote
+    storage_path: models/cache/pyannote/segmentation-3.0
+    environment_profile: credential-diarization
+    credential_requirement: huggingface_cli_login_for_acquisition
+    required_files: [config.yaml, pytorch_model.bin]
 
   nemo_diarization_config:
     component: nemo_diarization
@@ -376,6 +442,61 @@ assets:
     environment_profile: onnx
     credential_requirement: null
     required_files: []
+
+  redimnet2_b2_vox2_lm:
+    component: redimnet2_b2_speaker_embedding
+    backend: Official native ReDimNet2
+    model_name: PalabraAI ReDimNet2-B2 VoxCeleb2 large-margin
+    model_version: v1.0.0
+    upstream_model_revision: v1.0.0
+    source: https://github.com/PalabraAI/redimnet2/releases/tag/v1.0.0
+    licence: MIT; the official repository states that it contains the implementation and pretrained weights and declares the distribution MIT
+    licence_evidence: [https://github.com/PalabraAI/redimnet2, https://github.com/PalabraAI/redimnet2/releases/tag/v1.0.0]
+    commercial_disposition: commercial_permissive
+    source_checkpoint: b2-vox2-lm.pt
+    source_checkpoint_revision: v1.0.0
+    conversion_provenance: Official native PyTorch checkpoint; no conversion
+    parameter_count: 3600000
+    parameter_count_approximate: true
+    sample_rate_hz: 16000
+    streaming: false
+    training_corpora: [VoxCeleb2-dev]
+    expected_size_bytes: 15897450
+    artifact_filename: b2-vox2-lm.pt
+    expected_sha256: 0545a29679a87fe1c662d2bbd05e3b3fe0d1b392832729abaa135e4079a2f77a
+    expected_sha256_scope: installed_file
+    acquisition_method: scripts/bootstrap_models.py --redimnet2-b2
+    storage_path: models/cache/redimnet2/b2-vox2-lm.pt
+    environment_profile: redimnet2
+    credential_requirement: null
+    required_files: []
+
+  redimnet2_official_source:
+    component: redimnet2_b2_speaker_embedding
+    backend: Official native ReDimNet2
+    model_name: PalabraAI ReDimNet2 official source
+    model_version: cdc875670034dd7068013ca2ab21ec083a040ff8
+    upstream_model_revision: cdc875670034dd7068013ca2ab21ec083a040ff8
+    source: https://github.com/PalabraAI/redimnet2
+    licence: MIT
+    licence_evidence: [https://github.com/PalabraAI/redimnet2/blob/cdc875670034dd7068013ca2ab21ec083a040ff8/LICENSE]
+    commercial_disposition: commercial_permissive
+    conversion_provenance: Exact official source archive, used directly by the native adapter
+    parameter_count: null
+    sample_rate_hz: 16000
+    streaming: false
+    source_archive_size_bytes: 1118945
+    source_archive_sha256: 48ccf0de4d9a7a2f5c0aeccab7d286d1120ee2564074c7c2f7f38311ac8ff028
+    source_archive_path: models/cache/downloads/redimnet2-cdc875670034dd7068013ca2ab21ec083a040ff8.tar.gz
+    artifact_filename: redimnet2-cdc875670034dd7068013ca2ab21ec083a040ff8.tar.gz
+    expected_size_bytes: 2036261
+    expected_sha256: 9ad9348bcb79c38e17e63ecd904bf79fac6dde05a3bf55afef9bad53a5ab3210
+    expected_sha256_scope: installed_tree
+    acquisition_method: scripts/bootstrap_models.py --redimnet2-b2
+    storage_path: models/cache/redimnet2/source-cdc875670034dd7068013ca2ab21ec083a040ff8
+    environment_profile: redimnet2
+    credential_requirement: null
+    required_files: [LICENSE, hubconf.py, redimnet2/redimnet2.py]
 
   fsmn_vad_quantized:
     component: fsmn_vad

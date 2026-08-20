@@ -626,7 +626,30 @@ components:
     input_contract: audio_segments.v1
     output_contract: speaker_embedding.v1
     compatibility_constraints: ["Mono 16 kHz; minimum 0.75 s; downloads disabled."]
+    model_terms: "WeSpeaker code is Apache-2.0; official WeSpeaker documentation states that VoxCeleb-trained pretrained models follow CC BY 4.0 and require attribution."
     readiness: {status: qualified_with_warnings, evidence: "runs/extended_backend_qualification/wespeaker.json: finite normalized repeatable vectors passed", blockers: ["isolated hdbscan metadata override and upstream warnings recorded"]}
+    intended_final_use_category: extended
+
+  - <<: *component_defaults
+    id: speaker_embedding.redimnet2_b2_speaker_embedding
+    family: speaker_embedding
+    name: redimnet2_b2_speaker_embedding
+    implementation_class: ReDimNet2B2SpeakerEmbeddingAdapter
+    implementation_path: app/inference_pipeline/speaker_embedding/redimnet2_adapter.py
+    registry_adapter_class: ReDimNet2B2SpeakerEmbeddingCatalogAdapter
+    config_path: configs/inference/components/speaker_embedding/redimnet2_b2.yaml
+    config_sha256: 5523F883C91FFAB5B99A2C79A4BFD972CE88EA2C0AD9754BAE87EA577498AE38
+    packages: [torch==2.11.0, torchaudio==2.11.0]
+    model_assets: [stage8:redimnet2_b2_vox2_lm, stage8:redimnet2_official_source]
+    environment_profiles: [redimnet2]
+    qualification_backend_id: redimnet2_b2_speaker_embedding
+    hardware_support: {cpu: true, gpu: true, cuda: true}
+    device_dtype_support: [cpu/float32, cuda/float32-unqualified]
+    input_contract: audio_segments.v1
+    output_contract: speaker_embedding.v1
+    compatibility_constraints: ["16 kHz mono float32; minimum 0.5 s; 192-dimensional normalized output; exact native source and checkpoint; downloads disabled; backend-specific Stage 10 enrollment required."]
+    model_terms: "Official PalabraAI ReDimNet2 source and the repository-distributed v1.0.0 pretrained B2 checkpoint are MIT licensed."
+    readiness: {status: qualified, evidence: "runs/speaker_diarization_stack_qualification/redimnet2_bounded.json: exact native B2 produced two finite normalized 192-dimensional embeddings with zero repeat drift", blockers: ["CUDA and deployment conversion are unqualified"]}
     intended_final_use_category: extended
 
   - <<: *component_defaults
@@ -679,18 +702,20 @@ components:
     implementation_path: app/inference_pipeline/diarization/pyannote_adapter.py
     registry_adapter_class: PyannoteCommunityDiarizationAdapter
     config_path: configs/inference/components/diarization/pyannote_community.yaml
-    config_sha256: A01AB43D01D7DBEFDA9E416B0294A3AAFF83D2F364480212AF1FD92877157AE3
+    config_sha256: 69C6D463BF9B2CFA3649D6E1D616300282631E6A1FC651B8E8EA2B7C2124A07B
     higher_level_config_references: [configs/inference/desktop_gpu.yaml]
     packages: [pyannote.audio==4.0.7]
-    model_assets: [models/cache/pyannote]
-    credential_requirements: [PYANNOTE_AUTH_TOKEN]
-    model_terms: "User must accept the upstream gated model terms; the registry records only the environment-variable name, never the token."
+    model_assets: [stage8:pyannote_community_1]
+    credential_requirements: [huggingface_cli_login_for_acquisition]
+    environment_profiles: [credential-diarization]
+    qualification_backend_id: pyannote_community
+    model_terms: "The exact gated Community-1 snapshot is CC BY 4.0 and requires attribution; gated contact conditions were accepted interactively and no token value is recorded."
     hardware_support: {cpu: true, gpu: true, cuda: true}
     device_dtype_support: [cpu/backend-default, cuda/backend-default-unqualified]
     input_contract: loaded_audio.v1
     output_contract: speaker_turns.v1
     compatibility_constraints: ["Gated model access and package required; downloads remain disabled during benchmark runs."]
-    readiness: {status: credential_required, evidence: "Current CPU qualification has neither package nor token", blockers: ["credential_required: accepted terms and PYANNOTE_AUTH_TOKEN", "unavailable: pyannote.audio not installed", "asset_required: local model cache"]}
+    readiness: {status: qualified, evidence: "runs/speaker_diarization_stack_qualification/credential_diarization_bounded.json pyannote_community: exact local snapshot produced repeatable anonymous turns and RTTM conversion", blockers: ["Stage 11 scientific evaluation remains future work"]}
     intended_final_use_category: credential_gated
 
   - <<: *component_defaults
@@ -749,6 +774,89 @@ components:
     compatibility_constraints: ["Separate Linux/CUDA environment; current fragment selects ClusteringDiarizer, not a shipped MSDD config."]
     readiness: {status: platform_required, evidence: "Current host is Windows with CPU-only Torch and no NeMo asset", blockers: ["platform_required: Linux", "incompatible_environment: CUDA Torch profile not built", "asset_required: diarization config"]}
     intended_final_use_category: platform_specific
+
+  - <<: *component_defaults
+    id: diarization.modular_energy_campplus
+    family: diarization
+    name: modular_energy_campplus
+    implementation_class: ModularClusteringDiarizer
+    implementation_path: app/inference_pipeline/diarization/modular_adapter.py
+    registry_adapter_class: ModularEnergyCAMPlusDiarizationAdapter
+    config_path: configs/inference/components/diarization/modular_energy_campplus.yaml
+    config_sha256: 6986E79F4FCE71162F83DC1A7D7DC487495E90F48036748A9302FC2C256F8AE0
+    packages: [numpy==2.2.6, torch==2.11.0, sherpa-onnx==1.13.4]
+    model_assets: [stage8:campplus_en_voxceleb]
+    environment_profiles: [onnx]
+    qualification_backend_id: modular_energy_campplus
+    supported_os: [windows, linux]
+    input_contract: loaded_audio.v1
+    output_contract: speaker_turns.v1
+    compatibility_constraints: ["Engineering-readiness composition only; anonymous labels; its clustering policy is independent of named-speaker thresholds and requires later scientific calibration."]
+    model_terms: "Energy VAD is repository code; exact CAM++ model and 3D-Speaker lineage are Apache-2.0."
+    readiness: {status: qualified, evidence: "runs/speaker_diarization_stack_qualification/onnx_bounded.json modular_energy_campplus: repeated anonymous turns and RTTM conversion passed", blockers: ["Clustering policy is an untuned engineering default; Stage 11 scientific evaluation pending"]}
+    intended_final_use_category: extended
+
+  - <<: *component_defaults
+    id: diarization.modular_pyannote_campplus
+    family: diarization
+    name: modular_pyannote_campplus
+    implementation_class: ModularClusteringDiarizer
+    implementation_path: app/inference_pipeline/diarization/modular_adapter.py
+    registry_adapter_class: ModularPyannoteCAMPlusDiarizationAdapter
+    config_path: configs/inference/components/diarization/modular_pyannote_campplus.yaml
+    config_sha256: 8CE49BF63544C00512D2280022997A77B9CCD6F228929089093B10334D948A82
+    packages: [numpy==2.2.6, torch==2.11.0, pyannote.audio==4.0.7, sherpa-onnx==1.13.4]
+    model_assets: [stage8:pyannote_segmentation_3_0, stage8:campplus_en_voxceleb]
+    environment_profiles: [credential-diarization]
+    qualification_backend_id: modular_pyannote_campplus
+    supported_os: [windows, linux]
+    input_contract: loaded_audio.v1
+    output_contract: speaker_turns.v1
+    compatibility_constraints: ["Gated segmentation access; offline runtime; anonymous labels; segmentation is used for speech activity rather than overlap-aware local-speaker attribution; later scientific calibration required."]
+    model_terms: "pyannote segmentation-3.0 and CAM++/3D-Speaker are MIT and Apache-2.0 respectively; gated access acceptance is still required."
+    readiness: {status: qualified, evidence: "runs/speaker_diarization_stack_qualification/credential_diarization_bounded.json modular_pyannote_campplus: exact local segmentation snapshot plus CAM++ produced repeatable anonymous turns", blockers: ["Clustering policy is an untuned engineering default; Stage 11 scientific evaluation pending"]}
+    intended_final_use_category: credential_gated
+
+  - <<: *component_defaults
+    id: diarization.modular_pyannote_eres2net
+    family: diarization
+    name: modular_pyannote_eres2net
+    implementation_class: ModularClusteringDiarizer
+    implementation_path: app/inference_pipeline/diarization/modular_adapter.py
+    registry_adapter_class: ModularPyannoteERes2NetDiarizationAdapter
+    config_path: configs/inference/components/diarization/modular_pyannote_eres2net.yaml
+    config_sha256: D7461F9992184C563E928F706BC46FA550AE686A1AFFCBDB9956A763D532E766
+    packages: [numpy==2.2.6, torch==2.11.0, pyannote.audio==4.0.7, sherpa-onnx==1.13.4]
+    model_assets: [stage8:pyannote_segmentation_3_0, stage8:eres2net_base_3dspeaker]
+    environment_profiles: [credential-diarization]
+    qualification_backend_id: modular_pyannote_eres2net
+    supported_os: [windows, linux]
+    input_contract: loaded_audio.v1
+    output_contract: speaker_turns.v1
+    compatibility_constraints: ["Gated segmentation access; offline runtime; anonymous labels; segmentation is used for speech activity rather than overlap-aware local-speaker attribution; later scientific calibration required."]
+    model_terms: "pyannote segmentation-3.0 and ERes2Net/3D-Speaker are MIT and Apache-2.0 respectively; gated access acceptance is still required."
+    readiness: {status: qualified, evidence: "runs/speaker_diarization_stack_qualification/credential_diarization_bounded.json modular_pyannote_eres2net: exact local segmentation snapshot plus ERes2Net produced repeatable anonymous turns", blockers: ["Clustering policy is an untuned engineering default; Stage 11 scientific evaluation pending"]}
+    intended_final_use_category: credential_gated
+
+  - <<: *component_defaults
+    id: diarization.modular_energy_wespeaker
+    family: diarization
+    name: modular_energy_wespeaker
+    implementation_class: ModularClusteringDiarizer
+    implementation_path: app/inference_pipeline/diarization/modular_adapter.py
+    registry_adapter_class: ModularEnergyWeSpeakerDiarizationAdapter
+    config_path: configs/inference/components/diarization/modular_energy_wespeaker.yaml
+    config_sha256: 2DBE11CA8947EA33A5FF9C4E7120F9DC62928D1739331B663997956EE0BE95B5
+    packages: [numpy==2.2.6, torch==2.11.0, wespeaker@1d4164bdb1dcfee4624093190fd5ecbb19447686]
+    model_assets: [stage8:wespeaker_voxceleb_resnet221_lm]
+    environment_profiles: [wespeaker]
+    qualification_backend_id: modular_energy_wespeaker
+    input_contract: loaded_audio.v1
+    output_contract: speaker_turns.v1
+    compatibility_constraints: ["Uses the repository's exact ResNet221-LM/TSTP WeSpeaker asset rather than the upstream diarization recipe model; anonymous labels; later scientific calibration required."]
+    model_terms: "WeSpeaker code is Apache-2.0; official WeSpeaker documentation assigns CC BY 4.0 to VoxCeleb-trained pretrained models."
+    readiness: {status: qualified, evidence: "runs/speaker_diarization_stack_qualification/wespeaker_bounded.json modular_energy_wespeaker: exact ResNet221-LM asset produced repeatable anonymous turns", blockers: ["Clustering policy is an untuned engineering default; Stage 11 scientific evaluation pending"]}
+    intended_final_use_category: extended
 
   - <<: *component_defaults
     id: workflows.enrollment_generation

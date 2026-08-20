@@ -1,0 +1,25 @@
+component:
+  slot: diarization
+  name: modular_pyannote_eres2net
+  enabled: true
+  adapter: ModularClusteringDiarizer
+  notes: Engineering-readiness path C; official pyannote segmentation-3.0, existing ERes2Net-base embedding, and anonymous deterministic clustering.
+  params:
+    model_source: modular/pyannote-segmentation-3.0-eres2net-base
+    segmentation_source: pyannote_segmentation_3_0
+    segmentation_model_path: models/cache/pyannote/segmentation-3.0
+    segmentation_onset: 0.5
+    segmentation_offset: 0.5
+    segmentation_min_duration_on: 0.0
+    segmentation_min_duration_off: 0.0
+    embedding_component_config: configs/inference/components/speaker_embedding/eres2net_base.yaml
+    clustering_policy_id: diarization_pyannote_eres2net_engineering_v1
+    clustering_threshold: 0.5
+    window_duration_sec: 1.5
+    window_step_sec: 0.75
+    min_embedding_window_sec: 0.5
+    min_turn_sec: 0.05
+    min_speakers: null
+    max_speakers: null
+    device: cpu
+    allow_model_downloads: false

@@ -1,7 +1,7 @@
 [CmdletBinding()]
 param(
     [Parameter(Mandatory = $true)]
-    [ValidateSet("core-cuda", "extended-local", "onnx", "wenet", "wespeaker", "credential-diarization", "edge-cpu", "moonshine-edge")]
+    [ValidateSet("core-cuda", "extended-local", "onnx", "wenet", "wespeaker", "credential-diarization", "edge-cpu", "moonshine-edge", "redimnet2")]
     [string]$Profile,
 
     [string]$Python = "",
@@ -70,11 +70,9 @@ function Model-BootstrapArguments {
         }
         "wenet" { return @("--wenet-asr") }
         "wespeaker" { return @("--wespeaker") }
+        "redimnet2" { return @("--redimnet2-b2") }
         "credential-diarization" {
-            if (-not $env:PYANNOTE_LICENSE_ACCEPTED -or -not $env:PYANNOTE_AUTH_TOKEN) {
-                throw "pyannote model bootstrap requires PYANNOTE_LICENSE_ACCEPTED=1 and PYANNOTE_AUTH_TOKEN. Secret values are never logged."
-            }
-            return @("--pyannote", "--hf-token-env", "PYANNOTE_AUTH_TOKEN")
+            return @("--pyannote")
         }
         "edge-cpu" {
             return @(
@@ -114,7 +112,7 @@ try {
             "torch==2.11.0", "torchaudio==2.11.0",
             "--index-url", "https://download.pytorch.org/whl/cu128"
         )
-    } elseif ($Profile -in @("edge-cpu", "moonshine-edge")) {
+    } elseif ($Profile -in @("edge-cpu", "moonshine-edge", "redimnet2")) {
         Invoke-Native $EnvironmentPython @(
             "-m", "pip", "install",
             "torch==2.11.0", "torchaudio==2.11.0",

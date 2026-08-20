@@ -1,0 +1,21 @@
+component:
+  slot: diarization
+  name: modular_energy_campplus
+  enabled: true
+  adapter: ModularClusteringDiarizer
+  notes: Engineering-readiness path A; energy speech regions, existing CAM++ embedding, and anonymous deterministic clustering.
+  params:
+    model_source: modular/energy-campplus
+    segmentation_source: energy_vad
+    embedding_component_config: configs/inference/components/speaker_embedding/campplus.yaml
+    clustering_policy_id: diarization_energy_campplus_engineering_v1
+    clustering_threshold: 0.5
+    window_duration_sec: 1.5
+    window_step_sec: 0.75
+    min_embedding_window_sec: 0.5
+    min_turn_sec: 0.05
+    min_speakers: null
+    max_speakers: null
+    device: cpu
+    energy_vad: {threshold: 0.01, min_speech_ms: 250, min_silence_ms: 100, pad_ms: 0, sample_rate: 16000}
+    allow_model_downloads: false

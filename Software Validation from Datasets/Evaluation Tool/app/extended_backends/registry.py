@@ -245,7 +245,13 @@ def _file_inventory(path: Path | None) -> list[dict[str, object]]:
         [path]
         if path.is_file()
         else sorted(
-            (item for item in path.rglob("*") if item.is_file()),
+            (
+                item
+                for item in path.rglob("*")
+                if item.is_file()
+                and "__pycache__" not in item.parts
+                and item.suffix.lower() not in {".pyc", ".pyo"}
+            ),
             key=lambda item: item.relative_to(path).as_posix(),
         )
     )

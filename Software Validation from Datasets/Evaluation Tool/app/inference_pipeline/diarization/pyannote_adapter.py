@@ -11,7 +11,7 @@ from pathlib import Path
 from typing import Any, Callable, Mapping
 
 from app.inference_pipeline.asr.audio_utils import resolve_model_path
-from app.inference_pipeline.diarization.adapter_utils import materialized_audio_path
+from app.inference_pipeline.diarization.adapter_utils import mono_samples
 from app.inference_pipeline.diarization.base import (
     DiarizationBase,
     DiarizationParameters,
@@ -47,8 +47,16 @@ class PyannoteCommunityDiarizer(DiarizationBase):
         call_kwargs = _speaker_count_kwargs(self.params)
         started_at = time.perf_counter()
         try:
-            with materialized_audio_path(audio, prefix="pyannote-diarization-audio-") as path:
-                annotation = pipeline(str(path), **call_kwargs)
+            import torch
+
+            samples = mono_samples(audio, target_sample_rate=16000)
+            annotation = pipeline(
+                {
+                    "waveform": torch.from_numpy(samples).unsqueeze(0),
+                    "sample_rate": 16000,
+                },
+                **call_kwargs,
+            )
         except Exception as exc:  # pragma: no cover - dependency boundary
             raise PyannoteDiarizationUnavailableError(
                 f"pyannote diarization failed: {exc}"
@@ -131,7 +139,14 @@ def _auth_token(params: DiarizationParameters) -> str | None:
     # ``HF_TOKEN`` is Hugging Face's standard variable and is also what the
     # repository bootstrap uses.  Supporting it avoids two divergent secrets.
     fallback = os.environ.get("HF_TOKEN")
-    return fallback or None
+    if fallback:
+        return fallback
+    try:
+        from huggingface_hub import get_token
+
+        return get_token()
+    except (ImportError, OSError):
+        return None
 
 
 def _loader_kwargs(

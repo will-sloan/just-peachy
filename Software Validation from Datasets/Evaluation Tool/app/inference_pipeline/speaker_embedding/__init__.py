@@ -25,6 +25,10 @@ from app.inference_pipeline.speaker_embedding.resemblyzer_adapter import (
     ResemblyzerSpeakerEmbeddingAdapter,
     ResemblyzerUnavailableError,
 )
+from app.inference_pipeline.speaker_embedding.redimnet2_adapter import (
+    ReDimNet2B2SpeakerEmbeddingAdapter,
+    ReDimNet2UnavailableError,
+)
 from app.inference_pipeline.speaker_embedding.sherpa_onnx_adapter import (
     CAMPlusSpeakerEmbeddingAdapter,
     ERes2NetBaseSpeakerEmbeddingAdapter,
@@ -44,6 +48,8 @@ __all__ = [
     "NoOpSpeakerEmbedding",
     "ResemblyzerSpeakerEmbeddingAdapter",
     "ResemblyzerUnavailableError",
+    "ReDimNet2B2SpeakerEmbeddingAdapter",
+    "ReDimNet2UnavailableError",
     "SimilarityDistribution",
     "SpeakerEmbedding",
     "SpeakerEmbeddingBase",

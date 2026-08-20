@@ -8,3 +8,6 @@ backends:
   eres2net_base_speaker_embedding:
     environment_profile: onnx
     qualification_statuses: [qualified, qualified_with_warnings]
+  redimnet2_b2_speaker_embedding:
+    environment_profile: redimnet2
+    qualification_statuses: [qualified, qualified_with_warnings]

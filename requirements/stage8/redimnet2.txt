@@ -1,0 +1,6 @@
+-r ../core.txt
+
+# Native official ReDimNet2 runtime. CPU wheels are selected explicitly by the
+# Stage 8 installer so this profile cannot alter another validated environment.
+torch==2.11.0
+torchaudio==2.11.0

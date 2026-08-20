@@ -109,6 +109,39 @@ class NemoDiarizationAdapter(ComponentAdapter):
     component_name = "nemo_diarization"
 
 
+class ModularEnergyCAMPlusDiarizationAdapter(ComponentAdapter):
+    component_slot = "diarization"
+    component_name = "modular_energy_campplus"
+
+
+class ModularPyannoteCAMPlusDiarizationAdapter(ComponentAdapter):
+    component_slot = "diarization"
+    component_name = "modular_pyannote_campplus"
+
+
+class ModularPyannoteERes2NetDiarizationAdapter(ComponentAdapter):
+    component_slot = "diarization"
+    component_name = "modular_pyannote_eres2net"
+
+
+class ModularEnergyWeSpeakerDiarizationAdapter(ComponentAdapter):
+    component_slot = "diarization"
+    component_name = "modular_energy_wespeaker"
+
+
+class ModularDiarizationConfigAdapter(ComponentAdapter):
+    """Resolve additive modular configurations without rewriting their identity."""
+
+    component_slot = "diarization"
+    component_name = "modular_config"
+
+    @classmethod
+    def dry_run_metadata(cls, component: ComponentConfig) -> JsonObject:
+        metadata = super().dry_run_metadata(component)
+        metadata["component_name"] = component.name
+        return metadata
+
+
 class NoOpASRAdapter(ComponentAdapter):
     component_slot = "asr"
     component_name = "no_op_asr"
@@ -204,6 +237,11 @@ class ERes2NetBaseSpeakerEmbeddingCatalogAdapter(ComponentAdapter):
     component_name = "eres2net_base_speaker_embedding"
 
 
+class ReDimNet2B2SpeakerEmbeddingCatalogAdapter(ComponentAdapter):
+    component_slot = "speaker_embedding"
+    component_name = "redimnet2_b2_speaker_embedding"
+
+
 class ResemblyzerSpeakerEmbeddingAdapter(ComponentAdapter):
     component_slot = "speaker_embedding"
     component_name = "resemblyzer"
@@ -234,6 +272,10 @@ REGISTERED_COMPONENTS: dict[str, dict[str, type[ComponentAdapter]]] = {
     },
     "diarization": {
         NemoDiarizationAdapter.component_name: NemoDiarizationAdapter,
+        ModularEnergyCAMPlusDiarizationAdapter.component_name: ModularEnergyCAMPlusDiarizationAdapter,
+        ModularPyannoteCAMPlusDiarizationAdapter.component_name: ModularPyannoteCAMPlusDiarizationAdapter,
+        ModularPyannoteERes2NetDiarizationAdapter.component_name: ModularPyannoteERes2NetDiarizationAdapter,
+        ModularEnergyWeSpeakerDiarizationAdapter.component_name: ModularEnergyWeSpeakerDiarizationAdapter,
         NoOpDiarizationAdapter.component_name: NoOpDiarizationAdapter,
         PicovoiceFalconDiarizationAdapter.component_name: PicovoiceFalconDiarizationAdapter,
         PyannoteCommunityDiarizationAdapter.component_name: PyannoteCommunityDiarizationAdapter,
@@ -257,6 +299,7 @@ REGISTERED_COMPONENTS: dict[str, dict[str, type[ComponentAdapter]]] = {
     "speaker_embedding": {
         CAMPlusSpeakerEmbeddingCatalogAdapter.component_name: CAMPlusSpeakerEmbeddingCatalogAdapter,
         ERes2NetBaseSpeakerEmbeddingCatalogAdapter.component_name: ERes2NetBaseSpeakerEmbeddingCatalogAdapter,
+        ReDimNet2B2SpeakerEmbeddingCatalogAdapter.component_name: ReDimNet2B2SpeakerEmbeddingCatalogAdapter,
         NoOpSpeakerEmbeddingAdapter.component_name: NoOpSpeakerEmbeddingAdapter,
         ResemblyzerSpeakerEmbeddingAdapter.component_name: ResemblyzerSpeakerEmbeddingAdapter,
         SherpaOnnxSpeakerEmbeddingAdapter.component_name: SherpaOnnxSpeakerEmbeddingAdapter,
@@ -311,6 +354,13 @@ def resolve_component(slot: str, component: ComponentConfig) -> ResolvedComponen
 
     registry = REGISTERED_COMPONENTS.get(slot, {})
     adapter_class = registry.get(component.name)
+    if (
+        adapter_class is None
+        and slot == "diarization"
+        and component.name.startswith("modular_")
+        and component.adapter == "ModularClusteringDiarizer"
+    ):
+        adapter_class = ModularDiarizationConfigAdapter
     if adapter_class is None:
         known = ", ".join(sorted(registry)) or "none"
         raise UnknownComponentError(
