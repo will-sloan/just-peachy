@@ -25,6 +25,7 @@ from app.speaker_protocol.contracts import (
     eligible_embedding_backends,
 )
 from app.speaker_protocol.manifests import MANIFEST_FILENAMES, read_protocol_rows
+from app.utils.paths import resolve_data_path_from_logical
 
 
 BASE_CONFIG = TOOL_ROOT / "configs" / "inference" / "live_mic_whisper_base.yaml"
@@ -87,7 +88,7 @@ def extract_rows(
                 "direct extraction refuses degraded rows; use an approved augmented inference path"
             )
         item_id = str(row["item_id"])
-        path = (TOOL_ROOT.parent / str(row["audio_path_project_relative"])).resolve()
+        path = resolve_data_path_from_logical(str(row["audio_path_project_relative"])).resolve()
         if not path.is_file():
             raise FileNotFoundError(f"speaker protocol audio is missing: {path}")
         info = sf.info(path)

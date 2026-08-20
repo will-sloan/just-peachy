@@ -1,0 +1,214 @@
+{
+  "age_inventory": [
+    {
+      "age_category": "unspecified",
+      "clips": 919706,
+      "speakers": 76966
+    },
+    {
+      "age_category": "eighties",
+      "clips": 2427,
+      "speakers": 55
+    },
+    {
+      "age_category": "fifties",
+      "clips": 135965,
+      "speakers": 1591
+    },
+    {
+      "age_category": "fourties",
+      "clips": 240784,
+      "speakers": 2651
+    },
+    {
+      "age_category": "nineties",
+      "clips": 306,
+      "speakers": 12
+    },
+    {
+      "age_category": "seventies",
+      "clips": 17519,
+      "speakers": 365
+    },
+    {
+      "age_category": "sixties",
+      "clips": 115668,
+      "speakers": 916
+    },
+    {
+      "age_category": "teens",
+      "clips": 151281,
+      "speakers": 3256
+    },
+    {
+      "age_category": "thirties",
+      "clips": 357457,
+      "speakers": 5370
+    },
+    {
+      "age_category": "twenties",
+      "clips": 641210,
+      "speakers": 11552
+    }
+  ],
+  "age_mapping": [
+    {
+      "include_in_60plus": true,
+      "observed_category": "eighties"
+    },
+    {
+      "include_in_60plus": false,
+      "observed_category": "fifties"
+    },
+    {
+      "include_in_60plus": false,
+      "observed_category": "fourties"
+    },
+    {
+      "include_in_60plus": true,
+      "observed_category": "nineties"
+    },
+    {
+      "include_in_60plus": true,
+      "observed_category": "seventies"
+    },
+    {
+      "include_in_60plus": true,
+      "observed_category": "sixties"
+    },
+    {
+      "include_in_60plus": false,
+      "observed_category": "teens"
+    },
+    {
+      "include_in_60plus": false,
+      "observed_category": "thirties"
+    },
+    {
+      "include_in_60plus": false,
+      "observed_category": "twenties"
+    },
+    {
+      "include_in_60plus": false,
+      "observed_category": "unspecified"
+    }
+  ],
+  "audio_format": [
+    "MP3"
+  ],
+  "audio_root_logical": "Raw Datasets (Not formatted)/Common Voice/cv-corpus-26.0-2026-06-12/prepared/en/clips",
+  "duration": {
+    "count": 101411,
+    "maximum": 23.668125,
+    "mean": 5.603481391761508,
+    "median": 5.5155,
+    "minimum": 1.012125,
+    "p05": 2.885625,
+    "p95": 8.645625,
+    "total": 568254.6514199263
+  },
+  "locale_selected": "en",
+  "materialized_audio_files": 101411,
+  "metadata_files": [
+    {
+      "bytes": 9322,
+      "name": "README.md",
+      "rows": null,
+      "sha256": "FB06B4E1B93D7E2EFDB39FF690FF05386DC4CD6AEEEB611955254B51793FFE14"
+    },
+    {
+      "bytes": 86828609,
+      "name": "clip_durations.tsv",
+      "rows": 2583051,
+      "sha256": "AF71F04F2EB385A6BADC42F3CD16560C592FB52672B3391C822DC3E0AADD1DFD"
+    },
+    {
+      "bytes": 4926810,
+      "name": "dev.tsv",
+      "rows": 16397,
+      "sha256": "63354017E4CDD1202A28B6AFC7363CA0DCB4EF5DF08DB6848CDA3FD18B060A0B"
+    },
+    {
+      "bytes": 100590112,
+      "name": "invalidated.tsv",
+      "rows": 313320,
+      "sha256": "75558A95942CB7C21FEC619E6F2CE4FBDF4EC0A6D573808CEC564F0354A83FA2"
+    },
+    {
+      "bytes": 117951943,
+      "name": "other.tsv",
+      "rows": 367025,
+      "sha256": "A9B57E5C32DD28AA7D9727B9C51B418D13E0F114F0533D57B93BFA07A10F9BB0"
+    },
+    {
+      "bytes": 1451770,
+      "name": "reported.tsv",
+      "rows": 9442,
+      "sha256": "FD67CC62F6A1B46470E01FB32979FC3F298D9F516DDBF6D4B77D03BF72E5A23E"
+    },
+    {
+      "bytes": 4921137,
+      "name": "test.tsv",
+      "rows": 16378,
+      "sha256": "7E5E2D2B2BCF2F9A477452967F284CD7CB468DD2CD3F24D47512BF6EC1C7A79C"
+    },
+    {
+      "bytes": 378903477,
+      "name": "train.tsv",
+      "rows": 1147340,
+      "sha256": "61202148044A31D3CE11A5E9133EDAB8C6F450927E6C48608BF41D0F6B043B39"
+    },
+    {
+      "bytes": 7653858,
+      "name": "unvalidated_sentences.tsv",
+      "rows": 40231,
+      "sha256": "09D6CD5B07EDFC70BB6A7982A74080044371E71302E5832BCBCD02F7B5AA8A5B"
+    },
+    {
+      "bytes": 606556764,
+      "name": "validated.tsv",
+      "rows": 1901978,
+      "sha256": "368EAD1AB9D7F5E11F6EDD3B840DE7602DF1524220EE238BB068479048D6BBC5"
+    },
+    {
+      "bytes": 236756712,
+      "name": "validated_sentences.tsv",
+      "rows": 1681666,
+      "sha256": "449441392D2599F58B241B6B5DEC292C4C7202B20DA312CFDA05B8D0D4609FFF"
+    }
+  ],
+  "metadata_root_logical": "Raw Datasets (Not formatted)/Common Voice/cv-corpus-26.0-2026-06-12/prepared/en/metadata/original",
+  "metadata_schema": [
+    "client_id",
+    "path",
+    "sentence_id",
+    "sentence",
+    "sentence_domain",
+    "up_votes",
+    "down_votes",
+    "age",
+    "gender",
+    "accents",
+    "variant",
+    "locale",
+    "segment"
+  ],
+  "missing_materialized_audio_files": 0,
+  "release_id": "cv-corpus-26.0-2026-06-12",
+  "schema_version": "commonvoice-local-audit.v1",
+  "selected_60plus_categories": [
+    "eighties",
+    "nineties",
+    "seventies",
+    "sixties"
+  ],
+  "validated_60plus_clips": 101411,
+  "validated_60plus_duplicate_clips": 0,
+  "validated_60plus_duplicate_metadata_rows": 0,
+  "validated_60plus_unique_clips": 101411,
+  "validated_60plus_unique_speakers": 1252,
+  "whole_release_duplicate_clip_paths": 0,
+  "whole_release_metadata_rows": 2582323,
+  "whole_release_unique_clip_paths": 2582323,
+  "whole_release_unique_speakers": 100168
+}

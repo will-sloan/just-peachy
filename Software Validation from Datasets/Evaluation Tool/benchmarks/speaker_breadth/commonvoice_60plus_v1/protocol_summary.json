@@ -1,0 +1,66 @@
+{
+  "age_categories": {
+    "eighties": {
+      "calibration_unknown": 3,
+      "evaluation_unknown": 1,
+      "known": 9,
+      "total": 13
+    },
+    "nineties": {
+      "calibration_unknown": 0,
+      "evaluation_unknown": 1,
+      "known": 1,
+      "total": 2
+    },
+    "seventies": {
+      "calibration_unknown": 9,
+      "evaluation_unknown": 26,
+      "known": 67,
+      "total": 102
+    },
+    "sixties": {
+      "calibration_unknown": 36,
+      "evaluation_unknown": 65,
+      "known": 195,
+      "total": 296
+    }
+  },
+  "clips": {
+    "calibration": 3920,
+    "enrollment": 1360,
+    "evaluation": 6405,
+    "total": 11685
+  },
+  "duration": {
+    "total_hours": 18.126725125555556,
+    "total_seconds": 65256.210452
+  },
+  "eligibility": {
+    "known_candidates": 358,
+    "known_candidates_with_five_clip_reserve": 310,
+    "known_minimum_clips": 30,
+    "unique_transcript_clip_distribution": {
+      "00-04": 224,
+      "05-09": 301,
+      "10-24": 314,
+      "100+": 140,
+      "25-29": 55,
+      "30-34": 48,
+      "35-49": 73,
+      "50-99": 97
+    },
+    "unknown_candidates": 413,
+    "unknown_candidates_with_five_clip_reserve": 358,
+    "unknown_minimum_clips": 25
+  },
+  "model_independent_manifest": true,
+  "protocol_id": "commonvoice_60plus_v1_27e72793b4c0",
+  "schema_version": "speaker-breadth-protocol-summary.v1",
+  "selection_seed": 3800,
+  "speakers": {
+    "calibration_unknown": 48,
+    "evaluation_unknown": 93,
+    "known": 272,
+    "total": 413
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "all_required_checks_passed": true,
+  "calibration_evaluation_source_disjoint": true,
+  "calibration_evaluation_unknown_speakers_disjoint": true,
+  "clean_degraded_variants_stay_in_one_split": true,
+  "enrollment_probe_source_disjoint": true,
+  "global_transcript_cross_split_count": 516,
+  "item_ids_unique": true,
+  "known_unknown_speakers_disjoint": true,
+  "private_identity_mapping_absent": true,
+  "same_speaker_transcript_cross_split_count": 0,
+  "selected_paths_exist": true,
+  "source_audio_unique_across_all_roles": true,
+  "speaker_age_mapping_consistent": true,
+  "unknown_speakers_never_enrolled": true,
+  "unknown_speakers_not_enrolled": true
+}

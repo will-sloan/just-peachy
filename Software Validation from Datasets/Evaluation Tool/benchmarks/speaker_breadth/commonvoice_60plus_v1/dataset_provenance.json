@@ -1,0 +1,67 @@
+{
+  "age_category_counts": {
+    "eighties": {
+      "calibration_unknown": 3,
+      "evaluation_unknown": 1,
+      "known": 9,
+      "total": 13
+    },
+    "nineties": {
+      "calibration_unknown": 0,
+      "evaluation_unknown": 1,
+      "known": 1,
+      "total": 2
+    },
+    "seventies": {
+      "calibration_unknown": 9,
+      "evaluation_unknown": 26,
+      "known": 67,
+      "total": 102
+    },
+    "sixties": {
+      "calibration_unknown": 36,
+      "evaluation_unknown": 65,
+      "known": 195,
+      "total": 296
+    }
+  },
+  "candidate_60plus_speakers": 1252,
+  "common_voice_release": "cv-corpus-26.0-2026-06-12",
+  "common_voice_root_logical": "Raw Datasets (Not formatted)/Common Voice/cv-corpus-26.0-2026-06-12",
+  "eligible_known_speakers": 358,
+  "eligible_unknown_speakers": 413,
+  "locale": "en",
+  "metadata_file_hashes": {
+    "README.md": "FB06B4E1B93D7E2EFDB39FF690FF05386DC4CD6AEEEB611955254B51793FFE14",
+    "clip_durations.tsv": "AF71F04F2EB385A6BADC42F3CD16560C592FB52672B3391C822DC3E0AADD1DFD",
+    "dev.tsv": "63354017E4CDD1202A28B6AFC7363CA0DCB4EF5DF08DB6848CDA3FD18B060A0B",
+    "invalidated.tsv": "75558A95942CB7C21FEC619E6F2CE4FBDF4EC0A6D573808CEC564F0354A83FA2",
+    "other.tsv": "A9B57E5C32DD28AA7D9727B9C51B418D13E0F114F0533D57B93BFA07A10F9BB0",
+    "reported.tsv": "FD67CC62F6A1B46470E01FB32979FC3F298D9F516DDBF6D4B77D03BF72E5A23E",
+    "test.tsv": "7E5E2D2B2BCF2F9A477452967F284CD7CB468DD2CD3F24D47512BF6EC1C7A79C",
+    "train.tsv": "61202148044A31D3CE11A5E9133EDAB8C6F450927E6C48608BF41D0F6B043B39",
+    "unvalidated_sentences.tsv": "09D6CD5B07EDFC70BB6A7982A74080044371E71302E5832BCBCD02F7B5AA8A5B",
+    "validated.tsv": "368EAD1AB9D7F5E11F6EDD3B840DE7602DF1524220EE238BB068479048D6BBC5",
+    "validated_sentences.tsv": "449441392D2599F58B241B6B5DEC292C4C7202B20DA312CFDA05B8D0D4609FFF"
+  },
+  "metadata_source_logical": "Raw Datasets (Not formatted)/Common Voice/cv-corpus-26.0-2026-06-12/prepared/en/metadata/original/validated.tsv",
+  "metadata_source_sha256": "368EAD1AB9D7F5E11F6EDD3B840DE7602DF1524220EE238BB068479048D6BBC5",
+  "protocol_id": "commonvoice_60plus_v1_27e72793b4c0",
+  "raw_common_voice_client_ids_published": false,
+  "repository_git_sha_at_prepare": "04c5e88629c975a3acab0fbcb32f6946ec533c2d",
+  "schema_version": "speaker-breadth-dataset-provenance.v1",
+  "selected_audio_duration_seconds": 65256.210452,
+  "selected_clips": 11685,
+  "selected_materialization_membership_sha256": "85146A3721553F8621B96C96A1FC321A5825584382BBC7751AADB558FAACCF0A",
+  "selected_speakers": {
+    "calibration_unknown": 48,
+    "evaluation_unknown": 93,
+    "known": 272,
+    "total": 413
+  },
+  "selection_algorithm_version": "commonvoice-speaker-breadth-selection.v1",
+  "selection_config_path": "configs/automated_evaluation/speaker_breadth_commonvoice_60plus.v1.yaml",
+  "selection_config_sha256": "7009398D67B8CDC5943D10F067E82F0C770F4CD719A481AE2758048D3EEEF1DE",
+  "selection_seed": 3800,
+  "source_archive_sha256": "6809228E6AB506D18F6A1EBC830056450F8266C8F513D6038BDB0FC88A49E6CB"
+}

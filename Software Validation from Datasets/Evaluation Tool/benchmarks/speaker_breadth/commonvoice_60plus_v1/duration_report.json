@@ -1,0 +1,59 @@
+{
+  "all_selected_clips": {
+    "count": 11685,
+    "maximum": 18.580125,
+    "mean": 5.584613645870775,
+    "median": 5.5155,
+    "minimum": 1.108125,
+    "p05": 2.717625,
+    "p95": 8.717625,
+    "total": 65256.210452
+  },
+  "below_stage10_minimum_count": 0,
+  "by_protocol_split": {
+    "calibration": {
+      "count": 3920,
+      "maximum": 14.452125,
+      "mean": 5.500869736479592,
+      "median": 5.429625,
+      "minimum": 1.540125,
+      "p05": 2.708125,
+      "p95": 8.555656,
+      "total": 21563.409367
+    },
+    "enrollment": {
+      "count": 1360,
+      "maximum": 16.684125,
+      "mean": 5.5815317250000005,
+      "median": 5.4949375,
+      "minimum": 1.108125,
+      "p05": 2.763,
+      "p95": 8.57475,
+      "total": 7590.883146
+    },
+    "evaluation": {
+      "count": 6405,
+      "maximum": 18.580125,
+      "mean": 5.6365211458235756,
+      "median": 5.572125,
+      "minimum": 1.420125,
+      "p05": 2.740125,
+      "p95": 8.861625,
+      "total": 36101.917939
+    }
+  },
+  "per_speaker_total": {
+    "count": 413,
+    "maximum": 230.71275000000003,
+    "mean": 158.00535218401936,
+    "median": 159.726375,
+    "minimum": 66.727125,
+    "p05": 106.98630000000001,
+    "p95": 207.74025,
+    "total": 65256.210452
+  },
+  "schema_version": "speaker-breadth-duration-report.v1",
+  "stage10_minimum_duration_sec": 0.75,
+  "unusually_long_count": 3,
+  "unusually_long_threshold_sec": 15.0
+}

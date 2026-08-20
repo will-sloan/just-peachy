@@ -1,0 +1,62 @@
+{
+  "artifacts": {
+    "calibration": {
+      "bytes": 325536,
+      "path": "calibration.parquet",
+      "rows": 3920,
+      "sha256": "8D50C29E4EB3E1DC9E3455598D263B981393C4B0E0A3C7D39440F28FFD7B62D6"
+    },
+    "clean_probes": {
+      "bytes": 837355,
+      "path": "clean_probes.parquet",
+      "rows": 10325,
+      "sha256": "97E308BB40B07BBBB45607A9B3BB36E5FDA16C0BC218987E909ABD76F367FD00"
+    },
+    "degraded_probes": {
+      "bytes": 4196,
+      "path": "degraded_probes.parquet",
+      "rows": 0,
+      "sha256": "F5D8616461DFD5578F8A5C6F87B87738B16F55DEE6959B677F293784B98AEACC"
+    },
+    "enrollment": {
+      "bytes": 122297,
+      "path": "enrollment.parquet",
+      "rows": 1360,
+      "sha256": "D82907D148384DC6333B8D4A79EF043CCF648A19126D3C410F2211B40EBC45DF"
+    },
+    "known_evaluation": {
+      "bytes": 340274,
+      "path": "known_evaluation.parquet",
+      "rows": 4080,
+      "sha256": "BD3C5D60679565894ADE829FCD5DD7EAA8BFAD56048831C9E563C3004E45E3CD"
+    },
+    "unknown_evaluation": {
+      "bytes": 194444,
+      "path": "unknown_evaluation.parquet",
+      "rows": 2325,
+      "sha256": "55E591D339BE97A551EA9E778B189BC6EE05CE8EB3A0B2C0089305926761903C"
+    }
+  },
+  "authoritative_representation": "parquet",
+  "benchmark_tier": "large",
+  "hash_algorithm": "sha256",
+  "manifest_schema_version": "speaker-protocol-manifest.v1",
+  "policy": {
+    "path": "configs/automated_evaluation/speaker_breadth_commonvoice_60plus.v1.yaml",
+    "schema_version": "speaker-breadth-commonvoice-60plus.v1",
+    "sha256": "7009398D67B8CDC5943D10F067E82F0C770F4CD719A481AE2758048D3EEEF1DE"
+  },
+  "privacy": {
+    "private_real_name_mapping_included": false,
+    "raw_common_voice_client_ids_included": false,
+    "speaker_ids": "deterministic pseudonyms"
+  },
+  "protocol_id": "commonvoice_60plus_v1_27e72793b4c0",
+  "schema_version": "speaker-protocol-manifest-index.v1",
+  "selection_seed": 3800,
+  "source_manifest": {
+    "logical_path": "metadata/original/validated.tsv",
+    "path": "validated.tsv",
+    "sha256": "368EAD1AB9D7F5E11F6EDD3B840DE7602DF1524220EE238BB068479048D6BBC5"
+  }
+}

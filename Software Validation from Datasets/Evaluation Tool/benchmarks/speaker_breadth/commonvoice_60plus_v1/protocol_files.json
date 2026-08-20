@@ -1,0 +1,86 @@
+{
+  "entries": {
+    "README.md": {
+      "bytes": 2290,
+      "sha256": "E1888BE2AC6649B1F8BA2D96CFF6FD6C6A7A5595C45AD0AFD5BA3DBC89711E06"
+    },
+    "calibration.parquet": {
+      "bytes": 325536,
+      "sha256": "8D50C29E4EB3E1DC9E3455598D263B981393C4B0E0A3C7D39440F28FFD7B62D6"
+    },
+    "clean_probes.parquet": {
+      "bytes": 837355,
+      "sha256": "97E308BB40B07BBBB45607A9B3BB36E5FDA16C0BC218987E909ABD76F367FD00"
+    },
+    "dataset_audit.json": {
+      "bytes": 5171,
+      "sha256": "685CC91FB8D6A1CE1E63D87A6C5C6528DEDFCA1339805BE0E5B1FE684A002A38"
+    },
+    "dataset_provenance.json": {
+      "bytes": 3037,
+      "sha256": "3BFCB43CC354152921760BB7B6146B4F00727D8919080B6FDC98264B71329ABD"
+    },
+    "degraded_probes.parquet": {
+      "bytes": 4196,
+      "sha256": "F5D8616461DFD5578F8A5C6F87B87738B16F55DEE6959B677F293784B98AEACC"
+    },
+    "duration_report.json": {
+      "bytes": 1411,
+      "sha256": "143FB5CE6489C786E3FA1DC3EBA756A68C2265E5E4AAE0410D0935B58EB3708F"
+    },
+    "enrollment.parquet": {
+      "bytes": 122297,
+      "sha256": "D82907D148384DC6333B8D4A79EF043CCF648A19126D3C410F2211B40EBC45DF"
+    },
+    "known_evaluation.parquet": {
+      "bytes": 340274,
+      "sha256": "BD3C5D60679565894ADE829FCD5DD7EAA8BFAD56048831C9E563C3004E45E3CD"
+    },
+    "leakage_validation.json": {
+      "bytes": 663,
+      "sha256": "A058C276C414F984BA79B9A13BFF00B29F5BC31655E89FFAFB3196EB75C4DF3E"
+    },
+    "metadata_coverage.tsv": {
+      "bytes": 1047,
+      "sha256": "6BD995CD5123404819C7D9418F57690D34D22BFFDCF954F71B6729EB8FDAAFAF"
+    },
+    "protocol_summary.json": {
+      "bytes": 1490,
+      "sha256": "853A92E972AEBEDF6B597715C71128E7AA642D0A2898F33655AE2BC7498B1533"
+    },
+    "selected_audio_validation.tsv": {
+      "bytes": 2831851,
+      "sha256": "2E4E8CD1AEE45D746C0344EF866FDC8648143DE692B8A647523145893C918472"
+    },
+    "selection_config.yaml": {
+      "bytes": 1950,
+      "sha256": "7009398D67B8CDC5943D10F067E82F0C770F4CD719A481AE2758048D3EEEF1DE"
+    },
+    "source_selection.tsv": {
+      "bytes": 6648195,
+      "sha256": "C2A6666569D53FB4ED96B55FF6090BE884E9F05F120E7B6C3225152292FB9566"
+    },
+    "speaker_inventory.tsv": {
+      "bytes": 33469,
+      "sha256": "2659A6882B45CB9EAC25B4F7BFA2CF92A4DF260C4264A0C3AA86DFF090620E55"
+    },
+    "speaker_protocol_manifest.json": {
+      "bytes": 2111,
+      "sha256": "5620B354F6D6B17985C5CDA7991C5D0A2749ECF6DBDB08585B92B00612C3D42E"
+    },
+    "speaker_protocol_manifest.sha256": {
+      "bytes": 97,
+      "sha256": "583DBC98B6D9C7DE47B4BB23536697FCC2D08FD2514F7EAF5788393DAC4E5093"
+    },
+    "split_assignments.tsv": {
+      "bytes": 24817,
+      "sha256": "718EB13031A3C651E6439C023EE67974DEE5F411305367F03D08D5BED2A26CE2"
+    },
+    "unknown_evaluation.parquet": {
+      "bytes": 194444,
+      "sha256": "55E591D339BE97A551EA9E778B189BC6EE05CE8EB3A0B2C0089305926761903C"
+    }
+  },
+  "hash_algorithm": "sha256",
+  "schema_version": "speaker-breadth-file-index.v1"
+}

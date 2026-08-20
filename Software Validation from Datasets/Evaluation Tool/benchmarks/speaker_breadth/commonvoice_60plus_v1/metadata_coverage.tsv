@@ -1,0 +1,6 @@
+field	non_missing_rows	total_rows	row_coverage_percent	non_missing_speakers	total_speakers	speaker_coverage_percent	observed_categories_json
+age_category	11685	11685	100.000	413	413	100.000	"[""eighties"",""nineties"",""seventies"",""sixties""]"
+gender	11565	11685	98.973	409	413	99.031	"[""female_feminine"",""male_masculine""]"
+accent	9280	11685	79.418	327	413	79.177	"[""Australian English"",""Canadian English"",""England English"",""England English|Southern African (South Africa, Zimbabwe, Namibia)"",""India and South Asia (India, Pakistan, Sri Lanka)"",""Irish English"",""New Zealand English"",""Scottish English"",""Southern African (South Africa, Zimbabwe, Namibia)"",""United States English"",""United States English|Midwestern States (Michigan)"",""United States English|North Indiana"",""United States English|Pacific Northwest"",""United States English|Texas"",""United States English|United States, west coast English"",""Welsh English""]"
+variant	0	11685	0.000	0	413	0.000	[]
+locale	11685	11685	100.000	413	413	100.000	"[""en""]"

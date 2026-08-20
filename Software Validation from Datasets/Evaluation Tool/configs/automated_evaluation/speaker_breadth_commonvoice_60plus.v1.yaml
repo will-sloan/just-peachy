@@ -1,0 +1,72 @@
+schema_version: speaker-breadth-commonvoice-60plus.v1
+selection_algorithm_version: commonvoice-speaker-breadth-selection.v1
+selection_seed: 3800
+
+dataset:
+  dataset_id: common_voice_en_26_0_60plus
+  release_id: cv-corpus-26.0-2026-06-12
+  release_root_logical: Raw Datasets (Not formatted)/Common Voice/cv-corpus-26.0-2026-06-12
+  canonical_metadata: validated.tsv
+  state_database: common_voice_phase3.sqlite3
+  locale: en
+  required_columns:
+    - client_id
+    - path
+    - sentence_id
+    - sentence
+    - sentence_domain
+    - up_votes
+    - down_votes
+    - age
+    - gender
+    - accents
+    - variant
+    - locale
+    - segment
+
+# Explicit mapping of every age category observed in the local English release.
+# These are self-reported categories, not verified exact chronological ages.
+age_mapping:
+  unspecified: false
+  teens: false
+  twenties: false
+  thirties: false
+  fourties: false
+  fifties: false
+  sixties: true
+  seventies: true
+  eighties: true
+  nineties: true
+
+eligibility:
+  # Derived from Stage 10 Large: 5 enrollment clips plus 10 calibration and
+  # 15 evaluation source clips for Known; 25 source clips per Unknown.
+  known_enrollment_clips: 5
+  known_calibration_clips: 10
+  known_evaluation_clips: 15
+  known_total_clips: 30
+  unknown_total_clips: 25
+  useful_reserve_clips: 5
+  minimum_clip_duration_sec: 0.75
+  require_unique_transcript_per_selected_clip_within_speaker: true
+
+selection:
+  primary_cohort: all_eligible_speakers
+  per_speaker_cap_policy: exact_role_minimum
+  unknown_speaker_fraction: 0.34
+  calibration_unknown_speaker_fraction: 0.34
+  preserve_age_categories: true
+  prioritize_speaker_breadth: true
+
+duration_diagnostics:
+  unusually_long_sec: 15.0
+
+methodology:
+  enrollment_aggregation: normalized_mean
+  verification_score: cosine
+  threshold_source: calibration_eer
+  fixed_far_targets: [0.01, 0.05]
+  top_k: [1, 3, 5]
+  bootstrap_repetitions: 500
+  bootstrap_seed: 3800
+  unknown_label: Unknown
