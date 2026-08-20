@@ -1,0 +1,17 @@
+schema_version: hybrid-enrollment-policy.v1
+policy_id: hybrid_enrollment_policy_non_scientific_smoke_v1
+scientific: false
+speaker_backend_id: campplus_speaker_embedding
+source_study_protocol_id: speaker_enrollment_duration_v1_non_scientific_smoke_only
+enrollment_utterance_count: 1
+aggregation_method: normalized_mean
+normalization: l2
+scoring_method: cosine_similarity
+product_threshold: 0.5
+score_margin: 0.0
+minimum_segment_duration_sec: 0.75
+minimum_evidence_duration_sec: 0.75
+evaluation_tuning_prohibited: true
+notes: >-
+  Engineering-only policy for the bounded hybrid smoke. It is not a selected
+  enrollment-study result and must never be used for scientific evaluation.

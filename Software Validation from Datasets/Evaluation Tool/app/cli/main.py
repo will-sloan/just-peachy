@@ -40,6 +40,7 @@ from app.scoring.scorer import score_run
 from app.speaker_protocol.cli import add_speaker_protocol_parser
 from app.speaker_breadth.cli import add_speaker_breadth_parser
 from app.speaker_enrollment.cli import add_speaker_enrollment_parser
+from app.hybrid_speaker_attribution.cli import add_hybrid_attribution_parser
 from app.utils.json_utils import read_jsonl, write_json, write_jsonl
 from app.utils.logging_utils import setup_run_logger
 from app.utils.paths import find_project_root, run_root, safe_relative_to
@@ -115,6 +116,7 @@ def build_parser() -> argparse.ArgumentParser:
     add_speaker_enrollment_parser(subparsers)
     add_diarization_parser(subparsers)
     add_controlled_diarization_parser(subparsers)
+    add_hybrid_attribution_parser(subparsers)
     add_analysis_parser(subparsers)
     return parser
 

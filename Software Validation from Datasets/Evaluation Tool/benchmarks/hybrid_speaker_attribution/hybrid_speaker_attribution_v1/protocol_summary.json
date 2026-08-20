@@ -1,0 +1,23 @@
+{
+  "anonymous_scope": "recording",
+  "benchmark_id": "controlled_diarization_v1_acd5e6e431d8",
+  "benchmark_summary_sha256": "FE2E644A3349B42D42C797E887FC2D0ECC42CC969434556C7854582643C81774",
+  "case_counts": {
+    "development": 60,
+    "evaluation": 120,
+    "smoke": 8
+  },
+  "config_sha256": "06F236314F8C45C92F0EC436AAF56638857B45DB81ECA122A55D2A32FA121607",
+  "development_evaluation_speaker_disjoint": true,
+  "full_scientific_run_started": false,
+  "overlay_counts": {
+    "development": 180,
+    "evaluation": 360,
+    "smoke": 24
+  },
+  "protocol_id": "hybrid_speaker_attribution_v1_6c43a2bbe1ca",
+  "schema_version": "hybrid-speaker-attribution-protocol.v1",
+  "seed": 3800,
+  "waveforms_copied": false,
+  "waveforms_modified": false
+}

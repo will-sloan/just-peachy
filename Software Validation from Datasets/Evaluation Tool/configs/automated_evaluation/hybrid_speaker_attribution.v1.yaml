@@ -1,0 +1,36 @@
+schema_version: hybrid-speaker-attribution-config.v1
+protocol_version: hybrid_speaker_attribution_v1
+seed: 3800
+source_benchmark_id: controlled_diarization_v1_acd5e6e431d8
+required_overlays:
+  - ALL_KNOWN
+  - MIXED_KNOWN_UNKNOWN
+  - ALL_UNKNOWN
+background_impostor_enrollments_per_case: 5
+anonymous_scope: recording
+anonymous_label_prefix: Unknown_
+evidence_budget_checkpoints_sec:
+  - 0.5
+  - 0.75
+  - 1.0
+  - 1.5
+  - 2.0
+  - 3.0
+  - 5.0
+development_options:
+  score_margins:
+    - 0.0
+    - 0.05
+  minimum_evidence_sec:
+    - 0.75
+    - 1.5
+  cluster_aggregation:
+    - normalized_mean
+    - multi_template_mean_score
+  overlap_policy:
+    - include_predicted_overlap
+    - exclude_predicted_overlap_segments
+statistics:
+  bootstrap_seed: 3800
+  bootstrap_repetitions: 500
+  confidence_level: 0.95

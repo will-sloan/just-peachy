@@ -1,0 +1,29 @@
+{
+  "entries": {
+    "development/identity_overlays.jsonl": {
+      "bytes": 2218040,
+      "sha256": "10484A712F0EAB3872BB34EFE3741C39CAEDA8E74DA345E4F40992041FB465F7"
+    },
+    "enrollment_clip_inventory.csv": {
+      "bytes": 302491,
+      "sha256": "70194B274CFFB0810E30860ABBD5A115ED1E81BF416E71B841E84067D3BD2156"
+    },
+    "evaluation/identity_overlays.jsonl": {
+      "bytes": 4431286,
+      "sha256": "E6175EDEECDC4E3B33EFCE3FD1C0814D192493ABC6634A8851225A35646AAF27"
+    },
+    "protocol_summary.json": {
+      "bytes": 749,
+      "sha256": "3AD31614742AD5F6D489C0C95859D61175A6774B5AD15B0C2CCC787B1DA770B4"
+    },
+    "selection_config.yaml": {
+      "bytes": 764,
+      "sha256": "58DDD0626EE5E622218B5356F97A8579E91FAE7921518862DADC88B1F20D5782"
+    },
+    "smoke/identity_overlays.jsonl": {
+      "bytes": 286490,
+      "sha256": "747029437DF95AD9375717D923B10CB747012AE4754D042EA5221F1B6EB5508A"
+    }
+  },
+  "schema_version": "hybrid-protocol-checksums.v1"
+}
