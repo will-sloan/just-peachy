@@ -12,6 +12,7 @@ from app.augmentation import (
     expand_records_for_augmentation,
     generate_previews,
 )
+from app.asr_commonvoice.cli import add_asr_commonvoice_parser
 from app.augmentation.processor import total_duration_sec
 from app.campaign_analysis.cli import add_analysis_parser
 from app.campaign_executor.cli import add_campaign_parser
@@ -118,6 +119,7 @@ def build_parser() -> argparse.ArgumentParser:
     add_controlled_diarization_parser(subparsers)
     add_hybrid_attribution_parser(subparsers)
     add_analysis_parser(subparsers)
+    add_asr_commonvoice_parser(subparsers)
     return parser
 
 

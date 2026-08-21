@@ -1,0 +1,65 @@
+schema_version: asr-commonvoice-60plus-config.v1
+protocol_version: commonvoice_60plus_asr_v1
+source_protocol_id: commonvoice_60plus_v1_27e72793b4c0
+source_protocol_root: benchmarks/speaker_breadth/commonvoice_60plus_v1
+seed: 3800
+augmentation: none
+language: en
+
+# This is the existing Evaluation Tool scoring normalization used for the
+# punctuation-insensitive clean single-utterance ASR contract. It is applied
+# identically to references and all three hypotheses.
+normalization:
+  policy_id: evaluation-text-normalization-punctuation-insensitive.v1
+  lowercase: true
+  remove_punctuation: true
+  strip_whitespace: true
+  collapse_whitespace: true
+
+# Order is scientific and operational: models run sequentially in this order.
+models:
+  - human_name: Original Sherpa
+    component_id: sherpa_onnx
+    registry_id: asr.sherpa_onnx
+    environment_profile: onnx
+    device: cpu
+    precision: mixed-int8-float32
+    licence: Apache-2.0 runtime; model archive terms require redistribution review
+  - human_name: Sherpa Giga
+    component_id: sherpa_onnx_libri_giga_zipformer_2023_06_21
+    registry_id: asr.sherpa_onnx_libri_giga_zipformer_2023_06_21
+    environment_profile: onnx
+    device: cpu
+    precision: mixed-int8-float32
+    licence: Apache-2.0 weights/runtime; GigaSpeech provenance requires deployment review
+  - human_name: Whisper Small
+    component_id: whisper_small
+    registry_id: asr.whisper_small
+    environment_profile: core-cpu
+    device: cpu
+    precision: float32
+    licence: MIT code; cached checkpoint redistribution review required
+
+analysis:
+  bootstrap_unit: speaker
+  bootstrap_repetitions: 500
+  bootstrap_seed: 3800
+  confidence_level: 0.95
+  duration_boundaries_sec: [2.0, 4.0, 6.0]
+  deterministic_example_count: 20
+
+smoke:
+  clip_count: 9
+  minimum_speakers: 6
+  require_every_observed_age_category: true
+  scientific_use_prohibited: true
+
+limitations:
+  - Common Voice is primarily prompted/read speech.
+  - Recording equipment and acoustic conditions vary.
+  - The 60+ cohort is not necessarily representative of final product users.
+  - This is an ASR generalization test, not a replacement for prior ASR analysis.
+  - This does not measure far-field XVF3800 performance.
+  - This does not evaluate conversational overlap.
+  - Common Voice age values are self-reported metadata categories.
+  - Resource comparisons require comparable machine and device conditions.

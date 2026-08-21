@@ -1,0 +1,78 @@
+{
+  "age_categories": {
+    "eighties": {
+      "audio_duration_sec": 2194.704775,
+      "reference_words": 3277,
+      "speakers": 13,
+      "utterances": 370
+    },
+    "nineties": {
+      "audio_duration_sec": 345.389625,
+      "reference_words": 610,
+      "speakers": 2,
+      "utterances": 55
+    },
+    "seventies": {
+      "audio_duration_sec": 16133.06087,
+      "reference_words": 27017,
+      "speakers": 102,
+      "utterances": 2885
+    },
+    "sixties": {
+      "audio_duration_sec": 46583.055182,
+      "reference_words": 80485,
+      "speakers": 296,
+      "utterances": 8375
+    }
+  },
+  "audio_hashes_verified": false,
+  "eligible_items": 11685,
+  "excluded_items": 0,
+  "exclusion_reason_counts": {},
+  "model_inference_performed": false,
+  "reference_words": 111389,
+  "schema_version": "asr-commonvoice-source-audit.v1",
+  "selected_speakers": 413,
+  "source_protocol_id": "commonvoice_60plus_v1_27e72793b4c0",
+  "source_protocol_validation": {
+    "audio_hashes_verified": false,
+    "leakage": {
+      "all_required_checks_passed": true,
+      "calibration_evaluation_source_disjoint": true,
+      "calibration_evaluation_unknown_speakers_disjoint": true,
+      "clean_degraded_variants_stay_in_one_split": true,
+      "enrollment_probe_source_disjoint": true,
+      "global_transcript_cross_split_count": 516,
+      "item_ids_unique": true,
+      "known_unknown_speakers_disjoint": true,
+      "private_identity_mapping_absent": true,
+      "same_speaker_transcript_cross_split_count": 0,
+      "selected_paths_exist": true,
+      "source_audio_unique_across_all_roles": true,
+      "speaker_age_mapping_consistent": true,
+      "unknown_speakers_never_enrolled": true,
+      "unknown_speakers_not_enrolled": true
+    },
+    "missing_files": 0,
+    "protocol_root": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\Software Validation from Datasets\\Evaluation Tool\\benchmarks\\speaker_breadth\\commonvoice_60plus_v1",
+    "selected_files": 11685,
+    "stage10": {
+      "calibration_evaluation_source_disjoint": true,
+      "calibration_evaluation_unknown_speakers_disjoint": true,
+      "clean_degraded_variants_stay_in_one_split": true,
+      "clean_probe_rows": 10325,
+      "core_rows": 11685,
+      "degraded_probe_rows": 0,
+      "enrollment_probe_source_disjoint": true,
+      "private_identity_mapping_absent": true,
+      "unknown_speakers_not_enrolled": true,
+      "valid": true
+    },
+    "stage10_compatible": true,
+    "valid": true
+  },
+  "source_selected_items": 11685,
+  "source_selection_sha256": "C2A6666569D53FB4ED96B55FF6090BE884E9F05F120E7B6C3225152292FB9566",
+  "total_audio_seconds": 65256.210452,
+  "transcript_hash_mismatches": 0
+}

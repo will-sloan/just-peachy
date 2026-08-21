@@ -1,0 +1,24 @@
+{
+  "age_categories": [
+    "eighties",
+    "nineties",
+    "seventies",
+    "sixties"
+  ],
+  "duration_seconds": 48.227906,
+  "item_ids": [
+    "item_018db245738546e3625f1684",
+    "item_01fd55a670c1dd70e84a1562",
+    "item_0c919113873f57d952f6b19a",
+    "item_12665437d0dce02cbb9d5859",
+    "item_11a1d4099bde75aac48c63ce",
+    "item_012f662bcedeebcb087342a8",
+    "item_07366b31d537723a8ad27dcf",
+    "item_0009738188f0aa0c28bbf406",
+    "item_0001eb2a2a725df85a5f0d8d"
+  ],
+  "schema_version": "asr-commonvoice-smoke-selection.v1",
+  "scientific_use_prohibited": true,
+  "selection_method": "age-coverage-then-item-id-v1",
+  "speakers": 9
+}

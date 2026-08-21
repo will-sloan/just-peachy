@@ -1,0 +1,81 @@
+{
+  "age_categories": {
+    "eighties": {
+      "audio_duration_sec": 2194.704775,
+      "reference_words": 3277,
+      "speakers": 13,
+      "utterances": 370
+    },
+    "nineties": {
+      "audio_duration_sec": 345.389625,
+      "reference_words": 610,
+      "speakers": 2,
+      "utterances": 55
+    },
+    "seventies": {
+      "audio_duration_sec": 16133.06087,
+      "reference_words": 27017,
+      "speakers": 102,
+      "utterances": 2885
+    },
+    "sixties": {
+      "audio_duration_sec": 46583.055182,
+      "reference_words": 80485,
+      "speakers": 296,
+      "utterances": 8375
+    }
+  },
+  "age_category_speakers": {
+    "eighties": 13,
+    "nineties": 2,
+    "seventies": 102,
+    "sixties": 296
+  },
+  "clips": {
+    "calibration": 3920,
+    "enrollment": 1360,
+    "evaluation": 6405,
+    "total": 11685
+  },
+  "duration": {
+    "total_hours": 18.126725125555556,
+    "total_seconds": 65256.210452
+  },
+  "exclusions": {
+    "reason_counts": {},
+    "total": 0
+  },
+  "identity": {
+    "campaign_config_sha256": "28E1683C1E7E47AF5E37921538B36668BF992261B8A4F169A6329967518FAA79",
+    "item_ids_sha256": "F4AE24732F6C1652C08D60B31F64B508C6C3317900C811F057BAE32C454BC766",
+    "normalization": {
+      "collapse_whitespace": true,
+      "lowercase": true,
+      "policy_id": "evaluation-text-normalization-punctuation-insensitive.v1",
+      "remove_punctuation": true,
+      "strip_whitespace": true
+    },
+    "protocol_version": "commonvoice_60plus_asr_v1",
+    "schema_version": "asr-commonvoice-protocol.v1",
+    "source_protocol_id": "commonvoice_60plus_v1_27e72793b4c0",
+    "source_selection_sha256": "C2A6666569D53FB4ED96B55FF6090BE884E9F05F120E7B6C3225152292FB9566"
+  },
+  "manifest_sha256": "07938015B1268E0FF3F991F8F6B4B6B576C081FEF5B55922C5E22B97023A70F1",
+  "model_independent_manifest": true,
+  "normalization": {
+    "collapse_whitespace": true,
+    "lowercase": true,
+    "policy_id": "evaluation-text-normalization-punctuation-insensitive.v1",
+    "remove_punctuation": true,
+    "strip_whitespace": true
+  },
+  "protocol_id": "commonvoice_60plus_asr_v1_fb22c247f5f7",
+  "protocol_version": "commonvoice_60plus_asr_v1",
+  "reference_words": 111389,
+  "schema_version": "asr-commonvoice-protocol.v1",
+  "selection_seed": 3800,
+  "source_protocol_id": "commonvoice_60plus_v1_27e72793b4c0",
+  "speakers": {
+    "total": 413
+  }
+}
