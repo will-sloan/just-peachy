@@ -32,6 +32,9 @@ def analyze_results(
     cohort = {row["speaker_key"]: row for row in load_protocol_tables(protocol_root)["cohort"]}
     configuration_rows: list[dict[str, object]] = []
     all_speaker_rows: list[dict[str, object]] = []
+    all_quality_rows: list[dict[str, object]] = []
+    all_hubness_rows: list[dict[str, object]] = []
+    live_decision_rows: list[dict[str, object]] = []
     completed_roots: list[Path] = []
     for backend in backends:
         backend_root = result_base.resolve() / backend
@@ -41,19 +44,49 @@ def analyze_results(
             result = _read_json(path)
             decisions = _read_csv(root / "probe_decisions.csv")
             speaker_rows = _read_csv(root / "speaker_results.csv")
+            for row in _read_csv(root / "enrollment_quality.csv") if (root / "enrollment_quality.csv").is_file() else []:
+                all_quality_rows.append(
+                    {
+                        "backend": backend,
+                        "configuration_id": result["configuration"]["configuration_id"],
+                        "phase": result["configuration"]["phase"],
+                        **row,
+                    }
+                )
+            for row in _read_csv(root / "identity_hubness.csv") if (root / "identity_hubness.csv").is_file() else []:
+                all_hubness_rows.append(
+                    {
+                        "backend": backend,
+                        "configuration_id": result["configuration"]["configuration_id"],
+                        "phase": result["configuration"]["phase"],
+                        "probe_duration_sec": result["configuration"].get("probe_target_audio_sec", ""),
+                        **row,
+                    }
+                )
+            if result["configuration"]["phase"] in {"ProbeDuration", "JointFrontier"}:
+                for row in decisions:
+                    live_decision_rows.append(
+                        {
+                            "backend": backend,
+                            "configuration_id": result["configuration"]["configuration_id"],
+                            "reference_configuration_id": result["configuration"].get("reference_configuration_id", ""),
+                            **row,
+                        }
+                    )
             bootstrap = _bootstrap_decisions(
                 decisions,
                 seed=seed + len(configuration_rows) * 997,
                 repetitions=repetitions,
             )
-            bootstrap.update(
-                _bootstrap_score_trials(
-                    root / "score_trials.npz",
-                    threshold=float(result["operating_threshold"]),
-                    seed=seed + len(configuration_rows) * 997 + 313,
-                    repetitions=repetitions,
+            if result.get("operating_threshold") is not None:
+                bootstrap.update(
+                    _bootstrap_score_trials(
+                        root / "score_trials.npz",
+                        threshold=float(result["operating_threshold"]),
+                        seed=seed + len(configuration_rows) * 997 + 313,
+                        repetitions=repetitions,
+                    )
                 )
-            )
             flat = _flatten_configuration(result, speaker_rows, bootstrap)
             configuration_rows.append(flat)
             for row in speaker_rows:
@@ -82,6 +115,8 @@ def analyze_results(
     configuration_rows.sort(key=lambda row: (str(row["backend"]), str(row["phase"]), str(row["configuration_id"])))
     _write_csv(output / "configuration_results.csv", configuration_rows)
     _write_csv(output / "speaker_results.csv", all_speaker_rows)
+    _write_csv(output / "enrollment_quality.csv", all_quality_rows)
+    _write_csv(output / "identity_hubness.csv", all_hubness_rows)
     enrollment_curve = _curve(
         [row for row in configuration_rows if row["phase"] in {"EnrollmentCount", "EnrollmentDuration"}],
         ["backend", "phase", "enrollment_basis", "enrollment_count", "enrollment_target_audio_sec", "aggregation_method", "probe_duration_label"],
@@ -106,6 +141,9 @@ def analyze_results(
     _write_csv(output / "speaker_diagnostics.csv", _speaker_diagnostics(all_speaker_rows))
     _write_csv(output / "enrollment_selection_variance.csv", _enrollment_selection_variance(all_speaker_rows))
     _write_csv(output / "subgroup_results.csv", _subgroup_results(all_speaker_rows))
+    causal_trajectories, causal_summary = _causal_live_analysis(live_decision_rows, config)
+    _write_csv(output / "causal_live_trajectories.csv", causal_trajectories)
+    _write_csv(output / "causal_live_summary.csv", causal_summary)
     plot_files = _plots(output / "plots", enrollment_curve, duration_curve, aggregation, frontier)
     report = _report(configuration_rows, enrollment_curve, duration_curve, frontier, repetitions)
     (output / "report.md").write_text(report, encoding="utf-8", newline="\n")
@@ -123,6 +161,8 @@ def analyze_results(
         },
         "automatic_product_decision": False,
         "joint_frontier_present": bool(frontier),
+        "causal_nested_prefix_analysis_present": bool(causal_trajectories),
+        "warm_session_evidence": "simulation_only_no_independent_session_labels",
         "score_extraction_rerun": False,
         "plots": plot_files,
         "source_result_roots": [str(path) for path in completed_roots],
@@ -146,6 +186,8 @@ def _flatten_configuration(
         "backend_identity_hash": result["backend_identity_hash"],
         "configuration_id": configuration["configuration_id"],
         "configuration_identity_hash": result["configuration_identity_hash"],
+        "configuration_outcome": result.get("configuration_outcome", "SCORED"),
+        "completion_reason": result.get("completion_reason", ""),
         "phase": configuration["phase"],
         "reference_configuration_id": configuration.get("reference_configuration_id", ""),
         "enrollment_basis": configuration["enrollment_basis"],
@@ -157,6 +199,9 @@ def _flatten_configuration(
         "probe_duration_label": configuration["probe_duration_label"],
         "probe_target_audio_sec": configuration.get("probe_target_audio_sec", ""),
         "operating_threshold": result["operating_threshold"],
+        "operating_margin": result.get("operating_margin", 0.0),
+        "threshold_policy": result.get("threshold_policy", ""),
+        "target_fpir": _nested(result.get("selected_open_set_policy"), "fpir_target"),
         "eer": _nested(result.get("evaluation_eer_oracle_diagnostic"), "eer"),
         "far": metrics.get("far"),
         "frr": metrics.get("frr"),
@@ -172,6 +217,11 @@ def _flatten_configuration(
         "false_known_rate": _metric_value(metrics, "false_known_attribution"),
         "false_unknown_rate": _metric_value(metrics, "known_false_unknown"),
         "valid_rate": _metric_value(metrics, "valid_probe_rate"),
+        "fpir": _metric_value(metrics, "fpir"),
+        "fnir": _metric_value(metrics, "fnir"),
+        "tpir": _metric_value(metrics, "tpir"),
+        "dir_rank1": _metric_value(metrics, "dir_rank1"),
+        "wrong_known_rate": _metric_value(metrics, "wrong_known_to_wrong_known"),
         "technically_invalid_probes": result["extraction"]["technically_invalid_probes"],
         "failed_probes": result["extraction"]["failed_probes"],
         "nan_or_inf_scores": result["extraction"]["nan_or_inf_scores"],
@@ -303,6 +353,11 @@ def _curve(rows: Sequence[Mapping[str, object]], keys: Sequence[str]) -> list[di
         "unknown_rejection",
         "false_known_rate",
         "false_unknown_rate",
+        "fpir",
+        "fnir",
+        "tpir",
+        "dir_rank1",
+        "wrong_known_rate",
         "valid_rate",
     ]
     result = []
@@ -528,6 +583,147 @@ def _subgroup_results(rows: Sequence[Mapping[str, object]]) -> list[dict[str, ob
                 }
             )
     return result
+
+
+def _causal_live_analysis(
+    rows: Sequence[Mapping[str, object]],
+    config: Mapping[str, object],
+) -> tuple[list[dict[str, object]], list[dict[str, object]]]:
+    """Replay nested prefixes as one causal evidence trajectory per source utterance."""
+
+    if not rows:
+        return [], []
+    live = config.get("live_decision", {})
+    confirmation = 2
+    release = int(live.get("hysteresis_release_consecutive_failures", 2)) if isinstance(live, Mapping) else 2
+    grouped: dict[tuple[str, str, str, str, str], list[Mapping[str, object]]] = defaultdict(list)
+    for row in rows:
+        grouped[
+            (
+                str(row["backend"]),
+                str(row["reference_configuration_id"]),
+                str(row["parent_probe_id"]),
+                str(row["true_partition"]),
+                str(row["true_speaker_key"]),
+            )
+        ].append(row)
+    trajectories: list[dict[str, object]] = []
+    checkpoint_rows: list[dict[str, object]] = []
+    for (backend, reference, parent, partition, true_speaker), group in sorted(grouped.items()):
+        ordered = sorted(group, key=lambda row: float(row["probe_duration_sec"]))
+        candidate = ""
+        candidate_streak = 0
+        confirmed = "Unknown"
+        release_streak = 0
+        raw_non_unknown: list[str] = []
+        first_raw_correct = None
+        first_confirmed_correct = None
+        first_false_identity = None
+        wrong_dwell = 0.0
+        previous_duration = 0.0
+        for row in ordered:
+            duration = float(row["probe_duration_sec"])
+            raw = str(row["predicted_speaker"])
+            if raw != "Unknown":
+                raw_non_unknown.append(raw)
+            raw_correct = partition == "known" and raw == true_speaker
+            raw_false = (partition == "known" and raw not in {"Unknown", true_speaker}) or (partition == "unknown" and raw != "Unknown")
+            if raw_correct and first_raw_correct is None:
+                first_raw_correct = duration
+            if raw_false and first_false_identity is None:
+                first_false_identity = duration
+            if raw_false:
+                wrong_dwell += max(0.0, duration - previous_duration)
+            previous_duration = duration
+            if raw == "Unknown":
+                candidate = ""
+                candidate_streak = 0
+            elif raw == candidate:
+                candidate_streak += 1
+            else:
+                candidate = raw
+                candidate_streak = 1
+            if confirmed == "Unknown":
+                if candidate and candidate_streak >= confirmation:
+                    confirmed = candidate
+                    release_streak = 0
+            elif raw == confirmed:
+                release_streak = 0
+            else:
+                release_streak += 1
+                if release_streak >= release:
+                    confirmed = candidate if candidate and candidate_streak >= confirmation else "Unknown"
+                    release_streak = 0
+            confirmed_correct = partition == "known" and confirmed == true_speaker
+            if confirmed_correct and first_confirmed_correct is None:
+                first_confirmed_correct = duration
+            checkpoint_rows.append(
+                {
+                    "backend": backend,
+                    "reference_configuration_id": reference,
+                    "parent_probe_id": parent,
+                    "true_partition": partition,
+                    "true_speaker_key": true_speaker,
+                    "duration_sec": duration,
+                    "raw_prediction": raw,
+                    "hysteresis_prediction": confirmed,
+                    "raw_correct_identity": raw_correct,
+                    "hysteresis_correct_identity": confirmed_correct,
+                    "raw_false_identification": raw_false,
+                    "hysteresis_false_identification": (
+                        (partition == "known" and confirmed not in {"Unknown", true_speaker})
+                        or (partition == "unknown" and confirmed != "Unknown")
+                    ),
+                }
+            )
+        stable_correct = None
+        if partition == "known":
+            for index, row in enumerate(ordered):
+                if all(str(value["predicted_speaker"]) == true_speaker for value in ordered[index:]):
+                    stable_correct = float(row["probe_duration_sec"])
+                    break
+        flips = sum(left != right for left, right in zip(raw_non_unknown, raw_non_unknown[1:]))
+        trajectories.append(
+            {
+                "backend": backend,
+                "reference_configuration_id": reference,
+                "parent_probe_id": parent,
+                "true_partition": partition,
+                "true_speaker_key": true_speaker,
+                "first_raw_correct_sec": "" if first_raw_correct is None else first_raw_correct,
+                "first_stable_raw_correct_sec": "" if stable_correct is None else stable_correct,
+                "first_hysteresis_confirmed_correct_sec": "" if first_confirmed_correct is None else first_confirmed_correct,
+                "first_false_identification_sec": "" if first_false_identity is None else first_false_identity,
+                "identity_flip_count": flips,
+                "wrong_identity_dwell_sec": wrong_dwell,
+                "unknown_remained_unknown": partition == "unknown" and first_false_identity is None,
+                "real_session_evidence_available": False,
+            }
+        )
+    summary: list[dict[str, object]] = []
+    summary_groups: dict[tuple[str, str, float], list[Mapping[str, object]]] = defaultdict(list)
+    for row in checkpoint_rows:
+        summary_groups[(str(row["backend"]), str(row["reference_configuration_id"]), float(row["duration_sec"]))].append(row)
+    for (backend, reference, duration), group in sorted(summary_groups.items()):
+        known = [row for row in group if row["true_partition"] == "known"]
+        unknown = [row for row in group if row["true_partition"] == "unknown"]
+        summary.append(
+            {
+                "backend": backend,
+                "reference_configuration_id": reference,
+                "duration_sec": duration,
+                "known_probes": len(known),
+                "unknown_probes": len(unknown),
+                "raw_dir_rank1": _mean([bool(row["raw_correct_identity"]) for row in known]),
+                "raw_fpir": _mean([bool(row["raw_false_identification"]) for row in unknown]),
+                "hysteresis_dir_rank1": _mean([bool(row["hysteresis_correct_identity"]) for row in known]),
+                "hysteresis_fpir": _mean([bool(row["hysteresis_false_identification"]) for row in unknown]),
+                "confirmation_required_consecutive_checkpoints": confirmation,
+                "release_required_consecutive_failures": release,
+                "warm_session_interpretation": "within_utterance_simulation_only",
+            }
+        )
+    return trajectories, summary
 
 
 def _plots(

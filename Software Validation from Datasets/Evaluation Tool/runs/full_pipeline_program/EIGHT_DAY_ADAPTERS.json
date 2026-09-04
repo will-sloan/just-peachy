@@ -1,0 +1,564 @@
+{
+  "schema_version": "full-pipeline-eight-day-adapters.v1",
+  "scope_id": "full_pipeline_prompts_4_8_eight_day_c_only.v1",
+  "scope_class": "BOUNDED_REDUCED",
+  "original_full_scope_complete": false,
+  "evaluation_tool_root": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\Software Validation from Datasets\\Evaluation Tool",
+  "program_workspace": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\Software Validation from Datasets\\Evaluation Tool\\automated_runs\\full_pipeline_prompts_4_8_eight_day_v1",
+  "amendment_path": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\Software Validation from Datasets\\Evaluation Tool\\runs\\full_pipeline_program\\EIGHT_DAY_SCOPE_AMENDMENT.json",
+  "poll_interval_seconds": 10,
+  "stages": {
+    "4": {
+      "adapter_id": "prompt4_bounded_development_reduced_8day_v1",
+      "readiness": "READY",
+      "expected_duration_hours": 48,
+      "stage_workspace": "${TOOL_ROOT}\\automated_runs\\full_pipeline_development_prompt4_reduced_8day_v1_orchestrated",
+      "cwd": "${TOOL_ROOT}",
+      "completion_record": "${STAGE_WORKSPACE}\\completion_marker.json",
+      "progress_record": "${STAGE_WORKSPACE}\\resource_spots\\campaign_progress.json",
+      "controller_log": "${STAGE_WORKSPACE}\\controller.log",
+      "start_command": [
+        "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\.venv\\Scripts\\python.exe",
+        "-m",
+        "app.full_pipeline_bounded_development.cli",
+        "execute",
+        "--workspace-root",
+        "${STAGE_WORKSPACE}",
+        "--source-evidence-root",
+        "${TOOL_ROOT}\\automated_runs\\full_pipeline_development_v1_prompt4_execution_recovery_v5_restart_contract_fix",
+        "--output-root",
+        "${TOOL_ROOT}\\JustPeachyResearchSummaries\\full_pipeline\\development\\full_pipeline_prompt4_reduced_8day_v1"
+      ],
+      "resume_command": [
+        "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\.venv\\Scripts\\python.exe",
+        "-m",
+        "app.full_pipeline_bounded_development.cli",
+        "execute",
+        "--workspace-root",
+        "${STAGE_WORKSPACE}",
+        "--source-evidence-root",
+        "${TOOL_ROOT}\\automated_runs\\full_pipeline_development_v1_prompt4_execution_recovery_v5_restart_contract_fix",
+        "--output-root",
+        "${TOOL_ROOT}\\JustPeachyResearchSummaries\\full_pipeline\\development\\full_pipeline_prompt4_reduced_8day_v1"
+      ],
+      "stop_command": [
+        "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\.venv\\Scripts\\python.exe",
+        "-m",
+        "app.full_pipeline_bounded_development.cli",
+        "stop",
+        "--workspace-root",
+        "${STAGE_WORKSPACE}",
+        "--source-evidence-root",
+        "${TOOL_ROOT}\\automated_runs\\full_pipeline_development_v1_prompt4_execution_recovery_v5_restart_contract_fix",
+        "--output-root",
+        "${TOOL_ROOT}\\JustPeachyResearchSummaries\\full_pipeline\\development\\full_pipeline_prompt4_reduced_8day_v1"
+      ],
+      "validate_command": [
+        "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\.venv\\Scripts\\python.exe",
+        "-m",
+        "app.full_pipeline_bounded_development.cli",
+        "validate",
+        "--workspace-root",
+        "${STAGE_WORKSPACE}",
+        "--source-evidence-root",
+        "${TOOL_ROOT}\\automated_runs\\full_pipeline_development_v1_prompt4_execution_recovery_v5_restart_contract_fix",
+        "--output-root",
+        "${TOOL_ROOT}\\JustPeachyResearchSummaries\\full_pipeline\\development\\full_pipeline_prompt4_reduced_8day_v1"
+      ],
+      "restart_policy": "RESUME_COMMAND",
+      "stop_grace_seconds": 300,
+      "environment": {},
+      "material_paths": {
+        "inputs": [
+          "${TOOL_ROOT}",
+          "${AMENDMENT_PATH}",
+          "${TOOL_ROOT}\\automated_runs\\full_pipeline_development_v1_prompt4_execution_recovery_v5_restart_contract_fix",
+          "${TOOL_ROOT}\\configs\\automated_evaluation\\full_pipeline_matrix.v1.yaml",
+          "${TOOL_ROOT}\\configs\\automated_evaluation\\full_speech_pipeline_v1.yaml",
+          "${TOOL_ROOT}\\benchmarks\\full_pipeline\\full_speech_pipeline_v1\\development"
+        ],
+        "workspaces": [
+          "${STAGE_WORKSPACE}"
+        ],
+        "caches": [
+          "${TOOL_ROOT}\\JustPeachyResults\\full_pipeline\\_shared_cache"
+        ],
+    "temporary": [
+      "${STAGE_WORKSPACE}\\temp"
+    ],
+        "logs": [
+          "${CONTROLLER_LOG}",
+          "${PROGRESS_RECORD}",
+          "${STAGE_WORKSPACE}\\development_accuracy\\campaign_progress.json",
+          "${STAGE_WORKSPACE}\\development_accuracy\\controller_state.json",
+          "${STAGE_WORKSPACE}\\development_accuracy\\attempts",
+          "${STAGE_WORKSPACE}\\resource_spots\\controller_state.json",
+          "${STAGE_WORKSPACE}\\resource_spots\\attempts"
+        ],
+        "results": [
+          "${COMPLETION_RECORD}",
+          "${STAGE_WORKSPACE}\\combined_evidence",
+          "${STAGE_WORKSPACE}\\frozen_pipeline_configs",
+          "${TOOL_ROOT}\\JustPeachyResults\\full_pipeline\\full_speech_pipeline_v1"
+        ],
+        "reports": [
+          "${TOOL_ROOT}\\JustPeachyResearchSummaries\\full_pipeline\\development\\full_pipeline_prompt4_reduced_8day_v1",
+          "${TOOL_ROOT}\\JustPeachyResearchSummaries\\full_pipeline"
+        ],
+        "packages": [
+          "${TOOL_ROOT}\\JustPeachyResearchSummaries\\full_pipeline\\development\\full_pipeline_prompt4_reduced_8day_v1\\full_pipeline_prompt4_reduced_8day_compact.zip",
+          "${STAGE_WORKSPACE}\\artifact_manifest.json",
+          "${STAGE_WORKSPACE}\\gates"
+        ],
+        "checkpoints": [
+          "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\models"
+        ]
+      }
+    },
+    "5": {
+      "adapter_id": "prompt5_core_evaluation_reduced_8day_v1",
+      "readiness": "READY",
+      "expected_duration_hours": 60,
+      "stage_workspace": "${TOOL_ROOT}\\automated_runs\\full_pipeline_core_evaluation_reduced_8day_v1",
+      "cwd": "${TOOL_ROOT}",
+      "completion_record": "${STAGE_WORKSPACE}\\completion_marker.json",
+      "progress_record": "${STAGE_WORKSPACE}\\program_progress.json",
+      "controller_log": "${STAGE_WORKSPACE}\\controller.log",
+      "start_command": [
+        "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "${TOOL_ROOT}\\scripts\\run_full_pipeline_core_evaluation.ps1",
+        "-Action",
+        "RunAll",
+        "-WorkspaceRoot",
+        "${STAGE_WORKSPACE}",
+        "-ParallelJobs",
+        "2",
+        "-PiDeploymentSteeringPath",
+        "${TOOL_ROOT}\\runs\\full_pipeline_program\\RASPBERRY_PI_DEPLOYMENT_STEERING.json"
+      ],
+      "resume_command": [],
+      "stop_command": [
+        "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "${TOOL_ROOT}\\scripts\\run_full_pipeline_core_evaluation.ps1",
+        "-Action",
+        "Stop",
+        "-WorkspaceRoot",
+        "${STAGE_WORKSPACE}",
+        "-PiDeploymentSteeringPath",
+        "${TOOL_ROOT}\\runs\\full_pipeline_program\\RASPBERRY_PI_DEPLOYMENT_STEERING.json"
+      ],
+      "validate_command": [
+        "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "${TOOL_ROOT}\\scripts\\run_full_pipeline_core_evaluation.ps1",
+        "-Action",
+        "ValidateCompletion",
+        "-WorkspaceRoot",
+        "${STAGE_WORKSPACE}",
+        "-PiDeploymentSteeringPath",
+        "${TOOL_ROOT}\\runs\\full_pipeline_program\\RASPBERRY_PI_DEPLOYMENT_STEERING.json"
+      ],
+      "restart_policy": "RERUN_IDEMPOTENT",
+      "stop_grace_seconds": 300,
+      "environment": {},
+      "material_paths": {
+        "inputs": [
+          "${TOOL_ROOT}",
+          "${AMENDMENT_PATH}",
+          "${TOOL_ROOT}\\runs\\full_pipeline_program\\PROGRAM_STATE.json",
+          "${TOOL_ROOT}\\configs\\automated_evaluation\\full_pipeline_matrix.v1.yaml",
+          "${TOOL_ROOT}\\benchmarks\\full_pipeline\\full_speech_pipeline_v1",
+          "${TOOL_ROOT}\\automated_runs\\full_pipeline_development_prompt4_reduced_8day_v1_orchestrated\\completion_marker.json",
+          "${TOOL_ROOT}\\runs\\full_pipeline_program\\RASPBERRY_PI_DEPLOYMENT_STEERING.json"
+        ],
+        "workspaces": [
+          "${STAGE_WORKSPACE}"
+        ],
+        "caches": [
+          "${TOOL_ROOT}\\JustPeachyResults\\full_pipeline\\_shared_cache"
+        ],
+        "temporary": [
+          "${STAGE_WORKSPACE}\\temp"
+        ],
+        "logs": [
+          "${CONTROLLER_LOG}",
+          "${PROGRESS_RECORD}",
+          "${STAGE_WORKSPACE}\\accuracy\\campaign_progress.json",
+          "${STAGE_WORKSPACE}\\accuracy\\attempts",
+          "${STAGE_WORKSPACE}\\resources\\campaign_progress.json",
+          "${STAGE_WORKSPACE}\\resources\\attempts"
+        ],
+        "results": [
+          "${STAGE_WORKSPACE}\\results",
+          "${STAGE_WORKSPACE}\\accuracy",
+          "${STAGE_WORKSPACE}\\resources"
+        ],
+        "reports": [
+          "${COMPLETION_RECORD}",
+          "${STAGE_WORKSPACE}\\report",
+          "${TOOL_ROOT}\\JustPeachyResearchSummaries\\full_pipeline\\heldout\\full_speech_pipeline_v1_reduced_8day_v1"
+        ],
+        "packages": [
+          "${TOOL_ROOT}\\JustPeachyResearchSummaries\\full_pipeline\\heldout\\full_speech_pipeline_v1_reduced_8day_v1.zip",
+          "${STAGE_WORKSPACE}\\artifact_manifest.json",
+          "${STAGE_WORKSPACE}\\gate_records"
+        ],
+        "checkpoints": [
+          "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\models"
+        ]
+      }
+    },
+    "6": {
+      "adapter_id": "prompt6_extended_evaluation_reduced_8day_v1",
+      "readiness": "READY",
+      "expected_duration_hours": 30,
+      "stage_workspace": "${TOOL_ROOT}\\automated_runs\\full_pipeline_extended_evaluation_reduced_8day_v1",
+      "cwd": "${STAGE_WORKSPACE}",
+      "completion_record": "${STAGE_WORKSPACE}\\completion_marker.json",
+      "progress_record": "${STAGE_WORKSPACE}\\program_progress.json",
+      "controller_log": "${STAGE_WORKSPACE}\\logs\\controller.log",
+      "start_command": [
+        "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "${TOOL_ROOT}\\scripts\\run_full_pipeline_extended_evaluation.ps1",
+        "-Action",
+        "RunAll",
+        "-WorkspaceRoot",
+        "${STAGE_WORKSPACE}",
+        "-ParallelJobs",
+        "2",
+        "-PiDeploymentSteeringPath",
+        "${TOOL_ROOT}\\runs\\full_pipeline_program\\RASPBERRY_PI_DEPLOYMENT_STEERING.json",
+        "-PiDeploymentSteeringSha256",
+        "f8a228765b29e3af5cd88dbe0be5b10fd6fbe525ac5806f96ce2f20f0a7af9a4"
+      ],
+      "resume_command": [],
+      "stop_command": [
+        "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "${TOOL_ROOT}\\scripts\\run_full_pipeline_extended_evaluation.ps1",
+        "-Action",
+        "Stop",
+        "-WorkspaceRoot",
+        "${STAGE_WORKSPACE}",
+        "-PiDeploymentSteeringPath",
+        "${TOOL_ROOT}\\runs\\full_pipeline_program\\RASPBERRY_PI_DEPLOYMENT_STEERING.json",
+        "-PiDeploymentSteeringSha256",
+        "f8a228765b29e3af5cd88dbe0be5b10fd6fbe525ac5806f96ce2f20f0a7af9a4"
+      ],
+      "validate_command": [
+        "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "${TOOL_ROOT}\\scripts\\run_full_pipeline_extended_evaluation.ps1",
+        "-Action",
+        "ValidateCompletion",
+        "-WorkspaceRoot",
+        "${STAGE_WORKSPACE}",
+        "-PiDeploymentSteeringPath",
+        "${TOOL_ROOT}\\runs\\full_pipeline_program\\RASPBERRY_PI_DEPLOYMENT_STEERING.json",
+        "-PiDeploymentSteeringSha256",
+        "f8a228765b29e3af5cd88dbe0be5b10fd6fbe525ac5806f96ce2f20f0a7af9a4"
+      ],
+      "restart_policy": "RERUN_IDEMPOTENT",
+      "stop_grace_seconds": 300,
+      "environment": {},
+      "material_paths": {
+        "inputs": [
+          "${AMENDMENT_PATH}",
+          "${TOOL_ROOT}\\runs\\full_pipeline_program\\PROGRAM_STATE.json",
+          "${TOOL_ROOT}\\configs\\automated_evaluation\\full_pipeline_matrix.v1.yaml",
+          "${TOOL_ROOT}\\configs\\automated_evaluation\\full_speech_pipeline_v1.yaml",
+          "${TOOL_ROOT}\\benchmarks\\full_pipeline\\full_speech_pipeline_v1",
+          "${TOOL_ROOT}\\automated_runs\\full_pipeline_core_evaluation_reduced_8day_v1\\completion_marker.json",
+          "${TOOL_ROOT}\\automated_runs\\full_pipeline_development_prompt4_reduced_8day_v1_orchestrated\\frozen_pipeline_configs",
+          "${TOOL_ROOT}\\automated_runs\\full_pipeline_development_prompt4_reduced_8day_v1_orchestrated\\decision_policy_registry.json",
+          "${TOOL_ROOT}\\JustPeachyResearchSummaries\\full_pipeline\\development\\full_pipeline_prompt4_reduced_8day_v1\\extended_set.yaml",
+          "${TOOL_ROOT}\\JustPeachyResearchSummaries\\full_pipeline\\development\\full_pipeline_prompt4_reduced_8day_v1\\development_summary.csv",
+          "${TOOL_ROOT}\\runs\\full_pipeline_program\\RASPBERRY_PI_DEPLOYMENT_STEERING.json"
+        ],
+        "workspaces": [
+          "${STAGE_WORKSPACE}"
+        ],
+        "caches": [
+          "${TOOL_ROOT}\\JustPeachyResults\\full_pipeline\\_shared_cache"
+        ],
+        "temporary": [
+          "${STAGE_WORKSPACE}\\temp"
+        ],
+        "logs": [
+          "${CONTROLLER_LOG}",
+          "${PROGRESS_RECORD}",
+          "${STAGE_WORKSPACE}\\attempts",
+          "${STAGE_WORKSPACE}\\controller_state.json"
+        ],
+        "results": [
+          "${STAGE_WORKSPACE}\\results",
+          "${STAGE_WORKSPACE}\\hardening_inputs",
+          "${STAGE_WORKSPACE}\\hardening_input_manifest.json"
+        ],
+        "reports": [
+          "${COMPLETION_RECORD}",
+          "${STAGE_WORKSPACE}\\report",
+          "${TOOL_ROOT}\\JustPeachyResearchSummaries\\full_pipeline\\extended\\full_speech_pipeline_v1_reduced_8day_v1"
+        ],
+        "packages": [
+          "${TOOL_ROOT}\\JustPeachyResearchSummaries\\full_pipeline\\extended\\full_speech_pipeline_extended_reduced_8day_v1.zip",
+          "${STAGE_WORKSPACE}\\artifact_manifest.json",
+          "${STAGE_WORKSPACE}\\gate_records"
+        ],
+        "checkpoints": [
+          "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\models"
+        ]
+      }
+    },
+    "7": {
+      "adapter_id": "prompt7_production_candidate_hardening_reduced_8day_v1",
+      "readiness": "READY",
+      "expected_duration_hours": 12,
+      "stage_workspace": "${TOOL_ROOT}\\automated_runs\\full_pipeline_production_candidate_hardening_reduced_8day_v1",
+      "cwd": "${STAGE_WORKSPACE}",
+      "completion_record": "${STAGE_WORKSPACE}\\completion_marker.json",
+      "progress_record": "${STAGE_WORKSPACE}\\program_progress.json",
+      "controller_log": "${STAGE_WORKSPACE}\\controller.log",
+      "start_command": [
+        "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "${TOOL_ROOT}\\scripts\\run_full_pipeline_production_hardening.ps1",
+        "-Action",
+        "RunAll",
+        "-WorkspaceRoot",
+        "${STAGE_WORKSPACE}",
+        "-PiDeploymentSteeringPath",
+        "${TOOL_ROOT}\\runs\\full_pipeline_program\\RASPBERRY_PI_DEPLOYMENT_STEERING.json"
+      ],
+      "resume_command": [],
+      "stop_command": [
+        "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "${TOOL_ROOT}\\scripts\\run_full_pipeline_production_hardening.ps1",
+        "-Action",
+        "Stop",
+        "-WorkspaceRoot",
+        "${STAGE_WORKSPACE}",
+        "-PiDeploymentSteeringPath",
+        "${TOOL_ROOT}\\runs\\full_pipeline_program\\RASPBERRY_PI_DEPLOYMENT_STEERING.json"
+      ],
+      "validate_command": [
+        "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "${TOOL_ROOT}\\scripts\\run_full_pipeline_production_hardening.ps1",
+        "-Action",
+        "ValidateCompletion",
+        "-WorkspaceRoot",
+        "${STAGE_WORKSPACE}",
+        "-PiDeploymentSteeringPath",
+        "${TOOL_ROOT}\\runs\\full_pipeline_program\\RASPBERRY_PI_DEPLOYMENT_STEERING.json"
+      ],
+      "restart_policy": "RERUN_IDEMPOTENT",
+      "stop_grace_seconds": 300,
+      "environment": {},
+      "material_paths": {
+        "inputs": [
+          "${AMENDMENT_PATH}",
+          "${TOOL_ROOT}\\runs\\full_pipeline_program\\EIGHT_DAY_EXECUTION_POLICY_ADDENDUM.json",
+          "${TOOL_ROOT}\\runs\\full_pipeline_program\\PROGRAM_STATE.json",
+          "${TOOL_ROOT}\\configs\\automated_evaluation\\full_pipeline_matrix.v1.yaml",
+          "${TOOL_ROOT}\\configs\\automated_evaluation\\full_pipeline_runtime.v1.yaml",
+          "${TOOL_ROOT}\\app\\full_pipeline",
+          "${TOOL_ROOT}\\app\\full_pipeline_demo",
+          "${TOOL_ROOT}\\app\\full_pipeline_production_hardening",
+          "${TOOL_ROOT}\\scripts\\run_full_pipeline_production_hardening.ps1",
+          "${TOOL_ROOT}\\docs\\full_pipeline\\PIPELINE_MATRIX.md",
+          "${TOOL_ROOT}\\docs\\full_pipeline\\LICENSE_AND_ASSET_MANIFEST.md",
+          "${TOOL_ROOT}\\automated_runs\\full_pipeline_core_evaluation_reduced_8day_v1\\completion_marker.json",
+          "${TOOL_ROOT}\\automated_runs\\full_pipeline_extended_evaluation_reduced_8day_v1\\completion_marker.json",
+          "${TOOL_ROOT}\\automated_runs\\full_pipeline_extended_evaluation_reduced_8day_v1\\hardening_input_manifest.json",
+          "${TOOL_ROOT}\\automated_runs\\full_pipeline_extended_evaluation_reduced_8day_v1\\hardening_inputs",
+          "${TOOL_ROOT}\\automated_runs\\full_pipeline_development_prompt4_reduced_8day_v1_orchestrated\\frozen_pipeline_configs",
+          "${TOOL_ROOT}\\automated_runs\\full_pipeline_development_prompt4_reduced_8day_v1_orchestrated\\decision_policy_registry.json",
+          "${TOOL_ROOT}\\runs\\full_pipeline_program\\RASPBERRY_PI_DEPLOYMENT_STEERING.json"
+        ],
+        "workspaces": [
+          "${STAGE_WORKSPACE}"
+        ],
+        "caches": [
+          "${TOOL_ROOT}\\JustPeachyResults\\full_pipeline\\_shared_cache"
+        ],
+        "temporary": [
+          "${STAGE_WORKSPACE}\\temp"
+        ],
+        "logs": [
+          "${CONTROLLER_LOG}",
+          "${PROGRESS_RECORD}",
+          "${STAGE_WORKSPACE}\\evidence"
+        ],
+        "results": [
+          "${STAGE_WORKSPACE}\\selection",
+          "${STAGE_WORKSPACE}\\acceptance_execution.json",
+          "${STAGE_WORKSPACE}\\candidate_runtime"
+        ],
+        "reports": [
+          "${COMPLETION_RECORD}",
+          "${STAGE_WORKSPACE}\\report"
+        ],
+        "packages": [
+          "${STAGE_WORKSPACE}\\packages\\full_pipeline_production_candidates_reduced_8day_v1.zip",
+          "${STAGE_WORKSPACE}\\candidate_bundles",
+          "${STAGE_WORKSPACE}\\artifact_manifest.json",
+          "${STAGE_WORKSPACE}\\gate_records"
+        ],
+        "checkpoints": [
+          "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\models\\cache",
+          "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\.venv\\Scripts\\python.exe",
+          "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\.stage8-envs\\credential-diarization\\Scripts\\python.exe",
+          "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\.stage8-envs\\onnx\\Scripts\\python.exe",
+          "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\.stage8-envs\\redimnet2\\Scripts\\python.exe",
+          "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\.stage8-envs\\wespeaker\\Scripts\\python.exe"
+        ]
+      }
+    },
+    "8": {
+      "adapter_id": "prompt8_final_consolidation_reduced_8day_v1",
+      "readiness": "READY",
+      "expected_duration_hours": 4,
+      "stage_workspace": "${TOOL_ROOT}\\automated_runs\\full_pipeline_final_consolidation_reduced_8day_v1",
+      "cwd": "${STAGE_WORKSPACE}",
+      "completion_record": "${STAGE_WORKSPACE}\\completion_marker.json",
+      "progress_record": "${STAGE_WORKSPACE}\\program_progress.json",
+      "controller_log": "${STAGE_WORKSPACE}\\controller.log",
+      "start_command": [
+        "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "${TOOL_ROOT}\\scripts\\run_full_pipeline_final_consolidation.ps1",
+        "-Action",
+        "RunAll",
+        "-WorkspaceRoot",
+        "${STAGE_WORKSPACE}",
+        "-OutputRoot",
+        "${TOOL_ROOT}\\JustPeachyResearchSummaries\\full_pipeline\\final\\full_pipeline_program_reduced_8day_v1",
+        "-ZipPath",
+        "${TOOL_ROOT}\\JustPeachyResearchSummaries\\full_pipeline\\final\\full_pipeline_program_reduced_8day_v1.zip",
+        "-Prompt7Marker",
+        "${TOOL_ROOT}\\automated_runs\\full_pipeline_production_candidate_hardening_reduced_8day_v1\\completion_marker.json",
+        "-PiDeploymentSteeringPath",
+        "${TOOL_ROOT}\\runs\\full_pipeline_program\\RASPBERRY_PI_DEPLOYMENT_STEERING.json"
+      ],
+      "resume_command": [],
+      "stop_command": [
+        "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "${TOOL_ROOT}\\scripts\\run_full_pipeline_final_consolidation.ps1",
+        "-Action",
+        "Stop",
+        "-WorkspaceRoot",
+        "${STAGE_WORKSPACE}",
+        "-OutputRoot",
+        "${TOOL_ROOT}\\JustPeachyResearchSummaries\\full_pipeline\\final\\full_pipeline_program_reduced_8day_v1",
+        "-ZipPath",
+        "${TOOL_ROOT}\\JustPeachyResearchSummaries\\full_pipeline\\final\\full_pipeline_program_reduced_8day_v1.zip",
+        "-Prompt7Marker",
+        "${TOOL_ROOT}\\automated_runs\\full_pipeline_production_candidate_hardening_reduced_8day_v1\\completion_marker.json",
+        "-PiDeploymentSteeringPath",
+        "${TOOL_ROOT}\\runs\\full_pipeline_program\\RASPBERRY_PI_DEPLOYMENT_STEERING.json"
+      ],
+      "validate_command": [
+        "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "${TOOL_ROOT}\\scripts\\run_full_pipeline_final_consolidation.ps1",
+        "-Action",
+        "ValidateCompletion",
+        "-WorkspaceRoot",
+        "${STAGE_WORKSPACE}",
+        "-OutputRoot",
+        "${TOOL_ROOT}\\JustPeachyResearchSummaries\\full_pipeline\\final\\full_pipeline_program_reduced_8day_v1",
+        "-ZipPath",
+        "${TOOL_ROOT}\\JustPeachyResearchSummaries\\full_pipeline\\final\\full_pipeline_program_reduced_8day_v1.zip",
+        "-Prompt7Marker",
+        "${TOOL_ROOT}\\automated_runs\\full_pipeline_production_candidate_hardening_reduced_8day_v1\\completion_marker.json",
+        "-PiDeploymentSteeringPath",
+        "${TOOL_ROOT}\\runs\\full_pipeline_program\\RASPBERRY_PI_DEPLOYMENT_STEERING.json"
+      ],
+      "restart_policy": "RERUN_IDEMPOTENT",
+      "stop_grace_seconds": 300,
+      "environment": {},
+      "material_paths": {
+        "inputs": [
+          "${AMENDMENT_PATH}",
+          "${TOOL_ROOT}\\runs\\full_pipeline_program\\EIGHT_DAY_EXECUTION_POLICY_ADDENDUM.json",
+          "${TOOL_ROOT}\\runs\\full_pipeline_program\\EIGHT_DAY_ADAPTERS.json",
+          "${TOOL_ROOT}\\runs\\full_pipeline_program\\PROGRAM_STATE.json",
+          "${TOOL_ROOT}\\configs\\automated_evaluation\\full_pipeline_matrix.v1.yaml",
+          "${TOOL_ROOT}\\configs\\automated_evaluation\\full_pipeline_runtime.v1.yaml",
+          "${TOOL_ROOT}\\docs\\full_pipeline\\LICENSE_AND_ASSET_MANIFEST.md",
+          "${TOOL_ROOT}\\runs\\full_pipeline_program\\RASPBERRY_PI_DEPLOYMENT_STEERING.json",
+          "${TOOL_ROOT}\\automated_runs\\full_pipeline_development_prompt4_reduced_8day_v1_orchestrated\\completion_marker.json",
+          "${TOOL_ROOT}\\automated_runs\\full_pipeline_core_evaluation_reduced_8day_v1\\completion_marker.json",
+          "${TOOL_ROOT}\\automated_runs\\full_pipeline_extended_evaluation_reduced_8day_v1\\completion_marker.json",
+          "${TOOL_ROOT}\\automated_runs\\full_pipeline_production_candidate_hardening_reduced_8day_v1\\completion_marker.json"
+        ],
+        "workspaces": [
+          "${STAGE_WORKSPACE}"
+        ],
+        "caches": [],
+        "temporary": [
+          "${STAGE_WORKSPACE}\\temp"
+        ],
+        "logs": [
+          "${CONTROLLER_LOG}",
+          "${PROGRESS_RECORD}"
+        ],
+        "results": [],
+        "reports": [
+          "${TOOL_ROOT}\\JustPeachyResearchSummaries\\full_pipeline\\final\\full_pipeline_program_reduced_8day_v1"
+        ],
+        "packages": [
+          "${TOOL_ROOT}\\JustPeachyResearchSummaries\\full_pipeline\\final\\full_pipeline_program_reduced_8day_v1.zip",
+          "${COMPLETION_RECORD}",
+          "${STAGE_WORKSPACE}\\artifact_manifest.json",
+          "${STAGE_WORKSPACE}\\input_binding.json",
+          "${STAGE_WORKSPACE}\\program_state_before_prompt8.json",
+          "${STAGE_WORKSPACE}\\gate_records"
+        ],
+        "checkpoints": []
+      }
+    }
+  }
+}

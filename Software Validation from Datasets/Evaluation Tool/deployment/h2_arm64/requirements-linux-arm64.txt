@@ -1,0 +1,11 @@
+# Lean H2 product runtime for 64-bit Raspberry Pi OS / Debian.
+# Export/reference-only dependencies (torch, torchaudio, pyannote.audio, onnx)
+# are intentionally excluded from the 2 GiB service environment.
+numpy==2.2.6
+scipy==1.15.3
+PyYAML==6.0.3
+soundfile==0.13.1
+sounddevice==0.5.5
+psutil==7.2.2
+onnxruntime==1.29.0
+sherpa-onnx==1.13.4

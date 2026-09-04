@@ -3,14 +3,14 @@
 from __future__ import annotations
 
 from collections import defaultdict
+from concurrent.futures import ThreadPoolExecutor, as_completed
 import hashlib
 import json
 import math
 import os
 from pathlib import Path
-import random
 import time
-from typing import Mapping, Sequence
+from typing import Callable, Mapping, Sequence
 
 import numpy as np
 import pyarrow as pa
@@ -42,6 +42,7 @@ from app.speaker_protocol.metrics import (
     tar_at_fixed_far,
     threshold_sweep,
 )
+from app.speaker_protocol.progress import EvaluationProgress
 
 
 EMBEDDING_INDEX_SCHEMA = pa.schema(
@@ -185,6 +186,9 @@ def evaluate_protocol(
     output_root: Path,
     *,
     allow_overwrite: bool = False,
+    workers: int = 1,
+    progress: EvaluationProgress | None = None,
+    execution_provenance: Mapping[str, object] | None = None,
 ) -> dict[str, object]:
     return evaluate_protocol_rows(
         load_protocol_core_rows(manifest_root),
@@ -193,6 +197,9 @@ def evaluate_protocol(
         output_root,
         scope="full",
         allow_overwrite=allow_overwrite,
+        workers=workers,
+        progress=progress,
+        execution_provenance=execution_provenance,
     )
 
 
@@ -204,12 +211,21 @@ def evaluate_protocol_rows(
     *,
     scope: str,
     allow_overwrite: bool = False,
+    workers: int = 1,
+    progress: EvaluationProgress | None = None,
+    execution_provenance: Mapping[str, object] | None = None,
 ) -> dict[str, object]:
     """Evaluate one embedding backend without ever deriving a prediction from references."""
 
+    if workers < 1:
+        raise SpeakerProtocolError("evaluation workers must be at least one")
     policy = load_policy()
     destination = output_root.resolve()
-    if destination.exists() and any(destination.iterdir()) and not allow_overwrite:
+    if (
+        destination.exists()
+        and any(path.name != "evaluation_progress.json" for path in destination.iterdir())
+        and not allow_overwrite
+    ):
         raise SpeakerProtocolError(f"speaker protocol output already exists: {destination}")
     destination.mkdir(parents=True, exist_ok=True)
     required_kinds = {"enrollment", "calibration", "known_evaluation", "unknown_evaluation"}
@@ -236,6 +252,8 @@ def evaluate_protocol_rows(
         observed[observation.item_id] = observation
 
     failures: list[dict[str, object]] = []
+    if progress:
+        progress.update("BUILDING_ENROLLMENT", details={"score_matrix_status": "pending"})
     embedding_index = _publish_embedding_observations(
         destination, all_rows, observed, identity, failures
     )
@@ -249,7 +267,11 @@ def evaluate_protocol_rows(
     validate_enrollment_compatibility(enrollment_metadata["backend_identity"], identity)
 
     probe_rows = core["calibration"] + core["known_evaluation"] + core["unknown_evaluation"]
+    if progress:
+        progress.update("BUILDING_SCORE_MATRIX", details={"score_matrix_status": "building"})
     similarity = _score_probes(probe_rows, observed, centroids, identity, failures)
+    if progress:
+        progress.update("CALIBRATION", details={"score_matrix_status": "complete", "calibration_status": "running"})
     calibration_trials = [row for row in similarity if row["protocol_split"] == "calibration"]
     evaluation_trials = [row for row in similarity if row["protocol_split"] == "evaluation"]
     calibration_sweep = threshold_sweep(calibration_trials, split="calibration")
@@ -257,6 +279,8 @@ def evaluate_protocol_rows(
     if calibration_eer is None:
         raise SpeakerProtocolError("calibration requires both target and non-target score trials")
     threshold = float(calibration_eer["threshold"])
+    if progress:
+        progress.update("EVALUATION", details={"calibration_status": "complete"})
     evaluation_sweep = threshold_sweep(evaluation_trials, split="evaluation")
     verification = _verification_decisions(evaluation_trials, threshold)
     rankings = _identification_rankings(evaluation_trials)
@@ -270,16 +294,37 @@ def evaluate_protocol_rows(
     evaluation_eer = equal_error_rate(evaluation_sweep)
     bootstrap_repetitions = int(policy["metrics"]["bootstrap_repetitions"])
     bootstrap_seed = int(policy["metrics"]["bootstrap_seed"])
+    evaluation_same = [row for row in evaluation_trials if row["is_target"]]
+    evaluation_different = [row for row in evaluation_trials if not row["is_target"]]
+    drift_values = _paired_drift(core, observed)
+    bootstrap_jobs = 1 + int(evaluation_eer is not None)
+    bootstrap_jobs += int(len(evaluation_same) > 1) + int(len(evaluation_different) > 1)
+    bootstrap_jobs += int(len(drift_values) > 1)
+    bootstrap_total = bootstrap_repetitions * bootstrap_jobs
+    bootstrap_completed = 0
+
+    def bootstrap_tick(completed: int) -> None:
+        nonlocal bootstrap_completed
+        bootstrap_completed += completed
+        if progress:
+            progress.update("BOOTSTRAP", completed=bootstrap_completed, total=bootstrap_total)
+
+    if progress:
+        progress.update("BOOTSTRAP", completed=0, total=bootstrap_total, force=True)
     if evaluation_eer is not None:
         evaluation_eer["confidence_interval"] = _eer_bootstrap(
             evaluation_trials,
             seed=bootstrap_seed,
             repetitions=bootstrap_repetitions,
+            workers=workers,
+            progress_callback=bootstrap_tick,
         )
     calibration_eer["confidence_interval"] = _eer_bootstrap(
         calibration_trials,
         seed=bootstrap_seed,
         repetitions=bootstrap_repetitions,
+        workers=workers,
+        progress_callback=bootstrap_tick,
     )
     calibration_results = {
         "schema_version": "speaker-calibration-results.v1",
@@ -305,6 +350,9 @@ def evaluate_protocol_rows(
         decisions,
         failures,
         policy,
+        workers=workers,
+        progress_callback=bootstrap_tick,
+        drift_values=drift_values,
     )
     metrics["calibration_vs_evaluation"] = {
         "calibration_eer": calibration_eer,
@@ -330,8 +378,16 @@ def evaluate_protocol_rows(
         "expected_items": len(all_rows),
         "observed_items": len(observed),
         "successful_embeddings": sum(1 for row in embedding_index if row["status"] == "ok"),
+        "evaluation_execution": {
+            "workers": workers,
+            "math_threads_per_worker": 1,
+            "logical_processor_count": os.cpu_count(),
+            **dict(execution_provenance or {}),
+        },
     }
 
+    if progress:
+        progress.update("WRITING_RESULTS", force=True)
     _write_json(destination / "protocol_run.json", protocol_run)
     _write_json(destination / "backend_identity.json", identity.to_jsonable())
     _write_json(destination / "enrollment" / "metadata.json", enrollment_metadata)
@@ -347,7 +403,11 @@ def evaluate_protocol_rows(
     _write_json(destination / "metrics" / "summary.json", metrics)
     _write_parquet(destination / "metrics" / "grouped_metrics.parquet", grouped_metrics, GROUP_METRIC_SCHEMA, "speaker-grouped-metrics.v1")
     _write_checksums(destination)
+    if progress:
+        progress.update("VALIDATING", force=True)
     validate_protocol_results(destination, runtime_identity=identity)
+    if progress:
+        progress.update("COMPLETE", status="COMPLETE", force=True)
     return metrics
 
 
@@ -690,6 +750,10 @@ def _metrics(
     decisions: Sequence[Mapping[str, object]],
     failures: Sequence[Mapping[str, object]],
     policy: Mapping[str, object],
+    *,
+    workers: int = 1,
+    progress_callback: Callable[[int], None] | None = None,
+    drift_values: Sequence[float] | None = None,
 ) -> tuple[dict[str, object], list[dict[str, object]]]:
     all_rows = [row for rows in core.values() for row in rows]
     successful = sum(1 for row in all_rows if observed.get(str(row["item_id"])) and observed[str(row["item_id"])].status == "ok")
@@ -722,7 +786,7 @@ def _metrics(
     unknown_correct = sum(1 for row in unknown_decisions if row["correct"])
     false_known = sum(1 for row in unknown_decisions if row["accepted_known"])
     known_open_correct = sum(1 for row in known_decisions if row["correct"])
-    drift_values = _paired_drift(core, observed)
+    selected_drift = list(drift_values) if drift_values is not None else _paired_drift(core, observed)
     repetitions = int(policy["metrics"]["bootstrap_repetitions"])
     seed = int(policy["metrics"]["bootstrap_seed"])
     metrics: dict[str, object] = {
@@ -743,10 +807,10 @@ def _metrics(
             "enrollment_failures": sum(1 for row in enrollment_index if int(row["successful_exemplars"]) == 0),
         },
         "score_distributions": {
-            "same_speaker": score_distribution(same, seed=seed, repetitions=repetitions),
-            "different_speaker": score_distribution(different, seed=seed + 1, repetitions=repetitions),
+            "same_speaker": score_distribution(same, seed=seed, repetitions=repetitions, workers=workers, progress_callback=progress_callback),
+            "different_speaker": score_distribution(different, seed=seed + 1, repetitions=repetitions, workers=workers, progress_callback=progress_callback),
         },
-        "embedding_drift": score_distribution(drift_values, seed=seed + 2, repetitions=repetitions),
+        "embedding_drift": score_distribution(selected_drift, seed=seed + 2, repetitions=repetitions, workers=workers, progress_callback=progress_callback),
         "verification": {
             "operating_threshold_source": "calibration_only",
             "operating_threshold": threshold,
@@ -837,27 +901,68 @@ def _eer_bootstrap(
     *,
     seed: int,
     repetitions: int,
+    workers: int = 1,
+    progress_callback: Callable[[int], None] | None = None,
 ) -> dict[str, float] | None:
-    positives = [row for row in trials if row["is_target"]]
-    negatives = [row for row in trials if not row["is_target"]]
-    if not positives or not negatives:
+    positives = np.asarray([float(row["score"]) for row in trials if row["is_target"]], dtype=np.float64)
+    negatives = np.asarray([float(row["score"]) for row in trials if not row["is_target"]], dtype=np.float64)
+    if not len(positives) or not len(negatives):
         return None
-    rng = random.Random(seed)
-    values = []
-    for repetition in range(max(1, repetitions)):
-        sampled = [rng.choice(positives) for _ in positives] + [rng.choice(negatives) for _ in negatives]
-        result = equal_error_rate(threshold_sweep(sampled, split=f"bootstrap-{repetition}"))
-        if result is not None:
-            values.append(float(result["eer"]))
-    values.sort()
-    if not values:
+    count = max(1, repetitions)
+    values: list[float | None] = [None] * count
+    if workers == 1:
+        for repetition in range(count):
+            values[repetition] = _eer_bootstrap_replicate(positives, negatives, seed, repetition)
+            if progress_callback:
+                progress_callback(1)
+    else:
+        with ThreadPoolExecutor(max_workers=workers, thread_name_prefix="speaker-eer") as executor:
+            futures = {
+                executor.submit(_eer_bootstrap_replicate, positives, negatives, seed, repetition): repetition
+                for repetition in range(count)
+            }
+            for future in as_completed(futures):
+                values[futures[future]] = future.result()
+                if progress_callback:
+                    progress_callback(1)
+    materialized = [float(value) for value in values if value is not None]
+    materialized.sort()
+    if not materialized:
         return None
     return {
         "confidence_level": 0.95,
-        "lower": _percentile(values, 0.025),
-        "upper": _percentile(values, 0.975),
-        "bootstrap_repetitions": len(values),
+        "lower": _percentile(materialized, 0.025),
+        "upper": _percentile(materialized, 0.975),
+        "bootstrap_repetitions": len(materialized),
     }
+
+
+def _eer_bootstrap_replicate(
+    positives: np.ndarray,
+    negatives: np.ndarray,
+    seed: int,
+    repetition: int,
+) -> float:
+    """Return one schedule-independent bootstrap EER using shared score arrays."""
+
+    rng = np.random.default_rng(np.random.SeedSequence([int(seed), int(repetition)]))
+    sampled_positive = positives[rng.integers(0, len(positives), size=len(positives))]
+    sampled_negative = negatives[rng.integers(0, len(negatives), size=len(negatives))]
+    scores = np.concatenate((sampled_positive, sampled_negative))
+    targets = np.concatenate(
+        (np.ones(len(sampled_positive), dtype=np.int8), np.zeros(len(sampled_negative), dtype=np.int8))
+    )
+    order = np.argsort(-scores, kind="stable")
+    ordered_scores = scores[order]
+    ordered_targets = targets[order]
+    boundaries = np.r_[np.flatnonzero(ordered_scores[:-1] != ordered_scores[1:]), len(scores) - 1]
+    cumulative_positive = np.cumsum(ordered_targets, dtype=np.int64)[boundaries]
+    accepted = boundaries + 1
+    cumulative_negative = accepted - cumulative_positive
+    far = cumulative_negative / len(sampled_negative)
+    frr = (len(sampled_positive) - cumulative_positive) / len(sampled_positive)
+    best = int(np.argmin(np.abs(far - frr)))
+    return float((far[best] + frr[best]) / 2.0)
 
 
 def _percentile(values: Sequence[float], probability: float) -> float:
@@ -973,7 +1078,7 @@ def _replace(source: Path, destination: Path) -> None:
 def _write_checksums(root: Path) -> None:
     entries = {}
     for path in sorted(root.rglob("*")):
-        if not path.is_file() or path.name == "checksums.json" or path.name.endswith(".tmp"):
+        if not path.is_file() or path.name in {"checksums.json", "evaluation_progress.json"} or path.name.endswith(".tmp"):
             continue
         relative = path.relative_to(root).as_posix()
         entries[relative] = {

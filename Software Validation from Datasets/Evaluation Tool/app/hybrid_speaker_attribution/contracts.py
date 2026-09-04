@@ -10,6 +10,8 @@ from typing import Mapping
 
 import yaml
 
+from app.utils.paths import evaluation_output_root
+
 
 TOOL_ROOT = Path(__file__).resolve().parents[2]
 REPOSITORY_ROOT = TOOL_ROOT.parents[1]
@@ -119,8 +121,8 @@ def load_frozen_config(path: Path) -> dict[str, object]:
 
 def default_result_root() -> Path:
     configured = os.environ.get("JP_HYBRID_ATTRIBUTION_RESULT_ROOT", "").strip()
-    return Path(configured).resolve() if configured else Path.home() / "JustPeachyResults" / "hybrid_speaker_attribution"
+    return Path(configured).resolve() if configured else evaluation_output_root("results") / "hybrid_speaker_attribution"
 
 
 def default_summary_root(config_id: str, git_sha: str) -> Path:
-    return Path.home() / "JustPeachyResearchSummaries" / f"hybrid_speaker_attribution_{config_id}_{git_sha[:12]}"
+    return evaluation_output_root("research_summaries") / f"hybrid_speaker_attribution_{config_id}_{git_sha[:12]}"

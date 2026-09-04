@@ -1,0 +1,13 @@
+**
+!Software Validation from Datasets/Evaluation Tool/app/**
+!Software Validation from Datasets/Evaluation Tool/configs/**
+!Software Validation from Datasets/Evaluation Tool/deployment/h2_arm64/**
+**/__pycache__/**
+**/*.pyc
+**/JustPeachyResults/**
+**/JustPeachyLogs/**
+**/artifacts/**
+**/runs/**
+**/models/**
+**/.stage8-envs/**
+**/.venv/**

@@ -1,0 +1,58 @@
+schema_version: hybrid-speaker-attribution-product-v2-scientific-enrollment-policy.v1
+policy_id: hybrid_product_v2_redimnet2_scientific_v1
+protocol_id: hybrid_speaker_attribution_product_v2_a68cc1ac26aa
+scientific: true
+source_study_status: COMPLETE
+source_study_id: speaker_enrollment_live_v2_5107db9ab304
+source_study_report: C:\Users\amiri\Documents\GitHub\just-peachy\Software Validation
+  from Datasets\Evaluation Tool\JustPeachyResults\speaker_enrollment\speaker_enrollment_live_v2_5107db9ab304\FINAL_ANALYSIS.md
+source_study_report_sha256: d24ad8d469afb2bcc8c48fe402c45c0c88c0571e7260cb1fa076f7ea497859ee
+source_deployment_report: C:\Users\amiri\Documents\GitHub\just-peachy\Software Validation
+  from Datasets\Evaluation Tool\JustPeachyResearchSummaries\speaker_embedding_deployment_v1_4779270a5bf0\REPORT.md
+source_deployment_report_sha256: 62f4c464f4b85ff8fb1eb34288067ed20872c246e2d495e692c0e90aecfeb2e8
+identity_backend_id: redimnet2_b2_speaker_embedding
+backend_identity:
+  aggregation_method: normalized_mean
+  backend_id: redimnet2_b2_speaker_embedding
+  config_hash: 5523F883C91FFAB5B99A2C79A4BFD972CE88EA2C0AD9754BAE87EA577498AE38
+  config_path: configs/inference/components/speaker_embedding/redimnet2_b2.yaml
+  embedding_dimension: 192
+  environment_profile: redimnet2
+  identity_hash: 3FA146871ADB3336950A59F7E7CB5905FD209AA9B5126D6295A0109EE0A2E1D9
+  model_hash: C84CE9857DBC788CF5A65B22B044DDB1A37874158CE2168E80613E5036D1C678
+  model_id: redimnet2_b2_speaker_embedding:11f2cbf70100
+  normalization: l2
+  preprocessing:
+    channel_count: 1
+    dtype: float32
+    sample_rate_hz: 16000
+  qualification_status: qualified
+  schema_version: speaker-backend-identity.v1
+  threshold_policy_version: speaker-threshold-policy.v1
+environment_profile: redimnet2
+enrollment_utterance_count: 3
+enrollment_total_target_sec: 10.0
+clip_selection: first_three_frozen_reserved_clean_diverse_clips
+aggregation_method: multi_template_max
+cluster_evidence_aggregation: duration_weighted_normalized_mean
+technical_minimum_evidence_sec: 0.5
+technical_duration_support:
+  '0.5': VALID
+  '0.75': VALID
+  '1.0': VALID
+  '1.5': VALID
+  '2.0': VALID
+  '3.0': VALID
+  '5.0': VALID
+no_audio_padding: true
+open_set_calibration:
+  maximum_gallery_score: true
+  top1_top2_margin: true
+  target_fpir:
+  - 0.005
+  - 0.01
+  - 0.02
+  - 0.05
+  calibration_only: true
+evidence_reference: 'speaker_enrollment_live_v2 FINAL_ANALYSIS: compact fallback;
+  three clean diverse utterances; multi-template max tendency'

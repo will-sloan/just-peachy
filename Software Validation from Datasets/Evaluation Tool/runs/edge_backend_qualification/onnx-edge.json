@@ -3,7 +3,7 @@
     "cuda_available": false,
     "cuda_runtime": null,
     "device_requested": "cpu",
-    "git_commit": "b78df94cf1b8c4c9a1ea684a0a64b7bd37020838",
+    "git_commit": "597bcfbcb7f9f57d63f082d1d5f7d604a98ba9df",
     "gpu": null,
     "machine": "AMD64",
     "package_count": 68,
@@ -13,7 +13,7 @@
     "python_executable": "<environment>/Scripts/python.exe",
     "torch": "2.11.0+cpu"
   },
-  "generated_at": "2026-08-12T01:54:34.333318+00:00",
+  "generated_at": "2026-08-13T18:15:34.701147+00:00",
   "profile": "onnx",
   "results": [
     {
@@ -121,7 +121,7 @@
         }
       ],
       "backend_id": "sherpa_onnx_streaming_zipformer_20m_int8",
-      "command": "python scripts/qualify_extended_backends.py --profile onnx --backend sherpa_onnx_streaming_zipformer_20m_int8 --backend campplus_speaker_embedding --backend eres2net_base_speaker_embedding --output runs/edge_backend_qualification/onnx-edge.json",
+      "command": "python 'scripts\\qualify_extended_backends.py' --profile onnx --backend sherpa_onnx_streaming_zipformer_20m_int8 --backend campplus_speaker_embedding --backend eres2net_base_speaker_embedding --output 'runs\\edge_backend_qualification\\onnx-edge.json'",
       "component_identity": {
         "backend_id": "sherpa_onnx_streaming_zipformer_20m_int8",
         "config_path": "configs/inference/components/asr/sherpa_onnx_streaming_zipformer_20m_int8.yaml",
@@ -147,12 +147,12 @@
           "dtype": "float32",
           "gpu_memory_allocated_mb": null,
           "gpu_memory_reserved_mb": null,
-          "inference_sec": 0.03717759996652603,
-          "load_sec": 0.8489168998785317,
+          "inference_sec": 0.03271760001371149,
+          "load_sec": 1.169182900004671,
           "model_name": "sherpa_onnx_streaming_zipformer_en_20m_int8_2023_02_17",
           "peak_gpu_memory_mb": null,
           "peak_gpu_memory_reserved_mb": null,
-          "realtime_factor": 0.03717759996652603
+          "realtime_factor": 0.03271760001371149
         },
         "transcripts": [
           "organization of these countries took the form of revolution",
@@ -174,11 +174,11 @@
       "status": "qualified",
       "timing": {
         "inference_sec": [
-          1.031403,
-          0.136254
+          1.325692,
+          0.119621
         ],
-        "initialization_sec": 0.8489168998785317,
-        "total_sec": 26.845139
+        "initialization_sec": 1.169182900004671,
+        "total_sec": 5.226821
       },
       "warnings": []
     },
@@ -227,7 +227,7 @@
         }
       ],
       "backend_id": "campplus_speaker_embedding",
-      "command": "python scripts/qualify_extended_backends.py --profile onnx --backend sherpa_onnx_streaming_zipformer_20m_int8 --backend campplus_speaker_embedding --backend eres2net_base_speaker_embedding --output runs/edge_backend_qualification/onnx-edge.json",
+      "command": "python 'scripts\\qualify_extended_backends.py' --profile onnx --backend sherpa_onnx_streaming_zipformer_20m_int8 --backend campplus_speaker_embedding --backend eres2net_base_speaker_embedding --output 'runs\\edge_backend_qualification\\onnx-edge.json'",
       "component_identity": {
         "backend_id": "campplus_speaker_embedding",
         "config_path": "configs/inference/components/speaker_embedding/campplus.yaml",
@@ -252,11 +252,11 @@
           "cpu_memory_mb": null,
           "device": "cpu",
           "dtype": "float32",
-          "inference_sec": 0.0012934999540448189,
+          "inference_sec": 0.0010099000064656138,
           "load_sec": 0.0,
           "model_name": "campplus_en_voxceleb_16k_v1_0_2",
           "peak_gpu_memory_mb": null,
-          "realtime_factor": 0.012934999540448189
+          "realtime_factor": 0.010099000064656138
         },
         "valid_real_outputs": 2
       },
@@ -274,10 +274,10 @@
       "status": "qualified",
       "timing": {
         "inference_sec": [
-          0.568258,
-          0.074632
+          0.518648,
+          0.072953
         ],
-        "total_sec": 0.712566
+        "total_sec": 0.665795
       },
       "warnings": []
     },
@@ -326,7 +326,7 @@
         }
       ],
       "backend_id": "eres2net_base_speaker_embedding",
-      "command": "python scripts/qualify_extended_backends.py --profile onnx --backend sherpa_onnx_streaming_zipformer_20m_int8 --backend campplus_speaker_embedding --backend eres2net_base_speaker_embedding --output runs/edge_backend_qualification/onnx-edge.json",
+      "command": "python 'scripts\\qualify_extended_backends.py' --profile onnx --backend sherpa_onnx_streaming_zipformer_20m_int8 --backend campplus_speaker_embedding --backend eres2net_base_speaker_embedding --output 'runs\\edge_backend_qualification\\onnx-edge.json'",
       "component_identity": {
         "backend_id": "eres2net_base_speaker_embedding",
         "config_path": "configs/inference/components/speaker_embedding/eres2net_base.yaml",
@@ -351,11 +351,11 @@
           "cpu_memory_mb": null,
           "device": "cpu",
           "dtype": "float32",
-          "inference_sec": 0.001128499861806631,
+          "inference_sec": 0.0007590000022901222,
           "load_sec": 0.0,
           "model_name": "eres2net_base_3dspeaker_16k_v1_0_1",
           "peak_gpu_memory_mb": null,
-          "realtime_factor": 0.011284998618066311
+          "realtime_factor": 0.007590000022901222
         },
         "valid_real_outputs": 2
       },
@@ -373,10 +373,10 @@
       "status": "qualified",
       "timing": {
         "inference_sec": [
-          0.534639,
-          0.182291
+          0.453656,
+          0.195509
         ],
-        "total_sec": 0.788119
+        "total_sec": 0.724139
       },
       "warnings": []
     }

@@ -54,7 +54,12 @@ def embedding_job(
     return payload
 
 
-def extract_jobs(component_name: str, jobs: Iterable[Mapping[str, object]], cache_root: Path) -> dict[str, object]:
+def extract_jobs(
+    component_name: str,
+    jobs: Iterable[Mapping[str, object]],
+    cache_root: Path,
+    progress_path: Path | None = None,
+) -> dict[str, object]:
     """Extract missing jobs with one model load and atomically publish each item."""
 
     eligible = eligible_embedding_backends(backend_ids={component_name})
@@ -81,13 +86,18 @@ def extract_jobs(component_name: str, jobs: Iterable[Mapping[str, object]], cach
     dimension = None
     failures = []
     observed_audio_hashes: dict[Path, str] = {}
+    completed_audio_sec = sum(float(row["end_sec"]) - float(row["start_sec"]) for row in rows if row not in pending)
+    planned_audio_sec = sum(float(row["end_sec"]) - float(row["start_sec"]) for row in rows)
+    if progress_path:
+        _write_json(progress_path, {"schema_version": "hybrid-embedding-progress.v1", "backend_id": component_name, "status": "RUNNING", "completed_jobs": reused, "planned_jobs": len(rows), "completed_audio_sec": completed_audio_sec, "planned_audio_sec": planned_audio_sec, "current_job_id": None, "updated_at_epoch": time.time()})
     if pending:
         adapter = build_speaker_embedding_from_config(_embedding_config(component_name))
         if adapter is None:
             raise HybridAttributionError(f"speaker backend did not build: {component_name}")
-    for row in pending:
+    for pending_index, row in enumerate(pending, start=1):
         started = time.perf_counter()
         status, vector, error = "failed", (), None
+        result = None
         try:
             path = Path(str(row["audio_path"]))
             if not path.is_file():
@@ -143,12 +153,15 @@ def extract_jobs(component_name: str, jobs: Iterable[Mapping[str, object]], cach
             "vector": vector,
             "duration_sec": float(row["end_sec"]) - float(row["start_sec"]),
             "extraction_sec": time.perf_counter() - started,
-            "backend_runtime": result.runtime.to_jsonable() if status == "ok" and result.runtime is not None else None,
+            "backend_runtime": result.runtime.to_jsonable() if status == "ok" and result is not None and result.runtime is not None else None,
             "error": error,
             "role": row["role"],
             "metadata": row.get("metadata") or {},
         }
         _write_json(destination / f"{row['cache_identity']}.json", payload)
+        completed_audio_sec += float(row["end_sec"]) - float(row["start_sec"])
+        if progress_path and (pending_index == len(pending) or pending_index % 10 == 0):
+            _write_json(progress_path, {"schema_version": "hybrid-embedding-progress.v1", "backend_id": component_name, "status": "RUNNING", "completed_jobs": reused + pending_index, "planned_jobs": len(rows), "completed_audio_sec": completed_audio_sec, "planned_audio_sec": planned_audio_sec, "current_job_id": row["job_id"], "failures": len(failures), "updated_at_epoch": time.time()})
     successful = sum(
         load_cached(destination / f"{row['cache_identity']}.json")["status"] == "ok"
         for row in rows
@@ -184,6 +197,8 @@ def extract_jobs(component_name: str, jobs: Iterable[Mapping[str, object]], cach
         "failures": failures,
     }
     _write_json(destination / "extraction_summary.json", summary)
+    if progress_path:
+        _write_json(progress_path, {"schema_version": "hybrid-embedding-progress.v1", "backend_id": component_name, "status": "COMPLETE", "completed_jobs": len(rows), "planned_jobs": len(rows), "completed_audio_sec": planned_audio_sec, "planned_audio_sec": planned_audio_sec, "current_job_id": None, "failures": len(failures), "updated_at_epoch": time.time()})
     return summary
 
 
@@ -205,7 +220,16 @@ def _write_json(path: Path, value: object) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     temporary = path.with_name(f".{path.name}.tmp")
     temporary.write_text(json.dumps(value, indent=2, sort_keys=True) + "\n", encoding="utf-8", newline="\n")
-    os.replace(temporary, path)
+    last_error: PermissionError | None = None
+    for attempt in range(40):
+        try:
+            os.replace(temporary, path)
+            return
+        except PermissionError as exc:
+            last_error = exc
+            time.sleep(min(0.5, 0.01 * (attempt + 1)))
+    if last_error is not None:
+        raise last_error
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -213,9 +237,10 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--backend", required=True)
     parser.add_argument("--jobs", type=Path, required=True)
     parser.add_argument("--cache-root", type=Path, required=True)
+    parser.add_argument("--progress-path", type=Path, default=None)
     args = parser.parse_args(argv)
     jobs = [json.loads(line) for line in args.jobs.read_text(encoding="utf-8").splitlines() if line.strip()]
-    print(json.dumps(extract_jobs(args.backend, jobs, args.cache_root), indent=2, sort_keys=True))
+    print(json.dumps(extract_jobs(args.backend, jobs, args.cache_root, args.progress_path), indent=2, sort_keys=True))
     return 0
 
 

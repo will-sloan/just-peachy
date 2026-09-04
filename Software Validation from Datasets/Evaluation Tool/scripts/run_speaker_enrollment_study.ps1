@@ -36,7 +36,7 @@ if (-not $ResultBase) {
         $ResultBase = $env:JP_SPEAKER_ENROLLMENT_RESULT_ROOT
     }
     else {
-        $ResultBase = Join-Path ([Environment]::GetFolderPath('UserProfile')) 'JustPeachyResults\speaker_enrollment'
+        $ResultBase = Join-Path $ToolRoot 'JustPeachyResults\speaker_enrollment'
     }
 }
 
@@ -143,8 +143,7 @@ switch ($Action) {
                 Pop-Location
             }
             if ($LASTEXITCODE -ne 0) {
-                Write-Warning "[FAIL] extraction failed for $Backend / $Phase"
-                continue
+                throw "[FAIL] extraction failed for $Backend / $Phase with exit code $LASTEXITCODE"
             }
             $CacheArguments = [System.Collections.ArrayList]@('speaker-enrollment', 'validate-cache', '--protocol-root', $ProtocolRoot, '--source-protocol-root', $SourceProtocolRoot, '--backend', $Backend, '--cache-root', $CacheRoot)
             Add-PhaseSelectionArguments $CacheArguments
@@ -185,7 +184,7 @@ switch ($Action) {
             $AnalysisRoot = Join-Path $ProtocolResultBase 'analysis'
         }
         if (-not $CollectRoot) {
-            $CollectRoot = Join-Path ([Environment]::GetFolderPath('UserProfile')) ("JustPeachyResearchSummaries\speaker_enrollment_duration_{0}" -f $Summary.protocol_id)
+            $CollectRoot = Join-Path $ToolRoot ("JustPeachyResearchSummaries\speaker_enrollment_duration_{0}" -f $Summary.protocol_id)
         }
         $Arguments = [System.Collections.ArrayList]@('speaker-enrollment', 'collect', '--protocol-root', $ProtocolRoot, '--source-protocol-root', $SourceProtocolRoot, '--result-base', $ProtocolResultBase, '--analysis-root', $AnalysisRoot, '--output-root', $CollectRoot)
         foreach ($Backend in $Backends) {

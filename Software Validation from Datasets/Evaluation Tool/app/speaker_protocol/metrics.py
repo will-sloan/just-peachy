@@ -5,7 +5,10 @@ from __future__ import annotations
 import math
 import random
 from statistics import mean, pstdev
-from typing import Iterable, Mapping, Sequence
+from concurrent.futures import ThreadPoolExecutor, as_completed
+from typing import Callable, Iterable, Mapping, Sequence
+
+import numpy as np
 
 from app.speaker_protocol.contracts import SpeakerProtocolError
 
@@ -41,26 +44,33 @@ def threshold_sweep(
     negatives = len(materialized) - positives
     if not materialized or positives == 0 or negatives == 0:
         return []
-    values = sorted({score for score, _ in materialized}, reverse=True)
+    # Sort once and update cumulative counts at score boundaries.  The previous
+    # implementation rescanned every trial for every unique threshold (O(n^2)),
+    # which dominates large protocols while producing the same decisions.
+    ordered = sorted(materialized, key=lambda item: item[0], reverse=True)
+    values = []
+    grouped_counts: list[tuple[float, int, int]] = []
+    for score, target in ordered:
+        if not grouped_counts or grouped_counts[-1][0] != score:
+            grouped_counts.append((score, 0, 0))
+        value, positive_count, negative_count = grouped_counts[-1]
+        grouped_counts[-1] = (
+            value,
+            positive_count + int(target),
+            negative_count + int(not target),
+        )
+        values.append(score)
+    unique_values = [row[0] for row in grouped_counts]
     epsilon = 1e-12
-    thresholds = [values[0] + epsilon, *values, values[-1] - epsilon]
     result = []
-    for threshold in thresholds:
-        tp = fp = tn = fn = 0
-        for score, target in materialized:
-            accepted = score >= threshold
-            if accepted and target:
-                tp += 1
-            elif accepted:
-                fp += 1
-            elif target:
-                fn += 1
-            else:
-                tn += 1
+    tp = fp = 0
+
+    def append_row(threshold: float) -> None:
+        fn = positives - tp
+        tn = negatives - fp
         far = fp / negatives
         frr = fn / positives
-        result.append(
-            {
+        result.append({
                 "schema_version": "speaker-threshold-sweep.v1",
                 "split": split,
                 "threshold": float(threshold),
@@ -76,8 +86,14 @@ def threshold_sweep(
                 "tpr": tp / positives,
                 "fpr": far,
                 "fnr": frr,
-            }
-        )
+        })
+
+    append_row(unique_values[0] + epsilon)
+    for threshold, positive_count, negative_count in grouped_counts:
+        tp += positive_count
+        fp += negative_count
+        append_row(threshold)
+    append_row(unique_values[-1] - epsilon)
     return result
 
 
@@ -195,6 +211,8 @@ def score_distribution(
     *,
     seed: int = 3800,
     repetitions: int = 500,
+    workers: int = 1,
+    progress_callback: Callable[[int], None] | None = None,
 ) -> dict[str, object]:
     samples = [float(value) for value in values if math.isfinite(float(value))]
     if not samples:
@@ -205,7 +223,13 @@ def score_distribution(
         "standard_deviation": pstdev(samples) if len(samples) > 1 else 0.0,
         "minimum": min(samples),
         "maximum": max(samples),
-        "mean_ci": bootstrap_mean_interval(samples, seed=seed, repetitions=repetitions),
+        "mean_ci": bootstrap_mean_interval(
+            samples,
+            seed=seed,
+            repetitions=repetitions,
+            workers=workers,
+            progress_callback=progress_callback,
+        ),
     }
 
 
@@ -214,20 +238,43 @@ def bootstrap_mean_interval(
     *,
     seed: int,
     repetitions: int,
+    workers: int = 1,
+    progress_callback: Callable[[int], None] | None = None,
 ) -> dict[str, float] | None:
     if not values:
         return None
     if len(values) == 1:
         value = float(values[0])
         return {"confidence_level": 0.95, "lower": value, "upper": value}
-    rng = random.Random(seed)
-    estimates = []
-    for _ in range(max(1, int(repetitions))):
-        estimates.append(mean(rng.choice(values) for _ in values))
-    estimates.sort()
-    lower = _quantile(estimates, 0.025)
-    upper = _quantile(estimates, 0.975)
+    samples = np.asarray(values, dtype=np.float64)
+    count = max(1, int(repetitions))
+    estimates: list[float | None] = [None] * count
+    if workers == 1:
+        for repetition in range(count):
+            estimates[repetition] = _bootstrap_mean_replicate(samples, seed, repetition)
+            if progress_callback:
+                progress_callback(1)
+    else:
+        with ThreadPoolExecutor(max_workers=workers, thread_name_prefix="speaker-mean") as executor:
+            futures = {
+                executor.submit(_bootstrap_mean_replicate, samples, seed, repetition): repetition
+                for repetition in range(count)
+            }
+            for future in as_completed(futures):
+                estimates[futures[future]] = future.result()
+                if progress_callback:
+                    progress_callback(1)
+    materialized = [float(value) for value in estimates if value is not None]
+    materialized.sort()
+    lower = _quantile(materialized, 0.025)
+    upper = _quantile(materialized, 0.975)
     return {"confidence_level": 0.95, "lower": lower, "upper": upper}
+
+
+def _bootstrap_mean_replicate(values: np.ndarray, seed: int, repetition: int) -> float:
+    rng = np.random.default_rng(np.random.SeedSequence([int(seed), int(repetition)]))
+    indices = rng.integers(0, len(values), size=len(values))
+    return float(np.mean(values[indices], dtype=np.float64))
 
 
 def _quantile(values: Sequence[float], probability: float) -> float:

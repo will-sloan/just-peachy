@@ -9,6 +9,7 @@ from pathlib import Path
 import subprocess
 import time
 from typing import Mapping, Sequence
+import uuid
 
 import numpy as np
 import soundfile as sf
@@ -344,12 +345,15 @@ def _cache_summary(
     statuses: dict[str, int] = {}
     durations: dict[str, list[float]] = {}
     total_seconds = 0.0
+    total_audio_seconds = 0.0
     for slice_id in required:
         value = _read_item(root / "items" / f"{slice_id}.npz")
         status = str(value["status"])
         statuses[status] = statuses.get(status, 0) + 1
         durations.setdefault(status, []).append(float(value["duration_sec"]))
         total_seconds += float(value["extraction_sec"])
+        if status == "ok":
+            total_audio_seconds += float(value["duration_sec"])
     return {
         "schema_version": CACHE_SCHEMA_VERSION,
         "protocol_id": json.loads((protocol_root / "protocol_summary.json").read_text(encoding="utf-8"))["protocol_id"],
@@ -359,6 +363,8 @@ def _cache_summary(
         "cached_items_in_requested_scope": len(required),
         "statuses": statuses,
         "total_extraction_sec_in_requested_scope": total_seconds,
+        "successful_audio_duration_sec_in_requested_scope": total_audio_seconds,
+        "embedding_realtime_factor": total_seconds / total_audio_seconds if total_audio_seconds else None,
         "minimum_ok_duration_sec": min(durations.get("ok", []), default=None),
         "maximum_too_short_duration_sec": max(durations.get("too_short", []), default=None),
         "implicit_model_downloads_allowed": False,
@@ -391,19 +397,37 @@ def _sha256(path: Path) -> str:
 
 def _write_json(path: Path, value: Mapping[str, object]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
-    temporary = path.with_name(f".{path.name}.tmp")
-    temporary.write_text(json.dumps(value, indent=2, sort_keys=True) + "\n", encoding="utf-8", newline="\n")
-    os.replace(temporary, path)
+    temporary = path.with_name(f".{path.name}.tmp-{uuid.uuid4().hex}")
+    try:
+        temporary.write_text(json.dumps(value, indent=2, sort_keys=True) + "\n", encoding="utf-8", newline="\n")
+        _replace_with_retry(temporary, path)
+    finally:
+        temporary.unlink(missing_ok=True)
 
 
 def _write_npz(path: Path, arrays: Mapping[str, object]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
-    temporary = path.with_name(f".{path.name}.tmp")
+    temporary = path.with_name(f".{path.name}.tmp-{uuid.uuid4().hex}")
     try:
         with temporary.open("wb") as handle:
             np.savez(handle, **{key: np.asarray(value) for key, value in arrays.items()})
         with np.load(temporary, allow_pickle=False):
             pass
-        os.replace(temporary, path)
+        _replace_with_retry(temporary, path)
     finally:
         temporary.unlink(missing_ok=True)
+
+
+def _replace_with_retry(source: Path, destination: Path) -> None:
+    """Retry bounded Windows sharing violations without hiding other I/O errors."""
+
+    delays = (0.025, 0.05, 0.1, 0.2, 0.4, 0.8)
+    for attempt in range(len(delays) + 1):
+        try:
+            os.replace(source, destination)
+            return
+        except OSError as exc:
+            transient = os.name == "nt" and getattr(exc, "winerror", None) in {5, 32, 33}
+            if not transient or attempt >= len(delays):
+                raise
+            time.sleep(delays[attempt])

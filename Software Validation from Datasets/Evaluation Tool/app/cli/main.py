@@ -19,6 +19,8 @@ from app.campaign_executor.cli import add_campaign_parser
 from app.core_screening.cli import add_screening_parser
 from app.diarization_evaluation.cli import add_diarization_parser
 from app.controlled_diarization.cli import add_controlled_diarization_parser
+from app.diarization_product_v2.cli import add_diarization_product_parser
+from app.diarization_final_evaluation.cli import add_diarization_final_parser
 from app.extended_screening.cli import add_extended_screening_parser
 from app.dataset_registry.loader import (
     load_dataset_selection,
@@ -41,7 +43,10 @@ from app.scoring.scorer import score_run
 from app.speaker_protocol.cli import add_speaker_protocol_parser
 from app.speaker_breadth.cli import add_speaker_breadth_parser
 from app.speaker_enrollment.cli import add_speaker_enrollment_parser
+from app.speaker_deployment.cli import add_speaker_deployment_parser
 from app.hybrid_speaker_attribution.cli import add_hybrid_attribution_parser
+from app.hybrid_speaker_attribution.product_v2_cli import add_hybrid_product_v2_parser
+from app.hybrid_final_evaluation.cli import add_hybrid_final_parser
 from app.utils.json_utils import read_jsonl, write_json, write_jsonl
 from app.utils.logging_utils import setup_run_logger
 from app.utils.paths import find_project_root, run_root, safe_relative_to
@@ -115,9 +120,14 @@ def build_parser() -> argparse.ArgumentParser:
     add_speaker_protocol_parser(subparsers)
     add_speaker_breadth_parser(subparsers)
     add_speaker_enrollment_parser(subparsers)
+    add_speaker_deployment_parser(subparsers)
     add_diarization_parser(subparsers)
     add_controlled_diarization_parser(subparsers)
+    add_diarization_product_parser(subparsers)
+    add_diarization_final_parser(subparsers)
     add_hybrid_attribution_parser(subparsers)
+    add_hybrid_product_v2_parser(subparsers)
+    add_hybrid_final_parser(subparsers)
     add_analysis_parser(subparsers)
     add_asr_commonvoice_parser(subparsers)
     return parser

@@ -11,7 +11,7 @@ from typing import Mapping, Sequence
 
 import yaml
 
-from app.utils.paths import data_root
+from app.utils.paths import data_root, evaluation_output_root
 
 
 TOOL_ROOT = Path(__file__).resolve().parents[2]
@@ -99,13 +99,13 @@ def load_config(path: Path = DEFAULT_CONFIG_PATH) -> dict[str, object]:
 
 def default_generated_root() -> Path:
     configured = os.environ.get("JP_GENERATED_DATA_ROOT")
-    base = Path(configured).expanduser() if configured else Path.home() / "JustPeachyGeneratedData"
+    base = Path(configured).expanduser() if configured else evaluation_output_root("generated_data")
     return (base / BENCHMARK_VERSION).resolve()
 
 
 def default_result_root() -> Path:
     configured = os.environ.get("JP_DIARIZATION_RESULT_ROOT")
-    base = Path(configured).expanduser() if configured else Path.home() / "JustPeachyResults"
+    base = Path(configured).expanduser() if configured else evaluation_output_root("results")
     return (base / "diarization" / BENCHMARK_VERSION).resolve()
 
 
@@ -114,7 +114,7 @@ def default_summary_root() -> Path:
     base = (
         Path(configured).expanduser()
         if configured
-        else Path.home() / "JustPeachyResearchSummaries"
+        else evaluation_output_root("research_summaries")
     )
     return base.resolve()
 

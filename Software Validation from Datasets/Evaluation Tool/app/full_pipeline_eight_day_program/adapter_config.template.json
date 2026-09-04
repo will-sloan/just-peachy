@@ -1,0 +1,43 @@
+{
+  "schema_version": "full-pipeline-eight-day-adapters.v1",
+  "scope_id": "full_pipeline_prompts_4_8_eight_day_c_only.v1",
+  "scope_class": "BOUNDED_REDUCED",
+  "original_full_scope_complete": false,
+  "evaluation_tool_root": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\Software Validation from Datasets\\Evaluation Tool",
+  "program_workspace": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\Software Validation from Datasets\\Evaluation Tool\\automated_runs\\full_pipeline_prompts_4_8_eight_day_v1",
+  "amendment_path": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\Software Validation from Datasets\\Evaluation Tool\\runs\\full_pipeline_program\\EIGHT_DAY_SCOPE_AMENDMENT.json",
+  "poll_interval_seconds": 10,
+  "stages": {
+    "4": {
+      "adapter_id": "prompt_4_adapter_pending",
+      "readiness": "NOT_READY",
+      "not_ready_reason": "bounded_stage_adapter_not_installed",
+      "expected_duration_hours": 48
+    },
+    "5": {
+      "adapter_id": "prompt_5_adapter_pending",
+      "readiness": "NOT_READY",
+      "not_ready_reason": "bounded_stage_adapter_not_installed",
+      "expected_duration_hours": 60
+    },
+    "6": {
+      "adapter_id": "prompt_6_adapter_pending",
+      "readiness": "NOT_READY",
+      "not_ready_reason": "bounded_stage_adapter_not_installed",
+      "expected_duration_hours": 30
+    },
+    "7": {
+      "adapter_id": "prompt_7_adapter_pending",
+      "readiness": "NOT_READY",
+      "not_ready_reason": "bounded_stage_adapter_not_installed",
+      "expected_duration_hours": 12
+    },
+    "8": {
+      "adapter_id": "prompt_8_adapter_pending",
+      "readiness": "NOT_READY",
+      "not_ready_reason": "bounded_stage_adapter_not_installed",
+      "expected_duration_hours": 4
+    }
+  }
+}
+

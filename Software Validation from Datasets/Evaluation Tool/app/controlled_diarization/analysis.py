@@ -4,9 +4,9 @@ from __future__ import annotations
 
 from collections import defaultdict
 import csv
+import io
 import json
 import math
-import os
 from pathlib import Path
 import random
 import shutil
@@ -213,11 +213,15 @@ def analyze_results(
     _write_csv(output / "oracle_turn_results.csv", _flatten_recording_rows(oracle_rows))
     _write_csv(output / "paired_comparisons.csv", comparisons)
     _write_interaction_plots(output, factor_rows)
+    protocol_summary = json.loads(
+        (benchmark / "protocol_summary.json").read_text(encoding="utf-8")
+    )
+    benchmark_id = protocol_summary.get("benchmark_id") or protocol_summary.get("protocol_id")
+    if not benchmark_id:
+        raise ControlledDiarizationError("protocol summary lacks benchmark_id/protocol_id")
     manifest = {
         "schema_version": "controlled-diarization-analysis-manifest.v1",
-        "benchmark_id": json.loads(
-            (benchmark / "protocol_summary.json").read_text(encoding="utf-8")
-        )["benchmark_id"],
+        "benchmark_id": benchmark_id,
         "pipelines": list(pipelines),
         "tiers": list(tiers),
         "planned_units": len(planned),
@@ -724,22 +728,21 @@ def _write_csv(path: Path, rows: Sequence[Mapping[str, object]]) -> None:
         for key in row:
             if key not in fields:
                 fields.append(key)
-    temporary = path.with_name(f".{path.name}.tmp")
-    with temporary.open("w", encoding="utf-8", newline="") as stream:
-        writer = csv.DictWriter(stream, fieldnames=fields, lineterminator="\n")
-        writer.writeheader()
-        for row in rows:
-            writer.writerow(
-                {
-                    field: (
-                        json.dumps(row.get(field), sort_keys=True)
-                        if isinstance(row.get(field), (dict, list))
-                        else row.get(field)
-                    )
-                    for field in fields
-                }
-            )
-    os.replace(temporary, path)
+    stream = io.StringIO(newline="")
+    writer = csv.DictWriter(stream, fieldnames=fields, lineterminator="\n")
+    writer.writeheader()
+    for row in rows:
+        writer.writerow(
+            {
+                field: (
+                    json.dumps(row.get(field), sort_keys=True)
+                    if isinstance(row.get(field), (dict, list))
+                    else row.get(field)
+                )
+                for field in fields
+            }
+        )
+    write_text_atomic(path, stream.getvalue())
 
 
 def _read_jsonl(path: Path) -> list[dict[str, object]]:

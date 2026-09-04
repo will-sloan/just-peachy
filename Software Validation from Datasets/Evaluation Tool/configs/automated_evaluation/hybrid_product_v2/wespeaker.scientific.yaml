@@ -1,0 +1,58 @@
+schema_version: hybrid-speaker-attribution-product-v2-scientific-enrollment-policy.v1
+policy_id: hybrid_product_v2_wespeaker_scientific_v1
+protocol_id: hybrid_speaker_attribution_product_v2_a68cc1ac26aa
+scientific: true
+source_study_status: COMPLETE
+source_study_id: speaker_enrollment_live_v2_5107db9ab304
+source_study_report: C:\Users\amiri\Documents\GitHub\just-peachy\Software Validation
+  from Datasets\Evaluation Tool\JustPeachyResults\speaker_enrollment\speaker_enrollment_live_v2_5107db9ab304\FINAL_ANALYSIS.md
+source_study_report_sha256: d24ad8d469afb2bcc8c48fe402c45c0c88c0571e7260cb1fa076f7ea497859ee
+source_deployment_report: C:\Users\amiri\Documents\GitHub\just-peachy\Software Validation
+  from Datasets\Evaluation Tool\JustPeachyResearchSummaries\speaker_embedding_deployment_v1_4779270a5bf0\REPORT.md
+source_deployment_report_sha256: 62f4c464f4b85ff8fb1eb34288067ed20872c246e2d495e692c0e90aecfeb2e8
+identity_backend_id: wespeaker
+backend_identity:
+  aggregation_method: normalized_mean
+  backend_id: wespeaker
+  config_hash: 0C774E10DC235664197D893A9940FF99908242674BC3D60212B223490ABAB8DD
+  config_path: configs/inference/components/speaker_embedding/wespeaker.yaml
+  embedding_dimension: 256
+  environment_profile: wespeaker
+  identity_hash: 290B28A5A517A4887692CAEF974ABDAB86FBBF12A8C76D486486DD18D0CE02F7
+  model_hash: E1BBAA057971BB48CCE094B8F53FF9843818A1530C7F39D9B31AEA002FB07F2A
+  model_id: wespeaker:d0a7906fde51
+  normalization: l2
+  preprocessing:
+    channel_count: 1
+    dtype: float32
+    sample_rate_hz: 16000
+  qualification_status: qualified_with_warnings
+  schema_version: speaker-backend-identity.v1
+  threshold_policy_version: speaker-threshold-policy.v1
+environment_profile: wespeaker
+enrollment_utterance_count: 3
+enrollment_total_target_sec: 10.0
+clip_selection: first_three_frozen_reserved_clean_diverse_clips
+aggregation_method: multi_template_top2_mean
+cluster_evidence_aggregation: duration_weighted_normalized_mean
+technical_minimum_evidence_sec: 0.75
+technical_duration_support:
+  '0.5': TECHNICALLY_INVALID
+  '0.75': VALID
+  '1.0': VALID
+  '1.5': VALID
+  '2.0': VALID
+  '3.0': VALID
+  '5.0': VALID
+no_audio_padding: true
+open_set_calibration:
+  maximum_gallery_score: true
+  top1_top2_margin: true
+  target_fpir:
+  - 0.005
+  - 0.01
+  - 0.02
+  - 0.05
+  calibration_only: true
+evidence_reference: 'speaker_enrollment_live_v2 FINAL_ANALYSIS: accuracy primary;
+  three clean diverse utterances; multi-template top-2 mean tendency'

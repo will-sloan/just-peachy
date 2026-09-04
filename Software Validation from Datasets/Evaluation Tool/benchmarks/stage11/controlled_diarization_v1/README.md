@@ -3,7 +3,7 @@
 This directory contains the small, versioned metadata needed to reproduce and
 score the controlled anonymous-speaker benchmark. Rendered WAV files are not
 stored in Git. Their default physical root is
-`%USERPROFILE%\JustPeachyGeneratedData\controlled_diarization_v1`; set
+`<Evaluation Tool>\JustPeachyGeneratedData\controlled_diarization_v1`; set
 `JP_GENERATED_DATA_ROOT` to relocate that base.
 
 The implemented panel contains 8 non-scientific smoke recordings, 60

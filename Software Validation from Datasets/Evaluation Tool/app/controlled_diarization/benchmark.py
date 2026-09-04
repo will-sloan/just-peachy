@@ -1001,7 +1001,15 @@ def _assign_case_speakers(
 ) -> list[str]:
     count = int(spec["speaker_count"])
     cadence = str(spec["turn_cadence"])
-    active_target = {"rapid": 48.0, "standard": 52.0, "relaxed": 46.0}[cadence]
+    active_target = float(
+        spec.get(
+            "assignment_active_target_sec",
+            spec.get(
+                "active_target_sec",
+                {"rapid": 48.0, "standard": 52.0, "relaxed": 46.0}[cadence],
+            ),
+        )
+    )
     if spec["overlap_profile"] == "moderate":
         active_target *= 1.15
     elif spec["overlap_profile"] == "backchannel":
@@ -1066,6 +1074,8 @@ def _schedule_case(
         "standard": 4.0 if len(speakers) == 5 else 6.0,
         "relaxed": {1: 10.0, 2: 8.0, 3: 5.5, 5: 4.5}.get(len(speakers), 5.5),
     }[cadence]
+    if spec.get("maximum_turn_duration_sec") is not None:
+        maximum_realized_duration = float(spec["maximum_turn_duration_sec"])
     for speaker in speakers:
         rows = [
             row
@@ -1098,9 +1108,10 @@ def _schedule_case(
     max_end = 0
     while max_end < target_samples or any(turn_counts[speaker] < 3 for speaker in speakers):
         candidates = [speaker for speaker in speakers if speaker != previous_speaker or len(speakers) == 1]
+        participation_weights = dict(spec.get("speaker_turn_weights") or {})
         candidates.sort(
             key=lambda speaker: (
-                turn_counts[speaker],
+                turn_counts[speaker] / max(float(participation_weights.get(speaker, 1.0)), 1e-9),
                 sha256_text(f"turn|{spec['case_id']}|{turn_index}|{speaker}"),
             )
         )
@@ -1115,9 +1126,17 @@ def _schedule_case(
         )
         if clip is None:
             raise ControlledDiarizationError(
-                f"speaker {speaker} exhausted {cadence} source clips in {spec['case_id']}"
+                f"speaker {speaker} exhausted {cadence} source clips in {spec['case_id']}; "
+                f"turn_index={turn_index}, max_end_sec={max_end / sample_rate:.3f}, "
+                f"target_sec={target_duration:.3f}, turn_counts={dict(turn_counts)}"
             )
         row, samples, prep = clip
+        short_durations = tuple(float(value) for value in spec.get("short_turn_durations_sec", ()))
+        short_interval = int(spec.get("short_turn_every", 0) or 0)
+        if short_durations and short_interval > 0 and turn_index % short_interval == 1:
+            short_index = (turn_index // short_interval) % len(short_durations)
+            short_samples = max(1, round(short_durations[short_index] * sample_rate))
+            samples = samples[:short_samples]
         if turn_index == 0:
             start = 0
             overlap_sec = 0.0
@@ -1150,7 +1169,10 @@ def _schedule_case(
             )
             if replacement is None:
                 raise ControlledDiarizationError(
-                    f"speaker {speaker} exhausted {cadence} source clips in {spec['case_id']}"
+                    f"speaker {speaker} exhausted {cadence} source clips in {spec['case_id']}; "
+                    f"replacement_at_turn={turn_index}, max_end_sec={max_end / sample_rate:.3f}, "
+                    f"maximum_sec={maximum_samples / sample_rate:.3f}, "
+                    f"turn_counts={dict(turn_counts)}"
                 )
             row, samples, prep = replacement
             end = start + len(samples)
@@ -1169,6 +1191,9 @@ def _schedule_case(
             "trim_end_sec": prep["trim_end_sec"],
             "source_crop_start_sample": 0,
             "source_crop_end_sample": len(samples),
+            "product_short_turn_crop": bool(
+                short_durations and short_interval > 0 and turn_index % short_interval == 1
+            ),
             "source_gain_db": gain_db,
             "global_start_sample": start,
             "global_end_sample": end,

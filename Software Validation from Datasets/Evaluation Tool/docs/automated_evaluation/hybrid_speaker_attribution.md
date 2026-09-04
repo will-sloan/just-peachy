@@ -40,11 +40,11 @@ No scientific readiness is implied by the included engineering smoke policy.
 | Hybrid selection config | `configs/automated_evaluation/hybrid_speaker_attribution.v1.yaml` |
 | Frozen hybrid protocol | `benchmarks/hybrid_speaker_attribution/hybrid_speaker_attribution_v1` |
 | Hybrid protocol ID | `hybrid_speaker_attribution_v1_6c43a2bbe1ca` |
-| Controlled audio | `%JP_GENERATED_DATA_ROOT%/controlled_diarization_v1`, or `%USERPROFILE%/JustPeachyGeneratedData/controlled_diarization_v1` |
+| Controlled audio | `%JP_GENERATED_DATA_ROOT%/controlled_diarization_v1`, or `<Evaluation Tool>/JustPeachyGeneratedData/controlled_diarization_v1` |
 | Reserved enrollment audio | logical paths below `%JP_DATA_ROOT%`, normally `Raw Datasets (Not formatted)/Common Voice/...` |
 | Controlled results | operator `-DiarizationResultRoot` |
-| Hybrid results | operator `-ResultRoot`, default `%USERPROFILE%/JustPeachyResults/hybrid_speaker_attribution` |
-| Compact summaries | operator `-CollectRoot`, normally `%USERPROFILE%/JustPeachyResearchSummaries/...` |
+| Hybrid results | operator `-ResultRoot`, default `<Evaluation Tool>/JustPeachyResults/hybrid_speaker_attribution` |
+| Compact summaries | operator `-CollectRoot`, normally `<Evaluation Tool>/JustPeachyResearchSummaries/...` |
 
 The hybrid protocol contains 564 overlay units and 960 unique reserved
 enrollment clips. Development/evaluation source-speaker intersection and

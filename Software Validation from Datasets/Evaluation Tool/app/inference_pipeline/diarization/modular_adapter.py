@@ -205,9 +205,30 @@ class ModularClusteringDiarizer(DiarizationBase):
     def _speech_regions(self, audio: object) -> list[SpeechRegion]:
         if self.segmentation_source == "energy_vad":
             return EnergyVAD(self.energy_vad_params).detect(audio)  # type: ignore[arg-type]
+        speech, _overlap = self._speech_and_overlap_regions(audio)
+        return speech
+
+    def _speech_and_overlap_regions(
+        self, audio: object
+    ) -> tuple[list[SpeechRegion], list[SpeechRegion]]:
+        """Return speech and model-predicted overlap without naming speakers.
+
+        Pyannote segmentation-3.0 produces local-speaker activations.  The
+        maximum activation is the existing voice-activity view; the second
+        highest activation is the causal overlap view used by the frozen
+        Product-v2 identity exclusion policy.  Neither view is an identity or
+        an anonymous cluster assignment.
+        """
+
+        if self.segmentation_source == "energy_vad":
+            return (
+                EnergyVAD(self.energy_vad_params).detect(audio),  # type: ignore[arg-type]
+                [],
+            )
         inference = self._pyannote_inference()
         try:
             from pyannote.audio.utils.signal import Binarize
+            from pyannote.core import SlidingWindowFeature
 
             import torch
 
@@ -218,22 +239,39 @@ class ModularClusteringDiarizer(DiarizationBase):
                     "sample_rate": 16000,
                 }
             )
-            annotation = Binarize(
+            if scores.data.ndim != 2 or scores.data.shape[1] != 2:
+                raise RuntimeError(
+                    "speech/overlap segmentation output must have exactly two channels"
+                )
+            binarize = Binarize(
                 onset=self.segmentation_onset,
                 offset=self.segmentation_offset,
                 min_duration_on=self.segmentation_min_duration_on,
                 min_duration_off=self.segmentation_min_duration_off,
-            )(scores)
-            regions = [
-                SpeechRegion(
-                    start_sec=max(0.0, float(segment.start)),
-                    end_sec=min(float(getattr(audio, "duration_sec")), float(segment.end)),
-                    label="speech",
+            )
+
+            def regions_for(channel: int, label: str) -> list[SpeechRegion]:
+                feature = SlidingWindowFeature(
+                    scores.data[:, channel : channel + 1],
+                    scores.sliding_window,
+                    labels=[label],
                 )
-                for segment, _track in annotation.itertracks()
-                if float(segment.end) > float(segment.start)
-            ]
-            return _merge_speech_regions(regions)
+                annotation = binarize(feature)
+                regions = [
+                    SpeechRegion(
+                        start_sec=max(0.0, float(segment.start)),
+                        end_sec=min(
+                            float(getattr(audio, "duration_sec")),
+                            float(segment.end),
+                        ),
+                        label=label,
+                    )
+                    for segment, _track in annotation.itertracks()
+                    if float(segment.end) > float(segment.start)
+                ]
+                return _merge_speech_regions(regions, label=label)
+
+            return regions_for(0, "speech"), regions_for(1, "predicted_overlap")
         except Exception as exc:
             raise ModularDiarizationUnavailableError(
                 f"pyannote segmentation-3.0 inference failed: {exc}"
@@ -261,9 +299,7 @@ class ModularClusteringDiarizer(DiarizationBase):
             self._segmentation_inference = Inference(
                 model,
                 device=torch.device(self.device),
-                pre_aggregation_hook=lambda scores: np.max(
-                    scores, axis=-1, keepdims=True
-                ),
+                pre_aggregation_hook=_speech_overlap_channels,
             )
         except Exception as exc:
             raise ModularDiarizationUnavailableError(
@@ -379,7 +415,9 @@ def _merge_adjacent_turns(
     return [turn for turn in merged if turn.end_sec - turn.start_sec >= min_turn_sec]
 
 
-def _merge_speech_regions(regions: list[SpeechRegion]) -> list[SpeechRegion]:
+def _merge_speech_regions(
+    regions: list[SpeechRegion], *, label: str = "speech"
+) -> list[SpeechRegion]:
     merged: list[SpeechRegion] = []
     for region in sorted(regions, key=lambda item: (item.start_sec, item.end_sec)):
         if not merged or region.start_sec > merged[-1].end_sec:
@@ -389,9 +427,31 @@ def _merge_speech_regions(regions: list[SpeechRegion]) -> list[SpeechRegion]:
         merged[-1] = SpeechRegion(
             start_sec=previous.start_sec,
             end_sec=max(previous.end_sec, region.end_sec),
-            label="speech",
+            label=label,
         )
     return merged
+
+
+def _speech_overlap_channels(scores: np.ndarray) -> np.ndarray:
+    """Reduce local-speaker activations to speech and overlap channels.
+
+    ``Inference`` applies powerset-to-multilabel conversion before this hook.
+    The second-highest local-speaker activation therefore represents evidence
+    that at least two speakers are active.  A one-channel backend has no
+    observable overlap and receives an all-zero second channel.
+    """
+
+    values = np.asarray(scores)
+    if values.ndim < 2 or values.shape[-1] < 1:
+        raise ValueError("segmentation scores must have a non-empty speaker axis")
+    speech = np.max(values, axis=-1, keepdims=True)
+    if values.shape[-1] < 2:
+        overlap = np.zeros_like(speech)
+    else:
+        overlap = np.partition(values, kth=values.shape[-1] - 2, axis=-1)[
+            ..., -2:-1
+        ]
+    return np.concatenate((speech, overlap), axis=-1)
 
 
 def _resolve_component_path(value: str) -> Path:

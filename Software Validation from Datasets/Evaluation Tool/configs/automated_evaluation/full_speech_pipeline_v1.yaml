@@ -1,0 +1,118 @@
+schema_version: full-speech-pipeline-config.v1
+protocol_name: full_speech_pipeline_v1
+protocol_version: 1
+selection_seed: 3800
+output_root: benchmarks/full_pipeline/full_speech_pipeline_v1
+dataset_policy:
+  installed_only: true
+  downloads_allowed: false
+  training_eligible: false
+  evaluation_material_may_be_used_for_development: false
+  primary_partition_guarantee: development/evaluation speakers are disjoint for controlled V1 and Product V2
+  diagnostic_partition_guarantee: frozen source roles are preserved; evaluation diagnostics are never promoted to development
+transcript_source:
+  logical_path: Raw Datasets (Not formatted)/Common Voice/cv-corpus-26.0-2026-06-12/prepared/en/metadata/original/validated.tsv
+  sha256: 368EAD1AB9D7F5E11F6EDD3B840DE7602DF1524220EE238BB068479048D6BBC5
+  path_column: path
+  text_column: sentence
+  normalization: unicode_casefold_then_collapse_whitespace
+sources:
+  - source_key: controlled_v1
+    kind: controlled_primary
+    source_root: benchmarks/stage11/controlled_diarization_v1
+    source_protocol_id: controlled_diarization_v1_acd5e6e431d8
+    identity_overlay_protocol_id: hybrid_speaker_attribution_v1_6c43a2bbe1ca
+    identity_overlay_root: benchmarks/hybrid_speaker_attribution/hybrid_speaker_attribution_v1
+    partitions: [development, evaluation]
+    case_manifests:
+      development: development/case_manifest.jsonl
+      evaluation: evaluation/case_manifest.jsonl
+    identity_overlays:
+      development: development/identity_overlays.jsonl
+      evaluation: evaluation/identity_overlays.jsonl
+    source_inventory: source_clip_inventory.csv
+    identity_files:
+      - {path: benchmarks/stage11/controlled_diarization_v1/protocol_summary.json, sha256: FE2E644A3349B42D42C797E887FC2D0ECC42CC969434556C7854582643C81774}
+      - {path: benchmarks/stage11/controlled_diarization_v1/validation_report.json, sha256: 9C1C2D48875641F96EA5C7D7C9F84D7305BF57830D7501BDD72C64249F05519B}
+      - {path: benchmarks/stage11/controlled_diarization_v1/checksums.json, sha256: B3482B979347B622D9E818292129D88FC2839A288DDD7BC68D542462CF8F344A}
+      - {path: benchmarks/stage11/controlled_diarization_v1/source_clip_inventory.csv, sha256: 32065C07639CF00F8E38B6D34D57D135042ADFB4098841D10605E0118384FD10}
+      - {path: benchmarks/stage11/controlled_diarization_v1/development/case_manifest.jsonl, sha256: 1215C6E4B3C085B71A2B75B28DA8677E5DD1ECCAE1D2852976EA786373EAC3B2}
+      - {path: benchmarks/stage11/controlled_diarization_v1/evaluation/case_manifest.jsonl, sha256: 1AB5A63C531753C6CA16E25F3ECD36E03DA4C18B808243D55A73905520D2E783}
+      - {path: benchmarks/hybrid_speaker_attribution/hybrid_speaker_attribution_v1/protocol_summary.json, sha256: 3AD31614742AD5F6D489C0C95859D61175A6774B5AD15B0C2CCC787B1DA770B4}
+      - {path: benchmarks/hybrid_speaker_attribution/hybrid_speaker_attribution_v1/development/identity_overlays.jsonl, sha256: 10484A712F0EAB3872BB34EFE3741C39CAEDA8E74DA345E4F40992041FB465F7}
+      - {path: benchmarks/hybrid_speaker_attribution/hybrid_speaker_attribution_v1/evaluation/identity_overlays.jsonl, sha256: E6175EDEECDC4E3B33EFCE3FD1C0814D192493ABC6634A8851225A35646AAF27}
+    supported_views: [asr, diarization, identity, streaming, resources, speaker_attributed_transcript]
+    unsupported_views: []
+  - source_key: product_v2
+    kind: controlled_primary
+    source_root: benchmarks/stage11/diarization_product_v2
+    source_protocol_id: diarization_product_v2_6b6c50a5de31
+    identity_overlay_protocol_id: hybrid_speaker_attribution_product_v2_a68cc1ac26aa
+    identity_overlay_root: benchmarks/hybrid_speaker_attribution/hybrid_speaker_attribution_product_v2/v2
+    partitions: [development, evaluation]
+    case_manifests:
+      development: development/case_manifest.jsonl
+      evaluation: evaluation/case_manifest.jsonl
+    identity_overlays:
+      development: development/identity_overlays.jsonl
+      evaluation: evaluation/identity_overlays.jsonl
+    source_inventory: source_clip_inventory.csv
+    identity_files:
+      - {path: benchmarks/stage11/diarization_product_v2/protocol_summary.json, sha256: 1E0BE176ED8177C28CE7D06AC88734CAE1051CA7E797C2ABB4D11225A479B062}
+      - {path: benchmarks/stage11/diarization_product_v2/validation_report.json, sha256: CAD8C49F7D5AF626C79A05C381FDE89FE5BA4B7A3C61FAAFF6749B56F0EB6EDC}
+      - {path: benchmarks/stage11/diarization_product_v2/checksums.json, sha256: AF9B0764ED51D8CE90D7A4449C808D82C41C7D5005D5AC30589B913ACE6C5C4B}
+      - {path: benchmarks/stage11/diarization_product_v2/source_clip_inventory.csv, sha256: 03210C0ACFDCED7DC00D32C861703FC9762E404CBF8C6D5BED44286AB9B177D2}
+      - {path: benchmarks/stage11/diarization_product_v2/development/case_manifest.jsonl, sha256: D3BA47807A5AA5FA5B9FB10DDE7D1F2838B08DF641BE221C01BF107E950B0908}
+      - {path: benchmarks/stage11/diarization_product_v2/evaluation/case_manifest.jsonl, sha256: FACF64719FD8C6285F3EB6D1858509DAA46ABF6EEEC89092938936E4100DFA5A}
+      - {path: benchmarks/hybrid_speaker_attribution/hybrid_speaker_attribution_product_v2/protocol_summary.json, sha256: A70432C956BC02DE46CDB52CDB778E09702BB45D6193AF225B4A4D30AFC0223E}
+      - {path: benchmarks/hybrid_speaker_attribution/hybrid_speaker_attribution_product_v2/v2/development/identity_overlays.jsonl, sha256: 5F0AF6EB0CBFCF99E068B965D0C40801E72C4D851D3B42CA639C9EB2036D9698}
+      - {path: benchmarks/hybrid_speaker_attribution/hybrid_speaker_attribution_product_v2/v2/evaluation/identity_overlays.jsonl, sha256: D1500553B975435FD03B73FD91C76526278D9C37FF3316BFC145F0F08DD27319}
+    supported_views: [asr, diarization, identity, streaming, resources, speaker_attributed_transcript]
+    unsupported_views:
+      - id: cropped_turn_full_text
+        reason: Product-short-turn crops preserve source text and exact samples but are not scorable as full-utterance ASR references.
+  - source_key: native_standard
+    kind: native_diagnostic
+    source_protocol_id: native_diarization_cb172bbeb7cb
+    partition: evaluation
+    manifest: benchmarks/stage11/standard/native_diarization_manifest.parquet
+    reference_transcripts: benchmarks/stage11/standard/reference_transcripts.jsonl
+    reference_rttm: benchmarks/stage11/standard/references.rttm
+    reference_uem: benchmarks/stage11/standard/scored_regions.uem
+    identity_files:
+      - {path: benchmarks/stage11/standard/native_diarization_manifest.json, sha256: 68A0757A1627B78BEE1709FE5A61F092CDDA6FFB68091485B196878F557ECC41}
+      - {path: benchmarks/stage11/standard/native_diarization_manifest.parquet, sha256: 3D4EAA9950A132D44CFF48EAFAACCA09FEBBA5110AF10ADAC9FE7201276F52B2}
+      - {path: benchmarks/stage11/standard/reference_transcripts.jsonl, sha256: C0ABF40E9B630F4E1FB71609B81B1DC4804337658A62D8BAF09319462AFEC5E3}
+      - {path: benchmarks/stage11/standard/references.rttm, sha256: C49AD5F8DE3756971DFA7D66AFE07A580239171E04D45B41DDD3D96DB5D81C1B}
+      - {path: benchmarks/stage11/standard/scored_regions.uem, sha256: 8977CD14FBCDE8F9ADD56499B43E76F05F063A78E2D1C1C471CD0C59C762E578}
+    supported_views: [dataset_specific]
+    unsupported_views:
+      - {id: identity, reason: Installed native metadata does not prove disjoint close-talk enrollment versus far-field probes.}
+      - {id: chime6_asr, reason: The frozen CHiME-6 source has no complete transcript reference.}
+      - {id: voices_attribution, reason: VOiCES is authorized only for acoustic and ASR diagnostics; DER/JER and identity are suppressed.}
+  - source_key: standard_asr
+    kind: standard_asr_diagnostic
+    source_protocol_id: manifest_55d9e81b041b
+    partition: evaluation
+    manifest: benchmarks/v1/standard_source_manifest.parquet
+    include_datasets: [cmu_arctic, hifitts, librispeech, voices]
+    identity_files:
+      - {path: benchmarks/v1/standard_source_manifest.parquet, sha256: 55D9E81B041BB589FAAB173E76BE89B59AAFAF3C6B02409201EA7A5F10AA01C0}
+    supported_views: [asr, streaming, resources]
+    unsupported_views:
+      - {id: diarization, reason: "These selected rows are single-utterance ASR diagnostics, not multi-speaker sessions."}
+      - {id: identity, reason: No frozen known/unknown gallery overlay is attached.}
+  - source_key: commonvoice_60plus_asr
+    kind: commonvoice_asr_diagnostic
+    source_protocol_id: commonvoice_60plus_asr_v1_fb22c247f5f7
+    partition: evaluation
+    manifest: benchmarks/asr_commonvoice/commonvoice_60plus_asr_v1/manifest.parquet
+    source_split: evaluation
+    identity_files:
+      - {path: benchmarks/asr_commonvoice/commonvoice_60plus_asr_v1/protocol_summary.json, sha256: 4DCA2CE328B8AF22335C96F97D29966B4EFE4E8AB29EB84A0EBAED16D6A485C1}
+      - {path: benchmarks/asr_commonvoice/commonvoice_60plus_asr_v1/manifest.parquet, sha256: 50116783D03E1CDD2891F4545C34A5C15F4168BDB9CF61C73256F2AF83372CBA}
+    supported_views: [asr, streaming, resources]
+    unsupported_views:
+      - {id: diarization, reason: Each manifest row is a single read-speech clip with no multi-speaker timing reference.}
+      - {id: identity, reason: Pairwise speaker roles are not an end-to-end known/unknown gallery overlay.}
+      - {id: development, reason: Calibration speakers overlap evaluation; this source is retained as evaluation-only diagnostics.}

@@ -1,0 +1,58 @@
+schema_version: hybrid-speaker-attribution-product-v2-scientific-enrollment-policy.v1
+policy_id: hybrid_product_v2_speechbrain_ecapa_scientific_v1
+protocol_id: hybrid_speaker_attribution_product_v2_a68cc1ac26aa
+scientific: true
+source_study_status: COMPLETE
+source_study_id: speaker_enrollment_live_v2_5107db9ab304
+source_study_report: C:\Users\amiri\Documents\GitHub\just-peachy\Software Validation
+  from Datasets\Evaluation Tool\JustPeachyResults\speaker_enrollment\speaker_enrollment_live_v2_5107db9ab304\FINAL_ANALYSIS.md
+source_study_report_sha256: d24ad8d469afb2bcc8c48fe402c45c0c88c0571e7260cb1fa076f7ea497859ee
+source_deployment_report: C:\Users\amiri\Documents\GitHub\just-peachy\Software Validation
+  from Datasets\Evaluation Tool\JustPeachyResearchSummaries\speaker_embedding_deployment_v1_4779270a5bf0\REPORT.md
+source_deployment_report_sha256: 62f4c464f4b85ff8fb1eb34288067ed20872c246e2d495e692c0e90aecfeb2e8
+identity_backend_id: speechbrain_ecapa
+backend_identity:
+  aggregation_method: normalized_mean
+  backend_id: speechbrain_ecapa
+  config_hash: 13ACC7E76F621CEA132DCD3419667E791AF0005FDE98EE9AEFD93BC8632215DF
+  config_path: configs/inference/components/speaker_embedding/speechbrain_ecapa.yaml
+  embedding_dimension: 192
+  environment_profile: core-cpu
+  identity_hash: D64F6695332208CACDC6F22146D114F0B5CC2D27F445D344431F7BA1D161474F
+  model_hash: 2744A8A1A4C9A4C810C436F5121315CC244436C46E25A717275B763AE0E42A3C
+  model_id: speechbrain_ecapa:f47951032c81
+  normalization: l2
+  preprocessing:
+    channel_count: 1
+    dtype: float32
+    sample_rate_hz: 16000
+  qualification_status: qualified
+  schema_version: speaker-backend-identity.v1
+  threshold_policy_version: speaker-threshold-policy.v1
+environment_profile: core-cpu
+enrollment_utterance_count: 3
+enrollment_total_target_sec: 10.0
+clip_selection: first_three_frozen_reserved_clean_diverse_clips
+aggregation_method: multi_template_top2_mean
+cluster_evidence_aggregation: duration_weighted_normalized_mean
+technical_minimum_evidence_sec: 0.75
+technical_duration_support:
+  '0.5': TECHNICALLY_INVALID
+  '0.75': VALID
+  '1.0': VALID
+  '1.5': VALID
+  '2.0': VALID
+  '3.0': VALID
+  '5.0': VALID
+no_audio_padding: true
+open_set_calibration:
+  maximum_gallery_score: true
+  top1_top2_margin: true
+  target_fpir:
+  - 0.005
+  - 0.01
+  - 0.02
+  - 0.05
+  calibration_only: true
+evidence_reference: 'speaker_enrollment_live_v2 FINAL_ANALYSIS: speed alternative;
+  three clean diverse utterances; top-2/max retained-template evidence'

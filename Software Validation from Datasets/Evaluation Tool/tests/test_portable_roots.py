@@ -13,6 +13,7 @@ from app.inference_pipeline.asr.audio_utils import resolve_model_path
 from app.utils.paths import (
     RootResolutionError,
     data_root,
+    evaluation_output_root,
     find_project_root,
     find_repository_root,
     model_root,
@@ -49,6 +50,16 @@ def test_defaults_preserve_the_existing_layout_and_ignore_cwd(
     assert data_root().path == REPOSITORY_ROOT / "Software Validation from Datasets"
     assert model_root().path == REPOSITORY_ROOT / "models"
     assert run_root().path == TOOL_ROOT / "runs"
+    assert evaluation_output_root("generated_data") == TOOL_ROOT / "JustPeachyGeneratedData"
+    assert evaluation_output_root("logs") == TOOL_ROOT / "JustPeachyLogs"
+    assert evaluation_output_root("research_summaries") == TOOL_ROOT / "JustPeachyResearchSummaries"
+    assert evaluation_output_root("results") == TOOL_ROOT / "JustPeachyResults"
+    assert evaluation_output_root("transfers") == TOOL_ROOT / "JustPeachyTransfers"
+
+
+def test_unknown_evaluation_output_category_fails_clearly() -> None:
+    with pytest.raises(ValueError, match="Unknown Evaluation Tool output category"):
+        evaluation_output_root("unknown")
 
 
 def test_data_override_changes_only_physical_resolution_and_supports_spaces(

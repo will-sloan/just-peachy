@@ -1,9 +1,11 @@
 .venv/
 .venv.broken.*/
 .venv.backup.*/
+.edge-speech-env/
 .stage8-envs/
 myenv/
 .install-logs/
+*.tmp
 # Ignore raw datasets
 Software Validation from Datasets/Raw Datasets/
 Software Validation from Datasets/Raw Datasets (Not formatted)/
@@ -28,6 +30,9 @@ Software Validation from Datasets/Evaluation Tool/runs/component_readiness_*/
 # already tracked by Git remain tracked; the placeholder remains available.
 Software Validation from Datasets/Evaluation Tool/runs/*/
 !Software Validation from Datasets/Evaluation Tool/runs/.gitkeep
+# Prompt-0's small canonical program state is specification, not run output.
+!Software Validation from Datasets/Evaluation Tool/runs/full_pipeline_program/
+!Software Validation from Datasets/Evaluation Tool/runs/full_pipeline_program/PROGRAM_STATE.json
 !Software Validation from Datasets/Evaluation Tool/runs/edge_backend_qualification/
 Software Validation from Datasets/Evaluation Tool/runs/edge_backend_qualification/*
 !Software Validation from Datasets/Evaluation Tool/runs/edge_backend_qualification/moonshine-edge.json
@@ -52,6 +57,34 @@ Software Validation from Datasets/Evaluation Tool/artifacts/pytest_*/
 Software Validation from Datasets/Evaluation Tool/artifacts/word_build_*/
 Software Validation from Datasets/Evaluation Tool/artifacts/word_qa*/
 transfer_packages/
+
+# Machine-local Evaluation Tool outputs. These folders live beside the tool so
+# all future research artifacts stay under one managed location without entering Git.
+Software Validation from Datasets/Evaluation Tool/JustPeachyGeneratedData/
+Software Validation from Datasets/Evaluation Tool/JustPeachyLogs/
+Software Validation from Datasets/Evaluation Tool/JustPeachyResearchSummaries/
+Software Validation from Datasets/Evaluation Tool/JustPeachyResults/
+Software Validation from Datasets/Evaluation Tool/JustPeachyTransfers/
+
+# Local H2 runtime state contains recoverable audio journals and biometric
+# enrollment profiles. Neither belongs in the pre-XVF source freeze.
+Software Validation from Datasets/Evaluation Tool/edge_speech_sessions/
+Software Validation from Datasets/Evaluation Tool/edge_speech_profiles/
+
+# Generated evaluation evidence can be multi-gigabyte and is reproducible from
+# the tracked source, configuration, and small canonical program state.
+Software Validation from Datasets/Evaluation Tool/artifacts/
+Software Validation from Datasets/Evaluation Tool/benchmarks/full_pipeline/
+Software Validation from Datasets/Evaluation Tool/benchmarks/hybrid_speaker_attribution/hybrid_speaker_attribution_product_v2/
+Software Validation from Datasets/Evaluation Tool/benchmarks/speaker_enrollment/speaker_enrollment_live_v2/
+Software Validation from Datasets/Evaluation Tool/benchmarks/stage11/diarization_product_v2/
+Software Validation from Datasets/Evaluation Tool/Software Validation from Datasets/
+
+# Vendor/reference documents and the XVF measurement workbook/ZIP remain local.
+# The ZIP contains generated excitation WAVs; later raw captures and RIRs must
+# also stay outside Git.
+XVF 3800 Testing/Docs/
+XVF 3800 Testing/REAL WORLD MEASURMENT/
 
 # Local portable office/rendering bundles used only for documentation QA.
 loqa_*/

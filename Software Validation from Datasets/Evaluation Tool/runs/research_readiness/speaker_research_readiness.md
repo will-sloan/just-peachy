@@ -68,7 +68,12 @@ The implementation exists and is runnable.
 - Family/checkpoint: PalabraAI ReDimNet2-B2 VoxCeleb2 large-margin, release `v1.0.0`
 - Source revision: `cdc875670034dd7068013ca2ab21ec083a040ff8`
 - Checkpoint: `C:\Users\amiri\Documents\GitHub\just-peachy\models\cache\redimnet2\b2-vox2-lm.pt`
-- Checkpoint SHA-256: `0545B78B27D754C9B58EF7B12BC4CD0ED86ACD61EFDFF0F4A6BF4E50B0EEF77A`
+- Checkpoint SHA-256: `0545A29679A87FE1C662D2BBD05E3B3FE0D1B392832729ABAA135E4079A2F77A`
+
+  Evidence correction (2026-08-20): the earlier `0545B78B...` transcription
+  was incorrect. The old audited commit's registry/bootstrap constants, both
+  pre-audit qualification records, and the unchanged local checkpoint all use
+  `0545A296...`; no model asset was replaced for this correction.
 - Environment: `redimnet2`
 - Python: `C:\Users\amiri\Documents\GitHub\just-peachy\.stage8-envs\redimnet2\Scripts\python.exe`
 - Embedding: 192 dimensions, 16 kHz, minimum 0.5 seconds
@@ -97,7 +102,7 @@ Minimal repair made during this audit: the Stage 10 smoke resolver now maps ever
 | `wespeaker` | ResNet221-LM `avg_model.pt`, SHA `47D762665D41658C27022622888A8C0FB3CCB21E3D1D06A9EE14B24D55B62EB5` | `wespeaker` / `.stage8-envs\wespeaker\Scripts\python.exe` | 256 / 16 kHz | qualified with warnings, asset verified | PASS / PASS | eligible with warnings | Apache-2.0 code; checkpoint CC BY 4.0 |
 | `campplus_speaker_embedding` | CAM++ English VoxCeleb ONNX, SHA `357AB7F7C820CE741F540CA8AF02790EA89846E090EE1E0761E91EBF199F129B` | `onnx` / `.stage8-envs\onnx\Scripts\python.exe` | 512 / 16 kHz | qualified, asset verified | PASS / PASS | eligible | Apache-2.0 |
 | `eres2net_base_speaker_embedding` | ERes2Net Base ONNX, SHA `1A331314E14A8BD1E23B78AEBFE433262C88BB20D5E006D239851601E8965E4B` | `onnx` / `.stage8-envs\onnx\Scripts\python.exe` | 512 / 16 kHz | qualified, asset verified | PASS / PASS | eligible | Apache-2.0 |
-| `redimnet2_b2_speaker_embedding` | ReDimNet2-B2 Vox2-LM, SHA `0545B78B27D754C9B58EF7B12BC4CD0ED86ACD61EFDFF0F4A6BF4E50B0EEF77A` | `redimnet2` / `.stage8-envs\redimnet2\Scripts\python.exe` | 192 / 16 kHz | qualified, asset verified | PASS / PASS | eligible with scope warning | MIT |
+| `redimnet2_b2_speaker_embedding` | ReDimNet2-B2 Vox2-LM, SHA `0545A29679A87FE1C662D2BBD05E3B3FE0D1B392832729ABAA135E4079A2F77A` | `redimnet2` / `.stage8-envs\redimnet2\Scripts\python.exe` | 192 / 16 kHz | qualified, asset verified | PASS / PASS | eligible with scope warning | MIT |
 
 `sherpa_onnx_speaker_embedding` uses the exact ERes2Net Base ONNX checkpoint and SHA above. It is an alias/control path, not a seventh independent speaker model.
 
@@ -132,10 +137,10 @@ Every required interpreter exists, launches, imports its required packages, and 
 
 State: `READY_AFTER_UPSTREAM_ANALYSIS`. The only missing input is the comparable full ReDimNet result.
 
-- Historical five results: `C:\Users\amiri\JustPeachyResults\speaker_protocol\large_all5_4a170baf5d2a`
-- Historical package: `C:\Users\amiri\JustPeachyResearchSummaries\speaker_stage10_large_all5_4a170baf5d2a`
-- Planned ReDim backend root: `C:\Users\amiri\JustPeachyResults\speaker_protocol\large_redimnet_38db58925d8f\redimnet2_b2_speaker_embedding`
-- Planned six-model package: `C:\Users\amiri\JustPeachyResearchSummaries\speaker_stage10_large_all6_38db58925d8f`
+- Historical five results: `<Evaluation Tool>\JustPeachyResults\speaker_protocol\large_all5_4a170baf5d2a`
+- Historical package: `<Evaluation Tool>\JustPeachyResearchSummaries\speaker_stage10_large_all5_4a170baf5d2a`
+- Planned ReDim backend root: `<Evaluation Tool>\JustPeachyResults\speaker_protocol\large_redimnet_38db58925d8f\redimnet2_b2_speaker_embedding`
+- Planned six-model package: `<Evaluation Tool>\JustPeachyResearchSummaries\speaker_stage10_large_all6_38db58925d8f`
 
 The supplied collector copies compact JSON/CSV evidence and the protocol manifest/config. It records each `observations.npz` path, byte count, and SHA-256 in `RESULT_FILE_INVENTORY.csv`; it does not copy those arrays.
 
@@ -205,8 +210,8 @@ Development state: `READY_AFTER_FINALIST_SELECTION`. Evaluation state: `READY_AF
 - Benchmark ID: `controlled_diarization_v1_acd5e6e431d8`
 - Benchmark: `C:\Users\amiri\Documents\GitHub\just-peachy\Software Validation from Datasets\Evaluation Tool\benchmarks\stage11\controlled_diarization_v1`
 - Protocol-summary SHA-256: `FE2E644A3349B42D42C797E887FC2D0ECC42CC969434556C7854582643C81774`
-- Generated audio: `C:\Users\amiri\JustPeachyGeneratedData\controlled_diarization_v1`
-- Default results: `C:\Users\amiri\JustPeachyResults\diarization\controlled_diarization_v1`
+- Generated audio: `<Evaluation Tool>\JustPeachyGeneratedData\controlled_diarization_v1`
+- Default results: `<Evaluation Tool>\JustPeachyResults\diarization\controlled_diarization_v1`
 - Smoke/development/evaluation cases: 8 / 60 / 120
 - Smoke/development/evaluation speakers: 12 / 60 / 120; development ∩ evaluation = empty
 - Factors: 1/2/3/5 speakers; relaxed/standard/rapid cadence; none/backchannel/moderate overlap
@@ -317,17 +322,17 @@ No data, cohort, split, duration setting, scoring policy, threshold policy, froz
 | Enrollment config | `C:\Users\amiri\Documents\GitHub\just-peachy\Software Validation from Datasets\Evaluation Tool\configs\automated_evaluation\speaker_enrollment_duration.v1.yaml` |
 | Enrollment protocol | `C:\Users\amiri\Documents\GitHub\just-peachy\Software Validation from Datasets\Evaluation Tool\benchmarks\speaker_enrollment\speaker_enrollment_duration_v1` |
 | Controlled benchmark | `C:\Users\amiri\Documents\GitHub\just-peachy\Software Validation from Datasets\Evaluation Tool\benchmarks\stage11\controlled_diarization_v1` |
-| Generated controlled data | `C:\Users\amiri\JustPeachyGeneratedData\controlled_diarization_v1` |
-| Historical Stage 10 five results | `C:\Users\amiri\JustPeachyResults\speaker_protocol\large_all5_4a170baf5d2a` |
-| Planned ReDim result base | `C:\Users\amiri\JustPeachyResults\speaker_protocol\large_redimnet_38db58925d8f` |
-| Planned all-six package | `C:\Users\amiri\JustPeachyResearchSummaries\speaker_stage10_large_all6_38db58925d8f` |
-| Breadth result base | `C:\Users\amiri\JustPeachyResults\speaker_breadth\commonvoice_60plus_v1` |
-| Breadth package | `C:\Users\amiri\JustPeachyResearchSummaries\speaker_breadth_commonvoice_60plus_commonvoice_60plus_v1_27e72793b4c0` |
-| Enrollment result base | `C:\Users\amiri\JustPeachyResults\speaker_enrollment\speaker_enrollment_duration_v1_8ee8b2aa42d1` |
-| Enrollment package | `C:\Users\amiri\JustPeachyResearchSummaries\speaker_enrollment_duration_speaker_enrollment_duration_v1_8ee8b2aa42d1` |
-| Controlled default results | `C:\Users\amiri\JustPeachyResults\diarization\controlled_diarization_v1` |
-| Controlled default analysis | `C:\Users\amiri\JustPeachyResults\diarization\controlled_diarization_v1\analysis` |
-| Controlled packages | `C:\Users\amiri\JustPeachyResearchSummaries\controlled_diarization_v1_<git12>` or the explicit roots below |
+| Generated controlled data | `<Evaluation Tool>\JustPeachyGeneratedData\controlled_diarization_v1` |
+| Historical Stage 10 five results | `<Evaluation Tool>\JustPeachyResults\speaker_protocol\large_all5_4a170baf5d2a` |
+| Planned ReDim result base | `<Evaluation Tool>\JustPeachyResults\speaker_protocol\large_redimnet_38db58925d8f` |
+| Planned all-six package | `<Evaluation Tool>\JustPeachyResearchSummaries\speaker_stage10_large_all6_38db58925d8f` |
+| Breadth result base | `<Evaluation Tool>\JustPeachyResults\speaker_breadth\commonvoice_60plus_v1` |
+| Breadth package | `<Evaluation Tool>\JustPeachyResearchSummaries\speaker_breadth_commonvoice_60plus_commonvoice_60plus_v1_27e72793b4c0` |
+| Enrollment result base | `<Evaluation Tool>\JustPeachyResults\speaker_enrollment\speaker_enrollment_duration_v1_8ee8b2aa42d1` |
+| Enrollment package | `<Evaluation Tool>\JustPeachyResearchSummaries\speaker_enrollment_duration_speaker_enrollment_duration_v1_8ee8b2aa42d1` |
+| Controlled default results | `<Evaluation Tool>\JustPeachyResults\diarization\controlled_diarization_v1` |
+| Controlled default analysis | `<Evaluation Tool>\JustPeachyResults\diarization\controlled_diarization_v1\analysis` |
+| Controlled packages | `<Evaluation Tool>\JustPeachyResearchSummaries\controlled_diarization_v1_<git12>` or the explicit roots below |
 
 ## Command Block 1 — run the sixth speaker model
 
@@ -352,11 +357,11 @@ if (-not (Test-Path -LiteralPath $BackendPython -PathType Leaf)) { throw "Missin
 $DirtyCode = @(git -C $Repo status --porcelain -- "Software Validation from Datasets/Evaluation Tool/app" "Software Validation from Datasets/Evaluation Tool/configs" "Software Validation from Datasets/Evaluation Tool/benchmarks")
 if ($DirtyCode.Count -ne 0) { throw "Research code/config/manifest paths are dirty. Commit or review them before scientific execution.`n$($DirtyCode -join "`n")" }
 $GitShort = $ExpectedImplementationSha.Substring(0, 12)
-$RunBase = "$env:USERPROFILE\JustPeachyResults\speaker_protocol\large_redimnet_$GitShort"
+$RunBase = "$Tool\JustPeachyResults\speaker_protocol\large_redimnet_$GitShort"
 $BackendRoot = Join-Path $RunBase $Component
 $ExtractionRoot = Join-Path $BackendRoot "extraction"
 $ResultRoot = Join-Path $BackendRoot "evaluation"
-$CollectRoot = "$env:USERPROFILE\JustPeachyResearchSummaries\speaker_stage10_large_redimnet_$GitShort"
+$CollectRoot = "$Tool\JustPeachyResearchSummaries\speaker_stage10_large_redimnet_$GitShort"
 
 Push-Location $Tool
 try {
@@ -462,9 +467,9 @@ $GitShort = $ExpectedImplementationSha.Substring(0, 12)
 $Python = "$Repo\.venv\Scripts\python.exe"
 $Launcher = "$Tool\run_evaluation.py"
 $ManifestRoot = "$Tool\benchmarks\stage10\large"
-$ExistingFiveBase = "$env:USERPROFILE\JustPeachyResults\speaker_protocol\large_all5_4a170baf5d2a"
-$ReDimRoot = "$env:USERPROFILE\JustPeachyResults\speaker_protocol\large_redimnet_$GitShort\redimnet2_b2_speaker_embedding"
-$CollectRoot = "$env:USERPROFILE\JustPeachyResearchSummaries\speaker_stage10_large_all6_$GitShort"
+$ExistingFiveBase = "$Tool\JustPeachyResults\speaker_protocol\large_all5_4a170baf5d2a"
+$ReDimRoot = "$Tool\JustPeachyResults\speaker_protocol\large_redimnet_$GitShort\redimnet2_b2_speaker_embedding"
+$CollectRoot = "$Tool\JustPeachyResearchSummaries\speaker_stage10_large_all6_$GitShort"
 $Sources = [ordered]@{
   speechbrain_ecapa = "$ExistingFiveBase\speechbrain_ecapa"
   resemblyzer = "$ExistingFiveBase\resemblyzer"
@@ -553,8 +558,8 @@ $Repo = "C:\Users\amiri\Documents\GitHub\just-peachy"
 $Tool = "$Repo\Software Validation from Datasets\Evaluation Tool"
 $Wrapper = "$Tool\scripts\run_speaker_breadth_commonvoice.ps1"
 $ProtocolRoot = "$Tool\benchmarks\speaker_breadth\commonvoice_60plus_v1"
-$ResultBase = "$env:USERPROFILE\JustPeachyResults\speaker_breadth\commonvoice_60plus_v1"
-$CollectRoot = "$env:USERPROFILE\JustPeachyResearchSummaries\speaker_breadth_commonvoice_60plus_commonvoice_60plus_v1_27e72793b4c0"
+$ResultBase = "$Tool\JustPeachyResults\speaker_breadth\commonvoice_60plus_v1"
+$CollectRoot = "$Tool\JustPeachyResearchSummaries\speaker_breadth_commonvoice_60plus_commonvoice_60plus_v1_27e72793b4c0"
 $Backends = @(
   "FINALIST_1",
   "FINALIST_2"
@@ -580,9 +585,9 @@ $Tool = "$Repo\Software Validation from Datasets\Evaluation Tool"
 $Wrapper = "$Tool\scripts\run_speaker_enrollment_study.ps1"
 $SourceProtocolRoot = "C:\Users\amiri\Documents\GitHub\just-peachy\Software Validation from Datasets\Evaluation Tool\benchmarks\speaker_breadth\commonvoice_60plus_v1"
 $ProtocolRoot = "$Tool\benchmarks\speaker_enrollment\speaker_enrollment_duration_v1"
-$ResultBase = "$env:USERPROFILE\JustPeachyResults\speaker_enrollment"
+$ResultBase = "$Tool\JustPeachyResults\speaker_enrollment"
 $AnalysisRoot = "$ResultBase\speaker_enrollment_duration_v1_8ee8b2aa42d1\analysis"
-$CollectRoot = "$env:USERPROFILE\JustPeachyResearchSummaries\speaker_enrollment_duration_speaker_enrollment_duration_v1_8ee8b2aa42d1"
+$CollectRoot = "$Tool\JustPeachyResearchSummaries\speaker_enrollment_duration_speaker_enrollment_duration_v1_8ee8b2aa42d1"
 $Backends = @(
   "PRIMARY_BACKEND",
   "FALLBACK_BACKEND"
@@ -617,10 +622,10 @@ $OnnxPython = "$Repo\.stage8-envs\onnx\Scripts\python.exe"
 $Launcher = "$Tool\run_evaluation.py"
 $Wrapper = "$Tool\scripts\run_controlled_diarization.ps1"
 $GitShort = (git -C $Repo rev-parse --short=12 HEAD).Trim()
-$NativeSmokeRoot = "$env:USERPROFILE\JustPeachyResults\diarization\readiness_native_sherpa_$GitShort"
-$ControlledSmokeRoot = "$env:USERPROFILE\JustPeachyResults\diarization\controlled_smoke_$GitShort"
+$NativeSmokeRoot = "$Tool\JustPeachyResults\diarization\readiness_native_sherpa_$GitShort"
+$ControlledSmokeRoot = "$Tool\JustPeachyResults\diarization\controlled_smoke_$GitShort"
 $ControlledAnalysisRoot = "$ControlledSmokeRoot\analysis"
-$ControlledCollectRoot = "$env:USERPROFILE\JustPeachyResearchSummaries\controlled_diarization_smoke_$GitShort"
+$ControlledCollectRoot = "$Tool\JustPeachyResearchSummaries\controlled_diarization_smoke_$GitShort"
 $Pipelines = @(
   "sherpa_onnx_diarization",
   "modular_energy_campplus",
@@ -661,9 +666,9 @@ $Repo = "C:\Users\amiri\Documents\GitHub\just-peachy"
 $Tool = "$Repo\Software Validation from Datasets\Evaluation Tool"
 $Wrapper = "$Tool\scripts\run_controlled_diarization.ps1"
 $GitShort = (git -C $Repo rev-parse --short=12 HEAD).Trim()
-$ResultRoot = "$env:USERPROFILE\JustPeachyResults\diarization\controlled_diarization_v1\development_$GitShort"
+$ResultRoot = "$Tool\JustPeachyResults\diarization\controlled_diarization_v1\development_$GitShort"
 $AnalysisRoot = "$ResultRoot\analysis"
-$CollectRoot = "$env:USERPROFILE\JustPeachyResearchSummaries\controlled_diarization_development_$GitShort"
+$CollectRoot = "$Tool\JustPeachyResearchSummaries\controlled_diarization_development_$GitShort"
 $Pipelines = @(
   "PIPELINE_1",
   "PIPELINE_2"
@@ -712,9 +717,9 @@ if ($Frozen.pipelines | Where-Object { -not $_.pipeline_id -or -not $_.configura
 $Pipelines = @($Frozen.pipelines | ForEach-Object { $_.pipeline_id })
 $FrozenFileSha256 = (Get-FileHash -Algorithm SHA256 -LiteralPath $FrozenPipelineConfig).Hash
 Write-Output "Frozen configuration SHA-256: $FrozenFileSha256"
-$ResultRoot = "$env:USERPROFILE\JustPeachyResults\diarization\controlled_diarization_v1\evaluation_$GitShort"
+$ResultRoot = "$Tool\JustPeachyResults\diarization\controlled_diarization_v1\evaluation_$GitShort"
 $AnalysisRoot = "$ResultRoot\analysis"
-$CollectRoot = "$env:USERPROFILE\JustPeachyResearchSummaries\controlled_diarization_evaluation_$GitShort"
+$CollectRoot = "$Tool\JustPeachyResearchSummaries\controlled_diarization_evaluation_$GitShort"
 & $Wrapper -Action Validate
 & $Wrapper -Action Plan -Tier evaluation -Pipelines $Pipelines
 & $Wrapper -Action Run -Tier evaluation -ResultRoot $ResultRoot -FrozenPipelineConfig $FrozenPipelineConfig -Pipelines $Pipelines
@@ -730,9 +735,9 @@ Write-Output "UPLOAD PACKAGE: $CollectRoot"
 
 | Stage | Upload package and required contents |
 | --- | --- |
-| ReDimNet / six-model Stage 10 | Upload `C:\Users\amiri\JustPeachyResearchSummaries\speaker_stage10_large_all6_38db58925d8f`: `RUN_SUMMARY.csv`, `RUN_PROVENANCE.txt`, `RESULT_FILE_INVENTORY.csv`, all six `protocol_run.json`, `backend_identity.json`, `extraction_summary.json`, validation files, and protocol manifest/config. |
-| Common Voice breadth | Upload `C:\Users\amiri\JustPeachyResearchSummaries\speaker_breadth_commonvoice_60plus_commonvoice_60plus_v1_27e72793b4c0`: `RUN_SUMMARY.csv`, `RUN_PROVENANCE.txt`, `RESULT_FILE_INVENTORY.csv`, `PROTOCOL_SUMMARY.json`, `SPEAKER_COHORT_SUMMARY.csv`, `METADATA_COVERAGE.csv`, each finalist `protocol_run.json`, identity/extraction summaries, and any analysis produced outside the runner. |
-| Enrollment | Upload `C:\Users\amiri\JustPeachyResearchSummaries\speaker_enrollment_duration_speaker_enrollment_duration_v1_8ee8b2aa42d1`: `configuration_results.csv`, `speaker_results.csv`, `enrollment_curve.csv`, `duration_curve.csv`, `aggregation_comparison.csv`, `joint_frontier.csv` when available, `reliability_summary.csv`, `analysis_manifest.json`, `report.md`, `RUN_PROVENANCE.txt`, and `RESULT_FILE_INVENTORY.csv`. |
+| ReDimNet / six-model Stage 10 | Upload `<Evaluation Tool>\JustPeachyResearchSummaries\speaker_stage10_large_all6_38db58925d8f`: `RUN_SUMMARY.csv`, `RUN_PROVENANCE.txt`, `RESULT_FILE_INVENTORY.csv`, all six `protocol_run.json`, `backend_identity.json`, `extraction_summary.json`, validation files, and protocol manifest/config. |
+| Common Voice breadth | Upload `<Evaluation Tool>\JustPeachyResearchSummaries\speaker_breadth_commonvoice_60plus_commonvoice_60plus_v1_27e72793b4c0`: `RUN_SUMMARY.csv`, `RUN_PROVENANCE.txt`, `RESULT_FILE_INVENTORY.csv`, `PROTOCOL_SUMMARY.json`, `SPEAKER_COHORT_SUMMARY.csv`, `METADATA_COVERAGE.csv`, each finalist `protocol_run.json`, identity/extraction summaries, and any analysis produced outside the runner. |
+| Enrollment | Upload `<Evaluation Tool>\JustPeachyResearchSummaries\speaker_enrollment_duration_speaker_enrollment_duration_v1_8ee8b2aa42d1`: `configuration_results.csv`, `speaker_results.csv`, `enrollment_curve.csv`, `duration_curve.csv`, `aggregation_comparison.csv`, `joint_frontier.csv` when available, `reliability_summary.csv`, `analysis_manifest.json`, `report.md`, `RUN_PROVENANCE.txt`, and `RESULT_FILE_INVENTORY.csv`. |
 | Diarization development | Upload the explicit development `CollectRoot`: `overall_results.csv`, `recording_results.csv`, `factor_results.csv`, `speaker_count_results.csv`, `overlap_results.csv`, `turn_cadence_results.csv`, `fragmentation_results.csv`, `reentry_results.csv`, `resource_results.csv`, `reliability_summary.csv`, `analysis_manifest.json`, `report.md`, pipeline identities/configurations, and inventory/provenance. |
 | Diarization evaluation | Upload the explicit evaluation `CollectRoot`: the same science package plus `frozen_pipeline_configuration.json`, `FROZEN_PIPELINE_FILE_SHA256.txt`, benchmark identity/hash, prediction RTTMs, and scoring summaries. |
 

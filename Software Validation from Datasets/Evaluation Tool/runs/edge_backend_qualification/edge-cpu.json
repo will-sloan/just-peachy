@@ -3,7 +3,7 @@
     "cuda_available": false,
     "cuda_runtime": null,
     "device_requested": "cpu",
-    "git_commit": "94151fc9a068b7438a62c9eb6f3256afa86b746e",
+    "git_commit": "597bcfbcb7f9f57d63f082d1d5f7d604a98ba9df",
     "gpu": null,
     "machine": "AMD64",
     "package_count": 70,
@@ -13,7 +13,7 @@
     "python_executable": "<environment>/Scripts/python.exe",
     "torch": "2.11.0+cpu"
   },
-  "generated_at": "2026-08-13T15:25:59.179033+00:00",
+  "generated_at": "2026-08-13T18:15:09.981073+00:00",
   "profile": "edge-cpu",
   "results": [
     {
@@ -112,10 +112,10 @@
       "status": "qualified",
       "timing": {
         "inference_sec": [
-          0.704909,
-          0.027946
+          0.342018,
+          0.02865
         ],
-        "total_sec": 9.060474
+        "total_sec": 4.122868
       },
       "warnings": []
     }

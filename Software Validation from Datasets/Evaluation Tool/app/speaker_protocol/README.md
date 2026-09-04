@@ -95,6 +95,21 @@ Direct extraction intentionally selects only clean rows. For a scientific run, t
   --result-root automated_runs\<campaign_id>\analysis\speaker_protocol
 ```
 
+Large evaluations accept `--workers N`. `--workers 1` remains the deterministic
+serial path; the Common Voice 60+ wrapper recommends six evaluation workers on
+the 8-core/16-thread Ryzen host. Bootstrap replicate seeds are derived from the
+frozen seed plus replicate index, so worker scheduling cannot change scientific
+outputs. Evaluation-only math-library threads are constrained to one by the
+wrapper to prevent oversubscription; embedding extraction is unchanged.
+
+`evaluation_progress.json` is an atomic, non-scientific status artifact in the
+result directory. It reports the phase, worker count, elapsed time, bootstrap
+completed/total/rate, memory, and ETA when a countable denominator exists. It is
+excluded from result checksums and never participates in scoring. On Windows,
+atomic publication retries transient sharing violations from a monitor or file
+scanner; a persistently locked progress file may miss one update but cannot
+abort the scientific evaluation.
+
 Do not add `--allow-overwrite` unless replacing a known generated result is intentional. A changed backend, model hash, config hash, embedding dimension, preprocessing policy, or threshold policy requires a separate enrollment and result directory.
 
 ## PowerShell
@@ -111,3 +126,32 @@ Set-Location "C:\Users\amiri\Documents\GitHub\just-peachy\Software Validation fr
 ```
 
 The automated tests do not download models. Real-smoke tests validate the already generated local evidence; use `speaker-protocol smoke --rerun` when model or environment qualification changes.
+
+## ReDimNet2 Large execution lock
+
+The targeted ReDimNet2 Large re-audit is recorded in
+`runs/research_readiness/redimnet_stage10_execution_lock.json`. The verifier
+checks the frozen protocol and every indexed Parquet artifact, the checkpoint
+and official source tree, exact result-affecting source files, selected ReDimNet
+registry mappings, runtime backend identity, the isolated environment, and
+dirty locked files. Additive research modules outside this closure do not fail
+the guard. It performs no inference and writes no output.
+
+From Anaconda Prompt or Command Prompt:
+
+```bat
+cd /d "C:\Users\amiri\Documents\GitHub\just-peachy\Software Validation from Datasets\Evaluation Tool"
+"C:\Users\amiri\Documents\GitHub\just-peachy\.venv\Scripts\python.exe" scripts\verify_redimnet_stage10_execution_lock.py
+```
+
+From PowerShell:
+
+```powershell
+Set-Location "C:\Users\amiri\Documents\GitHub\just-peachy\Software Validation from Datasets\Evaluation Tool"
+& "C:\Users\amiri\Documents\GitHub\just-peachy\.venv\Scripts\python.exe" scripts\verify_redimnet_stage10_execution_lock.py
+```
+
+Input is the lock JSON (override with `--lock <path>`). Output is one JSON
+verification record on stdout and a nonzero exit code on any mismatch. Passing
+the guard does not start extraction; use only the separately reviewed Large
+run block after the guard reports `valid: true`.

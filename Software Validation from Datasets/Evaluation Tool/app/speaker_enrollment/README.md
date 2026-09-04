@@ -1,5 +1,7 @@
 # Speaker enrollment and live-duration study
 
+The recommendation-driven open-set successor is documented in `LIVE_V2_README.md`. It is additive: the frozen v1 protocol and its pairwise-EER behavior remain available for reproducibility.
+
 ## Purpose
 
 This package implements the additive `speaker_enrollment_duration_v1` experiment. It measures enrollment utterance count, accumulated enrollment audio, enrollment representation, and nested live/probe duration after a speaker backend has been selected. It preserves the frozen Stage 10 calibration/evaluation boundary, recalibrates a backend-specific threshold for every configuration, evaluates held-out known and Unknown speakers, caches every immutable audio-slice embedding once, and produces speaker-cluster-bootstrap analysis.
@@ -31,7 +33,7 @@ It contains feasibility evidence, cohort and probe-parent selections, immutable 
 Runtime results default to:
 
 ```text
-%USERPROFILE%/JustPeachyResults/speaker_enrollment/<protocol_id>/<backend>/
+<Evaluation Tool>/JustPeachyResults/speaker_enrollment/<protocol_id>/<backend>/
 ├── embeddings/                         # backend-specific per-slice cache
 ├── phase_a_enrollment_count/
 ├── phase_b_enrollment_duration/
@@ -61,7 +63,7 @@ report.md
 plots/
 ```
 
-`Collect` creates a compact package under `%USERPROFILE%/JustPeachyResearchSummaries/`. It copies the frozen manifests and compact analysis, but references rather than duplicates large biometric-sensitive embedding caches.
+`Collect` creates a compact package under `<Evaluation Tool>/JustPeachyResearchSummaries/`. It copies the frozen manifests and compact analysis, but references rather than duplicates large biometric-sensitive embedding caches.
 
 ## Anaconda Prompt / Command Prompt
 

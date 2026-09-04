@@ -1,0 +1,8 @@
+# Optional, separate parity/reference environment. Never load this environment
+# beside the lean service on a 2 GiB target.
+-r requirements-linux-arm64.txt
+torch==2.11.0
+torchaudio==2.11.0
+pyannote.audio==4.0.7
+onnx==1.22.0
+onnxscript==0.7.1

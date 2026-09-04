@@ -2,12 +2,16 @@ from __future__ import annotations
 
 from pathlib import Path
 
+import numpy as np
 import pytest
 
 from app.inference_pipeline.config import PipelineConfig
 from app.inference_pipeline.diarization import (
     ModularClusteringDiarizer,
     build_diarizer_from_config,
+)
+from app.inference_pipeline.diarization.modular_adapter import (
+    _speech_overlap_channels,
 )
 from app.inference_pipeline.diarization.clustering import (
     agglomerative_cosine_labels,
@@ -51,6 +55,17 @@ def test_clustering_accepts_maximum_above_available_windows() -> None:
         threshold=0.9,
         max_clusters=8,
     ) == [0, 0]
+
+
+def test_pyannote_reduction_preserves_speech_and_second_speaker_overlap() -> None:
+    scores = np.asarray(
+        [[[0.9, 0.2, 0.1], [0.8, 0.7, 0.1], [0.4, 0.3, 0.2]]],
+        dtype=np.float32,
+    )
+    reduced = _speech_overlap_channels(scores)
+    assert reduced.shape == (1, 3, 2)
+    np.testing.assert_allclose(reduced[..., 0], [[0.9, 0.8, 0.4]])
+    np.testing.assert_allclose(reduced[..., 1], [[0.2, 0.7, 0.3]])
 
 
 @pytest.mark.parametrize(

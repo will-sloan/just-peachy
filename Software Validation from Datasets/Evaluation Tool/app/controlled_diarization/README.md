@@ -38,15 +38,17 @@ benchmarks/stage11/controlled_diarization_v1/
 Rendered WAV files are external and default to:
 
 ```text
-%USERPROFILE%\JustPeachyGeneratedData\controlled_diarization_v1\
+<Evaluation Tool>\JustPeachyGeneratedData\controlled_diarization_v1\
 ```
 
 Set `JP_GENERATED_DATA_ROOT` to move the physical generated-data base without
 changing scientific identity. Results default to:
 
 ```text
-%USERPROFILE%\JustPeachyResults\diarization\controlled_diarization_v1\
+<Evaluation Tool>\JustPeachyResults\diarization\controlled_diarization_v1\
 ```
+
+Newly executed cases record best-effort `resource_telemetry` in `run.json`: peak RSS for the case process plus recursive component children, sampled every 0.1 seconds when `psutil` is available. Historical checksum-valid results remain reusable and may omit this additive field; analyses report that telemetry as missing rather than imputing it.
 
 No generated WAV, Common Voice MP3, model asset, credential, or raw contributor
 identity belongs in Git.

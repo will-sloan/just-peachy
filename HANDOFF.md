@@ -1,258 +1,495 @@
-# Just-Peachy Handoff
+# Just-Peachy Combined Evaluation Tool — Codex Handoff
 
-Read this first when continuing work in a new Codex account.
+Read this file first when a new Codex session takes over Evaluation Tool work.
+It describes the complete combined evaluator, the boundaries between its
+subsystems, the paths that carry scientific identity, and the safe operator
+entrypoints.
 
-## Goal
+## 1. Repository snapshot and worktree safety
 
-The repository is an automated, reproducible speech-pipeline evaluation tool. The
-current work adds qualified edge components, deterministic edge-research scenario
-catalogs, and operator scripts while reusing the existing dataset, augmentation,
-scoring, reporting, campaign-state, and artifact-validation systems.
+At the time this handoff was authored:
 
-The intended research order is component isolation first, targeted combinations
-second, and only then larger robustness, speaker, or distributed campaigns. The
-current implementation is ready for the first one-scenario integration run; it is
-not a claim that any added backend is the best model.
+```text
+REPOSITORY = C:\Users\amiri\Documents\GitHub\just-peachy
+BRANCH = codex/edge-component-expansion
+BASELINE_HEAD = 4a170baf5d2a2236650508f6e582f1eb85557a78
+UPSTREAM = origin/codex/edge-component-expansion
+BASELINE_ORIGIN_RELATIONSHIP = 0 ahead / 0 behind
+```
 
-## Current Git state
+The handoff edit itself may be uncommitted. The following Evaluation Tool files
+were already operator-owned worktree changes and must be preserved, inspected,
+and excluded from unrelated staging:
 
-- Repository: `C:\Users\amiri\Documents\GitHub\just-peachy`
-- Branch: `codex/edge-component-expansion`
-- Current implementation commit: run `git rev-parse HEAD`; the latest additive Sherpa
-  Libri+Giga integration commit is recorded in its completing Codex handoff.
-- Accepted baseline: `b78df94cf1b8c4c9a1ea684a0a64b7bd37020838`
-- The edge expansion is committed locally and was not pushed.
-- The prior five-model large study has been completed. Preserve every existing campaign
-  root, result, assignment, export, merge, and Stage 12 artifact. The additive
-  `campaign_edge_lg_shgiga_v1` has only been qualified and dry-planned; it was not run.
-- `Resumes/` is intentionally local and ignored by Git.
-- At handoff, `HANDOFF.md` is the only untracked file. It is documentation only.
+```text
+Software Validation from Datasets/Evaluation Tool/runs/edge_backend_qualification/edge-cpu.json
+Software Validation from Datasets/Evaluation Tool/runs/edge_backend_qualification/moonshine-edge.json
+Software Validation from Datasets/Evaluation Tool/runs/edge_backend_qualification/onnx-edge.json
+Software Validation from Datasets/Evaluation Tool/runs/extended_backend_qualification/extended-local.json
+Software Validation from Datasets/Evaluation Tool/runs/extended_backend_qualification/model_asset_inventory.json
+Software Validation from Datasets/Evaluation Tool/runs/extended_backend_qualification/onnx.json
+Software Validation from Datasets/Evaluation Tool/runs/extended_backend_qualification/wespeaker.json
+Software Validation from Datasets/Evaluation Tool/artifacts/research_queue_logs/
+```
 
-Confirm before changing anything:
+Always begin with:
 
 ```powershell
 git status --short
 git branch --show-current
 git rev-parse HEAD
+git status -sb
 ```
 
-If the commit, branch, or working tree differs, inspect that difference before
-using frozen catalogs or comparing results. Do not reset, rebase, or delete
-campaign folders to make the repository look clean.
+Never use `git reset --hard`, `git clean`, `git restore .`, `git checkout -- .`,
+or `git add .`. Do not rewrite or delete completed campaigns to make the tree
+look clean.
 
-## Decisions that remain in force
+## 2. What “combined Evaluation Tool” means
 
-- Whisper Base is the reference ASR; do not evaluate Whisper Large.
-- Models must be acquired explicitly. Inference and qualification never download
-  models implicitly.
-- Keep dependency stacks isolated: `edge-cpu`, `moonshine-edge`, `onnx`, and
-  existing `core-cpu`. Do not combine them in one Windows Python process.
-- Default execution is sequential. CUDA and GPU-concurrency qualification are not
-  complete.
-- Dining Room and Restaurant are the executable exact RIRs. Bedroom is unresolved;
-  do not substitute ParkingLot, Kitchen, or another RIR.
-- Preserve `Unknown` speaker labels. Do not use reference speaker or transcript
-  fallbacks in predictions.
-- Do not start optional combinations, large campaigns, Stage 10 campaigns, or
-  multi-day research until the initial small screen is reviewed.
-
-## Architecture and ownership map
+There is one Evaluation Tool with several layers. They share the same dataset,
+pipeline, prediction, scoring, artifact, and reporting contracts.
 
 ```text
-Frozen benchmark manifests + normalized metadata
-  -> deterministic edge scenario catalogs
-  -> campaign planner/state/artifact contracts
-  -> selected isolated Python profile
-  -> configured pipeline (VAD -> segmentation -> ASR -> optional embedding)
-  -> standardized predictions + optional streaming diagnostics
-  -> existing scoring, telemetry, plots, reports, and analysis
+Normalized metadata + external raw audio
+  -> deterministic selection or frozen benchmark manifest
+  -> optional runtime-only augmentation/native condition
+  -> resolved component pipeline
+  -> VAD -> diarization -> segmentation -> ASR -> embedding -> matching
+  -> standardized predictions and explicit failures
+  -> scoring, plots, reports, and resource telemetry
+  -> typed/checksummed scenario artifacts
+  -> campaign merge, analysis, and release evidence
 ```
 
-Do not replace the middle or final Evaluation Tool layers when extending a
-component. Add a component YAML and adapter, register its identity/assets/profile,
-then let the configured runner and campaign executor handle it.
+The layers are:
 
-The important implementation boundaries are:
+1. **Legacy/ordinary evaluator** — per-dataset selection, GUI/CLI, simulation,
+   external stub, configured inference, augmentation, scoring, plots, reports.
+2. **Configured speech pipeline** — composes qualified VAD, segmentation, ASR,
+   speaker embedding, speaker matching, and diarization adapters.
+3. **Automated campaign framework** — frozen manifests/scenarios, deterministic
+   identities, persistent state, retries, stop/resume, telemetry, validation,
+   exchange, merge, analysis, and release gates.
+4. **Edge research layer** — generates deterministic screen, streaming, combo,
+   and large catalogs, then delegates execution to the campaign framework.
+5. **Specialized protocols** — leakage-safe Stage 10 speaker evaluation and
+   Stage 11 diarization evaluation using their own typed artifact registries.
 
-- `app/inference_pipeline/` - adapters, interfaces, pipeline composition, and
-  component registry.
-- `app/model_runner/configured.py` - resolved-pipeline execution into existing
-  normalized prediction outputs.
-- `app/campaign_executor/` - immutable scenarios, state, retries, artifact
-  validation, and resume behavior.
-- `app/edge_research/` - deterministic catalog/queue generation and preflight;
-  it does not duplicate evaluator logic.
-- `app/speaker_protocol/` - backend-bound Stage 10 enrollment/probe contracts.
+Do not build a second evaluator for a new model. Add/qualify the component,
+register its assets/profile, resolve it through the existing pipeline, and use
+the existing campaign executor and reporting paths.
 
-## Qualified additions
+## 3. Highest-priority paths for Codex
 
-| Component | Profile | Status |
+Read these in order for most Evaluation Tool tasks:
+
+| Priority | Path | Why it matters |
+|---:|---|---|
+| 1 | `HANDOFF.md` | Current combined map, safety rules, and path index |
+| 2 | `Software Validation from Datasets/Evaluation Tool/README.md` | Ordinary evaluator inputs, outputs, GUI, CLI, datasets, and prediction contract |
+| 3 | `Software Validation from Datasets/Evaluation Tool/docs/automated_evaluation/current_evaluation_tool_architecture.md` | Compact source-level runtime and package map |
+| 4 | `Software Validation from Datasets/Evaluation Tool/docs/automated_evaluation/system_guide.md` | Full owner/operator manual |
+| 5 | `Software Validation from Datasets/Evaluation Tool/docs/automated_evaluation/final_acceptance_audit.md` | Accepted contracts, evidence boundaries, and limitations |
+| 6 | `Software Validation from Datasets/Evaluation Tool/docs/automated_evaluation/launch_control_sheet.md` | Current production/distributed launch verdict and exact worker commands |
+| 7 | `Software Validation from Datasets/PORTABILITY.md` | Root-variable semantics and relocation rules |
+| 8 | `Software Validation from Datasets/Evaluation Tool/run_evaluation.py` | Public Python launcher |
+| 9 | `Software Validation from Datasets/Evaluation Tool/app/cli/main.py` | Ordinary and automated CLI dispatcher |
+| 10 | `Software Validation from Datasets/Evaluation Tool/configs/automated_evaluation/component_registry.v1.yaml` | Canonical component identities, packages, assets, profiles, and qualification status |
+| 11 | `Software Validation from Datasets/Evaluation Tool/configs/automated_evaluation/model_asset_registry.v1.yaml` | Model source, version, hashes, storage, licensing, and acquisition method |
+| 12 | `Software Validation from Datasets/Evaluation Tool/configs/automated_evaluation/environment_profiles.stage8.v1.yaml` | Isolated interpreter/profile contracts |
+| 13 | `Software Validation from Datasets/Evaluation Tool/configs/automated_evaluation/artifact_registry.v3.yaml` | Required/conditional scenario artifacts and completion contract |
+| 14 | `Software Validation from Datasets/Evaluation Tool/benchmarks/v1/` | Frozen Small/Standard/Large benchmark manifests |
+| 15 | `Software Validation from Datasets/Evaluation Tool/benchmarks/edge_research/edge_research_queue.json` | Exact edge/combo/large catalog paths, hashes, profiles, counts, and default enablement |
+| 16 | `Software Validation from Datasets/Evaluation Tool/app/edge_research/plan.py` | Deterministic edge/combo catalog construction |
+| 17 | `scripts/run_edge_research.ps1` | Safe edge plan/run/status/stop/resume front door |
+| 18 | `Software Validation from Datasets/Training Tool/handoff/HANDOFF_INPUT_FOR_CHATGPT.md` | Separate training-system handoff; training is not part of evaluation execution |
+
+## 4. Portable roots and physical storage
+
+Active code must not depend on a Windows username or drive. The shared roots
+are:
+
+| Variable | Default | Purpose |
 |---|---|---|
-| Moonshine Streaming English Tiny, Small, Medium | `moonshine-edge` | CPU-qualified |
-| Sherpa-ONNX Streaming Zipformer English 20M INT8 | `onnx` | CPU-qualified |
-| Sherpa-ONNX LibriSpeech+GigaSpeech Zipformer 2023-06-21 | `onnx` | CPU-qualified; segment-contract campaign |
-| FSMN-VAD | `edge-cpu` | CPU-qualified |
-| CAM++ and ERes2Net Base speaker embeddings | `onnx` | CPU-qualified; Stage 10 smoke passed |
+| `JP_REPO_ROOT` | repository checkout | Source/config root |
+| `JP_DATA_ROOT` | `<repo>/Software Validation from Datasets` | Normalized metadata and external raw datasets |
+| `JP_MODEL_ROOT` | `<repo>/models` | Model cache replacing the configured `models` prefix |
+| `JP_RUN_ROOT` | `Evaluation Tool/runs` for ordinary runs | Ordinary `run`/`full` outputs unless `--runs-root` is supplied |
+| `JP_TRAINING_ROOT` | `<repo>/training` | Separate generated training workspace |
 
-Evidence and exact asset hashes/licenses are in
-[edge_component_expansion_handoff.md](<Software Validation from Datasets/Evaluation Tool/docs/automated_evaluation/edge_component_expansion_handoff.md>).
+Important caveat: automated campaign roots use their declared
+`Evaluation Tool/automated_runs/<campaign_id>` locations. `JP_RUN_ROOT` does not
+silently relocate existing campaign contracts.
 
-The main evidence files are:
-
-- `Software Validation from Datasets/Evaluation Tool/runs/edge_backend_qualification/edge-cpu.json`
-- `Software Validation from Datasets/Evaluation Tool/runs/edge_backend_qualification/moonshine-edge.json`
-- `Software Validation from Datasets/Evaluation Tool/runs/edge_backend_qualification/onnx-edge.json`
-- `Software Validation from Datasets/Evaluation Tool/runs/edge_speaker_protocol_smoke/real_smoke_matrix.json`
-
-## Research catalogs
-
-Default campaigns: 84 scenarios total.
-
-| Campaign | Profile | Scenarios |
-|---|---|---:|
-| `campaign_edge_screen_v1` | `edge-cpu` | 36 |
-| `campaign_edge_stream_moon_v1` | `moonshine-edge` | 36 |
-| `campaign_edge_stream_onnx_v1` | `onnx` | 12 |
-
-There are 628 frozen ASR scenarios in thirteen catalogs, including optional combination
-and large campaigns. Catalogs, queue, and plan are under
-`Software Validation from Datasets/Evaluation Tool/benchmarks/edge_research/`.
-
-Optional, disabled campaigns are `campaign_edge_combo_moon_v1` (216),
-`campaign_edge_combo_onnx_v1` (72), and eight `campaign_edge_lg_*_v1` catalogs
-(32 each), including the additive `campaign_edge_lg_shgiga_v1`. Stage 10 plans are also disabled:
-`campaign_spk10_edge_sm_v1` (63 clean items/backend),
-`campaign_spk10_edge_std_v1` (240), and `campaign_spk10_edge_lg_v1` (510).
-
-Union catalogs are design/analysis inputs only; they must not be run as a single
-process because their scenarios require different environment profiles.
-
-## Important files
-
-- [Edge plan](<Software Validation from Datasets/Evaluation Tool/app/edge_research/plan.py>) - deterministic catalog generation and preflight.
-- [Operator quick start](<Software Validation from Datasets/Evaluation Tool/docs/automated_evaluation/edge_research_quick_start.md>) - full run guidance.
-- [Detailed edge handoff](<Software Validation from Datasets/Evaluation Tool/docs/automated_evaluation/edge_component_expansion_handoff.md>) - component table, asset hashes, evidence, and limits.
-- [Script README](scripts/EDGE_RESEARCH_README.md) - PowerShell script inputs and outputs.
-- `scripts/prepare_edge_research.ps1` - install/refresh isolated profiles and acquire approved assets.
-- `scripts/verify_edge_research.ps1` - preflight packages, assets, source rows, catalogs, and bounded smokes.
-- `scripts/run_edge_research.ps1` - plan, run, status, stop, and resume.
-- `Software Validation from Datasets/Evaluation Tool/configs/automated_evaluation/model_asset_registry.v1.yaml`
-  - declared model identity, hashes, licensing, and acquisition requirements.
-- `Software Validation from Datasets/Evaluation Tool/configs/automated_evaluation/artifact_registry.v3.yaml`
-  - required/conditional scenario artifacts, including streaming diagnostics.
-- `Software Validation from Datasets/Evaluation Tool/configs/automated_evaluation/streaming_metric_registry.v1.yaml`
-  - streaming diagnostic metrics and definitions.
-
-## Verification already completed
-
-- Eight added backends passed repeated real qualification, including the separate
-  LibriSpeech+GigaSpeech Sherpa component.
-- CAM++ and ERes2Net Stage 10 smoke passed for both backends with `Unknown`
-  preserved.
-- All 13 catalogs and 628 scenario identities validate.
-- Source preflight checked 8,663 frozen manifest rows with zero missing inputs.
-- Default dry-plan passed: 36 + 36 + 12 scenarios.
-- Focused tests passed (118 passed, 2 skipped; final Stage 10 file: 16 passed),
-  plus Ruff, compilation, and Git whitespace checks.
-
-The focused test command used for the expansion was:
+Run the non-mutating root diagnostic from the Evaluation Tool directory:
 
 ```powershell
-Set-Location 'Software Validation from Datasets\Evaluation Tool'
-..\..\.venv\Scripts\python.exe -m pytest test_stage1 test_stage3 test_stage5 test_stage6 test_stage8 test_stage10 test_edge_research test_campaign_runtime_publication
+..\..\.venv\Scripts\python.exe -m app.utils.paths
 ```
 
-Do not rerun broad campaigns merely to revalidate the repository. Run targeted
-tests only if you change their covered behavior.
+The preferred external dataset layout is:
 
-## Exact next steps
+```text
+JP_DATA_ROOT/
+├── Normalized Metadata/
+│   ├── AMI/
+│   ├── CHiME_6/
+│   ├── CMU_Arctic/
+│   ├── HiFiTTS/
+│   ├── LibriSpeech/
+│   └── VOiCES/
+└── Raw Datasets (Not formatted)/
+    ├── AMI Meeting Corpus/
+    ├── CHiME 6/
+    ├── CMU Arctic/
+    ├── Common Voice.gz
+    ├── Common Voice/cv-corpus-26.0-2026-06-12/prepared/en/
+    ├── Hi Fi TTS/
+    ├── LibreSpeech/
+    ├── MIT 271 RIRs/Audio/
+    └── VOiCES/
+```
 
-From the repository root:
+Raw audio and model binaries are external/ignored assets. Never add them to Git
+or assume a shared folder grants redistribution rights.
+
+## 5. Source-code ownership map
+
+| Path | Responsibility |
+|---|---|
+| `app/dataset_registry/` | Dataset definitions, normalized metadata loading, filters, selection records |
+| `app/augmentation/` | Runtime noise/RIR planning and processing; no full persistent augmented corpus |
+| `app/inference_pipeline/` | Component interfaces/adapters, catalog, resolver, pipeline execution |
+| `app/model_runner/configured.py` | Bridge from selected EvaluationRecords to the resolved pipeline and prediction contract |
+| `app/model_runner/simulated.py` | Protected deterministic fake runner |
+| `app/model_runner/external_stub.py` | Protected external integration hook |
+| `app/scoring/` | Existing ASR and speaker-attributed scoring |
+| `app/plotting/` and `app/reporting/` | Ordinary-run plots and reports |
+| `app/benchmark_contracts/` | Frozen manifest selection, scenarios, canonical hashes, conditions, RIR registry |
+| `app/artifact_contracts/` | Schemas, atomic publication, checksums, completion validation |
+| `app/campaign_executor/` | Planning, SQLite state, leases, heartbeat, retries, stop/resume, subprocesses |
+| `app/resource_telemetry/` | Process/system/GPU sampling and resource summaries |
+| `app/campaign_exchange/` | Worker assignments, transfers, validation, conflict-safe merge |
+| `app/campaign_analysis/` | Result index, registered metrics/statistics/plots, reports, release status |
+| `app/core_screening/` | Core qualification/screening |
+| `app/extended_backends/` and `app/extended_screening/` | Optional backend qualification and targeted screening |
+| `app/edge_research/` | Edge/combo catalog generation and global preflight only |
+| `app/speaker_protocol/` | Stage 10 enrollment/calibration/known/unknown speaker protocol |
+| `app/diarization_evaluation/` | Stage 11 native diarization manifests and RTTM/UEM scoring |
+| `app/launch_readiness/` | Operational launch probes and release binding checks |
+
+## 6. Runtime pipeline and protected semantics
+
+The actual configured pipeline order is:
+
+```text
+load/bound audio -> mono/resample 16 kHz -> VAD -> diarization
+-> segmentation -> ASR -> speaker embedding -> cosine matching
+-> apply valid diarization labels -> PipelineOutput -> prediction adapter
+```
+
+If a diarizer emits turns, those turns can become the effective segmentation
+source. Reports must accurately state whether segmentation came from full
+record, VAD/VADChunker, or diarization.
+
+Preserve these behaviors:
+
+- source IDs and timestamps;
+- explicit empty prediction text;
+- per-item failure/diagnostic records;
+- literal `Unknown` speaker decisions and anonymous diarization labels;
+- no copying reference transcripts or speakers into predictions;
+- original simulation, external-stub, GUI, scoring, plotting, and reporting
+  behavior.
+
+## 7. Public execution surfaces
+
+Run Python commands from:
+
+```text
+Software Validation from Datasets/Evaluation Tool/
+```
+
+### Ordinary evaluator
 
 ```powershell
-Set-Location 'C:\Users\amiri\Documents\GitHub\just-peachy'
-git switch codex/edge-component-expansion
+..\..\.venv\Scripts\python.exe run_evaluation.py list-datasets
+..\..\.venv\Scripts\python.exe run_evaluation.py gui
+..\..\.venv\Scripts\python.exe run_evaluation.py run --dataset cmu_arctic --runner simulation --max-recordings 1
+..\..\.venv\Scripts\python.exe run_evaluation.py full --dataset cmu_arctic --runner configured --inference-config configs\inference\desktop_cpu.yaml --max-recordings 1
+..\..\.venv\Scripts\python.exe run_evaluation.py score --run-dir <run-folder>
+..\..\.venv\Scripts\python.exe run_evaluation.py report --run-dir <run-folder>
+```
 
+`run` performs inference only. `full` performs inference, scoring, plots, and
+reporting. Models must already exist; inference never downloads them.
+
+### Automated campaign framework
+
+The `run_evaluation.py campaign` command owns plan, validation, execution,
+status, stop, resume, artifact validation, and related state operations. The
+`analysis` command owns indexing, validation, analysis, coverage, and release
+status. Consult `system_guide.md` before constructing commands manually.
+
+A conservative one-scenario shape is:
+
+```powershell
+..\..\.venv\Scripts\python.exe run_evaluation.py campaign plan --catalog <catalog.jsonl> --campaign-id <new-id> --dry-run
+..\..\.venv\Scripts\python.exe run_evaluation.py campaign plan --catalog <catalog.jsonl> --campaign-id <new-id>
+..\..\.venv\Scripts\python.exe run_evaluation.py campaign validate --campaign-root automated_runs\<new-id>
+..\..\.venv\Scripts\python.exe run_evaluation.py campaign run --campaign-root automated_runs\<new-id> --worker-id local --max-scenarios 1 --telemetry
+..\..\.venv\Scripts\python.exe run_evaluation.py campaign status --campaign-root automated_runs\<new-id>
+..\..\.venv\Scripts\python.exe run_evaluation.py campaign validate-artifacts --campaign-root automated_runs\<new-id>
+```
+
+Never infer success from a directory’s existence. Validate campaign state,
+scenario artifacts, schemas, counts, and checksums.
+
+## 8. Edge and combo research
+
+Use the repository-root PowerShell controls so each campaign runs under its
+declared isolated interpreter:
+
+```powershell
 powershell -ExecutionPolicy Bypass -File scripts\prepare_edge_research.ps1
 powershell -ExecutionPolicy Bypass -File scripts\verify_edge_research.ps1
 powershell -ExecutionPolicy Bypass -File scripts\run_edge_research.ps1 -Action Plan
-
-# First and only recommended real run at this point:
-powershell -ExecutionPolicy Bypass -File scripts\run_edge_research.ps1 -Action Run -CampaignId campaign_edge_screen_v1 -MaxScenarios 1
-powershell -ExecutionPolicy Bypass -File scripts\run_edge_research.ps1 -Action Status -CampaignId campaign_edge_screen_v1
 ```
 
-If that scenario validates, continue the same immutable campaign:
+`prepare` installs/reuses explicit profiles and approved assets. `verify`
+regenerates/verifies catalogs and, unless `-SkipSmoke` is supplied, rewrites
+qualification evidence. `Plan` dry-plans and starts no inference.
+
+The queue contract currently declares:
+
+| Campaign | Profile | Scenarios | Default |
+|---|---|---:|---|
+| `campaign_edge_screen_v1` | `edge-cpu` | 36 | enabled |
+| `campaign_edge_stream_moon_v1` | `moonshine-edge` | 36 | enabled |
+| `campaign_edge_stream_onnx_v1` | `onnx` | 12 | enabled |
+| `campaign_edge_combo_moon_v1` | `moonshine-edge` | 216 | disabled |
+| `campaign_edge_combo_onnx_v1` | `onnx` | 72 | disabled |
+
+The Moonshine combo is three streaming ASRs crossed with Energy, Silero, and
+WebRTC VAD in observe/chunk modes. The ONNX combo is Sherpa 20M crossed with
+Energy, Silero, and Sherpa-ONNX VAD in observe/chunk modes. Both use the frozen
+small controlled-clean benchmark and immutable component/pipeline identities.
+
+The combined union catalogs are analysis/design inputs only. Do not execute a
+union catalog in one process because its rows require different environment
+profiles.
+
+Plan one optional combo explicitly:
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File scripts\run_edge_research.ps1 -Action Resume -CampaignId campaign_edge_screen_v1
+powershell -ExecutionPolicy Bypass -File scripts\run_edge_research.ps1 `
+  -Action Plan -CampaignId campaign_edge_combo_moon_v1
 ```
 
-To stop safely:
+Only after review and explicit authorization, start one bounded scenario:
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File scripts\run_edge_research.ps1 -Action Stop -CampaignId campaign_edge_screen_v1
+powershell -ExecutionPolicy Bypass -File scripts\run_edge_research.ps1 `
+  -Action Run -CampaignId campaign_edge_combo_moon_v1 -MaxScenarios 1
 ```
 
-After a completed campaign, analyze with the core environment:
+Use `-Action Status`, `Stop`, or `Resume` with the same campaign ID. Default
+execution is sequential. Do not use `-IncludeOptional` casually.
 
-```powershell
-Set-Location 'C:\Users\amiri\Documents\GitHub\just-peachy\Software Validation from Datasets\Evaluation Tool'
-..\..\.venv\Scripts\python.exe run_evaluation.py analysis run --campaign-root automated_runs\campaign_edge_screen_v1
-```
+Large edge catalogs are also optional and contain 32 scenarios per model. Their
+exact names/hashes live in `edge_research_queue.json`. Whisper Large is not an
+approved model; Whisper Base is the reference control.
 
-### Operator command semantics
+## 9. Environments and model assets
 
-- `prepare_edge_research.ps1` installs/refreshes the three isolated profiles and
-  downloads only approved explicit assets. Use `-Recreate` only when deliberately
-  rebuilding those environments.
-- `verify_edge_research.ps1` checks FFmpeg, interpreters, packages, assets, frozen
-  source inputs, catalogs, and real bounded smokes. Its default smoke mode rewrites
-  the qualification-evidence files; use `-SkipSmoke` for a non-invasive repeat
-  preflight after evidence is already trusted.
-- `run_edge_research.ps1 -Action Plan` regenerates the deterministic plan/catalogs
-  and dry-plans every selected campaign, but starts no inference.
-- `Run`, `Resume`, `Status`, and `Stop` accept `-CampaignId`; `Run` may also use
-  `-MaxScenarios 1` for a bounded smoke. `-IncludeOptional` is deliberately not
-  part of the immediate next step.
+| Profile | Interpreter | Main use |
+|---|---|---|
+| `core-cpu` | `<repo>/.venv/Scripts/python.exe` | Core Whisper/VAD/ECAPA, campaign control, analysis |
+| `core-cuda` | `<repo>/.stage8-envs/core-cuda/Scripts/python.exe` | Qualified single-GPU core execution |
+| `extended-local` | `<repo>/.stage8-envs/extended-local/Scripts/python.exe` | Faster-Whisper, Vosk, WebRTC, Resemblyzer |
+| `onnx` | `<repo>/.stage8-envs/onnx/Scripts/python.exe` | Sherpa ASR/VAD/embedding/diarization |
+| `edge-cpu` | `<repo>/.stage8-envs/edge-cpu/Scripts/python.exe` | FSMN-VAD edge screen |
+| `moonshine-edge` | `<repo>/.stage8-envs/moonshine-edge/Scripts/python.exe` | Moonshine streaming models |
+| `wenet` | `<repo>/.stage8-envs/wenet/Scripts/python.exe` | WeNet candidate; asset limitations apply |
+| `wespeaker` | `<repo>/.stage8-envs/wespeaker/Scripts/python.exe` | WeSpeaker with recorded warnings |
 
-Results are written beneath:
+Do not combine incompatible profiles in one Python process. Component YAML and
+the registries select the required profile. Explicit model bootstrap lives at:
 
 ```text
-Software Validation from Datasets/Evaluation Tool/automated_runs/<campaign_id>/scenarios/<scenario_id>/
+scripts/bootstrap_models.py
+models/cache/                         # default physical cache, ignored by Git
+Evaluation Tool/configs/automated_evaluation/model_asset_registry.v1.yaml
 ```
 
-For each scenario, inspect `resolved_scenario.json`, `status.json`, standardized
-`predictions/utterances.jsonl`, `metrics/`, `resource_logs/`, `logs/`,
-`report/`, and `checksums.json`. Streaming scenarios additionally require
-`predictions/streaming_diagnostics.jsonl`. Use campaign validation rather than
-judging completion from a folder's presence.
+Do not silently use a newer asset or download during inference. Verify hashes
+and licensing/provenance, especially GigaSpeech-derived models and credential-
+gated diarization backends.
 
-## Known blockers and deferred work
+## 10. Scientific identity and configuration contracts
 
-- TitaNet is optional and not integrated.
-- Bedroom RIR has no approved replacement.
-- Degraded Stage 10 probes require the approved augmentation execution path.
-- CUDA/GPU, GPU concurrency, and Raspberry Pi performance are unqualified.
-- Stage 11 diarization remains gated by installed/licensed backends and valid timebase
-  references.
+Treat these as versioned contracts:
 
-## Rules for the next Codex account
+- benchmark manifests and `manifest_summary.json` under `benchmarks/v1/`;
+- scenario schema/canonicalization/hash under `app/benchmark_contracts/`;
+- component and model identities in the automated-evaluation registries;
+- source component fragments under `configs/inference/components/`;
+- condition/RIR registries;
+- artifact registries and schemas;
+- edge catalog JSONL files and their queue-recorded SHA-256 hashes;
+- completed campaign manifests, scenario IDs, checksums, assignments, transfer
+  packages, and analysis manifests.
 
-1. Read this file, then the detailed edge handoff and quick-start guide.
-2. Re-run the three Git commands above and report deviations before editing anything.
-3. Treat benchmark manifests, scenario schemas/hashes, catalog identities, and source
-   component YAML as versioned contracts. A result-affecting change creates a new
-   scenario identity; never reuse an old scenario ID.
-4. Keep the active work narrowly scoped. Do not refactor dataset loading, augmentation,
-   scoring, plotting, reporting, GUI behavior, or existing runners merely to support a
-   new backend.
-5. Preserve per-item failures, `Unknown`, identifiers, timestamps, and original
-   artifact/checksum evidence. Never silently fill predictions from references.
-6. Before asking the operator to run a larger campaign, provide the exact selected
-   campaign IDs, profile, count, prerequisites, expected output path, and stop/resume
-   command.
+Physical root changes do not change scientific identity. Result-affecting model,
+data, component, condition, seed, device/dtype/runtime, timeout, resource,
+scoring, or failure-policy changes require a new scenario identity. Never edit
+an old result to make a new configuration appear compatible.
 
-The next recommended experiment is the single `campaign_edge_screen_v1` scenario above,
-followed by review of its predictions, telemetry, checksums, and report before any
-broader campaign is started.
+## 11. Output path atlas
+
+Ordinary Evaluation Tool runs:
+
+```text
+Evaluation Tool/runs/<timestamp>_<dataset>_<mode>_<name>/
+├── config/
+├── predictions/utterances.jsonl
+├── diagnostics/
+├── metrics/
+├── plots/
+├── report/
+├── previews/ or preview_audio/
+└── logs/
+```
+
+Automated campaign results:
+
+```text
+Evaluation Tool/automated_runs/<campaign_id>/
+├── campaign_manifest.json
+├── campaign_state.sqlite
+├── scenarios/<scenario_id>/
+│   ├── resolved_scenario.json
+│   ├── status.json
+│   ├── predictions/utterances.jsonl
+│   ├── predictions/streaming_diagnostics.jsonl   # when required
+│   ├── diagnostics/ and failures/
+│   ├── metrics/
+│   ├── resource_logs/
+│   ├── logs/
+│   ├── report/
+│   └── checksums.json
+└── analysis/
+    ├── result_index.parquet
+    ├── analysis_manifest.json
+    ├── tables/ and plots/
+    └── report/campaign_report.md
+```
+
+Other important evidence/output roots:
+
+```text
+Evaluation Tool/runs/component_qualification/
+Evaluation Tool/runs/edge_backend_qualification/
+Evaluation Tool/runs/extended_backend_qualification/
+Evaluation Tool/runs/edge_speaker_protocol_smoke/
+Evaluation Tool/benchmarks/stage10/
+Evaluation Tool/benchmarks/stage11/
+transfer_packages/<campaign_id>/<machine_id>/
+```
+
+Qualification evidence is not equivalent to scientific model-selection
+evidence. Smoke results prove contracts and runtime composition only.
+
+## 12. Specialized protocols and distributed release
+
+- Stage 10 speaker work: `app/speaker_protocol/`,
+  `configs/automated_evaluation/speaker_protocol.v1.yaml`,
+  `benchmarks/stage10/`.
+- Stage 11 diarization: `app/diarization_evaluation/`,
+  `configs/automated_evaluation/diarization_evaluation.v1.yaml`,
+  `benchmarks/stage11/`.
+- Distributed campaign exchange: `app/campaign_exchange/`, assignments,
+  `scripts/setup_worker.ps1`, `verify_worker.ps1`, `launch_worker.ps1`,
+  `worker_control.ps1`, `export_worker.ps1`, and `coordinator.ps1`.
+
+The current launch control sheet says the product framework is
+`PRODUCTION_READY`, while the distributed CUDA campaign remains
+`WAITING_FOR_MACHINE_B` until the physical second machine passes setup,
+verification, real inference, and full assigned preflight. Treat that launch
+sheet—not older narrative text—as the operational source of truth.
+
+## 13. Guardrails and deferred work
+
+- Do not evaluate Whisper Large.
+- Do not download models during inference or qualification.
+- Do not run optional combo/large campaigns without explicit selection and a
+  reviewed count/profile/output/stop plan.
+- Keep one GPU-heavy scenario at a time unless concurrency is separately
+  qualified.
+- Do not run training alongside GPU Large evaluation on the same GPU.
+- Dining Room and Restaurant are the approved exact RIRs. Bedroom remains
+  unresolved; never substitute ParkingLot, Kitchen, or another file.
+- Preserve `Unknown`, failure rows, timestamps, identities, checksums, and
+  warnings.
+- Credential-gated pyannote/Picovoice and platform-limited NeMo remain blocked
+  until the operator supplies and approves prerequisites.
+- Never treat a one-item smoke, synthetic Stage 12 trace, or qualification run
+  as proof of the best production pipeline.
+- Validate existing artifacts before rerunning expensive work.
+
+## 14. Safe first actions for a new Codex session
+
+1. Run the four Git checks in section 1 and preserve every unrelated change.
+2. Read this handoff, `current_evaluation_tool_architecture.md`, the relevant
+   runbook, and the final acceptance/launch-control evidence.
+3. Run the portable-root diagnostic and verify the expected interpreter/model/
+   data paths without downloading or executing inference.
+4. Inspect the exact component, asset, profile, benchmark, catalog, and artifact
+   contracts involved in the requested task.
+5. Prefer a dry plan or tiny fixture test. Do not launch a campaign merely to
+   understand it.
+6. If execution is requested, state the campaign ID, profile, scenario count,
+   input catalog/hash, output root, expected duration/storage, and exact
+   status/stop/resume commands before starting.
+7. Stage exact owned files only. Never stage operator qualification JSON/log
+   changes accidentally.
+
+## 15. Training boundary
+
+The Training Tool is a sibling system that consumes external datasets and
+produces adapter/full-fine-tune checkpoints. It does not run inside the
+Evaluation Tool. Evaluation consumes exported immutable models later.
+
+Start training-related work with:
+
+```text
+Software Validation from Datasets/Training Tool/handoff/HANDOFF_INPUT_FOR_CHATGPT.md
+Software Validation from Datasets/Training Tool/handoff/training_handoff_state.json
+Software Validation from Datasets/Training Tool/handoff/training_handoff_commands.md
+```
+
+Do not change frozen training identities because an Evaluation Tool path moved,
+and do not change frozen evaluation identities because a model was trained.
+Connect the two systems through explicit checkpoint/export IDs, SHA-256 values,
+model lineage, and new registered Evaluation Tool assets/components.
+
+## 16. Minimum context block for the next Codex prompt
+
+```text
+Repository: C:\Users\amiri\Documents\GitHub\just-peachy
+Branch: codex/edge-component-expansion
+Read first: HANDOFF.md
+Evaluation root: Software Validation from Datasets/Evaluation Tool
+Public launcher: Software Validation from Datasets/Evaluation Tool/run_evaluation.py
+Component registry: Software Validation from Datasets/Evaluation Tool/configs/automated_evaluation/component_registry.v1.yaml
+Model registry: Software Validation from Datasets/Evaluation Tool/configs/automated_evaluation/model_asset_registry.v1.yaml
+Artifact registry: Software Validation from Datasets/Evaluation Tool/configs/automated_evaluation/artifact_registry.v3.yaml
+Frozen benchmarks: Software Validation from Datasets/Evaluation Tool/benchmarks/v1
+Edge/combo queue: Software Validation from Datasets/Evaluation Tool/benchmarks/edge_research/edge_research_queue.json
+Ordinary outputs: Software Validation from Datasets/Evaluation Tool/runs
+Campaign outputs: Software Validation from Datasets/Evaluation Tool/automated_runs
+Portable roots: JP_REPO_ROOT, JP_DATA_ROOT, JP_MODEL_ROOT, JP_RUN_ROOT, JP_TRAINING_ROOT
+Preserve current operator-owned qualification JSON and research_queue_logs changes.
+Do not run optional/large work, download models, or mutate frozen identities unless explicitly authorized.
+```

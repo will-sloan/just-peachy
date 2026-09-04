@@ -6,7 +6,9 @@ param(
     [string]$ProtocolRoot = '',
     [string]$ResultBase = '',
     [string]$CollectRoot = '',
-    [string]$ManagementPython = ''
+    [string]$ManagementPython = '',
+    [ValidateRange(1, 16)]
+    [int]$EvaluationWorkers = 6
 )
 
 $ErrorActionPreference = 'Stop'
@@ -27,7 +29,7 @@ if (-not $ResultBase) {
         $ResultBase = $env:JP_SPEAKER_BREADTH_RESULT_ROOT
     }
     else {
-        $ResultBase = Join-Path ([Environment]::GetFolderPath('UserProfile')) 'JustPeachyResults\speaker_breadth\commonvoice_60plus_v1'
+        $ResultBase = Join-Path $ToolRoot 'JustPeachyResults\speaker_breadth\commonvoice_60plus_v1'
     }
 }
 
@@ -49,7 +51,7 @@ function Get-ProtocolSummary {
 
 function Test-ValidResult {
     param([string]$Path)
-    if (-not (Test-Path -LiteralPath $Path -PathType Container)) {
+    if (-not (Test-Path -LiteralPath (Join-Path $Path 'protocol_run.json') -PathType Leaf)) {
         return $false
     }
     & $ManagementPython $Launcher speaker-protocol validate --result-root $Path *> $null
@@ -90,6 +92,7 @@ switch ($Action) {
             $Arguments += @('--backend', $Backend)
         }
         Invoke-Management $Arguments
+        Write-Output "Evaluation workers: $EvaluationWorkers"
     }
     'Validate' {
         Invoke-Management @('speaker-breadth', 'validate', '--protocol-root', $ProtocolRoot, '--verify-audio-hashes')
@@ -99,13 +102,41 @@ switch ($Action) {
         $Summary = Get-ProtocolSummary
         Write-Output "Protocol: $($Summary.protocol_id)"
         Write-Output "Protocol artifacts: $ProtocolRoot"
-        Write-Output ('{0,-42} {1}' -f 'BACKEND', 'STATUS')
+        Write-Output "Evaluation workers: $EvaluationWorkers"
+        Write-Output ('{0,-42} {1,-24} {2,-12} {3,-10} {4,-10} {5}' -f 'BACKEND', 'STATUS', 'PROGRESS', 'ELAPSED', 'RATE', 'ETA')
         foreach ($Backend in $Backends) {
             $BackendRoot = Join-Path (Join-Path $ResultBase $Summary.protocol_id) $Backend
             $ExtractionRoot = Join-Path $BackendRoot 'extraction'
             $ResultRoot = Join-Path $BackendRoot 'result'
+            $ProgressPath = Join-Path $ResultRoot 'evaluation_progress.json'
+            $ProgressText = '-'
+            $ElapsedText = '-'
+            $RateText = '-'
+            $EtaText = '-'
             if (Test-ValidResult $ResultRoot) {
                 $Status = 'VALID'
+            }
+            elseif (Test-Path -LiteralPath (Join-Path $ResultRoot 'protocol_run.json') -PathType Leaf) {
+                $Status = 'INVALID'
+            }
+            elseif (Test-Path -LiteralPath $ProgressPath -PathType Leaf) {
+                try {
+                    $Progress = Get-Content -LiteralPath $ProgressPath -Raw | ConvertFrom-Json
+                    $Status = if ($Progress.status -eq 'FAILED') { 'PARTIAL:FAILED' } else { "EVALUATING:$($Progress.phase)" }
+                    if ($null -ne $Progress.bootstrap_total) {
+                        $ProgressText = "$($Progress.bootstrap_completed)/$($Progress.bootstrap_total)"
+                    }
+                    $ElapsedText = [TimeSpan]::FromSeconds([double]$Progress.elapsed_sec).ToString('hh\:mm\:ss')
+                    if ($null -ne $Progress.bootstrap_per_second) { $RateText = ('{0:N2}/s' -f [double]$Progress.bootstrap_per_second) }
+                    if ($null -ne $Progress.estimated_remaining_sec) { $EtaText = [TimeSpan]::FromSeconds([double]$Progress.estimated_remaining_sec).ToString('hh\:mm\:ss') }
+                }
+                catch { $Status = 'PARTIAL' }
+            }
+            elseif (Test-ValidExtraction $ExtractionRoot $Backend) {
+                $Status = 'EXTRACTION_COMPLETE'
+            }
+            elseif (Test-Path -LiteralPath $ExtractionRoot -PathType Container) {
+                $Status = 'EXTRACTING'
             }
             elseif (Test-Path -LiteralPath $BackendRoot) {
                 $Status = 'PARTIAL'
@@ -113,9 +144,7 @@ switch ($Action) {
             else {
                 $Status = 'NOT_RUN'
             }
-            Write-Output ('{0,-42} {1}' -f $Backend, $Status)
-            Write-Output "  extraction: $ExtractionRoot"
-            Write-Output "  result:     $ResultRoot"
+            Write-Output ('{0,-42} {1,-24} {2,-12} {3,-10} {4,-10} {5}' -f $Backend, $Status, $ProgressText, $ElapsedText, $RateText, $EtaText)
         }
     }
     'Run' {
@@ -148,12 +177,24 @@ switch ($Action) {
                 }
             }
             if (Test-Path -LiteralPath $ResultRoot) {
-                $Quarantine = "$ResultRoot.invalid-$(Get-Date -Format 'yyyyMMdd-HHmmss')"
+                $Label = if (Test-Path -LiteralPath (Join-Path $ResultRoot 'protocol_run.json') -PathType Leaf) { 'invalid' } else { 'partial' }
+                $Quarantine = "$ResultRoot.$Label-$(Get-Date -Format 'yyyyMMdd-HHmmss')"
                 Move-Item -LiteralPath $ResultRoot -Destination $Quarantine
                 Write-Output "[PRESERVE PARTIAL] $Quarantine"
             }
-            Write-Output "[EVALUATE] $Backend"
-            & $ManagementPython $Launcher speaker-protocol evaluate --manifest-root $ProtocolRoot --observation-bundle (Join-Path $ExtractionRoot 'observations.npz') --backend-identity (Join-Path $ExtractionRoot 'backend_identity.json') --output-root $ResultRoot
+            Write-Output "[EVALUATE] $Backend workers=$EvaluationWorkers"
+            $ThreadVariables = @('OMP_NUM_THREADS', 'MKL_NUM_THREADS', 'OPENBLAS_NUM_THREADS', 'NUMEXPR_NUM_THREADS')
+            $PriorThreadValues = @{}
+            foreach ($Name in $ThreadVariables) {
+                $PriorThreadValues[$Name] = [Environment]::GetEnvironmentVariable($Name, 'Process')
+                [Environment]::SetEnvironmentVariable($Name, '1', 'Process')
+            }
+            try {
+                & $ManagementPython $Launcher speaker-protocol evaluate --manifest-root $ProtocolRoot --observation-bundle (Join-Path $ExtractionRoot 'observations.npz') --backend-identity (Join-Path $ExtractionRoot 'backend_identity.json') --output-root $ResultRoot --workers $EvaluationWorkers
+            }
+            finally {
+                foreach ($Name in $ThreadVariables) { [Environment]::SetEnvironmentVariable($Name, $PriorThreadValues[$Name], 'Process') }
+            }
             if ($LASTEXITCODE -ne 0) {
                 Write-Warning "[FAIL] evaluation failed for $Backend"
                 continue
@@ -171,7 +212,7 @@ switch ($Action) {
         Require-Backends
         $Summary = Get-ProtocolSummary
         if (-not $CollectRoot) {
-            $CollectRoot = Join-Path ([Environment]::GetFolderPath('UserProfile')) "JustPeachyResearchSummaries\speaker_breadth_commonvoice_60plus_$($Summary.protocol_id)"
+            $CollectRoot = Join-Path $ToolRoot "JustPeachyResearchSummaries\speaker_breadth_commonvoice_60plus_$($Summary.protocol_id)"
         }
         $Arguments = @('speaker-breadth', 'collect', '--protocol-root', $ProtocolRoot, '--result-base', $ResultBase, '--output-root', $CollectRoot)
         foreach ($Backend in $Backends) {

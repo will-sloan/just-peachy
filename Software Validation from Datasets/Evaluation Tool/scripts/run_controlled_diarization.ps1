@@ -34,7 +34,7 @@ if (-not $GeneratedRoot) {
         $GeneratedRoot = Join-Path $env:JP_GENERATED_DATA_ROOT 'controlled_diarization_v1'
     }
     else {
-        $GeneratedRoot = Join-Path ([Environment]::GetFolderPath('UserProfile')) 'JustPeachyGeneratedData\controlled_diarization_v1'
+        $GeneratedRoot = Join-Path $ToolRoot 'JustPeachyGeneratedData\controlled_diarization_v1'
     }
 }
 if (-not $ResultRoot) {
@@ -42,7 +42,7 @@ if (-not $ResultRoot) {
         $ResultRoot = Join-Path $env:JP_DIARIZATION_RESULT_ROOT 'controlled_diarization_v1'
     }
     else {
-        $ResultRoot = Join-Path ([Environment]::GetFolderPath('UserProfile')) 'JustPeachyResults\diarization\controlled_diarization_v1'
+        $ResultRoot = Join-Path $ToolRoot 'JustPeachyResults\diarization\controlled_diarization_v1'
     }
 }
 if (-not $SourceSpeakerPool) {

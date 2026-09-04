@@ -3,7 +3,7 @@
     "cuda_available": false,
     "cuda_runtime": null,
     "device_requested": "cpu",
-    "git_commit": "b78df94cf1b8c4c9a1ea684a0a64b7bd37020838",
+    "git_commit": "597bcfbcb7f9f57d63f082d1d5f7d604a98ba9df",
     "gpu": null,
     "machine": "AMD64",
     "package_count": 70,
@@ -13,7 +13,7 @@
     "python_executable": "<environment>/Scripts/python.exe",
     "torch": "2.11.0+cpu"
   },
-  "generated_at": "2026-08-12T01:54:02.725389+00:00",
+  "generated_at": "2026-08-13T18:15:26.199962+00:00",
   "profile": "moonshine-edge",
   "results": [
     {
@@ -91,7 +91,7 @@
         }
       ],
       "backend_id": "moonshine_streaming_tiny",
-      "command": "python scripts/qualify_extended_backends.py --profile moonshine-edge --backend moonshine_streaming_tiny --backend moonshine_streaming_small --backend moonshine_streaming_medium --output runs/edge_backend_qualification/moonshine-edge.json",
+      "command": "python 'scripts\\qualify_extended_backends.py' --profile moonshine-edge --backend moonshine_streaming_tiny --backend moonshine_streaming_small --backend moonshine_streaming_medium --output 'runs\\edge_backend_qualification\\moonshine-edge.json'",
       "component_identity": {
         "backend_id": "moonshine_streaming_tiny",
         "config_path": "configs/inference/components/asr/moonshine_streaming_tiny.yaml",
@@ -117,12 +117,12 @@
           "dtype": "float32",
           "gpu_memory_allocated_mb": null,
           "gpu_memory_reserved_mb": null,
-          "inference_sec": 0.007329000160098076,
-          "load_sec": 0.3503218996338546,
+          "inference_sec": 0.009874800001853146,
+          "load_sec": 0.2543710000027204,
           "model_name": "moonshine_streaming_tiny_en_quantized_26_07_30",
           "peak_gpu_memory_mb": null,
           "peak_gpu_memory_reserved_mb": null,
-          "realtime_factor": 0.007329000160098076
+          "realtime_factor": 0.009874800001853146
         },
         "transcripts": [
           "the reorganization of these countries took the form of revolution.",
@@ -144,11 +144,11 @@
       "status": "qualified",
       "timing": {
         "inference_sec": [
-          1.34071,
-          0.841481
+          1.092201,
+          0.701985
         ],
-        "initialization_sec": 0.3503218996338546,
-        "total_sec": 11.564398
+        "initialization_sec": 0.2543710000027204,
+        "total_sec": 5.883454
       },
       "warnings": []
     },
@@ -227,7 +227,7 @@
         }
       ],
       "backend_id": "moonshine_streaming_small",
-      "command": "python scripts/qualify_extended_backends.py --profile moonshine-edge --backend moonshine_streaming_tiny --backend moonshine_streaming_small --backend moonshine_streaming_medium --output runs/edge_backend_qualification/moonshine-edge.json",
+      "command": "python 'scripts\\qualify_extended_backends.py' --profile moonshine-edge --backend moonshine_streaming_tiny --backend moonshine_streaming_small --backend moonshine_streaming_medium --output 'runs\\edge_backend_qualification\\moonshine-edge.json'",
       "component_identity": {
         "backend_id": "moonshine_streaming_small",
         "config_path": "configs/inference/components/asr/moonshine_streaming_small.yaml",
@@ -253,12 +253,12 @@
           "dtype": "float32",
           "gpu_memory_allocated_mb": null,
           "gpu_memory_reserved_mb": null,
-          "inference_sec": 0.008115599863231182,
-          "load_sec": 0.7920293998904526,
+          "inference_sec": 0.00753919999988284,
+          "load_sec": 0.8209299000009196,
           "model_name": "moonshine_streaming_small_en_quantized_26_07_30",
           "peak_gpu_memory_mb": null,
           "peak_gpu_memory_reserved_mb": null,
-          "realtime_factor": 0.008115599863231182
+          "realtime_factor": 0.00753919999988284
         },
         "transcripts": [
           "the reorganization of these countries took the form of revolution.",
@@ -280,11 +280,11 @@
       "status": "qualified",
       "timing": {
         "inference_sec": [
-          2.432178,
-          1.402045
+          2.109086,
+          1.154827
         ],
-        "initialization_sec": 0.7920293998904526,
-        "total_sec": 4.071182
+        "initialization_sec": 0.8209299000009196,
+        "total_sec": 3.390009
       },
       "warnings": []
     },
@@ -363,7 +363,7 @@
         }
       ],
       "backend_id": "moonshine_streaming_medium",
-      "command": "python scripts/qualify_extended_backends.py --profile moonshine-edge --backend moonshine_streaming_tiny --backend moonshine_streaming_small --backend moonshine_streaming_medium --output runs/edge_backend_qualification/moonshine-edge.json",
+      "command": "python 'scripts\\qualify_extended_backends.py' --profile moonshine-edge --backend moonshine_streaming_tiny --backend moonshine_streaming_small --backend moonshine_streaming_medium --output 'runs\\edge_backend_qualification\\moonshine-edge.json'",
       "component_identity": {
         "backend_id": "moonshine_streaming_medium",
         "config_path": "configs/inference/components/asr/moonshine_streaming_medium.yaml",
@@ -389,12 +389,12 @@
           "dtype": "float32",
           "gpu_memory_allocated_mb": null,
           "gpu_memory_reserved_mb": null,
-          "inference_sec": 0.0052869003266096115,
-          "load_sec": 1.2748687001876533,
+          "inference_sec": 0.006548799996380694,
+          "load_sec": 1.0480895999935456,
           "model_name": "moonshine_streaming_medium_en_quantized_26_07_30",
           "peak_gpu_memory_mb": null,
           "peak_gpu_memory_reserved_mb": null,
-          "realtime_factor": 0.0052869003266096115
+          "realtime_factor": 0.006548799996380694
         },
         "transcripts": [
           "the reorganization of these countries took the form of revolution.",
@@ -416,11 +416,11 @@
       "status": "qualified",
       "timing": {
         "inference_sec": [
-          3.256306,
-          2.014246
+          2.739318,
+          1.748566
         ],
-        "initialization_sec": 1.2748687001876533,
-        "total_sec": 5.543353
+        "initialization_sec": 1.0480895999935456,
+        "total_sec": 4.62695
       },
       "warnings": []
     }

@@ -1,0 +1,53 @@
+schema_version: speaker-embedding-deployment-policy.v1
+study_id: speaker_embedding_deployment_v1
+implementation_version: speaker-embedding-deployment-replay.v2
+selection_seed: 3800
+backends:
+  - wespeaker
+  - redimnet2_b2_speaker_embedding
+  - speechbrain_ecapa
+  - eres2net_base_speaker_embedding
+datasets:
+  common_voice_60plus:
+    protocol_root: benchmarks/speaker_breadth/commonvoice_60plus_v1
+    result_root: JustPeachyResults/speaker_breadth/commonvoice_60plus_v1/commonvoice_60plus_v1_27e72793b4c0
+    condition: clean
+  cmu_arctic_clean:
+    protocol_root: benchmarks/stage10/large
+    condition: clean
+    result_roots:
+      wespeaker: JustPeachyResults/speaker_protocol/large_all5_4a170baf5d2a/wespeaker
+      speechbrain_ecapa: JustPeachyResults/speaker_protocol/large_all5_4a170baf5d2a/speechbrain_ecapa
+      eres2net_base_speaker_embedding: JustPeachyResults/speaker_protocol/large_all5_4a170baf5d2a/eres2net_base_speaker_embedding
+      redimnet2_b2_speaker_embedding: JustPeachyResults/speaker_protocol/large_redimnet_cd4e507c8d13/redimnet2_b2_speaker_embedding
+gallery_sizes: [1, 5, 10, 25, 50, 100, 200, 272]
+gallery_repetitions: 5
+enrollment_counts: [1, 2, 3, 5]
+enrollment_repetitions: 5
+aggregation_methods:
+  - normalized_mean
+  - duration_weighted_mean
+  - multi_template_mean_score
+  - multi_template_max_score
+  - multi_template_top2_mean_score
+  - qc_trimmed_normalized_mean
+fpir_targets: [0.001, 0.005, 0.01, 0.02, 0.05]
+known_wrong_name_rate_cap: 0.005
+margin_grid: [0.0, 0.01, 0.02, 0.03, 0.04, 0.05, 0.075, 0.10, 0.15, 0.20]
+primary_fpir_target: 0.01
+bootstrap_repetitions: 500
+confidence_level: 0.95
+session_turns: 5
+product_policy:
+  text_delivery: immediate
+  speaker_name_delivery: asynchronous_and_retroactive
+  first_label: generic_until_policy_accepts
+  priority_order:
+    - avoid_wrong_known_name
+    - minimize_identification_latency
+    - minimize_time_labeled_unknown
+  latency_targets_sec:
+    aggressive: 0.75
+    balanced: 1.5
+    conservative: 3.0
+  automatic_user_template_adaptation: prohibited_without_separate_validation

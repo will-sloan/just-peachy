@@ -1,0 +1,158 @@
+{
+  "schema_version": "just-peachy-full-pipeline-scope-amendment.v1",
+  "amendment_id": "full_pipeline_prompts_4_8_eight_day_c_only.v1",
+  "program_id": "just_peachy_full_pipeline_program_v1",
+  "authorized_by": "user",
+  "authorized_date_local": "2026-08-24",
+  "recorded_at_utc": "2026-08-24T12:23:52Z",
+  "applies_to_prompt_indices": [4, 5, 6, 7, 8],
+  "authority": {
+    "supersedes": [
+      "original_prompt_4_through_8_campaign_breadth",
+      "original_prompt_4_through_8_runtime_assumptions"
+    ],
+    "does_not_supersede": [
+      "full_pipeline_matrix",
+      "frozen_scientific_configurations",
+      "model_and_checkpoint_identities",
+      "thresholds_and_margins",
+      "open_set_and_enrollment_policies",
+      "development_evaluation_firewall",
+      "evidence_integrity_requirements"
+    ],
+    "original_full_scope_complete": false,
+    "partial_original_run_marker": "SUPERSEDED_PARTIAL_FULL_SCOPE"
+  },
+  "scope": {
+    "scope_class": "BOUNDED_REDUCED",
+    "total_wall_target_hours": 192,
+    "stage_budget_hours": {
+      "prompt_4": 48,
+      "prompt_5": 60,
+      "prompt_6": 30,
+      "prompt_7": 12,
+      "prompt_8": 4,
+      "shared_contingency": 38
+    },
+    "stage_budget_sum_hours": 192,
+    "automatic_transition_prompts": [5, 6, 7, 8],
+    "automatic_transition_requires": [
+      "preceding_amended_completion_marker",
+      "hash_validation_pass",
+      "firewall_validation_pass",
+      "c_drive_storage_preflight_pass",
+      "durable_milestone_notification_written"
+    ],
+    "stop_transition_on": [
+      "stage_failure",
+      "invalid_evidence",
+      "free_space_reserve_failure",
+      "unmet_prerequisite"
+    ]
+  },
+  "storage_policy": {
+    "allowed_drive": "C:\\",
+    "other_drives_allowed": false,
+    "canonical_evaluation_tool_root": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\Software Validation from Datasets\\Evaluation Tool",
+    "all_program_data_stays_on_allowed_drive": true,
+    "includes": [
+      "inputs",
+      "copied_datasets",
+      "manifests",
+      "caches",
+      "temporary_files",
+      "checkpoints",
+      "workspaces",
+      "logs",
+      "results",
+      "reports",
+      "packages",
+      "zip_files"
+    ],
+    "junction_or_symlink_to_other_drive_allowed": false,
+    "minimum_free_space_reserve_gib": 35,
+    "preflight_required_each_stage": true,
+    "periodic_monitoring_required": true,
+    "pause_before_reserve_breach": true,
+    "authoritative_evidence_deletion_allowed": false,
+    "regenerable_staging_cleanup": {
+      "allowed": true,
+      "requires_exact_c_drive_target_validation": true,
+      "requires_regenerable_classification": true,
+      "requires_upstream_checksum_verification": true,
+      "requires_downstream_nonuse_verification": true,
+      "requires_predeletion_inventory": true,
+      "requires_regeneration_command": true
+    },
+    "storage_failure_marker": "BLOCKED_C_DRIVE_RESERVE_35_GIB"
+  },
+  "scientific_invariants": {
+    "prompt_4_and_5_pipeline_count": 18,
+    "frozen_anchor_presets": [
+      "AO-H2",
+      "AG-H2",
+      "AO-H4",
+      "AG-H4",
+      "AO-H5",
+      "AG-H5"
+    ],
+    "frozen_policies_and_thresholds_preserved": true,
+    "heldout_firewall_preserved": true,
+    "challenger_policy_derivation_development_only": true,
+    "identical_panel_per_compared_pipeline": true,
+    "maximum_concurrent_accuracy_jobs": 2,
+    "standardized_resource_jobs_serial": true,
+    "speaker_level_bootstrap_required": true,
+    "preserve_speaker_probe_groups_in_bootstrap": true,
+    "failures_partials_unsupported_and_missing_retained": true,
+    "conditional_and_end_to_end_metrics_separate": true,
+    "result_dependent_sampling_allowed": false,
+    "heldout_retuning_allowed": false,
+    "native_known_speaker_metrics_without_valid_references_allowed": false
+  },
+  "bounded_panel_contract": {
+    "selection_before_corresponding_predictions": true,
+    "selection_inputs": [
+      "metadata",
+      "references"
+    ],
+    "selection_must_be_deterministic": true,
+    "required_records": [
+      "selection_seed",
+      "inclusion_and_stratification_rules",
+      "selected_case_inventory",
+      "excluded_case_inventory",
+      "case_manifest_sha256",
+      "reference_sha256",
+      "achieved_scenario_coverage",
+      "achieved_speaker_coverage"
+    ]
+  },
+  "required_artifact_labels": {
+    "scope_id": "full_pipeline_prompts_4_8_eight_day_c_only.v1",
+    "scope_class": "BOUNDED_REDUCED",
+    "original_full_scope_complete": false
+  },
+  "completion_markers": {
+    "prompt_4": "COMPLETE_ALL18_DEVELOPMENT_AND_FREEZE_REDUCED_8DAY_V1",
+    "prompt_5": "COMPLETE_ALL18_CORE_EVALUATION_REDUCED_8DAY_V1",
+    "prompt_6": "COMPLETE_EXTENDED_PIPELINE_EVALUATION_REDUCED_8DAY_V1",
+    "prompt_7": "COMPLETE_PRODUCTION_CANDIDATE_HARDENING_REDUCED_8DAY_V1",
+    "prompt_8": "COMPLETE_FULL_PIPELINE_PROGRAM_REDUCED_8DAY_V1"
+  },
+  "reserved_original_completion_markers": [
+    "COMPLETE_ALL18_DEVELOPMENT_AND_FREEZE",
+    "COMPLETE_ALL18_CORE_EVALUATION",
+    "COMPLETE_EXTENDED_PIPELINE_EVALUATION",
+    "COMPLETE_PRODUCTION_CANDIDATE_HARDENING",
+    "COMPLETE_FULL_PIPELINE_PROGRAM"
+  ],
+  "interpretation": {
+    "may_claim_original_full_scope": false,
+    "must_report_achieved_and_original_requested_coverage": true,
+    "must_retain_stopped_original_run_inventory": true,
+    "must_retain_bounded_manifests": true,
+    "must_retain_all_failures": true,
+    "must_include_amendment_in_final_reproducibility_package": true
+  }
+}

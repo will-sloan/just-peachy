@@ -1,0 +1,109 @@
+schema_version: speaker-enrollment-live-policy.v2
+protocol_version: speaker_enrollment_live_v2
+selection_algorithm_version: speaker-enrollment-live-selection.v2
+source_protocol_type: commonvoice_60plus_speaker_breadth
+default_source_protocol_root: benchmarks/speaker_breadth/commonvoice_60plus_v1
+seed: 3800
+
+paired_cohort:
+  enrollment_clips_per_known: 5
+  enrollment_audio_sec_required: 20.0
+  probe_parents_per_speaker_per_split: 3
+  probe_parent_min_duration_sec: 5.0
+  retain_all_feasible_unknown_speakers: true
+
+enrollment_counts: [1, 2, 3, 5]
+enrollment_audio_budgets_sec: [1.0, 2.0, 5.0, 10.0, 20.0]
+probe_durations_sec: [0.50, 0.75, 1.00, 1.50, 2.00, 3.00, 5.00]
+optional_probe_durations_sec: [10.00]
+aggregation_methods:
+  - normalized_mean
+  - duration_weighted_mean
+  - multi_template_mean_score
+  - multi_template_max_score
+  - multi_template_top2_mean_score
+  - qc_trimmed_normalized_mean
+enrollment_selection_repetitions: 5
+
+duration_policy:
+  version: available-audio-prefix.v1
+  start_sec: 0.0
+  end_rounding_decimals: 6
+  pad_short_audio: false
+  duration_quantity: available_audio_duration
+  speech_start_alignment: source_file_start
+
+calibration:
+  threshold_policy: open_set_max_score_and_margin_per_configuration
+  acceptance_rule: top1_score_gte_threshold_and_top1_minus_top2_gte_margin
+  evaluation_used_for_threshold: false
+  fpir_targets: [0.001, 0.005, 0.01, 0.02, 0.05]
+  primary_fpir_target: 0.01
+  known_wrong_name_rate_cap: 0.005
+  margin_grid: [0.00, 0.01, 0.02, 0.03, 0.04, 0.05, 0.075, 0.10, 0.15, 0.20]
+  fixed_far_targets: [0.01, 0.05]
+  unknown_label: Unknown
+
+enrollment_quality:
+  enabled: true
+  diagnostic_outlier_quantile: 0.05
+  wrong_speaker_or_bad_recording_claim_without_review: false
+
+live_decision:
+  causal_nested_prefixes: true
+  confirmation_policy: two_consecutive_accepted_same_identity
+  hysteresis_release_consecutive_failures: 2
+  report_cold_start: true
+  report_warm_session_simulation: true
+  report_identity_flips: true
+  report_wrong_identity_dwell: true
+  report_unknown_false_identification_latency: true
+  immediate_transcription_separate_from_identity: true
+  target_latency_sec:
+    immediate: 0.75
+    normal: 1.50
+    conservative_min: 2.00
+    conservative_max: 3.00
+
+metrics:
+  top_k: [1, 3, 5]
+  bootstrap_seed: 3800
+  bootstrap_repetitions: 500
+  confidence_level: 0.95
+  bootstrap_cluster: speaker
+  open_set_metrics: [FPIR, FNIR, TPIR, DIR, unknown_rejection, false_known_attribution, known_to_unknown, wrong_known_to_wrong_known]
+
+phase_design:
+  EnrollmentCount:
+    enrollment_basis: natural_utterance_count
+    aggregation_method: normalized_mean
+    probe_duration: natural
+  EnrollmentDuration:
+    enrollment_basis: available_audio_budget
+    aggregation_method: normalized_mean
+    probe_duration: natural
+  Aggregation:
+    enrollment_basis: natural_utterance_count
+    enrollment_counts: [2, 3, 5]
+    probe_duration: natural
+  ProbeDuration:
+    requires_reference_enrollment_configuration: true
+  JointFrontier:
+    requires_operator_decision_gate: true
+
+scientific_labels:
+  speech_style: prompted_read
+  session_diversity: unavailable
+  primary_enrollment_quality: source_clean_reference
+
+scope_boundaries:
+  - Existing Stage 10 manifests and results are immutable inputs.
+  - The Common Voice speaker-breadth protocol is an immutable source protocol.
+  - Unknown speakers are never enrolled.
+  - Probe duration is available waveform duration, not measured voiced-speech duration.
+  - Backend minimum-duration failures are retained as TECHNICALLY_INVALID and are never padded.
+  - Every production policy parameter is selected on calibration speakers only.
+  - Pairwise EER is diagnostic and is never the production identity threshold.
+  - Session, channel, phrase, and real-device claims require later matched device recordings.
+  - No per-user fine-tuning or automatic template adaptation is performed.
+  - Phase E points require an explicit decision after inspecting Phases A through D.

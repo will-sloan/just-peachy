@@ -1,0 +1,73 @@
+{
+  "schema_version": "just-peachy-full-pipeline-superseded-run.v1",
+  "record_id": "prompt4_full_scope_v5_superseded_partial_20260824",
+  "scope_id": "full_pipeline_prompts_4_8_eight_day_c_only.v1",
+  "classification": "SUPERSEDED_PARTIAL_FULL_SCOPE",
+  "recorded_at_utc": "2026-08-24T12:30:00Z",
+  "reason": "User-authorized replacement of the original Prompt-4 breadth with the bounded eight-day C:-only program.",
+  "workspace_root": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\Software Validation from Datasets\\Evaluation Tool\\automated_runs\\full_pipeline_development_v1_prompt4_execution_recovery_v5_restart_contract_fix",
+  "storage_drive": "C:\\",
+  "campaign": {
+    "campaign_id": "full_speech_pipeline_v1_d8809967d516",
+    "campaign_identity_sha256": "d8809967d516fd3a0ceab4da7303390243a9c0ddb660f4ee6fb2b43f839920d9",
+    "campaign_stage": "prompt4_all18_development_accuracy",
+    "pipeline_count": 18,
+    "held_out_evaluation_started": false
+  },
+  "terminal_state": {
+    "status": "STOPPED",
+    "detail": "Graceful stop honored",
+    "updated_at_utc": "2026-08-24T12:26:10.970574Z",
+    "planned_jobs": 36,
+    "complete_jobs": 1,
+    "stopped_jobs": 35,
+    "running_jobs": 0,
+    "failed_jobs": 0,
+    "planned_cases": 14526,
+    "processed_cases_including_partial_attempts": 314,
+    "planned_audio_sec": 1253177.0572499998,
+    "processed_audio_sec_including_partial_attempts": 21799.593187499995,
+    "cache_hits": 219253
+  },
+  "interpretation": {
+    "reusable_complete_job_count": 1,
+    "partial_attempts_preserved": true,
+    "partial_attempts_promoted_to_complete": false,
+    "original_full_scope_complete": false,
+    "eligible_as_bounded_completion_evidence": false,
+    "authoritative_files_must_be_retained": true
+  },
+  "evidence": [
+    {
+      "logical_path": "development_accuracy/campaign_manifest.json",
+      "bytes": 4182348,
+      "sha256": "0a1aa5d4d25e5c459aa62c639f355dbc489e79a1663537b5f59add9c49cf5a58"
+    },
+    {
+      "logical_path": "development_accuracy/campaign_progress.json",
+      "bytes": 32505,
+      "sha256": "c20b222d312b5f3fb6ff692eef088b6ebad91a94a203e92cb9b2d11a991e4876"
+    },
+    {
+      "logical_path": "development_accuracy/controller_state.json",
+      "bytes": 3682,
+      "sha256": "6a5eceb1df3f6c9696aaecd9d7bb1a9d759f7f6034c25e3ca89891d9f66a5e35"
+    },
+    {
+      "logical_path": "development_accuracy/campaign.sqlite3",
+      "bytes": 577536,
+      "sha256": "c519d528204775ddd4b050eeb4213e11a25d8a1ed2ceaf8fd2651f6da26e2f07"
+    },
+    {
+      "logical_path": "frozen/decision_policy_registry.json",
+      "bytes": 227486,
+      "sha256": "f233a80b8d7dd39407987a1735f08c940cd0fab2591e7f1b1866159ffbbcb4f1"
+    },
+    {
+      "logical_path": "qualification/qualification.json",
+      "bytes": 335230,
+      "sha256": "1ed5a1d2f536c3ae1ed3895e1c8409485b5855282b9703f4e7b6cc158baddcb0"
+    }
+  ],
+  "next_protocol_marker": "COMPLETE_ALL18_DEVELOPMENT_AND_FREEZE_REDUCED_8DAY_V1"
+}

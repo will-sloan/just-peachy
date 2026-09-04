@@ -18,7 +18,7 @@ import yaml
 
 from app.benchmark_contracts.canonical import canonical_sha256
 from app.speaker_breadth.commonvoice import validate_protocol as validate_source_protocol
-from app.utils.paths import resolve_data_path_from_logical
+from app.utils.paths import evaluation_output_root, resolve_data_path_from_logical
 
 
 TOOL_ROOT = Path(__file__).resolve().parents[2]
@@ -44,15 +44,26 @@ def load_config(path: Path = DEFAULT_CONFIG_PATH) -> dict[str, object]:
     payload = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
     if not isinstance(payload, Mapping):
         raise SpeakerEnrollmentError("enrollment study config must be a mapping")
-    required = {
-        "schema_version": "speaker-enrollment-duration-policy.v1",
-        "protocol_version": "speaker_enrollment_duration_v1",
-        "selection_algorithm_version": "speaker-enrollment-duration-selection.v1",
-        "seed": 3800,
+    supported = {
+        (
+            "speaker-enrollment-duration-policy.v1",
+            "speaker_enrollment_duration_v1",
+            "speaker-enrollment-duration-selection.v1",
+        ),
+        (
+            "speaker-enrollment-live-policy.v2",
+            "speaker_enrollment_live_v2",
+            "speaker-enrollment-live-selection.v2",
+        ),
     }
-    for key, expected in required.items():
-        if payload.get(key) != expected:
-            raise SpeakerEnrollmentError(f"config {key} must be {expected!r}")
+    identity = tuple(
+        str(payload.get(key, ""))
+        for key in ("schema_version", "protocol_version", "selection_algorithm_version")
+    )
+    if identity not in supported:
+        raise SpeakerEnrollmentError(f"unsupported enrollment study config identity: {identity!r}")
+    if payload.get("seed") != 3800:
+        raise SpeakerEnrollmentError("config seed must be 3800")
     return {str(key): value for key, value in payload.items()}
 
 
@@ -243,7 +254,7 @@ def prepare_protocol(
         "source_selection_sha256": _file_sha256(source_selection_path),
         "config_sha256": _file_sha256(config_path),
     }
-    protocol_id = f"speaker_enrollment_duration_v1_{canonical_sha256(identity_payload)[:12].lower()}"
+    protocol_id = f"{config['protocol_version']}_{canonical_sha256(identity_payload)[:12].lower()}"
     source_rows = _read_tsv(source_selection_path)
     built = _build_protocol_rows(source_rows, config, protocol_id)
     destination.parent.mkdir(parents=True, exist_ok=True)
@@ -541,7 +552,7 @@ def protocol_plan(
         "estimated_embedding_vector_bytes_per_backend_at_256d_float32": len(slice_ids) * 256 * 4,
         "estimated_embedding_cache_bytes_per_backend_at_256d_including_item_overhead": len(slice_ids) * (256 * 4 + 2500),
         "estimated_result_bytes_per_backend_before_joint_frontier": (len(configs) + len(load_config(root / "selection_config.yaml")["probe_durations_sec"])) * score_trials_per_configuration * 12,
-        "result_root": str(Path.home() / "JustPeachyResults" / "speaker_enrollment" / str(summary["protocol_id"])),
+        "result_root": str(evaluation_output_root("results") / "speaker_enrollment" / str(summary["protocol_id"])),
         "phase_workload": phase_workload,
         "model_inference_performed": False,
         "validation": validation,

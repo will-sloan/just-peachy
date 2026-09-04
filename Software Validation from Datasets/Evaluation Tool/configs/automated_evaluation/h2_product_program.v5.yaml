@@ -1,0 +1,261 @@
+schema_version: just-peachy-h2-product-program.v1
+program_id: h2_complete_product_pipeline_program_v5
+protocol_version: h2_product_protocol.v5
+supersedes_program_id: h2_complete_product_pipeline_program_v4
+implementation_correction: complete_cold_warm_reentry_short_turn_and_claim_specific_reporting_v5
+seed: 3800
+status: SPECIFICATION_PREPARED_NOT_FROZEN
+implicit_model_downloads_allowed: false
+evaluation_firewall: development_selection_then_immutable_freeze_then_single_heldout_open
+
+fixed_architecture:
+  primary_pipeline_id: fullpipe_v1_ag_dr_ir
+  fallback_pipeline_id: fullpipe_v1_ao_dr_ir
+  hybrid_label: H2
+  primary_asr: sherpa_onnx_libri_giga_zipformer_2023_06_21
+  fallback_asr: sherpa_onnx
+  segmentation: pyannote_segmentation_3_0
+  anonymous_embedding: redimnet2_b2_speaker_embedding
+  identity_embedding: redimnet2_b2_speaker_embedding
+  clustering: deterministic_online_cosine
+  sample_rate_hz: 16000
+  excluded_hybrids: [H1, H3, H4, H5, H6, C7, C8, C9]
+  excluded_models: [wespeaker, speechbrain_ecapa, campp, resemblyzer]
+
+product_modes:
+  H2_KNOWN_ONLY:
+    anonymous_profiles: false
+    unmatched_label: Unknown
+    permanent_identity_source: deliberate_enrollment_only
+    unmatched_embedding_retention_sec: 3.0
+    anonymous_tracking_metrics: NOT_APPLICABLE
+  H2_SESSION_ANONYMOUS:
+    anonymous_profiles: volatile_session_only
+    unmatched_label: Speaker_N
+    delete_anonymous_state_on_reset_or_end: true
+    permanent_identity_source: deliberate_enrollment_only
+  H2_SESSION_MEMORY_ENHANCED:
+    anonymous_profiles: volatile_session_only
+    unmatched_label: Speaker_N
+    active_roster: true
+    confirmed_name_memory: true
+    short_turn_inheritance: true
+    warm_reacquisition: true
+    evidence_decay: true
+    bounded_expiry: true
+    cluster_reconciliation: true
+    adaptive_hysteresis: true
+    background_verification: true
+    delete_anonymous_state_on_reset_or_end: true
+
+historical_baseline:
+  configuration_id: H2_BASELINE_REFERENCE
+  segmentation:
+    chunk_duration_sec: 10.0
+    algorithmic_lookahead_sec: 5.0
+    hop_duration_sec: 0.75
+    onset: 0.50
+    offset: 0.50
+  embedding:
+    window_duration_sec: 1.50
+    hop_duration_sec: 0.75
+    minimum_duration_sec: 0.75
+    sharing_strategy: R2_ONE_SHARED_MODEL
+  clustering:
+    cosine_threshold: 0.35
+    short_turn_attach_gap_sec: 0.50
+  identity:
+    score_threshold: 0.5265351286789879
+    margin_threshold: 0.03
+    minimum_evidence_sec: 2.0
+    minimum_consistency: 0.35
+    confirmation: H1_TWO_CONFIRM_TWO_RELEASE
+    expiry_sec: 120.0
+  overlap_policy: EXCLUDE_PREDICTED_OVERLAP_FROM_IDENTITY
+  boundary_correction_ms: 0
+  paragraph_policy: T3_PAUSE_ASR_SPEAKER_CHANGE
+  enrollment:
+    utterances: 3
+    target_total_duration_sec: 10.0
+    aggregation: multi_template_max
+
+development_search:
+  segmentation_frontier:
+    stages: [S1_COVERAGE, S2_BOUNDARY, S3_SHORT_TURN, S4_DOWNSTREAM, S5_PARETO]
+    onset: [0.42, 0.46, 0.50, 0.54, 0.58]
+    offset: [0.40, 0.45, 0.50, 0.55]
+    minimum_speech_sec: [0.05, 0.10, 0.20, 0.30]
+    minimum_silence_sec: [0.05, 0.10, 0.20, 0.35]
+    speech_padding_sec: [0.0, 0.10, 0.20]
+    short_gap_merge_sec: [0.10, 0.25, 0.50]
+    maximum_region_sec: [10.0, 20.0, 30.0]
+    rolling_window_sec: [10.0]
+    hop_sec: [0.25, 0.50, 0.75, 1.0]
+    lookahead_sec: [5.0]
+    unsupported_explanation: >-
+      The installed Segmentation 3.0 checkpoint contains a bidirectional LSTM
+      trained on 10-second chunks. Alternative zero/short-lookahead values are
+      not treated as equivalent and require a different model identity.
+    executable_runtime_axes:
+      - onset
+      - offset
+      - minimum_speech_sec
+      - minimum_silence_sec
+      - hop_sec
+      - boundary_correction_ms
+    gated_not_scheduled_until_connected:
+      - speech_padding_sec
+      - short_gap_merge_sec
+      - maximum_region_sec
+  boundary_correction_ms: [0, 250, 500, 750, 1000]
+  overlap_policies:
+    - INCLUDE_PREDICTED_OVERLAP
+    - EXCLUDE_PREDICTED_OVERLAP_FROM_IDENTITY
+    - DEFER_IDENTITY_UNTIL_NON_OVERLAP
+    - DISPLAY_OVERLAPPING_SPEAKERS_WHEN_AMBIGUOUS
+  overlap_runtime_support:
+    executable:
+      - INCLUDE_PREDICTED_OVERLAP
+      - EXCLUDE_PREDICTED_OVERLAP_FROM_IDENTITY
+    gated_not_scheduled_until_connected:
+      - DEFER_IDENTITY_UNTIL_NON_OVERLAP
+      - DISPLAY_OVERLAPPING_SPEAKERS_WHEN_AMBIGUOUS
+  redim_execution:
+    - R1_TWO_INDEPENDENT_MODELS
+    - R2_ONE_SHARED_MODEL
+    - R3_EXACT_WINDOW_EMBEDDING_REUSE
+    - R4_HYBRID_REUSE_WITH_IDENTITY_AGGREGATION
+  redim_execution_support:
+    executable_runtime:
+      - R1_TWO_INDEPENDENT_MODELS
+      - R2_ONE_SHARED_MODEL
+    parity_gate_before_runtime_promotion:
+      - R3_EXACT_WINDOW_EMBEDDING_REUSE
+      - R4_HYBRID_REUSE_WITH_IDENTITY_AGGREGATION
+  embedding_frontier:
+    search: successive_halving
+    design: bounded_one_axis_candidates_then_combined_winner_validation
+    window_sec: [0.50, 0.75, 1.0, 1.5, 2.0, 3.0]
+    hop_sec: [0.25, 0.50, 0.75, 1.0]
+    clustering_threshold: [0.25, 0.35, 0.45]
+    short_turn_attach_gap_sec: [0.25, 0.50, 0.75]
+    minimum_voiced_proportion: [0.50, 0.65, 0.80]
+    minimum_non_overlap_sec: [0.50, 0.75, 1.0]
+    accumulation: [recent_window, accumulated_window]
+    aggregation: [normalized_centroid, retained_templates_top_k]
+    outlier_rejection: [false, true]
+  integrated_enrollment_confirmation:
+    utterances: [3, 5]
+    total_duration_sec: [10.0, 20.0]
+    sessions: [single, varied]
+    aggregation: [normalized_mean, frozen_redim_multi_template]
+    quality_filter: [blind_accept, quality_filtered]
+  identity_policy_replay:
+    minimum_evidence_sec: [1.0, 1.5, 2.0, 2.5, 3.0]
+    score_threshold: [0.5065351287, 0.5165351287, 0.5265351287, 0.5365351287, 0.5465351287]
+    margin_threshold: [0.01, 0.02, 0.03, 0.04, 0.05]
+    consistency_threshold: [0.30, 0.35, 0.40]
+    gallery_size: [1, 2, 5, 10, 20, 50, full]
+  hysteresis:
+    - H0_ONE_PASS_DIAGNOSTIC
+    - H1_TWO_CONFIRM_TWO_RELEASE
+    - H2A_ADAPTIVE_EARLY
+    - H3_THREE_CONFIRM_SAFE
+    - H4_DURATION_DEPENDENT
+  memory_levels: [M0_STATELESS, M1_CLUSTER, M2_CONFIRMED_NAME, M3_SHORT_TURN, M4_ACTIVE_ROSTER_DECAY, M5_CLUSTER_RECONCILIATION]
+  expiry_sec: [15, 30, 60, 120, end_of_session]
+  short_turn_policies:
+    - FRESH_EMBEDDING_REQUIRED
+    - ANONYMOUS_CLUSTER_INHERITANCE
+    - CONFIRMED_NAME_INHERITANCE
+    - INHERITANCE_WITH_CONTRADICTION_CHECKS
+    - GENERIC_UNTIL_LATER_CORRECTION
+  paragraph_policies:
+    - T1_ASR_ENDPOINT_PUNCTUATION
+    - T2_PAUSE_ASR_ENDPOINT
+    - T3_PAUSE_ASR_SPEAKER_CHANGE
+    - T4_SPEAKER_CHANGE_DOMINANT
+
+panels:
+  prepared_protocol_root: benchmarks/full_pipeline/full_speech_pipeline_v1
+  development:
+    all_case_count: 807
+    core_case_count: 180
+    small_case_count: 36
+    medium_case_count: 72
+    selection_seed: 3800
+    allowed_sources: [controlled_v1, product_v2]
+  evaluation:
+    core_case_count: 180
+    diagnostic_case_count:
+      commonvoice_60plus_asr: 60
+      chime6_diarization_only: 24
+      voices_asr: 24
+    selection_seed: 3800
+    open_only_after_freeze: true
+  long_session:
+    source: diarization_product_v2
+    development_recordings: 4
+    evaluation_recordings: 8
+    target_duration_min: [30, 60]
+
+execution:
+  accuracy_parallel_jobs_max: 2
+  resource_parallel_jobs: 1
+  stop_semantics: finish_current_atomic_case_then_stop
+  restart_policy: reuse_checksum_valid_outputs_run_missing_or_invalid
+  cache_root: JustPeachyResults/full_pipeline/_shared_cache
+  workspace_root: automated_runs/h2_complete_product_pipeline_v5
+  scientific_results_root: JustPeachyResults/full_pipeline/h2_complete_product_pipeline_v5
+  summary_root: JustPeachyResearchSummaries/h2_complete_product_pipeline_v5
+  minimum_c_drive_reserve_gib: 35.0
+  target_wall_hours: 192.0
+  practical_wall_hours: [168.0, 216.0]
+  target_is_advisory_only: true
+  no_automatic_time_limit: true
+  no_automatic_result_deletion: true
+
+phase_budget_hours:
+  phase_0_audit_baseline: [6, 9, 12]
+  phase_1_segmentation: [36, 42, 48]
+  phase_2_redim_execution: [30, 36, 42]
+  phase_3_identity: [24, 30, 36]
+  phase_4_memory_hysteresis: [16, 22, 28]
+  phase_5_transcript_ui: [24, 30, 36]
+  phase_6_portability_resource: [20, 25, 30]
+  phase_7_heldout_collection: [20, 25, 30]
+
+required_final_configurations:
+  - H2_BASELINE_REFERENCE
+  - H2_KNOWN_ONLY_OPTIMIZED
+  - H2_SESSION_ANONYMOUS_OPTIMIZED
+  - H2_SESSION_MEMORY_OPTIMIZED
+  - H2_PORTABLE_ONNX_FP32
+
+selection_priorities:
+  weighted_composite_allowed: false
+  ordered:
+    - minimize_wrong_known_speaker_time
+    - minimize_stranger_false_known_time
+    - minimize_premature_wrong_name_exposure
+    - improve_speech_coverage
+    - improve_word_level_speaker_attribution
+    - reduce_boundary_delay
+    - improve_stable_name_latency
+    - improve_warm_reacquisition_and_short_turns
+    - maintain_anonymous_consistency_when_applicable
+    - reduce_transcript_revisions
+    - meet_real_time_requirements
+    - reduce_ram_and_complexity_for_2gb
+
+portability:
+  reference_runtime: pytorch_fp32
+  required_candidate: H2_PORTABLE_ONNX_FP32
+  int8_allowed_only_after_separate_scientific_reevaluation: true
+  linux_arm64_target: Debian_Raspberry_Pi_OS_64bit
+  arm_candidate_is_hardware_validated: false
+  total_system_ram_design_target_mib: 2048
+  spatial_evidence_currently_available: false
+  spatial_defaults_affect_results: false
+
+

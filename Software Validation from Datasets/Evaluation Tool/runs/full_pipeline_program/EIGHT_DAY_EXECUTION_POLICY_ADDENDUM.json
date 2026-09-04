@@ -1,0 +1,47 @@
+{
+  "schema_version": "full-pipeline-execution-policy-addendum.v1",
+  "scope_id": "full_pipeline_prompts_4_8_eight_day_c_only.v1",
+  "scope_class": "BOUNDED_REDUCED",
+  "original_full_scope_complete": false,
+  "authorized_by": "user",
+  "authorized_at_utc": "2026-08-24T14:03:00Z",
+  "applies_to_prompt_indices": [4, 5, 6, 7, 8],
+  "supersedes_only": [
+    "elapsed_time_termination",
+    "elapsed_time_admission_denial"
+  ],
+  "scientific_scope_or_firewall_changed": false,
+  "panel_membership_changed": false,
+  "frozen_policy_changed": false,
+  "storage_boundary_changed": false,
+  "planning_target": {
+    "total_hours": 192,
+    "stage_hours": {
+      "prompt_4": 48,
+      "prompt_5": 60,
+      "prompt_6": 30,
+      "prompt_7": 12,
+      "prompt_8": 4
+    },
+    "shared_contingency_hours": 38,
+    "interpretation": "ADVISORY_ETA_TARGET_ONLY"
+  },
+  "execution_policy": {
+    "policy_id": "ADVISORY_ONLY_NO_AUTOMATIC_STOP",
+    "elapsed_time_kill_switch_enabled": false,
+    "elapsed_time_admission_gate_enabled": false,
+    "continue_healthy_execution_after_target": true,
+    "automatic_transition_after_valid_completion": true
+  },
+  "stop_or_pause_conditions_retained": [
+    "explicit_operator_stop",
+    "c_drive_free_space_reserve_breach",
+    "genuine_stage_failure",
+    "invalid_prerequisite_or_scientific_hash_gate"
+  ],
+  "worker_health_timeouts_retained": true,
+  "allowed_drive": "C:\\",
+  "minimum_free_space_reserve_gib": 35,
+  "original_amendment_sha256": "719a8af7a4e5cc07e4512fcedfb6507d8802c9466bbc2cec33609631da751a8c",
+  "reason": "The user requested that the eight-day and per-stage estimates remain planning targets and never terminate a healthy run merely because elapsed time exceeds them."
+}

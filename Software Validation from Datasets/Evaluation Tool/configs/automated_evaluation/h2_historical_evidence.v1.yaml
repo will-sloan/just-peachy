@@ -1,0 +1,126 @@
+schema_version: just-peachy-h2-historical-evidence.v1
+purpose: read_only_baseline_and_reuse_audit
+evaluation_retuning_performed: false
+
+component_analysis_source:
+  path: C:/Users/amiri/Downloads/Just_Peachy_COMPONENT_ANALYSIS_V1.docx
+  sha256: 6ffed732dac5b3056ee9eec8a2ce0cf3f7546be8096ec809f8a51b1f209d7292
+  repository_portable: false
+
+frozen_h2:
+  selection:
+    path: JustPeachyResults/hybrid_speaker_attribution_product_v2_final_evaluation/final_hybrid_product_v2_selection.yaml
+    sha256: 1629977f026159f9cd5ce0064a04cb811dc3f08cca62458b7eb12308a45560d2
+  enrollment_policy:
+    path: JustPeachyResearchSummaries/hybrid_speaker_attribution_product_v2_final_evaluation_hybrid_speaker_attribution_product_v2_a68cc1ac26aa/scientific_enrollment_policies/redimnet2_b2_speaker_embedding.scientific.yaml
+    sha256: 30eff3007e80f53d4b3d0eee5d50eed40aa75e17f1c726f65a786bade5a0fdab
+  diarization_configuration_sha256: d5ac7afb401addd440dde48707ba1fca669c233173a3f4ddee7e084db02b0e90
+  redim_identity_sha256: 3fa146871adb3336950a59f7e7cb5905fd209aa9b5126d6295a0109ee0a2e1d9
+  redim_model_identity_sha256: c84ce9857dbc788cf5a65b22b044ddb1a37874158ce2168e80613e5036d1c678
+  report:
+    path: JustPeachyResults/hybrid_speaker_attribution_product_v2_final_evaluation/analysis/REPORT.md
+    sha256: d769756fa5c37feb2b33a8129fd27b2eb20449be5e28eb2b8059b04e73f9cab9
+  finalist_summary:
+    path: JustPeachyResults/hybrid_speaker_attribution_product_v2_final_evaluation/analysis/finalist_summary.csv
+    sha256: 5ac27633fc0709fe4a6fa9dc79ec868819827366805d34e154ebf1945d2bedf6
+  metrics:
+    correctly_named_known_time_rate: 0.6275685399229787
+    wrong_known_time_rate: 0.017013919111302466
+    stranger_false_known_time_rate: 0.01804500637580431
+    generic_known_time_rate: 0.06518482553767367
+    stable_name_latency_sec: 7.441875
+    stable_name_not_reached_rate: 0.27587700303161544
+    unknown_label_consistency: 0.8621018923043235
+    unknown_rejection_rate: 0.9819549936241957
+    total_desktop_rtf: 0.5071301607908302
+    peak_rss_mb: 1044.8809341357655
+  limitation: causal_hybrid_replay_without_asr_not_true_online_streaming
+
+standalone_pyannote_redim:
+  selection:
+    path: JustPeachyResults/diarization_product_v2_development/frozen_diarization_development_selection.yaml
+    sha256: a6191598972959b9f503da17e2b07832083021c76bad285e0901c12ac2c677cd
+  report:
+    path: JustPeachyResults/diarization_finalists_final_evaluation/analysis/REPORT.md
+    sha256: 43f8b0fca933e116845e74c0cce68299522151c7c9d787699a2e2cdeeaad52a0
+  overall_results:
+    path: JustPeachyResults/diarization_finalists_final_evaluation/analysis/overall_results.csv
+    sha256: 4634f8bdd865d36e27dee7915e1d67e078838aa5f64e81131ccc61128d43b68b
+  recording_results:
+    path: JustPeachyResults/diarization_finalists_final_evaluation/analysis/recording_results.csv
+    sha256: e42be71d14308498553973afce0349836b761bf9c25c002a4d41853297e98938
+  metrics:
+    recording_count: 192
+    der: 0.3366560187661019
+    jer: 0.3563979189661686
+    miss_rate: 0.3127426647163661
+    false_alarm_rate: 0.0027569789597318302
+    speaker_confusion_rate: 0.021156375090004155
+    catastrophic_contaminated_cluster_rate: 0.021612690019828157
+    clean_evidence_yield_2s: 0.9272037938729966
+    median_absolute_boundary_delay_ms: 546.39125
+    reentry_consistency: 0.8204595021228805
+    controlled_rtf: 0.3607044474712944
+
+speaker_enrollment_live:
+  analysis:
+    path: JustPeachyResults/speaker_enrollment/speaker_enrollment_live_v2_5107db9ab304/FINAL_ANALYSIS.md
+    sha256: d24ad8d469afb2bcc8c48fe402c45c0c88c0571e7260cb1fa076f7ea497859ee
+  duration_curve:
+    path: JustPeachyResults/speaker_enrollment/speaker_enrollment_live_v2_5107db9ab304/analysis/duration_curve.csv
+    sha256: 10bcc8c1d0edb19cac17c8e21863ad9bc4da0717f0117d87d6d2638524434ab6
+  causal_summary:
+    path: JustPeachyResults/speaker_enrollment/speaker_enrollment_live_v2_5107db9ab304/analysis/causal_live_summary.csv
+    sha256: d118940ce3c85eae9394b4797f0c00fbdfb0a72e359b5fa0773c8564f3a81e1e
+  runtime_telemetry:
+    path: JustPeachyResults/speaker_enrollment/speaker_enrollment_live_v2_5107db9ab304/_controller/runtime_telemetry.json
+    sha256: e94458f8c1b62c5692cb280b42b57eeaa3d003657e255641b5f3d8a4ead6ada5
+
+historical_reporting_sources:
+  speaker_enrollment_configuration_results:
+    path: JustPeachyResults/speaker_enrollment/speaker_enrollment_live_v2_5107db9ab304/analysis/configuration_results.csv
+    sha256: 1344188ae76db06f552f2b1eb5c526d850e0b06c771e86bc4f80824e4f64e67e
+
+commonvoice_open_set_deployment:
+  report:
+    path: JustPeachyResearchSummaries/speaker_embedding_deployment_v1_4779270a5bf0/REPORT.md
+    sha256: 62f4c464f4b85ff8fb1eb34288067ed20872c246e2d495e692c0e90aecfeb2e8
+  gallery_size: 272
+  target_fpir: 0.01
+  heldout_fpir: 0.0064516129
+  dir_rank1: 0.5507352941
+  known_wrong_name_rate: 0.0012254902
+  unknown_rejection_rate: 0.9935483871
+  closed_set_top1: 0.9848039216
+  score_threshold: 0.8074406149
+  margin_threshold: 0.0
+  largest_false_known_hub_fraction: 0.8667
+  threshold_transfer_to_h2_forbidden: true
+
+asr_commonvoice_60plus:
+  report:
+    path: JustPeachyResearchSummaries/asr_commonvoice_60plus_commonvoice_60plus_asr_v1_fb22c247f5f7_campaign_commonvoice_60plus_asr_v1_10a3c45df81c/analysis/report.md
+    sha256: b791d0f838cd3c1274cde0657888eeaee4b9040b1115e463c089ed361da9c81b
+  utterances: 11685
+  speakers: 413
+  audio_hours: 18.1267
+  reference_words: 111389
+  original_sherpa:
+    wer: 0.1536237869
+    cer: 0.0656766202
+    empty_rate: 0.0012836970
+    item_rtf: 0.0730404360
+  sherpa_giga:
+    wer: 0.0929625008
+    cer: 0.0388010756
+    empty_rate: 0.0023962345
+    item_rtf: 0.0605327040
+
+native_diagnostics:
+  chime6:
+    path: JustPeachyResults/diarization_finalists_final_evaluation/analysis/chime6_results.csv
+    sha256: 71d1a2e23afc0168dabbf76b7db1b537a246bcaf0304c57439742e4530096794
+  voices:
+    path: JustPeachyResults/diarization_finalists_final_evaluation/analysis/voices_diagnostics.csv
+    sha256: 02ae3b732289f6543f8aaa9997c9aff598a7224dbd9f76397cb07d1df2fea902
+  native_known_identity_metrics_supported: false

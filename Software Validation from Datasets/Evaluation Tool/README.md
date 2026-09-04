@@ -9,7 +9,19 @@ external dataset, model-cache, run, or future-training roots, use the concise
 [portability guide](../PORTABILITY.md), including its Anaconda Prompt, Command
 Prompt, PowerShell, and Linux/WSL commands and non-invasive path diagnostic.
 
+Machine-local generated data, logs, research summaries, results, and transfer
+packages now default to the five `JustPeachy*` folders directly beside this
+README. See [OUTPUT_STORAGE_UPDATE.md](OUTPUT_STORAGE_UPDATE.md) for the exact
+relocation, verification hashes, inputs, outputs, and override behavior. These
+folders are ignored by Git.
+
 ## Automated campaign documentation
+
+For a new Codex session, begin with the repository-level
+[combined Evaluation Tool handoff](../../HANDOFF.md). It maps the legacy
+evaluator, configured component pipeline, automated campaign framework,
+edge/combo catalogs, specialized protocols, portable roots, and the most
+important source/config/output paths.
 
 For the current two-machine campaign, start with the
 [launch control sheet](docs/automated_evaluation/launch_control_sheet.md). Its
@@ -25,8 +37,11 @@ records accepted contracts and authoritative limitations. The compact
 explains the integration boundary.
 
 This tool reads normalized metadata from the project-level `Normalized Metadata/`
-folder and writes all run artifacts under `Evaluation Tool/runs/`. It does not
-modify raw datasets and does not create a persistent augmented copy of a corpus.
+folder. Ordinary runs remain under `Evaluation Tool/runs/`; the specialized
+speaker-research workflows use the local `JustPeachyGeneratedData`,
+`JustPeachyResults`, and `JustPeachyResearchSummaries` folders described above.
+It does not modify raw datasets and does not create a persistent augmented copy
+of a corpus.
 
 ## Plain-Language Summary
 
@@ -1136,3 +1151,203 @@ remains one until separately qualified. See `app/campaign_analysis/README.md`
 for Anaconda Prompt, Command Prompt, PowerShell, inputs, outputs, and tests, and
 `docs/automated_evaluation/analysis_guide.md` for the standalone analyst
 workflow and metric/statistical interpretation.
+
+## Common Voice 60+ Three-ASR Generalization
+
+The additive `asr-commonvoice` campaign reuses the exact frozen
+`commonvoice_60plus_v1_27e72793b4c0` clips to compare Original Sherpa, Sherpa Giga,
+and Whisper Small without training, augmentation, downloads, or changes to prior
+ASR evidence. Its environment-aware PowerShell wrapper is
+`scripts/run_asr_commonvoice_60plus.ps1`; the second-window read-only monitor is
+`scripts/monitor_asr_commonvoice_60plus.ps1`. See `app/asr_commonvoice/README.md`
+for purpose, inputs, outputs, PowerShell/Anaconda Prompt commands, restart behavior,
+normalization, analysis tables, collection ZIP, and limitations.
+
+## Frozen final Hybrid Product V2 evaluation
+
+The held-out Task-2 hybrid evaluation is implemented under
+`app/hybrid_final_evaluation/` and documented in its `README.md`. It consumes
+the checksum-bound Task-1 H2/H5/H4 freeze, reuses the completed held-out
+anonymous diarization outputs, runs independent evaluation-tier identity
+embedding, applies no evaluation recalibration, produces detailed product
+tables/plots/event logs, freezes the final one or two software candidates, and
+exports a compact upload ZIP.
+
+From the repository root:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File `
+  "Software Validation from Datasets\Evaluation Tool\scripts\run_hybrid_speaker_attribution_final_evaluation.ps1" `
+  -Action Run -ParallelBackends 2 -BootstrapRepetitions 500 -OpenMonitor
+```
+
+Use the same command to resume. The controller does not expose threshold,
+margin, enrollment, overlap, label-policy, or expiry overrides. ASR, XVF3800,
+and fine-tuning remain out of scope.
+
+## Complete speech-pipeline program lock
+
+Prompt 0's authoritative 18-pipeline program is declared in
+`configs/automated_evaluation/full_pipeline_matrix.v1.yaml`. The canonical
+handoff, human-readable matrix, and license/asset review are in
+`docs/full_pipeline/`; the additive common contracts are in
+`configs/automated_evaluation/schemas/full_pipeline_contracts.v1.schema.json`.
+This lock specifies AO/AG × DW/DR/DE × IW/IR/IE, the three evaluation tiers,
+open-set decision semantics, selection priorities, output roots, and the exact
+identity/provenance boundaries. It does not start an inference campaign.
+
+From this Evaluation Tool directory, validate the lock without loading a model:
+
+```powershell
+& "..\..\.venv\Scripts\python.exe" -m app.full_pipeline_program validate --json
+```
+
+To additionally hash already-local model assets without running inference:
+
+```powershell
+& "..\..\.venv\Scripts\python.exe" -m app.full_pipeline_program validate --verify-assets --json
+```
+
+See `app/full_pipeline_program/README.md` for purpose, inputs, outputs,
+PowerShell, Anaconda Prompt, Command Prompt, and targeted-test instructions.
+
+## True-streaming full-pipeline runtime (Prompt 1)
+
+The reusable backend-neutral runtime is implemented in `app/full_pipeline` and
+uses the locked 18-row matrix without running the 18-pipeline scientific
+campaign. It supports microphone or incremental file audio, persistent native
+AO/AG Sherpa streams, causal 10-second/5-second-lookahead Pyannote operation,
+DW/DR/DE online clustering, IW/IR/IE open-set identity, deterministic transcript
+revisions, isolated workers, protected enrollment, all eight strict cache
+products, live status/backpressure telemetry, `SessionState`, and
+`PipelineResult`.
+
+From the repository root, run a bounded file smoke:
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File `
+  ".\Software Validation from Datasets\Evaluation Tool\scripts\run_full_pipeline_runtime.ps1" `
+  -Action FileSmoke -PipelineId fullpipe_v1_ao_dr_ir -DurationSec 10
+```
+
+Use `-Action MicrophoneSmoke`, `EnrollmentSmoke`, `ComponentSmoke`,
+`MatrixStatus`, or `Status` for the other bounded operations. Results live under
+`JustPeachyResults/full_pipeline`. See `app/full_pipeline/README.md` for exact
+PowerShell and Anaconda Prompt commands, inputs/outputs, privacy boundaries,
+cache semantics, qualification evidence, and monitoring.
+
+## H2 streaming product demonstration application
+
+The local Tkinter application now exposes the fixed H2 product pair: AG-H2
+(Sherpa Giga primary) and AO-H2 (Original Sherpa fallback/reference), both with
+Pyannote + ReDimNet2-B2. It supports all three H2 label/memory modes, live or
+incremental file sessions, an active roster, verified session-memory controls,
+local ReDim enrollment management, a raw-score embedding inspector, and
+checksum-bound export without uploading data. The former 18-row catalog remains
+available only through a compatibility inventory. Purpose, inputs, outputs,
+safety boundaries, and exact PowerShell/Anaconda commands are in
+[`app/full_pipeline_demo/README.md`](app/full_pipeline_demo/README.md).
+
+Launch from the repository root:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File `
+  ".\Software Validation from Datasets\Evaluation Tool\scripts\run_full_pipeline_demo.ps1" `
+  -Action Demo
+```
+
+## Complete H2 product-pipeline scientific program
+
+The persistent H2-only controller automatically runs development search,
+policy freeze, untouched held-out evaluation, streaming/resource/reliability
+testing, application validation, ONNX parity, ARM64 Linux preparation, final
+analysis, and compact collection. Normal `Run` and `Resume` commands also start
+or reuse the checksum-validating final-package watcher; after terminal success
+it records the preferred augmented upload ZIP in both the workspace and the
+package root without changing frozen scientific state. The current default is
+the corrected `v16`
+campaign. It retains the causal M4/M5 session-memory implementation, complete
+event adapter, metadata-stratified nested halving panels, and fail-closed
+short-turn-bin promotion audit. V13 corrected the integrated-enrollment duration
+allocator, v14 added safety-first selection validation, v15 separated R1/R2
+worker partitions and fixed bounded-queue telemetry, and v16 makes the R2
+single-ReDim process claim independent of enrollment-cache hits. Every earlier
+v1-v15 workspace, completed case, partial result, and incident history remains
+preserved on C: and is never overwritten or silently promoted. None of the
+superseded runs opened held-out evaluation.
+
+From this Evaluation Tool directory, prepare, validate, launch, and monitor:
+
+```powershell
+Set-Location 'C:\Users\amiri\Documents\GitHub\just-peachy\Software Validation from Datasets\Evaluation Tool'
+.\scripts\run_h2_product_program.ps1 -Action Prepare
+.\scripts\run_h2_product_program.ps1 -Action Validate
+.\scripts\run_h2_product_program.ps1 -Action Run -Background -OpenMonitor
+.\scripts\monitor_h2_product_program.ps1 -Follow -IntervalSeconds 30
+```
+
+The H2 read-only monitor sounds a Windows notification when the controller
+publishes a new durable phase/freeze/held-out/final milestone. Add
+`-NoMilestoneSound` for silent monitoring; neither mode writes campaign state.
+
+The H2 monitor is read-only and restart-aware. It uses Windows shared-delete
+reads of the existing program, campaign-progress, and job-manifest snapshots;
+it does not call a status path that mutates queue-snapshot state. It displays
+overall and work-class percentages, current configuration/case, audio totals,
+backend/mode, resources when available, retries, latest activity, and C: space.
+If an active accuracy case has no separately observable long-lived worker
+fleet, the console distinguishes that condition from a stalled controller and
+continues to use advancing durable case activity as the liveness authority.
+After a recoverable controller retry it keeps following instead of leaving a
+stale blocked screen. `Ctrl+C` closes only the monitor.
+
+The eight-day target is advisory; there is no forced cutoff. All workspace,
+results, summary, private biometric cache, and shared-cache paths are required
+to stay on drive C:. Purpose, inputs, outputs, complete PowerShell and Anaconda
+Prompt commands, restart semantics, monitor fields, and scientific boundaries
+are in [`app/h2_product_program/README.md`](app/h2_product_program/README.md).
+
+## Reproducible full-pipeline evaluation infrastructure (Prompt 3)
+
+The additive `full_speech_pipeline_v1` protocol, common metric catalog,
+checksum-bound result tree, restart-safe SQLite controller, and measured
+progress monitor live in `app/full_pipeline_evaluation`. The protocol reuses
+only installed frozen sources, preserves the development/evaluation firewall,
+and plans all 18 matrix rows without starting the long campaign. Missing metric
+prerequisites are recorded as `unsupported`, never fabricated.
+
+The canonical prepared identity is `full_speech_pipeline_v1_b0c88389194b`:
+807 development cases, 10,102 evaluation cases, and 432 deterministic campaign
+jobs across accuracy/resource views. `Validate -VerifyAudio` passes against the
+installed assets. Frozen Stage-11 logical paths remain unchanged while their
+physical generated-WAV aliases resolve under `JustPeachyGeneratedData`. The
+Prompt-3 synthetic smoke is under
+`JustPeachyResults/full_pipeline/evaluation_infrastructure_smoke/prompt3_final_20260823`;
+it ran no model inference or scientific campaign.
+
+From the repository root, audit and prepare the deterministic plan:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File `
+  ".\Software Validation from Datasets\Evaluation Tool\scripts\run_full_pipeline_evaluation.ps1" `
+  -Action Audit
+
+powershell -ExecutionPolicy Bypass -File `
+  ".\Software Validation from Datasets\Evaluation Tool\scripts\run_full_pipeline_evaluation.ps1" `
+  -Action Prepare
+
+powershell -ExecutionPolicy Bypass -File `
+  ".\Software Validation from Datasets\Evaluation Tool\scripts\run_full_pipeline_evaluation.ps1" `
+  -Action Validate
+
+powershell -ExecutionPolicy Bypass -File `
+  ".\Software Validation from Datasets\Evaluation Tool\scripts\run_full_pipeline_evaluation.ps1" `
+  -Action Plan
+```
+
+Use `scripts/monitor_full_pipeline_evaluation.ps1 -Follow -IntervalSeconds 30`
+for measured progress during a later campaign prompt. See
+[`app/full_pipeline_evaluation/README.md`](app/full_pipeline_evaluation/README.md)
+for purpose, inputs, outputs, all 12 controller actions, exact PowerShell and
+Anaconda Prompt commands, result layout, metric definitions, and scientific
+boundaries.

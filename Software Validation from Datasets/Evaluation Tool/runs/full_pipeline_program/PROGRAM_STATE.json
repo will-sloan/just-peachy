@@ -1,0 +1,442 @@
+{
+  "schema_version": "just-peachy-full-pipeline-program-state.v1",
+  "program_id": "just_peachy_full_pipeline_program_v1",
+  "protocol_version": "full_pipeline_protocol.v1",
+  "status": "COMPLETE_FULL_PIPELINE_EVALUATION_INFRASTRUCTURE",
+  "current_prompt_index": 3,
+  "remaining_prompt_indices": [4, 5, 6, 7, 8],
+  "remaining_prompt_status": "PENDING_UNSPECIFIED",
+  "locked_at_utc": "2026-08-23T21:05:51Z",
+  "validated_at_utc": "2026-08-23T21:05:51Z",
+  "matrix_count": 18,
+  "matrix_formula": "2_asr_x_3_anonymous_diarization_x_3_identity",
+  "long_scientific_campaign_started": false,
+  "inference_run_by_prompt_0": false,
+  "bounded_inference_run_by_prompt_1": true,
+  "physical_microphone_capture_run_by_prompt_1": false,
+  "bounded_inference_run_by_prompt_2": true,
+  "physical_microphone_capture_run_by_prompt_2": false,
+  "bounded_inference_run_by_prompt_3": false,
+  "synthetic_evaluation_smoke_run_by_prompt_3": true,
+  "physical_microphone_capture_run_by_prompt_3": false,
+  "frozen_scientific_results_modified": false,
+  "repository_snapshot": {
+    "repository_root": "C:/Users/amiri/Documents/GitHub/just-peachy",
+    "evaluation_tool_root": "C:/Users/amiri/Documents/GitHub/just-peachy/Software Validation from Datasets/Evaluation Tool",
+    "branch": "codex/edge-component-expansion",
+    "head": "2902ce9b98efedd63ccbc88b47645097b339585f",
+    "working_tree_was_dirty_before_prompt_0": true,
+    "unrelated_work_preserved": true
+  },
+  "canonical_artifacts": {
+    "matrix": {
+      "path": "configs/automated_evaluation/full_pipeline_matrix.v1.yaml",
+      "sha256": "5668e0d792f88bf629b30e4434d00b61f0a5791ed62a56f42f812cc2bc700017"
+    },
+    "contracts": {
+      "path": "configs/automated_evaluation/schemas/full_pipeline_contracts.v1.schema.json",
+      "sha256": "968a1ad696238af7bce268d2f3bb88c8f2fcf45e68045b1961cf88c5fcef2370",
+      "public_contract_count": 15
+    },
+    "matrix_document": {
+      "path": "docs/full_pipeline/PIPELINE_MATRIX.md",
+      "sha256": "757f7d567847232f41eefa33b1d09630a38b075928a376711cc191f894760f2a"
+    },
+    "license_and_asset_manifest": {
+      "path": "docs/full_pipeline/LICENSE_AND_ASSET_MANIFEST.md",
+      "sha256": "5ff6d9dcb27e6e51c7214f73c807a6d896f80cc306251714ecb6ee4538647479"
+    },
+    "program_handoff": {
+      "path": "docs/full_pipeline/PROGRAM_HANDOFF.md",
+      "sha256": "874e95057b9d02bae90908b760ccabaa70093ae1bb1ae72b77647a291c3f494e"
+    },
+    "validator_readme": {
+      "path": "app/full_pipeline_program/README.md",
+      "sha256": "0cb508a7b6c41d040c399f6c95051a916d52f0dde96accd6eba8ab777f882e5b"
+    },
+    "validator_package": {
+      "paths": {
+        "app/full_pipeline_program/__init__.py": "83d28055469bb2398f86e8507ec6665a3269459b83d8bbe3ffc4809252d20bb1",
+        "app/full_pipeline_program/__main__.py": "ebe8ec48e5d8248994493ac83a6911815ca0d5cf2c2bec4d66996afaec7bd22b",
+        "app/full_pipeline_program/validator.py": "13178b564f619ae780beec9056fd01af0aa4b1d25477d008e93562b3a01e06ee"
+      }
+    },
+    "targeted_tests": {
+      "path": "tests/automated_evaluation/test_full_pipeline_program_lock.py",
+      "sha256": "74b9f1539c3b6014a0190236fc2820e25a33f54e8fac30c59be63ef2b1e2082b"
+    },
+    "evaluation_tool_readme": {
+      "path": "README.md",
+      "sha256": "688381eb0ec4f0f0041316a6fe099476f7f28eeff1974a7710816a4386ed57fa"
+    },
+    "runtime_readme": {
+      "path": "app/full_pipeline/README.md",
+      "sha256": "a8ac17c698fa6b11ee96cefd06650998279f267942777e53839c2e193483098b"
+    },
+    "runtime_config": {
+      "path": "configs/automated_evaluation/full_pipeline_runtime.v1.yaml",
+      "sha256": "7ce0fe931c19b15baf6c15a52b08f3d91e57eaf3596ef67e388f0786d09a824b"
+    },
+    "runtime_wrapper": {
+      "path": "scripts/run_full_pipeline_runtime.ps1",
+      "sha256": "6e8b3381542003d1549f12d8e6d687c0a330f7dfe8e839cc1b4db28a31f80215"
+    },
+    "native_sherpa_adapter": {
+      "path": "app/inference_pipeline/asr/sherpa_onnx_adapter.py",
+      "sha256": "6933d798080a1d3b56108d8a95d7d3058fa07cab356911336e3b9a8280c4e8bc"
+    },
+    "runtime_package": {
+      "paths": {
+        "app/full_pipeline/__init__.py": "7155a934924d76a045ddf7126843c47cc2ed74b549a0ee8fa77924287379eacd",
+        "app/full_pipeline/__main__.py": "3d2438ae92f4746e9ffaa1f837b1fe803f6281091d1f31f8c95643716f257d9a",
+        "app/full_pipeline/alignment.py": "0e53fb1684760e717f1eeb642b4d6339f39c0d049f4e41fe60f2afa4cd0bd8c0",
+        "app/full_pipeline/artifacts.py": "95afbbf17b28d0dc0e2ed4417fff5b200a5ba1e348d6449727912e7e48baa46c",
+        "app/full_pipeline/asr.py": "9542e148b7d25378840b3b47297172f1f1b1eb7ec737c6e6ccbcc622850f3273",
+        "app/full_pipeline/audio.py": "75f019f9c113e1d81dde92561fe7cf9f4587f6d818fe8482879c13e7c30bb3f1",
+        "app/full_pipeline/cache.py": "910fe2ba04c374441a93fe0443b84f1b7977aca6c7c848c64b687b9e02913d8a",
+        "app/full_pipeline/cli.py": "13d90a92f14aa799f0e4868f7e86d2f3b345fd5ff6fd0af7a2bb5e364308fa88",
+        "app/full_pipeline/clustering.py": "481196684793d2365951aec6d5553880874ec86c3b3c64dab076ebbf1bf29024",
+        "app/full_pipeline/coordinator.py": "b848971ff9ccd2eafad35a22e2f78c2759145f39f324cac06a63c5f71fdff9e1",
+        "app/full_pipeline/enrollment.py": "c3d271a57e3c0d6e541fe151652513818a23cd7186c9aef3a6998a090a041ecb",
+        "app/full_pipeline/event_adapters.py": "f74883d47efff82ac9d5f94536c5539fcfaff6f47f17fe19faf1987928ca533c",
+        "app/full_pipeline/events.py": "85e9e813d114939df3d1c520619a261ed97e79d5361c9bf69a33e46ba4e74a36",
+        "app/full_pipeline/factory.py": "326423195db3a0aa8b91888ce7a4ef56bf55b542ed2109064e47a43a21931172",
+        "app/full_pipeline/identity.py": "d695a49aecc2fe7d9611c9dec545fda4458de23ad08cdb54f57bfa94e8f4e607",
+        "app/full_pipeline/interfaces.py": "79fe690aecc256009ee6ad560c232e5e8b4bf981fa667454dedb2ad0719718c9",
+        "app/full_pipeline/matrix.py": "471e80643d01454f23166c90cbaac4660055ba6b33ee77e1a5fcca39edb57a79",
+        "app/full_pipeline/models.py": "7c6a60473ce97a43cccd1d1ed007d040780d32642c8a67743441a86e15a172d0",
+        "app/full_pipeline/provenance.py": "18f28b23ecb25446ea33e2b3e9765fa3683450d398d91760aeeccb9d7d1c73c1",
+        "app/full_pipeline/runtime_components.py": "002f926b6b5d93d3b22cd4186c7b1351c0b4da45c3278c70800b211b5d053a61",
+        "app/full_pipeline/segmentation.py": "76c7313eb552ea50d4b218aed7476099028f2735f1c378ea02c32029f444049e",
+        "app/full_pipeline/telemetry.py": "08e352799be8b7ad0282aba11548f3c5f2604a0066d218f7da15ecf88b4649b9",
+        "app/full_pipeline/worker_main.py": "e7c295d0420a63de347bda28a11086438222fae28863a77a28fb2a580acecdcb",
+        "app/full_pipeline/workers.py": "f180f330c9551f6b9a206bbb62636d21af7db8722e5ebce9c5c3bbede290fc4a"
+      }
+    },
+    "runtime_targeted_tests": {
+      "paths": {
+        "tests/full_pipeline/test_demo_runtime_controls.py": "e5070962dfbe741469db9cc1214383a1007f82ecfb5bac8a52d1b3fd8d6f3d9e",
+        "tests/full_pipeline/test_diar_workers.py": "1c519cc4d55c1e5af0c38d5b3fcb4e17e6a2d25e424f43026f655df0bf78a852",
+        "tests/full_pipeline/test_event_adapters.py": "e63b783ac2ea2086049fd166c6521216ad0f83f1d1d1089100618c369deb7f75",
+        "tests/full_pipeline/test_identity_alignment.py": "78429d3006103da3ccb9d57a38b809ff60961f196ba16573ba4f0f28daf3a06b",
+        "tests/full_pipeline/test_native_sherpa_streaming.py": "355d1b537e97b90a75d6e20425c0b43adcdbb293559a25ea027de93c32d409eb",
+        "tests/full_pipeline/test_runtime_cache_catalog.py": "ce9b4b5fb51a53a742e003fd4b1f2e63ac95166734691810a1d3bf1d19e5fb04",
+        "tests/full_pipeline/test_runtime_core.py": "90aa42ccbe1632717b0b9a208646684e049bdd1f933526143deec012b55d385b"
+      }
+    },
+    "prompt_1_component_smoke": {
+      "path": "JustPeachyResults/full_pipeline/component_smoke/prompt1_streaming_runtime_final_20260823/component_smoke.json",
+      "sha256": "107bdba86cad2e50e54f076ac08d3cf7965670b556317c038193e54d85d2981d"
+    },
+    "prompt_1_enrollment_smoke": {
+      "path": "JustPeachyResults/full_pipeline/enrollment_smoke/prompt1_final_20260823/enrollment_smoke.json",
+      "sha256": "7013d96c4b92db046bd124b01f4c4409b1a8b2ee9c7ec900e64dc1715fee494b"
+    },
+    "prompt_1_file_smoke_result": {
+      "path": "JustPeachyResults/full_pipeline/runtime_sessions/prompt1_h2_file_final_20260823/result.json",
+      "sha256": "13abb75b7c218f6cdf763563a182cac38a12d6c33921489f83c6ff82db845171"
+    },
+    "prompt_1_file_smoke_session_state": {
+      "path": "JustPeachyResults/full_pipeline/runtime_sessions/prompt1_h2_file_final_20260823/session_state.json",
+      "sha256": "4649f4927aa65090d3455b8ca235937f32687209b639a07b2eb7db49c3e83196"
+    },
+    "common_demo_package": {
+      "paths": {
+        "app/full_pipeline_demo/__init__.py": "65ab719de9ef89bfecd6373a0a43e568e7607fdd3420ba010860f7d499ecf56c",
+        "app/full_pipeline_demo/__main__.py": "a976f28052239efea6336345cbf5dd1fd80cbb8d59be3e0590204b3706934a84",
+        "app/full_pipeline_demo/README.md": "1e990813b5d329d25f17f1041ba91e993a5e5c9b34877d359443eeb34367723b",
+        "app/full_pipeline_demo/cli.py": "d5044182827feef3fb8ba2ec42b42ab66e1eb29e66d42ca7bb66feb99adc964d",
+        "app/full_pipeline_demo/devices.py": "d1ca645ec1346db4d05c5e97f0aa2d4f6c0695e0e97944ed0ac71d0710180a41",
+        "app/full_pipeline_demo/enrollment.py": "59001d2b2245ecdd769adc855e461e5215c9003b5a1892963edea8a02d66cf28",
+        "app/full_pipeline_demo/exports.py": "7870e1fc4ee7bab365d82db4d7803fb391da672420a6eac931041ff69b628c94",
+        "app/full_pipeline_demo/presets.py": "6543f2ed240c28165b34679a6971ecbf882446644e3fed93e38e1df27d9c84ca",
+        "app/full_pipeline_demo/session.py": "beb542c653dd5c57e4ec1d3c9c6d1359e4f9d1f0ceb7c744fc319812b32d9f8a",
+        "app/full_pipeline_demo/smoke.py": "8da6143c997070cf9a84408e99e051333637e09e25fdbd0e2f40d898c4972252",
+        "app/full_pipeline_demo/state.py": "f433b122ebd2256e0048a5aeeab5c9e833da73508b86eb5eb4f4c2483042b1b9",
+        "app/full_pipeline_demo/ui.py": "cad6cfb0bc0ab63e8209a9bcef6d2496977ad67e652e66fe2674b59ddb42886e",
+        "scripts/run_full_pipeline_demo.ps1": "cdc69f1a75fc719cf71a261df7ee97b397a8872fda0624f8f9e97836201e88ff"
+      }
+    },
+    "common_demo_targeted_tests": {
+      "paths": {
+        "tests/full_pipeline/test_demo_runtime_controls.py": "e5070962dfbe741469db9cc1214383a1007f82ecfb5bac8a52d1b3fd8d6f3d9e",
+        "tests/full_pipeline_demo/test_cli.py": "d547c7f67bb7e62c99aa249dcebf9580c18eb1420f6323610c6491603071cba1",
+        "tests/full_pipeline_demo/test_presets_enrollment.py": "97abfc12e2722886fbb494362a09ffd5804e505f40a55940dc5908b1fd7a73ba",
+        "tests/full_pipeline_demo/test_session_export.py": "b0374fbbbebccfc74bdeb7e9c079ee074789f492aad1ed987f4f5c0c1c8b905b",
+        "tests/full_pipeline_demo/test_smoke_integrity.py": "da2fc96c5ded812e231d07d22363c79a3830c398344201ebfca5b03cfa90890b",
+        "tests/full_pipeline_demo/test_state_devices.py": "09f989f6a6420c8ddbce4e2d7c47de5f6cc2c70b8498f1001f9b4690278f3aa8",
+        "tests/full_pipeline_demo/test_ui.py": "e7c4af2a3c0f8de3fdf9bec22b70a80415ec29fa022b4208a5d1668884ee3237"
+      }
+    },
+    "prompt_2_common_demo_smoke": {
+      "path": "JustPeachyResults/full_pipeline/demo_smoke/prompt2_common_demo_strict_final_20260823/common_demo_smoke.json",
+      "sha256": "033a050d1b2fabb382f046d5b644741d6833a58a8703a3f67dac2adcce263989"
+    },
+    "full_speech_pipeline_v1_protocol": {
+      "paths": {
+        "configs/automated_evaluation/full_speech_pipeline_v1.yaml": "9c504065ce286e2364533deecbd5dcc2fcf528ed868fa1057f89e998fee51496",
+        "benchmarks/full_pipeline/full_speech_pipeline_v1/protocol_summary.json": "62b34894efa7319f974e322ce5c02819c45d6dae2027c6448fbadcc59d0cc32c",
+        "benchmarks/full_pipeline/full_speech_pipeline_v1/source_audit.json": "b1c93b0e68c7402e4594566ecd67e661bf2f13cbafad8bb3966f54deeef92192",
+        "benchmarks/full_pipeline/full_speech_pipeline_v1/checksums.json": "c64a81ef05a575aa38008a13b571ef86678637a339b742264268e10ad978591e",
+        "benchmarks/full_pipeline/full_speech_pipeline_v1/development/case_manifest.jsonl": "54950b5539ab5a20e626d0566c7e44465ba493ecd48ecfbe01c51bfdc1adb00f",
+        "benchmarks/full_pipeline/full_speech_pipeline_v1/development/references/speaker_attributed_transcript.jsonl": "1f682332abab1cd7bd00ec6c2d5c6b8aa47789cc0b347b675c147b6dc34b5221",
+        "benchmarks/full_pipeline/full_speech_pipeline_v1/development/identity/identity_overlays.jsonl": "67ee173f459a5b3ec7da283d91f460293ee01109e6d5d8dff4417b6a308c53ff",
+        "benchmarks/full_pipeline/full_speech_pipeline_v1/development/enrollment/enrollment_registry.jsonl": "65e745a48a66176ba03cc0768359625e364b46e363b96f011f4832f623864fb0",
+        "benchmarks/full_pipeline/full_speech_pipeline_v1/evaluation/case_manifest.jsonl": "0928e71c408ba3ad8e86dc7d30ab3f3765f53af3af7fdecf7781d8ce47d2c4d1",
+        "benchmarks/full_pipeline/full_speech_pipeline_v1/evaluation/references/speaker_attributed_transcript.jsonl": "a4275e4c0065562ef7e4002dd42853b5c8c49dd2c03fe53162cc340b44d4718d",
+        "benchmarks/full_pipeline/full_speech_pipeline_v1/evaluation/identity/identity_overlays.jsonl": "772b536f5c961c3695f6f91b95ccb100baac9f70a8e74430e1f236a8c3eb103b",
+        "benchmarks/full_pipeline/full_speech_pipeline_v1/evaluation/enrollment/enrollment_registry.jsonl": "3e3722f3d36b5d671d07986c3ffe2b4d4618913337fb48231d69cb777bf4f12c"
+      }
+    },
+    "full_pipeline_evaluation_result_schema": {
+      "path": "configs/automated_evaluation/schemas/full_pipeline_evaluation_result.v1.schema.json",
+      "sha256": "b7dc69d0c59110cda693a2364aab6da16d23cd0f07bf4c8028daa782f776283f"
+    },
+    "full_pipeline_evaluation_package": {
+      "paths": {
+        "app/full_pipeline_evaluation/__init__.py": "493177313b9b0eeb5dd5deab9abb806cda8ea93729c7b3f34eac9b36fe7c0286",
+        "app/full_pipeline_evaluation/__main__.py": "09134411d2946f5fa5de794b6c1539e3bbf762d277282d0c23992e5642d6d1c4",
+        "app/full_pipeline_evaluation/README.md": "9a64a8d3c80cddca361e29963838bfd6875b1c8c4e4fbc8652a8077022df9c16",
+        "app/full_pipeline_evaluation/cli.py": "8b3b9b4e0e3c3bf898abb6e9f28a078ccc89adafa059aa06fad7ed4d28dbc3ed",
+        "app/full_pipeline_evaluation/controller.py": "fdaa9ea6853b728d5fce6309d6b54b953a2ddd3f4b39cdc56a772dfeefce8238",
+        "app/full_pipeline_evaluation/host_lock.py": "444ff7a62105dc3095fe2626de3a987f2d897ffd1ff3c365201850bbc5c97e67",
+        "app/full_pipeline_evaluation/io.py": "3290f224cf18d0fb8a1145e2791e3c03e26cdfb6950d34de6ea658a2048d7371",
+        "app/full_pipeline_evaluation/metrics.py": "2ac2cdb5fef1b35d9e55126c7afcff9c6f57dca91d18563e7968a294a052efcf",
+        "app/full_pipeline_evaluation/monitor.py": "fcbd10da8a745d0eb3ae13367bc358f95b6c9b4c5fd9fa5fc62fb44fb9489e5c",
+        "app/full_pipeline_evaluation/planning.py": "fca4a73c253d0de1b07d456a48bd3c78bbd1fc5ab7673f60e1e059a7d3f1362a",
+        "app/full_pipeline_evaluation/protocol.py": "3ceb056e92f3056c5d7552cb3725fb3da9851f5f2468fef900991acdfd229ffb",
+        "app/full_pipeline_evaluation/results.py": "07da88cf39bfd1a9ba226e44cc5e4c02667e843567d51fbbccbe18329d764280",
+        "app/full_pipeline_evaluation/schema.py": "17b099a9bb71251df8560d6f054150e28bbf5639216b0c6f318ae36d2bd7087e",
+        "app/full_pipeline_evaluation/scorers.py": "04c3df6e7887b49e5c16df5c5bb007e19dac03c63dbadcc587cf479d2d08c773",
+        "app/full_pipeline_evaluation/smoke.py": "79661a43f9080139df9bae4cff057983e9d8b4d592c30d7c3ba58336cee3c719",
+        "app/full_pipeline_evaluation/store.py": "616f30cf14293b3e2906a2d7e15b0dd80cc636efa6ee312561167ee21473e1b4",
+        "app/full_pipeline_evaluation/synthetic.py": "b053af551456a0ab671b9d31852828c116351e3e050b393527e3681751699d05",
+        "app/full_pipeline_evaluation/worker.py": "bf4faca958f1e2d262d8537c8dbf374cfeb427975694129c75bae6dad4cc9796"
+      }
+    },
+    "full_pipeline_evaluation_wrappers": {
+      "paths": {
+        "scripts/run_full_pipeline_evaluation.ps1": "263fb61b5a8b2eb92561a83cf9f5cc352829e20d8637444e89f130951e4d5821",
+        "scripts/monitor_full_pipeline_evaluation.ps1": "94df87a5cd21f8241915e3f74b3e1ecfd8aa4e57658f0d347c92f17b8f959712"
+      }
+    },
+    "full_pipeline_evaluation_targeted_tests": {
+      "paths": {
+        "tests/full_pipeline_evaluation/test_cli_wrapper.py": "35b8d7659f535a6dcf22066a48b7e2ba788e428861335f158c84aec4a996250c",
+        "tests/full_pipeline_evaluation/test_controller_store.py": "77d1fe1117fed727824fb121e26541e0ca84d9f23f6fd16c6e21cbe574d109f6",
+        "tests/full_pipeline_evaluation/test_host_lock.py": "acf2e783a2713f0718a894e152bd19c0c672e4b8e3d98afdfb2b928f50dc3b18",
+        "tests/full_pipeline_evaluation/test_metrics_scorers.py": "ebe18382d50e7a08dfb22a8c82dbb2b1ed12b4e349f8873af79bf4b99beec113",
+        "tests/full_pipeline_evaluation/test_protocol.py": "cced3c6c92a52b865ef63fcdeb16d1e7fdd5fe8ab844842849c00c3842928cae",
+        "tests/full_pipeline_evaluation/test_results_tree.py": "c1e39245f952c397c265bc6d56360c0ec96d9ccac5357fc2ca4381a498a501f4",
+        "tests/full_pipeline_evaluation/test_worker_integration.py": "a7197a7868a717f97ca2b85bbcf6b42bffb4740a64d5a89e180d3fa766f86786"
+      }
+    },
+    "prompt_3_synthetic_smoke": {
+      "path": "JustPeachyResults/full_pipeline/evaluation_infrastructure_smoke/prompt3_final_20260823/infrastructure_smoke.json",
+      "sha256": "f317b4a40f88c491ac9b603af9fcc524d75d060b1546a73283160067446512c0"
+    },
+    "prompt_3_campaign_plan": {
+      "paths": {
+        "automated_runs/full_speech_pipeline_v1/campaign_manifest.json": "d91f848f75f1cfa41ccec4468ba4f7f9274b8591c3049c52bb6a6d3f46674d7f",
+        "automated_runs/full_speech_pipeline_v1/plan.json": "770d0f47035e1841074d53f82e6164a82a1a9338ae0b09fe92a894983a4ecd0e",
+        "automated_runs/full_speech_pipeline_v1/validation.json": "577ee6a8e8fe0c1496d1c496e1661d809b604f6ec9fe7309555411a159a14ae5"
+      }
+    }
+  },
+  "component_aliases": {
+    "asr": {
+      "AO": "sherpa_onnx",
+      "AG": "sherpa_onnx_libri_giga_zipformer_2023_06_21"
+    },
+    "anonymous_diarization": {
+      "DW": "modular_pyannote_wespeaker",
+      "DR": "modular_pyannote_redimnet2",
+      "DE": "modular_pyannote_speechbrain_ecapa"
+    },
+    "identity": {
+      "IW": "wespeaker",
+      "IR": "redimnet2_b2_speaker_embedding",
+      "IE": "speechbrain_ecapa"
+    }
+  },
+  "hybrid_labels": {
+    "H1": "DW+IW",
+    "H2": "DR+IR",
+    "H3": "DR+IW",
+    "H4": "DW+IR",
+    "H5": "DR+IE",
+    "H6": "DW+IE",
+    "C7": "DE+IW",
+    "C8": "DE+IR",
+    "C9": "DE+IE"
+  },
+  "frozen_hybrid_anchors": ["H2", "H4", "H5"],
+  "evaluation_tiers": {
+    "tier_a": {
+      "pipeline_count": 18,
+      "status": "DECLARED_NOT_RUN"
+    },
+    "tier_b": {
+      "required_pipeline_count": 6,
+      "required_hybrid_labels": ["H2", "H4", "H5"],
+      "asr_aliases": ["AO", "AG"],
+      "maximum_additional_challengers": 2,
+      "status": "DECLARED_NOT_RUN"
+    },
+    "tier_c": {
+      "maximum_pipeline_count": 3,
+      "selected_pipeline_ids": [],
+      "status": "UNSELECTED_UNTIL_HELDOUT_AND_EXTENDED_TESTING"
+    }
+  },
+  "selection_policy": {
+    "policy_id": "full_pipeline_constraint_pareto_selection.v1",
+    "weighted_score_used": false,
+    "ordered_priority_count": 12,
+    "technical_ranking_separate_from_licensing_provenance_ranking": true
+  },
+  "result_roots": {
+    "program_state": "runs/full_pipeline_program",
+    "scientific_results": "JustPeachyResults/full_pipeline",
+    "research_summaries": "JustPeachyResearchSummaries/full_pipeline",
+    "campaign_workspaces": "automated_runs"
+  },
+  "completion_state": {
+    "prompt_0": "COMPLETE_FULL_PIPELINE_PROGRAM_LOCK",
+    "prompt_1": "COMPLETE_STREAMING_RUNTIME",
+    "prompt_2": "COMPLETE_COMMON_DEMO",
+    "prompt_3": "COMPLETE_FULL_PIPELINE_EVALUATION_INFRASTRUCTURE",
+    "matrix_locked": true,
+    "component_identities_recorded": true,
+    "selection_rules_locked": true,
+    "common_contracts_defined": true,
+    "license_and_asset_manifest_created": true,
+    "handoff_created": true,
+    "end_to_end_runtime_implemented": true,
+    "native_incremental_asr_implemented": true,
+    "persistent_isolated_workers_implemented": true,
+    "all_eight_cache_contracts_and_producers_implemented": true,
+    "bounded_component_smoke_passed": true,
+    "bounded_enrollment_smoke_passed": true,
+    "bounded_file_stream_smoke_passed": true,
+    "common_demo_implemented": true,
+    "all_18_demo_presets_available": true,
+    "six_highlighted_demo_presets_available": true,
+    "three_required_bounded_demo_presets_passed": true,
+    "common_demo_enrollment_smoke_passed": true,
+    "common_demo_file_smoke_passed": true,
+    "common_demo_export_smoke_passed": true,
+    "common_demo_model_switch_smoke_passed": true,
+    "scientific_campaign_executed_by_prompt_2": false,
+    "full_pipeline_evaluation_infrastructure_implemented": true,
+    "full_speech_pipeline_v1_protocol_prepared": true,
+    "full_speech_pipeline_v1_protocol_validated": true,
+    "all_18_evaluation_pipelines_planned": true,
+    "common_result_tree_schema_implemented": true,
+    "all_required_scorers_implemented": true,
+    "restart_safe_evaluation_controller_implemented": true,
+    "measured_evaluation_monitor_implemented": true,
+    "synthetic_perfect_failure_smoke_passed": true,
+    "scientific_campaign_executed_by_prompt_3": false,
+    "physical_microphone_smoke_executed": false,
+    "tier_a_executed": false,
+    "tier_b_executed": false,
+    "tier_c_selected": false
+  },
+  "downstream_gates": [
+    "PROMPT_1_EVIDENCE_IS_BOUNDED_FUNCTIONAL_QUALIFICATION_NOT_A_LONG_SCIENTIFIC_CAMPAIGN",
+    "PROMPT_2_DEMO_EVIDENCE_IS_BOUNDED_FUNCTIONAL_QUALIFICATION_NOT_A_SCIENTIFIC_CAMPAIGN",
+    "PROMPT_3_SYNTHETIC_EVIDENCE_QUALIFIES_INFRASTRUCTURE_NOT_PIPELINE_ACCURACY",
+    "PROMPT_3_LONG_SCIENTIFIC_CAMPAIGN_NOT_STARTED",
+    "PHYSICAL_MICROPHONE_AND_REAL_BEAKER_RUNTIME_EVIDENCE_NOT_RUN_BY_PROMPTS_1_2_OR_3",
+    "AG_GIGASPEECH_COMMERCIAL_PROVENANCE_REVIEW_UNRESOLVED",
+    "DE_NOT_HELDOUT_AND_HAS_DEVELOPMENT_CONFUSION_WARNING",
+    "C7_C8_C9_DECISION_CALIBRATION_AND_HELDOUT_EVIDENCE_REQUIRED",
+    "SPEECHBRAIN_FIVE_FILE_CACHE_VERSUS_FROZEN_IDENTITY_DISCREPANCY_UNRESOLVED",
+    "REPOSITORY_REDISTRIBUTION_LICENSE_UNRESOLVED",
+    "REAL_BEAKER_DATA_REQUIRED_BEFORE_PRODUCTION_POLICY_OR_FINE_TUNING"
+  ],
+  "prompt_0_blockers": [],
+  "validation": {
+    "status": "PASS",
+    "long_inference_run": false,
+    "bounded_real_model_inference_run": true,
+    "physical_microphone_capture_run": false,
+    "matrix_count_observed": 18,
+    "public_contract_count_observed": 15,
+    "source_hashes_checked": 24,
+    "local_asset_hashes_checked": 27,
+    "program_lock_tests_passed": 9,
+    "runtime_targeted_tests_passed": 65,
+    "common_demo_targeted_tests_passed": 41,
+    "full_pipeline_evaluation_targeted_tests_passed": 55,
+    "targeted_tests_passed": 170,
+    "targeted_tests_failed": 0,
+    "python_compile_passed": true,
+    "ruff_check_passed": true,
+    "component_smoke_status": "PASS",
+    "component_smoke_runs_completed": 3,
+    "component_smoke_events_contract_validated": 511,
+    "component_smoke_pipeline_results_contract_validated": 3,
+    "component_smoke_session_states_contract_validated": 3,
+    "component_smoke_worker_identities_recorded": 9,
+    "enrollment_smoke_status": "PASS",
+    "enrollment_documents_contract_validated": 12,
+    "file_stream_smoke_completion_state": "complete",
+    "file_stream_smoke_event_count": 183,
+    "file_stream_smoke_warnings": 0,
+    "file_stream_smoke_errors": 0,
+    "demo_preset_count": 18,
+    "demo_highlighted_preset_count": 6,
+    "demo_required_bounded_preset_count": 3,
+    "common_demo_smoke_status": "PASS",
+    "common_demo_smoke_session_count": 3,
+    "common_demo_smoke_event_counts": [85, 85, 85],
+    "common_demo_smoke_errors": 0,
+    "common_demo_smoke_timed_labelled_sessions": 3,
+    "common_demo_smoke_physical_microphone_capture": false,
+    "common_demo_smoke_scientific_campaign": false,
+    "full_speech_pipeline_v1_protocol_id": "full_speech_pipeline_v1_b0c88389194b",
+    "full_speech_pipeline_v1_development_identity": "88eaacaf3e874b6c68db228b8e6d30392f5221bc12491c868a5fb321d9a62301",
+    "full_speech_pipeline_v1_evaluation_identity": "d3764bd6c897ca147ab5cf9caa5cea1a75d6e329cd6b398af0025085db878a92",
+    "full_speech_pipeline_v1_development_cases": 807,
+    "full_speech_pipeline_v1_evaluation_cases": 10102,
+    "full_speech_pipeline_v1_total_cases": 10909,
+    "full_pipeline_evaluation_campaign_id": "full_speech_pipeline_v1_b55c7cd3d711",
+    "full_pipeline_evaluation_scorer_version": "full-pipeline-evaluation-scorers.v2",
+    "full_pipeline_evaluation_package_sha256": "03a432e92beb354de0b1089b7d835580320e15feeee9f917b535ae59b04cd566",
+    "full_pipeline_streaming_runtime_package_sha256": "e99e4f09657f1534ce9ab8f57a13e1960a0b43ee52cb4804d85bbbeeb03cf963",
+    "full_pipeline_evaluation_planned_jobs": 432,
+    "full_pipeline_evaluation_planned_pipeline_mode_case_executions": 392724,
+    "full_pipeline_evaluation_controller_status": "PREPARED",
+    "full_pipeline_evaluation_running_jobs": 0,
+    "full_pipeline_evaluation_complete_jobs": 0,
+    "full_pipeline_evaluation_completed_cases": 0,
+    "full_pipeline_evaluation_source_protocols_audited": 6,
+    "full_pipeline_evaluation_source_identity_hashes_checked": 27,
+    "full_pipeline_evaluation_deep_audio_validation_passed": true,
+    "full_pipeline_evaluation_protocol_validation_errors": 0,
+    "full_pipeline_evaluation_synthetic_smoke_status": "PASS",
+    "full_pipeline_evaluation_synthetic_cases": 2,
+    "full_pipeline_evaluation_model_inference_performed": false,
+    "full_pipeline_evaluation_scientific_campaign_started": false,
+    "commands": [
+      "powershell -ExecutionPolicy Bypass -File scripts/run_full_pipeline_demo.ps1 -Action Smoke -OutputRoot <Evaluation Tool>/JustPeachyResults/full_pipeline/demo_smoke/prompt2_common_demo_strict_final_20260823",
+      "python -m app.full_pipeline_program validate --json",
+      "python -m app.full_pipeline_program validate --verify-assets --json",
+      "python -m pytest tests/automated_evaluation/test_full_pipeline_program_lock.py -q",
+      "python -m pytest tests/full_pipeline -q",
+      "python -m pytest tests/full_pipeline_demo -q",
+      "python -m ruff check app/full_pipeline app/full_pipeline_demo app/full_pipeline_program tests/full_pipeline tests/full_pipeline_demo tests/automated_evaluation/test_full_pipeline_program_lock.py",
+      "powershell -ExecutionPolicy Bypass -File scripts/run_full_pipeline_evaluation.ps1 -Action Audit",
+      "powershell -ExecutionPolicy Bypass -File scripts/run_full_pipeline_evaluation.ps1 -Action Prepare",
+      "powershell -ExecutionPolicy Bypass -File scripts/run_full_pipeline_evaluation.ps1 -Action Validate -VerifyAudio",
+      "powershell -ExecutionPolicy Bypass -File scripts/run_full_pipeline_evaluation.ps1 -Action Plan",
+      "powershell -ExecutionPolicy Bypass -File scripts/run_full_pipeline_evaluation.ps1 -Action Smoke -OutputRoot JustPeachyResults/full_pipeline/evaluation_infrastructure_smoke/prompt3_final_20260823",
+      "python -m pytest tests/full_pipeline_evaluation -q",
+      "python -m pytest tests/automated_evaluation/test_full_pipeline_program_lock.py -q",
+      "python -m pytest tests/full_pipeline -q",
+      "python -m ruff check app/full_pipeline_evaluation app/full_pipeline_program tests/full_pipeline_evaluation tests/automated_evaluation/test_full_pipeline_program_lock.py"
+    ]
+  }
+}

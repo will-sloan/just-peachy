@@ -1,0 +1,31 @@
+FROM --platform=linux/arm64 python:3.12-slim-bookworm
+
+ARG DEBIAN_FRONTEND=noninteractive
+RUN apt-get update && apt-get install -y --no-install-recommends \
+      alsa-utils libasound2 libgomp1 libopenblas0-pthread libportaudio2 \
+      libsndfile1 portaudio19-dev python3-tk \
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /opt/just-peachy
+COPY ["Software Validation from Datasets/Evaluation Tool/deployment/h2_arm64/requirements-linux-arm64.txt", "/tmp/requirements-linux-arm64.txt"]
+RUN python -m pip install --no-cache-dir --only-binary=:all: \
+      -r /tmp/requirements-linux-arm64.txt
+
+COPY ["Software Validation from Datasets/Evaluation Tool", "/opt/just-peachy/Software Validation from Datasets/Evaluation Tool"]
+
+ENV JP_REPO_ROOT=/opt/just-peachy \
+    JP_MODEL_ROOT=/models \
+    JP_H2_ASSET_ROOT=/models \
+    JP_H2_PREFIX=/opt/just-peachy-h2 \
+    JP_H2_PYTHON=/usr/local/bin/python \
+    JP_H2_RESULTS_ROOT=/results \
+    OMP_NUM_THREADS=1 \
+    OPENBLAS_NUM_THREADS=1
+
+VOLUME ["/models", "/results"]
+WORKDIR "/opt/just-peachy/Software Validation from Datasets/Evaluation Tool"
+RUN python -m app.h2_portability self-test
+
+# Real microphone use additionally requires mapping the host audio device and
+# validating ALSA/PipeWire. Building this image does not qualify ARM64 hardware.
+ENTRYPOINT ["/bin/bash", "/opt/just-peachy/Software Validation from Datasets/Evaluation Tool/deployment/h2_arm64/run_h2_service.sh"]

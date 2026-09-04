@@ -1,0 +1,37 @@
+[Unit]
+Description=Just Peachy H2 local speech pipeline (ARM64 qualification candidate)
+After=sound.target local-fs.target
+Wants=sound.target
+
+[Service]
+Type=simple
+User=justpeachy
+Group=justpeachy
+SupplementaryGroups=audio
+WorkingDirectory=/opt/just-peachy/Software Validation from Datasets/Evaluation Tool
+EnvironmentFile=-/etc/just-peachy/h2.env
+Environment=JP_REPO_ROOT=/opt/just-peachy
+Environment=JP_H2_PREFIX=/opt/just-peachy-h2
+Environment=JP_H2_ASSET_ROOT=/opt/just-peachy-h2/models
+Environment=JP_H2_RESULTS_ROOT=/var/lib/just-peachy/h2_sessions
+Environment=OMP_NUM_THREADS=1
+Environment=OPENBLAS_NUM_THREADS=1
+ExecStart=/opt/just-peachy/Software Validation from Datasets/Evaluation Tool/deployment/h2_arm64/run_h2_service.sh
+Restart=on-failure
+RestartSec=5
+TimeoutStopSec=45
+KillSignal=SIGINT
+MemoryHigh=1650M
+MemoryMax=1850M
+TasksMax=128
+StateDirectory=just-peachy
+LogsDirectory=just-peachy
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/lib/just-peachy /var/log/just-peachy
+
+[Install]
+WantedBy=multi-user.target

@@ -32,6 +32,14 @@ ROOT_VARIABLES = {
     "training": "JP_TRAINING_ROOT",
 }
 
+EVALUATION_OUTPUT_FOLDERS = {
+    "generated_data": "JustPeachyGeneratedData",
+    "logs": "JustPeachyLogs",
+    "research_summaries": "JustPeachyResearchSummaries",
+    "results": "JustPeachyResults",
+    "transfers": "JustPeachyTransfers",
+}
+
 
 class RootResolutionError(ValueError):
     """Raised when an explicitly configured portable root cannot be used."""
@@ -135,6 +143,17 @@ def tool_root_from_repository(repository: Path) -> Path:
     """Return the Evaluation Tool directory for a checkout root."""
 
     return repository / "Software Validation from Datasets" / "Evaluation Tool"
+
+
+def evaluation_output_root(category: str) -> Path:
+    """Return one canonical machine-local output folder beside the Evaluation Tool."""
+
+    try:
+        folder = EVALUATION_OUTPUT_FOLDERS[category]
+    except KeyError as error:
+        supported = ", ".join(sorted(EVALUATION_OUTPUT_FOLDERS))
+        raise ValueError(f"Unknown Evaluation Tool output category {category!r}; use: {supported}") from error
+    return (tool_root_from_repository(repository_root().path) / folder).resolve()
 
 
 def resolve_model_path_from_logical(path_value: str | Path) -> Path:

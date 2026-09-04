@@ -7,6 +7,7 @@ import json
 from pathlib import Path
 
 from app.speaker_enrollment.analysis import analyze_results
+from app.speaker_enrollment.auto_gate import build_automatic_joint_gate
 from app.speaker_enrollment.collection import collect_results
 from app.speaker_enrollment.evaluation import evaluate_configurations, validate_configuration_result
 from app.speaker_enrollment.extraction import validate_embedding_cache
@@ -96,6 +97,14 @@ def add_speaker_enrollment_parser(subparsers: argparse._SubParsersAction) -> Non
     analyze.add_argument("--backend", action="append", default=[])
     analyze.add_argument("--bootstrap-repetitions", type=int, default=None)
     analyze.set_defaults(func=_analyze)
+
+    gate = commands.add_parser("auto-gate", help="Create a calibration-only automatic Phase-E gate")
+    gate.add_argument("--protocol-root", type=Path, default=DEFAULT_PROTOCOL_ROOT)
+    gate.add_argument("--result-base", required=True, type=Path)
+    gate.add_argument("--backend", required=True)
+    gate.add_argument("--output", required=True, type=Path)
+    gate.add_argument("--enrollment-configurations", type=int, default=2)
+    gate.set_defaults(func=_auto_gate)
 
     collect = commands.add_parser("collect", help="Collect compact evidence for ChatGPT analysis")
     _protocol_args(collect)
@@ -215,6 +224,21 @@ def _analyze(args: argparse.Namespace) -> None:
     if not args.backend:
         raise ValueError("Analyze requires one or more --backend values")
     print(json.dumps(analyze_results(args.protocol_root, args.result_base, args.output_root, args.backend, bootstrap_repetitions=args.bootstrap_repetitions), indent=2))
+
+
+def _auto_gate(args: argparse.Namespace) -> None:
+    print(
+        json.dumps(
+            build_automatic_joint_gate(
+                args.protocol_root,
+                args.result_base,
+                args.backend,
+                args.output,
+                enrollment_configurations=args.enrollment_configurations,
+            ),
+            indent=2,
+        )
+    )
 
 
 def _collect(args: argparse.Namespace) -> None:

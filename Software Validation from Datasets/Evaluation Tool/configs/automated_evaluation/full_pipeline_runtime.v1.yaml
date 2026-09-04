@@ -1,0 +1,94 @@
+schema_version: full-pipeline-runtime-config.v1
+program_id: just_peachy_full_pipeline_program_v1
+protocol_version: full_pipeline_protocol.v1
+matrix_path: configs/automated_evaluation/full_pipeline_matrix.v1.yaml
+
+audio:
+  internal_sample_rate_hz: 16000
+  internal_channel_count: 1
+  frame_duration_ms: 100
+  file_queue_policy: block
+  microphone_queue_policy: drop_oldest
+  maximum_queue_frames: 16
+  normalization_policy_id: full_pipeline_audio_normalization.v1
+
+asr:
+  adapter_policy_id: full_pipeline_native_sherpa_session.v1
+  chunk_duration_ms: 100
+  partial_update_interval_ms: 500
+  stable_prefix_method: longest_common_word_prefix_between_changed_hypotheses
+  endpoint_detection:
+    enabled: true
+    rule_values: sherpa_onnx_1_13_4_backend_defaults
+  finalization:
+    tail_padding_sec: component_config
+    bounded_decode_guard: true
+  reset_policy: per_record_and_after_endpoint
+
+incremental_diarization:
+  policy_id: full_pipeline_causal_pyannote_online_centroid_speech_overlap.v2
+  # Segmentation 3.0 is not claimed to be zero-lookahead.  A conservative
+  # symmetric 10 s rolling analysis window commits only its first half.
+  rolling_analysis_window_sec: 10.0
+  rolling_step_sec: 0.75
+  history_context_sec: 5.0
+  algorithmic_lookahead_sec: 5.0
+  flush_at_end_of_input: true
+  embedding_window_duration_sec: 1.5
+  embedding_window_step_sec: 0.75
+  minimum_embedding_window_sec: 0.75
+  clustering_policy_id: full_pipeline_online_centroid_cosine.v1
+  clustering_cosine_threshold: 0.35
+  short_turn_attach_gap_sec: 0.5
+  stable_cluster_ids: true
+  future_evidence_used: false
+  predicted_overlap:
+    source: second_highest_pyannote_segmentation_activation
+    exclude_from_primary_identity: true
+    retain_diagnostic_scores: true
+
+identity:
+  policy_family: full_pipeline_open_set_decision.v1
+  raw_score_type: cosine_similarity
+  minimum_evidence_sec: 2.0
+  minimum_embedding_consistency: 0.35
+  margin_threshold: 0.03
+  consecutive_passes_to_confirm: 2
+  hysteresis: 0.02
+  identity_expiry_sec: 120.0
+  unresolved_challenger_behavior: emit_raw_scores_and_unknown_only
+  frozen_thresholds:
+    H2: 0.5265351286789879
+    H4: 0.5331755752703802
+    H5: 0.4572960706169966
+
+workers:
+  protocol_id: full_pipeline_jsonl_rpc.v1
+  startup_timeout_sec: 60.0
+  request_timeout_sec: 120.0
+  shutdown_timeout_sec: 10.0
+  restart_limit: 1
+  allow_network_downloads: false
+  profiles:
+    onnx: .stage8-envs/onnx/Scripts/python.exe
+    credential-diarization: .stage8-envs/credential-diarization/Scripts/python.exe
+    wespeaker: .stage8-envs/wespeaker/Scripts/python.exe
+    redimnet2: .stage8-envs/redimnet2/Scripts/python.exe
+    core-cpu: .venv/Scripts/python.exe
+
+cache:
+  schema_version: full-pipeline-content-cache-key.v1
+  roles:
+    - decoded_resampled_audio
+    - pyannote_segmentation
+    - diarization_windows
+    - diarization_embeddings
+    - identity_embeddings
+    - enrollment_embeddings
+    - asr_finalized_results
+    - score_matrices
+  forbid_cross_role_embedding_reuse: true
+
+telemetry:
+  interval_sec: 1.0
+  distinguish_algorithmic_lookahead_from_compute_latency: true

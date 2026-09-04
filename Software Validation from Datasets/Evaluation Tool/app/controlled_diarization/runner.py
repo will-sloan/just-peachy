@@ -14,6 +14,7 @@ import socket
 import statistics
 import subprocess
 import sys
+import threading
 import time
 from typing import Mapping, Sequence
 import uuid
@@ -80,7 +81,11 @@ def pipeline_status(
         source_config_exists = False
         component_readiness = None
         if pipeline.component_name and pipeline.kind != "unresolved_modular":
-            family = "speaker_embedding" if pipeline.kind == "oracle_turn_clustering" else "diarization"
+            family = (
+                "speaker_embedding"
+                if pipeline.kind in {"oracle_turn_clustering", "cross_environment_modular"}
+                else "diarization"
+            )
             try:
                 entry = catalog.get(family, pipeline.component_name)
                 config_path_value = entry.source_config_path
@@ -90,11 +95,18 @@ def pipeline_status(
                 component_readiness = entry.qualification_status
             except Exception as exc:
                 component_readiness = f"UNRESOLVED:{type(exc).__name__}"
+        cross_environment_ready = True
+        if pipeline.kind == "cross_environment_modular":
+            segmentation_interpreter = interpreter_for_profile("credential-diarization")
+            cross_environment_ready = bool(
+                segmentation_interpreter and segmentation_interpreter.is_file()
+            )
         executable = bool(
             pipeline.execution_status != "NOT_INTEGRATED"
             and interpreter is not None
             and interpreter.is_file()
             and source_config_exists
+            and cross_environment_ready
         )
         blockers = []
         if pipeline.execution_status == "NOT_INTEGRATED":
@@ -103,6 +115,8 @@ def pipeline_status(
             blockers.append(f"environment_unavailable:{pipeline.environment_profile}")
         if not source_config_exists and pipeline.kind != "unresolved_modular":
             blockers.append("component_config_unavailable")
+        if not cross_environment_ready:
+            blockers.append("environment_unavailable:credential-diarization")
         rows.append(
             {
                 **pipeline.to_jsonable(),
@@ -186,10 +200,16 @@ def execute_queue(
         "reused": 0,
         "failed": 0,
         "skipped": 0,
+        "status": "RUNNING",
+        "current_case": None,
         "units": [],
     }
     results.mkdir(parents=True, exist_ok=True)
-    state_path = results / "queue_state.json"
+    state_path = (
+        results / f"queue_state.{pipelines[0]}.json"
+        if os.environ.get("JP_DIARIZATION_PIPELINE_STATE") == "1" and len(pipelines) == 1
+        else results / "queue_state.json"
+    )
     for pipeline, case in planned:
         if (results / "STOP_REQUESTED").is_file():
             summary["skipped"] += 1
@@ -201,6 +221,8 @@ def execute_queue(
                 }
             )
             continue
+        summary["current_case"] = case["case_id"]
+        write_json_atomic(state_path, summary)
         scenario = scenario_identity(config, pipeline, case, oracle_speaker_count_diagnostic)
         destination = results / tier / pipeline.pipeline_id / str(case["case_id"])
         if destination.is_dir():
@@ -318,6 +340,9 @@ def execute_queue(
                 }
             )
         write_json_atomic(state_path, summary)
+        summary["current_case"] = None
+    summary["status"] = "COMPLETE" if summary["failed"] == 0 else "COMPLETE_WITH_FAILURES"
+    summary["current_case"] = None
     write_json_atomic(state_path, summary)
     return summary
 
@@ -363,6 +388,8 @@ def run_one_case(
     scenario_id = scenario_identity(config, pipeline, case, oracle_speaker_count_diagnostic)
     started_utc = _now()
     started = time.perf_counter()
+    memory_sampler = _PeakMemorySampler()
+    memory_sampler.start()
     try:
         audio_started = time.perf_counter()
         audio = load_audio(
@@ -390,6 +417,33 @@ def run_one_case(
                 diarizer_produced_turns=bool(raw_predictions),
                 backend_internal_segmentation=False,
                 oracle_reference_used=True,
+            )
+        elif pipeline.kind == "cross_environment_modular":
+            from app.diarization_product_v2.cross_environment import (
+                cross_environment_predictions,
+            )
+
+            raw_predictions, component_identity = cross_environment_predictions(
+                audio_path=audio_path,
+                audio_sha256=str(case["audio_sha256"]),
+                recording_id=case_id,
+                duration_sec=float(case["duration_sec"]),
+                pipeline=pipeline,
+                output_root=destination,
+                oracle_speaker_count=(
+                    int(case["reference_speaker_count"])
+                    if oracle_speaker_count_diagnostic
+                    else None
+                ),
+            )
+            provenance = resolve_segmentation_provenance(
+                vad_enabled=False,
+                vad_chunker_enabled=False,
+                diarizer_enabled=True,
+                diarizer_produced_turns=bool(raw_predictions),
+                backend_internal_segmentation=True,
+                diarizer_output_authoritative=True,
+                oracle_reference_used=False,
             )
         else:
             component, component_identity = _resolved_component(pipeline)
@@ -492,6 +546,7 @@ def run_one_case(
                 "python_executable": str(Path(sys.executable).resolve()),
                 "environment_profile": pipeline.environment_profile,
             },
+            "resource_telemetry": memory_sampler.stop(),
             "started_at_utc": started_utc,
             "ended_at_utc": _now(),
         }
@@ -501,6 +556,7 @@ def run_one_case(
         validate_result(destination, expected_scenario_id=scenario_id)
         return run
     except Exception as exc:
+        memory_sampler.stop()
         write_json_atomic(
             destination / "failure.json",
             {
@@ -516,6 +572,61 @@ def run_one_case(
         )
         write_checksum_manifest(destination)
         raise
+
+
+class _PeakMemorySampler:
+    """Best-effort RSS sampler for the case process and its component children."""
+
+    def __init__(self, interval_sec: float = 0.1) -> None:
+        self.interval_sec = interval_sec
+        self.peak_rss_bytes = 0
+        self.samples = 0
+        self._stop = threading.Event()
+        self._thread: threading.Thread | None = None
+        try:
+            import psutil
+
+            self._psutil = psutil
+            self._process = psutil.Process(os.getpid())
+        except (ImportError, OSError):
+            self._psutil = None
+            self._process = None
+
+    def start(self) -> None:
+        if self._process is None:
+            return
+        self._sample()
+        self._thread = threading.Thread(target=self._run, daemon=True)
+        self._thread.start()
+
+    def stop(self) -> dict[str, object]:
+        self._stop.set()
+        if self._thread is not None:
+            self._thread.join(timeout=max(1.0, self.interval_sec * 3))
+            self._thread = None
+        self._sample()
+        return {
+            "rss_sampling_available": self._process is not None,
+            "peak_rss_mb": self.peak_rss_bytes / (1024.0 * 1024.0) if self.samples else None,
+            "rss_samples": self.samples,
+            "sample_interval_sec": self.interval_sec,
+            "scope": "case_process_plus_recursive_children",
+        }
+
+    def _run(self) -> None:
+        while not self._stop.wait(self.interval_sec):
+            self._sample()
+
+    def _sample(self) -> None:
+        if self._process is None or self._psutil is None:
+            return
+        try:
+            processes = [self._process, *self._process.children(recursive=True)]
+            rss = sum(process.memory_info().rss for process in processes if process.is_running())
+        except (self._psutil.Error, OSError):
+            return
+        self.samples += 1
+        self.peak_rss_bytes = max(self.peak_rss_bytes, rss)
 
 
 def validate_result(root: Path, *, expected_scenario_id: str | None = None) -> dict[str, object]:
@@ -663,6 +774,13 @@ def _resolved_component(
     if params.get("allow_model_downloads", False):
         raise ControlledDiarizationError("implicit model downloads are prohibited")
     params["allow_model_downloads"] = False
+    # Product-development configurations may freeze a calibrated anonymous
+    # clustering threshold.  The value is explicit in the pipeline identity;
+    # existing V1 definitions have no override and therefore remain unchanged.
+    if "clustering_threshold" in pipeline.configuration:
+        params["clustering_threshold"] = float(
+            pipeline.configuration["clustering_threshold"]
+        )
     resolved["params"] = params
     return resolved, {
         "schema_version": "controlled-diarization-resolved-pipeline.v1",

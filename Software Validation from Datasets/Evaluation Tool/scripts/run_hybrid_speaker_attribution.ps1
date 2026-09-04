@@ -37,13 +37,13 @@ if (-not $ManagementPython) { $ManagementPython = Join-Path $RepoRoot '.venv\Scr
 if (-not $BenchmarkRoot) { $BenchmarkRoot = Join-Path $ToolRoot 'benchmarks\stage11\controlled_diarization_v1' }
 if (-not $ProtocolRoot) { $ProtocolRoot = Join-Path $ToolRoot 'benchmarks\hybrid_speaker_attribution\hybrid_speaker_attribution_v1' }
 if (-not $GeneratedRoot) {
-    $Base = if ($env:JP_GENERATED_DATA_ROOT) { $env:JP_GENERATED_DATA_ROOT } else { Join-Path ([Environment]::GetFolderPath('UserProfile')) 'JustPeachyGeneratedData' }
+    $Base = if ($env:JP_GENERATED_DATA_ROOT) { $env:JP_GENERATED_DATA_ROOT } else { Join-Path $ToolRoot 'JustPeachyGeneratedData' }
     $GeneratedRoot = Join-Path $Base 'controlled_diarization_v1'
 }
 if (-not $DiarizationResultRoot) {
-    $DiarizationResultRoot = Join-Path ([Environment]::GetFolderPath('UserProfile')) 'JustPeachyResults\diarization\controlled_diarization_v1'
+    $DiarizationResultRoot = Join-Path $ToolRoot 'JustPeachyResults\diarization\controlled_diarization_v1'
 }
-if (-not $ResultRoot) { $ResultRoot = Join-Path ([Environment]::GetFolderPath('UserProfile')) 'JustPeachyResults\hybrid_speaker_attribution' }
+if (-not $ResultRoot) { $ResultRoot = Join-Path $ToolRoot 'JustPeachyResults\hybrid_speaker_attribution' }
 if (-not $AnalysisRoot) { $AnalysisRoot = Join-Path $ResultRoot 'analysis' }
 if (-not (Test-Path -LiteralPath $ManagementPython -PathType Leaf)) { throw "Management Python is missing: $ManagementPython" }
 

@@ -1,0 +1,450 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://just-peachy.local/schemas/full_pipeline_evaluation_result.v2.schema.json",
+  "title": "Just-Peachy full-pipeline evaluation result documents",
+  "description": "Portable document contracts for one checksum-bound Prompt-4 compact result tree. Exact metric-catalog coverage and cross-file identity/checksum invariants are enforced by app.full_pipeline_evaluation.results.validate_result_tree.",
+  "oneOf": [
+    { "$ref": "#/$defs/run" },
+    { "$ref": "#/$defs/pipelineIdentity" },
+    { "$ref": "#/$defs/modelAssets" },
+    { "$ref": "#/$defs/metricDocument" },
+    { "$ref": "#/$defs/summary" },
+    { "$ref": "#/$defs/referenceManifest" },
+    { "$ref": "#/$defs/diagnosticManifest" },
+    { "$ref": "#/$defs/checksums" }
+  ],
+  "$defs": {
+    "sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-fA-F]{64}$"
+    },
+    "portableId": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,127}$"
+    },
+    "utcTimestamp": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}(?:\\.[0-9]+)?Z$"
+    },
+    "reuseIdentity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "program_id",
+        "evaluation_protocol_id",
+        "evaluation_protocol_sha256",
+        "pipeline_id",
+        "pipeline_config_sha256",
+        "case_manifest_id",
+        "case_manifest_sha256",
+        "runtime_config_sha256",
+        "partition",
+        "seed",
+        "identity_sha256"
+      ],
+      "properties": {
+        "program_id": { "const": "just_peachy_full_pipeline_program_v1" },
+        "evaluation_protocol_id": { "type": "string", "minLength": 1 },
+        "evaluation_protocol_sha256": { "$ref": "#/$defs/sha256" },
+        "pipeline_id": { "type": "string", "pattern": "^fullpipe_v1_[a-z0-9_]+$" },
+        "pipeline_config_sha256": { "$ref": "#/$defs/sha256" },
+        "case_manifest_id": { "type": "string", "minLength": 1 },
+        "case_manifest_sha256": { "$ref": "#/$defs/sha256" },
+        "runtime_config_sha256": { "$ref": "#/$defs/sha256" },
+        "partition": { "enum": ["development", "evaluation", "smoke"] },
+        "seed": { "type": "integer", "minimum": 0 },
+        "identity_sha256": { "$ref": "#/$defs/sha256" }
+      }
+    },
+    "artifactSupport": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "events",
+        "transcript_predictions",
+        "labelled_transcript_predictions",
+        "diarization_predictions",
+        "references",
+        "diagnostics"
+      ],
+      "properties": {
+        "events": { "$ref": "#/$defs/supportEntry" },
+        "transcript_predictions": { "$ref": "#/$defs/supportEntry" },
+        "labelled_transcript_predictions": { "$ref": "#/$defs/supportEntry" },
+        "diarization_predictions": { "$ref": "#/$defs/supportEntry" },
+        "references": { "$ref": "#/$defs/supportEntry" },
+        "diagnostics": { "$ref": "#/$defs/supportEntry" }
+      }
+    },
+    "supportEntry": {
+      "oneOf": [
+        {
+          "type": "object",
+          "required": ["status", "reason"],
+          "properties": {
+            "status": { "const": "supported" },
+            "reason": { "type": ["null", "string"], "maxLength": 0 }
+          }
+        },
+        {
+          "type": "object",
+          "required": ["status", "reason"],
+          "properties": {
+            "status": { "const": "unsupported" },
+            "reason": { "type": "string", "minLength": 1 }
+          }
+        }
+      ]
+    },
+    "run": {
+      "type": "object",
+      "required": [
+        "schema_version",
+        "result_tree_schema_version",
+        "run_id",
+        "attempt_id",
+        "status",
+        "created_at_utc",
+        "started_at_utc",
+        "ended_at_utc",
+        "reuse_identity",
+        "artifact_support",
+        "counts",
+        "warnings",
+        "errors",
+        "long_scientific_campaign_started_by_builder"
+      ],
+      "properties": {
+        "schema_version": { "const": "full-pipeline-evaluation-run.v1" },
+        "result_tree_schema_version": { "const": "full-pipeline-evaluation-result-tree.v2" },
+        "run_id": { "$ref": "#/$defs/portableId" },
+        "attempt_id": { "$ref": "#/$defs/portableId" },
+        "status": { "enum": ["prepared", "running", "complete", "failed", "stopped"] },
+        "created_at_utc": { "$ref": "#/$defs/utcTimestamp" },
+        "started_at_utc": { "oneOf": [{ "$ref": "#/$defs/utcTimestamp" }, { "type": "null" }] },
+        "ended_at_utc": { "oneOf": [{ "$ref": "#/$defs/utcTimestamp" }, { "type": "null" }] },
+        "reuse_identity": { "$ref": "#/$defs/reuseIdentity" },
+        "artifact_support": { "$ref": "#/$defs/artifactSupport" },
+        "counts": { "type": "object" },
+        "warnings": { "type": "array" },
+        "errors": { "type": "array" },
+        "long_scientific_campaign_started_by_builder": { "const": false }
+      }
+    },
+    "pipelineIdentity": {
+      "type": "object",
+      "required": [
+        "schema_version",
+        "run_id",
+        "pipeline_id",
+        "protocol_version",
+        "pipeline_config_sha256",
+        "matrix_sha256",
+        "aliases",
+        "component_identities",
+        "policy_identities",
+        "environment_identities"
+      ],
+      "properties": {
+        "schema_version": { "const": "full-pipeline-evaluation-pipeline-identity.v1" },
+        "run_id": { "type": "string", "minLength": 1 },
+        "pipeline_id": { "type": "string", "minLength": 1 },
+        "protocol_version": { "type": "string", "minLength": 1 },
+        "pipeline_config_sha256": { "$ref": "#/$defs/sha256" },
+        "matrix_sha256": { "$ref": "#/$defs/sha256" },
+        "aliases": { "type": "object" },
+        "component_identities": { "type": ["array", "object"] },
+        "policy_identities": { "type": ["array", "object"] },
+        "environment_identities": { "type": ["array", "object"] }
+      }
+    },
+    "modelAssets": {
+      "type": "object",
+      "required": ["schema_version", "run_id", "pipeline_id", "assets", "no_implicit_downloads"],
+      "properties": {
+        "schema_version": { "const": "full-pipeline-evaluation-model-assets.v1" },
+        "run_id": { "type": "string", "minLength": 1 },
+        "pipeline_id": { "type": "string", "minLength": 1 },
+        "no_implicit_downloads": { "const": true },
+        "assets": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["role", "asset_id", "sha256"],
+            "properties": {
+              "role": { "type": "string", "minLength": 1 },
+              "asset_id": { "type": "string", "minLength": 1 },
+              "sha256": { "$ref": "#/$defs/sha256" }
+            }
+          }
+        }
+      }
+    },
+    "trackBMetric": {
+      "type": "object",
+      "required": [
+        "metric_id",
+        "category",
+        "display_name",
+        "definition",
+        "unit",
+        "higher_is_better",
+        "prerequisites",
+        "status",
+        "value",
+        "numerator",
+        "denominator",
+        "reason",
+        "details"
+      ],
+      "properties": {
+        "metric_id": { "type": "string", "minLength": 1 },
+        "category": { "enum": ["asr", "streaming", "diarization", "identity", "speaker_transcription", "ux", "resources"] },
+        "display_name": { "type": "string", "minLength": 1 },
+        "definition": { "type": "string", "minLength": 1 },
+        "unit": { "type": "string", "minLength": 1 },
+        "higher_is_better": { "type": ["boolean", "null"] },
+        "prerequisites": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+        "status": { "enum": ["computed", "unsupported", "undefined"] },
+        "value": { "type": ["number", "null"] },
+        "numerator": { "type": ["number", "null"] },
+        "denominator": { "type": ["number", "null"] },
+        "reason": { "type": ["null", "string"] },
+        "details": { "type": "object" }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "status": { "const": "computed" } }, "required": ["status"] },
+          "then": {
+            "properties": {
+              "value": { "type": "number" },
+              "reason": { "type": ["null", "string"], "maxLength": 0 }
+            }
+          },
+          "else": {
+            "properties": {
+              "value": { "type": "null" },
+              "reason": { "type": "string", "minLength": 1 }
+            }
+          }
+        }
+      ]
+    },
+    "trackBReport": {
+      "type": "object",
+      "required": [
+        "schema_version",
+        "category",
+        "metrics",
+        "computed_metric_count",
+        "unsupported_metric_count",
+        "undefined_metric_count",
+        "warnings"
+      ],
+      "properties": {
+        "schema_version": { "const": "full-pipeline-metrics.v1" },
+        "category": { "enum": ["asr", "streaming", "diarization", "identity", "speaker_transcription", "ux", "resources"] },
+        "metrics": {
+          "type": "object",
+          "minProperties": 1,
+          "additionalProperties": { "$ref": "#/$defs/trackBMetric" }
+        },
+        "computed_metric_count": { "type": "integer", "minimum": 0 },
+        "unsupported_metric_count": { "type": "integer", "minimum": 0 },
+        "undefined_metric_count": { "type": "integer", "minimum": 0 },
+        "warnings": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "metricDocument": {
+      "type": "object",
+      "required": ["schema_version", "run_id", "pipeline_id", "view", "subviews"],
+      "properties": {
+        "schema_version": { "const": "full-pipeline-evaluation-metrics.v1" },
+        "run_id": { "type": "string", "minLength": 1 },
+        "pipeline_id": { "type": "string", "minLength": 1 },
+        "view": { "enum": ["asr", "diarization", "identity", "streaming", "resources"] },
+        "subviews": {
+          "type": "object",
+          "minProperties": 1,
+          "additionalProperties": false,
+          "properties": {
+            "asr": { "$ref": "#/$defs/trackBReport" },
+            "streaming": { "$ref": "#/$defs/trackBReport" },
+            "diarization": { "$ref": "#/$defs/trackBReport" },
+            "identity": { "$ref": "#/$defs/trackBReport" },
+            "speaker_transcription": { "$ref": "#/$defs/trackBReport" },
+            "ux": { "$ref": "#/$defs/trackBReport" },
+            "resources": { "$ref": "#/$defs/trackBReport" }
+          }
+        }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "view": { "const": "asr" } } },
+          "then": { "properties": { "subviews": { "required": ["asr", "speaker_transcription"], "maxProperties": 2 } } }
+        },
+        {
+          "if": { "properties": { "view": { "const": "streaming" } } },
+          "then": { "properties": { "subviews": { "required": ["streaming", "ux"], "maxProperties": 2 } } }
+        },
+        {
+          "if": { "properties": { "view": { "const": "diarization" } } },
+          "then": { "properties": { "subviews": { "required": ["diarization"], "maxProperties": 1 } } }
+        },
+        {
+          "if": { "properties": { "view": { "const": "identity" } } },
+          "then": { "properties": { "subviews": { "required": ["identity"], "maxProperties": 1 } } }
+        },
+        {
+          "if": { "properties": { "view": { "const": "resources" } } },
+          "then": { "properties": { "subviews": { "required": ["resources"], "maxProperties": 1 } } }
+        }
+      ]
+    },
+    "summary": {
+      "type": "object",
+      "required": [
+        "schema_version",
+        "run_id",
+        "pipeline_id",
+        "completion_state",
+        "views",
+        "computed_metric_count",
+        "undefined_metric_count",
+        "unsupported_metric_count",
+        "missing_metric_count",
+        "unsupported_metrics_are_not_zero"
+      ],
+      "properties": {
+        "schema_version": { "const": "full-pipeline-evaluation-summary.v1" },
+        "run_id": { "type": "string", "minLength": 1 },
+        "pipeline_id": { "type": "string", "minLength": 1 },
+        "completion_state": { "enum": ["complete", "failed", "stopped"] },
+        "views": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["asr", "diarization", "identity", "streaming", "resources"],
+          "properties": {
+            "asr": { "$ref": "#/$defs/summaryView" },
+            "diarization": { "$ref": "#/$defs/summaryView" },
+            "identity": { "$ref": "#/$defs/summaryView" },
+            "streaming": { "$ref": "#/$defs/summaryView" },
+            "resources": { "$ref": "#/$defs/summaryView" }
+          }
+        },
+        "computed_metric_count": { "type": "integer", "minimum": 0 },
+        "undefined_metric_count": { "type": "integer", "minimum": 0 },
+        "unsupported_metric_count": { "type": "integer", "minimum": 0 },
+        "missing_metric_count": { "const": 0 },
+        "unsupported_metrics_are_not_zero": { "const": true }
+      }
+    },
+    "summaryView": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["logical_path", "subviews", "computed_metric_count", "undefined_metric_count", "unsupported_metric_count"],
+      "properties": {
+        "logical_path": { "type": "string", "pattern": "^metrics/(asr|diarization|identity|streaming|resources)\\.json$" },
+        "subviews": {
+          "type": "object",
+          "minProperties": 1,
+          "additionalProperties": { "$ref": "#/$defs/summarySubview" }
+        },
+        "computed_metric_count": { "type": "integer", "minimum": 0 },
+        "undefined_metric_count": { "type": "integer", "minimum": 0 },
+        "unsupported_metric_count": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "summarySubview": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["computed_metric_count", "undefined_metric_count", "unsupported_metric_count"],
+      "properties": {
+        "computed_metric_count": { "type": "integer", "minimum": 0 },
+        "undefined_metric_count": { "type": "integer", "minimum": 0 },
+        "unsupported_metric_count": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "directoryArtifact": {
+      "type": "object",
+      "required": ["artifact_id", "logical_path", "status", "sha256", "bytes", "reason"],
+      "properties": {
+        "artifact_id": { "type": "string", "minLength": 1 },
+        "logical_path": { "type": "string", "pattern": "^(references|diagnostics)/[^\\\\:]+$" },
+        "status": { "enum": ["available", "unsupported"] },
+        "sha256": { "oneOf": [{ "$ref": "#/$defs/sha256" }, { "type": "null" }] },
+        "bytes": { "type": ["integer", "null"], "minimum": 0 },
+        "reason": { "type": ["string", "null"] }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "status": { "const": "unsupported" } }, "required": ["status"] },
+          "then": {
+            "properties": {
+              "sha256": { "type": "null" },
+              "bytes": { "type": "null" },
+              "reason": { "type": "string", "minLength": 1 }
+            }
+          }
+        }
+      ]
+    },
+    "referenceManifest": {
+      "type": "object",
+      "required": ["schema_version", "run_id", "artifacts"],
+      "properties": {
+        "schema_version": { "const": "full-pipeline-evaluation-references.v1" },
+        "run_id": { "type": "string", "minLength": 1 },
+        "artifacts": { "type": "array", "items": { "$ref": "#/$defs/directoryArtifact" } }
+      }
+    },
+    "diagnosticManifest": {
+      "type": "object",
+      "required": ["schema_version", "run_id", "artifacts"],
+      "properties": {
+        "schema_version": { "const": "full-pipeline-evaluation-diagnostics.v1" },
+        "run_id": { "type": "string", "minLength": 1 },
+        "artifacts": { "type": "array", "items": { "$ref": "#/$defs/directoryArtifact" } }
+      }
+    },
+    "checksumEntry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["sha256", "bytes", "media_type", "privacy_classification"],
+      "properties": {
+        "sha256": { "$ref": "#/$defs/sha256" },
+        "bytes": { "type": "integer", "minimum": 0 },
+        "media_type": { "type": "string", "minLength": 1 },
+        "privacy_classification": { "enum": ["internal", "private", "biometric_sensitive"] }
+      }
+    },
+    "checksums": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema_version",
+        "result_tree_schema_version",
+        "run_id",
+        "reuse_identity_sha256",
+        "hash_algorithm",
+        "created_at_utc",
+        "entries"
+      ],
+      "properties": {
+        "schema_version": { "const": "full-pipeline-evaluation-checksums.v1" },
+        "result_tree_schema_version": { "const": "full-pipeline-evaluation-result-tree.v2" },
+        "run_id": { "type": "string", "minLength": 1 },
+        "reuse_identity_sha256": { "$ref": "#/$defs/sha256" },
+        "hash_algorithm": { "const": "sha256" },
+        "created_at_utc": { "$ref": "#/$defs/utcTimestamp" },
+        "entries": {
+          "type": "object",
+          "minProperties": 1,
+          "additionalProperties": { "$ref": "#/$defs/checksumEntry" }
+        }
+      }
+    }
+  }
+}
+
+

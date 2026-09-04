@@ -15,6 +15,7 @@ from typing import Mapping, Sequence
 import numpy as np
 
 from app.benchmark_contracts.canonical import canonical_sha256
+from app.speaker_deployment.replay import calibrate_open_set_policy
 from app.speaker_protocol.contracts import BackendIdentity, normalize_vector
 from app.speaker_protocol.metrics import (
     cosine_similarity,
@@ -74,7 +75,7 @@ def score_templates(
     method: str,
     durations_sec: Sequence[float],
 ) -> float:
-    if method == "normalized_mean":
+    if method in {"normalized_mean", "qc_trimmed_normalized_mean"}:
         return cosine_similarity(probe, normalized_mean(templates))
     if method == "duration_weighted_mean":
         return cosine_similarity(probe, duration_weighted_mean(templates, durations_sec))
@@ -82,6 +83,18 @@ def score_templates(
         if not templates:
             raise SpeakerEnrollmentError("multi-template scoring requires enrollment templates")
         return sum(cosine_similarity(probe, normalize_vector(value)) for value in templates) / len(templates)
+    if method == "multi_template_max_score":
+        if not templates:
+            raise SpeakerEnrollmentError("multi-template scoring requires enrollment templates")
+        return max(cosine_similarity(probe, normalize_vector(value)) for value in templates)
+    if method == "multi_template_top2_mean_score":
+        if not templates:
+            raise SpeakerEnrollmentError("multi-template scoring requires enrollment templates")
+        scores = sorted(
+            (cosine_similarity(probe, normalize_vector(value)) for value in templates),
+            reverse=True,
+        )
+        return sum(scores[:2]) / min(2, len(scores))
     raise SpeakerEnrollmentError(f"unsupported aggregation method: {method}")
 
 
@@ -166,6 +179,7 @@ def evaluate_configuration(
     if {row["speaker_key"] for row in enrollment_rows} != known_speakers:
         raise SpeakerEnrollmentError("configuration enrollment cohort is not the frozen paired cohort")
     templates: dict[str, dict[str, object]] = {}
+    enrollment_quality_rows: list[dict[str, object]] = []
     enrollment_failures: dict[str, str] = {}
     aggregation_started = time.perf_counter()
     for row in enrollment_rows:
@@ -177,11 +191,30 @@ def evaluate_configuration(
             continue
         vectors = [value["vector"] for value in values]
         durations = [float(value["duration_sec"]) for value in values]
+        quality = enrollment_quality(vectors)
+        quality_row = {
+            "speaker_key": row["speaker_key"],
+            "selection_family_id": family,
+            "aggregation_method": method,
+            **quality,
+            "diagnostic_only": True,
+        }
+        enrollment_quality_rows.append(quality_row)
+        if method == "qc_trimmed_normalized_mean" and len(vectors) >= 3:
+            drop = int(quality["lowest_consistency_template_index"])
+            vectors = [value for index, value in enumerate(vectors) if index != drop]
+            durations = [value for index, value in enumerate(durations) if index != drop]
         if method == "normalized_mean":
             representation = normalized_mean(vectors)
         elif method == "duration_weighted_mean":
             representation = duration_weighted_mean(vectors, durations)
-        elif method == "multi_template_mean_score":
+        elif method == "qc_trimmed_normalized_mean":
+            representation = normalized_mean(vectors)
+        elif method in {
+            "multi_template_mean_score",
+            "multi_template_max_score",
+            "multi_template_top2_mean_score",
+        }:
             representation = None
         else:
             raise SpeakerEnrollmentError(f"unsupported aggregation method: {method}")
@@ -229,14 +262,75 @@ def evaluate_configuration(
     scoring_runtime_sec = time.perf_counter() - scoring_started
     calibration_trials = [row for row in trials if row["protocol_split"] == "calibration"]
     evaluation_trials = [row for row in trials if row["protocol_split"] == "evaluation"]
+    calibration_spec = config["calibration"]
+    open_set_policy = str(calibration_spec["threshold_policy"]).startswith("open_set_")
     calibration_sweep = threshold_sweep(calibration_trials, split="calibration")
     calibration_eer = equal_error_rate(calibration_sweep)
-    if calibration_eer is None:
+    all_probes_technically_invalid = bool(probe_status) and all(
+        status == "TECHNICALLY_INVALID" for status in probe_status.values()
+    )
+    open_set_operating_points: list[dict[str, object]] = []
+    if calibration_eer is None and all_probes_technically_invalid and templates and not trials:
+        # Some qualified backends intentionally reject the frozen 0.50-second
+        # condition. Completing the configuration with explicit invalidity is
+        # scientifically different from padding audio or inventing a threshold.
+        configuration_outcome = "TECHNICALLY_INVALID"
+        completion_reason = (
+            "all frozen probes are below the backend minimum duration; "
+            "no calibration threshold or identity score is available"
+        )
+        threshold = None
+        margin_threshold = None
+        selected_policy = None
+        threshold_source = "unavailable_all_probes_technically_invalid"
+    elif calibration_eer is None:
         raise SpeakerEnrollmentError("calibration has no valid target/non-target score distribution")
-    threshold = float(calibration_eer["threshold"])
+    elif open_set_policy:
+        configuration_outcome = "SCORED"
+        completion_reason = "calibration and held-out evaluation completed"
+        calibration_inputs = _open_set_calibration_inputs(
+            probe_variants,
+            trials,
+            observations,
+        )
+        for target in calibration_spec["fpir_targets"]:
+            policy = calibrate_open_set_policy(
+                calibration_inputs["known_scores"],
+                calibration_inputs["known_margins"],
+                calibration_inputs["known_correct"],
+                calibration_inputs["unknown_scores"],
+                calibration_inputs["unknown_margins"],
+                fpir_target=float(target),
+                wrong_name_rate_cap=float(calibration_spec["known_wrong_name_rate_cap"]),
+                margin_grid=[float(value) for value in calibration_spec["margin_grid"]],
+            )
+            open_set_operating_points.append(policy)
+        primary_target = float(calibration_spec["primary_fpir_target"])
+        selected_policy = min(
+            open_set_operating_points,
+            key=lambda row: abs(float(row["fpir_target"]) - primary_target),
+        )
+        threshold = float(selected_policy["score_threshold"])
+        margin_threshold = float(selected_policy["margin_threshold"])
+        threshold_source = "calibration_only"
+    else:
+        configuration_outcome = "SCORED"
+        completion_reason = "calibration and held-out evaluation completed"
+        threshold = float(calibration_eer["threshold"])
+        margin_threshold = 0.0
+        threshold_source = "calibration_only"
+        selected_policy = {
+            "score_threshold": threshold,
+            "margin_threshold": margin_threshold,
+            "threshold_source": "calibration_only",
+            "evaluation_used_for_selection": False,
+            "acceptance_rule": "top1_score >= score_threshold",
+        }
     evaluation_sweep = threshold_sweep(evaluation_trials, split="evaluation")
     evaluation_eer = equal_error_rate(evaluation_sweep)
-    evaluation_operating = operating_point(evaluation_trials, threshold)
+    evaluation_operating = (
+        operating_point(evaluation_trials, threshold) if threshold is not None else None
+    )
     decisions = _probe_decisions(
         probe_variants,
         trials,
@@ -244,6 +338,12 @@ def evaluate_configuration(
         templates,
         threshold,
         identity,
+        margin_threshold=margin_threshold,
+        policy_target=(
+            selected_policy.get("fpir_target", "pairwise_eer")
+            if isinstance(selected_policy, Mapping)
+            else "unavailable_technically_invalid"
+        ),
     )
     known_decisions = [row for row in decisions if row["true_partition"] == "known"]
     unknown_decisions = [row for row in decisions if row["true_partition"] == "unknown"]
@@ -259,6 +359,8 @@ def evaluate_configuration(
     result = {
         "schema_version": RESULT_SCHEMA_VERSION,
         "status": "complete",
+        "configuration_outcome": configuration_outcome,
+        "completion_reason": completion_reason,
         "protocol_id": protocol_summary["protocol_id"],
         "source_protocol_id": protocol_summary["source_protocol_id"],
         "configuration": dict(configuration),
@@ -266,16 +368,27 @@ def evaluate_configuration(
         "backend_id": identity.backend_id,
         "backend_identity_hash": identity.identity_hash,
         "backend_embedding_dimension": identity.embedding_dimension,
-        "threshold_artifact_id": threshold_artifact_id(identity.identity_hash, configuration_hash),
-        "threshold_policy": "calibration_eer_per_configuration",
-        "threshold_source": "calibration_only",
+        "threshold_artifact_id": (
+            threshold_artifact_id(identity.identity_hash, configuration_hash)
+            if threshold is not None
+            else None
+        ),
+        "threshold_policy": calibration_spec["threshold_policy"],
+        "threshold_source": threshold_source,
         "evaluation_used_for_threshold": False,
         "operating_threshold": threshold,
+        "operating_margin": margin_threshold,
+        "selected_open_set_policy": selected_policy if open_set_policy else None,
+        "open_set_operating_points": [],
         "calibration_eer": calibration_eer,
         "evaluation_eer_oracle_diagnostic": evaluation_eer,
         "evaluation_at_calibrated_threshold": evaluation_operating,
         "tar_at_fixed_far": {
-            str(value): tar_at_fixed_far(evaluation_sweep, float(value))
+            str(value): (
+                tar_at_fixed_far(evaluation_sweep, float(value))
+                if threshold is not None
+                else None
+            )
             for value in config["calibration"]["fixed_far_targets"]
         },
         "metrics": _decision_metrics(known_decisions, unknown_decisions, evaluation_trials, threshold, config),
@@ -317,6 +430,30 @@ def evaluate_configuration(
         "session_diversity": "unavailable",
         "product_decision_automatic": False,
     }
+    if open_set_policy and threshold is not None:
+        evaluated_points = []
+        for policy in open_set_operating_points:
+            point_decisions = _probe_decisions(
+                probe_variants,
+                trials,
+                observations,
+                templates,
+                float(policy["score_threshold"]),
+                identity,
+                margin_threshold=float(policy["margin_threshold"]),
+                policy_target=policy["fpir_target"],
+            )
+            point_known = [row for row in point_decisions if row["true_partition"] == "known"]
+            point_unknown = [row for row in point_decisions if row["true_partition"] == "unknown"]
+            point_metrics = _decision_metrics(
+                point_known,
+                point_unknown,
+                evaluation_trials,
+                float(policy["score_threshold"]),
+                config,
+            )
+            evaluated_points.append({**policy, "evaluation_metrics": point_metrics})
+        result["open_set_operating_points"] = evaluated_points
     output_root.mkdir(parents=True, exist_ok=False)
     _write_json(output_root / "configuration_result.json", result)
     _write_json(
@@ -327,12 +464,21 @@ def evaluate_configuration(
             "backend_identity_hash": identity.identity_hash,
             "configuration_identity_hash": configuration_hash,
             "threshold": threshold,
+            "margin_threshold": margin_threshold,
+            "threshold_policy": calibration_spec["threshold_policy"],
+            "calibration_status": configuration_outcome,
+            "completion_reason": completion_reason,
+            "selected_open_set_policy": selected_policy if open_set_policy else None,
+            "open_set_operating_points": open_set_operating_points,
             "calibration_eer": calibration_eer,
             "evaluation_used": False,
         },
     )
     _write_csv(output_root / "probe_decisions.csv", decisions)
     _write_csv(output_root / "speaker_results.csv", _speaker_results(decisions, enrollment_rows, enrollment_failures))
+    _mark_quality_outliers(enrollment_quality_rows, config)
+    _write_csv(output_root / "enrollment_quality.csv", enrollment_quality_rows)
+    _write_csv(output_root / "identity_hubness.csv", _identity_hubness(decisions, templates))
     _write_trials(output_root / "score_trials.npz", trials)
     _write_checksums(output_root)
     return result
@@ -361,17 +507,177 @@ def validate_configuration_result(
         raise SpeakerEnrollmentError("threshold is not bound to this backend")
     if calibration.get("evaluation_used") is not False or result.get("evaluation_used_for_threshold") is not False:
         raise SpeakerEnrollmentError("evaluation data influenced calibration")
-    if float(calibration["threshold"]) != float(result["operating_threshold"]):
-        raise SpeakerEnrollmentError("calibration threshold mismatch")
+    technically_invalid = result.get("configuration_outcome") == "TECHNICALLY_INVALID"
+    if technically_invalid:
+        if calibration.get("calibration_status") != "TECHNICALLY_INVALID":
+            raise SpeakerEnrollmentError("technically invalid calibration status is missing")
+        if calibration.get("threshold") is not None or result.get("operating_threshold") is not None:
+            raise SpeakerEnrollmentError("a technically invalid configuration cannot publish a threshold")
+        if calibration.get("margin_threshold") is not None or result.get("operating_margin") is not None:
+            raise SpeakerEnrollmentError("a technically invalid configuration cannot publish a margin")
+        with (root / "probe_decisions.csv").open("r", encoding="utf-8", newline="") as handle:
+            decisions = list(csv.DictReader(handle))
+        if not decisions or any(row.get("status") != "TECHNICALLY_INVALID" for row in decisions):
+            raise SpeakerEnrollmentError("technically invalid completion contains a scoreable probe")
+        if int(result.get("extraction", {}).get("technically_invalid_probes", 0)) <= 0:
+            raise SpeakerEnrollmentError("technically invalid completion has no invalid probes")
+    else:
+        if float(calibration["threshold"]) != float(result["operating_threshold"]):
+            raise SpeakerEnrollmentError("calibration threshold mismatch")
+        if float(calibration.get("margin_threshold", 0.0)) != float(result.get("operating_margin", 0.0)):
+            raise SpeakerEnrollmentError("calibration margin mismatch")
+    if not technically_invalid and str(result.get("threshold_policy", "")).startswith("open_set_"):
+        selected = calibration.get("selected_open_set_policy")
+        if not isinstance(selected, Mapping):
+            raise SpeakerEnrollmentError("open-set calibration policy is missing")
+        if selected.get("evaluation_used_for_selection") is not False:
+            raise SpeakerEnrollmentError("evaluation data influenced open-set calibration")
+        if not calibration.get("open_set_operating_points"):
+            raise SpeakerEnrollmentError("open-set operating points are missing")
     return {
         "schema_version": "speaker-enrollment-result-validation.v1",
         "configuration_id": result["configuration"]["configuration_id"],
         "backend_id": result["backend_id"],
-        "threshold_backend_specific": True,
-        "threshold_configuration_specific": True,
+        "threshold_backend_specific": not technically_invalid,
+        "threshold_configuration_specific": not technically_invalid,
+        "calibration_unavailable_technically_invalid": technically_invalid,
         "evaluation_held_out": True,
         "valid": True,
     }
+
+
+def _open_set_calibration_inputs(
+    probe_variants: Sequence[Mapping[str, str]],
+    trials: Sequence[Mapping[str, object]],
+    observations: Mapping[str, Mapping[str, object]],
+) -> dict[str, np.ndarray]:
+    by_probe: dict[str, list[Mapping[str, object]]] = defaultdict(list)
+    for row in trials:
+        if row["protocol_split"] == "calibration":
+            by_probe[str(row["probe_id"])].append(row)
+    known_scores: list[float] = []
+    known_margins: list[float] = []
+    known_correct: list[bool] = []
+    unknown_scores: list[float] = []
+    unknown_margins: list[float] = []
+    for probe in probe_variants:
+        if probe["protocol_split"] != "calibration":
+            continue
+        slice_id = str(probe["slice_id"])
+        if observations[slice_id]["status"] != "ok":
+            continue
+        ranked = sorted(
+            by_probe.get(slice_id, []),
+            key=lambda row: (-float(row["score"]), str(row["candidate_speaker_key"])),
+        )
+        if not ranked:
+            continue
+        top1 = float(ranked[0]["score"])
+        top2 = float(ranked[1]["score"]) if len(ranked) > 1 else -1.0
+        margin = top1 - top2
+        if probe["speaker_role"] == "known":
+            known_scores.append(top1)
+            known_margins.append(margin)
+            known_correct.append(str(ranked[0]["candidate_speaker_key"]) == str(probe["speaker_key"]))
+        else:
+            unknown_scores.append(top1)
+            unknown_margins.append(margin)
+    if not known_scores or not unknown_scores:
+        raise SpeakerEnrollmentError("open-set calibration requires valid known and Unknown probes")
+    return {
+        "known_scores": np.asarray(known_scores, dtype=np.float64),
+        "known_margins": np.asarray(known_margins, dtype=np.float64),
+        "known_correct": np.asarray(known_correct, dtype=np.bool_),
+        "unknown_scores": np.asarray(unknown_scores, dtype=np.float64),
+        "unknown_margins": np.asarray(unknown_margins, dtype=np.float64),
+    }
+
+
+def enrollment_quality(vectors: Sequence[Sequence[float]]) -> dict[str, object]:
+    """Measure enrollment-only cohesion and identify the least consistent template."""
+
+    if not vectors:
+        raise SpeakerEnrollmentError("enrollment quality requires at least one embedding")
+    matrix = np.asarray([normalize_vector(value) for value in vectors], dtype=np.float64)
+    if len(matrix) == 1:
+        return {
+            "template_count_before_qc": 1,
+            "mean_pairwise_cosine": None,
+            "minimum_pairwise_cosine": None,
+            "lowest_consistency_template_index": 0,
+            "lowest_template_mean_peer_cosine": None,
+            "cohesion_gain_after_dropping_lowest": None,
+        }
+    similarities = matrix @ matrix.T
+    upper = similarities[np.triu_indices(len(matrix), k=1)]
+    peer_means = (similarities.sum(axis=1) - 1.0) / (len(matrix) - 1)
+    lowest = int(np.argmin(peer_means))
+    trimmed = np.delete(matrix, lowest, axis=0)
+    if len(trimmed) >= 2:
+        trimmed_similarities = trimmed @ trimmed.T
+        trimmed_upper = trimmed_similarities[np.triu_indices(len(trimmed), k=1)]
+        gain = float(trimmed_upper.mean() - upper.mean())
+    else:
+        gain = None
+    return {
+        "template_count_before_qc": len(matrix),
+        "mean_pairwise_cosine": float(upper.mean()),
+        "minimum_pairwise_cosine": float(upper.min()),
+        "lowest_consistency_template_index": lowest,
+        "lowest_template_mean_peer_cosine": float(peer_means[lowest]),
+        "cohesion_gain_after_dropping_lowest": gain,
+    }
+
+
+def _mark_quality_outliers(
+    rows: list[dict[str, object]],
+    config: Mapping[str, object],
+) -> None:
+    spec = config.get("enrollment_quality", {})
+    if not isinstance(spec, Mapping) or not spec.get("enabled"):
+        for row in rows:
+            row["cohort_outlier_threshold"] = ""
+            row["possible_poor_or_wrong_recording"] = False
+        return
+    values = [
+        float(row["mean_pairwise_cosine"])
+        for row in rows
+        if row.get("mean_pairwise_cosine") is not None
+    ]
+    threshold = float(np.quantile(values, float(spec["diagnostic_outlier_quantile"]))) if values else None
+    for row in rows:
+        value = row.get("mean_pairwise_cosine")
+        row["cohort_outlier_threshold"] = "" if threshold is None else threshold
+        row["possible_poor_or_wrong_recording"] = bool(
+            threshold is not None and value is not None and float(value) < threshold
+        )
+
+
+def _identity_hubness(
+    decisions: Sequence[Mapping[str, object]],
+    templates: Mapping[str, Mapping[str, object]],
+) -> list[dict[str, object]]:
+    unknown = [row for row in decisions if row["true_partition"] == "unknown" and row["status"] == "ok"]
+    result = []
+    for speaker in sorted(templates):
+        selected = [row for row in unknown if row["predicted_speaker"] == speaker]
+        top1 = [
+            row for row in unknown
+            if row["accepted_known"] and row["predicted_speaker"] == speaker
+        ]
+        result.append(
+            {
+                "candidate_speaker_key": speaker,
+                "false_known_count": len(selected),
+                "false_known_share": len(selected) / len(unknown) if unknown else None,
+                "maximum_accepted_impostor_score": max((float(row["best_score"]) for row in top1), default=""),
+                "minimum_accepted_impostor_margin": min((float(row["top1_top2_margin"]) for row in top1), default=""),
+                "mean_accepted_impostor_margin": (
+                    sum(float(row["top1_top2_margin"]) for row in top1) / len(top1) if top1 else ""
+                ),
+            }
+        )
+    return result
 
 
 def _probe_decisions(
@@ -379,8 +685,11 @@ def _probe_decisions(
     trials: Sequence[Mapping[str, object]],
     observations: Mapping[str, Mapping[str, object]],
     templates: Mapping[str, Mapping[str, object]],
-    threshold: float,
+    threshold: float | None,
     identity: BackendIdentity,
+    *,
+    margin_threshold: float | None = 0.0,
+    policy_target: object = "pairwise_eer",
 ) -> list[dict[str, object]]:
     by_probe: dict[str, list[Mapping[str, object]]] = defaultdict(list)
     for row in trials:
@@ -399,9 +708,15 @@ def _probe_decisions(
             status = "EXTRACTION_FAILED"
         predicted = "Unknown"
         best_score = None
+        top2_score = None
+        margin = None
+        if status == "ok" and threshold is None:
+            status = "CALIBRATION_UNAVAILABLE"
         if status == "ok":
             best_score = float(ranked[0]["score"])
-            if best_score >= threshold:
+            top2_score = float(ranked[1]["score"]) if len(ranked) > 1 else -1.0
+            margin = best_score - top2_score
+            if best_score >= threshold and margin >= margin_threshold:
                 predicted = str(ranked[0]["candidate_speaker_key"])
         true_partition = probe["speaker_role"]
         true_speaker = probe["speaker_key"]
@@ -418,7 +733,11 @@ def _probe_decisions(
                 "true_partition": true_partition,
                 "predicted_speaker": predicted,
                 "best_score": "" if best_score is None else best_score,
-                "threshold": threshold,
+                "top2_score": "" if top2_score is None else top2_score,
+                "top1_top2_margin": "" if margin is None else margin,
+                "threshold": "" if threshold is None else threshold,
+                "margin_threshold": margin_threshold,
+                "policy_target_fpir": policy_target,
                 "accepted_known": predicted != "Unknown",
                 "correct": correct,
                 "top1_correct": bool(top_ids and top_ids[0] == true_speaker) if true_partition == "known" and status == "ok" else False,
@@ -426,6 +745,9 @@ def _probe_decisions(
                 "top5_correct": true_speaker in top_ids[:5] if true_partition == "known" and status == "ok" else False,
                 "false_unknown": true_partition == "known" and predicted == "Unknown",
                 "false_known_attribution": true_partition == "unknown" and predicted != "Unknown",
+                "wrong_known_attribution": true_partition == "known" and predicted not in {"Unknown", true_speaker},
+                "probe_duration_sec": probe.get("target_audio_sec", ""),
+                "probe_duration_label": probe.get("duration_label", ""),
                 "status": status,
                 "backend_id": identity.backend_id,
             }
@@ -437,14 +759,19 @@ def _decision_metrics(
     known: Sequence[Mapping[str, object]],
     unknown: Sequence[Mapping[str, object]],
     evaluation_trials: Sequence[Mapping[str, object]],
-    threshold: float,
+    threshold: float | None,
     config: Mapping[str, object],
 ) -> dict[str, object]:
     valid_known = [row for row in known if row["status"] == "ok"]
     valid_unknown = [row for row in unknown if row["status"] == "ok"]
-    verification_correct = sum((float(row["score"]) >= threshold) == bool(row["is_target"]) for row in evaluation_trials)
+    verification_correct = (
+        sum((float(row["score"]) >= threshold) == bool(row["is_target"]) for row in evaluation_trials)
+        if threshold is not None
+        else 0
+    )
+    verification_denominator = len(evaluation_trials) if threshold is not None else 0
     metrics = {
-        "verification_accuracy": _ratio(verification_correct, len(evaluation_trials)),
+        "verification_accuracy": _ratio(verification_correct, verification_denominator),
         "top1_identification": _ratio(sum(bool(row["top1_correct"]) for row in known), len(known)),
         "top3_identification": _ratio(sum(bool(row["top3_correct"]) for row in known), len(known)),
         "top5_identification": _ratio(sum(bool(row["top5_correct"]) for row in known), len(known)),
@@ -452,10 +779,16 @@ def _decision_metrics(
         "unknown_rejection": _ratio(sum(bool(row["correct"]) for row in unknown), len(unknown)),
         "false_known_attribution": _ratio(sum(bool(row["false_known_attribution"]) for row in unknown), len(unknown)),
         "known_false_unknown": _ratio(sum(bool(row["false_unknown"]) for row in known), len(known)),
+        "dir_rank1": _ratio(sum(bool(row["correct"]) for row in known), len(known)),
+        "tpir": _ratio(sum(bool(row["correct"]) for row in known), len(known)),
+        "fnir": _ratio(sum(not bool(row["correct"]) for row in known), len(known)),
+        "fpir": _ratio(sum(bool(row["false_known_attribution"]) for row in unknown), len(unknown)),
+        "known_to_unknown": _ratio(sum(bool(row["false_unknown"]) for row in known), len(known)),
+        "wrong_known_to_wrong_known": _ratio(sum(bool(row["wrong_known_attribution"]) for row in known), len(known)),
         "valid_probe_rate": _ratio(len(valid_known) + len(valid_unknown), len(known) + len(unknown)),
         "failed_unknown_probes_credited_as_rejections": False,
     }
-    operating = operating_point(evaluation_trials, threshold)
+    operating = operating_point(evaluation_trials, threshold) if threshold is not None else None
     if operating:
         metrics["far"] = operating["far"]
         metrics["frr"] = operating["frr"]
@@ -504,8 +837,9 @@ def _representation_cost(
 ) -> dict[str, object]:
     counts = [len(value["vectors"]) for value in templates.values()]
     mean_templates = sum(counts) / len(counts) if counts else 0.0
-    stored_templates = mean_templates if method == "multi_template_mean_score" else 1.0
-    comparisons = len(templates) * probes * mean_templates if method == "multi_template_mean_score" else len(templates) * probes
+    multi_template = method.startswith("multi_template_")
+    stored_templates = mean_templates if multi_template else 1.0
+    comparisons = len(templates) * probes * mean_templates if multi_template else len(templates) * probes
     return {
         "mean_source_templates_per_speaker": mean_templates,
         "stored_templates_per_speaker": stored_templates,

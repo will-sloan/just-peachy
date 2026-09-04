@@ -291,6 +291,7 @@ def _freeze(args: argparse.Namespace) -> None:
         DEFAULT_BENCHMARK_ROOT,
         DEFAULT_CONFIG_PATH,
         FROZEN_PIPELINE_SCHEMA_VERSION,
+        default_result_root,
         load_config,
         load_pipeline_registry,
     )
@@ -299,7 +300,7 @@ def _freeze(args: argparse.Namespace) -> None:
 
     config_path = args.config or DEFAULT_CONFIG_PATH
     benchmark = (args.benchmark_root or DEFAULT_BENCHMARK_ROOT).resolve()
-    analysis = args.analysis_root or ((args.result_root or Path.home() / "JustPeachyResults" / "diarization" / "controlled_diarization_v1") / "analysis")
+    analysis = args.analysis_root or ((args.result_root or default_result_root()) / "analysis")
     if not (analysis / "analysis_manifest.json").is_file():
         raise ValueError("development analysis_manifest.json is required before freezing")
     status = queue_status(
