@@ -1,5 +1,11 @@
 # just-peachy
 
+The current post-measurement XVF portrait application is **PROTO1 0.1.2**.
+Start with [`CURRENT_PROJECT_STATUS.md`](CURRENT_PROJECT_STATUS.md),
+[`prototype/START_PROTOTYPE.md`](prototype/START_PROTOTYPE.md), and the compact
+[`project_handoffs`](project_handoffs). Live user enrollment and physical CM5
+qualification remain pending; the earlier evaluation workflows follow below.
+
 Local speech-pipeline validation for ASR, voice activity detection, speaker
 embeddings, enrolled-speaker matching, diarization experiments, and
 dataset-aware evaluation. The repository includes prerecorded realtime

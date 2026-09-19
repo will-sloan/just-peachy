@@ -1,0 +1,86 @@
+{
+  "schema_version": "jp_user_context_v2",
+  "status": "ACTIVE_USER_CONTEXT_NOT_MEASURED_GEOMETRY",
+  "authority": "current user message, 2026-09-08",
+  "source_facing": {
+    "reported_all_sources_faced_tablet": true,
+    "measured_yaw_deg": null,
+    "preserve_legacy_NAT_token": true
+  },
+  "library_alias": {
+    "user_text": "Carlton Library",
+    "possible_archive_room": "Library Conference Room",
+    "possible_recorder_label": "Square Table End",
+    "alias_confirmed": false,
+    "reported_table_shape": "square",
+    "reported_enclosure": "enclosed/sealed room",
+    "measured_room_acoustics": null
+  },
+  "angle_uncertainty": {
+    "reported_text": "approximately ±4–5 degrees or less",
+    "units": "degrees",
+    "conservative_half_width_deg": 5,
+    "authority": "user_clarification",
+    "independently_calibrated": false,
+    "precise_angle_ground_truth_verified": false,
+    "scope": "All 127 manual source-angle labels; no explicitly smaller per-record uncertainty found",
+    "not_equivalent_to": [
+      "measured XVF DoA accuracy",
+      "standard deviation",
+      "calibrated confidence interval",
+      "hard algorithm-error bound"
+    ],
+    "native_radians_separate": true,
+    "linear_array_front_rear_ambiguity_retained": true,
+    "do_not_change_entered_angles": true,
+    "supersedes_percent_denominator_question": true,
+    "future_artificial_robustness_test_half_widths_deg": [
+      10,
+      20
+    ]
+  },
+  "device_pose": {
+    "preferred_use": "FLAT",
+    "future_moving_upright_tests": true,
+    "imu_recorded_in_campaign": false
+  },
+  "angle_uncertainty_superseded": {
+    "reported_text": "plus or minus 4% or 5%",
+    "percent_reference_range_deg": null,
+    "approved_tolerance_deg": null,
+    "proposed_sensitivity_deg": [
+      5,
+      10,
+      20
+    ],
+    "do_not_change_entered_angles": true
+  },
+  "provenance": {
+    "clarification": {
+      "path": "C:\\Users\\amiri\\.codex\\attachments\\9d8eac4e-a664-4bfc-bb71-7ccfc872db00\\pasted-text.txt",
+      "sha256": "f821185de3477c82a307d419717fee85f3d53e35eeb64b03c3e275d8d1c701d6",
+      "bytes": 15312,
+      "stat_signature": [
+        15312,
+        1788891305709306600,
+        1788891305709306600
+      ],
+      "verified_utc": "2026-09-08T18:22:59.228313+00:00",
+      "expected_sha256": null,
+      "status": "OBSERVED_HASH"
+    },
+    "base_overlay": {
+      "path": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\XVF 3800 Testing\\XVF Integration Real World RIRs\\Just_Peachy_Post_Measurement_Codex_Pack_V1\\Just_Peachy_Post_Measurement_Codex_Pack_V1\\planning\\user_context_overlay.proposed.json",
+      "sha256": "f5d717217c58969f6ee5348534d9d67b222daad98998faa1c97ed5f37a66939e",
+      "bytes": 1018,
+      "stat_signature": [
+        1018,
+        1788902984000000000,
+        1788890095135195100
+      ],
+      "verified_utc": "2026-09-08T18:22:59.217307+00:00",
+      "expected_sha256": "f5d717217c58969f6ee5348534d9d67b222daad98998faa1c97ed5f37a66939e",
+      "status": "BOUND"
+    }
+  }
+}

@@ -1,0 +1,341 @@
+{
+  "schema_version": 1,
+  "reviewed_utc": "2026-09-07T17:45:21.595084+00:00",
+  "policy": "Retain noisy recordings unchanged. Background-noise annotation does not override acoustic timing QC or qualify an RIR.",
+  "runs": [
+    {
+      "run_id": "JPXVF_P1_R04_T01_D01_S01_UPR_NAT_CU_R06",
+      "recorded_utc": "2026-09-07T17:36:03.545076+00:00",
+      "background_noise_present": true,
+      "label": "Background noise present",
+      "basis": "User reports unavoidable background noise; recorded pre-excitation audio and prior level analysis support this annotation.",
+      "disposition": "RETAIN_FOR_OFFLINE_NOISE_AND_TIMING_REVIEW",
+      "original_status": "RETAKE",
+      "scientific_measurement_qualified": false,
+      "denoising_applied": false,
+      "acoustic_timing_verified": false,
+      "manifest_sha256": "f00d16130538a4027def41f931f204363e443dd75787f0dddd2b9600d3e3931c",
+      "manifest_files_reverified": 181,
+      "audio_relative_to_experiments": "JPXVF_P1_R04_T01_D01_S01_UPR_NAT_CU_R06/02_raw/pass_01_amplified/microphones_4ch.wav",
+      "audio_sha256": "2e376e918362a83e443a1a3f6651d32f640cadf4716d917980c2c9b72c32732f",
+      "sample_rate_hz": 16000,
+      "channels": [
+        "MIC0",
+        "MIC1",
+        "MIC2",
+        "MIC3"
+      ],
+      "noise_reference_windows": [
+        {
+          "name": "pre_excitation_background",
+          "start_sample_inclusive": 4000,
+          "end_sample_exclusive": 16000,
+          "start_s": 0.25,
+          "end_s": 1.0,
+          "rms_dbfs_per_mic": [
+            -60.1543614593521,
+            -57.61452757386246,
+            -58.48238636966202,
+            -60.363554900955165
+          ],
+          "qualification": "Conservative initial background window, before the earliest start-marker search region. Inspect for transient noise before estimating a noise spectrum."
+        },
+        {
+          "name": "late_post_excitation_candidate",
+          "start_sample_inclusive": 338647,
+          "end_sample_exclusive": 350647,
+          "start_s": 21.1654375,
+          "end_s": 21.9154375,
+          "rms_dbfs_per_mic": [
+            -60.97523884194038,
+            -58.44729634003819,
+            -59.32450354916922,
+            -61.157223162620014
+          ],
+          "qualification": "Candidate only: verify final-marker and room decay have reached the background floor. Do not automatically treat the sweep decay or marker ringing as noise."
+        }
+      ],
+      "failed_original_marker_gates": [
+        "all_markers_meet_correlation_thresholds",
+        "start_candidate_is_distinct",
+        "end_pair_is_distinct",
+        "end_repeat_interval_within_tolerance"
+      ],
+      "later_processing": [
+        "Verify source hashes and resolve acoustic sweep timing before RIR extraction.",
+        "Use background-only audio to estimate per-microphone noise spectra, not as a waveform to subtract.",
+        "Evaluate time-varying noise and reject contaminated reference windows; do not assume pre/post noise is stationary.",
+        "Preserve genuine room decay and inter-microphone timing and level relationships.",
+        "Keep original audio and unprocessed RIR. Store any denoised RIR separately with parameters and before/after quality checks.",
+        "Background-only segments cannot guarantee removal of nonstationary speech or recovery of masked room decay."
+      ]
+    },
+    {
+      "run_id": "JPXVF_P1_R04_T01_D01_S01_F00_NAT_CU_R07",
+      "recorded_utc": "2026-09-07T17:35:23.022221+00:00",
+      "background_noise_present": true,
+      "label": "Background noise present",
+      "basis": "User reports unavoidable background noise; recorded pre-excitation audio and prior level analysis support this annotation.",
+      "disposition": "RETAIN_FOR_OFFLINE_NOISE_AND_TIMING_REVIEW",
+      "original_status": "RETAKE",
+      "scientific_measurement_qualified": false,
+      "denoising_applied": false,
+      "acoustic_timing_verified": false,
+      "manifest_sha256": "9dcd67245ce594069d900c1775aeef75b828fcb168f689cb5f8c04561cb114a7",
+      "manifest_files_reverified": 181,
+      "audio_relative_to_experiments": "JPXVF_P1_R04_T01_D01_S01_F00_NAT_CU_R07/02_raw/pass_01_amplified/microphones_4ch.wav",
+      "audio_sha256": "123b3ce501f92498d3adb3b7a69f126195fc9b3e2c9d5c20c479ff97463f24d3",
+      "sample_rate_hz": 16000,
+      "channels": [
+        "MIC0",
+        "MIC1",
+        "MIC2",
+        "MIC3"
+      ],
+      "noise_reference_windows": [
+        {
+          "name": "pre_excitation_background",
+          "start_sample_inclusive": 4000,
+          "end_sample_exclusive": 16000,
+          "start_s": 0.25,
+          "end_s": 1.0,
+          "rms_dbfs_per_mic": [
+            -59.50958558603834,
+            -56.994416984084395,
+            -57.87680119867929,
+            -59.717409029266115
+          ],
+          "qualification": "Conservative initial background window, before the earliest start-marker search region. Inspect for transient noise before estimating a noise spectrum."
+        },
+        {
+          "name": "late_post_excitation_candidate",
+          "start_sample_inclusive": 338647,
+          "end_sample_exclusive": 350647,
+          "start_s": 21.1654375,
+          "end_s": 21.9154375,
+          "rms_dbfs_per_mic": [
+            -59.43599838067807,
+            -56.88186822627841,
+            -57.76473360693266,
+            -59.61042661781764
+          ],
+          "qualification": "Candidate only: verify final-marker and room decay have reached the background floor. Do not automatically treat the sweep decay or marker ringing as noise."
+        }
+      ],
+      "failed_original_marker_gates": [
+        "all_markers_meet_correlation_thresholds",
+        "start_candidate_is_distinct",
+        "end_pair_is_distinct",
+        "end_repeat_interval_within_tolerance",
+        "start_to_end_interval_within_tolerance"
+      ],
+      "later_processing": [
+        "Verify source hashes and resolve acoustic sweep timing before RIR extraction.",
+        "Use background-only audio to estimate per-microphone noise spectra, not as a waveform to subtract.",
+        "Evaluate time-varying noise and reject contaminated reference windows; do not assume pre/post noise is stationary.",
+        "Preserve genuine room decay and inter-microphone timing and level relationships.",
+        "Keep original audio and unprocessed RIR. Store any denoised RIR separately with parameters and before/after quality checks.",
+        "Background-only segments cannot guarantee removal of nonstationary speech or recovery of masked room decay."
+      ]
+    },
+    {
+      "run_id": "JPXVF_P1_R04_T01_D01_S01_F00_NAT_CU_R06",
+      "recorded_utc": "2026-09-07T17:34:03.130777+00:00",
+      "background_noise_present": true,
+      "label": "Background noise present",
+      "basis": "User reports unavoidable background noise; recorded pre-excitation audio and prior level analysis support this annotation.",
+      "disposition": "RETAIN_FOR_OFFLINE_NOISE_AND_TIMING_REVIEW",
+      "original_status": "RETAKE",
+      "scientific_measurement_qualified": false,
+      "denoising_applied": false,
+      "acoustic_timing_verified": false,
+      "manifest_sha256": "9425e1fdc1007f1a900f1890485cab4e144481020198902a84913f3680e731a9",
+      "manifest_files_reverified": 181,
+      "audio_relative_to_experiments": "JPXVF_P1_R04_T01_D01_S01_F00_NAT_CU_R06/02_raw/pass_01_amplified/microphones_4ch.wav",
+      "audio_sha256": "c3495a44a7e2c8442542096cb647ecb67bb711095f90e6f3ab666434972f6cf5",
+      "sample_rate_hz": 16000,
+      "channels": [
+        "MIC0",
+        "MIC1",
+        "MIC2",
+        "MIC3"
+      ],
+      "noise_reference_windows": [
+        {
+          "name": "pre_excitation_background",
+          "start_sample_inclusive": 4000,
+          "end_sample_exclusive": 16000,
+          "start_s": 0.25,
+          "end_s": 1.0,
+          "rms_dbfs_per_mic": [
+            -59.35791251518329,
+            -56.77482140206581,
+            -57.65681459389847,
+            -59.44955802923975
+          ],
+          "qualification": "Conservative initial background window, before the earliest start-marker search region. Inspect for transient noise before estimating a noise spectrum."
+        },
+        {
+          "name": "late_post_excitation_candidate",
+          "start_sample_inclusive": 338647,
+          "end_sample_exclusive": 350647,
+          "start_s": 21.1654375,
+          "end_s": 21.9154375,
+          "rms_dbfs_per_mic": [
+            -58.898428954366594,
+            -56.419288461539765,
+            -57.35550256767172,
+            -59.201018579510425
+          ],
+          "qualification": "Candidate only: verify final-marker and room decay have reached the background floor. Do not automatically treat the sweep decay or marker ringing as noise."
+        }
+      ],
+      "failed_original_marker_gates": [
+        "all_markers_meet_correlation_thresholds",
+        "start_candidate_is_distinct",
+        "end_pair_is_distinct"
+      ],
+      "later_processing": [
+        "Verify source hashes and resolve acoustic sweep timing before RIR extraction.",
+        "Use background-only audio to estimate per-microphone noise spectra, not as a waveform to subtract.",
+        "Evaluate time-varying noise and reject contaminated reference windows; do not assume pre/post noise is stationary.",
+        "Preserve genuine room decay and inter-microphone timing and level relationships.",
+        "Keep original audio and unprocessed RIR. Store any denoised RIR separately with parameters and before/after quality checks.",
+        "Background-only segments cannot guarantee removal of nonstationary speech or recovery of masked room decay."
+      ]
+    },
+    {
+      "run_id": "JPXVF_P1_R04_T01_D01_S01_UPR_NAT_CU_R05",
+      "recorded_utc": "2026-09-07T17:33:16.329809+00:00",
+      "background_noise_present": true,
+      "label": "Background noise present",
+      "basis": "User reports unavoidable background noise; recorded pre-excitation audio and prior level analysis support this annotation.",
+      "disposition": "RETAIN_FOR_OFFLINE_NOISE_AND_TIMING_REVIEW",
+      "original_status": "RETAKE",
+      "scientific_measurement_qualified": false,
+      "denoising_applied": false,
+      "acoustic_timing_verified": false,
+      "manifest_sha256": "40446c06e5190df9cbd32f1dc96122024d3db067c8785d967cf22321fe3671ff",
+      "manifest_files_reverified": 181,
+      "audio_relative_to_experiments": "JPXVF_P1_R04_T01_D01_S01_UPR_NAT_CU_R05/02_raw/pass_01_amplified/microphones_4ch.wav",
+      "audio_sha256": "f8f8b2debd92702093af18e74582e452a27640133e8ed589adb15d9ed77ebecd",
+      "sample_rate_hz": 16000,
+      "channels": [
+        "MIC0",
+        "MIC1",
+        "MIC2",
+        "MIC3"
+      ],
+      "noise_reference_windows": [
+        {
+          "name": "pre_excitation_background",
+          "start_sample_inclusive": 4000,
+          "end_sample_exclusive": 16000,
+          "start_s": 0.25,
+          "end_s": 1.0,
+          "rms_dbfs_per_mic": [
+            -59.288905051496755,
+            -56.783989889442,
+            -57.72527902792403,
+            -59.59748138363857
+          ],
+          "qualification": "Conservative initial background window, before the earliest start-marker search region. Inspect for transient noise before estimating a noise spectrum."
+        },
+        {
+          "name": "late_post_excitation_candidate",
+          "start_sample_inclusive": 338647,
+          "end_sample_exclusive": 350647,
+          "start_s": 21.1654375,
+          "end_s": 21.9154375,
+          "rms_dbfs_per_mic": [
+            -59.87094624971845,
+            -57.346115983339054,
+            -58.24545757243232,
+            -60.10228089148464
+          ],
+          "qualification": "Candidate only: verify final-marker and room decay have reached the background floor. Do not automatically treat the sweep decay or marker ringing as noise."
+        }
+      ],
+      "failed_original_marker_gates": [
+        "all_markers_meet_correlation_thresholds",
+        "start_candidate_is_distinct",
+        "end_pair_is_distinct",
+        "end_repeat_interval_within_tolerance",
+        "start_to_end_interval_within_tolerance"
+      ],
+      "later_processing": [
+        "Verify source hashes and resolve acoustic sweep timing before RIR extraction.",
+        "Use background-only audio to estimate per-microphone noise spectra, not as a waveform to subtract.",
+        "Evaluate time-varying noise and reject contaminated reference windows; do not assume pre/post noise is stationary.",
+        "Preserve genuine room decay and inter-microphone timing and level relationships.",
+        "Keep original audio and unprocessed RIR. Store any denoised RIR separately with parameters and before/after quality checks.",
+        "Background-only segments cannot guarantee removal of nonstationary speech or recovery of masked room decay."
+      ]
+    },
+    {
+      "run_id": "JPXVF_P1_R04_T01_D01_S01_UPR_NAT_CU_R04",
+      "recorded_utc": "2026-09-07T17:31:02.745204+00:00",
+      "background_noise_present": true,
+      "label": "Background noise present",
+      "basis": "User reports unavoidable background noise; recorded pre-excitation audio and prior level analysis support this annotation.",
+      "disposition": "RETAIN_FOR_OFFLINE_NOISE_AND_TIMING_REVIEW",
+      "original_status": "RETAKE",
+      "scientific_measurement_qualified": false,
+      "denoising_applied": false,
+      "acoustic_timing_verified": false,
+      "manifest_sha256": "4743c191c6ded07186f7a38dd1ae1c61fb478adcd96e872d6d1a2c661fef8f68",
+      "manifest_files_reverified": 181,
+      "audio_relative_to_experiments": "JPXVF_P1_R04_T01_D01_S01_UPR_NAT_CU_R04/02_raw/pass_01_amplified/microphones_4ch.wav",
+      "audio_sha256": "a3ee4ff8653db99cbae14ec5ac2207fdd7c31ca3dc412f0e69dee2a3d87a63bd",
+      "sample_rate_hz": 16000,
+      "channels": [
+        "MIC0",
+        "MIC1",
+        "MIC2",
+        "MIC3"
+      ],
+      "noise_reference_windows": [
+        {
+          "name": "pre_excitation_background",
+          "start_sample_inclusive": 4000,
+          "end_sample_exclusive": 16000,
+          "start_s": 0.25,
+          "end_s": 1.0,
+          "rms_dbfs_per_mic": [
+            -60.479294277040125,
+            -57.87345574722734,
+            -58.632573627298044,
+            -60.37676279655521
+          ],
+          "qualification": "Conservative initial background window, before the earliest start-marker search region. Inspect for transient noise before estimating a noise spectrum."
+        },
+        {
+          "name": "late_post_excitation_candidate",
+          "start_sample_inclusive": 338647,
+          "end_sample_exclusive": 350647,
+          "start_s": 21.1654375,
+          "end_s": 21.9154375,
+          "rms_dbfs_per_mic": [
+            -60.71089037232163,
+            -58.111143003572295,
+            -58.9630563071797,
+            -60.7084693510356
+          ],
+          "qualification": "Candidate only: verify final-marker and room decay have reached the background floor. Do not automatically treat the sweep decay or marker ringing as noise."
+        }
+      ],
+      "failed_original_marker_gates": [
+        "all_markers_meet_correlation_thresholds",
+        "end_pair_is_distinct"
+      ],
+      "later_processing": [
+        "Verify source hashes and resolve acoustic sweep timing before RIR extraction.",
+        "Use background-only audio to estimate per-microphone noise spectra, not as a waveform to subtract.",
+        "Evaluate time-varying noise and reject contaminated reference windows; do not assume pre/post noise is stationary.",
+        "Preserve genuine room decay and inter-microphone timing and level relationships.",
+        "Keep original audio and unprocessed RIR. Store any denoised RIR separately with parameters and before/after quality checks.",
+        "Background-only segments cannot guarantee removal of nonstationary speech or recovery of masked room decay."
+      ]
+    }
+  ]
+}

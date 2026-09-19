@@ -1,0 +1,148 @@
+{
+  "created_utc": "2026-09-19T10:35:34.027220+00:00",
+  "files": [
+    {
+      "file": "PROTO1_CHATGPT_HANDOFF_20260919T012911Z.zip",
+      "sha256": "e74d46350435429d23e426102e12807ba71314b20d6f77b698a23a4ad1dc6f90",
+      "bytes": 308566,
+      "source_path": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\XVF 3800 Testing\\XVF Integration Real World RIRs\\simulation\\handoffs\\PROTO1_CHATGPT_HANDOFF_20260919T012911Z.zip",
+      "source_sha256": "e74d46350435429d23e426102e12807ba71314b20d6f77b698a23a4ad1dc6f90",
+      "kind": "ORIGINAL_UNCHANGED",
+      "excluded_member_count": 0
+    },
+    {
+      "file": "S0_CHATGPT_HANDOFF_20260908T181703Z_TEXT_ONLY.zip",
+      "sha256": "0d9c6768170cfd37f61dfe8abe07ae66416c703985d7f13cd6409d328b8edfd4",
+      "bytes": 430661,
+      "source_path": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\XVF 3800 Testing\\XVF Integration Real World RIRs\\simulation\\handoffs\\S0_CHATGPT_HANDOFF_20260908T181703Z.zip",
+      "source_sha256": "4d4131f35a7817404cbb28db9cb3e9c2d01d3697e77d2e9e6118a4e29b1b8312",
+      "kind": "TEXT_ONLY",
+      "excluded_member_count": 22
+    },
+    {
+      "file": "S1_CHATGPT_HANDOFF_20260908T185148Z_TEXT_ONLY.zip",
+      "sha256": "f68f2a683d147febd93515a704bc10d79ee55ea8138c57e5de7a10f93fd10123",
+      "bytes": 7081843,
+      "source_path": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\XVF 3800 Testing\\XVF Integration Real World RIRs\\simulation\\handoffs\\S1_CHATGPT_HANDOFF_20260908T185148Z.zip",
+      "source_sha256": "3d3fe87431a48377ad631bf5c4b94d93c69d5ee9ecbd65da21d77065ad88aad2",
+      "kind": "TEXT_ONLY",
+      "excluded_member_count": 12
+    },
+    {
+      "file": "S2_ALL_RIRS_CHATGPT_HANDOFF_20260908T203309Z_TEXT_ONLY.zip",
+      "sha256": "636936b7825d89599e7f503e603dbd06a6e6a4f5cb19c3d91735097601e42092",
+      "bytes": 2170842,
+      "source_path": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\XVF 3800 Testing\\XVF Integration Real World RIRs\\simulation\\handoffs\\S2_ALL_RIRS_CHATGPT_HANDOFF_20260908T203309Z.zip",
+      "source_sha256": "ba4dbc51ac0ffe4ce542fb97e79f263eb9fc62d6547596cd9522a085901ed06a",
+      "kind": "TEXT_ONLY",
+      "excluded_member_count": 121
+    },
+    {
+      "file": "S3_CHATGPT_HANDOFF_20260908T214914Z.zip",
+      "sha256": "801911a357ca6619d56a5d304deb77528034657fc05e6ef345042acfd1dac900",
+      "bytes": 850868,
+      "source_path": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\XVF 3800 Testing\\XVF Integration Real World RIRs\\simulation\\handoffs\\S3_CHATGPT_HANDOFF_20260908T214914Z.zip",
+      "source_sha256": "801911a357ca6619d56a5d304deb77528034657fc05e6ef345042acfd1dac900",
+      "kind": "ORIGINAL_UNCHANGED",
+      "excluded_member_count": 0
+    },
+    {
+      "file": "S3_CHATGPT_HANDOFF_20260908T214914Z_PREFLIGHT.zip",
+      "sha256": "c61e3764593945aa362b72ba9902936b533a211294a838bc84472e3c7225ef8a",
+      "bytes": 22977,
+      "source_path": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\XVF 3800 Testing\\XVF Integration Real World RIRs\\simulation\\handoffs\\S3_CHATGPT_HANDOFF_20260908T214914Z_PREFLIGHT.zip",
+      "source_sha256": "c61e3764593945aa362b72ba9902936b533a211294a838bc84472e3c7225ef8a",
+      "kind": "ORIGINAL_UNCHANGED",
+      "excluded_member_count": 0
+    },
+    {
+      "file": "S4_5_CHATGPT_HANDOFF_20260909T031300Z.zip",
+      "sha256": "b906785369b3d00f54bf9ae166e3dd8c4db6255f2cfab08b2da679a37c8a4dc3",
+      "bytes": 537812,
+      "source_path": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\XVF 3800 Testing\\XVF Integration Real World RIRs\\simulation\\handoffs\\S4_5_CHATGPT_HANDOFF_20260909T031300Z.zip",
+      "source_sha256": "b906785369b3d00f54bf9ae166e3dd8c4db6255f2cfab08b2da679a37c8a4dc3",
+      "kind": "ORIGINAL_UNCHANGED",
+      "excluded_member_count": 0
+    },
+    {
+      "file": "S4_CHATGPT_HANDOFF_20260909T002140Z.zip",
+      "sha256": "3897cf30dc88ecb6e35cd3b20e4a9c869e8cf8f5ddeb20ef4368d026d9981a1c",
+      "bytes": 886333,
+      "source_path": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\XVF 3800 Testing\\XVF Integration Real World RIRs\\simulation\\handoffs\\S4_CHATGPT_HANDOFF_20260909T002140Z.zip",
+      "source_sha256": "3897cf30dc88ecb6e35cd3b20e4a9c869e8cf8f5ddeb20ef4368d026d9981a1c",
+      "kind": "ORIGINAL_UNCHANGED",
+      "excluded_member_count": 0
+    },
+    {
+      "file": "S5_CHATGPT_HANDOFF_20260909T130308Z.zip",
+      "sha256": "2b3412d7ba08daf23c914a71761145e7d41aee471ac523b9f39d44dc0bea0c43",
+      "bytes": 2066674,
+      "source_path": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\XVF 3800 Testing\\XVF Integration Real World RIRs\\simulation\\handoffs\\S5_CHATGPT_HANDOFF_20260909T130308Z.zip",
+      "source_sha256": "2b3412d7ba08daf23c914a71761145e7d41aee471ac523b9f39d44dc0bea0c43",
+      "kind": "ORIGINAL_UNCHANGED",
+      "excluded_member_count": 0
+    },
+    {
+      "file": "S6A_JOINT_CHATGPT_HANDOFF_20260909T202250Z.zip",
+      "sha256": "2df6f426a81d29fbb4c5a5392484b78494c04a5e30988ab1913291ef82b30646",
+      "bytes": 2811329,
+      "source_path": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\XVF 3800 Testing\\XVF Integration Real World RIRs\\simulation\\handoffs\\S6A_JOINT_CHATGPT_HANDOFF_20260909T202250Z.zip",
+      "source_sha256": "2df6f426a81d29fbb4c5a5392484b78494c04a5e30988ab1913291ef82b30646",
+      "kind": "ORIGINAL_UNCHANGED",
+      "excluded_member_count": 0
+    },
+    {
+      "file": "S6B_JOINT_CHATGPT_HANDOFF_20260909T230840Z.zip",
+      "sha256": "2a53fe2b32224cc6a4af482b82f429a625c977d0ffc15ac22a748537139e156b",
+      "bytes": 1667178,
+      "source_path": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\XVF 3800 Testing\\XVF Integration Real World RIRs\\simulation\\handoffs\\S6B_JOINT_CHATGPT_HANDOFF_20260909T230840Z.zip",
+      "source_sha256": "2a53fe2b32224cc6a4af482b82f429a625c977d0ffc15ac22a748537139e156b",
+      "kind": "ORIGINAL_UNCHANGED",
+      "excluded_member_count": 0
+    },
+    {
+      "file": "S6C_JOINT_CHATGPT_HANDOFF_20260910T123540Z.zip",
+      "sha256": "48103e02f9deb2a78c6ad38a5f4f31fc77abe47e94a84979d79eb24b14b2d049",
+      "bytes": 20821490,
+      "source_path": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\XVF 3800 Testing\\XVF Integration Real World RIRs\\simulation\\handoffs\\S6C_JOINT_CHATGPT_HANDOFF_20260910T123540Z.zip",
+      "source_sha256": "48103e02f9deb2a78c6ad38a5f4f31fc77abe47e94a84979d79eb24b14b2d049",
+      "kind": "ORIGINAL_UNCHANGED",
+      "excluded_member_count": 0
+    },
+    {
+      "file": "S6D_JOINT_CHATGPT_HANDOFF_20260913T195357Z.zip",
+      "sha256": "ae51182f9fa12e54c762e12f30218dbc6f83cb9fc8893f71b69715fc2ae5963f",
+      "bytes": 487458,
+      "source_path": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\XVF 3800 Testing\\XVF Integration Real World RIRs\\simulation\\handoffs\\S6D_JOINT_CHATGPT_HANDOFF_20260913T195357Z.zip",
+      "source_sha256": "ae51182f9fa12e54c762e12f30218dbc6f83cb9fc8893f71b69715fc2ae5963f",
+      "kind": "ORIGINAL_UNCHANGED",
+      "excluded_member_count": 0
+    },
+    {
+      "file": "S6D_JOINT_CHATGPT_HANDOFF_20260913T195357Z_UPDATED_20260917.zip",
+      "sha256": "1802ca66fcb45e668ff2726864c51d76b93eadd846a71661b642a60f470f6196",
+      "bytes": 930433,
+      "source_path": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\XVF 3800 Testing\\XVF Integration Real World RIRs\\simulation\\handoffs\\S6D_JOINT_CHATGPT_HANDOFF_20260913T195357Z_UPDATED_20260917.zip",
+      "source_sha256": "1802ca66fcb45e668ff2726864c51d76b93eadd846a71661b642a60f470f6196",
+      "kind": "ORIGINAL_UNCHANGED",
+      "excluded_member_count": 0
+    },
+    {
+      "file": "S7_CHATGPT_HANDOFF_20260917T141700Z.zip",
+      "sha256": "fc0258f71542536aa62cda578d7214ea01a7847f54f39f5edf828446aa8605d1",
+      "bytes": 822098,
+      "source_path": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\XVF 3800 Testing\\XVF Integration Real World RIRs\\simulation\\handoffs\\S7_CHATGPT_HANDOFF_20260917T141700Z.zip",
+      "source_sha256": "fc0258f71542536aa62cda578d7214ea01a7847f54f39f5edf828446aa8605d1",
+      "kind": "ORIGINAL_UNCHANGED",
+      "excluded_member_count": 0
+    },
+    {
+      "file": "just-peachy-proto1-0.1.2.zip",
+      "sha256": "a06d167de796277138c2957c35bcdc47b9e5829e161f967949534b868649ec91",
+      "bytes": 410505,
+      "source_path": "G:\\Just_Peachy_PROTO1\\releases\\just-peachy-proto1-0.1.2.zip",
+      "kind": "SOURCE_RELEASE_NO_MODELS_OR_PEOPLE"
+    }
+  ],
+  "scope": "Source, instructions and compact evidence; external recordings/models/voice profiles/environments are not Git backups."
+}

@@ -1,0 +1,23 @@
+usage: App.py [-h] --config CONFIG
+              [--mode {caption_only,open_conversation,open_with_names,selected_emphasis}]
+              [--wav WAV] [--output OUTPUT] [--selected [SELECTED ...]]
+              [--allow-caption-fallback] [--language LANGUAGE]
+              [--device DEVICE]
+              {validate,profiles,gui-check,file,gui}
+
+Opt-in saved-file desktop prototype. See README.md. No live input or audio
+playback.
+
+positional arguments:
+  {validate,profiles,gui-check,file,gui}
+
+options:
+  -h, --help            show this help message and exit
+  --config CONFIG
+  --mode {caption_only,open_conversation,open_with_names,selected_emphasis}
+  --wav WAV
+  --output OUTPUT
+  --selected [SELECTED ...]
+  --allow-caption-fallback
+  --language LANGUAGE
+  --device DEVICE

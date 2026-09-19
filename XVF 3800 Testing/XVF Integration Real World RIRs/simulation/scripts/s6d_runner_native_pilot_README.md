@@ -1,0 +1,21 @@
+# Native pilot in-process protocol wrapper
+
+Purpose: run exactly one approved S6D native pilot job through a frozen `s6d_application_native.run_one` in the same process and bridge actual progress/completion/STOP semantics to the code-only supervisor. It creates no subprocess, device stream, automation or model-review loop of its own. Native model inference starts only when the root launches an explicitly approved production queue; this wrapper has been exercised only with model-free fixtures at this stage.
+
+Inputs: --helper absolute frozen helper path and --helper-sha256; --manifest exact native pilot manifest and --manifest-sha256; --native-job-id selecting exactly one declared job. The manifest must bind the same helper hash and frozen application files and use schema s6d-native-pilot.v1. The frozen helper must expose run_one(manifest_path,job_id,checkpoint=None). The application agent owns that helper and its stop/drain implementation. The wrapper refuses an older helper without the hook before model execution.
+
+The parent supervisor provides S6D_RUN_ID, S6D_JOB_ID, S6D_CHILD_RUN_ID and absolute S6D_HEARTBEAT_PATH/S6D_COMPLETION_PATH/S6D_STOP_REQUEST_PATH. Those paths and the selected native output must be fresh. The native job may have a separate native_job_id; exact mapping is frozen in argv and receipts. Existing native application inputs/models/galleries remain governed by the helper manifest. All8 model asset hashes are checked by the frozen native models.py constructors before execution (SpeakerModels and SherpaStream); the wrapper records declared assets and the validation location, and neither wrapper nor15second supervisor repeats multi-GiB asset hashes. Small code files are verified before calling the helper.
+
+A lightweight protocol thread publishes every5seconds and watches STOP_REQUEST at0.1second cadence. The native helper invokes checkpoint with actual engine/telemetry/job/output before/after start_file and each consumer iteration. Progress_count increments only on actual native stage/cursor/completed-work changes, not elapsed time or periodic heartbeat refresh. A matching run/job/child/PID/creation STOP request calls engine.stop through the checkpoint and raises NativeStopRequested so the native result cannot be accepted as COMPLETE. The parent may use the separately approved bounded offline owner-termination policy if native initialization blocks before reaching a checkpoint. No second model process is created by this wrapper.
+
+Outputs: protocol heartbeat and, only on proven native semantic completion, the declared completion JSON. Success requires matching RESULT job/manifest/helper/PID creation, statusCOMPLETE, no failure/completion/observer errors, native_tested, engineCOMPLETED, closed resource observer, drained event consumer and every present S6D worker empty/accepted=completed/closed/not-alive/error-free. Missing callback calls or an unclosed bridge observer also fail. On failure the wrapper writes WRAPPER_FAILURE.json beside the completion path and exits2; it never writes a successful completion file. The native helper retains its RESULT/resources/events under its declared output. These predicates close one native pilot cell, not the broader S6D phase or CM5 qualification.
+
+Invoke only through the reviewed approved supervisor queue. Its literal argv should be:
+
+```text
+ABSOLUTE_NATIVE_PYTHON, ABSOLUTE_s6d_runner_native_pilot_v1.py, --helper, FROZEN_HELPER_PATH, --helper-sha256, ACTUAL_HELPER_SHA256, --manifest, FROZEN_MANIFEST_PATH, --manifest-sha256, ACTUAL_MANIFEST_SHA256, --native-job-id, EXACT_DECLARED_JOB_ID
+```
+
+The comma-separated display above describes an argv array, not a shell command. Freeze this wrapper, its small shared supervisor module and the native helper as source_bindings. Bind the manifest and its scientific inputs under the approved job. Use supervisor --validate-only first; actual launch waits for root review and queue approval.
+
+PowerShell and Anaconda/Command Prompt runnable fixture commands are in s6d_runner_native_pilot_fixtures_README.md. For production PowerShell/Anaconda commands use s6d_runner_README.md and the exact approved queue—never manually invent protocol identities to turn a held pilot into a run. No production queue or approval is created by this wrapper helper.

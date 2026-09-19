@@ -1,0 +1,5 @@
+# Preserve byte-bound source/research receipts across Windows and Linux checkouts.
+prototype/** -text
+"XVF 3800 Testing/XVF Integration Real World RIRs/**" -text
+"XVF 3800 Testing/Acoustic Measurments/**" -text
+project_handoffs/*.zip binary

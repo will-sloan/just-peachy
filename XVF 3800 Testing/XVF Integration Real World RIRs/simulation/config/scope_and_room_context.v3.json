@@ -1,0 +1,651 @@
+{
+  "schema_version": "jp_active_user_context_v3",
+  "status": "ACTIVE_USER_CONTEXT_NOT_MEASURED_GEOMETRY",
+  "authority": "current user message, 2026-09-08",
+  "source_facing": {
+    "reported_all_sources_faced_tablet": true,
+    "measured_yaw_deg": null,
+    "preserve_legacy_NAT_token": true
+  },
+  "library_alias": {
+    "user_text": "Carlton Library",
+    "possible_archive_room": "Library Conference Room",
+    "possible_recorder_label": "Square Table End",
+    "alias_confirmed": false,
+    "reported_table_shape": "square",
+    "reported_enclosure": "enclosed/sealed room",
+    "measured_room_acoustics": null
+  },
+  "angle_uncertainty": {
+    "reported_text": "approximately ±4–5 degrees or less",
+    "units": "degrees",
+    "conservative_half_width_deg": 5,
+    "authority": "user_clarification",
+    "independently_calibrated": false,
+    "precise_angle_ground_truth_verified": false,
+    "scope": "Manual source-angle labels, including all 121 active candidates. Prior ±5 degree conservative user-estimated half-width is retained.",
+    "not_equivalent_to": [
+      "measured XVF DoA accuracy",
+      "standard deviation",
+      "calibrated confidence interval",
+      "hard algorithm-error bound"
+    ],
+    "native_radians_separate": true,
+    "linear_array_front_rear_ambiguity_retained": true,
+    "do_not_change_entered_angles": true,
+    "supersedes_percent_denominator_question": true,
+    "future_artificial_robustness_test_half_widths_deg": [
+      10,
+      20
+    ]
+  },
+  "device_pose": {
+    "preferred_use": "FLAT",
+    "future_moving_upright_tests": true,
+    "imu_recorded_in_campaign": false
+  },
+  "angle_uncertainty_superseded": {
+    "reported_text": "plus or minus 4% or 5%",
+    "percent_reference_range_deg": null,
+    "approved_tolerance_deg": null,
+    "proposed_sensitivity_deg": [
+      5,
+      10,
+      20
+    ],
+    "do_not_change_entered_angles": true
+  },
+  "provenance": {
+    "clarification": {
+      "path": "C:\\Users\\amiri\\.codex\\attachments\\9d8eac4e-a664-4bfc-bb71-7ccfc872db00\\pasted-text.txt",
+      "sha256": "f821185de3477c82a307d419717fee85f3d53e35eeb64b03c3e275d8d1c701d6",
+      "bytes": 15312,
+      "stat_signature": [
+        15312,
+        1788891305709306600,
+        1788891305709306600
+      ],
+      "verified_utc": "2026-09-08T18:22:59.228313+00:00",
+      "expected_sha256": null,
+      "status": "OBSERVED_HASH"
+    },
+    "base_overlay": {
+      "path": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\XVF 3800 Testing\\XVF Integration Real World RIRs\\Just_Peachy_Post_Measurement_Codex_Pack_V1\\Just_Peachy_Post_Measurement_Codex_Pack_V1\\planning\\user_context_overlay.proposed.json",
+      "sha256": "f5d717217c58969f6ee5348534d9d67b222daad98998faa1c97ed5f37a66939e",
+      "bytes": 1018,
+      "stat_signature": [
+        1018,
+        1788902984000000000,
+        1788890095135195100
+      ],
+      "verified_utc": "2026-09-08T18:22:59.217307+00:00",
+      "expected_sha256": "f5d717217c58969f6ee5348534d9d67b222daad98998faa1c97ed5f37a66939e",
+      "status": "BOUND"
+    }
+  },
+  "revision": "v3",
+  "room_scope_update": {
+    "schema_version": "jp_s1_scope_and_room_context_v1",
+    "revision": "v3",
+    "date": "2026-09-08",
+    "status": "USER_SCOPE_DECISION_AND_QUALITATIVE_CONTEXT_NOT_RIR_QUALIFICATION",
+    "authority": "User message excluding Loeb Caf and describing the retained rooms, after S0 handoff 20260908T181703Z",
+    "base_sources": {
+      "s0_handoff_zip": {
+        "filename": "S0_CHATGPT_HANDOFF_20260908T181703Z.zip",
+        "sha256": "4d4131f35a7817404cbb28db9cb3e9c2d01d3697e77d2e9e6118a4e29b1b8312"
+      },
+      "s0_input_catalog": {
+        "path": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\XVF 3800 Testing\\XVF Integration Real World RIRs\\simulation\\reports\\S0\\20260908T181703Z\\input_catalog.json",
+        "sha256": "4f272903b86d02193b9934439cd77b0e478ce048a6a0c0d451048b3d581dced2"
+      },
+      "s0_user_context_v2": {
+        "path": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\XVF 3800 Testing\\XVF Integration Real World RIRs\\simulation\\reports\\S0\\20260908T181703Z\\user_context_overlay.v2.json",
+        "sha256": "b0e25bc18fc84a08d8f9a5fa7f071bfec51db1c4a3ab26cf68afc053e3b8b711"
+      }
+    },
+    "selection": {
+      "exact_excluded_room_table": "Loeb Caf",
+      "reason": "User excludes this room from the current campaign because it was quite noisy.",
+      "scope": "Current RIR extraction, simulation, training/evaluation inputs and noise-window selection; preserve files for the historical archive only.",
+      "original_audit_candidate_count": 127,
+      "original_audit_excluded_count": 52,
+      "additional_user_scope_excluded_count": 6,
+      "active_candidate_count": 121,
+      "indexed_population_total": 179,
+      "active_room_table_count": 5,
+      "active_geometry_group_count": 51,
+      "active_pose_counts": {
+        "flat_unobstructed": 51,
+        "upright_unobstructed": 50,
+        "flat_obstructed": 20
+      },
+      "retained_room_labels": [
+        "Arise Kitchen Main Table",
+        "Arise 5th floor low table",
+        "Upper Loeb",
+        "Arise Floor 2 Kitchen",
+        "Library Conference Room"
+      ],
+      "active_run_ids": [
+        "JPXVF_P1_R01_T01_D01_S01_F00_NAT_CU_R01",
+        "JPXVF_P1_R01_T01_D01_S01_F00_NAT_CU_R02",
+        "JPXVF_P1_R01_T01_D01_S01_F00_NAT_CU_R03",
+        "JPXVF_P1_R01_T01_D01_S01_F00_NAT_CU_R04",
+        "JPXVF_P1_R01_T01_D01_S01_F00_NAT_CU_R05",
+        "JPXVF_P1_R01_T01_D01_S01_F00_NAT_CU_R06",
+        "JPXVF_P1_R01_T01_D01_S01_F00_NAT_CU_R10",
+        "JPXVF_P1_R01_T01_D01_S01_UPR_NAT_CU_R04",
+        "JPXVF_P1_R01_T01_D01_S01_UPR_NAT_CU_R05",
+        "JPXVF_P1_R01_T01_D01_S01_UPR_NAT_CU_R06",
+        "JPXVF_P1_R01_T01_D01_S01_UPR_NAT_CU_R07",
+        "JPXVF_P1_R01_T01_D01_S01_UPR_NAT_CU_R08",
+        "JPXVF_P1_R01_T01_D01_S01_UPR_NAT_CU_R10",
+        "JPXVF_P1_R01_T01_D01_S01_UPR_NAT_CU_R11",
+        "JPXVF_P1_R01_T01_D01_S02_F00_NAT_CU_R03",
+        "JPXVF_P1_R01_T01_D01_S02_F00_NAT_CU_R04",
+        "JPXVF_P1_R01_T01_D01_S02_F00_NAT_CU_R05",
+        "JPXVF_P1_R01_T01_D01_S02_F00_NAT_CU_R06",
+        "JPXVF_P1_R01_T01_D01_S02_F00_NAT_CU_R07",
+        "JPXVF_P1_R01_T01_D01_S02_UPR_NAT_CU_R01",
+        "JPXVF_P1_R01_T01_D01_S02_UPR_NAT_CU_R02",
+        "JPXVF_P1_R01_T01_D01_S02_UPR_NAT_CU_R03",
+        "JPXVF_P1_R01_T01_D01_S02_UPR_NAT_CU_R04",
+        "JPXVF_P1_R02_T01_D01_S01_F00_NAT_CU_R01",
+        "JPXVF_P1_R02_T01_D01_S01_UPR_NAT_CU_R01",
+        "JPXVF_P1_R02_T01_D01_S02_F00_NAT_CU_R01",
+        "JPXVF_P1_R02_T01_D01_S02_F00_NAT_CU_R02",
+        "JPXVF_P1_R02_T01_D01_S02_F00_NAT_CU_R03",
+        "JPXVF_P1_R02_T01_D01_S02_F00_NAT_CU_R04",
+        "JPXVF_P1_R02_T01_D01_S02_F00_NAT_CU_R05",
+        "JPXVF_P1_R02_T01_D01_S02_F00_NAT_CU_R06",
+        "JPXVF_P1_R02_T01_D01_S02_F00_NAT_CU_R07",
+        "JPXVF_P1_R02_T01_D01_S02_F00_NAT_CU_R09",
+        "JPXVF_P1_R02_T01_D01_S02_F00_NAT_CU_R10",
+        "JPXVF_P1_R02_T01_D01_S02_F00_NAT_CU_R11",
+        "JPXVF_P1_R02_T01_D01_S02_F00_NAT_CU_R12",
+        "JPXVF_P1_R02_T01_D01_S02_F00_NAT_CU_R13",
+        "JPXVF_P1_R02_T01_D01_S02_UPR_NAT_CU_R01",
+        "JPXVF_P1_R02_T01_D01_S02_UPR_NAT_CU_R02",
+        "JPXVF_P1_R02_T01_D01_S02_UPR_NAT_CU_R03",
+        "JPXVF_P1_R02_T01_D01_S02_UPR_NAT_CU_R04",
+        "JPXVF_P1_R02_T01_D01_S02_UPR_NAT_CU_R05",
+        "JPXVF_P1_R02_T01_D01_S02_UPR_NAT_CU_R06",
+        "JPXVF_P1_R02_T01_D01_S02_UPR_NAT_CU_R07",
+        "JPXVF_P1_R02_T01_D01_S02_UPR_NAT_CU_R08",
+        "JPXVF_P1_R02_T01_D01_S02_UPR_NAT_CU_R09",
+        "JPXVF_P1_R02_T01_D01_S02_UPR_NAT_CU_R10",
+        "JPXVF_P1_R02_T01_D01_S02_UPR_NAT_CU_R11",
+        "JPXVF_P1_R02_T01_D01_S02_UPR_NAT_CU_R12",
+        "JPXVF_P1_R03_T01_D01_S01_F00_NAT_CU_R01",
+        "JPXVF_P1_R03_T01_D01_S01_F00_NAT_CU_R03",
+        "JPXVF_P1_R03_T01_D01_S01_F00_NAT_CU_R04",
+        "JPXVF_P1_R03_T01_D01_S01_F00_NAT_CU_R05",
+        "JPXVF_P1_R03_T01_D01_S01_F00_NAT_CU_R06",
+        "JPXVF_P1_R03_T01_D01_S01_F00_NAT_CU_R07",
+        "JPXVF_P1_R03_T01_D01_S01_UPR_NAT_CU_R01",
+        "JPXVF_P1_R03_T01_D01_S01_UPR_NAT_CU_R03",
+        "JPXVF_P1_R03_T01_D01_S01_UPR_NAT_CU_R04",
+        "JPXVF_P1_R03_T01_D01_S01_UPR_NAT_CU_R05",
+        "JPXVF_P1_R03_T01_D01_S01_UPR_NAT_CU_R06",
+        "JPXVF_P1_R03_T01_D01_S01_UPR_NAT_CU_R07",
+        "JPXVF_P1_R05_T01_D01_S01_F00_NAT_C2_R01",
+        "JPXVF_P1_R05_T01_D01_S01_F00_NAT_C2_R02",
+        "JPXVF_P1_R05_T01_D01_S01_F00_NAT_C2_R03",
+        "JPXVF_P1_R05_T01_D01_S01_F00_NAT_C2_R04",
+        "JPXVF_P1_R05_T01_D01_S01_F00_NAT_C2_R05",
+        "JPXVF_P1_R05_T01_D01_S01_F00_NAT_C2_R06",
+        "JPXVF_P1_R05_T01_D01_S01_F00_NAT_C2_R07",
+        "JPXVF_P1_R05_T01_D01_S01_F00_NAT_CU_R01",
+        "JPXVF_P1_R05_T01_D01_S01_F00_NAT_CU_R02",
+        "JPXVF_P1_R05_T01_D01_S01_F00_NAT_CU_R03",
+        "JPXVF_P1_R05_T01_D01_S01_F00_NAT_CU_R04",
+        "JPXVF_P1_R05_T01_D01_S01_F00_NAT_CU_R05",
+        "JPXVF_P1_R05_T01_D01_S01_F00_NAT_CU_R06",
+        "JPXVF_P1_R05_T01_D01_S01_F00_NAT_CU_R07",
+        "JPXVF_P1_R05_T01_D01_S01_UPR_NAT_CU_R01",
+        "JPXVF_P1_R05_T01_D01_S01_UPR_NAT_CU_R02",
+        "JPXVF_P1_R05_T01_D01_S01_UPR_NAT_CU_R03",
+        "JPXVF_P1_R05_T01_D01_S01_UPR_NAT_CU_R04",
+        "JPXVF_P1_R05_T01_D01_S01_UPR_NAT_CU_R05",
+        "JPXVF_P1_R05_T01_D01_S01_UPR_NAT_CU_R06",
+        "JPXVF_P1_R05_T01_D01_S01_UPR_NAT_CU_R07",
+        "JPXVF_P1_R06_T01_D01_S01_F00_NAT_C2_R01",
+        "JPXVF_P1_R06_T01_D01_S01_F00_NAT_C2_R02",
+        "JPXVF_P1_R06_T01_D01_S01_F00_NAT_C2_R03",
+        "JPXVF_P1_R06_T01_D01_S01_F00_NAT_C2_R04",
+        "JPXVF_P1_R06_T01_D01_S01_F00_NAT_C2_R05",
+        "JPXVF_P1_R06_T01_D01_S01_F00_NAT_C2_R06",
+        "JPXVF_P1_R06_T01_D01_S01_F00_NAT_C2_R07",
+        "JPXVF_P1_R06_T01_D01_S01_F00_NAT_C2_R08",
+        "JPXVF_P1_R06_T01_D01_S01_F00_NAT_C2_R09",
+        "JPXVF_P1_R06_T01_D01_S01_F00_NAT_C2_R10",
+        "JPXVF_P1_R06_T01_D01_S01_F00_NAT_C2_R11",
+        "JPXVF_P1_R06_T01_D01_S01_F00_NAT_C2_R12",
+        "JPXVF_P1_R06_T01_D01_S01_F00_NAT_C2_R13",
+        "JPXVF_P1_R06_T01_D01_S01_F00_NAT_CU_R01",
+        "JPXVF_P1_R06_T01_D01_S01_F00_NAT_CU_R02",
+        "JPXVF_P1_R06_T01_D01_S01_F00_NAT_CU_R03",
+        "JPXVF_P1_R06_T01_D01_S01_F00_NAT_CU_R04",
+        "JPXVF_P1_R06_T01_D01_S01_F00_NAT_CU_R05",
+        "JPXVF_P1_R06_T01_D01_S01_F00_NAT_CU_R06",
+        "JPXVF_P1_R06_T01_D01_S01_F00_NAT_CU_R07",
+        "JPXVF_P1_R06_T01_D01_S01_F00_NAT_CU_R08",
+        "JPXVF_P1_R06_T01_D01_S01_F00_NAT_CU_R09",
+        "JPXVF_P1_R06_T01_D01_S01_F00_NAT_CU_R10",
+        "JPXVF_P1_R06_T01_D01_S01_F00_NAT_CU_R11",
+        "JPXVF_P1_R06_T01_D01_S01_F00_NAT_CU_R12",
+        "JPXVF_P1_R06_T01_D01_S01_F00_NAT_CU_R13",
+        "JPXVF_P1_R06_T01_D01_S01_UPR_NAT_CU_R01",
+        "JPXVF_P1_R06_T01_D01_S01_UPR_NAT_CU_R02",
+        "JPXVF_P1_R06_T01_D01_S01_UPR_NAT_CU_R03",
+        "JPXVF_P1_R06_T01_D01_S01_UPR_NAT_CU_R04",
+        "JPXVF_P1_R06_T01_D01_S01_UPR_NAT_CU_R05",
+        "JPXVF_P1_R06_T01_D01_S01_UPR_NAT_CU_R06",
+        "JPXVF_P1_R06_T01_D01_S01_UPR_NAT_CU_R07",
+        "JPXVF_P1_R06_T01_D01_S01_UPR_NAT_CU_R08",
+        "JPXVF_P1_R06_T01_D01_S01_UPR_NAT_CU_R09",
+        "JPXVF_P1_R06_T01_D01_S01_UPR_NAT_CU_R10",
+        "JPXVF_P1_R06_T01_D01_S01_UPR_NAT_CU_R11",
+        "JPXVF_P1_R06_T01_D01_S01_UPR_NAT_CU_R12",
+        "JPXVF_P1_R06_T01_D01_S01_UPR_NAT_CU_R13"
+      ],
+      "additional_scope_exclusions": [
+        {
+          "run_id": "JPXVF_P1_R04_T01_D01_S01_F00_NAT_CU_R01",
+          "recorded_utc": "2026-09-07T17:12:34.785118+00:00",
+          "room_table": "Loeb Caf",
+          "recorder_position": "Center Table",
+          "orientation": "FLAT",
+          "obstructed": false,
+          "source_distance_m_original": 1.68,
+          "source_distance_m_effective": 1.68,
+          "speaker_angle_deg_effective": 40,
+          "canonical_audio": "XVF_MEASUREMENT_WORK/experiments/JPXVF_P1_R04_T01_D01_S01_F00_NAT_CU_R01/02_raw/pass_01_amplified/microphones_4ch.wav",
+          "canonical_audio_sha256": "1ff523e797da78e9c27def0ec320b41b07c4dfab95dbfa7a572bb387b1d41199",
+          "parent_manifest_sha256": "b3d88876af958de4028bc2e139183c298435b758f80c9959787517f94d06a779",
+          "excitation_sha256": "cba5b09d4d3963d508340711210804d2dd80cf62741a60a2544120e60acbf488",
+          "scope_decision": "EXCLUDED_BY_USER_SCOPE",
+          "capture_audit_pass_preserved": true,
+          "reason": "Loeb Caf room excluded by user; not a new capture failure."
+        },
+        {
+          "run_id": "JPXVF_P1_R04_T01_D01_S01_F00_NAT_CU_R02",
+          "recorded_utc": "2026-09-07T17:15:28.930331+00:00",
+          "room_table": "Loeb Caf",
+          "recorder_position": "Center Table",
+          "orientation": "FLAT",
+          "obstructed": false,
+          "source_distance_m_original": 0.8,
+          "source_distance_m_effective": 0.8,
+          "speaker_angle_deg_effective": 0,
+          "canonical_audio": "XVF_MEASUREMENT_WORK/experiments/JPXVF_P1_R04_T01_D01_S01_F00_NAT_CU_R02/02_raw/pass_01_amplified/microphones_4ch.wav",
+          "canonical_audio_sha256": "7b3d2fb06af71ed5b33696a8a39154af82f781fc0ec53951b6aab0d6e6f41fff",
+          "parent_manifest_sha256": "a1c3181358d5bd979599ffc253f8b2d996f5acc2d688ccd8826d01d53ae53aa2",
+          "excitation_sha256": "cba5b09d4d3963d508340711210804d2dd80cf62741a60a2544120e60acbf488",
+          "scope_decision": "EXCLUDED_BY_USER_SCOPE",
+          "capture_audit_pass_preserved": true,
+          "reason": "Loeb Caf room excluded by user; not a new capture failure."
+        },
+        {
+          "run_id": "JPXVF_P1_R04_T01_D01_S01_F00_NAT_CU_R04",
+          "recorded_utc": "2026-09-07T17:25:58.464347+00:00",
+          "room_table": "Loeb Caf",
+          "recorder_position": "Center Table",
+          "orientation": "FLAT",
+          "obstructed": false,
+          "source_distance_m_original": 0.91,
+          "source_distance_m_effective": 0.91,
+          "speaker_angle_deg_effective": 105,
+          "canonical_audio": "XVF_MEASUREMENT_WORK/experiments/JPXVF_P1_R04_T01_D01_S01_F00_NAT_CU_R04/02_raw/pass_01_amplified/microphones_4ch.wav",
+          "canonical_audio_sha256": "63484be2f5c183bfcb870716997106a5535c90f86d3ab3a314adda866b146968",
+          "parent_manifest_sha256": "cde8278a9352f10666df4f53da0e6e76ea3a613eed2ab74d556457b80f899ad1",
+          "excitation_sha256": "cba5b09d4d3963d508340711210804d2dd80cf62741a60a2544120e60acbf488",
+          "scope_decision": "EXCLUDED_BY_USER_SCOPE",
+          "capture_audit_pass_preserved": true,
+          "reason": "Loeb Caf room excluded by user; not a new capture failure."
+        },
+        {
+          "run_id": "JPXVF_P1_R04_T01_D01_S01_F00_NAT_CU_R05",
+          "recorded_utc": "2026-09-07T17:30:13.042883+00:00",
+          "room_table": "Loeb Caf",
+          "recorder_position": "Center Table",
+          "orientation": "FLAT",
+          "obstructed": false,
+          "source_distance_m_original": 2.08,
+          "source_distance_m_effective": 2.08,
+          "speaker_angle_deg_effective": 75,
+          "canonical_audio": "XVF_MEASUREMENT_WORK/experiments/JPXVF_P1_R04_T01_D01_S01_F00_NAT_CU_R05/02_raw/pass_01_amplified/microphones_4ch.wav",
+          "canonical_audio_sha256": "cc7aa0be196158f70328e848f82a3b492e4bce6df3094d88c615c5b33cdaf869",
+          "parent_manifest_sha256": "bb9b0977c20a0dca8944d967e2f97dfdc27abc79ace523044587b6b951ecdb8a",
+          "excitation_sha256": "cba5b09d4d3963d508340711210804d2dd80cf62741a60a2544120e60acbf488",
+          "scope_decision": "EXCLUDED_BY_USER_SCOPE",
+          "capture_audit_pass_preserved": true,
+          "reason": "Loeb Caf room excluded by user; not a new capture failure."
+        },
+        {
+          "run_id": "JPXVF_P1_R04_T01_D01_S01_UPR_NAT_CU_R02",
+          "recorded_utc": "2026-09-07T17:14:47.393478+00:00",
+          "room_table": "Loeb Caf",
+          "recorder_position": "Center Table",
+          "orientation": "UPRIGHT",
+          "obstructed": false,
+          "source_distance_m_original": 0.8,
+          "source_distance_m_effective": 0.8,
+          "speaker_angle_deg_effective": 0,
+          "canonical_audio": "XVF_MEASUREMENT_WORK/experiments/JPXVF_P1_R04_T01_D01_S01_UPR_NAT_CU_R02/02_raw/pass_01_amplified/microphones_4ch.wav",
+          "canonical_audio_sha256": "ecc86a3457e4b7c274e29d45d58702286ce8c17c2796a8e6add8fb084f9f382f",
+          "parent_manifest_sha256": "a7359ad4b54e5829ccb3be1eead93a7241cce4cc07e6a52dde4f2a88542e9031",
+          "excitation_sha256": "cba5b09d4d3963d508340711210804d2dd80cf62741a60a2544120e60acbf488",
+          "scope_decision": "EXCLUDED_BY_USER_SCOPE",
+          "capture_audit_pass_preserved": true,
+          "reason": "Loeb Caf room excluded by user; not a new capture failure."
+        },
+        {
+          "run_id": "JPXVF_P1_R04_T01_D01_S01_UPR_NAT_CU_R03",
+          "recorded_utc": "2026-09-07T17:25:07.530311+00:00",
+          "room_table": "Loeb Caf",
+          "recorder_position": "Center Table",
+          "orientation": "UPRIGHT",
+          "obstructed": false,
+          "source_distance_m_original": 0.91,
+          "source_distance_m_effective": 0.91,
+          "speaker_angle_deg_effective": 105,
+          "canonical_audio": "XVF_MEASUREMENT_WORK/experiments/JPXVF_P1_R04_T01_D01_S01_UPR_NAT_CU_R03/02_raw/pass_01_amplified/microphones_4ch.wav",
+          "canonical_audio_sha256": "9c8d51f8d6ee47577c63e9f3f7db29574e74ce86e4ee6db0f5ccb75c71c56208",
+          "parent_manifest_sha256": "aca407d3e62ed746878be4100fd7d33e192ac7b1958bdd9ef040bbabdade436d",
+          "excitation_sha256": "cba5b09d4d3963d508340711210804d2dd80cf62741a60a2544120e60acbf488",
+          "scope_decision": "EXCLUDED_BY_USER_SCOPE",
+          "capture_audit_pass_preserved": true,
+          "reason": "Loeb Caf room excluded by user; not a new capture failure."
+        }
+      ],
+      "forbidden_actions": [
+        "Delete or rename original recordings.",
+        "Relabel any original REVIEW capture as RETAKE/FAIL.",
+        "Merge the historical 52 exclusions with the six new scope exclusions without preserving both reasons.",
+        "Use a substring Loeb filter that drops Upper Loeb.",
+        "Reintroduce original excluded records or their noise windows."
+      ]
+    },
+    "angle_uncertainty": {
+      "reported_text": "approximately ±4–5 degrees or less",
+      "units": "degrees",
+      "conservative_half_width_deg": 5,
+      "authority": "user_clarification",
+      "independently_calibrated": false,
+      "precise_angle_ground_truth_verified": false,
+      "scope": "Manual source-angle labels, including all 121 active candidates. Prior ±5 degree conservative user-estimated half-width is retained.",
+      "not_equivalent_to": [
+        "measured XVF DoA accuracy",
+        "standard deviation",
+        "calibrated confidence interval",
+        "hard algorithm-error bound"
+      ],
+      "native_radians_separate": true,
+      "linear_array_front_rear_ambiguity_retained": true,
+      "do_not_change_entered_angles": true,
+      "supersedes_percent_denominator_question": true,
+      "future_artificial_robustness_test_half_widths_deg": [
+        10,
+        20
+      ]
+    },
+    "room_context": [
+      {
+        "room_table": "Arise Kitchen Main Table",
+        "description": "Resembles a breakfast countertop or high-seated dining position inside a kitchen. One end opens into space leading to a hallway.",
+        "descriptive_tags": [
+          "kitchen",
+          "breakfast-countertop-like",
+          "high-seating",
+          "open-end-to-hallway"
+        ],
+        "authority": "user_description_2026-09-08",
+        "information_type": "qualitative_operator_context",
+        "active_candidate_count": 23,
+        "geometry_groups": 12,
+        "measured_dimensions_m": null,
+        "measured_seating_height_m": null,
+        "measured_ceiling_height_m": null,
+        "measured_reverberation_time_s": null,
+        "acoustic_classification_verified": false
+      },
+      {
+        "room_table": "Arise 5th floor low table",
+        "description": "A round, low-seating coffee spot or coffee-table setting. One end opens into space leading to a hallway.",
+        "descriptive_tags": [
+          "round-low-table",
+          "coffee-spot-like",
+          "low-seating",
+          "open-end-to-hallway"
+        ],
+        "authority": "user_description_2026-09-08",
+        "information_type": "qualitative_operator_context",
+        "active_candidate_count": 26,
+        "geometry_groups": 13,
+        "measured_dimensions_m": null,
+        "measured_seating_height_m": null,
+        "measured_ceiling_height_m": null,
+        "measured_reverberation_time_s": null,
+        "acoustic_classification_verified": false
+      },
+      {
+        "room_table": "Upper Loeb",
+        "description": "Resembles a slightly high-seated booth for about four people at the side of a large restaurant with very high ceilings. The booth is perpendicular to the wall, with a window on one side and the open restaurant on the other.",
+        "descriptive_tags": [
+          "booth-like",
+          "about-four-people",
+          "slightly-high-seating",
+          "very-high-ceilings",
+          "window-one-side",
+          "open-restaurant-other-side"
+        ],
+        "authority": "user_description_2026-09-08",
+        "information_type": "qualitative_operator_context",
+        "active_candidate_count": 12,
+        "geometry_groups": 6,
+        "measured_dimensions_m": null,
+        "measured_seating_height_m": null,
+        "measured_ceiling_height_m": null,
+        "measured_reverberation_time_s": null,
+        "acoustic_classification_verified": false
+      },
+      {
+        "room_table": "Arise Floor 2 Kitchen",
+        "description": "A rectangular dining table in a kitchen or enclosed room with one wall open. A hallway runs perpendicular to the room, with the hallway and wall arrangement described as T-shaped.",
+        "descriptive_tags": [
+          "rectangular-dining-table",
+          "kitchen-or-enclosed-room",
+          "one-open-wall",
+          "perpendicular-hallway",
+          "T-shaped-arrangement"
+        ],
+        "authority": "user_description_2026-09-08",
+        "information_type": "qualitative_operator_context",
+        "active_candidate_count": 21,
+        "geometry_groups": 7,
+        "measured_dimensions_m": null,
+        "measured_seating_height_m": null,
+        "measured_ceiling_height_m": null,
+        "measured_reverberation_time_s": null,
+        "acoustic_classification_verified": false
+      },
+      {
+        "room_table": "Library Conference Room",
+        "description": "A square table in a sealed/enclosed, conference-room-like setting, with concrete and glass on most surrounding surfaces.",
+        "descriptive_tags": [
+          "square-table",
+          "sealed-enclosed-as-reported",
+          "conference-room-like",
+          "concrete-and-glass-surfaces"
+        ],
+        "authority": "user_description_2026-09-08",
+        "information_type": "qualitative_operator_context",
+        "active_candidate_count": 39,
+        "geometry_groups": 13,
+        "measured_dimensions_m": null,
+        "measured_seating_height_m": null,
+        "measured_ceiling_height_m": null,
+        "measured_reverberation_time_s": null,
+        "acoustic_classification_verified": false
+      }
+    ],
+    "interpretation_limits": [
+      "Retained does not mean noiseless or RIR-qualified.",
+      "Descriptions are not measured XYZ, numeric height, boundary coefficients, RT60, acoustic isolation or a complete room mesh.",
+      "A high ceiling does not by itself establish long reverberation. A sealed room does not establish a dry or anechoic room.",
+      "Current user uses the exact label Library Conference Room; no independent confirmation of the older Carlton Library alias is asserted."
+    ]
+  },
+  "provenance_S1": {
+    "S0_parents": [
+      {
+        "path": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\XVF 3800 Testing\\XVF Integration Real World RIRs\\simulation\\reports\\S0\\20260908T181703Z\\input_catalog.json",
+        "sha256": "4f272903b86d02193b9934439cd77b0e478ce048a6a0c0d451048b3d581dced2",
+        "bytes": 2008084,
+        "stat_signature": [
+          2008084,
+          1788892114801510100,
+          1788892114797575800
+        ],
+        "verified_utc": "2026-09-08T18:33:29.276439+00:00",
+        "expected_sha256": "4f272903b86d02193b9934439cd77b0e478ce048a6a0c0d451048b3d581dced2",
+        "status": "BOUND"
+      },
+      {
+        "path": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\XVF 3800 Testing\\XVF Integration Real World RIRs\\simulation\\reports\\S0\\20260908T181703Z\\resolved_pilot.json",
+        "sha256": "ecffdb9477704f394baf85e8ef8e49984ac90005bd32f25fdbc3f4f7fe1ac844",
+        "bytes": 190122,
+        "stat_signature": [
+          190122,
+          1788892116660702200,
+          1788892116659577200
+        ],
+        "verified_utc": "2026-09-08T18:33:29.277502+00:00",
+        "expected_sha256": "ecffdb9477704f394baf85e8ef8e49984ac90005bd32f25fdbc3f4f7fe1ac844",
+        "status": "BOUND"
+      },
+      {
+        "path": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\XVF 3800 Testing\\XVF Integration Real World RIRs\\simulation\\reports\\S0\\20260908T181703Z\\user_context_overlay.v2.json",
+        "sha256": "b0e25bc18fc84a08d8f9a5fa7f071bfec51db1c4a3ab26cf68afc053e3b8b711",
+        "bytes": 3101,
+        "stat_signature": [
+          3101,
+          1788892102777859900,
+          1788892102777859900
+        ],
+        "verified_utc": "2026-09-08T18:33:29.279595+00:00",
+        "expected_sha256": "b0e25bc18fc84a08d8f9a5fa7f071bfec51db1c4a3ab26cf68afc053e3b8b711",
+        "status": "BOUND"
+      }
+    ],
+    "update_pack": [
+      {
+        "path": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\XVF 3800 Testing\\XVF Integration Real World RIRs\\Just_Peachy_S1_Start_With_Room_Update\\Just_Peachy_S1_Start_Pack\\Codex_S1_RIR_Pilot_With_Room_Update.md",
+        "sha256": "e5f139f53afd0280b2d14e26cf0af9952ecbd4e6e7cd5dde75e45d8e8f232945",
+        "bytes": 16258,
+        "stat_signature": [
+          16258,
+          1788907342000000000,
+          1788893268769016600
+        ],
+        "verified_utc": "2026-09-08T18:58:26.291346+00:00",
+        "expected_sha256": "e5f139f53afd0280b2d14e26cf0af9952ecbd4e6e7cd5dde75e45d8e8f232945",
+        "status": "BOUND"
+      },
+      {
+        "path": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\XVF 3800 Testing\\XVF Integration Real World RIRs\\Just_Peachy_S1_Start_With_Room_Update\\Just_Peachy_S1_Start_Pack\\README_START_HERE.md",
+        "sha256": "5d747c68cf983b710611b0174e65cc98a23ebaf139f561e2d54429ee56233239",
+        "bytes": 1546,
+        "stat_signature": [
+          1546,
+          1788907342000000000,
+          1788893268774328500
+        ],
+        "verified_utc": "2026-09-08T18:58:26.293345+00:00",
+        "expected_sha256": "5d747c68cf983b710611b0174e65cc98a23ebaf139f561e2d54429ee56233239",
+        "status": "BOUND"
+      },
+      {
+        "path": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\XVF 3800 Testing\\XVF Integration Real World RIRs\\Just_Peachy_S1_Start_With_Room_Update\\Just_Peachy_S1_Start_Pack\\ROOM_CONTEXT_AND_SCOPE_UPDATE.md",
+        "sha256": "87bcb4f14377f01bb0b0ddf0faf3ab111d129afb538c0c10ff9124bd938db9b1",
+        "bytes": 4005,
+        "stat_signature": [
+          4005,
+          1788907342000000000,
+          1788893268775915700
+        ],
+        "verified_utc": "2026-09-08T18:58:26.296346+00:00",
+        "expected_sha256": "87bcb4f14377f01bb0b0ddf0faf3ab111d129afb538c0c10ff9124bd938db9b1",
+        "status": "BOUND"
+      },
+      {
+        "path": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\XVF 3800 Testing\\XVF Integration Real World RIRs\\Just_Peachy_S1_Start_With_Room_Update\\Just_Peachy_S1_Start_Pack\\S0_REVIEW_AND_NEXT_STEP.md",
+        "sha256": "a32b07dbeb9dda7cdbeff1d5188f75bb3e171719316bd74a06dd9f02151760a1",
+        "bytes": 3083,
+        "stat_signature": [
+          3083,
+          1788907342000000000,
+          1788893268789095500
+        ],
+        "verified_utc": "2026-09-08T18:58:26.298346+00:00",
+        "expected_sha256": "a32b07dbeb9dda7cdbeff1d5188f75bb3e171719316bd74a06dd9f02151760a1",
+        "status": "BOUND"
+      },
+      {
+        "path": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\XVF 3800 Testing\\XVF Integration Real World RIRs\\Just_Peachy_S1_Start_With_Room_Update\\Just_Peachy_S1_Start_Pack\\S1_pilot_selection.v2.csv",
+        "sha256": "6bc13b0b99db1ece8d4e802e6930638c5e7dc0d49fe4e66ae12176e130d653ac",
+        "bytes": 2030,
+        "stat_signature": [
+          2030,
+          1788907342000000000,
+          1788893268792991500
+        ],
+        "verified_utc": "2026-09-08T18:58:26.300345+00:00",
+        "expected_sha256": "6bc13b0b99db1ece8d4e802e6930638c5e7dc0d49fe4e66ae12176e130d653ac",
+        "status": "BOUND"
+      },
+      {
+        "path": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\XVF 3800 Testing\\XVF Integration Real World RIRs\\Just_Peachy_S1_Start_With_Room_Update\\Just_Peachy_S1_Start_Pack\\S1_pilot_selection.v2.json",
+        "sha256": "cb0c4ff91588776b2475f88051d1c4a90a2e59df9ba51fd511ff2adfe2f1f448",
+        "bytes": 15330,
+        "stat_signature": [
+          15330,
+          1788907342000000000,
+          1788893268794054500
+        ],
+        "verified_utc": "2026-09-08T18:58:26.302346+00:00",
+        "expected_sha256": "cb0c4ff91588776b2475f88051d1c4a90a2e59df9ba51fd511ff2adfe2f1f448",
+        "status": "BOUND"
+      },
+      {
+        "path": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\XVF 3800 Testing\\XVF Integration Real World RIRs\\Just_Peachy_S1_Start_With_Room_Update\\Just_Peachy_S1_Start_Pack\\reference\\S0_REPORT.md",
+        "sha256": "a954565e36778b666b93c328f0b906a1c9908e5c0adb500b472bdf9159771eb0",
+        "bytes": 17816,
+        "stat_signature": [
+          17816,
+          1788907340000000000,
+          1788893268798814500
+        ],
+        "verified_utc": "2026-09-08T18:58:26.304348+00:00",
+        "expected_sha256": "a954565e36778b666b93c328f0b906a1c9908e5c0adb500b472bdf9159771eb0",
+        "status": "BOUND"
+      },
+      {
+        "path": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\XVF 3800 Testing\\XVF Integration Real World RIRs\\Just_Peachy_S1_Start_With_Room_Update\\Just_Peachy_S1_Start_Pack\\scope_and_room_context.v3.json",
+        "sha256": "7dceda199f437d571d5e446b99a47547a0358842746abebb28a1d43185963689",
+        "bytes": 19968,
+        "stat_signature": [
+          19968,
+          1788907342000000000,
+          1788893268800327200
+        ],
+        "verified_utc": "2026-09-08T18:58:26.306354+00:00",
+        "expected_sha256": "7dceda199f437d571d5e446b99a47547a0358842746abebb28a1d43185963689",
+        "status": "BOUND"
+      }
+    ],
+    "applied_utc": "2026-09-08T18:58:26.466365+00:00"
+  }
+}

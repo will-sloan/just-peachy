@@ -1,0 +1,136 @@
+{
+  "schema": "proto1-selected-ui-screenshots.v1",
+  "created_utc": "2026-09-19T02:10:10.4557629Z",
+  "selected_count": 6,
+  "images": [
+    {
+      "kind": "NATIVE_FILE",
+      "bytes": 11943,
+      "id": "native_partial",
+      "label": "Native prepared-file captions — actual inference, no microphone",
+      "scope": "First actual partial caption. Saved-file source, no human enrollment.",
+      "path": "G:\\Just_Peachy_PROTO1\\tests\\ui_native_v1\\ui_evidence\\01_native_partial.png",
+      "sha256": "9315706e9a4b651dd6354ffcb6231f400c2e62ae212c68a1356466ce3ee7c530",
+      "client_pixels": [
+        480,
+        800
+      ]
+    },
+    {
+      "kind": "NATIVE_FILE",
+      "bytes": 22387,
+      "id": "native_final",
+      "label": "Native prepared-file final captions — actual inference",
+      "scope": "Actual final caption viewport after source completion; back-to-live viewport may begin within an older paragraph.",
+      "path": "G:\\Just_Peachy_PROTO1\\tests\\ui_native_v1\\ui_evidence\\02_native_final.png",
+      "sha256": "6daf7c97755a2f73a0d62a4622075a2b6a6acd4ea690e490faca8a46d93073f2",
+      "client_pixels": [
+        480,
+        800
+      ]
+    },
+    {
+      "kind": "STUB",
+      "bytes": 32191,
+      "id": "stub_modes",
+      "label": "Mode menu — explicit UI stub",
+      "scope": "Synthetic controller metadata; frontend layout only.",
+      "path": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\prototype\\tests\\evidence\\ui_stub_v1\\03_modes_stub.png",
+      "sha256": "3420628ae4e71b386a6c520d6cc918e3f77d044ef00e489149b52fe10b657022",
+      "client_pixels": [
+        480,
+        800
+      ]
+    },
+    {
+      "kind": "STUB",
+      "bytes": 22685,
+      "id": "stub_keyboard",
+      "label": "Touch name keyboard — explicit UI stub",
+      "scope": "Touch entry layout; no saved real person.",
+      "path": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\prototype\\tests\\evidence\\ui_stub_v1\\04_keyboard_stub.png",
+      "sha256": "5507e71daccf224bc786ef5a4bd03efcf64b71fb49a8adc467507b3557b29df1",
+      "client_pixels": [
+        480,
+        800
+      ]
+    },
+    {
+      "kind": "STUB",
+      "bytes": 31727,
+      "id": "stub_enrollment",
+      "label": "Enrollment progress — synthetic values, no recording",
+      "scope": "Simulated elapsed/usable/level values. Not evidence of a real enrollment.",
+      "path": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\prototype\\tests\\evidence\\ui_stub_v1\\05_enrollment_stub.png",
+      "sha256": "a803f7eeacf9836b23bfd8a474ae417d822992ddbff59396549e3e5262d64553",
+      "client_pixels": [
+        480,
+        800
+      ]
+    },
+    {
+      "kind": "STUB",
+      "bytes": 17928,
+      "id": "stub_large_contrast",
+      "label": "Large captions and high contrast — synthetic transcript",
+      "scope": "Visual readability at 100 percent application zoom. No OS-scale sweep.",
+      "path": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\prototype\\tests\\evidence\\ui_stub_v1\\06_large_contrast_stub.png",
+      "sha256": "561e85ec57387b15a51f7f30d3dc7ce406268cf80f5fc252be2b3a3bc934a199",
+      "client_pixels": [
+        480,
+        800
+      ]
+    }
+  ],
+  "native_result": {
+    "path": "G:\\Just_Peachy_PROTO1\\tests\\ui_native_v1\\NATIVE_UI_RESULT.json",
+    "sha256": "2c83205b001db671d252309e5a6b2a747e5f482a7312c2872d33d5777789e02c"
+  },
+  "stub_result": {
+    "path": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\prototype\\tests\\evidence\\ui_stub_v1\\UI_STUB_EVIDENCE.json",
+    "sha256": "b9e210b56f1202c506e3456c07ce6e680d1e770d38483d88c334a2d9421f6e10"
+  },
+  "display_evidence": {
+    "window_dpi": 96,
+    "measured_native_client_pixels": [
+      480,
+      800
+    ],
+    "physical_touch_and_cm5": "HARDWARE_PENDING",
+    "os_scaling_100_125_150_sweep": "NOT_PERFORMED",
+    "dpi_awareness": 2,
+    "other_os_scaling": "PENDING",
+    "application_comfort_zoom_125_measured_pixels": [
+      600,
+      1000
+    ]
+  },
+  "limitations": [
+    "All images are real screenshots of Tk, but four use synthetic backend values.",
+    "No microphone or real personal enrollment was used.",
+    "Native file screenshots predate final backend changes; subsequent acceptance is separate.",
+    "Selected manifest only; no future long-run acceptance is implied."
+  ],
+  "source_read_bindings": [
+    {
+      "scope": "Current source read for enrollment/user documentation, not a historical screenshot source freeze",
+      "sha256": "a7fd1d768b24d8e47e82ef5ec95dc350e65ff4b9e32f5fc002965562169108eb",
+      "path": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\prototype\\app\\controller.py"
+    },
+    {
+      "scope": "Current source read for enrollment/user documentation, not a historical screenshot source freeze",
+      "sha256": "bd9df4930c69c07177853863c9acf5cbd1335b2a368d7dfbfeb896558843e1af",
+      "path": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\prototype\\app\\people.py"
+    },
+    {
+      "scope": "Current source read for enrollment/user documentation, not a historical screenshot source freeze",
+      "sha256": "fb9eafda0288548ac038f196ec544bb07af4d821b11eb0982185c5e87e11d352",
+      "path": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\prototype\\app\\ui.py"
+    },
+    {
+      "scope": "Current source read for enrollment/user documentation, not a historical screenshot source freeze",
+      "sha256": "7fa29c80c0376202bc3ed6840cf57aa14b3656619596e0727627af335a5e3857",
+      "path": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\prototype\\config\\ui.json"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "indexed_runs": 179,
+  "rooms": {
+    "Arise Kitchen Main Table": 48,
+    "Arise 5th floor low table": 28,
+    "Upper Loeb": 14,
+    "Loeb Caf": 16,
+    "Arise Floor 2 Kitchen": 21,
+    "Library Conference Room": 39,
+    "None": 13
+  },
+  "original_statuses": {
+    "INVESTIGATE": 10,
+    "REVIEW": 141,
+    "RETAKE": 23,
+    "PASS": 5
+  }
+}

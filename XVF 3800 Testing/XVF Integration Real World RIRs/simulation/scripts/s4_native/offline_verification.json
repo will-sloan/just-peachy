@@ -1,0 +1,147 @@
+{
+  "status": "PASS",
+  "created_utc": "2026-09-09T00:33:58.253261+00:00",
+  "no_hardware_opened": true,
+  "python_tests": {
+    "count": 22,
+    "failures": 0,
+    "errors": 0,
+    "output": "test_no_edge_extrapolation (test_s4_telemetry.CallbackTests.test_no_edge_extrapolation) ... ok\ntest_noncontiguous_sample_range_rejected (test_s4_telemetry.CallbackTests.test_noncontiguous_sample_range_rejected) ... ok\ntest_packed_alignment_uses_last_frame_of_triplet (test_s4_telemetry.CallbackTests.test_packed_alignment_uses_last_frame_of_triplet) ... ok\ntest_write_receive_processed_are_separate (test_s4_telemetry.CallbackTests.test_write_receive_processed_are_separate) ... ok\ntest_future_receipt_never_used (test_s4_telemetry.CausalTests.test_future_receipt_never_used) ... ok\ntest_gap_expires_without_a_new_reply (test_s4_telemetry.CausalTests.test_gap_expires_without_a_new_reply) ... ok\ntest_held_value_does_not_imply_stale_or_new_dsp_frame (test_s4_telemetry.CausalTests.test_held_value_does_not_imply_stale_or_new_dsp_frame) ... ok\ntest_invalid_new_reply_masks_old_valid (test_s4_telemetry.CausalTests.test_invalid_new_reply_masks_old_valid) ... ok\ntest_invalid_time_order_and_missing_bounds (test_s4_telemetry.CausalTests.test_invalid_time_order_and_missing_bounds) ... ok\ntest_late_line_delivery_unavailable (test_s4_telemetry.CausalTests.test_late_line_delivery_unavailable) ... ok\ntest_late_transaction_unavailable (test_s4_telemetry.CausalTests.test_late_transaction_unavailable) ... ok\ntest_missing_preserves_audio_text (test_s4_telemetry.CausalTests.test_missing_preserves_audio_text) ... ok\ntest_no_speech_nan_is_null_with_reason_not_zero_or_failure (test_s4_telemetry.CausalTests.test_no_speech_nan_is_null_with_reason_not_zero_or_failure) ... ok\ntest_null_without_native_reason_not_assumed_no_speech (test_s4_telemetry.CausalTests.test_null_without_native_reason_not_assumed_no_speech) ... ok\ntest_out_of_range_and_malformed_values (test_s4_telemetry.CausalTests.test_out_of_range_and_malformed_values) ... ok\ntest_endfire_fold_includes_interior_extremum (test_s4_telemetry.GeometryTests.test_endfire_fold_includes_interior_extremum) ... ok\ntest_error_columns_not_device_accuracy (test_s4_telemetry.GeometryTests.test_error_columns_not_device_accuracy) ... ok\ntest_front_rear_are_ambiguous (test_s4_telemetry.GeometryTests.test_front_rear_are_ambiguous) ... ok\ntest_invalid_observation_has_no_error (test_s4_telemetry.GeometryTests.test_invalid_observation_has_no_error) ... ok\ntest_nominal_orientation (test_s4_telemetry.GeometryTests.test_nominal_orientation) ... ok\ntest_raw_label_and_manual_uncertainty_are_preserved (test_s4_telemetry.GeometryTests.test_raw_label_and_manual_uncertainty_are_preserved) ... ok\ntest_wrapped_manual_interval (test_s4_telemetry.GeometryTests.test_wrapped_manual_interval) ... ok\n\n----------------------------------------------------------------------\nRan 22 tests in 0.001s\n\nOK\n"
+  },
+  "native_tests": {
+    "status": "PASS",
+    "no_usb_initialization": true,
+    "tests": [
+      "official_command_map_contract",
+      "selected_nan_null_reason_and_zero_distinction",
+      "infinity_not_no_speech",
+      "four_energy_values_in_order",
+      "partial_reply_rejected",
+      "retry_reply_rejected"
+    ],
+    "test_count": 6,
+    "inspection": {
+      "process_bits": 32,
+      "device_usb_sha256": "b42ca0ae704ef78be6a9468961b86dc2221a1d399b2d7b4158367dda2900afbf",
+      "command_map_sha256": "79c285d8a99544d5455da9a1cba94e29eb5aaef3f4b4155ad8da8a8415e659ba",
+      "fields": [
+        {
+          "name": "AEC_AZIMUTH_VALUES",
+          "resource": 33,
+          "command": 75,
+          "wire_read_command": 203,
+          "type": 5,
+          "read_write_type": 0,
+          "value_count": 4,
+          "command_map_index": 6
+        },
+        {
+          "name": "AEC_SPENERGY_VALUES",
+          "resource": 33,
+          "command": 80,
+          "wire_read_command": 208,
+          "type": 3,
+          "read_write_type": 0,
+          "value_count": 4,
+          "command_map_index": 11
+        },
+        {
+          "name": "AUDIO_MGR_SELECTED_AZIMUTHS",
+          "resource": 35,
+          "command": 11,
+          "wire_read_command": 139,
+          "type": 5,
+          "read_write_type": 0,
+          "value_count": 2,
+          "command_map_index": 54
+        }
+      ],
+      "usb_identities": [
+        {
+          "vendor_id": 8369,
+          "product_id": 20224,
+          "control_interface": 3
+        },
+        {
+          "vendor_id": 8369,
+          "product_id": 0,
+          "control_interface": 3
+        },
+        {
+          "vendor_id": 8369,
+          "product_id": 20225,
+          "control_interface": 3
+        }
+      ],
+      "stopwatch_frequency": 10000000,
+      "inspection_only_no_device_initialization": true
+    },
+    "selected_nan_fixture": {
+      "values": [
+        null,
+        0
+      ],
+      "finite": [
+        false,
+        true
+      ],
+      "invalid_reasons": [
+        "documented_no_fixed_beam_speech",
+        null
+      ]
+    },
+    "selected_infinity_fixture": {
+      "values": [
+        null,
+        0
+      ],
+      "finite": [
+        false,
+        true
+      ],
+      "invalid_reasons": [
+        "nonfinite_infinity",
+        null
+      ]
+    },
+    "energy_fixture": {
+      "values": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "finite": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "invalid_reasons": [
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  },
+  "native_argv": [
+    "C:\\Windows\\SysWOW64\\WindowsPowerShell\\v1.0\\powershell.exe",
+    "-NoProfile",
+    "-NonInteractive",
+    "-File",
+    "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\XVF 3800 Testing\\XVF Integration Real World RIRs\\simulation\\scripts\\s4_native\\Test-S4-Native-Offline.ps1",
+    "-DllDirectory",
+    "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\XVF 3800 Testing\\XVF Integration Real World RIRs\\tools\\xvf321\\binary\\host_v3.0.0\\win32"
+  ],
+  "native_stderr": "",
+  "source_sha256": {
+    "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\XVF 3800 Testing\\XVF Integration Real World RIRs\\simulation\\scripts\\s4_telemetry.py": "bbfba8689eb3d9c8e5da89ec395d717583eb742ddde032a29495d65ae4475bb6",
+    "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\XVF 3800 Testing\\XVF Integration Real World RIRs\\simulation\\scripts\\s4_geometry.py": "187746712f1177ef73a6dc338601d118393ff48809e68c44ab9479149e08bd61",
+    "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\XVF 3800 Testing\\XVF Integration Real World RIRs\\simulation\\scripts\\test_s4_telemetry.py": "77c2bca51b2125b0bacd81eb0c7247e27b33644d87dc2d7631f3e95f458f0952",
+    "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\XVF 3800 Testing\\XVF Integration Real World RIRs\\simulation\\scripts\\README_S4_TELEMETRY.md": "19d9844e6548703e20b3c75280a7ce4b69f37c5491262e5eefdca7c500ce41f9",
+    "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\XVF 3800 Testing\\XVF Integration Real World RIRs\\simulation\\scripts\\s4_native\\S4QueuedTelemetry.cs": "6b34e58be5d71dc12c7de4aa68c06fcd43a557e6a723a9e73e18fb350c665fb4",
+    "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\XVF 3800 Testing\\XVF Integration Real World RIRs\\simulation\\scripts\\s4_native\\Run-S4-Telemetry.ps1": "4edf6601339677ad97a1124cd144106e1d2405bd5ebe935da13a24f485c11014",
+    "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\XVF 3800 Testing\\XVF Integration Real World RIRs\\simulation\\scripts\\s4_native\\Test-S4-Native-Offline.ps1": "a2d159707bff07e508c63a8bcdbfad9c122b56633e73a6f1c25278c5b80abd82"
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "manifests_checked": 394,
+  "original_hash_entries_checked": 61431,
+  "linked_receipts_resolved": [
+    {
+      "receipt_manifest": "project/XVF_MEASUREMENT_WORK/experiments/CAPABILITIES_20260905T221801_419147Z/linked_take_receipts/PREPARE24_20260905T225832_808411Z/SHA256SUMS.txt",
+      "resolved_original_run": "PREPARE24_20260905T225832_808411Z"
+    },
+    {
+      "receipt_manifest": "project/XVF_MEASUREMENT_WORK/experiments/CAPABILITIES_20260905T221801_419147Z/linked_take_receipts/TAKE_20260905T223303_130671Z_cb7036/SHA256SUMS.txt",
+      "resolved_original_run": "TAKE_20260905T223303_130671Z_cb7036"
+    },
+    {
+      "receipt_manifest": "project/XVF_MEASUREMENT_WORK/experiments/CAPABILITIES_20260905T221801_419147Z/linked_take_receipts/TAKE_20260905T224047_423999Z_f5997b/SHA256SUMS.txt",
+      "resolved_original_run": "TAKE_20260905T224047_423999Z_f5997b"
+    },
+    {
+      "receipt_manifest": "project/XVF_MEASUREMENT_WORK/experiments/CAPABILITIES_20260905T221801_419147Z/linked_take_receipts/TAKE_20260905T224155_488325Z_6eed34/SHA256SUMS.txt",
+      "resolved_original_run": "TAKE_20260905T224155_488325Z_6eed34"
+    },
+    {
+      "receipt_manifest": "project/XVF_MEASUREMENT_WORK/experiments/CAPABILITIES_20260905T221801_419147Z/linked_take_receipts/TAKE_20260905T224242_536556Z_01f622/SHA256SUMS.txt",
+      "resolved_original_run": "TAKE_20260905T224242_536556Z_01f622"
+    },
+    {
+      "receipt_manifest": "project/XVF_MEASUREMENT_WORK/experiments/CAPABILITIES_20260905T221801_419147Z/linked_take_receipts/TAKE_20260905T225235_502465Z_95a5bd/SHA256SUMS.txt",
+      "resolved_original_run": "TAKE_20260905T225235_502465Z_95a5bd"
+    },
+    {
+      "receipt_manifest": "project/XVF_MEASUREMENT_WORK/experiments/CAPABILITIES_20260905T221801_419147Z/linked_take_receipts/TAKE_20260905T225402_071429Z_7d09e3/SHA256SUMS.txt",
+      "resolved_original_run": "TAKE_20260905T225402_071429Z_7d09e3"
+    },
+    {
+      "receipt_manifest": "project/XVF_MEASUREMENT_WORK/experiments/CAPABILITIES_20260905T221801_419147Z/linked_take_receipts/TAKE_20260905T230151_422945Z_75f86c/SHA256SUMS.txt",
+      "resolved_original_run": "TAKE_20260905T230151_422945Z_75f86c"
+    },
+    {
+      "receipt_manifest": "project/XVF_MEASUREMENT_WORK/experiments/CAPABILITIES_20260905T221801_419147Z/linked_take_receipts/TAKE_20260905T230252_188661Z_4a7b88/SHA256SUMS.txt",
+      "resolved_original_run": "TAKE_20260905T230252_188661Z_4a7b88"
+    },
+    {
+      "receipt_manifest": "project/XVF_MEASUREMENT_WORK/experiments/CAPABILITIES_20260905T221801_419147Z/linked_take_receipts/TAKE_20260905T230356_986366Z_0732ec/SHA256SUMS.txt",
+      "resolved_original_run": "TAKE_20260905T230356_986366Z_0732ec"
+    }
+  ],
+  "mismatches": [],
+  "status": "PASS"
+}

@@ -1,0 +1,67 @@
+{
+  "schema": "just-peachy.proto1.hardware-plan.v1",
+  "status": "PLANNING_NOT_DEVICE_DISCOVERY",
+  "compute": {
+    "family": "Raspberry Pi Compute Module 5",
+    "ram_gib": 2,
+    "emmc_gb": 32,
+    "wireless": false,
+    "io_board": "SC1967 CM5IO",
+    "io_extender": "ED-PI400EXT-R; inspect actual routing"
+  },
+  "display": {
+    "width_px": 480,
+    "height_px": 800,
+    "orientation": "portrait",
+    "touch": true,
+    "controller": null,
+    "interface": null,
+    "driver": null,
+    "physical_size_mm": null,
+    "touch_transform": null
+  },
+  "xvf": {
+    "name": "XVF3800",
+    "source": "built-in board microphone array",
+    "initial_host_interface": "USB UA audio/control",
+    "geometry_expected": "linear; verify physical setup and firmware",
+    "device_selector": null,
+    "microphone_gain": null,
+    "system_delay": null,
+    "packed_input": false,
+    "packed_output": false,
+    "sample_rate_hz": null
+  },
+  "buttons": {
+    "enabled": false,
+    "gpio_assignments": null,
+    "active_level": null,
+    "actions": [
+      "up",
+      "down",
+      "left",
+      "right",
+      "select",
+      "back"
+    ]
+  },
+  "imu": {
+    "enabled": false,
+    "model": "BMI270",
+    "board": "SparkFun22398",
+    "bus": null,
+    "address": null,
+    "pins": null,
+    "axes": null,
+    "timestamp_contract": "monotonic source timestamp + receipt"
+  },
+  "camera": {
+    "enabled": false,
+    "model": "Arducam B0182 IMX219 autofocus",
+    "connector": null,
+    "driver": null,
+    "role": "optional on-demand profile photo"
+  },
+  "storage": "Personal people/settings data outside replaceable release; research archive excluded",
+  "authority": "User hardware statements and supplied DK_PRODUCTS_101407663.csv; unknowns not inferred"
+}

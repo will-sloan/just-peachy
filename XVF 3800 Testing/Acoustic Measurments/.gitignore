@@ -1,0 +1,10 @@
+# Preserve packaging/verification source and compact inventory; data stays local.
+/*
+!/.gitignore
+!/*.py
+!/*.md
+!/*.cmd
+!/*.ps1
+!/*.json
+!/*.csv
+__pycache__/

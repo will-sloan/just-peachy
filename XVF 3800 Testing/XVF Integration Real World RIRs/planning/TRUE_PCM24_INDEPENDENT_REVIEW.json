@@ -1,0 +1,94 @@
+{
+  "take": "C:\\Users\\amiri\\OneDrive\\Documents\\ChatGPT\\XVF Measurement\\XVF_MEASUREMENT_WORK\\experiments\\CAPABILITIES_20260905T221801_419147Z\\TRUE_PCM24_DOMAIN_PAIRS",
+  "native_rate": 48000,
+  "native_frames": 576000,
+  "native_bits": 24,
+  "first_complete_group": 4011,
+  "startup_ms": 83.5625,
+  "decoded_frames": 190663,
+  "decoded_duration_s": 11.9164375,
+  "complete_group_marker_errors": 0,
+  "native_manual_equals_saved_decoded": true,
+  "pair_results": [
+    {
+      "lag": 32,
+      "gain": 9.999818258134132,
+      "correlation": 0.9999975705694216,
+      "affine_gain": 10.000028454213714,
+      "affine_offset": 8.986874561562072,
+      "exact_gain_error_range": [
+        0.0,
+        18.0
+      ],
+      "exact_gain_error_mean": 8.986829503241415,
+      "residual_std": 5.7354543783421175,
+      "pair_mic": 0,
+      "compared_frames": 180631
+    },
+    {
+      "lag": 32,
+      "gain": 9.999926218939619,
+      "correlation": 0.999998695369847,
+      "affine_gain": 9.999995640903471,
+      "affine_offset": 8.98711312103744,
+      "exact_gain_error_range": [
+        0.0,
+        18.0
+      ],
+      "exact_gain_error_mean": 8.987117382951984,
+      "residual_std": 5.746760481443493,
+      "pair_mic": 1,
+      "compared_frames": 180631
+    },
+    {
+      "lag": 32,
+      "gain": 9.99989894312767,
+      "correlation": 0.9999983576803957,
+      "affine_gain": 9.999982890337133,
+      "affine_offset": 8.973194445863136,
+      "exact_gain_error_range": [
+        0.0,
+        18.0
+      ],
+      "exact_gain_error_mean": 8.973210578472134,
+      "residual_std": 5.753656030958958,
+      "pair_mic": 2,
+      "compared_frames": 180631
+    }
+  ],
+  "nonzero_low_audio_byte_fraction": [
+    0.9920330635729009,
+    0.9919701252996124,
+    0.9922061438244442,
+    0.9921851644000147,
+    0.992316285802699,
+    0.9924578969175981
+  ],
+  "clipping_counts": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "raw_distinct_levels": [
+    956,
+    1264,
+    1144
+  ],
+  "saved_usb_readback": [
+    24,
+    24
+  ],
+  "callback_flags": [],
+  "callback_errors": [],
+  "callback_frames_sum": 576000,
+  "hashes": {
+    "native.wav": "de88eecdf7242eeafa77de786e92408b676ec9269c0e9a5900aeda69a52feafd",
+    "decoded.wav": "76906b8ad3b207e5bd463715a672b61738584612dab9c16f73f672da6bffd988",
+    "identity.json": "fc5305c7291daaf32fe6063ecfec089ec0fddc071a942754c2cd407490130cb3",
+    "capture.json": "992743f25f09b504e5fd840b0f09c8a22809a6885ee63afbb135a0ae6f62a0b3",
+    "quality.json": "b625d2a720fe5f13bb971f50b33bd98719262bba9400d737f14ee60f9e981f53"
+  }
+}

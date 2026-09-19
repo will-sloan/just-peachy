@@ -3,9 +3,11 @@
 from __future__ import annotations
 
 import json
+import math
 from pathlib import Path
 import queue
 import threading
+import time
 import tkinter as tk
 from tkinter import filedialog, messagebox, ttk
 
@@ -16,10 +18,22 @@ from .speakers import ProfileStore
 
 
 class EdgeSpeechWindow:
-    def __init__(self, root: tk.Tk, config: PipelineConfig) -> None:
+    def __init__(self, root: tk.Tk, config: PipelineConfig, *, engine=None) -> None:
         self.root = root
         self.config = config
-        self.engine = PipelineEngine(config)
+        self.engine = engine or PipelineEngine(config)
+        self.s6d_rows = {}
+        self.s6d_full_view = tk.BooleanVar(value=False)
+        self.s6d_status = tk.StringVar(value="")
+        self._s6d_render_handle = None
+        self._s6d_render_session = None
+        self._s6d_direction_rows = []
+        self._s6d_direction_evaluated = -1.0
+        self._s6d_gui_session_id = None
+        self._s6d_background_jobs = []
+        self._s6d_close_requested = False
+        self._s6d_stop_thread = None
+        self._s6d_stop_after_background = False
         self.devices: list[dict[str, object]] = []
         self.wav_path: Path | None = None
         self.ui_messages: queue.SimpleQueue[tuple[str, object]] = queue.SimpleQueue()
@@ -176,6 +190,17 @@ class EdgeSpeechWindow:
         research_frame = ttk.Labelframe(panes, text="Research view", padding=8)
         panes.add(transcript_frame, weight=3)
         panes.add(research_frame, weight=2)
+        if self.engine._s6d is not None:
+            settings = self.engine._s6d
+            self.s6d_status.set(f'{settings.transcript_mode} / {settings.direction_mode} • selection bound before session')
+            ttk.Label(transcript_frame, textvariable=self.s6d_status).pack(fill="x")
+            ttk.Checkbutton(transcript_frame, text="Show complete unfiltered transcript", variable=self.s6d_full_view,
+                command=self._render_transcript).pack(anchor="w")
+            self.s6d_direction_canvas = tk.Canvas(research_frame, width=300, height=175, background="#fafafa", highlightthickness=0)
+            self.s6d_direction_canvas.pack(fill="x")
+            self.s6d_direction_label = tk.StringVar(value="Direction unavailable")
+            ttk.Label(research_frame, textvariable=self.s6d_direction_label, wraplength=330).pack(fill="x")
+            self._render_s6d_directions()
         self.transcript = tk.Text(transcript_frame, wrap="word", font=("Segoe UI", 12), state="disabled")
         self.transcript.pack(fill="both", expand=True)
         self.research = tk.Text(research_frame, wrap="word", font=("Consolas", 9), state="disabled")
@@ -202,6 +227,8 @@ class EdgeSpeechWindow:
             messagebox.showerror("Microphone devices", str(exc))
 
     def _run_background(self, operation, *, success_kind: str = "ok") -> None:
+        if self.engine._s6d is not None and getattr(self,'_s6d_close_requested',False):
+            raise RuntimeError('The window is closing; no new background startup is admitted')
         def run() -> None:
             try:
                 result = operation()
@@ -209,7 +236,11 @@ class EdgeSpeechWindow:
             except Exception as exc:
                 self.ui_messages.put((f"{success_kind}_error", str(exc)))
 
-        threading.Thread(target=run, daemon=True).start()
+        job=threading.Thread(target=run, daemon=True)
+        if self.engine._s6d is not None:
+            self._s6d_background_jobs=[r for r in self._s6d_background_jobs if r.is_alive()]
+            self._s6d_background_jobs.append(job)
+        job.start()
 
     def _start_live(self) -> None:
         if self.engine.state not in {"IDLE", "COMPLETED", "FAILED"}:
@@ -383,6 +414,8 @@ class EdgeSpeechWindow:
             event = self.engine.events.get()
             data = event.to_jsonable()
             payload = data["payload"]
+            if self.engine._s6d is not None and event.event_type=='session_created':
+                self._begin_s6d_gui_session(payload)
             if event.event_type == "source_started":
                 self.transcript_loading = False
                 self.transcript_active = True
@@ -402,7 +435,11 @@ class EdgeSpeechWindow:
                 self.transcript_active = False
                 self.transcript_progress.stop()
                 self.transcript_activity_var.set("Transcription failed")
-            if event.event_type in {"transcript_partial", "transcript_final"}:
+            if event.event_type == "s6d_display":
+                self._consume_s6d_display(payload)
+            elif event.event_type == "s6d_direction":
+                self._consume_s6d_direction(payload)
+            if self.engine._s6d is None and event.event_type in {"transcript_partial", "transcript_final"}:
                 text = str(payload.get("display_text", payload.get("text", "")))
                 label = str(payload.get("speaker", "Speaker_?"))
                 if event.event_type == "transcript_final":
@@ -458,10 +495,130 @@ class EdgeSpeechWindow:
         self.queue_var.set(f'ASR lag {float(telemetry.get("asr_lag_sec", 0)):.2f} s • speaker lag {float(telemetry.get("speaker_lag_sec", 0)):.2f} s')
         if telemetry.get("session_dir"):
             self.output_var.set(str(telemetry["session_dir"]))
+        if self.engine._s6d is not None:
+            self._expire_s6d_directions()
+        if self.engine._s6d is not None and self.engine.state in {"COMPLETED", "FAILED"} and self.engine._finalization_thread is not None and not self.engine._finalization_thread.is_alive() and self.engine.events.empty():
+            self._expire_s6d_directions(float('inf'))
+            if self._s6d_render_handle is not None:
+                self._s6d_render_handle.close()
+                self._s6d_render_handle = None
+            self.engine.record_s6d_consumer_closure("Tk GUI")
+        if self.engine._s6d is not None and self._s6d_close_requested and self._finish_s6d_close():
+            return
         self.root.after(75, self._poll)
 
+    def _begin_s6d_gui_session(self,payload):
+        session_id=payload.get('session_id')
+        actual=getattr(self.engine,'session_dir',None)
+        if not isinstance(session_id,str) or not session_id or actual is not None and actual.name!=session_id:
+            return False
+        if session_id==self._s6d_gui_session_id:return False
+        self._s6d_gui_session_id=session_id
+        self._s6d_direction_evaluated=-1.;self._s6d_direction_rows=[]
+        self.s6d_rows.clear();self._render_transcript();self._render_s6d_directions()
+        return True
+
+    def _consume_s6d_direction(self,payload):
+        if payload.get('session_id')!=self._s6d_gui_session_id or self._s6d_gui_session_id is None:
+            return
+        stamp=payload.get('publication_monotonic_sec');evaluated=payload.get('evaluated_at_sec')
+        if not isinstance(stamp,(int,float)) or not math.isfinite(stamp) or not isinstance(evaluated,(int,float)) or not math.isfinite(evaluated):
+            return
+        if evaluated < self._s6d_direction_evaluated:
+            return
+        self._s6d_direction_evaluated=evaluated
+        now=time.perf_counter();rows=[]
+        for arrow in payload.get('arrows',[])[:2]:
+            angle=arrow.get('angle_deg');ttl=arrow.get('valid_for_sec')
+            if not isinstance(angle,(int,float)) or not math.isfinite(angle) or not 0<=angle<=180:
+                continue
+            if not isinstance(ttl,(int,float)) or not math.isfinite(ttl) or not 0<ttl<=self.engine._s6d.direction_max_age_sec:
+                continue
+            deadline=stamp+ttl
+            if now<deadline:
+                rows.append({**arrow,'expiry_monotonic_sec':deadline})
+        self._s6d_direction_rows=rows
+        self._render_s6d_directions()
+        self._record_s6d_gui({'kind':'direction_update','event_publication_monotonic_sec':stamp,
+            'widget_update_finished_monotonic_sec':time.perf_counter(),'arrows':rows,
+            'clock_scope':'actual Tk canvas update; not physical scanout'})
+
+    def _expire_s6d_directions(self,now=None):
+        now=time.perf_counter() if now is None else now
+        kept=[r for r in self._s6d_direction_rows if r['expiry_monotonic_sec']>now]
+        if len(kept)!=len(self._s6d_direction_rows):
+            self._s6d_direction_rows=kept;self._render_s6d_directions()
+            self._record_s6d_gui({'kind':'direction_expiry','widget_update_finished_monotonic_sec':time.perf_counter(),
+                'arrows':kept,'clock_scope':'automatic monotonic expiry from 75ms GUI polling; actual scheduling may be later'})
+
+    def _render_s6d_directions(self):
+        canvas=self.s6d_direction_canvas;canvas.delete('all')
+        canvas.create_arc(55,35,245,225,start=0,extent=180,style='arc',outline='#888')
+        canvas.create_text(50,140,text='0°');canvas.create_text(150,20,text='90°');canvas.create_text(255,140,text='180°')
+        canvas.create_text(150,162,text='Linear bearing • front/back ambiguous',fill='#555')
+        for i,arrow in enumerate(self._s6d_direction_rows):
+            angle=math.radians(arrow['angle_deg']);x=150-85*math.cos(angle);y=130-85*math.sin(angle)
+            canvas.create_line(150,130,x,y,arrow=tk.LAST,width=3,fill=('#1967d2','#b45309')[i],tags=('direction_arrow',))
+        labels=[f'{r["angle_deg"]:.0f}° • '+('recent direction' if r.get('indicator')=='recent_diagnostic' else r.get('known_name') or 'active speech') for r in self._s6d_direction_rows]
+        self.s6d_direction_label.set(' | '.join(labels) if labels else 'Direction unavailable / no current supported voice')
+
+    def _record_s6d_gui(self,row):
+        session=getattr(self.engine,'session_dir',None)
+        if session is None:return
+        if self._s6d_render_session!=session:
+            if self._s6d_render_handle is not None:self._s6d_render_handle.close()
+            self._s6d_render_handle=(session/'s6d_gui_render.jsonl').open('x',encoding='utf-8',buffering=1)
+            self._s6d_render_session=session
+        if self._s6d_render_handle is not None:
+            self._s6d_render_handle.write(json.dumps(row,allow_nan=False)+'\n')
+
+    def _finish_s6d_close(self):
+        if self._s6d_stop_thread is not None and self._s6d_stop_thread.is_alive():return False
+        if any(r.is_alive() for r in getattr(self,'_s6d_background_jobs',())):return False
+        if not getattr(self,'ui_messages',queue.SimpleQueue()).empty():return False
+        if getattr(self,'_s6d_close_requested',False) and not getattr(self,'_s6d_stop_after_background',False):
+            self._request_s6d_stop(after_background=True);return False
+        if self.engine.state in {'RUNNING','PAUSED','LOADING'}:
+            self._request_s6d_stop();return False
+        writer=self.engine._finalization_thread
+        if self.engine.state!='IDLE' and (writer is None or writer.is_alive()):return False
+        if not self.engine.events.empty():return False
+        if self._s6d_render_handle is not None:
+            self._s6d_render_handle.close();self._s6d_render_handle=None
+        self.root.destroy();return True
+
+    def _request_s6d_stop(self,after_background=False):
+        def stop():
+            self.engine.stop();self.engine.cancel_enrollment_recording()
+            self._s6d_stop_after_background=after_background
+        self._s6d_stop_thread=threading.Thread(target=stop,name='edge-s6d-gui-stop',daemon=True)
+        self._s6d_stop_thread.start()
+
+    def _consume_s6d_display(self, payload):
+        if getattr(self,'_s6d_gui_session_id',None) is not None and payload.get('session_id')!=self._s6d_gui_session_id:
+            return
+        key = payload["utterance_id"]
+        self.s6d_rows[key] = dict(payload)
+        while len(self.s6d_rows) > self.engine._s6d.max_display_rows:
+            del self.s6d_rows[next(iter(self.s6d_rows))]
+        pending = sum(r.get("visibility_state") == "pending_identity" for r in self.s6d_rows.values())
+        self.s6d_status.set(f'{self.engine._s6d.transcript_mode} • {pending} span(s) pending identity • full journal preserved')
+        started = time.perf_counter()
+        self._render_transcript()
+        finished = time.perf_counter()
+        self._record_s6d_gui({"utterance_id": key,
+                    "widget_update_started_monotonic_sec": started, "widget_update_finished_monotonic_sec": finished,
+                    "event_publication_monotonic_sec": payload.get("publication_monotonic_sec"),
+                    "visible": payload.get("visible"), "label": payload.get("label"),
+                    "known_profile_id": payload.get("known_profile_id"), "full_view": self.s6d_full_view.get(),
+                    "clock_scope": "actual Tk text widget update; not physical display scanout"})
+
     def _render_transcript(self) -> None:
-        content = "\n\n".join(self.transcript_lines + ([self.last_partial] if self.last_partial else []))
+        if self.engine._s6d is not None:
+            content = "\n\n".join(f'{r["label"]}: {r["display_text"]}' + (" …" if not r.get("final") else "")
+                for r in self.s6d_rows.values() if self.s6d_full_view.get() or r.get("visible"))
+        else:
+            content = "\n\n".join(self.transcript_lines + ([self.last_partial] if self.last_partial else []))
         self.transcript.configure(state="normal")
         self.transcript.delete("1.0", "end")
         self.transcript.insert("1.0", content)
@@ -478,20 +635,30 @@ class EdgeSpeechWindow:
         self.research.configure(state="disabled")
 
     def _clear_display(self) -> None:
+        self.s6d_rows.clear()
         self.transcript_lines.clear()
         self.last_partial = ""
+        if self.engine._s6d is not None:
+            self._s6d_direction_rows=[];self._render_s6d_directions()
         self._render_transcript()
         self.research.configure(state="normal")
         self.research.delete("1.0", "end")
         self.research.configure(state="disabled")
 
     def _close(self) -> None:
+        if self.engine._s6d is not None:
+            self._s6d_close_requested=True
+            self._s6d_stop_after_background=False
+            if self._s6d_stop_thread is None or not self._s6d_stop_thread.is_alive():self._request_s6d_stop()
+            return
         self.engine.stop()
         self.engine.cancel_enrollment_recording()
+        if self._s6d_render_handle is not None:
+            self._s6d_render_handle.close()
         self.root.destroy()
 
 
-def run_gui(config: PipelineConfig | None = None) -> None:
+def run_gui(config: PipelineConfig | None = None, *, engine=None) -> None:
     root = tk.Tk()
-    EdgeSpeechWindow(root, config or PipelineConfig())
+    EdgeSpeechWindow(root, config or PipelineConfig(), engine=engine)
     root.mainloop()

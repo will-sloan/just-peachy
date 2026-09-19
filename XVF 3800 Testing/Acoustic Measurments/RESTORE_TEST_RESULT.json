@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "checks": [
+    "unique file extraction",
+    "duplicate restoration",
+    "exact bytes and SHA-256",
+    "empty directory preservation",
+    "existing destination rejection",
+    "traversal rejected before writes",
+    "Windows PowerShell/.NET extraction of first and last source objects from the complete production archive"
+  ]
+}

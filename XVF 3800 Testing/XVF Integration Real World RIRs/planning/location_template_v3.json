@@ -1,0 +1,142 @@
+{
+  "schema_id": "just-peachy.location.proposed.v3",
+  "record_status": "UNFILLED_TEMPLATE",
+  "location_id": null,
+  "room_id": null,
+  "geometry_revision": null,
+  "site_name": null,
+  "operator": null,
+  "room": {
+    "dimensions_m": {
+      "length": null,
+      "width": null,
+      "height": null
+    },
+    "surface_materials": {
+      "floor": null,
+      "walls": null,
+      "ceiling": null
+    },
+    "noise_and_hvac_notes": null,
+    "reference_frame": {
+      "id": null,
+      "origin_landmark": null,
+      "axis_definitions": null
+    }
+  },
+  "table": {
+    "id": null,
+    "shape": null,
+    "length_m": null,
+    "width_m": null,
+    "height_m": null,
+    "material": null
+  },
+  "device_placement": {
+    "id": null,
+    "position_frame_id": null,
+    "position_xyz_m": [
+      null,
+      null,
+      null
+    ],
+    "acoustic_reference_point_description": null,
+    "axis_a_forward_description": null,
+    "laboratory_axes": {
+      "x": "AXIS_A forward",
+      "y": "left",
+      "z": "up"
+    },
+    "laboratory_azimuth": "atan2(y,x) in degrees, -180 to +180; horizontal projection",
+    "pose_label": null,
+    "measured_tilt_deg": null,
+    "orientation_measurement_method": null,
+    "room_from_device_rotation_matrix": null,
+    "firmware_to_lab_geometry_transform": null,
+    "native_xvf_to_lab_angle_mapping": null
+  },
+  "microphones": {
+    "user_reported_mounting": "onboard",
+    "intended_topology": "linear",
+    "nominal_intended_pitch_m": 0.0333,
+    "measured_pitch_m": null,
+    "board_model": null,
+    "board_revision": null,
+    "physical_mapping_verified": false,
+    "observed_firmware_build": "ua-io48-lin",
+    "observed_firmware_version": [
+      3,
+      2,
+      1
+    ],
+    "observed_firmware_array_type": 1,
+    "observation_session": "POST_DESOLDER_20260905T214756_574840Z",
+    "geometry_conflict_resolved": true,
+    "native_firmware_xyz_m": [
+      [
+        -0.04995,
+        0,
+        0
+      ],
+      [
+        -0.01665,
+        0,
+        0
+      ],
+      [
+        0.01665,
+        0,
+        0
+      ],
+      [
+        0.04995,
+        0,
+        0
+      ]
+    ],
+    "external_microphones_soldered_user_reported": false,
+    "external_array_switch_user_reported": null,
+    "external_microphones_electrically_isolated": null,
+    "raw_microphone_audio_verified": true,
+    "external_connection_state_user_reported": "All external connections desoldered on 2026-09-05; speech confirmed playing during tests.",
+    "external_connections_visually_verified_removed": false,
+    "functional_acceptance": "Default four-microphone linear array passed finite functional/endurance tests; additional MIC4/MIC5 passed raw activity check.",
+    "scientific_acoustic_calibration_complete": false
+  },
+  "source_positions": [
+    {
+      "id": null,
+      "coordinates_frame_id": null,
+      "xyz_m": [
+        null,
+        null,
+        null
+      ],
+      "distance_to_acoustic_origin_m": null,
+      "laboratory_azimuth_deg": null,
+      "elevation_deg": null,
+      "height_reference": null,
+      "height_m": null,
+      "source_model": null,
+      "source_facing_description": null,
+      "source_facing_yaw_deg": null,
+      "source_facing_pitch_deg": null,
+      "volume_setting": null,
+      "level_calibration": null,
+      "measurement_method": null
+    }
+  ],
+  "clutter": {
+    "condition_id": null,
+    "description": null,
+    "objects_and_positions": []
+  },
+  "photos": {
+    "overview": null,
+    "device_axis": null,
+    "board_labels": null,
+    "source_position": null
+  },
+  "notes": "Unfilled location template. Linear microphone activity and finite digital-path continuity passed after user-reported removal of all external connections. Physical labels, electrical isolation inspection, room geometry, orientation, recording precision and scientific acoustic calibration remain unverified. Do not invent measured coordinates or substitute native firmware axes for room axes.",
+  "measurement_ready": false
+}

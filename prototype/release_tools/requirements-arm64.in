@@ -1,0 +1,10 @@
+# Raspberry Pi OS 64-bit Bookworm, CPython 3.11, aarch64, glibc >= 2.36.
+# Same selected versions as the existing Windows inference environment.
+numpy==2.2.6
+scipy==1.15.3
+onnxruntime==1.29.0
+sherpa-onnx==1.13.4
+sounddevice==0.5.5
+soundfile==0.13.1
+psutil==7.2.2
+cffi==2.1.1

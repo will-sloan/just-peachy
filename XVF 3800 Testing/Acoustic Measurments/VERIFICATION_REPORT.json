@@ -1,0 +1,12 @@
+{
+  "status": "LOCAL_ARCHIVE_VERIFIED",
+  "files": 46677,
+  "unique_objects": 9978,
+  "logical_bytes": 14122352020,
+  "archive_bytes": 4182459822,
+  "archive_sha256": "ed2ede5e3d2a1fa3fd21eb65bf82e447217e97a3d665b4864256b10fec5d0f0e",
+  "all_objects_sha256_verified": true,
+  "inventory_matches_restore_manifest": true,
+  "source_file_set_rechecked": true,
+  "sources_changed_since_inventory": []
+}

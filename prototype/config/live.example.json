@@ -1,0 +1,16 @@
+{
+  "host_executable": null,
+  "lease_path": null,
+  "endpoint_name": null,
+  "endpoint_id": null,
+  "hostapi": "ALSA",
+  "tap": "O0",
+  "native_rate": 48000,
+  "block_frames": 480,
+  "reserve_seconds": 10,
+  "control_timeout_seconds": 8,
+  "evidence_dir": null,
+  "normal_microphone_gain": 10,
+  "normal_system_delay": -32,
+  "expected_asr_gain": 1
+}

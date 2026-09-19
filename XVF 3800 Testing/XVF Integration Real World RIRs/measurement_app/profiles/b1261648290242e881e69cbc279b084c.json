@@ -1,0 +1,143 @@
+{
+  "id": "b1261648290242e881e69cbc279b084c",
+  "name": "Laptop integration rehearsal \u2014 uncalibrated",
+  "data": {
+    "ui_schema_version": 1,
+    "form": {
+      "project_id": "TOOL_VALIDATION",
+      "room_id": "",
+      "table_id": "",
+      "placement_id": "",
+      "repeat_number": "",
+      "clutter_state": "unknown",
+      "trial_label": "REALTEK_SWEEP_R1",
+      "source_id": "",
+      "position_basis": "unknown",
+      "source_distance_m": "",
+      "source_x_m": "",
+      "source_y_m": "",
+      "source_z_m": "",
+      "source_height_m": "",
+      "source_facing_yaw_deg": "",
+      "source_facing_pitch_deg": "",
+      "device_orientation": "UNKNOWN",
+      "orientation_basis": "unknown",
+      "device_height_m": "",
+      "device_yaw_deg": "",
+      "device_pitch_deg": "",
+      "device_roll_deg": "",
+      "device_x_m": "",
+      "device_y_m": "",
+      "device_z_m": "",
+      "frame_origin": "",
+      "frame_x_axis": "",
+      "frame_y_axis": "",
+      "frame_z_axis": "",
+      "axis_notes": "",
+      "photo_references": "",
+      "domain": "raw",
+      "calibration_label": "",
+      "include_selected_angles": false,
+      "excitation_id": "JP_XVF_IMPULSE_1S_GAP_PLUS_ESS_80-7500Hz_10s_48k_PCM16.wav",
+      "playback_device_index": "14",
+      "playback_channel": "left",
+      "playback_gain_db": "-18",
+      "duration_seconds": "30",
+      "speaker_model": "Laptop internal speakers (Realtek); Edifier not used in this rehearsal",
+      "speaker_connection": "wired",
+      "bass_dial": "",
+      "treble_dial": "",
+      "speaker_volume_mark": "",
+      "os_volume_pct": "",
+      "speaker_cabling_note": "Laptop internal speaker, left playback channel only",
+      "calibration_reference": "",
+      "notes": "Software integration rehearsal only. User confirmed phone paused and room quiet. Source/array geometry unmeasured. No absolute SPL calibration. This is not an Edifier RIR.",
+      "profile_name": "Laptop integration rehearsal \u2014 uncalibrated",
+      "playback_device_name": "Speakers (Realtek(R) Audio)"
+    },
+    "setup": {
+      "schema_version": "1.0",
+      "project_id": "TOOL_VALIDATION",
+      "room_id": null,
+      "table_id": null,
+      "placement_id": null,
+      "trial_label": "REALTEK_SWEEP_R1",
+      "repeat_number": null,
+      "clutter_state": "unknown",
+      "source": {
+        "id": null,
+        "position_m": {
+          "x": null,
+          "y": null,
+          "z": null
+        },
+        "distance_to_array_m": null,
+        "height_above_floor_m": null,
+        "facing_yaw_deg": null,
+        "facing_pitch_deg": null
+      },
+      "device": {
+        "orientation": "UNKNOWN",
+        "position_m": {
+          "x": null,
+          "y": null,
+          "z": null
+        },
+        "height_above_floor_m": null,
+        "yaw_deg": null,
+        "pitch_deg": null,
+        "roll_deg": null
+      },
+      "coordinate_frame": {
+        "origin": null,
+        "positive_x": null,
+        "positive_y": null,
+        "positive_z": null,
+        "axis_and_angle_notes": null
+      },
+      "metadata_provenance": {
+        "repeat_number": "unknown",
+        "source_distance_m": "unknown",
+        "source_x_m": "unknown",
+        "source_y_m": "unknown",
+        "source_z_m": "unknown",
+        "source_height_m": "unknown",
+        "source_facing_yaw_deg": "unknown",
+        "source_facing_pitch_deg": "unknown",
+        "device_height_m": "unknown",
+        "device_yaw_deg": "unknown",
+        "device_pitch_deg": "unknown",
+        "device_roll_deg": "unknown",
+        "device_x_m": "unknown",
+        "device_y_m": "unknown",
+        "device_z_m": "unknown",
+        "os_volume_pct": "unknown"
+      },
+      "photo_references": [],
+      "mic_gain_policy": "keep_existing",
+      "speaker": {
+        "model_user_reported": "Laptop internal speakers (Realtek); Edifier not used in this rehearsal",
+        "exact_model_verified": false,
+        "connection": "wired",
+        "bass_dial": null,
+        "treble_dial": null,
+        "volume_mark": null,
+        "os_volume_pct": null,
+        "cabling_and_cabinet_user_note": "Laptop internal speaker, left playback channel only",
+        "physical_route_verified": false
+      },
+      "calibration": {
+        "status": "relative_uncalibrated",
+        "label": null,
+        "reference_record": null
+      },
+      "interpretation": {
+        "angle_frame": "native_device_uncalibrated",
+        "energy_units": "native_device_metric",
+        "absolute_spl_calibrated": false
+      },
+      "notes": "Software integration rehearsal only. User confirmed phone paused and room quiet. Source/array geometry unmeasured. No absolute SPL calibration. This is not an Edifier RIR."
+    }
+  },
+  "saved_utc": "2026-09-05T22:32:55.220730+00:00"
+}

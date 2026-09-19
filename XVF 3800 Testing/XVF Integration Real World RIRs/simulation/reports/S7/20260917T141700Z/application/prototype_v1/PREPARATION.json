@@ -1,0 +1,77 @@
+{
+  "status": "PREPARED_ORDINARY_CONFIG_LAUNCHER_NATIVE_SMOKES_PENDING",
+  "config": {
+    "path": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\XVF 3800 Testing\\XVF Integration Real World RIRs\\simulation\\reports\\S7\\20260917T141700Z\\application\\prototype_v1\\CONFIG.json",
+    "bytes": 25602,
+    "sha256": "6e8f7b7708a35db0ec6363253b77075b36591fd16d963e532d81a36c454bcfa6"
+  },
+  "source_manifest": {
+    "path": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\XVF 3800 Testing\\XVF Integration Real World RIRs\\simulation\\reports\\S7\\20260917T141700Z\\application\\mode_panel_v2\\MANIFEST.json",
+    "bytes": 1220659,
+    "sha256": "eee031c77bf69579aa4c2fe197ea680c15d34a8f0d02599d8ac548aa7db416e4"
+  },
+  "script": {
+    "path": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\XVF 3800 Testing\\XVF Integration Real World RIRs\\simulation\\reports\\S7\\20260917T141700Z\\application\\prototype_v1\\Prepare.py",
+    "bytes": 3142,
+    "sha256": "30546f0fa847286dd92b9d89f617e6b4a4544754acb3456aeb67b6082d91266b"
+  },
+  "launcher": {
+    "path": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\XVF 3800 Testing\\XVF Integration Real World RIRs\\simulation\\reports\\S7\\20260917T141700Z\\application\\prototype_v1\\App.py",
+    "bytes": 12521,
+    "sha256": "49e45afeb00f7a7458b9eefd141b292dbd6a98a00a8848cda11471c0b320a616"
+  },
+  "readme": {
+    "path": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\XVF 3800 Testing\\XVF Integration Real World RIRs\\simulation\\reports\\S7\\20260917T141700Z\\application\\prototype_v1\\README.md",
+    "bytes": 5119,
+    "sha256": "1d4db04a518c67a40c7e9013c63a94f474a37bf65a75bb82ce87de9ff0fa51f2"
+  },
+  "execution_adapters": [
+    {
+      "path": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\XVF 3800 Testing\\XVF Integration Real World RIRs\\simulation\\reports\\S7\\20260917T141700Z\\application\\prototype_v1\\helpers\\Native.py",
+      "bytes": 24905,
+      "sha256": "9f426e18dbc88ff61d0f63f85b635e4f5a1ad17f8c7a4c86161c465d7b136cb6"
+    },
+    {
+      "path": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\XVF 3800 Testing\\XVF Integration Real World RIRs\\simulation\\reports\\S7\\20260917T141700Z\\application\\prototype_v1\\helpers\\GuiExecution.py",
+      "bytes": 11234,
+      "sha256": "4b0f8deb4629da36c7fca89af81f255e66eb819087aef34b4e60f8f802758717"
+    },
+    {
+      "path": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\XVF 3800 Testing\\XVF Integration Real World RIRs\\simulation\\reports\\S7\\20260917T141700Z\\application\\prototype_v1\\helpers\\WidgetProof.py",
+      "bytes": 2845,
+      "sha256": "373605e8a84c170aaa2915ce354ed4f9b445adf23e9a53e71a5cd9084b205f4c"
+    },
+    {
+      "path": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\XVF 3800 Testing\\XVF Integration Real World RIRs\\simulation\\reports\\S7\\20260917T141700Z\\application\\prototype_v1\\helpers\\Closure.py",
+      "bytes": 1373,
+      "sha256": "a2d4bcd472c0e0bb21c2393295a67b5651c2cfe938bc8156f1a0b65c76760efa"
+    }
+  ],
+  "adapter_predecessors": [
+    {
+      "path": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\XVF 3800 Testing\\XVF Integration Real World RIRs\\simulation\\reports\\S7\\20260917T141700Z\\application\\observed_presentation_pilot_v1\\helpers\\Native.py",
+      "bytes": 24905,
+      "sha256": "9f426e18dbc88ff61d0f63f85b635e4f5a1ad17f8c7a4c86161c465d7b136cb6"
+    },
+    {
+      "path": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\XVF 3800 Testing\\XVF Integration Real World RIRs\\simulation\\reports\\S7\\20260917T141700Z\\application\\gui_widget_proof_v1\\helpers\\GuiExecution.py",
+      "bytes": 11234,
+      "sha256": "4b0f8deb4629da36c7fca89af81f255e66eb819087aef34b4e60f8f802758717"
+    },
+    {
+      "path": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\XVF 3800 Testing\\XVF Integration Real World RIRs\\simulation\\reports\\S7\\20260917T141700Z\\application\\gui_widget_proof_v1\\helpers\\WidgetProof.py",
+      "bytes": 2845,
+      "sha256": "373605e8a84c170aaa2915ce354ed4f9b445adf23e9a53e71a5cd9084b205f4c"
+    }
+  ],
+  "closure_authority": {
+    "path": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\XVF 3800 Testing\\XVF Integration Real World RIRs\\simulation\\reports\\S6D\\20260913T195357Z\\application\\native_pilot_v3\\helpers\\s6d_application_native.py",
+    "bytes": 15280,
+    "sha256": "29ccc47374d8830d72b5214e64e62c08c41ad141265571fb149a5420fe0aed12"
+  },
+  "closure_AST_identical": true,
+  "native_jobs": 0,
+  "models_loaded": 0,
+  "default_changed": false,
+  "portability_smoke": "PENDING"
+}

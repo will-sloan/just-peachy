@@ -1,0 +1,17 @@
+{
+  "schema": "just-peachy.desktop-receipt.v1",
+  "requested_mode": "caption_only",
+  "effective_mode": "caption_only",
+  "fallback_reason": null,
+  "config": {
+    "path": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\XVF 3800 Testing\\XVF Integration Real World RIRs\\simulation\\reports\\S7\\20260917T141700Z\\application\\prototype_v1\\CONFIG.json",
+    "bytes": 25602,
+    "sha256": "6e8f7b7708a35db0ec6363253b77075b36591fd16d963e532d81a36c454bcfa6"
+  },
+  "native_started": false,
+  "hardware_started": false,
+  "neural_weights_changed": false,
+  "default_promoted": false,
+  "status": "CONFIGURATION_AND_CONSTRUCTOR_VALID",
+  "asset_validation": "PATHS_ONLY"
+}

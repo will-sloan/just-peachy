@@ -1,0 +1,219 @@
+--- accepted_S6D_payload_v5
++++ S7_runner_v1
+@@ -1,4 +1,4 @@
+-"""Frozen-queue S6D code-only supervisor. Read s6d_runner_README.md first."""
++"""Frozen-queue S7 code-only supervisor. Read README_S7_RUNNER_V1.md first."""
+ from __future__ import annotations
+ import argparse
+ import ctypes
+@@ -22,9 +22,12 @@
+ HEALTH_SECONDS = 15
+ HEARTBEAT_SECONDS = 30
+ INTERPRETATION = {"sensitive": 600, "normal": 900, "cached": 1800}
+-CAMPAIGN_STARTED_UTC = "2026-09-13T19:53:57+00:00"
++CAMPAIGN_STARTED_UTC = "2026-09-17T14:17:00+00:00"
+ CAMPAIGN_MAX_SECONDS = 72 * 3600
+-CLOSEOUT_MIN_SECONDS = 45 * 60
++CLOSEOUT_MIN_SECONDS = 60 * 60
++S7_REPORT_ROOT = Path(__file__).resolve().parent.parent
++S7_PAYLOAD_ROOT = Path(r"G:\Just_Peachy_S7\20260917T141700Z")
++BASE_SOURCE_SHA256 = "57fb87aaba12495f724adbcc78a2609f82a897dd5d3877e6a2cabd54a68a7978"
+ 
+ 
+ class PayloadCensus:
+@@ -329,84 +332,17 @@
+ 
+ 
+ def validate_payload_ceiling(queue, approval, now=None):
+-    """Preserve40GiB default; one exact documented80GiB future-offline exception."""
++    """S7 hard40GiB allowance; no inherited S6D exception."""
+     payload = queue["payload_policy"]
+     maximum = payload["max_new_payload_bytes"]
+-    if not finite_number(maximum, strict=True):
+-        raise ValueError("new-payload ceiling must be positive and finite")
+-    if maximum <= 40 * 1024 ** 3:
+-        return
+-    if type(maximum) is not int or maximum != 80 * 1024 ** 3 or queue.get("fixture_only") is True:
+-        raise ValueError("only the exact80GiB production exception may exceed40GiB")
+-    root_thread = "01a0812d-3ff0-7ed0-a06c-4df61b62a459"
+-    if (queue.get("run_id") != "20260913T195357Z"
+-            or any(queue.get(k) != root_thread for k in ("owner_thread_id", "owner_session_id"))
+-            or not queue.get("jobs") or any(job.get("kind") != "offline" for job in queue["jobs"])):
+-        raise ValueError("payload exception is restricted to this root-owned future offline campaign")
+-    reference = payload.get("cap_exception")
+-    if not isinstance(reference, dict) or approval.get("payload_cap_exception") != reference:
+-        raise ValueError("queue and approval must bind the same exact payload exception")
+-    expected_sha = "079900e58493e18c3a995754ba7ac16ff680e4697ba8dc6521e0b6fe1eb3a54c"
+-    if reference.get("sha256") != expected_sha or binding(reference["path"], expected_sha) != reference:
+-        raise ValueError("exact root payload exception bytes/path required")
+-    exception = load(reference["path"])
+-    fixed = {"schema": "s6d-justified-payload-exception.v1",
+-        "status": "ROOT_JUSTIFIED_PAYLOAD_CAP_80_GIB_V1", "run_id": "20260913T195357Z",
+-        "owner_thread_id": root_thread, "old_max_new_payload_bytes": 40 * 1024 ** 3,
+-        "max_new_payload_bytes": maximum, "minimum_free_bytes": {"C:": 50 * 1024 ** 3, "G:": 75 * 1024 ** 3},
+-        "limits_unchanged": {"physical_attempts": 480, "charged_playback_seconds": 21600},
+-        "retention_unchanged": True, "no_deletion_or_lossy_archive": True,
+-        "current_queues_or_running_sources_changed": False, "contract_section": "10; Default allowance paragraph"}
+-    if any(exception.get(k) != v or type(exception.get(k)) is not type(v) for k, v in fixed.items()):
+-        raise ValueError("payload exception semantic scope or unchanged limits differ")
+-    documents = {"contract": "68a62cb923bccb1eac8d5f3690067da478d7ddbf408a88425ec1edd91c427c34",
+-        "forecast": "0a55f144b44c83ed6a10a459dc0eb975caf217d199e5024a805c3f10ff14cb75",
+-        "prior_runner": "fdffb4cae7c111302b90d4128d8b44049354cd225f241868f6d83a5a2fab15b4"}
+-    bound = [reference]
+-    for key, expected in documents.items():
+-        item = exception[key]
+-        if item.get("sha256") != expected or binding(item["path"], expected) != item:
+-            raise ValueError("exact payload exception " + key + " binding required")
+-        bound.append(item)
+-    forecast = load(exception["forecast"]["path"])
+-    if (forecast.get("schema") != "s6d-whole-study-storage-forecast.v1"
+-            or forecast.get("status") != "FORECAST_ONLY_NOT_ADMISSION"
+-            or [str(Path(p).resolve()) for p in payload["new_payload_roots"]]
+-            != [str(Path(p).resolve()) for p in forecast["census_roots"]]):
+-        raise ValueError("the full original logical payload census roots must remain unchanged")
+-    campaign = queue["campaign"]
+-    deadline = timestamp("2026-09-16T19:53:57Z")
+-    stop_admission = timestamp("2026-09-16T19:08:57Z")
+-    now = time.time() if now is None else now
+-    if (not finite_number(now, strict=True) or timestamp(exception["hard_deadline_utc"]) != deadline
+-            or timestamp(exception["no_new_jobs_after_utc"]) != stop_admission
+-            or timestamp(campaign["started_utc"]) != timestamp(CAMPAIGN_STARTED_UTC)
+-            or timestamp(campaign["deadline_utc"]) != deadline
+-            or not finite_number(campaign["closeout_reserve_s"], CLOSEOUT_MIN_SECONDS)
+-            or deadline - campaign["closeout_reserve_s"] > stop_admission
+-            or not timestamp(exception["utc"]) <= now < deadline - campaign["closeout_reserve_s"]):
+-        raise ValueError("payload exception is expired or changes the fixed campaign deadline/reserve")
+-    floors = {}
+-    for policy in queue.get("disk_policy", []):
+-        if not finite_number(policy["minimum_free_bytes"]):
+-            raise ValueError("payload exception disk floor must be finite and nonnegative")
+-        drive = Path(policy["path"]).drive.upper()
+-        floors[drive] = max(floors.get(drive, 0), policy["minimum_free_bytes"])
+-    for drive, minimum in fixed["minimum_free_bytes"].items():
+-        observed = exception["verified_free_bytes"].get(drive)
+-        if (floors.get(drive, 0) < minimum or not finite_number(observed)
+-                or observed < minimum + maximum):
+-            raise ValueError("unchanged runtime floors and justified observed free-space headroom required")
+-    # These exact small documents are rehashed by the existing per-job source guards.
+-    for job in queue["jobs"]:
+-        if any(item not in job.get("source_bindings", []) for item in bound):
+-            raise ValueError("every offline job must periodically guard the exception and its authorities")
+-    if any(binding(item["path"], item["sha256"]) != item for item in bound):
+-        raise ValueError("payload exception authorities changed during validation")
++    if not finite_number(maximum, strict=True) or maximum > 40 * 1024 ** 3:
++        raise ValueError("S7 new-payload ceiling must be at most40GiB")
++    if "cap_exception" in payload or "payload_cap_exception" in approval:
++        raise ValueError("S6D payload exceptions do not authorize S7")
+ 
+ 
+ def validate_queue(queue, approval, queue_hash):
+-    if queue.get("schema") != "s6d_approved_job_queue_v1" or approval.get("schema") != "s6d_queue_approval_v1":
++    if queue.get("schema") != "s7_approved_job_queue_v1" or approval.get("schema") != "s7_queue_approval_v1":
+         raise ValueError("unsupported queue/approval schema")
+     if approval.get("queue_sha256") != queue_hash or approval.get("run_id") != queue.get("run_id"):
+         raise ValueError("queue not bound to approval")
+@@ -432,11 +368,18 @@
+         if not isinstance(campaign, dict):
+             raise ValueError("production queue requires fixed campaign deadline")
+         start, end = timestamp(campaign["started_utc"]), timestamp(campaign["deadline_utc"])
+-        if start != timestamp(CAMPAIGN_STARTED_UTC) or not 0 < end - start <= CAMPAIGN_MAX_SECONDS:
++        if start != timestamp(CAMPAIGN_STARTED_UTC) or end != timestamp("2026-09-20T14:17:00Z"):
+             raise ValueError("campaign start/deadline disagrees with fixed72hour authorization")
+         reserve = campaign["closeout_reserve_s"]
+         if not finite_number(reserve, CLOSEOUT_MIN_SECONDS) or end - reserve <= start:
+-            raise ValueError("at least45minutes of bounded closeout reserve required")
++            raise ValueError("at least60minutes of bounded closeout reserve required")
++        if queue["run_id"] != "20260917T141700Z":
++            raise ValueError("Fixed S7 run identity required")
++        fixed_roots = {str(S7_REPORT_ROOT.resolve()), str(S7_PAYLOAD_ROOT.resolve())}
++        if {str(Path(p).resolve()) for p in payload["new_payload_roots"]} != fixed_roots:
++            raise ValueError("S7 census must cover whole report and payload roots")
++        if not roots or not all(within(p, fixed_roots) for p in roots):
++            raise ValueError("S7 outputs must remain under this run's declared roots")
+         floors = {}
+         for policy in queue.get("disk_policy", []):
+             drive = Path(policy["path"]).drive.upper()
+@@ -473,6 +416,8 @@
+                 raise ValueError("repeated source checks accept small code only; bind model assets once in child")
+         if sum(Path(p).stat().st_size for p in declared) > 64 * 1024 ** 2:
+             raise ValueError("periodically checked source epoch exceeds64MiB")
++        if job["kind"] != "offline":
++            raise ValueError("S7 runner authorizes offline jobs only; no hardware")
+         if job["workload"] not in INTERPRETATION or job["kind"] not in ("offline", "hardware"):
+             raise ValueError("unknown workload/kind")
+         if job["kind"] == "hardware" and job.get("allow_owned_termination", False):
+@@ -541,7 +486,7 @@
+                     raise ValueError("artifact expected field mismatch: " + dotted)
+         result.append(bound)
+     return {"completion": binding(job["completion_path"]), "artifacts": result,
+-            "scientific_scope": "Only declared artifact predicates validated; no aggregate S6D PASS inferred"}
++            "scientific_scope": "Only declared artifact predicates validated; no aggregate S7 PASS inferred"}
+ 
+ 
+ def classify(*, alive, exit_code, heartbeat_valid, heartbeat_age, progress_age, elapsed,
+@@ -912,7 +857,7 @@
+                 if result["action"] != "ADVANCE_CHECKPOINT":
+                     break
+             else:
+-                result = self.emit("FINISH", "all approved queue jobs have declared artifact receipts; broader S6D scope remains separate", meaningful=True)
++                result = self.emit("FINISH", "all approved queue jobs have declared artifact receipts; broader S7 scope remains separate", meaningful=True)
+         except Exception as exc:
+             reason = type(exc).__name__ + ": " + str(exc)
+             active = self.state.get("active")
+@@ -958,5 +903,55 @@
+     return 0 if result.get("action") == "FINISH" or args.validate_only else 2
+ 
+ 
++def prepare_queue(spec, output):
++    """Bind a root-authorized literal job list; never launch or infer approval."""
++    output = Path(output).resolve()
++    if not output.is_relative_to(S7_REPORT_ROOT / "runner") or output.exists():
++        raise ValueError("Use a fresh S7 runner child namespace")
++    if spec.get("run_id") != "20260917T141700Z" or not spec.get("authorization_ref"):
++        raise ValueError("Explicit S7 root authorization reference required")
++    jobs = spec["jobs"]
++    if not isinstance(jobs, list) or not jobs:
++        raise ValueError("Nonempty explicit authorized job list required")
++    queue = {"schema": "s7_approved_job_queue_v1", "run_id": spec["run_id"],
++        "owner_thread_id": spec["owner_thread_id"], "owner_session_id": spec["owner_session_id"],
++        "fixture_only": False, "runner_sha256": binding(__file__)["sha256"],
++        "campaign": {"started_utc": CAMPAIGN_STARTED_UTC, "deadline_utc": "2026-09-20T14:17:00Z",
++            "closeout_reserve_s": spec.get("closeout_reserve_s", CLOSEOUT_MIN_SECONDS)},
++        "payload_policy": {"new_payload_roots": [str(S7_REPORT_ROOT), str(S7_PAYLOAD_ROOT)],
++            "max_new_payload_bytes": 40 * 1024 ** 3},
++        "disk_policy": [{"path": "C:/", "minimum_free_bytes": 50 * 1024 ** 3},
++                        {"path": "G:/", "minimum_free_bytes": 75 * 1024 ** 3}], "jobs": jobs}
++    queue_raw = (json.dumps(queue, indent=2, allow_nan=False) + "\n").encode()
++    queue_hash = hashlib.sha256(queue_raw).hexdigest()
++    approval = {"schema": "s7_queue_approval_v1", "run_id": queue["run_id"], "queue_sha256": queue_hash,
++        "authorization_ref": spec["authorization_ref"], "approved_job_sha256": [digest(j) for j in jobs],
++        "executable_bindings": [binding(p) for p in sorted({j["argv"][0] for j in jobs})],
++        "allowed_working_directories": sorted({str(Path(j["cwd"]).resolve()) for j in jobs}),
++        "allowed_output_roots": [str(S7_REPORT_ROOT), str(S7_PAYLOAD_ROOT)]}
++    validate_queue(queue, approval, queue_hash)
++    output.mkdir(parents=True)
++    with (output / "QUEUE.json").open("xb") as f:
++        f.write(queue_raw); f.flush(); os.fsync(f.fileno())
++    save(output / "APPROVAL.json", approval, exclusive=True)
++    receipt = {"status": "PREPARED_LITERAL_QUEUE_NOT_LAUNCHED", "queue": binding(output / "QUEUE.json"),
++        "approval": binding(output / "APPROVAL.json"), "runner": binding(__file__),
++        "readme": binding(Path(__file__).with_name("README_S7_RUNNER_V1.md")),
++        "job_count": len(jobs), "authorization_ref": spec["authorization_ref"], "jobs_launched": 0,
++        "automatic_model_resume_installed": False, "campaign": queue["campaign"],
++        "child_protocol": "unchanged S6D_* environment names"}
++    save(output / "PREPARATION.json", receipt, exclusive=True)
++    return receipt
++
++
++def preparation_cli():
++    parser = argparse.ArgumentParser(description="Bind a supplied literal root-authorized queue; no launch.")
++    parser.add_argument("--spec", type=Path, required=True)
++    parser.add_argument("--output", type=Path, required=True)
++    args = parser.parse_args(sys.argv[2:])
++    print(json.dumps(prepare_queue(load(args.spec), args.output)))
++    return 0
++
++
+ if __name__ == "__main__":
+-    raise SystemExit(cli())
++    raise SystemExit(preparation_cli() if len(sys.argv) > 1 and sys.argv[1] == "prepare" else cli())
