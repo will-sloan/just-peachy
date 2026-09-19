@@ -1,10 +1,15 @@
 # Project handoffs through PROTO1
 
-The latest source release is `just-peachy-proto1-0.1.3.zip`, adding the Windows
-live capture fix and developer beam arrows. Read the
-[update and verification](../prototype/docs/WINDOWS_LIVE_FIX.md). It passed
-archive staging, all 114 payload hashes, Windows import checks and relocated
-configuration/model validation. The Pi hardware has not been tested.
+The latest source release is `just-peachy-proto1-0.1.4.zip`, adding two selectable
+experimental spatial modes, evidence badges and a compact optional live display.
+Read the [mode guide](../prototype/MODE_GUIDE.md) and
+[verification](../prototype/docs/SPATIAL_FIELD_UPDATE.md). All 146 software
+checks passed, plus bounded native and physical checks with separate scopes.
+The ZIP passed all 121 payload hashes, Windows imports and relocated
+configuration/model validation. CM5 hardware remains untested.
+
+The previous `just-peachy-proto1-0.1.3.zip` remains unchanged and contains the
+Windows timing fix and developer beam diagnostics.
 
 `PROTO1_CHATGPT_HANDOFF_20260919T012911Z.zip` and `just-peachy-proto1-0.1.2.zip`
 retain the earlier source-bound prototype results. The maintainable current

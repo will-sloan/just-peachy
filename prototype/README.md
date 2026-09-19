@@ -9,7 +9,11 @@ Read [START_PROTOTYPE.md](START_PROTOTYPE.md) for launch commands, external
 data/model paths, and the remaining user-assisted live check. See `docs` for
 mode, enrollment, UI and Raspberry Pi release/update instructions.
 
-Windows live capture and developer beam arrows are updated in **0.1.3**. Read
+Version **0.1.4** adds selectable experimental Spatial-assisted/C079 and
+Strongly spatial-assisted/C060 modes, plus the optional compact live spatial
+display. See [the mode guide](MODE_GUIDE.md) and
+[spatial adapter/run instructions](app/README_SPATIAL.md).
+The Windows buffered-input fix from 0.1.3 is retained. Read
 [Windows live fix and validation](docs/WINDOWS_LIVE_FIX.md) and
 [Beam diagnostics](docs/BEAM_DIAGNOSTICS.md). Close and reopen an already-running
 GUI to load the update. One source package serves Windows and Linux; Pi native

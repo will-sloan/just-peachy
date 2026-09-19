@@ -1,4 +1,4 @@
-"""Bounded read-only beam display; never a spatial or identity provider.
+"""Bounded read-only beam telemetry, shared by display and the live adapter.
 
 The live source supplies a serialized, timeout-bounded getter after consent and
 route verification. See docs/BEAM_DIAGNOSTICS.md for lifecycle and run commands.
@@ -66,7 +66,10 @@ def arrow_tip(angle_deg: float, center_x: float, center_y: float, radius: float)
 
 
 class BeamDiagnostics:
-    """At most two serialized read calls/second, with constant-size state.
+    """Bounded read-only sampling, with constant-size latest state.
+
+    Ordinary rotation uses at most two getter calls/second. Fast mode uses at
+    most five three-getter groups/second; each group is explicitly non-atomic.
 
     read_values(command) must acquire the live HostControl lock, use its bounded
     timeout and suppress unbounded command receipts. No firmware writes occur.
@@ -74,7 +77,8 @@ class BeamDiagnostics:
     """
     def __init__(self, read_values: Callable[[str], list[float | None]], *,
                  interval_seconds: float = .5, stale_after_seconds: float = 2.5,
-                 clock: Callable[[], float] = time.monotonic):
+                 clock: Callable[[], float] = time.perf_counter,
+                 on_sample=None, fast=False):
         if not math.isfinite(interval_seconds) or interval_seconds < .5:
             raise ValueError("Diagnostic getters are capped at two calls per second")
         if not math.isfinite(stale_after_seconds) or not .5 <= stale_after_seconds <= 10:
@@ -83,6 +87,8 @@ class BeamDiagnostics:
         self.interval_seconds = float(interval_seconds)
         self.stale_after_seconds = float(stale_after_seconds)
         self.clock = clock
+        self.on_sample = on_sample
+        self.fast = bool(fast)
         self._lock = threading.Lock()
         self._stop = threading.Event()
         self.thread: threading.Thread | None = None
@@ -117,6 +123,8 @@ class BeamDiagnostics:
                 self._counts["successful_queries"] += 1
                 self._counts["invalid_values"] += sum(value is None for value in normalized)
                 self._state = "RUNNING"
+            if self.on_sample is not None:
+                self.on_sample(command, normalized, started, completed)
         except Exception as exc:
             with self._lock:
                 self._error = f"{command}: {type(exc).__name__}: {exc}"[:500]
@@ -128,11 +136,23 @@ class BeamDiagnostics:
         fields = tuple(FIELD_COUNTS)
         index = 0
         while not self._stop.is_set():
-            self._sample(fields[index % len(fields)])
-            index += 1
+            cycle_started = self.clock()
+            if self.fast:
+                # One finite non-atomic group; never poll in the audio callback.
+                for command in fields:
+                    if self._stop.is_set():
+                        break
+                    self._sample(command)
+            else:
+                self._sample(fields[index % len(fields)])
+                index += 1
             # Wait after completion. Slow getters cannot cause catch-up bursts.
-            if self._stop.wait(self.interval_seconds):
+            delay = max(.02, .2-(self.clock()-cycle_started)) if self.fast else self.interval_seconds
+            if self._stop.wait(delay):
                 break
+
+    def set_fast(self, enabled):
+        self.fast = bool(enabled)
 
     def stop(self, timeout: float = 10.0) -> bool:
         self._stop.set()
@@ -164,6 +184,7 @@ class BeamDiagnostics:
         return {"state": state, "error": error, "fields": fields, "arrows": arrows,
                 "counters": counts, "stale_after_seconds": self.stale_after_seconds,
                 "query_interval_seconds": self.interval_seconds,
+                "sampling": "bounded groups; at most 5 groups/second" if self.fast else "low-rate diagnostic rotation",
                 "timestamp_scope": "host receipt; DSP observation age unknown",
                 "angle_frame": "native folded linear 0..180 degrees; MIC3=0, MIC0=180",
                 "person_association": "unavailable", "affects_identity_or_asr": False}

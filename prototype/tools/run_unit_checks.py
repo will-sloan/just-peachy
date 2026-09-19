@@ -29,6 +29,8 @@ def cases(suite):
 
 
 if __name__ == '__main__':
+    if hasattr(sys.stdout, 'reconfigure'):
+        sys.stdout.reconfigure(errors='backslashreplace')
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--output-dir', type=Path, default=ROOT/'tests/evidence',
                         help='Use a fresh directory to retain earlier verification receipts')

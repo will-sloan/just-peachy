@@ -69,7 +69,11 @@ class CausalSchedulerV3(CausalScheduler):
                 self._segmentation = self._segmentation[-4096:]
             elif event["kind"] == "embedding":
                 now = event["available_at_sec"]
-                spatial = self.provider.evidence(event["source_start_sec"], now) if self.cues_enabled else None
+                spatial = None
+                if self.cues_enabled:
+                    window_reader = getattr(self.provider, "evidence_for_window", None)
+                    spatial = (window_reader(event["source_start_sec"], event["source_end_sec"], now)
+                               if window_reader is not None else self.provider.evidence(event["source_start_sec"], now))
                 if spatial is not None and spatial.available_at_sec > now:
                     raise ValueError("provider exposed future cue")
                 started = time.perf_counter()

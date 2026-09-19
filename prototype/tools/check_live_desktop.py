@@ -20,7 +20,7 @@ def main():
     parser.add_argument('--data-root', type=Path, required=True, help='Fresh private evidence directory outside the app')
     parser.add_argument('--config', type=Path, required=True, help='Existing external live_config.json')
     parser.add_argument('--recipe', choices=('fast', 'balanced', 'patient'), default='balanced')
-    parser.add_argument('--mode', choices=('caption_only', 'anonymous_conversation'), default='anonymous_conversation')
+    parser.add_argument('--mode', choices=('caption_only', 'anonymous_conversation', 'spatial_assisted', 'strongly_spatial_assisted'), default='anonymous_conversation')
     args = parser.parse_args()
     if not args.consent:
         parser.error('--consent is required before opening the microphone')
@@ -55,6 +55,7 @@ def main():
             time.sleep(.1)
         result['delivered_seconds'] = source.sent/16000
         result['beam_diagnostics_before_stop'] = controller.snapshot()['beam_diagnostics']
+        result['spatial_before_stop'] = controller.snapshot()['spatial_view']
         result['source_clock'] = getattr(source, 'clock_metadata', None)
         controller.stop(); controller.commands.join()
         result['source_error'] = source.error

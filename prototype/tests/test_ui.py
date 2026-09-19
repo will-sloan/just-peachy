@@ -44,6 +44,7 @@ class StubController:
     def export_people(self, *args, **kwargs): self._record("export_people", *args, **kwargs)
     def import_people(self, *args, **kwargs): self._record("import_people", *args, **kwargs)
     def mark_problem(self, **kwargs): self._record("mark_problem", **kwargs)
+    def reset_spatial(self): self._record("reset_spatial")
     def close(self): self._record("close"); self.data["state"] = "CLOSED"
 
 
@@ -116,12 +117,12 @@ class UITests(unittest.TestCase):
         self.ui.back_to_live(); self.root.update_idletasks()
         self.assertTrue(self.ui._follow_live); self.assertGreater(self.ui.caption_text.yview()[1], .99)
 
-    def test_five_modes_strict_warning_and_rescue(self):
+    def test_all_modes_strict_warning_and_rescue(self):
         self.controller.data["rows"] = sample_rows(2); self.refresh()
         for _ in range(4):
             for mode in MODES:
                 self.ui.show_modes(); self.ui.actions[f"mode_{mode}"].invoke(); self.refresh()
-        self.assertEqual(len([call for call in self.controller.calls if call[0] == "switch"]), 20)
+        self.assertEqual(len([call for call in self.controller.calls if call[0] == "switch"]), 4 * len(MODES))
         self.controller.data["selected_ids"] = ["uuid-alex-1"]; self.refresh()
         self.ui.request_strict(); self.assertFalse(self.controller.data["strict"])
         self.ui.actions["cancel"].invoke(); self.assertFalse(self.controller.data["strict"])
@@ -189,6 +190,77 @@ class UITests(unittest.TestCase):
         self.assertEqual(len(self.ui.beam_canvas.find_withtag("beam_arrow")), 0)
         self.assertEqual(self.controller.calls, [])
 
+    def test_spatial_modes_are_selectable_with_explicit_evidence_symbols(self):
+        self.controller.data["mode_metadata"] = {
+            "caption_only": {"symbol": "✓", "status": "simulation-supported", "label": "Captions", "description": "Configuration evidence"},
+            "spatial_assisted": {"symbol": "◇", "status": "experimental", "available": False, "parent": "C079", "description": "Experimental spatial support"}}
+        self.refresh(); self.ui.show_modes()
+        self.assertTrue(self.ui.actions["mode_caption_only"].cget("text").startswith("✓"))
+        for mode in ("spatial_assisted", "strongly_spatial_assisted"):
+            self.ui.show_modes()
+            button = self.ui.actions["mode_" + mode]
+            self.assertEqual(button.cget("state"), "normal")
+            self.assertTrue(button.cget("text").startswith("◇"))
+            button.invoke()
+            self.assertEqual(self.controller.calls[-1], ("switch", (), {"mode": mode, "strict": False}))
+        self.ui.show_help()
+        text = " ".join(str(w.cget("text")) for w in widgets(self.root) if isinstance(w, tk.Label))
+        self.assertIn("C079", text)
+        self.assertIn("not current speakers", text)
+
+    def test_compact_spatial_display_fresh_stale_names_and_reset(self):
+        self.controller.data.update(state="RUNNING", spatial_view={"state": "RUNNING", "stale_after_seconds": .75,
+            "speech": True, "energy": .013, "arrows": [
+                {"id": "focused_1", "angle_deg": 35, "age_sec": .1, "fresh": True},
+                {"id": "processed_output", "angle_deg": 35, "age_sec": .2, "fresh": True, "selected": True, "speech": True},
+                {"id": "focused_2", "angle_deg": 140, "age_sec": 3, "fresh": True}],
+            "associations": [
+                {"label": "Alex", "angle_deg": 35, "age_sec": .2, "fresh": True, "speaking": True},
+                {"label": "Speaker 2", "angle_deg": 140, "age_sec": 4, "fresh": True, "speaking": True}]})
+        self.refresh(); self.ui.show_settings()
+        self.assertFalse(self.ui.spatial_canvas.winfo_manager())
+        self.ui.actions["spatial_visualization"].invoke(); self.ui.home(); self.root.update_idletasks()
+        self.ui._update_spatial_visualization(force=True)
+        self.assertEqual(self.controller.calls[-1], ("settings_update", ({"spatial_visualization": True},), {}))
+        self.assertEqual(self.ui.spatial_canvas.winfo_height(), 125)
+        self.assertGreaterEqual(self.ui.caption_text.winfo_height(), 350)
+        canvas = self.ui.spatial_canvas
+        self.assertEqual(len(canvas.find_withtag("spatial_beam")), 3)
+        self.assertTrue(canvas.itemcget(canvas.find_withtag("focused_2")[0], "dash"))
+        names = [canvas.itemcget(item, "text") for item in canvas.find_withtag("spatial_name")]
+        self.assertIn("≈ Alex · 35° · speaking", names)
+        self.assertIn("≈ Speaker 2 · 140° · last known 4s", names)
+        self.assertIn("Fresh speaking", canvas.itemcget(canvas.find_withtag("spatial_badge")[0], "text"))
+        self.controller.data["spatial_view"]["state"] = "STOPPED"
+        self.ui.snapshot = self.controller.snapshot(); self.ui._update_spatial_visualization(force=True)
+        self.assertFalse(canvas.find_withtag("fresh"))
+        self.assertEqual(canvas.itemcget(canvas.find_withtag("spatial_badge")[0], "text"), "No fresh direction")
+        self.ui.show_settings(); self.ui.actions["reset_spatial"].invoke()
+        self.assertEqual(self.controller.calls[-1], ("reset_spatial", (), {}))
+        self.assertEqual(len(self.controller.data["people"]), 2)
+        self.ui.actions["spatial_visualization"].invoke(); self.ui.home(); self.root.update_idletasks()
+        self.assertFalse(self.ui.spatial_canvas.winfo_manager())
+
+    def test_spatial_display_does_not_infer_names_from_beam_labels(self):
+        self.controller.data["spatial_view"] = {"state": "RUNNING", "arrows": [
+            {"id": "processed_output", "label": "Misleading person name", "angle_deg": 90, "age_sec": .1,
+             "selected": True, "fresh": True}], "associations": [
+            {"label": "Expired", "angle_deg": 40, "age_sec": 20, "speaking": True, "fresh": True}]}
+        self.refresh(); self.ui._preference("spatial_visualization", True); self.ui.home()
+        self.ui._update_spatial_visualization(force=True)
+        names = [self.ui.spatial_canvas.itemcget(item, "text") for item in self.ui.spatial_canvas.find_withtag("spatial_name")]
+        self.assertEqual(names, ["No speaker association"])
+        badge = self.ui.spatial_canvas.itemcget(self.ui.spatial_canvas.find_withtag("spatial_badge")[0], "text")
+        self.assertIn("speech unconfirmed", badge)
+
+    def test_spatial_toggle_preference_is_loaded_at_start(self):
+        self.ui.close(); self.ui.poll()
+        self.controller = StubController(); self.controller.data["settings"]["spatial_visualization"] = True
+        self.root = tk.Tk(); self.ui = PrototypeUI(self.root, self.controller); self.root.update()
+        self.assertTrue(self.ui.preferences["spatial_visualization"])
+        self.assertEqual(self.ui.spatial_canvas.winfo_height(), 125)
+        self.assertEqual(self.controller.calls, [])
+
     def test_caption_size_theme_zoom_and_close_waits(self):
         self.ui._preference("caption_size", "Extra large"); self.ui._preference("theme", "High contrast")
         self.assertIn("-37", str(self.ui.caption_text.cget("font")))
@@ -241,6 +313,18 @@ def screenshots(directory):
     controller.data["enrollment"] = dict(state="RECORDING (STUB)", usable_s=10, elapsed_s=24, target_sec=30, level="-24 dBFS", can_save=False)
     ui.snapshot = controller.snapshot(); ui._update_enrollment(); capture("05_enrollment_stub")
     ui._preference("theme", "High contrast"); ui._preference("caption_size", "Extra large"); ui.home(); capture("06_large_contrast_stub")
+    ui._preference("theme", "Dark"); ui._preference("caption_size", "Normal")
+    controller.data.update(mode="spatial_assisted", spatial_view={"state": "RUNNING", "speech": True, "energy": .012,
+        "stale_after_seconds": .75, "arrows": [
+            {"id": "focused_1", "angle_deg": 38, "age_sec": .1, "fresh": True},
+            {"id": "processed_output", "angle_deg": 38, "age_sec": .1, "fresh": True, "selected": True, "speech": True},
+            {"id": "focused_2", "angle_deg": 145, "age_sec": .2, "fresh": True}],
+        "associations": [{"label": "Alex", "angle_deg": 38, "age_sec": .1, "fresh": True, "speaking": True},
+                         {"label": "Speaker 2", "angle_deg": 145, "age_sec": 4, "fresh": False, "speaking": False}]})
+    ui.snapshot = controller.snapshot(); ui._preference("spatial_visualization", True); ui.home()
+    ui._show_status(); ui._update_spatial_visualization(force=True); capture("07_spatial_fresh_and_last_known_stub")
+    controller.data["spatial_view"]["state"] = "STOPPED"; ui.snapshot = controller.snapshot()
+    ui._update_spatial_visualization(force=True); capture("08_spatial_stale_stub")
     (directory/"UI_STUB_EVIDENCE.json").write_text(json.dumps(dict(kind="STUB FRONTEND ONLY; no live/model/enrollment verification",
         client=ui.measure_client(), screenshots=captured, human_checks="pending"), indent=2), encoding="utf-8")
     ui.close(); ui.poll()

@@ -11,6 +11,13 @@ checks the explicit XVF endpoint in `live_config.json`. **Start** streams audio
 into live inference; it does not automatically save a recording WAV. Use
 Settings → Beam diagnostics for device beam arrows during an active session.
 
+In 0.1.4, Mode includes **Spatial-assisted** and **Strongly spatial-assisted**
+with ◇ experimental labels. Use either with Balanced or Patient. Settings →
+Live spatial display toggles a compact panel above captions. Solid arrows are
+recent; dashed positions are last-known; ≈ marks estimated voice association.
+Reset positions after moving the tablet if remembered seats no longer match.
+Saved people remain intact. See `MODE_GUIDE.md` for evidence and tradeoffs.
+
 On this desktop, double-click `Start-Prototype.cmd` in this folder. The portrait
 application opens at480×800 client pixels with the microphone off. Start asks
 for microphone consent. Stop releases capture. PC speakers/headphones can stay

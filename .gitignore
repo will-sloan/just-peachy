@@ -96,3 +96,6 @@ __pycache__/
 .pytest_cache/
 .mypy_cache/
 .ruff_cache/
+
+# Private spatial-update staging and verification journals.
+/Resumes/.proto_spatial_work/

@@ -30,7 +30,10 @@ See [the full live adapter guide](../docs/LIVE_AUDIO.md) for the exact working-d
 
 `beam_diagnostics.py` adds an optional read-only display of the hardware's recent
 beam angles. Its bounded worker begins only within a consented, routed live
-session; it does not feed recognition or identity. Open Settings → Beam angles
+session. In the two experimental spatial modes, the bounded `live_spatial.py`
+adapter also delivers causal cues to the existing tracker. Enrollment and ASR
+endpointing remain unchanged. See [the spatial adapter guide](README_SPATIAL.md).
+Open Settings → Beam angles
 while the app is running. See [Beam diagnostics](../docs/BEAM_DIAGNOSTICS.md) for
 the inputs, outputs, lifecycle, angle limitations, and exact PowerShell and
 CMD/Anaconda launch and model-free test commands.

@@ -16,6 +16,16 @@ from .pipeline import MODES, RECIPES, ResidentModels, PrototypeEngine, effective
 from .people import PersonalStore, PREPROCESSING
 from .enrollment_quality import EnrollmentQuality
 
+MODE_METADATA = {
+    'caption_only': dict(symbol='✓', status='simulation-supported', parent='S7 C065/M0', description='Captions without speaker inference; physical speech accuracy still needs field checks.'),
+    'anonymous_conversation': dict(symbol='✓', status='simulation-supported', parent='S7 C065/M1', description='Voice-based anonymous continuity; selected recipe evidence applies.'),
+    'enrolled_names': dict(symbol='◇', status='experimental', parent='C088 + private live enrollment', description='Name matches require your own compatible reference; no angle-based naming.'),
+    'open_with_names': dict(symbol='◇', status='experimental', parent='C065/C067 + C088', description='Anonymous continuity with cautious names; new live gallery requires validation.'),
+    'selected_focus': dict(symbol='◇', status='experimental', parent='S6D/S7 presentation + C088', description='Emphasize selected voice matches; Show all preserves access to all captions.'),
+    'spatial_assisted': dict(symbol='◇', status='experimental', parent='C079 + Balanced/Patient + C088', description='Fresh direction supports voice identity; positions decay and strong voice can override location.'),
+    'strongly_spatial_assisted': dict(symbol='◇', status='experimental', parent='C060 strong_direction + Balanced/Patient + C088', description='50% more spatial weight than C079; may confuse nearby seats; strong voice disagreement and decay remain active.'),
+}
+
 
 class Controller:
     def __init__(self,data_root,models_root,*,writer_delay=0):
@@ -101,9 +111,13 @@ class Controller:
         self._retention()
         self.state='STARTING';self.status='Loading the selected recipe…';self.epoch+=1
         profile=effective_profile(self.recipe,self.mode,self.tap)
-        gallery=self.store.gallery(self.route()) if self.mode in ('enrolled_names','open_with_names','selected_focus') else None
+        gallery=self.store.gallery(self.route()) if self.mode in ('enrolled_names','open_with_names','selected_focus','spatial_assisted','strongly_spatial_assisted') else None
+        from .live_spatial import LiveSpatialProvider
+        spatial = LiveSpatialProvider(self.tap, profile.tracker,
+            enabled=self.mode in ('spatial_assisted','strongly_spatial_assisted'),
+            display=self.settings.get('spatial_visualization', False))
         engine=PrototypeEngine(self.config,self.models,profile,gallery,self.mode,writer_delay=self.writer_delay,
-                               ram_horizon_sec=self.settings.get('ram_horizon_sec',120))
+                               ram_horizon_sec=self.settings.get('ram_horizon_sec',120), spatial_provider=spatial)
         self.engine=engine
         try:
             if self.source_kind=='file':engine.start_prepared_file(self.file_path,self.file_offset)
@@ -124,6 +138,10 @@ class Controller:
                     try:event=engine.events.get(block=False)
                     except queue.Empty:break
                     drained=True;self.metrics['events_consumed']+=1
+                    spatial = getattr(engine, 'live_spatial', None)
+                    if spatial is not None:
+                        if event.event_type == 'speaker_decision':spatial.observe_decision(event.payload)
+                        elif event.event_type == 'research_segmentation':spatial.observe_segmentation(event.payload)
                     if event.event_type=='s6d_display':
                         row=dict(event.payload)
                         key=row.get('caption_key') or str(row.get('session_id'))+'/'+str(row.get('utterance_id'))
@@ -144,6 +162,8 @@ class Controller:
             self.metrics['last_session']=str(engine.session_dir)
             self.metrics['last_state']=engine.state
             self.metrics['last_telemetry']=engine.telemetry()
+            if getattr(engine, 'live_spatial', None) is not None:
+                self.metrics['last_spatial']=engine.live_spatial.snapshot()
             self.metrics['model_cache']={'asr_loads':self.models.asr_loads,'speaker_loads':self.models.speaker_loads,'streams':self.models.streams}
             self.metrics['gallery_queries']=engine._research_gallery.query_count if engine._research_gallery else 0
             if epoch==self.epoch:
@@ -414,12 +434,25 @@ class Controller:
 
     def settings_update(self,values):self._enqueue('settings',dict(values))
     def _do_settings(self,values):
-        permitted={'caption_size','theme','preview_zoom','direction','layout','session_quota_mib','completed_session_limit','ram_horizon_sec'}
+        permitted={'caption_size','theme','preview_zoom','direction','layout','session_quota_mib','completed_session_limit','ram_horizon_sec','spatial_visualization'}
         if set(values)-permitted:raise ValueError('Unknown UI setting')
         if values.get('direction') not in (None,'off',False):raise ValueError('Live direction calibration unavailable; arrows are disabled')
+        if 'spatial_visualization' in values and type(values['spatial_visualization']) is not bool:
+            raise ValueError('spatial_visualization must be a boolean')
         for key,allowed in {'session_quota_mib':(64,128,256),'completed_session_limit':(3,10,20),'ram_horizon_sec':(60,120)}.items():
             if key in values and values[key] not in allowed:raise ValueError('Unsupported retention setting '+key)
         self.settings.update(values);atomic_json(self.data_root/'settings.json',self.settings)
+        if 'spatial_visualization' in values and getattr(self.engine, 'live_spatial', None) is not None:
+            self.engine.live_spatial.set_display(values['spatial_visualization'])
+
+    def reset_spatial(self):self._enqueue('reset_spatial')
+    def _do_reset_spatial(self):
+        self._ensure_no_enrollment()
+        running = self.state == 'RUNNING'
+        self._stop_session()
+        if running:self._start_session()
+        else:self.state='IDLE'
+        self.status='Positions reset in a fresh session; saved people retained.'
 
     def mark_problem(self,save_audio=False):self._enqueue('mark_problem',save_audio is True)
     def _do_mark_problem(self,save_audio):
@@ -503,10 +536,18 @@ class Controller:
         diagnostic = getattr(live, 'beam_diagnostics', None)
         beam_snapshot = diagnostic.snapshot() if diagnostic is not None else {
             'state':'OFF', 'arrows':[], 'reason':'Start the XVF with microphone consent to see beam diagnostics.'}
+        spatial = getattr(self.engine, 'live_spatial', None)
+        spatial_view = spatial.snapshot() if spatial is not None else {
+            'state':'OFF', 'arrows':[], 'associations':[], 'message':'Start live XVF input to see directions.'}
+        for association in spatial_view.get('associations', []):
+            profile = association.get('profile_id')
+            if profile:
+                association['label'] = next((p['name'] for p in people if p['id'] == profile), 'Unknown')
         return {'state':self.state,'status':self.status,'error':self.error,'rows':rows,'people':people,
             'mode':self.mode,'recipe':self.recipe,'tap':self.tap,'recipes':deepcopy(RECIPES),
+            'mode_metadata':deepcopy(MODE_METADATA), 'spatial_view':spatial_view,
             'selected_ids':self.selected_ids[:],'strict':self.strict,'settings':dict(
-                {'completed_session_limit':10,'session_quota_mib':256,'ram_horizon_sec':120},**self.settings,
+                {'completed_session_limit':10,'session_quota_mib':256,'ram_horizon_sec':120,'spatial_visualization':False},**self.settings,
                 retention=f"{self.settings.get('completed_session_limit',10)} completed unpinned sessions; {self.settings.get('session_quota_mib',256)}MiB target; 2GiB free floor",
                 ram_horizon=f"{self.settings.get('ram_horizon_sec',120)} seconds of live inference audio",
                 audio_retention='No ambient WAV archive; enrollment samples discarded after analysis'),

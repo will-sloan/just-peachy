@@ -456,7 +456,9 @@ class XVFLiveSource:
             # identity pipeline. They share this owner's serialized USB control.
             try:
                 from .beam_diagnostics import BeamDiagnostics
-                self.beam_diagnostics = BeamDiagnostics(self.control.diagnostic_values)
+                self.beam_diagnostics = BeamDiagnostics(self.control.diagnostic_values,
+                    on_sample=getattr(self, 'spatial_observer', None),
+                    fast=getattr(self, 'spatial_fast', False))
                 self.beam_diagnostics.start()
             except Exception as exc:
                 self.metadata["beam_diagnostics_error"] = str(exc)

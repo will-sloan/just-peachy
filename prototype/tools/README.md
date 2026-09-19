@@ -29,6 +29,13 @@ caption_only` for the ASR-only path. Output is `LIVE_CHECK.json` and local sessi
 and restoration receipts in the chosen directory. Exit status is nonzero on
 capture, inference, duration, integrity, or cleanup failure.
 
+Use `--mode spatial_assisted` or `--mode strongly_spatial_assisted` to check the
+new field modes with the same existing site configuration. The result includes
+bounded spatial counters, explicitly estimated associations, and telemetry
+state; a quiet room can produce no qualified voice/spatial decisions. See
+`README_SPATIAL_INTEGRATION.md` for the separate small prerecorded-speech test
+with clearly synthetic direction fixtures.
+
 `bootstrap_from_s7.py` performs a one-time copy of the exact hash-bound S7 source
 and eight existing model assets. It does not read/copy research identities or
 change historical files. Runtime never imports S7 report directories.

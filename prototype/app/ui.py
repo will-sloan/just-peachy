@@ -7,8 +7,9 @@ import math
 import os
 from pathlib import Path
 import re
+import time
 import tkinter as tk
-from tkinter import ttk
+from tkinter import font as tkfont, ttk
 from typing import Any, Callable
 
 from .casing import provisional_case
@@ -21,7 +22,10 @@ MODES = {
     "anonymous_conversation": ("Anonymous", "Speaker labels without looking up personal names. Labels can split or merge."),
     "open_with_names": ("Conversation + names", "Anonymous continuity with cautious matches to your personal profiles."),
     "selected_focus": ("Selected focus", "Emphasize selected people in the full transcript. Matching is experimental."),
+    "spatial_assisted": ("Spatial-assisted", "Voice and anonymous continuity lead; fresh XVF directions and recent positions support association. Experimental."),
+    "strongly_spatial_assisted": ("Strongly spatial-assisted", "Experimental seat continuity gives location more weight. Strong voice disagreement can recover identity; reset positions after moving the tablet."),
 }
+MODE_LEGEND = "✓ simulation-supported · ◇ experimental / real-world validation needed"
 
 
 def prepare_dpi_awareness() -> dict[str, Any]:
@@ -80,6 +84,8 @@ class PrototypeUI:
                              ("theme", self.config["themes"]), ("preview_zoom", self.config["preview_zooms"])):
             if settings.get(key) in choices:
                 self.preferences[key] = settings[key]
+        if isinstance(settings.get("spatial_visualization"), bool):
+            self.preferences["spatial_visualization"] = settings["spatial_visualization"]
         self.zoom = float(self.preferences["preview_zoom"])
         self.snapshot: dict[str, Any] = {}
         self.page = "captions"
@@ -100,6 +106,8 @@ class PrototypeUI:
         self._enroll_started = False
         self._paragraph = self.config["enrollment_paragraph"]
         self._notice = ""
+        self._spatial_signature = None
+        self._spatial_rendered_at = 0.0
         self._page_update: Callable[[], None] | None = None
         self.client_metrics: dict[str, Any] = {}
         self.actions: dict[str, tk.Widget] = {}
@@ -185,6 +193,13 @@ class PrototypeUI:
         self.body = tk.Frame(self.shell, bg=self.color("background")); self.body.pack(fill="both", expand=True)
         self.caption_page = tk.Frame(self.body, bg=self.color("background"))
         self.caption_page.pack(fill="both", expand=True)
+        self.spatial_canvas = tk.Canvas(self.caption_page, height=self.px(125),
+            bg=self.color("surface"), highlightthickness=0)
+        self._spatial_font = tkfont.Font(root=self.root, font=self.font(11))
+        if self.preferences.get("spatial_visualization", False):
+            self.spatial_canvas.pack(fill="x", padx=self.px(8), pady=(self.px(4), 0))
+        self.spatial_canvas.bind("<Configure>", lambda _e: self._update_spatial_visualization(force=True))
+        self._spatial_signature = None
         self.caption_text = tk.Text(self.caption_page, wrap="word", state="disabled", font=self.font(self.config["caption_sizes_px"][self.preferences["caption_size"]]),
             bg=self.color("background"), fg=self.color("text"), relief="flat", borderwidth=0,
             padx=self.px(16), pady=self.px(14), cursor="arrow", takefocus=False,
@@ -278,6 +293,7 @@ class PrototypeUI:
                     self.actions[key].configure(state="normal")
             self._show_status()
             self._render_rows(snapshot.get("rows", []))
+            self._update_spatial_visualization()
             if self._page_update:
                 self._page_update()
         except Exception as exc:
@@ -467,15 +483,28 @@ class PrototypeUI:
     def show_modes(self) -> None:
         self.page = "modes"; frame = self._page("Mode")
         self._paragraph_label(frame, "Modes change naming and emphasis. Recipes and audio taps are separate controls.", True)
+        self._paragraph_label(frame, MODE_LEGEND, True)
+        self._paragraph_label(frame, "✓ marks a supported simulation configuration, not verified field accuracy. Experimental modes remain selectable.", True)
         for mode, (name, description) in MODES.items():
+            metadata = self._mode_metadata(mode)
             selected = mode == self.snapshot.get("mode", "caption_only")
-            self.button(frame, ("✓ " if selected else "") + name, lambda m=mode: self._choose_mode(m),
+            self.button(frame, metadata["symbol"] + " " + metadata["label"] + (" · active" if selected else ""), lambda m=mode: self._choose_mode(m),
                         accent=selected, key=f"mode_{mode}").pack(fill="x", padx=self.px(12), pady=(self.px(6), 0))
-            self._paragraph_label(frame, description, True)
+            self._paragraph_label(frame, metadata["description"], True)
         self.button(frame, "Choose selected people", self.show_roster, key="roster").pack(fill="x", padx=self.px(12), pady=self.px(6))
         self.button(frame, "Experimental · show selected only", self.request_strict, key="strict").pack(fill="x", padx=self.px(12), pady=self.px(6))
         self.button(frame, "Engine recipe & audio tap", self.show_recipes, key="recipes").pack(fill="x", padx=self.px(12), pady=self.px(6))
         self.button(frame, "Mode guide", self.show_help).pack(fill="x", padx=self.px(12), pady=self.px(6))
+
+    def _mode_metadata(self, mode: str) -> dict[str, str]:
+        """Missing evidence is experimental; the GUI never invents support."""
+        name, description = MODES[mode]
+        item = (self.snapshot.get("mode_metadata") or {}).get(mode) or {}
+        return {"label": str(item.get("label") or name),
+                "description": str(item.get("description") or description),
+                "symbol": "✓" if item.get("symbol") == "✓" else "◇",
+                "status": str(item.get("status") or "experimental"),
+                "parent": str(item.get("parent") or "")}
 
     def request_strict(self) -> None:
         if not self.snapshot.get("selected_ids"):
@@ -768,6 +797,13 @@ class PrototypeUI:
         if key == "caption_size":
             self.caption_text.configure(font=self.font(self.config["caption_sizes_px"][value]))
             self.show_settings()
+        elif key == "spatial_visualization":
+            if value:
+                self.spatial_canvas.pack(fill="x", before=self.caption_text, padx=self.px(8), pady=(self.px(4), 0))
+                self._update_spatial_visualization(force=True)
+            else:
+                self.spatial_canvas.pack_forget()
+            self.show_settings()
         elif key in ("theme", "preview_zoom"):
             self.zoom = float(self.preferences.get("preview_zoom", 1))
             self.shell.destroy(); self._row_cache.clear(); self._marks.clear(); self._render_order.clear()
@@ -777,6 +813,12 @@ class PrototypeUI:
     def show_settings(self) -> None:
         self.page = "settings"; frame = self._page("Settings")
         self._paragraph_label(frame, "Display changes apply without reloading models.", True)
+        enabled = bool(self.preferences.get("spatial_visualization", False))
+        self.button(frame, "Live spatial display: " + ("ON · tap to hide" if enabled else "OFF · tap to show"),
+                    lambda value=not enabled: self._preference("spatial_visualization", value),
+                    key="spatial_visualization").pack(fill="x", padx=self.px(12), pady=self.px(4))
+        self.button(frame, "Reset positions · tablet moved", self._reset_spatial,
+                    key="reset_spatial").pack(fill="x", padx=self.px(12), pady=self.px(4))
         self.button(frame, "Beam angles · live diagnostics", self.show_beam_diagnostics,
                     key="beam_diagnostics").pack(fill="x", padx=self.px(12), pady=self.px(4))
         self._paragraph_label(frame, "Caption size")
@@ -788,7 +830,7 @@ class PrototypeUI:
         self._paragraph_label(frame, "Preview size · comfort zoom is not exact-pixel evidence")
         for zoom in self.config["preview_zooms"]:
             self.button(frame, "480 × 800 pixel-check" if zoom == 1 else f"{round(zoom * 100)}% comfort zoom", lambda v=zoom: self._preference("preview_zoom", v)).pack(fill="x", padx=self.px(12), pady=self.px(3))
-        self._paragraph_label(frame, "Beam diagnostics show recent hardware directions. Numerical angles do not yet assist live identity or enrollment; named-person arrows require verified person-to-beam evidence.", True)
+        self._paragraph_label(frame, "Spatial modes can use fresh directions as association evidence. Colors identify hardware beams; names appear only when supplied by the pipeline. An angle alone does not prove identity. Reset positions clears location memory and preserves saved people.", True)
         self.button(frame, "Engine recipe & audio tap", self.show_recipes).pack(fill="x", padx=self.px(12), pady=self.px(4))
         self.button(frame, "Open a saved file…", lambda: self.browse_file("replay"), key="file_replay").pack(fill="x", padx=self.px(12), pady=self.px(4))
         self.button(frame, "Diagnostics / raw text", self.show_diagnostics, key="diagnostics").pack(fill="x", padx=self.px(12), pady=self.px(4))
@@ -817,6 +859,112 @@ class PrototypeUI:
         self._paragraph_label(frame, "Retention / disk: " + (json.dumps(retention, ensure_ascii=False) if retention else "Backend policy is not yet reported; no audio recording is enabled by this UI."), True)
         free_disk = self.snapshot.get("metrics", {}).get("free_disk_gib")
         self._paragraph_label(frame, f"Free data disk: {self._number(free_disk):.1f} GiB" if free_disk is not None else "Free data disk: awaiting backend measurement", True)
+
+    def _reset_spatial(self) -> None:
+        if self._call("reset_spatial"):
+            self._notice = "Position memory cleared; saved people are unchanged."
+            self._show_status()
+
+    @staticmethod
+    def _spatial_number(value: Any) -> bool:
+        return isinstance(value, (int, float)) and not isinstance(value, bool) and math.isfinite(value)
+
+    def _update_spatial_visualization(self, force: bool = False) -> None:
+        """Render bounded controller telemetry, at most four times/second; no inference."""
+        if not self.preferences.get("spatial_visualization", False):
+            return
+        now = time.monotonic()
+        if not force and (self.page != "captions" or now - self._spatial_rendered_at < .25):
+            return
+        self._spatial_rendered_at = now
+        view = self.snapshot.get("spatial_view") or self.snapshot.get("beam_diagnostics") or {}
+        state = str(view.get("state", "OFF"))
+        active = state.upper() == "RUNNING"
+        stale_after = view.get("stale_after_seconds", .75)
+        stale_after = float(stale_after) if self._spatial_number(stale_after) and stale_after >= 0 else .75
+        beams = {beam["id"]: beam for beam in BEAMS}
+        arrows = []
+        for row in view.get("arrows", [])[:len(BEAMS)]:
+            if not isinstance(row, dict) or row.get("id") not in beams:
+                continue
+            angle, age = row.get("angle_deg"), row.get("age_sec")
+            if not (self._spatial_number(angle) and 0 <= angle <= 180 and self._spatial_number(age) and 0 <= age <= 12):
+                continue
+            fresh = active and age <= stale_after and row.get("fresh", True) is not False
+            arrows.append({**beams[row["id"]], **row, "fresh": fresh})
+        associations = []
+        for row in view.get("associations", [])[:8]:
+            if not isinstance(row, dict):
+                continue
+            angle, age = row.get("angle_deg"), row.get("age_sec")
+            if not (self._spatial_number(angle) and 0 <= angle <= 180 and self._spatial_number(age) and 0 <= age <= 12):
+                continue
+            fresh = active and age <= stale_after and row.get("fresh") is True and row.get("speaking") is True
+            associations.append({**row, "fresh": fresh})
+        associations.sort(key=lambda row: (not row["fresh"], row["age_sec"]))
+        associations = associations[:2]
+        # Repainting depends on visible state, not raw high-frequency receipt times.
+        signature = (state, str(view.get("message", "")), self.spatial_canvas.winfo_width(),
+                     tuple((a["id"], round(a["angle_deg"], 1), a["fresh"], bool(a.get("selected")), bool(a.get("speech"))) for a in arrows),
+                     tuple((str(a.get("label", "Unknown")), round(a["angle_deg"], 1), a["fresh"], int(a["age_sec"])) for a in associations),
+                     bool(view.get("speech")), str(view.get("energy")))
+        if signature == self._spatial_signature and not force:
+            return
+        self._spatial_signature = signature
+        canvas = self.spatial_canvas
+        canvas.delete("all")
+        width = max(self.px(360), canvas.winfo_width())
+        cx, cy, radius = self.px(107), self.px(97), self.px(61)
+        canvas.create_text(self.px(10), self.px(12), anchor="w", text="XVF · board frame", font=self.font(12, True), fill=self.color("text"))
+        canvas.create_arc(cx-radius, cy-radius, cx+radius, cy+radius, start=0, extent=180,
+                          style="arc", outline=self.color("border"))
+        canvas.create_line(cx-radius, cy, cx+radius, cy, fill=self.color("border"))
+        for angle, text in ((180, "180°"), (90, "90°"), (0, "0°")):
+            x, y = arrow_tip(angle, cx, cy, radius+self.px(16))
+            canvas.create_text(x, y, text=text, fill=self.color("muted"), font=self.font(11))
+        for row in arrows:
+            x, y = arrow_tip(row["angle_deg"], cx, cy, radius*row["radius"])
+            canvas.create_line(cx, cy, x, y, arrow="last", arrowshape=(self.px(7), self.px(9), self.px(3)),
+                fill=row["color"] if row["fresh"] else self.color("muted"),
+                width=self.px(4 if row.get("selected") and row["fresh"] else 2),
+                dash=() if row["fresh"] else (self.px(3), self.px(3)),
+                tags=("spatial_beam", row["id"], "fresh" if row["fresh"] else "stale"))
+        for row in associations:
+            x, y = arrow_tip(row["angle_deg"], cx, cy, radius+self.px(4))
+            color = self.color("text" if row["fresh"] else "muted")
+            if not row["fresh"]:
+                canvas.create_line(cx, cy, x, y, fill=color, dash=(self.px(2), self.px(4)), tags=("spatial_position", "stale"))
+            canvas.create_oval(x-self.px(4), y-self.px(4), x+self.px(4), y+self.px(4),
+                fill=color if row["fresh"] else self.color("surface"), outline=color, tags=("spatial_association",))
+        canvas.create_rectangle(cx-self.px(11), cy-self.px(3), cx+self.px(11), cy+self.px(5),
+                                fill=self.color("raised"), outline=self.color("text"))
+        tx = self.px(207)
+        text_width = max(self.px(140), width-tx-self.px(8))
+        selected = next((row for row in arrows if row.get("selected") and row["fresh"]), None)
+        speaking = bool(active and selected and (view.get("speech") or selected.get("speech")))
+        badge = "● Fresh speaking direction" if speaking else "Fresh beam · speech unconfirmed" if any(a["fresh"] for a in arrows) else "No fresh direction"
+        canvas.create_text(tx, self.px(13), anchor="w", text=badge, font=self.font(12, True),
+                           fill=self.color("accent" if speaking else "muted"), width=text_width, tags=("spatial_badge",))
+        selection = f"{selected['label']} · {selected['angle_deg']:.0f}°" if selected else "Selected direction: —"
+        canvas.create_text(tx, self.px(36), anchor="w", text=selection, font=self.font(12),
+                           fill=selected["color"] if selected else self.color("muted"), width=text_width, tags=("spatial_selected",))
+        energy = view.get("energy")
+        energy_text = f"Energy {energy:.3g} · device units" if active and self._spatial_number(energy) else "Energy unavailable"
+        canvas.create_text(tx, self.px(53), anchor="w", text=energy_text, font=self.font(11), fill=self.color("muted"), tags=("spatial_energy",))
+        for index, row in enumerate(associations):
+            label = "≈ " + str(row.get("label") or "Unknown").replace("\n", " ")[:20]
+            suffix = "speaking" if row["fresh"] else f"last known {row['age_sec']:.0f}s"
+            tail = f" · {row['angle_deg']:.0f}° · {suffix}"
+            while len(label) > 2 and self._spatial_font.measure(label+tail) > text_width:
+                label = label[:-2] + "…"
+            canvas.create_text(tx, self.px(73+index*17), anchor="w", text=label+tail,
+                font=self.font(11), fill=self.color("text" if row["fresh"] else "muted"),
+                tags=("spatial_name", "fresh" if row["fresh"] else "stale"))
+        if not associations:
+            canvas.create_text(tx, self.px(75), anchor="w", text="No speaker association", font=self.font(11),
+                               fill=self.color("muted"), width=text_width, tags=("spatial_name",))
+        canvas.create_text(self.px(10), self.px(115), anchor="w", text="Solid: fresh · dashed: last known · ≈ estimated match",
+                           font=self.font(11), fill=self.color("muted"), tags=("spatial_legend",))
 
     def show_beam_diagnostics(self) -> None:
         self.page = "beam_diagnostics"; frame = self._page("Beam angles", back=self.show_settings)
@@ -916,8 +1064,17 @@ class PrototypeUI:
 
     def show_help(self) -> None:
         self.page = "help"; frame = self._page("Mode guide")
-        for title, description in MODES.values():
-            self._paragraph_label(frame, title); self._paragraph_label(frame, description, True)
+        self._paragraph_label(frame, MODE_LEGEND)
+        self._paragraph_label(frame, "Simulation support belongs to the configuration and its tested conditions; all personal live use still needs real-world validation. An experimental marker never blocks selecting a mode.", True)
+        for mode in MODES:
+            metadata = self._mode_metadata(mode)
+            self._paragraph_label(frame, metadata["symbol"] + " " + metadata["label"])
+            self._paragraph_label(frame, metadata["description"], True)
+            if metadata["parent"]:
+                self._paragraph_label(frame, "Existing method: " + metadata["parent"], True)
+        self._paragraph_label(frame, "Spatial-assisted supports voice and anonymous continuity with recent positions. Strongly spatial-assisted favors seat continuity more heavily; it can misassociate people who swap seats or overlap. Strong voice disagreement and expiring location evidence allow recovery. Neither mode turns an angle into proof of identity.")
+        self._paragraph_label(frame, "Settings → Live spatial display adds a compact semicircle above captions. Solid arrows are fresh beam readbacks; the speaking badge requires fresh speech evidence. Dashed arrows and hollow dots are stale/last-known positions, not current speakers. Names come from the pipeline, never from the drawing. Colors identify hardware outputs. The folded 0–180° frame cannot resolve front from rear.")
+        self._paragraph_label(frame, "After moving the tablet, use Settings → Reset positions. This clears remembered locations and starts a fresh processing epoch while preserving saved people. No automatic IMU motion detection is claimed. The display itself performs no inference and can be hidden without changing the selected mode.")
         self._paragraph_label(frame, "Recipes choose existing engine settings; O0/O1 choose compatible audio taps. The menu shows backend availability and evidence status. Personalization is a new application condition, not a research accuracy guarantee.")
         self._paragraph_label(frame, "Human checks still needed: consent and speak through the identified XVF; record and save your own voice reference; restart, then test different speech; try Unknown/wrong-person behavior. A stub or saved file does not verify live enrollment.")
         self._paragraph_label(frame, "Stop actually stops capture through the controller. If strict focus hides words, Show all captions returns to caption-only mode. The documented evaluation firmware has an eight-hour limit; stop between sessions and follow the device recovery guide rather than resetting during speech.")

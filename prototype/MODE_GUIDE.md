@@ -21,6 +21,12 @@ controls labels/emphasis; a recipe controls inference policy; O0/O1 select a
 compatible audio tap. The backend validates combinations and starts a fresh
 audio/identity epoch when a change needs it. Finished captions remain visible.
 
+The selector uses **✓ simulation-supported** for the established captions and
+anonymous paths, and **◇ experimental / real-world validation needed** for
+personal-gallery and spatial compositions. ✓ does not promise field accuracy;
+◇ is selectable and does not mean broken or forbidden. Recipe-specific tradeoffs
+still apply. No new dataset sweep or threshold optimization was used here.
+
 | Mode | What appears | Important limit |
 |---|---|---|
 | Captions | All words under a neutral caption label | Optional speaker inference is off; previously loaded weights may remain resident. |
@@ -28,6 +34,8 @@ audio/identity epoch when a change needs it. Finished captions remain visible.
 | Anonymous | Provisional speaker continuity without personal-gallery lookup | One person can split into labels or different people can merge. |
 | Conversation + names | Anonymous continuity plus cautious personal-name matches | Personalization is a new application condition; research accuracy is not a guarantee. |
 | Selected focus | Selected people emphasized in the full transcript | Matching remains experimental. Unknown or wrong identities can occur. |
+| Spatial-assisted ◇ | Anonymous continuity plus compatible names, supported by fresh C079 direction evidence | Weak/stale/missing cues fall back to voice; nearby seats and reflections can confuse association. |
+| Strongly spatial-assisted ◇ | Same voice/name pipeline with retained C060 location weighting | 50% greater spatial weight (.90 versus .60); useful for testing seat continuity, with increased risk of confusing voices at the same position. |
 
 Selected-only filtering is a separate experimental action with a warning. It
 hides text based on identity; it does not remove other voices acoustically.
@@ -40,27 +48,38 @@ always returns to caption-only display. Use it immediately if words seem missing
 |---|---|---|
 | Fast captions | C065/M0 accepted greedy ASR with no speaker calls | Caption-only |
 | Classic continuity | Actual B36 original tracker inside the corrected scheduler | Caption-only or anonymous |
-| Balanced identity | C065 short/mature evidence; C088 conservative personal naming where enabled | All five modes |
-| Patient identity | C067/N03 longer mature evidence plus short path, C088 naming where enabled | All five modes; initial identity can take longer |
-| Spatial-assisted | C079 parent retained for reference | Disabled: live telemetry alignment/calibration is not qualified |
+| Balanced identity | C065 short/mature evidence; C088 conservative personal naming where enabled | All seven modes |
+| Patient identity | C067/N03 longer mature evidence plus short path, C088 naming where enabled | All seven modes; initial identity can take longer |
 
 The menu uses the backend's current supported list and reasons. There is no
 invented B28 or multibeam substitute. O0's required host +3 dB is applied once
 by the live adapter; prepared O0 files already carry their gain. O1 is unity.
 The UI performs no gain processing or hardware routing itself.
 
-All active recipes receive XVF's beamformed audio. They do **not** currently
-receive numerical angle metadata for enrollment or voice identity. The disabled
-Spatial-assisted recipe would add that software cue; it remains unqualified
-until live audio/telemetry alignment, reliability and person-to-beam association
-are verified. Voice enrollment and matching remain usable independently.
+Spatial assistance is now a **mode**, used with Balanced or Patient. Both use
+actual ReDimNet voice evidence, anonymous continuity, the retained position
+memory/decay and recent live XVF telemetry. C088 names still require voice
+reference evidence: a seat never creates a person or an enrollment. The stronger
+mode keeps severe voice-conflict rejection, reduced spatial influence for strong
+voice matches and relocation updates. Old positions lose influence with the
+existing 12-second decay. Enrollment collection and private storage are unchanged.
 
-Settings → Beam diagnostics displays read-only device beam angles with stable
-beam colors. These are device-relative 0–180° linear-array directions, not
-identified people. Music and reflections can attract a beam. Named-person
-arrows remain unavailable without fresh verified person-to-beam evidence.
-The research ±5° manual-label uncertainty is not a live-angle correction or
-a device accuracy guarantee. See `docs/BEAM_DIAGNOSTICS.md`.
+Settings → **Live spatial display** adds a compact optional panel above captions.
+Solid beams are fresh; dashed beams/positions are last-known. The speaking badge
+requires recent existing speech evidence. Colors identify hardware outputs;
+`≈ Name` or `≈ Speaker` denotes the pipeline's estimated voice-position match.
+Names do not turn this into independently verified person localization. Multiple
+beams can follow one voice, music or reflections, and the mono identity stream
+does not identify every simultaneous beam. The device-relative 0–180° frame folds
+front/rear together. After moving the tablet, **Reset positions** starts a fresh
+epoch without deleting saved people. Strong voice can also relocate a remembered
+speaker naturally; no uninstalled motion sensor is assumed.
+
+The existing detailed Beam diagnostics page remains available. The compact
+display can be hidden without disabling the selected spatial mode. A missing
+XVF cue is a voice-only fallback, not a reason to disable a mode. File replay
+without a declared cue fixture also runs voice-only. See `app/README_SPATIAL.md`
+for timing, selected beam versus fusion cue, bounds and reproduction commands.
 
 ## People and enrollment
 

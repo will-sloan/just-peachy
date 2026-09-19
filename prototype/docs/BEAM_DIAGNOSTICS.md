@@ -24,10 +24,12 @@ repeated values are not independent fresh estimates. Angles and speech energies
 are asynchronous. The display does not claim an atomic snapshot, identify a
 person, use an angle to enroll a person, or alter ASR/identity decisions.
 
-The live **Spatial-assisted** recipe remains unavailable: it needs a qualified
-causal audio/telemetry association and validation beyond this diagnostic page.
-Other recipes still receive the XVF's processed, beamformed audio; their software
-identity and enrollment paths do not currently consume numerical directions.
+The two **Spatial-assisted** modes are now selectable experimental field modes.
+Their separate causal adapter uses numerical directions with existing C079/C060
+trackers; this detailed diagnostic drawing still does not assign identities.
+The optional main-screen panel shows pipeline-supplied **estimated** associations.
+See [the mode guide](../MODE_GUIDE.md) and [adapter guide](../app/README_SPATIAL.md).
+Other modes retain voice-only association, and enrollment never names by angle.
 
 ## Inputs, outputs and lifecycle
 
@@ -38,10 +40,10 @@ perform no device access. The live source starts the worker after microphone
 consent and successful route verification, and joins it before restoring routing
 or releasing ownership. A new live session gets a fresh worker and empty state.
 
-The worker makes at most two getter calls per second in total, rotating through
-the three fields. Each field therefore refreshes at most about every 1.5 seconds,
-plus command time. It waits after each completed call and never catches up in a
-burst. Diagnostic getters share the route-control lock, create no per-read command
+Ordinary modes with the compact display off use at most two getter calls per
+second in total. Spatial modes or an enabled compact display use at most five
+three-getter groups per second. Actual query time limits the rate; there is no
+catch-up burst or atomic-group claim. Diagnostic getters share the route-control lock, create no per-read command
 receipt list and retain only three latest field arrays plus counters. A getter
 failure disables diagnostics and hides arrows; it does not fail recognition.
 Stop waits for the single bounded in-flight getter before owner cleanup.

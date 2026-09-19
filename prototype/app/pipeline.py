@@ -15,7 +15,9 @@ from edge_speech_pipeline.research_profiles import ResearchProfile
 from edge_speech_pipeline.research_s6d import S6DSettings
 from edge_speech_pipeline.research_s7 import S7Settings, AbsolutePacer
 
-MODES=('caption_only','enrolled_names','anonymous_conversation','open_with_names','selected_focus')
+SPATIAL_PARENTS={'spatial_assisted':'C079','strongly_spatial_assisted':'C060'}
+MODES=('caption_only','enrolled_names','anonymous_conversation','open_with_names','selected_focus',
+       *SPATIAL_PARENTS)
 RECIPES=[
  {'id':'fast','name':'Fast captions','description':'Accepted greedy ASR; no speaker model calls.',
   'compatible_modes':['caption_only'],'parent':'S7 C065 / M0'},
@@ -25,9 +27,6 @@ RECIPES=[
   'compatible_modes':list(MODES),'parent':'C065 + C088'},
  {'id':'patient','name':'Patient identity','description':'C067/N03 longer mature evidence with a short path; slower initial identity.',
   'compatible_modes':list(MODES),'parent':'C067/N03 + C088 naming'},
- {'id':'spatial','name':'Spatial-assisted (unavailable)','description':'C079 real-cue parent retained for reference.',
-  'compatible_modes':[],'parent':'C079','available':False,
-  'reason':'Live telemetry alignment/calibration is not qualified. No oracle or constant-angle substitute.'},
 ]
 for row in RECIPES:
     row.setdefault('available',True);row.setdefault('reason','')
@@ -40,8 +39,15 @@ def effective_profile(recipe,mode,tap):
     if info is None or mode not in info['compatible_modes']: raise ValueError('Recipe is unavailable for this mode')
     profiles=read_json(ROOT/'config/s7_profiles.json')
     p=deepcopy(read_json(ROOT/'config/parent_C067.json') if recipe=='patient' else profiles['C065'])
-    naming=mode in ('enrolled_names','open_with_names','selected_focus')
+    naming=mode in ('enrolled_names','open_with_names','selected_focus',*SPATIAL_PARENTS)
     p['identity']=deepcopy(profiles['C088']['identity'] if naming else profiles['C065']['identity'])
+    if mode in SPATIAL_PARENTS:
+        # Reuse the complete frozen tracker, not a new angle-to-person rule.
+        # Frontend timing still follows the user's Balanced/Patient recipe;
+        # naming remains the independent C088 post-association voice resolver.
+        parent=read_json(ROOT/('config/parent_'+SPATIAL_PARENTS[mode]+'.json'))
+        p['tracker']=deepcopy(parent['tracker'])
+        p['xvf']=deepcopy(parent['xvf'])
     if recipe=='classic':
         parent=read_json(ROOT/'config/parent_B36.json')
         p['asr']=parent['asr'];p['segmentation']=parent['segmentation']
@@ -132,9 +138,10 @@ class FileSource:
 
 
 class LivePipelineSource:
-    def __init__(self,journal,live_config,callback):
+    def __init__(self,journal,live_config,callback,spatial_provider=None):
         from .live_audio import XVFLiveSource
         self.live=XVFLiveSource(live_config)
+        self.spatial_provider=spatial_provider
         self.journal=journal;self.callback=callback;self.thread=None;self.stop_event=threading.Event()
         self.start_metadata=None;self.stop_receipt=None;self.integrity=None
         self.sent=0;self.error=None;self._done=threading.Event()
@@ -229,6 +236,7 @@ class LivePipelineSource:
                 # timeline must not be repaired by rebasing/clamping its epoch.
                 if (self.sent+len(block.audio))/16000>time.perf_counter()-origin:
                     raise RuntimeError('LIVE_SOURCE_TIMING: source support is ahead of the fixed capture timeline')
+                if self.spatial_provider is not None:self.spatial_provider.advance_audio(block)
                 self.journal.append(block.audio);self.sent+=len(block.audio)
                 if self.journal.duration_sec>=3600:
                     self.callback('source_limit',{'reason':'1h application session boundary; press Start for a fresh session'})
@@ -275,13 +283,15 @@ class LivePipelineSource:
 
 
 class PrototypeEngine(PipelineEngine):
-    def __init__(self,config,models,profile,gallery,mode,*,writer_delay=0,ram_horizon_sec=120):
+    def __init__(self,config,models,profile,gallery,mode,*,writer_delay=0,ram_horizon_sec=120,
+                 spatial_provider=None):
+        self.live_spatial = spatial_provider
         self.resident=models;self.writer_delay=writer_delay;self.text_writers=[]
         self.ram_horizon_sec=ram_horizon_sec
         self.recipe=profile.profile_id.split('_')[1]
         s7=S7Settings(pacing='absolute',instrumentation='light',mode='M0' if mode=='caption_only' else 'M1' if mode=='anonymous_conversation' else 'M2',
                      presentation_enabled=True,availability_clock='observed',ownership_mode='supported_prefix_v2')
-        super().__init__(config,research_profile=profile,research_gallery=gallery,
+        super().__init__(config,research_profile=profile,research_gallery=gallery,spatial_provider=spatial_provider,
             s6d_settings=S6DSettings(text_delivery=True,boundary_repair=True,max_display_rows=512),s7_settings=s7)
 
     def _make_audio_journal(self,path):
@@ -292,6 +302,11 @@ class PrototypeEngine(PipelineEngine):
         writer=AsyncText(path,delay_once=self.writer_delay if Path(path).name=='events.jsonl' else 0)
         self.text_writers.append(writer);return writer
     def _prepare_native_models(self,caption_only):return self.resident.acquire(self.config,caption_only)
+
+    def _source_status(self,kind,payload):
+        if kind=='source_started' and self._spatial_provider is not None:
+            self._spatial_provider.bind_origin(payload['source_epoch_monotonic_sec'])
+        super()._source_status(kind,payload)
 
     def begin(self):
         self._begin_session('prototype')
@@ -309,7 +324,9 @@ class PrototypeEngine(PipelineEngine):
 
     def start_xvf(self,live_config):
         self.begin()
-        return self._launch(LivePipelineSource(self._journal,live_config,self._source_status))
+        source=LivePipelineSource(self._journal,live_config,self._source_status,self._spatial_provider)
+        if self._spatial_provider is not None:self._spatial_provider.attach(source.live)
+        return self._launch(source)
 
     def _watch_session(self):
         try:super()._watch_session()

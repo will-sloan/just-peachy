@@ -18,7 +18,7 @@ def parser():
     p.add_argument('--data-root',type=Path)
     p.add_argument('--models',type=Path)
     p.add_argument('--wav',type=Path)
-    p.add_argument('--mode',default='caption_only',choices=('caption_only','enrolled_names','anonymous_conversation','open_with_names','selected_focus'))
+    p.add_argument('--mode',default='caption_only',choices=('caption_only','enrolled_names','anonymous_conversation','open_with_names','selected_focus','spatial_assisted','strongly_spatial_assisted'))
     p.add_argument('--recipe',default='fast',choices=('fast','classic','balanced','patient'))
     p.add_argument('--tap',default='O0',choices=('O0','O1'))
     p.add_argument('--result',type=Path)

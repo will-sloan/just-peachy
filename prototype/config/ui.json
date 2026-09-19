@@ -17,5 +17,5 @@
   },
   "acronyms": ["AI", "API", "ASR", "CPU", "DSP", "GPU", "ONNX", "PCM", "UI", "USB", "WAV", "XVF3800"],
   "enrollment_paragraph": "Please sit with me by the window. The sun is out, and the sky is blue. Would you like some hot tea or fresh juice? I usually choose tea. We can watch the birds and enjoy a good book. Thank you for sharing this lovely day.",
-  "defaults": {"caption_size": "Normal", "theme": "Dark", "preview_zoom": 1.0, "direction": "off"}
+  "defaults": {"caption_size": "Normal", "theme": "Dark", "preview_zoom": 1.0, "direction": "off", "spatial_visualization": false}
 }
