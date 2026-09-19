@@ -132,7 +132,10 @@ class Controller:
                                 self.rows[key]=row
                                 while len(self.rows)>512:
                                     self.rows.popitem(last=False);self.metrics['retired_rows']+=1
-                    elif event.event_type=='fatal':self.error=str(event.payload)
+                    elif event.event_type in ('fatal','failure'):
+                        # Keep the originating failure; shutdown can emit a
+                        # secondary source-closure error after a lane fails.
+                        if not self.error:self.error=str(event.payload.get('reason',event.payload))
                 done=engine._finalization_thread is not None and not engine._finalization_thread.is_alive()
                 if done and engine.events.empty():break
                 if not drained:time.sleep(.02)
@@ -145,7 +148,7 @@ class Controller:
             self.metrics['gallery_queries']=engine._research_gallery.query_count if engine._research_gallery else 0
             if epoch==self.epoch:
                 if engine.state=='FAILED' or engine._finalization_error:
-                    self.state='ERROR';self.error=str(engine._finalization_error or engine.telemetry());self.status='Session failed. Stop/restart for a fresh audio epoch.'
+                    self.state='ERROR';self.error=self.error or str(engine._finalization_error or engine.telemetry());self.status='Session failed. Stop/restart for a fresh audio epoch.'
                 elif self.state!='SWITCHING':self.state='STOPPED';self.status='Stopped. Microphone released.'
         except Exception as exc:
             self.error=repr(exc);self.state='ERROR';self.status='Caption consumer failed: '+str(exc)
@@ -496,6 +499,10 @@ class Controller:
             import psutil
             proc=psutil.Process();metrics.update(rss_mib=proc.memory_info().rss/1024**2,threads=proc.num_threads(),cpu_seconds=sum(proc.cpu_times()[:2]))
         except ImportError:pass
+        live = getattr(self, '_enroll_live', None) or getattr(getattr(self.engine, '_source', None), 'live', None)
+        diagnostic = getattr(live, 'beam_diagnostics', None)
+        beam_snapshot = diagnostic.snapshot() if diagnostic is not None else {
+            'state':'OFF', 'arrows':[], 'reason':'Start the XVF with microphone consent to see beam diagnostics.'}
         return {'state':self.state,'status':self.status,'error':self.error,'rows':rows,'people':people,
             'mode':self.mode,'recipe':self.recipe,'tap':self.tap,'recipes':deepcopy(RECIPES),
             'selected_ids':self.selected_ids[:],'strict':self.strict,'settings':dict(
@@ -504,7 +511,8 @@ class Controller:
                 ram_horizon=f"{self.settings.get('ram_horizon_sec',120)} seconds of live inference audio",
                 audio_retention='No ambient WAV archive; enrollment samples discarded after analysis'),
             'enrollment':deepcopy(self.enrollment),'metrics':metrics,'epoch':self.epoch,
-            'pending_actions':self.commands.qsize(),'direction':'unavailable','closed':self.closed}
+            'pending_actions':self.commands.qsize(),'direction':'unavailable',
+            'beam_diagnostics':beam_snapshot,'closed':self.closed}
 
     def close(self):self._enqueue('close')
     def _do_close(self):

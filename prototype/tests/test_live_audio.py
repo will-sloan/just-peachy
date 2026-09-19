@@ -89,7 +89,7 @@ class FakeSD:
             def send(self, left=0.1, right=0.2, status=False, frames=480):
                 data = np.full((frames, 2), [left, right], dtype=np.float32)
                 try:
-                    kwargs["callback"](data, frames, types.SimpleNamespace(inputBufferAdcTime=10.0), status)
+                    kwargs["callback"](data, frames, types.SimpleNamespace(inputBufferAdcTime=10.0, currentTime=10.11), status)
                 except owner.CallbackAbort:
                     self.active = False
         result = Stream()
@@ -235,6 +235,19 @@ class LiveAdapterTests(unittest.TestCase):
             self.assertEqual(control.state, INITIAL)
             self.assertTrue(source.wait(.01))
             patch.stopall()
+
+    def test_callback_preserves_driver_and_high_resolution_host_clocks(self):
+        source,stream,_=self.start_fixture()
+        before=time.perf_counter_ns()
+        stream.send()
+        after=time.perf_counter_ns()
+        block=source.read()
+        self.assertEqual(block.adc_time_seconds,10.0)
+        self.assertEqual(block.callback_current_time_seconds,10.11)
+        self.assertLessEqual(before,block.callback_perf_counter_ns)
+        self.assertLessEqual(block.callback_perf_counter_ns,after)
+        self.assertGreater(block.callback_monotonic_ns,0)
+        self.assertGreaterEqual(block.delivery_monotonic_ns,block.callback_monotonic_ns)
 
     def test_ring_overflow_is_visible_never_silent(self):
         source, stream, _ = self.start_fixture(reserve_seconds=1)

@@ -32,7 +32,14 @@ Outputs are read-only inventory JSON and unittest results. USB reads sometimes r
 
 Construct `LiveConfig(**site_json)` and `XVFLiveSource(config, status_callback=callback)`. `start(consent=True)` returns actual route/endpoint metadata. Call `read(timeout=.25)` from a dedicated producer thread. Each `LiveBlock` carries float32 mono 16 kHz audio, model sample origin, native frame origin/count, callback/ADC/delivery timestamps, fixed FIR delay and observed host delivery lag. `None` means timeout or completed; consult `status()['finished']`. `LiveGap` means the admitted session is incomplete. Stop it and start a new recognizer/association epoch after explicit reconnect. `stop()`/`finish()` are idempotent and return restoration/default-output observations. `wait(timeout)` waits for stop completion.
 
-After stop, `summarize_live_integrity(source)` provides the authoritative `ok` gate and `reasons`, drop/fault counters, restoration issues, actual route/device/rate metadata, and unconsumed tail count. Enrollment must check it even if its read loop raised no exception: a callback overflow can occur while its consumer analyzes quality. The deliberately unconsumed stop tail cannot count toward saved speech. The native pipeline bridge retains start metadata and anchors source time to the first callback's timestamp; it does not hide queue lag by starting its clock at delayed consumer delivery.
+After stop, `summarize_live_integrity(source)` provides the authoritative `ok` gate and `reasons`, drop/fault counters, restoration issues, actual route/device/rate metadata, and unconsumed tail count. Enrollment must check it even if its read loop raised no exception: a callback overflow can occur while its consumer analyzes quality. The deliberately unconsumed stop tail cannot count toward saved speech.
+
+The bridge binds a fixed epoch using the first callback's high-resolution host
+time and valid PortAudio ADC/current-time difference. Buffered Windows packets
+retain their input age. When driver timestamps are unusable, reported input
+latency is explicitly recorded as an estimate, unqualified for acoustic latency
+measurement. Missing usable timing fails. Queue lag is not hidden by resetting
+the epoch at consumer delivery. See [Windows live verification](WINDOWS_LIVE_FIX.md).
 
 Never silently reconnect to another microphone. The adapter resolves the selected endpoint on each start; it does not retain the prior PortAudio index. On Windows it also matches the Core Audio endpoint ID. Two XVF boards are refused because this matching vendor USB control tool does not provide a safe serial-address selector. A changed ID needs deliberate selection. Only one project lease owner can control/capture the device.
 
@@ -64,6 +71,11 @@ replacement. Focused fake-device regression commands are in
 
 The tests cover consent before access, lease exclusion, changing indices, ambiguous/missing device rejection, failed partial writes and safe restoration, external setting preservation, once-only gain/stereo demux, overflow, unplug/stall state, resampler phase/anti-aliasing, and read-only output comparison. Tests are not physical mic/speech verification.
 
-Read-only desktop inventory identifies XVF firmware 3.2.1, `ua-io48-lin`, current USB16/16 and one XVF capture endpoint. DSP routing/topology reads are limited while the USB audio loop is inactive. The physical input-only stream, live readback/gain/signal, unplug/replug and speech/enrollment proof remain `LIVE_READY_AWAITING_USER` until explicit in-app consent and human speech. If input-only UAC cannot supply its clock, show the exact failure; do not silently add playback.
+Desktop inventory identifies XVF firmware 3.2.1, `ua-io48-lin`, USB16/16 and one
+XVF capture endpoint. Version 0.1.3 passed bounded physical input/native inference
+checks with both Fast and Balanced recipes, zero dropped frames and restored
+routing; see the linked receipt. Human speech/enrollment accuracy, unplug/replug
+and sustained live operation still require separate checks. DSP reads can fail
+while the USB audio loop is inactive; no render stream is added to work around it.
 
 In the live app: press Start, read the exact device and consent, speak, inspect captions, Stop, then review the route/default-output receipt. For disconnect recovery, unplug while listening, verify an explicit gap, reconnect and explicitly Start a new epoch. Windows default-output IDs are read before/after; a changed ID alone does not identify its cause.

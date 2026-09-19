@@ -2,6 +2,7 @@
 from copy import deepcopy
 from dataclasses import asdict
 from pathlib import Path
+import math
 import threading
 import time
 import numpy as np
@@ -137,6 +138,8 @@ class LivePipelineSource:
         self.journal=journal;self.callback=callback;self.thread=None;self.stop_event=threading.Event()
         self.start_metadata=None;self.stop_receipt=None;self.integrity=None
         self.sent=0;self.error=None;self._done=threading.Event()
+        self.secondary_errors=[]
+        self.clock_metadata=None
         self._close_lock=threading.RLock()
 
     def start(self):
@@ -165,6 +168,44 @@ class LivePipelineSource:
                 elif detail not in self.error:self.error+='; '+detail
             return self.stop_receipt
 
+    def _source_origin(self,block):
+        """Bind sample zero to driver capture time, preserving buffered input age.
+
+        WASAPI can deliver a host packet as many immediate user callbacks.
+        One callback block's duration is therefore not the input latency.
+        This is a fixed driver timeline, never acoustic-arrival calibration.
+        """
+        callback_perf=getattr(block,'callback_perf_counter_ns',None)
+        callback_clock=(callback_perf/1e9 if callback_perf is not None else
+                        block.callback_monotonic_ns/1e9+self._clock_offset)
+        current=getattr(block,'callback_current_time_seconds',None)
+        adc=block.adc_time_seconds
+        duration=block.native_frames/48000
+        valid=(isinstance(current,(int,float)) and isinstance(adc,(int,float))
+               and math.isfinite(current) and math.isfinite(adc)
+               and current>0 and adc>0 and current-adc>=duration)
+        if valid:
+            age=current-adc
+            method='portaudio_adc_timestamp'
+            confidence='driver_reported_not_acoustically_calibrated'
+            fallback_reason=None
+        else:
+            age=self.start_metadata.get('actual_latency')
+            if not isinstance(age,(int,float)) or not math.isfinite(age) or age<duration:
+                raise RuntimeError('LIVE_SOURCE_TIMING: no usable ADC timestamps or reported input latency')
+            method='reported_input_latency_estimate'
+            confidence='estimated_unqualified_for_latency_measurement'
+            fallback_reason='ADC/currentTime unavailable, nonfinite, nonpositive, or shorter than the input block'
+        if not math.isfinite(callback_clock):
+            raise RuntimeError('LIVE_SOURCE_TIMING: nonfinite callback host timestamp')
+        origin=callback_clock-age-block.native_start_frame/48000
+        return origin,{'source_clock_method':method,'source_clock_confidence':confidence,
+            'source_clock_fallback_reason':fallback_reason,
+            'first_callback_perf_counter_sec':callback_clock,
+            'first_callback_input_age_sec':age,
+            'portaudio_adc_timestamp_valid':valid,
+            'host_clock_mapping':'direct_perf_counter' if callback_perf is not None else 'monotonic_offset_compatibility'}
+
     def _run(self):
         first=True
         try:
@@ -174,31 +215,40 @@ class LivePipelineSource:
                     if self.live.status()['finished']:break
                     continue
                 if first:
-                    # Origin follows callback availability, not delayed reader
-                    # delivery. Queue delay remains observable in source lag.
-                    callback_clock=block.callback_monotonic_ns/1e9+self._clock_offset
-                    origin=min(time.perf_counter(), callback_clock-(block.native_start_frame+block.native_frames)/48000)
+                    origin,clock_metadata=self._source_origin(block)
+                    self.clock_metadata={'source_epoch_monotonic_sec':origin,**clock_metadata}
                     self.callback('source_started',{'source_epoch_monotonic_sec':origin,'mode':'live',
                         'route':self.start_metadata['route'],'endpoint':self.start_metadata['endpoint'],
-                        'capture_metadata':self.start_metadata,'clock':'XVF USB samples; callback-anchored host epoch',
+                        'capture_metadata':self.start_metadata,'clock':'XVF USB samples; driver capture timeline mapped to host epoch',
+                        **clock_metadata,
                         'first_block_source_lag_sec':block.source_lag_seconds,
                         'resampler_delay_seconds':block.resampler_delay_seconds,
                         'clock_not_calibrated_to_acoustic_arrival':True})
                     first=False
+                # Check at the bridge as well as policy admission: an invalid
+                # timeline must not be repaired by rebasing/clamping its epoch.
+                if (self.sent+len(block.audio))/16000>time.perf_counter()-origin:
+                    raise RuntimeError('LIVE_SOURCE_TIMING: source support is ahead of the fixed capture timeline')
                 self.journal.append(block.audio);self.sent+=len(block.audio)
                 if self.journal.duration_sec>=3600:
                     self.callback('source_limit',{'reason':'1h application session boundary; press Start for a fresh session'})
                     break
         except Exception as exc:
-            self.error='LIVE_GAP_OR_DEVICE_ERROR: '+str(exc)
+            primary=getattr(self.journal,'fatal_error',None)
+            if primary:
+                self.error=primary
+                if str(exc) not in primary:self.secondary_errors.append(str(exc))
+            else:self.error='LIVE_GAP_OR_DEVICE_ERROR: '+str(exc)
         finally:
             try:self._close_live()
             except Exception as exc:
                 detail='LIVE_STOP_FAILED: '+str(exc)
                 self.error=(self.error+'; '+detail) if self.error else detail
             try:
-                self.callback('source_stopped',{'integrity':self.integrity,'converted_samples_delivered':self.sent})
-                if self.error:self.callback('fatal',{'reason':self.error,'integrity':self.integrity})
+                self.callback('source_stopped',{'integrity':self.integrity,'converted_samples_delivered':self.sent,
+                    'secondary_errors':self.secondary_errors})
+                if self.error:self.callback('fatal',{'reason':self.error,'integrity':self.integrity,
+                    'secondary_errors':self.secondary_errors})
             finally:
                 self.journal.finish(self.error)
                 self._done.set()

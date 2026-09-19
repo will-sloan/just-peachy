@@ -1,5 +1,34 @@
 # Development tools
 
+## Bounded real Windows microphone check
+
+`check_live_desktop.py` exercises the actual XVF live source, native models,
+source clock, beam diagnostic reads, and clean stop. It requires `--consent`,
+an existing site configuration, and a **fresh private directory outside the app**.
+The duration is 5–120 seconds. It never opens playback, saves a WAV, or creates
+an enrolled person. Local session text can contain nearby speech; the result
+JSON contains counters and device/clock integrity, not caption text. A pass
+establishes live transport/inference lifecycle, not speech or identity accuracy.
+Close the GUI first so its device lease is free. Pick a new data directory for
+each invocation. Shared model files must already be provisioned.
+
+PowerShell from the repository:
+
+```powershell
+& .\.edge-speech-env\python.exe -B .\prototype\tools\check_live_desktop.py --consent --seconds 20 --config "$env:USERPROFILE\JustPeachy\data\live_config.json" --data-root "$env:USERPROFILE\JustPeachy\checks\live-check-01"
+```
+
+CMD / Anaconda Prompt from the repository:
+
+```bat
+.edge-speech-env\python.exe -B prototype\tools\check_live_desktop.py --consent --seconds 20 --config "%USERPROFILE%\JustPeachy\data\live_config.json" --data-root "%USERPROFILE%\JustPeachy\checks\live-check-01"
+```
+
+Default recipe/mode is Balanced identity/Anonymous. Add `--recipe fast --mode
+caption_only` for the ASR-only path. Output is `LIVE_CHECK.json` and local session
+and restoration receipts in the chosen directory. Exit status is nonzero on
+capture, inference, duration, integrity, or cleanup failure.
+
 `bootstrap_from_s7.py` performs a one-time copy of the exact hash-bound S7 source
 and eight existing model assets. It does not read/copy research identities or
 change historical files. Runtime never imports S7 report directories.
@@ -97,6 +126,10 @@ microphone capture, playback or native speech inference; Tk tests create and
 close their own windows. It records source/test hashes and rejects source changes
 during the test run. Run once after the final runtime edits; do not rerun native
 panels solely to generate this summary.
+
+Pass `--output-dir "<fresh directory>"` to keep historical receipts unchanged.
+This runner also installs the repository/application/vendor import paths needed
+by the release tests, so prefer it over bare discovery from a nested directory.
 
 PowerShell from the repository:
 

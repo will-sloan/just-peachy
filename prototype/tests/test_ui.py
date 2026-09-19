@@ -169,6 +169,26 @@ class UITests(unittest.TestCase):
         self.ui.show_recipes()
         self.assertEqual(self.ui.actions["recipe_spatial"].cget("state"), "disabled")
 
+    def test_beam_diagnostics_remain_accessible_live_and_hide_stale_arrows(self):
+        self.controller.data.update(state="RUNNING", beam_diagnostics={"state": "RUNNING", "stale_after_seconds": 2.5,
+            "arrows": [{"id": "focused_1", "angle_deg": 0, "age_sec": .1},
+                       {"id": "focused_2", "angle_deg": 180, "age_sec": .2},
+                       {"id": "free_running", "angle_deg": 90, "age_sec": 3},
+                       {"id": "processed_output", "angle_deg": 90, "age_sec": .3}]})
+        self.refresh(); self.ui.show_settings(); self.root.update_idletasks()
+        self.assertEqual(self.ui.actions["beam_diagnostics"].cget("state"), "normal")
+        self.ui.actions["beam_diagnostics"].invoke(); self.root.update_idletasks()
+        self.assertEqual(self.controller.calls, [])
+        self.assertEqual(len(self.ui.beam_canvas.find_withtag("beam_arrow")), 3)
+        right = self.ui.beam_canvas.coords(self.ui.beam_canvas.find_withtag("focused_1")[0])
+        left = self.ui.beam_canvas.coords(self.ui.beam_canvas.find_withtag("focused_2")[0])
+        self.assertGreater(right[2], right[0]); self.assertLess(left[2], left[0])
+        self.assertIn("180.0°", self.ui.beam_legend["focused_2"].cget("text"))
+        self.controller.data["beam_diagnostics"] = {"state": "OFF", "arrows": []}
+        self.ui.snapshot = self.controller.snapshot(); self.ui._update_beam_diagnostics()
+        self.assertEqual(len(self.ui.beam_canvas.find_withtag("beam_arrow")), 0)
+        self.assertEqual(self.controller.calls, [])
+
     def test_caption_size_theme_zoom_and_close_waits(self):
         self.ui._preference("caption_size", "Extra large"); self.ui._preference("theme", "High contrast")
         self.assertIn("-37", str(self.ui.caption_text.cget("font")))

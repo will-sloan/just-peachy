@@ -1,8 +1,14 @@
 # Project handoffs through PROTO1
 
-Start with `PROTO1_CHATGPT_HANDOFF_20260919T012911Z.zip` for the current prototype
-results and `just-peachy-proto1-0.1.2.zip` for its source release. The maintainable
-application is also present directly in [`../prototype`](../prototype).
+The latest source release is `just-peachy-proto1-0.1.3.zip`, adding the Windows
+live capture fix and developer beam arrows. Read the
+[update and verification](../prototype/docs/WINDOWS_LIVE_FIX.md). It passed
+archive staging, all 114 payload hashes, Windows import checks and relocated
+configuration/model validation. The Pi hardware has not been tested.
+
+`PROTO1_CHATGPT_HANDOFF_20260919T012911Z.zip` and `just-peachy-proto1-0.1.2.zip`
+retain the earlier source-bound prototype results. The maintainable current
+application is directly in [`../prototype`](../prototype).
 
 `MANIFEST.json` records every archive's source, size and SHA-256. Archives labeled
 `TEXT_ONLY` omit audio or binary payloads; their internal `GITHUB_SNAPSHOT.json`

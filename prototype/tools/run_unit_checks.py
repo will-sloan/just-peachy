@@ -1,5 +1,6 @@
 """Run final focused software checks without speech inference/capture; see README."""
 from collections import Counter
+import argparse
 from datetime import datetime, timezone
 import hashlib
 import io
@@ -28,14 +29,18 @@ def cases(suite):
 
 
 if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--output-dir', type=Path, default=ROOT/'tests/evidence',
+                        help='Use a fresh directory to retain earlier verification receipts')
+    args = parser.parse_args()
     before = bindings()
     suite = unittest.TestLoader().discover(str(ROOT / 'tests'), pattern='test_*.py')
     counts = Counter(case.__class__.__module__ for case in cases(suite))
     stream = io.StringIO()
     start = time.perf_counter()
     result = unittest.TextTestRunner(stream=stream, verbosity=2).run(suite)
-    evidence = ROOT / 'tests/evidence'
-    evidence.mkdir(exist_ok=True)
+    evidence = args.output_dir
+    evidence.mkdir(parents=True, exist_ok=True)
     log = evidence / 'FINAL_UNIT_CHECKS.txt'
     log.write_text(stream.getvalue(), encoding='utf-8')
     record = {'scope': 'Focused software contracts. Mock capture/control and synthetic text/vectors; no microphone or neural speech inference.',

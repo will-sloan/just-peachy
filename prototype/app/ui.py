@@ -12,6 +12,7 @@ from tkinter import ttk
 from typing import Any, Callable
 
 from .casing import provisional_case
+from .beam_diagnostics import BEAMS, arrow_tip
 
 CONFIG = Path(__file__).resolve().parents[1] / "config" / "ui.json"
 MODES = {
@@ -776,6 +777,8 @@ class PrototypeUI:
     def show_settings(self) -> None:
         self.page = "settings"; frame = self._page("Settings")
         self._paragraph_label(frame, "Display changes apply without reloading models.", True)
+        self.button(frame, "Beam angles · live diagnostics", self.show_beam_diagnostics,
+                    key="beam_diagnostics").pack(fill="x", padx=self.px(12), pady=self.px(4))
         self._paragraph_label(frame, "Caption size")
         for name in self.config["caption_sizes_px"]:
             self.button(frame, name + (" ✓" if name == self.preferences["caption_size"] else ""), lambda v=name: self._preference("caption_size", v)).pack(fill="x", padx=self.px(12), pady=self.px(3))
@@ -785,7 +788,7 @@ class PrototypeUI:
         self._paragraph_label(frame, "Preview size · comfort zoom is not exact-pixel evidence")
         for zoom in self.config["preview_zooms"]:
             self.button(frame, "480 × 800 pixel-check" if zoom == 1 else f"{round(zoom * 100)}% comfort zoom", lambda v=zoom: self._preference("preview_zoom", v)).pack(fill="x", padx=self.px(12), pady=self.px(3))
-        self._paragraph_label(frame, "Direction display is off. Current named-person arrows are unavailable without verified fresh person-to-beam evidence.", True)
+        self._paragraph_label(frame, "Beam diagnostics show recent hardware directions. Numerical angles do not yet assist live identity or enrollment; named-person arrows require verified person-to-beam evidence.", True)
         self.button(frame, "Engine recipe & audio tap", self.show_recipes).pack(fill="x", padx=self.px(12), pady=self.px(4))
         self.button(frame, "Open a saved file…", lambda: self.browse_file("replay"), key="file_replay").pack(fill="x", padx=self.px(12), pady=self.px(4))
         self.button(frame, "Diagnostics / raw text", self.show_diagnostics, key="diagnostics").pack(fill="x", padx=self.px(12), pady=self.px(4))
@@ -815,9 +818,72 @@ class PrototypeUI:
         free_disk = self.snapshot.get("metrics", {}).get("free_disk_gib")
         self._paragraph_label(frame, f"Free data disk: {self._number(free_disk):.1f} GiB" if free_disk is not None else "Free data disk: awaiting backend measurement", True)
 
+    def show_beam_diagnostics(self) -> None:
+        self.page = "beam_diagnostics"; frame = self._page("Beam angles", back=self.show_settings)
+        self._paragraph_label(frame, "Hardware beams · colors identify outputs, not people. Music and other sounds can move these arrows.", True)
+        self.beam_status_label = self.label(frame, "Waiting for live input", size="small_font_px")
+        self.beam_status_label.pack(fill="x", padx=self.px(12), pady=self.px(4))
+        self.beam_canvas = tk.Canvas(frame, width=self.px(390), height=self.px(225),
+                                    bg=self.color("background"), highlightthickness=0)
+        self.beam_canvas.pack(fill="x", padx=self.px(8), pady=self.px(4))
+        self.beam_legend = {}
+        for beam in BEAMS:
+            row = self.label(frame, beam["label"] + " · unavailable", size="small_font_px")
+            row.configure(fg=beam["color"])
+            row.pack(fill="x", padx=self.px(12), pady=self.px(2))
+            self.beam_legend[beam["id"]] = row
+        self._paragraph_label(frame, "0° = MIC3 end; 180° = MIC0 end. The 90° axis folds front and rear together; it does not determine which side of the board a sound is on.", True)
+        self._paragraph_label(frame, "Ages measure host receipt, not the age of the DSP estimate. Stale or invalid arrows disappear. Several arrows do not prove several speakers. This display does not steer beams or change recognition.", True)
+        self._page_update = self._update_beam_diagnostics
+        self.beam_canvas.bind("<Configure>", lambda _e: self._update_beam_diagnostics())
+        self._update_beam_diagnostics()
+
+    def _update_beam_diagnostics(self) -> None:
+        if self.page != "beam_diagnostics":
+            return
+        diagnostic = self.snapshot.get("beam_diagnostics") or {}
+        state = str(diagnostic.get("state", "OFF"))
+        status = state + " · " + str(diagnostic.get("error") or diagnostic.get("reason") or
+                 ("Recent host readbacks; source age unverified" if state == "RUNNING" else "Start live input to observe the XVF"))
+        self.beam_status_label.configure(text=status[:350])
+        canvas = self.beam_canvas
+        width = max(self.px(320), canvas.winfo_width())
+        center_x, center_y = width / 2, self.px(188)
+        radius = min(width / 2 - self.px(30), self.px(156))
+        canvas.delete("all")
+        canvas.create_arc(center_x-radius, center_y-radius, center_x+radius, center_y+radius,
+                          start=0, extent=180, style="arc", outline=self.color("border"), width=2)
+        canvas.create_line(center_x-radius, center_y, center_x+radius, center_y,
+                           fill=self.color("border"), width=2)
+        for angle, label in ((180, "180°\nMIC0"), (90, "90°"), (0, "0°\nMIC3")):
+            x, y = arrow_tip(angle, center_x, center_y, radius + self.px(16))
+            canvas.create_text(x, y + (self.px(13) if angle != 90 else 0), text=label,
+                               fill=self.color("muted"), font=self.font(12))
+        arrows = {row.get("id"): row for row in diagnostic.get("arrows", [])
+                  if isinstance(row, dict)} if state == "RUNNING" else {}
+        for beam in BEAMS:
+            row = arrows.get(beam["id"], {})
+            angle, age = row.get("angle_deg"), row.get("age_sec")
+            valid = all(isinstance(value, (int, float)) and not isinstance(value, bool) and math.isfinite(value)
+                        for value in (angle, age))
+            valid = valid and 0 <= angle <= 180 and 0 <= age <= self._number(diagnostic.get("stale_after_seconds", 2.5))
+            if valid:
+                x, y = arrow_tip(angle, center_x, center_y, radius * beam["radius"])
+                canvas.create_line(center_x, center_y, x, y, arrow="last", arrowshape=(self.px(10), self.px(13), self.px(5)),
+                                   fill=beam["color"], width=self.px(3),
+                                   dash=(self.px(6), self.px(3)) if beam["field"] == "AUDIO_MGR_SELECTED_AZIMUTHS" else (),
+                                   tags=("beam_arrow", beam["id"]))
+                self.beam_legend[beam["id"]].configure(text=f"{beam['label']} · {angle:.1f}° · received {age:.1f}s ago")
+            else:
+                self.beam_legend[beam["id"]].configure(text=beam["label"] + " · unavailable / stale")
+        canvas.create_oval(center_x-self.px(4), center_y-self.px(4), center_x+self.px(4), center_y+self.px(4),
+                           fill=self.color("text"), outline="")
+
     def show_diagnostics(self) -> None:
         self.page = "diagnostics"; frame = self._page("Diagnostics", back=self.show_settings)
         self._paragraph_label(frame, "Raw text is diagnostic evidence; provisional casing never replaces it.", True)
+        self.button(frame, "Beam angles · live diagnostics", self.show_beam_diagnostics,
+                    key="beam_diagnostics").pack(fill="x", padx=self.px(12), pady=self.px(4))
         self.button(frame, "Mark a problem / save excerpt…", lambda: self.show_problem(back=self.show_diagnostics),
                     key="mark_problem").pack(fill="x", padx=self.px(12), pady=self.px(4))
         display = tk.Text(frame, wrap="word", font=self.font(14), height=23, bg=self.color("surface"), fg=self.color("text"), relief="flat")
@@ -826,6 +892,7 @@ class PrototypeUI:
             doc = dict(state=self.snapshot.get("state"), status=self.snapshot.get("status"),
                        mode=self.snapshot.get("mode"), recipe=self.snapshot.get("recipe"), tap=self.snapshot.get("tap"),
                        client=self.measure_client(), metrics=self.snapshot.get("metrics", {}), error=self.snapshot.get("error"),
+                       beam_diagnostics=self.snapshot.get("beam_diagnostics", {}),
                        recent_rows=self.snapshot.get("rows", [])[-6:])
             value = json.dumps(doc, indent=2, ensure_ascii=False, default=str)[:16000]
             if getattr(display, "_last_value", None) != value:

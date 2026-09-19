@@ -49,10 +49,18 @@ invented B28 or multibeam substitute. O0's required host +3 dB is applied once
 by the live adapter; prepared O0 files already carry their gain. O1 is unity.
 The UI performs no gain processing or hardware routing itself.
 
-Direction display is off. Known/selected-person arrows remain unavailable without
-genuine current person-to-beam support. Old names, music or manual RIR angles
-cannot authorize a live arrow. The research ±5° manual-label uncertainty is not
-a live-angle correction or a device accuracy guarantee.
+All active recipes receive XVF's beamformed audio. They do **not** currently
+receive numerical angle metadata for enrollment or voice identity. The disabled
+Spatial-assisted recipe would add that software cue; it remains unqualified
+until live audio/telemetry alignment, reliability and person-to-beam association
+are verified. Voice enrollment and matching remain usable independently.
+
+Settings → Beam diagnostics displays read-only device beam angles with stable
+beam colors. These are device-relative 0–180° linear-array directions, not
+identified people. Music and reflections can attract a beam. Named-person
+arrows remain unavailable without fresh verified person-to-beam evidence.
+The research ±5° manual-label uncertainty is not a live-angle correction or
+a device accuracy guarantee. See `docs/BEAM_DIAGNOSTICS.md`.
 
 ## People and enrollment
 

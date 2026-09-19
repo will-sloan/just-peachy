@@ -58,7 +58,8 @@ class MemoryJournal:
     def finish(self, error=None):
         with self._condition:
             self.finished = True
-            self.fatal_error = error
+            if self.fatal_error is None:
+                self.fatal_error = error
             self._condition.notify_all()
 
     @property

@@ -19,7 +19,13 @@ class FakeLive:
         self.finished=False;self.read_count=0;self.close_count=0
         self.start_error=config.get('start_error')
         self.stop_error=config.get('stop_error')
-        self.callback_ns=time.monotonic_ns()-700_000_000
+        self.block_count=config.get('block_count',1)
+        self.current_time=config.get('current_time')
+        self.adc_time=config.get('adc_time',0)
+        delay_ns=int(config.get('reader_delay',.7)*1e9)
+        self.callback_ns=time.monotonic_ns()-delay_ns
+        self.callback_perf_ns=time.perf_counter_ns()-delay_ns
+        self.metadata['actual_latency']=config.get('actual_latency',.11)
 
     def start(self,consent):
         assert consent is True
@@ -27,11 +33,15 @@ class FakeLive:
         return self.metadata
 
     def read(self, timeout):
-        if self.read_count:
+        if self.read_count>=self.block_count:
             self.finished=True
             return None
+        i=self.read_count
         self.read_count+=1
-        return LiveBlock(np.zeros(160,np.float32),0,0,480,self.callback_ns,0,time.monotonic_ns(),.001,.7)
+        return LiveBlock(np.zeros(160,np.float32),i*160,i*480,480,self.callback_ns,
+                         self.adc_time+i*.01,time.monotonic_ns(),.001,.7,
+                         callback_perf_counter_ns=self.callback_perf_ns,
+                         callback_current_time_seconds=self.current_time)
 
     def status(self):return {'finished':self.finished}
 
@@ -62,6 +72,63 @@ class BridgeTests(unittest.TestCase):
         self.assertTrue(journal.finished)
         self.assertFalse(source.thread.is_alive())
         self.assertEqual(source.live.close_count,1)
+
+    def test_wasapi_buffered_packet_burst_uses_adc_age_not_block_duration(self):
+        # Eleven 10ms callbacks arrive together from one 110ms host packet.
+        # The old first-callback-minus-10ms epoch rejected the second block.
+        source,journal,events=self.make({'block_count':11,'reader_delay':.002,
+            'current_time':50.11,'adc_time':50.0})
+        source.start();self.assertTrue(source.wait(3));source.stop()
+        started=next(data for kind,data in events if kind=='source_started')
+        self.assertEqual(journal.committed_samples,1760)
+        self.assertIsNone(journal.fatal_error)
+        self.assertEqual(started['source_clock_method'],'portaudio_adc_timestamp')
+        expected=source.live.callback_perf_ns/1e9-.11
+        self.assertAlmostEqual(started['source_epoch_monotonic_sec'],expected,places=8)
+        self.assertGreaterEqual(time.perf_counter()-expected,journal.duration_sec)
+
+    def test_missing_driver_timestamps_use_explicit_estimate(self):
+        source,journal,events=self.make()
+        source.start();self.assertTrue(source.wait(3));source.stop()
+        started=next(data for kind,data in events if kind=='source_started')
+        self.assertEqual(started['source_clock_method'],'reported_input_latency_estimate')
+        self.assertEqual(started['source_clock_confidence'],'estimated_unqualified_for_latency_measurement')
+        self.assertFalse(started['portaudio_adc_timestamp_valid'])
+        self.assertIn('unavailable',started['source_clock_fallback_reason'])
+
+    def test_invalid_driver_timestamps_cannot_claim_adc_timing(self):
+        for adc in (51.0,float('nan'),0):
+            source,journal,events=self.make({'current_time':50.11,'adc_time':adc})
+            source.start();self.assertTrue(source.wait(3));source.stop()
+            started=next(data for kind,data in events if kind=='source_started')
+            self.assertEqual(started['source_clock_method'],'reported_input_latency_estimate')
+
+    def test_no_valid_clock_fails_without_clamping_or_admitting_audio(self):
+        source,journal,events=self.make({'actual_latency':None})
+        source.start();self.assertTrue(source.wait(3))
+        self.assertEqual(journal.committed_samples,0)
+        self.assertIn('no usable ADC timestamps',journal.fatal_error)
+
+    def test_impossible_later_burst_fails_without_rebasing_epoch(self):
+        source,journal,events=self.make({'block_count':30,'reader_delay':.001,
+            'current_time':50.11,'adc_time':50.0})
+        source.start();self.assertTrue(source.wait(3))
+        self.assertLess(journal.committed_samples,4800)
+        self.assertIn('ahead of the fixed capture timeline',journal.fatal_error)
+        self.assertEqual(sum(kind=='source_started' for kind,_ in events),1)
+
+    def test_primary_lane_failure_survives_secondary_closed_journal(self):
+        source,journal,events=self.make()
+        original=source.callback
+        def close_on_start(kind,data):
+            original(kind,data)
+            if kind=='source_started':journal.finish('ASR lane failed: original timing failure')
+        source.callback=close_on_start
+        source.start();self.assertTrue(source.wait(3))
+        self.assertEqual(journal.fatal_error,'ASR lane failed: original timing failure')
+        fatal=next(data for kind,data in events if kind=='fatal')
+        self.assertEqual(fatal['reason'],journal.fatal_error)
+        self.assertIn('Audio arrived after source closure',fatal['secondary_errors'])
 
     def test_start_failure_closes_source_and_journal(self):
         source,journal,events=self.make({'start_error':'test startup failure'})

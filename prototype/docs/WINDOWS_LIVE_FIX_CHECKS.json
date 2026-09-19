@@ -1,0 +1,97 @@
+{
+  "schema": "proto1-windows-live-fix.v1",
+  "release": "proto1-0.1.3",
+  "scope": "Bounded physical input/native inference; no acoustic accuracy or long-session latency claim",
+  "live_checks": [
+    {
+      "check": "windows_live_fix_20260919_balanced",
+      "status": "PASS",
+      "mode": "anonymous_conversation",
+      "recipe": "balanced",
+      "delivered_seconds": 20.02,
+      "native_state": "COMPLETED",
+      "closed": true,
+      "microphone_finished": true,
+      "dropped_frames": 0,
+      "route_restoration_ok": true,
+      "default_output_comparison": "UNCHANGED",
+      "clock": {
+        "source_epoch_monotonic_sec": 367061.7574032,
+        "source_clock_method": "reported_input_latency_estimate",
+        "source_clock_confidence": "estimated_unqualified_for_latency_measurement",
+        "source_clock_fallback_reason": "ADC/currentTime unavailable, nonfinite, nonpositive, or shorter than the input block",
+        "first_callback_perf_counter_sec": 367061.8674032,
+        "first_callback_input_age_sec": 0.11,
+        "portaudio_adc_timestamp_valid": false,
+        "host_clock_mapping": "direct_perf_counter"
+      },
+      "beams": {
+        "state": "RUNNING",
+        "counters": {
+          "queries": 36,
+          "successful_queries": 36,
+          "invalid_values": 9,
+          "errors": 0
+        },
+        "visible_arrows": 6
+      },
+      "models": {
+        "asr_loads": 1,
+        "speaker_loads": 1,
+        "streams": 1
+      },
+      "private_receipt_sha256": "ae1cd307296035df2456f5abb0c14b3a4b96bca6f2e8b200b78d09be945cf1a9"
+    },
+    {
+      "check": "windows_live_fix_20260919_fast",
+      "status": "PASS",
+      "mode": "caption_only",
+      "recipe": "fast",
+      "delivered_seconds": 10.01,
+      "native_state": "COMPLETED",
+      "closed": true,
+      "microphone_finished": true,
+      "dropped_frames": 0,
+      "route_restoration_ok": true,
+      "default_output_comparison": "UNCHANGED",
+      "clock": {
+        "source_epoch_monotonic_sec": 367104.4839883,
+        "source_clock_method": "reported_input_latency_estimate",
+        "source_clock_confidence": "estimated_unqualified_for_latency_measurement",
+        "source_clock_fallback_reason": "ADC/currentTime unavailable, nonfinite, nonpositive, or shorter than the input block",
+        "first_callback_perf_counter_sec": 367104.5939883,
+        "first_callback_input_age_sec": 0.11,
+        "portaudio_adc_timestamp_valid": false,
+        "host_clock_mapping": "direct_perf_counter"
+      },
+      "beams": {
+        "state": "RUNNING",
+        "counters": {
+          "queries": 18,
+          "successful_queries": 18,
+          "invalid_values": 5,
+          "errors": 0
+        },
+        "visible_arrows": 5
+      },
+      "models": {
+        "asr_loads": 1,
+        "speaker_loads": 0,
+        "streams": 1
+      },
+      "private_receipt_sha256": "cf2c721e308719a31767431988cf1881e7875952353ad26a3e1857d933ce6c8b"
+    }
+  ],
+  "software_checks": {
+    "status": "PASS",
+    "tests": 114,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "source_unchanged": true
+  },
+  "software_receipt_sha256": "9d5e5ae1675b737ae2d26d8a5990baf901326409354b4e69a8d92653892c080c",
+  "cm5_hardware_tested": false,
+  "numerical_angles_used_for_identity": false,
+  "named_person_arrows_available": false
+}

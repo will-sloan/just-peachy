@@ -9,6 +9,12 @@ Read [START_PROTOTYPE.md](START_PROTOTYPE.md) for launch commands, external
 data/model paths, and the remaining user-assisted live check. See `docs` for
 mode, enrollment, UI and Raspberry Pi release/update instructions.
 
+Windows live capture and developer beam arrows are updated in **0.1.3**. Read
+[Windows live fix and validation](docs/WINDOWS_LIVE_FIX.md) and
+[Beam diagnostics](docs/BEAM_DIAGNOSTICS.md). Close and reopen an already-running
+GUI to load the update. One source package serves Windows and Linux; Pi native
+runtime/device bring-up remains pending.
+
 ## Development commands
 
 From the repository directory in PowerShell:

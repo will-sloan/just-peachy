@@ -4,7 +4,15 @@ The current opt-in portrait application is in [`prototype`](prototype).
 Double-click `prototype\Start-Prototype.cmd` on the configured Windows desktop,
 or follow [`prototype/START_PROTOTYPE.md`](prototype/START_PROTOTYPE.md).
 It opens idle; microphone use requires consent. Personal live enrollment and
-CM5 hardware checks remain pending. The final prepared release is **0.1.2**.
+CM5 hardware checks remain pending. The latest prepared release is **0.1.3**.
+
+Version 0.1.3 fixes Windows buffered-input timing and adds read-only beam arrows.
+Real XVF/native pipeline checks passed for Balanced (20.02 seconds) and Fast
+(10.01 seconds), with zero dropped frames and clean device restoration; 114
+software checks passed. These are bounded operation checks, not acoustic
+accuracy or long-session latency claims. Numerical angles still do not affect
+enrollment/identity; Spatial-assisted remains disabled. See
+[`Windows live update`](prototype/docs/WINDOWS_LIVE_FIX.md).
 
 The automated evidence includes 96 focused software checks, a six-scene native
 panel, the corrected C105 regression, a 30.7-minute GUI run with 20 mode/recipe

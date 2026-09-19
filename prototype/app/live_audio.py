@@ -80,6 +80,8 @@ class LiveBlock:
     resampler_delay_seconds: float
     source_lag_seconds: float
     epoch: int = 0
+    callback_perf_counter_ns: int | None = None
+    callback_current_time_seconds: float | None = None
 
 
 class DeviceLease:
@@ -137,6 +139,8 @@ READBACKS = ("VERSION", "AEC_MIC_ARRAY_TYPE", "AEC_NUM_MICS", "AEC_MIC_ARRAY_GEO
 LIVE_SETTABLE = frozenset(("I2S_INPUT_PACKED", "AUDIO_MGR_OP_PACKED", "AUDIO_MGR_MIC_GAIN",
                           "AUDIO_MGR_SYS_DELAY", "AEC_ASROUTONOFF", "AUDIO_MGR_OP_UPSAMPLE",
                           "AUDIO_MGR_OP_L", "AUDIO_MGR_OP_R"))
+DIAGNOSTIC_READBACKS = {"AEC_AZIMUTH_VALUES": 4, "AEC_SPENERGY_VALUES": 4,
+                       "AUDIO_MGR_SELECTED_AZIMUTHS": 2}
 
 
 class HostControl:
@@ -147,8 +151,8 @@ class HostControl:
         self.lock = threading.Lock()
         self.receipts = []
 
-    def query(self, command, *values):
-        if command not in READBACKS and command != "BLD_MSG":
+    def query(self, command, *values, record=True):
+        if command not in READBACKS and command not in DIAGNOSTIC_READBACKS and command != "BLD_MSG":
             raise LiveAudioError("Command is outside the live adapter allowlist")
         if values and command not in LIVE_SETTABLE:
             raise LiveAudioError("This adapter cannot write firmware identity, topology, USB bit depth or unowned DSP controls")
@@ -159,11 +163,26 @@ class HostControl:
                                   timeout=self.config.control_timeout_seconds,
                                   creationflags=getattr(subprocess, "CREATE_NO_WINDOW", 0))
             out, err = proc.stdout.decode("utf-8-sig", "replace"), proc.stderr.decode("utf-8-sig", "replace")
-            self.receipts.append({"command": command, "arguments": list(values), "exit_code": proc.returncode,
-                                  "stdout": out, "stderr": err, "elapsed_seconds": (time.monotonic_ns()-start)/1e9})
+            if record:
+                self.receipts.append({"command": command, "arguments": list(values), "exit_code": proc.returncode,
+                                      "stdout": out, "stderr": err, "elapsed_seconds": (time.monotonic_ns()-start)/1e9})
             if proc.returncode or err.strip():
                 raise LiveAudioError(f"{command} failed: {err or out}")
             return out
+
+    def diagnostic_values(self, command):
+        """Read only, bounded by the worker; missing angles remain unavailable."""
+        if command not in DIAGNOSTIC_READBACKS:
+            raise LiveAudioError("Command is outside the beam diagnostic allowlist")
+        lines = [line.strip("\x00 ") for line in self.query(command, record=False).splitlines()
+                 if line.startswith(command + " ")]
+        if len(lines) != 1:
+            raise LiveAudioError("Missing or ambiguous beam readback: " + command)
+        payload = re.sub(r"\([^)]*\)", "", lines[0].split(maxsplit=1)[1])
+        values = [float(token) for token in payload.split()]
+        if len(values) != DIAGNOSTIC_READBACKS[command]:
+            raise LiveAudioError("Unexpected beam readback length: " + command)
+        return [value if math.isfinite(value) else None for value in values]
 
     def values(self, command):
         lines = [s for s in self.query(command).splitlines() if s.startswith(command + " ")]
@@ -352,6 +371,7 @@ class XVFLiveSource:
         self.lease = None
         self.control = None
         self.route = None
+        self.beam_diagnostics = None
         self.metadata = {}
         self._read_seq = self._write_seq = 0
         self._native_frames = self._model_samples = self._dropped_frames = 0
@@ -397,7 +417,9 @@ class XVFLiveSource:
             self._frames = np.zeros(capacity, dtype=np.int32)
             self._native_start = np.zeros(capacity, dtype=np.int64)
             self._clock = np.zeros(capacity, dtype=np.int64)
+            self._perf_clock = np.zeros(capacity, dtype=np.int64)
             self._adc = np.zeros(capacity, dtype=np.float64)
+            self._callback_current_time = np.zeros(capacity, dtype=np.float64)
             self._capacity = capacity
             self._converter = StreamingDecimator()
             self._gain = np.float32(10 ** (3/20) if self.config.tap == "O0" else 1)
@@ -430,6 +452,14 @@ class XVFLiveSource:
                                  defaults_after_start=endpoint_snapshot(), started_monotonic_ns=time.monotonic_ns())
             self.metadata["timestamps_calibrated_to_acoustic_arrival"] = False
             self.status_callback("source_started", self.metadata)
+            # Developer arrows are read-only and never enter the speech or
+            # identity pipeline. They share this owner's serialized USB control.
+            try:
+                from .beam_diagnostics import BeamDiagnostics
+                self.beam_diagnostics = BeamDiagnostics(self.control.diagnostic_values)
+                self.beam_diagnostics.start()
+            except Exception as exc:
+                self.metadata["beam_diagnostics_error"] = str(exc)
             return self.metadata
         except Exception:
             self.stop()
@@ -437,6 +467,7 @@ class XVFLiveSource:
 
     def _callback(self, indata, frames, time_info, status):
         # No disk, inference, GUI, USB, string-formatting, or sample allocation.
+        callback_perf_ns = time.perf_counter_ns()
         if not self._route_ready:
             self._priming_frames += frames
             self._priming_status_events += int(bool(status))
@@ -451,8 +482,10 @@ class XVFLiveSource:
         self._frames[slot] = frames
         self._native_start[slot] = self._native_frames
         self._clock[slot] = time.monotonic_ns()
+        self._perf_clock[slot] = callback_perf_ns
         self._last_callback_ns = int(self._clock[slot])
         self._adc[slot] = time_info.inputBufferAdcTime
+        self._callback_current_time[slot] = getattr(time_info, "currentTime", math.nan)
         self._native_frames += frames
         self._write_seq += 1  # Publish after all samples and metadata are ready.
 
@@ -481,13 +514,17 @@ class XVFLiveSource:
         # Copy before releasing slot. Every allocation/filter is off callback.
         mono = self._ring[slot, :n, 0 if self.config.tap == "O0" else 1].copy()
         native_start, callback_ns, adc = int(self._native_start[slot]), int(self._clock[slot]), float(self._adc[slot])
+        callback_perf_ns = int(self._perf_clock[slot])
+        callback_current_time = float(self._callback_current_time[slot])
         self._read_seq += 1
         audio = self._converter.convert(mono) * self._gain
         delivered = time.monotonic_ns()
         lag = max(0.0, (delivered-callback_ns)/1e9)
         self._max_lag = max(self._max_lag, lag)
         block = LiveBlock(audio, self._model_samples, native_start, n, callback_ns, adc, delivered,
-                          self._converter.delay_seconds, lag)
+                          self._converter.delay_seconds, lag,
+                          callback_perf_counter_ns=callback_perf_ns,
+                          callback_current_time_seconds=callback_current_time)
         self._model_samples += len(audio)
         return block
 
@@ -514,6 +551,9 @@ class XVFLiveSource:
         self._stopped = True
         self._route_ready = False
         errors = []
+        if self.beam_diagnostics is not None:
+            if not self.beam_diagnostics.stop(timeout=self.config.control_timeout_seconds + 1):
+                raise LiveAudioError("Beam diagnostic worker still owns device control; retry Stop")
         # UA control servicing needs the audio clock. No samples are admitted
         # during restoration; close the input stream immediately afterwards.
         restored = self.route.restore() if self.route is not None else {}

@@ -1,6 +1,6 @@
 # just-peachy
 
-The current post-measurement XVF portrait application is **PROTO1 0.1.2**.
+The current post-measurement XVF portrait application is **PROTO1 0.1.3**.
 Start with [`CURRENT_PROJECT_STATUS.md`](CURRENT_PROJECT_STATUS.md),
 [`prototype/START_PROTOTYPE.md`](prototype/START_PROTOTYPE.md), and the compact
 [`project_handoffs`](project_handoffs). Live user enrollment and physical CM5

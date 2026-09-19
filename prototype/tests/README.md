@@ -1,5 +1,14 @@
 # Prototype focused tests
 
+The Windows live clock and beam diagnostic regression checks are included in
+the normal suite. From PowerShell in `prototype` run
+`& '..\.edge-speech-env\python.exe' -B -m unittest discover -s tests -p 'test_live*.py' -v`
+and the same command with `-p 'test_beam*.py'`. From CMD/Anaconda Prompt, omit the
+leading `&` and replace single quotes with double quotes. Inputs are synthetic
+buffered callback timestamps and mocked command replies; outputs are unittest
+pass/fail results. They do not open a microphone or USB control connection.
+See `../tools/README.md` for the separate explicitly consented physical check.
+
 Tests use synthetic fixtures or the explicitly named existing source files in their own scripts. They do not silently record a microphone. Follow each test's description; native replay and live checks have separate consent/source evidence.
 
 ## Enrollment shutdown and temporary-data cleanup

@@ -1,5 +1,16 @@
 # Start the live portrait prototype
 
+The same application supports an XVF3800 connected directly to this Windows
+desktop or to the future Raspberry Pi. Windows does not require a Pi. This is
+a native desktop window; a browser is not required. Linux needs its own native
+dependencies, device configuration, and verified ARM64 XMOS control tool.
+
+After updating the source, close the old GUI and reopen the launcher below.
+Windows' default microphone setting does not choose this app's source: the app
+checks the explicit XVF endpoint in `live_config.json`. **Start** streams audio
+into live inference; it does not automatically save a recording WAV. Use
+Settings → Beam diagnostics for device beam arrows during an active session.
+
 On this desktop, double-click `Start-Prototype.cmd` in this folder. The portrait
 application opens at480×800 client pixels with the microphone off. Start asks
 for microphone consent. Stop releases capture. PC speakers/headphones can stay
