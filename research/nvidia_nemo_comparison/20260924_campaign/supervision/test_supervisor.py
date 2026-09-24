@@ -43,6 +43,25 @@ class SupervisorTests(unittest.TestCase):
         self.assertIn('OVERLAP_PREVENTED',result.stdout)
         self.assertFalse((self.root/'status.json').exists())
 
+    def test_atomic_reader_sharing_denial_recovers_without_losing_prior_value(self):
+        target=self.root/'atomic-retry.json';s.atomic(target,{'version':1})
+        original=s.os.replace;calls=[]
+        def temporary_denial(source,destination):
+            calls.append(1)
+            self.assertEqual(s.read(target),{'version':1})
+            if len(calls)==1:
+                error=PermissionError('simulated Windows reader sharing');error.winerror=32;raise error
+            return original(source,destination)
+        with patch.object(s.os,'replace',side_effect=temporary_denial):s.atomic(target,{'version':2})
+        self.assertEqual(len(calls),2);self.assertEqual(s.read(target),{'version':2})
+
+    def test_atomic_unrelated_permission_error_is_not_retried(self):
+        target=self.root/'atomic-denied.json'
+        with patch.object(s.os,'replace',side_effect=PermissionError('unrelated denial')) as replace:
+            with self.assertRaises(PermissionError):s.atomic(target,{'version':1})
+        self.assertEqual(replace.call_count,1);self.assertFalse(target.exists())
+        self.assertEqual(len(list(self.root.glob('.atomic-denied.json.*.tmp'))),1)
+
     def test_unchanged_healthy_check_does_not_enqueue_or_invoke_llm(self):
         s.probe(self.root)
         first=list((self.root/'review_requests').glob('*.json'))

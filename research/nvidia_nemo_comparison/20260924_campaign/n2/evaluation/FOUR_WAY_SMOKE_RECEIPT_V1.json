@@ -1,0 +1,335 @@
+{
+  "schema": "n2-redacted-four-way-smoke-receipt-v1",
+  "status": "PASS_OBSERVER_ASR_AVAILABLE_ARCHIVE_SMOKE",
+  "scope": "readiness smoke only; NOT_FULL_SCREEN; full main factorial and separate regression pending",
+  "source_audio_sha256": "b62a9af84ec19fc9bb6aba66026d97feb357d1f549eab5459dd53a743266e004",
+  "all_six_ASR_checks_against_D0_E0": {
+    "D1_E0": {
+      "raw_observations": true,
+      "raw_final_events": true,
+      "dispatch_reset_source_sequence": true,
+      "final_utterance_text": true,
+      "final_raw_word_order": true,
+      "formatted_final_utterance_text": true
+    },
+    "D0_E1": {
+      "raw_observations": true,
+      "raw_final_events": true,
+      "dispatch_reset_source_sequence": true,
+      "final_utterance_text": true,
+      "final_raw_word_order": true,
+      "formatted_final_utterance_text": true
+    },
+    "D1_E1": {
+      "raw_observations": true,
+      "raw_final_events": true,
+      "dispatch_reset_source_sequence": true,
+      "final_utterance_text": true,
+      "final_raw_word_order": true,
+      "formatted_final_utterance_text": true
+    }
+  },
+  "caption_invariance": [
+    {
+      "combination": "D0_E0",
+      "observer_cells": 1,
+      "actual_vs_base_raw_failures": 0,
+      "actual_vs_base_formatted_failures": 0,
+      "condition_raw_failures": 0,
+      "condition_formatted_failures": 0
+    },
+    {
+      "combination": "D1_E0",
+      "observer_cells": 1,
+      "actual_vs_base_raw_failures": 0,
+      "actual_vs_base_formatted_failures": 0,
+      "condition_raw_failures": 0,
+      "condition_formatted_failures": 0
+    },
+    {
+      "combination": "D0_E1",
+      "observer_cells": 1,
+      "actual_vs_base_raw_failures": 0,
+      "actual_vs_base_formatted_failures": 0,
+      "condition_raw_failures": 0,
+      "condition_formatted_failures": 0
+    },
+    {
+      "combination": "D1_E1",
+      "observer_cells": 1,
+      "actual_vs_base_raw_failures": 0,
+      "actual_vs_base_formatted_failures": 0,
+      "condition_raw_failures": 0,
+      "condition_formatted_failures": 0
+    }
+  ],
+  "runtime_receipts": [
+    {
+      "combination": "D0_E0",
+      "job_id": "N2_S45_01_04_O0",
+      "result_sha256": "20b10e13abd3c9dbbc75d7898afdaded3d2753cb4f9c0524e21b89e5bfca6dac",
+      "source_bindings_sha256": "3a468e72163b54cc457de7ee58edfa486e759f1e191175de69a56a89978825cf",
+      "actual_runtime_checks": {
+        "stopped": true,
+        "no_error": true,
+        "all_samples": true,
+        "drained": true,
+        "archive_complete": true
+      },
+      "manual_archive_gate": true,
+      "observer_gate": true,
+      "recorder_gate": true,
+      "accepted_completed_events": [
+        1098,
+        1098
+      ],
+      "recorder_peak": 6,
+      "observer_peak": 4,
+      "observer_max_age_seconds": 0.013137500000084401,
+      "embedding_matches": {
+        "matched_actual_embedding_decisions": 26,
+        "actual_decision_without_track": 6
+      },
+      "unmatched_embeddings": 0,
+      "unmatched_decisions": 0,
+      "actual_latest_cpWER": 1.40625,
+      "observed_track_ID_count_proxy": 6,
+      "return_consistent": 0,
+      "return_denominator": 2,
+      "result_index_sha256": "03a73a0b1c55b4ccd100a4cc2fc8844ae81ebc7444f08d3172cf11464b757f71",
+      "source_samples_expected": 715127,
+      "archive_checks": {
+        "source_samples": 715127,
+        "archive_error": null,
+        "loss": null,
+        "queue_items": 0,
+        "queue_bytes": 0,
+        "closed": true,
+        "worker_alive": false,
+        "accepted_items": 2681,
+        "completed_items": 2681
+      },
+      "archive_counter_scope": "actual v4 RESULT archive accepted/completed receipt",
+      "archive_counters_available": true,
+      "native_device": {
+        "kind": "cpu",
+        "gpu_index": -1
+      }
+    },
+    {
+      "combination": "D1_E0",
+      "job_id": "N2_S45_01_04_O0",
+      "result_sha256": "5ea24255740453200fa28dd45c4da6a3f1eb60e6a674d54caedf6e357542143d",
+      "source_bindings_sha256": "3a468e72163b54cc457de7ee58edfa486e759f1e191175de69a56a89978825cf",
+      "actual_runtime_checks": {
+        "stopped": true,
+        "no_error": true,
+        "all_samples": true,
+        "drained": true,
+        "archive_complete": true
+      },
+      "manual_archive_gate": true,
+      "observer_gate": true,
+      "recorder_gate": true,
+      "accepted_completed_events": [
+        866,
+        866
+      ],
+      "recorder_peak": 11,
+      "observer_peak": 6,
+      "observer_max_age_seconds": 0.044906400000400026,
+      "embedding_matches": {
+        "matched_actual_embedding_decisions": 15
+      },
+      "unmatched_embeddings": 0,
+      "unmatched_decisions": 0,
+      "actual_latest_cpWER": 0.125,
+      "observed_track_ID_count_proxy": 1,
+      "return_consistent": 2,
+      "return_denominator": 2,
+      "result_index_sha256": "22d657e63c2fe6be8c9c53005bdad0cd26253eee608c5bd7195eea4009863e73",
+      "source_samples_expected": 715127,
+      "archive_checks": {
+        "source_samples": 715127,
+        "archive_error": null,
+        "loss": null,
+        "queue_items": 0,
+        "queue_bytes": 0,
+        "closed": true,
+        "worker_alive": false,
+        "accepted_items": 4008,
+        "completed_items": 4008
+      },
+      "archive_counter_scope": "actual v4 RESULT archive accepted/completed receipt",
+      "archive_counters_available": true,
+      "native_device": {
+        "kind": "cuda",
+        "gpu_index": 0
+      }
+    },
+    {
+      "combination": "D0_E1",
+      "job_id": "N2_S45_01_04_O0",
+      "result_sha256": "ac57b5c2e504bd6c724535bb66f7123ddc98666a147e6e48d441fe26c8dcc187",
+      "source_bindings_sha256": "c4d09674c418b514d12c78a31a57ef01bfa9e3a2a80fc4d28b6dbbeba908555d",
+      "actual_runtime_checks": {
+        "stopped": true,
+        "no_error": true,
+        "all_samples": true,
+        "drained": true
+      },
+      "manual_archive_gate": true,
+      "observer_gate": true,
+      "recorder_gate": true,
+      "accepted_completed_events": [
+        1101,
+        1101
+      ],
+      "recorder_peak": 5,
+      "observer_peak": 3,
+      "observer_max_age_seconds": 0.010998099998687394,
+      "embedding_matches": {
+        "matched_actual_embedding_decisions": 26,
+        "actual_decision_without_track": 2
+      },
+      "unmatched_embeddings": 0,
+      "unmatched_decisions": 0,
+      "actual_latest_cpWER": 1.46875,
+      "observed_track_ID_count_proxy": 10,
+      "return_consistent": 0,
+      "return_denominator": 2,
+      "result_index_sha256": "17f3968f9ed80c1b2b357d8e58f193721e89ef1cdbb301011b6338d489031e39",
+      "source_samples_expected": 715127,
+      "archive_checks": {
+        "source_samples": 715127,
+        "archive_error": null,
+        "loss": null,
+        "queue_items": 0,
+        "queue_bytes": 0,
+        "closed": true,
+        "worker_alive": false,
+        "accepted_items": null,
+        "completed_items": null
+      },
+      "archive_counter_scope": "v3 final snapshot manually checked; RESULT archive gate and counters unavailable",
+      "archive_counters_available": false,
+      "native_device": {
+        "kind": "cpu",
+        "gpu_index": -1
+      }
+    },
+    {
+      "combination": "D1_E1",
+      "job_id": "N2_S45_01_04_O0",
+      "result_sha256": "ad2da30e9ac9d7221177140c0c18366b75cb94ead0308b5a1db75e2c4c36d7bb",
+      "source_bindings_sha256": "3a468e72163b54cc457de7ee58edfa486e759f1e191175de69a56a89978825cf",
+      "actual_runtime_checks": {
+        "stopped": true,
+        "no_error": true,
+        "all_samples": true,
+        "drained": true,
+        "archive_complete": true
+      },
+      "manual_archive_gate": true,
+      "observer_gate": true,
+      "recorder_gate": true,
+      "accepted_completed_events": [
+        866,
+        866
+      ],
+      "recorder_peak": 12,
+      "observer_peak": 5,
+      "observer_max_age_seconds": 0.03104920000077982,
+      "embedding_matches": {
+        "matched_actual_embedding_decisions": 15
+      },
+      "unmatched_embeddings": 0,
+      "unmatched_decisions": 0,
+      "actual_latest_cpWER": 0.125,
+      "observed_track_ID_count_proxy": 1,
+      "return_consistent": 2,
+      "return_denominator": 2,
+      "result_index_sha256": "764268393af64066035117f459d8df450fe33146b60c00c4e956ecb6eb9efedd",
+      "source_samples_expected": 715127,
+      "archive_checks": {
+        "source_samples": 715127,
+        "archive_error": null,
+        "loss": null,
+        "queue_items": 0,
+        "queue_bytes": 0,
+        "closed": true,
+        "worker_alive": false,
+        "accepted_items": 4017,
+        "completed_items": 4017
+      },
+      "archive_counter_scope": "actual v4 RESULT archive accepted/completed receipt",
+      "archive_counters_available": true,
+      "native_device": {
+        "kind": "cuda",
+        "gpu_index": 0
+      }
+    }
+  ],
+  "summary_sha256": "206af46bd62eef8e3b4a852b633221743520dc5e235f7d34a831ac4dce67e18a",
+  "native_or_ASR_model_calls_by_this_audit": 0,
+  "known_quality_failure": "Both D0 variants fragment the single-speaker smoke cell; retain all scores and unresolved tracks; no Q association-threshold tuning",
+  "classification": "NOT_FULL_SCREEN",
+  "completed_cells": 4,
+  "expected_full_screen_cells": 384,
+  "matched_four_way_jobs": 1,
+  "earlier_audited_sources": {
+    "run_screen.py": "e8ee3e8517188e6abe656e177bddbf203f6dd6b95cc7b99fbcecb6084a5e8a3a",
+    "configure.py": "f842f4c551a4912a65facb707f09c9f5e7405819bbaaeb450d6f1753d37b872c",
+    "io_utils.py": "690399bb8f4b88e3e87d95c3393d785d6978b065da05737edd191cad3f621a6c",
+    "evaluation/summarize_screen.py": "a1e64491432cb8cec43c7b32d604ea6dabcf0bf80c0f25e0751efa71bcc6cfaa",
+    "evaluation/runtime_observer.py": "c66d7bcda1c01c2e0d71684ad9506c664f46a8f09bc0f17a221f7dd3b984b214",
+    "../data/run_baseline_screen.py": "3104ed95bbacd35c11f2d6a28ac1825093574570f3dc9771218ad2f611412c50"
+  },
+  "current_audited_sources": {
+    "run_screen.py": "5a5f11f23a1b11182bc995f3f8a4dcc167d56d8ed013b846d9e104d641f718a5",
+    "configure.py": "f842f4c551a4912a65facb707f09c9f5e7405819bbaaeb450d6f1753d37b872c",
+    "io_utils.py": "690399bb8f4b88e3e87d95c3393d785d6978b065da05737edd191cad3f621a6c",
+    "evaluation/summarize_screen.py": "a1e64491432cb8cec43c7b32d604ea6dabcf0bf80c0f25e0751efa71bcc6cfaa",
+    "evaluation/score_runtime.py": "f45cf4e3dd8e2956862801beeec94ba5eab26659e5c6a840155a32d4ba7a7032",
+    "evaluation/runtime_observer.py": "c66d7bcda1c01c2e0d71684ad9506c664f46a8f09bc0f17a221f7dd3b984b214",
+    "data/run_baseline_screen.py": "3104ed95bbacd35c11f2d6a28ac1825093574570f3dc9771218ad2f611412c50",
+    "supervision/supervisor.py": "49f6cb3ec50e008905feb562879aaf28f28827fd218bf1a3e2fd8f65fe1776ee"
+  },
+  "source_qualification": {
+    "smoke_source_versions": {
+      "D0_E0": "v4",
+      "D1_E0": "v4",
+      "D0_E1": "v3",
+      "D1_E1": "v4"
+    },
+    "smoke_sources_byte_identical": false,
+    "v3_to_v4_application_delta": "D1-only embedding archive provenance; D0/E1 path does not execute it",
+    "planned_full_source": "v5",
+    "v4_to_v5_source_delta_excluding_generated_bytecode": [
+      "release_tools/requirements-arm64.in",
+      "release_tools/requirements-arm64.lock"
+    ],
+    "v4_v5_app_vendor_config_identical": true,
+    "v5_source_receipt_sha256": "f7c1a11c21df4928b2015e47835716e0b22c1c5a91d6e1fb899a4df7dc8c1cd7",
+    "v5_frontend_runtime_sha256": "6b1c960e1f31955e6d9dc93716ade0315182ea3ea0f922e5b2ee4e976d4db0a7",
+    "common_ui_source_sha256": "54c0283b8058978eca87dc9b0461a15addf804200856e41d2c83b55bff590456",
+    "latest_runner_change": "admission binds supervisor SHA; bounded supervisor atomic-replacement retry is I/O-only; no new model run by evaluator",
+    "main_full_results_included": false
+  },
+  "ASR_signature_denominators": {
+    "raw_observations": 28,
+    "raw_final_events": 3,
+    "dispatch_reset_source_sequence": 462,
+    "final_utterances": 3,
+    "final_raw_words": 32,
+    "candidate_comparisons": 3,
+    "checks_per_candidate": 6,
+    "checks_passed": 18
+  },
+  "caption_condition_comparisons": 60,
+  "caption_timing_qualification": "causal shadow first-visible/first-final/latest replay, not actual GUI timing; actual final Controller words authoritative",
+  "readiness_review_sha256": "5c49a7f060c61cc185997002129387cdfe05e3468e9e832efac2488241062bb1",
+  "private_evidence_published": false,
+  "redaction": "No raw words, transcripts, speaker names, vectors, waveform paths or audio content. Hashes and aggregate one-cell diagnostics only.",
+  "receipt_payload_sha256": "fc73a0949e64dd715d2cf10646d1c999306ccd9709fa72e7ac93c33891a40092"
+}

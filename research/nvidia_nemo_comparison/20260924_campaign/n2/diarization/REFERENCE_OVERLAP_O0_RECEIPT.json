@@ -1,0 +1,174 @@
+{
+  "status": "ACTUALLY_RUN",
+  "source_revision": "cf724ac337d1ebc7d0dda1e23fb80916f52927a5",
+  "python": "3.12.7 | packaged by Anaconda, Inc. | (main, Oct  4 2024, 13:17:27) [MSC v.1929 64 bit (AMD64)]",
+  "torch": "2.8.0+cpu",
+  "nemo": "3.1.0",
+  "model_class_source_path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\nemo-py312\\Lib\\site-packages\\nemo\\collections\\asr\\models\\sortformer_diar_models.py",
+  "model_class_source_sha256": "bd6624df8a0ad2edb3659592b3f711b6a093a0d801b364599fc95bc7361bb877",
+  "model_sha256": "867c53f552998f772e5b5e5c082962ae85ee7ca5669c2bc17d7f615133d4e96d",
+  "native_panel_sha256": "76c5734fa183d6f72c6aec6b8b6faa39d4e7e2155f2e93ad5fc5e2bda71945ce",
+  "script_sha256": "5b742262f21c015fb421ac8bfcaaf50c1fb40d79ecac458362afda97c3f3cfcc",
+  "profiles": {
+    "low_latency": {
+      "metrics": {
+        "compared_frames": 2400,
+        "native_frames": 2401,
+        "reference_frames": 2400,
+        "native_unpaired_tail_frames": 1,
+        "reference_unpaired_tail_frames": 0,
+        "activity_threshold": 0.5,
+        "threshold_calibrated": false,
+        "mean_absolute_probability_error": 0.0001031040956149809,
+        "max_absolute_probability_error": 0.044806480407714844,
+        "p99_absolute_probability_error": 0.0017310050316154957,
+        "activity_bit_disagreement_fraction": 0.0,
+        "frame_active_set_disagreement_fraction": 0.0,
+        "speech_presence_disagreement_sec": 0.0,
+        "overlap_presence_disagreement_sec": 0.0,
+        "dominant_slot_agreement_on_union_speech": 0.9928352098259979,
+        "speaker_active_seconds_native": [
+          7.5600000000000005,
+          3.8200000000000003,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "speaker_active_seconds_reference": [
+          7.5600000000000005,
+          3.8200000000000003,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "threshold_segment_counts": {
+          "native": [
+            2,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference": [
+            2,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "native_to_nearest_same_slot_same_edge_boundary_error_sec": {
+          "count": 6,
+          "median": 0.0,
+          "max": 0.0
+        },
+        "scope": "route comparison, not DER/JER or gold-reference efficacy; no slot remapping, no time shift, no bit-equality requirement"
+      },
+      "resources": {
+        "wall_sec": 20.05632019999939,
+        "process_cpu_sec": 19.984375,
+        "sampled_peak_rss_bytes": 1223667712,
+        "cpu_threads": 1,
+        "frontend": "recomputed_arrived_prefix_only_no_future",
+        "pacing": "accelerated_causal_delivery"
+      },
+      "probability_path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\diarization\\reference-overlap-o0-v1\\low_latency.npz",
+      "probability_sha256": "a806d52c94a8906846f0598b6a3ed7af71fc8b4623569d351e1f0d86a08434cf"
+    },
+    "ultra_low_latency": {
+      "metrics": {
+        "compared_frames": 2400,
+        "native_frames": 2401,
+        "reference_frames": 2400,
+        "native_unpaired_tail_frames": 1,
+        "reference_unpaired_tail_frames": 0,
+        "activity_threshold": 0.5,
+        "threshold_calibrated": false,
+        "mean_absolute_probability_error": 0.00016084263916127384,
+        "max_absolute_probability_error": 0.043531760573387146,
+        "p99_absolute_probability_error": 0.003869826439768076,
+        "activity_bit_disagreement_fraction": 0.00010416666666666667,
+        "frame_active_set_disagreement_fraction": 0.0008333333333333334,
+        "speech_presence_disagreement_sec": 0.01,
+        "overlap_presence_disagreement_sec": 0.01,
+        "dominant_slot_agreement_on_union_speech": 1.0,
+        "speaker_active_seconds_native": [
+          7.34,
+          3.8200000000000003,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "speaker_active_seconds_reference": [
+          7.34,
+          3.8200000000000003,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "threshold_segment_counts": {
+          "native": [
+            3,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference": [
+            3,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "native_to_nearest_same_slot_same_edge_boundary_error_sec": {
+          "count": 8,
+          "median": 0.0,
+          "max": 0.01
+        },
+        "scope": "route comparison, not DER/JER or gold-reference efficacy; no slot remapping, no time shift, no bit-equality requirement"
+      },
+      "resources": {
+        "wall_sec": 54.43114379999952,
+        "process_cpu_sec": 53.828125,
+        "sampled_peak_rss_bytes": 1190531072,
+        "cpu_threads": 1,
+        "frontend": "recomputed_arrived_prefix_only_no_future",
+        "pacing": "accelerated_causal_delivery"
+      },
+      "probability_path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\diarization\\reference-overlap-o0-v1\\ultra_low_latency.npz",
+      "probability_sha256": "c49dc388dcdddc1e1c33de1beeaa345125059c533b89e27c152706730166453c"
+    }
+  },
+  "gpu": false,
+  "dither": 0,
+  "precision": "NeMo-FP32-from-official-checkpoint",
+  "tail_note": "Native emits one centered-STFT endpoint frame more than NeMo valid length for the bound exact-second input. Compare common support, retain and report both unmodified tails.",
+  "local_receipt": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\diarization\\reference-overlap-o0-v1\\RECEIPT.json",
+  "local_receipt_sha256": "3c95995952ad745aff94216943ccc9c51b4938dc6bca54b6271c850e16aba32b"
+}

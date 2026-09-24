@@ -34,7 +34,16 @@ def atomic(path, value):
     with temp.open('x', encoding='utf-8', newline='\n') as stream:
         json.dump(value, stream, indent=2, allow_nan=False)
         stream.write('\n'); stream.flush(); os.fsync(stream.fileno())
-    os.replace(temp, path)
+    deadline=time.monotonic()+2.
+    delay=.01
+    while True:
+        try:
+            os.replace(temp, path)
+            return
+        except PermissionError as exc:
+            remaining=deadline-time.monotonic()
+            if getattr(exc,'winerror',None) not in (5,32,33) or remaining<=0:raise
+            time.sleep(min(delay,remaining));delay=min(.2,delay*1.7)
 
 
 @contextmanager

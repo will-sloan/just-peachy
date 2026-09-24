@@ -1,0 +1,30 @@
+{
+  "schema": "n2-component-embedding-result-v1",
+  "status": "COMPLETE",
+  "encoder": "E1",
+  "namespace": {
+    "model_sha256": "e838520693f269e7984f55bc8eb3c2d60ccf246bf4b896d4be9bcabe3e4b0fe3",
+    "preprocessing": "nemo-cf724ac3-mel80-16k-eval-v1",
+    "dimension": 192,
+    "normalization": "L2",
+    "minimum_samples": 8000,
+    "onnx_sha256": "86b64bc03a7b151231f59745a8d36619fbc68b739a4abb253bd0d9ce0c350610",
+    "frontend_sha256": "582f92d2fa2a29be70f6fdc13d67fc1376083ca66cb35401f8335ed85c4115b6"
+  },
+  "completed_utc": "2026-09-24T16:21:26.846141+00:00",
+  "elapsed_seconds": 288.8909999999996,
+  "window_denominator": 1194,
+  "supported_windows": 1194,
+  "unsupported_windows": 0,
+  "peak_observed_rss_bytes": 772816896,
+  "cpu_seconds": 284.34375,
+  "resource_scope": "single one-thread encoder process; concurrent campaign work may exist; not isolated/CM5 benchmark",
+  "component_only_not_integrated_streaming": true,
+  "contract_sha256": "8bacc79089afa7610ee30795ab32718248fccfb8681499171228bd06e495b10b",
+  "private_result": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\evaluation\\component\\E1\\RESULT.json",
+    "sha256": "235f92842ca2dc535eb2c1114c6f8a900b5e9d26ce834f9c047ae1f2f2efe6a2",
+    "bytes": 467656
+  },
+  "gallery_conditions": 29
+}

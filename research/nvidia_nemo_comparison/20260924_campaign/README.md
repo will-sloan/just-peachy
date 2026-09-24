@@ -74,6 +74,19 @@ separate. Unavailable timing or punctuation truth stays explicitly unavailable.
 
 ## Build the analysis handoff
 
+`freeze_release.py` copies an explicit source allowlist into a new immutable
+release and writes its hashes and ZIP. It excludes dependency/environment
+directories (`node_modules`, `.git`, `.venv`, `venv`) as well as private data,
+models and evidence; it does not delete existing directories. Reuse its
+documented PowerShell command with a fresh destination for each N2 revision.
+Source requirements inputs and lockfiles are included for portable installers.
+Repeat `--include REPOSITORY_RELATIVE_FILE` to include a required small test
+dependency outside `prototype`; its separate hash appears in `auxiliary_files`
+and it is included in the source ZIP. Only explicit files inside the repository
+are accepted. N2's integration test requires `n2/evaluation/scoring.py` at its
+original campaign-relative location plus its README. This does not change the
+application runtime hash or load evaluator truth into inference.
+
 `package_handoff.py` consumes `HANDOFF_FILES.json` and completed `N1_METRICS.json`.
 It writes a new analysis-only ZIP and SHA-256 receipt, verifies every archived
 member, and enforces the 20 MiB hard ceiling. Its reviewed allowlist excludes

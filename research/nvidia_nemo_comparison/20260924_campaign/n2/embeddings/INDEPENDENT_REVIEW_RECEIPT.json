@@ -1,0 +1,32 @@
+{
+  "status": "REVIEWED",
+  "scope": "Independent source review plus bounded integration fixes",
+  "fixed": [
+    "Contradiction anchor survives first rejection; second contradiction resets evidence.",
+    "E1 runtime namespace matches actual loaded model/frontend hashes.",
+    "D1 embeddings cover completed singleton runs within native chunks at fixed0.5s hop.",
+    "Temporal name evidence only revises overlapping supported caption spans.",
+    "Historical labels survive120s evidence retirement; completedruns do not recount.",
+    "CALIBRATED galleries require C-role, caller query domain, exact namespace, roster/profile payload and integrity hashes.",
+    "Observer sees actual stamped serialized publication event; ASRproducer remains nonblocking.",
+    "Confirmed name state matches common presentation contract."
+  ],
+  "native_review": [
+    "Pinned C ABI signatures and struct match ctypes.",
+    "Standalone create loads only explicit diarizer; gpu=-1; statepersists until explicit scene reset.",
+    "Single semantic four-to-one numerical thread patch in separatecopy.",
+    "N1 source/license manifests retain native runtime and transitive notices.",
+    "Sibling runtime DLL hashes must accompany Cbridge; integration writer responsible for fullbinding."
+  ],
+  "evaluation_review": [
+    "No critical EER/DER/cpWER or C/Q split error found.",
+    "Matched-roster metadata, cached-vector validation, and any-overlap evidence scope findings sent to evaluation owner."
+  ],
+  "tests": "27/27 integration plus19/19 baseline personal-store",
+  "limits": [
+    "Actual controller resource/pace receipts are separately owned.",
+    "No CM5/ARM64 hardware execution.",
+    "No full NeMo source security audit or independent license-law opinion."
+  ],
+  "created_at_utc": "2026-09-24T16:33:27.8530180Z"
+}

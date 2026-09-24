@@ -1,0 +1,55 @@
+{
+  "status": "ACTUALLY_COMPLETED",
+  "completed_cells": 288,
+  "failed_cells": 0,
+  "profile_counts": {
+    "low_latency": 96,
+    "very_low_latency": 96,
+    "ultra_low_latency": 96
+  },
+  "original_results_preserved_bit_bindings": 195,
+  "additional_resumed_cells": 93,
+  "numerical_contract_unchanged": true,
+  "contract_sha256": "f6f2656050b8ea1a7d0fab197abb604c1325b0da925e946838bd408d777af88f",
+  "admission": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\diarization\\fixed-cuda-all-v1\\ADMISSION.json",
+    "sha256": "574892e8aef789e7b31cf5f211812464c4703bffef315bacbab547aad893f92f",
+    "bytes": 45763
+  },
+  "result_index": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\diarization\\fixed-cuda-all-v1\\RESULT_INDEX.json",
+    "sha256": "328e180a7a02c8c31049cd6e8007fca61c974f73b7313af30e0bdbbc4d24c404",
+    "bytes": 102465
+  },
+  "final_progress": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\diarization\\fixed-cuda-all-v1\\PROGRESS.json",
+    "sha256": "840990dbe00b8e57212f6ed26b7a2a121c0d038d3ed7f003eaa3b7290292147a",
+    "bytes": 469
+  },
+  "owner": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\diarization\\fixed-cuda-all-v1\\RUNNER_OWNER.json",
+    "sha256": "4147cdf59b3dbbcc93e06ee1519aebb24b8b6e0e0aa83fe5c01fb2af42e62a73",
+    "bytes": 174
+  },
+  "io_amendment": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\diarization\\fixed-cuda-all-v1\\io_resumes\\20260924T171812_8e665c82\\IO_RESUME_AMENDMENT.json",
+    "sha256": "914015a7fb9c84a8153251d7e79d42f1bc02c6342b6a68749d6f5160dc20c4d7",
+    "bytes": 4596
+  },
+  "io_result": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\diarization\\fixed-cuda-all-v1\\io_resumes\\20260924T171812_8e665c82\\IO_RESUME_RESULT.json",
+    "sha256": "1960eec1622526a7e9bd15431fa5103a29c6c43ef214ff7156c6d4551a51a4db",
+    "bytes": 523
+  },
+  "historical_coordinator_errors": [
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\diarization\\fixed-cuda-all-v1\\COORDINATOR_ERROR_99c4a237232d.json",
+      "sha256": "138c30c4cfc636a6ebda14b1b14bc1f763228f9ec4d5bf3478c52e014be9e8d1",
+      "bytes": 1483
+    }
+  ],
+  "model_workers_ended": true,
+  "quality_scoring": "Separate evaluator; no quality score fabricated by completion audit",
+  "resource_scope": "Explicit desktop CUDA0 plus CPU1 affinity14; not CM5 or total2GB system admission",
+  "elapsed_note": "Current index elapsed covers last resume only; use per-cell measurements and preserved launch evidence"
+}

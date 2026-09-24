@@ -1,0 +1,308 @@
+{
+  "status": "ACTUALLY_RUN",
+  "local_receipt": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\diarization\\cuda-parity-v1\\RECEIPT.json",
+  "local_receipt_sha256": "56c519c7ea7e6ed93f0e40167154982684374cbc8173e717d17b5d7434761b6f",
+  "functional": {
+    "runtime_directory_guard": {
+      "different_runtime_after_close_rejected": true,
+      "same_directory_three_profile_loads_completed": true,
+      "pass": true
+    }
+  },
+  "source_sha256": "d067f94ab2f64d536334ca31ee87a8243efd35d17f3895f66b9621fd0e09d7bd",
+  "gpu": true,
+  "gpu_device": 0,
+  "build_receipt_sha256": "d8b52c59eada182c58e7ded2456a051452f89cea127b4a8a9704ccae46b8dc46",
+  "native_runtime_files": [
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\diarization\\native-cuda-v2\\build\\bin\\Release\\cublas64_12.dll",
+      "sha256": "e26c6a52b7df762633978b282d6f172d0085719b116ff1a8ca4c96ff5786e142",
+      "bytes": 100796416
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\diarization\\native-cuda-v2\\build\\bin\\Release\\cublasLt64_12.dll",
+      "sha256": "0fa3aabf2e90f0ba3d331699b95305ee29fe1cda0f4d4b64c883e04f01a35b49",
+      "bytes": 494290944
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\diarization\\native-cuda-v2\\build\\bin\\Release\\cudart64_12.dll",
+      "sha256": "3df50cf48718712f17b8c77ad72c45a1f43ff94781e302a4be7f1d7a9b66c746",
+      "bytes": 556544
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\diarization\\native-cuda-v2\\build\\bin\\Release\\ggml-base.dll",
+      "sha256": "1fa9d7a568379f31f842677d5382c2b18c7ff68cc37db8899eb6ded75a22d79d",
+      "bytes": 621056
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\diarization\\native-cuda-v2\\build\\bin\\Release\\ggml-cpu.dll",
+      "sha256": "1829ed8e44dd9e09fd7c4eb6a79f482da7a4c396dd0ea45c835108a99472ac9f",
+      "bytes": 773120
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\diarization\\native-cuda-v2\\build\\bin\\Release\\ggml-cuda.dll",
+      "sha256": "36e0f7f9dcb8921298e8bea28d608ab06ad14515d617553da4e7763e2a5bceb6",
+      "bytes": 199793152
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\diarization\\native-cuda-v2\\build\\bin\\Release\\ggml.dll",
+      "sha256": "dac955b711bcf46a3e7a01b5dab31ad9a6d5a61cece553d0d8ed2374ace146a8",
+      "bytes": 68608
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\diarization\\native-cuda-v2\\build\\bin\\Release\\nemo_speech_asr.dll",
+      "sha256": "b0c92139f49b4309e911b2677efdb0a629e5fcf5370828ae282bf34df3f796dc",
+      "bytes": 1668608
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\diarization\\native-cuda-v2\\build\\bin\\Release\\nemo_speech_asr_c.dll",
+      "sha256": "2556f8dbf7a7a847bc367207741060e2a0b09931b51d1e3d63ccc3cedd336eae",
+      "bytes": 59904
+    }
+  ],
+  "profiles": {
+    "low_latency": {
+      "manifest": {
+        "model_id": "nvidia/Nemotron-3-Diarization",
+        "model_revision": "f667ed73aee57d40cc39428eb768b4fd87a0a29e",
+        "model_sha256": "08456d9e22cd9a323c0364d98375f3746d6e68507ebb705cd46438c534c7a3a1",
+        "precision": "official-Q8_0",
+        "library_path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\diarization\\native-cuda-v2\\build\\bin\\Release\\nemo_speech_asr_c.dll",
+        "library_sha256": "2556f8dbf7a7a847bc367207741060e2a0b09931b51d1e3d63ccc3cedd336eae",
+        "runtime_revision": "97a15afa5caa9bce5baaa86c1184103877af4101",
+        "profile": {
+          "name": "low_latency",
+          "chunk_frames": 9,
+          "right_context_frames": 4,
+          "left_context_frames": 0,
+          "fifo_frames": 264,
+          "spkcache_frames": 264,
+          "update_period_frames": 222
+        },
+        "input_buffer_sec": 1.04,
+        "right_context_sec": 0.32,
+        "feature_fft_right_extent_sec": 0.016,
+        "first_complete_chunk_min_audio_sec": 1.046,
+        "sample_rate_hz": 16000,
+        "num_speakers": 8,
+        "mel_features": 128,
+        "encoder_subsampling": 8,
+        "native_output_sec_per_frame": 0.009999999776482582,
+        "session_reset": "independent_scene_or_session_only",
+        "slot_recycling": false,
+        "overflow_behavior": "more than eight physical speakers unresolved; overflow is not detectable from eight probabilities alone",
+        "identity_confidence": false,
+        "gain": 1.0,
+        "standalone": true,
+        "gpu": true,
+        "gpu_device_index": 0
+      },
+      "resources": {
+        "wall_sec": 0.40891650000048685,
+        "process_cpu_sec": 0.375,
+        "sampled_peak_rss_bytes": 694013952,
+        "windows_peak_working_set_bytes": 694013952,
+        "pacing": "accelerated_causal_file_delivery",
+        "block_samples": 1600,
+        "audio_sec": 12.0
+      },
+      "probability_file": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\diarization\\cuda-parity-v1\\low_latency.npz",
+      "probability_sha256": "75538c14dd926ef6baacfa6b6ef96ca049b41a1822d904b989c5b6fe2acc0864",
+      "shape": [
+        1201,
+        8
+      ],
+      "finite": true,
+      "gpu_snapshot_before": {
+        "status": "ACTUALLY_QUERIED",
+        "returncode": 0,
+        "csv": "0, NVIDIA GeForce RTX 3080, GPU-6c32218e-2ed5-267a-6387-cec0261068cc, 610.62, 10240, 2808, 8",
+        "scope": "global device snapshot; desktop allocations included, not process-isolated peak VRAM"
+      },
+      "gpu_snapshot_after": {
+        "status": "ACTUALLY_QUERIED",
+        "returncode": 0,
+        "csv": "0, NVIDIA GeForce RTX 3080, GPU-6c32218e-2ed5-267a-6387-cec0261068cc, 610.62, 10240, 2868, 31",
+        "scope": "global device snapshot; desktop allocations included, not process-isolated peak VRAM"
+      },
+      "frames_with_overlap_at_0_5": 0,
+      "slots_with_activity_at_0_5": [
+        0
+      ],
+      "cpu_comparison": {
+        "reference_probability_sha256": "955bdadfc73e3b9d3e91dc95786ede315b5aaa1fb87b0f083acccd168af2872f",
+        "same_shape": true,
+        "compared_frames": 1201,
+        "mean_absolute_probability_error": 6.598209438379854e-05,
+        "max_absolute_probability_error": 0.033605337142944336,
+        "activity_threshold": 0.5,
+        "frame_active_set_disagreements": 1,
+        "overlap_disagreement_sec": 0.0,
+        "nearest_same_slot_boundary_max_sec": 0.01,
+        "scope": "CPU versus explicit CUDA route; no time shifts, no slot mapping, no gold quality score"
+      }
+    },
+    "very_low_latency": {
+      "manifest": {
+        "model_id": "nvidia/Nemotron-3-Diarization",
+        "model_revision": "f667ed73aee57d40cc39428eb768b4fd87a0a29e",
+        "model_sha256": "08456d9e22cd9a323c0364d98375f3746d6e68507ebb705cd46438c534c7a3a1",
+        "precision": "official-Q8_0",
+        "library_path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\diarization\\native-cuda-v2\\build\\bin\\Release\\nemo_speech_asr_c.dll",
+        "library_sha256": "2556f8dbf7a7a847bc367207741060e2a0b09931b51d1e3d63ccc3cedd336eae",
+        "runtime_revision": "97a15afa5caa9bce5baaa86c1184103877af4101",
+        "profile": {
+          "name": "very_low_latency",
+          "chunk_frames": 6,
+          "right_context_frames": 2,
+          "left_context_frames": 0,
+          "fifo_frames": 264,
+          "spkcache_frames": 264,
+          "update_period_frames": 222
+        },
+        "input_buffer_sec": 0.64,
+        "right_context_sec": 0.16,
+        "feature_fft_right_extent_sec": 0.016,
+        "first_complete_chunk_min_audio_sec": 0.646,
+        "sample_rate_hz": 16000,
+        "num_speakers": 8,
+        "mel_features": 128,
+        "encoder_subsampling": 8,
+        "native_output_sec_per_frame": 0.009999999776482582,
+        "session_reset": "independent_scene_or_session_only",
+        "slot_recycling": false,
+        "overflow_behavior": "more than eight physical speakers unresolved; overflow is not detectable from eight probabilities alone",
+        "identity_confidence": false,
+        "gain": 1.0,
+        "standalone": true,
+        "gpu": true,
+        "gpu_device_index": 0
+      },
+      "resources": {
+        "wall_sec": 0.3705034999984491,
+        "process_cpu_sec": 0.359375,
+        "sampled_peak_rss_bytes": 715468800,
+        "windows_peak_working_set_bytes": 715468800,
+        "pacing": "accelerated_causal_file_delivery",
+        "block_samples": 1600,
+        "audio_sec": 12.0
+      },
+      "probability_file": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\diarization\\cuda-parity-v1\\very_low_latency.npz",
+      "probability_sha256": "e4e2ca0f97b1ff746b5fd062f0122eade274072ccccf446bf0ce3f4e1a79c45b",
+      "shape": [
+        1201,
+        8
+      ],
+      "finite": true,
+      "gpu_snapshot_before": {
+        "status": "ACTUALLY_QUERIED",
+        "returncode": 0,
+        "csv": "0, NVIDIA GeForce RTX 3080, GPU-6c32218e-2ed5-267a-6387-cec0261068cc, 610.62, 10240, 2846, 31",
+        "scope": "global device snapshot; desktop allocations included, not process-isolated peak VRAM"
+      },
+      "gpu_snapshot_after": {
+        "status": "ACTUALLY_QUERIED",
+        "returncode": 0,
+        "csv": "0, NVIDIA GeForce RTX 3080, GPU-6c32218e-2ed5-267a-6387-cec0261068cc, 610.62, 10240, 2870, 36",
+        "scope": "global device snapshot; desktop allocations included, not process-isolated peak VRAM"
+      },
+      "frames_with_overlap_at_0_5": 0,
+      "slots_with_activity_at_0_5": [
+        0
+      ],
+      "cpu_comparison": {
+        "reference_probability_sha256": "ad0753a93551b9015f67f8ad18a84d03fda4be94649d551aa0684d0812a7b747",
+        "same_shape": true,
+        "compared_frames": 1201,
+        "mean_absolute_probability_error": 4.495966277318075e-05,
+        "max_absolute_probability_error": 0.014465093612670898,
+        "activity_threshold": 0.5,
+        "frame_active_set_disagreements": 1,
+        "overlap_disagreement_sec": 0.0,
+        "nearest_same_slot_boundary_max_sec": 0.01,
+        "scope": "CPU versus explicit CUDA route; no time shifts, no slot mapping, no gold quality score"
+      }
+    },
+    "ultra_low_latency": {
+      "manifest": {
+        "model_id": "nvidia/Nemotron-3-Diarization",
+        "model_revision": "f667ed73aee57d40cc39428eb768b4fd87a0a29e",
+        "model_sha256": "08456d9e22cd9a323c0364d98375f3746d6e68507ebb705cd46438c534c7a3a1",
+        "precision": "official-Q8_0",
+        "library_path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\diarization\\native-cuda-v2\\build\\bin\\Release\\nemo_speech_asr_c.dll",
+        "library_sha256": "2556f8dbf7a7a847bc367207741060e2a0b09931b51d1e3d63ccc3cedd336eae",
+        "runtime_revision": "97a15afa5caa9bce5baaa86c1184103877af4101",
+        "profile": {
+          "name": "ultra_low_latency",
+          "chunk_frames": 3,
+          "right_context_frames": 1,
+          "left_context_frames": 0,
+          "fifo_frames": 264,
+          "spkcache_frames": 264,
+          "update_period_frames": 222
+        },
+        "input_buffer_sec": 0.32,
+        "right_context_sec": 0.08,
+        "feature_fft_right_extent_sec": 0.016,
+        "first_complete_chunk_min_audio_sec": 0.326,
+        "sample_rate_hz": 16000,
+        "num_speakers": 8,
+        "mel_features": 128,
+        "encoder_subsampling": 8,
+        "native_output_sec_per_frame": 0.009999999776482582,
+        "session_reset": "independent_scene_or_session_only",
+        "slot_recycling": false,
+        "overflow_behavior": "more than eight physical speakers unresolved; overflow is not detectable from eight probabilities alone",
+        "identity_confidence": false,
+        "gain": 1.0,
+        "standalone": true,
+        "gpu": true,
+        "gpu_device_index": 0
+      },
+      "resources": {
+        "wall_sec": 0.6446341000009852,
+        "process_cpu_sec": 0.59375,
+        "sampled_peak_rss_bytes": 748912640,
+        "windows_peak_working_set_bytes": 748912640,
+        "pacing": "accelerated_causal_file_delivery",
+        "block_samples": 1600,
+        "audio_sec": 12.0
+      },
+      "probability_file": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\diarization\\cuda-parity-v1\\ultra_low_latency.npz",
+      "probability_sha256": "151fe630ebe27ffd2d8f44b4b9723352f8e0fd452968ada702cb99a001da64d1",
+      "shape": [
+        1201,
+        8
+      ],
+      "finite": true,
+      "gpu_snapshot_before": {
+        "status": "ACTUALLY_QUERIED",
+        "returncode": 0,
+        "csv": "0, NVIDIA GeForce RTX 3080, GPU-6c32218e-2ed5-267a-6387-cec0261068cc, 610.62, 10240, 2846, 36",
+        "scope": "global device snapshot; desktop allocations included, not process-isolated peak VRAM"
+      },
+      "gpu_snapshot_after": {
+        "status": "ACTUALLY_QUERIED",
+        "returncode": 0,
+        "csv": "0, NVIDIA GeForce RTX 3080, GPU-6c32218e-2ed5-267a-6387-cec0261068cc, 610.62, 10240, 2884, 41",
+        "scope": "global device snapshot; desktop allocations included, not process-isolated peak VRAM"
+      },
+      "frames_with_overlap_at_0_5": 0,
+      "slots_with_activity_at_0_5": [
+        0
+      ],
+      "cpu_comparison": {
+        "reference_probability_sha256": "8aaa2bb622d8f40b3090a2e58d6ce052fc81d1e337fde847880dec0b87e45501",
+        "same_shape": true,
+        "compared_frames": 1201,
+        "mean_absolute_probability_error": 7.952268788358197e-05,
+        "max_absolute_probability_error": 0.016376018524169922,
+        "activity_threshold": 0.5,
+        "frame_active_set_disagreements": 1,
+        "overlap_disagreement_sec": 0.0,
+        "nearest_same_slot_boundary_max_sec": 0.01,
+        "scope": "CPU versus explicit CUDA route; no time shifts, no slot mapping, no gold quality score"
+      }
+    }
+  }
+}

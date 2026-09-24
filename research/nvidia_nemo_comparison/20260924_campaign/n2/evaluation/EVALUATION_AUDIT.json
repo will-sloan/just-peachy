@@ -1,0 +1,161 @@
+{
+  "schema": "n2-evaluation-audit-v1",
+  "status": "ACTUALLY_RUN_PASS",
+  "utc": "2026-09-24T17:49:18.678117+00:00",
+  "tests_run": 21,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "manifest_and_gallery_hashes_verified": 76,
+  "vectors": [
+    {
+      "encoder": "E0",
+      "actual_stored_vectors_checked": 1194,
+      "dimension": 192,
+      "finite_unit_vectors": true
+    },
+    {
+      "encoder": "E1",
+      "actual_stored_vectors_checked": 1194,
+      "dimension": 192,
+      "finite_unit_vectors": true
+    }
+  ],
+  "executed_source_receipts": [
+    {
+      "encoder": "E0",
+      "admission": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\evaluation\\component\\E0\\ADMISSION.json",
+        "sha256": "b46834f0a7d92b9161304646277d8cccd532700741016ef9dbc2fc148755533a",
+        "bytes": 1743
+      },
+      "executed_runner": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\evaluation\\executed_source_v1\\run_embeddings.py",
+        "sha256": "d279b8f521aa0c63f881dff3e8782cf2a48c611046d7966999f058c2c303602b",
+        "bytes": 18294
+      },
+      "executed_scoring": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\evaluation\\executed_source_v1\\scoring.py",
+        "sha256": "2a1f8316593f0c70977c8724b201eb9a94cbfab9f63322b3150d0b89edca78aa",
+        "bytes": 16036
+      },
+      "current_reviewed_runner": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n2\\evaluation\\run_embeddings.py",
+        "sha256": "7df1d9a366f55b330d436a93fc4706c7a9c1f3f9b9c52ae64fc5abc7d35e53ca",
+        "bytes": 18880
+      }
+    },
+    {
+      "encoder": "E1",
+      "admission": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\evaluation\\component\\E1\\ADMISSION.json",
+        "sha256": "9c668391ebad6c859084e8240f2aae212e4aa77e706ecb8591e4f71ecb575aa8",
+        "bytes": 1670
+      },
+      "executed_runner": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\evaluation\\executed_source_v1\\run_embeddings.py",
+        "sha256": "d279b8f521aa0c63f881dff3e8782cf2a48c611046d7966999f058c2c303602b",
+        "bytes": 18294
+      },
+      "executed_scoring": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\evaluation\\executed_source_v1\\scoring.py",
+        "sha256": "2a1f8316593f0c70977c8724b201eb9a94cbfab9f63322b3150d0b89edca78aa",
+        "bytes": 16036
+      },
+      "current_reviewed_runner": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n2\\evaluation\\run_embeddings.py",
+        "sha256": "7df1d9a366f55b330d436a93fc4706c7a9c1f3f9b9c52ae64fc5abc7d35e53ca",
+        "bytes": 18880
+      }
+    }
+  ],
+  "regression_alias_jobs_verified": 8,
+  "nominal_profile_decision_v1_verified": true,
+  "current_code": [
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n2\\evaluation\\audit_evaluation.py",
+      "sha256": "1444cc2785223766559ab4b6e9e369452151685db4134f4a8156718ce5f543cf",
+      "bytes": 5437
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n2\\evaluation\\prepare.py",
+      "sha256": "086dbb21c42f2738e3419caa87620dfc2ac36c7d91de42cf5a4b8e967dc43414",
+      "bytes": 15490
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n2\\evaluation\\prepare_regression.py",
+      "sha256": "0f077a54b4f7b00dc0fc2f01f019edb5a53d761290d0244c3b9d0d091a9f70cf",
+      "bytes": 4045
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n2\\evaluation\\publish_galleries.py",
+      "sha256": "4976716d85e5b7443081e93db8079108fc3eab212d08d09c6b4ba6096f4fefbd",
+      "bytes": 3328
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n2\\evaluation\\run_embeddings.py",
+      "sha256": "7df1d9a366f55b330d436a93fc4706c7a9c1f3f9b9c52ae64fc5abc7d35e53ca",
+      "bytes": 18880
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n2\\evaluation\\runtime_observer.py",
+      "sha256": "c66d7bcda1c01c2e0d71684ad9506c664f46a8f09bc0f17a221f7dd3b984b214",
+      "bytes": 17599
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n2\\evaluation\\score_runtime.py",
+      "sha256": "f45cf4e3dd8e2956862801beeec94ba5eab26659e5c6a840155a32d4ba7a7032",
+      "bytes": 14667
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n2\\evaluation\\scoring.py",
+      "sha256": "24487d20ed62bfcb4b0d46b00e75c9f61187aa4ca3b185c08ceee86315bff54b",
+      "bytes": 16194
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n2\\evaluation\\summarize_components.py",
+      "sha256": "24a4155d1d34afb400ff3b5ebd93dcb8aa87e0ace779fa254e1feab364452246",
+      "bytes": 6368
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n2\\evaluation\\summarize_native_profiles.py",
+      "sha256": "1142dd68ee5c60528df7af8ed71684e037bc015b52820b056306d5c9c5b53370",
+      "bytes": 26479
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n2\\evaluation\\summarize_screen.py",
+      "sha256": "a1e64491432cb8cec43c7b32d604ea6dabcf0bf80c0f25e0751efa71bcc6cfaa",
+      "bytes": 36851
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n2\\evaluation\\test_manifests.py",
+      "sha256": "aceff8cd27d3d5e5311a36e2f856f092993d6a99822b09c98d928c4b34a601b6",
+      "bytes": 1815
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n2\\evaluation\\test_native_summary.py",
+      "sha256": "7b9dd946af026c0e3052cd0c4d1c96c18ed0f7dda306be8127f4060f3d181f90",
+      "bytes": 4466
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n2\\evaluation\\test_runtime_observer.py",
+      "sha256": "6f0d6771206ddb42565d8b229aea42ea2c11b03b91593efc0a6e53a7feda2806",
+      "bytes": 4060
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n2\\evaluation\\test_scoring.py",
+      "sha256": "16e782f602fd3e674efe20f71b8fb27566c12b7b2e563cb75b36ba90bb762d6a",
+      "bytes": 3872
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n2\\evaluation\\test_summarize_screen.py",
+      "sha256": "bb17a36a0417ab7cf660375d02958ac7988a485df55c5c1e0fb165141261b679",
+      "bytes": 7293
+    }
+  ],
+  "test_output": "test_ec_disjoint_and_prefix_duration_not_repetition (test_manifests.ManifestTests.test_ec_disjoint_and_prefix_duration_not_repetition) ... ok\ntest_no_word_time_oracle_and_noise_control_retained (test_manifests.ManifestTests.test_no_word_time_oracle_and_noise_control_retained) ... ok\ntest_runtime_has_exact_allowlist (test_manifests.ManifestTests.test_runtime_has_exact_allowlist) ... ok\ntest_empty_control_false_activity_remains_in_pooled_der (test_native_summary.NativeSummaryTests.test_empty_control_false_activity_remains_in_pooled_der) ... ok\ntest_incomplete_reference_never_reports_full_der (test_native_summary.NativeSummaryTests.test_incomplete_reference_never_reports_full_der) ... ok\ntest_invalid_availability_and_probabilities_rejected (test_native_summary.NativeSummaryTests.test_invalid_availability_and_probabilities_rejected) ... ok\ntest_raw_endpoint_preserved_and_supported_activity_scored (test_native_summary.NativeSummaryTests.test_raw_endpoint_preserved_and_supported_activity_scored) ... ok\ntest_saturation_is_descriptive_and_tied_turn_stays_unresolved (test_native_summary.NativeSummaryTests.test_saturation_is_descriptive_and_tied_turn_stays_unresolved) ... ok\ntest_scheduler_prefix_alias_requires_exact_same_audio_job (test_native_summary.NativeSummaryTests.test_scheduler_prefix_alias_requires_exact_same_audio_job) ... ok\ntest_out_of_order_match_closed_assumption_and_span_invariance (test_runtime_observer.ObserverTests.test_out_of_order_match_closed_assumption_and_span_invariance) ... ok\ntest_asr_invariance_is_order_sensitive (test_scoring.Tests.test_asr_invariance_is_order_sensitive) ... ok\ntest_c_gate_provenance_and_leakage (test_scoring.Tests.test_c_gate_provenance_and_leakage) ... ok\ntest_insufficient_negatives_fail_closed (test_scoring.Tests.test_insufficient_negatives_fail_closed) ... ok\ntest_no_silent_clamp_or_incomplete_gold (test_scoring.Tests.test_no_silent_clamp_or_incomplete_gold) ... ok\ntest_overlap_der_counts_speaker_time (test_scoring.Tests.test_overlap_der_counts_speaker_time) ... ok\ntest_permutation_and_insertions_keep_denominators (test_scoring.Tests.test_permutation_and_insertions_keep_denominators) ... ok\ntest_unresolved_returns_and_duplicate_evidence (test_scoring.Tests.test_unresolved_returns_and_duplicate_evidence) ... ok\ntest_complete_regression_population_redaction_and_empty_control_failure (test_summarize_screen.ScreenSummaryTests.test_complete_regression_population_redaction_and_empty_control_failure) ... ok\ntest_exact_text_source_reset_invariance_excludes_clocks_and_labels (test_summarize_screen.ScreenSummaryTests.test_exact_text_source_reset_invariance_excludes_clocks_and_labels) ... ok\ntest_missing_factorial_and_corrupt_evidence_never_complete (test_summarize_screen.ScreenSummaryTests.test_missing_factorial_and_corrupt_evidence_never_complete) ... ok\ntest_valid_receipts_with_asr_change_are_failed_invariance (test_summarize_screen.ScreenSummaryTests.test_valid_receipts_with_asr_change_are_failed_invariance) ... ok\n\n----------------------------------------------------------------------\nRan 21 tests in 2.143s\n\nOK\n",
+  "models_called_by_audit": 0,
+  "hardware_calls": 0,
+  "N1_frozen_inputs_unchanged": true,
+  "scope": "unit/regression, metadata integrity and stored vector admission; numerical execution receipts separate; no hardware or independent deployment certification"
+}

@@ -1,0 +1,101 @@
+{
+  "source_revision": "97a15afa5caa9bce5baaa86c1184103877af4101",
+  "status": "ACTUALLY_BUILT",
+  "source": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\diarization\\native-cpu1\\source",
+  "threads": 1,
+  "gpu": false,
+  "asr_tts_models_loaded": false,
+  "patch": {
+    "path": "src/runtime/ggml/session.cpp",
+    "before_sha256": "ff17a1fcb7f8916feb1f5de04321a18d349a72ec8ba091c4f269ee1e0051d2cc",
+    "after_sha256": "b1d34ec2d1c7a5fbbd4646df460f911f08cea3b2ddaf2a02fe34cc1b6012649d",
+    "old": "ggml_graph_compute_helper_async(sched.get(), cr.gf, 4)",
+    "new": "ggml_graph_compute_helper_async(sched.get(), cr.gf, 1)"
+  },
+  "commands": [
+    {
+      "argv": [
+        "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\bin\\cmake.exe",
+        "-S",
+        "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\diarization\\native-cpu1\\source",
+        "-B",
+        "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\diarization\\native-cpu1\\build",
+        "-G",
+        "Visual Studio 17 2022",
+        "-A",
+        "x64",
+        "-DGGML_CUDA=OFF",
+        "-DGGML_VULKAN=OFF",
+        "-DGGML_NATIVE=OFF",
+        "-DGGML_OPENMP=OFF",
+        "-DGGML_CPU_KLEIDIAI=OFF",
+        "-DFETCHCONTENT_FULLY_DISCONNECTED=ON",
+        "-DNEMO_SPEECH_GGML_PATCHED=OFF",
+        "-DNEMO_SPEECH_BUILD_TTS=OFF",
+        "-DNEMO_SPEECH_BUILD_NMT=OFF",
+        "-DNEMO_SPEECH_BUILD_S2S=OFF",
+        "-DNEMO_SPEECH_BUILD_MIC_CAPTURE=OFF",
+        "-DNEMO_SPEECH_BUILD_HTTP=OFF",
+        "-DNEMO_SPEECH_BUILD_GRPC=OFF",
+        "-DNEMO_SPEECH_WITH_FLASHLIGHT=OFF",
+        "-DNEMO_SPEECH_WITH_NORM=OFF",
+        "-DNEMO_SPEECH_BUILD_TESTS=OFF",
+        "-DBUILD_TESTING=OFF",
+        "-DNEMO_SPEECH_BUILD_EXAMPLES=OFF",
+        "-DNEMO_SPEECH_BUILD_TOOLS=OFF",
+        "-DSENTENCEPIECE_LIB=G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\build\\sentencepiece\\src\\Release\\sentencepiece.lib",
+        "-DSENTENCEPIECE_INCLUDE_DIR=G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\source\\sentencepiece-17d7580d6407802f85855d2cc9190634e2c95624\\src"
+      ],
+      "elapsed_sec": 6.436112642288208,
+      "returncode": 0,
+      "log": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\diarization\\native-cpu1\\logs\\0.log",
+      "sha256": "49ae73307fdb833e753cfca71e0faa1b3cc47bb5983c542e4acb4b7bb964eba3"
+    },
+    {
+      "argv": [
+        "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\bin\\cmake.exe",
+        "--build",
+        "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\diarization\\native-cpu1\\build",
+        "--config",
+        "Release",
+        "--target",
+        "nemo_speech_asr_c",
+        "--parallel",
+        "1"
+      ],
+      "elapsed_sec": 58.19096779823303,
+      "returncode": 0,
+      "log": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\diarization\\native-cpu1\\logs\\1.log",
+      "sha256": "0c706380f796f4cdcf52ac852d91fab0ee39bbd59975f924477a6f35e53e489e"
+    }
+  ],
+  "library_path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\diarization\\native-cpu1\\build\\bin\\Release\\nemo_speech_asr_c.dll",
+  "library_sha256": "e61f85a3d78e95fbadbb466535dc0321b8c44f43040615580c75762395a04d02",
+  "runtime_files": [
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\diarization\\native-cpu1\\build\\bin\\Release\\ggml-base.dll",
+      "sha256": "badb679a701cefd64654e3b35fd5083b052bb694ab83c682de117f497b378601",
+      "bytes": 621056
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\diarization\\native-cpu1\\build\\bin\\Release\\ggml-cpu.dll",
+      "sha256": "deb95bdd39bada214c1fd6496109ea7f26bc965323dd34e1c2978bb6feea1108",
+      "bytes": 773120
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\diarization\\native-cpu1\\build\\bin\\Release\\ggml.dll",
+      "sha256": "3848405146f984e530e53f9152a5e2d0466ec060ee1a55395a91c160c2dec008",
+      "bytes": 68096
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\diarization\\native-cpu1\\build\\bin\\Release\\nemo_speech_asr.dll",
+      "sha256": "97c7d6fda7af11eec7249ff7a72f885e3e909d4065bf9c09ff607ef6c32bebeb",
+      "bytes": 1654272
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\diarization\\native-cpu1\\build\\bin\\Release\\nemo_speech_asr_c.dll",
+      "sha256": "e61f85a3d78e95fbadbb466535dc0321b8c44f43040615580c75762395a04d02",
+      "bytes": 59904
+    }
+  ]
+}

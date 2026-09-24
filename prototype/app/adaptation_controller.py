@@ -4,13 +4,27 @@ import hashlib
 from .reference_adaptation import BaseAnchors,SessionBank
 from .mode_policy import NAMED_MODES
 
+N2_ADAPTATION_UNAVAILABLE='Session reference collection, bank matching and promotion are unavailable for N2; use original model-compatible enrollments.'
+
 class AdaptationWorkflow:
     def _adaptation_initialize(self):
         self.reference_bank=None;self.collect_references=False;self.use_references=False
+    def _adaptation_backend_changed(self):
+        bank=getattr(self,'reference_bank',None)
+        if bank:
+            bank.discard();bank.log_match=None
+        self.reference_bank=None;self.collect_references=False;self.use_references=False
     def _adaptation_start(self,gallery):
+        if getattr(self,'_n2_components',None):
+            self._adaptation_backend_changed()
+            if gallery is not None:gallery.adaptation=None
+            return
         self.reference_bank=None
         if self.collect_references or self.use_references:self._adaptation_prepare(gallery)
     def _adaptation_prepare(self,gallery):
+        if getattr(self,'_n2_components',None):
+            self._adaptation_backend_changed()
+            raise ValueError(N2_ADAPTATION_UNAVAILABLE)
         full=self.store.gallery(self.route())
         if not full.ids:raise ValueError('Compatible original enrollments are required for reference collection')
         bank=SessionBank(BaseAnchors(full),'epoch-'+str(self.epoch),collect=self.collect_references,persisted=full.environment_bank)
@@ -22,12 +36,18 @@ class AdaptationWorkflow:
         if gallery is not None:gallery.adaptation=bank
         return bank
     def _adaptation_bind_engine(self,engine):
+        if getattr(self,'_n2_components',None):return
         bank=getattr(self,'reference_bank',None)
         if bank:
             bank.session_id=str(engine.session_dir or ('epoch-'+str(self.epoch)))
             bank.log_match=lambda payload:engine._emit('prototype_reference_match',engine._source_time(),payload)
     def adaptation_action(self,action,**values):self._enqueue('adaptation',action,values)
     def _do_adaptation(self,action,values):
+        if getattr(self,'_n2_components',None):
+            self._adaptation_backend_changed()
+            if action in ('discard','freeze') or action in ('collect','use') and values.get('enabled') is False:
+                self.status=N2_ADAPTATION_UNAVAILABLE;return
+            raise ValueError(N2_ADAPTATION_UNAVAILABLE)
         bank=self.reference_bank
         if action in ('collect','use'):
             enabled=values.get('enabled')
@@ -73,6 +93,7 @@ class AdaptationWorkflow:
         if engine and engine.state=='RUNNING':engine._emit('prototype_reference_action',engine._source_time(),
             dict(action=action,values=deepcopy(values),state=self.adaptation_snapshot()))
     def _adaptation_event(self,engine,event):
+        if getattr(self,'_n2_components',None):return
         bank=getattr(self,'reference_bank',None)
         if bank is None:return
         p=event.payload;kind=event.event_type
@@ -94,5 +115,8 @@ class AdaptationWorkflow:
             bank.freeze('candidate_window_error: '+str(exc))
             self.metrics['reference_collection_error']=str(exc) # Optional feature must not terminate captions.
     def adaptation_snapshot(self):
+        if getattr(self,'_n2_components',None):
+            return dict(available=False,status='UNAVAILABLE_FOR_N2',reason=N2_ADAPTATION_UNAVAILABLE,
+                        collect=False,enabled=False,candidates=[])
         bank=getattr(self,'reference_bank',None)
         return dict(bank.snapshot() if bank else {},collect=getattr(self,'collect_references',False),enabled=getattr(self,'use_references',False))

@@ -1,0 +1,14 @@
+{
+  "status": "PASSED_PROTOCOL_ONLY",
+  "local_receipt": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\diarization\\protocol-v3\\RECEIPT.json",
+    "sha256": "2a83abe1eb6acd4a7c3d3b4a550f0554330b72c4ccc90943121efaa9db44de7a",
+    "bytes": 2230
+  },
+  "runner": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n2\\diarization\\run_fixed_screen.py",
+    "sha256": "d0d1b2ce237077fc14c278d830f9f5eef3737403ab854dfe12ddbd265545c2c6",
+    "bytes": 32586
+  },
+  "neural_inference": false
+}

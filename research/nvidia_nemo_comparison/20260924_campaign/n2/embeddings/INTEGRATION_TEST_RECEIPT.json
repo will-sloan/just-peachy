@@ -1,0 +1,26 @@
+{
+  "status": "PASS",
+  "classification": "ACTUALLY_RUN",
+  "test_count": 27,
+  "skipped": 0,
+  "elapsed_sec": 0.489,
+  "actual_E1_store_test": true,
+  "actual_personal_data_accessed": false,
+  "test_source_sha256": "579759c4775f903fd71fc93ec12c5742b27784edf27ee8ac93ff0883362df4dd",
+  "pipeline_source_sha256": "328c6329b3066053464e37474ea7c7722bec5ade61cc0789b1aa868e936c378e",
+  "log_path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\logs\\integration-tests.log",
+  "log_sha256": "ec3ce9cc7b895d1276d21a97120a8c4619956fb3584f7a5e4f06c59ed5be89be",
+  "baseline_personal_store_tests": {
+    "elapsed_sec": 0.533,
+    "count": 19,
+    "log_path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\logs\\baseline-people-tests.log",
+    "status": "PASS"
+  },
+  "notes": [
+    "Synthetic timeline/identity tests plus actual E1 on saved research E waveform.",
+    "Quality fields in the temporary store are explicitly contract-test fixtures, not a live quality-gate claim.",
+    "No microphone enumeration, recording, playback, training or GPU use.",
+    "N2Engine/Controller live paced test is a separate receipt owned by the integration runner."
+  ],
+  "created_at_utc": "2026-09-24T16:33:27.8353906Z"
+}

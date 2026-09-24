@@ -1,0 +1,29 @@
+{
+  "status": "ACTUALLY_RUN_ONE_FULL_SCENE",
+  "neural": true,
+  "full_screen_status": "NOT_RUN_BY_THIS_SMOKE",
+  "cell": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\diarization\\fixed-cuda-all-v1\\cells\\low_latency\\N1_BASELINE_S45_01_04_O0\\attempt_20260924T170308_e412391a\\RESULT.json",
+    "sha256": "544a34393462ac31839c8812bd71593aad72e99b55f50cd8f63c09eefa3d8940",
+    "bytes": 4990
+  },
+  "admission": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\diarization\\fixed-cuda-all-v1\\ADMISSION.json",
+    "sha256": "574892e8aef789e7b31cf5f211812464c4703bffef315bacbab547aad893f92f",
+    "bytes": 45763
+  },
+  "all_events": 448,
+  "updates_with_frames": 62,
+  "native_compute_sec": 1.0042603999954736,
+  "source_audio_sec": 44.6954375,
+  "wall_sec": 1.5469283999991603,
+  "peak_rss_bytes": 702050304,
+  "gpu_device": 0,
+  "cpu_affinity": [
+    14
+  ],
+  "smoke_coordinator_pid": 36372,
+  "smoke_coordinator_creation_time": 1790269385.5050445,
+  "smoke_coordinator_ended": true,
+  "subsequent_dispatch": "Campaign coordinator resumed the same full contract after the smoke; current owner state is separate from this completed cell."
+}

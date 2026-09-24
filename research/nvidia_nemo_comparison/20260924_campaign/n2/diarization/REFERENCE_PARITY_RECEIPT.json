@@ -1,0 +1,251 @@
+{
+  "status": "ACTUALLY_RUN",
+  "source_revision": "cf724ac337d1ebc7d0dda1e23fb80916f52927a5",
+  "python": "3.12.7 | packaged by Anaconda, Inc. | (main, Oct  4 2024, 13:17:27) [MSC v.1929 64 bit (AMD64)]",
+  "torch": "2.8.0+cpu",
+  "nemo": "3.1.0",
+  "model_class_source_path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\nemo-py312\\Lib\\site-packages\\nemo\\collections\\asr\\models\\sortformer_diar_models.py",
+  "model_class_source_sha256": "bd6624df8a0ad2edb3659592b3f711b6a093a0d801b364599fc95bc7361bb877",
+  "model_sha256": "867c53f552998f772e5b5e5c082962ae85ee7ca5669c2bc17d7f615133d4e96d",
+  "native_panel_sha256": "8878ec135335fc83fb19917b3ac95e7f64e1d59e1f6781f17a26a461dbabe5c5",
+  "script_sha256": "c1e3516076c324787a7d8852b4f7da04bc42f078c68f5b8b13d5178b3f484613",
+  "profiles": {
+    "low_latency": {
+      "metrics": {
+        "compared_frames": 1200,
+        "native_frames": 1201,
+        "reference_frames": 1200,
+        "native_unpaired_tail_frames": 1,
+        "reference_unpaired_tail_frames": 0,
+        "activity_threshold": 0.5,
+        "threshold_calibrated": false,
+        "mean_absolute_probability_error": 6.444764585467055e-05,
+        "max_absolute_probability_error": 0.022854328155517578,
+        "p99_absolute_probability_error": 0.000637079298030585,
+        "activity_bit_disagreement_fraction": 0.0,
+        "frame_active_set_disagreement_fraction": 0.0,
+        "speech_presence_disagreement_sec": 0.0,
+        "overlap_presence_disagreement_sec": 0.0,
+        "dominant_slot_agreement_on_union_speech": 1.0,
+        "speaker_active_seconds_native": [
+          4.94,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "speaker_active_seconds_reference": [
+          4.94,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "threshold_segment_counts": {
+          "native": [
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference": [
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "native_to_nearest_same_slot_same_edge_boundary_error_sec": {
+          "count": 4,
+          "median": 0.0,
+          "max": 0.0
+        },
+        "scope": "route comparison, not DER/JER or gold-reference efficacy; no slot remapping, no time shift, no bit-equality requirement"
+      },
+      "resources": {
+        "wall_sec": 8.373527300000205,
+        "process_cpu_sec": 8.296875,
+        "sampled_peak_rss_bytes": 1222283264,
+        "cpu_threads": 1,
+        "frontend": "recomputed_arrived_prefix_only_no_future",
+        "pacing": "accelerated_causal_delivery"
+      },
+      "probability_path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\diarization\\reference-v1\\low_latency.npz",
+      "probability_sha256": "e7ab7f58aad8414ad045d29ff96cd36f2dc5ba40c094cf4690008654b3a3e58a"
+    },
+    "very_low_latency": {
+      "metrics": {
+        "compared_frames": 1200,
+        "native_frames": 1201,
+        "reference_frames": 1200,
+        "native_unpaired_tail_frames": 1,
+        "reference_unpaired_tail_frames": 0,
+        "activity_threshold": 0.5,
+        "threshold_calibrated": false,
+        "mean_absolute_probability_error": 6.512895197374746e-05,
+        "max_absolute_probability_error": 0.00887608528137207,
+        "p99_absolute_probability_error": 0.0009903492173179984,
+        "activity_bit_disagreement_fraction": 0.0,
+        "frame_active_set_disagreement_fraction": 0.0,
+        "speech_presence_disagreement_sec": 0.0,
+        "overlap_presence_disagreement_sec": 0.0,
+        "dominant_slot_agreement_on_union_speech": 1.0,
+        "speaker_active_seconds_native": [
+          4.93,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "speaker_active_seconds_reference": [
+          4.93,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "threshold_segment_counts": {
+          "native": [
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference": [
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "native_to_nearest_same_slot_same_edge_boundary_error_sec": {
+          "count": 4,
+          "median": 0.0,
+          "max": 0.0
+        },
+        "scope": "route comparison, not DER/JER or gold-reference efficacy; no slot remapping, no time shift, no bit-equality requirement"
+      },
+      "resources": {
+        "wall_sec": 10.46000869999989,
+        "process_cpu_sec": 10.375,
+        "sampled_peak_rss_bytes": 1156808704,
+        "cpu_threads": 1,
+        "frontend": "recomputed_arrived_prefix_only_no_future",
+        "pacing": "accelerated_causal_delivery"
+      },
+      "probability_path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\diarization\\reference-v1\\very_low_latency.npz",
+      "probability_sha256": "755c112284f5e4a372e7ac71fcd0396714cd757f7d23b4459af1bf345623fb66"
+    },
+    "ultra_low_latency": {
+      "metrics": {
+        "compared_frames": 1200,
+        "native_frames": 1201,
+        "reference_frames": 1200,
+        "native_unpaired_tail_frames": 1,
+        "reference_unpaired_tail_frames": 0,
+        "activity_threshold": 0.5,
+        "threshold_calibrated": false,
+        "mean_absolute_probability_error": 8.41518267407082e-05,
+        "max_absolute_probability_error": 0.018500834703445435,
+        "p99_absolute_probability_error": 0.0008966554887592793,
+        "activity_bit_disagreement_fraction": 0.0,
+        "frame_active_set_disagreement_fraction": 0.0,
+        "speech_presence_disagreement_sec": 0.0,
+        "overlap_presence_disagreement_sec": 0.0,
+        "dominant_slot_agreement_on_union_speech": 1.0,
+        "speaker_active_seconds_native": [
+          4.95,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "speaker_active_seconds_reference": [
+          4.95,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "threshold_segment_counts": {
+          "native": [
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference": [
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "native_to_nearest_same_slot_same_edge_boundary_error_sec": {
+          "count": 4,
+          "median": 0.0,
+          "max": 0.0
+        },
+        "scope": "route comparison, not DER/JER or gold-reference efficacy; no slot remapping, no time shift, no bit-equality requirement"
+      },
+      "resources": {
+        "wall_sec": 21.12160010000025,
+        "process_cpu_sec": 21.0,
+        "sampled_peak_rss_bytes": 1167196160,
+        "cpu_threads": 1,
+        "frontend": "recomputed_arrived_prefix_only_no_future",
+        "pacing": "accelerated_causal_delivery"
+      },
+      "probability_path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\diarization\\reference-v1\\ultra_low_latency.npz",
+      "probability_sha256": "ff2a2fcc0e6d55a882b54e76edc68c89571d742c1d18d532c6a1b561424cd5c3"
+    }
+  },
+  "gpu": false,
+  "dither": 0,
+  "precision": "NeMo-FP32-from-official-checkpoint",
+  "tail_note": "Native emits one centered-STFT endpoint frame more than NeMo valid length for the bound exact-second input. Compare common support, retain and report both unmodified tails.",
+  "local_receipt": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\diarization\\reference-v1\\RECEIPT.json",
+  "local_receipt_sha256": "9b7008c17bdf080bafe2e05872ba43a87e3bb24245872f0822ee14dfe2a7a1fc"
+}

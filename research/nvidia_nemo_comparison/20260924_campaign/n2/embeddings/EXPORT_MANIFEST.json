@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "backend_id": "titanet_large_fp32",
+  "dimension": 192,
+  "source_model_repo": "nvidia/speakerverification_en_titanet_large",
+  "source_model_revision": "0dc382f40121a5fbd34db10a2bb04d826c2be6a8",
+  "source_model_sha256": "e838520693f269e7984f55bc8eb3c2d60ccf246bf4b896d4be9bcabe3e4b0fe3",
+  "license": "CC-BY-4.0",
+  "nemo_source_revision": "cf724ac337d1ebc7d0dda1e23fb80916f52927a5",
+  "preprocessing_version": "nemo-cf724ac3-mel80-16k-eval-v1",
+  "preprocessing": {
+    "sample_rate": 16000,
+    "win_length": 400,
+    "hop_length": 160,
+    "n_fft": 512,
+    "preemph": 0.97,
+    "pad_to": 16,
+    "normalize": "per_feature",
+    "log_zero_guard_value": 5.960464477539063e-08,
+    "mag_power": 2.0,
+    "exact_pad": false
+  },
+  "normalization": "l2",
+  "minimum_samples": 8000,
+  "minimum_span_policy": "application minimum checked with real audio; no vendor accuracy guarantee",
+  "onnx": {
+    "filename": "titanet_embedding.onnx",
+    "sha256": "86b64bc03a7b151231f59745a8d36619fbc68b739a4abb253bd0d9ce0c350610"
+  },
+  "frontend": {
+    "filename": "titanet_frontend.npz",
+    "sha256": "582f92d2fa2a29be70f6fdc13d67fc1376083ca66cb35401f8335ed85c4115b6"
+  },
+  "created_at_utc": "2026-09-24T16:10:24.633629+00:00"
+}

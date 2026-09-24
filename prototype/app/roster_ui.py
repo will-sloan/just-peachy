@@ -82,6 +82,12 @@ class RosterUI:
     def show_identity_parameters(self):
         from .pipeline import effective_profile
         self.page='identity_parameters';frame=self._page('Developer parameters',back=self.show_identity_scores)
+        if self.snapshot.get('backend',{}).get('composition',{}).get('n2'):
+            self._paragraph_label(frame,'This backend uses a fixed naming policy. Verified names require C-only calibration bound to the exact voice model and preprocessing, query recording conditions, and enrolled roster.',True)
+            self._paragraph_label(frame,'Without matching calibration, open groups stay Unknown. A closed group can show a selected name as an assumption when supported voice evidence is available; unresolved, missing or mixed evidence stays Unknown.',True)
+            self._paragraph_label(frame,'Calibration gates cannot be changed from this page. Label stability (200ms) is a separate display rule.',True)
+            self.button(frame,'Return to captions',self.home).pack(fill='x',padx=self.px(12),pady=self.px(6))
+            return
         mode=self.snapshot.get('mode','caption_only');recipe=self.snapshot.get('recipe','fast');tap=self.snapshot.get('tap','O0')
         overrides=self.snapshot.get('identity_overrides',{})
         profile=effective_profile(recipe,mode,tap,overrides,self.snapshot.get('seating',{}).get('strength','soft'))

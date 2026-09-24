@@ -1,0 +1,30 @@
+{
+  "status": "ACTUALLY_RUN_PASS",
+  "profiles": {
+    "low_latency": {
+      "pass": true,
+      "first_emission_required_samples": 16736,
+      "first_emission_input_sec": 1.046,
+      "first_emission_frames": 72,
+      "actual_compute_sec": 0.06171619999986433
+    },
+    "very_low_latency": {
+      "pass": true,
+      "first_emission_required_samples": 10336,
+      "first_emission_input_sec": 0.646,
+      "first_emission_frames": 48,
+      "actual_compute_sec": 0.04071809999913967
+    },
+    "ultra_low_latency": {
+      "pass": true,
+      "first_emission_required_samples": 5216,
+      "first_emission_input_sec": 0.326,
+      "first_emission_frames": 24,
+      "actual_compute_sec": 0.021575100000518432
+    }
+  },
+  "overlap_contract": "PASS",
+  "bad_input_closed_teardown_reset": "PASS",
+  "audio_sha256": "b62a9af84ec19fc9bb6aba66026d97feb357d1f549eab5459dd53a743266e004",
+  "threshold_fixture_is_neural_inference": false
+}

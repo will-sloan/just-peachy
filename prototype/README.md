@@ -1,9 +1,11 @@
 # Just Peachy PROTO1
 
-**N1 campaign source (separate worktree).** This version opens idle, defaults to
+**N1/N2 campaign source (separate worktree).** This version opens idle, defaults to
 saved-audio-only operation, and has an independent Backend selector and stable
 timestamped caption spans. Existing rc5 source remains under the
 `n1-baseline-20260924-rc5` tag. See [N1 run/data guide](docs/N1_CAMPAIGN.md).
+N2 adds selectable Nemotron diarization and TitaNet speaker embeddings with
+separate model-bound galleries. See [N2 setup, inputs, outputs and rollback](app/README_N2.md).
 No microphone/device enumeration occurs through the default `main.py` path.
 Future live use needs an explicit `--allow-live` launch and visible Start/consent.
 An existing saved automatic-listening preference never starts this campaign GUI.

@@ -1,0 +1,199 @@
+{
+  "source_revision": "97a15afa5caa9bce5baaa86c1184103877af4101",
+  "status": "ACTUALLY_BUILT",
+  "source": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\diarization\\native-cuda-v2\\source",
+  "threads": 1,
+  "gpu": true,
+  "compiler_jobs": 2,
+  "cuda_compiler": "C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v12.6\\bin\\nvcc.exe",
+  "cuda_architectures": [
+    86
+  ],
+  "asr_tts_models_loaded": false,
+  "patch": {
+    "path": "src/runtime/ggml/session.cpp",
+    "before_sha256": "ff17a1fcb7f8916feb1f5de04321a18d349a72ec8ba091c4f269ee1e0051d2cc",
+    "after_sha256": "b1d34ec2d1c7a5fbbd4646df460f911f08cea3b2ddaf2a02fe34cc1b6012649d",
+    "old": "ggml_graph_compute_helper_async(sched.get(), cr.gf, 4)",
+    "new": "ggml_graph_compute_helper_async(sched.get(), cr.gf, 1)"
+  },
+  "commands": [
+    {
+      "argv": [
+        "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\bin\\cmake.exe",
+        "-S",
+        "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\diarization\\native-cuda-v2\\source",
+        "-B",
+        "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\diarization\\native-cuda-v2\\build",
+        "-G",
+        "Visual Studio 17 2022",
+        "-A",
+        "x64",
+        "-DGGML_CUDA=ON",
+        "-DGGML_VULKAN=OFF",
+        "-DGGML_NATIVE=OFF",
+        "-DGGML_OPENMP=OFF",
+        "-DGGML_CPU_KLEIDIAI=OFF",
+        "-DFETCHCONTENT_FULLY_DISCONNECTED=ON",
+        "-DNEMO_SPEECH_GGML_PATCHED=OFF",
+        "-DNEMO_SPEECH_BUILD_TTS=OFF",
+        "-DNEMO_SPEECH_BUILD_NMT=OFF",
+        "-DNEMO_SPEECH_BUILD_S2S=OFF",
+        "-DNEMO_SPEECH_BUILD_MIC_CAPTURE=OFF",
+        "-DNEMO_SPEECH_BUILD_HTTP=OFF",
+        "-DNEMO_SPEECH_BUILD_GRPC=OFF",
+        "-DNEMO_SPEECH_WITH_FLASHLIGHT=OFF",
+        "-DNEMO_SPEECH_WITH_NORM=OFF",
+        "-DNEMO_SPEECH_BUILD_TESTS=OFF",
+        "-DBUILD_TESTING=OFF",
+        "-DNEMO_SPEECH_BUILD_EXAMPLES=OFF",
+        "-DNEMO_SPEECH_BUILD_TOOLS=OFF",
+        "-DSENTENCEPIECE_LIB=G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\build\\sentencepiece\\src\\Release\\sentencepiece.lib",
+        "-DSENTENCEPIECE_INCLUDE_DIR=G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\source\\sentencepiece-17d7580d6407802f85855d2cc9190634e2c95624\\src",
+        "-T",
+        "cuda=C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v12.6",
+        "-DCMAKE_CUDA_ARCHITECTURES=86",
+        "-DCMAKE_CUDA_COMPILER=C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v12.6\\bin\\nvcc.exe"
+      ],
+      "elapsed_sec": 15.981497287750244,
+      "returncode": 0,
+      "log": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\diarization\\native-cuda-v2\\logs\\0.log",
+      "sha256": "aa01a7bde75ab74daaba42892d68a894301e1613856f699d25779cfb75d5e744"
+    },
+    {
+      "argv": [
+        "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\bin\\cmake.exe",
+        "--build",
+        "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\diarization\\native-cuda-v2\\build",
+        "--config",
+        "Release",
+        "--target",
+        "nemo_speech_asr_c",
+        "--parallel",
+        "2"
+      ],
+      "elapsed_sec": 1126.1957705020905,
+      "returncode": 0,
+      "log": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\diarization\\native-cuda-v2\\logs\\1.log",
+      "sha256": "21fb1d23cf72cdb73b5005298f4d9458f5fbf21c00ff24beffcfc1f646b9292e"
+    }
+  ],
+  "library_path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\diarization\\native-cuda-v2\\build\\bin\\Release\\nemo_speech_asr_c.dll",
+  "library_sha256": "2556f8dbf7a7a847bc367207741060e2a0b09931b51d1e3d63ccc3cedd336eae",
+  "runtime_files": [
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\diarization\\native-cuda-v2\\build\\bin\\Release\\cublas64_12.dll",
+      "sha256": "e26c6a52b7df762633978b282d6f172d0085719b116ff1a8ca4c96ff5786e142",
+      "bytes": 100796416
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\diarization\\native-cuda-v2\\build\\bin\\Release\\cublasLt64_12.dll",
+      "sha256": "0fa3aabf2e90f0ba3d331699b95305ee29fe1cda0f4d4b64c883e04f01a35b49",
+      "bytes": 494290944
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\diarization\\native-cuda-v2\\build\\bin\\Release\\cudart64_12.dll",
+      "sha256": "3df50cf48718712f17b8c77ad72c45a1f43ff94781e302a4be7f1d7a9b66c746",
+      "bytes": 556544
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\diarization\\native-cuda-v2\\build\\bin\\Release\\ggml-base.dll",
+      "sha256": "1fa9d7a568379f31f842677d5382c2b18c7ff68cc37db8899eb6ded75a22d79d",
+      "bytes": 621056
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\diarization\\native-cuda-v2\\build\\bin\\Release\\ggml-cpu.dll",
+      "sha256": "1829ed8e44dd9e09fd7c4eb6a79f482da7a4c396dd0ea45c835108a99472ac9f",
+      "bytes": 773120
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\diarization\\native-cuda-v2\\build\\bin\\Release\\ggml-cuda.dll",
+      "sha256": "36e0f7f9dcb8921298e8bea28d608ab06ad14515d617553da4e7763e2a5bceb6",
+      "bytes": 199793152
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\diarization\\native-cuda-v2\\build\\bin\\Release\\ggml.dll",
+      "sha256": "dac955b711bcf46a3e7a01b5dab31ad9a6d5a61cece553d0d8ed2374ace146a8",
+      "bytes": 68608
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\diarization\\native-cuda-v2\\build\\bin\\Release\\nemo_speech_asr.dll",
+      "sha256": "b0c92139f49b4309e911b2677efdb0a629e5fcf5370828ae282bf34df3f796dc",
+      "bytes": 1668608
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\diarization\\native-cuda-v2\\build\\bin\\Release\\nemo_speech_asr_c.dll",
+      "sha256": "2556f8dbf7a7a847bc367207741060e2a0b09931b51d1e3d63ccc3cedd336eae",
+      "bytes": 59904
+    }
+  ],
+  "cuda_local_runtime_staging": {
+    "source": "existing legitimately installed local toolkit; no installer executed",
+    "files": [
+      {
+        "original": {
+          "path": "C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v12.6\\bin\\cudart64_12.dll",
+          "sha256": "3df50cf48718712f17b8c77ad72c45a1f43ff94781e302a4be7f1d7a9b66c746",
+          "bytes": 556544
+        },
+        "staged": {
+          "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\diarization\\native-cuda-v2\\build\\bin\\Release\\cudart64_12.dll",
+          "sha256": "3df50cf48718712f17b8c77ad72c45a1f43ff94781e302a4be7f1d7a9b66c746",
+          "bytes": 556544
+        }
+      },
+      {
+        "original": {
+          "path": "C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v12.6\\bin\\cublas64_12.dll",
+          "sha256": "e26c6a52b7df762633978b282d6f172d0085719b116ff1a8ca4c96ff5786e142",
+          "bytes": 100796416
+        },
+        "staged": {
+          "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\diarization\\native-cuda-v2\\build\\bin\\Release\\cublas64_12.dll",
+          "sha256": "e26c6a52b7df762633978b282d6f172d0085719b116ff1a8ca4c96ff5786e142",
+          "bytes": 100796416
+        }
+      },
+      {
+        "original": {
+          "path": "C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v12.6\\bin\\cublasLt64_12.dll",
+          "sha256": "0fa3aabf2e90f0ba3d331699b95305ee29fe1cda0f4d4b64c883e04f01a35b49",
+          "bytes": 494290944
+        },
+        "staged": {
+          "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\diarization\\native-cuda-v2\\build\\bin\\Release\\cublasLt64_12.dll",
+          "sha256": "0fa3aabf2e90f0ba3d331699b95305ee29fe1cda0f4d4b64c883e04f01a35b49",
+          "bytes": 494290944
+        }
+      }
+    ],
+    "toolkit_license_files": [
+      {
+        "path": "C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v12.6\\EULA.txt",
+        "sha256": "e2c71babfd18a8e69542dd7e9ca018f9caa438094001a58e6bc4d8c999bf0d07",
+        "bytes": 63021
+      },
+      {
+        "path": "C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v12.6\\LICENSE",
+        "sha256": "e2c71babfd18a8e69542dd7e9ca018f9caa438094001a58e6bc4d8c999bf0d07",
+        "bytes": 63021
+      }
+    ],
+    "redistribution": "private local execution only; DLLs not added to Git or handoff ZIP"
+  },
+  "build_script": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\diarization\\native-cuda-v2\\script-snapshots\\build_native.py",
+    "sha256": "b31b36fc1ad82f2c912407af433cd6be3830d649b40ef5a9ee497766fd24a821",
+    "bytes": 5224
+  },
+  "staging_script": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\diarization\\native-cuda-v2\\script-snapshots\\stage_cuda_runtime.py",
+    "sha256": "67bfa8529688c74675a7ff877188af90a2c4cd8a84360522e5bc696da63a52f2",
+    "bytes": 3188
+  },
+  "cuda_compiler_binding": {
+    "path": "C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v12.6\\bin\\nvcc.exe",
+    "sha256": "ab1e4d4c355c723993b4cfab0eac67f4f09a85de98f72aeeda5aaa9ee4faf361",
+    "bytes": 14029312
+  }
+}

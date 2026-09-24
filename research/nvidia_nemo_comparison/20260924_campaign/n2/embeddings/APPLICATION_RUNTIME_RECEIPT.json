@@ -1,0 +1,59 @@
+{
+  "status": "PASS",
+  "scope": "unchanged application environment CPU adapter; shortest and longest admitted E/C windows, no calibration or Q selection",
+  "rows": [
+    {
+      "window_id": "W_127989440aa855a539e3902b",
+      "samples": 10240,
+      "duration_sec": 0.64,
+      "shape": [
+        192
+      ],
+      "norm": 1.0,
+      "repeat_max_abs_delta": 0.0,
+      "first_call_ms": 36.02930000033666,
+      "repeat_ms": 35.429400000793976
+    },
+    {
+      "window_id": "W_6e90ca75afbeadab15850183",
+      "samples": 573367,
+      "duration_sec": 35.8354375,
+      "shape": [
+        192
+      ],
+      "norm": 1.0,
+      "repeat_max_abs_delta": 0.0,
+      "first_call_ms": 1543.8960999999836,
+      "repeat_ms": 1820.6690999995772
+    }
+  ],
+  "namespace_mismatch_rejected": true,
+  "namespace": {
+    "backend_id": "titanet_large_fp32",
+    "backend_sha256": "e838520693f269e7984f55bc8eb3c2d60ccf246bf4b896d4be9bcabe3e4b0fe3",
+    "onnx_sha256": "86b64bc03a7b151231f59745a8d36619fbc68b739a4abb253bd0d9ce0c350610",
+    "frontend_sha256": "582f92d2fa2a29be70f6fdc13d67fc1376083ca66cb35401f8335ed85c4115b6",
+    "dimension": 192,
+    "normalization": "l2",
+    "minimum_samples": 8000,
+    "sample_rate_hz": 16000,
+    "preprocessing_version": "nemo-cf724ac3-mel80-16k-eval-v1"
+  },
+  "versions": {
+    "numpy": "2.2.6",
+    "onnxruntime": "1.29.0",
+    "soundfile": "0.13.1"
+  },
+  "python": "3.11.16 | packaged by Anaconda, Inc. | (main, Aug 27 2026, 14:36:16) [MSC v.1942 64 bit (AMD64)]",
+  "interpreter": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\.edge-speech-env\\python.exe",
+  "threads": 1,
+  "elapsed_sec": 3.743999999999687,
+  "process_cpu_sec": 4.75,
+  "priority_class": 16384,
+  "memory_bytes": {
+    "PeakWorkingSetSize": 730906624,
+    "WorkingSetSize": 729821184,
+    "PagefileUsage": 769359872,
+    "PeakPagefileUsage": 818237440
+  }
+}

@@ -1,0 +1,123 @@
+{
+  "status": "ACTUALLY_RUN",
+  "local_receipt": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\diarization\\overlap-o1-v1\\RECEIPT.json",
+  "local_receipt_sha256": "8f68e134f437ed34ebdab7f3053d8e08428c0aeeee604f6bc49b9e1f278916d9",
+  "functional": {},
+  "source_sha256": "0c89a0b2c4ba58ef7a34030b2c2b0ea3befe68b5a4ac66186ede7d0a0fb12aeb",
+  "profiles": {
+    "low_latency": {
+      "manifest": {
+        "model_id": "nvidia/Nemotron-3-Diarization",
+        "model_revision": "f667ed73aee57d40cc39428eb768b4fd87a0a29e",
+        "model_sha256": "08456d9e22cd9a323c0364d98375f3746d6e68507ebb705cd46438c534c7a3a1",
+        "precision": "official-Q8_0",
+        "library_path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\diarization\\native-cpu1\\build\\bin\\Release\\nemo_speech_asr_c.dll",
+        "library_sha256": "e61f85a3d78e95fbadbb466535dc0321b8c44f43040615580c75762395a04d02",
+        "runtime_revision": "97a15afa5caa9bce5baaa86c1184103877af4101",
+        "profile": {
+          "name": "low_latency",
+          "chunk_frames": 9,
+          "right_context_frames": 4,
+          "left_context_frames": 0,
+          "fifo_frames": 264,
+          "spkcache_frames": 264,
+          "update_period_frames": 222
+        },
+        "input_buffer_sec": 1.04,
+        "right_context_sec": 0.32,
+        "feature_fft_right_extent_sec": 0.016,
+        "first_complete_chunk_min_audio_sec": 1.046,
+        "sample_rate_hz": 16000,
+        "num_speakers": 8,
+        "mel_features": 128,
+        "encoder_subsampling": 8,
+        "native_output_sec_per_frame": 0.009999999776482582,
+        "session_reset": "independent_scene_or_session_only",
+        "slot_recycling": false,
+        "overflow_behavior": "more than eight physical speakers unresolved; overflow is not detectable from eight probabilities alone",
+        "identity_confidence": false,
+        "gain": 1.0,
+        "standalone": true,
+        "gpu": false
+      },
+      "resources": {
+        "wall_sec": 27.140299599999707,
+        "process_cpu_sec": 26.90625,
+        "sampled_peak_rss_bytes": 254955520,
+        "windows_peak_working_set_bytes": 254955520,
+        "pacing": "accelerated_causal_file_delivery",
+        "block_samples": 1600,
+        "audio_sec": 24.0
+      },
+      "probability_file": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\diarization\\overlap-o1-v1\\low_latency.npz",
+      "probability_sha256": "78c65299f26a9dce86682f55d899704d1ac7edc0d5b886891d6e0036b529f3d7",
+      "shape": [
+        2401,
+        8
+      ],
+      "finite": true,
+      "frames_with_overlap_at_0_5": 80,
+      "slots_with_activity_at_0_5": [
+        0,
+        1
+      ]
+    },
+    "ultra_low_latency": {
+      "manifest": {
+        "model_id": "nvidia/Nemotron-3-Diarization",
+        "model_revision": "f667ed73aee57d40cc39428eb768b4fd87a0a29e",
+        "model_sha256": "08456d9e22cd9a323c0364d98375f3746d6e68507ebb705cd46438c534c7a3a1",
+        "precision": "official-Q8_0",
+        "library_path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\diarization\\native-cpu1\\build\\bin\\Release\\nemo_speech_asr_c.dll",
+        "library_sha256": "e61f85a3d78e95fbadbb466535dc0321b8c44f43040615580c75762395a04d02",
+        "runtime_revision": "97a15afa5caa9bce5baaa86c1184103877af4101",
+        "profile": {
+          "name": "ultra_low_latency",
+          "chunk_frames": 3,
+          "right_context_frames": 1,
+          "left_context_frames": 0,
+          "fifo_frames": 264,
+          "spkcache_frames": 264,
+          "update_period_frames": 222
+        },
+        "input_buffer_sec": 0.32,
+        "right_context_sec": 0.08,
+        "feature_fft_right_extent_sec": 0.016,
+        "first_complete_chunk_min_audio_sec": 0.326,
+        "sample_rate_hz": 16000,
+        "num_speakers": 8,
+        "mel_features": 128,
+        "encoder_subsampling": 8,
+        "native_output_sec_per_frame": 0.009999999776482582,
+        "session_reset": "independent_scene_or_session_only",
+        "slot_recycling": false,
+        "overflow_behavior": "more than eight physical speakers unresolved; overflow is not detectable from eight probabilities alone",
+        "identity_confidence": false,
+        "gain": 1.0,
+        "standalone": true,
+        "gpu": false
+      },
+      "resources": {
+        "wall_sec": 76.85145610000018,
+        "process_cpu_sec": 76.328125,
+        "sampled_peak_rss_bytes": 281837568,
+        "windows_peak_working_set_bytes": 281837568,
+        "pacing": "accelerated_causal_file_delivery",
+        "block_samples": 1600,
+        "audio_sec": 24.0
+      },
+      "probability_file": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\diarization\\overlap-o1-v1\\ultra_low_latency.npz",
+      "probability_sha256": "128ffa621d0706b66c25146ee236d3019a35705b6fc9bfa9395e9c229631fec3",
+      "shape": [
+        2401,
+        8
+      ],
+      "finite": true,
+      "frames_with_overlap_at_0_5": 97,
+      "slots_with_activity_at_0_5": [
+        0,
+        1
+      ]
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "schema": "n2-window-preparation-receipt-v1",
+  "status": "ACTUALLY_RUN_HASH_VERIFIED_NO_MODEL_INFERENCE",
+  "screen_cells": 96,
+  "all_bank_cells": 480,
+  "E_C_windows": {
+    "C": 367,
+    "E": 505
+  },
+  "clean_gallery_tiers": 129,
+  "processed_gallery_conditions": 120,
+  "matched_clean_people_5_15_30": 28,
+  "diagnostic_Q_windows": 322,
+  "unavailable_Q_windows": 0,
+  "processed_C_calibration": "NOT_ADMITTED_COLLECTION_ONLY",
+  "neural_calls": 0,
+  "hardware_calls": 0,
+  "known_failure_retained": "N1_S45_12_20_one_inserted_word_each_tap",
+  "n1_frozen_inputs_modified": false,
+  "private_receipt": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\evaluation\\MANIFEST_RECEIPT.json",
+    "sha256": "827b2b2d6daa4dbd4ff62650a0d2d888566c502b2aca2dba53ea599cb5357550",
+    "bytes": 439712
+  },
+  "protocol_sha256": "1d9eb58d132b1b6e1d551fa9792317122748d6f58f9497dab46904bec7bcd188"
+}

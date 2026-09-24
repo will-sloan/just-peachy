@@ -1,0 +1,174 @@
+{
+  "status": "ACTUALLY_RUN",
+  "source_revision": "cf724ac337d1ebc7d0dda1e23fb80916f52927a5",
+  "python": "3.12.7 | packaged by Anaconda, Inc. | (main, Oct  4 2024, 13:17:27) [MSC v.1929 64 bit (AMD64)]",
+  "torch": "2.8.0+cpu",
+  "nemo": "3.1.0",
+  "model_class_source_path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\nemo-py312\\Lib\\site-packages\\nemo\\collections\\asr\\models\\sortformer_diar_models.py",
+  "model_class_source_sha256": "bd6624df8a0ad2edb3659592b3f711b6a093a0d801b364599fc95bc7361bb877",
+  "model_sha256": "867c53f552998f772e5b5e5c082962ae85ee7ca5669c2bc17d7f615133d4e96d",
+  "native_panel_sha256": "8f68e134f437ed34ebdab7f3053d8e08428c0aeeee604f6bc49b9e1f278916d9",
+  "script_sha256": "5b742262f21c015fb421ac8bfcaaf50c1fb40d79ecac458362afda97c3f3cfcc",
+  "profiles": {
+    "low_latency": {
+      "metrics": {
+        "compared_frames": 2400,
+        "native_frames": 2401,
+        "reference_frames": 2400,
+        "native_unpaired_tail_frames": 1,
+        "reference_unpaired_tail_frames": 0,
+        "activity_threshold": 0.5,
+        "threshold_calibrated": false,
+        "mean_absolute_probability_error": 0.00021244627714622766,
+        "max_absolute_probability_error": 0.04920530319213867,
+        "p99_absolute_probability_error": 0.0030316896736621857,
+        "activity_bit_disagreement_fraction": 5.208333333333334e-05,
+        "frame_active_set_disagreement_fraction": 0.0004166666666666667,
+        "speech_presence_disagreement_sec": 0.01,
+        "overlap_presence_disagreement_sec": 0.0,
+        "dominant_slot_agreement_on_union_speech": 0.9969574036511156,
+        "speaker_active_seconds_native": [
+          6.8100000000000005,
+          3.84,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "speaker_active_seconds_reference": [
+          6.8100000000000005,
+          3.85,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "threshold_segment_counts": {
+          "native": [
+            2,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference": [
+            2,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "native_to_nearest_same_slot_same_edge_boundary_error_sec": {
+          "count": 6,
+          "median": 0.0,
+          "max": 0.01
+        },
+        "scope": "route comparison, not DER/JER or gold-reference efficacy; no slot remapping, no time shift, no bit-equality requirement"
+      },
+      "resources": {
+        "wall_sec": 20.0253831,
+        "process_cpu_sec": 19.953125,
+        "sampled_peak_rss_bytes": 1223606272,
+        "cpu_threads": 1,
+        "frontend": "recomputed_arrived_prefix_only_no_future",
+        "pacing": "accelerated_causal_delivery"
+      },
+      "probability_path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\diarization\\reference-overlap-o1-v1\\low_latency.npz",
+      "probability_sha256": "bf67ca476418c8ea89fef7c4894c6960a884f4dc2a69f433745820de28e8dc40"
+    },
+    "ultra_low_latency": {
+      "metrics": {
+        "compared_frames": 2400,
+        "native_frames": 2401,
+        "reference_frames": 2400,
+        "native_unpaired_tail_frames": 1,
+        "reference_unpaired_tail_frames": 0,
+        "activity_threshold": 0.5,
+        "threshold_calibrated": false,
+        "mean_absolute_probability_error": 0.00029393690056167543,
+        "max_absolute_probability_error": 0.05228269100189209,
+        "p99_absolute_probability_error": 0.006699365098029375,
+        "activity_bit_disagreement_fraction": 0.00036458333333333335,
+        "frame_active_set_disagreement_fraction": 0.002916666666666667,
+        "speech_presence_disagreement_sec": 0.0,
+        "overlap_presence_disagreement_sec": 0.07,
+        "dominant_slot_agreement_on_union_speech": 1.0,
+        "speaker_active_seconds_native": [
+          6.97,
+          3.85,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "speaker_active_seconds_reference": [
+          7.04,
+          3.85,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "threshold_segment_counts": {
+          "native": [
+            2,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference": [
+            2,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "native_to_nearest_same_slot_same_edge_boundary_error_sec": {
+          "count": 6,
+          "median": 0.0,
+          "max": 0.07
+        },
+        "scope": "route comparison, not DER/JER or gold-reference efficacy; no slot remapping, no time shift, no bit-equality requirement"
+      },
+      "resources": {
+        "wall_sec": 52.6536901999998,
+        "process_cpu_sec": 52.484375,
+        "sampled_peak_rss_bytes": 1190338560,
+        "cpu_threads": 1,
+        "frontend": "recomputed_arrived_prefix_only_no_future",
+        "pacing": "accelerated_causal_delivery"
+      },
+      "probability_path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\diarization\\reference-overlap-o1-v1\\ultra_low_latency.npz",
+      "probability_sha256": "6a1c5f979c54ae605bc721bc4c3c87a04bf52a038c0dcb0e2f57a988a966a2e5"
+    }
+  },
+  "gpu": false,
+  "dither": 0,
+  "precision": "NeMo-FP32-from-official-checkpoint",
+  "tail_note": "Native emits one centered-STFT endpoint frame more than NeMo valid length for the bound exact-second input. Compare common support, retain and report both unmodified tails.",
+  "local_receipt": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\diarization\\reference-overlap-o1-v1\\RECEIPT.json",
+  "local_receipt_sha256": "cc86a35de2200de3cf5a7982a801102ba8a300ea1960bea91c634b6d82d216b7"
+}

@@ -1,0 +1,35 @@
+{
+  "status": "ACTUALLY_RUN",
+  "platform": "native Windows x86_64",
+  "python": "3.12.7",
+  "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\nemo-py312",
+  "nemo_source_revision": "cf724ac337d1ebc7d0dda1e23fb80916f52927a5",
+  "nemo_source_zip_sha256": "b7484ac574876f3f5ce990c8d3f5335780ac7f002c1534ea73fcf3bcdad521ce",
+  "torch": "2.8.0+cpu",
+  "psutil": "6.1.1",
+  "model_classes_imported": [
+    "EncDecSpeakerLabelModel",
+    "SortformerEncLabelModel"
+  ],
+  "source_patches": [],
+  "pip_reports": [
+    {
+      "filename": "torch-install.json",
+      "sha256": "ef81920d4a077f888ca0bd8e908aff1269b9e87daf1723a5c0ae1303dba0c01e"
+    },
+    {
+      "filename": "nemo-install.json",
+      "sha256": "ff2450badfba06148dc21acce3a18236727f73b82405028327d565710b283c01"
+    },
+    {
+      "filename": "psutil-install.json",
+      "sha256": "bc142dbeaec31825233eb8dfdd86a6241dad39725f7d7427fcead5511fa71b3d"
+    }
+  ],
+  "requirements_sha256": "91b8af176d3b2e8bd20b13faf133e6617e6c5bf53d28b97accf787e9c701084c",
+  "existing_application_env_modified": false,
+  "drive_free_gib": {
+    "G": 128.75,
+    "C": 137.44
+  }
+}

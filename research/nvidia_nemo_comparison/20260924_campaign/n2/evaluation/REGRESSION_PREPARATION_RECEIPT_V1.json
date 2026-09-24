@@ -1,0 +1,37 @@
+{
+  "schema": "n2-regression-manifest-alias-v1",
+  "status": "PREPARED_VERIFIED_NO_INFERENCE",
+  "jobs": 8,
+  "paired_scenes": 4,
+  "source_manifest": {
+    "name": "REGRESSION_AUDIO_ONLY.json",
+    "sha256": "604f35e146668de01e339acece67d29a3111847705829ddc841003a5fecf2622",
+    "bytes": 3111
+  },
+  "output_manifest": {
+    "name": "REGRESSION_AUDIO_ONLY.json",
+    "sha256": "de531914dc23d991135f92138a131212f6d004dff01f80eb801c4f99f7b1052d",
+    "bytes": 3023
+  },
+  "original_screen_sha256": "527fb25e7586f230da0109563126ce5dc85e785b033ac9e3985c17f0dafc7304",
+  "truth_sha256": "7a734f62819f4341f8bbb62c4ed33099e2597f2ee7d9fb536d82c11cb6975244",
+  "generator_sha256": "0f077a54b4f7b00dc0fc2f01f019edb5a53d761290d0244c3b9d0d091a9f70cf",
+  "scheduler_aliases": {
+    "N1_REGRESSION_S45_08_07_O0": "N2_S45_08_07_O0",
+    "N1_REGRESSION_S45_08_07_O1": "N2_S45_08_07_O1",
+    "N1_REGRESSION_S45_03_03_O0": "N2_S45_03_03_O0",
+    "N1_REGRESSION_S45_03_03_O1": "N2_S45_03_03_O1",
+    "N1_REGRESSION_S45_06_07_O0": "N2_S45_06_07_O0",
+    "N1_REGRESSION_S45_06_07_O1": "N2_S45_06_07_O1",
+    "N1_REGRESSION_S45_12_15_O0": "N2_S45_12_15_O0",
+    "N1_REGRESSION_S45_12_15_O1": "N2_S45_12_15_O1"
+  },
+  "alias_receipt_sha256": "828cd8ab31725cb842af4f4c5314e5c7c1e0413efc034635467b55c4be8ee861",
+  "only_changed_job_field": "job_id",
+  "source_audio_files_changed": 0,
+  "waveform_hashes_and_headers_verified": 8,
+  "new_audio_or_scenes": 0,
+  "model_calls": 0,
+  "device_calls": 0,
+  "scope": "exact original four-scene eight-job regression; noise control remains in the fixed Screen48; no invented additional regression cells"
+}

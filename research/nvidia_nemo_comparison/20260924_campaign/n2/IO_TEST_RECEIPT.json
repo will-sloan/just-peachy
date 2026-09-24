@@ -1,0 +1,26 @@
+{
+  "status": "ACTUALLY_RUN_PASSED",
+  "tests": 3,
+  "reported_elapsed_sec": 2.05,
+  "cases": [
+    "transient sharing violation preserves original until successful replacement",
+    "persistent WinError5 raises at two-second retry deadline and preserves target/temp",
+    "unrelated PermissionError is not retried"
+  ],
+  "neural_inference": false,
+  "helper": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n2\\io_utils.py",
+    "sha256": "690399bb8f4b88e3e87d95c3393d785d6978b065da05737edd191cad3f621a6c",
+    "bytes": 1451
+  },
+  "test_source": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n2\\test_io_utils.py",
+    "sha256": "4cca6b7b8f2e1c39a157c21f81629698207a3048162f7c38b95f6e0b95523bd8",
+    "bytes": 2602
+  },
+  "command": [
+    "C:/Users/amiri/Documents/GitHub/just-peachy/.edge-speech-env/python.exe",
+    "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n2\\test_io_utils.py"
+  ],
+  "evidence_scope": "Actual unittest output observed in tool result; no synthetic model outcomes"
+}

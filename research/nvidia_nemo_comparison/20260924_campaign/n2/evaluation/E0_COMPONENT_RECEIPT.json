@@ -1,0 +1,28 @@
+{
+  "schema": "n2-component-embedding-result-v1",
+  "status": "COMPLETE",
+  "encoder": "E0",
+  "namespace": {
+    "model_sha256": "5c1a8635cba0d4648463f3b6d30c5a6137bc38d1200ab00c5944400aaa7b5609",
+    "preprocessing": "original_redimnet2_b2_fp32_graph_waveform_mono16k_gain1",
+    "dimension": 192,
+    "normalization": "L2",
+    "minimum_samples": 8000
+  },
+  "completed_utc": "2026-09-24T16:16:29.464939+00:00",
+  "elapsed_seconds": 183.17100000000028,
+  "window_denominator": 1194,
+  "supported_windows": 1194,
+  "unsupported_windows": 0,
+  "peak_observed_rss_bytes": 1240039424,
+  "cpu_seconds": 179.71875,
+  "resource_scope": "single one-thread encoder process; concurrent campaign work may exist; not isolated/CM5 benchmark",
+  "component_only_not_integrated_streaming": true,
+  "contract_sha256": "d3929bc7ff9a2d9f64f646ba3ce20d0bc352a1b80839be960e75209edde8855b",
+  "private_result": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\evaluation\\component\\E0\\RESULT.json",
+    "sha256": "8e323583e156b02b12017fbad1097635516653e0adc72094f1d8daccba4e1ccd",
+    "bytes": 467472
+  },
+  "gallery_conditions": 29
+}

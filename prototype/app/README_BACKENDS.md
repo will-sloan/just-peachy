@@ -1,4 +1,4 @@
-# N1 shared backend selector
+# Shared backend selector
 
 `backends.py` loads `../config/backends.json` without importing models or opening
 devices. Inputs are an immutable composition ID, logical mode, O0/O1 tap and an
@@ -7,9 +7,14 @@ availability and capacity dictionaries, or an explicit startup error.
 
 The visible **BACKEND** button is separate from Mode and Recipe & tap. It lists
 the preserved Giga / Pyannote / ReDimNet / final-only punctuation composition
-and six explicitly unavailable planning compositions. Selecting a backend
-stops the current session through the controller and preserves mode, recipe,
-tap and roster. Start remains explicit. An unavailable selection never falls
+and three implemented N2 alternatives: Nemotron/ReDimNet, Pyannote/TitaNet and
+Nemotron/TitaNet, each retaining Giga and final-only punctuation. Four later
+ASR compositions remain unavailable planning entries. N2 needs explicit local
+asset configuration; see [N2 setup and operation](README_N2.md). Selecting a backend
+stops the current session through the controller and preserves mode, recipe
+and tap. Compatible selected/highlighted UUIDs are remembered per embedding
+store; missing references get a re-enrollment notice and do not block full
+captions. Start remains explicit. An unavailable selection never falls
 back to baseline inference. Seed entries are not installed implementations or
 license admission evidence. Candidate downloads alone cannot enable them.
 
@@ -26,13 +31,15 @@ have the same explicit reason in every mode. Spatial modes require matching
 recorded telemetry for saved replay; absent telemetry is an unavailable state,
 never synthetic directions. Existing live implementation is separately gated
 by the controller's explicit authorization and real telemetry. No capacity or
-2 GB CM5 performance is inferred from model file size. A declared eight-channel
-candidate is a planning seed until pinned official verification. One active
+2 GB CM5 performance is inferred from model file size. N2 verifies eight
+Nemotron activity slots; more-than-eight-person overflow remains undetectable
+from those channels and is not solved by a larger gallery. One active
 stack is allowed by this interface; side-by-side launches are not automatic.
 
 Embedding spaces remain specific to the encoder. Existing ReDimNet profiles
 are never passed to TitaNet. Compatible permitted reference audio or explicit
-re-enrollment is required when a future encoder adapter is implemented.
+re-enrollment is required when selecting an incompatible encoder. N2 session
+adaptation is unavailable; closed-roster names remain explicit assumptions.
 
 ## Run the safe checks
 

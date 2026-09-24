@@ -5,6 +5,29 @@ the actual speaker, optionally compare a small environment bank, and promote or
 undo selected additions. This is reference data, not neural training. No new
 model/library, microphone owner, playback, USB polling or inference worker.
 
+N2 backends do not admit this adaptation workflow. Their session-reference page
+shows an unavailable explanation; collection, matching, confirmation, promotion
+and Undo actions cannot attach or modify a session bank. Changing backends
+discards pending candidates and sets both toggles Off. The baseline workflow
+below remains available after selecting baseline again.
+
+The N2 guards and roster round trip have model-free tests. From the campaign
+worktree, PowerShell:
+
+```powershell
+& 'C:\Users\amiri\Documents\GitHub\just-peachy\.edge-speech-env\python.exe' -B -m unittest discover -s prototype\tests -p test_n2_integration.py -v
+```
+
+CMD / Anaconda Prompt:
+
+```bat
+"C:\Users\amiri\Documents\GitHub\just-peachy\.edge-speech-env\python.exe" -B -m unittest discover -s prototype\tests -p test_n2_integration.py -v
+```
+
+These tests use fake compatible stores and inert model-path fixtures, with no
+microphone or neural model calls. They print pass/fail results and remove their
+temporary application roots. Do not set `N2_TEST_E1=1` for this model-free run.
+
 ## Run the prototype
 
 PowerShell, from any folder:

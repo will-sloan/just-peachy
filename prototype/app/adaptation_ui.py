@@ -2,6 +2,10 @@
 class AdaptationUI:
     def show_adaptation(self):
         self.page='adaptation';frame=self._page('Session references',back=self.show_advanced)
+        if self.snapshot.get('backend',{}).get('composition',{}).get('n2'):
+            self._paragraph_label(frame,'Session reference collection, bank matching and promotion are unavailable for this backend. Original model-compatible enrollments remain available through People.',True)
+            self.button(frame,'Return to captions',self.home).pack(fill='x',padx=self.px(12),pady=self.px(6))
+            return
         state=self.snapshot.get('adaptation',{});collect=state.get('collect',False);enabled=state.get('enabled',False)
         undo_signature=[(p['id'],p.get('enrichment_undo',False)) for p in self.snapshot.get('people',[])]
         self._paragraph_label(frame,'◇ Experimental · Off by default. Original enrollments stay unchanged. Start clears unsaved candidates. No automatic learning or new microphone capture.',True)
@@ -33,6 +37,8 @@ class AdaptationUI:
             'Use explicitly confirmed session and promoted references with at most 10% weight? This is experimental. Original full-roster voice evidence must agree. Earlier captions stay unchanged. Off gives the original-score comparison.')
         self.confirm('Enable reference '+action,message,'I agree · Enable',lambda:self._reference_action(action,enabled=True,consent=True),cancel=self.show_adaptation)
     def show_reference_candidates(self):
+        if self.snapshot.get('backend',{}).get('composition',{}).get('n2'):
+            self.show_adaptation();return
         self.page='reference_candidates';frame=self._page('Review references',back=self.show_adaptation)
         candidates=self.snapshot.get('adaptation',{}).get('candidates',[])
         selected=getattr(self,'_reference_selected',set())&{c['id'] for c in candidates if c.get('confirmation')}

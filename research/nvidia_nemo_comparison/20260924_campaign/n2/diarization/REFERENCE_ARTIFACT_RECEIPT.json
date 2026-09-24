@@ -1,0 +1,21 @@
+{
+  "status": "VERIFIED_NOT_DESERIALIZED",
+  "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\diarization\\reference\\867c53f552998f772e5b5e5c082962ae85ee7ca5669c2bc17d7f615133d4e96d\\Nemotron-3-Diarization.nemo",
+  "sha256": "867c53f552998f772e5b5e5c082962ae85ee7ca5669c2bc17d7f615133d4e96d",
+  "bytes": 198676480,
+  "url": "https://huggingface.co/nvidia/Nemotron-3-Diarization/resolve/f667ed73aee57d40cc39428eb768b4fd87a0a29e/Nemotron-3-Diarization.nemo",
+  "revision": "f667ed73aee57d40cc39428eb768b4fd87a0a29e",
+  "config_path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\diarization\\reference\\867c53f552998f772e5b5e5c082962ae85ee7ca5669c2bc17d7f615133d4e96d\\model_config.yaml",
+  "members": [
+    {
+      "name": "model_config.yaml",
+      "size": 3461,
+      "regular_file": true
+    },
+    {
+      "name": "model_weights.ckpt",
+      "size": 198666820,
+      "regular_file": true
+    }
+  ]
+}

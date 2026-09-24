@@ -1,0 +1,27 @@
+{
+  "status": "ACTUALLY_RUN",
+  "launch": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\diarization\\cuda-parity-v1.launch.json",
+    "sha256": "4e18af22069a6211324f2d696996dbd05a34e406b7c90102c4acb5be8ecd439d",
+    "bytes": 818
+  },
+  "stdout": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\diarization\\cuda-parity-v1.stdout.log",
+    "sha256": "3ec50a2ebc993b9a4f422610a3adce77348726b77d25cb59a81c3ae1107465ad",
+    "bytes": 119
+  },
+  "stderr": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\diarization\\cuda-parity-v1.stderr.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0
+  },
+  "parity_receipt": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\diarization\\cuda-parity-v1\\RECEIPT.json",
+    "sha256": "56c519c7ea7e6ed93f0e40167154982684374cbc8173e717d17b5d7434761b6f",
+    "bytes": 43971
+  },
+  "wall_timeout_sec": 300,
+  "timed_out": false,
+  "returncode": 0,
+  "scope": "bounded owned parity process only; no bulk dispatch"
+}

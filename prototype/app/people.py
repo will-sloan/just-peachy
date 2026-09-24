@@ -36,7 +36,7 @@ def clean_name(name):
 
 class PersonalGallery(ResearchGallery):
     """Same real resolver interface; UUID keys support duplicate display names."""
-    def __init__(self, rows, backend, route):
+    def __init__(self, rows, backend, route, *, preprocessing=PREPROCESSING):
         self.names = [r['name'] for r, v in rows]
         self.ids = [r['id'] for r, v in rows]
         self.matrix = np.stack([v for r,v in rows]).astype(np.float32) if rows else np.empty((0,192),np.float32)
@@ -45,10 +45,10 @@ class PersonalGallery(ResearchGallery):
                       'metadata_sha256':hashlib.sha256(json.dumps(r,sort_keys=True,allow_nan=False).encode()).hexdigest(),
                       'centroid_sha256':hashlib.sha256(v.astype('<f4').tobytes()).hexdigest(),
                       'references':[deepcopy(ref) for ref in r['references'] if route_compatible(ref['route'],route)]} for r,v in rows]
-        binding = {'backend_sha256':backend,'preprocessing':PREPROCESSING,'route':route,'templates':templates}
+        binding = {'backend_sha256':backend,'preprocessing':preprocessing,'route':route,'templates':templates}
         self.gallery_id = 'personal-'+hashlib.sha256(json.dumps(binding,sort_keys=True,allow_nan=False).encode()).hexdigest()
         self.receipt = {'gallery_id':self.gallery_id,'backend_sha256':backend,'loaded_count':len(rows),
-                        'loader':'PROTO1 PersonalStore UUID loader','preprocessing':PREPROCESSING,
+                        'loader':'PROTO1 PersonalStore UUID loader','preprocessing':preprocessing,
                         'dimension':192,'dtype':'float32','route':deepcopy(route),'personal_ids':self.ids[:],
                         'templates':templates,'binding_scope':'actual metadata, compatible references, normalized centroids and query route'}
         self.query_count = 0
@@ -72,6 +72,7 @@ class PersonalGallery(ResearchGallery):
 
 
 class PersonalStore(AdaptationStore):
+    preprocessing = PREPROCESSING
     def __init__(self, root, backend):
         self.root = Path(root).resolve()
         self.root.mkdir(parents=True, exist_ok=True)
@@ -100,7 +101,7 @@ class PersonalStore(AdaptationStore):
 
     @classmethod
     def _route(cls, route):
-        if not isinstance(route,dict) or route.get('tap') not in ('O0','O1') or route.get('sample_rate')!=16000 or route.get('preprocessing')!=PREPROCESSING or route.get('waveform_domain') not in ('xvf_ua','dry_test_fixture'):
+        if not isinstance(route,dict) or route.get('tap') not in ('O0','O1') or route.get('sample_rate')!=16000 or route.get('preprocessing')!=cls.preprocessing or route.get('waveform_domain') not in ('xvf_ua','dry_test_fixture'):
             raise ValueError('Unsupported voice reference route/preprocessing')
         expected='O0_host_plus3dB_once' if route['tap']=='O0' else 'O1_unity'
         allowed={expected,'fixture_unity'} if route['waveform_domain']=='dry_test_fixture' else {expected}
@@ -189,7 +190,7 @@ class PersonalStore(AdaptationStore):
                     for row in self._list_cache]
 
     def _validate(self, row, folder):
-        if not isinstance(row,dict) or row.get('schema_version') != 1 or row.get('backend_sha256') != self.backend or row.get('preprocessing') != PREPROCESSING:
+        if not isinstance(row,dict) or row.get('schema_version') != 1 or row.get('backend_sha256') != self.backend or row.get('preprocessing') != self.preprocessing:
             raise ValueError('Incompatible personal profile; no automatic model conversion')
         if len(json.dumps(row,allow_nan=False).encode('utf-8'))>128*1024:raise ValueError('Person metadata exceeds bounded size')
         if self._path(row['id']) != folder.resolve(): raise ValueError('Person folder/UUID mismatch')
@@ -250,7 +251,7 @@ class PersonalStore(AdaptationStore):
                 vectors = [self._load_vector(self._path(row['id'])/r['vector']) for r in compatible]
                 weighted = sum(v*ref['usable_s'] for v,ref in zip(vectors,compatible))
                 entries.append((row,vector_valid(np.asarray(weighted,np.float32))))
-            result=PersonalGallery(entries,self.backend,route)
+            result=PersonalGallery(entries,self.backend,route,preprocessing=self.preprocessing)
             if alternate_advisory:
                 alternates=[]
                 for row,base in entries:
@@ -311,7 +312,7 @@ class PersonalStore(AdaptationStore):
         folder.mkdir(exist_ok=True)
         row = read_json(folder/'person.json') if (folder/'person.json').exists() else {
             'schema_version':1,'id':person_id,'name':name,'backend_sha256':self.backend,
-            'preprocessing':PREPROCESSING,'created_utc':datetime.now(timezone.utc).isoformat(),'references':[]}
+            'preprocessing':self.preprocessing,'created_utc':datetime.now(timezone.utc).isoformat(),'references':[]}
         if len(row['references'])>=20: raise ValueError('Maximum 20 references per person')
         if any(r.get('source_sha256')==quality['source_sha256'] for r in row['references']):
             raise ValueError('This exact reference has already been enrolled')

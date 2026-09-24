@@ -18,8 +18,10 @@ class BackendCatalogTests(unittest.TestCase):
             self.assertNotEqual(row['manifest_id'], manifest_id(changed))
             self.assertEqual(set(row['compatible_modes']), set(MODES))
 
-    def test_exactly_one_executable_backend_and_no_seed_fallback(self):
-        self.assertEqual([r['manifest_id'] for r in backend_catalog() if r['implemented']], [BASELINE_BACKEND_ID])
+    def test_four_n2_compositions_and_no_unimplemented_seed_fallback(self):
+        self.assertEqual({r['key'] for r in backend_catalog() if r['implemented']},
+            {'baseline','nemotron_hybrid','titanet','nemotron_titanet'})
+        self.assertEqual(BASELINE_BACKEND_ID,'sha256:1a6be7490786a81d971c19ad35572b8c13c30993f7b8a7c1903f4b0617b6b1b5')
         for row in backend_catalog():
             if not row['implemented']:
                 for mode in MODES:

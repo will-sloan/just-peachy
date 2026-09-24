@@ -62,13 +62,7 @@ class PipelineEngine:
         if research_gallery is not None:
             if not self._research_v3 or research_profile.identity.mode != "post_association":
                 raise ValueError("an explicit research gallery requires v3 post-association naming")
-            from .research_identity_v3 import ResearchGallery
-            self._research_gallery = research_gallery if isinstance(research_gallery, ResearchGallery) else ResearchGallery(
-                research_gallery, self.config.asset("redimnet2_b2_fp32").sha256, research_profile.identity.max_gallery_profiles)
-            if self._research_gallery.receipt["backend_sha256"] != self.config.asset("redimnet2_b2_fp32").sha256:
-                raise ValueError("resident research gallery has a different backend")
-            if self._research_gallery.receipt["loaded_count"] > research_profile.identity.max_gallery_profiles:
-                raise ValueError("resident research gallery exceeds this profile's configured count bound")
+            self._research_gallery = self._admit_research_gallery(research_gallery, research_profile.identity.max_gallery_profiles)
         elif self._research_v3 and research_profile.identity.mode != "none":
             raise ValueError("S6C naming cannot run without an explicit admitted research gallery")
         if self._s6d is not None and (self._s6d.transcript_mode != "T0" or self._s6d.direction_mode in {"V2", "V3"}):
@@ -477,6 +471,17 @@ class PipelineEngine:
         self._stop_event.set()
         if self._source is not None:
             self._source.stop()
+
+    def _admit_research_gallery(self, gallery, maximum_profiles):
+        """Baseline admission; model-specific adapters override this boundary."""
+        from .research_identity_v3 import ResearchGallery
+        admitted = gallery if isinstance(gallery, ResearchGallery) else ResearchGallery(
+            gallery, self.config.asset("redimnet2_b2_fp32").sha256, maximum_profiles)
+        if admitted.receipt["backend_sha256"] != self.config.asset("redimnet2_b2_fp32").sha256:
+            raise ValueError("resident research gallery has a different backend")
+        if admitted.receipt["loaded_count"] > maximum_profiles:
+            raise ValueError("resident research gallery exceeds this profile's configured count bound")
+        return admitted
 
     def _asr_loop(self, asr: SherpaStream) -> None:
         assert self._journal is not None

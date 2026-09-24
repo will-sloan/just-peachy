@@ -1,0 +1,35 @@
+{
+  "schema": "n2-limitations-v1",
+  "stage_status": "IN_PROGRESS",
+  "unavailable": [
+    "Exact phonetic activity/word timestamps; estimated20ms activity and coarse caption intervals are explicitly qualified.",
+    "tcpWER with exact word-time truth; cpWER uses complete lexical reference scenes and retains Unknown.",
+    "Processed-XVF C calibration sufficient for operational open naming; conservative Unknown fallback remains.",
+    "D0 complete speaker-activity timeline for DER/JER; actual embedding-decision support is a labelled diagnostic proxy.",
+    "A reliable indication of a ninth physical speaker from eight native output channels."
+  ],
+  "not_tested": [
+    "Pi/CM5 execution, physical microphones, USB/GPIO/IMU/camera, display scanout and physical latency.",
+    "Total-system2GB suitability or measured ARM64 throughput.",
+    "Isolated process-specific peak GPU allocation; reported global VRAM includes other desktop use.",
+    "Independent actual GUI execution for all15 shadow gallery conditions.",
+    "Long multi-hour native session memory/caching behavior beyond the bounded saved-scene panels."
+  ],
+  "retained_failures": [
+    "O1 noise-control native false activity under every buffer profile.",
+    "N1 noise-control ASR insertion, independent of diarization errors.",
+    "D0/E0 and D0/E1 speaker fragmentation in the matched first-cell smoke; no Q-based tuning.",
+    "Native screen coordinator Windows progress replacement denial after195 cells; original failure retained and remaining93 resumed with unchanged numerical admission.",
+    "Earlier GUI gallery admission and archive-index integration failures; corrected and regression-tested.",
+    "Native Tcl assertion in a multi-root GUI/test process; superseded by 46 successful isolated test modules and six successful isolated actual GUI cells, with earlier failed evidence preserved."
+  ],
+  "intentionally_disabled": [
+    "N2 session adaptation/reference-bank collection and promotion.",
+    "Unconfigured spatial/hardware capabilities and absent matching recorded telemetry.",
+    "Live input/enrollment and audio playback during this saved-audio campaign."
+  ],
+  "pending_acceptance": [
+    "All384 main Controller cells and32 supplemental cells.",
+    "Final analysis-only ZIP and verified scoped remote backup."
+  ]
+}

@@ -1,0 +1,127 @@
+{
+  "schema": "n2-integration-receipt-v1",
+  "status": "IMPLEMENTED_TESTED_FULL_SCREEN_RUNNING",
+  "source": {
+    "schema": "just-peachy.n1.frozen-source.v1",
+    "prototype": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\releases\\n2-common-v6\\prototype",
+    "frontend_runtime_sha256": "6b1c960e1f31955e6d9dc93716ade0315182ea3ea0f922e5b2ee4e976d4db0a7",
+    "frontend_hash_scope": "all app/vendor/config/release_tools content plus main.py and root launchers",
+    "common_ui_source_sha256": "54c0283b8058978eca87dc9b0461a15addf804200856e41d2c83b55bff590456",
+    "common_ui_files": {
+      "app/ui.py": "93bbc6326bb54634a2bc3f4249630383bc52aa9c82a4f0dd5384444a14a26b96",
+      "app/caption_display.py": "ac5d0b13a253329e5bb9aaa2956c2033a297444813f8b88a0ecffd0feaf96dde",
+      "app/backends.py": "57fd16631c008a4a035cfdacca518bef81f960c2f30e79da8d52f557dbc5a4fc",
+      "app/mode_policy.py": "40d6ce574a31c190a243977863f22f81345e994f47ee3694c4fe4ac9650b3f88",
+      "vendor/edge_speech_pipeline/research_n1_spans.py": "a81478569480bb927943a460c17aad0549377e3b7365c4417e3b9f17ecd0d238",
+      "vendor/edge_speech_pipeline/research_s7_presentation.py": "a6229a1cc1f967012de2b79780ab92029e63dc3a64e52bf56b563d7e44f18f10"
+    },
+    "file_count": 364,
+    "auxiliary_files": {
+      "research/nvidia_nemo_comparison/20260924_campaign/n2/evaluation/scoring.py": {
+        "sha256": "24487d20ed62bfcb4b0d46b00e75c9f61187aa4ca3b185c08ceee86315bff54b",
+        "bytes": 16194
+      },
+      "research/nvidia_nemo_comparison/20260924_campaign/n2/evaluation/README.md": {
+        "sha256": "87bb8421544f4b0e1a83107751b8e9d88d05d4ed96a2c6caff415c6d70f1167d",
+        "bytes": 21343
+      }
+    },
+    "archive": {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\releases\\n2-common-v6.zip",
+      "sha256": "c326ea970ffc74a462c6e0e376c2b787889b00f98427a00eb2d8b7194b9b6da6",
+      "bytes": 1382186
+    }
+  },
+  "source_receipt": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\releases\\n2-common-v6\\SOURCE_RECEIPT.json",
+    "sha256": "2480ce43e1e6a3565fb7e2ea6e8d82df3bea32d61aa8bee608396006c14c8776",
+    "bytes": 58275
+  },
+  "tests": {
+    "status": "COMPLETE",
+    "successful": true,
+    "requested_modules": 46,
+    "finished_modules": 46,
+    "successful_modules": 46,
+    "tests": 432,
+    "planned_tests": 432,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 2
+  },
+  "test_report": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\checks\\full-suite-isolated-v2\\RESULT.json",
+    "sha256": "5815daa4bd8ff16cdf59280576395b0dbce87d9533b4ba4e32372f66083e4742",
+    "bytes": 207370
+  },
+  "test_limitations": [
+    "Two Linux-only tests skipped on Windows",
+    "Native multi-root Tcl crashes and incomplete earlier attempts retained",
+    "Actual E1 test enabled; no physical audio hardware"
+  ],
+  "backends": [
+    {
+      "key": "baseline",
+      "label": "Baseline \u00b7 Giga / Pyannote / ReDimNet",
+      "manifest_id": "sha256:1a6be7490786a81d971c19ad35572b8c13c30993f7b8a7c1903f4b0617b6b1b5"
+    },
+    {
+      "key": "nemotron_hybrid",
+      "label": "Giga / Nemotron / ReDimNet",
+      "manifest_id": "sha256:2cae7524dc49970f0492bd38d9fd8584609d07bbc83ea36bf0efd9355a154fe1"
+    },
+    {
+      "key": "titanet",
+      "label": "Giga / Pyannote / TitaNet",
+      "manifest_id": "sha256:2d1bb8c33a075294877cc92af1e78bcc01a3e9164c1c69c2417e038eadc28c4e"
+    },
+    {
+      "key": "nemotron_titanet",
+      "label": "Giga / Nemotron / TitaNet",
+      "manifest_id": "sha256:8ae4679a5f922ef5aa84a632f8de20868227cdb73aaaadc515955940813a0ff9"
+    }
+  ],
+  "full_plan": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\numerical-spec-v3.json",
+    "sha256": "eed4a7fd15e77d024f52e9807b049f60924710c72263ed0233b4362b2ddeb648",
+    "bytes": 14253
+  },
+  "notes": [
+    "No stage completion claim",
+    "No Pi or normal personal root changes",
+    "No model weights, audio, transcripts or voice vectors in Git"
+  ],
+  "expected_numerical_cells": 422,
+  "gui": {
+    "status": "COMPLETE",
+    "cells": 6,
+    "exit_code": 0,
+    "report": {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\gui-panel-isolated-v1\\GUI_PANEL_REPORT.json",
+      "sha256": "7c2232db1b5ee5bbef625f8447c885ecd2516bff298174a393481b765d2ef091",
+      "bytes": 128505
+    }
+  },
+  "background_analysis": {
+    "mode": "WAIT_FOR_EXISTING_COORDINATOR",
+    "wrapper": {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n2\\execute_campaign.py",
+      "sha256": "136719ed4918db38dac6d50c3b568dd9dd189f10f06a978882d3c154594dff9d",
+      "bytes": 18764
+    },
+    "dispatch_receipt": {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\logs\\WAITER_DISPATCH.json",
+      "sha256": "37a6a4279c6ba473ca48c954f6ab18c6b00df898104b7c645feef052a080511f",
+      "bytes": 1351
+    },
+    "chain_contract_sha256": "2e89aad38261b5b862c4f9781e961c7e17ca9dfd88ddee9014a542b558083ffe",
+    "chain_admission": {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\numerical-v1\\chains\\2e89aad38261b5b862c4f9781e961c7e17ca9dfd88ddee9014a542b558083ffe\\CHAIN_ADMISSION.json",
+      "sha256": "79813e12ead1656927156d4293612044ef21dbe6550a70335c47e559508de993",
+      "bytes": 11340
+    },
+    "final_review": "MANUAL_IN_THIS_TASK",
+    "stage_completion_claimed": false
+  },
+  "updated_utc": "2026-09-24T18:06:50.084949+00:00"
+}

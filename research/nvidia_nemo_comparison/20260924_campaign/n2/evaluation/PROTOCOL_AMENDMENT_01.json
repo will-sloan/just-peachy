@@ -1,0 +1,15 @@
+{
+  "schema": "n2-protocol-amendment-v1",
+  "amendment": 1,
+  "status": "DECLARED_BEFORE_FULL_N2_SCREENS_AFTER_REFERENCE_COVERAGE_AUDIT",
+  "original_protocol_sha256": "1d9eb58d132b1b6e1d551fa9792317122748d6f58f9497dab46904bec7bcd188",
+  "reason": "First saved-controller smoke showed that a 250ms collar around every fragmented estimated activity boundary retained only2.2 reference speaker-seconds. Choose primary measurement by reference support coverage, not by candidate score. Preserve the original metric receipt and report both variants.",
+  "primary_activity_collar_seconds": 0.0,
+  "sensitivity_activity_collar_seconds": 0.25,
+  "activity_grid_seconds": 0.02,
+  "overlap_policy": "include",
+  "report_required": ["reference_speaker_seconds", "evaluated_wall_seconds", "collar_excluded_seconds", "miss_seconds", "false_alarm_seconds", "confusion_seconds", "approximate_activity_DER", "approximate_activity_JER"],
+  "qualification": "Both are approximate estimated-activity metrics, not phonetic DER/JER and not comparable with published benchmark DER. Neither uncertainty variant may be silently selected as the better number.",
+  "other_frozen_protocol_fields": "unchanged",
+  "prior_evidence": "local/n2/smoke-controller-v1/cells/N2_S45_01_04_O0/attempt_20260924T162423_1ad077/galleries/EVALUATOR_SCORE.json preserved"
+}

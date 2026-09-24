@@ -1,0 +1,691 @@
+{
+  "schema": "n2-gui-visual-review-v2",
+  "reviewed_utc": "2026-09-24T18:07:18.615192+00:00",
+  "status": "SIX_CASE_RECEIPTS_VERIFIED_ALL_16_AVAILABLE_IMAGES_INSPECTED",
+  "scope": "Independent review of the completed six-case saved-audio CPU panel; actual private-app Tk rendering only",
+  "artifact_directory": "local/n2/gui-panel-isolated-v1",
+  "panel_report": {
+    "filename": "GUI_PANEL_REPORT.json",
+    "sha256": "7c2232db1b5ee5bbef625f8447c885ecd2516bff298174a393481b765d2ef091",
+    "bytes": 128505
+  },
+  "frozen_source_receipt": {
+    "sha256": "2480ce43e1e6a3565fb7e2ea6e8d82df3bea32d61aa8bee608396006c14c8776",
+    "bytes": 58275
+  },
+  "verification_method": "Read-only finish_campaign.validate_source and validate_gui rechecked actual source/runtime/common UI, exact six-cell population, all child reports, hashes, screenshots and archive-integrity gates. Direct view_image inspection of every image listed below.",
+  "completed_cases": 6,
+  "inspected_cases": 6,
+  "available_images": 16,
+  "inspected_images": 16,
+  "dimensions": [
+    480,
+    800
+  ],
+  "active_height_px": 184,
+  "execution": {
+    "device": "cpu",
+    "cpu_affinity": [
+      4
+    ],
+    "threads": 1,
+    "priority": "BelowNormal",
+    "panel_wall_seconds": 636.0400738999997,
+    "total_audio_seconds": 268.172625
+  },
+  "cases": [
+    {
+      "cell_id": "D1_E1_boundary",
+      "example": "boundary",
+      "mode": "selected_closed",
+      "status": "RECEIPTS_VERIFIED_AND_ALL_AVAILABLE_IMAGES_INSPECTED",
+      "row_count": 33,
+      "stable_span_count": 41,
+      "gui_receipt_count": 120,
+      "latest_assumed_assignment_rows": 31,
+      "latest_verified_profile_rows": 0,
+      "elapsed_seconds": 108.75085450000006,
+      "source_samples": 715127,
+      "clean_exit": {
+        "exit_code": 0,
+        "timed_out": false,
+        "tests": 1,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "input_desktop_unchanged": true,
+        "switch_desktop_called": false,
+        "input_injection": false,
+        "desktop_handle_closed": true
+      },
+      "archive_integrity": {
+        "verified": true,
+        "accepted_items": 2857,
+        "completed_items": 2857,
+        "archive_error": null,
+        "loss": null,
+        "worker_alive": false,
+        "controller_worker_alive": false,
+        "active_archive_owners": 0,
+        "source_samples": 715127,
+        "receipt": {
+          "sha256": "0f1b01f6b2e5f3700de9207d1b4d8034783fd2a7baf58009469e129b650946ad",
+          "bytes": 4440
+        }
+      },
+      "all_source_samples_delivered": true,
+      "text_writers_drained": true,
+      "controller_closed": true,
+      "evidence_hashes": {
+        "isolation": {
+          "sha256": "635d7c21827c951c6dcc8958408e62878dea22d8801b1a64c3d1e1fcfb05a537",
+          "bytes": 400
+        },
+        "tests": {
+          "sha256": "c72d76bba07bb3f8642b04503dacab1e96c61e0878d1d20df1058c766c27c1c1",
+          "bytes": 393
+        },
+        "result": {
+          "sha256": "21ae3a272bdd8f09529ee2a01adf1c6a9c0bda11cce43366b6c3264b39023e88",
+          "bytes": 20896
+        },
+        "final_snapshot": {
+          "sha256": "8dd2e079a6f9ad9fa22baf75194d2940ace368dfe604e4ea5707a019db59974d",
+          "bytes": 449128
+        }
+      },
+      "images": [
+        {
+          "milestone": "FIRST_APPLIED",
+          "report_relative_path": "private_cells/D1_E1_boundary/cells/D1_E1_boundary/FIRST_APPLIED.png",
+          "sha256": "49fdca42747c6947981aa76df5f2006a0bffa2bb3240359e5b613d8fd6de105c",
+          "bytes": 12459,
+          "dimensions": [
+            480,
+            800
+          ],
+          "visually_inspected": true
+        },
+        {
+          "milestone": "FIRST_FINAL",
+          "report_relative_path": "private_cells/D1_E1_boundary/cells/D1_E1_boundary/FIRST_FINAL.png",
+          "sha256": "35def067ad0a31b65284759fe2510ffa6173df7b060281d2d6a24d54eeb4f7b0",
+          "bytes": 12978,
+          "dimensions": [
+            480,
+            800
+          ],
+          "visually_inspected": true
+        },
+        {
+          "milestone": "LATEST",
+          "report_relative_path": "private_cells/D1_E1_boundary/cells/D1_E1_boundary/LATEST.png",
+          "sha256": "cfde61683d4c8b66aba1fb077ab04670210bcf12bcb878f85e9cfc04539dfceb",
+          "bytes": 16255,
+          "dimensions": [
+            480,
+            800
+          ],
+          "visually_inspected": true
+        }
+      ],
+      "visual_observations": [
+        "Expected backend and mode label visible",
+        "No orange archive-loss warning in inspected images",
+        "Portrait frame, backend banner, transcript region, live caption region and bottom controls remain visible",
+        "Latest image contains explicitly assumed research-name assignment and Unknown fallback; no verified-name claim"
+      ],
+      "resource_receipt": {
+        "cpu_affinity": [
+          4
+        ],
+        "priority_class": 16384,
+        "threads": 1
+      }
+    },
+    {
+      "cell_id": "D1_E1_short",
+      "example": "short",
+      "mode": "enrolled_names",
+      "status": "RECEIPTS_VERIFIED_AND_ALL_AVAILABLE_IMAGES_INSPECTED",
+      "row_count": 9,
+      "stable_span_count": 10,
+      "gui_receipt_count": 30,
+      "latest_assumed_assignment_rows": 0,
+      "latest_verified_profile_rows": 0,
+      "elapsed_seconds": 102.40151329999935,
+      "source_samples": 715127,
+      "clean_exit": {
+        "exit_code": 0,
+        "timed_out": false,
+        "tests": 1,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "input_desktop_unchanged": true,
+        "switch_desktop_called": false,
+        "input_injection": false,
+        "desktop_handle_closed": true
+      },
+      "archive_integrity": {
+        "verified": true,
+        "accepted_items": 2372,
+        "completed_items": 2372,
+        "archive_error": null,
+        "loss": null,
+        "worker_alive": false,
+        "controller_worker_alive": false,
+        "active_archive_owners": 0,
+        "source_samples": 715127,
+        "receipt": {
+          "sha256": "8b33826dda39ead7a9b5659ed6f961d4c2362ae90e416d5446c863f9edf5b8ad",
+          "bytes": 4420
+        }
+      },
+      "all_source_samples_delivered": true,
+      "text_writers_drained": true,
+      "controller_closed": true,
+      "evidence_hashes": {
+        "isolation": {
+          "sha256": "3da7333b49952187ec150cd80512d856603341c875cb524d71079b6ec6d3cdec",
+          "bytes": 400
+        },
+        "tests": {
+          "sha256": "a4d7183745cbce8768668fbc3e3327f7fb148f1fe56dd3ec2a88ccbf9fe3a773",
+          "bytes": 393
+        },
+        "result": {
+          "sha256": "4c2a885c5d50f8ddd2b2a96a2d2119bbbbcbd6211bb3a0f76ffb82ca4891921a",
+          "bytes": 16866
+        },
+        "final_snapshot": {
+          "sha256": "913619dd4e22df54062516aedd1b4fb78f3e00a449a41817d77f44076f9e728f",
+          "bytes": 157727
+        }
+      },
+      "images": [
+        {
+          "milestone": "FIRST_APPLIED",
+          "report_relative_path": "private_cells/D1_E1_short/cells/D1_E1_short/FIRST_APPLIED.png",
+          "sha256": "e6a1a9f6f897ac734e9efb50d8ffad8e40e6737380ebac2535b5cf7147fa3995",
+          "bytes": 12460,
+          "dimensions": [
+            480,
+            800
+          ],
+          "visually_inspected": true
+        },
+        {
+          "milestone": "FIRST_FINAL",
+          "report_relative_path": "private_cells/D1_E1_short/cells/D1_E1_short/FIRST_FINAL.png",
+          "sha256": "2e7021b0a5954646c12055588de91e84db9ac3e446c5409e8d8f21d92f8b6327",
+          "bytes": 12906,
+          "dimensions": [
+            480,
+            800
+          ],
+          "visually_inspected": true
+        },
+        {
+          "milestone": "LATEST",
+          "report_relative_path": "private_cells/D1_E1_short/cells/D1_E1_short/LATEST.png",
+          "sha256": "44cf4595927b862931c6f06e7fe0f05c1be8082d86f1e74523989a6b88f1994f",
+          "bytes": 12978,
+          "dimensions": [
+            480,
+            800
+          ],
+          "visually_inspected": true
+        }
+      ],
+      "visual_observations": [
+        "Expected backend and mode label visible",
+        "No orange archive-loss warning in inspected images",
+        "Portrait frame, backend banner, transcript region, live caption region and bottom controls remain visible",
+        "Latest image uses Unknown labels"
+      ],
+      "resource_receipt": {
+        "cpu_affinity": [
+          4
+        ],
+        "priority_class": 16384,
+        "threads": 1
+      }
+    },
+    {
+      "cell_id": "D1_E1_returning",
+      "example": "returning",
+      "mode": "selected_closed",
+      "status": "RECEIPTS_VERIFIED_AND_ALL_AVAILABLE_IMAGES_INSPECTED",
+      "row_count": 22,
+      "stable_span_count": 28,
+      "gui_receipt_count": 84,
+      "latest_assumed_assignment_rows": 18,
+      "latest_verified_profile_rows": 0,
+      "elapsed_seconds": 106.45081460000074,
+      "source_samples": 715127,
+      "clean_exit": {
+        "exit_code": 0,
+        "timed_out": false,
+        "tests": 1,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "input_desktop_unchanged": true,
+        "switch_desktop_called": false,
+        "input_injection": false,
+        "desktop_handle_closed": true
+      },
+      "archive_integrity": {
+        "verified": true,
+        "accepted_items": 2465,
+        "completed_items": 2465,
+        "archive_error": null,
+        "loss": null,
+        "worker_alive": false,
+        "controller_worker_alive": false,
+        "active_archive_owners": 0,
+        "source_samples": 715127,
+        "receipt": {
+          "sha256": "17cedcfd3c726577da27c5b92eaf1c36a4aea46921fd6c1b011b56a294c517bc",
+          "bytes": 4436
+        }
+      },
+      "all_source_samples_delivered": true,
+      "text_writers_drained": true,
+      "controller_closed": true,
+      "evidence_hashes": {
+        "isolation": {
+          "sha256": "c7de8ff7831e032f27aef84527904b23b8df3dc335cc33d9ea0a088302f5b999",
+          "bytes": 400
+        },
+        "tests": {
+          "sha256": "1f1148df73896e2db888253fe53005412c4e029d66a88b478201fc40ae7c155c",
+          "bytes": 393
+        },
+        "result": {
+          "sha256": "215c259d225a523cec725d21744b881d1474a456753d9fe643c8efc8de1ee3b5",
+          "bytes": 20786
+        },
+        "final_snapshot": {
+          "sha256": "5769a1d47b83969cdc27d3fc625f5415250d992d87a6d6cb04afe50a44010add",
+          "bytes": 357717
+        }
+      },
+      "images": [
+        {
+          "milestone": "FIRST_APPLIED",
+          "report_relative_path": "private_cells/D1_E1_returning/cells/D1_E1_returning/FIRST_APPLIED.png",
+          "sha256": "62602c6c17e0f930ddb08d223b111e2fde35600ce9ce1a9ffbce5658e36aaf0d",
+          "bytes": 12367,
+          "dimensions": [
+            480,
+            800
+          ],
+          "visually_inspected": true
+        },
+        {
+          "milestone": "FIRST_FINAL",
+          "report_relative_path": "private_cells/D1_E1_returning/cells/D1_E1_returning/FIRST_FINAL.png",
+          "sha256": "433af07afd6301ef884a911c72c3221e263d36f538a1ebbaa3855c933ffb3156",
+          "bytes": 12654,
+          "dimensions": [
+            480,
+            800
+          ],
+          "visually_inspected": true
+        },
+        {
+          "milestone": "LATEST",
+          "report_relative_path": "private_cells/D1_E1_returning/cells/D1_E1_returning/LATEST.png",
+          "sha256": "8685e73e6e9095063eef1c58e2123130ccbd881c208ffbb8c2945e9cdd483612",
+          "bytes": 16582,
+          "dimensions": [
+            480,
+            800
+          ],
+          "visually_inspected": true
+        }
+      ],
+      "visual_observations": [
+        "Expected backend and mode label visible",
+        "No orange archive-loss warning in inspected images",
+        "Portrait frame, backend banner, transcript region, live caption region and bottom controls remain visible",
+        "Latest image contains explicitly assumed research-name assignment and Unknown fallback; no verified-name claim"
+      ],
+      "resource_receipt": {
+        "cpu_affinity": [
+          4
+        ],
+        "priority_class": 16384,
+        "threads": 1
+      }
+    },
+    {
+      "cell_id": "D1_E1_noise",
+      "example": "noise",
+      "mode": "enrolled_names",
+      "status": "RECEIPTS_VERIFIED_AND_ALL_AVAILABLE_IMAGES_INSPECTED",
+      "row_count": 1,
+      "stable_span_count": 1,
+      "gui_receipt_count": 3,
+      "latest_assumed_assignment_rows": 0,
+      "latest_verified_profile_rows": 0,
+      "elapsed_seconds": 100.59122470000148,
+      "source_samples": 715127,
+      "clean_exit": {
+        "exit_code": 0,
+        "timed_out": false,
+        "tests": 1,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "input_desktop_unchanged": true,
+        "switch_desktop_called": false,
+        "input_injection": false,
+        "desktop_handle_closed": true
+      },
+      "archive_integrity": {
+        "verified": true,
+        "accepted_items": 2156,
+        "completed_items": 2156,
+        "archive_error": null,
+        "loss": null,
+        "worker_alive": false,
+        "controller_worker_alive": false,
+        "active_archive_owners": 0,
+        "source_samples": 715127,
+        "receipt": {
+          "sha256": "3db407e307dbb5b95af3daec475126d723f980747fcdae887336d27ad4ca77fc",
+          "bytes": 4417
+        }
+      },
+      "all_source_samples_delivered": true,
+      "text_writers_drained": true,
+      "controller_closed": true,
+      "evidence_hashes": {
+        "isolation": {
+          "sha256": "19a73e28d3229398d2b184e6cecefbdd9d29d86d01c5c4b0c77d96ab1656fe95",
+          "bytes": 400
+        },
+        "tests": {
+          "sha256": "187e8c117930749466b584a0fce8fda45abca97a724b605390a9c9d264ae6e07",
+          "bytes": 393
+        },
+        "result": {
+          "sha256": "2418ed21983de17e762af8d52ddb6e22ae85860a8941e819627d8b69733ae8a5",
+          "bytes": 16709
+        },
+        "final_snapshot": {
+          "sha256": "dcf8b1f193cb1389ccecbb5db211a168d9f17aa09e4512b9a539e7b04b0f25cc",
+          "bytes": 81234
+        }
+      },
+      "images": [
+        {
+          "milestone": "FIRST_APPLIED",
+          "report_relative_path": "private_cells/D1_E1_noise/cells/D1_E1_noise/FIRST_APPLIED.png",
+          "sha256": "92b556f27e7ea9a94382bc2d895ace7c3abe643737f6a4089a33b39ed6dbf00a",
+          "bytes": 12378,
+          "dimensions": [
+            480,
+            800
+          ],
+          "visually_inspected": true
+        },
+        {
+          "milestone": "FIRST_FINAL",
+          "report_relative_path": "private_cells/D1_E1_noise/cells/D1_E1_noise/FIRST_FINAL.png",
+          "sha256": "bf8f33e4788c7dfa0ed4dc99542fbc7079b129d52e8154b395bb15fcae9d92a7",
+          "bytes": 12385,
+          "dimensions": [
+            480,
+            800
+          ],
+          "visually_inspected": true
+        },
+        {
+          "milestone": "LATEST",
+          "report_relative_path": "private_cells/D1_E1_noise/cells/D1_E1_noise/LATEST.png",
+          "sha256": "1481605301e70111c2e8ea76c490a4d174983d8624c988ba13fc10c3f8fa6cd6",
+          "bytes": 12349,
+          "dimensions": [
+            480,
+            800
+          ],
+          "visually_inspected": true
+        }
+      ],
+      "visual_observations": [
+        "Expected backend and mode label visible",
+        "No orange archive-loss warning in inspected images",
+        "Portrait frame, backend banner, transcript region, live caption region and bottom controls remain visible",
+        "Latest image uses Unknown labels",
+        "The admitted noise-only source emitted one caption row; GUI completion does not establish zero false captions"
+      ],
+      "resource_receipt": {
+        "cpu_affinity": [
+          4
+        ],
+        "priority_class": 16384,
+        "threads": 1
+      }
+    },
+    {
+      "cell_id": "D1_E1_silence",
+      "example": "silence",
+      "mode": "enrolled_names",
+      "status": "RECEIPTS_VERIFIED_AND_ALL_AVAILABLE_IMAGES_INSPECTED",
+      "row_count": 0,
+      "stable_span_count": 0,
+      "gui_receipt_count": 0,
+      "latest_assumed_assignment_rows": 0,
+      "latest_verified_profile_rows": 0,
+      "elapsed_seconds": 99.09531610000158,
+      "source_samples": 715127,
+      "clean_exit": {
+        "exit_code": 0,
+        "timed_out": false,
+        "tests": 1,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "input_desktop_unchanged": true,
+        "switch_desktop_called": false,
+        "input_injection": false,
+        "desktop_handle_closed": true
+      },
+      "archive_integrity": {
+        "verified": true,
+        "accepted_items": 2160,
+        "completed_items": 2160,
+        "archive_error": null,
+        "loss": null,
+        "worker_alive": false,
+        "controller_worker_alive": false,
+        "active_archive_owners": 0,
+        "source_samples": 715127,
+        "receipt": {
+          "sha256": "f2d8918b26c28bb710ed334216667b64b0165ce96ad47825028b3f30b7c99242",
+          "bytes": 4425
+        }
+      },
+      "all_source_samples_delivered": true,
+      "text_writers_drained": true,
+      "controller_closed": true,
+      "evidence_hashes": {
+        "isolation": {
+          "sha256": "985d001b110ec73b43e06697995a527d14efcc4e377a3fe127163ce89c44c57a",
+          "bytes": 400
+        },
+        "tests": {
+          "sha256": "03c5a1d3dd2bb0c30865a37097bcb0033f619fe252970441d8541aa10e7f55b6",
+          "bytes": 393
+        },
+        "result": {
+          "sha256": "b2d6f55133442952cdc3c43a3e4a6a9643bca6ad78f82a9979f4acfa5ce7363a",
+          "bytes": 13735
+        },
+        "final_snapshot": {
+          "sha256": "143dd8bbeb94d1a21e040b793be5b3d602849c883d1f72e9f4bd77f3c0e0bfc3",
+          "bytes": 71083
+        }
+      },
+      "images": [
+        {
+          "milestone": "LATEST",
+          "report_relative_path": "private_cells/D1_E1_silence/cells/D1_E1_silence/LATEST.png",
+          "sha256": "dba880094a29a066c10b1f14bf25ea20c9c211d5ec855e59f893c97871e00b30",
+          "bytes": 15669,
+          "dimensions": [
+            480,
+            800
+          ],
+          "visually_inspected": true
+        }
+      ],
+      "visual_observations": [
+        "Expected backend and mode label visible",
+        "No orange archive-loss warning in inspected images",
+        "Portrait frame, backend banner, transcript region, live caption region and bottom controls remain visible",
+        "Latest image has empty-caption placeholders; no first-applied or first-final image exists because no caption was emitted"
+      ],
+      "resource_receipt": {
+        "cpu_affinity": [
+          4
+        ],
+        "priority_class": 16384,
+        "threads": 1
+      }
+    },
+    {
+      "cell_id": "D1_E0_boundary",
+      "example": "boundary",
+      "mode": "selected_closed",
+      "status": "RECEIPTS_VERIFIED_AND_ALL_AVAILABLE_IMAGES_INSPECTED",
+      "row_count": 33,
+      "stable_span_count": 41,
+      "gui_receipt_count": 121,
+      "latest_assumed_assignment_rows": 31,
+      "latest_verified_profile_rows": 0,
+      "elapsed_seconds": 107.04229590000068,
+      "source_samples": 715127,
+      "clean_exit": {
+        "exit_code": 0,
+        "timed_out": false,
+        "tests": 1,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "input_desktop_unchanged": true,
+        "switch_desktop_called": false,
+        "input_injection": false,
+        "desktop_handle_closed": true
+      },
+      "archive_integrity": {
+        "verified": true,
+        "accepted_items": 2713,
+        "completed_items": 2713,
+        "archive_error": null,
+        "loss": null,
+        "worker_alive": false,
+        "controller_worker_alive": false,
+        "active_archive_owners": 0,
+        "source_samples": 715127,
+        "receipt": {
+          "sha256": "19a29b3e127897963ac64aef07f48981d5aa4a41cc02567edc52ff4bcee4341b",
+          "bytes": 4437
+        }
+      },
+      "all_source_samples_delivered": true,
+      "text_writers_drained": true,
+      "controller_closed": true,
+      "evidence_hashes": {
+        "isolation": {
+          "sha256": "1fed3f65980e1d9a4b41777220de6449a2e659ff8570c79f8d7edd45cb9e04b2",
+          "bytes": 400
+        },
+        "tests": {
+          "sha256": "a0eaa78c055ec98e285c3ea8f9de909983c39eab0eb2c54b92433b4bdd1b49ae",
+          "bytes": 393
+        },
+        "result": {
+          "sha256": "f71691151c0b517fb253075e0fd3248075fb12b9487b99b382bede30bdee86de",
+          "bytes": 20528
+        },
+        "final_snapshot": {
+          "sha256": "b1a3adc12ea215ecccc46cec0984aa4915b9e0d0faa38a0457793823242533e5",
+          "bytes": 468637
+        }
+      },
+      "images": [
+        {
+          "milestone": "FIRST_APPLIED",
+          "report_relative_path": "private_cells/D1_E0_boundary/cells/D1_E0_boundary/FIRST_APPLIED.png",
+          "sha256": "86745dba623a149c1bbe0077b59e7948e9fec39ddbd679bf15febae265bfdd9e",
+          "bytes": 12474,
+          "dimensions": [
+            480,
+            800
+          ],
+          "visually_inspected": true
+        },
+        {
+          "milestone": "FIRST_FINAL",
+          "report_relative_path": "private_cells/D1_E0_boundary/cells/D1_E0_boundary/FIRST_FINAL.png",
+          "sha256": "19efcac526088f349e5cd65e1e93699ecd761ef4546d8d92dcf3872c6a98ac53",
+          "bytes": 13276,
+          "dimensions": [
+            480,
+            800
+          ],
+          "visually_inspected": true
+        },
+        {
+          "milestone": "LATEST",
+          "report_relative_path": "private_cells/D1_E0_boundary/cells/D1_E0_boundary/LATEST.png",
+          "sha256": "dd4a69853e40965ea506dfd011eca03eae365f8caf156634354c8e1ceafede2e",
+          "bytes": 16273,
+          "dimensions": [
+            480,
+            800
+          ],
+          "visually_inspected": true
+        }
+      ],
+      "visual_observations": [
+        "Expected backend and mode label visible",
+        "No orange archive-loss warning in inspected images",
+        "Portrait frame, backend banner, transcript region, live caption region and bottom controls remain visible",
+        "Latest image contains explicitly assumed research-name assignment and Unknown fallback; no verified-name claim"
+      ],
+      "resource_receipt": {
+        "cpu_affinity": [
+          4
+        ],
+        "priority_class": 16384,
+        "threads": 1
+      }
+    }
+  ],
+  "limitations": [
+    "GUI and archive completion do not certify speaker identity or ASR accuracy. The noise-only case produced one caption row; silence produced none.",
+    "Closed research-name assignments are explicitly assumed and unverified. Open-mode output remains Unknown because processed-query C calibration is unavailable.",
+    "First-applied, first-final and latest are captured milestones. A first-final image can still show pending speaker evidence or other provisional rows; the saved presentation receipts are the timing authority.",
+    "Screenshots capture the currently scrolled viewport. Some long outputs and fragments extend outside the active pane and require scrolling; a screenshot is not the complete transcript.",
+    "All sixteen available images were inspected, not every rendered intermediate frame or every interactive control. Silence has only a latest image because no captions were emitted.",
+    "This is one O0 balanced CPU regression panel: five E1 scenes and one matched E0 boundary scene. It is not a full GUI factorial, GPU GUI result or general accuracy benchmark.",
+    "Panel wall time includes process/model loading, source pacing, inference drainage, screenshot work and teardown; it is not model-only realtime factor.",
+    "Physical scanout, touch/input interaction, acoustic arrival, live microphones, device switching, Raspberry Pi operation, total-system 2 GB memory and isolated GPU memory were not measured."
+  ],
+  "privacy": "Only application PrintWindow images on private desktops were inspected. Images, captions, research profile IDs and private source paths remain in private artifacts; this review publishes relative image locators and hashes only.",
+  "physical_scanout": "NOT_MEASURED",
+  "desktop_control_performed": false,
+  "model_execution_performed": false,
+  "bound_python_or_frozen_source_modified": false,
+  "parent_admission": {
+    "filename": "ADMISSION.json",
+    "sha256": "86fce5a54093017761a96fd7a10a184f1e190a01027ac0e7055ab8645a349399",
+    "bytes": 25697
+  }
+}

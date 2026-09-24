@@ -1,5 +1,12 @@
 # N1 code supervisor
 
+The N2 campaign retains this supervisor. Atomic JSON updates now retry only
+Windows replacement denials 5/32/33 for at most two seconds, so a short-lived
+status reader does not kill the owned numerical worker. Persistent/unrelated
+errors still fail, preserving the previous target and staged temporary file.
+No permissions, security settings or ownership locks are changed. The existing
+test commands below include injected transient-denial and fail-closed checks.
+
 Purpose: durable campaign status, ETA, one-writer/worker locks and independent
 background workers. `supervisor.py` uses existing Python/psutil. It does not call
 an LLM, control a desktop, open a microphone or contact the Pi. The exact current

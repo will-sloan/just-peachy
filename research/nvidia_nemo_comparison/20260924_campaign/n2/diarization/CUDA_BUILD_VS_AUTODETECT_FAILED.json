@@ -1,0 +1,62 @@
+{
+  "source_revision": "97a15afa5caa9bce5baaa86c1184103877af4101",
+  "status": "FAILED",
+  "source": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\diarization\\native-cuda-cpu1\\source",
+  "threads": 1,
+  "gpu": true,
+  "compiler_jobs": 2,
+  "cuda_compiler": "C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v12.6\\bin\\nvcc.exe",
+  "cuda_architectures": [
+    86
+  ],
+  "asr_tts_models_loaded": false,
+  "patch": {
+    "path": "src/runtime/ggml/session.cpp",
+    "before_sha256": "ff17a1fcb7f8916feb1f5de04321a18d349a72ec8ba091c4f269ee1e0051d2cc",
+    "after_sha256": "b1d34ec2d1c7a5fbbd4646df460f911f08cea3b2ddaf2a02fe34cc1b6012649d",
+    "old": "ggml_graph_compute_helper_async(sched.get(), cr.gf, 4)",
+    "new": "ggml_graph_compute_helper_async(sched.get(), cr.gf, 1)"
+  },
+  "commands": [
+    {
+      "argv": [
+        "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\bin\\cmake.exe",
+        "-S",
+        "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\diarization\\native-cuda-cpu1\\source",
+        "-B",
+        "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\diarization\\native-cuda-cpu1\\build",
+        "-G",
+        "Visual Studio 17 2022",
+        "-A",
+        "x64",
+        "-DGGML_CUDA=ON",
+        "-DGGML_VULKAN=OFF",
+        "-DGGML_NATIVE=OFF",
+        "-DGGML_OPENMP=OFF",
+        "-DGGML_CPU_KLEIDIAI=OFF",
+        "-DFETCHCONTENT_FULLY_DISCONNECTED=ON",
+        "-DNEMO_SPEECH_GGML_PATCHED=OFF",
+        "-DNEMO_SPEECH_BUILD_TTS=OFF",
+        "-DNEMO_SPEECH_BUILD_NMT=OFF",
+        "-DNEMO_SPEECH_BUILD_S2S=OFF",
+        "-DNEMO_SPEECH_BUILD_MIC_CAPTURE=OFF",
+        "-DNEMO_SPEECH_BUILD_HTTP=OFF",
+        "-DNEMO_SPEECH_BUILD_GRPC=OFF",
+        "-DNEMO_SPEECH_WITH_FLASHLIGHT=OFF",
+        "-DNEMO_SPEECH_WITH_NORM=OFF",
+        "-DNEMO_SPEECH_BUILD_TESTS=OFF",
+        "-DBUILD_TESTING=OFF",
+        "-DNEMO_SPEECH_BUILD_EXAMPLES=OFF",
+        "-DNEMO_SPEECH_BUILD_TOOLS=OFF",
+        "-DSENTENCEPIECE_LIB=G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\build\\sentencepiece\\src\\Release\\sentencepiece.lib",
+        "-DSENTENCEPIECE_INCLUDE_DIR=G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\source\\sentencepiece-17d7580d6407802f85855d2cc9190634e2c95624\\src",
+        "-DCMAKE_CUDA_ARCHITECTURES=86",
+        "-DCMAKE_CUDA_COMPILER=C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v12.6\\bin\\nvcc.exe"
+      ],
+      "elapsed_sec": 9.293745279312134,
+      "returncode": 1,
+      "log": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\diarization\\native-cuda-cpu1\\logs\\0.log",
+      "sha256": "c590befd97df9595c5f054eecf1f692e2d78ea57720a2d5ad9a447da2f2c8fcf"
+    }
+  ]
+}

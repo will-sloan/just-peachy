@@ -40,6 +40,8 @@ class Controller(TranscriptReviewWorkflow,AdaptationWorkflow,SeatWorkflow,Sessio
         self.config=pipeline_config(self.data_root,self.models_root)
         self.models=ResidentModels();self.writer_delay=writer_delay
         self.store=PersonalStore(self.data_root/'people',self.config.asset('redimnet2_b2_fp32').sha256)
+        self._baseline_store=self.store
+        self._n2_components=None
         self.lock=threading.RLock();self.commands=queue.Queue(32)
         self.engine=None;self.consumer=None;self.epoch=0;self.rows=OrderedDict()
         self.source_kind=None;self.file_path=None;self.file_offset=0;self.live_consent=False
@@ -123,7 +125,7 @@ class Controller(TranscriptReviewWorkflow,AdaptationWorkflow,SeatWorkflow,Sessio
     def route(self):
         from .enhancement import identity_binding
         result={'tap':self.tap,'sample_rate':16000,'gain_policy':'O0_host_plus3dB_once' if self.tap=='O0' else 'O1_unity',
-                'preprocessing':PREPROCESSING,'waveform_domain':'xvf_ua',
+                'preprocessing':getattr(self.store,'preprocessing',PREPROCESSING),'waveform_domain':'xvf_ua',
                 'source':'verified_live_or_already_gained_file'}
         result.update(identity_binding(getattr(self,'settings',{}).get('enhancement_route','bypass')))
         return result
@@ -155,6 +157,8 @@ class Controller(TranscriptReviewWorkflow,AdaptationWorkflow,SeatWorkflow,Sessio
     def _start_session(self):
         require_backend(getattr(self,'backend_id',BASELINE_BACKEND_ID),self.mode,self.tap,
                         recorded_spatial=self.source_kind=='live')
+        if getattr(self,'_n2_components',None) and self._n2_components['diarization']=='D1' and self.recipe=='classic':
+            raise ValueError('Classic uses the D0 tracker. Select Balanced or Patient for the Nemotron backend.')
         self._review_cancel('new capture epoch; discard optional review')
         self._retention()
         # Previous failure remains in its journal and terminal metrics. Only
@@ -162,7 +166,7 @@ class Controller(TranscriptReviewWorkflow,AdaptationWorkflow,SeatWorkflow,Sessio
         self.error=None
         self.state='STARTING';self.status='Loading the selected recipe…';self.epoch+=1
         if self.mode in SEAT_MODES and not self.seats.snapshot()['valid']:raise ValueError('Seat layout needs Apply / re-anchor at this location before Start')
-        profile=effective_profile(self.recipe,self.mode,self.tap,getattr(self,'identity_overrides',{}),getattr(getattr(self,'seats',None),'strength','soft'))
+        profile=effective_profile(self.recipe,self.mode,self.tap,self._effective_identity_overrides(),getattr(getattr(self,'seats',None),'strength','soft'))
         gallery=self.store.gallery(self.route(),self.selected_ids if self.mode in SELECTED_MODES else None,
             alternate_advisory=self.settings.get('text_aware_references',False)) if self.mode in NAMED_MODES and self.mode!='assigned_direction' else None
         self._adaptation_start(gallery)
@@ -177,10 +181,15 @@ class Controller(TranscriptReviewWorkflow,AdaptationWorkflow,SeatWorkflow,Sessio
             enabled=self.mode in SPATIAL_PARENTS,
             display=self.settings.get('spatial_visualization', False),
             motion=mounted_array_motion(getattr(self,'imu',None),self.source_kind))
-        engine=PrototypeEngine(self.config,self.models,profile,gallery,self.mode,writer_delay=self.writer_delay,
+        engine_type=PrototypeEngine;engine_args={}
+        if getattr(self,'_n2_components',None):
+            from .n2_pipeline import N2Engine
+            engine_type=N2Engine;engine_args['diarization']=self._n2_components['diarization']
+            engine_args['n2_observer_factory']=getattr(self,'n2_observer_factory',None)
+        engine=engine_type(self.config,self.models,profile,gallery,self.mode,writer_delay=self.writer_delay,
                                ram_horizon_sec=self.settings.get('ram_horizon_sec',120), spatial_provider=spatial,
                                enhancement_route=self.settings.get('enhancement_route','bypass'),
-                               seats=self.seats if self.mode in SEAT_MODES else None,seat_names={p['id']:p['name'] for p in self.store.list()})
+                               seats=self.seats if self.mode in SEAT_MODES else None,seat_names={p['id']:p['name'] for p in self.store.list()},**engine_args)
         self.engine=engine
         engine.mode_configuration=self.mode_configuration(profile,gallery)
         engine.mode_configuration['backend']=backend_manifest(getattr(self,'backend_id',BASELINE_BACKEND_ID))
@@ -353,10 +362,38 @@ class Controller(TranscriptReviewWorkflow,AdaptationWorkflow,SeatWorkflow,Sessio
         self._enqueue('select_backend',backend_id)
 
     def _do_select_backend(self,backend_id):
-        backend_manifest(backend_id)
+        composition=backend_manifest(backend_id)['composition']
         self._ensure_no_enrollment();self._stop_session()
+        # Selections belong to a compatible embedding store. Remember them in
+        # this Controller so visiting an empty alternative cannot erase the
+        # previous store's selected or highlighted people.
+        rosters=getattr(self,'_backend_store_rosters',{})
+        previous=dict(selected_ids=list(self.selected_ids),display_ids=list(self.display_ids))
+        rosters[str(self.store.root.resolve())]=previous
+        components=composition.get('n2')
+        if components:
+            from .n2_models import N2ResidentModels,load_runtime
+            document=load_runtime(self.data_root)
+            document['streaming_profile']=components.get('streaming_profile','low_latency')
+            new_models=N2ResidentModels(components['diarization'],components['embedding'],document)
+            if components['embedding']=='E1':
+                from .n2_people import titanet_store
+                new_store=titanet_store(self.data_root,document['embedding_namespace'])
+            else:new_store=self._baseline_store
+        else:new_models=ResidentModels();new_store=self._baseline_store
+        available={row['id'] for row in new_store.list()}
+        remembered=rosters.get(str(new_store.root.resolve()),previous)
+        missing=(set(remembered['selected_ids'])|set(remembered['display_ids']))-available
+        selected=[identifier for identifier in remembered['selected_ids'] if identifier in available]
+        displayed=[identifier for identifier in remembered['display_ids'] if identifier in available]
+        if backend_id!=getattr(self,'backend_id',None):self._adaptation_backend_changed()
+        if hasattr(self.models,'close'):self.models.close()
+        self.models=new_models;self.store=new_store;self._n2_components=components
+        self._backend_store_rosters=rosters;self.selected_ids=selected;self.display_ids=displayed
+        if not displayed:self.strict=False
         self.backend_id=backend_id
         self.state='IDLE';self.status='Backend selected. Choose Start or a saved file explicitly.'
+        if missing:self.status+=' Selected voice references are unavailable here; re-enroll them for this backend before named use. Full captions remain available.'
 
     def switch(self,mode=None,recipe=None,tap=None,selected_ids=None,strict=None):
         self._enqueue('switch',mode,recipe,tap,selected_ids,strict)
@@ -365,7 +402,7 @@ class Controller(TranscriptReviewWorkflow,AdaptationWorkflow,SeatWorkflow,Sessio
         mode=mode or self.mode;recipe=recipe or self.recipe;tap=tap or self.tap
         if mode not in MODES:raise ValueError('Unknown mode')
         if recipe=='fast' and mode!='caption_only' and recipe==self.recipe:recipe='balanced'
-        profile=effective_profile(recipe,mode,tap,getattr(self,'identity_overrides',{}),getattr(getattr(self,'seats',None),'strength','soft'))
+        profile=effective_profile(recipe,mode,tap,self._effective_identity_overrides(),getattr(getattr(self,'seats',None),'strength','soft'))
         if self.state=='RUNNING' and self.source_kind=='file' and tap!=self.tap:
             raise ValueError('Stop file replay and load the actual other-tap prepared WAV before changing its audio domain.')
         ids=self.selected_ids if selected_ids is None else list(dict.fromkeys(selected_ids))
@@ -401,20 +438,32 @@ class Controller(TranscriptReviewWorkflow,AdaptationWorkflow,SeatWorkflow,Sessio
             if running:self._start_session()
         if not running:self.state='IDLE';self.status='Selection ready. Press Start to listen.'
 
+    def _effective_identity_overrides(self):
+        return {} if getattr(self,'_n2_components',None) else getattr(self,'identity_overrides',{})
+
     def mode_configuration(self,profile=None,gallery=None):
         from dataclasses import asdict
-        profile=profile or effective_profile(self.recipe,self.mode,self.tap,getattr(self,'identity_overrides',{}),getattr(getattr(self,'seats',None),'strength','soft'))
+        profile=profile or effective_profile(self.recipe,self.mode,self.tap,self._effective_identity_overrides(),getattr(getattr(self,'seats',None),'strength','soft'))
         return dict(mode=self.mode,semantics=deepcopy(MODE_METADATA[self.mode]),recipe=self.recipe,tap=self.tap,
             selected_ids=list(self.selected_ids),display_ids=list(getattr(self,'display_ids',[])),gallery=deepcopy(gallery.receipt) if gallery else None,
-            overrides=dict(getattr(self,'identity_overrides',{})),effective_profile=asdict(profile),
+            overrides=dict(self._effective_identity_overrides()),effective_profile=asdict(profile),
+            n2_policy=(dict(anonymous_components=deepcopy(self._n2_components),
+                naming='N2NameMap with model/domain/roster-specific C gate; baseline naming thresholds unused',
+                calibration=deepcopy(getattr(gallery,'calibration',{'status':'UNCALIBRATED'})))
+                if getattr(self,'_n2_components',None) else None),
             seating=self.seating_snapshot() if self.mode in SEAT_MODES else None,
             strict_display=self.strict,highlight_selected=bool(self.settings.get('highlight_selected',False)),
             label_hysteresis_sec=.2,identity_threshold_is_not_UI_hysteresis=True,
-            closed_assignment='Current clean voice cosine winner; missing ownership uses separate assumed selected-name display; no profile adaptation' if self.mode=='selected_closed' else None)
+            closed_assignment=(('N2 supported voice chooses a selected-name assumption; unresolved, missing or mixed evidence stays Unknown; no verified match without a valid C gate; no profile adaptation'
+                if getattr(self,'_n2_components',None) else
+                'Current clean voice cosine winner; missing ownership uses separate assumed selected-name display; no profile adaptation')
+                if self.mode=='selected_closed' else None))
 
     def identity_parameters(self,values=None):self._enqueue('identity_parameters',values)
     def _do_identity_parameters(self,values):
         self._ensure_no_enrollment()
+        if getattr(self,'_n2_components',None) and values:
+            raise ValueError('N2 uses fixed comparison settings and model-specific C calibration. Baseline identity overrides are unavailable for this backend.')
         proposed={} if values is None else validate_overrides(values)
         effective_profile(self.recipe,self.mode,self.tap,proposed)
         previous=getattr(self,'identity_overrides',{});self.identity_overrides=proposed
@@ -1016,4 +1065,5 @@ class Controller(TranscriptReviewWorkflow,AdaptationWorkflow,SeatWorkflow,Sessio
         atomic_json(self.data_root/'last_application.json',{'closed_utc':datetime.now(timezone.utc).isoformat(),
             'metrics':self.metrics,'transitions':self.transitions,'output_defaults':self.output_defaults,
             'microphone_open':False,'private_data_not_in_release':True,'terminal_error':self.error})
+        if hasattr(self.models,'close'):self.models.close()
         self.closed=True;self.state='CLOSED';self.owner.close();self.commands.put_nowait(None)

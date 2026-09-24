@@ -1,0 +1,221 @@
+{
+  "schema": "n2-nominal-d1-profile-decision-v1",
+  "status": "FROZEN_BEFORE_MAIN_FACTORIAL",
+  "created_utc": "2026-09-24T17:32:38.836021+00:00",
+  "decision": {
+    "selected_profile": "low_latency",
+    "input_buffer_seconds": 1.04,
+    "right_context_seconds": 0.32,
+    "applies_to": [
+      "D1_E0",
+      "D1_E1"
+    ],
+    "main_factorial_plan": "96 saved audio cells per combination; four combinations,384 total",
+    "native_full_panel_role": "three-profile sensitivity on identical96 cells per profile",
+    "main_factorial_results_used": false,
+    "cpWER_used_for_profile_selection": false,
+    "naming_thresholds_changed": false
+  },
+  "reason": "Retain the original predeclared1.04-second preference. Full native sensitivity shows mixed small activity differences, complete known-turn coverage in all profiles, and1.31x/2.01x processing wall for shorter buffers. A0.32-second buffer supplies earlier possible native chunks but does not show a consistent quality advantage; it does not establish earlier application captions.",
+  "denominators_per_profile_per_tap": {
+    "runtime_cells": 48,
+    "complete_reference_cells": 42,
+    "incomplete_ambient_cells_excluded_from_full_activity": 6,
+    "empty_controls_included": 1,
+    "zero_collar_reference_speaker_seconds": 330.28,
+    "zero_collar_evaluated_wall_seconds": 1877.208375,
+    "zero_collar_JER_scene_denominator": 41,
+    "collar_250ms_reference_speaker_seconds": {
+      "O0": 71.08,
+      "O1": 71.1
+    },
+    "collar_250ms_excluded_wall_seconds": {
+      "O0": 361.2,
+      "O1": 361.16
+    },
+    "collar_250ms_JER_scene_denominator": 40,
+    "all_known_source_turns": 161,
+    "short_turns": 28,
+    "returns": 59,
+    "all_profiles_resolved_known_source_turns": 161,
+    "all_profiles_resolved_short_turns": 28,
+    "all_profiles_unresolved_returns": 0
+  },
+  "profiles": [
+    {
+      "profile": "low_latency",
+      "completed_cells": 96,
+      "input_buffer_seconds": 1.04,
+      "right_context_seconds": 0.32,
+      "zero_collar_approximate_DER": {
+        "O0": 0.23797989584594886,
+        "O1": 0.32318033183965117
+      },
+      "zero_collar_macro_scene_JER": {
+        "O0": 0.2124345767578148,
+        "O1": 0.21613259068971785
+      },
+      "collar_250ms_approximate_DER": {
+        "O0": 0.03826674169949344,
+        "O1": 0.40618846694796046
+      },
+      "collar_250ms_macro_scene_JER": {
+        "O0": 0.051878856125549,
+        "O1": 0.07689651243860461
+      },
+      "consistent_returns": {
+        "O0": 57.0,
+        "O1": 54.0
+      },
+      "changed_returns": {
+        "O0": 2.0,
+        "O1": 5.0
+      },
+      "empty_control_false_activity_seconds": {
+        "O0": 0.0,
+        "O1": 19.159999999999997
+      },
+      "accelerated_native_wall_RTF": {
+        "O0": 0.03027467442845983,
+        "O1": 0.030327220572943923
+      }
+    },
+    {
+      "profile": "very_low_latency",
+      "completed_cells": 96,
+      "input_buffer_seconds": 0.64,
+      "right_context_seconds": 0.16,
+      "zero_collar_approximate_DER": {
+        "O0": 0.23834322393120985,
+        "O1": 0.31585321545355455
+      },
+      "zero_collar_macro_scene_JER": {
+        "O0": 0.20911027208949118,
+        "O1": 0.21935504561908747
+      },
+      "collar_250ms_approximate_DER": {
+        "O0": 0.04811480022509841,
+        "O1": 0.3620253164556961
+      },
+      "collar_250ms_macro_scene_JER": {
+        "O0": 0.06308071561475899,
+        "O1": 0.08045026099309846
+      },
+      "consistent_returns": {
+        "O0": 57.0,
+        "O1": 55.0
+      },
+      "changed_returns": {
+        "O0": 2.0,
+        "O1": 4.0
+      },
+      "empty_control_false_activity_seconds": {
+        "O0": 0.0,
+        "O1": 16.86
+      },
+      "accelerated_native_wall_RTF": {
+        "O0": 0.039668901607687976,
+        "O1": 0.03959560367132526
+      }
+    },
+    {
+      "profile": "ultra_low_latency",
+      "completed_cells": 96,
+      "input_buffer_seconds": 0.32,
+      "right_context_seconds": 0.08,
+      "zero_collar_approximate_DER": {
+        "O0": 0.24403536393363207,
+        "O1": 0.317124863751968
+      },
+      "zero_collar_macro_scene_JER": {
+        "O0": 0.21401000757117747,
+        "O1": 0.22708027943265346
+      },
+      "collar_250ms_approximate_DER": {
+        "O0": 0.06359032076533463,
+        "O1": 0.3654008438818567
+      },
+      "collar_250ms_macro_scene_JER": {
+        "O0": 0.06641782072742027,
+        "O1": 0.08671794626246768
+      },
+      "consistent_returns": {
+        "O0": 55.0,
+        "O1": 55.0
+      },
+      "changed_returns": {
+        "O0": 4.0,
+        "O1": 4.0
+      },
+      "empty_control_false_activity_seconds": {
+        "O0": 0.0,
+        "O1": 16.42000000000001
+      },
+      "accelerated_native_wall_RTF": {
+        "O0": 0.06077932567688354,
+        "O1": 0.06100382085978832
+      }
+    }
+  ],
+  "shorter_profile_processing_wall_ratio_vs_low": [
+    {
+      "profile": "very_low_latency",
+      "baseline_profile": "low_latency",
+      "tap": "O0",
+      "matched_cells": 48,
+      "expected_cells": 48,
+      "accelerated_wall_ratio": 1.3102998581017626,
+      "primary_approximate_DER_difference": 0.0003633280852609888,
+      "scope": "same-device, same-source matched saved cells; runtime ratio excludes model load and is not integrated caption latency"
+    },
+    {
+      "profile": "very_low_latency",
+      "baseline_profile": "low_latency",
+      "tap": "O1",
+      "matched_cells": 48,
+      "expected_cells": 48,
+      "accelerated_wall_ratio": 1.3056126780919057,
+      "primary_approximate_DER_difference": -0.0073271163860966215,
+      "scope": "same-device, same-source matched saved cells; runtime ratio excludes model load and is not integrated caption latency"
+    },
+    {
+      "profile": "ultra_low_latency",
+      "baseline_profile": "low_latency",
+      "tap": "O0",
+      "matched_cells": 48,
+      "expected_cells": 48,
+      "accelerated_wall_ratio": 2.0075963432904067,
+      "primary_approximate_DER_difference": 0.006055468087683202,
+      "scope": "same-device, same-source matched saved cells; runtime ratio excludes model load and is not integrated caption latency"
+    },
+    {
+      "profile": "ultra_low_latency",
+      "baseline_profile": "low_latency",
+      "tap": "O1",
+      "matched_cells": 48,
+      "expected_cells": 48,
+      "accelerated_wall_ratio": 2.011520334118985,
+      "primary_approximate_DER_difference": -0.006055468087683147,
+      "scope": "same-device, same-source matched saved cells; runtime ratio excludes model load and is not integrated caption latency"
+    }
+  ],
+  "qualifications": [
+    "Activity uses estimated20ms references and fixed0.5 native activity; neither collar variant is phonetic DER/JER or published-benchmark comparable.",
+    "The250ms collar retains only about21.52% of reference speaker-time and cannot replace zero-collar primary.",
+    "The O1 noise control has19.16/16.86/16.42 seconds of false native activity for low/very-low/ultra; all remain failures. N1 one inserted ASR word per tap is a separate baseline failure.",
+    "Pure native CUDA processing omits ASR, embeddings, identity and GUI work; model loading is amortized. Profile buffer duration is not measured caption latency.",
+    "Selection is for the desktop research factorial. CPU/CUDA native execution is demonstrated; CM5/Pi portability, total2GB suitability and isolated GPU-memory qualification remain unresolved.",
+    "Eight fixed slots have no recycling. These scenes did not saturate all eight; this is not an overflow-capability claim.",
+    "Known-turn mapping is a coarse evaluator diagnostic. No embedding evidence, names or cpWER are used by the native panel.",
+    "The prior coordinator I/O incident and195-cell snapshot are preserved; all288 numerical cells completed after unchanged-cache recovery."
+  ],
+  "bindings": {
+    "original_protocol_sha256": "1d9eb58d132b1b6e1d551fa9792317122748d6f58f9497dab46904bec7bcd188",
+    "collar_amendment_sha256": "c7e647682a6f50639ffc9bb4a298d9ce58ae4e168b8c92cfeb1a8d921c2beb43",
+    "native_full_summary_sha256": "bcf38177d0e4c622d07c58eb63386ffc32c7797add32c008fc29147422107452",
+    "native_model_sha256": "08456d9e22cd9a323c0364d98375f3746d6e68507ebb705cd46438c534c7a3a1",
+    "native_library_sha256": "2556f8dbf7a7a847bc367207741060e2a0b09931b51d1e3d63ccc3cedd336eae"
+  },
+  "immutability": "Do not overwrite this version. Any later change requires a new version with an explicit supersedes binding and reason; retain this decision and native receipts.",
+  "decision_payload_sha256": "c48904fd017b186645faab5d8070812dd4e45abf4c66fb466c96d5b027999383"
+}
