@@ -39,6 +39,14 @@ class Streaming(Sized):
                 ('ctc_left_padding', C.c_float), ('ctc_right_padding', C.c_float),
                 ('rnnt_right_context', C.c_int32)]
 
+    def __init__(self, **kwargs):
+        # Match StreamingConfig in pinned src/asr/runner.h. The recognizer
+        # validates CTC geometry even when the selected model uses RNNT.
+        values = dict(chunk_size=0.16, ctc_left_padding=1.92,
+                      ctc_right_padding=1.92, rnnt_right_context=1)
+        values.update(kwargs)
+        super().__init__(**values)
+
 
 class Endpointing(Sized):
     _fields_ = [('size', C.c_size_t), ('enable', C.c_bool), ('vad_based', C.c_bool),

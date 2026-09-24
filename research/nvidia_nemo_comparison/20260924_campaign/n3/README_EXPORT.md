@@ -7,6 +7,14 @@ Inputs: pinned A1 `.nemo` and a fresh output directory. Outputs: ONNX artifacts,
 full error evidence if blocked, and `EXPORT_RESULT.json`. A failed export is not
 an accuracy result and must not cause substitution with offline Parakeet TDT.
 
+The pinned encoder advertises an optional `bypass_pre_encode` export port that
+is absent from its five-argument `forward_for_export` and five-tensor example.
+NeMo's trace checker maps inputs backwards and consequently omitted audio.
+The exporter now excludes that port on this encoder instance only, after
+checking the exact signature and port inventory. It keeps `check_trace=True`,
+ONNX validation and every dynamic recurrent parity test. The pinned vendor
+source and neural computation are unchanged. Prior failures remain preserved.
+
 The exporter tests encoder batches 1 and 2 and variable feature-window widths
 through three carried-cache steps against FP32 NeMo. Every cache/output is
 compared, with integer outputs exact and float tolerances 2e-4. This by itself is

@@ -7,6 +7,9 @@ numerical work must respect the campaign's two CPU cores and sole GPU owner.
 N2's running source, admission files and helpers remain immutable.
 
 Status: IN_PROGRESS. No N3 comparison results or target performance are claimed.
+The v3 queue has finished with valid A0/A1 screen/regression/paced evidence,
+but failed native initialization and A1 export checks prevent acceptance.
+See README_REUSE.md for the bounded v4 recovery and its provenance rules.
 Pi is powered off throughout. Use saved hash-bound audio only. Do not open a
 microphone, enumerate input devices, play audio or change desktop focus.
 

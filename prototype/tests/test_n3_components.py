@@ -4,16 +4,35 @@ from pathlib import Path
 from types import SimpleNamespace
 import unittest
 import sys
+from unittest.mock import patch
 import numpy as np
 
 sys.path[:0]=[str(Path(__file__).resolve().parents[1]),str(Path(__file__).resolve().parents[1]/'vendor')]
 
 from prototype.app.n3_text import TextLayers
 from prototype.app.n3_pipeline import StreamingASRLane
-from edge_speech_pipeline.n3_asr_native import NativeStream,Options,Config,validate_binding
+from edge_speech_pipeline.n3_asr_native import NativeRecognizer,NativeStream,Options,Config,validate_binding
 
 
 class NativeProtocolTests(unittest.TestCase):
+    def test_recognizer_passes_valid_geometry_for_each_rnnt_context(self):
+        def create(config_pointer, handle_pointer):
+            stream = config_pointer._obj.streaming.contents
+            # This mirrors the real native pre-model validation that rejected
+            # all A2/A3 smoke jobs when the ctypes fields defaulted to zero.
+            self.assertGreater(stream.chunk_size, 0)
+            self.assertGreaterEqual(stream.ctc_left_padding, 0)
+            self.assertGreaterEqual(stream.ctc_right_padding, 0)
+            self.assertEqual(stream.rnnt_right_context, right)
+            return 0
+        library = SimpleNamespace(nemo_speech_asr_create=create)
+        for right in (0, 1, 6, 13):
+            with patch('edge_speech_pipeline.n3_asr_native.validate_binding', return_value=Path(__file__)), \
+                 patch('edge_speech_pipeline.n3_asr_native.C.CDLL', return_value=library), \
+                 patch.object(NativeRecognizer, '_bind'):
+                owner = NativeRecognizer(dict(gpu=-1, model_path='not-loaded.gguf', variant='A2', right_context=right))
+                owner.close()
+
     def test_c_abi_sizes_on_64_bit_host(self):
         self.assertEqual(C.sizeof(C.c_void_p),8)
         self.assertEqual(C.sizeof(Config),80)

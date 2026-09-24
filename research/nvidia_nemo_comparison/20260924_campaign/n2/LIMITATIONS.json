@@ -1,6 +1,6 @@
 {
   "schema": "n2-limitations-v1",
-  "stage_status": "IN_PROGRESS",
+  "stage_status": "COMPLETE_WITH_DECLARED_LIMITATIONS",
   "unavailable": [
     "Exact phonetic activity/word timestamps; estimated20ms activity and coarse caption intervals are explicitly qualified.",
     "tcpWER with exact word-time truth; cpWER uses complete lexical reference scenes and retains Unknown.",
@@ -22,15 +22,17 @@
     "Native screen coordinator Windows progress replacement denial after195 cells; original failure retained and remaining93 resumed with unchanged numerical admission.",
     "Earlier GUI gallery admission and archive-index integration failures; corrected and regression-tested.",
     "Native Tcl assertion in a multi-root GUI/test process; superseded by 46 successful isolated test modules and six successful isolated actual GUI cells, with earlier failed evidence preserved.",
-    "The v6 full run hit a valid caption record above the old 128KiB archive guard; old failed/interrupted evidence remains. V7 fixes the bounded record admission and passes the exact scene, but its full comparison is still in progress."
+    "The v6 full run hit a valid caption record above the old 128KiB archive guard; failed/interrupted evidence remains. V7 preserves the existing 4MiB queue bound and passed the repaired scene and complete 422-cell run."
   ],
   "intentionally_disabled": [
     "N2 session adaptation/reference-bank collection and promotion.",
     "Unconfigured spatial/hardware capabilities and absent matching recorded telemetry.",
     "Live input/enrollment and audio playback during this saved-audio campaign."
   ],
-  "pending_acceptance": [
-    "All 384 main Controller and 32 supplemental cells on v7.",
-    "Final interpretation/metrics, final report backup and analysis-only handoff ZIP."
+  "pending_acceptance": [],
+  "deferred_to_N4": [
+    "Full 240-scene paired-bank comparison",
+    "Candidate-isolated resource measurements",
+    "D0 full activity observability and C-only association calibration"
   ]
 }

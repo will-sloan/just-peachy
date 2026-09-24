@@ -70,6 +70,7 @@ def freeze(release):
 
 def main():
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--version',required=True)
+    p.add_argument('--reuse-from',type=Path,help='Reuse unchanged completed A0/reference evidence from a terminal plan')
     args=p.parse_args()
     if not args.version.isalnum():raise ValueError('Simple alphanumeric version required')
     release=LOCAL/'releases'/('n3-common-'+args.version)
@@ -164,6 +165,10 @@ def main():
     add('text-comparison',text,output/'text/TEXT_COMPARISON.json',timeout=7200)
     add('route-comparison',[PYTHON,'-B',HERE/'compare_routes.py','--root',output,'--output',output/'routes'],
         output/'routes/ROUTE_COMPARISON.json',status=['COMPLETE','PARTIAL'],timeout=1800)
+    reuse_bindings=[]
+    if args.reuse_from:
+        from reuse_results import prepare as prepare_reuse
+        reuse_bindings=prepare_reuse(args.reuse_from,jobs,prototype,PRIVATE/('reuse-'+args.version+'.json'),PYTHON)
     worker=PRIVATE/('worker-'+args.version+'.json');plan=PRIVATE/('plan-'+args.version+'.json')
     save(worker,dict(argv=[str(PYTHON),'-B',str(HERE/'supervise_n3.py'),'run','--plan',str(plan)],cwd=str(WORKTREE)))
     paths={PYTHON,NEMO_PY,worker,release/'SOURCE_RECEIPT.json',screen,regression,panel,truth,PRIVATE/'itn/export/itn_subset.json'}
@@ -182,6 +187,12 @@ def main():
         n2=dict(numerical_result=str(n2dir/'RESULT.json'),chain_result=str(n2dir/'CHAIN_RESULT.json'),
             numerical_contract=load(n2dir/'RESULT.json')['contract_sha256'],chain_contract=load(n2dir/'CHAIN_RESULT.json')['contract_sha256']),
         jobs=jobs,bindings=[bound(p) for p in sorted(paths)])
+    indexed={row['path']:row for row in document['bindings']}
+    for row in reuse_bindings:
+        if row['path'] in indexed and indexed[row['path']]['sha256']!=row['sha256']:
+            raise ValueError('Conflicting current and reused source binding')
+        indexed[row['path']]=row
+    document['bindings']=list(indexed.values())
     save(plan,document)
     print(json.dumps(dict(status='PREPARED_NOT_STARTED',plan=str(plan),plan_sha256=sha(plan),jobs=len(jobs),source_receipt=str(release/'SOURCE_RECEIPT.json'))))
 

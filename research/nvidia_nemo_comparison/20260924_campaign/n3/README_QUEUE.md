@@ -1,5 +1,13 @@
 # Prepare and supervise N3
 
+V3 has now completed its 32-job attempt: 15 jobs completed, three failed, and
+14 were skipped through failed dependencies. A0/A1 inference and the FP32
+reference panels remain valid evidence. V4 repairs native C-ABI geometry and
+the A1 export input inventory; see README_REUSE.md for fresh recovery commands.
+Eleven unchanged jobs are imported with explicit reuse receipts, not rerun or
+represented as newly measured. Actual source, native/export and aggregate
+checks run again. No existing output directory is overwritten.
+
 N5 continuation found that v2's initial source check failed before neural work:
 the N3 addition selector had admitted `app/__pycache__/n3_models.cpython-311.pyc`.
 Mutable bytecode is now excluded both from inherited names and additions. A

@@ -49,13 +49,13 @@
   "evaluation/SCREEN_SMOKE_READINESS_REVIEW_V1.md",
   "evaluation/native_profiles/NATIVE_PROFILE_SUMMARY.json",
   "evaluation/native_profiles/NATIVE_PROFILE_SUMMARY.md",
-  "evaluation/SCREEN_SUMMARY.json",
   "evaluation/SCREEN_SUMMARY.md",
-  "evaluation/REGRESSION_SUMMARY.json",
   "evaluation/REGRESSION_SUMMARY.md",
   "evaluation/FINAL_CHECKS.json",
   "evaluation/FINAL_CHECKS.md",
   "gui/README.md",
   "ARCHIVE_LIMIT_FAILURE_V1.json",
-  "ARCHIVE_REPAIR_RECEIPT.json"
+  "ARCHIVE_REPAIR_RECEIPT.json",
+  "FINAL_REVIEW.json",
+  "FINAL_REVIEW.md"
 ]

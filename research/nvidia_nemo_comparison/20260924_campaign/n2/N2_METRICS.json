@@ -1,7 +1,7 @@
 {
   "schema": "n2-stage-metrics-v1",
-  "status": "IN_PROGRESS",
-  "updated_utc": "2026-09-24T18:40:20.284048+00:00",
+  "status": "COMPLETE",
+  "updated_utc": "2026-09-24T23:28:47.285272+00:00",
   "source_release": "n2-common-v7",
   "runtime_sha256": "774ad5254c52a7e7644ae815140130d124c3f036517061179c8a5ef4399679ec",
   "common_ui_sha256": "54c0283b8058978eca87dc9b0461a15addf804200856e41d2c83b55bff590456",
@@ -28,7 +28,11 @@
       "prior_v6_GUI_cells": 6,
       "prior_v6_GUI_images_reviewed": 16,
       "v7_GUI_cells": 6,
-      "v7_GUI_images_reviewed": 16
+      "v7_GUI_images_reviewed": 16,
+      "full_screen_cells": 384,
+      "full_regression_cells": 32,
+      "full_GUI_cells": 6,
+      "total_final_run_cells": 422
     },
     "FAILED_RETAINED": [
       "V6 actual archive integrity failure",
@@ -36,41 +40,41 @@
     ],
     "NOT_TESTED": [
       "Physical Pi/hardware",
-      "Total-system 2GB qualification",
-      "Complete v7 screen acceptance"
+      "Total-system 2GB qualification"
     ]
   },
   "full_run": {
-    "status": "RUNNING",
-    "completed_snapshot": 28,
+    "status": "COMPLETE",
+    "completed_snapshot": 422,
     "total": 422,
     "main_expected": 384,
     "regression_expected": 32,
     "GUI_expected": 6,
     "errors_snapshot": [],
-    "snapshot_utc": "2026-09-24T18:40:20.284048+00:00",
+    "snapshot_utc": "2026-09-24T23:28:47.285272+00:00",
     "result_path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\numerical-v2\\RESULT.json",
-    "chain_path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\numerical-v2\\CHAIN_RESULT.json"
+    "chain_path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\numerical-v2\\CHAIN_RESULT.json",
+    "final_checks": "PASS"
   },
   "nominal_D1_profile": "low_latency",
-  "integrated_candidate_selection": "PENDING_FULL_MATCHED_RESULTS",
-  "github_backup": "VERIFIED",
+  "integrated_candidate_selection": "Retain baseline and nominal D1/E0 for N4; E1 remains a controlled comparator, no verified open-naming or CM5 deployment claim",
+  "github_backup": "PENDING_FINAL_REPORT_PUSH",
   "evidence": {
     "N2_HANDOFF.md": {
-      "sha256": "4e53d9efbf0507f63d15b0b9604c60713f3ddae631a2a447b9b0954a1728d87e",
-      "bytes": 6634
+      "sha256": "99c01eb8aefa89b5e95d7f4f9aa146e56bb5c77f0f49500bba9b066ab4cb3907",
+      "bytes": 5203
     },
     "LIMITATIONS.json": {
-      "sha256": "58f9cd8bedeb0004e9e9f63940b4ea5e8fdb02772ece6c0ca9d5c5b716d3107f",
-      "bytes": 2616
+      "sha256": "ec55b9a465ef1dbe12e5a307c43821c4410da2e6a9cb93b5913e66c927fe1c05",
+      "bytes": 2625
     },
     "WORKBOOK_UPDATE.md": {
-      "sha256": "e86c9b298636731da026e282fe03887d8162eed694f03d411b2c96861331eebf",
-      "bytes": 2572
+      "sha256": "fd182a2192968cd03d5fbc411b975e4868342c32e6683e8dfd8a580753e96b88",
+      "bytes": 2371
     },
     "README.md": {
-      "sha256": "14cddb8f81cfaf2ec4dfafd04a66dcb0b091e95c0a09168e37e19bb8e1ea9629",
-      "bytes": 12596
+      "sha256": "03c5dcf96f19aed6e01f5d8690ed94db011d38ab4ae144443b5c8846b8661f37",
+      "bytes": 12829
     },
     "README_CHECK_SUITE.md": {
       "sha256": "3eb573bbce5baeab5f4789e3bdc27956484d6b97b88d9381930a67608e206d60",
@@ -252,6 +256,22 @@
       "sha256": "ee69f7ec82adcdb255ee9fd3b1be1092fbf5e125dd5e5c37a468b775e2b33e8e",
       "bytes": 2757
     },
+    "evaluation/SCREEN_SUMMARY.md": {
+      "sha256": "91f9c47dae142852bf1e163c18c557643c38e07582495f30e8df79b1d6d3c9bc",
+      "bytes": 1289
+    },
+    "evaluation/REGRESSION_SUMMARY.md": {
+      "sha256": "5c8e278ae45084891a0e721da0a82426d61f1fd690d1a425930821b6ef6c8db8",
+      "bytes": 1278
+    },
+    "evaluation/FINAL_CHECKS.json": {
+      "sha256": "9ab2aa3722158db4326f04475c90672dbbc6401bd9f062a1f83bdd2d2e77ddd8",
+      "bytes": 5830
+    },
+    "evaluation/FINAL_CHECKS.md": {
+      "sha256": "9ab64a05c922cc20af35b0375162913dad4e8ba20e59631c2a76b3975aa3b50d",
+      "bytes": 755
+    },
     "gui/README.md": {
       "sha256": "fdfeb21c855ffedd2df3742a73acd2574bd31d71163043336c626c5bb1ff5d58",
       "bytes": 14162
@@ -263,9 +283,18 @@
     "ARCHIVE_REPAIR_RECEIPT.json": {
       "sha256": "ac54a81822b9cefb7de9182a007d9d34f0f65b2a359e7471f3989c0e70b4c94f",
       "bytes": 5338
+    },
+    "FINAL_REVIEW.json": {
+      "sha256": "3648e2c548674a2efd0ce948a73c6a1acd16ce6866fe367d78e28747bdb95fab",
+      "bytes": 129309
+    },
+    "FINAL_REVIEW.md": {
+      "sha256": "e809c5b5da7ca8d3f71279ef777634b7968ac35646de73c40a15b5858ab4987a",
+      "bytes": 2709
     }
   },
   "final_package_created": false,
   "github_source_commit": "9924e687af76e218b17124ffa4ce04ddcfdec293",
-  "github_source_tag": "n2-integration-20260924-rc2"
+  "github_source_tag": "n2-integration-20260924-rc2",
+  "acceptance_review": "FINAL_REVIEW.json"
 }

@@ -23,6 +23,10 @@ Use a fresh process to switch native CPU/CUDA library directories on Windows.
 
 Nominal configuration: right context 1 (160 ms model context); lower-buffer
 contrast 0 (80 ms). These are buffering settings, not measured live latency.
+The C ABI structure also sets the pinned library's CTC defaults (0.16-second
+chunk, 1.92-second left/right padding). The native constructor validates these
+fields even for RNNT; zero-initializing them incorrectly prevented model loading
+in numerical-v3. RNNT buffering remains controlled by the explicit right context.
 CPU portability does not establish ARM64 operation or a 2-GB system fit.
 
 From the campaign worktree, import-only syntax verification (loads no weights):
@@ -30,13 +34,13 @@ From the campaign worktree, import-only syntax verification (loads no weights):
 PowerShell:
 
 ```powershell
-& 'C:\Users\amiri\Documents\GitHub\just-peachy\.edge-speech-env\python.exe' -m py_compile prototype/vendor/edge_speech_pipeline/n3_asr_native.py
+& 'C:\Users\amiri\Documents\GitHub\just-peachy\.edge-speech-env\python.exe' -B -m unittest prototype.tests.test_n3_components
 ```
 
 CMD or Anaconda Prompt:
 
 ```bat
-"C:\Users\amiri\Documents\GitHub\just-peachy\.edge-speech-env\python.exe" -m py_compile prototype/vendor/edge_speech_pipeline/n3_asr_native.py
+"C:\Users\amiri\Documents\GitHub\just-peachy\.edge-speech-env\python.exe" -B -m unittest prototype.tests.test_n3_components
 ```
 
 Actual saved-audio commands and run receipts are maintained in the campaign N3

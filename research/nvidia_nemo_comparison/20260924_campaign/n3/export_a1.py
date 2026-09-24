@@ -8,12 +8,31 @@ import os
 from pathlib import Path
 import sys
 import traceback
+import inspect
 
 for key in ('OMP_NUM_THREADS','MKL_NUM_THREADS','OPENBLAS_NUM_THREADS'):os.environ[key]='1'
 
 
 def sha(path):
     with Path(path).open('rb') as stream:return hashlib.file_digest(stream,'sha256').hexdigest()
+
+
+def configure_encoder_export(encoder):
+    """Remove an optional port absent from the pinned export forward signature."""
+    expected = ['audio_signal', 'length', 'cache_last_channel', 'cache_last_time', 'cache_last_channel_len']
+    if list(inspect.signature(encoder.forward_for_export).parameters) != expected:
+        raise ValueError('Unexpected encoder export signature; review the pinned source')
+    if set(encoder.input_names) != set(expected + ['bypass_pre_encode']):
+        raise ValueError('Unexpected encoder export ports; do not silently filter inputs')
+    class EncoderExportPorts(type(encoder)):
+        @property
+        def disabled_deployment_input_names(self):
+            return set(super().disabled_deployment_input_names) | {'bypass_pre_encode'}
+    encoder.__class__ = EncoderExportPorts
+    if encoder.input_names != expected:
+        raise ValueError('Encoder input order differs from export forward')
+    return dict(excluded_port='bypass_pre_encode', reason='absent from forward_for_export and input_example',
+                scope='export instance metadata only; pinned NeMo source and model math unchanged')
 
 
 def main():
@@ -47,6 +66,7 @@ def main():
         model=EncDecRNNTBPEModel.restore_from(str(args.model),map_location=torch.device('cpu')).eval()
         model.encoder.set_default_att_context_size([70,1])
         model.set_export_config({'cache_support':True})
+        result['export_metadata_repair'] = configure_encoder_export(model.encoder)
         model.export(str(args.output/'a1.onnx'),onnx_opset_version=17,check_trace=True)
         graphs=list(args.output.glob('*.onnx'))
         if len(graphs)!=2:raise RuntimeError('Expected separate streaming encoder and decoder/joint graphs')

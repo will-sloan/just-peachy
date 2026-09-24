@@ -1,3 +1,11 @@
+# Final N2 status
+
+N2 offline integration/evidence review is COMPLETE: 422/422 evaluations and
+final checks pass. See N2_HANDOFF.md and FINAL_REVIEW.md for acceptance, measured
+quality limitations and the N4 disposition. This README retains historical
+implementation/run instructions below; any pending-state statements there are
+superseded by those final receipts. Do not rerun completed unchanged jobs.
+
 # N2: actual streaming diarization and model-specific speaker embeddings
 
 This folder contains the second campaign stage. `diarization/` builds and
