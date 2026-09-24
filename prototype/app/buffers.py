@@ -12,7 +12,7 @@ class AudioGap(RuntimeError):
 
 class MemoryJournal:
     """Shared 120-second audio ring. A late reader fails explicitly, never skips."""
-    def __init__(self, path=None, sample_rate=16000, reserve_sec=120):
+    def __init__(self, path=None, sample_rate=16000, reserve_sec=120, observer=None):
         self.path = Path(path) if path else None
         self.sample_rate = sample_rate
         self.capacity = round(sample_rate*reserve_sec)
@@ -23,12 +23,14 @@ class MemoryJournal:
         self.fatal_error = None
         self.max_append_ms = 0.
         self.overrun_reads = 0
+        self.observer = observer
 
     def append(self, samples):
         samples = np.asarray(samples, dtype=np.float32).reshape(-1)
         if len(samples) > self.capacity or not np.isfinite(samples).all():
             raise AudioGap('Invalid block or block exceeds audio reserve')
         started = time.perf_counter()
+        start_sample = self.committed_samples
         with self._condition:
             if self.finished:
                 raise AudioGap('Audio arrived after source closure')
@@ -39,6 +41,9 @@ class MemoryJournal:
             self.committed_samples += len(samples)
             self._condition.notify_all()
         self.max_append_ms = max(self.max_append_ms, (time.perf_counter()-started)*1000)
+        # Prototype source-consumer hook, never the native audio callback.
+        # The observer owns its bounded nonthrowing archival failure policy.
+        if self.observer is not None:self.observer(start_sample,samples)
 
     def read(self, cursor, maximum_samples, *, wait_sec=.25):
         with self._condition:

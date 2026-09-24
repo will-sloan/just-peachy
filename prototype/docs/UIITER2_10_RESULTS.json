@@ -1,0 +1,1068 @@
+{
+  "schema": "just-peachy.task10.results.v1",
+  "status": "PASS_BOUNDED_FUNCTIONAL_MIXED_ACCURACY",
+  "scope": "12 fixed cases, four routes with known+outsider queries, one existing post-XVF application run; no statistical gain claim",
+  "cases": [
+    {
+      "case": "clean",
+      "seconds": 4.0850625,
+      "branches": {
+        "input": {
+          "edits": {
+            "reference_words": 10,
+            "hypothesis_words": 10,
+            "S": 1,
+            "D": 0,
+            "I": 0,
+            "WER": 0.1,
+            "false_words": null,
+            "normalization": "casefold, word/apostrophe tokens; punctuation ignored"
+          },
+          "usable_sec": 4.0,
+          "can_save_reference": true,
+          "voice_scores": {
+            "awb": 0.6996653079986572,
+            "bdl": 0.14210350811481476
+          },
+          "reference_domain": "input"
+        },
+        "enhanced": {
+          "edits": {
+            "reference_words": 10,
+            "hypothesis_words": 10,
+            "S": 1,
+            "D": 0,
+            "I": 0,
+            "WER": 0.1,
+            "false_words": null,
+            "normalization": "casefold, word/apostrophe tokens; punctuation ignored"
+          },
+          "usable_sec": 4.0,
+          "can_save_reference": true,
+          "voice_scores": {
+            "awb": 0.7860281467437744,
+            "bdl": 0.2241886705160141
+          },
+          "reference_domain": "enhanced"
+        }
+      },
+      "enhancer": {
+        "input_samples": 65361,
+        "output_samples": 65361,
+        "flush_samples": 241,
+        "compute_sec": 0.28889440069906414,
+        "max_call_sec": 0.002071900002192706,
+        "wall_sec": 0.2980882999836467,
+        "first_output": {
+          "source_received": 320,
+          "output_end": 160,
+          "wall_sec": 0.0013595999917015433
+        },
+        "buffering_samples": 160
+      }
+    },
+    {
+      "case": "quiet_minus20dB",
+      "seconds": 4.0850625,
+      "branches": {
+        "input": {
+          "edits": {
+            "reference_words": 10,
+            "hypothesis_words": 7,
+            "S": 1,
+            "D": 3,
+            "I": 0,
+            "WER": 0.4,
+            "false_words": null,
+            "normalization": "casefold, word/apostrophe tokens; punctuation ignored"
+          },
+          "usable_sec": 4.0,
+          "can_save_reference": true,
+          "voice_scores": {
+            "awb": 0.6996653079986572,
+            "bdl": 0.1421033889055252
+          },
+          "reference_domain": "input"
+        },
+        "enhanced": {
+          "edits": {
+            "reference_words": 10,
+            "hypothesis_words": 8,
+            "S": 0,
+            "D": 2,
+            "I": 0,
+            "WER": 0.2,
+            "false_words": null,
+            "normalization": "casefold, word/apostrophe tokens; punctuation ignored"
+          },
+          "usable_sec": 4.0,
+          "can_save_reference": true,
+          "voice_scores": {
+            "awb": 0.7942938804626465,
+            "bdl": 0.23365533351898193
+          },
+          "reference_domain": "enhanced"
+        }
+      },
+      "enhancer": {
+        "input_samples": 65361,
+        "output_samples": 65361,
+        "flush_samples": 241,
+        "compute_sec": 0.2962238998734392,
+        "max_call_sec": 0.0025946000241674483,
+        "wall_sec": 0.30551989999366924,
+        "first_output": {
+          "source_received": 320,
+          "output_end": 160,
+          "wall_sec": 0.002655099960975349
+        },
+        "buffering_samples": 160
+      }
+    },
+    {
+      "case": "stationary_0dB_SNR",
+      "seconds": 4.0850625,
+      "branches": {
+        "input": {
+          "edits": {
+            "reference_words": 10,
+            "hypothesis_words": 11,
+            "S": 2,
+            "D": 0,
+            "I": 1,
+            "WER": 0.3,
+            "false_words": null,
+            "normalization": "casefold, word/apostrophe tokens; punctuation ignored"
+          },
+          "usable_sec": 4.0,
+          "can_save_reference": true,
+          "voice_scores": {
+            "awb": 0.5644233226776123,
+            "bdl": 0.12277022749185562
+          },
+          "reference_domain": "input"
+        },
+        "enhanced": {
+          "edits": {
+            "reference_words": 10,
+            "hypothesis_words": 11,
+            "S": 4,
+            "D": 0,
+            "I": 1,
+            "WER": 0.5,
+            "false_words": null,
+            "normalization": "casefold, word/apostrophe tokens; punctuation ignored"
+          },
+          "usable_sec": 4.0,
+          "can_save_reference": true,
+          "voice_scores": {
+            "awb": 0.5622100234031677,
+            "bdl": 0.053332891315221786
+          },
+          "reference_domain": "enhanced"
+        }
+      },
+      "enhancer": {
+        "input_samples": 65361,
+        "output_samples": 65361,
+        "flush_samples": 241,
+        "compute_sec": 0.3013538001687266,
+        "max_call_sec": 0.002563500020187348,
+        "wall_sec": 0.31070989998988807,
+        "first_output": {
+          "source_received": 320,
+          "output_end": 160,
+          "wall_sec": 0.0026262999745085835
+        },
+        "buffering_samples": 160
+      }
+    },
+    {
+      "case": "transient_click",
+      "seconds": 4.0850625,
+      "branches": {
+        "input": {
+          "edits": {
+            "reference_words": 10,
+            "hypothesis_words": 10,
+            "S": 1,
+            "D": 0,
+            "I": 0,
+            "WER": 0.1,
+            "false_words": null,
+            "normalization": "casefold, word/apostrophe tokens; punctuation ignored"
+          },
+          "usable_sec": 4.0,
+          "can_save_reference": true,
+          "voice_scores": {
+            "awb": 0.6980466842651367,
+            "bdl": 0.13994133472442627
+          },
+          "reference_domain": "input"
+        },
+        "enhanced": {
+          "edits": {
+            "reference_words": 10,
+            "hypothesis_words": 10,
+            "S": 1,
+            "D": 0,
+            "I": 0,
+            "WER": 0.1,
+            "false_words": null,
+            "normalization": "casefold, word/apostrophe tokens; punctuation ignored"
+          },
+          "usable_sec": 4.0,
+          "can_save_reference": true,
+          "voice_scores": {
+            "awb": 0.7848387360572815,
+            "bdl": 0.22430408000946045
+          },
+          "reference_domain": "enhanced"
+        }
+      },
+      "enhancer": {
+        "input_samples": 65361,
+        "output_samples": 65361,
+        "flush_samples": 241,
+        "compute_sec": 0.29761069995583966,
+        "max_call_sec": 0.0025831999955698848,
+        "wall_sec": 0.3067884999909438,
+        "first_output": {
+          "source_received": 320,
+          "output_end": 160,
+          "wall_sec": 0.0026452000020071864
+        },
+        "buffering_samples": 160
+      }
+    },
+    {
+      "case": "overlap_equal_gain",
+      "seconds": 4.0850625,
+      "branches": {
+        "input": {
+          "edits": null,
+          "usable_sec": 0.0,
+          "can_save_reference": false,
+          "voice_scores": {
+            "awb": null,
+            "bdl": null
+          },
+          "reference_domain": "input"
+        },
+        "enhanced": {
+          "edits": null,
+          "usable_sec": 2.0,
+          "can_save_reference": true,
+          "voice_scores": {
+            "awb": 0.5611790418624878,
+            "bdl": 0.3919540047645569
+          },
+          "reference_domain": "enhanced"
+        }
+      },
+      "enhancer": {
+        "input_samples": 65361,
+        "output_samples": 65361,
+        "flush_samples": 241,
+        "compute_sec": 0.30247579992283136,
+        "max_call_sec": 0.0026431999867781997,
+        "wall_sec": 0.3120102999964729,
+        "first_output": {
+          "source_received": 320,
+          "output_end": 160,
+          "wall_sec": 0.0027094000251963735
+        },
+        "buffering_samples": 160
+      }
+    },
+    {
+      "case": "instrumental_synthetic",
+      "seconds": 3.0,
+      "branches": {
+        "input": {
+          "edits": {
+            "reference_words": 0,
+            "hypothesis_words": 0,
+            "S": 0,
+            "D": 0,
+            "I": 0,
+            "WER": null,
+            "false_words": 0,
+            "normalization": "casefold, word/apostrophe tokens; punctuation ignored"
+          },
+          "usable_sec": 0.0,
+          "can_save_reference": false,
+          "voice_scores": {
+            "awb": null,
+            "bdl": null
+          },
+          "reference_domain": "input"
+        },
+        "enhanced": {
+          "edits": {
+            "reference_words": 0,
+            "hypothesis_words": 0,
+            "S": 0,
+            "D": 0,
+            "I": 0,
+            "WER": null,
+            "false_words": 0,
+            "normalization": "casefold, word/apostrophe tokens; punctuation ignored"
+          },
+          "usable_sec": 0.0,
+          "can_save_reference": false,
+          "voice_scores": {
+            "awb": null,
+            "bdl": null
+          },
+          "reference_domain": "enhanced"
+        }
+      },
+      "enhancer": {
+        "input_samples": 48000,
+        "output_samples": 48000,
+        "flush_samples": 160,
+        "compute_sec": 0.2640985999023542,
+        "max_call_sec": 0.0026098000234924257,
+        "wall_sec": 0.27243369998177513,
+        "first_output": {
+          "source_received": 320,
+          "output_end": 160,
+          "wall_sec": 0.0026717999717220664
+        },
+        "buffering_samples": 160
+      }
+    },
+    {
+      "case": "silence",
+      "seconds": 2.0,
+      "branches": {
+        "input": {
+          "edits": {
+            "reference_words": 0,
+            "hypothesis_words": 0,
+            "S": 0,
+            "D": 0,
+            "I": 0,
+            "WER": null,
+            "false_words": 0,
+            "normalization": "casefold, word/apostrophe tokens; punctuation ignored"
+          },
+          "usable_sec": 0.0,
+          "can_save_reference": false,
+          "voice_scores": {
+            "awb": null,
+            "bdl": null
+          },
+          "reference_domain": "input"
+        },
+        "enhanced": {
+          "edits": {
+            "reference_words": 0,
+            "hypothesis_words": 0,
+            "S": 0,
+            "D": 0,
+            "I": 0,
+            "WER": null,
+            "false_words": 0,
+            "normalization": "casefold, word/apostrophe tokens; punctuation ignored"
+          },
+          "usable_sec": 0.0,
+          "can_save_reference": false,
+          "voice_scores": {
+            "awb": null,
+            "bdl": null
+          },
+          "reference_domain": "enhanced"
+        }
+      },
+      "enhancer": {
+        "input_samples": 32000,
+        "output_samples": 32000,
+        "flush_samples": 160,
+        "compute_sec": 0.17994010000256822,
+        "max_call_sec": 0.002888699993491173,
+        "wall_sec": 0.1851301999995485,
+        "first_output": {
+          "source_received": 320,
+          "output_end": 160,
+          "wall_sec": 0.0029560999828390777
+        },
+        "buffering_samples": 160
+      }
+    },
+    {
+      "case": "short_weak_consonants",
+      "seconds": 1.585,
+      "branches": {
+        "input": {
+          "edits": {
+            "reference_words": 5,
+            "hypothesis_words": 5,
+            "S": 0,
+            "D": 0,
+            "I": 0,
+            "WER": 0.0,
+            "false_words": null,
+            "normalization": "casefold, word/apostrophe tokens; punctuation ignored"
+          },
+          "usable_sec": 1.5,
+          "can_save_reference": true,
+          "voice_scores": {
+            "awb": 0.6919301748275757,
+            "bdl": 0.20127613842487335
+          },
+          "reference_domain": "input"
+        },
+        "enhanced": {
+          "edits": {
+            "reference_words": 5,
+            "hypothesis_words": 5,
+            "S": 0,
+            "D": 0,
+            "I": 0,
+            "WER": 0.0,
+            "false_words": null,
+            "normalization": "casefold, word/apostrophe tokens; punctuation ignored"
+          },
+          "usable_sec": 1.5,
+          "can_save_reference": true,
+          "voice_scores": {
+            "awb": 0.7281862497329712,
+            "bdl": 0.23689740896224976
+          },
+          "reference_domain": "enhanced"
+        }
+      },
+      "enhancer": {
+        "input_samples": 25360,
+        "output_samples": 25360,
+        "flush_samples": 240,
+        "compute_sec": 0.14645480003673583,
+        "max_call_sec": 0.0025893999845720828,
+        "wall_sec": 0.1507473000092432,
+        "first_output": {
+          "source_received": 320,
+          "output_end": 160,
+          "wall_sec": 0.0026556000229902565
+        },
+        "buffering_samples": 160
+      }
+    },
+    {
+      "case": "negation",
+      "seconds": 3.875,
+      "branches": {
+        "input": {
+          "edits": {
+            "reference_words": 8,
+            "hypothesis_words": 8,
+            "S": 1,
+            "D": 0,
+            "I": 0,
+            "WER": 0.125,
+            "false_words": null,
+            "normalization": "casefold, word/apostrophe tokens; punctuation ignored"
+          },
+          "usable_sec": 3.5,
+          "can_save_reference": true,
+          "voice_scores": {
+            "awb": 0.7491759061813354,
+            "bdl": 0.21433892846107483
+          },
+          "reference_domain": "input"
+        },
+        "enhanced": {
+          "edits": {
+            "reference_words": 8,
+            "hypothesis_words": 8,
+            "S": 1,
+            "D": 0,
+            "I": 0,
+            "WER": 0.125,
+            "false_words": null,
+            "normalization": "casefold, word/apostrophe tokens; punctuation ignored"
+          },
+          "usable_sec": 3.5,
+          "can_save_reference": true,
+          "voice_scores": {
+            "awb": 0.7113285660743713,
+            "bdl": 0.1570623815059662
+          },
+          "reference_domain": "enhanced"
+        }
+      },
+      "enhancer": {
+        "input_samples": 62000,
+        "output_samples": 62000,
+        "flush_samples": 240,
+        "compute_sec": 0.28095510008279234,
+        "max_call_sec": 0.002509400015696883,
+        "wall_sec": 0.2897860999801196,
+        "first_output": {
+          "source_received": 320,
+          "output_end": 160,
+          "wall_sec": 0.002578500017989427
+        },
+        "buffering_samples": 240
+      }
+    },
+    {
+      "case": "pronouns",
+      "seconds": 1.42,
+      "branches": {
+        "input": {
+          "edits": {
+            "reference_words": 5,
+            "hypothesis_words": 5,
+            "S": 0,
+            "D": 0,
+            "I": 0,
+            "WER": 0.0,
+            "false_words": null,
+            "normalization": "casefold, word/apostrophe tokens; punctuation ignored"
+          },
+          "usable_sec": 1.0,
+          "can_save_reference": true,
+          "voice_scores": {
+            "awb": 0.6899721622467041,
+            "bdl": 0.36472171545028687
+          },
+          "reference_domain": "input"
+        },
+        "enhanced": {
+          "edits": {
+            "reference_words": 5,
+            "hypothesis_words": 5,
+            "S": 0,
+            "D": 0,
+            "I": 0,
+            "WER": 0.0,
+            "false_words": null,
+            "normalization": "casefold, word/apostrophe tokens; punctuation ignored"
+          },
+          "usable_sec": 1.0,
+          "can_save_reference": true,
+          "voice_scores": {
+            "awb": 0.7553080320358276,
+            "bdl": 0.32644471526145935
+          },
+          "reference_domain": "enhanced"
+        }
+      },
+      "enhancer": {
+        "input_samples": 22720,
+        "output_samples": 22720,
+        "flush_samples": 160,
+        "compute_sec": 0.10651070042513311,
+        "max_call_sec": 0.0019718999974429607,
+        "wall_sec": 0.10956829995848238,
+        "first_output": {
+          "source_received": 320,
+          "output_end": 160,
+          "wall_sec": 0.0020229999790899456
+        },
+        "buffering_samples": 160
+      }
+    },
+    {
+      "case": "impostor",
+      "seconds": 4.455,
+      "branches": {
+        "input": {
+          "edits": {
+            "reference_words": 10,
+            "hypothesis_words": 10,
+            "S": 0,
+            "D": 0,
+            "I": 0,
+            "WER": 0.0,
+            "false_words": null,
+            "normalization": "casefold, word/apostrophe tokens; punctuation ignored"
+          },
+          "usable_sec": 4.0,
+          "can_save_reference": true,
+          "voice_scores": {
+            "awb": 0.2254621535539627,
+            "bdl": 0.24944794178009033
+          },
+          "reference_domain": "input"
+        },
+        "enhanced": {
+          "edits": {
+            "reference_words": 10,
+            "hypothesis_words": 10,
+            "S": 0,
+            "D": 0,
+            "I": 0,
+            "WER": 0.0,
+            "false_words": null,
+            "normalization": "casefold, word/apostrophe tokens; punctuation ignored"
+          },
+          "usable_sec": 4.0,
+          "can_save_reference": true,
+          "voice_scores": {
+            "awb": 0.2989071309566498,
+            "bdl": 0.23123466968536377
+          },
+          "reference_domain": "enhanced"
+        }
+      },
+      "enhancer": {
+        "input_samples": 71280,
+        "output_samples": 71280,
+        "flush_samples": 240,
+        "compute_sec": 0.32628269999986514,
+        "max_call_sec": 0.002224800002295524,
+        "wall_sec": 0.3368487999541685,
+        "first_output": {
+          "source_received": 320,
+          "output_end": 160,
+          "wall_sec": 0.002092299982905388
+        },
+        "buffering_samples": 240
+      }
+    },
+    {
+      "case": "post_XVF_O0_first10s",
+      "seconds": 10.0,
+      "branches": {
+        "input": {
+          "edits": {
+            "reference_words": 13,
+            "hypothesis_words": 13,
+            "S": 3,
+            "D": 0,
+            "I": 0,
+            "WER": 0.23076923076923078,
+            "false_words": null,
+            "normalization": "casefold, word/apostrophe tokens; punctuation ignored"
+          },
+          "usable_sec": 4.0,
+          "can_save_reference": true,
+          "voice_scores": {
+            "awb": 0.30280792713165283,
+            "bdl": 0.13078629970550537
+          },
+          "reference_domain": "input"
+        },
+        "enhanced": {
+          "edits": {
+            "reference_words": 13,
+            "hypothesis_words": 12,
+            "S": 2,
+            "D": 1,
+            "I": 0,
+            "WER": 0.23076923076923078,
+            "false_words": null,
+            "normalization": "casefold, word/apostrophe tokens; punctuation ignored"
+          },
+          "usable_sec": 3.5,
+          "can_save_reference": true,
+          "voice_scores": {
+            "awb": 0.34132301807403564,
+            "bdl": 0.16012950241565704
+          },
+          "reference_domain": "enhanced"
+        }
+      },
+      "enhancer": {
+        "input_samples": 160000,
+        "output_samples": 160000,
+        "flush_samples": 160,
+        "compute_sec": 0.7217849004664458,
+        "max_call_sec": 0.002537099993787706,
+        "wall_sec": 0.7468879999942146,
+        "first_output": {
+          "source_received": 320,
+          "output_end": 160,
+          "wall_sec": 0.002598099992610514
+        },
+        "buffering_samples": 160
+      }
+    }
+  ],
+  "pipeline": [
+    {
+      "route": "bypass",
+      "query": "known",
+      "state": "COMPLETED",
+      "known_fixture_confirmed": true,
+      "false_confirmed_names": null,
+      "unknown_caption_span_fraction": 0.0,
+      "gallery_calls": 34,
+      "exact_streams_and_windows": true,
+      "windows": 54,
+      "wall_sec": 12.56637260003481,
+      "cpu_sec": 7.75,
+      "rss_before": 478822400,
+      "rss_after": 527888384
+    },
+    {
+      "route": "bypass",
+      "query": "outsider",
+      "state": "COMPLETED",
+      "known_fixture_confirmed": null,
+      "false_confirmed_names": 0,
+      "unknown_caption_span_fraction": 1.0,
+      "gallery_calls": 10,
+      "exact_streams_and_windows": true,
+      "windows": 18,
+      "wall_sec": 4.463632900035009,
+      "cpu_sec": 2.453125,
+      "rss_before": 528084992,
+      "rss_after": 529846272
+    },
+    {
+      "route": "asr",
+      "query": "known",
+      "state": "COMPLETED",
+      "known_fixture_confirmed": true,
+      "false_confirmed_names": null,
+      "unknown_caption_span_fraction": 0.0,
+      "gallery_calls": 34,
+      "exact_streams_and_windows": true,
+      "windows": 54,
+      "wall_sec": 11.859427599993069,
+      "cpu_sec": 7.984375,
+      "rss_before": 530653184,
+      "rss_after": 533352448
+    },
+    {
+      "route": "asr",
+      "query": "outsider",
+      "state": "COMPLETED",
+      "known_fixture_confirmed": null,
+      "false_confirmed_names": 0,
+      "unknown_caption_span_fraction": 1.0,
+      "gallery_calls": 10,
+      "exact_streams_and_windows": true,
+      "windows": 18,
+      "wall_sec": 4.828552299994044,
+      "cpu_sec": 3.296875,
+      "rss_before": 535187456,
+      "rss_after": 534839296
+    },
+    {
+      "route": "identity",
+      "query": "known",
+      "state": "COMPLETED",
+      "known_fixture_confirmed": true,
+      "false_confirmed_names": null,
+      "unknown_caption_span_fraction": 0.0,
+      "gallery_calls": 32,
+      "exact_streams_and_windows": true,
+      "windows": 54,
+      "wall_sec": 11.93393030000152,
+      "cpu_sec": 8.25,
+      "rss_before": 535293952,
+      "rss_after": 536526848
+    },
+    {
+      "route": "identity",
+      "query": "outsider",
+      "state": "COMPLETED",
+      "known_fixture_confirmed": null,
+      "false_confirmed_names": 0,
+      "unknown_caption_span_fraction": 1.0,
+      "gallery_calls": 10,
+      "exact_streams_and_windows": true,
+      "windows": 18,
+      "wall_sec": 4.903268399997614,
+      "cpu_sec": 3.40625,
+      "rss_before": 536158208,
+      "rss_after": 536694784
+    },
+    {
+      "route": "both",
+      "query": "known",
+      "state": "COMPLETED",
+      "known_fixture_confirmed": true,
+      "false_confirmed_names": null,
+      "unknown_caption_span_fraction": 0.0,
+      "gallery_calls": 32,
+      "exact_streams_and_windows": true,
+      "windows": 54,
+      "wall_sec": 12.396184600016568,
+      "cpu_sec": 8.828125,
+      "rss_before": 536354816,
+      "rss_after": 538095616
+    },
+    {
+      "route": "both",
+      "query": "outsider",
+      "state": "COMPLETED",
+      "known_fixture_confirmed": null,
+      "false_confirmed_names": 0,
+      "unknown_caption_span_fraction": 1.0,
+      "gallery_calls": 10,
+      "exact_streams_and_windows": true,
+      "windows": 18,
+      "wall_sec": 5.037056199973449,
+      "cpu_sec": 4.078125,
+      "rss_before": 538718208,
+      "rss_after": 539246592
+    }
+  ],
+  "route_resource_totals": {
+    "bypass": {
+      "total_cpu_sec": 10.203125,
+      "total_wall_sec": 17.03000550006982,
+      "cpu_difference_vs_bypass_sec": 0.0
+    },
+    "asr": {
+      "total_cpu_sec": 11.28125,
+      "total_wall_sec": 16.687979899987113,
+      "cpu_difference_vs_bypass_sec": 1.078125
+    },
+    "identity": {
+      "total_cpu_sec": 11.65625,
+      "total_wall_sec": 16.837198699999135,
+      "cpu_difference_vs_bypass_sec": 1.453125
+    },
+    "both": {
+      "total_cpu_sec": 12.90625,
+      "total_wall_sec": 17.433240799990017,
+      "cpu_difference_vs_bypass_sec": 2.703125
+    }
+  },
+  "availability": [
+    {
+      "route": "asr",
+      "query": "known",
+      "blocks": 483,
+      "median_output_end_availability_sec": 0.02050399999134278,
+      "max_output_end_availability_sec": 0.03248280001571402,
+      "source_buffering_samples": [
+        0,
+        160
+      ],
+      "transform_sha256": "46280e44a24b4e8361fe82599f3a9732471473e4d6aff66b25cb6f9100427328",
+      "scope": "Actual monotonic publication minus epoch origin minus output-end source timestamp; includes pacing/dispatch/compute. Not ADC acoustic latency or paired speedup."
+    },
+    {
+      "route": "asr",
+      "query": "outsider",
+      "blocks": 185,
+      "median_output_end_availability_sec": 0.020035000003408632,
+      "max_output_end_availability_sec": 0.03328460000921041,
+      "source_buffering_samples": [
+        0,
+        160
+      ],
+      "transform_sha256": "8673bb27cf6d70f896cf9bb99d8c6d56794d2e351208154530b199daa370b35a",
+      "scope": "Actual monotonic publication minus epoch origin minus output-end source timestamp; includes pacing/dispatch/compute. Not ADC acoustic latency or paired speedup."
+    },
+    {
+      "route": "identity",
+      "query": "known",
+      "blocks": 483,
+      "median_output_end_availability_sec": 0.01986060001421741,
+      "max_output_end_availability_sec": 0.028915099999867522,
+      "source_buffering_samples": [
+        0,
+        160
+      ],
+      "transform_sha256": "74fb6e610eb8c89c9bbbe74f4975e86a2a8f60be9de66b6b957a7fb34d0cf6c4",
+      "scope": "Actual monotonic publication minus epoch origin minus output-end source timestamp; includes pacing/dispatch/compute. Not ADC acoustic latency or paired speedup."
+    },
+    {
+      "route": "identity",
+      "query": "outsider",
+      "blocks": 185,
+      "median_output_end_availability_sec": 0.02017039998201664,
+      "max_output_end_availability_sec": 0.029195099999197005,
+      "source_buffering_samples": [
+        0,
+        160
+      ],
+      "transform_sha256": "c960b4fde59546196f224ad4e03718aef59ca0e57ce0bda040dadc79cb501d7b",
+      "scope": "Actual monotonic publication minus epoch origin minus output-end source timestamp; includes pacing/dispatch/compute. Not ADC acoustic latency or paired speedup."
+    },
+    {
+      "route": "both",
+      "query": "known",
+      "blocks": 483,
+      "median_output_end_availability_sec": 0.0200057999696579,
+      "max_output_end_availability_sec": 0.02932009996147822,
+      "source_buffering_samples": [
+        0,
+        160
+      ],
+      "transform_sha256": "f753428ceab4744b5cf4f133ccd6662b1f96ffaa9e7382029ffc73a76cbda14c",
+      "scope": "Actual monotonic publication minus epoch origin minus output-end source timestamp; includes pacing/dispatch/compute. Not ADC acoustic latency or paired speedup."
+    },
+    {
+      "route": "both",
+      "query": "outsider",
+      "blocks": 185,
+      "median_output_end_availability_sec": 0.020218500001355943,
+      "max_output_end_availability_sec": 0.027958399993367467,
+      "source_buffering_samples": [
+        0,
+        160
+      ],
+      "transform_sha256": "fb945efb127fafd7383be1fae95e61e4371aba97e8a6f22fd031ec4411b1ae0f",
+      "scope": "Actual monotonic publication minus epoch origin minus output-end source timestamp; includes pacing/dispatch/compute. Not ADC acoustic latency or paired speedup."
+    }
+  ],
+  "alignment": [
+    {
+      "samples": 0,
+      "exact_chunk_invariance": true,
+      "exact_reset": true,
+      "output_samples": 0,
+      "flush_samples": 0,
+      "compute_sec": 1.3399985618889332e-05,
+      "max_call_sec": 1.3399985618889332e-05,
+      "wall_sec": 3.8300000596791506e-05,
+      "first_output": null,
+      "buffering_samples": null
+    },
+    {
+      "samples": 1,
+      "exact_chunk_invariance": true,
+      "exact_reset": true,
+      "output_samples": 1,
+      "flush_samples": 1,
+      "compute_sec": 0.00179130001924932,
+      "max_call_sec": 0.0017834000173024833,
+      "wall_sec": 0.0018322999821975827,
+      "first_output": null,
+      "buffering_samples": null
+    },
+    {
+      "samples": 159,
+      "exact_chunk_invariance": true,
+      "exact_reset": true,
+      "output_samples": 159,
+      "flush_samples": 159,
+      "compute_sec": 0.0014822999946773052,
+      "max_call_sec": 0.0014605000033043325,
+      "wall_sec": 0.0015435999957844615,
+      "first_output": null,
+      "buffering_samples": null
+    },
+    {
+      "samples": 160,
+      "exact_chunk_invariance": true,
+      "exact_reset": true,
+      "output_samples": 160,
+      "flush_samples": 160,
+      "compute_sec": 0.0013630000757984817,
+      "max_call_sec": 0.0006917000282555819,
+      "wall_sec": 0.0014171000220812857,
+      "first_output": null,
+      "buffering_samples": null
+    },
+    {
+      "samples": 161,
+      "exact_chunk_invariance": true,
+      "exact_reset": true,
+      "output_samples": 161,
+      "flush_samples": 161,
+      "compute_sec": 0.0019570000586099923,
+      "max_call_sec": 0.0012547000078484416,
+      "wall_sec": 0.0020080000394955277,
+      "first_output": null,
+      "buffering_samples": null
+    },
+    {
+      "samples": 319,
+      "exact_chunk_invariance": true,
+      "exact_reset": true,
+      "output_samples": 319,
+      "flush_samples": 319,
+      "compute_sec": 0.002030199975706637,
+      "max_call_sec": 0.0013762000016868114,
+      "wall_sec": 0.0020893000182695687,
+      "first_output": null,
+      "buffering_samples": null
+    },
+    {
+      "samples": 320,
+      "exact_chunk_invariance": true,
+      "exact_reset": true,
+      "output_samples": 320,
+      "flush_samples": 160,
+      "compute_sec": 0.0019185999990440905,
+      "max_call_sec": 0.0012730999733321369,
+      "wall_sec": 0.001978799991775304,
+      "first_output": {
+        "source_received": 320,
+        "output_end": 160,
+        "wall_sec": 0.001304799981880933
+      },
+      "buffering_samples": 160
+    },
+    {
+      "samples": 321,
+      "exact_chunk_invariance": true,
+      "exact_reset": true,
+      "output_samples": 321,
+      "flush_samples": 161,
+      "compute_sec": 0.0025721999118104577,
+      "max_call_sec": 0.0013110999716445804,
+      "wall_sec": 0.0026443999959155917,
+      "first_output": {
+        "source_received": 320,
+        "output_end": 160,
+        "wall_sec": 0.0013430999824777246
+      },
+      "buffering_samples": 160
+    },
+    {
+      "samples": 16003,
+      "exact_chunk_invariance": true,
+      "exact_reset": true,
+      "output_samples": 16003,
+      "flush_samples": 163,
+      "compute_sec": 0.07079540030099452,
+      "max_call_sec": 0.0018877999973483384,
+      "wall_sec": 0.07300619996385649,
+      "first_output": {
+        "source_received": 320,
+        "output_end": 160,
+        "wall_sec": 0.0013390000094659626
+      },
+      "buffering_samples": 160
+    }
+  ],
+  "resources": {
+    "elapsed_sec": 95.07915820000926,
+    "cpu_sec": 90.046875,
+    "peak_sampled_rss_bytes": 543608832,
+    "sampling_sec": 0.05,
+    "scope": "Desktop process,not CM5"
+  },
+  "helper_load": {
+    "wall_sec": 0.08741049998207018,
+    "rss_increment_bytes": 11857920,
+    "cpu_sec": 0.078125
+  },
+  "model_loads": {
+    "asr": 2,
+    "speaker": 1,
+    "enhancer": 1
+  },
+  "post_xvf_application": {
+    "state": "COMPLETED",
+    "gallery": "anonymous, no dry-domain identity claim",
+    "rows": 1,
+    "raw_samples": 160000,
+    "enhanced_samples": 160000
+  },
+  "unknown_coverage_scope": "Final caption identity target spans; coarse presentation ownership, not word-aligned DER or transient naming latency",
+  "limitations": [
+    "Quiet example improved but stationary-noise WER worsened; baseline remains default",
+    "Enhanced overlap admitted2s that original gate rejected; no threshold tuning or single-speaker guarantee",
+    "No ordered WER for overlap; empty controls are narrow digital silence/synthetic instrumental, not general music robustness",
+    "No live-person/XVF capture or native CM5/ARM64/2GB/thermal qualification",
+    "Only9 native application epochs; no long-soak or calibrated acoustic-delay claim"
+  ],
+  "source_receipt": {
+    "path": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\Resumes\\.uiiter2_10\\native_final_measured\\NATIVE_NOISE_CHECK.json",
+    "sha256": "da993bf104ecc2926e24b23e6d174ff5168bc7bb70954da027852727c7452247"
+  },
+  "measurement_context": "Process-local measurements on an in-use desktop; separate enrollment/contract checks overlapped the end of the final replay. Within the comparison, routes ran sequentially. Not a controlled performance benchmark."
+}

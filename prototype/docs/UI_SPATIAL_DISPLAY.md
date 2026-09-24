@@ -25,19 +25,27 @@ On the configured Raspberry Pi, from the exported release directory:
 python3 main.py gui
 ```
 
-Use **Mode** to choose the existing five modes or either new experimental spatial
-mode. The controller keeps the compatible Balanced/Patient/Classic recipes and
+Use **Mode** for the current task 04 roster policies and task 05 assigned-seat
+modes, including the experimental spatial alternatives. The controller keeps the compatible Balanced/Patient/Classic recipes and
 O0/O1 audio choices. Spatial mode selection can select a compatible recipe when
 the current recipe is incompatible; see the current mode guide and selector.
 
-Enable **Settings → Live spatial display** to show a 125-pixel panel above the
+Enable **Settings → Live spatial display** to show a 145-pixel panel above the
 transcript at the exact 480×800 size. This preference persists. It defaults off.
 Hiding the panel changes display only, not the active pipeline mode. The separate
 **Beam angles · live diagnostics** screen remains available.
 
-After moving the tablet, use **Reset positions · tablet moved**. The controller
-clears remembered locations and starts a fresh processing epoch while preserving
-saved people. This is a manual action; no IMU motion detection is claimed.
+Task 02: tap the panel to collapse it. A compact shape/text/colour legend identifies
+focused F1/F2 triangles, scanning diamonds and output squares. A ring highlights
+the selected fresh output; filled/hollow association dots mean fresh/last-known
+estimated voice-position matches. Stale beams are dashed with hollow grey tips.
+The 90° front/rear fold appears on the diagram. No new inference is involved.
+
+After moving the tablet, use **Reset positions · tablet moved**. Ordinary spatial
+modes start a fresh epoch. Assigned-seat modes invalidate their physical anchor
+immediately while keeping captions/voice memory running; open the seat editor and
+Apply to re-anchor. Saved people are preserved. This is manual/stub motion; no
+automatic IMU detection is claimed. See `SEAT_SEMANTICS.md` for the new policies.
 
 ## Read the panel
 
@@ -49,7 +57,9 @@ saved people. This is a manual action; no IMU motion detection is claimed.
 - A pipeline-associated speaker/name can appear beside an angle. Filled dots
   and “speaking” require fresh speaking evidence. Dashed arrows, hollow dots and
   “last known” mean a remembered position; they do not assert current speech.
-- No name is inferred from an angle or a beam label. An association is an
+- The drawing never computes a name from an angle or beam label. Direction-only
+  seating decisions arrive from the pipeline explicitly marked `seat assumed`.
+  An association is an
   experimental pipeline decision and may be wrong. Two beams do not imply two
   people. At most two recent associations appear in the compact panel; the full
   transcript and diagnostics remain available.

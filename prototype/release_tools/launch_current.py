@@ -4,7 +4,7 @@ import os
 import subprocess
 import sys
 from pathlib import Path
-from release import read_json, validate_version, verify_release
+from release import read_json, validate_version, verify_release, check_data_schema
 
 p = argparse.ArgumentParser(description=__doc__)
 p.add_argument('--root', type=Path, required=True)
@@ -15,7 +15,8 @@ if sys.platform != 'win32' and not (os.environ.get('DISPLAY') or os.environ.get(
     p.error('Launch in the ordinary user graphical desktop session, not a headless root service.')
 version = validate_version(read_json(a.root / 'current.json')['version'])
 release = a.root / 'releases' / version
-verify_release(release)
+manifest=verify_release(release)
+check_data_schema(a.data_root,manifest)
 python = a.root / 'runtimes' / version / ('Scripts/python.exe' if os.name == 'nt' else 'bin/python')
 if not python.is_file():
     p.error(f'Missing per-release runtime: {python}')

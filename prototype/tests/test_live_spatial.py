@@ -15,7 +15,7 @@ import numpy as np
 ROOT = Path(__file__).resolve().parents[1]
 sys.path[:0] = [str(ROOT), str(ROOT / 'vendor')]
 from app.live_audio import LiveBlock
-from app.live_spatial import LiveSpatialProvider, ENERGY, SELECTED, ANGLE
+from app.live_spatial import LiveSpatialProvider, MotionFrameTracker, ENERGY, SELECTED, ANGLE
 from app.pipeline import effective_profile
 from edge_speech_pipeline.research_scheduler_v3 import build_s6c_policy
 
@@ -69,6 +69,52 @@ class LiveSpatialTests(unittest.TestCase):
 
     def query(self, end=1., now=1.05, provider=None):
         return (provider or self.provider).evidence_for_window(end-.5, end, now)
+
+    def test_motion_frame_applies_to_tracker_cue_and_fails_closed(self):
+        class Motion:
+            valid=True
+            def transform(self, angle, at):return (angle+20., .8) if self.valid and angle is not None else (None, 0.)
+            def snapshot(self):return dict(valid=self.valid, compensation=True, yaw_deg=20., reason='Reset required')
+        motion=Motion(); self.provider.motion=motion
+        self.cue(angle=70.,auto=70.)
+        cue=self.query()
+        self.assertIsNotNone(cue)
+        self.assertAlmostEqual(cue.angle_deg,90.)
+        motion.valid=False
+        self.assertIsNone(self.query())
+        self.assertEqual(self.provider.snapshot()['coordinate_frame'],'relative_anchor_front_assumed')
+        self.assertEqual(self.provider.snapshot()['associations'],[])
+
+    def test_recovered_motion_cannot_reuse_previous_frame_cues_or_names(self):
+        class Motion:
+            generation=1
+            def transform(self,angle,at):return angle,1.
+            def snapshot(self):return dict(valid=True,compensation=True,yaw_deg=0.,frame_generation=self.generation,unsafe_generation=0)
+        motion=Motion();self.provider.motion=motion
+        self.cue();self.provider.observe_decision(self.decision())
+        self.assertIsNotNone(self.query());self.assertEqual(len(self.provider.snapshot()['associations']),1)
+        motion.generation=2
+        self.assertIsNone(self.query());self.assertEqual(self.provider.snapshot()['associations'],[])
+
+    def test_motion_frame_clears_only_tracker_locations(self):
+        from edge_speech_pipeline.research_tracking_v3 import S6CTracker
+        target=S6CTracker(self.profile.tracker)
+        voice=np.array([1.,0.,0.],np.float32)
+        events=[];track=target._create(voice,1.,1.,events)
+        track.location=45.;track.location_at=1.
+        target.pending_angle=45.;target.sensor_credit=0.
+        class Motion:
+            generation=1
+            def snapshot(self):return dict(frame_generation=self.generation,unsafe_generation=0)
+        motion=Motion();wrapper=MotionFrameTracker(target,motion)
+        motion.generation=2
+        # Test dispatch boundary without constructing unrelated speech evidence.
+        calls=[];target.update=lambda *a,**kw:calls.append(kw)
+        wrapper.update(voice,1.,2.,2.,spatial=object())
+        self.assertIsNone(track.location);self.assertIsNone(target.pending_angle)
+        self.assertEqual(target.sensor_credit,1.);self.assertEqual(wrapper.location_resets,1)
+        np.testing.assert_array_equal(track.prototypes[0],voice)
+        self.assertIsNone(calls[0]['spatial'])
 
     def decision(self, end=1., *, identity=None, qualified=True):
         return {'source_start_sec': end-.5, 'source_end_sec': end,

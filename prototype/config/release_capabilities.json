@@ -1,0 +1,50 @@
+{
+  "schema": "just-peachy.release-capabilities.v1",
+  "version": "0.2.0",
+  "accepted_iteration_tasks": [
+    "01",
+    "02",
+    "03",
+    "04",
+    "05",
+    "06",
+    "07",
+    "08",
+    "09",
+    "10",
+    "11",
+    "12"
+  ],
+  "local_extension": "tasks09-12 (task08 archive preserved)",
+  "data_features_supported": [
+    "paragraph-enrollment-v1",
+    "script-evidence-v1",
+    "enhanced-reference-v1",
+    "session-reference-enrichment-v1"
+  ],
+  "feature_defaults": {
+    "microphone_on_launch": false,
+    "text_assistance": false,
+    "automatic_text_edits": false,
+    "text_aware_references": false,
+    "enhancement_route": "bypass",
+    "acoustic_name_bias": false,
+    "imu_driver": false,
+    "camera_driver": false,
+    "gpio_buttons": false,
+    "session_reference_collection": false,
+    "session_reference_matching": false,
+    "audio_transcript_review": false,
+    "language_review_helper": false
+  },
+  "pending": [
+    "CM5 native ARM64 execution and 2 GB qualification",
+    "firmware-matched ARM64 XVF host control build",
+    "physical display/touch wiring",
+    "BMI270/camera/GPIO drivers",
+    "qualified ASR BPE assets for acoustic name bias",
+    "validated acoustic boundaries and query confidence for matched-content identity",
+    "Audio transcript review on native CM5/ARM64 is disabled pending combined target qualification",
+    "DPDFNet full-pipeline native ARM64 and real-person/XVF validation"
+  ]
+}

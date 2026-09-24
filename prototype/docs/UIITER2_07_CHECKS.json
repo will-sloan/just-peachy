@@ -1,0 +1,293 @@
+{
+  "task": "UIITER2_07",
+  "status": "SOFTWARE_NATIVE_PASS_BIAS_UNAVAILABLE",
+  "utc": "2026-09-20T20:43:16.443001+00:00",
+  "changed_existing_files": [
+    "MODE_GUIDE.md",
+    "README.md",
+    "app/controller.py",
+    "app/session_controller.py",
+    "app/session_ui.py",
+    "app/sessions.py",
+    "app/ui.py",
+    "docs/ITERATION_PROGRESS.md",
+    "docs/WORKBOOK_UPDATE.md",
+    "release_tools/THIRD_PARTY_NOTICES.md",
+    "tests/README.md",
+    "tools/README.md"
+  ],
+  "new_code_files": [
+    "app/text_assistance.py",
+    "app/text_assistance_ui.py",
+    "tests/test_text_assistance.py",
+    "tests/test_text_assistance_ui.py",
+    "tools/check_text_assistance.py"
+  ],
+  "added_documents": [
+    "app/README_TEXT_ASSISTANCE.md",
+    "docs/UIITER2_07_DEPENDENCIES.json",
+    "docs/UIITER2_07_HANDOFF.md",
+    "tests/README_TEXT_ASSISTANCE.md",
+    "tools/README_TEXT_ASSISTANCE.md"
+  ],
+  "final_source_sha256": {
+    "MODE_GUIDE.md": "ba6ef2ede409894cc53ff0048e805d93bc0ce02d1319a7a96725b2b4df6603ec",
+    "README.md": "d55e5b182383e66fe9f6be6e02a0d698c978dbd21d10eb3df0f45a7d47b7b030",
+    "app/controller.py": "a2b15fcb119624dcb0fbdaa4be54be99ce3360c2065f3c47a0a88decc26cd02f",
+    "app/sessions.py": "4b7602c365a1c04ca84259d2145407b06de2167bbf784d88eb49a053527a8064",
+    "app/session_controller.py": "7052dadf2c626ee255ca3b4d4917ee6dce1e2d3a6ac05a9b7cce8f3f472b4033",
+    "app/session_ui.py": "2f8fddf820de1a04b7c3c627b355cdcf39d270c4507daf2bef001e917394fb59",
+    "app/ui.py": "67c788c068fd7057eb01ac81ccc0b237dcbbd1cc656a80a30568e765f57ff9dd",
+    "docs/ITERATION_PROGRESS.md": "a9bb26d9e091e5266e56830f11608b924aeb56daa645be35f7690d8840a2a95e",
+    "docs/WORKBOOK_UPDATE.md": "e686d487d2b37a95aef104db6ff629e7b95c5fbd4d4510786db3bd16ef3b96f1",
+    "release_tools/THIRD_PARTY_NOTICES.md": "6b49eaba24b2174ef568d1bd425d74a0b224030ad6eca8887b670561de8227ec",
+    "tests/README.md": "5fde9738389e5155f63ef8f5819a883173647045d280e8aaa74c09f46981ca03",
+    "tools/README.md": "4cf29e407e90711b7b6a7e1f549fa5e4c662553038eed1380258d335692deae6",
+    "app/README_TEXT_ASSISTANCE.md": "b42578eff76909ea49273e7a550ec666493ece911ea30c2b9d7c9a4274fdda2b",
+    "app/text_assistance.py": "88ff73608b658013d987e67de00a375ca60e4272a081eac38bb9058a9f22e19c",
+    "app/text_assistance_ui.py": "dba3f28c610208ff16466a99529fc977a0cbc8d2ce7b12fe829e30bc2192a039",
+    "docs/UIITER2_07_DEPENDENCIES.json": "dea9ce2094292875f0961bb531077694842a7959227365a41a6dd57e232b1f27",
+    "docs/UIITER2_07_HANDOFF.md": "897ac8ad51a6b3937b640defd9db1eaa1c416372cbc75e3d6d3ef9879de77558",
+    "tests/README_TEXT_ASSISTANCE.md": "61e3cc22a560cd5a8ad4ad0352a0606efa83ec6989793c52aeea47781c5d29d1",
+    "tests/test_text_assistance.py": "3439a1373f8883ea83033ae4914ffdad2c48030fc605a07bf711a736a02b6d14",
+    "tests/test_text_assistance_ui.py": "bc4479747801ca7620343a95cd9adeca0fa111f5b1ad1382290238823978fff3",
+    "tools/check_text_assistance.py": "6df22babd84dd9b168675281fef570a9aa39eeacd38a2edd5144d7efa6fa3914",
+    "tools/README_TEXT_ASSISTANCE.md": "d987fca9e5ec07b2a70c4c2bc3d69714e0246eafa80dfcce8d006a439a581fa2"
+  },
+  "rollback_archive_sha256": "ae7ab384ab2b95ad17d4931e1dd581802e7e97415f3e80f56930906bb3b2def8",
+  "protected_files_unchanged": 90,
+  "unit": {
+    "status": "PASS",
+    "tests": 253,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "elapsed_sec": 26.568316799995955,
+    "runner_sha256": "1e1c5333d16537ace5fb2650299fa7660675791e97fc060dec99c60209563275"
+  },
+  "unit_receipt": {
+    "path": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\Resumes\\.uiiter2_07\\unit_final_v3\\FINAL_UNIT_CHECKS.json",
+    "sha256": "d46bee75579098fd6997a7f73a2a43104ae6da256c7ac09fa40c052d02c2680a"
+  },
+  "native": {
+    "status": "PASS",
+    "scope": "One actual native saved-audio caption session; separate synthetic text edge cases. No mic, playback or acoustic-bias A/B.",
+    "native": {
+      "caption_count": 1,
+      "assisted_finals": 1,
+      "raw_journal_preserved": true,
+      "applied_text_edits": 0,
+      "max_assistance_ms": 0.7165000424720347,
+      "mean_assistance_ms": 0.7165000424720347,
+      "manual_undo_original_sha256": "81c6ca6e7858ed689789088c7a11c053c4f709af9456b7a044c5b6d9706bf50c",
+      "model_loads": {
+        "asr": 1,
+        "speaker": 0
+      },
+      "asr_decoding_method": "greedy_search",
+      "source_sha256": "59ffff183856bb4072a21291677537c28833e3a60945ad8a0983756c1cdf9861"
+    },
+    "assets": {
+      "sherpa_giga_encoder_int8": {
+        "expected": "32c98281c7bd8b63e3e142d007251b37f120572e8fdea9a4f5a79ce22b10ec4f",
+        "actual": "32c98281c7bd8b63e3e142d007251b37f120572e8fdea9a4f5a79ce22b10ec4f"
+      },
+      "sherpa_giga_decoder_fp32": {
+        "expected": "9da02b77cb08826756ec6a88635f35a40374e4164e7c6359121a9145958a6ceb",
+        "actual": "9da02b77cb08826756ec6a88635f35a40374e4164e7c6359121a9145958a6ceb"
+      },
+      "sherpa_giga_joiner_int8": {
+        "expected": "831477d390e59a61f1b6a6f763b9903e6c6366ff6034f1ddba613be82637122f",
+        "actual": "831477d390e59a61f1b6a6f763b9903e6c6366ff6034f1ddba613be82637122f"
+      },
+      "sherpa_giga_tokens": {
+        "expected": "49e3c2646595fd907228b3c6787069658f67b17377c60aeb8619c4551b2316fb",
+        "actual": "49e3c2646595fd907228b3c6787069658f67b17377c60aeb8619c4551b2316fb"
+      },
+      "sherpa_online_punctuation_int8": {
+        "expected": "9d611f445fe4a46186080fe161be6059d87d72eb88d3a8cb00c1a06e83a6067e",
+        "actual": "9d611f445fe4a46186080fe161be6059d87d72eb88d3a8cb00c1a06e83a6067e"
+      },
+      "sherpa_online_punctuation_bpe": {
+        "expected": "e118b7ad88c54db562517df49e1cffd4836d166c34fb190fd311d7f34eb238f5",
+        "actual": "e118b7ad88c54db562517df49e1cffd4836d166c34fb190fd311d7f34eb238f5"
+      },
+      "redimnet2_b2_fp32": {
+        "expected": "5c1a8635cba0d4648463f3b6d30c5a6137bc38d1200ab00c5944400aaa7b5609",
+        "actual": "5c1a8635cba0d4648463f3b6d30c5a6137bc38d1200ab00c5944400aaa7b5609"
+      },
+      "pyannote_segmentation_3_0_fp32": {
+        "expected": "b4b65085bbf2cc455565696604c87fedade1359aa6ddfac5d726d69124d5069a",
+        "actual": "b4b65085bbf2cc455565696604c87fedade1359aa6ddfac5d726d69124d5069a"
+      }
+    },
+    "text_fixture_examples": [
+      {
+        "case": "generic_typo",
+        "before": "The camptions are visible.",
+        "corrected": null,
+        "suggestions": [
+          {
+            "start": 4,
+            "end": 13,
+            "before": "camptions",
+            "after": "captions",
+            "automatic": false,
+            "reason": "possible spelling; compact vocabulary, not proof of an error"
+          }
+        ],
+        "compute_ms": 0.22310001077130437
+      },
+      {
+        "case": "authorized_context",
+        "before": "Emir joined Peachy.",
+        "corrected": "Amir joined Peachy.",
+        "suggestions": [
+          {
+            "start": 0,
+            "end": 4,
+            "before": "Emir",
+            "after": "Amir",
+            "rule_id": "b994f09ff7bc485fa412941fbf07069a",
+            "context": "Peachy",
+            "automatic": true,
+            "reason": "explicit contextual mapping"
+          }
+        ],
+        "compute_ms": 0.37830002838745713
+      },
+      {
+        "case": "no_context",
+        "before": "The emir spoke.",
+        "corrected": null,
+        "suggestions": [],
+        "compute_ms": 0.037400051951408386
+      },
+      {
+        "case": "substring",
+        "before": "Peachy emirates.",
+        "corrected": null,
+        "suggestions": [],
+        "compute_ms": 0.04989997250959277
+      },
+      {
+        "case": "real_other_emir",
+        "before": "Emir joined Peachy.",
+        "corrected": null,
+        "suggestions": [
+          {
+            "start": 0,
+            "end": 4,
+            "before": "Emir",
+            "after": "Amir",
+            "rule_id": "b994f09ff7bc485fa412941fbf07069a",
+            "context": "Peachy",
+            "automatic": false,
+            "reason": "review; ambiguity/protection or automatic approval absent"
+          }
+        ],
+        "compute_ms": 0.1078000059351325
+      },
+      {
+        "case": "negation",
+        "before": "Emir did not join Peachy.",
+        "corrected": null,
+        "suggestions": [
+          {
+            "start": 0,
+            "end": 4,
+            "before": "Emir",
+            "after": "Amir",
+            "rule_id": "b994f09ff7bc485fa412941fbf07069a",
+            "context": "Peachy",
+            "automatic": false,
+            "reason": "review; ambiguity/protection or automatic approval absent"
+          }
+        ],
+        "compute_ms": 0.04569999873638153
+      },
+      {
+        "case": "number",
+        "before": "Emir brought 2 tablets to Peachy.",
+        "corrected": null,
+        "suggestions": [
+          {
+            "start": 0,
+            "end": 4,
+            "before": "Emir",
+            "after": "Amir",
+            "rule_id": "b994f09ff7bc485fa412941fbf07069a",
+            "context": "Peachy",
+            "automatic": false,
+            "reason": "review; ambiguity/protection or automatic approval absent"
+          }
+        ],
+        "compute_ms": 0.061700004152953625
+      },
+      {
+        "case": "pronoun",
+        "before": "He called Emir at Peachy.",
+        "corrected": null,
+        "suggestions": [
+          {
+            "start": 10,
+            "end": 14,
+            "before": "Emir",
+            "after": "Amir",
+            "rule_id": "b994f09ff7bc485fa412941fbf07069a",
+            "context": "Peachy",
+            "automatic": false,
+            "reason": "review; ambiguity/protection or automatic approval absent"
+          }
+        ],
+        "compute_ms": 0.04239997360855341
+      },
+      {
+        "case": "safety",
+        "before": "Emir needs insulin at Peachy.",
+        "corrected": null,
+        "suggestions": [
+          {
+            "start": 0,
+            "end": 4,
+            "before": "Emir",
+            "after": "Amir",
+            "rule_id": "b994f09ff7bc485fa412941fbf07069a",
+            "context": "Peachy",
+            "automatic": false,
+            "reason": "review; ambiguity/protection or automatic approval absent"
+          }
+        ],
+        "compute_ms": 0.04020001506432891
+      }
+    ],
+    "bias": {
+      "available": false,
+      "reason": "Unavailable: installed Sherpa 1.13.4 exposes hotwords, but the qualified Giga ASR assets have no matching BPE vocabulary. Punctuation BPE is a different tokenizer. Greedy decoding remains active; no hotword file is used.",
+      "native_ab": "NOT_RUN; unsupported qualified ASR tokenizer binding",
+      "sherpa_version": "1.13.4",
+      "api_signature": "(tokens: str, encoder: str, decoder: str, joiner: str, num_threads: int = 2, sample_rate: float = 16000, feature_dim: int = 80, low_freq: float = 20.0, high_freq: float = -400.0, dither: float = 0.0, normalize_samples: bool = True, snip_edges: bool = False, enable_endpoint_detection: bool = False, rule1_min_trailing_silence: float = 2.4, rule2_min_trailing_silence: float = 1.2, rule3_min_utterance_length: float = 20.0, decoding_method: str = 'greedy_search', max_active_paths: int = 4, hotwords_score: float = 1.5, blank_penalty: float = 0.0, hotwords_file: str = '', model_type: str = '', modeling_unit: str = 'cjkchar', bpe_vocab: str = '', lm: str = '', lm_scale: float = 0.1, lm_shallow_fusion: bool = True, temperature_scale: float = 2.0, reset_encoder: bool = False, debug: bool = False, rule_fsts: str = '', rule_fars: str = '', provider: str = 'cpu', device: int = 0, cudnn_conv_algo_search: int = 1, trt_max_workspace_size: int = 2147483647, trt_max_partition_iterations: int = 10, trt_min_subgraph_size: int = 5, trt_fp16_enable: bool = True, trt_detailed_build_log: bool = False, trt_engine_cache_enable: bool = True, trt_timing_cache_enable: bool = True, trt_engine_cache_path: str = '', trt_timing_cache_path: str = '', trt_dump_subgraphs: bool = False, hr_dict_dir: str = '', hr_rule_fsts: str = '', hr_lexicon: str = '', lodr_fst: str = '', lodr_scale: float = 0.0)",
+      "installed_api_sha256": "21d560bfd5849098aa92172db140a5979104b2352bc3f25d018e9efdf120ecf1",
+      "matching_asr_bpe_assets": []
+    },
+    "elapsed_sec": 14.070490999962203,
+    "cpu_sec": 2.921875,
+    "peak_rss_mib": 359.9296875,
+    "closed": true
+  },
+  "native_receipt": {
+    "path": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\Resumes\\.uiiter2_07\\native_final_v3\\NATIVE_TEXT_CHECK.json",
+    "sha256": "9fb9a4dfd683fee5d62063a967c06c6f38a95b94a0bcd8e488955487e9630a66"
+  },
+  "screenshots": {
+    "01_settings_stub.png": "5296902f3a9038893abc4a130ece97987e3f7d1d26cd2074d20f28189ad57f90",
+    "02_approval_stub.png": "4b7ece4773bcfcd9e15b0b609f53d791285a0525dad9c84ccc80a29762c61fcd",
+    "03_review_stub.png": "4f914671f0534dafa61b34db145bc6caeaabcb67fb7a907b199ad2dc3a08572f",
+    "UI_SCOPE.json": "335d8e9ac59e1e73f3896efc5dae19d493c1ce017587c7ce75f84cec2c4bd1d6"
+  },
+  "screenshot_scope": "Actual Tk with explicit stub data; no speech accuracy claim",
+  "human_field_cm5_and_physical_touch": "NOT_TESTED",
+  "microphone_or_playback_opened": false,
+  "acoustic_hotword_ab": "NOT_RUN_UNAVAILABLE_QUALIFIED_ASR_BPE_BINDING",
+  "new_dependencies": []
+}

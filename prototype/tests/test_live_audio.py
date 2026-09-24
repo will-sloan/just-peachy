@@ -125,6 +125,58 @@ class LiveAdapterTests(unittest.TestCase):
                 L.XVFLiveSource(self.config()).start()
             lease.assert_not_called()
 
+    def test_i2c_linear_route_and_restore_without_usb_commands(self):
+        initial = copy.deepcopy(INITIAL)
+        initial.pop('USB_BIT_DEPTH')
+        initial['BLD_MSG'] = 'BLD_MSG intdev-lr48-lin-i2c'
+        control = FakeControl(initial=initial)
+        config = self.config(control_protocol='i2c', hostapi='ALSA',
+                             endpoint_name='XMOSDevice: I2S (hw:2,0)', expected_array_type=1)
+        route = L.LiveRoute(control, config)
+        self.assertEqual(route.apply()['control_protocol'], 'i2c')
+        self.assertEqual(control.state['AUDIO_MGR_OP_L'], [7, 3])
+        self.assertEqual(control.state['AUDIO_MGR_OP_R'], [6, 3])
+        self.assertTrue(all(v == 'RESTORED' for v in route.restore().values()))
+        self.assertEqual(control.state, initial)
+        for build, array in [('ua-io48-lin', 1), ('intdev-lr48-lin-i2c-extmclk', 1),
+                             ('intdev-lr48-sqr-i2c', 2)]:
+            control.state['BLD_MSG'] = build
+            control.state['AEC_MIC_ARRAY_TYPE'] = [array]
+            control.receipts.clear()
+            with self.subTest(build=build), self.assertRaises(L.LiveAudioError):
+                L.LiveRoute(control, config).apply()
+            self.assertEqual(control.receipts, [])
+
+    def test_i2c_host_command_and_snapshot_skip_usb_depth(self):
+        executable = Path(self.temp.name)/'fake-host'
+        executable.touch()
+        config = L.LiveConfig(str(executable), str(Path(self.temp.name)/'lease'),
+            control_protocol='i2c', hostapi='ALSA', endpoint_name='XMOSDevice (hw:2,0)')
+        control = L.HostControl(config)
+        result = types.SimpleNamespace(stdout=b'VERSION 3 2 1\n', stderr=b'', returncode=0)
+        with patch.object(L.subprocess, 'run', return_value=result) as run:
+            self.assertEqual(control.values('VERSION'), [3, 2, 1])
+            self.assertEqual(run.call_args.args[0][1:], ['-u', 'i2c', 'VERSION'])
+        with patch.object(control, 'values', return_value=[1]) as values, \
+             patch.object(control, 'query', return_value='intdev-lr48-lin-i2c'):
+            self.assertNotIn('USB_BIT_DEPTH', control.snapshot())
+            self.assertNotIn('USB_BIT_DEPTH', [c.args[0] for c in values.call_args_list])
+
+    def test_i2c_requires_explicit_hardware_endpoint(self):
+        name = 'XMOSDevice: I2S (hw:2,0)'
+        config = self.config(control_protocol='i2c', hostapi='ALSA', endpoint_name=name)
+        state = {'endpoints': [dict(index=4, name=name, max_input_channels=2, hostapi_name='ALSA'),
+                              dict(index=8, name='default', max_input_channels=2, hostapi_name='ALSA')]}
+        alias = self.config(control_protocol='i2c', hostapi='ALSA', endpoint_name='default')
+        with patch.object(L.os, 'name', 'posix'):
+            self.assertEqual(L.resolve_endpoint(config, state)['index'], 4)
+            with self.assertRaisesRegex(L.LiveAudioError, 'hardware endpoint'):
+                L.resolve_endpoint(alias, state)
+            state['endpoints'].append(dict(state['endpoints'][0], index=9))
+            with self.assertRaises(L.LiveAudioError): L.resolve_endpoint(config, state)
+        with self.assertRaises(ValueError):
+            self.config(control_protocol='i2c', hostapi='ALSA')
+
     def test_lease_excludes_second_owner_and_releases(self):
         first = L.DeviceLease(self.config().lease_path).acquire()
         try:
@@ -248,6 +300,21 @@ class LiveAdapterTests(unittest.TestCase):
         self.assertLessEqual(block.callback_perf_counter_ns,after)
         self.assertGreater(block.callback_monotonic_ns,0)
         self.assertGreaterEqual(block.delivery_monotonic_ns,block.callback_monotonic_ns)
+
+    def test_post_stop_routing_clock_is_not_counted_as_startup_priming(self):
+        source,stream,control=self.start_fixture()
+        stream.send();source.read()
+        initial_priming=source._priming_frames
+        original=control.values
+        def values(command):
+            stream.send()
+            return original(command)
+        control.values=values
+        source.stop()
+        status=source.status()
+        self.assertEqual(status['priming_frames_discarded_before_route_verified'],initial_priming)
+        self.assertGreater(status['restoration_frames_discarded_after_stop'],0)
+        self.assertEqual(status['raw_frames'],480)
 
     def test_ring_overflow_is_visible_never_silent(self):
         source, stream, _ = self.start_fixture(reserve_seconds=1)

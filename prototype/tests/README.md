@@ -1,5 +1,17 @@
 # Prototype focused tests
 
+Task12 finite transcript review, source/epoch fencing and explicit adoption:
+[README_TRANSCRIPT_REVIEW.md](README_TRANSCRIPT_REVIEW.md).
+
+Task11 reversible-reference, contamination, storage and touch controls:
+[README_ADAPTATION.md](README_ADAPTATION.md).
+
+Roster matching, explicit closed assumptions, bounded parameter and touch-picker
+checks are documented in [README_ROSTER.md](README_ROSTER.md).
+
+Linked session, exact audio, interruption/storage failure and explicit-output
+isolation checks are documented in [README_SESSIONS.md](README_SESSIONS.md).
+
 The Windows live clock and beam diagnostic regression checks are included in
 the normal suite. From PowerShell in `prototype` run
 `& '..\.edge-speech-env\python.exe' -B -m unittest discover -s tests -p 'test_live*.py' -v`
@@ -149,3 +161,26 @@ The bounded run passed all 11 tests. The compact source/evidence record is
 `evidence/CONTROLLER_VIEWS_CHECK.json`. This is software-contract evidence only;
 it adds no native-inference, live enrollment, physical microphone or future-soak
 acceptance claim. Application/vendor/config sources were not changed.
+
+## Task 05 assigned-seat checks
+
+See [README_SEATS.md](README_SEATS.md) for synthetic logic/Tk checks, inputs/outputs, limitations and PowerShell/CMD/Anaconda commands. The native saved-model + synthetic-telemetry helper is documented in [../tools/README_SEATS.md](../tools/README_SEATS.md). No live seat accuracy is inferred from those checks.
+# Task 06 enrollment checks
+
+See [README_ENROLLMENT.md](README_ENROLLMENT.md) for paragraph/Done, source-support,
+ASR-estimate, persistence, cleanup, progress animation and actual Tk fixture
+checks, including exact PowerShell/CMD/Anaconda commands and input/output scopes.
+The full unit runner now collects completed Tk test cycles on the main thread
+before the next case, avoiding Tcl interpreter destruction on worker threads.
+## Task 07 text assistance checks
+
+See [README_TEXT_ASSISTANCE.md](README_TEXT_ASSISTANCE.md) for bounded spelling,
+context/name ambiguity, protected text, separate reversible layers and touch UI
+checks with exact commands, inputs and outputs.
+# Task09 optional evidence checks
+
+See [README_SCRIPT_EVIDENCE.md](README_SCRIPT_EVIDENCE.md) for synthetic contract,
+actual 480×800 Tk, fixture-profile review and native evidence screenshot commands.
+Run the full suite with `tools/run_unit_checks.py` for main-thread Tk cleanup.
+
+Task10 optional noise checks and run commands: [README_NOISE.md](README_NOISE.md).

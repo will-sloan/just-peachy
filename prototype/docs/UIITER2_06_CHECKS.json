@@ -1,0 +1,190 @@
+{
+  "task": "UIITER2_06",
+  "status": "SOFTWARE_AND_NATIVE_PASS_LIVE_PENDING",
+  "utc": "2026-09-20T20:26:24.307258+00:00",
+  "changed_existing_files": [
+    "MODE_GUIDE.md",
+    "README.md",
+    "app/controller.py",
+    "app/enrollment_quality.py",
+    "app/people.py",
+    "app/ui.py",
+    "docs/ENROLLMENT_GUIDE.md",
+    "docs/ITERATION_PROGRESS.md",
+    "docs/WORKBOOK_UPDATE.md",
+    "tests/README.md",
+    "tools/README.md",
+    "tools/run_unit_checks.py"
+  ],
+  "new_code_files": [
+    "app/enrollment_progress.py",
+    "tests/test_paragraph_enrollment.py",
+    "tests/test_paragraph_ui.py",
+    "tools/check_paragraph_enrollment.py"
+  ],
+  "added_documents": [
+    "app/README_ENROLLMENT.md",
+    "docs/UIITER2_06_DEPENDENCIES.json",
+    "docs/UIITER2_06_HANDOFF.md",
+    "tests/README_ENROLLMENT.md",
+    "tools/README_ENROLLMENT.md"
+  ],
+  "final_source_sha256": {
+    "MODE_GUIDE.md": "de5abfb77029540787fc167e5ce6adde6cfe20bf16428e89a20846827e6cc452",
+    "README.md": "3fc6caa5e43072c652e8183ffa4e489c7f92ca23f7ef44733c80416b65aabc11",
+    "app/controller.py": "4581f8028af02d14db8cc45e9aa23de046d54fa0cf7a7ac4945832ddd293465f",
+    "app/enrollment_quality.py": "2bc4048ced8e8367f53b420254c2f162ff5dc21c19fabeaacece7774731ad7b4",
+    "app/people.py": "d55e19063e9e77a1bff1427a12b9cc799fd7e596ecced8442843e926a4bae6b5",
+    "app/ui.py": "a1793d9dd9d4590b23f235bc998fcf3022121402aff291231336cdb7c4634758",
+    "docs/ENROLLMENT_GUIDE.md": "6be21dffed9b85ca8a3f5d2f6c6bd8b8e1b8a52bf9bac19445c6322fc11ade50",
+    "docs/ITERATION_PROGRESS.md": "bc81ee01d3fcd7c01aa1c2336994015f69de9921cd07b12811788d1079908b1e",
+    "docs/WORKBOOK_UPDATE.md": "9a4334728bb4295e1815b297414159ef654bdb09c16106d0efd6ff0035837d3d",
+    "tests/README.md": "ed635ecc8bedbd82c8093d73a97f52e528d098e722918345e8fe1888b3fb8e50",
+    "tools/README.md": "36749da8400fc233ef9532a673782c990b56a3ce13c9f429b66e218eaa07a725",
+    "tools/run_unit_checks.py": "1e1c5333d16537ace5fb2650299fa7660675791e97fc060dec99c60209563275",
+    "app/enrollment_progress.py": "fad0127a96f8d2c25f72dba6ee495c27b938981ed662c1fcdb4c20727f7e8e4f",
+    "app/README_ENROLLMENT.md": "b699a6de5fadadc7d44ab7b920695eda01bac391ea5e193eab4fd4ef3facb01f",
+    "docs/UIITER2_06_HANDOFF.md": "15bcc4481f3bf3e44b3055c8c542e331177c22303e44061818de8b8e99f674fa",
+    "tests/README_ENROLLMENT.md": "29a0cb375a70820687bb70a14a6a5c9900609b30a85f1ac021ee9289d8041174",
+    "tests/test_paragraph_enrollment.py": "0d0553497fd107b1a5efac251ab1b613a1c1abeaf175c0c8a8cfb2bd66831d65",
+    "tests/test_paragraph_ui.py": "572f20b1c0ee2b71cb4ac8be4cffd682ce9439ef647a29c9f478e07acb1ac361",
+    "tools/check_paragraph_enrollment.py": "49bf515b9e45318e3e79a9320018c5d3a2509195d4cb3440e2f9b86141a7838c",
+    "tools/README_ENROLLMENT.md": "6706d94a4e855ace6210bbce5c4403554f0d3cef3120772a9b86dd0b18555442",
+    "docs/UIITER2_06_DEPENDENCIES.json": "51dd4e9161c3cc3140acffc6f31576355d4332c7079f49c1f079ddd9afe59a3e"
+  },
+  "rollback_archive_sha256": "ba84476d6e70b863b4da6e509c54fcc5fb7aed67949992ea4e18505ccdbdd2aa",
+  "protected_files_unchanged": 89,
+  "unit": {
+    "status": "PASS",
+    "tests": 242,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "elapsed_sec": 25.941184199997224,
+    "runner_sha256": "1e1c5333d16537ace5fb2650299fa7660675791e97fc060dec99c60209563275"
+  },
+  "unit_receipt": {
+    "path": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\Resumes\\.uiiter2_06\\unit_final_v2\\FINAL_UNIT_CHECKS.json",
+    "sha256": "89498f7f733e0247e68bf45abd4354dd339130fd1244e901f61d759315eb3ab5"
+  },
+  "native": {
+    "status": "PASS",
+    "scope": "Real existing models; offline fixture. No microphone, playback or live accuracy claim.",
+    "checks": {
+      "native_before_after_vectors_bit_identical": "PASS",
+      "native_short_done_accepted_timed_rejected": "PASS",
+      "duplicate_support_no_additional_inference": "PASS",
+      "ordinary_asr_mismatched_script_does_not_change_voice": "PASS",
+      "new_process_restart_preserves_paragraph_profile": "PASS",
+      "native_profile_export_import": "PASS",
+      "tap_mismatch": "PASS",
+      "duplicate_saved_source": "PASS",
+      "native_reject_too_short": "PASS",
+      "native_reject_silence": "PASS",
+      "native_reject_clipping": "PASS"
+    },
+    "vector_max_abs_delta": 0.0,
+    "quality": {
+      "elapsed_s": 12.0,
+      "usable_s": 12.0,
+      "target_sec": null,
+      "clipping": 0.0,
+      "consistency": 0.4299236834049225,
+      "embedding_count": 24,
+      "gaps": 0,
+      "source_kind": "offline_CMU_task06_fixture",
+      "source_sha256": "d6a981882919ed09546c24ddc5a0bcb8bab253e296c7fa4afdb7947fb5f94595",
+      "model_segment_calls": 2,
+      "model_embedding_calls": 24,
+      "capture_mode": "paragraph",
+      "evidence_status": "limited_short_reference",
+      "can_save": true,
+      "quality": "Unique nonoverlapping estimated clean speech; no automatic single-person guarantee",
+      "source_session_id": "offline-task06"
+    },
+    "asr_estimate": {
+      "estimated_coverage": 0.10869565217391304,
+      "estimated_agreement": 0.11764705882352941,
+      "reference_words": 46,
+      "recognized_words": 39,
+      "matched_words": 5,
+      "method": "casefolded ordered word matches; estimate, not verified reading",
+      "affects_voice_quality": false,
+      "state": "final_estimate",
+      "analyzed_audio_s": 12.0
+    },
+    "model_loads": {
+      "asr": 1,
+      "speaker": 1,
+      "streams": 1
+    },
+    "speaker_input": [
+      {
+        "name": "waveform",
+        "shape": [
+          1,
+          "num_samples"
+        ],
+        "type": "tensor(float)"
+      }
+    ],
+    "assets": {
+      "sherpa_giga_encoder_int8": {
+        "sha256": "32c98281c7bd8b63e3e142d007251b37f120572e8fdea9a4f5a79ce22b10ec4f",
+        "actual_sha256": "32c98281c7bd8b63e3e142d007251b37f120572e8fdea9a4f5a79ce22b10ec4f"
+      },
+      "sherpa_giga_decoder_fp32": {
+        "sha256": "9da02b77cb08826756ec6a88635f35a40374e4164e7c6359121a9145958a6ceb",
+        "actual_sha256": "9da02b77cb08826756ec6a88635f35a40374e4164e7c6359121a9145958a6ceb"
+      },
+      "sherpa_giga_joiner_int8": {
+        "sha256": "831477d390e59a61f1b6a6f763b9903e6c6366ff6034f1ddba613be82637122f",
+        "actual_sha256": "831477d390e59a61f1b6a6f763b9903e6c6366ff6034f1ddba613be82637122f"
+      },
+      "sherpa_giga_tokens": {
+        "sha256": "49e3c2646595fd907228b3c6787069658f67b17377c60aeb8619c4551b2316fb",
+        "actual_sha256": "49e3c2646595fd907228b3c6787069658f67b17377c60aeb8619c4551b2316fb"
+      },
+      "sherpa_online_punctuation_int8": {
+        "sha256": "9d611f445fe4a46186080fe161be6059d87d72eb88d3a8cb00c1a06e83a6067e",
+        "actual_sha256": "9d611f445fe4a46186080fe161be6059d87d72eb88d3a8cb00c1a06e83a6067e"
+      },
+      "sherpa_online_punctuation_bpe": {
+        "sha256": "e118b7ad88c54db562517df49e1cffd4836d166c34fb190fd311d7f34eb238f5",
+        "actual_sha256": "e118b7ad88c54db562517df49e1cffd4836d166c34fb190fd311d7f34eb238f5"
+      },
+      "redimnet2_b2_fp32": {
+        "sha256": "5c1a8635cba0d4648463f3b6d30c5a6137bc38d1200ab00c5944400aaa7b5609",
+        "actual_sha256": "5c1a8635cba0d4648463f3b6d30c5a6137bc38d1200ab00c5944400aaa7b5609"
+      },
+      "pyannote_segmentation_3_0_fp32": {
+        "sha256": "b4b65085bbf2cc455565696604c87fedade1359aa6ddfac5d726d69124d5069a",
+        "actual_sha256": "b4b65085bbf2cc455565696604c87fedade1359aa6ddfac5d726d69124d5069a"
+      }
+    },
+    "versions": {
+      "numpy": "2.2.6",
+      "onnxruntime": "1.29.0",
+      "sherpa-onnx": "1.13.4",
+      "soundfile": "0.13.1"
+    },
+    "elapsed_sec": 4.632828500005417,
+    "cpu_sec": 6.375,
+    "peak_rss_mib": 433.6171875
+  },
+  "native_receipt": {
+    "path": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\Resumes\\.uiiter2_06\\native_final\\NATIVE_ENROLLMENT_CHECK.json",
+    "sha256": "7d6d01a661e9dfc852a0c72072fb6c3ab1b195397710a9ca08aed6a9f94e8026"
+  },
+  "screenshots": {
+    "01_options.png": "91fb12f360f8da57130f34e26f46c7cc9ac6e4d00c32bd81d7fc52b4f282dfe7",
+    "02_consent.png": "91fb12f360f8da57130f34e26f46c7cc9ac6e4d00c32bd81d7fc52b4f282dfe7",
+    "03_pending_stub.png": "9caf99005a801789d20aca9e7151cc2acf028692c7987751ebe166917cff993c",
+    "04_done_stub.png": "a05e159722cfd56e9ccaa8badcf73f8a77e7212195ee140f7cb70cd45608ecbe",
+    "UI_SCOPE.json": "ca6e90a800d5ffbd5c7e29b469018cdea26fae491de019a7eb64358a48942dc6"
+  },
+  "scope": "Screenshots use explicit stub data; no microphone or audible playback. Private fixture stores only.",
+  "human_enrollment": "NOT_TESTED_AWAITING_PARTICIPATION",
+  "cm5_and_physical_touch": "NOT_TESTED",
+  "earlier_aborted_test_run": "Tcl_AsyncDelete; no PASS claimed. Fixed main-thread test garbage collection; final full suite passed."
+}

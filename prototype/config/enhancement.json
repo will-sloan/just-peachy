@@ -1,0 +1,20 @@
+{
+  "schema": "just-peachy.enhancement.v1",
+  "default_route": "bypass",
+  "id": "dpdfnet_baseline_sherpa_1_13_4_v1",
+  "filename": "dpdfnet_baseline.onnx",
+  "sha256": "debaf0e8893479fca91b8b4c1eae8db195aa8980ccc9012f5809fde2b738151a",
+  "size_bytes": 8791035,
+  "runtime": "sherpa-onnx",
+  "runtime_version": "1.13.4",
+  "sample_rate": 16000,
+  "hop_samples": 160,
+  "window_samples": 320,
+  "num_threads": 1,
+  "provider": "cpu",
+  "license": "Apache-2.0",
+  "source_url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/speech-enhancement-models/dpdfnet_baseline.onnx",
+  "model_card": "https://huggingface.co/Ceva-IP/DPDFNet/tree/dd6818d00f50c836fed43a6243ebe49116de5964",
+  "experimental": true,
+  "cm5_qualified": false
+}

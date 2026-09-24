@@ -160,5 +160,27 @@ class ReleaseTests(unittest.TestCase):
         with self.assertRaises(ValueError): r.activate(self.root, self.data, 'v1', require_assets=True)
         self.assertFalse((self.root / 'current.json').exists())
 
+    def test_paragraph_downgrade_refused_without_changing_people_or_pointer(self):
+        self.staged('older')
+        r.write_json(self.src/'config'/'release_capabilities.json',{'data_features_supported':['paragraph-enrollment-v1']})
+        self.staged('current');r.activate(self.root,self.data,'older');r.activate(self.root,self.data,'current')
+        person=self.data/'people'/'synthetic'/'person.json'
+        r.write_json(person,{'references':[{'capture_mode':'paragraph','target_sec':None}]})
+        original=person.read_bytes();pointer=(self.root/'current.json').read_bytes()
+        with self.assertRaisesRegex(ValueError,'paragraph-enrollment-v1'):r.rollback(self.root,self.data)
+        self.assertEqual(person.read_bytes(),original)
+        self.assertEqual((self.root/'current.json').read_bytes(),pointer)
+        self.assertFalse((self.data/'runtime.lock').exists())
+        self.staged('compatible');r.activate(self.root,self.data,'compatible')
+        self.assertEqual(r.rollback(self.root,self.data)['version'],'current')
+        self.assertEqual(person.read_bytes(),original)
+
+    def test_unknown_required_feature_and_unmarked_conversations_refused(self):
+        self.staged()
+        r.write_json(self.data/'DATA_SCHEMA.json',{'schema_version':1,'required_features':['future-feature']})
+        with self.assertRaisesRegex(ValueError,'future-feature'):r.activate(self.root,self.data,'v1')
+        (self.data/'DATA_SCHEMA.json').unlink();(self.data/'conversations').mkdir()
+        with self.assertRaisesRegex(ValueError,'lacks DATA_SCHEMA'):r.activate(self.root,self.data,'v1')
+
 
 if __name__ == '__main__': unittest.main(verbosity=2)

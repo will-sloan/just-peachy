@@ -6,6 +6,7 @@ from copy import deepcopy
 import hashlib
 import json
 import os
+import shutil
 from pathlib import Path
 import subprocess
 import sys
@@ -22,6 +23,7 @@ def main():
     p.add_argument('--baseline-archive',type=Path)
     p.add_argument('--receipt-name',default='ACTUAL_RELEASE_RESULTS.json')
     p.add_argument('--focused-contracts',action='store_true')
+    p.add_argument('--fixture-people',type=Path,help='Optional nonproduction prepared-fixture people directory; copied only outside the archive')
     a=p.parse_args();a.evidence.mkdir(parents=True,exist_ok=True)
     receipt=build(a.source,a.output,a.version)
     archive=Path(receipt['archive']);manifest=inspect_archive(archive)
@@ -50,10 +52,13 @@ def main():
     sentinel=installer_data/'people'/'SYNTHETIC_PRIVATE_SENTINEL.txt'
     sentinel.parent.mkdir();sentinel.write_bytes(b'SYNTHETIC fixture: rollback must preserve these bytes.\n')
     sentinel_hash=digest(sentinel)
+    if a.fixture_people:
+        shutil.copytree(a.fixture_people,sentinel.parent,dirs_exist_ok=True)
+    people_before={p.relative_to(sentinel.parent).as_posix():digest(p) for p in sentinel.parent.rglob('*') if p.is_file()}
     # Rollback exercise changes only release metadata/version. Every application
     # payload byte remains exactly the original archive; this is not a new app.
     fixture_version=a.version+'-rollback-fixture'
-    fixture_archive=a.output/f'just-peachy-{fixture_version}.zip'
+    fixture_archive=a.evidence/f'just-peachy-{fixture_version}.zip'
     fixture_manifest=deepcopy(manifest);fixture_manifest['version']=fixture_version
     fixture_manifest['fixture_notice']='Installer rollback metadata fixture; application payload identical to '+a.version
     with zipfile.ZipFile(archive) as src,zipfile.ZipFile(fixture_archive,'x',zipfile.ZIP_DEFLATED) as dst:
@@ -61,8 +66,19 @@ def main():
             dst.writestr(name,json.dumps(fixture_manifest,indent=2)+'\n' if name=='RELEASE_MANIFEST.json' else src.read(name))
     stage(fixture_archive,a.root,digest(fixture_archive))
     activate(a.root,installer_data,fixture_version)
+    # Inject a startup failure through isolated fixture settings. It must release
+    # ownership and preserve every enrollment byte. Rollback does not repair bad
+    # user settings: remove only the deliberately injected test bytes afterward.
+    settings=installer_data/'settings.json';settings.write_bytes(b'{')
+    failed=subprocess.run([sys.executable,str(release/'main.py'),'gui','--data-root',str(installer_data),
+                          '--models',str(a.models)],capture_output=True,text=True,timeout=30)
+    (a.evidence/'injected_startup_failure.txt').write_text(failed.stderr,encoding='utf-8')
+    if failed.returncode==0 or (installer_data/'runtime.lock').exists() or settings.read_bytes()!=b'{':
+        raise RuntimeError('Injected startup failure did not fail safely')
+    settings.unlink()
     rolled=rollback(a.root,installer_data)
-    if rolled['version']!=a.version or digest(sentinel)!=sentinel_hash:raise RuntimeError('Rollback altered code selection/private fixture')
+    people_after={p.relative_to(sentinel.parent).as_posix():digest(p) for p in sentinel.parent.rglob('*') if p.is_file()}
+    if rolled['version']!=a.version or digest(sentinel)!=sentinel_hash or people_before!=people_after:raise RuntimeError('Rollback altered code selection/private fixture')
     health=healthcheck(a.root,installer_data,check_imports=True)
     checks=[]
 
@@ -110,6 +126,8 @@ def main():
     summary=dict(schema='just-peachy.actual-release-check.v1',completed_utc=now(),status='PASS',build=receipt,
         stage=staged,models_verified=assets,models_copied=False,rollback=rolled,
         rollback_fixture=dict(version=fixture_version,sha256=digest(fixture_archive),application_bytes_unchanged=True,synthetic_private_sentinel_preserved=True),
+        startup_failure=dict(exit_code=failed.returncode,lock_released=True,fault='isolated invalid settings JSON; test bytes removed before rollback'),
+        preserved_fixture_people=dict(file_count=len(people_before),sha256=people_after,production_data_used=False),
         healthcheck=health,checks=checks,native_result=dict(path=str(result_path),rows=len(native['rows']),state=native['state'],model_cache=native['metrics'].get('model_cache')),
         launcher_check='Actual PS and CMD launchers, GUI startup/normal-close with an external process-only hidden-Tk test hook; no pixel/live proof claimed.',
         rc_to_final_delta=delta,relocated_focused_contracts=contracts,

@@ -1,0 +1,175 @@
+{
+  "schema": "just-peachy.task11.results.v1",
+  "status": "PASS_BOUNDED_FUNCTIONAL",
+  "cases": [
+    {
+      "case": "collect_awb",
+      "wrong_named_segments": 0,
+      "confirmed_segments": 0,
+      "total_segments": 1,
+      "accepted_segment_fraction": 0.0,
+      "candidate_count": 2,
+      "usable_sec": 2.710656250000002,
+      "frozen": null,
+      "bank_queries": 0,
+      "bank_compute_ms": 0.0,
+      "mean_bank_compute_ms": null,
+      "collection_compute_ms": 3.7905999924987555,
+      "wall_sec": 5.829442199959885,
+      "rejected": {
+        "duplicate_or_overlapping_window": 4
+      }
+    },
+    {
+      "case": "repeated_saved_audio",
+      "wrong_named_segments": 0,
+      "confirmed_segments": 0,
+      "total_segments": 1,
+      "accepted_segment_fraction": 0.0,
+      "candidate_count": 0,
+      "usable_sec": 0,
+      "frozen": null,
+      "bank_queries": 0,
+      "bank_compute_ms": 0.0,
+      "mean_bank_compute_ms": null,
+      "collection_compute_ms": 1.1630000080913305,
+      "wall_sec": 4.447162800002843,
+      "rejected": {
+        "duplicate_or_overlapping_window": 6
+      }
+    },
+    {
+      "case": "heldout_base",
+      "wrong_named_segments": 0,
+      "confirmed_segments": 1,
+      "total_segments": 1,
+      "accepted_segment_fraction": 1.0,
+      "candidate_count": 0,
+      "usable_sec": 0,
+      "frozen": null,
+      "bank_queries": 0,
+      "bank_compute_ms": 0,
+      "mean_bank_compute_ms": null,
+      "collection_compute_ms": 0,
+      "wall_sec": 9.643397100036964,
+      "rejected": {}
+    },
+    {
+      "case": "heldout_bank",
+      "wrong_named_segments": 0,
+      "confirmed_segments": 1,
+      "total_segments": 1,
+      "accepted_segment_fraction": 1.0,
+      "candidate_count": 0,
+      "usable_sec": 0,
+      "frozen": null,
+      "bank_queries": 28,
+      "bank_compute_ms": 12.385400070343167,
+      "mean_bank_compute_ms": 0.44233571679797024,
+      "collection_compute_ms": 0.0,
+      "wall_sec": 9.655847000016365,
+      "rejected": {}
+    },
+    {
+      "case": "outsider_bank",
+      "wrong_named_segments": 0,
+      "confirmed_segments": 0,
+      "total_segments": 1,
+      "accepted_segment_fraction": 0.0,
+      "candidate_count": 0,
+      "usable_sec": 0,
+      "frozen": null,
+      "bank_queries": 10,
+      "bank_compute_ms": 5.151399876922369,
+      "mean_bank_compute_ms": 0.5151399876922369,
+      "collection_compute_ms": 0.0,
+      "wall_sec": 4.08451720001176,
+      "rejected": {}
+    },
+    {
+      "case": "wrong_person_at_assigned_seat",
+      "wrong_named_segments": 0,
+      "confirmed_segments": 0,
+      "total_segments": 1,
+      "accepted_segment_fraction": 0.0,
+      "candidate_count": 2,
+      "usable_sec": 2.828781250000003,
+      "frozen": null,
+      "bank_queries": 0,
+      "bank_compute_ms": 0.0,
+      "mean_bank_compute_ms": null,
+      "collection_compute_ms": 3.9837000076659024,
+      "wall_sec": 4.122492399998009,
+      "rejected": {
+        "duplicate_or_overlapping_window": 3
+      }
+    },
+    {
+      "case": "mixed_speech",
+      "wrong_named_segments": 0,
+      "confirmed_segments": 0,
+      "total_segments": 1,
+      "accepted_segment_fraction": 0.0,
+      "candidate_count": 0,
+      "usable_sec": 0,
+      "frozen": "overlap_detected",
+      "bank_queries": 0,
+      "bank_compute_ms": 0.0,
+      "mean_bank_compute_ms": null,
+      "collection_compute_ms": 0.0,
+      "wall_sec": 4.492063699988648,
+      "rejected": {}
+    },
+    {
+      "case": "heldout_after_undo",
+      "wrong_named_segments": 0,
+      "confirmed_segments": 1,
+      "total_segments": 1,
+      "accepted_segment_fraction": 1.0,
+      "candidate_count": 0,
+      "usable_sec": 0,
+      "frozen": null,
+      "bank_queries": 28,
+      "bank_compute_ms": 9.411699953489006,
+      "mean_bank_compute_ms": 0.3361321411960359,
+      "collection_compute_ms": 0.0,
+      "wall_sec": 9.651084400014952,
+      "rejected": {}
+    }
+  ],
+  "resources": {
+    "wall_sec": 53.197045899985824,
+    "cpu_sec": 29.765625,
+    "sampled_peak_rss_bytes": 504029184,
+    "sample_interval_sec": 0.05
+  },
+  "scope": "Native public-corpus functional check; fixture operator confirmations, no participating human, no accuracy gain claim",
+  "metric_scope": "Final caption segments, not word-aligned DER or a statistical study; mixtures lack one true speaker",
+  "contamination": {
+    "candidates": 2,
+    "frozen": "strong_base_voice_conflict",
+    "confirmed": 0
+  },
+  "promotion": {
+    "count": 2,
+    "fixture_confirmation_only": true
+  },
+  "restart": {
+    "default_off": true,
+    "bank_empty": true,
+    "people": 2
+  },
+  "base_anchors_unchanged": true,
+  "candidate_usable_sec": 2.710656250000002,
+  "heldout_original_on_undo_text_equal": true,
+  "gain_claim": false,
+  "cm5": false,
+  "human_confirmation": "AWAITING_USER",
+  "limitations": [
+    "No live XVF, room/noise adaptation or participating-human confirmation check",
+    "C088 gates retained; mixture rejection is not a guaranteed single-speaker/music detector",
+    "Process-local desktop wall/CPU/RSS; not an isolated target benchmark",
+    "Core bank timers exclude archive I/O and file hash setup; no new inference",
+    "Tiny deterministic known/outsider set; equal coverage is not proof of general benefit"
+  ]
+}

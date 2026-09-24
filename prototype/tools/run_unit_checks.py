@@ -3,6 +3,7 @@ from collections import Counter
 import argparse
 from datetime import datetime, timezone
 import hashlib
+import gc
 import io
 import json
 from pathlib import Path
@@ -28,6 +29,15 @@ def cases(suite):
             yield item
 
 
+class MainThreadCleanupResult(unittest.TextTestResult):
+    def startTest(self,test):
+        # Prior Tk tests leave cyclic widget/interpreter references after
+        # destroy(). Collect them here before a later worker can trigger GC
+        # on another thread (Tcl_AsyncDelete aborts the entire process).
+        gc.collect()
+        super().startTest(test)
+
+
 if __name__ == '__main__':
     if hasattr(sys.stdout, 'reconfigure'):
         sys.stdout.reconfigure(errors='backslashreplace')
@@ -40,7 +50,7 @@ if __name__ == '__main__':
     counts = Counter(case.__class__.__module__ for case in cases(suite))
     stream = io.StringIO()
     start = time.perf_counter()
-    result = unittest.TextTestRunner(stream=stream, verbosity=2).run(suite)
+    result = unittest.TextTestRunner(stream=stream, verbosity=2,resultclass=MainThreadCleanupResult).run(suite)
     evidence = args.output_dir
     evidence.mkdir(parents=True, exist_ok=True)
     log = evidence / 'FINAL_UNIT_CHECKS.txt'
@@ -50,6 +60,7 @@ if __name__ == '__main__':
         'failures': len(result.failures), 'errors': len(result.errors), 'skipped': len(result.skipped),
         'elapsed_sec': time.perf_counter() - start, 'modules': dict(counts),
         'source_unchanged': bindings() == before, 'source_bindings': before,
+        'runner_sha256': hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
         'tests_sha256': {p.name: hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted((ROOT / 'tests').glob('test_*.py'))},
         'full_log_path': str(log), 'full_log_sha256': hashlib.sha256(log.read_bytes()).hexdigest()}
     record['status'] = 'PASS' if result.wasSuccessful() and record['source_unchanged'] else 'FAIL'

@@ -1,0 +1,116 @@
+{
+  "schema": "just-peachy.task09.dependencies.v1",
+  "new_dependencies": [],
+  "new_transitive_dependencies": [],
+  "new_models_dictionaries_tokenizers_conversions": [],
+  "runtime_python": "3.11.16 | packaged by Anaconda, Inc. | (main, Aug 27 2026, 14:36:16) [MSC v.1942 64 bit (AMD64)]",
+  "existing_runtime": {
+    "numpy": "2.2.6",
+    "scipy": "1.15.3",
+    "onnxruntime": "1.29.0",
+    "sherpa-onnx": "1.13.4",
+    "sherpa-onnx-core": "1.13.4",
+    "sounddevice": "0.5.5",
+    "soundfile": "0.13.1",
+    "psutil": "7.2.2",
+    "cffi": "2.1.1"
+  },
+  "existing_model_assets": [
+    {
+      "component": "sherpa_giga_encoder_int8",
+      "sha256": "32c98281c7bd8b63e3e142d007251b37f120572e8fdea9a4f5a79ce22b10ec4f",
+      "filename": "encoder-epoch-99-avg-1.int8.onnx",
+      "new": false
+    },
+    {
+      "component": "sherpa_giga_decoder_fp32",
+      "sha256": "9da02b77cb08826756ec6a88635f35a40374e4164e7c6359121a9145958a6ceb",
+      "filename": "decoder-epoch-99-avg-1.onnx",
+      "new": false
+    },
+    {
+      "component": "sherpa_giga_joiner_int8",
+      "sha256": "831477d390e59a61f1b6a6f763b9903e6c6366ff6034f1ddba613be82637122f",
+      "filename": "joiner-epoch-99-avg-1.int8.onnx",
+      "new": false
+    },
+    {
+      "component": "sherpa_giga_tokens",
+      "sha256": "49e3c2646595fd907228b3c6787069658f67b17377c60aeb8619c4551b2316fb",
+      "filename": "tokens.txt",
+      "new": false
+    },
+    {
+      "component": "sherpa_online_punctuation_int8",
+      "sha256": "9d611f445fe4a46186080fe161be6059d87d72eb88d3a8cb00c1a06e83a6067e",
+      "filename": "model.int8.onnx",
+      "new": false
+    },
+    {
+      "component": "sherpa_online_punctuation_bpe",
+      "sha256": "e118b7ad88c54db562517df49e1cffd4836d166c34fb190fd311d7f34eb238f5",
+      "filename": "bpe.vocab",
+      "new": false
+    },
+    {
+      "component": "redimnet2_b2_fp32",
+      "sha256": "5c1a8635cba0d4648463f3b6d30c5a6137bc38d1200ab00c5944400aaa7b5609",
+      "filename": "redimnet2_b2_fp32.onnx",
+      "new": false
+    },
+    {
+      "component": "pyannote_segmentation_3_0_fp32",
+      "sha256": "b4b65085bbf2cc455565696604c87fedade1359aa6ddfac5d726d69124d5069a",
+      "filename": "pyannote_segmentation_3_0_fp32.onnx",
+      "new": false
+    }
+  ],
+  "notices": "release_tools/THIRD_PARTY_NOTICES.md",
+  "existing_model_and_data_provenance": "Retain existing S0-S7 asset/licence bindings; code licences do not independently clear weights/training data. No blanket commercial clearance.",
+  "test_dataset": "Already local CMU ARCTIC (awb, bdl, clb); no audio redistributed in public metadata or release",
+  "reference_only": [
+    {
+      "url": "https://raw.githubusercontent.com/k2-fsa/sherpa-onnx/v1.13.4/sherpa-onnx/csrc/online-recognizer-transducer-impl.h",
+      "version": "1.13.4",
+      "license": "Apache-2.0 project",
+      "use": "Verified installed get_result_all/tokens/timestamps/start_time against exact source; transducer emissions, not CTC or acoustic confidence; no code copied"
+    },
+    {
+      "url": "https://github.com/PalabraAI/redimnet2",
+      "license": "MIT repository; existing weights separately bound",
+      "use": "Audio-only embedding interface; not a phonetic model; no download"
+    },
+    {
+      "url": "https://arxiv.org/html/2404.13428v1",
+      "use": "Research background, fixed-phrase verification differs arbitrary conversation; no artefacts installed"
+    },
+    {
+      "url": "https://arxiv.org/abs/1701.00562",
+      "use": "Research background for trained phonetic attention, not functionality of current export"
+    },
+    {
+      "url": "https://github.com/lumaku/ctc-segmentation",
+      "license": "Apache-2.0; notices required if later used",
+      "use": "NOT_INSTALLED; requires compatible CTC emissions"
+    },
+    {
+      "url": "https://huggingface.co/facebook/wav2vec2-base-960h",
+      "license": "Specific model card Apache-2.0; processor/tokenizer/weights would require pinned revisions",
+      "use": "NOT_INSTALLED; no optional CTC worker or dependency"
+    },
+    {
+      "url": "https://github.com/cmusphinx/cmudict",
+      "license": "BSD-style: retain copyright, conditions and disclaimer",
+      "use": "NOT_INSTALLED; pronunciation lookup unavailable, no canonical pronunciation inferred"
+    },
+    {
+      "url": "https://docs.pytorch.org/audio/stable/tutorials/ctc_forced_alignment_api_tutorial.html",
+      "use": "Reference only; deprecated 2.8/removed 2.9 API not used"
+    },
+    {
+      "url": "https://huggingface.co/facebook/mms-1b-all",
+      "license": "CC-BY-NC-4.0 model card",
+      "use": "EXCLUDED_NOT_INSTALLED; not adopted for proposed commercial build"
+    }
+  ]
+}

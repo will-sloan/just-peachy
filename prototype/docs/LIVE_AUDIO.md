@@ -79,3 +79,14 @@ and sustained live operation still require separate checks. DSP reads can fail
 while the USB audio loop is inactive; no render stream is added to work around it.
 
 In the live app: press Start, read the exact device and consent, speak, inspect captions, Stop, then review the route/default-output receipt. For disconnect recovery, unplug while listening, verify an explicit gap, reconnect and explicitly Start a new epoch. Windows default-output IDs are read before/after; a changed ID alone does not identify its cause.
+
+## AEC_MIC_ARRAY_TYPE / audio-loop startup failure
+
+If Windows sees the XVF and input callbacks arrive but this DSP query still
+fails, the device audio processor may need restarting. Close the app, fully
+power-cycle the XVF board, then reopen and Start. Restarting the GUI alone does
+not reset the board. XMOS evaluation boards stop processing after eight hours;
+that is one possible cause, not a diagnosis from this error alone. Existing PC
+speakers/microphones need not be disconnected. Do not enable packed playback or
+change drivers to work around the error. The [20 September recovery record](XVF_START_RECOVERY_20260920.md)
+documents one successful board restart and subsequent real native Start/Stop.

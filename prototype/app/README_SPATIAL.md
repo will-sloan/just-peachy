@@ -1,5 +1,13 @@
 # Live spatial field modes
 
+CM5 motion update (September 22, 2026): the installed BMI270 supplies a
+three-dimensional relative startup frame; see [README_IMU.md](README_IMU.md).
+Reference/unsafe generation changes exclude old cues and clear only location
+memory on the tracker dispatcher via `MotionFrameTracker`. Voice tracks and
+enrolled identities remain. Offline microphone access can be preapproved in
+Settings. Older planning statements below about pending CM5 hardware are
+superseded by the deployment handoff.
+
 `live_spatial.py` bridges the existing XVF telemetry worker into the retained
 S6C tracker and a small S7 GUI projection. It adds no model, training, source
 separation, beam steering, or ASR endpoint changes. Both new modes are available

@@ -25,7 +25,8 @@ prototype\Start-Prototype.cmd
 ```
 
 Inputs are the named person's explicit consent, live XVF speech, a display name,
-the selected O0/O1 tap, and a 15/30/60-second usable-speech goal. The existing local
+the selected O0/O1 tap, and a 15/30/60-second usable-speech goal or **Read paragraph
+→ Done**. The existing local
 model assets and `live_config.json` must be available; see `LIVE_AUDIO.md`.
 The live adapter opens the configured XVF input only. It never opens a playback
 stream, changes default speakers or substitutes another PC microphone. Other PC
@@ -50,22 +51,29 @@ voice data, not anonymized data or encrypted storage.
 2. Open **People → Add person**. Enter your name with the on-screen keyboard and
    tap Done. Names accept 1–80 printable characters. The short profile ID will
    distinguish people who happen to share a name.
-3. Choose **15s, 30s or 60s** of unique usable speech; the default is 30s.
-   These are prototype interface goals, not proven optimal enrollment lengths.
+3. Choose **15s, 30s or 60s** with **Target: unique usable speech** (30s default),
+   or **Read paragraph → Done** with no timed quota. The paragraph may not meet
+   a timed target; continue with different natural speech. These timed goals
+   are interface choices, not proven optimal enrollment lengths.
    Read the privacy wording, give your own consent and tap **Start recording**.
 4. Speak naturally at a comfortable level. Read the guide below or different
    natural sentences. Avoid another person talking over you. The guide is
    editable and is never supplied as an expected transcript or lexical answer.
-5. Watch **Unique usable** separately from **elapsed** time. Usable speech is
+5. Watch **Verified unique usable** separately from **Captured** time. Usable speech is
    estimated from nonoverlapping accepted speech intervals; the same captured
-   samples are not counted again on every update. Progress can advance in chunks
-   while quality processing catches up. Silence, weak speech, clipping, overlap,
+   samples are not counted again on every update. **Pending quality** exposes the
+   backlog. **Level activity** measures audio level, not verified speech. The bar
+   smoothly approaches only the most recently verified count; it never invents
+   progress while waiting. In Done mode its scale is captured audio, not a quota.
+   Silence, weak speech, clipping, overlap,
    inconsistent voice evidence or capture gaps can prevent a usable reference.
 6. **Read more / continue naturally** gives guidance; it does not restart capture
    or add synthetic duration. The goal does not stop the recording automatically.
-   Continue if necessary, then tap **Stop recording**. A 180-second maximum limits
+   Continue if necessary, then tap **Stop recording** or **Done · check reference**.
+   Neither option requires verbatim reading. A 180-second maximum limits
    each recording. The final partial block is checked when recording stops.
-7. Wait for analysis and inspect the result. **Save reference** is enabled only
+7. Wait through **DRAINING → ANALYZING → READY** and inspect the result.
+   **Save reference** is enabled only
    when the backend's quality and capture-integrity checks permit saving. Elapsed
    time alone cannot enable Save. If the result is insufficient, discard this
    unfinished recording and make a fresh attempt; it cannot be silently resumed
@@ -74,6 +82,37 @@ voice data, not anonymized data or encrypted storage.
    application and let cleanup finish. Reopen it: the person should still appear.
    Start a new consented session in **Enrolled names** using the same tap and speak
    different sentences. Keep the full transcript visible while assessing results.
+
+## What Done and the script estimate mean
+
+Done removes the timed quota, not the quality gate. The installed audio adapter
+requires at least one admitted 0.5s / 8000-sample window. The same speech/overlap,
+RMS, clipping, consistency, finite-vector and capture-integrity checks still
+apply. Under 15s is explicitly **limited evidence**. More varied clean speech
+may help; passing this minimum does not establish identity accuracy or that only
+one person spoke. Silence, corrupt audio, gaps or failed quality cannot be saved.
+
+Only paragraph mode stores the offered text and SHA-256 as **reference metadata,
+not a verified transcript**. The existing ordinary ASR estimates ordered word
+coverage and agreement; it receives audio without script hotwords or forced
+decoding. Skipping words, paraphrasing, unfamiliar names and recognition errors
+do not disqualify useful voice evidence. An empty guide/free speech is permitted;
+there is then no script-coverage percentage. Read/edit preserves your original
+paragraph, subject to a 4096-character bound.
+
+This optional estimate shares the existing resident recognizer and one quality
+worker. It first updates after a full 10s quality block or at Stop, and can lag
+while analysis catches up. **ASR analyzed** shows how much captured audio has
+reached it. ASR unavailability does not disable voice-only enrollment. The ASR
+stream's existing final decoder flush never enters embedding support or duration.
+
+Saved metadata includes ordinary raw ASR endpoint segments with stable IDs,
+source-sample bounds, quality/support intervals and the audio hash. Endpoint
+bounds are approximate sentence context, not word/phoneme alignment. No raw WAV
+is retained by default, so this metadata alone cannot recreate reference audio.
+ReDimNet2 receives audio only: knowing the paragraph does not strengthen its
+vectors or fine-tune it. The exact native vectors were unchanged in task06's
+bounded saved-audio check; real human enrollment remains awaiting participation.
 
 The provided guide is:
 
@@ -145,3 +184,42 @@ review them before sharing. The profile archive and problem files are separate.
 
 Use `LIVE_USER_CHECKLIST.md` for the remaining 10–15-minute human check. File
 inference tests, UI stubs and a research gallery do not replace this check.
+
+## Optional script-aware evidence (task09)
+
+Settings → Advanced → **Text-aware reference selection** defaults Off. Turn it
+On before starting a new **Read paragraph → Done** enrollment. When READY, open
+**Review paragraph coverage** to see intended text beside independent ASR,
+approximate word agreement, unknown timing and quality-rejected/unknown duration.
+Skipped/repeated/mispronounced words remain in the original evidence. The touch
+**Add correction / review note** records a separate note; it never changes raw
+ASR or silently changes the identity reference. Return to Save as usual.
+
+The original reference is retained. An optional alternate bank contains at most
+six contiguous 2–4s quality-admitted contexts with varied script-agreeing words.
+The bank can be empty; ordinary enrollment still works. The helper does not
+train ReDimNet, create phoneme boundaries or force your reading into a dictionary.
+Decoder token emissions are approximate; late flush tokens beyond the actual
+recording remain unknown. No raw enrollment WAV is kept after analysis.
+
+Saved review: People → person → **Review latest paragraph evidence**. With the
+toggle On, start a compatible name mode, then Advanced → **Compare base /
+alternate voice scores**. This shows the same query against both reference
+centroids and how old the query is. Only the original score decides names.
+**Matched-content support is unavailable** until reliable query-content confidence
+and acoustic boundaries are validated. A phrase match alone never proves identity.
+
+Switch Off and Stop/Start to return to original-only operation; this preserves
+all references. Settings changes apply to the next enrollment/session. O0/O1
+remain separate; profiles are not converted between taps. Export/import/delete
+include the private sidecars. Profile exports are unencrypted. New sidecars mark
+the data as requiring `script-evidence-v1`; use a compatible reader and do not
+force the older task08 ZIP onto these profiles. See
+`../app/README_SCRIPT_EVIDENCE.md` for exact run/rollback/storage bounds and
+`UIITER2_09_HANDOFF.md` for the small actual-audio check and its limits.
+
+## Optional enhanced reference domain (task10)
+
+Default Bypass preserves existing references. With Advanced noise routing set to Identity or Both, the same single helper processes quality/embedding audio and the new reference stores its helper model hash. ASR-only retains original voice audio; paragraph transcription follows the selected ASR branch independently. Existing references are never overwritten automatically. Enhanced/original domains and O0/O1 are not interchangeable.
+
+A helper/source error prevents saving the enhanced reference. Do not enroll with overlapping people: native tests showed enhancement can make mixed speech pass a quality gate, so admission is not single-person proof. Task09 text estimates remain advisory. Adding enhanced references requires a reader supporting `enhanced-reference-v1`; rollback never downgrades this data marker. See UIITER2_10_HANDOFF.md.

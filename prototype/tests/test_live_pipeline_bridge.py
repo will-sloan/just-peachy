@@ -26,6 +26,8 @@ class FakeLive:
         self.callback_ns=time.monotonic_ns()-delay_ns
         self.callback_perf_ns=time.perf_counter_ns()-delay_ns
         self.metadata['actual_latency']=config.get('actual_latency',.11)
+        self.metadata['stream_start_perf_counter_ns']=(self.callback_perf_ns-110_000_000
+            if not config.get('no_start_clock') else None)
 
     def start(self,consent):
         assert consent is True
@@ -82,39 +84,38 @@ class BridgeTests(unittest.TestCase):
         started=next(data for kind,data in events if kind=='source_started')
         self.assertEqual(journal.committed_samples,1760)
         self.assertIsNone(journal.fatal_error)
-        self.assertEqual(started['source_clock_method'],'portaudio_adc_timestamp')
-        expected=source.live.callback_perf_ns/1e9-.11
+        self.assertEqual(started['source_clock_method'],'stream_start_counted_native_frames')
+        expected=(source.live.callback_perf_ns-110_000_000)/1e9-2/48000
         self.assertAlmostEqual(started['source_epoch_monotonic_sec'],expected,places=8)
         self.assertGreaterEqual(time.perf_counter()-expected,journal.duration_sec)
 
-    def test_missing_driver_timestamps_use_explicit_estimate(self):
+    def test_missing_driver_timestamps_use_stream_frame_bound(self):
         source,journal,events=self.make()
         source.start();self.assertTrue(source.wait(3));source.stop()
         started=next(data for kind,data in events if kind=='source_started')
-        self.assertEqual(started['source_clock_method'],'reported_input_latency_estimate')
-        self.assertEqual(started['source_clock_confidence'],'estimated_unqualified_for_latency_measurement')
-        self.assertFalse(started['portaudio_adc_timestamp_valid'])
-        self.assertIn('unavailable',started['source_clock_fallback_reason'])
+        self.assertEqual(started['source_clock_method'],'stream_start_counted_native_frames')
+        self.assertIn('not_acoustic',started['source_clock_confidence'])
+        self.assertIn('diagnostic_only',started['reported_latency_role'])
 
     def test_invalid_driver_timestamps_cannot_claim_adc_timing(self):
         for adc in (51.0,float('nan'),0):
             source,journal,events=self.make({'current_time':50.11,'adc_time':adc})
             source.start();self.assertTrue(source.wait(3));source.stop()
             started=next(data for kind,data in events if kind=='source_started')
-            self.assertEqual(started['source_clock_method'],'reported_input_latency_estimate')
+            self.assertEqual(started['source_clock_method'],'stream_start_counted_native_frames')
 
     def test_no_valid_clock_fails_without_clamping_or_admitting_audio(self):
-        source,journal,events=self.make({'actual_latency':None})
+        source,journal,events=self.make({'actual_latency':None,'no_start_clock':True})
         source.start();self.assertTrue(source.wait(3))
         self.assertEqual(journal.committed_samples,0)
-        self.assertIn('no usable ADC timestamps',journal.fatal_error)
+        self.assertIn('missing stream-start',journal.fatal_error)
 
     def test_impossible_later_burst_fails_without_rebasing_epoch(self):
         source,journal,events=self.make({'block_count':30,'reader_delay':.001,
             'current_time':50.11,'adc_time':50.0})
         source.start();self.assertTrue(source.wait(3))
         self.assertLess(journal.committed_samples,4800)
-        self.assertIn('ahead of the fixed capture timeline',journal.fatal_error)
+        self.assertIn('ahead of stream-start frame bound',journal.fatal_error)
         self.assertEqual(sum(kind=='source_started' for kind,_ in events),1)
 
     def test_primary_lane_failure_survives_secondary_closed_journal(self):

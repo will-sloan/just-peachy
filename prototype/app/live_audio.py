@@ -46,6 +46,8 @@ class LiveConfig:
     normal_microphone_gain: float = 10.0
     normal_system_delay: int = -32
     expected_asr_gain: float = 1.0
+    control_protocol: str = "usb"
+    expected_array_type: int | None = None
 
     def __post_init__(self):
         if not isinstance(self.host_executable, str) or not self.host_executable.strip():
@@ -54,12 +56,18 @@ class LiveConfig:
             raise ValueError("Configure lease_path: reuse the existing project hardware lease where installed")
         if self.hostapi not in ("Windows WASAPI", "Windows WDM-KS", "ALSA"):
             raise ValueError("Choose explicit Windows WASAPI/WDM-KS or ALSA; system-default aliases are not supported")
+        if self.control_protocol not in ("usb", "i2c"):
+            raise ValueError("control_protocol must be usb or i2c")
+        if self.control_protocol == "i2c" and (self.hostapi != "ALSA" or not self.endpoint_name):
+            raise ValueError("I2C control requires an explicitly named ALSA I2S capture endpoint")
+        if self.expected_array_type is not None and (type(self.expected_array_type) is not int or self.expected_array_type not in (1, 2)):
+            raise ValueError("expected_array_type must be 1 (linear), 2 (squarecular), or null")
         if not 1 <= self.control_timeout_seconds <= 30:
             raise ValueError("control timeout must be 1..30 seconds")
         if self.tap not in ("O0", "O1"):
             raise ValueError("tap must be O0 or O1; channels are never averaged")
         if self.native_rate != 48000 or self.block_frames not in (480, 960):
-            raise ValueError("This matched UA io48 adapter requires 48k and 480/960 frame blocks")
+            raise ValueError("The matched 48k adapter requires 480/960 frame blocks")
         if not 1 <= self.reserve_seconds <= 120:
             raise ValueError("raw reserve must be 1..120 seconds")
         if self.normal_microphone_gain != 10.0 or self.normal_system_delay != -32:
@@ -82,6 +90,7 @@ class LiveBlock:
     epoch: int = 0
     callback_perf_counter_ns: int | None = None
     callback_current_time_seconds: float | None = None
+    priming_native_frames: int = 0
 
 
 class DeviceLease:
@@ -156,7 +165,7 @@ class HostControl:
             raise LiveAudioError("Command is outside the live adapter allowlist")
         if values and command not in LIVE_SETTABLE:
             raise LiveAudioError("This adapter cannot write firmware identity, topology, USB bit depth or unowned DSP controls")
-        argv = [str(self.executable), "-u", "usb", command, *map(str, values)]
+        argv = [str(self.executable), "-u", self.config.control_protocol, command, *map(str, values)]
         with self.lock:
             start = time.monotonic_ns()
             proc = subprocess.run(argv, cwd=self.executable.parent, capture_output=True,
@@ -212,7 +221,10 @@ class HostControl:
         result = {}
         errors = {}
         inactive = False
-        for name in ("VERSION", "USB_BIT_DEPTH", "BLD_MSG", *(n for n in READBACKS if n not in ("VERSION", "USB_BIT_DEPTH"))):
+        names = ("VERSION", "USB_BIT_DEPTH", "BLD_MSG", *(n for n in READBACKS if n not in ("VERSION", "USB_BIT_DEPTH")))
+        for name in names:
+            if name == "USB_BIT_DEPTH" and self.config.control_protocol != "usb":
+                continue
             if inactive:
                 errors[name] = "NOT_ATTEMPTED: audio-loop readback requires an active consented input stream"
                 continue
@@ -243,7 +255,9 @@ def inventory(config: LiveConfig | None = None) -> dict:
             result["tool_sha256"] = hashlib.sha256(control.executable.read_bytes()).hexdigest()
             result["tool_files"] = {p.name: hashlib.sha256(p.read_bytes()).hexdigest()
                                     for p in (control.executable, control.executable.with_name("command_map.dll"),
-                                              control.executable.with_name("device_usb.dll")) if p.is_file()}
+                                              control.executable.with_name("device_usb.dll"),
+                                              control.executable.with_name("libcommand_map.so"),
+                                              control.executable.with_name("libdevice_"+config.control_protocol+".so")) if p.is_file()}
             result["commands"] = control.receipts
     return result
 
@@ -272,6 +286,9 @@ def resolve_endpoint(config: LiveConfig, state: dict) -> dict:
         if config.endpoint_id and config.endpoint_id != match["endpoint_id"]:
             raise LiveAudioError("Selected XVF endpoint is absent or changed; explicit re-selection is required")
         selected["endpoint_id"] = match["endpoint_id"]
+    elif config.control_protocol == "i2c":
+        if not config.endpoint_name or not re.search(r"\(hw:\d+,\d+\)$", selected["name"]):
+            raise LiveAudioError("Select the explicit XMOS I2S hardware endpoint, not an ALSA default/mixer alias")
     elif len([d for d in state["endpoints"] if d["max_input_channels"] >= 2 and d["hostapi_name"] == config.hostapi]) != 1:
         raise LiveAudioError("Linux multi-device control addressing is not qualified; select a unique physical XVF")
     return selected
@@ -287,11 +304,16 @@ class LiveRoute:
     def apply(self):
         self.before = self.control.snapshot()
         b = self.before
-        if b["VERSION"] != [3, 2, 1] or b["AEC_NUM_MICS"] != [4] or "ua-io48" not in b["BLD_MSG"]:
-            raise LiveAudioError("This adapter requires the inspected XVF 3.2.1 UA 48k four-microphone build")
+        build = b["BLD_MSG"]
+        matched = ("ua-io48" in build if self.config.control_protocol == "usb" else
+                   bool(re.search(r"intdev-lr48-(?:lin|sqr)-i2c(?![-\w])", build)))
+        if b["VERSION"] != [3, 2, 1] or b["AEC_NUM_MICS"] != [4] or not matched:
+            raise LiveAudioError("Requires matching XVF 3.2.1 four-microphone firmware: UA io48 for USB, INTDEV lr48 i2c for I2S")
         if b["AEC_MIC_ARRAY_TYPE"] not in ([1], [2]):
             raise LiveAudioError("Unknown array topology; no geometry changes are permitted")
-        if len(b["USB_BIT_DEPTH"]) != 2 or any(v not in (16, 24, 32) for v in b["USB_BIT_DEPTH"]):
+        if self.config.expected_array_type is not None and b["AEC_MIC_ARRAY_TYPE"] != [self.config.expected_array_type]:
+            raise LiveAudioError("Microphone array does not match this installation's configured topology")
+        if self.config.control_protocol == "usb" and (len(b["USB_BIT_DEPTH"]) != 2 or any(v not in (16, 24, 32) for v in b["USB_BIT_DEPTH"])):
             raise LiveAudioError("Unknown current USB format; adapter never changes bit depth")
         if b["AEC_ASROUTGAIN"] != [self.config.expected_asr_gain]:
             raise LiveAudioError("Device ASR gain is not unity; inspect domain before applying host +3dB")
@@ -310,7 +332,7 @@ class LiveRoute:
                 "tap": self.config.tap, "channel_index": 0 if self.config.tap == "O0" else 1,
                 "host_gain_db": 3.0 if self.config.tap == "O0" else 0.0,
                 "device_asr_gain": b["AEC_ASROUTGAIN"], "native_rate": 48000,
-                "model_rate": 16000, "render_streams": 0,
+                "model_rate": 16000, "render_streams": 0, "control_protocol": self.config.control_protocol,
                 "baseline": "XMOS 3.2.1 product/control_param_values.yaml mic=10 delay=-32",
                 "mic_baseline_is_room_calibration": False}
 
@@ -383,9 +405,13 @@ class XVFLiveSource:
         self._max_lag = 0.0
         self._route_ready = False
         self._priming_frames = 0
+        self._restoration_frames = 0
         self._priming_status_events = 0
         self._last_callback_ns = 0
         self._started_ns = 0
+        self._capture_epoch = time.perf_counter_ns()
+        self._accepted_origin_frame = None
+        self._stream_start_perf_ns = None
         self._stop_lock = threading.RLock()
         self._cancel_requested = threading.Event()
 
@@ -429,7 +455,10 @@ class XVFLiveSource:
             self.stream = self.sd.InputStream(device=selected["index"], samplerate=48000,
                                              channels=2, dtype="float32", blocksize=self.config.block_frames,
                                              latency=0.1, callback=self._callback, **kwargs)
+            self._stream_start_perf_ns = time.perf_counter_ns()
             self.stream.start()
+            self.metadata['stream_start_perf_counter_ns'] = self._stream_start_perf_ns
+            self.metadata['stream_start_return_perf_counter_ns'] = time.perf_counter_ns()
             self._started_ns = time.monotonic_ns()
             # Some UA firmware commands need an active USB input clock. Until
             # route verification the callback discards these priming frames;
@@ -447,6 +476,7 @@ class XVFLiveSource:
             self._route_ready = True
             self._started = True
             self.metadata.update(actual_stream_rate=self.stream.samplerate, actual_latency=self.stream.latency,
+                                 priming_status_events=self._priming_status_events,
                                  resampler_delay_seconds=self._converter.delay_seconds,
                                  raw_ring_bytes=int(self._ring.nbytes), raw_ring_capacity_seconds=capacity*self.config.block_frames/48000,
                                  defaults_after_start=endpoint_snapshot(), started_monotonic_ns=time.monotonic_ns())
@@ -471,14 +501,19 @@ class XVFLiveSource:
         # No disk, inference, GUI, USB, string-formatting, or sample allocation.
         callback_perf_ns = time.perf_counter_ns()
         if not self._route_ready:
-            self._priming_frames += frames
-            self._priming_status_events += int(bool(status))
+            if self._stopped:
+                self._restoration_frames += frames
+            else:
+                self._priming_frames += frames
+                self._priming_status_events += int(bool(status))
             self._last_callback_ns = time.monotonic_ns()
             return
         if status or frames > self.config.block_frames or self._write_seq-self._read_seq >= self._capacity:
             self._fault = "INPUT_STATUS_GAP" if status else "CALLBACK_SIZE_OR_RAW_RING_OVERFLOW"
             self._dropped_frames += frames
             raise self.sd.CallbackAbort
+        if self._accepted_origin_frame is None:
+            self._accepted_origin_frame = self._priming_frames
         slot = self._write_seq % self._capacity
         np.copyto(self._ring[slot, :frames], indata)
         self._frames[slot] = frames
@@ -525,8 +560,10 @@ class XVFLiveSource:
         self._max_lag = max(self._max_lag, lag)
         block = LiveBlock(audio, self._model_samples, native_start, n, callback_ns, adc, delivered,
                           self._converter.delay_seconds, lag,
+                          epoch=self._capture_epoch,
                           callback_perf_counter_ns=callback_perf_ns,
-                          callback_current_time_seconds=callback_current_time)
+                          callback_current_time_seconds=callback_current_time,
+                          priming_native_frames=self._accepted_origin_frame)
         self._model_samples += len(audio)
         return block
 
@@ -535,6 +572,7 @@ class XVFLiveSource:
                 "raw_frames": self._native_frames, "converted_samples": self._model_samples,
                 "priming_frames_discarded_before_route_verified": self._priming_frames,
                 "priming_status_events": self._priming_status_events,
+                "restoration_frames_discarded_after_stop": self._restoration_frames,
                 "dropped_frames": self._dropped_frames, "pending_raw_blocks": self._write_seq-self._read_seq,
                 "maximum_source_lag_seconds": self._max_lag, "render_streams": 0,
                 "evaluation_firmware_restart_note": "If evaluation firmware is used, its eight-hour limit requires a safe restart between sessions; this adapter never resets mid-utterance."}

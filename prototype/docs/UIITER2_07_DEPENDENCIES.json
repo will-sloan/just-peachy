@@ -1,0 +1,106 @@
+{
+  "schema": "just_peachy.task07.dependencies.v1",
+  "new_dependencies": [],
+  "new_transitive_dependencies": [],
+  "new_models_dictionaries_tokenizers_conversions": [],
+  "original_vocabulary": {
+    "words": [
+      "captions",
+      "transcript",
+      "microphone",
+      "enrollment",
+      "speaker",
+      "prototype",
+      "vocabulary",
+      "spelling",
+      "paragraph",
+      "conversation",
+      "spatial",
+      "calibration",
+      "headphones",
+      "recording",
+      "playback",
+      "direction",
+      "computer",
+      "settings",
+      "reference",
+      "software",
+      "hardware",
+      "simulation",
+      "diarization",
+      "punctuation"
+    ],
+    "sha256_utf8_newline_joined": "8be90307fa99fa7d6f1bb717d7982c1d819e32f8adb214826b011d8c5392c743",
+    "origin": "Original project-authored compact vocabulary; no imported corpus",
+    "rights": "Existing project rights; no new distribution licence asserted"
+  },
+  "existing_runtime": {
+    "python": "3.11.16",
+    "numpy": "2.2.6",
+    "sherpa-onnx": "1.13.4",
+    "onnxruntime": "1.29.0",
+    "soundfile": "0.13.1"
+  },
+  "existing_assets_verified": {
+    "sherpa_giga_encoder_int8": {
+      "expected": "32c98281c7bd8b63e3e142d007251b37f120572e8fdea9a4f5a79ce22b10ec4f",
+      "actual": "32c98281c7bd8b63e3e142d007251b37f120572e8fdea9a4f5a79ce22b10ec4f"
+    },
+    "sherpa_giga_decoder_fp32": {
+      "expected": "9da02b77cb08826756ec6a88635f35a40374e4164e7c6359121a9145958a6ceb",
+      "actual": "9da02b77cb08826756ec6a88635f35a40374e4164e7c6359121a9145958a6ceb"
+    },
+    "sherpa_giga_joiner_int8": {
+      "expected": "831477d390e59a61f1b6a6f763b9903e6c6366ff6034f1ddba613be82637122f",
+      "actual": "831477d390e59a61f1b6a6f763b9903e6c6366ff6034f1ddba613be82637122f"
+    },
+    "sherpa_giga_tokens": {
+      "expected": "49e3c2646595fd907228b3c6787069658f67b17377c60aeb8619c4551b2316fb",
+      "actual": "49e3c2646595fd907228b3c6787069658f67b17377c60aeb8619c4551b2316fb"
+    },
+    "sherpa_online_punctuation_int8": {
+      "expected": "9d611f445fe4a46186080fe161be6059d87d72eb88d3a8cb00c1a06e83a6067e",
+      "actual": "9d611f445fe4a46186080fe161be6059d87d72eb88d3a8cb00c1a06e83a6067e"
+    },
+    "sherpa_online_punctuation_bpe": {
+      "expected": "e118b7ad88c54db562517df49e1cffd4836d166c34fb190fd311d7f34eb238f5",
+      "actual": "e118b7ad88c54db562517df49e1cffd4836d166c34fb190fd311d7f34eb238f5"
+    },
+    "redimnet2_b2_fp32": {
+      "expected": "5c1a8635cba0d4648463f3b6d30c5a6137bc38d1200ab00c5944400aaa7b5609",
+      "actual": "5c1a8635cba0d4648463f3b6d30c5a6137bc38d1200ab00c5944400aaa7b5609"
+    },
+    "pyannote_segmentation_3_0_fp32": {
+      "expected": "b4b65085bbf2cc455565696604c87fedade1359aa6ddfac5d726d69124d5069a",
+      "actual": "b4b65085bbf2cc455565696604c87fedade1359aa6ddfac5d726d69124d5069a"
+    }
+  },
+  "installed_sherpa_api_sha256": "21d560bfd5849098aa92172db140a5979104b2352bc3f25d018e9efdf120ecf1",
+  "asr_tokenizer_status": {
+    "available": false,
+    "reason": "Unavailable: installed Sherpa 1.13.4 exposes hotwords, but the qualified Giga ASR assets have no matching BPE vocabulary. Punctuation BPE is a different tokenizer. Greedy decoding remains active; no hotword file is used.",
+    "native_ab": "NOT_RUN; unsupported qualified ASR tokenizer binding",
+    "sherpa_version": "1.13.4",
+    "api_signature": "(tokens: str, encoder: str, decoder: str, joiner: str, num_threads: int = 2, sample_rate: float = 16000, feature_dim: int = 80, low_freq: float = 20.0, high_freq: float = -400.0, dither: float = 0.0, normalize_samples: bool = True, snip_edges: bool = False, enable_endpoint_detection: bool = False, rule1_min_trailing_silence: float = 2.4, rule2_min_trailing_silence: float = 1.2, rule3_min_utterance_length: float = 20.0, decoding_method: str = 'greedy_search', max_active_paths: int = 4, hotwords_score: float = 1.5, blank_penalty: float = 0.0, hotwords_file: str = '', model_type: str = '', modeling_unit: str = 'cjkchar', bpe_vocab: str = '', lm: str = '', lm_scale: float = 0.1, lm_shallow_fusion: bool = True, temperature_scale: float = 2.0, reset_encoder: bool = False, debug: bool = False, rule_fsts: str = '', rule_fars: str = '', provider: str = 'cpu', device: int = 0, cudnn_conv_algo_search: int = 1, trt_max_workspace_size: int = 2147483647, trt_max_partition_iterations: int = 10, trt_min_subgraph_size: int = 5, trt_fp16_enable: bool = True, trt_detailed_build_log: bool = False, trt_engine_cache_enable: bool = True, trt_timing_cache_enable: bool = True, trt_engine_cache_path: str = '', trt_timing_cache_path: str = '', trt_dump_subgraphs: bool = False, hr_dict_dir: str = '', hr_rule_fsts: str = '', hr_lexicon: str = '', lodr_fst: str = '', lodr_scale: float = 0.0)",
+    "installed_api_sha256": "21d560bfd5849098aa92172db140a5979104b2352bc3f25d018e9efdf120ecf1",
+    "matching_asr_bpe_assets": []
+  },
+  "reference_only_not_installed": [
+    {
+      "url": "https://k2-fsa.github.io/sherpa/onnx/hotwords/index.html",
+      "use": "Verified supported decoder and tokenizer requirements"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/mammothb/symspellpy/master/LICENSE",
+      "license": "MIT code; copyright/permission notice retention",
+      "use": "Not installed/copied; no dictionary or transitive dependencies added"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/rapidfuzz/RapidFuzz/main/LICENSE",
+      "license": "MIT code; copyright/permission notice retention",
+      "use": "Not installed/copied; string comparison is not acoustic confidence"
+    }
+  ],
+  "notices": "release_tools/THIRD_PARTY_NOTICES.md",
+  "rights_scope": "Code, models and data remain distinct; no blanket shipping clearance"
+}

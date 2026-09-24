@@ -1,6 +1,13 @@
 # Release tools: purpose, inputs and outputs
 
-These Python standard-library tools build immutable Just-Peachy source releases, verify and stage them, switch a portable `current.json` pointer, roll back code, and collect small privacy-limited diagnostics. They never start recording, flash firmware, modify the OS audio default or delete personal data. A stopped application is required for activation: application and updater acquire the same external `runtime.lock` atomically. Existing locks are never assumed stale or removed automatically.
+Current CM5 deployment: see `../docs/CM5_I2S_MIGRATION.md` and
+`../app/README_IMU.md`. The current UI supports saved microphone permission and
+optional one-shot listening on launch. Unset permission still opens stopped.
+Source releases now include native C/H sensor sources and licences; compiled
+architecture-specific helpers stay outside the immutable release. Older
+hardware-pending statements below are historical PROTO1/task08 results.
+
+These Python standard-library tools build immutable Just-Peachy source releases, verify and stage them, switch a portable `current.json` pointer, roll back code, and collect small privacy-limited diagnostics. They never start recording, flash firmware, modify the OS audio default or delete personal data. A stopped application is required for activation: application and updater acquire the same external `runtime.lock` atomically. Linux locks with proven dead owners or a different boot ID are safely recovered; active and uncertain owners remain protected. See README_STARTUP.md.
 
 Inputs: `prototype/` source, explicit version, separate `config/assets.json` content identities, external shared model directory, an explicit install/data directory, and optionally an offline ARM64 wheelhouse. Outputs: versioned ZIP plus SHA256 receipt; immutable `releases/<version>`; `current.json`, `previous.json` and small activation history; optional diagnostics JSON. People, vectors, recordings, models and research evidence are excluded from source ZIPs. Source hashes are rechecked during build. Checksums establish integrity, **not publisher authentication**: accept only an archive from a trusted source.
 
@@ -36,7 +43,7 @@ The `release.py` commands work on Windows and Linux. The following is a **local 
 & $py .\release_tools\release.py collect-diagnostics --root 'G:\Just_Peachy_PROTO1\release sandbox' --data-root 'G:\Just_Peachy_PROTO1\release test data' --output 'G:\Just_Peachy_PROTO1\release-diagnostics.json'
 ```
 
-Activate a second staged version, then `rollback --root ... --data-root ...`. Code/config and the version-specific dependency environment switch; people/settings remain unchanged. Schema 1 is supported. Existing data without a schema or a future schema is refused. No destructive automatic migration exists. A runtime lock blocks activation even if the PID looks old; close the app normally or inspect a crashed owner before manually recovering its lock.
+Activate a second staged version, then `rollback --root ... --data-root ...`. Code/config and the version-specific dependency environment switch; people/settings remain unchanged. Schema 1 is supported. Existing data without a schema or a future schema is refused. No destructive automatic migration exists. A live or uncertain runtime lock blocks activation. Linux crash/reboot recovery follows README_STARTUP.md; age alone never permits recovery.
 
 `healthcheck --models --imports` additionally verifies every shared model hash and imports the selected native runtime libraries without opening a microphone. It does not prove successful neural inference, device routing or GUI operation; those have separate application acceptance checks.
 
@@ -114,3 +121,35 @@ For one complete local release-tool check and machine-readable evidence, run `& 
 `audit_xmos_artifacts.py --binary-zip <vendor ZIP> --output <JSON>` reads ELF headers without extraction or device access. The actual supplied `rpi` host, USB library and command map are ARM32, not ARM64. See the native build prerequisite and first-boot checklist in `../docs/PI_DEPLOYMENT_WORKFLOW.md`.
 
 Evidence labels: Windows release-tool tests and Linux x86_64 stdlib tests are executed; ARM64 wheel artifacts are prepared; native CM5 audio, GUI/touch, sensor support, sustained 2 GB memory/thermal fit and matched ARM64 XMOS control are **not tested**. Full `install_pi.sh` execution remains target-pending; shell syntax and its wrong-architecture refusal are tested locally. A model import is not a neural performance test.
+# Task08 consolidated export — proto1-0.2.0
+
+This version includes accepted iterations01–07 and the task08 release/motion
+contracts. `config/release_capabilities.json` declares features, defaults and
+pending hardware work. See `../docs/UIITER2_08_HANDOFF.md` for measured results,
+`../docs/CM5_RELEASE_QUICKSTART.md` for exact commands, and
+`../docs/CM5_WIRING_AND_BRINGUP.md` for the fill-in wiring/arrival checklist.
+The older 0.1.4 archives remain historical.
+
+Task08 `verify_actual_release.py` also accepts `--fixture-people PATH` for an
+explicit nonproduction prepared-fixture store. It copies those files only to
+the external test-data root and verifies every hash after an injected startup
+failure and rollback. Invalid JSON is deliberately injected into that fixture's
+settings, checked for clean lock release, then the injected bytes are removed.
+Rollback itself does not fix corrupt user settings. The metadata-only rollback
+archive lives in the evidence directory, not beside the user release. No
+production data is modified. Test suites remain in the repository/external
+harness; the portable payload's self-test is `release.py healthcheck`, with
+`main.py file` for genuine native inference on a supplied WAV.
+
+The updater and `launch_current.py` now check paragraph-enrollment reader
+compatibility as well as schema1. They scan bounded per-person metadata and
+refuse older manifests lacking `paragraph-enrollment-v1`. No profiles are
+deleted or converted. Rollback to another compatible release is supported;
+rollback to pre-task06 after paragraph enrollment is intentionally refused.
+Use this current updater, not a historical updater that lacks this check.
+
+`run_relocated_contracts.py` now covers 13 model-free test modules spanning
+timing, source lifetime, profiles, roster, seats/motion, paragraph enrollment,
+archives and text assistance. It rebinds source paths and two helper-import
+names only; assertions are retained and imported release files are hash-bound.
+Its inputs/outputs and invoking command remain those documented below.

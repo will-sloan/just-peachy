@@ -55,10 +55,12 @@ class SpatialProfileTests(unittest.TestCase):
                         self.assertEqual(asdict(actual.tracker),historical['tracker'])
                         self.assertEqual(asdict(actual.xvf),historical['xvf'])
                         for name in ('asr','embedding','segmentation','identity'):
+                            if name=='identity' and mode=='assigned_direction':
+                                self.assertEqual(actual.identity.mode,'none');continue
                             self.assertEqual(asdict(getattr(actual,name)),asdict(getattr(base,name)))
                         self.assertEqual(actual.input.asr_tap,tap)
                         self.assertEqual(actual.input.identity_tap,tap)
-                        self.assertEqual(actual.identity.mode,'post_association')
+                        self.assertEqual(actual.identity.mode,'none' if mode=='assigned_direction' else 'post_association')
                         self.assertEqual(actual.xvf.mode,'tracking_only')
 
     def test_existing_modes_and_recipe_restrictions_preserved(self):
@@ -142,7 +144,7 @@ class SpatialProfileTests(unittest.TestCase):
     def test_live_provider_attached_before_live_launch(self):
         calls=[]
         engine=PrototypeEngine.__new__(PrototypeEngine)
-        engine._journal=object()
+        engine._journal=object();engine._input_journal=object()
         engine.begin=lambda:calls.append('begin')
         engine._spatial_provider=SimpleNamespace(attach=lambda live:calls.append(('attach',live)))
         engine._launch=lambda source:calls.append(('launch',source))
@@ -151,6 +153,7 @@ class SpatialProfileTests(unittest.TestCase):
             engine.start_xvf('explicit test configuration')
         self.assertEqual(calls,['begin',('attach',source.live),('launch',source)])
         self.assertIs(constructor.call_args.args[3],engine._spatial_provider)
+        self.assertIs(constructor.call_args.args[0],engine._input_journal)
 
 
 if __name__=='__main__':unittest.main(verbosity=2)

@@ -962,7 +962,14 @@ class PipelineEngine:
             while self._journal is not None and not self._journal.finished and self._state not in {"FAILED"}:
                 time.sleep(0.1)
             if self._state == "FAILED" and self._source is not None:
-                self._source.stop()
+                try:
+                    self._source.stop()
+                except Exception as exc:
+                    # A live source can re-raise its already reported input
+                    # failure after releasing capture. It must not bypass lane
+                    # drainage, recoverable transcript output or writer closure.
+                    self._finalization_error = self._finalization_error or exc
+                    self._telemetry["failed_source_stop_error"] = str(exc)
             for thread in list(self._threads):
                 if thread is threading.current_thread() or thread.name == "edge-session-watcher":
                     continue

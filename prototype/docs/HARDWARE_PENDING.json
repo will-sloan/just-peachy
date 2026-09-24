@@ -1,5 +1,5 @@
 {
-  "schema": "just-peachy.proto1.hardware-plan.v1",
+  "schema": "just-peachy.proto1.hardware-plan.v2",
   "status": "PLANNING_NOT_DEVICE_DISCOVERY",
   "compute": {
     "family": "Raspberry Pi Compute Module 5",
@@ -18,7 +18,19 @@
     "interface": null,
     "driver": null,
     "physical_size_mm": null,
-    "touch_transform": null
+    "touch_transform": null,
+    "enabled": false,
+    "driver_version": null,
+    "driver_verified": false,
+    "power_rail_volts": null,
+    "connector_pin1_orientation": null,
+    "panel_part_number": null,
+    "connector": null,
+    "backlight_supply": null,
+    "physical_header_pins": null,
+    "bcm_gpio": null,
+    "touch_bus": null,
+    "touch_address": null
   },
   "xvf": {
     "name": "XVF3800",
@@ -30,7 +42,14 @@
     "system_delay": null,
     "packed_input": false,
     "packed_output": false,
-    "sample_rate_hz": null
+    "sample_rate_hz": null,
+    "usb_vendor_id": null,
+    "usb_product_id": null,
+    "firmware_version_readback": null,
+    "host_control_path": null,
+    "host_control_sha256": null,
+    "command_map_sha256": null,
+    "host_architecture": null
   },
   "buttons": {
     "enabled": false,
@@ -43,7 +62,18 @@
       "right",
       "select",
       "back"
-    ]
+    ],
+    "driver_version": null,
+    "driver_verified": false,
+    "power_rail_volts": null,
+    "connector_pin1_orientation": null,
+    "physical_header_pins": null,
+    "bcm_gpio": null,
+    "gpio_chip": null,
+    "gpio_lines": null,
+    "pull": null,
+    "debounce_ms": null,
+    "extender_routes_verified": false
   },
   "imu": {
     "enabled": false,
@@ -53,15 +83,58 @@
     "address": null,
     "pins": null,
     "axes": null,
-    "timestamp_contract": "monotonic source timestamp + receipt"
+    "timestamp_contract": "Map sensor timestamp to host_monotonic ns, preserving source and receipt; unknown clock offset disables driver",
+    "driver_version": null,
+    "driver_verified": false,
+    "power_rail_volts": null,
+    "connector_pin1_orientation": null,
+    "bus_number": null,
+    "physical_header_pins": null,
+    "bcm_gpio": null,
+    "interrupt_pin": null,
+    "interrupt_active_level": null,
+    "sample_rate_hz": null,
+    "clock_offset_ns": null,
+    "clock_uncertainty_ns": null,
+    "axis_to_tablet_rotation": null,
+    "calibration": null,
+    "motion_contract": "stationary/moving/settling, quality 0..1, simulated provenance; invalidate assigned seats, manual re-anchor only"
   },
   "camera": {
     "enabled": false,
     "model": "Arducam B0182 IMX219 autofocus",
     "connector": null,
     "driver": null,
-    "role": "optional on-demand profile photo"
+    "role": "optional on-demand profile photo",
+    "driver_version": null,
+    "driver_verified": false,
+    "power_rail_volts": null,
+    "connector_pin1_orientation": null,
+    "csi_port": null,
+    "cable_type": null,
+    "cable_contact_orientation": null,
+    "i2c_bus": null,
+    "i2c_address": null,
+    "focus_driver": null,
+    "focus_control_verified": false,
+    "capture_on_demand": true,
+    "continuous_capture": false
   },
   "storage": "Personal people/settings data outside replaceable release; research archive excluded",
-  "authority": "User hardware statements and supplied DK_PRODUCTS_101407663.csv; unknowns not inferred"
+  "authority": "User hardware statements and supplied DK_PRODUCTS_101407663.csv; unknowns not inferred",
+  "configuration_role": "Fill-in planning template, never automatically opens a device",
+  "verified_by": null,
+  "verified_at": null,
+  "power_and_mux": {
+    "carrier_revision": null,
+    "extender_revision": null,
+    "schematic_revision": null,
+    "supply_rating": null,
+    "ground_plan": null,
+    "verified_free_gpio": null,
+    "pin_conflict_matrix": null,
+    "csi_dsi_conflicts": null,
+    "back_power_check": null,
+    "rail_budget_verified": false
+  }
 }

@@ -10,6 +10,7 @@ from pathlib import Path
 import sys
 import tkinter as tk
 import unittest
+from unittest.mock import patch
 
 from prototype.app.ui import MODES, PrototypeUI, prepare_dpi_awareness
 
@@ -19,7 +20,7 @@ class StubController:
         self.calls = []
         self.data = dict(state="IDLE", status="STUB UI CHECK · microphone unavailable", rows=[],
             people=[dict(id="uuid-alex-1", name="Alex"), dict(id="uuid-alex-2", name="Alex")],
-            mode="caption_only", recipe="fast", tap="O0", strict=False, selected_ids=[], settings={},
+            mode="caption_only", recipe="fast", tap="O0", strict=False, selected_ids=[], display_ids=[],settings={},
             metrics={"evidence_kind": "explicit UI stub; no model or audio"}, enrollment={}, error=None,
             recipes=[dict(id="fast", name="Fast · B36", available=True, taps=["O0", "O1"],
                           evidence_status="STUB metadata only", compatible_modes=list(MODES)),
@@ -32,6 +33,8 @@ class StubController:
     def stop(self): self._record("stop"); self.data["state"] = "STOPPED"
     def switch(self, **kwargs): self._record("switch", **kwargs); self.data.update(kwargs)
     def settings_update(self, values): self._record("settings_update", values); self.data["settings"].update(values)
+    def display_roster(self, ids):self._record('display_roster',ids);self.data['display_ids']=ids
+    def seats_apply(self,rows,mode,strength,acknowledged):self._record('seats_apply',rows,mode,strength,acknowledged);self.data['mode']=mode
     def enrollment_start(self, name, target, **kwargs):
         self._record("enrollment_start", name, target, **kwargs)
         self.data["state"] = "ENROLLING"
@@ -45,6 +48,8 @@ class StubController:
     def import_people(self, *args, **kwargs): self._record("import_people", *args, **kwargs)
     def mark_problem(self, **kwargs): self._record("mark_problem", **kwargs)
     def reset_spatial(self): self._record("reset_spatial")
+    def motion_configure(self, enabled): self._record('motion_configure', enabled)
+    def motion_mount_configure(self, enabled): self._record('motion_mount_configure', enabled)
     def close(self): self._record("close"); self.data["state"] = "CLOSED"
 
 
@@ -75,10 +80,68 @@ class UITests(unittest.TestCase):
         self.ui.snapshot = self.controller.snapshot(); self.ui._show_status()
         self.ui._render_rows(self.ui.snapshot["rows"]); self.root.update_idletasks()
 
+    def reopen_with_access(self, settings, *, allow_auto_start=True):
+        self.ui.close(); self.ui.poll()
+        self.root = tk.Tk(); self.controller = StubController()
+        self.controller.data['settings'].update(settings)
+        self.ui = PrototypeUI(self.root, self.controller, allow_auto_start=allow_auto_start)
+        self.root.update_idletasks()
+
+    def test_saved_microphone_permission_skips_repeated_dialog(self):
+        self.reopen_with_access({'microphone_preapproved': True})
+        self.ui.toggle_listening()
+        self.assertEqual(self.ui.page, 'captions')
+        self.assertEqual(self.controller.calls[-1], ('start_live', (), {'consent': True}))
+        self.assertNotIn('requires your consent', self.ui.caption_text.get('1.0', 'end'))
+
+    def test_motion_page_exposes_live_state_reset_and_experimental_switch(self):
+        self.controller.data['motion'] = dict(enabled=True, state='STATIONARY', yaw_deg=12.,
+            compensation=True, valid=True, reason='Relative front-side frame')
+        self.ui.snapshot = self.controller.snapshot()
+        self.ui.show_settings(); self.ui.actions['motion'].invoke()
+        self.assertEqual(self.ui.page, 'motion')
+        self.ui._page_update()
+        self.ui.actions['motion_reset'].invoke()
+        self.assertEqual(self.controller.calls[-1][0], 'reset_spatial')
+        self.ui.actions['motion_compensation'].invoke()
+        self.assertEqual(self.controller.calls[-1], ('motion_configure', (False,), {}))
+        self.ui.show_motion();self.ui.actions['motion_mount'].invoke()
+        self.assertEqual(self.controller.calls[-1], ('motion_mount_configure', (True,), {}))
+
+    def test_automatic_listening_is_once_and_requires_saved_permission(self):
+        self.reopen_with_access({'microphone_preapproved': True, 'auto_start_listening': True})
+        self.ui._auto_start_listening(); self.ui._auto_start_listening()
+        self.assertEqual([c[0] for c in self.controller.calls], ['start_live'])
+        self.ui.snapshot = self.controller.snapshot()
+        self.ui.toggle_listening(); self.ui._auto_start_listening()
+        self.assertEqual([c[0] for c in self.controller.calls], ['start_live', 'stop'])
+        self.reopen_with_access({'auto_start_listening': True})
+        self.ui._auto_start_listening()
+        self.assertEqual(self.controller.calls, [])
+
+    def test_file_gui_and_manual_start_suppress_pending_automatic_start(self):
+        access = {'microphone_preapproved': True, 'auto_start_listening': True}
+        self.reopen_with_access(access, allow_auto_start=False)
+        self.ui._auto_start_listening(); self.assertEqual(self.controller.calls, [])
+        self.reopen_with_access(access)
+        self.ui.toggle_listening(); self.ui._auto_start_listening()
+        self.assertEqual([c[0] for c in self.controller.calls], ['start_live'])
+
+    def test_permission_can_be_revoked_and_disables_automatic_listening(self):
+        self.reopen_with_access({'microphone_preapproved': True, 'auto_start_listening': True})
+        self.ui._microphone_preference(False)
+        self.assertEqual(self.controller.data['settings'],
+                         {'microphone_preapproved': False, 'auto_start_listening': False})
+        self.ui._auto_start_listening()
+        self.assertFalse(any(c[0] == 'start_live' for c in self.controller.calls))
+        self.ui.home(); self.ui.toggle_listening()
+        self.assertEqual(self.ui.page, 'consent')
+
     def test_physical_client_touch_targets_idle_and_consent(self):
         metrics = self.ui.measure_client()
         self.assertEqual((metrics["physical_width"], metrics["physical_height"]), (480, 800))
-        for name in ("start_stop", "mode", "people", "settings", "rescue", "back_live"):
+        self.assertFalse(self.ui.rescue.winfo_manager())
+        for name in ("start_stop", "mode", "people", "settings", "back_live"):
             self.assertGreaterEqual(self.ui.actions[name].winfo_height(), 48)
             self.assertGreaterEqual(self.ui.actions[name].winfo_width(), 48)
         self.assertEqual(self.controller.calls, [])
@@ -90,18 +153,22 @@ class UITests(unittest.TestCase):
         self.refresh(); self.ui.toggle_listening(); self.assertEqual(self.controller.calls[-1][0], "stop")
 
     def test_stable_rows_late_labels_final_text_and_raw(self):
+        clock = patch("prototype.app.ui.time.perf_counter", return_value=10.0).start()
+        self.addCleanup(patch.stopall)
         self.controller.data.update(mode="open_with_names", rows=sample_rows(3)); self.refresh()
         original_marks = dict(self.ui._marks)
         self.controller.data["rows"][0].update(raw_asr_text="I AGREE", label="Alex", final=True,
             final_punctuated_display_text="I agree.")
         self.controller.data["rows"][1]["raw_asr_text"] = "A RETRACTION"
         self.refresh()
+        clock.return_value = 11.3; self.refresh()
         output = self.ui.caption_text.get("1.0", "end-1c")
         self.assertEqual(self.ui._marks, original_marks)
         self.assertEqual(output, "Alex\nI agree.\n\nAlex\nA retraction\n\nUnknown\nRow 2 please sit with me by the window\n\n")
         self.assertEqual(self.controller.data["rows"][0]["raw_asr_text"], "I AGREE")
         self.controller.data["rows"].append(dict(id="emoji", raw_asr_text="HELLO 🙂", label="Alex"))
         self.refresh(); self.controller.data["rows"][-1]["raw_asr_text"] = "HELLO 🙂 AGAIN"; self.refresh()
+        clock.return_value = 11.6; self.refresh()
         self.assertTrue(self.ui.caption_text.get("1.0", "end-1c").endswith("Alex\nHello 🙂 again\n\n"))
 
     def test_scroll_anchor_survives_revisions_and_append(self):
@@ -115,23 +182,36 @@ class UITests(unittest.TestCase):
         self.assertEqual(self.ui.caption_text.get("@0,0", "@0,0 lineend"), before)
         self.assertFalse(self.ui._follow_live)
         self.ui.back_to_live(); self.root.update_idletasks()
-        self.assertTrue(self.ui._follow_live); self.assertGreater(self.ui.caption_text.yview()[1], .99)
+        self.assertTrue(self.ui._follow_live)
+        # Tk's fraction uses estimated heights for mixed-font offscreen lines.
+        # Assert the actual last caption/end is in the viewport instead.
+        self.assertIsNotNone(self.ui.caption_text.bbox("end-1c"))
 
     def test_all_modes_strict_warning_and_rescue(self):
+        from prototype.app.mode_policy import MODE_METADATA,SELECTED_MODES,SEAT_MODES
         self.controller.data["rows"] = sample_rows(2); self.refresh()
-        for _ in range(4):
-            for mode in MODES:
-                self.ui.show_modes(); self.ui.actions[f"mode_{mode}"].invoke(); self.refresh()
-        self.assertEqual(len([call for call in self.controller.calls if call[0] == "switch"]), 4 * len(MODES))
-        self.controller.data["selected_ids"] = ["uuid-alex-1"]; self.refresh()
+        for mode in MODES:
+            self.ui.show_advanced() if MODE_METADATA[mode]['advanced'] else self.ui.show_modes()
+            self.ui.actions[f"mode_{mode}"].invoke()
+            if mode in SEAT_MODES:
+                self.ui._seat_draft=[dict(person_id='uuid-alex-1',angle_deg=30.,tolerance_deg=25.)]
+                self.ui._paint_seats();self.ui.actions['seat_apply'].invoke()
+            elif mode in SELECTED_MODES:
+                if not self.ui._roster_draft:self.ui.actions['roster_uuid-alex-1'].invoke()
+                self.ui.actions['roster_apply'].invoke()
+            self.refresh()
+        self.assertEqual(len([call for call in self.controller.calls if call[0] in ("switch","seats_apply")]), len(MODES))
+        self.controller.data["display_ids"] = ["uuid-alex-1"]; self.refresh()
         self.ui.request_strict(); self.assertFalse(self.controller.data["strict"])
         self.ui.actions["cancel"].invoke(); self.assertFalse(self.controller.data["strict"])
         self.ui.request_strict(); self.ui.actions["confirm"].invoke(); self.refresh()
+        self.assertTrue(self.ui.rescue.winfo_manager())
+        self.assertGreaterEqual(self.ui.actions["rescue"].winfo_height(), 48)
         self.assertEqual(self.ui._render_order, ["row-1"])
-        self.ui.actions["rescue"].invoke(); self.refresh()
+        identity_mode=self.controller.data['mode'];self.ui.actions["rescue"].invoke(); self.refresh()
         self.assertEqual(self.ui._render_order, ["row-0", "row-1"])
         self.assertEqual(len(self.controller.data["rows"]), 2)
-        self.assertEqual(self.controller.data["mode"], "caption_only")
+        self.assertEqual(self.controller.data["mode"], identity_mode)
 
     def test_touch_keyboard_enrollment_goals_and_quality_gate(self):
         self.ui.add_person(); self.root.update_idletasks()
@@ -222,7 +302,7 @@ class UITests(unittest.TestCase):
         self.ui.actions["spatial_visualization"].invoke(); self.ui.home(); self.root.update_idletasks()
         self.ui._update_spatial_visualization(force=True)
         self.assertEqual(self.controller.calls[-1], ("settings_update", ({"spatial_visualization": True},), {}))
-        self.assertEqual(self.ui.spatial_canvas.winfo_height(), 125)
+        self.assertEqual(self.ui.spatial_canvas.winfo_height(), 145)
         self.assertGreaterEqual(self.ui.caption_text.winfo_height(), 350)
         canvas = self.ui.spatial_canvas
         self.assertEqual(len(canvas.find_withtag("spatial_beam")), 3)
@@ -258,7 +338,7 @@ class UITests(unittest.TestCase):
         self.controller = StubController(); self.controller.data["settings"]["spatial_visualization"] = True
         self.root = tk.Tk(); self.ui = PrototypeUI(self.root, self.controller); self.root.update()
         self.assertTrue(self.ui.preferences["spatial_visualization"])
-        self.assertEqual(self.ui.spatial_canvas.winfo_height(), 125)
+        self.assertEqual(self.ui.spatial_canvas.winfo_height(), 145)
         self.assertEqual(self.controller.calls, [])
 
     def test_caption_size_theme_zoom_and_close_waits(self):

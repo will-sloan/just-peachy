@@ -4,6 +4,7 @@ import json
 import os
 from pathlib import Path
 import uuid
+from release_tools.runtime_lock import RuntimeLock
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -49,14 +50,16 @@ class ApplicationLock:
             raise ValueError('Private data must be outside the application/release directory')
         self.root.mkdir(parents=True, exist_ok=True)
         self.path = self.root/'runtime.lock'
-        self.token = uuid.uuid4().hex
-        fd = os.open(self.path, os.O_CREAT | os.O_EXCL | os.O_WRONLY, 0o600)
+        self._ownership = RuntimeLock(self.root, 'application')
+        self.token = self._ownership.token
         try:
-            with os.fdopen(fd, 'w', encoding='utf-8') as f:
-                json.dump({'pid':os.getpid(), 'token':self.token, 'purpose':'application'}, f)
             schema = self.root/'DATA_SCHEMA.json'
             if schema.exists() and read_json(schema).get('schema_version') != 1:
                 raise ValueError('Unsupported personal data schema; no migration was attempted')
+            if schema.exists():
+                supported=read_json(ROOT/'config/release_capabilities.json')['data_features_supported']
+                if set(read_json(schema).get('required_features',[]))-set(supported):
+                    raise ValueError('Unsupported personal-data features; use a compatible release')
             if not schema.exists():
                 atomic_json(schema, {'schema_version':1})
         except BaseException:
@@ -64,8 +67,7 @@ class ApplicationLock:
             raise
 
     def close(self):
-        if self.path.exists() and read_json(self.path).get('token') == self.token:
-            self.path.unlink()
+        self._ownership.close()
 
 
 def pipeline_config(data, models):

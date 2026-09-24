@@ -3,21 +3,20 @@ from copy import deepcopy
 from dataclasses import asdict
 from pathlib import Path
 import math
+import hashlib
 import threading
 import time
 import numpy as np
 import soundfile as sf
 from .paths import ROOT, read_json
 from .buffers import MemoryJournal, AsyncText
+from .live_timing import CaptureTimeline, LiveTimingError
 from edge_speech_pipeline.runtime import PipelineEngine
 from edge_speech_pipeline.models import SherpaStream, SpeakerModels
 from edge_speech_pipeline.research_profiles import ResearchProfile
 from edge_speech_pipeline.research_s6d import S6DSettings
 from edge_speech_pipeline.research_s7 import S7Settings, AbsolutePacer
-
-SPATIAL_PARENTS={'spatial_assisted':'C079','strongly_spatial_assisted':'C060'}
-MODES=('caption_only','enrolled_names','anonymous_conversation','open_with_names','selected_focus',
-       *SPATIAL_PARENTS)
+from .mode_policy import MODES, SPATIAL_PARENTS, NAMED_MODES, SEAT_MODES, apply_overrides
 RECIPES=[
  {'id':'fast','name':'Fast captions','description':'Accepted greedy ASR; no speaker model calls.',
   'compatible_modes':['caption_only'],'parent':'S7 C065 / M0'},
@@ -33,19 +32,22 @@ for row in RECIPES:
     row.update(taps=['O0','O1'],evidence_status='PROTO1 adaptation of existing recipe; live accuracy unqualified')
 
 
-def effective_profile(recipe,mode,tap):
+def effective_profile(recipe,mode,tap,overrides=None,seat_strength='soft'):
+    if seat_strength not in ('soft','strong'):raise ValueError('Unknown seat prior strength')
+    if mode=='assigned_direction':seat_strength='soft'  # No hidden voice/seat prior tuning in direction-only.
     if mode not in MODES or tap not in ('O0','O1'):raise ValueError('Unknown mode or tap')
     info=next((r for r in RECIPES if r['id']==recipe),None)
     if info is None or mode not in info['compatible_modes']: raise ValueError('Recipe is unavailable for this mode')
     profiles=read_json(ROOT/'config/s7_profiles.json')
     p=deepcopy(read_json(ROOT/'config/parent_C067.json') if recipe=='patient' else profiles['C065'])
-    naming=mode in ('enrolled_names','open_with_names','selected_focus',*SPATIAL_PARENTS)
+    naming=mode in NAMED_MODES and mode!='assigned_direction'
     p['identity']=deepcopy(profiles['C088']['identity'] if naming else profiles['C065']['identity'])
     if mode in SPATIAL_PARENTS:
         # Reuse the complete frozen tracker, not a new angle-to-person rule.
         # Frontend timing still follows the user's Balanced/Patient recipe;
         # naming remains the independent C088 post-association voice resolver.
-        parent=read_json(ROOT/('config/parent_'+SPATIAL_PARENTS[mode]+'.json'))
+        parent_id='C060' if mode in SEAT_MODES and seat_strength=='strong' else SPATIAL_PARENTS[mode]
+        parent=read_json(ROOT/('config/parent_'+parent_id+'.json'))
         p['tracker']=deepcopy(parent['tracker'])
         p['xvf']=deepcopy(parent['xvf'])
     if recipe=='classic':
@@ -58,6 +60,7 @@ def effective_profile(recipe,mode,tap):
     # File inputs already carry gain; the verified live adapter applies it once.
     p['input'].update(asr_tap=tap,identity_tap=tap,source_block_ms=20)
     p['runtime'].update(lane_drain_timeout_sec=60.)
+    apply_overrides(p,mode,overrides)
     return ResearchProfile.from_dict(p)
 
 
@@ -65,6 +68,7 @@ class ResidentModels:
     """One recognizer/punctuator; optional speaker sessions are shared and lazy."""
     def __init__(self):
         self.asr=None;self.speakers=None;self.signature=None
+        self.enhancer=None;self.enhancer_loads=0
         self.asr_loads=self.speaker_loads=self.streams=0
 
     def acquire(self,config,caption_only=False):
@@ -80,6 +84,14 @@ class ResidentModels:
     def enrollment_models(self,config):
         if self.speakers is None:self.speakers=SpeakerModels(config);self.speaker_loads+=1
         return self.speakers
+
+    def enhancement_model(self,config):
+        if self.enhancer is None:
+            from .enhancement import DpdfStream
+            self.enhancer=DpdfStream(config.asset('redimnet2_b2_fp32').path.parent.parent)
+            self.enhancer_loads+=1
+        self.enhancer.reset()
+        return self.enhancer
 
 
 class LegacyTracker:
@@ -147,6 +159,7 @@ class LivePipelineSource:
         self.sent=0;self.error=None;self._done=threading.Event()
         self.secondary_errors=[]
         self.clock_metadata=None
+        self.timing=None
         self._close_lock=threading.RLock()
 
     def start(self):
@@ -176,42 +189,8 @@ class LivePipelineSource:
             return self.stop_receipt
 
     def _source_origin(self,block):
-        """Bind sample zero to driver capture time, preserving buffered input age.
-
-        WASAPI can deliver a host packet as many immediate user callbacks.
-        One callback block's duration is therefore not the input latency.
-        This is a fixed driver timeline, never acoustic-arrival calibration.
-        """
-        callback_perf=getattr(block,'callback_perf_counter_ns',None)
-        callback_clock=(callback_perf/1e9 if callback_perf is not None else
-                        block.callback_monotonic_ns/1e9+self._clock_offset)
-        current=getattr(block,'callback_current_time_seconds',None)
-        adc=block.adc_time_seconds
-        duration=block.native_frames/48000
-        valid=(isinstance(current,(int,float)) and isinstance(adc,(int,float))
-               and math.isfinite(current) and math.isfinite(adc)
-               and current>0 and adc>0 and current-adc>=duration)
-        if valid:
-            age=current-adc
-            method='portaudio_adc_timestamp'
-            confidence='driver_reported_not_acoustically_calibrated'
-            fallback_reason=None
-        else:
-            age=self.start_metadata.get('actual_latency')
-            if not isinstance(age,(int,float)) or not math.isfinite(age) or age<duration:
-                raise RuntimeError('LIVE_SOURCE_TIMING: no usable ADC timestamps or reported input latency')
-            method='reported_input_latency_estimate'
-            confidence='estimated_unqualified_for_latency_measurement'
-            fallback_reason='ADC/currentTime unavailable, nonfinite, nonpositive, or shorter than the input block'
-        if not math.isfinite(callback_clock):
-            raise RuntimeError('LIVE_SOURCE_TIMING: nonfinite callback host timestamp')
-        origin=callback_clock-age-block.native_start_frame/48000
-        return origin,{'source_clock_method':method,'source_clock_confidence':confidence,
-            'source_clock_fallback_reason':fallback_reason,
-            'first_callback_perf_counter_sec':callback_clock,
-            'first_callback_input_age_sec':age,
-            'portaudio_adc_timestamp_valid':valid,
-            'host_clock_mapping':'direct_perf_counter' if callback_perf is not None else 'monotonic_offset_compatibility'}
+        self.timing=CaptureTimeline(self.start_metadata,block)
+        return self.timing.origin,self.timing.metadata()
 
     def _run(self):
         first=True
@@ -226,14 +205,15 @@ class LivePipelineSource:
                     self.clock_metadata={'source_epoch_monotonic_sec':origin,**clock_metadata}
                     self.callback('source_started',{'source_epoch_monotonic_sec':origin,'mode':'live',
                         'route':self.start_metadata['route'],'endpoint':self.start_metadata['endpoint'],
-                        'capture_metadata':self.start_metadata,'clock':'XVF USB samples; driver capture timeline mapped to host epoch',
+                        'capture_metadata':self.start_metadata,'clock':'counted XVF samples; immutable stream-start feasibility bound',
                         **clock_metadata,
                         'first_block_source_lag_sec':block.source_lag_seconds,
                         'resampler_delay_seconds':block.resampler_delay_seconds,
                         'clock_not_calibrated_to_acoustic_arrival':True})
                     first=False
-                # Check at the bridge as well as policy admission: an invalid
-                # timeline must not be repaired by rebasing/clamping its epoch.
+                # Validate canonical counts against callback time before journal
+                # admission. Consumer delay cannot hide an impossible block.
+                self.timing.accept(block,time.perf_counter_ns())
                 if (self.sent+len(block.audio))/16000>time.perf_counter()-origin:
                     raise RuntimeError('LIVE_SOURCE_TIMING: source support is ahead of the fixed capture timeline')
                 if self.spatial_provider is not None:self.spatial_provider.advance_audio(block)
@@ -242,6 +222,9 @@ class LivePipelineSource:
                     self.callback('source_limit',{'reason':'1h application session boundary; press Start for a fresh session'})
                     break
         except Exception as exc:
+            if isinstance(exc,LiveTimingError):
+                self.callback('source_timing',{'failure':exc.check,'evidence':exc.evidence,
+                    'timing':self.timing.snapshot() if self.timing else None})
             primary=getattr(self.journal,'fatal_error',None)
             if primary:
                 self.error=primary
@@ -254,7 +237,8 @@ class LivePipelineSource:
                 self.error=(self.error+'; '+detail) if self.error else detail
             try:
                 self.callback('source_stopped',{'integrity':self.integrity,'converted_samples_delivered':self.sent,
-                    'secondary_errors':self.secondary_errors})
+                    'secondary_errors':self.secondary_errors,
+                    'timing':self.timing.snapshot() if self.timing else None})
                 if self.error:self.callback('fatal',{'reason':self.error,'integrity':self.integrity,
                     'secondary_errors':self.secondary_errors})
             finally:
@@ -284,7 +268,14 @@ class LivePipelineSource:
 
 class PrototypeEngine(PipelineEngine):
     def __init__(self,config,models,profile,gallery,mode,*,writer_delay=0,ram_horizon_sec=120,
-                 spatial_provider=None):
+                 spatial_provider=None,archive=None,seats=None,seat_names=None,enhancement_route='bypass'):
+        from .enhancement import ROUTES
+        from .noise_coordination import NoiseCoordinator
+        if enhancement_route not in ROUTES:raise ValueError('Unknown enhancement route')
+        self.enhancement_route=enhancement_route;self.enhancement_router=None
+        self.coordinator=NoiseCoordinator(enhancement_route)
+        self.archive=archive
+        self.mode=mode;self.prototype_identity=None;self.mode_configuration={};self.seats=seats;self.seat_names=seat_names or {}
         self.live_spatial = spatial_provider
         self.resident=models;self.writer_delay=writer_delay;self.text_writers=[]
         self.ram_horizon_sec=ram_horizon_sec
@@ -295,7 +286,16 @@ class PrototypeEngine(PipelineEngine):
             s6d_settings=S6DSettings(text_delivery=True,boundary_repair=True,max_display_rows=512),s7_settings=s7)
 
     def _make_audio_journal(self,path):
-        journal=MemoryJournal(path,self.config.sample_rate,self.ram_horizon_sec)
+        self._quality_next=0
+        def observe(start,x):
+            if self.archive is not None:self.archive.audio_block(start,x)
+            end=start+len(x)
+            if end>=self._quality_next:
+                self.coordinator.observe('waveform',start/16000,end/16000,
+                    dict(rms=float(np.sqrt(np.mean(x.astype(np.float64)**2))),clipped_fraction=float(np.mean(np.abs(x)>=.999))),
+                    'actual unenhanced post-XVF samples; no SNR/voice inference')
+                self._quality_next=end+8000
+        journal=MemoryJournal(path,self.config.sample_rate,self.ram_horizon_sec,observer=observe)
         self._telemetry['proto1_audio_reserve_seconds']=self.ram_horizon_sec
         return journal
     def _open_journal_text(self,path):
@@ -310,27 +310,89 @@ class PrototypeEngine(PipelineEngine):
 
     def begin(self):
         self._begin_session('prototype')
+        if self.live_spatial is not None and self.live_spatial.motion is not None and self.recipe!='classic':
+            from .live_spatial import MotionFrameTracker
+            delegate=self._scheduler.scheduler.tracker
+            delegate.target=MotionFrameTracker(delegate.target,self.live_spatial.motion)
+        if self.mode in NAMED_MODES:
+            from .identity_policy import PrototypeIdentityResolver,DiagnosticTracker
+            from edge_speech_pipeline.research_s7_policy import _MeasuredDelegate
+            if self.mode in SEAT_MODES:
+                from .seat_identity import SeatIdentityResolver
+                self.prototype_identity=SeatIdentityResolver(self._research_profile.identity,self._research_gallery,
+                    seats=self.seats,names=self.seat_names,provider=self.live_spatial,tracker_config=self._research_profile.tracker,
+                    direction_only=self.mode=='assigned_direction',clock=self._s7_observed_clock.relative)
+            else:
+                self.prototype_identity=PrototypeIdentityResolver(self._research_profile.identity,self._research_gallery,
+                    closed=self.mode=='selected_closed',clock=self._s7_observed_clock.relative)
+            self._scheduler.scheduler.identity_resolver=_MeasuredDelegate(self.prototype_identity,self._s7_observed_clock,'identity')
+            self._scheduler.scheduler.tracker.target=DiagnosticTracker(self._scheduler.scheduler.tracker.target)
+        self._emit('prototype_mode_configuration',0.,self.mode_configuration)
+        self._emit('prototype_runtime_binding',0.,{'files':{
+            name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in
+            ('app/pipeline.py','app/live_audio.py','app/live_timing.py','app/controller.py',
+             'vendor/edge_speech_pipeline/runtime.py','config/assets.json')},
+            'scope':'actual loaded prototype source/configuration; no personal data'})
         self._identity_journal=self._journal
+        self._input_journal=self._journal
+        if self.enhancement_route!='bypass':
+            from .enhancement import EnhancementRouter,route_binding
+            helper=self.resident.enhancement_model(self.config)
+            self.enhancement_router=EnhancementRouter(self._journal.path,self.ram_horizon_sec,self.enhancement_route,helper,
+                archive=self.archive,emit=self._emit,coordinator=self.coordinator)
+            self._input_journal=self.enhancement_router
+            self._journal=self.enhancement_router.asr;self._identity_journal=self.enhancement_router.identity
+            self.enhancement_router.start()
+            self._emit('enhancement_route',0.,route_binding(self.enhancement_route))
         if self.recipe=='classic':
             # Dispatcher already measures the tracker's calls; replace its delegate target.
             from edge_speech_pipeline.research_s7_policy import _MeasuredDelegate
             self._scheduler.scheduler.tracker=_MeasuredDelegate(LegacyTracker(),self._s7_observed_clock,'tracker')
 
+    def _emit(self,event_type,source_sec,payload):
+        self.coordinator.event(event_type,source_sec,payload)
+        if event_type=='research_embedding_admission' and self.live_spatial is not None:
+            cue=self.live_spatial.evidence(max(0,source_sec-.5),source_sec)
+            a,b=getattr(cue,'source_start_sec',None),getattr(cue,'source_end_sec',None)
+            if a is not None and b is not None:
+                self.coordinator.observe('beam',a,b,dict(valid=cue.valid,angle_deg=cue.angle_deg,reliability=cue.reliability,
+                    upstream_available_at_sec=cue.available_at_sec),'existing XVF mapped source evidence; direction supports a request, never identity proof')
+        if event_type=='s6d_display' and getattr(self,'prototype_identity',None) is not None and self.mode!='selected_closed':
+            payload=self.prototype_identity.annotate_caption(payload)
+        router=self.enhancement_router
+        if event_type=='s6d_display' and router is not None and router.identity_limit is not None:
+            # Enhanced identity stopped at the failure boundary. Keep all words
+            # while preventing stale pre-failure names from labelling raw fallback.
+            from copy import deepcopy
+            payload=deepcopy(payload)
+            for row in [payload]+payload.get('segments',[]):
+                end=row.get('source_end_sec',payload.get('source_end_sec',source_sec))
+                if end*16000>router.identity_limit:
+                    row.update(known_profile_id=None,known_name=None,track_id=None,speaker='Unknown',label='Unknown',
+                               anonymous_label=None,voice_available=False,ownership_status='unknown',
+                               naming_state='unavailable',identity_reason='enhancement failed; new Start required for identity')
+        if event_type=='s6d_display' and getattr(self,'prototype_identity',None) is not None and self.mode=='selected_closed':
+            payload=self.prototype_identity.annotate_caption(payload)
+        super()._emit(event_type,source_sec,payload)
+
     def start_prepared_file(self,path,start_sample=0):
         source=FileSource(None,path,self._source_status,start_sample=start_sample)
         self.begin()
-        source.journal=self._journal
+        source.journal=self._input_journal
         return self._launch(source)
 
     def start_xvf(self,live_config):
         self.begin()
-        source=LivePipelineSource(self._journal,live_config,self._source_status,self._spatial_provider)
+        source=LivePipelineSource(self._input_journal,live_config,self._source_status,self._spatial_provider)
         if self._spatial_provider is not None:self._spatial_provider.attach(source.live)
         return self._launch(source)
 
     def _watch_session(self):
         try:super()._watch_session()
         finally:
+            if self.enhancement_router is not None:
+                try:self.enhancement_router.finish();self.enhancement_router.join()
+                except Exception as exc:self._finalization_error=exc;self._state='FAILED'
             if self._s7_trace is not None:
                 try:self._s7_trace.close()
                 except Exception as exc:self._finalization_error=exc;self._state='FAILED'

@@ -1,0 +1,262 @@
+{
+  "status": "PASS",
+  "arm64_wheel_count": 13,
+  "wheel_bytes": 89968134,
+  "ledger_sha256": "31741e28e93a36a904f236fbb4e9aeeffef6d6a3f41f108387d19680abc56080",
+  "new_dependencies": [],
+  "downloads": [],
+  "native_arm64_execution": false,
+  "windows_runtime": {
+    "numpy": "2.2.6",
+    "scipy": "1.15.3",
+    "onnxruntime": "1.29.0",
+    "sherpa-onnx": "1.13.4",
+    "sherpa-onnx-core": "1.13.4",
+    "sounddevice": "0.5.5",
+    "soundfile": "0.13.1",
+    "psutil": "7.2.2",
+    "cffi": "2.1.1"
+  },
+  "schema": "just-peachy.task08.dependencies.v1",
+  "vendor_sources": [
+    {
+      "name": "xvf3800_user_guide_v3.2.1.pdf",
+      "sha256": "1216fc4e65f00f9287ac080d7fb3b5ba6cfb50fafe1a0e7c9c9168dd190c6e6b",
+      "pages_selected": [
+        20,
+        48,
+        58,
+        60,
+        62,
+        63
+      ]
+    },
+    {
+      "name": "xvf3800_programming_guide_v3.2.1.pdf",
+      "sha256": "6cdb7f53273dc7a7901ea60c570b6ccb31886422facb2633fbf4360ddc95ce3a",
+      "pages_selected": [
+        3,
+        9,
+        44,
+        45,
+        46,
+        47
+      ]
+    },
+    {
+      "name": "host_xvf_control---application-source-code_v3_0_0.zip",
+      "sha256": "1e2fd4816df6f6814ba440afd5f854088bf995c6cea2c0b547f37f7202c11aaf"
+    }
+  ],
+  "arm64_wheels": [
+    {
+      "name": "cffi",
+      "version": "2.1.1",
+      "filename": "cffi-2.1.1-cp311-cp311-manylinux2014_aarch64.manylinux_2_17_aarch64.whl",
+      "sha256": "3311ed60d36f83378794e1009ac6258bafbf81f7888b4caa7b35a521e3f95813",
+      "bytes": 218716,
+      "source": "https://pypi.org/pypi/cffi/2.1.1/json",
+      "download_url": "https://files.pythonhosted.org/packages/ad/66/c19feabb28485b6e0bbaaafa90837a1ef5d302e90f2178bd33f17a49879b/cffi-2.1.1-cp311-cp311-manylinux2014_aarch64.manylinux_2_17_aarch64.whl",
+      "license_expression": "MIT-0",
+      "license": ""
+    },
+    {
+      "name": "flatbuffers",
+      "version": "25.12.19",
+      "filename": "flatbuffers-25.12.19-py2.py3-none-any.whl",
+      "sha256": "7634f50c427838bb021c2d66a3d1168e9d199b0607e6329399f04846d42e20b4",
+      "bytes": 26661,
+      "source": "https://pypi.org/pypi/flatbuffers/25.12.19/json",
+      "download_url": "https://files.pythonhosted.org/packages/e8/2d/d2a548598be01649e2d46231d151a6c56d10b964d94043a335ae56ea2d92/flatbuffers-25.12.19-py2.py3-none-any.whl",
+      "license_expression": null,
+      "license": "Apache 2.0"
+    },
+    {
+      "name": "numpy",
+      "version": "2.2.6",
+      "filename": "numpy-2.2.6-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl",
+      "sha256": "b64d8d4d17135e00c8e346e0a738deb17e754230d7e0810ac5012750bbd85a5a",
+      "bytes": 14312005,
+      "source": "https://pypi.org/pypi/numpy/2.2.6/json",
+      "download_url": "https://files.pythonhosted.org/packages/52/b8/7f0554d49b565d0171eab6e99001846882000883998e7b7d9f0d98b1f934/numpy-2.2.6-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl",
+      "license_expression": null,
+      "license": "Copyright (c) 2005-2024, NumPy Developers.\n         All rights reserved.\n         \n         Redistribution and use in source and binary forms, with or without\n         modification, are permitted provided that the following conditions are\n         met:\n         \n             * Redistributions of source code must retain the above copyright\n                notice, this list of conditions and the following disclaimer.\n         \n             * Redistributions in binary form must reproduce the above\n                copyright notice, this list of conditions and the following\n                disclaimer in the documentation and/or other materials provided\n                with the distribution.\n         \n             * Neither the name of the NumPy Developers nor the names of any\n                contributors may be used to endorse or promote products derived\n                from this software without specific prior written permission.\n         \n         THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS\n         \"AS IS\" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT\n         LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR\n         A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT\n         OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,\n         SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT\n         LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,\n         DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY\n         THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT\n         (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE\n         OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n         \n         ----\n         \n         The NumPy repository and source distributions bundle several libraries that are\n         compatibly licensed.  We list these here.\n         \n         Nam"
+    },
+    {
+      "name": "onnxruntime",
+      "version": "1.29.0",
+      "filename": "onnxruntime-1.29.0-cp311-cp311-manylinux_2_28_aarch64.whl",
+      "sha256": "16925ef8497e2c07e4b5ae15b504079b3ab3f65e22c58efd10dde0f3caea969a",
+      "bytes": 20803602,
+      "source": "https://pypi.org/pypi/onnxruntime/1.29.0/json",
+      "download_url": "https://files.pythonhosted.org/packages/0b/77/8bd3e0008ff8d386305351109a7329ea57e51a3ab57bc92340f29c4a5b5d/onnxruntime-1.29.0-cp311-cp311-manylinux_2_28_aarch64.whl",
+      "license_expression": null,
+      "license": "MIT License"
+    },
+    {
+      "name": "packaging",
+      "version": "26.3",
+      "filename": "packaging-26.3-py3-none-any.whl",
+      "sha256": "d7193f7c8e4e93f444fde0262bf90af30e16fa0ad0ad44cb553c87339b23cd1c",
+      "bytes": 129956,
+      "source": "https://pypi.org/pypi/packaging/26.3/json",
+      "download_url": "https://files.pythonhosted.org/packages/63/34/ba1c580383c9eada3711951fef0795c80b829a078d72188184bcab9dd527/packaging-26.3-py3-none-any.whl",
+      "license_expression": "Apache-2.0 OR BSD-2-Clause",
+      "license": ""
+    },
+    {
+      "name": "protobuf",
+      "version": "7.36.2",
+      "filename": "protobuf-7.36.2-cp310-abi3-manylinux2014_aarch64.whl",
+      "sha256": "e11e1f0180583a2af89db6a2ecd9e8dc40aa6d2988ca175bfd0e6d12ea72d74e",
+      "bytes": 344219,
+      "source": "https://pypi.org/pypi/protobuf/7.36.2/json",
+      "download_url": "https://files.pythonhosted.org/packages/b6/ea/91fdf7c2b8bbd49cde056f00a9df6773532987e1c00fe2830b895af95c7e/protobuf-7.36.2-cp310-abi3-manylinux2014_aarch64.whl",
+      "license_expression": null,
+      "license": "3-Clause BSD License"
+    },
+    {
+      "name": "psutil",
+      "version": "7.2.2",
+      "filename": "psutil-7.2.2-cp36-abi3-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl",
+      "sha256": "b0726cecd84f9474419d67252add4ac0cd9811b04d61123054b9fb6f57df6e9e",
+      "bytes": 156997,
+      "source": "https://pypi.org/pypi/psutil/7.2.2/json",
+      "download_url": "https://files.pythonhosted.org/packages/63/65/37648c0c158dc222aba51c089eb3bdfa238e621674dc42d48706e639204f/psutil-7.2.2-cp36-abi3-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl",
+      "license_expression": null,
+      "license": "BSD-3-Clause"
+    },
+    {
+      "name": "pycparser",
+      "version": "3.0",
+      "filename": "pycparser-3.0-py3-none-any.whl",
+      "sha256": "b727414169a36b7d524c1c3e31839a521725078d7b2ff038656844266160a992",
+      "bytes": 48172,
+      "source": "https://pypi.org/pypi/pycparser/3.0/json",
+      "download_url": "https://files.pythonhosted.org/packages/0c/c3/44f3fbbfa403ea2a7c779186dc20772604442dde72947e7d01069cbe98e3/pycparser-3.0-py3-none-any.whl",
+      "license_expression": "BSD-3-Clause",
+      "license": ""
+    },
+    {
+      "name": "scipy",
+      "version": "1.15.3",
+      "filename": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl",
+      "sha256": "721d6b4ef5dc82ca8968c25b111e307083d7ca9091bc38163fb89243e85e3889",
+      "bytes": 35503415,
+      "source": "https://pypi.org/pypi/scipy/1.15.3/json",
+      "download_url": "https://files.pythonhosted.org/packages/56/c5/1032cdb565f146109212153339f9cb8b993701e9fe56b1c97699eee12586/scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl",
+      "license_expression": null,
+      "license": "Copyright (c) 2001-2002 Enthought, Inc. 2003-2024, SciPy Developers.\n         All rights reserved.\n         \n         Redistribution and use in source and binary forms, with or without\n         modification, are permitted provided that the following conditions\n         are met:\n         \n         1. Redistributions of source code must retain the above copyright\n            notice, this list of conditions and the following disclaimer.\n         \n         2. Redistributions in binary form must reproduce the above\n            copyright notice, this list of conditions and the following\n            disclaimer in the documentation and/or other materials provided\n            with the distribution.\n         \n         3. Neither the name of the copyright holder nor the names of its\n            contributors may be used to endorse or promote products derived\n            from this software without specific prior written permission.\n         \n         THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS\n         \"AS IS\" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT\n         LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR\n         A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT\n         OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,\n         SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT\n         LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,\n         DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY\n         THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT\n         (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE\n         OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n         \n         ----\n         \n         This binary distribution of SciPy can also bundle the following software\n         (depending on the build):\n         \n         \n         Name: OpenBLAS\n        "
+    },
+    {
+      "name": "sherpa_onnx",
+      "version": "1.13.4",
+      "filename": "sherpa_onnx-1.13.4-cp311-cp311-manylinux2014_aarch64.manylinux_2_17_aarch64.whl",
+      "sha256": "7c4a1c178eb801af92f70120128c1f956b5388b9d684f0af2a08614e05dc3047",
+      "bytes": 4132838,
+      "source": "https://pypi.org/pypi/sherpa_onnx/1.13.4/json",
+      "download_url": "https://files.pythonhosted.org/packages/ea/cb/c80832f800719c72fc5805a94fe489e805fc67156e102927609917ad8f67/sherpa_onnx-1.13.4-cp311-cp311-manylinux2014_aarch64.manylinux_2_17_aarch64.whl",
+      "license_expression": null,
+      "license": "Apache licensed, as found in the LICENSE file"
+    },
+    {
+      "name": "sherpa-onnx-core",
+      "version": "1.13.4",
+      "filename": "sherpa_onnx_core-1.13.4-py3-none-manylinux2014_aarch64.whl",
+      "sha256": "b4e4d17eb0d5c569bf4c9effcbc3daef57cf7e2b8418e07ae90f90c9b60b35d5",
+      "bytes": 13023017,
+      "source": "https://pypi.org/pypi/sherpa-onnx-core/1.13.4/json",
+      "download_url": "https://files.pythonhosted.org/packages/81/29/15859e896574230d5377738ef27e8647cbd19fa325d75b1a00074791798d/sherpa_onnx_core-1.13.4-py3-none-manylinux2014_aarch64.whl",
+      "license_expression": null,
+      "license": "Apache-2.0"
+    },
+    {
+      "name": "sounddevice",
+      "version": "0.5.5",
+      "filename": "sounddevice-0.5.5-py3-none-any.whl",
+      "sha256": "30ff99f6c107f49d25ad16a45cacd8d91c25a1bcdd3e81a206b921a3a6405b1f",
+      "bytes": 32807,
+      "source": "https://pypi.org/pypi/sounddevice/0.5.5/json",
+      "download_url": "https://files.pythonhosted.org/packages/1e/0a/478e441fd049002cf308520c0d62dd8333e7c6cc8d997f0dda07b9fbcc46/sounddevice-0.5.5-py3-none-any.whl",
+      "license_expression": "MIT",
+      "license": ""
+    },
+    {
+      "name": "soundfile",
+      "version": "0.13.1",
+      "filename": "soundfile-0.13.1-py2.py3-none-manylinux_2_28_aarch64.whl",
+      "sha256": "9c9e855f5a4d06ce4213f31918653ab7de0c5a8d8107cd2427e44b42df547deb",
+      "bytes": 1235729,
+      "source": "https://pypi.org/pypi/soundfile/0.13.1/json",
+      "download_url": "https://files.pythonhosted.org/packages/58/ae/c0e4a53d77cf6e9a04179535766b3321b0b9ced5f70522e4caf9329f0046/soundfile-0.13.1-py2.py3-none-manylinux_2_28_aarch64.whl",
+      "license_expression": null,
+      "license": "BSD 3-Clause License"
+    }
+  ],
+  "assets": [
+    {
+      "component_id": "sherpa_giga_encoder_int8",
+      "sha256": "32c98281c7bd8b63e3e142d007251b37f120572e8fdea9a4f5a79ce22b10ec4f",
+      "deployment_relative_path": "models/sherpa_giga/encoder-epoch-99-avg-1.int8.onnx",
+      "filename": "encoder-epoch-99-avg-1.int8.onnx",
+      "bytes": 187823992
+    },
+    {
+      "component_id": "sherpa_giga_decoder_fp32",
+      "sha256": "9da02b77cb08826756ec6a88635f35a40374e4164e7c6359121a9145958a6ceb",
+      "deployment_relative_path": "models/sherpa_giga/decoder-epoch-99-avg-1.onnx",
+      "filename": "decoder-epoch-99-avg-1.onnx",
+      "bytes": 2092566
+    },
+    {
+      "component_id": "sherpa_giga_joiner_int8",
+      "sha256": "831477d390e59a61f1b6a6f763b9903e6c6366ff6034f1ddba613be82637122f",
+      "deployment_relative_path": "models/sherpa_giga/joiner-epoch-99-avg-1.int8.onnx",
+      "filename": "joiner-epoch-99-avg-1.int8.onnx",
+      "bytes": 259335
+    },
+    {
+      "component_id": "sherpa_giga_tokens",
+      "sha256": "49e3c2646595fd907228b3c6787069658f67b17377c60aeb8619c4551b2316fb",
+      "deployment_relative_path": "models/sherpa_giga/tokens.txt",
+      "filename": "tokens.txt",
+      "bytes": 5048
+    },
+    {
+      "component_id": "sherpa_online_punctuation_int8",
+      "sha256": "9d611f445fe4a46186080fe161be6059d87d72eb88d3a8cb00c1a06e83a6067e",
+      "deployment_relative_path": "models/punctuation/model.int8.onnx",
+      "filename": "model.int8.onnx",
+      "bytes": 7490500
+    },
+    {
+      "component_id": "sherpa_online_punctuation_bpe",
+      "sha256": "e118b7ad88c54db562517df49e1cffd4836d166c34fb190fd311d7f34eb238f5",
+      "deployment_relative_path": "models/punctuation/bpe.vocab",
+      "filename": "bpe.vocab",
+      "bytes": 149430
+    },
+    {
+      "component_id": "redimnet2_b2_fp32",
+      "sha256": "5c1a8635cba0d4648463f3b6d30c5a6137bc38d1200ab00c5944400aaa7b5609",
+      "deployment_relative_path": "models/h2/redimnet2_b2_fp32.onnx",
+      "filename": "redimnet2_b2_fp32.onnx",
+      "bytes": 16025408
+    },
+    {
+      "component_id": "pyannote_segmentation_3_0_fp32",
+      "sha256": "b4b65085bbf2cc455565696604c87fedade1359aa6ddfac5d726d69124d5069a",
+      "deployment_relative_path": "models/h2/pyannote_segmentation_3_0_fp32.onnx",
+      "filename": "pyannote_segmentation_3_0_fp32.onnx",
+      "bytes": 5925265
+    }
+  ],
+  "references": [
+    "https://www.raspberrypi.com/documentation/computers/compute-module.html",
+    "https://www.raspberrypi.com/documentation/computers/remote-access.html",
+    "https://www.bosch-sensortec.com/en/products/motion-sensors/imus/bmi270/",
+    "https://www.cl.cam.ac.uk/techreports/UCAM-CL-TR-696.html"
+  ],
+  "license_notice": "release_tools/THIRD_PARTY_NOTICES.md",
+  "qualified_asr_name_bias": false
+}

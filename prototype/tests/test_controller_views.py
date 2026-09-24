@@ -59,6 +59,24 @@ def s7_fixture():
 
 
 class ControllerViewTests(unittest.TestCase):
+    def test_closed_display_assumption_stays_separate_from_raw_identity_and_other_modes(self):
+        c=self.controller;c.mode='selected_closed';part=c.rows['utterance:42']['segments'][1]
+        part.update(prototype_closed_group=True,voice_available=False,
+            closed_display_assignment=dict(profile_id=PERSON_A,name='outdated spelling',assignment='closed_assumed',basis='roster_default_no_voice_match'))
+        shown=c.snapshot()['rows'][1]
+        self.assertEqual(shown['label'],'Alex · assumed');self.assertEqual(shown['display_profile_id'],PERSON_A)
+        self.assertIsNone(shown['profile_id']);self.assertIsNone(shown['raw_identity']['known_profile_id'])
+        self.assertEqual(shown['identity_status'],'unavailable');self.assertTrue(shown['closed_group_display'])
+        c.mode='selected_focus';shown=c.snapshot()['rows'][1]
+        self.assertNotIn('assumed',shown['label']);self.assertFalse(shown['closed_group_display'])
+        c.mode='selected_closed';c.selected_ids=[PERSON_B];self.assertFalse(c.snapshot()['rows'][1]['closed_group_display'])
+    def test_people_mutation_invalidates_closed_display_assumptions(self):
+        c=self.controller;c.mode='selected_closed';part=c.rows['utterance:42']['segments'][1]
+        part.update(prototype_closed_group=True,closed_display_assignment=dict(profile_id=PERSON_A))
+        c._do_person_mutation('delete',PERSON_A)
+        self.assertNotIn('closed_display_assignment',part)
+        self.assertFalse(c.snapshot()['rows'][1]['closed_group_display'])
+
     def setUp(self):
         self.temporary = tempfile.TemporaryDirectory(prefix="PROTO1 synthetic view contracts ")
         self.addCleanup(self.temporary.cleanup)
@@ -71,7 +89,7 @@ class ControllerViewTests(unittest.TestCase):
         c.data_root = self.data; c.store = ExplicitStubStore(); c.lock = threading.RLock()
         c.rows = OrderedDict([("utterance:42", s7_fixture())]); c.engine = None
         c.mode = "open_with_names"; c.recipe = "balanced"; c.tap = "O0"
-        c.selected_ids = [PERSON_A]; c.strict = False; c.state = "IDLE"
+        c.selected_ids = [PERSON_A];c.display_ids=[PERSON_A]; c.strict = False; c.state = "IDLE"
         c.status = "EXPLICIT SYNTHETIC VIEW FIXTURE"; c.error = None; c.metrics = {}
         c.settings = {}; c.enrollment = {"state": "IDLE", "can_save": False}
         c._enroll_thread = None; c._quality_thread = None; c._enroll_live = None
@@ -131,7 +149,7 @@ class ControllerViewTests(unittest.TestCase):
         c._do_switch("caption_only", None, None, None, False)  # The real rescue command.
         rescued = c.snapshot()["rows"]
         self.assertTrue(all(r["visible"] for r in rescued))
-        self.assertEqual([r["label"] for r in rescued], ["Caption", "Caption"])
+        self.assertEqual([r["label"] for r in rescued], ["Transcription", "Transcription"])
         self.assertEqual([r["raw_asr_text"] for r in rescued], [r["raw_asr_text"] for r in strict])
 
     def test_deleting_the_last_selected_uuid_clears_strict_and_preserves_other_person(self):
@@ -151,6 +169,12 @@ class ControllerViewTests(unittest.TestCase):
         self.assertTrue(all(r["final_punctuated_display_text"] is None for r in rows))
         self.assertEqual(" ".join(r["raw_asr_text"] for r in rows), row["text"])
         self.assertEqual("".join(r["provisional_display_text"] for r in rows), "Hello Alex I am ready thank you")
+
+    def test_assumed_marker_applies_to_named_history_not_neutral_or_anonymous_views(self):
+        c=self.controller;c.rows['utterance:42']['segments'][0]['prototype_assignment']='forced'
+        c.mode='selected_closed';self.assertEqual(c.snapshot()['rows'][0]['label'],'Alex · assumed')
+        c.mode='anonymous_conversation';self.assertEqual(c.snapshot()['rows'][0]['label'],'Speaker_2')
+        c.mode='caption_only';self.assertEqual(c.snapshot()['rows'][0]['label'],'Transcription')
 
     def test_snapshot_outputs_are_detached_and_report_retention_without_saving(self):
         c = self.controller; snapshot = c.snapshot()
@@ -182,6 +206,19 @@ class ControllerViewTests(unittest.TestCase):
             with self.subTest(values=invalid), self.assertRaises(ValueError): c._do_settings(invalid)
             self.assertEqual(c.settings, values); self.assertEqual(path.read_bytes(), original)
         self.assertEqual(c.snapshot()["settings"]["ram_horizon_sec"], 60)
+
+    def test_saved_microphone_permission_and_automatic_start_validation(self):
+        c = self.controller
+        for invalid in ({'microphone_preapproved': 'yes'}, {'auto_start_listening': 1},
+                        {'auto_start_listening': True}):
+            with self.subTest(invalid=invalid), self.assertRaises(ValueError):
+                c._do_settings(invalid)
+        c._do_settings({'microphone_preapproved': True, 'auto_start_listening': True})
+        saved = json.loads((self.data/'settings.json').read_text())
+        self.assertTrue(saved['microphone_preapproved'] and saved['auto_start_listening'])
+        with self.assertRaises(ValueError): c._do_settings({'microphone_preapproved': False})
+        c._do_settings({'microphone_preapproved': False, 'auto_start_listening': False})
+        self.assertFalse(c.settings['auto_start_listening'])
 
     def test_mark_without_audio_writes_only_pinned_metadata_and_last_twenty_rows(self):
         c = self.controller

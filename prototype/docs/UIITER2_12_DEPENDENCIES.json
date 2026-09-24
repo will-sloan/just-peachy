@@ -1,0 +1,104 @@
+{
+  "schema": "just-peachy.task12.dependencies.v1",
+  "new_packages": [],
+  "new_models": [],
+  "new_dictionaries": [],
+  "new_tokenizers": [],
+  "new_conversions": [],
+  "existing_python": "3.11.16 | packaged by Anaconda, Inc. | (main, Aug 27 2026, 14:36:16) [MSC v.1942 64 bit (AMD64)]",
+  "existing_runtime": {
+    "numpy": "2.2.6",
+    "onnxruntime": "1.29.0",
+    "sherpa-onnx": "1.13.4",
+    "sounddevice": "0.5.5",
+    "soundfile": "0.13.1",
+    "psutil": "7.2.2"
+  },
+  "retained_base_assets": [
+    {
+      "component": "sherpa_giga_encoder_int8",
+      "filename": "encoder-epoch-99-avg-1.int8.onnx",
+      "sha256": "32c98281c7bd8b63e3e142d007251b37f120572e8fdea9a4f5a79ce22b10ec4f",
+      "new": false
+    },
+    {
+      "component": "sherpa_giga_decoder_fp32",
+      "filename": "decoder-epoch-99-avg-1.onnx",
+      "sha256": "9da02b77cb08826756ec6a88635f35a40374e4164e7c6359121a9145958a6ceb",
+      "new": false
+    },
+    {
+      "component": "sherpa_giga_joiner_int8",
+      "filename": "joiner-epoch-99-avg-1.int8.onnx",
+      "sha256": "831477d390e59a61f1b6a6f763b9903e6c6366ff6034f1ddba613be82637122f",
+      "new": false
+    },
+    {
+      "component": "sherpa_giga_tokens",
+      "filename": "tokens.txt",
+      "sha256": "49e3c2646595fd907228b3c6787069658f67b17377c60aeb8619c4551b2316fb",
+      "new": false
+    },
+    {
+      "component": "sherpa_online_punctuation_int8",
+      "filename": "model.int8.onnx",
+      "sha256": "9d611f445fe4a46186080fe161be6059d87d72eb88d3a8cb00c1a06e83a6067e",
+      "new": false
+    },
+    {
+      "component": "sherpa_online_punctuation_bpe",
+      "filename": "bpe.vocab",
+      "sha256": "e118b7ad88c54db562517df49e1cffd4836d166c34fb190fd311d7f34eb238f5",
+      "new": false
+    },
+    {
+      "component": "redimnet2_b2_fp32",
+      "filename": "redimnet2_b2_fp32.onnx",
+      "sha256": "5c1a8635cba0d4648463f3b6d30c5a6137bc38d1200ab00c5944400aaa7b5609",
+      "new": false
+    },
+    {
+      "component": "pyannote_segmentation_3_0_fp32",
+      "filename": "pyannote_segmentation_3_0_fp32.onnx",
+      "sha256": "b4b65085bbf2cc455565696604c87fedade1359aa6ddfac5d726d69124d5069a",
+      "new": false
+    }
+  ],
+  "retained_task10_helper": {
+    "filename": "dpdfnet_baseline.onnx",
+    "sha256": "debaf0e8893479fca91b8b4c1eae8db195aa8980ccc9012f5809fde2b738151a",
+    "new": false
+  },
+  "inherited_licence_provenance": [
+    {
+      "file": "docs/UIITER2_08_DEPENDENCIES.json",
+      "sha256": "b00ba39a4970e223a14c09d9dee6a7b7bcb5493c45ecfd9e7eb6f99653813790"
+    },
+    {
+      "file": "docs/UIITER2_10_DEPENDENCIES.json",
+      "sha256": "5cd2ceeeda50724a29f4fe2a3454a7a524f3aa5bc27760c17c4b626cc6ac820f"
+    },
+    {
+      "file": "release_tools/THIRD_PARTY_NOTICES.md",
+      "sha256": "1de991248054f593e2c210b1a07bf96c7f87df88973187e51a28aa9fe432a8a4"
+    }
+  ],
+  "optional_language_helper": {
+    "status": "NOT_INSTALLED",
+    "model": "Qwen/Qwen3-0.6B",
+    "runtime": "llama.cpp",
+    "official_model": "https://huggingface.co/Qwen/Qwen3-0.6B",
+    "official_runtime_license": "https://raw.githubusercontent.com/ggml-org/llama.cpp/master/LICENSE",
+    "model_license_family": "Apache-2.0 per official model card; no exact derivative qualified",
+    "runtime_license_family": "MIT; no build selected",
+    "revision": null,
+    "conversion": null,
+    "quantization": null,
+    "runtime_build": null,
+    "artifact_hash": null,
+    "redistribution_in_this_task": false
+  },
+  "vocabulary": "Only locally authored unlinked task07 entries; no new external dictionary or frequency list",
+  "corpus": "Existing local CMU Arctic awb fixtures; no corpus audio bundled in public handoff",
+  "obligations": "Retained artifact-specific notices apply. Code, weights, tokenizer and data are distinct; this task adds no licence grant or blanket commercial clearance."
+}

@@ -20,11 +20,15 @@ import uuid
 import zipfile
 from datetime import datetime, timezone
 from pathlib import Path, PurePosixPath
+try:
+    from .runtime_lock import RuntimeLock
+except ImportError:  # Direct command-line script invocation.
+    from runtime_lock import RuntimeLock
 
 SCHEMA = 'just-peachy.release.v1'
 VERSION = re.compile(r'[A-Za-z0-9][A-Za-z0-9._-]{0,79}\Z')
-ALLOWED_DIRS = {'app', 'vendor', 'config', 'docs', 'release_tools', 'licenses'}
-ALLOWED_SUFFIXES = {'.py', '.json', '.md', '.txt', '.ps1', '.cmd', '.sh', '.lock', '.in', '.yaml', '.yml', '.rst', '.csv', '.patch'}
+ALLOWED_DIRS = {'app', 'vendor', 'config', 'docs', 'release_tools', 'licenses', 'native'}
+ALLOWED_SUFFIXES = {'.py', '.json', '.md', '.txt', '.ps1', '.cmd', '.sh', '.lock', '.in', '.yaml', '.yml', '.rst', '.csv', '.patch', '.c', '.h'}
 ROOT_FILES = {'main.py', 'Start-Prototype.ps1', 'Start-Prototype.cmd', 'README.md', 'START_PROTOTYPE.md', 'MODE_GUIDE.md', 'LICENSE', 'LICENSE.txt'}
 MAX_FILES = 5000
 MAX_RELEASE_BYTES = 256 * 1024 * 1024
@@ -108,6 +112,8 @@ def build(source, output, version):
             ARM64_ARTIFACT_PREPARED='13 pinned wheels; see requirements-arm64.lock', CM5_HARDWARE_NOT_TESTED=True),
         privacy='No people, sessions, voice vectors, recordings, model weights or research fixtures included.',
         authentication='Unsigned: checksums provide integrity only; trust the source separately.')
+    capabilities=source/'config'/'release_capabilities.json'
+    manifest['data_features_supported']=read_json(capabilities).get('data_features_supported',[]) if capabilities.exists() else []
     with zipfile.ZipFile(target, 'x', compression=zipfile.ZIP_DEFLATED, compresslevel=6) as z:
         for item in files:
             # Recheck to reject a concurrent source edit during the build.
@@ -207,25 +213,20 @@ def stage(archive, install_root, expected_sha256=None):
 def update_boundary(data_root):
     data = Path(data_root).resolve()
     data.mkdir(parents=True, exist_ok=True)
-    lock = data / 'runtime.lock'
-    token = uuid.uuid4().hex
     try:
-        fd = os.open(lock, os.O_CREAT | os.O_EXCL | os.O_WRONLY, 0o600)
+        owner = RuntimeLock(data, 'release_update')
     except FileExistsError:
-        raise RuntimeError(f'Application or another updater owns {lock}. Stop the app safely; never auto-delete an owner lock.') from None
+        raise RuntimeError(f'Application or another updater owns {data / "runtime.lock"}. Stop the app safely; inspect uncertain ownership.') from None
     try:
-        with os.fdopen(fd, 'w', encoding='utf-8') as f:
-            json.dump(dict(token=token, pid=os.getpid(), purpose='release_update', created_utc=now()), f)
         yield
     finally:
-        if lock.exists() and read_json(lock).get('token') == token:
-            lock.unlink()
+        owner.close()
 
 
 def check_data_schema(data_root, manifest, initialize=False):
     path = Path(data_root) / 'DATA_SCHEMA.json'
     if not path.exists():
-        known = ['people', 'settings', 'sessions', 'saved_excerpts', 'photos']
+        known = ['people', 'settings', 'sessions', 'conversations', 'saved_excerpts', 'photos', 'settings.json', 'seat_template.json', 'text_assistance.json']
         if any((Path(data_root) / name).exists() for name in known):
             raise ValueError('Existing personal data lacks DATA_SCHEMA.json; inspect before activation')
         schema = 1
@@ -235,6 +236,19 @@ def check_data_schema(data_root, manifest, initialize=False):
         schema = read_json(path)['schema_version']
     if not manifest['data_schema_min'] <= schema <= manifest['data_schema_max']:
         raise ValueError(f'Incompatible personal-data schema {schema}; no automatic migration performed')
+    # Schema 1 predates paragraph enrollment. Refuse an older reader before
+    # changing release pointers; never discard a person's references to downgrade.
+    required=set(read_json(path).get('required_features',[])) if path.exists() else set()
+    people=Path(data_root)/'people'
+    for person in people.glob('*/person.json'):
+        if person.stat().st_size > 128*1024:
+            raise ValueError('Oversized person metadata; inspect before switching releases')
+        row=read_json(person)
+        if any(ref.get('capture_mode')=='paragraph' for ref in row.get('references',[])):
+            required.add('paragraph-enrollment-v1')
+    unsupported=required-set(manifest.get('data_features_supported',[]))
+    if unsupported:
+        raise ValueError('Release cannot read required personal-data features: '+', '.join(sorted(unsupported)))
     return schema
 
 

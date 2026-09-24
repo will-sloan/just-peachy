@@ -1,5 +1,23 @@
 # Development tools
 
+Task12 small native transcript review and protected-change touch workflow:
+[README_TRANSCRIPT_REVIEW.md](README_TRANSCRIPT_REVIEW.md).
+
+Task11's small native reference/contamination check and actual touch workflow:
+[README_ADAPTATION.md](README_ADAPTATION.md).
+
+For the small native roster proof and actual mode/recipe configuration export,
+see [README_ROSTER.md](README_ROSTER.md).
+
+For linked session/native archive checks and on-demand model-window export, see
+[README_SESSIONS.md](README_SESSIONS.md). No new capture or inference is required
+to export an already recorded window.
+
+For the task 01 timing/Stop lifecycle check, see
+[README_LIVE_TIMING.md](README_LIVE_TIMING.md). It reuses the current environment
+and models, requires explicit consent for live capture, and writes only to a
+new private evidence directory. It is a small functional check, not a sweep.
+
 ## Bounded real Windows microphone check
 
 `check_live_desktop.py` exercises the actual XVF live source, native models,
@@ -150,3 +168,32 @@ CMD / Anaconda Prompt:
 .edge-speech-env\python.exe -B prototype\tools\run_unit_checks.py
 ```
 
+# Task 02 caption checks
+
+See [README_CAPTION_PRESENTATION.md](README_CAPTION_PRESENTATION.md) for the
+short GUI timer fixture, explicit mock screenshots and optional actual native
+saved-file layout check. Inputs, outputs and PowerShell/CMD/Anaconda commands
+are included. No microphone or extra model download is involved.
+
+## Task 05 bounded assigned-seat native check
+
+See [README_SEATS.md](README_SEATS.md) for `check_seat_modes.py`: three short native saved-audio cases with explicitly synthetic telemetry, actual caption-widget checks, source hashes and resource observations. `--case direction_change_motion` selects only the UI/motion case when that is the relevant regression. Run commands, inputs and private outputs are documented there. No microphone, playback or training.
+# Task 06 native enrollment verification
+
+See [README_ENROLLMENT.md](README_ENROLLMENT.md) for the small prerecorded-audio
+before/after embedding parity check, ordinary ASR, profile restart/export/import,
+quality negatives and resource receipts. No microphone or playback is used.
+`run_unit_checks.py` additionally performs main-thread garbage collection between
+cases to release completed Tk test interpreters before worker tests begin; its
+own source hash is recorded in the final receipt.
+## Task 07 native text assistance check
+
+See [README_TEXT_ASSISTANCE.md](README_TEXT_ASSISTANCE.md) for one small actual
+native caption/archive run, explicit text-only edge cases, source/API bindings
+and resource measurements. It does not enable hotword inference or run a sweep.
+# Task09 actual-audio evidence check
+
+See [README_SCRIPT_EVIDENCE.md](README_SCRIPT_EVIDENCE.md) for the small native
+script/reference/fresh-query test, inputs, private outputs and exact commands.
+
+Task10 optional noise checks and run commands: [README_NOISE.md](README_NOISE.md).

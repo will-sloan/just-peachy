@@ -2,6 +2,7 @@
 import argparse
 import json
 import os
+import signal
 from pathlib import Path
 import sys
 import time
@@ -18,7 +19,8 @@ def parser():
     p.add_argument('--data-root',type=Path)
     p.add_argument('--models',type=Path)
     p.add_argument('--wav',type=Path)
-    p.add_argument('--mode',default='caption_only',choices=('caption_only','enrolled_names','anonymous_conversation','open_with_names','selected_focus','spatial_assisted','strongly_spatial_assisted'))
+    from app.mode_policy import MODES
+    p.add_argument('--mode',default='caption_only',choices=MODES)
     p.add_argument('--recipe',default='fast',choices=('fast','classic','balanced','patient'))
     p.add_argument('--tap',default='O0',choices=('O0','O1'))
     p.add_argument('--result',type=Path)
@@ -47,7 +49,12 @@ def main():
         if args.command=='gui':
             import tkinter as tk
             from app.ui import PrototypeUI,prepare_dpi_awareness
-            prepare_dpi_awareness();root=tk.Tk();window=PrototypeUI(root,controller)
+            prepare_dpi_awareness();root=tk.Tk();window=PrototypeUI(root,controller,allow_auto_start=args.wav is None)
+            # A default KeyboardInterrupt can be swallowed by a Tk callback,
+            # leaving capture running. Route process shutdown through normal UI
+            # cleanup (device restoration, session flush, worker/lease close).
+            for sig in (signal.SIGINT, signal.SIGTERM):
+                signal.signal(sig, lambda signum, frame: root.after(0, window.close))
             if args.fullscreen:root.attributes('-fullscreen',True)
             if args.wav:root.after(250,lambda:controller.start_file(args.wav))
             root.mainloop()

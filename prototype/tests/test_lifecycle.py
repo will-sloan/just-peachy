@@ -46,12 +46,37 @@ class LifecycleTests(unittest.TestCase):
         return SimpleNamespace(stop=lambda:None,wait_for_completion=wait,
             _finalization_thread=finished,_journal=None,_threads=[],text_writers=[],
             _source=SimpleNamespace(thread=None,sent=0,live=live),events=queue.Queue(),session_dir=None,
-            _s6d_writer=None,_s6d_punctuation=None,_scheduler=None,_s7_trace=None)
+            _s6d_writer=None,_s6d_punctuation=None,_scheduler=None,_s7_trace=None,
+            config=SimpleNamespace(input_gain=1.),telemetry=lambda:{'state':'MOCK_COMPLETED'})
 
     def test_bad_settings_does_not_leave_application_lock(self):
         data=self.root/'data';data.mkdir();(data/'settings.json').write_text('{',encoding='utf-8')
         with self.assertRaises(json.JSONDecodeError):Controller(data,self.root/'models')
         self.assertFalse((data/'runtime.lock').exists())
+
+    def test_new_epoch_clears_old_gui_error_but_preserves_terminal_evidence(self):
+        controller=self.make()
+        controller.error='Previous timing failure'
+        controller.metrics['last_terminal_failures']=['Previous timing failure']
+        controller.source_kind='file';controller.file_path=Path('unused.fixture.wav')
+        engine=self.completed_engine();engine.start_prepared_file=lambda *args:None
+        with patch('app.controller.PrototypeEngine',return_value=engine),patch.object(controller,'_consume'):
+            controller._start_session();controller.consumer.join(2)
+        self.assertIsNone(controller.error)
+        self.assertEqual(controller.metrics['last_terminal_failures'],['Previous timing failure'])
+        self.close()
+
+    def test_incomplete_failed_source_close_is_retried_before_owner_release(self):
+        controller=self.make();state={'finished':False};calls=[]
+        live=SimpleNamespace(status=lambda:dict(started=True,finished=state['finished']),
+            stream=SimpleNamespace(active=True))
+        engine=self.completed_engine(live=live)
+        def stop_source():
+            calls.append('stop');state['finished']=True;live.stream.active=False
+        engine._source.stop=stop_source;controller.engine=engine
+        controller._do_stop()
+        self.assertEqual(calls,['stop']);self.assertIsNone(controller.engine)
+        self.close()
 
     def test_finished_worker_terminal_error_can_close_and_preserves_failure(self):
         controller=self.make();controller.engine=self.completed_engine(terminal_error='Injected finalization failure')

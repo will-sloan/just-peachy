@@ -1,0 +1,58 @@
+{
+  "schema": "just_peachy.task06.dependencies.v1",
+  "new_libraries_models_dictionaries_tokenizers_conversions": [],
+  "installed_runtime_versions_unchanged": {
+    "numpy": "2.2.6",
+    "onnxruntime": "1.29.0",
+    "sherpa-onnx": "1.13.4",
+    "soundfile": "0.13.1"
+  },
+  "assets_unchanged_verified": {
+    "sherpa_giga_encoder_int8": {
+      "sha256": "32c98281c7bd8b63e3e142d007251b37f120572e8fdea9a4f5a79ce22b10ec4f",
+      "actual_sha256": "32c98281c7bd8b63e3e142d007251b37f120572e8fdea9a4f5a79ce22b10ec4f"
+    },
+    "sherpa_giga_decoder_fp32": {
+      "sha256": "9da02b77cb08826756ec6a88635f35a40374e4164e7c6359121a9145958a6ceb",
+      "actual_sha256": "9da02b77cb08826756ec6a88635f35a40374e4164e7c6359121a9145958a6ceb"
+    },
+    "sherpa_giga_joiner_int8": {
+      "sha256": "831477d390e59a61f1b6a6f763b9903e6c6366ff6034f1ddba613be82637122f",
+      "actual_sha256": "831477d390e59a61f1b6a6f763b9903e6c6366ff6034f1ddba613be82637122f"
+    },
+    "sherpa_giga_tokens": {
+      "sha256": "49e3c2646595fd907228b3c6787069658f67b17377c60aeb8619c4551b2316fb",
+      "actual_sha256": "49e3c2646595fd907228b3c6787069658f67b17377c60aeb8619c4551b2316fb"
+    },
+    "sherpa_online_punctuation_int8": {
+      "sha256": "9d611f445fe4a46186080fe161be6059d87d72eb88d3a8cb00c1a06e83a6067e",
+      "actual_sha256": "9d611f445fe4a46186080fe161be6059d87d72eb88d3a8cb00c1a06e83a6067e"
+    },
+    "sherpa_online_punctuation_bpe": {
+      "sha256": "e118b7ad88c54db562517df49e1cffd4836d166c34fb190fd311d7f34eb238f5",
+      "actual_sha256": "e118b7ad88c54db562517df49e1cffd4836d166c34fb190fd311d7f34eb238f5"
+    },
+    "redimnet2_b2_fp32": {
+      "sha256": "5c1a8635cba0d4648463f3b6d30c5a6137bc38d1200ab00c5944400aaa7b5609",
+      "actual_sha256": "5c1a8635cba0d4648463f3b6d30c5a6137bc38d1200ab00c5944400aaa7b5609"
+    },
+    "pyannote_segmentation_3_0_fp32": {
+      "sha256": "b4b65085bbf2cc455565696604c87fedade1359aa6ddfac5d726d69124d5069a",
+      "actual_sha256": "b4b65085bbf2cc455565696604c87fedade1359aa6ddfac5d726d69124d5069a"
+    }
+  },
+  "reference_only_not_installed": [
+    {
+      "url": "https://github.com/PalabraAI/redimnet2",
+      "code_license": "MIT; existing weights separate",
+      "use": "Verified audio interface, no download/upgrade"
+    },
+    {
+      "url": "https://github.com/cmusphinx/cmudict/blob/master/LICENSE",
+      "license": "BSD-style copyright/conditions/disclaimer retention",
+      "use": "Reference only; dictionary not installed or used"
+    }
+  ],
+  "notice": "Existing code, weights and data rights remain distinct; this is not blanket redistribution clearance.",
+  "existing_notices": "release_tools/THIRD_PARTY_NOTICES.md"
+}

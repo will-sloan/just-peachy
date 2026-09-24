@@ -1,0 +1,257 @@
+{
+  "schema": "just-peachy.script-evidence.v1",
+  "script_version": 1,
+  "transcript_version": 1,
+  "script": {
+    "text": "please sit by the window please sit by the window",
+    "sha256": "5ed1c2d8ceda782ae5aefdf2035a68b9f32b0812a347e6b2435dc63e22693dbe",
+    "role": "intended, not ground truth"
+  },
+  "transcript": {
+    "raw_asr_text": "please sit by the window please sit by the window",
+    "sha256": "5ed1c2d8ceda782ae5aefdf2035a68b9f32b0812a347e6b2435dc63e22693dbe",
+    "source": "ordinary unbiased Sherpa greedy",
+    "utterances": [
+      {
+        "utterance_id": "e0",
+        "start_sample": 0,
+        "end_sample": 128000,
+        "raw_asr_text": "please sit by the window please sit by the window"
+      }
+    ]
+  },
+  "source": {
+    "audio_sha256": "bf091d384d0e06d4e47a574f4bdcd3f04f56f6abb89110636bc6f94d87c6893a",
+    "total_samples": 128000,
+    "sample_rate": 16000,
+    "route": {
+      "tap": "O0",
+      "sample_rate": 16000,
+      "gain_policy": "fixture_unity",
+      "preprocessing": "mono-float32-16k-redimnet2-native-l2-v1",
+      "waveform_domain": "dry_test_fixture"
+    },
+    "preprocessing_sha256": "669d1acf96f06ae0ad0dbc8d0860be451779527506d4d0658c6c4d3739237374",
+    "model_sha256": {
+      "redimnet2_b2_fp32": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+    }
+  },
+  "word_spans": [
+    {
+      "word": "please",
+      "recognized_index": 0,
+      "estimated_start_sample": 1600,
+      "estimated_end_sample": 11200,
+      "utterance_id": "e0",
+      "confidence": null,
+      "method": "unbiased BPE emission onset to next-word onset/endpoint; uncalibrated",
+      "phone_boundaries": null,
+      "lexical_pronunciations": null,
+      "pronunciation_status": "dictionary not installed; no pronunciation inferred",
+      "word_index": 0,
+      "script_agreement": true
+    },
+    {
+      "word": "sit",
+      "recognized_index": 1,
+      "estimated_start_sample": 11200,
+      "estimated_end_sample": 20800,
+      "utterance_id": "e0",
+      "confidence": null,
+      "method": "unbiased BPE emission onset to next-word onset/endpoint; uncalibrated",
+      "phone_boundaries": null,
+      "lexical_pronunciations": null,
+      "pronunciation_status": "dictionary not installed; no pronunciation inferred",
+      "word_index": 1,
+      "script_agreement": true
+    },
+    {
+      "word": "by",
+      "recognized_index": 2,
+      "estimated_start_sample": 20800,
+      "estimated_end_sample": 32000,
+      "utterance_id": "e0",
+      "confidence": null,
+      "method": "unbiased BPE emission onset to next-word onset/endpoint; uncalibrated",
+      "phone_boundaries": null,
+      "lexical_pronunciations": null,
+      "pronunciation_status": "dictionary not installed; no pronunciation inferred",
+      "word_index": 2,
+      "script_agreement": true
+    },
+    {
+      "word": "the",
+      "recognized_index": 3,
+      "estimated_start_sample": 32000,
+      "estimated_end_sample": 43200,
+      "utterance_id": "e0",
+      "confidence": null,
+      "method": "unbiased BPE emission onset to next-word onset/endpoint; uncalibrated",
+      "phone_boundaries": null,
+      "lexical_pronunciations": null,
+      "pronunciation_status": "dictionary not installed; no pronunciation inferred",
+      "word_index": 3,
+      "script_agreement": true
+    },
+    {
+      "word": "window",
+      "recognized_index": 4,
+      "estimated_start_sample": 43200,
+      "estimated_end_sample": 65600,
+      "utterance_id": "e0",
+      "confidence": null,
+      "method": "unbiased BPE emission onset to next-word onset/endpoint; uncalibrated",
+      "phone_boundaries": null,
+      "lexical_pronunciations": null,
+      "pronunciation_status": "dictionary not installed; no pronunciation inferred",
+      "word_index": 4,
+      "script_agreement": true
+    },
+    {
+      "word": "please",
+      "recognized_index": 5,
+      "estimated_start_sample": 65600,
+      "estimated_end_sample": 75200,
+      "utterance_id": "e0",
+      "confidence": null,
+      "method": "unbiased BPE emission onset to next-word onset/endpoint; uncalibrated",
+      "phone_boundaries": null,
+      "lexical_pronunciations": null,
+      "pronunciation_status": "dictionary not installed; no pronunciation inferred",
+      "word_index": 5,
+      "script_agreement": true
+    },
+    {
+      "word": "sit",
+      "recognized_index": 6,
+      "estimated_start_sample": 75200,
+      "estimated_end_sample": 84800,
+      "utterance_id": "e0",
+      "confidence": null,
+      "method": "unbiased BPE emission onset to next-word onset/endpoint; uncalibrated",
+      "phone_boundaries": null,
+      "lexical_pronunciations": null,
+      "pronunciation_status": "dictionary not installed; no pronunciation inferred",
+      "word_index": 6,
+      "script_agreement": true
+    },
+    {
+      "word": "by",
+      "recognized_index": 7,
+      "estimated_start_sample": 84800,
+      "estimated_end_sample": 96000,
+      "utterance_id": "e0",
+      "confidence": null,
+      "method": "unbiased BPE emission onset to next-word onset/endpoint; uncalibrated",
+      "phone_boundaries": null,
+      "lexical_pronunciations": null,
+      "pronunciation_status": "dictionary not installed; no pronunciation inferred",
+      "word_index": 7,
+      "script_agreement": true
+    },
+    {
+      "word": "the",
+      "recognized_index": 8,
+      "estimated_start_sample": 96000,
+      "estimated_end_sample": 107200,
+      "utterance_id": "e0",
+      "confidence": null,
+      "method": "unbiased BPE emission onset to next-word onset/endpoint; uncalibrated",
+      "phone_boundaries": null,
+      "lexical_pronunciations": null,
+      "pronunciation_status": "dictionary not installed; no pronunciation inferred",
+      "word_index": 8,
+      "script_agreement": true
+    },
+    {
+      "word": "window",
+      "recognized_index": 9,
+      "estimated_start_sample": 107200,
+      "estimated_end_sample": 128000,
+      "utterance_id": "e0",
+      "confidence": null,
+      "method": "unbiased BPE emission onset to next-word onset/endpoint; uncalibrated",
+      "phone_boundaries": null,
+      "lexical_pronunciations": null,
+      "pronunciation_status": "dictionary not installed; no pronunciation inferred",
+      "word_index": 9,
+      "script_agreement": true
+    }
+  ],
+  "phone_boundaries": null,
+  "pronunciation_dictionary": null,
+  "agreement_operations": [
+    {
+      "operation": "equal",
+      "script_indices": [
+        0,
+        10
+      ],
+      "recognized_indices": [
+        0,
+        10
+      ]
+    }
+  ],
+  "coverage": {
+    "script_words": 10,
+    "recognized_words": 10,
+    "matched_words": 10,
+    "estimated_fraction": 1.0,
+    "unknown_timing_words": 0,
+    "rejected_or_unknown_audio_sec": 0.0
+  },
+  "quality": {
+    "base_usable_sec": 8.0,
+    "clipping": 0.0,
+    "consistency": 1.0,
+    "source_gaps": 0,
+    "admitted_sample_spans": [
+      [
+        0,
+        128000
+      ]
+    ],
+    "admission": "unchanged RMS/clipping/Pyannote speech>=0.6/overlap<=0.2; not a single-person guarantee"
+  },
+  "bank": [
+    {
+      "clip_id": "bf091d384d0e06d4:64000:128000",
+      "span_id": "samples-64000-128000",
+      "start_sample": 64000,
+      "end_sample": 128000,
+      "unique_duration_sec": 4.0,
+      "context_words": [
+        "please",
+        "sit",
+        "by",
+        "the",
+        "window"
+      ],
+      "script_agreement_words": [
+        "please",
+        "sit",
+        "by",
+        "the",
+        "window"
+      ],
+      "selection": "single estimated speaker; all half-second quality windows admitted",
+      "content_confidence": null,
+      "phone_boundaries": null
+    }
+  ],
+  "retained_unique_sec": 4.0,
+  "base_reference_unchanged": true,
+  "base_reference_retained_sec": 8.0,
+  "selection_state": "available",
+  "user_corrections": [],
+  "matched_content_score": null,
+  "matched_content_status": "Unavailable: no calibrated query-content confidence or validated acoustic word/phone boundaries; ordinary voice matching remains authoritative.",
+  "advisory_only": true,
+  "extra_embedding_calls": 1,
+  "extra_elapsed_sec": null,
+  "word_span_count": 10,
+  "example_scope": "SYNTHETIC NONPRIVATE SCHEMA PREVIEW: constant synthetic audio and stub vectors; not identity/accuracy evidence",
+  "loadable_profile": false,
+  "vector_payloads_omitted": true
+}

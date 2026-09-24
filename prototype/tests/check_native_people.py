@@ -50,8 +50,8 @@ def quality(audio,models,config,provenance,label):
     return q,v
 
 
-def native_query(label,wav,config,models,store):
-    gallery=store.gallery(ROUTE)
+def native_query(label,wav,config,models,store,*,alternate_advisory=False):
+    gallery=store.gallery(ROUTE,alternate_advisory=alternate_advisory)
     profile=effective_profile('balanced','enrolled_names','O0')
     engine=PrototypeEngine(config,models,profile,gallery,'enrolled_names')
     started=time.perf_counter();engine.start_prepared_file(wav)
@@ -91,7 +91,8 @@ def native_query(label,wav,config,models,store):
         'gallery_ids_loaded':gallery.ids,'gallery_id':gallery.gallery_id,'actual_gallery_score_calls':gallery.query_count,
         'confirmed_profile_ids_in_final_rows':sorted(confirmed),'caption_rows':len(captions),'event_counts':counts,
         'identity_decisions':decisions,'session_path':str(engine.session_dir),
-        'naming_policy':asdict(profile.identity),'raw_query_wav':binding(wav)}
+        'naming_policy':asdict(profile.identity),'raw_query_wav':binding(wav),
+        'alternate_advisory':alternate_advisory,'last_alternate_comparison':gallery.last_alternate}
 
 
 def main():

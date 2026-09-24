@@ -14,17 +14,20 @@ from typing import Any, Callable
 
 from .casing import provisional_case
 from .beam_diagnostics import BEAMS, arrow_tip
+from .caption_display import IdentityLabels, continues
+from .enrollment_progress import VerifiedAnimation, reference_text
+from .session_ui import SessionUI
+from .roster_ui import RosterUI
+from .seat_ui import SeatUI
+from .text_assistance_ui import TextAssistanceUI
+from .script_evidence_ui import ScriptEvidenceUI
+from .noise_ui import NoiseUI
+from .adaptation_ui import AdaptationUI
+from .transcript_review_ui import TranscriptReviewUI
+from .mode_policy import MODE_METADATA, SELECTED_MODES, NAMED_MODES, NUMBERED_MODES, SEAT_MODES
 
 CONFIG = Path(__file__).resolve().parents[1] / "config" / "ui.json"
-MODES = {
-    "caption_only": ("Captions", "All words, neutral labels. Optional speaker inference is off."),
-    "enrolled_names": ("Enrolled names", "Your people's names or Unknown. All words stay visible; internal association may still run."),
-    "anonymous_conversation": ("Anonymous", "Speaker labels without looking up personal names. Labels can split or merge."),
-    "open_with_names": ("Conversation + names", "Anonymous continuity with cautious matches to your personal profiles."),
-    "selected_focus": ("Selected focus", "Emphasize selected people in the full transcript. Matching is experimental."),
-    "spatial_assisted": ("Spatial-assisted", "Voice and anonymous continuity lead; fresh XVF directions and recent positions support association. Experimental."),
-    "strongly_spatial_assisted": ("Strongly spatial-assisted", "Experimental seat continuity gives location more weight. Strong voice disagreement can recover identity; reset positions after moving the tablet."),
-}
+MODES = {key:(row['label'],row['description']) for key,row in MODE_METADATA.items()}
 MODE_LEGEND = "✓ simulation-supported · ◇ experimental / real-world validation needed"
 
 
@@ -71,33 +74,45 @@ class TouchScroll(tk.Frame):
         return "break"
 
 
-class PrototypeUI:
+class PrototypeUI(TranscriptReviewUI,AdaptationUI,NoiseUI,ScriptEvidenceUI,TextAssistanceUI,SeatUI,RosterUI,SessionUI):
     """Thin controller-driven frontend. Construct on Tk's owning/main thread."""
-    def __init__(self, root: tk.Tk, controller: Any):
+    def __init__(self, root: tk.Tk, controller: Any, *, allow_auto_start: bool = True):
         self.root, self.controller = root, controller
         self.config = json.loads(CONFIG.read_text(encoding="utf-8"))
         self.preferences = dict(self.config["defaults"])
-        # Saved display preferences are metadata, never a reason to start capture.
+        # Display preferences do not start capture; the separate saved microphone
+        # permission and auto-start choice must both be explicitly enabled.
         initial = controller.snapshot()
         settings = initial.get("settings", {}) if isinstance(initial, dict) else {}
         for key, choices in (("caption_size", self.config["caption_sizes_px"]),
-                             ("theme", self.config["themes"]), ("preview_zoom", self.config["preview_zooms"])):
+                             ("theme", self.config["themes"]), ("preview_zoom", self.config["preview_zooms"]),
+                             ("display_smoothing_ms", self.config["display_smoothing_ms"])):
             if settings.get(key) in choices:
                 self.preferences[key] = settings[key]
         if isinstance(settings.get("spatial_visualization"), bool):
             self.preferences["spatial_visualization"] = settings["spatial_visualization"]
+        if isinstance(settings.get("numbered_unknowns"), bool):
+            self.preferences["numbered_unknowns"] = settings["numbered_unknowns"]
         self.zoom = float(self.preferences["preview_zoom"])
         self.snapshot: dict[str, Any] = {}
         self.page = "captions"
         self._closed = False
         self._closing = False
         self._poll_handle: str | None = None
-        self._mic_consented = False
+        self._mic_consented = settings.get("microphone_preapproved") is True
+        self._auto_start_pending = (allow_auto_start and self._mic_consented
+                                    and settings.get("auto_start_listening") is True)
         self._row_cache: dict[str, tuple[str, str, bool]] = {}
         self._marks: dict[str, tuple[str, str]] = {}
         self._render_order: list[str] = []
         self._mark_number = 0
         self._follow_live = True
+        self._identity_labels = IdentityLabels()
+        self._display_handle = None
+        self._pending_rows = None
+        self._display_received = 0.0
+        self.presentation_delays_ms = []  # Last 64 GUI batches; not model latency.
+        self._nav_context = None
         self._people_signature = ""
         self._enroll_name = ""
         self._enroll_person_id: str | None = None
@@ -117,6 +132,23 @@ class PrototypeUI:
         self._build()
         self._set_geometry()
         self.poll()
+        self._auto_start_handle = None
+        if self._auto_start_pending:
+            self._auto_start_handle = self.root.after(250, self._auto_start_listening)
+
+    def _cancel_auto_start_timer(self) -> None:
+        if self._auto_start_handle is not None:
+            self.root.after_cancel(self._auto_start_handle)
+            self._auto_start_handle = None
+
+    def _auto_start_listening(self) -> None:
+        self._cancel_auto_start_timer()
+        pending, self._auto_start_pending = self._auto_start_pending, False
+        if (pending and not self._closed and not self._closing
+                and self._mic_consented and self.page == "captions"
+                and self.snapshot.get("state") in ("IDLE", "STOPPED")
+                and not self.snapshot.get("error")):
+            self.toggle_listening()
 
     def px(self, value: float) -> int:
         return max(1, round(value * self.zoom))
@@ -136,7 +168,7 @@ class PrototypeUI:
             bg=self.color("accent" if accent else "raised"), fg=self.color("accent_text" if accent else "text"),
             activebackground=self.color("selected"), activeforeground=self.color("text"),
             relief="flat", borderwidth=0, highlightthickness=1, highlightbackground=self.color("border"),
-            takefocus=True, wraplength=self.px(wrap or 390), cursor="hand2")
+            takefocus=True, wraplength=self.px(wrap or 390), cursor="hand2", overrelief="raised")
         button.pack(fill="both", expand=True)
         self._bind_page_scroll(button)
         frame.button = button  # type: ignore[attr-defined]
@@ -175,15 +207,17 @@ class PrototypeUI:
         self.label(heading, "Just Peachy", size=22, bold=True).pack(side="left")
         self.preview_label = self.label(heading, "480 × 800", size="small_font_px", muted=True)
         self.preview_label.pack(side="right")
+        mode_bar = tk.Frame(header, bg=self.color("background")); mode_bar.pack(fill="x")
+        self.mode_label = self.label(mode_bar, "Just Transcription", size="small_font_px", bold=True)
+        self.mode_label.pack(side="left", fill="x", expand=True)
+        self.rescue = self.button(mode_bar, "Show all", self.show_all_captions, key="rescue", height=48, wrap=92)
+        self.rescue.configure(width=self.px(104))
         self.status_label = self.label(header, "Ready · microphone off", size="small_font_px", muted=True)
         self.status_label.configure(wraplength=self.px(456)); self.status_label.pack(fill="x", pady=(self.px(3), 0))
         self.error_label = self.label(header, "", size="small_font_px")
         self.error_label.configure(fg=self.color("error"), wraplength=self.px(456))
         footer = tk.Frame(self.shell, bg=self.color("background"))
         footer.pack(side="bottom", fill="x")
-        self.rescue = self.button(footer, "Show all captions · experimental identity", self.show_all_captions,
-                                 key="rescue", height=48)
-        self.rescue.pack(fill="x", padx=self.px(4), pady=(0, self.px(4)))
         nav = tk.Frame(footer, bg=self.color("background")); nav.pack(fill="x")
         for index, (text, command, key) in enumerate((
             ("Start", self.toggle_listening, "start_stop"), ("Mode", self.show_modes, "mode"),
@@ -193,22 +227,25 @@ class PrototypeUI:
         self.body = tk.Frame(self.shell, bg=self.color("background")); self.body.pack(fill="both", expand=True)
         self.caption_page = tk.Frame(self.body, bg=self.color("background"))
         self.caption_page.pack(fill="both", expand=True)
-        self.spatial_canvas = tk.Canvas(self.caption_page, height=self.px(125),
+        self.spatial_canvas = tk.Canvas(self.caption_page, height=self.px(145),
             bg=self.color("surface"), highlightthickness=0)
         self._spatial_font = tkfont.Font(root=self.root, font=self.font(11))
         if self.preferences.get("spatial_visualization", False):
             self.spatial_canvas.pack(fill="x", padx=self.px(8), pady=(self.px(4), 0))
         self.spatial_canvas.bind("<Configure>", lambda _e: self._update_spatial_visualization(force=True))
+        self.spatial_canvas.bind("<Button-1>", lambda _e: self._hide_spatial())
         self._spatial_signature = None
         self.caption_text = tk.Text(self.caption_page, wrap="word", state="disabled", font=self.font(self.config["caption_sizes_px"][self.preferences["caption_size"]]),
             bg=self.color("background"), fg=self.color("text"), relief="flat", borderwidth=0,
-            padx=self.px(16), pady=self.px(14), cursor="arrow", takefocus=False,
-            selectbackground=self.color("selected"), highlightthickness=0, spacing1=self.px(4), spacing3=self.px(5))
+            padx=self.px(12), pady=self.px(6), cursor="arrow", takefocus=False,
+            selectbackground=self.color("selected"), highlightthickness=0, spacing1=0, spacing2=0, spacing3=self.px(1))
         self.caption_text.pack(fill="both", expand=True)
         self.caption_text.tag_configure("speaker", font=self.font("small_font_px", True), foreground=self.color("muted"))
         self.caption_text.tag_configure("selected", background=self.color("selected"))
         self.caption_text.tag_configure("partial", foreground=self.color("text"))
         self.caption_text.tag_configure("placeholder", foreground=self.color("muted"))
+        self.caption_text.tag_configure("gap", font=self.font(6), spacing1=0, spacing3=0)
+        self.caption_text.tag_configure("pending", foreground=self.color("muted"))
         self.caption_text.bind("<MouseWheel>", self._caption_wheel)
         self.caption_text.bind("<Button-4>", lambda _e: self._scroll_caption(-3))
         self.caption_text.bind("<Button-5>", lambda _e: self._scroll_caption(3))
@@ -220,7 +257,7 @@ class PrototypeUI:
         self.button(controls, "Back to live", self.back_to_live, key="back_live").pack(side="left", fill="x", expand=True, padx=self.px(4))
         self.button(controls, "↓", lambda: self._scroll_caption(5), key="scroll_down").pack(side="left", fill="x", expand=True)
         self.dialog_page = tk.Frame(self.body, bg=self.color("background"))
-        self._render_rows([], force=True)
+        self._render_rows(self.snapshot.get("rows", []), force=True)
 
     def _set_geometry(self) -> None:
         self.root.geometry(f"{self.px(480)}x{self.px(800)}")
@@ -292,7 +329,9 @@ class PrototypeUI:
                 for key in ("start_stop", "mode", "people", "settings", "rescue"):
                     self.actions[key].configure(state="normal")
             self._show_status()
-            self._render_rows(snapshot.get("rows", []))
+            self._queue_rows(snapshot.get("rows", []))
+            # GUI-only three-dot pulse; no callback, inference or event/log frame.
+            self.caption_text.tag_configure("pending", foreground=self.color("muted" if int(time.perf_counter()*2)%2 else "text"))
             self._update_spatial_visualization()
             if self._page_update:
                 self._page_update()
@@ -309,15 +348,74 @@ class PrototypeUI:
         state = str(self.snapshot.get("state", "idle"))
         status = str(self.snapshot.get("status") or ("Microphone off · choose Start" if not self._running() else state))
         profile = f"{self.snapshot.get('recipe', 'pending')} / {self.snapshot.get('tap', 'pending')}"
-        self.status_label.configure(text=f"{MODES.get(mode, (mode,))[0]} · {profile} · {status}"[:200])
-        error = self._notice or self.snapshot.get("error") or ""
+        self.mode_label.configure(text=MODES.get(mode, (mode,))[0])
+        status = status.split(" · "+mode)[0]
+        self.status_label.configure(text=f"{profile} · {status}"[:200])
+        sessions=self.snapshot.get('sessions') or {}
+        archive=sessions.get('archive') or {}
+        recording=archive.get('audio_recording')
+        if recording:self.status_label.configure(text='● SAVING EXACT AUDIO · '+str(status)[:110],fg=self.color('warning'))
+        else:self.status_label.configure(fg=self.color('muted'))
+        archive_error=archive.get('archive_error') if archive else (sessions.get('last_archive') or {}).get('archive_error')
+        error = self._notice or self.snapshot.get("error") or ('Recording/archive loss: '+archive_error if archive_error else '')
+        playback=sessions.get('playback') or {}
+        if playback.get('error'):error=error or ('Listening: '+playback['error'])
+        if playback.get('active'):
+            self.status_label.configure(text='▶ Listening · microphone off · '+str((playback.get('device') or {}).get('name',''))[:90])
+        elif playback and not playback.get('error'):
+            self.status_label.configure(text='Listening finished · microphone off')
         if error:
             self.error_label.configure(text=str(error)[:240]); self.error_label.pack(fill="x", pady=(self.px(4), 0))
         else:
             self.error_label.pack_forget()
         self.actions["start_stop"].configure(text="Stop" if self._running() else "Start")
-        strict = mode == "selected_focus" and bool(self.snapshot.get("strict"))
-        self.actions["rescue"].configure(text="STRICT FILTER · Show all captions" if strict else "Show all captions · experimental identity")
+        strict = bool(self.snapshot.get("strict"))
+        if strict:
+            self.rescue.pack(side="right")
+            self.mode_label.configure(text=MODES.get(mode,(mode,))[0]+" · filtered")
+        else:
+            self.rescue.pack_forget()
+        self._highlight_navigation()
+
+    def _highlight_navigation(self) -> None:
+        if self.page in {"modes", "roster", "recipes", "help", "display_features"}: self._nav_context = "mode"
+        elif self.page in {"people", "person", "enrollment", "enrollment_progress"}: self._nav_context = "people"
+        elif self.page in {"settings", "diagnostics", "beam_diagnostics", "problem", "advanced", "identity_scores", "identity_parameters", "sessions", "session_detail", "session_outputs"}: self._nav_context = "settings"
+        elif self.page == "captions": self._nav_context = None
+        for key in ("mode", "people", "settings"):
+            chosen = key == self._nav_context
+            self.actions[key].configure(bg=self.color("selected" if chosen else "raised"),
+                text=("● " if chosen else "") + key.title(), relief="sunken" if chosen else "flat")
+
+    def _queue_rows(self, rows) -> None:
+        delay = self.preferences["display_smoothing_ms"]
+        if not delay:
+            if self._display_handle:
+                self.root.after_cancel(self._display_handle); self._display_handle = None
+            self._pending_rows = None
+            self._render_rows(rows)
+            return
+        # Throttle from the first change, never debounce indefinitely under speech.
+        if rows == self._pending_rows:
+            return
+        if self._display_handle is None and rows == getattr(self, "_applied_rows", None):
+            self._render_rows(rows)  # Identity deadlines still advance without text.
+            return
+        self._pending_rows = rows
+        if self._display_handle is None:
+            self._display_received = time.perf_counter()
+            self._display_handle = self.root.after(delay, self._flush_rows)
+
+    def _flush_rows(self) -> None:
+        self._display_handle = None
+        if self._closed or self._closing: return
+        rows = self._pending_rows
+        self._pending_rows = None
+        if rows is None: return
+        self._render_rows(rows)
+        self._applied_rows = rows
+        self.presentation_delays_ms.append((time.perf_counter()-self._display_received)*1000)
+        del self.presentation_delays_ms[:-64]
 
     def _display_row(self, row: dict[str, Any]) -> tuple[str, str, bool]:
         names = [str(p.get("name", "")) for p in self.snapshot.get("people", [])]
@@ -327,21 +425,27 @@ class PrototypeUI:
             text = str(row["provisional_display_text"])
         else:
             text = provisional_case(str(row.get("raw_asr_text", "")), names, self.config["acronyms"])
+        if row.get('final') and row.get('show_corrected_text') and row.get('optional_corrected_text'):
+            text='✎ '+str(row['optional_corrected_text'])
         mode = self.snapshot.get("mode", "caption_only")
-        label = str(row.get("label") or "Unknown")
-        if mode == "caption_only":
-            label = "Captions"
-        elif mode == "enrolled_names" and re.fullmatch(r"speaker[ _-]*\d+", label, re.IGNORECASE):
-            label = "Unknown"
-        return label, text, bool(row.get("selected")) and mode == "selected_focus"
+        label = self._identity_labels.label(row, mode, time.perf_counter(), mode in NUMBERED_MODES)
+        return label, text, bool(row.get("selected")) and bool(self.snapshot.get('settings',{}).get('highlight_selected'))
 
     def _render_rows(self, rows: list[dict[str, Any]], force: bool = False) -> None:
-        strict = self.snapshot.get("mode") == "selected_focus" and bool(self.snapshot.get("strict"))
+        strict = bool(self.snapshot.get("strict"))
         visible = [row for row in rows if not strict or row.get("selected")]
         ids = [str(row["id"]) for row in visible]
         if len(ids) != len(set(ids)):
             raise ValueError("Duplicate caption row IDs")
+        self._identity_labels.prune(rows)
         current = {str(row["id"]): self._display_row(row) for row in visible}
+        previous = None
+        for row in visible:
+            rid = str(row["id"])
+            label, caption, selected = current[rid]
+            if previous and continues(previous, row, self._display_row(previous)[0], label):
+                current[rid] = ("", caption, selected)
+            previous = row
         if not force and ids == self._render_order and current == self._row_cache:
             return
         text = self.caption_text
@@ -352,55 +456,71 @@ class PrototypeUI:
                            and text.compare(anchor, "<", self._marks[rid][1])), None)
         anchor_offset = (text.count(self._marks[anchor_row][0], anchor, "chars") or (0,))[0] if anchor_row else 0
         text.configure(state="normal")
-        append_only = not force and ids[:len(self._render_order)] == self._render_order and bool(self._render_order)
-        if (not append_only and ids != self._render_order) or force:
+        if force:
             text.delete("1.0", "end")
             for start, end in self._marks.values():
                 text.mark_unset(start, end)
             self._marks.clear(); self._row_cache.clear(); self._render_order = []
+        # Native S7 may retire/replace one segment when ownership arrives. Keep
+        # every surviving row/widget mark instead of rebuilding the transcript.
+        for rid in list(self._render_order):
+            if rid not in current:
+                start, end = self._marks.pop(rid)
+                text.delete(start, end); text.mark_unset(start, end)
+                self._row_cache.pop(rid, None); self._render_order.remove(rid)
         if not ids:
             text.delete("1.0", "end")
-            placeholder = "No selected speech is visible.\n\nUse Show all captions to recover the full view." if strict and rows else "Your words will appear here.\n\nChoose Start when you are ready. Microphone access requires your consent."
+            placeholder = "No selected speech is visible.\n\nUse Show all captions to recover the full view." if strict and rows else "Your words will appear here.\n\nChoose Start when you are ready. Speech is processed on this device."
             text.insert("1.0", placeholder, "placeholder")
         else:
             if not self._render_order:
                 text.delete("1.0", "end")
-            for rid in ids:
+            for index, rid in enumerate(ids):
                 value = current[rid]
-                if rid in self._marks and self._row_cache.get(rid) == value:
-                    continue
+                if rid in self._marks and self._render_order.index(rid) != index:
+                    start, end = self._marks.pop(rid)
+                    text.delete(start, end); text.mark_unset(start, end)
+                    self._row_cache.pop(rid, None); self._render_order.remove(rid)
+                next_id = self._render_order[index] if rid not in self._marks and index < len(self._render_order) else (
+                    self._render_order[index+1] if rid in self._marks and index+1 < len(self._render_order) else None)
+                next_start = self._marks[next_id][0] if next_id else None
+                if rid in self._marks and self._row_cache.get(rid) == value: continue
                 if rid not in self._marks:
                     self._mark_number += 1
                     start, end = f"row_{self._mark_number}_start", f"row_{self._mark_number}_end"
-                    text.mark_set(start, "end-1c"); text.mark_gravity(start, "left")
+                    text.mark_set(start, next_start or "end-1c"); text.mark_gravity(start, "left")
                     text.mark_set(end, start); text.mark_gravity(end, "right")
                     self._marks[rid] = start, end
+                    self._render_order.insert(index, rid)
                 else:
                     start, end = self._marks[rid]
-                    # Adjacent row starts must stay on their own side of this edit.
-                    next_index = self._render_order.index(rid) + 1 if rid in self._render_order else 0
-                    next_start = self._marks[self._render_order[next_index]][0] if next_index and next_index < len(self._render_order) else None
-                    text.delete(start, end)
-                    if next_start:
-                        text.mark_gravity(next_start, "right")
+                if next_start: text.mark_gravity(next_start, "right")
                 label, caption, selected = value
+                replacement = (label+"\n" if label else "") + caption + "\n\n"
+                before = text.get(start, end)
+                prefix = 0
+                while prefix < min(len(before), len(replacement)) and before[prefix] == replacement[prefix]: prefix += 1
+                suffix = 0
+                while suffix < min(len(before), len(replacement))-prefix and before[-suffix-1] == replacement[-suffix-1]: suffix += 1
+                chars = lambda s: int(self.root.tk.call("string", "length", s))
+                edit_start = f"{start}+{chars(before[:prefix])}c"
+                edit_end = f"{end}-{chars(before[len(before)-suffix:]) if suffix else 0}c"
                 text.mark_gravity(end, "right")
-                text.insert(start, f"{label}\n{caption}\n\n")
+                text.delete(edit_start, edit_end)
+                text.insert(edit_start, replacement[prefix:len(replacement)-suffix if suffix else None])
                 text.mark_gravity(end, "left")
-                text.tag_remove("speaker", start, end)
-                text.tag_remove("selected", start, end)
-                text.tag_add("speaker", start, f"{start}+{len(label)}c")
+                for tag in ("speaker", "selected", "gap", "pending"): text.tag_remove(tag, start, end)
+                if label: text.tag_add("speaker", start, f"{start}+{chars(label)}c")
+                if label.startswith("•••"): text.tag_add("pending", start, f"{start}+3c")
+                text.tag_add("gap", f"{end}-1c", end)
                 if selected:
                     text.tag_add("selected", start, end)
-                if rid in self._render_order:
-                    next_index = self._render_order.index(rid) + 1
-                    if next_index < len(self._render_order):
-                        text.mark_gravity(self._marks[self._render_order[next_index]][0], "left")
+                if next_start: text.mark_gravity(next_start, "left")
             self._render_order = ids
             self._row_cache = current
         text.configure(state="disabled")
         if follow:
-            text.see("end")
+            text.update_idletasks(); text.yview_moveto(1.0)
         elif anchor_row in self._marks:
             text.yview(f"{self._marks[anchor_row][0]}+{anchor_offset}c")
         else:
@@ -425,20 +545,23 @@ class PrototypeUI:
 
     def back_to_live(self) -> None:
         self._follow_live = True
-        self.caption_text.see("end")
+        self.caption_text.update_idletasks(); self.caption_text.yview_moveto(1.0)
 
     def home(self) -> None:
         self.page = "captions"; self._page_update = None
         self.dialog_page.pack_forget(); self.caption_page.pack(fill="both", expand=True)
+        self._highlight_navigation()
 
     def _page(self, title: str, *, scroll: bool = True, back: Callable | None = None) -> tk.Frame:
         self._page_update = None
+        self._highlight_navigation()
         self.caption_page.pack_forget()
         for child in self.dialog_page.winfo_children():
             child.destroy()
         self.dialog_page.pack(fill="both", expand=True)
         top = tk.Frame(self.dialog_page, bg=self.color("background")); top.pack(fill="x")
-        self.button(top, "‹ Captions" if back is None else "‹ Back", back or self.home, height=48).pack(side="left", fill="x", expand=True)
+        back_control = self.button(top, "‹ Transcript" if back is None else "‹ Back", back or self.home, height=48, key="back")
+        back_control.configure(width=self.px(124)); back_control.pack(side="left")
         self.label(top, title, size="heading_font_px", bold=True).pack(side="left", fill="x", expand=True, padx=self.px(8))
         if scroll:
             area = TouchScroll(self.dialog_page, self); area.pack(fill="both", expand=True)
@@ -448,7 +571,7 @@ class PrototypeUI:
 
     def _paragraph_label(self, parent: tk.Misc, value: str, muted: bool = False) -> tk.Label:
         label = self.label(parent, value, muted=muted)
-        label.pack(fill="x", padx=self.px(12), pady=self.px(8))
+        label.pack(fill="x", padx=self.px(12), pady=self.px(4))
         return label
 
     def confirm(self, title: str, message: str, action: str, callback: Callable, *, cancel: Callable | None = None) -> None:
@@ -459,6 +582,8 @@ class PrototypeUI:
         self.button(frame, "Cancel", cancel or self.home, key="cancel").pack(fill="x", padx=self.px(12), pady=self.px(4))
 
     def toggle_listening(self) -> None:
+        self._cancel_auto_start_timer()
+        self._auto_start_pending = False
         if self._running():
             self._call("stop")
             return
@@ -471,12 +596,16 @@ class PrototypeUI:
             start()
 
     def show_all_captions(self) -> None:
-        if self._call("switch", mode="caption_only", strict=False):
-            self.snapshot = dict(self.snapshot, mode="caption_only", strict=False)
+        if self._call("switch", strict=False):
+            self.snapshot = dict(self.snapshot, strict=False)
             self._render_rows(self.snapshot.get("rows", []), force=True)
             self.home()
 
     def _choose_mode(self, mode: str) -> None:
+        if mode in SEAT_MODES:
+            self.show_seats(mode);return
+        if mode in SELECTED_MODES:
+            self.show_roster(mode);return
         if self._call("switch", mode=mode, strict=False):
             self.home()
 
@@ -486,13 +615,14 @@ class PrototypeUI:
         self._paragraph_label(frame, MODE_LEGEND, True)
         self._paragraph_label(frame, "✓ marks a supported simulation configuration, not verified field accuracy. Experimental modes remain selectable.", True)
         for mode, (name, description) in MODES.items():
+            if MODE_METADATA[mode]['advanced']:continue
             metadata = self._mode_metadata(mode)
             selected = mode == self.snapshot.get("mode", "caption_only")
             self.button(frame, metadata["symbol"] + " " + metadata["label"] + (" · active" if selected else ""), lambda m=mode: self._choose_mode(m),
                         accent=selected, key=f"mode_{mode}").pack(fill="x", padx=self.px(12), pady=(self.px(6), 0))
-            self._paragraph_label(frame, metadata["description"], True)
-        self.button(frame, "Choose selected people", self.show_roster, key="roster").pack(fill="x", padx=self.px(12), pady=self.px(6))
-        self.button(frame, "Experimental · show selected only", self.request_strict, key="strict").pack(fill="x", padx=self.px(12), pady=self.px(6))
+            self._paragraph_label(frame, MODE_METADATA[mode]['full_name']+'\n'+metadata["description"], True)
+        self.button(frame, "Separate display features…", self.show_display_features, key="roster").pack(fill="x", padx=self.px(12), pady=self.px(6))
+        self.button(frame, "Advanced · numbered modes / scores", self.show_advanced).pack(fill='x',padx=self.px(12),pady=self.px(6))
         self.button(frame, "Engine recipe & audio tap", self.show_recipes, key="recipes").pack(fill="x", padx=self.px(12), pady=self.px(6))
         self.button(frame, "Mode guide", self.show_help).pack(fill="x", padx=self.px(12), pady=self.px(6))
 
@@ -507,31 +637,30 @@ class PrototypeUI:
                 "parent": str(item.get("parent") or "")}
 
     def request_strict(self) -> None:
-        if not self.snapshot.get("selected_ids"):
-            self._notice = "Choose at least one enrolled person before strict filtering."
+        if self.snapshot.get('mode') not in NAMED_MODES:
+            self._notice='Choose an identification mode first. A display filter does not enable identification.'
+            self.show_modes();self._show_status();return
+        if not self.snapshot.get("display_ids"):
+            self._notice = "Choose at least one person in the separate display roster before hiding."
             self.show_roster(); self._show_status(); return
         self.confirm("Experimental filter", "Selected-only may hide intended speech when identity is unknown or wrong. It hides text; it does not acoustically remove other voices. The full internal transcript is retained. Show all captions is always one tap away.", "Enable selected-only view", self._enable_strict, cancel=self.show_modes)
 
     def _enable_strict(self) -> None:
-        if self._call("switch", mode="selected_focus", strict=True):
+        if self._call("switch", strict=True):
             self.home()
 
-    def show_roster(self) -> None:
-        self.page = "roster"; frame = self._page("Selected people", back=self.show_modes)
-        self._paragraph_label(frame, "Select one or more profiles. Names may coincide; the app tracks their separate profile IDs.", True)
-        selected = set(self.snapshot.get("selected_ids", []))
-        for person in self.snapshot.get("people", []):
-            pid = str(person["id"])
-            def toggle(person_id: str = pid) -> None:
-                values = set(self.snapshot.get("selected_ids", []))
-                values.symmetric_difference_update({person_id})
-                if self._call("switch", selected_ids=sorted(values), strict=False):
-                    self.snapshot["selected_ids"] = sorted(values); self.show_roster()
-            self.button(frame, ("✓ " if pid in selected else "○ ") + str(person["name"]) + f" · {pid[:6]}", toggle,
-                        accent=pid in selected).pack(fill="x", padx=self.px(12), pady=self.px(4))
-        if not self.snapshot.get("people"):
-            self._paragraph_label(frame, "No personal profiles yet. Add a person when they are available to speak.")
-        self.button(frame, "Use full-transcript focus", lambda: self._choose_mode("selected_focus"), accent=True).pack(fill="x", padx=self.px(12), pady=self.px(8))
+    def show_display_features(self) -> None:
+        self.page='display_features';frame=self._page('Display features',back=self.show_modes)
+        self._paragraph_label(frame,'Highlighting or hiding changes the view only. Matching is controlled by the selected mode and its gallery. All text remains in the archive.',True)
+        self.button(frame,'Choose display roster',self.show_roster).pack(fill='x',padx=self.px(12),pady=self.px(4))
+        highlight=self.snapshot.get('settings',{}).get('highlight_selected',False)
+        self.button(frame,'Highlight selected: '+('ON' if highlight else 'OFF'),
+            lambda:self._call('settings_update',{'highlight_selected':not highlight}),key='highlight_selected').pack(fill='x',padx=self.px(12),pady=self.px(4))
+        self.button(frame,'Experimental · hide other/Unknown captions',self.request_strict,key='strict').pack(fill='x',padx=self.px(12),pady=self.px(4))
+        self.button(frame,'Show all captions · keep identity mode',self.show_all_captions).pack(fill='x',padx=self.px(12),pady=self.px(4))
+        def update():
+            if self.snapshot.get('settings',{}).get('highlight_selected',False)!=highlight:self.show_display_features()
+        self._page_update=update
 
     def _recipes(self) -> list[dict[str, Any]]:
         recipes = self.snapshot.get("recipes", [])
@@ -585,7 +714,11 @@ class PrototypeUI:
         people = self.snapshot.get("people", [])
         self._people_signature = json.dumps(people, sort_keys=True)
         for person in people:
-            self.button(frame, str(person["name"]) + f" · {str(person['id'])[:6]}", lambda p=dict(person): self.show_person(p),
+            display_name = str(person["name"]).replace("\n", " ")
+            name_font = tkfont.Font(root=self.root, font=self.font())
+            while len(display_name)>2 and name_font.measure(display_name)>self.px(360):
+                display_name = display_name[:-2] + "…"
+            self.button(frame, display_name + f"\nProfile {str(person['id'])[:6]}", lambda p=dict(person): self.show_person(p),
                         height=56).pack(fill="x", padx=self.px(12), pady=self.px(4))
         if not people:
             self._paragraph_label(frame, "No enrolled people. Recording needs explicit consent and real speech from the named person.")
@@ -600,6 +733,7 @@ class PrototypeUI:
         self.page = "person"; frame = self._page("Person", back=self.show_people)
         self._paragraph_label(frame, str(person["name"]))
         self._paragraph_label(frame, "Profile " + str(person["id"]), True)
+        self.button(frame,'Review latest paragraph evidence',lambda:self.show_script_review(person['id']),key='person_script_review',height=60).pack(fill='x',padx=self.px(12),pady=self.px(5))
         self.button(frame, "Rename", lambda: self.keyboard("Rename person", str(person["name"]),
             lambda value: self._rename(person["id"], value), cancel=lambda: self.show_person(person)), key="rename_person").pack(fill="x", padx=self.px(12), pady=self.px(6))
         self.button(frame, "Add a reference session", lambda: self.enrollment_form(str(person["name"]), str(person["id"])),
@@ -680,14 +814,18 @@ class PrototypeUI:
         self._paragraph_label(frame, "Read at a comfortable level. Background voices, overlap, weak or clipped speech can reduce usefulness. The paragraph is a guide, never an expected transcript.", True)
         self.button(frame, "Read / edit paragraph", lambda: self.keyboard("Recording guide", self._paragraph,
             self._set_paragraph, multiline=True, cancel=self._draw_enrollment), key="edit_paragraph").pack(fill="x", padx=self.px(12), pady=self.px(4))
-        self._paragraph_label(frame, self._paragraph)
+        self._paragraph_label(frame, 'Target: unique usable speech', True)
         targets = tk.Frame(frame, bg=self.color("background")); targets.pack(fill="x", padx=self.px(12), pady=self.px(6))
         for target in (15, 30, 60):
             def choose(value: int = target) -> None:
                 self._enroll_target = value; self._draw_enrollment()
             self.button(targets, f"{target}s" + (" ✓" if self._enroll_target == target else ""), choose,
                         accent=self._enroll_target == target, key=f"enroll_target_{target}", wrap=120).pack(side="left", fill="x", expand=True, padx=self.px(2))
-        self._paragraph_label(frame, "Target = unique usable speech, not elapsed time. 30s is the default; these tiers are interface choices, not guaranteed optimal lengths.", True)
+        def paragraph_done() -> None:
+            self._enroll_target = None; self._draw_enrollment()
+        self.button(frame, 'Read paragraph → Done' + (' ✓' if self._enroll_target is None else ''), paragraph_done,
+                    accent=self._enroll_target is None, key='enroll_target_done').pack(fill='x', padx=self.px(12), pady=self.px(4))
+        self._paragraph_label(frame, 'Timed: the paragraph may not meet the target; continue with different natural speech. Done: no timed quota or verbatim requirement. Short references have limited evidence.', True)
         def consent() -> None:
             self._enroll_consent = not self._enroll_consent; self._draw_enrollment()
         self.button(frame, ("✓ " if self._enroll_consent else "○ ") + "I consent to record and store my voice locally", consent,
@@ -696,24 +834,33 @@ class PrototypeUI:
         start.pack(fill="x", padx=self.px(12), pady=self.px(8)); start.button.configure(state="normal" if self._enroll_consent else "disabled")  # type: ignore[attr-defined]
 
     def _set_paragraph(self, text: str) -> None:
+        try: reference_text(text)
+        except ValueError as exc:
+            self._notice = str(exc); self._show_status(); return
         self._paragraph = text; self._draw_enrollment()
 
     def _start_enrollment(self) -> None:
         if not self._enroll_consent: return
-        if self._call("enrollment_start", self._enroll_name, self._enroll_target, consent=True, person_id=self._enroll_person_id):
+        extra = {'paragraph': self._paragraph} if self._enroll_target is None else {}
+        if self._call("enrollment_start", self._enroll_name, self._enroll_target, consent=True, person_id=self._enroll_person_id, **extra):
             self._enroll_started = True; self.show_enrollment_progress()
 
     def show_enrollment_progress(self) -> None:
         self.page = "enrollment_progress"; frame = self._page("Recording reference", back=self.show_people)
         self._paragraph_label(frame, self._enroll_name)
         self.enroll_progress_label = self._paragraph_label(frame, "Waiting for microphone / quality status…")
-        self.enroll_progress = ttk.Progressbar(frame, orient="horizontal", mode="determinate", maximum=self._enroll_target)
+        self._enroll_animation = VerifiedAnimation()
+        self.enroll_progress = ttk.Progressbar(frame, orient="horizontal", mode="determinate", maximum=self._enroll_target or 1)
         self.enroll_progress.pack(fill="x", padx=self.px(12), pady=self.px(8))
+        if self._enroll_target is None:
+            self._paragraph_label(frame, 'Bar: verified portion of captured audio; no quota.', True)
+        self.enroll_script_label = self._paragraph_label(frame, '', True)
+        self.button(frame, 'Done · check reference' if self._enroll_target is None else 'Stop recording', lambda: self._call("enrollment_stop"), key="enrollment_stop").pack(fill="x", padx=self.px(12), pady=self.px(4))
+        self.button(frame, "Save reference", self._save_enrollment, accent=True, key="enrollment_save").pack(fill="x", padx=self.px(12), pady=self.px(4))
+        self.button(frame,'Review paragraph coverage',self.show_script_review,key='script_review').pack(fill='x',padx=self.px(12),pady=self.px(4))
+        self.button(frame, "Discard this recording", self._cancel_enrollment, key="enrollment_cancel").pack(fill="x", padx=self.px(12), pady=self.px(4))
         self._paragraph_label(frame, self._paragraph)
         self.button(frame, "Read more / continue naturally", self._read_more, key="enrollment_more").pack(fill="x", padx=self.px(12), pady=self.px(4))
-        self.button(frame, "Stop recording", lambda: self._call("enrollment_stop"), key="enrollment_stop").pack(fill="x", padx=self.px(12), pady=self.px(4))
-        self.button(frame, "Save reference", self._save_enrollment, accent=True, key="enrollment_save").pack(fill="x", padx=self.px(12), pady=self.px(4))
-        self.button(frame, "Discard this recording", self._cancel_enrollment, key="enrollment_cancel").pack(fill="x", padx=self.px(12), pady=self.px(4))
         self._page_update = self._update_enrollment; self._update_enrollment()
 
     def _update_enrollment(self) -> None:
@@ -724,9 +871,26 @@ class PrototypeUI:
         state = str(enrollment.get("state", enrollment.get("status", "starting")))
         level = enrollment.get("level", "not available")
         quality = enrollment.get("quality", enrollment.get("message", ""))
-        self.enroll_progress.configure(maximum=max(1, target), value=min(usable, target))
-        self.enroll_progress_label.configure(text=f"{state}\nUnique usable: {usable:.1f} / {target:g}s · elapsed: {elapsed:.1f}s\nLevel: {level} · {'CLIPPING' if enrollment.get('clipping') else 'no clipping reported'}\n{quality}" + ("\n" + str(enrollment["error"]) if enrollment.get("error") else ""))
-        self.actions["enrollment_save"].configure(state="normal" if enrollment.get("can_save") else "disabled")
+        paragraph = enrollment.get('target_sec', self._enroll_target) is None
+        analyzed = self._number(enrollment.get('analyzed_s', 0))
+        pending = max(0., elapsed - analyzed)
+        value = self._enroll_animation.update(usable, time.monotonic())
+        maximum = max(1., elapsed) if paragraph else max(1., target)
+        self.enroll_progress.configure(maximum=maximum, value=min(value, maximum))
+        support = f'{usable:.1f}s · no timed target' if paragraph else f'{usable:.1f} / {target:g}s'
+        evidence = '\nLimited evidence: short reference' if enrollment.get('evidence_status') == 'limited_short_reference' else ''
+        self.enroll_progress_label.configure(text=f'{state}\nVerified unique usable: {support}\nCaptured: {elapsed:.1f}s · pending quality: {pending:.1f}s\nLevel activity: {self._number(enrollment.get("activity_s")):.1f}s (not verified speech)\nClipped samples: {self._number(enrollment.get("clipping"))*100:.2f}%'+evidence+('\n'+str(enrollment['error']) if enrollment.get('error') else ''))
+        estimate = enrollment.get('script_estimate') or {}
+        coverage, match = estimate.get('estimated_coverage'), estimate.get('estimated_agreement')
+        if paragraph:
+            text = ('Estimated script coverage: '+f'{coverage:.0%}' if coverage is not None else 'Script estimate pending / unavailable')
+            if match is not None:text += f' · agreement: {match:.0%}'
+            text += f'\nASR analyzed: {self._number(estimate.get("analyzed_audio_s")):.1f}s. Skips and paraphrases are OK.'
+        else:text = 'Bar follows verified speech only. Continue naturally if needed.'
+        self.enroll_script_label.configure(text=text)
+        self.actions["enrollment_save"].configure(state="normal" if state=='READY' and enrollment.get("can_save") else "disabled")
+        self.actions['enrollment_stop'].configure(state='normal' if state=='RECORDING' else 'disabled')
+        self.actions['script_review'].configure(state='normal' if state=='READY' and enrollment.get('script_evidence') else 'disabled')
         if state.casefold() == "saved": self.show_people()
 
     @staticmethod
@@ -741,7 +905,7 @@ class PrototypeUI:
         self._show_status()
 
     def _save_enrollment(self) -> None:
-        if (self.snapshot.get("enrollment") or {}).get("can_save"):
+        if (self.snapshot.get("enrollment") or {}).get("state")=='READY' and (self.snapshot.get("enrollment") or {}).get("can_save"):
             self._call("enrollment_save")
 
     def _cancel_enrollment(self) -> None:
@@ -807,12 +971,77 @@ class PrototypeUI:
         elif key in ("theme", "preview_zoom"):
             self.zoom = float(self.preferences.get("preview_zoom", 1))
             self.shell.destroy(); self._row_cache.clear(); self._marks.clear(); self._render_order.clear()
-            self._build(); self._set_geometry(); self._render_rows(self.snapshot.get("rows", []), force=True); self.show_settings()
+            self._build(); self._set_geometry(); self._show_status(); self.show_settings()
         else: self.show_settings()
+
+    def _hide_spatial(self) -> None:
+        if self._call("settings_update", {"spatial_visualization": False}):
+            self.preferences["spatial_visualization"] = False
+            self.spatial_canvas.pack_forget()
+
+    def _choices(self, frame, key, choices) -> None:
+        row = tk.Frame(frame, bg=self.color("background")); row.pack(fill="x", padx=self.px(12), pady=self.px(3))
+        for value, title in choices:
+            selected = self.preferences[key] == value
+            self.button(row, title + (" ✓" if selected else ""),
+                lambda k=key, v=value: self._preference(k, v), accent=selected, height=52,
+                wrap=max(70, 380//len(choices)), key=f"{key}_{value}").pack(side="left", fill="x", expand=True, padx=self.px(1))
+
+    def show_advanced(self) -> None:
+        self.page = "advanced"; frame = self._page("Advanced comparison", back=self.show_settings)
+        self.button(frame,'◇ Audio transcript review',self.show_audio_review,key='audio_review',height=60).pack(fill='x',padx=self.px(12),pady=self.px(5))
+        self.button(frame,'◇ Session references / Undo',self.show_adaptation,key='adaptation',height=60).pack(fill='x',padx=self.px(12),pady=self.px(5))
+        self.button(frame,'◇ Noise / model routing',self.show_noise,key='noise',height=60).pack(fill='x',padx=self.px(12),pady=self.px(5))
+        self.button(frame,'Text-aware reference selection: '+('On' if self.snapshot.get('settings',{}).get('text_aware_references',False) else 'Off'),self._toggle_script_evidence,key='text_aware_references',height=60).pack(fill='x',padx=self.px(12),pady=self.px(5))
+        self._paragraph_label(frame,'Optional post-recording paragraph contexts and advisory voice comparison. Original references still decide names. No phonetic model; applies at next enrollment / Start.',True)
+        self.button(frame,'Compare base / alternate voice scores',self.show_reference_comparison,key='reference_comparison',height=60).pack(fill='x',padx=self.px(12),pady=self.px(5))
+        self._paragraph_label(frame,'Ordinary name modes use one Unknown. Internal tracks, UUIDs and voice segmentation remain intact. Numbered modes are explicit comparisons.',True)
+        for mode in MODES:
+            if not MODE_METADATA[mode]['advanced']:continue
+            row=MODE_METADATA[mode]
+            self.button(frame,row['symbol']+' '+row['label'],lambda m=mode:self._choose_mode(m),height=65,key='mode_'+mode).pack(fill='x',padx=self.px(12),pady=self.px(5))
+            self._paragraph_label(frame,row['full_name']+'\n'+row['description'],True)
+        self.button(frame,'Live identity scores',self.show_identity_scores,key='identity_scores').pack(fill='x',padx=self.px(12),pady=self.px(5))
+        self.button(frame,'Sensitivity / spatial weight',self.show_identity_parameters).pack(fill='x',padx=self.px(12),pady=self.px(5))
+        self.button(frame,'Separate display features',self.show_display_features).pack(fill='x',padx=self.px(12),pady=self.px(5))
+
+    def _advanced_numbered(self, value) -> None:
+        if self._call("settings_update", {"numbered_unknowns": value}):
+            self.preferences["numbered_unknowns"] = value
+            self.show_advanced()
+
+    def _microphone_preference(self, approved: bool, automatic: bool = False) -> None:
+        values = {"microphone_preapproved": approved, "auto_start_listening": approved and automatic}
+        if self._call("settings_update", values):
+            self._mic_consented = approved
+            self._cancel_auto_start_timer()
+            self._auto_start_pending = False
+            self.snapshot = dict(self.snapshot, settings={**self.snapshot.get("settings", {}), **values})
+            self.show_settings()
 
     def show_settings(self) -> None:
         self.page = "settings"; frame = self._page("Settings")
-        self._paragraph_label(frame, "Display changes apply without reloading models.", True)
+        access = self.snapshot.get("settings", {})
+        approved = access.get("microphone_preapproved") is True
+        automatic = access.get("auto_start_listening") is True
+        self.button(frame, "Microphone: " + ("Always allowed" if approved else "Ask on opening"),
+                    lambda: self._microphone_preference(not approved), key="microphone_permission").pack(fill="x", padx=self.px(12), pady=self.px(3))
+        if approved:
+            self.button(frame, "Listen when app opens: " + ("On" if automatic else "Off"),
+                        lambda: self._microphone_preference(True, not automatic), key="auto_listening").pack(fill="x", padx=self.px(12), pady=self.px(3))
+        self.button(frame,'Developer Sessions · audio & transcripts',self.show_sessions,key='sessions').pack(fill='x',padx=self.px(12),pady=self.px(3))
+        if self.snapshot.get('motion', {}).get('enabled'):
+            self.button(frame, 'Motion sensor · relative direction', self.show_motion, key='motion').pack(fill='x',padx=self.px(12),pady=self.px(3))
+        recipe = next((r for r in self._recipes() if r.get("id") == self.snapshot.get("recipe")), {})
+        self._paragraph_label(frame, f"{recipe.get('name', self.snapshot.get('recipe', 'Recipe'))} · {self.snapshot.get('tap', 'O0')}\n" + recipe.get("description", "See Engine recipe & audio tap for the current backend policy."), True)
+        self._paragraph_label(frame, "O0: XVF ASR output, live +3 dB once. O1: processed auto-selected output, unity gain. Prepared files already include their declared gain.", True)
+        self.button(frame, "Engine recipe & audio tap", self.show_recipes).pack(fill="x", padx=self.px(12), pady=self.px(3))
+        self._paragraph_label(frame, "Caption size · display only")
+        self._choices(frame, "caption_size", [(name, name) for name in self.config["caption_sizes_px"]])
+        self._paragraph_label(frame, "Text smoothing · optional added display delay")
+        self._choices(frame, "display_smoothing_ms", [(0, "Immediate"), (150, "150 ms"), (300, "300 ms")])
+        self._paragraph_label(frame, "Words never wait for identity. Dots resolve after 1.2s at the next display update; names need 0.2s of stability. Smoothing also affects that update. Inference is unchanged.", True)
+        self.button(frame, "Advanced · modes and scores", self.show_advanced, key="advanced").pack(fill="x", padx=self.px(12), pady=self.px(3))
         enabled = bool(self.preferences.get("spatial_visualization", False))
         self.button(frame, "Live spatial display: " + ("ON · tap to hide" if enabled else "OFF · tap to show"),
                     lambda value=not enabled: self._preference("spatial_visualization", value),
@@ -821,19 +1050,14 @@ class PrototypeUI:
                     key="reset_spatial").pack(fill="x", padx=self.px(12), pady=self.px(4))
         self.button(frame, "Beam angles · live diagnostics", self.show_beam_diagnostics,
                     key="beam_diagnostics").pack(fill="x", padx=self.px(12), pady=self.px(4))
-        self._paragraph_label(frame, "Caption size")
-        for name in self.config["caption_sizes_px"]:
-            self.button(frame, name + (" ✓" if name == self.preferences["caption_size"] else ""), lambda v=name: self._preference("caption_size", v)).pack(fill="x", padx=self.px(12), pady=self.px(3))
         self._paragraph_label(frame, "Contrast")
-        for theme in self.config["themes"]:
-            self.button(frame, theme + (" ✓" if theme == self.preferences["theme"] else ""), lambda v=theme: self._preference("theme", v)).pack(fill="x", padx=self.px(12), pady=self.px(3))
+        self._choices(frame, "theme", [(theme, theme) for theme in self.config["themes"]])
         self._paragraph_label(frame, "Preview size · comfort zoom is not exact-pixel evidence")
-        for zoom in self.config["preview_zooms"]:
-            self.button(frame, "480 × 800 pixel-check" if zoom == 1 else f"{round(zoom * 100)}% comfort zoom", lambda v=zoom: self._preference("preview_zoom", v)).pack(fill="x", padx=self.px(12), pady=self.px(3))
+        self._choices(frame, "preview_zoom", [(zoom, f"{round(zoom*100)}%") for zoom in self.config["preview_zooms"]])
         self._paragraph_label(frame, "Spatial modes can use fresh directions as association evidence. Colors identify hardware beams; names appear only when supplied by the pipeline. An angle alone does not prove identity. Reset positions clears location memory and preserves saved people.", True)
-        self.button(frame, "Engine recipe & audio tap", self.show_recipes).pack(fill="x", padx=self.px(12), pady=self.px(4))
         self.button(frame, "Open a saved file…", lambda: self.browse_file("replay"), key="file_replay").pack(fill="x", padx=self.px(12), pady=self.px(4))
         self.button(frame, "Diagnostics / raw text", self.show_diagnostics, key="diagnostics").pack(fill="x", padx=self.px(12), pady=self.px(4))
+        self.button(frame, 'Text assistance / vocabulary', self.show_text_assistance, key='text_assistance').pack(fill='x',padx=self.px(12),pady=self.px(4))
         self.button(frame, "Mark a problem / save excerpt…", self.show_problem, key="mark_problem").pack(fill="x", padx=self.px(12), pady=self.px(4))
         self.button(frame, "Mode guide & human checks", self.show_help, key="help").pack(fill="x", padx=self.px(12), pady=self.px(4))
         settings = self.snapshot.get("settings") or {}
@@ -862,7 +1086,7 @@ class PrototypeUI:
 
     def _reset_spatial(self) -> None:
         if self._call("reset_spatial"):
-            self._notice = "Position memory cleared; saved people are unchanged."
+            self._notice = "Seat anchor invalidated; open the seat mode and Apply here again." if self.snapshot.get('mode') in SEAT_MODES else "Position memory cleared; saved people are unchanged."
             self._show_status()
 
     @staticmethod
@@ -907,7 +1131,7 @@ class PrototypeUI:
         signature = (state, str(view.get("message", "")), self.spatial_canvas.winfo_width(),
                      tuple((a["id"], round(a["angle_deg"], 1), a["fresh"], bool(a.get("selected")), bool(a.get("speech"))) for a in arrows),
                      tuple((str(a.get("label", "Unknown")), round(a["angle_deg"], 1), a["fresh"], int(a["age_sec"])) for a in associations),
-                     bool(view.get("speech")), str(view.get("energy")))
+                     bool(view.get("speech")), str(view.get("energy")), str(view.get('seating',{}).get('valid')))
         if signature == self._spatial_signature and not force:
             return
         self._spatial_signature = signature
@@ -915,12 +1139,13 @@ class PrototypeUI:
         canvas.delete("all")
         width = max(self.px(360), canvas.winfo_width())
         cx, cy, radius = self.px(107), self.px(97), self.px(61)
-        canvas.create_text(self.px(10), self.px(12), anchor="w", text="XVF · board frame", font=self.font(12, True), fill=self.color("text"))
+        canvas.create_text(self.px(10), self.px(12), anchor="w", text="XVF board · tap to hide", font=self.font(12, True), fill=self.color("text"))
         canvas.create_arc(cx-radius, cy-radius, cx+radius, cy+radius, start=0, extent=180,
                           style="arc", outline=self.color("border"))
         canvas.create_line(cx-radius, cy, cx+radius, cy, fill=self.color("border"))
-        for angle, text in ((180, "180°"), (90, "90°"), (0, "0°")):
+        for angle, text in ((180, "180°"), (90, "90° front/rear"), (0, "0°")):
             x, y = arrow_tip(angle, cx, cy, radius+self.px(16))
+            if angle == 90: y = self.px(27)
             canvas.create_text(x, y, text=text, fill=self.color("muted"), font=self.font(11))
         for row in arrows:
             x, y = arrow_tip(row["angle_deg"], cx, cy, radius*row["radius"])
@@ -929,6 +1154,11 @@ class PrototypeUI:
                 width=self.px(4 if row.get("selected") and row["fresh"] else 2),
                 dash=() if row["fresh"] else (self.px(3), self.px(3)),
                 tags=("spatial_beam", row["id"], "fresh" if row["fresh"] else "stale"))
+            marker = "▲" if row['id'].startswith('focused') else "◆" if row['id']=='free_running' else "■"
+            if not row['fresh']: marker = {'▲':'△','◆':'◇','■':'□'}[marker]
+            canvas.create_text(x, y, text=marker, font=self.font(11), fill=row['color'] if row['fresh'] else self.color('muted'), tags=("beam_shape",))
+            if row.get('selected') and row['fresh']:
+                canvas.create_oval(x-self.px(7), y-self.px(7), x+self.px(7), y+self.px(7), outline=self.color('text'), width=2, tags=("selected_ring",))
         for row in associations:
             x, y = arrow_tip(row["angle_deg"], cx, cy, radius+self.px(4))
             color = self.color("text" if row["fresh"] else "muted")
@@ -963,8 +1193,42 @@ class PrototypeUI:
         if not associations:
             canvas.create_text(tx, self.px(75), anchor="w", text="No speaker association", font=self.font(11),
                                fill=self.color("muted"), width=text_width, tags=("spatial_name",))
-        canvas.create_text(self.px(10), self.px(115), anchor="w", text="Solid: fresh · dashed: last known · ≈ estimated match",
+        for x, title, color in ((10,"▲ F1",BEAMS[0]['color']), (51,"▲ F2",BEAMS[1]['color']), (96,"◆ scan",BEAMS[2]['color']),
+                                (161,"■ outputs",self.color('muted')), (249,"○ selected",self.color('text')), (341,"● ≈ match",self.color('text'))):
+            canvas.create_text(self.px(x), self.px(114), anchor="w", text=title, font=self.font(11), fill=color, tags=("beam_key",))
+        legend="Solid: fresh · dashed: last known · ≈ estimated, not verified"
+        if self.snapshot.get('mode') in SEAT_MODES:legend='Seats: '+('manual anchor active · labels may be assumptions' if self.snapshot.get('seating',{}).get('valid') else 'RE-ANCHOR REQUIRED · keep captions')
+        motion = view.get('motion')
+        if motion:
+            legend = ('Startup frame · turn %.1f° · drift possible' % motion.get('yaw_deg', 0)) if motion.get('valid') and motion.get('compensation') else str(motion.get('reason', 'Motion reference unavailable'))[:68]
+        canvas.create_text(self.px(10), self.px(134), anchor="w", text=legend,
                            font=self.font(11), fill=self.color("muted"), tags=("spatial_legend",))
+
+    def show_motion(self) -> None:
+        self.page = 'motion'; frame = self._page('Motion & relative direction')
+        status = self._paragraph_label(frame, '', True)
+        def update():
+            row = self.snapshot.get('motion', {})
+            status.configure(text=f"BMI270 · {row.get('state', 'unavailable')}\nHorizontal turn {row.get('yaw_deg', 0):.1f}° · frame {row.get('frame_generation', 0)}\n"+
+                str(row.get('error') or row.get('reason') or 'Waiting for sensor'))
+        self._page_update = update; update()
+        mounted = self.snapshot.get('motion', {}).get('fixed_mount', False)
+        if not mounted:
+            self._paragraph_label(frame, 'Not assembled: sensor data is diagnostic only. Mount as described before enabling: sensor +X down, +Y right, +Z toward the front; MIC3 at screen right. All directions are viewed from the display front.', True)
+        def mounting():
+            if self._call('motion_mount_configure', not mounted): self.home()
+        self.button(frame, 'Mark sensor unmounted' if mounted else 'Confirm mounted as described', mounting,
+                    key='motion_mount').pack(fill='x',padx=self.px(12),pady=self.px(4))
+        self._paragraph_label(frame, 'A fresh relative reference starts automatically after two quiet seconds at startup. Normal tilt and turns keep that reference; no repeated manual calibration is needed. The sensor must stay fixed to the array.')
+        self._paragraph_label(frame, 'Experimental horizontal bearings assume speakers at array height, in the initial 0–180° half-plane. Gyro drift and front/back ambiguity remain. Moving the tablet to another position can change the actual speaker bearing.')
+        enabled = self.snapshot.get('motion', {}).get('compensation', False)
+        def toggle():
+            if self._call('motion_configure', not enabled): self.home()
+        self.button(frame, 'Rotation assistance: '+('On' if enabled else 'Off'), toggle,
+                    key='motion_compensation').pack(fill='x',padx=self.px(12),pady=self.px(4))
+        self.button(frame, 'Start a new direction reference', self._reset_spatial,
+                    key='motion_reset').pack(fill='x',padx=self.px(12),pady=self.px(4))
+        self._paragraph_label(frame, 'A sensor interruption automatically starts a NEW reference once still; old locations are discarded. Acceleration clears old locations but retains heading. Assigned seats require Apply after relocation. Raw angles remain in Beam diagnostics. This is not a compass or position tracker.', True)
 
     def show_beam_diagnostics(self) -> None:
         self.page = "beam_diagnostics"; frame = self._page("Beam angles", back=self.show_settings)
@@ -1039,8 +1303,12 @@ class PrototypeUI:
         def update() -> None:
             doc = dict(state=self.snapshot.get("state"), status=self.snapshot.get("status"),
                        mode=self.snapshot.get("mode"), recipe=self.snapshot.get("recipe"), tap=self.snapshot.get("tap"),
+                       raw_identity_decisions=self.snapshot.get("metrics", {}).get("recent_identity_decisions", [])[-3:],
+                       raw_caption_identity=[r.get('raw_identity') for r in self.snapshot.get('rows', [])[-6:]],
                        client=self.measure_client(), metrics=self.snapshot.get("metrics", {}), error=self.snapshot.get("error"),
                        beam_diagnostics=self.snapshot.get("beam_diagnostics", {}),
+                       presentation=dict(smoothing_ms=self.preferences['display_smoothing_ms'],
+                           batch_delay_ms=self.presentation_delays_ms, pending_limit_ms=1200, name_stability_ms=200),
                        recent_rows=self.snapshot.get("rows", [])[-6:])
             value = json.dumps(doc, indent=2, ensure_ascii=False, default=str)[:16000]
             if getattr(display, "_last_value", None) != value:
@@ -1064,6 +1332,7 @@ class PrototypeUI:
 
     def show_help(self) -> None:
         self.page = "help"; frame = self._page("Mode guide")
+        self._paragraph_label(frame,'Text assistance is separate from identity. Settings → Text assistance offers spelling review and explicitly approved contextual rules. ✎ marks assisted text; Off restores original formatting. Raw/final/manual layers and undo stay in Sessions. Enrolled-name acoustic bias is unavailable because the matching ASR BPE vocabulary is not bound. Greedy decoding is unchanged.',True)
         self._paragraph_label(frame, MODE_LEGEND)
         self._paragraph_label(frame, "Simulation support belongs to the configuration and its tested conditions; all personal live use still needs real-world validation. An experimental marker never blocks selecting a mode.", True)
         for mode in MODES:
@@ -1074,16 +1343,20 @@ class PrototypeUI:
                 self._paragraph_label(frame, "Existing method: " + metadata["parent"], True)
         self._paragraph_label(frame, "Spatial-assisted supports voice and anonymous continuity with recent positions. Strongly spatial-assisted favors seat continuity more heavily; it can misassociate people who swap seats or overlap. Strong voice disagreement and expiring location evidence allow recovery. Neither mode turns an angle into proof of identity.")
         self._paragraph_label(frame, "Settings → Live spatial display adds a compact semicircle above captions. Solid arrows are fresh beam readbacks; the speaking badge requires fresh speech evidence. Dashed arrows and hollow dots are stale/last-known positions, not current speakers. Names come from the pipeline, never from the drawing. Colors identify hardware outputs. The folded 0–180° frame cannot resolve front from rear.")
-        self._paragraph_label(frame, "After moving the tablet, use Settings → Reset positions. This clears remembered locations and starts a fresh processing epoch while preserving saved people. No automatic IMU motion detection is claimed. The display itself performs no inference and can be hidden without changing the selected mode.")
+        self._paragraph_label(frame, "On the configured CM5, BMI270 tracks three-dimensional turns and tilt in an automatic startup reference. Acceleration discards uncertain old locations; voice matches can rebuild them. Assigned-seat modes require Apply after relocation. Settings → Motion sensor shows status and the optional new-reference control. Saved people are preserved. The drawing performs no inference.")
         self._paragraph_label(frame, "Recipes choose existing engine settings; O0/O1 choose compatible audio taps. The menu shows backend availability and evidence status. Personalization is a new application condition, not a research accuracy guarantee.")
         self._paragraph_label(frame, "Human checks still needed: consent and speak through the identified XVF; record and save your own voice reference; restart, then test different speech; try Unknown/wrong-person behavior. A stub or saved file does not verify live enrollment.")
-        self._paragraph_label(frame, "Stop actually stops capture through the controller. If strict focus hides words, Show all captions returns to caption-only mode. The documented evaluation firmware has an eight-hour limit; stop between sessions and follow the device recovery guide rather than resetting during speech.")
-        self._paragraph_label(frame, "CM5, physical touchscreen accuracy and unknown camera/IMU/GPIO assignments remain hardware-pending. Desktop client pixels do not emulate Pi performance.", True)
+        self._paragraph_label(frame, "Stop actually stops capture through the controller. If the separate hiding filter hides words, Show all captions restores full visibility while keeping the identity mode. The documented evaluation firmware has an eight-hour limit; stop between sessions and follow the device recovery guide rather than resetting during speech.")
+        self._paragraph_label(frame, "CM5 I2S capture, portrait touch and BMI270 sensing have bounded bring-up checks. Physical rotation accuracy and sustained real-world recognition still need field testing. Optional camera and unassigned GPIO remain disabled.", True)
 
     def close(self) -> None:
+        self._cancel_auto_start_timer()
         if self._closed or self._closing: return
         if self._call("close"):
             self._closing = True
+            if self._display_handle:
+                self.root.after_cancel(self._display_handle); self._display_handle = None
+            self._pending_rows = None
             self._notice = "Closing · waiting for capture and workers to release safely…"
             self._show_status()
             for key in ("start_stop", "mode", "people", "settings", "rescue"):

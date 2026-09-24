@@ -20,7 +20,9 @@ for name in ("OMP_NUM_THREADS", "OPENBLAS_NUM_THREADS", "MKL_NUM_THREADS", "NUME
 
 def capture(root, path):
     """Windows screen read only; native PNG writer avoids model-env dependencies."""
-    root.update_idletasks()
+    # Deliver pending Windows Configure events before measuring/cropping after
+    # comfort zoom; an idle-tasks-only flush can capture yesterday's child size.
+    root.update()
     x, y, width, height = root.winfo_rootx(), root.winfo_rooty(), root.winfo_width(), root.winfo_height()
     literal = str(path).replace("'", "''")
     command = ("Add-Type -AssemblyName System.Drawing; "
@@ -41,6 +43,7 @@ def main():
     p.add_argument("--mode", default="anonymous_conversation")
     p.add_argument("--recipe", default="balanced")
     p.add_argument("--timeout-sec", type=float, default=180)
+    p.add_argument("--layout-screenshots", action="store_true", help="Also capture real idle/empty pages and 125%% comfort client")
     args = p.parse_args()
     from app.paths import default_models_root, atomic_json
     from app.controller import Controller
@@ -59,6 +62,11 @@ def main():
         wav=str(args.wav.resolve()), recipe=args.recipe, mode=args.mode, client=ui.measure_client(),
         observed_revisions={}, observed_labels=[], screenshots=[], pages_reachable=[], failures=[], close_waited=False)
     started = False; finishing = False; screenshot_done = False; snapshot_before_close = None
+    if args.layout_screenshots:
+        ui.preferences['spatial_visualization']=True
+        ui.spatial_canvas.pack(fill='x',before=ui.caption_text,padx=ui.px(8))
+        ui._update_spatial_visualization(force=True)
+        path=evidence/'00_real_idle_no_fresh_direction.png';capture(root,path);result['screenshots'].append(str(path))
 
     def tick():
         nonlocal started, finishing, screenshot_done, snapshot_before_close
@@ -98,6 +106,12 @@ def main():
                     show(); root.update_idletasks()
                     if ui.page != name: result["failures"].append("Page not reachable: " + name)
                     else: result["pages_reachable"].append(name)
+                    if args.layout_screenshots and name in ('people','settings'):
+                        path=evidence/f'03_real_{name}.png';capture(root,path);result['screenshots'].append(str(path))
+                if args.layout_screenshots:
+                    ui._preference('preview_zoom',1.25);ui.home();ui._show_status();root.update_idletasks()
+                    result['comfort_client']=ui.measure_client()
+                    path=evidence/'04_real_comfort.png';capture(root,path);result['screenshots'].append(str(path))
                 ui.home(); ui.close(); result["close_waited"] = bool(root.winfo_exists())
             if not ui._closed: root.after(100, tick)
         except Exception as exc:

@@ -35,3 +35,53 @@ Initial eMMC imaging/rpiboot is separate from ordinary application updates. No e
 - Execute native captions/enrollment/restart/update/rollback tests, then sustained memory/CPU/thermal/storage checks on the **complete 2 GB CM5 system**. Windows RSS and x86 Linux packaging tests do not establish Pi capacity or latency.
 
 `HARDWARE_PENDING.json` is the explicit unknown-field inventory. Linux source/release tests are labelled separately from **CM5_HARDWARE_NOT_TESTED** throughout.
+# Task08 consolidation
+
+Use `proto1-0.2.0` for accepted iterations01–08. Exact launch/transfer commands:
+[CM5_RELEASE_QUICKSTART.md](CM5_RELEASE_QUICKSTART.md). Physical plan and arrival
+checks: [CM5_WIRING_AND_BRINGUP.md](CM5_WIRING_AND_BRINGUP.md). Disabled/null
+[HARDWARE_PENDING.json](HARDWARE_PENDING.json) is a planning template, not an
+automatic device configuration.
+
+**Rollback compatibility:** schema1 alone is insufficient for paragraph
+references. The current updater reads per-person `capture_mode` and the
+release's `data_features_supported`. An incompatible older reader is refused
+before changing pointers; profiles, photos, vocabulary and sessions remain.
+No migration is needed between task08-compatible releases. Never use an old
+updater to bypass this check. Save a private backup before deliberate schema
+migrations in a future release; none run here.
+
+Local matching sources were rechecked: v3.2.1 User Guide (PDF pages20/48/58/60–63),
+Programming Guide host-map section (PDF pages46–47), v3.0.0 host source README,
+and the supplied v3.2.1 binary ZIP. The host README lists Raspberry Pi arm7l
+32-bit. Native host source requires its submodules and CMake≥3.13; command-map
+generation uses the **firmware-matched** source requirements and YAML. The
+firmware's XTC toolchain is a different build from the Linux host helper. No
+native ARM64 host or firmware build ran during task08. The rechecked source
+hashes and artifact ledger are in `UIITER2_08_DEPENDENCIES.json`.
+
+## Local source additions through task12
+
+The preserved task08 ZIP contains tasks01–08. Current source adds09–12; tasks11–12
+add no dependency/model or hardware driver. Carry the same source to a future
+Windows/CM5 export; do not label the old ZIP as containing these extensions.
+Collection/matching default Off. ARM64/native CM5 RAM and live field validation
+remain NOT_TESTED; desktop tests do not qualify the target.
+
+Task11 adds bounded environment references and Undo transactions inline in
+person.json, separately from original anchors. First explicit promotion/import
+requires DATA_SCHEMA feature `session-reference-enrichment-v1`, supported by
+the current capability manifest. Generic release/data-reader checks must retain
+this requirement. Undo keeps the conservative feature marker; never force old
+code to read it. Use current code with bank matching Off, or a separate compatible
+data root when rolling source back. Rename/import/export/delete preserve the
+new bank/transaction semantics. See ../app/README_ADAPTATION.md for exact bounds,
+domain tags, privacy, commands and immutable-anchor behavior.
+
+Task12 adds optional Windows AMD64 selected-excerpt transcript review, default
+Off. The control explicitly refuses ARM64/CM5 until combined target resource and
+latency tests qualify it; ordinary offline speech remains available without it.
+No Qwen/llama.cpp artifact or ARM64 helper is included. Reviews/corrections add
+fields to conversation-v1 archives only; no new personal-profile schema feature.
+Source rollback to task11 preserves those annotations and ordinary corrections.
+See UIITER2_12_HANDOFF.md. The task08 export was not rebuilt or relabelled.

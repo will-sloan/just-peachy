@@ -1,0 +1,159 @@
+{
+  "schema": "just-peachy.task10.dependencies.v1",
+  "new_packages": [],
+  "new_transitive_packages": [],
+  "runtime_python": "3.11.16 | packaged by Anaconda, Inc. | (main, Aug 27 2026, 14:36:16) [MSC v.1942 64 bit (AMD64)]",
+  "existing_runtime": {
+    "numpy": "2.2.6",
+    "scipy": "1.15.3",
+    "onnxruntime": "1.29.0",
+    "sherpa-onnx": "1.13.4",
+    "sherpa-onnx-core": "1.13.4",
+    "sounddevice": "0.5.5",
+    "soundfile": "0.13.1",
+    "psutil": "7.2.2",
+    "cffi": "2.1.1"
+  },
+  "retained_base_assets": [
+    {
+      "component": "sherpa_giga_encoder_int8",
+      "sha256": "32c98281c7bd8b63e3e142d007251b37f120572e8fdea9a4f5a79ce22b10ec4f",
+      "filename": "encoder-epoch-99-avg-1.int8.onnx",
+      "new": false
+    },
+    {
+      "component": "sherpa_giga_decoder_fp32",
+      "sha256": "9da02b77cb08826756ec6a88635f35a40374e4164e7c6359121a9145958a6ceb",
+      "filename": "decoder-epoch-99-avg-1.onnx",
+      "new": false
+    },
+    {
+      "component": "sherpa_giga_joiner_int8",
+      "sha256": "831477d390e59a61f1b6a6f763b9903e6c6366ff6034f1ddba613be82637122f",
+      "filename": "joiner-epoch-99-avg-1.int8.onnx",
+      "new": false
+    },
+    {
+      "component": "sherpa_giga_tokens",
+      "sha256": "49e3c2646595fd907228b3c6787069658f67b17377c60aeb8619c4551b2316fb",
+      "filename": "tokens.txt",
+      "new": false
+    },
+    {
+      "component": "sherpa_online_punctuation_int8",
+      "sha256": "9d611f445fe4a46186080fe161be6059d87d72eb88d3a8cb00c1a06e83a6067e",
+      "filename": "model.int8.onnx",
+      "new": false
+    },
+    {
+      "component": "sherpa_online_punctuation_bpe",
+      "sha256": "e118b7ad88c54db562517df49e1cffd4836d166c34fb190fd311d7f34eb238f5",
+      "filename": "bpe.vocab",
+      "new": false
+    },
+    {
+      "component": "redimnet2_b2_fp32",
+      "sha256": "5c1a8635cba0d4648463f3b6d30c5a6137bc38d1200ab00c5944400aaa7b5609",
+      "filename": "redimnet2_b2_fp32.onnx",
+      "new": false
+    },
+    {
+      "component": "pyannote_segmentation_3_0_fp32",
+      "sha256": "b4b65085bbf2cc455565696604c87fedade1359aa6ddfac5d726d69124d5069a",
+      "filename": "pyannote_segmentation_3_0_fp32.onnx",
+      "new": false
+    }
+  ],
+  "new_models": [
+    {
+      "schema": "just-peachy.enhancement.v1",
+      "default_route": "bypass",
+      "id": "dpdfnet_baseline_sherpa_1_13_4_v1",
+      "filename": "dpdfnet_baseline.onnx",
+      "sha256": "debaf0e8893479fca91b8b4c1eae8db195aa8980ccc9012f5809fde2b738151a",
+      "size_bytes": 8791035,
+      "runtime": "sherpa-onnx",
+      "runtime_version": "1.13.4",
+      "sample_rate": 16000,
+      "hop_samples": 160,
+      "window_samples": 320,
+      "num_threads": 1,
+      "provider": "cpu",
+      "license": "Apache-2.0",
+      "source_url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/speech-enhancement-models/dpdfnet_baseline.onnx",
+      "model_card": "https://huggingface.co/Ceva-IP/DPDFNet/tree/dd6818d00f50c836fed43a6243ebe49116de5964",
+      "experimental": true,
+      "cm5_qualified": false,
+      "artifact_id": 374787734,
+      "release_asset_created": "2026-03-16T07:04:20Z",
+      "publisher_digest": "sha256:debaf0e8893479fca91b8b4c1eae8db195aa8980ccc9012f5809fde2b738151a",
+      "author_code_revision": "9bd9844a227bb6aa57e55588d8d0e961fcff1c46",
+      "author_code_license": "Apache-2.0",
+      "code_license_url": "https://raw.githubusercontent.com/ceva-ip/DPDFNet/9bd9844a227bb6aa57e55588d8d0e961fcff1c46/LICENSE",
+      "model_card_revision": "dd6818d00f50c836fed43a6243ebe49116de5964",
+      "model_card_license": "Apache-2.0",
+      "model_card_url": "https://huggingface.co/Ceva-IP/DPDFNet/blob/dd6818d00f50c836fed43a6243ebe49116de5964/README.md",
+      "conversion": "Official Sherpa pre-export selected; no local conversion or author code execution. Metadata/signature verified against native runtime and pinned author export source.",
+      "distinct_hf_export": {
+        "path": "onnx/baseline.onnx",
+        "sha256": "371d26182aff0e1e0d31354e24c81f79cd57458f5a7dd003fc10a7ebf64255e0",
+        "bytes": 8722707,
+        "downloaded": false
+      },
+      "provenance_limit": "HF export and Sherpa artifact differ; publisher release digest binds the exact chosen binary. A reproducible weight-to-export build attestation was not supplied and is not invented.",
+      "license_notice": {
+        "path": "release_tools/licenses/DPDFNet-Apache-2.0.txt",
+        "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+      },
+      "redistribution_obligations": "Retain Apache2 license and applicable copyright/NOTICE; identify modifications; preserve relevant notices/patent terms. No blanket clearance of independent training/source data or other assets."
+    }
+  ],
+  "upstream_reference_files": {
+    "DPDFNet_README.md": "2c4866591f488f690d6997969f313a32c93b107ac1c2dc84984513601f122af3",
+    "dpdf_repo.json": "2725ab075a42147061aa5ddbe671a6183a4879219fa3cab360e03b06ffc52e1e",
+    "dpdf_tree.json": "e41a64a9bf299b69aff54da6615df34c0b83c73bad3da619e7b805daa7493ed9",
+    "export_dpdfnet_to_onnx.py": "c0abb337ba8703fc31d85c5ca41722d77485e0116226dca18ff411e4ab5312cf",
+    "hf.json": "1d5f7519b961c159c27872f0fe02be1eee35643565a656292ae4e31833e60cb4",
+    "LICENSE_DPDFNet.txt": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+    "MODEL_METADATA.json": "eab73b9facd721ab476a7331c27315758e0b0e252ff52c187def3bdac3cd6b9a",
+    "online-speech-denoiser-dpdfnet-impl.h": "46ccbbdffdfc5f389302ef1c994e53ba39b5da7f18b06c631de5d8c1bd3258d4",
+    "online-speech-denoiser-stft-impl.h": "5ec43424a1c5bf48c198dd7aaad3e19cc01d366e779fbc8196e8146f8514e124",
+    "onnx_backend.py": "29a0e4c6b2881d30907f164b0351c5c34d1b040a0be9ffe16733b0bbdb9520d0",
+    "sherpa_release.json": "fc74b7e4f07e0a7c92c91f6aff0307b7d7bfe065d583413402a4048618108539",
+    "stream.py": "0926e33beda8a29a16c40476aead3b7879a0adc7e45b2c10fbdffc3698c23cd6"
+  },
+  "native_model_metadata": {
+    "version": "1",
+    "model_type": "dpdfnet",
+    "window_type": "vorbis",
+    "n_fft": "320",
+    "profile": "dpdfnet_16khz",
+    "window_length": "320",
+    "sample_rate": "16000",
+    "hop_length": "160",
+    "normalized": "0",
+    "center": "1",
+    "pad_mode": "reflect",
+    "spec_norm_init": "0.00100000005,0.000990526401,0.000981052639,0.000971578993,0.000962105289,0.000952631643,0.000943157938,0.000933684234,0.000924210588,0.000914736884,0.000905263238,0.000895789533,0.000886315829,0.000876842183,0.000867368479,0.000857894775,0.000848421128,0.000838947424,0.00082947372,0.000820000074,0.00081052637,0.000801052665,0.000791579019,0.000782105315,0.000772631611,0.000763157965,0.00075368426,0.000744210556,0.00073473691,0.000725263206,0.000715789502,0.000706315855,0.000696842151,0.000687368447,0.000677894801,0.000668421097,0.000658947392,0.000649473746,0.000640000042,0.000630526338,0.000621052692,0.000611578987,0.000602105283,0.000592631637,0.000583157933,0.000573684229,0.000564210583,0.000554736878,0.000545263174,0.000535789528,0.000526315824,0.000516842119,0.000507368473,0.000497894769,0.000488421123,0.000478947419,0.000469473714,0.000460000068,0.000450526364,0.00044105266,0.000431579014,0.00042210531,0.000412631605,0.000403157959,0.000393684255,0.000384210551,0.000374736905,0.0003652632,0.000355789496,0.00034631585,0.000336842146,0.000327368442,0.000317894795,0.000308421091,0.000298947387,0.000289473741,0.000280000037,0.000270526332,0.000261052686,0.000251578982,0.000242105336,0.000232631632,0.000223157927,0.000213684281,0.000204210577,0.000194736873,0.000185263227,0.000175789522,0.000166315818,0.000156842172,0.000147368468,0.000137894764,0.000128421118,0.000118947413,0.000109473709,0.000100000063",
+    "freq_bins": "161",
+    "erb_bins": "32",
+    "spec_bins": "96",
+    "spec_norm_state_size": "96",
+    "state_size": "38256",
+    "erb_norm_state_size": "32",
+    "erb_norm_init": "-60,-60.9677429,-61.935482,-62.9032249,-63.8709679,-64.838707,-65.8064499,-66.7741928,-67.7419357,-68.7096786,-69.6774216,-70.6451569,-71.6128998,-72.5806427,-73.5483856,-74.5161285,-75.4838715,-76.4516144,-77.4193573,-78.3871002,-79.3548355,-80.3225784,-81.2903214,-82.2580643,-83.2258072,-84.1935501,-85.1612854,-86.1290283,-87.0967712,-88.0645142,-89.0322571,-90"
+  },
+  "alternatives_not_installed": [
+    "GTCRN",
+    "DeepFilterNet",
+    "RNNoise"
+  ],
+  "metrics_not_installed": [
+    "PESQ",
+    "NISQA",
+    "DNSMOS"
+  ],
+  "test_data": "Already local CMU ARCTIC and accepted Common Voice post-XVF recording; no corpus/audio redistribution. Synthetic noise/tones generated locally.",
+  "notices": "release_tools/THIRD_PARTY_NOTICES.md",
+  "commercial_status": "Permissive candidate based on distinct published code/model terms; not blanket legal clearance; base model/data obligations retained."
+}

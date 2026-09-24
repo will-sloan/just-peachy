@@ -1,5 +1,10 @@
 # Start the live portrait prototype
 
+Current cumulative export: **proto1-0.2.0**. See
+[CM5_RELEASE_QUICKSTART.md](docs/CM5_RELEASE_QUICKSTART.md) for relocated Windows,
+native Linux/headless replay, update and rollback commands. The 0.1.4 notes below
+describe the retained spatial functionality; tasks01–08 are now consolidated.
+
 The same application supports an XVF3800 connected directly to this Windows
 desktop or to the future Raspberry Pi. Windows does not require a Pi. This is
 a native desktop window; a browser is not required. Linux needs its own native
