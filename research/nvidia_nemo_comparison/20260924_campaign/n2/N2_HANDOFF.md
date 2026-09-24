@@ -79,6 +79,13 @@ screen/regression analysis. Its current receipt is
 is `local\n2\final-analysis-v1`. `READY_FOR_REVIEW` means analysis is available;
 it does not mean this stage has been accepted or the final ZIP produced.
 
+The reviewed integration is backed up and remotely verified at commit
+`d22ec20477fea6cbc78a2a4e65011eaab9a3c3ba`, tag
+`n2-integration-20260924-rc1`, with three matching backend/profile tags.
+`GIT_BACKUP.json` maps every candidate configuration to this source and the
+reproducible model/build manifests. These are integration candidate tags; the
+complete screen and final stage handoff are still pending.
+
 ## Run, resume and rollback
 
 `README.md` gives explicit PowerShell and CMD/Anaconda commands for runtime
