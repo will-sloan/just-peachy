@@ -38,6 +38,21 @@ all segment IDs and raw rows remain separate. A handoff or Unknown breaks it.
 The Tk renderer edits changed ranges and retains surviving marks even when S7
 replaces an active segment. It does not rebuild the full history on partials.
 
+N1 adds a fixed 184px active caption pane below independently scrollable history.
+The latest turn and concurrent unfinished source windows occupy the active pane;
+history retains those rows with their active copies visually elided. Source
+window overlap is a display hint, not phonetic/simultaneous-speech truth. Long
+paragraphs scroll inside the active pane, all words remain accessible, and
+partial revisions never force history to its bottom. Back to live resumes both
+views. Separate bounded GUI presentation receipts retain the first applied
+label per stable span and later label revisions; they do not claim physical
+scanout or actual user visibility. See `../tests/README_N1_FRONTEND.md` for the
+safe private-desktop test/capture commands, inputs, outputs and event contract.
+
+The visible Backend selector and model-only manifest registry are documented
+in `README_BACKENDS.md`. Every backend preserves the same logical mode list;
+unimplemented candidates show an explicit reason and cannot start inference.
+
 Launch from the repository root in PowerShell:
 
 ```powershell

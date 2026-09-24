@@ -65,7 +65,7 @@ class S7PresentationState(PresentationState):
         if not isinstance(self.session_id, str) or not self.session_id:
             raise ValueError('S7 requires an explicit session identity')
         self.ownership_mode = self.options.get('ownership_mode', 'conservative_v1')
-        if self.ownership_mode not in {'conservative_v1', 'supported_prefix_v2'}:
+        if self.ownership_mode not in {'conservative_v1', 'supported_prefix_v2', 'timestamped_spans_v3'}:
             raise ValueError('Unknown caption ownership alternative')
         self.mode = self.options.get('mode', 'M1')
         self._validate_mode(self.mode)
@@ -127,6 +127,9 @@ class S7PresentationState(PresentationState):
         return None
 
     def _identity(self, row, payload):
+        if self.ownership_mode == 'timestamped_spans_v3':
+            from .research_n1_spans import apply_identity
+            return apply_identity(self, row, payload)
         support, target = self._span(payload), self._span(payload, target=True)
         version = self._version(payload, identity=True)
         if payload.get('target_text_revision_id') is not None and payload['target_text_revision_id'] != row.get('text_revision_id'):
@@ -175,6 +178,11 @@ class S7PresentationState(PresentationState):
             'known_name', 'naming_state', 'identity_source_span', 'identity_target_span', 'identity_version', 'evidence_ids')}
 
     def _prefix_tokens(self, row, prior_text, payload):
+        if self.ownership_mode == 'timestamped_spans_v3':
+            from .research_n1_spans import update_tokens
+            update_tokens(row, prior_text, payload, row['_text_received_monotonic_sec'])
+            self._refresh_segments(row)
+            return
         previous = re.findall(r'\S+', prior_text); current = re.findall(r'\S+', row['text'])
         prefix = 0
         while prefix < min(len(previous), len(current)) and previous[prefix] == current[prefix]:
@@ -205,7 +213,8 @@ class S7PresentationState(PresentationState):
         for a,b,owner in groups:
             state = 'supported_history' if owner else 'pending'
             segment_ids = ids[a:b]
-            previous = next((x for x in old if x['ownership_state']==state and x.get('identity_event_id')==(owner or {}).get('identity_event_id')
+            previous = next((x for x in old if (self.ownership_mode == 'timestamped_spans_v3' or
+                x['ownership_state']==state and x.get('identity_event_id')==(owner or {}).get('identity_event_id'))
                 and x['token_ids'] and segment_ids and x['token_ids'][0]==segment_ids[0]), None)
             if previous: segment_id = previous['segment_id']
             else:
@@ -223,6 +232,16 @@ class S7PresentationState(PresentationState):
                 token_range=[a,b], raw_character_range=[start,end], raw_text=raw, display_text=raw,
                 ownership_state=state, support_is_historical_only=True, token_time_alignment='UNAVAILABLE',
                 caption_application_scope='historical_caption_annotation_only', voice_or_direction_permission=False))
+            if self.ownership_mode == 'timestamped_spans_v3':
+                words = deepcopy(row.get('word_spans', [])[a:b])
+                segments[-1].update(word_spans=words, span_ids=list(segment_ids),
+                    source_start_sec=min((w['source_start_sec'] for w in words), default=row['source_start_sec']),
+                    source_end_sec=max((w['source_end_sec'] for w in words), default=row['source_end_sec']),
+                    timing_kind='ASR_REVISION_WINDOW_NOT_PHONETIC_ALIGNMENT',
+                    first_shown_label=words[0]['first_shown_label'] if words else 'Pending identity',
+                    committed_label=words[0]['committed_label'] if words else None,
+                    speaker_revision=max((w['speaker_revision'] for w in words), default=0),
+                    speaker_history=deepcopy(words[0]['speaker_history']) if words else [])
         if len(segments)==1: segments[0]['display_text']=row['display_text']
         if ''.join(x['raw_text'] for x in segments)!=row['text'] or [t for x in segments for t in x['token_ids']]!=ids:
             raise RuntimeError('Segments must partition exact raw text and token IDs')
@@ -291,6 +310,8 @@ class S7PresentationState(PresentationState):
                 if row.get('source_start_sec', self._span(payload)[0]) != self._span(payload)[0]:
                     return self._reject('words_changed_utterance_origin')
                 prior_text = row['text']
+                row['_previous_source_end_sec'] = row.get('source_end_sec', self._span(payload)[0])
+                row['_text_received_monotonic_sec'] = now
                 if not isinstance(payload.get('text'), str) or not isinstance(payload.get('display_text', payload['text']), str):
                     return self._reject('nonstring_words')
                 if row['text'] != payload.get('text') and row.get('identity_version') is not None:
@@ -301,7 +322,7 @@ class S7PresentationState(PresentationState):
                     source_start_sec=self._span(payload)[0], source_end_sec=self._span(payload)[1], final=final,
                     _text_version=version, text_version=list(version),
                     text_revision_id=payload.get('text_revision_id', payload.get('input_event_id', payload.get('event_id'))))
-                if self.ownership_mode == 'supported_prefix_v2':
+                if self.ownership_mode in {'supported_prefix_v2', 'timestamped_spans_v3'}:
                     self._prefix_tokens(row, prior_text, payload)
                 else:
                     row['token_ids'] = deepcopy(payload.get('token_ids')) or self.token_ids(key, row['text'], version[1])
@@ -329,7 +350,7 @@ class S7PresentationState(PresentationState):
             row.update(display_text=payload['display_text'], _punctuation_signature=signature,
                        _punctuation_version=version,
                        punctuation_for_text_revision=row['text_revision_id'])
-            if self.ownership_mode == 'supported_prefix_v2':
+            if self.ownership_mode in {'supported_prefix_v2', 'timestamped_spans_v3'}:
                 self._refresh_segments(row)
             changed = True
         if not changed:
@@ -373,7 +394,7 @@ class S7PresentationState(PresentationState):
                 column='unresolved' if track is None else self._columns.get(track, 'other'),
                 direction_disposition='DIAGNOSTIC_OR_DISABLED_REQUIRES_INDEPENDENT_EVIDENCE',
                 optional_model_workload_changed=False)
-            if self.ownership_mode == 'supported_prefix_v2':
+            if self.ownership_mode in {'supported_prefix_v2', 'timestamped_spans_v3'}:
                 segments = []
                 for segment in row.get('segments', []):
                     item = deepcopy(segment)

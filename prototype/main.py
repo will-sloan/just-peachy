@@ -25,6 +25,8 @@ def parser():
     p.add_argument('--tap',default='O0',choices=('O0','O1'))
     p.add_argument('--result',type=Path)
     p.add_argument('--fullscreen',action='store_true')
+    p.add_argument('--allow-live',action='store_true',help='Future explicitly authorized live GUI use; still opens idle')
+    p.add_argument('--backend',help='Immutable backend manifest ID; defaults to the preserved baseline')
     return p
 
 
@@ -41,15 +43,18 @@ def main():
             'models':str(models),'microphone_opened':False,'native_inference_executed':False}))
         return 0
     from app.controller import Controller
-    controller=Controller(data,models)
+    controller=Controller(data,models,saved_audio_only=not(args.command=='gui' and args.allow_live))
     try:
+        if args.backend:
+            controller.select_backend(args.backend);controller.commands.join()
+            if controller.error:raise RuntimeError(controller.error)
         if args.mode!='caption_only' or args.recipe!='fast' or args.tap!='O0':
             controller.switch(mode=args.mode,recipe=args.recipe,tap=args.tap);controller.commands.join()
             if controller.error:raise RuntimeError(controller.error)
         if args.command=='gui':
             import tkinter as tk
             from app.ui import PrototypeUI,prepare_dpi_awareness
-            prepare_dpi_awareness();root=tk.Tk();window=PrototypeUI(root,controller,allow_auto_start=args.wav is None)
+            prepare_dpi_awareness();root=tk.Tk();window=PrototypeUI(root,controller,allow_auto_start=False)
             # A default KeyboardInterrupt can be swallowed by a Tk callback,
             # leaving capture running. Route process shutdown through normal UI
             # cleanup (device restoration, session flush, worker/lease close).

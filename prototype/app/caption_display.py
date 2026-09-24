@@ -7,6 +7,116 @@ from __future__ import annotations
 import re
 
 
+def active_caption_rows(rows):
+    """Latest turn plus overlapping unfinished turns; timestamped EVENT data only.
+
+    Source windows can be coarse ASR revision windows. Their overlap is a display
+    grouping hint, never a claim of phonetic timing or simultaneous speech truth.
+    Full rows remain in the independently scrollable transcript history.
+    """
+    if not rows:
+        return []
+    latest = rows[-1]
+    key = lambda row: str(row.get('caption_key') or row['id'])
+    latest_key = key(latest)
+    peers = {latest_key}
+    start, end = latest.get('source_start_sec'), latest.get('source_end_sec')
+    if isinstance(start, (int, float)) and isinstance(end, (int, float)):
+        for row in rows:
+            a, b = row.get('source_start_sec'), row.get('source_end_sec')
+            if (not row.get('final') and isinstance(a, (int, float)) and isinstance(b, (int, float))
+                    and max(start, a) < min(end, b)):
+                peers.add(key(row))
+    return [row for row in rows if key(row) in peers]
+
+
+class ActiveCaptionPane:
+    """Stable marked rows in a fixed active pane; revise only the changed suffix."""
+    def __init__(self, text):
+        self.text = text
+        self.marks = {}
+        self.values = {}
+        self.order = []
+        self.sequence = 0
+        self.follow = True
+        self.edits = 0
+        self.initialized = False
+
+    def render(self, rows, values, placeholder):
+        ids = [str(row['id']) for row in rows]
+        current = {rid: values[rid] for rid in ids}
+        if self.initialized and ids == self.order and current == self.values:
+            return
+        self.initialized = True
+        text = self.text
+        view = text.yview()
+        text.configure(state='normal')
+        for rid in list(self.order):
+            if rid not in current:
+                start, end = self.marks.pop(rid)
+                text.delete(start, end)
+                text.mark_unset(start, end)
+                self.order.remove(rid)
+        if not ids:
+            text.delete('1.0', 'end')
+            text.insert('1.0', placeholder, 'placeholder')
+        else:
+            if not self.order:
+                text.delete('1.0', 'end')
+            for index, rid in enumerate(ids):
+                if rid in self.marks and self.order.index(rid) != index:
+                    start, end = self.marks.pop(rid)
+                    text.delete(start, end)
+                    text.mark_unset(start, end)
+                    self.order.remove(rid)
+                next_id = self.order[index] if rid not in self.marks and index < len(self.order) else (
+                    self.order[index+1] if rid in self.marks and index+1 < len(self.order) else None)
+                next_start = self.marks[next_id][0] if next_id else None
+                if rid in self.marks and self.values.get(rid) == current[rid]:
+                    continue
+                if rid not in self.marks:
+                    self.sequence += 1
+                    start, end = f'active_{self.sequence}_start', f'active_{self.sequence}_end'
+                    text.mark_set(start, next_start or 'end-1c')
+                    text.mark_gravity(start, 'left')
+                    text.mark_set(end, start)
+                    self.marks[rid] = start, end
+                    self.order.insert(index, rid)
+                else:
+                    start, end = self.marks[rid]
+                if next_start:
+                    text.mark_gravity(next_start, 'right')
+                label, caption, selected = current[rid]
+                replacement = (label+'\n' if label else '') + caption + '\n'
+                before = text.get(start, end)
+                prefix = 0
+                while prefix < min(len(before), len(replacement)) and before[prefix] == replacement[prefix]:
+                    prefix += 1
+                chars = lambda value: int(text.tk.call('string', 'length', value))
+                edit_start = f'{start}+{chars(before[:prefix])}c'
+                text.mark_gravity(end, 'right')
+                text.delete(edit_start, end)
+                text.insert(edit_start, replacement[prefix:])
+                self.edits += 1
+                text.mark_gravity(end, 'left')
+                for tag in ('speaker', 'pending', 'selected'):
+                    text.tag_remove(tag, start, end)
+                if label:
+                    text.tag_add('speaker', start, f'{start}+{chars(label)}c')
+                if label.startswith('•••'):
+                    text.tag_add('pending', start, f'{start}+3c')
+                if selected:
+                    text.tag_add('selected', start, end)
+                if next_start:
+                    text.mark_gravity(next_start, 'left')
+        self.order, self.values = ids, current
+        text.configure(state='disabled')
+        if self.follow:
+            text.see('end-1c')
+        else:
+            text.yview_moveto(view[0])
+
+
 class IdentityLabels:
     """Never retain a contradicted name; pending cannot renew on partial revisions."""
     def __init__(self, pending_seconds=1.2, stable_seconds=.2):

@@ -3,6 +3,7 @@ from collections import OrderedDict
 from copy import deepcopy
 from datetime import datetime, timezone
 import os
+import json
 from pathlib import Path
 import queue
 import re
@@ -22,9 +23,12 @@ from .seat_controller import SeatWorkflow
 from .text_assistance import TextAssistance, corrected_partition
 from .adaptation_controller import AdaptationWorkflow
 from .transcript_review_controller import TranscriptReviewWorkflow
+from .backends import BASELINE_BACKEND_ID, backend_catalog, backend_status, require_backend, backend_manifest
 
 class Controller(TranscriptReviewWorkflow,AdaptationWorkflow,SeatWorkflow,SessionWorkflow):
-    def __init__(self,data_root,models_root,*,writer_delay=0):
+    def __init__(self,data_root,models_root,*,writer_delay=0,saved_audio_only=False):
+        self.saved_audio_only=bool(saved_audio_only)
+        self.backend_id=BASELINE_BACKEND_ID
         self.data_root=Path(data_root).resolve();self.models_root=Path(models_root).resolve()
         self.owner=ApplicationLock(self.data_root)
         try:self._initialize(writer_delay)
@@ -59,7 +63,7 @@ class Controller(TranscriptReviewWorkflow,AdaptationWorkflow,SeatWorkflow,Sessio
         self.worker=threading.Thread(target=self._commands,name='proto-controller',daemon=True);self.worker.start()
         self.imu=None
         motion_config=self.data_root/'imu_config.json'
-        if motion_config.exists():
+        if motion_config.exists() and not self.saved_audio_only:
             try:
                 from .imu import BMI270Worker
                 self.imu=BMI270Worker(read_json(motion_config),self.motion_event).start()
@@ -68,12 +72,35 @@ class Controller(TranscriptReviewWorkflow,AdaptationWorkflow,SeatWorkflow,Sessio
                 self.imu=UnavailableMotion(exc);self.metrics['motion_configuration_error']=str(exc)
 
     def _observe_output(self,stage):
+        if getattr(self,'saved_audio_only',False):
+            self.output_defaults.append({'stage':stage,'status':'DISABLED_SAVED_AUDIO_ONLY'})
+            return
         try:
             from .windows_audio import endpoint_snapshot
             value=endpoint_snapshot()
             self.output_defaults.append({'stage':stage,'value':value})
             self.output_defaults=self.output_defaults[-64:]
         except Exception as exc:self.output_defaults.append({'stage':stage,'error':str(exc)})
+
+    def record_presentation(self,receipt):
+        """Record Tk application separately from source events and physical scanout."""
+        value=deepcopy(receipt)
+        value['caption_epoch']=self.epoch
+        value['scope']='Tk text applied; viewport visibility and physical scanout not measured'
+        with self.lock:
+            recent=self.metrics.setdefault('gui_presentation_recent',[])
+            recent.append(value)
+            del recent[:-256]
+            self.metrics['gui_presentation_count']=self.metrics.get('gui_presentation_count',0)+1
+            session=getattr(self.engine,'session_dir',None) if self.engine is not None else None
+            if session:
+                try:
+                    path=Path(session)/'gui_presentation.jsonl'
+                    with path.open('a',encoding='utf-8') as stream:
+                        stream.write(json.dumps(value,ensure_ascii=False,allow_nan=False)+'\n')
+                    self.metrics['gui_presentation_log']=str(path)
+                except (OSError,ValueError) as exc:
+                    self.metrics['gui_presentation_log_error']=str(exc)
 
     def _enqueue(self,action,*args,**kwargs):
         if self.closed:raise RuntimeError('Application closed')
@@ -109,6 +136,7 @@ class Controller(TranscriptReviewWorkflow,AdaptationWorkflow,SeatWorkflow,Sessio
         return LiveConfig(**value)
 
     def start_live(self,consent=False):
+        if self.saved_audio_only:raise RuntimeError('Live hardware is disabled in this saved-audio campaign')
         if consent is not True:raise ValueError('Visible microphone consent is required')
         self._enqueue('start_live')
     def _do_start_live(self):
@@ -125,6 +153,8 @@ class Controller(TranscriptReviewWorkflow,AdaptationWorkflow,SeatWorkflow,Sessio
         self.file_path=candidate;self.file_offset=0;self.source_kind='file';self._start_session()
 
     def _start_session(self):
+        require_backend(getattr(self,'backend_id',BASELINE_BACKEND_ID),self.mode,self.tap,
+                        recorded_spatial=self.source_kind=='live')
         self._review_cancel('new capture epoch; discard optional review')
         self._retention()
         # Previous failure remains in its journal and terminal metrics. Only
@@ -153,6 +183,7 @@ class Controller(TranscriptReviewWorkflow,AdaptationWorkflow,SeatWorkflow,Sessio
                                seats=self.seats if self.mode in SEAT_MODES else None,seat_names={p['id']:p['name'] for p in self.store.list()})
         self.engine=engine
         engine.mode_configuration=self.mode_configuration(profile,gallery)
+        engine.mode_configuration['backend']=backend_manifest(getattr(self,'backend_id',BASELINE_BACKEND_ID))
         try:archive=self._archive_prepare(profile)
         except OSError as exc:
             archive=None;self.metrics['last_archive']={'archive_error':'Archive unavailable; live captions continue: '+str(exc),'audio_recording':False}
@@ -317,6 +348,16 @@ class Controller(TranscriptReviewWorkflow,AdaptationWorkflow,SeatWorkflow,Sessio
         if getattr(self,'reference_bank',None):self.reference_bank.log_match=None
         self._observe_output('session_stop')
 
+    def select_backend(self,backend_id):
+        backend_manifest(backend_id)
+        self._enqueue('select_backend',backend_id)
+
+    def _do_select_backend(self,backend_id):
+        backend_manifest(backend_id)
+        self._ensure_no_enrollment();self._stop_session()
+        self.backend_id=backend_id
+        self.state='IDLE';self.status='Backend selected. Choose Start or a saved file explicitly.'
+
     def switch(self,mode=None,recipe=None,tap=None,selected_ids=None,strict=None):
         self._enqueue('switch',mode,recipe,tap,selected_ids,strict)
     def _do_switch(self,mode,recipe,tap,selected_ids,strict):
@@ -409,6 +450,7 @@ class Controller(TranscriptReviewWorkflow,AdaptationWorkflow,SeatWorkflow,Sessio
         self._assert_enrollment_quiet()
 
     def enrollment_start(self,name,target_sec=30,consent=False,person_id=None,paragraph=None):
+        if getattr(self,'saved_audio_only',False):raise RuntimeError('Live enrollment is disabled in this saved-audio campaign')
         if consent is not True:raise ValueError('Explicit person/enrollment microphone consent required')
         self._enqueue('enrollment_start',name,target_sec,person_id,paragraph)
     def _do_enrollment_start(self,name,target_sec,person_id,paragraph=None):
@@ -898,6 +940,15 @@ class Controller(TranscriptReviewWorkflow,AdaptationWorkflow,SeatWorkflow,Sessio
                     'closed_group_display':self.mode=='selected_closed' and part.get('prototype_closed_group',False) and display_known is not None,
                     'identity_version':row.get('identity_version'),'profile_id':known,
                     'caption_key':row.get('caption_key'), 'track_id':part.get('track_id'),
+                    'span_ids':deepcopy(part.get('span_ids',part.get('token_ids',[]))),
+                    'source_start_sec':part.get('source_start_sec',row.get('source_start_sec')),
+                    'source_end_sec':part.get('source_end_sec',row.get('source_end_sec')),
+                    'timing_kind':part.get('timing_kind','UNAVAILABLE'),
+                    'word_spans':deepcopy(part.get('word_spans',[])),
+                    'speaker_revision':part.get('speaker_revision'),
+                    'first_shown_label':part.get('first_shown_label'),
+                    'committed_label':part.get('committed_label'),
+                    'speaker_history':deepcopy(part.get('speaker_history',[])),
                     'token_range':deepcopy(part.get('token_range')), 'ownership_state':part.get('ownership_state'),
                     'naming_state':part.get('naming_state'),
                     'identity_status':('unavailable' if part.get('naming_state')=='invalidated' or part.get('voice_available') is False else
@@ -937,6 +988,10 @@ class Controller(TranscriptReviewWorkflow,AdaptationWorkflow,SeatWorkflow,Sessio
             'reference_comparison':deepcopy(getattr(getattr(self.engine,'_research_gallery',None),'last_alternate',None)) if self.settings.get('text_aware_references',False) else None,
             'motion':self.imu.snapshot() if getattr(self,'imu',None) is not None else {'enabled':False,'state':'NOT_CONFIGURED','error':self.metrics.get('motion_configuration_error')},
             'mode':self.mode,'recipe':self.recipe,'tap':self.tap,'recipes':deepcopy(RECIPES),
+            'backend_id':getattr(self,'backend_id',BASELINE_BACKEND_ID),
+            'backend':backend_status(getattr(self,'backend_id',BASELINE_BACKEND_ID),self.mode,self.tap,
+                                     recorded_spatial=getattr(self,'source_kind',None)=='live'),
+            'backends':backend_catalog(), 'saved_audio_only':getattr(self,'saved_audio_only',False),
             'mode_metadata':deepcopy(MODE_METADATA), 'spatial_view':spatial_view,
             'roster_compatibility':self.store.summaries(self.route()) if isinstance(self.store,PersonalStore) else people,
             'identity_overrides':dict(getattr(self,'identity_overrides',{})), 'seating':self.seating_snapshot(),

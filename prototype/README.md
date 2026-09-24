@@ -1,5 +1,13 @@
 # Just Peachy PROTO1
 
+**N1 campaign source (separate worktree).** This version opens idle, defaults to
+saved-audio-only operation, and has an independent Backend selector and stable
+timestamped caption spans. Existing rc5 source remains under the
+`n1-baseline-20260924-rc5` tag. See [N1 run/data guide](docs/N1_CAMPAIGN.md).
+No microphone/device enumeration occurs through the default `main.py` path.
+Future live use needs an explicit `--allow-live` launch and visible Start/consent.
+An existing saved automatic-listening preference never starts this campaign GUI.
+
 Task12 adds default-off Windows **audio transcript review** for explicitly selected
 recorded utterances. Original captions remain immutable; adoption is a separate
 user correction with Undo. No LLM was installed. See

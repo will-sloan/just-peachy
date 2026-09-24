@@ -14,7 +14,8 @@ from typing import Any, Callable
 
 from .casing import provisional_case
 from .beam_diagnostics import BEAMS, arrow_tip
-from .caption_display import IdentityLabels, continues
+from .caption_display import IdentityLabels, continues, active_caption_rows, ActiveCaptionPane
+from .backends import BASELINE_BACKEND_ID, backend_catalog, backend_status
 from .enrollment_progress import VerifiedAnimation, reference_text
 from .session_ui import SessionUI
 from .roster_ui import RosterUI
@@ -105,6 +106,7 @@ class PrototypeUI(TranscriptReviewUI,AdaptationUI,NoiseUI,ScriptEvidenceUI,TextA
         self._row_cache: dict[str, tuple[str, str, bool]] = {}
         self._marks: dict[str, tuple[str, str]] = {}
         self._render_order: list[str] = []
+        self._history_order: list[str] = []
         self._mark_number = 0
         self._follow_live = True
         self._identity_labels = IdentityLabels()
@@ -112,6 +114,9 @@ class PrototypeUI(TranscriptReviewUI,AdaptationUI,NoiseUI,ScriptEvidenceUI,TextA
         self._pending_rows = None
         self._display_received = 0.0
         self.presentation_delays_ms = []  # Last 64 GUI batches; not model latency.
+        self.presentation_receipts = []  # Bounded Tk application receipts, never scanout evidence.
+        self._presentation_spans = {}
+        self._presentation_values = {}
         self._nav_context = None
         self._people_signature = ""
         self._enroll_name = ""
@@ -216,6 +221,10 @@ class PrototypeUI(TranscriptReviewUI,AdaptationUI,NoiseUI,ScriptEvidenceUI,TextA
         self.status_label.configure(wraplength=self.px(456)); self.status_label.pack(fill="x", pady=(self.px(3), 0))
         self.error_label = self.label(header, "", size="small_font_px")
         self.error_label.configure(fg=self.color("error"), wraplength=self.px(456))
+        self.backend_control = self.button(header, "BACKEND · Baseline", self.show_backends,
+                                           key="backend", height=48, wrap=442)
+        self.backend_control.pack(fill="x", pady=(self.px(3), 0))
+        self.actions["backend"].configure(font=self.font("small_font_px", True), anchor="w", padx=self.px(8))
         footer = tk.Frame(self.shell, bg=self.color("background"))
         footer.pack(side="bottom", fill="x")
         nav = tk.Frame(footer, bg=self.color("background")); nav.pack(fill="x")
@@ -235,6 +244,34 @@ class PrototypeUI(TranscriptReviewUI,AdaptationUI,NoiseUI,ScriptEvidenceUI,TextA
         self.spatial_canvas.bind("<Configure>", lambda _e: self._update_spatial_visualization(force=True))
         self.spatial_canvas.bind("<Button-1>", lambda _e: self._hide_spatial())
         self._spatial_signature = None
+        # This pane has a fixed height. Long/partial captions scroll inside it;
+        # reviewing transcript history never moves the current speech offscreen.
+        self.active_region = tk.Frame(self.caption_page, bg=self.color("surface"), height=self.px(184))
+        self.active_region.pack(side="bottom", fill="x", padx=self.px(6), pady=(0, self.px(4)))
+        self.active_region.pack_propagate(False)
+        active_heading = tk.Frame(self.active_region, bg=self.color("surface")); active_heading.pack(fill="x")
+        self.active_title = self.label(active_heading, "LIVE CAPTION · waiting", size="small_font_px", bold=True)
+        self.active_title.configure(bg=self.color("surface")); self.active_title.pack(side="left", padx=self.px(6))
+        self.active_text = tk.Text(self.active_region, wrap="word", state="disabled",
+            font=self.font(self.config["caption_sizes_px"][self.preferences["caption_size"]]),
+            bg=self.color("surface"), fg=self.color("text"), relief="flat", borderwidth=0,
+            padx=self.px(6), pady=self.px(3), cursor="arrow", takefocus=False, highlightthickness=0)
+        active_scroll = ttk.Scrollbar(self.active_region, orient="vertical", command=self._scroll_active_to)
+        active_scroll.pack(side="right", fill="y")
+        self.active_text.configure(yscrollcommand=active_scroll.set)
+        self.active_text.pack(fill="both", expand=True)
+        self._active_pane = ActiveCaptionPane(self.active_text)
+        self.active_text.tag_configure("speaker", font=self.font("small_font_px", True), foreground=self.color("muted"))
+        self.active_text.tag_configure("selected", background=self.color("selected"))
+        self.active_text.tag_configure("pending", foreground=self.color("muted"))
+        self.active_text.tag_configure("placeholder", foreground=self.color("muted"))
+        self.active_text.bind("<MouseWheel>", self._active_wheel)
+        self.active_text.bind("<Button-4>", lambda _e: self._scroll_active(-2))
+        self.active_text.bind("<Button-5>", lambda _e: self._scroll_active(2))
+        self.active_text.bind("<ButtonPress-1>", lambda e: self.active_text.scan_mark(e.x, e.y))
+        self.active_text.bind("<B1-Motion>", self._drag_active)
+        self.history_title = self.label(self.caption_page, "TRANSCRIPT HISTORY", size="small_font_px", muted=True)
+        self.history_title.pack(fill="x", padx=self.px(12))
         self.caption_text = tk.Text(self.caption_page, wrap="word", state="disabled", font=self.font(self.config["caption_sizes_px"][self.preferences["caption_size"]]),
             bg=self.color("background"), fg=self.color("text"), relief="flat", borderwidth=0,
             padx=self.px(12), pady=self.px(6), cursor="arrow", takefocus=False,
@@ -246,6 +283,7 @@ class PrototypeUI(TranscriptReviewUI,AdaptationUI,NoiseUI,ScriptEvidenceUI,TextA
         self.caption_text.tag_configure("placeholder", foreground=self.color("muted"))
         self.caption_text.tag_configure("gap", font=self.font(6), spacing1=0, spacing3=0)
         self.caption_text.tag_configure("pending", foreground=self.color("muted"))
+        self.caption_text.tag_configure("active_row", elide=True)
         self.caption_text.bind("<MouseWheel>", self._caption_wheel)
         self.caption_text.bind("<Button-4>", lambda _e: self._scroll_caption(-3))
         self.caption_text.bind("<Button-5>", lambda _e: self._scroll_caption(3))
@@ -326,12 +364,13 @@ class PrototypeUI(TranscriptReviewUI,AdaptationUI,NoiseUI,ScriptEvidenceUI,TextA
             if self._closing and snapshot.get("error") and str(snapshot.get("state", "")).casefold() == "error":
                 self._closing = False
                 self._notice = "Close did not finish: " + str(snapshot["error"])
-                for key in ("start_stop", "mode", "people", "settings", "rescue"):
+                for key in ("start_stop", "mode", "people", "settings", "rescue", "backend"):
                     self.actions[key].configure(state="normal")
             self._show_status()
             self._queue_rows(snapshot.get("rows", []))
             # GUI-only three-dot pulse; no callback, inference or event/log frame.
             self.caption_text.tag_configure("pending", foreground=self.color("muted" if int(time.perf_counter()*2)%2 else "text"))
+            self.active_text.tag_configure("pending", foreground=self.color("muted" if int(time.perf_counter()*2)%2 else "text"))
             self._update_spatial_visualization()
             if self._page_update:
                 self._page_update()
@@ -351,6 +390,11 @@ class PrototypeUI(TranscriptReviewUI,AdaptationUI,NoiseUI,ScriptEvidenceUI,TextA
         self.mode_label.configure(text=MODES.get(mode, (mode,))[0])
         status = status.split(" · "+mode)[0]
         self.status_label.configure(text=f"{profile} · {status}"[:200])
+        backend = self.snapshot.get("backend") or backend_status(self.snapshot.get("backend_id", BASELINE_BACKEND_ID), mode, self.snapshot.get("tap", "O0"))
+        name = str(backend.get("label", "Unknown composition"))
+        self.actions["backend"].configure(text="BACKEND · " + name + (" · unavailable" if not backend.get("available") else ""),
+            bg=self.color("selected" if self.page == "backends" else "raised"),
+            fg=self.color("text" if backend.get("available") else "warning"))
         sessions=self.snapshot.get('sessions') or {}
         archive=sessions.get('archive') or {}
         recording=archive.get('audio_recording')
@@ -378,7 +422,8 @@ class PrototypeUI(TranscriptReviewUI,AdaptationUI,NoiseUI,ScriptEvidenceUI,TextA
         self._highlight_navigation()
 
     def _highlight_navigation(self) -> None:
-        if self.page in {"modes", "roster", "recipes", "help", "display_features"}: self._nav_context = "mode"
+        if self.page == "backends": self._nav_context = None
+        elif self.page in {"modes", "roster", "recipes", "help", "display_features"}: self._nav_context = "mode"
         elif self.page in {"people", "person", "enrollment", "enrollment_progress"}: self._nav_context = "people"
         elif self.page in {"settings", "diagnostics", "beam_diagnostics", "problem", "advanced", "identity_scores", "identity_parameters", "sessions", "session_detail", "session_outputs"}: self._nav_context = "settings"
         elif self.page == "captions": self._nav_context = None
@@ -446,7 +491,14 @@ class PrototypeUI(TranscriptReviewUI,AdaptationUI,NoiseUI,ScriptEvidenceUI,TextA
             if previous and continues(previous, row, self._display_row(previous)[0], label):
                 current[rid] = ("", caption, selected)
             previous = row
-        if not force and ids == self._render_order and current == self._row_cache:
+        active_rows = active_caption_rows(visible)
+        active_ids = {str(row['id']) for row in active_rows}
+        history_order = [rid for rid in ids if rid not in active_ids]
+        history_added = history_order != self._history_order
+        self._active_pane.render(active_rows, current,
+            "No selected speech. Use Show all." if strict and rows else "Choose Start when you are ready.")
+        self.active_title.configure(text="LIVE CAPTION" + (" · scroll for full paragraph" if active_rows else " · waiting"))
+        if not force and ids == self._render_order and current == self._row_cache and not history_added:
             return
         text = self.caption_text
         follow = self._follow_live
@@ -470,7 +522,7 @@ class PrototypeUI(TranscriptReviewUI,AdaptationUI,NoiseUI,ScriptEvidenceUI,TextA
                 self._row_cache.pop(rid, None); self._render_order.remove(rid)
         if not ids:
             text.delete("1.0", "end")
-            placeholder = "No selected speech is visible.\n\nUse Show all captions to recover the full view." if strict and rows else "Your words will appear here.\n\nChoose Start when you are ready. Speech is processed on this device."
+            placeholder = "No selected speech is visible.\nUse Show all captions to recover the full view." if strict and rows else "Completed turns appear here.\nCurrent speech stays in the panel below."
             text.insert("1.0", placeholder, "placeholder")
         else:
             if not self._render_order:
@@ -518,13 +570,59 @@ class PrototypeUI(TranscriptReviewUI,AdaptationUI,NoiseUI,ScriptEvidenceUI,TextA
                 if next_start: text.mark_gravity(next_start, "left")
             self._render_order = ids
             self._row_cache = current
+        text.tag_remove("active_row", "1.0", "end")
+        for rid in active_ids:
+            if rid in self._marks:
+                text.tag_add("active_row", *self._marks[rid])
+        self._history_order = history_order
         text.configure(state="disabled")
-        if follow:
+        if follow and history_added:
             text.update_idletasks(); text.yview_moveto(1.0)
         elif anchor_row in self._marks:
             text.yview(f"{self._marks[anchor_row][0]}+{anchor_offset}c")
         else:
             text.yview("view_anchor")
+        self._record_presentations(visible, current, active_ids)
+
+    def _record_presentations(self, rows, current, active_ids) -> None:
+        """Capture applied GUI labels separately from model/core proposals."""
+        now = time.perf_counter()
+        for row in rows:
+            rid = str(row['id'])
+            shown = current[rid]
+            spans = tuple(str(value) for value in row.get('span_ids') or [rid])
+            signature = (shown, spans, row.get('speaker_revision'), rid in active_ids)
+            if self._presentation_values.get(rid) == signature:
+                continue
+            self._presentation_values[rid] = signature
+            # A grouped row has no repeated header, but still carries the
+            # inherited label explicitly in the receipt for span auditing.
+            label = shown[0] or self._display_row(row)[0]
+            first = {}
+            revisions = {}
+            for span in spans:
+                state = self._presentation_spans.setdefault(span, dict(first=label, last=label, revision=0))
+                if state['last'] != label:
+                    state['last'] = label; state['revision'] += 1
+                first[span] = state['first']; revisions[span] = state['revision']
+            receipt = dict(schema='just-peachy.gui-presentation.v1', kind='prototype_gui_presentation',
+                row_id=rid, caption_key=row.get('caption_key'), span_ids=list(spans),
+                backend_id=self.snapshot.get('backend_id', BASELINE_BACKEND_ID),
+                applied_monotonic_sec=now, label=label, heading_suppressed=not bool(shown[0]),
+                first_gui_labels=first, gui_label_revisions=revisions,
+                speaker_revision=row.get('speaker_revision'), pane='active' if rid in active_ids else 'history',
+                scope='Tk text applied; viewport visibility and physical scanout not measured',
+                root_state=self.root.state())
+            self.presentation_receipts.append(receipt)
+            callback = getattr(self.controller, 'record_presentation', None)
+            if callable(callback):
+                callback(receipt)
+        del self.presentation_receipts[:-256]
+        live_ids = {str(row['id']) for row in rows}
+        self._presentation_values = {key:value for key,value in self._presentation_values.items() if key in live_ids}
+        # The core journal remains the durable record; UI audit memory is bounded.
+        while len(self._presentation_spans) > 8192:
+            self._presentation_spans.pop(next(iter(self._presentation_spans)))
 
     def _caption_wheel(self, event: tk.Event) -> str:
         return self._scroll_caption(-int(event.delta / 120) * 3 if abs(event.delta) >= 120 else (-2 if event.delta > 0 else 2))
@@ -546,6 +644,25 @@ class PrototypeUI(TranscriptReviewUI,AdaptationUI,NoiseUI,ScriptEvidenceUI,TextA
     def back_to_live(self) -> None:
         self._follow_live = True
         self.caption_text.update_idletasks(); self.caption_text.yview_moveto(1.0)
+        self._active_pane.follow = True
+        self.active_text.see("end-1c")
+
+    def _scroll_active_to(self, *args) -> None:
+        self._active_pane.follow = False
+        self.active_text.yview(*args)
+
+    def _scroll_active(self, units: int) -> str:
+        self._active_pane.follow = False
+        self.active_text.yview_scroll(units, "units")
+        return "break"
+
+    def _active_wheel(self, event: tk.Event) -> str:
+        return self._scroll_active(-int(event.delta / 120) * 2 if abs(event.delta) >= 120 else (-2 if event.delta > 0 else 2))
+
+    def _drag_active(self, event: tk.Event) -> str:
+        self._active_pane.follow = False
+        self.active_text.scan_dragto(event.x, event.y, gain=1)
+        return "break"
 
     def home(self) -> None:
         self.page = "captions"; self._page_update = None
@@ -587,6 +704,12 @@ class PrototypeUI(TranscriptReviewUI,AdaptationUI,NoiseUI,ScriptEvidenceUI,TextA
         if self._running():
             self._call("stop")
             return
+        backend = self.snapshot.get("backend") or backend_status(
+            self.snapshot.get("backend_id", BASELINE_BACKEND_ID), self.snapshot.get("mode", "caption_only"), self.snapshot.get("tap", "O0"))
+        if not backend.get("available"):
+            self._notice = str(backend.get("reason", "Backend unavailable."))
+            self.show_backends(); self._show_status()
+            return
         def start() -> None:
             if self._call("start_live", consent=True):
                 self._mic_consented = True; self.home()
@@ -611,7 +734,7 @@ class PrototypeUI(TranscriptReviewUI,AdaptationUI,NoiseUI,ScriptEvidenceUI,TextA
 
     def show_modes(self) -> None:
         self.page = "modes"; frame = self._page("Mode")
-        self._paragraph_label(frame, "Modes change naming and emphasis. Recipes and audio taps are separate controls.", True)
+        self._paragraph_label(frame, "Modes change naming and emphasis. Backend, recipe and audio tap are independent controls.", True)
         self._paragraph_label(frame, MODE_LEGEND, True)
         self._paragraph_label(frame, "✓ marks a supported simulation configuration, not verified field accuracy. Experimental modes remain selectable.", True)
         for mode, (name, description) in MODES.items():
@@ -621,6 +744,10 @@ class PrototypeUI(TranscriptReviewUI,AdaptationUI,NoiseUI,ScriptEvidenceUI,TextA
             self.button(frame, metadata["symbol"] + " " + metadata["label"] + (" · active" if selected else ""), lambda m=mode: self._choose_mode(m),
                         accent=selected, key=f"mode_{mode}").pack(fill="x", padx=self.px(12), pady=(self.px(6), 0))
             self._paragraph_label(frame, MODE_METADATA[mode]['full_name']+'\n'+metadata["description"], True)
+            availability = backend_status(self.snapshot.get("backend_id", BASELINE_BACKEND_ID), mode, self.snapshot.get("tap", "O0"),
+                recorded_spatial=bool(self.snapshot.get("recorded_spatial_available")))
+            if not availability['available']:
+                self._paragraph_label(frame, availability['reason'], True)
         self.button(frame, "Separate display features…", self.show_display_features, key="roster").pack(fill="x", padx=self.px(12), pady=self.px(6))
         self.button(frame, "Advanced · numbered modes / scores", self.show_advanced).pack(fill='x',padx=self.px(12),pady=self.px(6))
         self.button(frame, "Engine recipe & audio tap", self.show_recipes, key="recipes").pack(fill="x", padx=self.px(12), pady=self.px(6))
@@ -667,6 +794,39 @@ class PrototypeUI(TranscriptReviewUI,AdaptationUI,NoiseUI,ScriptEvidenceUI,TextA
         if isinstance(recipes, dict):
             return [dict(value, id=key) if isinstance(value, dict) else dict(id=key, name=str(value)) for key, value in recipes.items()]
         return [r if isinstance(r, dict) else dict(id=str(r), name=str(r)) for r in recipes]
+
+    def show_backends(self) -> None:
+        self.page = "backends"; frame = self._page("Backend")
+        self._show_status()
+        self._paragraph_label(frame, "Select the model composition. Mode, roster, recipe and O0/O1 remain separate. Switching stops the current session; Start remains explicit.", True)
+        for backend in self.snapshot.get("backends") or backend_catalog():
+            bid = backend['manifest_id']
+            selected = bid == self.snapshot.get("backend_id", BASELINE_BACKEND_ID)
+            title = ("✓ " if selected else "") + backend['label']
+            title += " · implemented" if backend.get('implemented') else " · unavailable"
+            self.button(frame, title, lambda value=bid: self._select_backend(value), accent=selected,
+                        key="backend_" + backend['key'], height=64).pack(fill="x", padx=self.px(12), pady=(self.px(5), 0))
+            capacity = backend.get('capacity') or {}
+            details = ["Manifest " + bid, str(backend.get('reason') or "Existing baseline adapter; local asset checks still apply at Start."),
+                "Capacity: " + str(capacity.get('speaker_channels_status', 'Not established')),
+                "2 GB target: " + str(capacity.get('system_ram_2gb', 'NOT_TESTED')),
+                "One active model stack. All logical modes remain visible."]
+            self._paragraph_label(frame, "\n".join(details), True)
+        self._paragraph_label(frame, "Voice profiles are model-specific. ReDimNet vectors cannot be compared with TitaNet; compatible permitted reference audio or re-enrollment is required.", True)
+
+    def _select_backend(self, backend_id: str) -> None:
+        if self._call('select_backend', backend_id):
+            # Controller owns the command and its completion; the next poll
+            # supplies the authoritative ID instead of an optimistic UI state.
+            self._notice = "Backend selection queued. Start is explicit."
+            self._page_update = self._backend_selection_update
+
+    def _backend_selection_update(self) -> None:
+        identifier = self.snapshot.get('backend_id', BASELINE_BACKEND_ID)
+        if identifier != getattr(self, '_backend_page_id', None):
+            self._backend_page_id = identifier
+            self.show_backends()
+            self._page_update = self._backend_selection_update
 
     def show_recipes(self) -> None:
         self.page = "recipes"; frame = self._page("Recipe & tap", back=self.show_modes)
@@ -960,6 +1120,7 @@ class PrototypeUI(TranscriptReviewUI,AdaptationUI,NoiseUI,ScriptEvidenceUI,TextA
         self.preferences[key] = value
         if key == "caption_size":
             self.caption_text.configure(font=self.font(self.config["caption_sizes_px"][value]))
+            self.active_text.configure(font=self.font(self.config["caption_sizes_px"][value]))
             self.show_settings()
         elif key == "spatial_visualization":
             if value:
@@ -970,7 +1131,7 @@ class PrototypeUI(TranscriptReviewUI,AdaptationUI,NoiseUI,ScriptEvidenceUI,TextA
             self.show_settings()
         elif key in ("theme", "preview_zoom"):
             self.zoom = float(self.preferences.get("preview_zoom", 1))
-            self.shell.destroy(); self._row_cache.clear(); self._marks.clear(); self._render_order.clear()
+            self.shell.destroy(); self._row_cache.clear(); self._marks.clear(); self._render_order.clear(); self._history_order.clear()
             self._build(); self._set_geometry(); self._show_status(); self.show_settings()
         else: self.show_settings()
 
@@ -1359,5 +1520,5 @@ class PrototypeUI(TranscriptReviewUI,AdaptationUI,NoiseUI,ScriptEvidenceUI,TextA
             self._pending_rows = None
             self._notice = "Closing · waiting for capture and workers to release safely…"
             self._show_status()
-            for key in ("start_stop", "mode", "people", "settings", "rescue"):
+            for key in ("start_stop", "mode", "people", "settings", "rescue", "backend"):
                 self.actions[key].configure(state="disabled")

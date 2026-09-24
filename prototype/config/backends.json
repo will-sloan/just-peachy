@@ -1,0 +1,512 @@
+{
+  "schema": "just-peachy.backend-catalog.v1",
+  "backends": [
+    {
+      "key": "baseline",
+      "label": "Baseline \u00b7 Giga / Pyannote / ReDimNet",
+      "manifest_id": "sha256:1a6be7490786a81d971c19ad35572b8c13c30993f7b8a7c1903f4b0617b6b1b5",
+      "composition": {
+        "schema": "just-peachy.backend-composition.v1",
+        "runtime": "existing Sherpa ONNX + S7 prototype adapter",
+        "input": {
+          "sample_rate_hz": 16000,
+          "channels": 1,
+          "format": "PCM_16",
+          "gain_policy": "already-prepared samples; do not reapply gain"
+        },
+        "components": {
+          "asr": {
+            "name": "selected Sherpa Giga",
+            "assets": [
+              {
+                "component_id": "sherpa_giga_encoder_int8",
+                "sha256": "32c98281c7bd8b63e3e142d007251b37f120572e8fdea9a4f5a79ce22b10ec4f",
+                "deployment_relative_path": "models/sherpa_giga/encoder-epoch-99-avg-1.int8.onnx",
+                "bytes": 187823992
+              },
+              {
+                "component_id": "sherpa_giga_decoder_fp32",
+                "sha256": "9da02b77cb08826756ec6a88635f35a40374e4164e7c6359121a9145958a6ceb",
+                "deployment_relative_path": "models/sherpa_giga/decoder-epoch-99-avg-1.onnx",
+                "bytes": 2092566
+              },
+              {
+                "component_id": "sherpa_giga_joiner_int8",
+                "sha256": "831477d390e59a61f1b6a6f763b9903e6c6366ff6034f1ddba613be82637122f",
+                "deployment_relative_path": "models/sherpa_giga/joiner-epoch-99-avg-1.int8.onnx",
+                "bytes": 259335
+              },
+              {
+                "component_id": "sherpa_giga_tokens",
+                "sha256": "49e3c2646595fd907228b3c6787069658f67b17377c60aeb8619c4551b2316fb",
+                "deployment_relative_path": "models/sherpa_giga/tokens.txt",
+                "bytes": 5048
+              }
+            ]
+          },
+          "diarization": {
+            "name": "selected Pyannote 3.0 ONNX",
+            "assets": [
+              {
+                "component_id": "pyannote_segmentation_3_0_fp32",
+                "sha256": "b4b65085bbf2cc455565696604c87fedade1359aa6ddfac5d726d69124d5069a",
+                "deployment_relative_path": "models/h2/pyannote_segmentation_3_0_fp32.onnx",
+                "bytes": 5925265
+              }
+            ]
+          },
+          "enrollment": {
+            "name": "selected ReDimNet2-B2",
+            "embedding_space": "redimnet2-b2/5c1a8635cba0d4648463f3b6d30c5a6137bc38d1200ab00c5944400aaa7b5609",
+            "assets": [
+              {
+                "component_id": "redimnet2_b2_fp32",
+                "sha256": "5c1a8635cba0d4648463f3b6d30c5a6137bc38d1200ab00c5944400aaa7b5609",
+                "deployment_relative_path": "models/h2/redimnet2_b2_fp32.onnx",
+                "bytes": 16025408
+              }
+            ]
+          },
+          "punctuation": {
+            "name": "selected final-only punctuation",
+            "assets": [
+              {
+                "component_id": "sherpa_online_punctuation_int8",
+                "sha256": "9d611f445fe4a46186080fe161be6059d87d72eb88d3a8cb00c1a06e83a6067e",
+                "deployment_relative_path": "models/punctuation/model.int8.onnx",
+                "bytes": 7490500
+              },
+              {
+                "component_id": "sherpa_online_punctuation_bpe",
+                "sha256": "e118b7ad88c54db562517df49e1cffd4836d166c34fb190fd311d7f34eb238f5",
+                "deployment_relative_path": "models/punctuation/bpe.vocab",
+                "bytes": 149430
+              }
+            ]
+          }
+        }
+      },
+      "implemented": true,
+      "reason": "",
+      "capacity": {
+        "speaker_channels": null,
+        "speaker_channels_status": "No validated simultaneous speaker capacity; anonymous tracker may retain multiple tracks",
+        "system_ram_2gb": "NOT_TESTED on target CM5 total-system 2 GB",
+        "simultaneous_model_stacks": 1
+      }
+    },
+    {
+      "key": "nemotron_hybrid",
+      "label": "Seed \u00b7 Giga / Nemotron diarization / ReDimNet",
+      "manifest_id": "sha256:e33415c3fbba233c1b0bae61dd4d177d4ff3287c3a0bbac4a8d0082058176da3",
+      "composition": {
+        "schema": "just-peachy.backend-composition.v1",
+        "runtime": "UNIMPLEMENTED seeded adapter; exact runtime/revisions require admission",
+        "input": {
+          "sample_rate_hz": 16000,
+          "channels": 1,
+          "format": "PCM_16",
+          "gain_policy": "already-prepared samples; do not reapply gain"
+        },
+        "components": {
+          "asr": {
+            "name": "selected Sherpa Giga",
+            "assets": [
+              {
+                "component_id": "sherpa_giga_encoder_int8",
+                "sha256": "32c98281c7bd8b63e3e142d007251b37f120572e8fdea9a4f5a79ce22b10ec4f",
+                "deployment_relative_path": "models/sherpa_giga/encoder-epoch-99-avg-1.int8.onnx",
+                "bytes": 187823992
+              },
+              {
+                "component_id": "sherpa_giga_decoder_fp32",
+                "sha256": "9da02b77cb08826756ec6a88635f35a40374e4164e7c6359121a9145958a6ceb",
+                "deployment_relative_path": "models/sherpa_giga/decoder-epoch-99-avg-1.onnx",
+                "bytes": 2092566
+              },
+              {
+                "component_id": "sherpa_giga_joiner_int8",
+                "sha256": "831477d390e59a61f1b6a6f763b9903e6c6366ff6034f1ddba613be82637122f",
+                "deployment_relative_path": "models/sherpa_giga/joiner-epoch-99-avg-1.int8.onnx",
+                "bytes": 259335
+              },
+              {
+                "component_id": "sherpa_giga_tokens",
+                "sha256": "49e3c2646595fd907228b3c6787069658f67b17377c60aeb8619c4551b2316fb",
+                "deployment_relative_path": "models/sherpa_giga/tokens.txt",
+                "bytes": 5048
+              }
+            ]
+          },
+          "diarization": {
+            "repository": "nvidia/Nemotron-3-Diarization",
+            "revision": null,
+            "artifact_sha256": null,
+            "status": "UNPINNED_SEED"
+          },
+          "enrollment": {
+            "name": "selected ReDimNet2-B2",
+            "embedding_space": "redimnet2-b2/5c1a8635cba0d4648463f3b6d30c5a6137bc38d1200ab00c5944400aaa7b5609",
+            "assets": [
+              {
+                "component_id": "redimnet2_b2_fp32",
+                "sha256": "5c1a8635cba0d4648463f3b6d30c5a6137bc38d1200ab00c5944400aaa7b5609",
+                "deployment_relative_path": "models/h2/redimnet2_b2_fp32.onnx",
+                "bytes": 16025408
+              }
+            ]
+          },
+          "punctuation": {
+            "name": "selected final-only punctuation",
+            "assets": [
+              {
+                "component_id": "sherpa_online_punctuation_int8",
+                "sha256": "9d611f445fe4a46186080fe161be6059d87d72eb88d3a8cb00c1a06e83a6067e",
+                "deployment_relative_path": "models/punctuation/model.int8.onnx",
+                "bytes": 7490500
+              },
+              {
+                "component_id": "sherpa_online_punctuation_bpe",
+                "sha256": "e118b7ad88c54db562517df49e1cffd4836d166c34fb190fd311d7f34eb238f5",
+                "deployment_relative_path": "models/punctuation/bpe.vocab",
+                "bytes": 149430
+              }
+            ]
+          }
+        }
+      },
+      "implemented": false,
+      "reason": "UNAVAILABLE \u00b7 seeded composition only; model license/assets/runtime and shared adapter validation are pending. No candidate model is loaded.",
+      "capacity": {
+        "speaker_channels": 8,
+        "speaker_channels_status": "Eight anonymous activity channels is a planning seed; pinned official verification required",
+        "system_ram_2gb": "NOT_TESTED; model bytes are not total RAM",
+        "simultaneous_model_stacks": 1
+      }
+    },
+    {
+      "key": "compact_eou",
+      "label": "Seed \u00b7 Parakeet EOU 120M / Pyannote / ReDimNet",
+      "manifest_id": "sha256:c12631ab0a1adc98aa8072cd635b8c8f4267b8e138f4c44d5df2c82099c3577b",
+      "composition": {
+        "schema": "just-peachy.backend-composition.v1",
+        "runtime": "UNIMPLEMENTED seeded adapter; exact runtime/revisions require admission",
+        "input": {
+          "sample_rate_hz": 16000,
+          "channels": 1,
+          "format": "PCM_16",
+          "gain_policy": "already-prepared samples; do not reapply gain"
+        },
+        "components": {
+          "asr": {
+            "repository": "nvidia/parakeet_realtime_eou_120m-v1",
+            "revision": null,
+            "artifact_sha256": null,
+            "status": "UNPINNED_SEED"
+          },
+          "diarization": {
+            "name": "selected Pyannote 3.0 ONNX",
+            "assets": [
+              {
+                "component_id": "pyannote_segmentation_3_0_fp32",
+                "sha256": "b4b65085bbf2cc455565696604c87fedade1359aa6ddfac5d726d69124d5069a",
+                "deployment_relative_path": "models/h2/pyannote_segmentation_3_0_fp32.onnx",
+                "bytes": 5925265
+              }
+            ]
+          },
+          "enrollment": {
+            "name": "selected ReDimNet2-B2",
+            "embedding_space": "redimnet2-b2/5c1a8635cba0d4648463f3b6d30c5a6137bc38d1200ab00c5944400aaa7b5609",
+            "assets": [
+              {
+                "component_id": "redimnet2_b2_fp32",
+                "sha256": "5c1a8635cba0d4648463f3b6d30c5a6137bc38d1200ab00c5944400aaa7b5609",
+                "deployment_relative_path": "models/h2/redimnet2_b2_fp32.onnx",
+                "bytes": 16025408
+              }
+            ]
+          },
+          "punctuation": {
+            "name": "selected final-only punctuation",
+            "assets": [
+              {
+                "component_id": "sherpa_online_punctuation_int8",
+                "sha256": "9d611f445fe4a46186080fe161be6059d87d72eb88d3a8cb00c1a06e83a6067e",
+                "deployment_relative_path": "models/punctuation/model.int8.onnx",
+                "bytes": 7490500
+              },
+              {
+                "component_id": "sherpa_online_punctuation_bpe",
+                "sha256": "e118b7ad88c54db562517df49e1cffd4836d166c34fb190fd311d7f34eb238f5",
+                "deployment_relative_path": "models/punctuation/bpe.vocab",
+                "bytes": 149430
+              }
+            ]
+          }
+        }
+      },
+      "implemented": false,
+      "reason": "UNAVAILABLE \u00b7 seeded composition only; model license/assets/runtime and shared adapter validation are pending. No candidate model is loaded.",
+      "capacity": {
+        "speaker_channels": null,
+        "speaker_channels_status": "Not established for this composition",
+        "system_ram_2gb": "NOT_TESTED; model bytes are not total RAM",
+        "simultaneous_model_stacks": 1
+      }
+    },
+    {
+      "key": "nemotron_600m",
+      "label": "Seed \u00b7 Nemotron ASR 600M / Nemotron diarization",
+      "manifest_id": "sha256:b72b1e5273053c6c2792763549920a24763be60f145db3aae951be64f643c1ef",
+      "composition": {
+        "schema": "just-peachy.backend-composition.v1",
+        "runtime": "UNIMPLEMENTED seeded adapter; exact runtime/revisions require admission",
+        "input": {
+          "sample_rate_hz": 16000,
+          "channels": 1,
+          "format": "PCM_16",
+          "gain_policy": "already-prepared samples; do not reapply gain"
+        },
+        "components": {
+          "asr": {
+            "repository": "nvidia/nemotron-speech-streaming-en-0.6b",
+            "revision": null,
+            "artifact_sha256": null,
+            "status": "UNPINNED_SEED"
+          },
+          "diarization": {
+            "repository": "nvidia/Nemotron-3-Diarization",
+            "revision": null,
+            "artifact_sha256": null,
+            "status": "UNPINNED_SEED"
+          },
+          "enrollment": {
+            "name": "selected ReDimNet2-B2",
+            "embedding_space": "redimnet2-b2/5c1a8635cba0d4648463f3b6d30c5a6137bc38d1200ab00c5944400aaa7b5609",
+            "assets": [
+              {
+                "component_id": "redimnet2_b2_fp32",
+                "sha256": "5c1a8635cba0d4648463f3b6d30c5a6137bc38d1200ab00c5944400aaa7b5609",
+                "deployment_relative_path": "models/h2/redimnet2_b2_fp32.onnx",
+                "bytes": 16025408
+              }
+            ]
+          },
+          "punctuation": {
+            "repository": "ASR-native casing/punctuation (pending validation)",
+            "revision": null,
+            "artifact_sha256": null,
+            "status": "UNPINNED_SEED"
+          }
+        }
+      },
+      "implemented": false,
+      "reason": "UNAVAILABLE \u00b7 seeded composition only; model license/assets/runtime and shared adapter validation are pending. No candidate model is loaded.",
+      "capacity": {
+        "speaker_channels": 8,
+        "speaker_channels_status": "Eight anonymous activity channels is a planning seed; pinned official verification required",
+        "system_ram_2gb": "NOT_TESTED; model bytes are not total RAM",
+        "simultaneous_model_stacks": 1
+      }
+    },
+    {
+      "key": "nemotron_35_600m",
+      "label": "Seed \u00b7 Nemotron 3.5 ASR / Nemotron diarization",
+      "manifest_id": "sha256:51753cb2a7010a1d0afc2a92ed056099f4d6ee8d1a5a1247707f0cbe3a04fcfa",
+      "composition": {
+        "schema": "just-peachy.backend-composition.v1",
+        "runtime": "UNIMPLEMENTED seeded adapter; exact runtime/revisions require admission",
+        "input": {
+          "sample_rate_hz": 16000,
+          "channels": 1,
+          "format": "PCM_16",
+          "gain_policy": "already-prepared samples; do not reapply gain"
+        },
+        "components": {
+          "asr": {
+            "repository": "nvidia/nemotron-3.5-asr-streaming-0.6b",
+            "revision": null,
+            "artifact_sha256": null,
+            "status": "UNPINNED_SEED"
+          },
+          "diarization": {
+            "repository": "nvidia/Nemotron-3-Diarization",
+            "revision": null,
+            "artifact_sha256": null,
+            "status": "UNPINNED_SEED"
+          },
+          "enrollment": {
+            "name": "selected ReDimNet2-B2",
+            "embedding_space": "redimnet2-b2/5c1a8635cba0d4648463f3b6d30c5a6137bc38d1200ab00c5944400aaa7b5609",
+            "assets": [
+              {
+                "component_id": "redimnet2_b2_fp32",
+                "sha256": "5c1a8635cba0d4648463f3b6d30c5a6137bc38d1200ab00c5944400aaa7b5609",
+                "deployment_relative_path": "models/h2/redimnet2_b2_fp32.onnx",
+                "bytes": 16025408
+              }
+            ]
+          },
+          "punctuation": {
+            "repository": "ASR-native casing/punctuation (fixed English; pending validation)",
+            "revision": null,
+            "artifact_sha256": null,
+            "status": "UNPINNED_SEED"
+          }
+        }
+      },
+      "implemented": false,
+      "reason": "UNAVAILABLE \u00b7 seeded composition only; model license/assets/runtime and shared adapter validation are pending. No candidate model is loaded.",
+      "capacity": {
+        "speaker_channels": 8,
+        "speaker_channels_status": "Eight anonymous activity channels is a planning seed; pinned official verification required",
+        "system_ram_2gb": "NOT_TESTED; model bytes are not total RAM",
+        "simultaneous_model_stacks": 1
+      }
+    },
+    {
+      "key": "titanet",
+      "label": "Seed \u00b7 Giga / Pyannote / TitaNet",
+      "manifest_id": "sha256:0c26363f17ebe3357947e9bc7901f580087d3bbf465b7d589a7936cb8336f0a1",
+      "composition": {
+        "schema": "just-peachy.backend-composition.v1",
+        "runtime": "UNIMPLEMENTED seeded adapter; exact runtime/revisions require admission",
+        "input": {
+          "sample_rate_hz": 16000,
+          "channels": 1,
+          "format": "PCM_16",
+          "gain_policy": "already-prepared samples; do not reapply gain"
+        },
+        "components": {
+          "asr": {
+            "name": "selected Sherpa Giga",
+            "assets": [
+              {
+                "component_id": "sherpa_giga_encoder_int8",
+                "sha256": "32c98281c7bd8b63e3e142d007251b37f120572e8fdea9a4f5a79ce22b10ec4f",
+                "deployment_relative_path": "models/sherpa_giga/encoder-epoch-99-avg-1.int8.onnx",
+                "bytes": 187823992
+              },
+              {
+                "component_id": "sherpa_giga_decoder_fp32",
+                "sha256": "9da02b77cb08826756ec6a88635f35a40374e4164e7c6359121a9145958a6ceb",
+                "deployment_relative_path": "models/sherpa_giga/decoder-epoch-99-avg-1.onnx",
+                "bytes": 2092566
+              },
+              {
+                "component_id": "sherpa_giga_joiner_int8",
+                "sha256": "831477d390e59a61f1b6a6f763b9903e6c6366ff6034f1ddba613be82637122f",
+                "deployment_relative_path": "models/sherpa_giga/joiner-epoch-99-avg-1.int8.onnx",
+                "bytes": 259335
+              },
+              {
+                "component_id": "sherpa_giga_tokens",
+                "sha256": "49e3c2646595fd907228b3c6787069658f67b17377c60aeb8619c4551b2316fb",
+                "deployment_relative_path": "models/sherpa_giga/tokens.txt",
+                "bytes": 5048
+              }
+            ]
+          },
+          "diarization": {
+            "name": "selected Pyannote 3.0 ONNX",
+            "assets": [
+              {
+                "component_id": "pyannote_segmentation_3_0_fp32",
+                "sha256": "b4b65085bbf2cc455565696604c87fedade1359aa6ddfac5d726d69124d5069a",
+                "deployment_relative_path": "models/h2/pyannote_segmentation_3_0_fp32.onnx",
+                "bytes": 5925265
+              }
+            ]
+          },
+          "enrollment": {
+            "repository": "nvidia/speakerverification_en_titanet_large",
+            "revision": null,
+            "artifact_sha256": null,
+            "status": "UNPINNED_SEED"
+          },
+          "punctuation": {
+            "name": "selected final-only punctuation",
+            "assets": [
+              {
+                "component_id": "sherpa_online_punctuation_int8",
+                "sha256": "9d611f445fe4a46186080fe161be6059d87d72eb88d3a8cb00c1a06e83a6067e",
+                "deployment_relative_path": "models/punctuation/model.int8.onnx",
+                "bytes": 7490500
+              },
+              {
+                "component_id": "sherpa_online_punctuation_bpe",
+                "sha256": "e118b7ad88c54db562517df49e1cffd4836d166c34fb190fd311d7f34eb238f5",
+                "deployment_relative_path": "models/punctuation/bpe.vocab",
+                "bytes": 149430
+              }
+            ]
+          }
+        }
+      },
+      "implemented": false,
+      "reason": "UNAVAILABLE \u00b7 seeded composition only; model license/assets/runtime and shared adapter validation are pending. No candidate model is loaded.",
+      "capacity": {
+        "speaker_channels": null,
+        "speaker_channels_status": "Not established for this composition",
+        "system_ram_2gb": "NOT_TESTED; model bytes are not total RAM",
+        "simultaneous_model_stacks": 1
+      }
+    },
+    {
+      "key": "multitalker",
+      "label": "Optional seed \u00b7 Multitalker / predicted activity",
+      "manifest_id": "sha256:4c98a854b110539d8475f20698bda5a744bdbb53273d52f1d70889f44ccbcb6d",
+      "composition": {
+        "schema": "just-peachy.backend-composition.v1",
+        "runtime": "UNIMPLEMENTED seeded adapter; exact runtime/revisions require admission",
+        "input": {
+          "sample_rate_hz": 16000,
+          "channels": 1,
+          "format": "PCM_16",
+          "gain_policy": "already-prepared samples; do not reapply gain"
+        },
+        "components": {
+          "asr": {
+            "repository": "nvidia/multitalker-parakeet-streaming-0.6b-v1",
+            "revision": null,
+            "artifact_sha256": null,
+            "status": "UNPINNED_SEED"
+          },
+          "diarization": {
+            "repository": "nvidia/Nemotron-3-Diarization",
+            "revision": null,
+            "artifact_sha256": null,
+            "status": "UNPINNED_SEED"
+          },
+          "enrollment": {
+            "name": "selected ReDimNet2-B2",
+            "embedding_space": "redimnet2-b2/5c1a8635cba0d4648463f3b6d30c5a6137bc38d1200ab00c5944400aaa7b5609",
+            "assets": [
+              {
+                "component_id": "redimnet2_b2_fp32",
+                "sha256": "5c1a8635cba0d4648463f3b6d30c5a6137bc38d1200ab00c5944400aaa7b5609",
+                "deployment_relative_path": "models/h2/redimnet2_b2_fp32.onnx",
+                "bytes": 16025408
+              }
+            ]
+          },
+          "punctuation": {
+            "repository": "Candidate-native punctuation capability unverified",
+            "revision": null,
+            "artifact_sha256": null,
+            "status": "UNPINNED_SEED"
+          }
+        }
+      },
+      "implemented": false,
+      "reason": "UNAVAILABLE \u00b7 seeded composition only; model license/assets/runtime and shared adapter validation are pending. No candidate model is loaded.",
+      "capacity": {
+        "speaker_channels": 8,
+        "speaker_channels_status": "Eight anonymous activity channels is a planning seed; pinned official verification required",
+        "system_ram_2gb": "NOT_TESTED; model bytes are not total RAM",
+        "simultaneous_model_stacks": 1
+      }
+    }
+  ]
+}

@@ -303,7 +303,7 @@ class UITests(unittest.TestCase):
         self.ui._update_spatial_visualization(force=True)
         self.assertEqual(self.controller.calls[-1], ("settings_update", ({"spatial_visualization": True},), {}))
         self.assertEqual(self.ui.spatial_canvas.winfo_height(), 145)
-        self.assertGreaterEqual(self.ui.caption_text.winfo_height(), 350)
+        self.assertGreaterEqual(self.ui.caption_text.winfo_height() + self.ui.active_region.winfo_height(), 350)
         canvas = self.ui.spatial_canvas
         self.assertEqual(len(canvas.find_withtag("spatial_beam")), 3)
         self.assertTrue(canvas.itemcget(canvas.find_withtag("focused_2")[0], "dash"))

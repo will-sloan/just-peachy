@@ -28,7 +28,7 @@ class S7Settings:
             raise ValueError("Unsupported S7 policy availability clock")
         if self.availability_clock == "observed" and self.pacing != "absolute":
             raise ValueError("Observed policy availability requires absolute source-end pacing")
-        if self.ownership_mode not in {"conservative_v1", "supported_prefix_v2"}:
+        if self.ownership_mode not in {"conservative_v1", "supported_prefix_v2", "timestamped_spans_v3"}:
             raise ValueError("Unsupported S7 caption ownership mode")
         if type(self.presentation_enabled) is not bool or type(self.trace_capacity) is not int or not 256 <= self.trace_capacity <= 65536:
             raise ValueError("Invalid S7 bounded settings")

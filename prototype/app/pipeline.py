@@ -281,7 +281,7 @@ class PrototypeEngine(PipelineEngine):
         self.ram_horizon_sec=ram_horizon_sec
         self.recipe=profile.profile_id.split('_')[1]
         s7=S7Settings(pacing='absolute',instrumentation='light',mode='M0' if mode=='caption_only' else 'M1' if mode=='anonymous_conversation' else 'M2',
-                     presentation_enabled=True,availability_clock='observed',ownership_mode='supported_prefix_v2')
+                     presentation_enabled=True,availability_clock='observed',ownership_mode='timestamped_spans_v3')
         super().__init__(config,research_profile=profile,research_gallery=gallery,spatial_provider=spatial_provider,
             s6d_settings=S6DSettings(text_delivery=True,boundary_repair=True,max_display_rows=512),s7_settings=s7)
 
