@@ -1,0 +1,32 @@
+{
+  "status": "PASS_SCOPED_CHECKS_ONLY",
+  "new_unit_checks": {
+    "command": "python -m unittest discover -s research/nvidia_nemo_comparison/20260924_campaign/n5 -p test_n5.py -v",
+    "passed": 4,
+    "measured_elapsed_seconds": 0.059,
+    "scope": ["actual byte corruption", "unsafe paths", "duplicate members", "wrong-architecture refusal before execution"]
+  },
+  "release_harness": {
+    "receipt": "RELEASE_TEST_RESULTS.json",
+    "windows_tests": 22,
+    "linux_tests": 22,
+    "transferred_helper_import": "PASS",
+    "ssh_contacted": false,
+    "wrong_target_installer_guard": "PASS"
+  },
+  "offline_bundle": {
+    "receipt": "BUNDLE_CHECK.json",
+    "extracted_member_hashes": 31,
+    "existing_application_stage": "STAGED",
+    "actual_main_validate": "CONFIGURATION_AND_ASSETS_VALID",
+    "neural_inference": false,
+    "microphone_opened": false
+  },
+  "native_extracted_archive": "NATIVE_EXTRACTED_CHECK.json",
+  "n3_existing_v2_plan": "ADMISSION_CHECK_PASSED_BUT_TEST_SOURCE_RECEIPT_LATER_FAILED_MUTABLE_BYTECODE",
+  "n3_v3_recovery": {"queue_tests_passed": 9, "source_files": 373, "bytecode_files": 0, "admitted_jobs": 32},
+  "n5_shell_syntax": "PASS",
+  "per_candidate_actual_gui": "PENDING_N4_ACCEPTANCE",
+  "arm64_model_wav_functional_smoke": "NOT_TESTED",
+  "cm5_hardware": "NOT_TESTED"
+}

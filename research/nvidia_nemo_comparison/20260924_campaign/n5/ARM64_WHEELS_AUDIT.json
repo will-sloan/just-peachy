@@ -1,0 +1,2911 @@
+{
+  "status": "ARM64_BUILD_VERIFIED_STATIC_ONLY",
+  "target": "Bookworm aarch64 CPython 3.11",
+  "checks": [
+    "ELF64 little-endian AArch64",
+    "publisher wheel SHA256",
+    "NEEDED inventory",
+    "Bookworm symbol-version ceilings"
+  ],
+  "wheels": [
+    {
+      "filename": "cffi-2.1.1-cp311-cp311-manylinux2014_aarch64.manylinux_2_17_aarch64.whl",
+      "bytes": 218716,
+      "sha256": "3311ed60d36f83378794e1009ac6258bafbf81f7888b4caa7b35a521e3f95813"
+    },
+    {
+      "filename": "flatbuffers-25.12.19-py2.py3-none-any.whl",
+      "bytes": 26661,
+      "sha256": "7634f50c427838bb021c2d66a3d1168e9d199b0607e6329399f04846d42e20b4"
+    },
+    {
+      "filename": "numpy-2.2.6-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl",
+      "bytes": 14312005,
+      "sha256": "b64d8d4d17135e00c8e346e0a738deb17e754230d7e0810ac5012750bbd85a5a"
+    },
+    {
+      "filename": "onnxruntime-1.29.0-cp311-cp311-manylinux_2_28_aarch64.whl",
+      "bytes": 20803602,
+      "sha256": "16925ef8497e2c07e4b5ae15b504079b3ab3f65e22c58efd10dde0f3caea969a"
+    },
+    {
+      "filename": "packaging-26.3-py3-none-any.whl",
+      "bytes": 129956,
+      "sha256": "d7193f7c8e4e93f444fde0262bf90af30e16fa0ad0ad44cb553c87339b23cd1c"
+    },
+    {
+      "filename": "protobuf-7.36.2-cp310-abi3-manylinux2014_aarch64.whl",
+      "bytes": 344219,
+      "sha256": "e11e1f0180583a2af89db6a2ecd9e8dc40aa6d2988ca175bfd0e6d12ea72d74e"
+    },
+    {
+      "filename": "psutil-7.2.2-cp36-abi3-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl",
+      "bytes": 156997,
+      "sha256": "b0726cecd84f9474419d67252add4ac0cd9811b04d61123054b9fb6f57df6e9e"
+    },
+    {
+      "filename": "pycparser-3.0-py3-none-any.whl",
+      "bytes": 48172,
+      "sha256": "b727414169a36b7d524c1c3e31839a521725078d7b2ff038656844266160a992"
+    },
+    {
+      "filename": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl",
+      "bytes": 35503415,
+      "sha256": "721d6b4ef5dc82ca8968c25b111e307083d7ca9091bc38163fb89243e85e3889"
+    },
+    {
+      "filename": "sherpa_onnx-1.13.4-cp311-cp311-manylinux2014_aarch64.manylinux_2_17_aarch64.whl",
+      "bytes": 4132838,
+      "sha256": "7c4a1c178eb801af92f70120128c1f956b5388b9d684f0af2a08614e05dc3047"
+    },
+    {
+      "filename": "sherpa_onnx_core-1.13.4-py3-none-manylinux2014_aarch64.whl",
+      "bytes": 13023017,
+      "sha256": "b4e4d17eb0d5c569bf4c9effcbc3daef57cf7e2b8418e07ae90f90c9b60b35d5"
+    },
+    {
+      "filename": "sounddevice-0.5.5-py3-none-any.whl",
+      "bytes": 32807,
+      "sha256": "30ff99f6c107f49d25ad16a45cacd8d91c25a1bcdd3e81a206b921a3a6405b1f"
+    },
+    {
+      "filename": "soundfile-0.13.1-py2.py3-none-manylinux_2_28_aarch64.whl",
+      "bytes": 1235729,
+      "sha256": "9c9e855f5a4d06ce4213f31918653ab7de0c5a8d8107cd2427e44b42df547deb"
+    }
+  ],
+  "binaries": [
+    {
+      "path": "cffi-2.1.1-cp311-cp311-manylinux2014_aarch64.manylinux_2_17_aarch64.whl/_cffi_backend.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 452560,
+      "sha256": "da70f5d8c0ff4f5b09056666febe633b32ad5b31fd781511a1599ec1f6bc90a5",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libpthread.so.0",
+        "libc.so.6"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "GLIBC_2.17"
+      ],
+      "rpath": []
+    },
+    {
+      "path": "numpy-2.2.6-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/numpy/_core/_multiarray_tests.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 160216,
+      "sha256": "95f4935858ea8ec430cb5bbd506747fdf7f5e667c1c1556df669f3b999f7ed52",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libm.so.6",
+        "libgcc_s.so.1",
+        "libc.so.6"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "GLIBC_2.17"
+      ],
+      "rpath": []
+    },
+    {
+      "path": "numpy-2.2.6-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/numpy/_core/_multiarray_umath.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 4998225,
+      "sha256": "ba5fed7852444970febf1df05951dddd249ddd6f7eda90ae768f2a3e553da964",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libscipy_openblas64_-128b20d9.so",
+        "libm.so.6",
+        "libgcc_s.so.1",
+        "libc.so.6"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "GLIBC_2.17"
+      ],
+      "rpath": [
+        "$ORIGIN/../../numpy.libs"
+      ]
+    },
+    {
+      "path": "numpy-2.2.6-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/numpy/_core/_operand_flag_tests.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 70776,
+      "sha256": "6e07a54cab703d023f20bde98fa8703773077fd8b1ddad9e7d7085226e15b3f6",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [],
+      "soname": [],
+      "symbol_versions": [],
+      "rpath": []
+    },
+    {
+      "path": "numpy-2.2.6-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/numpy/_core/_rational_tests.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 76728,
+      "sha256": "5e77150a0ce12af1c96d54cd22464bf8bd5889ec3c95f7815109aa4a04ece9d0",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libc.so.6"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "GLIBC_2.17"
+      ],
+      "rpath": []
+    },
+    {
+      "path": "numpy-2.2.6-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/numpy/_core/_simd.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 534424,
+      "sha256": "275a15102a150ba7b16c2b48498519cb9ca97f9395ae153a56d1fa01b708be70",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libm.so.6",
+        "libgcc_s.so.1",
+        "libc.so.6"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "GLIBC_2.17"
+      ],
+      "rpath": []
+    },
+    {
+      "path": "numpy-2.2.6-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/numpy/_core/_struct_ufunc_tests.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 70872,
+      "sha256": "14b1feccd4d44eacaaf2078afad9cf60b056622445ff656c38a1a195a1e9bb43",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [],
+      "soname": [],
+      "symbol_versions": [],
+      "rpath": []
+    },
+    {
+      "path": "numpy-2.2.6-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/numpy/_core/_umath_tests.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 76472,
+      "sha256": "91602b47332cdef177282b2335ac1b2d398d1a8943439bdededa5b4a1a843ebc",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libm.so.6",
+        "libc.so.6"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "GLIBC_2.17"
+      ],
+      "rpath": []
+    },
+    {
+      "path": "numpy-2.2.6-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/numpy/fft/_pocketfft_umath.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 661048,
+      "sha256": "12e3d166a40cdc2c26c1541a1f4dc3e3a902f715085ce0c3905f1d7705275a53",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libstdc++.so.6",
+        "libm.so.6",
+        "libgcc_s.so.1",
+        "libc.so.6",
+        "ld-linux-aarch64.so.1"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "CXXABI_1.3",
+        "GLIBCXX_3.4",
+        "GLIBC_2.17"
+      ],
+      "rpath": []
+    },
+    {
+      "path": "numpy-2.2.6-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/numpy/linalg/_umath_linalg.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 330217,
+      "sha256": "e670e6ec94f8ef9ce0af45174d853997214dcaf5851098aee8437fc28736e1ad",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libscipy_openblas64_-128b20d9.so",
+        "libm.so.6",
+        "libgcc_s.so.1",
+        "libc.so.6"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "GLIBC_2.17"
+      ],
+      "rpath": [
+        "$ORIGIN/../../numpy.libs"
+      ]
+    },
+    {
+      "path": "numpy-2.2.6-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/numpy/linalg/lapack_lite.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 197945,
+      "sha256": "d0f381689b20cc3eaa4d4530e7ae096e67a344d68b925c7855a0a485edb62fac",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libscipy_openblas64_-128b20d9.so"
+      ],
+      "soname": [],
+      "symbol_versions": [],
+      "rpath": [
+        "$ORIGIN/../../numpy.libs"
+      ]
+    },
+    {
+      "path": "numpy-2.2.6-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/numpy/random/_bounded_integers.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 371320,
+      "sha256": "18ebda0e4cf39882e1845a0a52c46614db125bdd05263dfb937e4ba95eb30158",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libm.so.6",
+        "libc.so.6"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "GLIBC_2.17"
+      ],
+      "rpath": []
+    },
+    {
+      "path": "numpy-2.2.6-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/numpy/random/_common.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 297392,
+      "sha256": "c23edb409b4b0cf98b27b11d82aebecd438e3285e2cb0e763be04aff84aa982f",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libm.so.6",
+        "libc.so.6"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "GLIBC_2.17"
+      ],
+      "rpath": []
+    },
+    {
+      "path": "numpy-2.2.6-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/numpy/random/_generator.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 955712,
+      "sha256": "ca2e2c9188878690768767cfccd92388201fd28fe7f41bbe63e0e3b23ebb8d67",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libm.so.6",
+        "libc.so.6"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "GLIBC_2.17"
+      ],
+      "rpath": []
+    },
+    {
+      "path": "numpy-2.2.6-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/numpy/random/_mt19937.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 155400,
+      "sha256": "492d09e612f7da8dc7b6e9d25453d05d21df160db49d867cadc0d5511a2313d5",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libc.so.6"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "GLIBC_2.17"
+      ],
+      "rpath": []
+    },
+    {
+      "path": "numpy-2.2.6-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/numpy/random/_pcg64.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 157704,
+      "sha256": "2ea734983e6ec9d2238cf88672989aee99ccaf76752d2c5d7796089801f9033e",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libc.so.6"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "GLIBC_2.17"
+      ],
+      "rpath": []
+    },
+    {
+      "path": "numpy-2.2.6-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/numpy/random/_philox.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 154392,
+      "sha256": "98ff2ac586a74c95c0c0be72f8792dec46a70d06d5e463ab19f1aa1fa4bfcf92",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libc.so.6"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "GLIBC_2.17"
+      ],
+      "rpath": []
+    },
+    {
+      "path": "numpy-2.2.6-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/numpy/random/_sfc64.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 86344,
+      "sha256": "3a150138d8fca47168001e8f5c1b3f82359abd9d20f612472a97004ba887d281",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libc.so.6"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "GLIBC_2.17"
+      ],
+      "rpath": []
+    },
+    {
+      "path": "numpy-2.2.6-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/numpy/random/bit_generator.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 244144,
+      "sha256": "f07a8709c94cb9936e003469b3a160516b1328f9cd4cb3097e5eb331c282bf16",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libc.so.6"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "GLIBC_2.17"
+      ],
+      "rpath": []
+    },
+    {
+      "path": "numpy-2.2.6-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/numpy/random/mtrand.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 810240,
+      "sha256": "724caf418ae71fa959e7526453a3caaafe55720d0e50301a0e441470af34e882",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libm.so.6",
+        "libc.so.6"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "GLIBC_2.17"
+      ],
+      "rpath": []
+    },
+    {
+      "path": "numpy-2.2.6-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/numpy.libs/libgfortran-daac5196-038a5e3c.so.5.0.0",
+      "bytes": 1671529,
+      "sha256": "8c13f44b44e4dd0005632ea4173f5f5014d2829d50aa12b2054034297c07f233",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libz.so.1",
+        "libm.so.6",
+        "libgcc_s.so.1",
+        "libc.so.6",
+        "ld-linux-aarch64.so.1"
+      ],
+      "soname": [
+        "libgfortran-daac5196-038a5e3c.so.5.0.0"
+      ],
+      "symbol_versions": [
+        "GLIBC_2.17"
+      ],
+      "rpath": [
+        "$ORIGIN"
+      ]
+    },
+    {
+      "path": "numpy-2.2.6-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/numpy.libs/libscipy_openblas64_-128b20d9.so",
+      "bytes": 24730929,
+      "sha256": "63afbdca6499641c9c0f10fe84c395ac2bcb89f3121b6c97c662418dd2d39785",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libm.so.6",
+        "libpthread.so.0",
+        "libgfortran-daac5196-038a5e3c.so.5.0.0",
+        "libc.so.6"
+      ],
+      "soname": [
+        "libscipy_openblas64_-128b20d9.so"
+      ],
+      "symbol_versions": [
+        "GLIBC_2.17"
+      ],
+      "rpath": [
+        "$ORIGIN"
+      ]
+    },
+    {
+      "path": "onnxruntime-1.29.0-cp311-cp311-manylinux_2_28_aarch64.whl/onnxruntime/capi/libonnxruntime.so.1.29.0",
+      "bytes": 24538024,
+      "sha256": "1444bdca675524f4d265f71397810c9b1f39164b6dccc8f1a39cd81d938e98f4",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libdl.so.2",
+        "librt.so.1",
+        "libpthread.so.0",
+        "libstdc++.so.6",
+        "libm.so.6",
+        "libgcc_s.so.1",
+        "libc.so.6",
+        "ld-linux-aarch64.so.1"
+      ],
+      "soname": [
+        "libonnxruntime.so.1"
+      ],
+      "symbol_versions": [
+        "CXXABI_1.3",
+        "CXXABI_1.3.11",
+        "CXXABI_1.3.2",
+        "CXXABI_1.3.3",
+        "CXXABI_1.3.5",
+        "CXXABI_1.3.7",
+        "CXXABI_1.3.8",
+        "CXXABI_1.3.9",
+        "GLIBCXX_3.4",
+        "GLIBCXX_3.4.11",
+        "GLIBCXX_3.4.14",
+        "GLIBCXX_3.4.15",
+        "GLIBCXX_3.4.17",
+        "GLIBCXX_3.4.18",
+        "GLIBCXX_3.4.19",
+        "GLIBCXX_3.4.20",
+        "GLIBCXX_3.4.21",
+        "GLIBCXX_3.4.22",
+        "GLIBCXX_3.4.9",
+        "GLIBC_2.17",
+        "GLIBC_2.25",
+        "GLIBC_2.27",
+        "GLIBC_2.28"
+      ],
+      "rpath": [
+        "$ORIGIN"
+      ]
+    },
+    {
+      "path": "onnxruntime-1.29.0-cp311-cp311-manylinux_2_28_aarch64.whl/onnxruntime/capi/libonnxruntime_providers_shared.so",
+      "bytes": 198792,
+      "sha256": "3b6be288fbfb7dff8770d08a23defdde18e8f7e0f5a2b344a0e5e238c999ea88",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libstdc++.so.6",
+        "libm.so.6",
+        "libgcc_s.so.1",
+        "libc.so.6"
+      ],
+      "soname": [
+        "libonnxruntime_providers_shared.so"
+      ],
+      "symbol_versions": [
+        "GLIBC_2.17"
+      ],
+      "rpath": []
+    },
+    {
+      "path": "onnxruntime-1.29.0-cp311-cp311-manylinux_2_28_aarch64.whl/onnxruntime/capi/onnxruntime_pybind11_state.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 25521864,
+      "sha256": "40114647fae635fc5db014000111c29e04cf8eb0d2aabd2c06d70d65a0298115",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libdl.so.2",
+        "librt.so.1",
+        "libpthread.so.0",
+        "libstdc++.so.6",
+        "libm.so.6",
+        "libgcc_s.so.1",
+        "libc.so.6",
+        "ld-linux-aarch64.so.1"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "CXXABI_1.3",
+        "CXXABI_1.3.11",
+        "CXXABI_1.3.2",
+        "CXXABI_1.3.3",
+        "CXXABI_1.3.5",
+        "CXXABI_1.3.7",
+        "CXXABI_1.3.8",
+        "CXXABI_1.3.9",
+        "GLIBCXX_3.4",
+        "GLIBCXX_3.4.11",
+        "GLIBCXX_3.4.14",
+        "GLIBCXX_3.4.15",
+        "GLIBCXX_3.4.17",
+        "GLIBCXX_3.4.18",
+        "GLIBCXX_3.4.19",
+        "GLIBCXX_3.4.20",
+        "GLIBCXX_3.4.21",
+        "GLIBCXX_3.4.22",
+        "GLIBCXX_3.4.9",
+        "GLIBC_2.17",
+        "GLIBC_2.25",
+        "GLIBC_2.27",
+        "GLIBC_2.28"
+      ],
+      "rpath": [
+        "$ORIGIN"
+      ]
+    },
+    {
+      "path": "protobuf-7.36.2-cp310-abi3-manylinux2014_aarch64.whl/google/_upb/_message.abi3.so",
+      "bytes": 446816,
+      "sha256": "f869d46d7d842f103f59226a74b7a186017df4948fda98aaf5c36fa078aaf477",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libstdc++.so.6",
+        "libm.so.6",
+        "libc.so.6"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "GLIBC_2.17"
+      ],
+      "rpath": []
+    },
+    {
+      "path": "psutil-7.2.2-cp36-abi3-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl/psutil/_psutil_linux.abi3.so",
+      "bytes": 321912,
+      "sha256": "463d351dd4b4d93957d30a7b645dd0bccd09276fd5d26c0ebd8c10e5088ba1a3",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libpthread.so.0",
+        "libc.so.6"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "GLIBC_2.17"
+      ],
+      "rpath": []
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/_lib/_test_ccallback.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 72872,
+      "sha256": "40ecfc2f67786fdae05b8b8fcfb77a3762654abfa3752d4101c161b0987c345d",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libc.so.6"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "GLIBC_2.17"
+      ],
+      "rpath": []
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/_lib/_ccallback_c.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 155920,
+      "sha256": "6d7a913a2a5631732ef19823770cf77e666437f0cfcd93466eba497a152b7eb2",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libm.so.6",
+        "libc.so.6"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "GLIBC_2.17"
+      ],
+      "rpath": []
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/_lib/_test_deprecation_def.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 75928,
+      "sha256": "4167bf5c56fd456a4102b79ef9fe34eca41a226ead908d6abc1f21bc263b033b",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libc.so.6"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "GLIBC_2.17"
+      ],
+      "rpath": []
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/_lib/_test_deprecation_call.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 78728,
+      "sha256": "df4e6f1c18a8e8002c593ee67997394daa95c01d544bd1cc3d99b0c77e93adef",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libc.so.6"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "GLIBC_2.17"
+      ],
+      "rpath": []
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/_lib/messagestream.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 86376,
+      "sha256": "2977cb32aebb9c10470f12fd3a8b2f41c726feb5df736d903460d580653a94e3",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libc.so.6"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "GLIBC_2.17"
+      ],
+      "rpath": []
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/_lib/_fpumode.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 70128,
+      "sha256": "ecb525f0dfa5241a2ee276503229d996d807df5d6228abaca4826d84221f7180",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [],
+      "soname": [],
+      "symbol_versions": [],
+      "rpath": []
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/_lib/_uarray/_uarray.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 193648,
+      "sha256": "5a3f7a9e3150a3ea73dd851e552294de87ff99879c3b9ebf0994a81b780fa7b3",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libstdc++.so.6",
+        "libgcc_s.so.1",
+        "libc.so.6",
+        "ld-linux-aarch64.so.1"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "CXXABI_1.3",
+        "CXXABI_1.3.5",
+        "CXXABI_1.3.7",
+        "GLIBCXX_3.4",
+        "GLIBCXX_3.4.18",
+        "GLIBC_2.17"
+      ],
+      "rpath": []
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/spatial/_qhull.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 1086056,
+      "sha256": "43f1de06557e8eeb9a30e9ce5b772dbaf38a7bc5844b9f7b3682f2db00190e92",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libm.so.6",
+        "libc.so.6"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "GLIBC_2.17"
+      ],
+      "rpath": []
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/spatial/_voronoi.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 233792,
+      "sha256": "ef3269e0a5f1628803cd447f42e9cee724c86dc79f35cb7716260b6a9c3015e7",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libc.so.6"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "GLIBC_2.17"
+      ],
+      "rpath": []
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/spatial/_distance_pybind.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 649632,
+      "sha256": "ff1e74c6c422fb855e78e52c470e756d8e0c5132dacf5e39d21fd4501f7e1c1b",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libstdc++.so.6",
+        "libm.so.6",
+        "libgcc_s.so.1",
+        "libc.so.6",
+        "ld-linux-aarch64.so.1"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "CXXABI_1.3",
+        "CXXABI_1.3.2",
+        "CXXABI_1.3.3",
+        "CXXABI_1.3.5",
+        "GLIBCXX_3.4",
+        "GLIBCXX_3.4.11",
+        "GLIBCXX_3.4.18",
+        "GLIBCXX_3.4.9",
+        "GLIBC_2.17"
+      ],
+      "rpath": []
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/spatial/_distance_wrap.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 142320,
+      "sha256": "e23ba418af1eb62eb5256fa7ad793f5912a1a7499a95bbfb1973d61efbf17044",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libm.so.6",
+        "libc.so.6"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "GLIBC_2.17"
+      ],
+      "rpath": []
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/spatial/_ckdtree.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 885808,
+      "sha256": "312c041e67af6e5d68b0bb985c85c35b1a6d512e7e538c4042e733f34abc3088",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libstdc++.so.6",
+        "libm.so.6",
+        "libgcc_s.so.1",
+        "libc.so.6",
+        "ld-linux-aarch64.so.1"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "CXXABI_1.3",
+        "GLIBCXX_3.4",
+        "GLIBC_2.17"
+      ],
+      "rpath": []
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/spatial/_hausdorff.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 234872,
+      "sha256": "fe77a8bf8517d9f9cb6db3736d458150913fb9de018711d3f9bf4fda65679d5f",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libm.so.6",
+        "libc.so.6"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "GLIBC_2.17"
+      ],
+      "rpath": []
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/spatial/transform/_rotation.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 884632,
+      "sha256": "92151a24ec77aeabedbc9068c3afbad3f002b3a6d15fa42b41aef2e9f4d3cd58",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libm.so.6",
+        "libc.so.6"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "GLIBC_2.17"
+      ],
+      "rpath": []
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/cluster/_hierarchy.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 387672,
+      "sha256": "583489c072e2e0730939d73a62b4bb95d256e0d32cf6c4d8a4f905501424084d",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libm.so.6",
+        "libc.so.6"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "GLIBC_2.17"
+      ],
+      "rpath": []
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/cluster/_optimal_leaf_ordering.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 307720,
+      "sha256": "3e96f1a87e3762a92d1ef924a0416df19f25e8ce688b4779cdd5beb4d2b651c9",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libc.so.6"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "GLIBC_2.17"
+      ],
+      "rpath": []
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/cluster/_vq.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 153176,
+      "sha256": "90706922484f344f8a31afefbe25da9a1e324ced83c42984871aa99008f07688",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libm.so.6",
+        "libc.so.6"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "GLIBC_2.17"
+      ],
+      "rpath": []
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/io/_test_fortran.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 198681,
+      "sha256": "b3457e505d4d727aebb57f39a97bc8a9ec8bb75ef503bb3fc050355f778f90fd",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libgfortran-daac5196.so.5.0.0",
+        "libc.so.6"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "GLIBC_2.17"
+      ],
+      "rpath": [
+        "$ORIGIN/../../scipy.libs"
+      ]
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/io/_fast_matrix_market/_fmm_core.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 3947136,
+      "sha256": "b440fa242188de94868ac809b2ea72f05c7c2124ddb03f2167e04f1807b2b80e",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libstdc++.so.6",
+        "libgcc_s.so.1",
+        "libc.so.6",
+        "ld-linux-aarch64.so.1"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "CXXABI_1.3",
+        "CXXABI_1.3.2",
+        "CXXABI_1.3.3",
+        "CXXABI_1.3.5",
+        "GLIBCXX_3.4",
+        "GLIBCXX_3.4.11",
+        "GLIBCXX_3.4.14",
+        "GLIBCXX_3.4.15",
+        "GLIBCXX_3.4.17",
+        "GLIBCXX_3.4.18",
+        "GLIBCXX_3.4.9",
+        "GLIBC_2.17"
+      ],
+      "rpath": []
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/io/matlab/_streams.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 160376,
+      "sha256": "0e98e2165702ea6d4f1be980038140d1422708d2df886f8d04779f5d78d95a3c",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libc.so.6"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "GLIBC_2.17"
+      ],
+      "rpath": []
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/io/matlab/_mio5_utils.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 306176,
+      "sha256": "42f498947f0855e2195d8992a9fe4f4f518380bdfade091dd03875c49c93c7bd",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libc.so.6"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "GLIBC_2.17"
+      ],
+      "rpath": []
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/io/matlab/_mio_utils.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 82024,
+      "sha256": "fc4e2c31fdfa7c48d77d7600433dd0c5f68993bad01e3e2581ebaa93377af155",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libc.so.6"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "GLIBC_2.17"
+      ],
+      "rpath": []
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/integrate/_test_multivariate.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 70712,
+      "sha256": "79f3e7a8e872a67cdb17ee344c25739b8fa80a34c421d1f46171735c0fd71080",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libm.so.6"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "GLIBC_2.17"
+      ],
+      "rpath": []
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/integrate/_lsoda.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 615137,
+      "sha256": "ab76f4023410a6b0a944df4a9aee9527991fa2c8a8454cb09281a9ca16f1d19a",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libscipy_openblas-9778f98e.so",
+        "libgfortran-daac5196.so.5.0.0",
+        "libm.so.6",
+        "libgcc_s.so.1",
+        "libc.so.6"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "GLIBC_2.17"
+      ],
+      "rpath": [
+        "$ORIGIN/../../scipy.libs"
+      ]
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/integrate/_test_odeint_banded.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 614881,
+      "sha256": "285a2977c3bb819d8eac45b860b902f89eea96eb01972a966e83a55a81eaed7a",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libscipy_openblas-9778f98e.so",
+        "libgfortran-daac5196.so.5.0.0",
+        "libm.so.6",
+        "libgcc_s.so.1",
+        "libc.so.6"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "GLIBC_2.17"
+      ],
+      "rpath": [
+        "$ORIGIN/../../scipy.libs"
+      ]
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/integrate/_dop.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 264409,
+      "sha256": "84233d37c2898c85d4be8a58588ca10030681d4fde1019d9642e32b82f0dc824",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libgfortran-daac5196.so.5.0.0",
+        "libm.so.6",
+        "libc.so.6"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "GLIBC_2.17"
+      ],
+      "rpath": [
+        "$ORIGIN/../../scipy.libs"
+      ]
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/integrate/_quadpack.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 141128,
+      "sha256": "c3cc5590e7f945a2a62e1f0f89c4ec549e581b06199eab1755102a57d1ef16cc",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libm.so.6",
+        "libc.so.6"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "GLIBC_2.17"
+      ],
+      "rpath": []
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/integrate/_odepack.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 483201,
+      "sha256": "9e00a3d6254a68c7595b4cc098d6f6dde3c079d36e507c142d9df1f2ec06ed73",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libscipy_openblas-9778f98e.so",
+        "libgfortran-daac5196.so.5.0.0",
+        "libm.so.6",
+        "libgcc_s.so.1",
+        "libc.so.6"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "GLIBC_2.17"
+      ],
+      "rpath": [
+        "$ORIGIN/../../scipy.libs"
+      ]
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/integrate/_vode.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 680633,
+      "sha256": "e7fc06cf3469ed4dfe6b6bddd21aeef48a3eb4485a642e308e85fd38fe4cf5bf",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libscipy_openblas-9778f98e.so",
+        "libgfortran-daac5196.so.5.0.0",
+        "libm.so.6",
+        "libgcc_s.so.1",
+        "libc.so.6"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "GLIBC_2.17"
+      ],
+      "rpath": [
+        "$ORIGIN/../../scipy.libs"
+      ]
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/linalg/_linalg_pythran.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 161648,
+      "sha256": "bf01f72c2b04ef7ce0be03d137995d842e66b7c283a593cacc887b727bbf8638",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libstdc++.so.6",
+        "libm.so.6",
+        "libgcc_s.so.1",
+        "libc.so.6",
+        "ld-linux-aarch64.so.1"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "CXXABI_1.3",
+        "GLIBCXX_3.4",
+        "GLIBCXX_3.4.9",
+        "GLIBC_2.17"
+      ],
+      "rpath": []
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/linalg/_flapack.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 2384385,
+      "sha256": "9b3d2fd190a3474e21924028e8c8da6262b83e373a48dd135d75bca98a191431",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libscipy_openblas-9778f98e.so",
+        "libc.so.6"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "GLIBC_2.17"
+      ],
+      "rpath": [
+        "$ORIGIN/../../scipy.libs"
+      ]
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/linalg/cython_lapack.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 875505,
+      "sha256": "9be46af15199e2340e694317cbe8b64cdca405ad531c02920a9a606a6eabe688",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libscipy_openblas-9778f98e.so",
+        "libc.so.6"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "GLIBC_2.17"
+      ],
+      "rpath": [
+        "$ORIGIN/../../scipy.libs"
+      ]
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/linalg/_decomp_update.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 361112,
+      "sha256": "cc3dc028ac143fca5ffa41944e18be5ecb6581cc64c4198ace88d2ba8ccc0839",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libm.so.6",
+        "libc.so.6"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "GLIBC_2.17"
+      ],
+      "rpath": []
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/linalg/_cythonized_array_utils.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 528136,
+      "sha256": "26b175801493c7597e2879a664f28135a18d84c7f01814101f2c8299748ed161",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libc.so.6"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "GLIBC_2.17"
+      ],
+      "rpath": []
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/linalg/_solve_toeplitz.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 305728,
+      "sha256": "cbed012fcf609a5ee1784de265317993d495b15dfe31fa7e5ac2095fdc8762d5",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libc.so.6"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "GLIBC_2.17"
+      ],
+      "rpath": []
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/linalg/_matfuncs_sqrtm_triu.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 302408,
+      "sha256": "1e702f8d7bd3ec2ad504e7df1eb81ecfb9a2e7046fff62bf6647b8c43d5bb7b0",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libc.so.6"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "GLIBC_2.17"
+      ],
+      "rpath": []
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/linalg/cython_blas.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 399049,
+      "sha256": "7dcf8e3304ab74011a3038465b1dd64250e82de20abafab832cbf9f1ffb5ba99",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libscipy_openblas-9778f98e.so",
+        "libc.so.6"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "GLIBC_2.17"
+      ],
+      "rpath": [
+        "$ORIGIN/../../scipy.libs"
+      ]
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/linalg/_matfuncs_expm.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 482737,
+      "sha256": "e21ba518ce9c559b23648b77279bc4c8c196d303a56e729fc202d47c4e7bc53b",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libm.so.6",
+        "libscipy_openblas-9778f98e.so"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "GLIBC_2.17"
+      ],
+      "rpath": [
+        "$ORIGIN/../../scipy.libs"
+      ]
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/linalg/_decomp_interpolative.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 924304,
+      "sha256": "db71c7f8bc7ba2c4dbd0e93dcc3ae4c4fa4e968c3fa5d4ee354fc7d20f538164",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libm.so.6",
+        "libc.so.6"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "GLIBC_2.17"
+      ],
+      "rpath": []
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/linalg/_fblas.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 1073497,
+      "sha256": "aedad555ba6fe1ab7bf7b9a3865604618f1255edb6fd4964c05404c090ca8b78",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libscipy_openblas-9778f98e.so",
+        "libc.so.6"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "GLIBC_2.17"
+      ],
+      "rpath": [
+        "$ORIGIN/../../scipy.libs"
+      ]
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/linalg/_decomp_lu_cython.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 300472,
+      "sha256": "d5726e82c41a4044d6e0b6ac36b731414540170aa64322fbe27b5013e702c9ad",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libc.so.6"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "GLIBC_2.17"
+      ],
+      "rpath": []
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/sparse/_csparsetools.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 672960,
+      "sha256": "73a5a3bbc0fc083271f176f85bc048437747966f4e8ca9713fb1010fac2aa8f6",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libc.so.6"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "GLIBC_2.17"
+      ],
+      "rpath": []
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/sparse/_sparsetools.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 4232120,
+      "sha256": "970cc04e9918e48e72f939c729713e475d78923f710db24a3c6aa9f1b95b32c8",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libstdc++.so.6",
+        "libgcc_s.so.1",
+        "libc.so.6",
+        "ld-linux-aarch64.so.1"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "CXXABI_1.3",
+        "GLIBCXX_3.4",
+        "GLIBC_2.17"
+      ],
+      "rpath": []
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/sparse/linalg/_eigen/arpack/_arpack.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 877217,
+      "sha256": "3c1243cb843e3fa601e57757e6889a13a829d0760bc19d513feac5e52c00c9af",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libscipy_openblas-9778f98e.so",
+        "libgfortran-daac5196.so.5.0.0",
+        "libm.so.6",
+        "libgcc_s.so.1",
+        "libc.so.6"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "GLIBC_2.17"
+      ],
+      "rpath": [
+        "$ORIGIN/../../../../../scipy.libs"
+      ]
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/sparse/linalg/_propack/_dpropack.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 680609,
+      "sha256": "76277cb3b54cc8f19548f6ca3013884d050172ad383a5bc193c74cf4c3f770c5",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libscipy_openblas-9778f98e.so",
+        "libgfortran-daac5196.so.5.0.0",
+        "libm.so.6",
+        "libc.so.6"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "GLIBC_2.17"
+      ],
+      "rpath": [
+        "$ORIGIN/../../../../scipy.libs"
+      ]
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/sparse/linalg/_propack/_cpropack.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 680697,
+      "sha256": "89483077e7af34fab5ebe3a81dbdb93f3328ae39a16dd6781093819188b0acf3",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libscipy_openblas-9778f98e.so",
+        "libgfortran-daac5196.so.5.0.0",
+        "libm.so.6",
+        "libc.so.6"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "GLIBC_2.17"
+      ],
+      "rpath": [
+        "$ORIGIN/../../../../scipy.libs"
+      ]
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/sparse/linalg/_propack/_zpropack.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 680689,
+      "sha256": "8ce9b39e47fa2c2784c39a6264b64b70f032146b7969b459b46ca4a90f20cae2",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libscipy_openblas-9778f98e.so",
+        "libgfortran-daac5196.so.5.0.0",
+        "libm.so.6",
+        "libc.so.6"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "GLIBC_2.17"
+      ],
+      "rpath": [
+        "$ORIGIN/../../../../scipy.libs"
+      ]
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/sparse/linalg/_propack/_spropack.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 680617,
+      "sha256": "a7b3400520d1828d6d688061037c2b08c7f991022e9eafcc27f94392447941a1",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libscipy_openblas-9778f98e.so",
+        "libgfortran-daac5196.so.5.0.0",
+        "libm.so.6",
+        "libc.so.6"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "GLIBC_2.17"
+      ],
+      "rpath": [
+        "$ORIGIN/../../../../scipy.libs"
+      ]
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/sparse/linalg/_dsolve/_superlu.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 876641,
+      "sha256": "b1b17586a60ed4ce0cb0c4dc4226ae699c44ee25bb7881a7237153d072935844",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libm.so.6",
+        "libscipy_openblas-9778f98e.so",
+        "libc.so.6"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "GLIBC_2.17"
+      ],
+      "rpath": [
+        "$ORIGIN/../../../../scipy.libs"
+      ]
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/sparse/csgraph/_shortest_path.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 519992,
+      "sha256": "1615e17e40d951ef24de83dea8c94ae8b19efebd73084810804bf35689827cd1",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libc.so.6"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "GLIBC_2.17"
+      ],
+      "rpath": []
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/sparse/csgraph/_flow.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 310328,
+      "sha256": "56932a2f71951511712a662204cb12852e6cfa22b5b59ce6f62ccacaab37af7d",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libc.so.6"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "GLIBC_2.17"
+      ],
+      "rpath": []
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/sparse/csgraph/_traversal.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 578168,
+      "sha256": "fca37537277713e1b1dac041f4bc834900f4f7c1b13e4a6570c7eb59c8f24c34",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libc.so.6"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "GLIBC_2.17"
+      ],
+      "rpath": []
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/sparse/csgraph/_matching.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 374864,
+      "sha256": "4cb8042eece84c9562acdbf9c8d4767801c4bcc7110a2c024e94eba4db4a563a",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libc.so.6"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "GLIBC_2.17"
+      ],
+      "rpath": []
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/sparse/csgraph/_reordering.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 308336,
+      "sha256": "f2ff9b452c9e012b0ac6516e7667a7f87fdcf439ab49292a34f3d2c117299525",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libc.so.6"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "GLIBC_2.17"
+      ],
+      "rpath": []
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/sparse/csgraph/_tools.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 227672,
+      "sha256": "cbfc40da626599f8e9756a2258507d72f4376b7900f9b4bab079f72724315745",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libc.so.6"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "GLIBC_2.17"
+      ],
+      "rpath": []
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/sparse/csgraph/_min_spanning_tree.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 302392,
+      "sha256": "4a5b4c228e681004f3a074e47c32201615b3115c9b6b34e1cb769dd65f732b4c",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libc.so.6"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "GLIBC_2.17"
+      ],
+      "rpath": []
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/fft/_pocketfft/pypocketfft.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 1182248,
+      "sha256": "ff4e556b8b8493ef0cdd510505083bff4a793363b50d069024aaffa53c30545a",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libstdc++.so.6",
+        "libm.so.6",
+        "libgcc_s.so.1",
+        "libpthread.so.0",
+        "libc.so.6",
+        "ld-linux-aarch64.so.1"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "CXXABI_1.3",
+        "CXXABI_1.3.2",
+        "CXXABI_1.3.3",
+        "CXXABI_1.3.5",
+        "GLIBCXX_3.4",
+        "GLIBCXX_3.4.11",
+        "GLIBCXX_3.4.14",
+        "GLIBCXX_3.4.17",
+        "GLIBCXX_3.4.18",
+        "GLIBC_2.17"
+      ],
+      "rpath": []
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/ndimage/_ctest.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 70736,
+      "sha256": "b57e7d24e876307b1e2c82214f0ebd253991c432bf5d8c7bf4da06c37a56eb5b",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [],
+      "soname": [],
+      "symbol_versions": [],
+      "rpath": []
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/ndimage/_ni_label.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 380032,
+      "sha256": "b1ef75cbf77fb79727f76484f9e38384248401923e3f534e370488978638e97d",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libc.so.6"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "GLIBC_2.17"
+      ],
+      "rpath": []
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/ndimage/_cytest.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 149000,
+      "sha256": "50deffc601b19806d30e94f9c3e2477606677a84daa3ee8837b91b678c971ae5",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libc.so.6"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "GLIBC_2.17"
+      ],
+      "rpath": []
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/ndimage/_nd_image.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 144048,
+      "sha256": "56fc6dde12144d636e79a76c79eb934b62953d0e659796793dc3963c54c2a5a7",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libm.so.6",
+        "libc.so.6"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "GLIBC_2.17"
+      ],
+      "rpath": []
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/ndimage/_rank_filter_1d.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 73688,
+      "sha256": "0300910c81b0cff795d7f096880d5198452074e7a5c55647935553b282cd3587",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libstdc++.so.6",
+        "libc.so.6"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "CXXABI_1.3",
+        "GLIBCXX_3.4",
+        "GLIBC_2.17"
+      ],
+      "rpath": []
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/odr/__odrpack.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 614353,
+      "sha256": "236654630cf05db0826c8616afa866b267d9367eea53e6d9c495283d76073a02",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libscipy_openblas-9778f98e.so",
+        "libgfortran-daac5196.so.5.0.0",
+        "libm.so.6",
+        "libgcc_s.so.1",
+        "libc.so.6"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "GLIBC_2.17"
+      ],
+      "rpath": [
+        "$ORIGIN/../../scipy.libs"
+      ]
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/stats/_ansari_swilk_statistics.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 303896,
+      "sha256": "ec233da52023ffe00c13507d8a487e8d5a380bc95078162187cc3545b98f36be",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libm.so.6",
+        "libc.so.6"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "GLIBC_2.17"
+      ],
+      "rpath": []
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/stats/_biasedurn.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 350216,
+      "sha256": "b50a6244bf8347255a52e8c40e629f35e8f4486d486aa7859c6f8f119596d759",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libstdc++.so.6",
+        "libm.so.6",
+        "libgcc_s.so.1",
+        "libc.so.6",
+        "ld-linux-aarch64.so.1"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "CXXABI_1.3",
+        "GLIBCXX_3.4",
+        "GLIBC_2.17"
+      ],
+      "rpath": []
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/stats/_mvn.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 81768,
+      "sha256": "e3b839a0991c1373f60a0cf2f115bb5f1420ee2b5db27e63216ee56a7d2068b4",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libm.so.6",
+        "libc.so.6"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "GLIBC_2.17"
+      ],
+      "rpath": []
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/stats/_stats.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 670032,
+      "sha256": "705df5a38f04971d39f273ef9b680ac3814b636c676a60829ed6eac2a1f78708",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libm.so.6",
+        "libc.so.6"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "GLIBC_2.17"
+      ],
+      "rpath": []
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/stats/_qmc_cy.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 317624,
+      "sha256": "d3d708dbb68cf0f737be918249bd445f831c4f9bd37f94a63e7bd3fe63571f03",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libstdc++.so.6",
+        "libm.so.6",
+        "libgcc_s.so.1",
+        "libpthread.so.0",
+        "libc.so.6"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "CXXABI_1.3",
+        "GLIBCXX_3.4",
+        "GLIBCXX_3.4.11",
+        "GLIBC_2.17"
+      ],
+      "rpath": []
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/stats/_stats_pythran.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 165248,
+      "sha256": "4f1be067faedd7705a5406640616d0f6cbacb52d2949163ab64363d2302ef5bd",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libstdc++.so.6",
+        "libgcc_s.so.1",
+        "libc.so.6",
+        "ld-linux-aarch64.so.1"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "CXXABI_1.3",
+        "CXXABI_1.3.5",
+        "GLIBCXX_3.4",
+        "GLIBCXX_3.4.18",
+        "GLIBCXX_3.4.9",
+        "GLIBC_2.17"
+      ],
+      "rpath": []
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/stats/_sobol.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 376264,
+      "sha256": "e8f68d182523bc80865a2fabf170b2b876a6086d1d9fc1ddeb930442bdffd5db",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libc.so.6"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "GLIBC_2.17"
+      ],
+      "rpath": []
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/stats/_unuran/unuran_wrapper.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 1495096,
+      "sha256": "4395efbc079db53eb442cb5b251051f12efe37005edae72b44e0af6cc0004847",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libm.so.6",
+        "libc.so.6"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "GLIBC_2.17"
+      ],
+      "rpath": []
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/stats/_rcont/rcont.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 235680,
+      "sha256": "525a04c1c7b0c2208a3f513354079ade83afd1286326a41087678f6c005911c3",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libm.so.6",
+        "libc.so.6"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "GLIBC_2.17"
+      ],
+      "rpath": []
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/stats/_levy_stable/levyst.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 83456,
+      "sha256": "b3201a143f4bf9d8ed3fd74be8df519c3976db68251d90e79f5ab0cfdbf83c61",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libm.so.6",
+        "libc.so.6"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "GLIBC_2.17"
+      ],
+      "rpath": []
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/optimize/_lsap.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 72928,
+      "sha256": "d47303879238620263045d3c1b30c9d9063b2e2071ea6061f5dd5e278f3590b7",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libstdc++.so.6",
+        "libgcc_s.so.1",
+        "libc.so.6"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "CXXABI_1.3",
+        "GLIBCXX_3.4",
+        "GLIBC_2.17"
+      ],
+      "rpath": []
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/optimize/_direct.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 72992,
+      "sha256": "c1fdaca132dae0c335eeed27f27fa8f304589f641cac0d1b8371c4e7f9e27d2d",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libm.so.6",
+        "libc.so.6"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "GLIBC_2.17"
+      ],
+      "rpath": []
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/optimize/_zeros.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 71520,
+      "sha256": "26e9eb6d1d70f03ddd6f16cc8f6264a19aee2e99e334c0890d431283574339b8",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libm.so.6",
+        "libc.so.6"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "GLIBC_2.17"
+      ],
+      "rpath": []
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/optimize/_cobyla.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 198825,
+      "sha256": "9c38925cca094d278c869cdca2dd3ef699ced43e8640c63c66945b8fe7d75789",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libgfortran-daac5196.so.5.0.0",
+        "libc.so.6"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "GLIBC_2.17"
+      ],
+      "rpath": [
+        "$ORIGIN/../../scipy.libs"
+      ]
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/optimize/_bglu_dense.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 381664,
+      "sha256": "622b0daca3a5d9e48d888d145254e048f00a844b730f45ee88b8cc1a890ec72d",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libc.so.6"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "GLIBC_2.17"
+      ],
+      "rpath": []
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/optimize/_slsqp.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 79360,
+      "sha256": "e08135c0c7db39d5700c75df8d96e7c8271ba0b24785bce194f7da3a1cb00b9e",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libgcc_s.so.1",
+        "libc.so.6"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "GLIBC_2.17"
+      ],
+      "rpath": []
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/optimize/_moduleTNC.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 152912,
+      "sha256": "a74dd1291493b7a61441fe4a1ae9346d651430965f925f9ad8b08d295c32d73d",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libm.so.6",
+        "libc.so.6"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "GLIBC_2.17"
+      ],
+      "rpath": []
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/optimize/_minpack.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 74160,
+      "sha256": "c27e2af52903b415fa43a60e13bc59ad045a1677cac26fd58997f46458db3d63",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libm.so.6",
+        "libc.so.6"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "GLIBC_2.17"
+      ],
+      "rpath": []
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/optimize/_group_columns.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 155064,
+      "sha256": "45262aa4a5fd9528889528fe818105e794e4b0fce832f7a40bd3e4e29f9f9e82",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libstdc++.so.6",
+        "libgcc_s.so.1",
+        "libc.so.6",
+        "ld-linux-aarch64.so.1"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "CXXABI_1.3",
+        "GLIBCXX_3.4",
+        "GLIBCXX_3.4.9",
+        "GLIBC_2.17"
+      ],
+      "rpath": []
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/optimize/_pava_pybind.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 271472,
+      "sha256": "10d3fc2765079be226a9b83c960ea379fc07879654582527d2d9c6b5210b82f1",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libstdc++.so.6",
+        "libgcc_s.so.1",
+        "libc.so.6",
+        "ld-linux-aarch64.so.1"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "CXXABI_1.3",
+        "CXXABI_1.3.2",
+        "CXXABI_1.3.3",
+        "CXXABI_1.3.5",
+        "GLIBCXX_3.4",
+        "GLIBCXX_3.4.11",
+        "GLIBCXX_3.4.18",
+        "GLIBC_2.17"
+      ],
+      "rpath": []
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/optimize/_cython_nnls.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 150256,
+      "sha256": "c65ea73118d0511a3790a8b40d6abaf8a4e5bcd20dc70302e1fd8aa0c8ff9bae",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libc.so.6"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "GLIBC_2.17"
+      ],
+      "rpath": []
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/optimize/_lbfgsb.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 482689,
+      "sha256": "f3bfbc7c8b6229672f21f4f470d795e15bc4048102a51101d424b9ad5bcc277d",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libm.so.6",
+        "libscipy_openblas-9778f98e.so",
+        "libc.so.6"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "GLIBC_2.17"
+      ],
+      "rpath": [
+        "$ORIGIN/../../scipy.libs"
+      ]
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/optimize/_trlib/_trlib.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 462937,
+      "sha256": "68178e955c60f44f6e264ff3ee93f2a0ee5fd683bf06005971f4ee1c9fb10a58",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libm.so.6",
+        "libscipy_openblas-9778f98e.so",
+        "libc.so.6"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "GLIBC_2.17"
+      ],
+      "rpath": [
+        "$ORIGIN/../../../scipy.libs"
+      ]
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/optimize/_lsq/givens_elimination.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 232768,
+      "sha256": "7c3b64e80b1b9f7e5daa2cbb5f1999b68fdf2f88c6a6d330acf23273a96ed0eb",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libc.so.6"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "GLIBC_2.17"
+      ],
+      "rpath": []
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/optimize/cython_optimize/_zeros.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 153056,
+      "sha256": "a184f56873cafb950c69f5315692e678c35d9dc8db5ab32f178690caf1bc4f72",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libm.so.6",
+        "libc.so.6"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "GLIBC_2.17"
+      ],
+      "rpath": []
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/optimize/_highspy/_highs_options.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 435072,
+      "sha256": "5c7df738ea246bdb81281acb39fbf04959809abbe1e520fee3fda379a7ed4164",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libstdc++.so.6",
+        "libm.so.6",
+        "libgcc_s.so.1",
+        "libpthread.so.0",
+        "libc.so.6",
+        "ld-linux-aarch64.so.1"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "CXXABI_1.3",
+        "CXXABI_1.3.2",
+        "CXXABI_1.3.3",
+        "CXXABI_1.3.5",
+        "GLIBCXX_3.4",
+        "GLIBCXX_3.4.11",
+        "GLIBCXX_3.4.14",
+        "GLIBCXX_3.4.18",
+        "GLIBC_2.17"
+      ],
+      "rpath": []
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/optimize/_highspy/_core.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 5344256,
+      "sha256": "6164ace6703cef86d98ef4b79c0767e6a965134c0b15529fca2e4fa442208bca",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libstdc++.so.6",
+        "libm.so.6",
+        "libgcc_s.so.1",
+        "libpthread.so.0",
+        "libc.so.6",
+        "ld-linux-aarch64.so.1"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "CXXABI_1.3",
+        "CXXABI_1.3.2",
+        "CXXABI_1.3.3",
+        "CXXABI_1.3.5",
+        "CXXABI_1.3.7",
+        "GLIBCXX_3.4",
+        "GLIBCXX_3.4.11",
+        "GLIBCXX_3.4.14",
+        "GLIBCXX_3.4.17",
+        "GLIBCXX_3.4.18",
+        "GLIBCXX_3.4.19",
+        "GLIBCXX_3.4.9",
+        "GLIBC_2.17"
+      ],
+      "rpath": []
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/fftpack/convolve.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 302688,
+      "sha256": "e03bdae99018c90ced6824b3b14f2befef32887c6f322b290f914149cf70d77b",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libc.so.6"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "GLIBC_2.17"
+      ],
+      "rpath": []
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/interpolate/_fitpack.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 197897,
+      "sha256": "8f4f56448e1b94c7db04db428832b3c33887cc3974508cdab3c8ec8b6c9837ea",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libgfortran-daac5196.so.5.0.0",
+        "libc.so.6"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "GLIBC_2.17"
+      ],
+      "rpath": [
+        "$ORIGIN/../../scipy.libs"
+      ]
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/interpolate/_rbfinterp_pythran.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 235944,
+      "sha256": "da03c924dde61a7246e9b2f9980298e5fba9c5c6a5b05dd7cafa6437d835177b",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libstdc++.so.6",
+        "libm.so.6",
+        "libgcc_s.so.1",
+        "libc.so.6",
+        "ld-linux-aarch64.so.1"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "CXXABI_1.3",
+        "CXXABI_1.3.5",
+        "GLIBCXX_3.4",
+        "GLIBCXX_3.4.18",
+        "GLIBCXX_3.4.9",
+        "GLIBC_2.17"
+      ],
+      "rpath": []
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/interpolate/_rgi_cython.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 304824,
+      "sha256": "df067825c96d66b6bfecb71cee5d4a84172aa95d1cc86822c417bb30c7f5aed5",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libc.so.6"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "GLIBC_2.17"
+      ],
+      "rpath": []
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/interpolate/_interpnd.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 451632,
+      "sha256": "6413808bfa0be39b0680c6a67f430bb4582983f6b8ff57e42942b58944318a39",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libm.so.6",
+        "libc.so.6"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "GLIBC_2.17"
+      ],
+      "rpath": []
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/interpolate/_dierckx.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 264841,
+      "sha256": "8ba9a21ae61d7ae689e45c08d74829ffc1eb30de2de5dba923272cf0b992b79b",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libscipy_openblas-9778f98e.so",
+        "libstdc++.so.6",
+        "libgcc_s.so.1",
+        "libc.so.6",
+        "ld-linux-aarch64.so.1"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "CXXABI_1.3",
+        "GLIBCXX_3.4",
+        "GLIBC_2.17"
+      ],
+      "rpath": [
+        "$ORIGIN/../../scipy.libs"
+      ]
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/interpolate/_dfitpack.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 395521,
+      "sha256": "3fea2bb0e1d1a5b4268dd680133cdb164c4fd1fbc53c057bf2b73b64bb584f56",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libgfortran-daac5196.so.5.0.0",
+        "libm.so.6",
+        "libc.so.6"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "GLIBC_2.17"
+      ],
+      "rpath": [
+        "$ORIGIN/../../scipy.libs"
+      ]
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/interpolate/_ppoly.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 442648,
+      "sha256": "6c583080113e4b0b7dd70a721da91b7da97b8ddea6546ba3262522d47ac0b8b4",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libm.so.6",
+        "libc.so.6"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "GLIBC_2.17"
+      ],
+      "rpath": []
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/interpolate/_bspl.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 529481,
+      "sha256": "f967056a1827cf1ac1c40253ea2be7a44e679b0607e575d94f27408924c3ff32",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libscipy_openblas-9778f98e.so",
+        "libstdc++.so.6",
+        "libgcc_s.so.1",
+        "libc.so.6",
+        "ld-linux-aarch64.so.1"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "CXXABI_1.3",
+        "GLIBCXX_3.4",
+        "GLIBC_2.17"
+      ],
+      "rpath": [
+        "$ORIGIN/../../scipy.libs"
+      ]
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/signal/_sosfilt.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 304784,
+      "sha256": "11d9f612fe488042fe8e793372a7a7937151f966b9e2d3a52d7d44efb6137c96",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libc.so.6"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "GLIBC_2.17"
+      ],
+      "rpath": []
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/signal/_sigtools.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 142720,
+      "sha256": "8a4177b490ca31dfeab087797deb6e867f90940c10c828b372506cfff49cb0d3",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libm.so.6",
+        "libc.so.6"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "GLIBC_2.17"
+      ],
+      "rpath": []
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/signal/_spline.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 77200,
+      "sha256": "8b88878507f0b19c514aae9d5895a3f0c65c32524aa33dea3080622f8081184e",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libm.so.6",
+        "libgcc_s.so.1",
+        "libc.so.6"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "GLIBC_2.17"
+      ],
+      "rpath": []
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/signal/_peak_finding_utils.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 306664,
+      "sha256": "221e8f2f0743d02115c3e18676c7534b41d5c7bfb11d9234599e85cc29590278",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libc.so.6"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "GLIBC_2.17"
+      ],
+      "rpath": []
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/signal/_upfirdn_apply.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 375712,
+      "sha256": "4cda83c53a4e91bc8c04427b6f0f6982c0d2ce18b4e16bd6ba62a3494ea2416a",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libc.so.6"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "GLIBC_2.17"
+      ],
+      "rpath": []
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/signal/_max_len_seq_inner.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 87824,
+      "sha256": "8fc86d62699322dbf13d6716152826a3cd1ac25adb1f186444ade87cd5b3a196",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libstdc++.so.6",
+        "libgcc_s.so.1",
+        "libc.so.6",
+        "ld-linux-aarch64.so.1"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "CXXABI_1.3",
+        "GLIBCXX_3.4",
+        "GLIBCXX_3.4.9",
+        "GLIBC_2.17"
+      ],
+      "rpath": []
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/special/libsf_error_state.so",
+      "bytes": 69552,
+      "sha256": "faa32add15424b43ba42825c9a009c06d536f7230a6768287084cc3e92fb4c29",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [],
+      "soname": [
+        "libsf_error_state.so"
+      ],
+      "symbol_versions": [],
+      "rpath": []
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/special/_ufuncs.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 1446241,
+      "sha256": "08c09897009913b0b639bc3e219362da75aa95e77eb4eafc4cdf3c2e79f012f2",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libsf_error_state.so",
+        "libscipy_openblas-9778f98e.so",
+        "libstdc++.so.6",
+        "libm.so.6",
+        "libgcc_s.so.1",
+        "libc.so.6"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "CXXABI_1.3",
+        "GLIBCXX_3.4",
+        "GLIBC_2.17"
+      ],
+      "rpath": [
+        "$ORIGIN/:$ORIGIN/../../scipy.libs"
+      ]
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/special/_gufuncs.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 616608,
+      "sha256": "4ee1162e23e343610003740ab0fe7588a568ce2437cbdac5f8eb667ba794ddb6",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libsf_error_state.so",
+        "libstdc++.so.6",
+        "libm.so.6",
+        "libgcc_s.so.1",
+        "libc.so.6"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "CXXABI_1.3",
+        "GLIBCXX_3.4",
+        "GLIBC_2.17"
+      ],
+      "rpath": [
+        "$ORIGIN/"
+      ]
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/special/_special_ufuncs.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 1123072,
+      "sha256": "20c88dc9eb42c5ceb643f38098f4d9b3ee78a64b6747e8ff69b52cd19d8ea94d",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libsf_error_state.so",
+        "libstdc++.so.6",
+        "libm.so.6",
+        "libgcc_s.so.1",
+        "libc.so.6"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "CXXABI_1.3",
+        "GLIBCXX_3.4",
+        "GLIBC_2.17"
+      ],
+      "rpath": [
+        "$ORIGIN/"
+      ]
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/special/cython_special.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 2954320,
+      "sha256": "7f6ceb2ba8b3ffed893ef63ec8315829d440966cfbfc8985f9b9b016b5114dc0",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libsf_error_state.so",
+        "libstdc++.so.6",
+        "libm.so.6",
+        "libgcc_s.so.1",
+        "libc.so.6"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "CXXABI_1.3",
+        "GLIBCXX_3.4",
+        "GLIBC_2.17"
+      ],
+      "rpath": [
+        "$ORIGIN/:/opt/_internal/cpython-3.11.10/lib/python3.11/site-packages/scipy_openblas32/lib"
+      ]
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/special/_test_internal.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 235984,
+      "sha256": "dacf093d86749e33e1fdefb7f2c58d794b8ab340e43052b9272f910be8a79985",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libm.so.6",
+        "libc.so.6"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "GLIBC_2.17"
+      ],
+      "rpath": []
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/special/_ufuncs_cxx.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 1521112,
+      "sha256": "4ed6c29d535c50f508f409ff017ae72b85a036318a9cd1c1c96b78b37e213ec3",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libsf_error_state.so",
+        "libstdc++.so.6",
+        "libm.so.6",
+        "libgcc_s.so.1",
+        "libc.so.6"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "CXXABI_1.3",
+        "GLIBCXX_3.4",
+        "GLIBCXX_3.4.11",
+        "GLIBCXX_3.4.9",
+        "GLIBC_2.17"
+      ],
+      "rpath": [
+        "$ORIGIN/"
+      ]
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/special/_ellip_harm_2.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 265289,
+      "sha256": "c60b4ecf58484ced03290e401d74aab581e01b440faee58322463002f6d90571",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libsf_error_state.so",
+        "libscipy_openblas-9778f98e.so",
+        "libm.so.6",
+        "libc.so.6"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "GLIBC_2.17"
+      ],
+      "rpath": [
+        "$ORIGIN/:$ORIGIN/../../scipy.libs"
+      ]
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/special/_comb.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 80400,
+      "sha256": "aee5d6478f31f7f9f20885f94d27adc51a0f020daf5386bc90cef3037efe0c55",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libc.so.6"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "GLIBC_2.17"
+      ],
+      "rpath": []
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy/special/_specfun.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 302344,
+      "sha256": "037b4ab7b90d9409a6c5f722a64d975f38a1f04b334e0de6f854b076e237d9f6",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libstdc++.so.6",
+        "libm.so.6",
+        "libgcc_s.so.1",
+        "libc.so.6"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "CXXABI_1.3",
+        "GLIBCXX_3.4",
+        "GLIBC_2.17"
+      ],
+      "rpath": []
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy.libs/libgfortran-daac5196-038a5e3c.so.5.0.0",
+      "bytes": 1671529,
+      "sha256": "8c13f44b44e4dd0005632ea4173f5f5014d2829d50aa12b2054034297c07f233",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libz.so.1",
+        "libm.so.6",
+        "libgcc_s.so.1",
+        "libc.so.6",
+        "ld-linux-aarch64.so.1"
+      ],
+      "soname": [
+        "libgfortran-daac5196-038a5e3c.so.5.0.0"
+      ],
+      "symbol_versions": [
+        "GLIBC_2.17"
+      ],
+      "rpath": [
+        "$ORIGIN"
+      ]
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy.libs/libgfortran-daac5196.so.5.0.0",
+      "bytes": 1484449,
+      "sha256": "73b06dc7d12c5d4e37fe8ba67aa9ab440bb794e79adff58ae894b3d457e71bd7",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libz.so.1",
+        "libm.so.6",
+        "libgcc_s.so.1",
+        "libc.so.6",
+        "ld-linux-aarch64.so.1"
+      ],
+      "soname": [
+        "libgfortran-daac5196.so.5.0.0"
+      ],
+      "symbol_versions": [
+        "GLIBC_2.17"
+      ],
+      "rpath": []
+    },
+    {
+      "path": "scipy-1.15.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl/scipy.libs/libscipy_openblas-9778f98e.so",
+      "bytes": 24715465,
+      "sha256": "72e57f85d0692928219d4716bb48749964053ef445824b160f1b73de090a0f74",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libm.so.6",
+        "libpthread.so.0",
+        "libgfortran-daac5196-038a5e3c.so.5.0.0",
+        "libc.so.6"
+      ],
+      "soname": [
+        "libscipy_openblas-9778f98e.so"
+      ],
+      "symbol_versions": [
+        "GLIBC_2.17"
+      ],
+      "rpath": [
+        "$ORIGIN"
+      ]
+    },
+    {
+      "path": "sherpa_onnx-1.13.4-cp311-cp311-manylinux2014_aarch64.manylinux_2_17_aarch64.whl/sherpa_onnx/lib/_sherpa_onnx.cpython-311-aarch64-linux-gnu.so",
+      "bytes": 5747681,
+      "sha256": "27d11eed8d2504f98c4d39adaad54191dcd7b6bcb6290929c16a30eff78629d4",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libasound-eeac1cd9.so.2.0.0",
+        "libpthread.so.0",
+        "libonnxruntime.so",
+        "libdl.so.2",
+        "libm.so.6",
+        "libstdc++.so.6",
+        "libgcc_s.so.1",
+        "libc.so.6",
+        "ld-linux-aarch64.so.1"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "CXXABI_1.3",
+        "CXXABI_1.3.2",
+        "CXXABI_1.3.3",
+        "CXXABI_1.3.5",
+        "CXXABI_1.3.7",
+        "GLIBCXX_3.4",
+        "GLIBCXX_3.4.11",
+        "GLIBCXX_3.4.13",
+        "GLIBCXX_3.4.14",
+        "GLIBCXX_3.4.15",
+        "GLIBCXX_3.4.17",
+        "GLIBCXX_3.4.18",
+        "GLIBCXX_3.4.9",
+        "GLIBC_2.17"
+      ],
+      "rpath": [
+        "$ORIGIN:$ORIGIN/sherpa_onnx/lib:$ORIGIN/../../sherpa_onnx.libs"
+      ]
+    },
+    {
+      "path": "sherpa_onnx-1.13.4-cp311-cp311-manylinux2014_aarch64.manylinux_2_17_aarch64.whl/sherpa_onnx.libs/libasound-eeac1cd9.so.2.0.0",
+      "bytes": 5760681,
+      "sha256": "b1053af857c7a8081325af2d12df58defad2144938c52cf58615c7efbeee7d81",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libm.so.6",
+        "libpthread.so.0",
+        "librt.so.1",
+        "libdl.so.2",
+        "libc.so.6"
+      ],
+      "soname": [
+        "libasound-eeac1cd9.so.2.0.0"
+      ],
+      "symbol_versions": [
+        "GLIBC_2.17"
+      ],
+      "rpath": []
+    },
+    {
+      "path": "sherpa_onnx_core-1.13.4-py3-none-manylinux2014_aarch64.whl/sherpa_onnx/lib/libonnxruntime.so",
+      "bytes": 33951528,
+      "sha256": "17e6abdb3cac548fed3d351e08465d491b4baf84622d070dc449c26ea571a0ea",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libdl.so.2",
+        "librt.so.1",
+        "libpthread.so.0",
+        "libm.so.6",
+        "libc.so.6"
+      ],
+      "soname": [
+        "libonnxruntime.so"
+      ],
+      "symbol_versions": [
+        "GLIBC_2.17"
+      ],
+      "rpath": [
+        "$ORIGIN"
+      ]
+    },
+    {
+      "path": "sherpa_onnx_core-1.13.4-py3-none-manylinux2014_aarch64.whl/sherpa_onnx/lib/libsherpa-onnx-c-api.so",
+      "bytes": 4544944,
+      "sha256": "fb25b1286597198f9ccc94ec883fcf26dca4480f7cddd683f7305d2b4b8095ff",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libpthread.so.0",
+        "libonnxruntime.so",
+        "libdl.so.2",
+        "libm.so.6",
+        "libstdc++.so.6",
+        "libgcc_s.so.1",
+        "libc.so.6",
+        "ld-linux-aarch64.so.1"
+      ],
+      "soname": [
+        "libsherpa-onnx-c-api.so"
+      ],
+      "symbol_versions": [
+        "CXXABI_1.3",
+        "CXXABI_1.3.5",
+        "CXXABI_1.3.7",
+        "GLIBCXX_3.4",
+        "GLIBCXX_3.4.11",
+        "GLIBCXX_3.4.13",
+        "GLIBCXX_3.4.14",
+        "GLIBCXX_3.4.15",
+        "GLIBCXX_3.4.17",
+        "GLIBCXX_3.4.18",
+        "GLIBCXX_3.4.9",
+        "GLIBC_2.17"
+      ],
+      "rpath": [
+        "$ORIGIN"
+      ]
+    },
+    {
+      "path": "sherpa_onnx_core-1.13.4-py3-none-manylinux2014_aarch64.whl/sherpa_onnx/lib/libsherpa-onnx-cxx-api.so",
+      "bytes": 281128,
+      "sha256": "56968c4f08c45728cfd23aeda5b7bbf50302c0328b8e142704acde24253a61d7",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libsherpa-onnx-c-api.so",
+        "libpthread.so.0",
+        "libonnxruntime.so",
+        "libdl.so.2",
+        "libm.so.6",
+        "libstdc++.so.6",
+        "libgcc_s.so.1",
+        "libc.so.6",
+        "ld-linux-aarch64.so.1"
+      ],
+      "soname": [
+        "libsherpa-onnx-cxx-api.so"
+      ],
+      "symbol_versions": [
+        "CXXABI_1.3",
+        "GLIBCXX_3.4",
+        "GLIBCXX_3.4.14",
+        "GLIBC_2.17"
+      ],
+      "rpath": [
+        "$ORIGIN"
+      ]
+    },
+    {
+      "path": "soundfile-0.13.1-py2.py3-none-manylinux_2_28_aarch64.whl/_soundfile_data/libsndfile_arm64.so",
+      "bytes": 3385792,
+      "sha256": "e17f0ffff6d9469069bc71539f90cc1bfbcbbd87ad4a4fdb9507fd9627076493",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libm.so.6",
+        "libc.so.6",
+        "ld-linux-aarch64.so.1"
+      ],
+      "soname": [
+        "libsndfile.so.1"
+      ],
+      "symbol_versions": [
+        "GLIBC_2.17",
+        "GLIBC_2.27"
+      ],
+      "rpath": []
+    }
+  ],
+  "system_needed": [
+    "ld-linux-aarch64.so.1",
+    "libc.so.6",
+    "libdl.so.2",
+    "libgcc_s.so.1",
+    "libm.so.6",
+    "libpthread.so.0",
+    "librt.so.1",
+    "libstdc++.so.6",
+    "libz.so.1"
+  ],
+  "loader_resolution": "NOT_EXECUTED",
+  "model_load": "NOT_TESTED",
+  "functional_smoke": "NOT_TESTED",
+  "hardware": "CM5_HARDWARE_NOT_TESTED",
+  "limitations": [
+    "Static NEEDED inventory does not prove loader search paths or optional dlopen dependencies",
+    "No instruction disassembly or CM5 CPU/2GB capacity qualification"
+  ]
+}

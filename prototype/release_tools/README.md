@@ -112,6 +112,15 @@ This reads the current pointer and selects its matching runtime/source. It prese
 
 ## Tests, limitations and helper contracts
 
+N5 transfer fix: wired deployment copies `runtime_lock.py` beside `release.py`
+in the remote inbox. Without it, the standalone installer fails during Python
+import before staging. The dry-run test now reconstructs the transferred helper
+set in a fresh temporary directory and invokes its CLI help with the selected
+Python, in addition to checking host-key flags. This performs no SSH or device
+access. Run the existing `run_checks.py --output NEW_DIRECTORY --wsl` commands
+below to reproduce; outputs include the helper-import result. Older immutable
+archives remain untouched; use this current deploy helper for a future transfer.
+
 `tests/test_release.py` uses temporary fixtures and a path containing spaces. The checks exercise archive integrity/traversal/case/symlink refusal, idempotent staging, immutable versions, atomic owner exclusion, schema rejection, activation/rollback and unchanged private bytes, shared assets, and privacy-limited diagnostics. They contain no real voice data.
 
 For one complete local release-tool check and machine-readable evidence, run `& $py .\release_tools\run_checks.py --output .\release_tools\evidence --wsl` from PowerShell, or the same Python invocation without `&` from CMD. Omit `--wsl` if no existing Ubuntu WSL installation is present. The harness runs the bounded tests, parses PowerShell, exercises an explicit **non-networked** deploy dry run with a fake key placeholder, checks Bash syntax and (when requested) runs the same installer library tests on actual Linux x86_64. It writes `RELEASE_TEST_RESULTS.json`, `DEPLOY_DRY_RUN.json` and short text logs. `tests/test_deploy.ps1` is a harness helper; it never invokes SSH in its DryRun call. No WSL distribution or system package is installed by the harness.

@@ -1,0 +1,50 @@
+{
+  "status": "FAILED",
+  "package_url": "https://archive.ubuntu.com/ubuntu/pool/universe/q/qemu/qemu-user_10.2.1+ds-1ubuntu3.2_amd64.deb",
+  "package_sha256": "f0585a9676a039f46607f185b3657c1e78c1ba4187595724cc567fcc1ae0d1b9",
+  "package_source": "Ubuntu apt signed-index pin; unpacked only, no package installation",
+  "commands": [
+    {
+      "argv": [
+        "/home/amiri/jp-n5-native-v1/tools/arm-gnu-toolchain-12.3.rel1-x86_64-aarch64-none-linux-gnu/bin/aarch64-none-linux-gnu-gcc",
+        "-march=armv8-a",
+        "/home/amiri/jp-n5-loader-v1/loader.c",
+        "-ldl",
+        "-o",
+        "/home/amiri/jp-n5-loader-v1/loader"
+      ],
+      "returncode": 0,
+      "log": "0.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "elapsed_seconds": 0.28399414399996203
+    },
+    {
+      "argv": [
+        "/home/amiri/jp-n5-loader-v1/qemu/usr/bin/qemu-aarch64",
+        "--version"
+      ],
+      "returncode": 0,
+      "log": "1.log",
+      "sha256": "39acbeebf80215bacbc5e9ae15d609a653db5c49e21e8b28190734327748ebee",
+      "elapsed_seconds": 0.0014346180000188724
+    },
+    {
+      "argv": [
+        "/home/amiri/jp-n5-loader-v1/qemu/usr/bin/qemu-aarch64",
+        "-L",
+        "/home/amiri/jp-n5-native-v1/tools/arm-gnu-toolchain-12.3.rel1-x86_64-aarch64-none-linux-gnu/aarch64-none-linux-gnu/libc",
+        "/home/amiri/jp-n5-native-v1/build/bin/nemo-speech",
+        "--version"
+      ],
+      "returncode": 127,
+      "log": "2.log",
+      "sha256": "4ac1c063b5b7b5451553cf8b93dcaf940db3ae677cf85e52bafa76c9436d6bbc",
+      "elapsed_seconds": 0.012315831000023536
+    }
+  ],
+  "models_loaded": false,
+  "microphones_opened": false,
+  "functional_model_wav_smoke": "NOT_TESTED",
+  "hardware": "CM5_HARDWARE_NOT_TESTED",
+  "timing_scope": "Build/loader engineering evidence only, not inference or target latency"
+}

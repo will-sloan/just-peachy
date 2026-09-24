@@ -1,0 +1,31 @@
+{
+  "status": "VERIFIED_DOWNLOADS_ONLY",
+  "host": "Linux x86_64",
+  "target": "Linux aarch64",
+  "files": [
+    {
+      "filename": "arm-gnu-toolchain-12.3.rel1-x86_64-aarch64-none-linux-gnu.tar.xz",
+      "bytes": 131080736,
+      "sha256": "960ec0bce309528f603639d8228ef39e6fb9185289ff42b01aa3b4de315accef",
+      "url": "https://developer.arm.com/-/media/Files/downloads/gnu/12.3.rel1/binrel/arm-gnu-toolchain-12.3.rel1-x86_64-aarch64-none-linux-gnu.tar.xz"
+    },
+    {
+      "filename": "cmake-3.30.5-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "bytes": 26923541,
+      "sha256": "db049e551e2f0562b3b225ac760888ee38b8ade62d74213f3611420e6b22f36d",
+      "url": "https://files.pythonhosted.org/packages/4b/87/3b01bc707c7a021f3c2c2d133af405618b1580613e22a9ead4a9d9d49903/cmake-3.30.5-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "name": "cmake",
+      "version": "3.30.5",
+      "publisher_manifest": "https://pypi.org/pypi/cmake/3.30.5/json"
+    },
+    {
+      "filename": "ninja-1.11.1.1-py2.py3-none-manylinux1_x86_64.manylinux_2_5_x86_64.whl",
+      "bytes": 307194,
+      "sha256": "84502ec98f02a037a169c4b0d5d86075eaf6afc55e1879003d6cab51ced2ea4b",
+      "url": "https://files.pythonhosted.org/packages/6d/92/8d7aebd4430ab5ff65df2bfee6d5745f95c004284db2d8ca76dcbfd9de47/ninja-1.11.1.1-py2.py3-none-manylinux1_x86_64.manylinux_2_5_x86_64.whl",
+      "name": "ninja",
+      "version": "1.11.1.1",
+      "publisher_manifest": "https://pypi.org/pypi/ninja/1.11.1.1/json"
+    }
+  ]
+}

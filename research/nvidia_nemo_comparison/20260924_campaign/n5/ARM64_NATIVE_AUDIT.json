@@ -1,0 +1,246 @@
+{
+  "status": "ARM64_BUILD_VERIFIED_STATIC_ONLY",
+  "target": "Bookworm aarch64 CPython 3.11",
+  "checks": [
+    "ELF64 little-endian AArch64",
+    "publisher wheel SHA256",
+    "NEEDED inventory",
+    "Bookworm symbol-version ceilings"
+  ],
+  "wheels": [],
+  "binaries": [
+    {
+      "path": "libggml-base.so.0.12.0",
+      "bytes": 804528,
+      "sha256": "aab12d9b5aac8e4a23c54f9fc1c24cd95d20c62ad8f7db44e918170ea28bf48b",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libstdc++.so.6",
+        "libm.so.6",
+        "libgcc_s.so.1",
+        "libc.so.6"
+      ],
+      "soname": [
+        "libggml-base.so.0"
+      ],
+      "symbol_versions": [
+        "CXXABI_1.3",
+        "CXXABI_1.3.9",
+        "GLIBCXX_3.4",
+        "GLIBCXX_3.4.11",
+        "GLIBCXX_3.4.20",
+        "GLIBCXX_3.4.21",
+        "GLIBCXX_3.4.29",
+        "GLIBC_2.17",
+        "GLIBC_2.27",
+        "GLIBC_2.29"
+      ],
+      "rpath": [
+        "$ORIGIN:$ORIGIN/../lib"
+      ]
+    },
+    {
+      "path": "libggml-cpu.so.0.12.0",
+      "bytes": 861936,
+      "sha256": "cab8b22fbec1cd0204d9ca4b6997670f99290776ad34859ec0cd3c92ae77bd24",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libggml-base.so.0",
+        "libstdc++.so.6",
+        "libm.so.6",
+        "libgcc_s.so.1",
+        "libc.so.6"
+      ],
+      "soname": [
+        "libggml-cpu.so.0"
+      ],
+      "symbol_versions": [
+        "CXXABI_1.3",
+        "CXXABI_1.3.9",
+        "GLIBCXX_3.4",
+        "GLIBCXX_3.4.21",
+        "GLIBCXX_3.4.29",
+        "GLIBC_2.17",
+        "GLIBC_2.27",
+        "GLIBC_2.29",
+        "GLIBC_2.32",
+        "GLIBC_2.33",
+        "GLIBC_2.34"
+      ],
+      "rpath": [
+        "$ORIGIN:$ORIGIN/../lib"
+      ]
+    },
+    {
+      "path": "libggml.so.0.12.0",
+      "bytes": 80344,
+      "sha256": "91e7e842bd2839bbd0b8a03ecdf9e8d9a3c4e278661915d8094b2a6cd81fc3bd",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libggml-cpu.so.0",
+        "libggml-base.so.0",
+        "libstdc++.so.6",
+        "libm.so.6",
+        "libgcc_s.so.1",
+        "libc.so.6"
+      ],
+      "soname": [
+        "libggml.so.0"
+      ],
+      "symbol_versions": [
+        "CXXABI_1.3",
+        "CXXABI_1.3.9",
+        "GLIBCXX_3.4",
+        "GLIBCXX_3.4.20",
+        "GLIBCXX_3.4.21",
+        "GLIBCXX_3.4.26",
+        "GLIBC_2.17",
+        "GLIBC_2.32",
+        "GLIBC_2.34"
+      ],
+      "rpath": [
+        "$ORIGIN:$ORIGIN/../lib"
+      ]
+    },
+    {
+      "path": "libnemo_speech_asr.so",
+      "bytes": 2657664,
+      "sha256": "90eb44e25c10f06295e8d9254d00ba66ca291dcbe4363bd9cf8f01eac07d9ffd",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libggml.so.0",
+        "libggml-cpu.so.0",
+        "libggml-base.so.0",
+        "libstdc++.so.6",
+        "libm.so.6",
+        "libgcc_s.so.1",
+        "libc.so.6"
+      ],
+      "soname": [
+        "libnemo_speech_asr.so"
+      ],
+      "symbol_versions": [
+        "CXXABI_1.3",
+        "CXXABI_1.3.11",
+        "CXXABI_1.3.13",
+        "CXXABI_1.3.2",
+        "CXXABI_1.3.3",
+        "CXXABI_1.3.5",
+        "CXXABI_1.3.7",
+        "CXXABI_1.3.8",
+        "CXXABI_1.3.9",
+        "GLIBCXX_3.4",
+        "GLIBCXX_3.4.11",
+        "GLIBCXX_3.4.14",
+        "GLIBCXX_3.4.15",
+        "GLIBCXX_3.4.18",
+        "GLIBCXX_3.4.19",
+        "GLIBCXX_3.4.20",
+        "GLIBCXX_3.4.21",
+        "GLIBCXX_3.4.22",
+        "GLIBCXX_3.4.26",
+        "GLIBCXX_3.4.29",
+        "GLIBCXX_3.4.30",
+        "GLIBCXX_3.4.9",
+        "GLIBC_2.17",
+        "GLIBC_2.27",
+        "GLIBC_2.29",
+        "GLIBC_2.32",
+        "GLIBC_2.34"
+      ],
+      "rpath": [
+        "$ORIGIN:$ORIGIN/../lib"
+      ]
+    },
+    {
+      "path": "libnemo_speech_asr_c.so.1",
+      "bytes": 83392,
+      "sha256": "9600de4c486aa4ea8209b6f2d78ec33fb3148d74c8a4395bd23eeaf00137915f",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libnemo_speech_asr.so",
+        "libggml.so.0",
+        "libggml-cpu.so.0",
+        "libggml-base.so.0",
+        "libstdc++.so.6",
+        "libm.so.6",
+        "libgcc_s.so.1",
+        "libc.so.6"
+      ],
+      "soname": [
+        "libnemo_speech_asr_c.so.1"
+      ],
+      "symbol_versions": [
+        "CXXABI_1.3",
+        "CXXABI_1.3.7",
+        "CXXABI_1.3.9",
+        "GLIBCXX_3.4",
+        "GLIBCXX_3.4.21",
+        "GLIBC_2.17",
+        "GLIBC_2.32"
+      ],
+      "rpath": [
+        "$ORIGIN:$ORIGIN/../lib"
+      ]
+    },
+    {
+      "path": "nemo-speech",
+      "bytes": 549200,
+      "sha256": "e3c1f9cb30d995cfa18fc583b18ff22bb839e92b2a4ab055c5a77912e622de4c",
+      "machine": "AArch64",
+      "bits": 64,
+      "needed": [
+        "libnemo_speech_asr.so",
+        "libggml.so.0",
+        "libggml-cpu.so.0",
+        "libggml-base.so.0",
+        "libstdc++.so.6",
+        "libm.so.6",
+        "libgcc_s.so.1",
+        "libc.so.6"
+      ],
+      "soname": [],
+      "symbol_versions": [
+        "CXXABI_1.3",
+        "CXXABI_1.3.13",
+        "CXXABI_1.3.3",
+        "CXXABI_1.3.9",
+        "GLIBCXX_3.4",
+        "GLIBCXX_3.4.11",
+        "GLIBCXX_3.4.14",
+        "GLIBCXX_3.4.19",
+        "GLIBCXX_3.4.20",
+        "GLIBCXX_3.4.21",
+        "GLIBCXX_3.4.22",
+        "GLIBCXX_3.4.26",
+        "GLIBCXX_3.4.29",
+        "GLIBCXX_3.4.9",
+        "GLIBC_2.17",
+        "GLIBC_2.32",
+        "GLIBC_2.34"
+      ],
+      "rpath": [
+        "$ORIGIN/../lib"
+      ]
+    }
+  ],
+  "system_needed": [
+    "libc.so.6",
+    "libgcc_s.so.1",
+    "libm.so.6",
+    "libstdc++.so.6"
+  ],
+  "loader_resolution": "NOT_EXECUTED",
+  "model_load": "NOT_TESTED",
+  "functional_smoke": "NOT_TESTED",
+  "hardware": "CM5_HARDWARE_NOT_TESTED",
+  "limitations": [
+    "Static NEEDED inventory does not prove loader search paths or optional dlopen dependencies",
+    "No instruction disassembly or CM5 CPU/2GB capacity qualification"
+  ]
+}

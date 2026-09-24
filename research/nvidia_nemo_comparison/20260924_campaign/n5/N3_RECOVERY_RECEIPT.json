@@ -1,0 +1,51 @@
+{
+  "status": "V3_ADMITTED_AND_DISPATCHED",
+  "cause": "N3 freeze included mutable Python bytecode",
+  "fix": "Exclude __pycache__, .pyc, .pyo; never weaken source integrity checks",
+  "old_run_preserved": true,
+  "prior_neural_jobs_executed": 0,
+  "queue_tests_passed": 9,
+  "new_source_files": 373,
+  "new_bytecode_files": 0,
+  "bindings": {
+    "failed_result": {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-v2\\RESULT.json",
+      "sha256": "e3482a1e5a356aa8d8df9d8abc346e83b1851a5693d19dfba0082c9a51d39122"
+    },
+    "failed_source_log": {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-v2\\prototype-suite.log",
+      "sha256": "afce8dadeb115c68d95192ee9a1c018ec98651fc29455ba487bc080a7ee4545e"
+    },
+    "new_plan": {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\plan-v3.json",
+      "sha256": "7cf15e032bb901ed03d4e4d41c754e50de0b8acc233bdea0bb1de646fa91bbce"
+    },
+    "new_source": {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\releases\\n3-common-v3\\SOURCE_RECEIPT.json",
+      "sha256": "cd7c42ad72147b92e496a38b422083fc8cff1c9f73d18b92c8ac9ce9c5e21764"
+    }
+  },
+  "queue": {
+    "status": "DISPATCHED_N3",
+    "owner": {
+      "pid": 47140,
+      "create_time": 1790285514.110784
+    },
+    "started_utc": "2026-09-24T21:31:54.264492+00:00",
+    "plan_sha256": "7cf15e032bb901ed03d4e4d41c754e50de0b8acc233bdea0bb1de646fa91bbce",
+    "llm_invoked": false,
+    "stage_complete": false,
+    "updated_utc": "2026-09-24T21:32:04.326145+00:00",
+    "n2_completed": 422,
+    "worker": {
+      "status": "STARTING",
+      "pid": 33284,
+      "create_time": 1790285524.3127296,
+      "run_id": "452dc09d32774460a0be354fe6a97728",
+      "started_utc": "2026-09-24T21:32:04.324136+00:00",
+      "heartbeat_unix": 1790285524.324136,
+      "resumed": false,
+      "argv_sha256": "4ba5a3589bb5394a5cd2156bfc03e76a7120e75a3a3c902837fbb91408ca6a4b"
+    }
+  }
+}

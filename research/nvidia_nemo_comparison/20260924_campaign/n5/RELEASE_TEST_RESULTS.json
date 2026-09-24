@@ -1,0 +1,43 @@
+{
+  "schema": "just-peachy.release-tests.v1",
+  "checked_utc": "2026-09-24T21:10:14.558490+00:00",
+  "host": "Windows-10-10.0.26200-SP0",
+  "python": "3.11.16",
+  "status": "PASS",
+  "checks": [
+    {
+      "name": "windows_stdlib_tests",
+      "status": "PASS",
+      "exit_code": 0
+    },
+    {
+      "name": "powershell_deploy_dryrun",
+      "status": "PASS",
+      "exit_code": 0
+    },
+    {
+      "name": "bash_syntax",
+      "status": "PASS",
+      "exit_code": 0
+    },
+    {
+      "name": "linux_stdlib_tests",
+      "status": "PASS",
+      "exit_code": 0
+    },
+    {
+      "name": "linux_platform",
+      "status": "PASS",
+      "exit_code": 0
+    },
+    {
+      "name": "linux_install_arch_guard",
+      "status": "PASS",
+      "exit_code": 2
+    }
+  ],
+  "no_ssh": true,
+  "no_microphone": true,
+  "no_system_install": true,
+  "cm5": "CM5_HARDWARE_NOT_TESTED"
+}

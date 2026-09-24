@@ -1,0 +1,23 @@
+{
+  "status": "PARTIAL_CHECKPOINT",
+  "artifacts": [
+    {
+      "name": "just-peachy-baseline-cm5-offline-v1.zip",
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\releases\\just-peachy-baseline-cm5-offline-v1.zip",
+      "bytes": 310867595,
+      "sha256": "913e0a082e2de5f28e62f30503097cfb12f9008ed6d26fd1a803a7a2e8d32bbf",
+      "status": "PREPARED_NOT_SELECTED_N4_RELEASE",
+      "public_upload": false,
+      "rollback": "External data and immutable releases retained; see UPDATE_ROLLBACK.md"
+    },
+    {
+      "name": "nemo-speech-arm64-engineering-v1.tar.gz",
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\releases\\nemo-speech-arm64-engineering-v1.tar.gz",
+      "bytes": 1874637,
+      "sha256": "fabee1be06a4f833baf04b466ee8ff48b4947c71940a89771e125599f5927631",
+      "status": "PREPARED_NOT_SELECTED_N4_RELEASE",
+      "public_upload": false,
+      "rollback": "External data and immutable releases retained; see UPDATE_ROLLBACK.md"
+    }
+  ]
+}

@@ -31,7 +31,7 @@ with tempfile.TemporaryDirectory(prefix='PROTO1 deployment dry run with spaces '
     receipt = build(src, root / 'output', 'fixture-1')
     key = root / 'FAKE_KEY_NOT_A_CREDENTIAL'; key.write_text('Test placeholder. No SSH is executed.\n', encoding='utf-8')
     run('powershell_deploy_dryrun', ['powershell.exe', '-NoProfile', '-File', str(base / 'tests' / 'test_deploy.ps1'),
-        '-Archive', receipt['archive'], '-FakeKey', str(key), '-Output', str((a.output / 'DEPLOY_DRY_RUN.json').resolve())])
+        '-Archive', receipt['archive'], '-FakeKey', str(key), '-Output', str((a.output / 'DEPLOY_DRY_RUN.json').resolve()), '-Python', sys.executable])
 run('bash_syntax', [r'C:\Program Files\Git\bin\bash.exe', '-n', str(base / 'install_pi.sh')])
 if a.wsl:
     linux = '/mnt/' + base.drive[0].lower() + base.as_posix()[2:]

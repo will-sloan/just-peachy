@@ -1,0 +1,227 @@
+{
+  "status": "CROSS_BUILD_SUCCEEDED_NOT_EXECUTED",
+  "started_utc": "2026-09-24T21:08:21.857487+00:00",
+  "compiler_workers": 1,
+  "linux_cpu_affinity": [
+    0
+  ],
+  "note": "WSL CPU index is not a verified Windows physical-core mapping",
+  "target": "Linux aarch64 armv8-a; Bookworm ABI ceilings audited separately",
+  "inference": false,
+  "hardware": "CM5_HARDWARE_NOT_TESTED",
+  "commands": [
+    {
+      "name": "compiler",
+      "argv": [
+        "/home/amiri/jp-n5-native-v1/tools/arm-gnu-toolchain-12.3.rel1-x86_64-aarch64-none-linux-gnu/bin/aarch64-none-linux-gnu-gcc",
+        "--version"
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.0036740200000053846,
+      "log": "compiler.log",
+      "sha256": "7163a49f2157eb54585df06db3db5ee2e2a9208bda9d9cadbb6556f20d6f6971"
+    },
+    {
+      "name": "sysroot",
+      "argv": [
+        "/home/amiri/jp-n5-native-v1/tools/arm-gnu-toolchain-12.3.rel1-x86_64-aarch64-none-linux-gnu/bin/aarch64-none-linux-gnu-gcc",
+        "-print-sysroot"
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.003451272000006611,
+      "log": "sysroot.log",
+      "sha256": "400ef94377b0b299cb3b405400a1f2922e68ff673c91ba7ffc78f0a01e048b9f"
+    },
+    {
+      "name": "sentencepiece-configure",
+      "argv": [
+        "/home/amiri/jp-n5-native-v1/tools/cmake/data/bin/cmake",
+        "-S",
+        "/home/amiri/jp-n5-native-v1/source/sentencepiece-17d7580d6407802f85855d2cc9190634e2c95624",
+        "-B",
+        "/home/amiri/jp-n5-native-v1/sentencepiece-build",
+        "-G",
+        "Ninja",
+        "-DCMAKE_MAKE_PROGRAM=/home/amiri/jp-n5-native-v1/tools/ninja/data/bin/ninja",
+        "-DCMAKE_TOOLCHAIN_FILE=/home/amiri/jp-n5-native-v1/toolchain.cmake",
+        "-DCMAKE_BUILD_TYPE=Release",
+        "-DCMAKE_POSITION_INDEPENDENT_CODE=ON",
+        "-DFETCHCONTENT_FULLY_DISCONNECTED=ON",
+        "-DSPM_ENABLE_SHARED=OFF",
+        "-DSPM_BUILD_TEST=OFF",
+        "-DSPM_ENABLE_TCMALLOC=OFF"
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 5.249325548000002,
+      "log": "sentencepiece-configure.log",
+      "sha256": "a0e4e1249c79727c71d88fd63601e7a9db107922ef3e9ceaae64cba2ac261770"
+    },
+    {
+      "name": "sentencepiece-build",
+      "argv": [
+        "/home/amiri/jp-n5-native-v1/tools/cmake/data/bin/cmake",
+        "--build",
+        "/home/amiri/jp-n5-native-v1/sentencepiece-build",
+        "--target",
+        "sentencepiece-static",
+        "--parallel",
+        "1"
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 51.88480142899999,
+      "log": "sentencepiece-build.log",
+      "sha256": "9b5a4872d0067519201b6c172205b007e245e451faf75e72394b43d28c6d7464"
+    },
+    {
+      "name": "nemo-configure",
+      "argv": [
+        "/home/amiri/jp-n5-native-v1/tools/cmake/data/bin/cmake",
+        "-S",
+        "/home/amiri/jp-n5-native-v1/source/NeMo-Speech.cpp-97a15afa5caa9bce5baaa86c1184103877af4101",
+        "-B",
+        "/home/amiri/jp-n5-native-v1/build",
+        "-G",
+        "Ninja",
+        "-DCMAKE_MAKE_PROGRAM=/home/amiri/jp-n5-native-v1/tools/ninja/data/bin/ninja",
+        "-DCMAKE_TOOLCHAIN_FILE=/home/amiri/jp-n5-native-v1/toolchain.cmake",
+        "-DCMAKE_BUILD_TYPE=Release",
+        "-DCMAKE_POSITION_INDEPENDENT_CODE=ON",
+        "-DFETCHCONTENT_FULLY_DISCONNECTED=ON",
+        "-DGGML_CUDA=OFF",
+        "-DGGML_VULKAN=OFF",
+        "-DGGML_NATIVE=OFF",
+        "-DGGML_OPENMP=OFF",
+        "-DGGML_CPU_KLEIDIAI=OFF",
+        "-DNEMO_SPEECH_GGML_PATCHED=OFF",
+        "-DNEMO_SPEECH_BUILD_TTS=OFF",
+        "-DNEMO_SPEECH_BUILD_NMT=OFF",
+        "-DNEMO_SPEECH_BUILD_S2S=OFF",
+        "-DNEMO_SPEECH_BUILD_MIC_CAPTURE=OFF",
+        "-DNEMO_SPEECH_BUILD_HTTP=OFF",
+        "-DNEMO_SPEECH_BUILD_GRPC=OFF",
+        "-DNEMO_SPEECH_WITH_FLASHLIGHT=OFF",
+        "-DNEMO_SPEECH_WITH_NORM=OFF",
+        "-DNEMO_SPEECH_BUILD_TESTS=OFF",
+        "-DBUILD_TESTING=OFF",
+        "-DNEMO_SPEECH_BUILD_EXAMPLES=OFF",
+        "-DNEMO_SPEECH_BUILD_TOOLS=OFF",
+        "-DGGML_CPU_ARM_ARCH=armv8-a",
+        "-DSENTENCEPIECE_STATIC_LIB=/home/amiri/jp-n5-native-v1/sentencepiece-build/src/libsentencepiece.a",
+        "-DSENTENCEPIECE_INCLUDE_DIR=/home/amiri/jp-n5-native-v1/source/sentencepiece-17d7580d6407802f85855d2cc9190634e2c95624/src",
+        "-DCMAKE_BUILD_WITH_INSTALL_RPATH=ON"
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 5.642054779000006,
+      "log": "nemo-configure.log",
+      "sha256": "d4b97fd5b01456e57a2893392701ad1798ad317d8451cf9d9ad9eb926a0359f7"
+    },
+    {
+      "name": "nemo-build",
+      "argv": [
+        "/home/amiri/jp-n5-native-v1/tools/cmake/data/bin/cmake",
+        "--build",
+        "/home/amiri/jp-n5-native-v1/build",
+        "--target",
+        "nemo_speech_asr_c",
+        "nemo_speech_cli",
+        "--parallel",
+        "1"
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 142.947699502,
+      "log": "nemo-build.log",
+      "sha256": "872ffad7ea5327b1367a371b9e3da9e424abc84c56888f82552a33e3afb0a876"
+    }
+  ],
+  "source_archives": [
+    {
+      "filename": "NeMo-Speech.cpp-97a15afa5caa9bce5baaa86c1184103877af4101.zip",
+      "sha256": "f1fdefc70fc810f70f5cdf86eb31f27a990005506cb9c9938941b53bda53677c",
+      "revision": "97a15afa5caa9bce5baaa86c1184103877af4101",
+      "url": "https://codeload.github.com/NVIDIA/NeMo-Speech.cpp/zip/97a15afa5caa9bce5baaa86c1184103877af4101"
+    },
+    {
+      "filename": "ggml-c03b4e2bcece5134827881af90242086daf75be5.zip",
+      "sha256": "dd9bc340931eb7d12b3b8fd946cbf545c4430b1594835f36c3ac368a0a085c49",
+      "revision": "c03b4e2bcece5134827881af90242086daf75be5",
+      "url": "https://codeload.github.com/ggml-org/ggml/zip/c03b4e2bcece5134827881af90242086daf75be5"
+    },
+    {
+      "filename": "sentencepiece-17d7580d6407802f85855d2cc9190634e2c95624.zip",
+      "sha256": "73b688b48130c2979d70215e571980ce64ee4b343878ade8f9104e779ec43d04",
+      "revision": "17d7580d6407802f85855d2cc9190634e2c95624",
+      "url": "https://codeload.github.com/google/sentencepiece/zip/17d7580d6407802f85855d2cc9190634e2c95624"
+    }
+  ],
+  "patch": {
+    "path": "src/runtime/ggml/session.cpp",
+    "before_sha256": "ff17a1fcb7f8916feb1f5de04321a18d349a72ec8ba091c4f269ee1e0051d2cc",
+    "after_sha256": "9583306947a8a0cb92d68da94c1803cb5caa064e112face5123e1f94e959251a",
+    "old": "ggml_graph_compute_helper_async(sched.get(), cr.gf, 4)",
+    "new": "ggml_graph_compute_helper_async(sched.get(), cr.gf, 1)"
+  },
+  "binaries": [
+    {
+      "path": "build/bin/libggml-base.so.0.12.0",
+      "bytes": 804528,
+      "sha256": "aab12d9b5aac8e4a23c54f9fc1c24cd95d20c62ad8f7db44e918170ea28bf48b"
+    },
+    {
+      "path": "build/bin/libggml-cpu.so.0.12.0",
+      "bytes": 861936,
+      "sha256": "cab8b22fbec1cd0204d9ca4b6997670f99290776ad34859ec0cd3c92ae77bd24"
+    },
+    {
+      "path": "build/bin/libggml.so.0.12.0",
+      "bytes": 80344,
+      "sha256": "91e7e842bd2839bbd0b8a03ecdf9e8d9a3c4e278661915d8094b2a6cd81fc3bd"
+    },
+    {
+      "path": "build/bin/libnemo_speech_asr.so",
+      "bytes": 2657664,
+      "sha256": "90eb44e25c10f06295e8d9254d00ba66ca291dcbe4363bd9cf8f01eac07d9ffd"
+    },
+    {
+      "path": "build/bin/libnemo_speech_asr_c.so.1",
+      "bytes": 83392,
+      "sha256": "9600de4c486aa4ea8209b6f2d78ec33fb3148d74c8a4395bd23eeaf00137915f"
+    },
+    {
+      "path": "build/bin/nemo-speech",
+      "bytes": 549200,
+      "sha256": "e3c1f9cb30d995cfa18fc583b18ff22bb839e92b2a4ab055c5a77912e622de4c"
+    }
+  ],
+  "elapsed_seconds": 215.31286699799998,
+  "tool_downloads": {
+    "status": "VERIFIED_DOWNLOADS_ONLY",
+    "host": "Linux x86_64",
+    "target": "Linux aarch64",
+    "files": [
+      {
+        "filename": "arm-gnu-toolchain-12.3.rel1-x86_64-aarch64-none-linux-gnu.tar.xz",
+        "bytes": 131080736,
+        "sha256": "960ec0bce309528f603639d8228ef39e6fb9185289ff42b01aa3b4de315accef",
+        "url": "https://developer.arm.com/-/media/Files/downloads/gnu/12.3.rel1/binrel/arm-gnu-toolchain-12.3.rel1-x86_64-aarch64-none-linux-gnu.tar.xz"
+      },
+      {
+        "filename": "cmake-3.30.5-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+        "bytes": 26923541,
+        "sha256": "db049e551e2f0562b3b225ac760888ee38b8ade62d74213f3611420e6b22f36d",
+        "url": "https://files.pythonhosted.org/packages/4b/87/3b01bc707c7a021f3c2c2d133af405618b1580613e22a9ead4a9d9d49903/cmake-3.30.5-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+        "name": "cmake",
+        "version": "3.30.5",
+        "publisher_manifest": "https://pypi.org/pypi/cmake/3.30.5/json"
+      },
+      {
+        "filename": "ninja-1.11.1.1-py2.py3-none-manylinux1_x86_64.manylinux_2_5_x86_64.whl",
+        "bytes": 307194,
+        "sha256": "84502ec98f02a037a169c4b0d5d86075eaf6afc55e1879003d6cab51ced2ea4b",
+        "url": "https://files.pythonhosted.org/packages/6d/92/8d7aebd4430ab5ff65df2bfee6d5745f95c004284db2d8ca76dcbfd9de47/ninja-1.11.1.1-py2.py3-none-manylinux1_x86_64.manylinux_2_5_x86_64.whl",
+        "name": "ninja",
+        "version": "1.11.1.1",
+        "publisher_manifest": "https://pypi.org/pypi/ninja/1.11.1.1/json"
+      }
+    ]
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "returncode": 0,
+  "stdout": "{\"status\": \"BUNDLE_HASHES_PASS\", \"files\": 31, \"installation\": false, \"hardware\": false}\n",
+  "stderr": "",
+  "source": "Extracted actual offline v1 ZIP",
+  "hardware": false
+}

@@ -1,5 +1,16 @@
 # Prepare and supervise N3
 
+N5 continuation found that v2's initial source check failed before neural work:
+the N3 addition selector had admitted `app/__pycache__/n3_models.cpython-311.pyc`.
+Mutable bytecode is now excluded both from inherited names and additions. A
+temporary-tree regression proves the actual freeze preserves Python source and
+omits both cache-directory and legacy adjacent bytecode. V2 evidence remains
+untouched. The fresh replacement is `--version v3`, with `plan-v3.json`,
+`n3-common-v3` and `numerical-v3`; do not overwrite or re-launch v2. The commands
+below are historical v2 examples: substitute v3 only when its output does not
+already exist. Later user N4/N5 requests supersede the older stage-only closing
+sentence about N4 authorization; numerical prerequisites still apply.
+
 `prepare.py` copies only the reviewed prototype release inventory and N3 source
 additions, verifies the frozen UI, binds models/runtime/configuration, and emits
 a sequential numerical plan. Inputs are the existing campaign paths, verified

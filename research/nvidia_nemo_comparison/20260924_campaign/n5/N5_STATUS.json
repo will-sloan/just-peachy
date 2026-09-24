@@ -1,0 +1,60 @@
+{
+  "stage": "N5",
+  "status": "PARTIAL_RELEASE_PREPARATION",
+  "completed": false,
+  "checked_utc": "2026-09-24T21:33:24.248763+00:00",
+  "elapsed_campaign_wall_seconds": 24304.299571,
+  "N2": {
+    "status": "COMPLETE",
+    "completed": 422,
+    "total": 422,
+    "chain": "READY_FOR_REVIEW"
+  },
+  "N3": {
+    "queue": "DISPATCHED_N3",
+    "run_status": "RUNNING",
+    "jobs_attempted": 0,
+    "plan_jobs": 32,
+    "active": "prototype-suite",
+    "current_run": "numerical-v3",
+    "prior_run": "v2 stopped before inference: bytecode cache was incorrectly bound; preserved"
+  },
+  "N4": {
+    "status": "PREPARATION_ONLY",
+    "intended_cells": 7680,
+    "executed_cells": 0,
+    "accepted_profiles": 0
+  },
+  "source_prepared": true,
+  "arm64_wheel_elf_binaries_verified": 151,
+  "arm64_native_binaries_built": 6,
+  "arm64_native_loader": "EMULATED_PASS",
+  "ARM64_FUNCTIONAL_SMOKE": false,
+  "CM5_HARDWARE_NOT_TESTED": true,
+  "baseline_offline_bundle": "MEMBER_HASHES_VERIFIED",
+  "new_selected_backend_releases": 0,
+  "current_turn_visible_gui_launched": false,
+  "desktop_focus_control": false,
+  "microphone_opened": false,
+  "no_new_capture": true,
+  "no_denoising": true,
+  "production_personal_data_modified": false,
+  "tests": {
+    "windows_release": 22,
+    "linux_release": 22,
+    "new_integrity_refusal": 4,
+    "helper_transfer": "PASS",
+    "n3_binding_check": "32_JOBS_VERIFIED"
+  },
+  "free_bytes": {
+    "C": 144010153984,
+    "G": 112278523904
+  },
+  "packaging_cutoff_utc": "2026-09-28T02:48:19.949192Z",
+  "deadline_utc": "2026-09-28T14:48:19.949192Z",
+  "total_compute_seconds": null,
+  "llm_tokens": null,
+  "usage_note": "Not exposed as complete campaign totals",
+  "schedules": "UPSTREAM_OWNED_PROBES_RETAINED_UNTIL_ACTUAL_COMPLETION",
+  "automatic_N4_N5_queue": false
+}

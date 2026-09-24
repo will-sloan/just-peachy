@@ -39,6 +39,7 @@ Add-Ssh ("python3.11 -c " + (Q $probe))
 Add-Ssh ("mkdir -p -- " + (Q $inbox))
 Add-Scp $archivePath "$inbox/release.zip"
 Add-Scp (Join-Path $PSScriptRoot 'release.py') "$inbox/release.py"
+Add-Scp (Join-Path $PSScriptRoot 'runtime_lock.py') "$inbox/runtime_lock.py"
 Add-Scp (Join-Path $PSScriptRoot 'install_pi.sh') "$inbox/install_pi.sh"
 if ($Wheelhouse) { Add-Scp (Resolve-Path -LiteralPath $Wheelhouse).Path "$inbox/wheelhouse" -Recursive }
 if ($Models) { Add-Scp (Resolve-Path -LiteralPath $Models).Path "$inbox/models" -Recursive }

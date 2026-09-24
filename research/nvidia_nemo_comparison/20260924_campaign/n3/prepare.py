@@ -43,9 +43,11 @@ def freeze(release):
     if release.exists():raise ValueError('Use a fresh frozen release')
     prototype=release/'prototype';prototype.mkdir(parents=True)
     previous=load(LOCAL/'releases/n2-common-v7/SOURCE_RECEIPT.json')
-    names=set(previous['files'])
+    names={name for name in previous['files']
+        if '__pycache__' not in Path(name).parts and Path(name).suffix not in ('.pyc','.pyo')}
     names.update(str(p.relative_to(WORKTREE/'prototype')).replace('\\','/') for p in (WORKTREE/'prototype').rglob('*')
-        if p.is_file() and (p.name.startswith('n3_') or p.name.startswith('README_N3') or p.name=='test_n3_components.py'))
+        if p.is_file() and '__pycache__' not in p.parts and p.suffix not in ('.pyc','.pyo')
+        and (p.name.startswith('n3_') or p.name.startswith('README_N3') or p.name=='test_n3_components.py'))
     for name in sorted(names):
         origin=WORKTREE/'prototype'/name
         target=prototype/name;target.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(origin,target)

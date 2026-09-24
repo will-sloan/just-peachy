@@ -1,0 +1,32 @@
+{
+  "status": "EXTRACTED_NATIVE_ARTIFACT_VERIFIED_EMULATED_LOADER_PASS",
+  "files": 27,
+  "commands": [
+    {
+      "argv": [
+        "/home/amiri/jp-n5-loader-v2/qemu/usr/bin/qemu-aarch64",
+        "-L",
+        "/home/amiri/jp-n5-native-v1/tools/arm-gnu-toolchain-12.3.rel1-x86_64-aarch64-none-linux-gnu/aarch64-none-linux-gnu/libc",
+        "/home/amiri/jp-n5-extracted-v1/nemo-arm64/bin/nemo-speech",
+        "--version"
+      ],
+      "returncode": 0,
+      "stdout": "nemo-speech 0.1.0\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/home/amiri/jp-n5-loader-v2/qemu/usr/bin/qemu-aarch64",
+        "-L",
+        "/home/amiri/jp-n5-native-v1/tools/arm-gnu-toolchain-12.3.rel1-x86_64-aarch64-none-linux-gnu/aarch64-none-linux-gnu/libc",
+        "/home/amiri/jp-n5-loader-v2/loader",
+        "/home/amiri/jp-n5-extracted-v1/nemo-arm64/lib/libnemo_speech_asr_c.so"
+      ],
+      "returncode": 0,
+      "stdout": "C ABI version: nemo-speech-asr 0.1.0\n",
+      "stderr": ""
+    }
+  ],
+  "model_load": false,
+  "CM5_HARDWARE_NOT_TESTED": true
+}
