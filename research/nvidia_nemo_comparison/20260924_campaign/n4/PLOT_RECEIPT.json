@@ -1,0 +1,43 @@
+{
+  "status": "GENERATED_FROM_AUDITED_METADATA",
+  "input": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\preparation-v1\\EVALUATOR_STRATA.json",
+    "sha256": "8d24e379891b9d232bb08a898c45f8315fe6a0eb5191d74a23458a56f2eeb98f",
+    "bytes": 398397
+  },
+  "code": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\plot_bank.py",
+    "sha256": "1b7e0b776c04e32a760ff464301f21712c6cbc97bb53648c90b80e5170fc0f32",
+    "bytes": 2281
+  },
+  "scene_counts": {
+    "complete_nonoverlap": 156,
+    "complete_overlap": 47,
+    "incomplete_ambient_reference": 26,
+    "empty_control": 11
+  },
+  "dependency_group_sizes": [
+    72,
+    60,
+    57,
+    15,
+    13,
+    11,
+    10,
+    1,
+    1
+  ],
+  "output": [
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\plots-v1\\BANK_COVERAGE.png",
+      "sha256": "b649a0fdf92f63191071b2a6738cb9dfcdc8fc7627507becd001f03652676104",
+      "bytes": 65362
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\plots-v1\\BANK_COVERAGE.svg",
+      "sha256": "1099ed577c92f887b81d96dff5de542ad1b52b10940c04f7a052a10807648843",
+      "bytes": 62567
+    }
+  ],
+  "inference_results_plotted": false
+}

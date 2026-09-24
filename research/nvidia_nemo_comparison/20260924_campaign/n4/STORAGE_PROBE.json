@@ -1,0 +1,23 @@
+{
+  "status": "LOSSLESS_ARCHIVE_VERIFIED",
+  "source": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\factorial-v2\\D1_E0\\cells\\N2_S45_01_04_O0\\attempt_20260924T182458_9b2d90\\RESULT.json",
+    "sha256": "599ef184edde2a187b224701f3224f3fec9eb9d8ac6afd3b9de5a95c89dca0d0",
+    "bytes": 54302
+  },
+  "archive": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\storage\\d1e0-first-cell-v1.zip",
+    "sha256": "833fe5a8864c7a91f80849cab9be02ef3bfca2dcd7eaa7e2b17220ab3fa494cb",
+    "bytes": 2934765
+  },
+  "files": 59,
+  "unique_objects": 33,
+  "input_bytes": 35893789,
+  "archive_bytes": 2934765,
+  "ratio": 0.08176247428211048,
+  "elapsed_seconds": 0.5305546000017785,
+  "source_files_modified": false,
+  "source_files_deleted": false,
+  "stage_completion_claimed": false,
+  "portable_cache_reader_integrated": false
+}

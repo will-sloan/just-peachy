@@ -1,0 +1,1364 @@
+{
+  "schema": "n4-preparation-matrix-v1",
+  "rows": [
+    {
+      "profile": "A0_D0_E0",
+      "asr": "A0",
+      "diarization": "D0",
+      "embedding": "E0",
+      "punctuation": "P0",
+      "implementation": "WIRED_MODEL_FREE_CHECK_PASSED",
+      "backend_key": "baseline",
+      "manifest_id": "sha256:1a6be7490786a81d971c19ad35572b8c13c30993f7b8a7c1903f4b0617b6b1b5",
+      "composition": {
+        "schema": "just-peachy.backend-composition.v1",
+        "runtime": "existing Sherpa ONNX + S7 prototype adapter",
+        "input": {
+          "sample_rate_hz": 16000,
+          "channels": 1,
+          "format": "PCM_16",
+          "gain_policy": "already-prepared samples; do not reapply gain"
+        },
+        "components": {
+          "asr": {
+            "name": "selected Sherpa Giga",
+            "assets": [
+              {
+                "component_id": "sherpa_giga_encoder_int8",
+                "sha256": "32c98281c7bd8b63e3e142d007251b37f120572e8fdea9a4f5a79ce22b10ec4f",
+                "deployment_relative_path": "models/sherpa_giga/encoder-epoch-99-avg-1.int8.onnx",
+                "bytes": 187823992
+              },
+              {
+                "component_id": "sherpa_giga_decoder_fp32",
+                "sha256": "9da02b77cb08826756ec6a88635f35a40374e4164e7c6359121a9145958a6ceb",
+                "deployment_relative_path": "models/sherpa_giga/decoder-epoch-99-avg-1.onnx",
+                "bytes": 2092566
+              },
+              {
+                "component_id": "sherpa_giga_joiner_int8",
+                "sha256": "831477d390e59a61f1b6a6f763b9903e6c6366ff6034f1ddba613be82637122f",
+                "deployment_relative_path": "models/sherpa_giga/joiner-epoch-99-avg-1.int8.onnx",
+                "bytes": 259335
+              },
+              {
+                "component_id": "sherpa_giga_tokens",
+                "sha256": "49e3c2646595fd907228b3c6787069658f67b17377c60aeb8619c4551b2316fb",
+                "deployment_relative_path": "models/sherpa_giga/tokens.txt",
+                "bytes": 5048
+              }
+            ]
+          },
+          "diarization": {
+            "name": "selected Pyannote 3.0 ONNX",
+            "assets": [
+              {
+                "component_id": "pyannote_segmentation_3_0_fp32",
+                "sha256": "b4b65085bbf2cc455565696604c87fedade1359aa6ddfac5d726d69124d5069a",
+                "deployment_relative_path": "models/h2/pyannote_segmentation_3_0_fp32.onnx",
+                "bytes": 5925265
+              }
+            ]
+          },
+          "enrollment": {
+            "name": "selected ReDimNet2-B2",
+            "embedding_space": "redimnet2-b2/5c1a8635cba0d4648463f3b6d30c5a6137bc38d1200ab00c5944400aaa7b5609",
+            "assets": [
+              {
+                "component_id": "redimnet2_b2_fp32",
+                "sha256": "5c1a8635cba0d4648463f3b6d30c5a6137bc38d1200ab00c5944400aaa7b5609",
+                "deployment_relative_path": "models/h2/redimnet2_b2_fp32.onnx",
+                "bytes": 16025408
+              }
+            ]
+          },
+          "punctuation": {
+            "name": "selected final-only punctuation",
+            "assets": [
+              {
+                "component_id": "sherpa_online_punctuation_int8",
+                "sha256": "9d611f445fe4a46186080fe161be6059d87d72eb88d3a8cb00c1a06e83a6067e",
+                "deployment_relative_path": "models/punctuation/model.int8.onnx",
+                "bytes": 7490500
+              },
+              {
+                "component_id": "sherpa_online_punctuation_bpe",
+                "sha256": "e118b7ad88c54db562517df49e1cffd4836d166c34fb190fd311d7f34eb238f5",
+                "deployment_relative_path": "models/punctuation/bpe.vocab",
+                "bytes": 149430
+              }
+            ]
+          }
+        }
+      },
+      "required": 480,
+      "completed": 0,
+      "failed": 0,
+      "incompatible": 0,
+      "not_tested": 480,
+      "status": "NOT_TESTED",
+      "gates": [
+        "N2/N3 reviewed numerical admission",
+        "real integrated smoke/regression",
+        "full-bank runner/storage admission"
+      ],
+      "deployment_tier": "UNKNOWN",
+      "rescue_used": 0
+    },
+    {
+      "profile": "A0_D0_E1",
+      "asr": "A0",
+      "diarization": "D0",
+      "embedding": "E1",
+      "punctuation": "P0",
+      "implementation": "WIRED_MODEL_FREE_CHECK_PASSED",
+      "backend_key": "titanet",
+      "manifest_id": "sha256:2d1bb8c33a075294877cc92af1e78bcc01a3e9164c1c69c2417e038eadc28c4e",
+      "composition": {
+        "schema": "just-peachy.backend-composition.v1",
+        "runtime": "N2 native streaming activity + shared Sherpa/PnC + model-specific gallery",
+        "input": {
+          "sample_rate_hz": 16000,
+          "channels": 1,
+          "format": "PCM_16",
+          "gain_policy": "already-prepared samples; do not reapply gain"
+        },
+        "components": {
+          "asr": {
+            "name": "selected Sherpa Giga",
+            "assets": [
+              {
+                "component_id": "sherpa_giga_encoder_int8",
+                "sha256": "32c98281c7bd8b63e3e142d007251b37f120572e8fdea9a4f5a79ce22b10ec4f",
+                "deployment_relative_path": "models/sherpa_giga/encoder-epoch-99-avg-1.int8.onnx",
+                "bytes": 187823992
+              },
+              {
+                "component_id": "sherpa_giga_decoder_fp32",
+                "sha256": "9da02b77cb08826756ec6a88635f35a40374e4164e7c6359121a9145958a6ceb",
+                "deployment_relative_path": "models/sherpa_giga/decoder-epoch-99-avg-1.onnx",
+                "bytes": 2092566
+              },
+              {
+                "component_id": "sherpa_giga_joiner_int8",
+                "sha256": "831477d390e59a61f1b6a6f763b9903e6c6366ff6034f1ddba613be82637122f",
+                "deployment_relative_path": "models/sherpa_giga/joiner-epoch-99-avg-1.int8.onnx",
+                "bytes": 259335
+              },
+              {
+                "component_id": "sherpa_giga_tokens",
+                "sha256": "49e3c2646595fd907228b3c6787069658f67b17377c60aeb8619c4551b2316fb",
+                "deployment_relative_path": "models/sherpa_giga/tokens.txt",
+                "bytes": 5048
+              }
+            ]
+          },
+          "diarization": {
+            "name": "selected Pyannote 3.0 ONNX",
+            "assets": [
+              {
+                "component_id": "pyannote_segmentation_3_0_fp32",
+                "sha256": "b4b65085bbf2cc455565696604c87fedade1359aa6ddfac5d726d69124d5069a",
+                "deployment_relative_path": "models/h2/pyannote_segmentation_3_0_fp32.onnx",
+                "bytes": 5925265
+              }
+            ]
+          },
+          "enrollment": {
+            "repository": "nvidia/speakerverification_en_titanet_large",
+            "revision": "0dc382f40121a5fbd34db10a2bb04d826c2be6a8",
+            "artifact_sha256": "e838520693f269e7984f55bc8eb3c2d60ccf246bf4b896d4be9bcabe3e4b0fe3",
+            "onnx_sha256": "86b64bc03a7b151231f59745a8d36619fbc68b739a4abb253bd0d9ce0c350610",
+            "frontend_sha256": "582f92d2fa2a29be70f6fdc13d67fc1376083ca66cb35401f8335ed85c4115b6",
+            "dimension": 192,
+            "status": "IMPLEMENTED_ONNX_CPU"
+          },
+          "punctuation": {
+            "name": "selected final-only punctuation",
+            "assets": [
+              {
+                "component_id": "sherpa_online_punctuation_int8",
+                "sha256": "9d611f445fe4a46186080fe161be6059d87d72eb88d3a8cb00c1a06e83a6067e",
+                "deployment_relative_path": "models/punctuation/model.int8.onnx",
+                "bytes": 7490500
+              },
+              {
+                "component_id": "sherpa_online_punctuation_bpe",
+                "sha256": "e118b7ad88c54db562517df49e1cffd4836d166c34fb190fd311d7f34eb238f5",
+                "deployment_relative_path": "models/punctuation/bpe.vocab",
+                "bytes": 149430
+              }
+            ]
+          }
+        },
+        "n2": {
+          "diarization": "D0",
+          "embedding": "E1",
+          "streaming_profile": "low_latency"
+        }
+      },
+      "required": 480,
+      "completed": 0,
+      "failed": 0,
+      "incompatible": 0,
+      "not_tested": 480,
+      "status": "NOT_TESTED",
+      "gates": [
+        "N2/N3 reviewed numerical admission",
+        "real integrated smoke/regression",
+        "full-bank runner/storage admission",
+        "D0/E1 C-only anonymous association profile not validated"
+      ],
+      "deployment_tier": "UNKNOWN",
+      "rescue_used": 0
+    },
+    {
+      "profile": "A0_D1_E0",
+      "asr": "A0",
+      "diarization": "D1",
+      "embedding": "E0",
+      "punctuation": "P0",
+      "implementation": "WIRED_MODEL_FREE_CHECK_PASSED",
+      "backend_key": "nemotron_hybrid",
+      "manifest_id": "sha256:2cae7524dc49970f0492bd38d9fd8584609d07bbc83ea36bf0efd9355a154fe1",
+      "composition": {
+        "schema": "just-peachy.backend-composition.v1",
+        "runtime": "N2 native streaming activity + shared Sherpa/PnC + model-specific gallery",
+        "input": {
+          "sample_rate_hz": 16000,
+          "channels": 1,
+          "format": "PCM_16",
+          "gain_policy": "already-prepared samples; do not reapply gain"
+        },
+        "components": {
+          "asr": {
+            "name": "selected Sherpa Giga",
+            "assets": [
+              {
+                "component_id": "sherpa_giga_encoder_int8",
+                "sha256": "32c98281c7bd8b63e3e142d007251b37f120572e8fdea9a4f5a79ce22b10ec4f",
+                "deployment_relative_path": "models/sherpa_giga/encoder-epoch-99-avg-1.int8.onnx",
+                "bytes": 187823992
+              },
+              {
+                "component_id": "sherpa_giga_decoder_fp32",
+                "sha256": "9da02b77cb08826756ec6a88635f35a40374e4164e7c6359121a9145958a6ceb",
+                "deployment_relative_path": "models/sherpa_giga/decoder-epoch-99-avg-1.onnx",
+                "bytes": 2092566
+              },
+              {
+                "component_id": "sherpa_giga_joiner_int8",
+                "sha256": "831477d390e59a61f1b6a6f763b9903e6c6366ff6034f1ddba613be82637122f",
+                "deployment_relative_path": "models/sherpa_giga/joiner-epoch-99-avg-1.int8.onnx",
+                "bytes": 259335
+              },
+              {
+                "component_id": "sherpa_giga_tokens",
+                "sha256": "49e3c2646595fd907228b3c6787069658f67b17377c60aeb8619c4551b2316fb",
+                "deployment_relative_path": "models/sherpa_giga/tokens.txt",
+                "bytes": 5048
+              }
+            ]
+          },
+          "diarization": {
+            "repository": "nvidia/Nemotron-3-Diarization",
+            "revision": "f667ed73aee57d40cc39428eb768b4fd87a0a29e",
+            "artifact_sha256": "08456d9e22cd9a323c0364d98375f3746d6e68507ebb705cd46438c534c7a3a1",
+            "precision": "Q8_0",
+            "channels": 8,
+            "runtime_revision": "97a15afa5caa9bce5baaa86c1184103877af4101",
+            "status": "IMPLEMENTED_NATIVE_CPU"
+          },
+          "enrollment": {
+            "name": "selected ReDimNet2-B2",
+            "embedding_space": "redimnet2-b2/5c1a8635cba0d4648463f3b6d30c5a6137bc38d1200ab00c5944400aaa7b5609",
+            "assets": [
+              {
+                "component_id": "redimnet2_b2_fp32",
+                "sha256": "5c1a8635cba0d4648463f3b6d30c5a6137bc38d1200ab00c5944400aaa7b5609",
+                "deployment_relative_path": "models/h2/redimnet2_b2_fp32.onnx",
+                "bytes": 16025408
+              }
+            ]
+          },
+          "punctuation": {
+            "name": "selected final-only punctuation",
+            "assets": [
+              {
+                "component_id": "sherpa_online_punctuation_int8",
+                "sha256": "9d611f445fe4a46186080fe161be6059d87d72eb88d3a8cb00c1a06e83a6067e",
+                "deployment_relative_path": "models/punctuation/model.int8.onnx",
+                "bytes": 7490500
+              },
+              {
+                "component_id": "sherpa_online_punctuation_bpe",
+                "sha256": "e118b7ad88c54db562517df49e1cffd4836d166c34fb190fd311d7f34eb238f5",
+                "deployment_relative_path": "models/punctuation/bpe.vocab",
+                "bytes": 149430
+              }
+            ]
+          }
+        },
+        "n2": {
+          "diarization": "D1",
+          "embedding": "E0",
+          "streaming_profile": "low_latency"
+        }
+      },
+      "required": 480,
+      "completed": 0,
+      "failed": 0,
+      "incompatible": 0,
+      "not_tested": 480,
+      "status": "NOT_TESTED",
+      "gates": [
+        "N2/N3 reviewed numerical admission",
+        "real integrated smoke/regression",
+        "full-bank runner/storage admission"
+      ],
+      "deployment_tier": "UNKNOWN",
+      "rescue_used": 0
+    },
+    {
+      "profile": "A0_D1_E1",
+      "asr": "A0",
+      "diarization": "D1",
+      "embedding": "E1",
+      "punctuation": "P0",
+      "implementation": "WIRED_MODEL_FREE_CHECK_PASSED",
+      "backend_key": "nemotron_titanet",
+      "manifest_id": "sha256:8ae4679a5f922ef5aa84a632f8de20868227cdb73aaaadc515955940813a0ff9",
+      "composition": {
+        "schema": "just-peachy.backend-composition.v1",
+        "runtime": "N2 native streaming activity + shared Sherpa/PnC + model-specific gallery",
+        "input": {
+          "sample_rate_hz": 16000,
+          "channels": 1,
+          "format": "PCM_16",
+          "gain_policy": "already-prepared samples; do not reapply gain"
+        },
+        "components": {
+          "asr": {
+            "name": "selected Sherpa Giga",
+            "assets": [
+              {
+                "component_id": "sherpa_giga_encoder_int8",
+                "sha256": "32c98281c7bd8b63e3e142d007251b37f120572e8fdea9a4f5a79ce22b10ec4f",
+                "deployment_relative_path": "models/sherpa_giga/encoder-epoch-99-avg-1.int8.onnx",
+                "bytes": 187823992
+              },
+              {
+                "component_id": "sherpa_giga_decoder_fp32",
+                "sha256": "9da02b77cb08826756ec6a88635f35a40374e4164e7c6359121a9145958a6ceb",
+                "deployment_relative_path": "models/sherpa_giga/decoder-epoch-99-avg-1.onnx",
+                "bytes": 2092566
+              },
+              {
+                "component_id": "sherpa_giga_joiner_int8",
+                "sha256": "831477d390e59a61f1b6a6f763b9903e6c6366ff6034f1ddba613be82637122f",
+                "deployment_relative_path": "models/sherpa_giga/joiner-epoch-99-avg-1.int8.onnx",
+                "bytes": 259335
+              },
+              {
+                "component_id": "sherpa_giga_tokens",
+                "sha256": "49e3c2646595fd907228b3c6787069658f67b17377c60aeb8619c4551b2316fb",
+                "deployment_relative_path": "models/sherpa_giga/tokens.txt",
+                "bytes": 5048
+              }
+            ]
+          },
+          "diarization": {
+            "repository": "nvidia/Nemotron-3-Diarization",
+            "revision": "f667ed73aee57d40cc39428eb768b4fd87a0a29e",
+            "artifact_sha256": "08456d9e22cd9a323c0364d98375f3746d6e68507ebb705cd46438c534c7a3a1",
+            "precision": "Q8_0",
+            "channels": 8,
+            "runtime_revision": "97a15afa5caa9bce5baaa86c1184103877af4101",
+            "status": "IMPLEMENTED_NATIVE_CPU"
+          },
+          "enrollment": {
+            "repository": "nvidia/speakerverification_en_titanet_large",
+            "revision": "0dc382f40121a5fbd34db10a2bb04d826c2be6a8",
+            "artifact_sha256": "e838520693f269e7984f55bc8eb3c2d60ccf246bf4b896d4be9bcabe3e4b0fe3",
+            "onnx_sha256": "86b64bc03a7b151231f59745a8d36619fbc68b739a4abb253bd0d9ce0c350610",
+            "frontend_sha256": "582f92d2fa2a29be70f6fdc13d67fc1376083ca66cb35401f8335ed85c4115b6",
+            "dimension": 192,
+            "status": "IMPLEMENTED_ONNX_CPU"
+          },
+          "punctuation": {
+            "name": "selected final-only punctuation",
+            "assets": [
+              {
+                "component_id": "sherpa_online_punctuation_int8",
+                "sha256": "9d611f445fe4a46186080fe161be6059d87d72eb88d3a8cb00c1a06e83a6067e",
+                "deployment_relative_path": "models/punctuation/model.int8.onnx",
+                "bytes": 7490500
+              },
+              {
+                "component_id": "sherpa_online_punctuation_bpe",
+                "sha256": "e118b7ad88c54db562517df49e1cffd4836d166c34fb190fd311d7f34eb238f5",
+                "deployment_relative_path": "models/punctuation/bpe.vocab",
+                "bytes": 149430
+              }
+            ]
+          }
+        },
+        "n2": {
+          "diarization": "D1",
+          "embedding": "E1",
+          "streaming_profile": "low_latency"
+        }
+      },
+      "required": 480,
+      "completed": 0,
+      "failed": 0,
+      "incompatible": 0,
+      "not_tested": 480,
+      "status": "NOT_TESTED",
+      "gates": [
+        "N2/N3 reviewed numerical admission",
+        "real integrated smoke/regression",
+        "full-bank runner/storage admission"
+      ],
+      "deployment_tier": "UNKNOWN",
+      "rescue_used": 0
+    },
+    {
+      "profile": "A1_D0_E0",
+      "asr": "A1",
+      "diarization": "D0",
+      "embedding": "E0",
+      "punctuation": "P0",
+      "implementation": "NOT_IMPLEMENTED",
+      "backend_key": null,
+      "manifest_id": "intended-sha256:d610e69131a787d952445be5c2364d5b370f6e3d8fd90e2594972fc0abe5a6f1",
+      "composition": {
+        "status": "INTENDED_NOT_IMPLEMENTED",
+        "asr": {
+          "repository": "nvidia/parakeet_realtime_eou_120m-v1",
+          "revision": "a7e2b4629593dce0ec19f600e00e9904353fda2d",
+          "filename": "parakeet_realtime_eou_120m-v1.nemo",
+          "bytes": 460062720,
+          "sha256": "6603a22a53b7c1a4bac4736cb24628fb568a7102ba931a28c799e2e72f109893",
+          "license": "NVIDIA Open Model License"
+        },
+        "diarization": {
+          "name": "selected Pyannote 3.0 ONNX",
+          "assets": [
+            {
+              "component_id": "pyannote_segmentation_3_0_fp32",
+              "sha256": "b4b65085bbf2cc455565696604c87fedade1359aa6ddfac5d726d69124d5069a",
+              "deployment_relative_path": "models/h2/pyannote_segmentation_3_0_fp32.onnx",
+              "bytes": 5925265
+            }
+          ]
+        },
+        "embedding": {
+          "name": "selected ReDimNet2-B2",
+          "embedding_space": "redimnet2-b2/5c1a8635cba0d4648463f3b6d30c5a6137bc38d1200ab00c5944400aaa7b5609",
+          "assets": [
+            {
+              "component_id": "redimnet2_b2_fp32",
+              "sha256": "5c1a8635cba0d4648463f3b6d30c5a6137bc38d1200ab00c5944400aaa7b5609",
+              "deployment_relative_path": "models/h2/redimnet2_b2_fp32.onnx",
+              "bytes": 16025408
+            }
+          ]
+        },
+        "punctuation": {
+          "name": "selected final-only punctuation",
+          "assets": [
+            {
+              "component_id": "sherpa_online_punctuation_int8",
+              "sha256": "9d611f445fe4a46186080fe161be6059d87d72eb88d3a8cb00c1a06e83a6067e",
+              "deployment_relative_path": "models/punctuation/model.int8.onnx",
+              "bytes": 7490500
+            },
+            {
+              "component_id": "sherpa_online_punctuation_bpe",
+              "sha256": "e118b7ad88c54db562517df49e1cffd4836d166c34fb190fd311d7f34eb238f5",
+              "deployment_relative_path": "models/punctuation/bpe.vocab",
+              "bytes": 149430
+            }
+          ]
+        }
+      },
+      "required": 480,
+      "completed": 0,
+      "failed": 0,
+      "incompatible": 0,
+      "not_tested": 480,
+      "status": "NOT_TESTED",
+      "gates": [
+        "N2/N3 reviewed numerical admission",
+        "real integrated smoke/regression",
+        "full-bank runner/storage admission",
+        "A1 integrated Controller adapter missing"
+      ],
+      "deployment_tier": "UNKNOWN",
+      "rescue_used": 0
+    },
+    {
+      "profile": "A1_D0_E1",
+      "asr": "A1",
+      "diarization": "D0",
+      "embedding": "E1",
+      "punctuation": "P0",
+      "implementation": "NOT_IMPLEMENTED",
+      "backend_key": null,
+      "manifest_id": "intended-sha256:9a606253503992ce5ad819c52a32559d5b3c09fff04ee43d75d6e1a9eb6f6f85",
+      "composition": {
+        "status": "INTENDED_NOT_IMPLEMENTED",
+        "asr": {
+          "repository": "nvidia/parakeet_realtime_eou_120m-v1",
+          "revision": "a7e2b4629593dce0ec19f600e00e9904353fda2d",
+          "filename": "parakeet_realtime_eou_120m-v1.nemo",
+          "bytes": 460062720,
+          "sha256": "6603a22a53b7c1a4bac4736cb24628fb568a7102ba931a28c799e2e72f109893",
+          "license": "NVIDIA Open Model License"
+        },
+        "diarization": {
+          "name": "selected Pyannote 3.0 ONNX",
+          "assets": [
+            {
+              "component_id": "pyannote_segmentation_3_0_fp32",
+              "sha256": "b4b65085bbf2cc455565696604c87fedade1359aa6ddfac5d726d69124d5069a",
+              "deployment_relative_path": "models/h2/pyannote_segmentation_3_0_fp32.onnx",
+              "bytes": 5925265
+            }
+          ]
+        },
+        "embedding": {
+          "repository": "nvidia/speakerverification_en_titanet_large",
+          "revision": "0dc382f40121a5fbd34db10a2bb04d826c2be6a8",
+          "artifact_sha256": "e838520693f269e7984f55bc8eb3c2d60ccf246bf4b896d4be9bcabe3e4b0fe3",
+          "onnx_sha256": "86b64bc03a7b151231f59745a8d36619fbc68b739a4abb253bd0d9ce0c350610",
+          "frontend_sha256": "582f92d2fa2a29be70f6fdc13d67fc1376083ca66cb35401f8335ed85c4115b6",
+          "dimension": 192,
+          "status": "IMPLEMENTED_ONNX_CPU"
+        },
+        "punctuation": {
+          "name": "selected final-only punctuation",
+          "assets": [
+            {
+              "component_id": "sherpa_online_punctuation_int8",
+              "sha256": "9d611f445fe4a46186080fe161be6059d87d72eb88d3a8cb00c1a06e83a6067e",
+              "deployment_relative_path": "models/punctuation/model.int8.onnx",
+              "bytes": 7490500
+            },
+            {
+              "component_id": "sherpa_online_punctuation_bpe",
+              "sha256": "e118b7ad88c54db562517df49e1cffd4836d166c34fb190fd311d7f34eb238f5",
+              "deployment_relative_path": "models/punctuation/bpe.vocab",
+              "bytes": 149430
+            }
+          ]
+        }
+      },
+      "required": 480,
+      "completed": 0,
+      "failed": 0,
+      "incompatible": 0,
+      "not_tested": 480,
+      "status": "NOT_TESTED",
+      "gates": [
+        "N2/N3 reviewed numerical admission",
+        "real integrated smoke/regression",
+        "full-bank runner/storage admission",
+        "A1 integrated Controller adapter missing",
+        "D0/E1 C-only anonymous association profile not validated"
+      ],
+      "deployment_tier": "UNKNOWN",
+      "rescue_used": 0
+    },
+    {
+      "profile": "A1_D1_E0",
+      "asr": "A1",
+      "diarization": "D1",
+      "embedding": "E0",
+      "punctuation": "P0",
+      "implementation": "NOT_IMPLEMENTED",
+      "backend_key": null,
+      "manifest_id": "intended-sha256:76528ff9d92a73745043e797e1960973dcec846a9a20eaefc77bc39b7e5eeecd",
+      "composition": {
+        "status": "INTENDED_NOT_IMPLEMENTED",
+        "asr": {
+          "repository": "nvidia/parakeet_realtime_eou_120m-v1",
+          "revision": "a7e2b4629593dce0ec19f600e00e9904353fda2d",
+          "filename": "parakeet_realtime_eou_120m-v1.nemo",
+          "bytes": 460062720,
+          "sha256": "6603a22a53b7c1a4bac4736cb24628fb568a7102ba931a28c799e2e72f109893",
+          "license": "NVIDIA Open Model License"
+        },
+        "diarization": {
+          "repository": "nvidia/Nemotron-3-Diarization",
+          "revision": "f667ed73aee57d40cc39428eb768b4fd87a0a29e",
+          "artifact_sha256": "08456d9e22cd9a323c0364d98375f3746d6e68507ebb705cd46438c534c7a3a1",
+          "precision": "Q8_0",
+          "channels": 8,
+          "runtime_revision": "97a15afa5caa9bce5baaa86c1184103877af4101",
+          "status": "IMPLEMENTED_NATIVE_CPU"
+        },
+        "embedding": {
+          "name": "selected ReDimNet2-B2",
+          "embedding_space": "redimnet2-b2/5c1a8635cba0d4648463f3b6d30c5a6137bc38d1200ab00c5944400aaa7b5609",
+          "assets": [
+            {
+              "component_id": "redimnet2_b2_fp32",
+              "sha256": "5c1a8635cba0d4648463f3b6d30c5a6137bc38d1200ab00c5944400aaa7b5609",
+              "deployment_relative_path": "models/h2/redimnet2_b2_fp32.onnx",
+              "bytes": 16025408
+            }
+          ]
+        },
+        "punctuation": {
+          "name": "selected final-only punctuation",
+          "assets": [
+            {
+              "component_id": "sherpa_online_punctuation_int8",
+              "sha256": "9d611f445fe4a46186080fe161be6059d87d72eb88d3a8cb00c1a06e83a6067e",
+              "deployment_relative_path": "models/punctuation/model.int8.onnx",
+              "bytes": 7490500
+            },
+            {
+              "component_id": "sherpa_online_punctuation_bpe",
+              "sha256": "e118b7ad88c54db562517df49e1cffd4836d166c34fb190fd311d7f34eb238f5",
+              "deployment_relative_path": "models/punctuation/bpe.vocab",
+              "bytes": 149430
+            }
+          ]
+        }
+      },
+      "required": 480,
+      "completed": 0,
+      "failed": 0,
+      "incompatible": 0,
+      "not_tested": 480,
+      "status": "NOT_TESTED",
+      "gates": [
+        "N2/N3 reviewed numerical admission",
+        "real integrated smoke/regression",
+        "full-bank runner/storage admission",
+        "A1 integrated Controller adapter missing"
+      ],
+      "deployment_tier": "UNKNOWN",
+      "rescue_used": 0
+    },
+    {
+      "profile": "A1_D1_E1",
+      "asr": "A1",
+      "diarization": "D1",
+      "embedding": "E1",
+      "punctuation": "P0",
+      "implementation": "NOT_IMPLEMENTED",
+      "backend_key": null,
+      "manifest_id": "intended-sha256:0db60bf97491ccb281ff1d9703e922c7c00001ddab1f207a39697bd9f9b62877",
+      "composition": {
+        "status": "INTENDED_NOT_IMPLEMENTED",
+        "asr": {
+          "repository": "nvidia/parakeet_realtime_eou_120m-v1",
+          "revision": "a7e2b4629593dce0ec19f600e00e9904353fda2d",
+          "filename": "parakeet_realtime_eou_120m-v1.nemo",
+          "bytes": 460062720,
+          "sha256": "6603a22a53b7c1a4bac4736cb24628fb568a7102ba931a28c799e2e72f109893",
+          "license": "NVIDIA Open Model License"
+        },
+        "diarization": {
+          "repository": "nvidia/Nemotron-3-Diarization",
+          "revision": "f667ed73aee57d40cc39428eb768b4fd87a0a29e",
+          "artifact_sha256": "08456d9e22cd9a323c0364d98375f3746d6e68507ebb705cd46438c534c7a3a1",
+          "precision": "Q8_0",
+          "channels": 8,
+          "runtime_revision": "97a15afa5caa9bce5baaa86c1184103877af4101",
+          "status": "IMPLEMENTED_NATIVE_CPU"
+        },
+        "embedding": {
+          "repository": "nvidia/speakerverification_en_titanet_large",
+          "revision": "0dc382f40121a5fbd34db10a2bb04d826c2be6a8",
+          "artifact_sha256": "e838520693f269e7984f55bc8eb3c2d60ccf246bf4b896d4be9bcabe3e4b0fe3",
+          "onnx_sha256": "86b64bc03a7b151231f59745a8d36619fbc68b739a4abb253bd0d9ce0c350610",
+          "frontend_sha256": "582f92d2fa2a29be70f6fdc13d67fc1376083ca66cb35401f8335ed85c4115b6",
+          "dimension": 192,
+          "status": "IMPLEMENTED_ONNX_CPU"
+        },
+        "punctuation": {
+          "name": "selected final-only punctuation",
+          "assets": [
+            {
+              "component_id": "sherpa_online_punctuation_int8",
+              "sha256": "9d611f445fe4a46186080fe161be6059d87d72eb88d3a8cb00c1a06e83a6067e",
+              "deployment_relative_path": "models/punctuation/model.int8.onnx",
+              "bytes": 7490500
+            },
+            {
+              "component_id": "sherpa_online_punctuation_bpe",
+              "sha256": "e118b7ad88c54db562517df49e1cffd4836d166c34fb190fd311d7f34eb238f5",
+              "deployment_relative_path": "models/punctuation/bpe.vocab",
+              "bytes": 149430
+            }
+          ]
+        }
+      },
+      "required": 480,
+      "completed": 0,
+      "failed": 0,
+      "incompatible": 0,
+      "not_tested": 480,
+      "status": "NOT_TESTED",
+      "gates": [
+        "N2/N3 reviewed numerical admission",
+        "real integrated smoke/regression",
+        "full-bank runner/storage admission",
+        "A1 integrated Controller adapter missing"
+      ],
+      "deployment_tier": "UNKNOWN",
+      "rescue_used": 0
+    },
+    {
+      "profile": "A2_D0_E0",
+      "asr": "A2",
+      "diarization": "D0",
+      "embedding": "E0",
+      "punctuation": "P1_native",
+      "implementation": "WIRED_MODEL_FREE_CHECK_PASSED",
+      "backend_key": "n4_a2_d0_e0",
+      "manifest_id": "sha256:8ce72e57141be90ceb61d23c57a8117629b456459a1764543107d3df52b5590d",
+      "composition": {
+        "schema": "just-peachy.backend-composition.v1",
+        "runtime": "N3 native cache-aware RNNT + N2 identity + shared UI",
+        "input": {
+          "sample_rate_hz": 16000,
+          "channels": 1,
+          "format": "PCM_16",
+          "gain_policy": "already-prepared samples; do not reapply gain"
+        },
+        "components": {
+          "asr": {
+            "repository": "nvidia/nemotron-speech-streaming-en-0.6b",
+            "revision": "ebe59e5a817142986528bbbee5dba8db7b38ed50",
+            "artifact_sha256": "d9a01898d2a611c8764e23a1c2f45e70bbd5a425dc4de93692ac951dd603812d",
+            "precision": "Q8_0",
+            "runtime_revision": "97a15afa5caa9bce5baaa86c1184103877af4101",
+            "status": "IMPLEMENTED_VALIDATION_PENDING"
+          },
+          "diarization": {
+            "name": "selected Pyannote 3.0 ONNX",
+            "assets": [
+              {
+                "component_id": "pyannote_segmentation_3_0_fp32",
+                "sha256": "b4b65085bbf2cc455565696604c87fedade1359aa6ddfac5d726d69124d5069a",
+                "deployment_relative_path": "models/h2/pyannote_segmentation_3_0_fp32.onnx",
+                "bytes": 5925265
+              }
+            ]
+          },
+          "enrollment": {
+            "name": "selected ReDimNet2-B2",
+            "embedding_space": "redimnet2-b2/5c1a8635cba0d4648463f3b6d30c5a6137bc38d1200ab00c5944400aaa7b5609",
+            "assets": [
+              {
+                "component_id": "redimnet2_b2_fp32",
+                "sha256": "5c1a8635cba0d4648463f3b6d30c5a6137bc38d1200ab00c5944400aaa7b5609",
+                "deployment_relative_path": "models/h2/redimnet2_b2_fp32.onnx",
+                "bytes": 16025408
+              }
+            ]
+          },
+          "punctuation": {
+            "name": "native P1 punctuation/casing; no redundant P0 pass",
+            "source_asr": "A2"
+          }
+        },
+        "n2": {
+          "diarization": "D0",
+          "embedding": "E0",
+          "streaming_profile": "low_latency"
+        },
+        "n3": {
+          "variant": "A2",
+          "model_sha256": "d9a01898d2a611c8764e23a1c2f45e70bbd5a425dc4de93692ac951dd603812d",
+          "right_context": 1,
+          "language": "en-US",
+          "decoder": "greedy",
+          "endpoint_history_ms": 800
+        }
+      },
+      "required": 480,
+      "completed": 0,
+      "failed": 0,
+      "incompatible": 0,
+      "not_tested": 480,
+      "status": "NOT_TESTED",
+      "gates": [
+        "N2/N3 reviewed numerical admission",
+        "real integrated smoke/regression",
+        "full-bank runner/storage admission"
+      ],
+      "deployment_tier": "UNKNOWN",
+      "rescue_used": 0
+    },
+    {
+      "profile": "A2_D0_E1",
+      "asr": "A2",
+      "diarization": "D0",
+      "embedding": "E1",
+      "punctuation": "P1_native",
+      "implementation": "WIRED_MODEL_FREE_CHECK_PASSED",
+      "backend_key": "n4_a2_d0_e1",
+      "manifest_id": "sha256:00df49f2b0a34134cc3e9750cfc61eba103426dddb9099754bfcc71f1afda912",
+      "composition": {
+        "schema": "just-peachy.backend-composition.v1",
+        "runtime": "N3 native cache-aware RNNT + N2 identity + shared UI",
+        "input": {
+          "sample_rate_hz": 16000,
+          "channels": 1,
+          "format": "PCM_16",
+          "gain_policy": "already-prepared samples; do not reapply gain"
+        },
+        "components": {
+          "asr": {
+            "repository": "nvidia/nemotron-speech-streaming-en-0.6b",
+            "revision": "ebe59e5a817142986528bbbee5dba8db7b38ed50",
+            "artifact_sha256": "d9a01898d2a611c8764e23a1c2f45e70bbd5a425dc4de93692ac951dd603812d",
+            "precision": "Q8_0",
+            "runtime_revision": "97a15afa5caa9bce5baaa86c1184103877af4101",
+            "status": "IMPLEMENTED_VALIDATION_PENDING"
+          },
+          "diarization": {
+            "name": "selected Pyannote 3.0 ONNX",
+            "assets": [
+              {
+                "component_id": "pyannote_segmentation_3_0_fp32",
+                "sha256": "b4b65085bbf2cc455565696604c87fedade1359aa6ddfac5d726d69124d5069a",
+                "deployment_relative_path": "models/h2/pyannote_segmentation_3_0_fp32.onnx",
+                "bytes": 5925265
+              }
+            ]
+          },
+          "enrollment": {
+            "repository": "nvidia/speakerverification_en_titanet_large",
+            "revision": "0dc382f40121a5fbd34db10a2bb04d826c2be6a8",
+            "artifact_sha256": "e838520693f269e7984f55bc8eb3c2d60ccf246bf4b896d4be9bcabe3e4b0fe3",
+            "onnx_sha256": "86b64bc03a7b151231f59745a8d36619fbc68b739a4abb253bd0d9ce0c350610",
+            "frontend_sha256": "582f92d2fa2a29be70f6fdc13d67fc1376083ca66cb35401f8335ed85c4115b6",
+            "dimension": 192,
+            "status": "IMPLEMENTED_ONNX_CPU"
+          },
+          "punctuation": {
+            "name": "native P1 punctuation/casing; no redundant P0 pass",
+            "source_asr": "A2"
+          }
+        },
+        "n2": {
+          "diarization": "D0",
+          "embedding": "E1",
+          "streaming_profile": "low_latency"
+        },
+        "n3": {
+          "variant": "A2",
+          "model_sha256": "d9a01898d2a611c8764e23a1c2f45e70bbd5a425dc4de93692ac951dd603812d",
+          "right_context": 1,
+          "language": "en-US",
+          "decoder": "greedy",
+          "endpoint_history_ms": 800
+        }
+      },
+      "required": 480,
+      "completed": 0,
+      "failed": 0,
+      "incompatible": 0,
+      "not_tested": 480,
+      "status": "NOT_TESTED",
+      "gates": [
+        "N2/N3 reviewed numerical admission",
+        "real integrated smoke/regression",
+        "full-bank runner/storage admission",
+        "D0/E1 C-only anonymous association profile not validated"
+      ],
+      "deployment_tier": "UNKNOWN",
+      "rescue_used": 0
+    },
+    {
+      "profile": "A2_D1_E0",
+      "asr": "A2",
+      "diarization": "D1",
+      "embedding": "E0",
+      "punctuation": "P1_native",
+      "implementation": "WIRED_MODEL_FREE_CHECK_PASSED",
+      "backend_key": "nemotron_600m",
+      "manifest_id": "sha256:377262016bfd68f234f1ee5fd18a478ac31917f4c55b9253c0ececf0f6e4b8e4",
+      "composition": {
+        "schema": "just-peachy.backend-composition.v1",
+        "runtime": "N3 native cache-aware RNNT + N2 identity + shared UI",
+        "input": {
+          "sample_rate_hz": 16000,
+          "channels": 1,
+          "format": "PCM_16",
+          "gain_policy": "already-prepared samples; do not reapply gain"
+        },
+        "components": {
+          "asr": {
+            "repository": "nvidia/nemotron-speech-streaming-en-0.6b",
+            "revision": "ebe59e5a817142986528bbbee5dba8db7b38ed50",
+            "artifact_sha256": "d9a01898d2a611c8764e23a1c2f45e70bbd5a425dc4de93692ac951dd603812d",
+            "precision": "Q8_0",
+            "runtime_revision": "97a15afa5caa9bce5baaa86c1184103877af4101",
+            "status": "IMPLEMENTED_VALIDATION_PENDING"
+          },
+          "diarization": {
+            "repository": "nvidia/Nemotron-3-Diarization",
+            "revision": "f667ed73aee57d40cc39428eb768b4fd87a0a29e",
+            "artifact_sha256": "08456d9e22cd9a323c0364d98375f3746d6e68507ebb705cd46438c534c7a3a1",
+            "precision": "Q8_0",
+            "channels": 8,
+            "runtime_revision": "97a15afa5caa9bce5baaa86c1184103877af4101",
+            "status": "IMPLEMENTED_NATIVE_CPU"
+          },
+          "enrollment": {
+            "name": "selected ReDimNet2-B2",
+            "embedding_space": "redimnet2-b2/5c1a8635cba0d4648463f3b6d30c5a6137bc38d1200ab00c5944400aaa7b5609",
+            "assets": [
+              {
+                "component_id": "redimnet2_b2_fp32",
+                "sha256": "5c1a8635cba0d4648463f3b6d30c5a6137bc38d1200ab00c5944400aaa7b5609",
+                "deployment_relative_path": "models/h2/redimnet2_b2_fp32.onnx",
+                "bytes": 16025408
+              }
+            ]
+          },
+          "punctuation": {
+            "name": "native P1 punctuation/casing; no redundant P0 pass",
+            "source_asr": "A2"
+          }
+        },
+        "n2": {
+          "diarization": "D1",
+          "embedding": "E0",
+          "streaming_profile": "low_latency"
+        },
+        "n3": {
+          "variant": "A2",
+          "model_sha256": "d9a01898d2a611c8764e23a1c2f45e70bbd5a425dc4de93692ac951dd603812d",
+          "right_context": 1,
+          "language": "en-US",
+          "decoder": "greedy",
+          "endpoint_history_ms": 800
+        }
+      },
+      "required": 480,
+      "completed": 0,
+      "failed": 0,
+      "incompatible": 0,
+      "not_tested": 480,
+      "status": "NOT_TESTED",
+      "gates": [
+        "N2/N3 reviewed numerical admission",
+        "real integrated smoke/regression",
+        "full-bank runner/storage admission"
+      ],
+      "deployment_tier": "UNKNOWN",
+      "rescue_used": 0
+    },
+    {
+      "profile": "A2_D1_E1",
+      "asr": "A2",
+      "diarization": "D1",
+      "embedding": "E1",
+      "punctuation": "P1_native",
+      "implementation": "WIRED_MODEL_FREE_CHECK_PASSED",
+      "backend_key": "n4_a2_d1_e1",
+      "manifest_id": "sha256:b6f509f9f55b3948aec7ed609de42efc6616ae84abf565f85b37da9d59a8c747",
+      "composition": {
+        "schema": "just-peachy.backend-composition.v1",
+        "runtime": "N3 native cache-aware RNNT + N2 identity + shared UI",
+        "input": {
+          "sample_rate_hz": 16000,
+          "channels": 1,
+          "format": "PCM_16",
+          "gain_policy": "already-prepared samples; do not reapply gain"
+        },
+        "components": {
+          "asr": {
+            "repository": "nvidia/nemotron-speech-streaming-en-0.6b",
+            "revision": "ebe59e5a817142986528bbbee5dba8db7b38ed50",
+            "artifact_sha256": "d9a01898d2a611c8764e23a1c2f45e70bbd5a425dc4de93692ac951dd603812d",
+            "precision": "Q8_0",
+            "runtime_revision": "97a15afa5caa9bce5baaa86c1184103877af4101",
+            "status": "IMPLEMENTED_VALIDATION_PENDING"
+          },
+          "diarization": {
+            "repository": "nvidia/Nemotron-3-Diarization",
+            "revision": "f667ed73aee57d40cc39428eb768b4fd87a0a29e",
+            "artifact_sha256": "08456d9e22cd9a323c0364d98375f3746d6e68507ebb705cd46438c534c7a3a1",
+            "precision": "Q8_0",
+            "channels": 8,
+            "runtime_revision": "97a15afa5caa9bce5baaa86c1184103877af4101",
+            "status": "IMPLEMENTED_NATIVE_CPU"
+          },
+          "enrollment": {
+            "repository": "nvidia/speakerverification_en_titanet_large",
+            "revision": "0dc382f40121a5fbd34db10a2bb04d826c2be6a8",
+            "artifact_sha256": "e838520693f269e7984f55bc8eb3c2d60ccf246bf4b896d4be9bcabe3e4b0fe3",
+            "onnx_sha256": "86b64bc03a7b151231f59745a8d36619fbc68b739a4abb253bd0d9ce0c350610",
+            "frontend_sha256": "582f92d2fa2a29be70f6fdc13d67fc1376083ca66cb35401f8335ed85c4115b6",
+            "dimension": 192,
+            "status": "IMPLEMENTED_ONNX_CPU"
+          },
+          "punctuation": {
+            "name": "native P1 punctuation/casing; no redundant P0 pass",
+            "source_asr": "A2"
+          }
+        },
+        "n2": {
+          "diarization": "D1",
+          "embedding": "E1",
+          "streaming_profile": "low_latency"
+        },
+        "n3": {
+          "variant": "A2",
+          "model_sha256": "d9a01898d2a611c8764e23a1c2f45e70bbd5a425dc4de93692ac951dd603812d",
+          "right_context": 1,
+          "language": "en-US",
+          "decoder": "greedy",
+          "endpoint_history_ms": 800
+        }
+      },
+      "required": 480,
+      "completed": 0,
+      "failed": 0,
+      "incompatible": 0,
+      "not_tested": 480,
+      "status": "NOT_TESTED",
+      "gates": [
+        "N2/N3 reviewed numerical admission",
+        "real integrated smoke/regression",
+        "full-bank runner/storage admission"
+      ],
+      "deployment_tier": "UNKNOWN",
+      "rescue_used": 0
+    },
+    {
+      "profile": "A3_D0_E0",
+      "asr": "A3",
+      "diarization": "D0",
+      "embedding": "E0",
+      "punctuation": "P1_native",
+      "implementation": "WIRED_MODEL_FREE_CHECK_PASSED",
+      "backend_key": "n4_a3_d0_e0",
+      "manifest_id": "sha256:e991821f0dceb2cdf5a7341bbf67fef35bbdaa6b23f2176d0f4a717c088e673b",
+      "composition": {
+        "schema": "just-peachy.backend-composition.v1",
+        "runtime": "N3 native cache-aware RNNT + N2 identity + shared UI",
+        "input": {
+          "sample_rate_hz": 16000,
+          "channels": 1,
+          "format": "PCM_16",
+          "gain_policy": "already-prepared samples; do not reapply gain"
+        },
+        "components": {
+          "asr": {
+            "repository": "nvidia/nemotron-3.5-asr-streaming-0.6b",
+            "revision": "ea30d66debe3740a08b573244286791d423d6b3e",
+            "artifact_sha256": "3fc991d3badad7277c11030a7519832cddaf2057aafed6d4b25147e953a070b1",
+            "precision": "Q8_0",
+            "runtime_revision": "97a15afa5caa9bce5baaa86c1184103877af4101",
+            "status": "IMPLEMENTED_VALIDATION_PENDING"
+          },
+          "diarization": {
+            "name": "selected Pyannote 3.0 ONNX",
+            "assets": [
+              {
+                "component_id": "pyannote_segmentation_3_0_fp32",
+                "sha256": "b4b65085bbf2cc455565696604c87fedade1359aa6ddfac5d726d69124d5069a",
+                "deployment_relative_path": "models/h2/pyannote_segmentation_3_0_fp32.onnx",
+                "bytes": 5925265
+              }
+            ]
+          },
+          "enrollment": {
+            "name": "selected ReDimNet2-B2",
+            "embedding_space": "redimnet2-b2/5c1a8635cba0d4648463f3b6d30c5a6137bc38d1200ab00c5944400aaa7b5609",
+            "assets": [
+              {
+                "component_id": "redimnet2_b2_fp32",
+                "sha256": "5c1a8635cba0d4648463f3b6d30c5a6137bc38d1200ab00c5944400aaa7b5609",
+                "deployment_relative_path": "models/h2/redimnet2_b2_fp32.onnx",
+                "bytes": 16025408
+              }
+            ]
+          },
+          "punctuation": {
+            "name": "native P1 punctuation/casing; no redundant P0 pass",
+            "source_asr": "A3"
+          }
+        },
+        "n2": {
+          "diarization": "D0",
+          "embedding": "E0",
+          "streaming_profile": "low_latency"
+        },
+        "n3": {
+          "variant": "A3",
+          "model_sha256": "3fc991d3badad7277c11030a7519832cddaf2057aafed6d4b25147e953a070b1",
+          "right_context": 1,
+          "language": "en-US",
+          "decoder": "greedy",
+          "endpoint_history_ms": 800
+        }
+      },
+      "required": 480,
+      "completed": 0,
+      "failed": 0,
+      "incompatible": 0,
+      "not_tested": 480,
+      "status": "NOT_TESTED",
+      "gates": [
+        "N2/N3 reviewed numerical admission",
+        "real integrated smoke/regression",
+        "full-bank runner/storage admission"
+      ],
+      "deployment_tier": "UNKNOWN",
+      "rescue_used": 0
+    },
+    {
+      "profile": "A3_D0_E1",
+      "asr": "A3",
+      "diarization": "D0",
+      "embedding": "E1",
+      "punctuation": "P1_native",
+      "implementation": "WIRED_MODEL_FREE_CHECK_PASSED",
+      "backend_key": "n4_a3_d0_e1",
+      "manifest_id": "sha256:97b48583060de315ff410498fc13d05c5e302053a033263152b9c8b3afea9851",
+      "composition": {
+        "schema": "just-peachy.backend-composition.v1",
+        "runtime": "N3 native cache-aware RNNT + N2 identity + shared UI",
+        "input": {
+          "sample_rate_hz": 16000,
+          "channels": 1,
+          "format": "PCM_16",
+          "gain_policy": "already-prepared samples; do not reapply gain"
+        },
+        "components": {
+          "asr": {
+            "repository": "nvidia/nemotron-3.5-asr-streaming-0.6b",
+            "revision": "ea30d66debe3740a08b573244286791d423d6b3e",
+            "artifact_sha256": "3fc991d3badad7277c11030a7519832cddaf2057aafed6d4b25147e953a070b1",
+            "precision": "Q8_0",
+            "runtime_revision": "97a15afa5caa9bce5baaa86c1184103877af4101",
+            "status": "IMPLEMENTED_VALIDATION_PENDING"
+          },
+          "diarization": {
+            "name": "selected Pyannote 3.0 ONNX",
+            "assets": [
+              {
+                "component_id": "pyannote_segmentation_3_0_fp32",
+                "sha256": "b4b65085bbf2cc455565696604c87fedade1359aa6ddfac5d726d69124d5069a",
+                "deployment_relative_path": "models/h2/pyannote_segmentation_3_0_fp32.onnx",
+                "bytes": 5925265
+              }
+            ]
+          },
+          "enrollment": {
+            "repository": "nvidia/speakerverification_en_titanet_large",
+            "revision": "0dc382f40121a5fbd34db10a2bb04d826c2be6a8",
+            "artifact_sha256": "e838520693f269e7984f55bc8eb3c2d60ccf246bf4b896d4be9bcabe3e4b0fe3",
+            "onnx_sha256": "86b64bc03a7b151231f59745a8d36619fbc68b739a4abb253bd0d9ce0c350610",
+            "frontend_sha256": "582f92d2fa2a29be70f6fdc13d67fc1376083ca66cb35401f8335ed85c4115b6",
+            "dimension": 192,
+            "status": "IMPLEMENTED_ONNX_CPU"
+          },
+          "punctuation": {
+            "name": "native P1 punctuation/casing; no redundant P0 pass",
+            "source_asr": "A3"
+          }
+        },
+        "n2": {
+          "diarization": "D0",
+          "embedding": "E1",
+          "streaming_profile": "low_latency"
+        },
+        "n3": {
+          "variant": "A3",
+          "model_sha256": "3fc991d3badad7277c11030a7519832cddaf2057aafed6d4b25147e953a070b1",
+          "right_context": 1,
+          "language": "en-US",
+          "decoder": "greedy",
+          "endpoint_history_ms": 800
+        }
+      },
+      "required": 480,
+      "completed": 0,
+      "failed": 0,
+      "incompatible": 0,
+      "not_tested": 480,
+      "status": "NOT_TESTED",
+      "gates": [
+        "N2/N3 reviewed numerical admission",
+        "real integrated smoke/regression",
+        "full-bank runner/storage admission",
+        "D0/E1 C-only anonymous association profile not validated"
+      ],
+      "deployment_tier": "UNKNOWN",
+      "rescue_used": 0
+    },
+    {
+      "profile": "A3_D1_E0",
+      "asr": "A3",
+      "diarization": "D1",
+      "embedding": "E0",
+      "punctuation": "P1_native",
+      "implementation": "WIRED_MODEL_FREE_CHECK_PASSED",
+      "backend_key": "nemotron_35_600m",
+      "manifest_id": "sha256:b227e30c880b67cd2d990c13944ad0408e00164019b86a6820b5ee15c410427f",
+      "composition": {
+        "schema": "just-peachy.backend-composition.v1",
+        "runtime": "N3 native cache-aware RNNT + N2 identity + shared UI",
+        "input": {
+          "sample_rate_hz": 16000,
+          "channels": 1,
+          "format": "PCM_16",
+          "gain_policy": "already-prepared samples; do not reapply gain"
+        },
+        "components": {
+          "asr": {
+            "repository": "nvidia/nemotron-3.5-asr-streaming-0.6b",
+            "revision": "ea30d66debe3740a08b573244286791d423d6b3e",
+            "artifact_sha256": "3fc991d3badad7277c11030a7519832cddaf2057aafed6d4b25147e953a070b1",
+            "precision": "Q8_0",
+            "runtime_revision": "97a15afa5caa9bce5baaa86c1184103877af4101",
+            "status": "IMPLEMENTED_VALIDATION_PENDING"
+          },
+          "diarization": {
+            "repository": "nvidia/Nemotron-3-Diarization",
+            "revision": "f667ed73aee57d40cc39428eb768b4fd87a0a29e",
+            "artifact_sha256": "08456d9e22cd9a323c0364d98375f3746d6e68507ebb705cd46438c534c7a3a1",
+            "precision": "Q8_0",
+            "channels": 8,
+            "runtime_revision": "97a15afa5caa9bce5baaa86c1184103877af4101",
+            "status": "IMPLEMENTED_NATIVE_CPU"
+          },
+          "enrollment": {
+            "name": "selected ReDimNet2-B2",
+            "embedding_space": "redimnet2-b2/5c1a8635cba0d4648463f3b6d30c5a6137bc38d1200ab00c5944400aaa7b5609",
+            "assets": [
+              {
+                "component_id": "redimnet2_b2_fp32",
+                "sha256": "5c1a8635cba0d4648463f3b6d30c5a6137bc38d1200ab00c5944400aaa7b5609",
+                "deployment_relative_path": "models/h2/redimnet2_b2_fp32.onnx",
+                "bytes": 16025408
+              }
+            ]
+          },
+          "punctuation": {
+            "name": "native P1 punctuation/casing; no redundant P0 pass",
+            "source_asr": "A3"
+          }
+        },
+        "n2": {
+          "diarization": "D1",
+          "embedding": "E0",
+          "streaming_profile": "low_latency"
+        },
+        "n3": {
+          "variant": "A3",
+          "model_sha256": "3fc991d3badad7277c11030a7519832cddaf2057aafed6d4b25147e953a070b1",
+          "right_context": 1,
+          "language": "en-US",
+          "decoder": "greedy",
+          "endpoint_history_ms": 800
+        }
+      },
+      "required": 480,
+      "completed": 0,
+      "failed": 0,
+      "incompatible": 0,
+      "not_tested": 480,
+      "status": "NOT_TESTED",
+      "gates": [
+        "N2/N3 reviewed numerical admission",
+        "real integrated smoke/regression",
+        "full-bank runner/storage admission"
+      ],
+      "deployment_tier": "UNKNOWN",
+      "rescue_used": 0
+    },
+    {
+      "profile": "A3_D1_E1",
+      "asr": "A3",
+      "diarization": "D1",
+      "embedding": "E1",
+      "punctuation": "P1_native",
+      "implementation": "WIRED_MODEL_FREE_CHECK_PASSED",
+      "backend_key": "n4_a3_d1_e1",
+      "manifest_id": "sha256:896a22fbdf5164e6dfb025b028cef867086cb4c1a0c111b1b49379325566d8d1",
+      "composition": {
+        "schema": "just-peachy.backend-composition.v1",
+        "runtime": "N3 native cache-aware RNNT + N2 identity + shared UI",
+        "input": {
+          "sample_rate_hz": 16000,
+          "channels": 1,
+          "format": "PCM_16",
+          "gain_policy": "already-prepared samples; do not reapply gain"
+        },
+        "components": {
+          "asr": {
+            "repository": "nvidia/nemotron-3.5-asr-streaming-0.6b",
+            "revision": "ea30d66debe3740a08b573244286791d423d6b3e",
+            "artifact_sha256": "3fc991d3badad7277c11030a7519832cddaf2057aafed6d4b25147e953a070b1",
+            "precision": "Q8_0",
+            "runtime_revision": "97a15afa5caa9bce5baaa86c1184103877af4101",
+            "status": "IMPLEMENTED_VALIDATION_PENDING"
+          },
+          "diarization": {
+            "repository": "nvidia/Nemotron-3-Diarization",
+            "revision": "f667ed73aee57d40cc39428eb768b4fd87a0a29e",
+            "artifact_sha256": "08456d9e22cd9a323c0364d98375f3746d6e68507ebb705cd46438c534c7a3a1",
+            "precision": "Q8_0",
+            "channels": 8,
+            "runtime_revision": "97a15afa5caa9bce5baaa86c1184103877af4101",
+            "status": "IMPLEMENTED_NATIVE_CPU"
+          },
+          "enrollment": {
+            "repository": "nvidia/speakerverification_en_titanet_large",
+            "revision": "0dc382f40121a5fbd34db10a2bb04d826c2be6a8",
+            "artifact_sha256": "e838520693f269e7984f55bc8eb3c2d60ccf246bf4b896d4be9bcabe3e4b0fe3",
+            "onnx_sha256": "86b64bc03a7b151231f59745a8d36619fbc68b739a4abb253bd0d9ce0c350610",
+            "frontend_sha256": "582f92d2fa2a29be70f6fdc13d67fc1376083ca66cb35401f8335ed85c4115b6",
+            "dimension": 192,
+            "status": "IMPLEMENTED_ONNX_CPU"
+          },
+          "punctuation": {
+            "name": "native P1 punctuation/casing; no redundant P0 pass",
+            "source_asr": "A3"
+          }
+        },
+        "n2": {
+          "diarization": "D1",
+          "embedding": "E1",
+          "streaming_profile": "low_latency"
+        },
+        "n3": {
+          "variant": "A3",
+          "model_sha256": "3fc991d3badad7277c11030a7519832cddaf2057aafed6d4b25147e953a070b1",
+          "right_context": 1,
+          "language": "en-US",
+          "decoder": "greedy",
+          "endpoint_history_ms": 800
+        }
+      },
+      "required": 480,
+      "completed": 0,
+      "failed": 0,
+      "incompatible": 0,
+      "not_tested": 480,
+      "status": "NOT_TESTED",
+      "gates": [
+        "N2/N3 reviewed numerical admission",
+        "real integrated smoke/regression",
+        "full-bank runner/storage admission"
+      ],
+      "deployment_tier": "UNKNOWN",
+      "rescue_used": 0
+    }
+  ]
+}

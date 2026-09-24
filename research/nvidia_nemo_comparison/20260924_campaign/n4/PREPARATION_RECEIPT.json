@@ -1,0 +1,106 @@
+{
+  "schema": "n4-data-preparation-v1",
+  "status": "ACTUALLY_RUN_MODEL_FREE",
+  "inputs": [
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\data\\DATA_AUDIT_SUMMARY.json",
+      "sha256": "d59c6bbdacd80d61ae10b6542fd218beb09999bc0e5379dfb8e64a8a8258208d",
+      "bytes": 4701
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\data\\CORPUS_BINDINGS_240.json",
+      "sha256": "4c73ebe86d21185ebfe9e4614339da527af18ea4549e4de68a37aec43ab6c423",
+      "bytes": 5517965
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\evaluation\\EVALUATOR_TRUTH.json",
+      "sha256": "7a734f62819f4341f8bbb62c4ed33099e2597f2ee7d9fb536d82c11cb6975244",
+      "bytes": 2312939
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\releases\\n3-common-v2\\prototype\\config\\backends.json",
+      "sha256": "364c02da0517a0c1c824712a9965412cc525e562ff0a6e46ce8ac2f4c876ce64",
+      "bytes": 28635
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\prepare.py",
+      "sha256": "516cd974abab9505e419ff4d0ff111f8c1d81b984e606cf022d990c46989a6cc",
+      "bytes": 11236
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\common.py",
+      "sha256": "a44e389d3c80c8c21e74ea3423d8270273e5b3132a84095218dee078c53f059e",
+      "bytes": 3267
+    }
+  ],
+  "outputs": [
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\preparation-v1\\AUDIO_ONLY_480.json",
+      "sha256": "318eaf58784015b3579f1485875fc52f1d5b3d9663b1963c4f0ca6bc93efa106",
+      "bytes": 174782
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\preparation-v1\\PACED_AUDIO_ONLY_24.json",
+      "sha256": "314d71693f8c525b0e0928dea44e3e1e9e027be2585014932df64c6e509a433d",
+      "bytes": 8792
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\preparation-v1\\REGRESSION_AUDIO_ONLY_8.json",
+      "sha256": "de531914dc23d991135f92138a131212f6d004dff01f80eb801c4f99f7b1052d",
+      "bytes": 3023
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\preparation-v1\\EVALUATOR_STRATA.json",
+      "sha256": "8d24e379891b9d232bb08a898c45f8315fe6a0eb5191d74a23458a56f2eeb98f",
+      "bytes": 398397
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\preparation-v1\\PAIRED_CAPTURE_PROVENANCE.json",
+      "sha256": "9efa478ec500d148378067a406a7d13f3aede187a4671bb051774ae50225ee78",
+      "bytes": 408096
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\preparation-v1\\MATRIX_PREPARATION.json",
+      "sha256": "49d99ffc90fc6dc9fee554988c694bac43ecdc9b876ecf1d7ee4136532526a76",
+      "bytes": 31241
+    }
+  ],
+  "scenes": 240,
+  "waveform_files_verified": 480,
+  "paired_physical_passes": 240,
+  "reference_classes": {
+    "complete_nonoverlap": 156,
+    "complete_overlap": 47,
+    "incomplete_ambient_reference": 26,
+    "empty_control": 11
+  },
+  "required_core_results": 7680,
+  "completed_core_results": 0,
+  "failed_core_results": 0,
+  "incompatible_core_results": 0,
+  "not_tested_core_results": 7680,
+  "neural_calls": 0,
+  "hardware_calls": 0,
+  "total_audio_seconds_one_composition": 21787.809999999885,
+  "paced_panel_scene_ids": [
+    "S45_01_01",
+    "S45_02_03",
+    "S45_03_03",
+    "S45_04_04",
+    "S45_05_19",
+    "S45_06_07",
+    "S45_07_02",
+    "S45_08_07",
+    "S45_09_01",
+    "S45_10_01",
+    "S45_11_02",
+    "S45_12_15"
+  ],
+  "paced_cells": 24,
+  "dependency_clusters": 9,
+  "actor_clusters": 20,
+  "matched_clusters": 181,
+  "uncertainty": "Paired dependency-cluster bootstrap; fewer than 8 clusters suppresses inferential CI. Matched/room/actor sensitivity remains descriptive.",
+  "raw_transcripts_in_public_report": false,
+  "inference_truth_firewall": "exact eight audio fields only"
+}

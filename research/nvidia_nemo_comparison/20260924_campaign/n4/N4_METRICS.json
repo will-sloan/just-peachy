@@ -1,0 +1,40 @@
+{
+  "schema": "n4-stage-checkpoint-v1",
+  "stage_status": "PARTIAL_PREPARATION_NOT_COMPLETE",
+  "generated_utc": "2026-09-24T20:53:47.912274+00:00",
+  "required_profiles": 16,
+  "wired_profiles": 12,
+  "actual_N4_neural_calls": 0,
+  "required_cells": 7680,
+  "completed_cells": 0,
+  "failed_cells": 0,
+  "incompatible_cells": 0,
+  "not_tested_cells": 7680,
+  "scenes": 240,
+  "taps": [
+    "O0",
+    "O1"
+  ],
+  "shortlist": [],
+  "default_promoted": false,
+  "accuracy": null,
+  "naming": null,
+  "resource_tiers": "UNKNOWN",
+  "paced_GUI_cells": 0,
+  "continuity_candidates_tested": 0,
+  "target_device": "NOT_TESTED_PI_OFF",
+  "scope": "Preparation evidence only",
+  "primary_remaining": [
+    "N2/N3 acceptance",
+    "A1 integrated adapter",
+    "D0/E1 association calibration",
+    "full D0 activity timeline",
+    "integrated runner and bounded archive lifecycle",
+    "full matrix",
+    "mode/gallery naming analysis",
+    "isolated resources",
+    "shortlist GUI and continuity"
+  ],
+  "automatic_N4_queue_registered": false,
+  "automatic_LLM_resume_verified": false
+}

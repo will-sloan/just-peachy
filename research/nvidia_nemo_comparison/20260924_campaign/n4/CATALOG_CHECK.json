@@ -1,0 +1,210 @@
+{
+  "status": "PASS_MODEL_FREE_WIRING_ONLY",
+  "cases": [
+    {
+      "key": "baseline",
+      "manifest_id": "sha256:1a6be7490786a81d971c19ad35572b8c13c30993f7b8a7c1903f4b0617b6b1b5",
+      "selected": true,
+      "model_loads": 0,
+      "modes": 12,
+      "unavailable_without_spatial_fixture": [
+        "spatial_assisted",
+        "strongly_spatial_assisted",
+        "spatial_selected",
+        "strongly_spatial_selected",
+        "assigned_direction",
+        "assigned_hybrid"
+      ]
+    },
+    {
+      "key": "nemotron_hybrid",
+      "manifest_id": "sha256:2cae7524dc49970f0492bd38d9fd8584609d07bbc83ea36bf0efd9355a154fe1",
+      "selected": true,
+      "model_loads": 0,
+      "modes": 12,
+      "unavailable_without_spatial_fixture": [
+        "spatial_assisted",
+        "strongly_spatial_assisted",
+        "spatial_selected",
+        "strongly_spatial_selected",
+        "assigned_direction",
+        "assigned_hybrid"
+      ]
+    },
+    {
+      "key": "nemotron_600m",
+      "manifest_id": "sha256:377262016bfd68f234f1ee5fd18a478ac31917f4c55b9253c0ececf0f6e4b8e4",
+      "selected": true,
+      "model_loads": 0,
+      "modes": 12,
+      "unavailable_without_spatial_fixture": [
+        "spatial_assisted",
+        "strongly_spatial_assisted",
+        "spatial_selected",
+        "strongly_spatial_selected",
+        "assigned_direction",
+        "assigned_hybrid"
+      ]
+    },
+    {
+      "key": "nemotron_35_600m",
+      "manifest_id": "sha256:b227e30c880b67cd2d990c13944ad0408e00164019b86a6820b5ee15c410427f",
+      "selected": true,
+      "model_loads": 0,
+      "modes": 12,
+      "unavailable_without_spatial_fixture": [
+        "spatial_assisted",
+        "strongly_spatial_assisted",
+        "spatial_selected",
+        "strongly_spatial_selected",
+        "assigned_direction",
+        "assigned_hybrid"
+      ]
+    },
+    {
+      "key": "titanet",
+      "manifest_id": "sha256:2d1bb8c33a075294877cc92af1e78bcc01a3e9164c1c69c2417e038eadc28c4e",
+      "selected": true,
+      "model_loads": 0,
+      "modes": 12,
+      "unavailable_without_spatial_fixture": [
+        "spatial_assisted",
+        "strongly_spatial_assisted",
+        "spatial_selected",
+        "strongly_spatial_selected",
+        "assigned_direction",
+        "assigned_hybrid"
+      ]
+    },
+    {
+      "key": "nemotron_titanet",
+      "manifest_id": "sha256:8ae4679a5f922ef5aa84a632f8de20868227cdb73aaaadc515955940813a0ff9",
+      "selected": true,
+      "model_loads": 0,
+      "modes": 12,
+      "unavailable_without_spatial_fixture": [
+        "spatial_assisted",
+        "strongly_spatial_assisted",
+        "spatial_selected",
+        "strongly_spatial_selected",
+        "assigned_direction",
+        "assigned_hybrid"
+      ]
+    },
+    {
+      "key": "n4_a2_d0_e0",
+      "manifest_id": "sha256:8ce72e57141be90ceb61d23c57a8117629b456459a1764543107d3df52b5590d",
+      "selected": true,
+      "model_loads": 0,
+      "modes": 12,
+      "unavailable_without_spatial_fixture": [
+        "spatial_assisted",
+        "strongly_spatial_assisted",
+        "spatial_selected",
+        "strongly_spatial_selected",
+        "assigned_direction",
+        "assigned_hybrid"
+      ]
+    },
+    {
+      "key": "n4_a2_d0_e1",
+      "manifest_id": "sha256:00df49f2b0a34134cc3e9750cfc61eba103426dddb9099754bfcc71f1afda912",
+      "selected": true,
+      "model_loads": 0,
+      "modes": 12,
+      "unavailable_without_spatial_fixture": [
+        "spatial_assisted",
+        "strongly_spatial_assisted",
+        "spatial_selected",
+        "strongly_spatial_selected",
+        "assigned_direction",
+        "assigned_hybrid"
+      ]
+    },
+    {
+      "key": "n4_a2_d1_e1",
+      "manifest_id": "sha256:b6f509f9f55b3948aec7ed609de42efc6616ae84abf565f85b37da9d59a8c747",
+      "selected": true,
+      "model_loads": 0,
+      "modes": 12,
+      "unavailable_without_spatial_fixture": [
+        "spatial_assisted",
+        "strongly_spatial_assisted",
+        "spatial_selected",
+        "strongly_spatial_selected",
+        "assigned_direction",
+        "assigned_hybrid"
+      ]
+    },
+    {
+      "key": "n4_a3_d0_e0",
+      "manifest_id": "sha256:e991821f0dceb2cdf5a7341bbf67fef35bbdaa6b23f2176d0f4a717c088e673b",
+      "selected": true,
+      "model_loads": 0,
+      "modes": 12,
+      "unavailable_without_spatial_fixture": [
+        "spatial_assisted",
+        "strongly_spatial_assisted",
+        "spatial_selected",
+        "strongly_spatial_selected",
+        "assigned_direction",
+        "assigned_hybrid"
+      ]
+    },
+    {
+      "key": "n4_a3_d0_e1",
+      "manifest_id": "sha256:97b48583060de315ff410498fc13d05c5e302053a033263152b9c8b3afea9851",
+      "selected": true,
+      "model_loads": 0,
+      "modes": 12,
+      "unavailable_without_spatial_fixture": [
+        "spatial_assisted",
+        "strongly_spatial_assisted",
+        "spatial_selected",
+        "strongly_spatial_selected",
+        "assigned_direction",
+        "assigned_hybrid"
+      ]
+    },
+    {
+      "key": "n4_a3_d1_e1",
+      "manifest_id": "sha256:896a22fbdf5164e6dfb025b028cef867086cb4c1a0c111b1b49379325566d8d1",
+      "selected": true,
+      "model_loads": 0,
+      "modes": 12,
+      "unavailable_without_spatial_fixture": [
+        "spatial_assisted",
+        "strongly_spatial_assisted",
+        "spatial_selected",
+        "strongly_spatial_selected",
+        "assigned_direction",
+        "assigned_hybrid"
+      ]
+    }
+  ],
+  "models_loaded": 0,
+  "inference_cells": 0,
+  "hardware_calls": 0,
+  "source_catalog": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\releases\\n4-catalog-v2\\prototype\\config\\backends.json",
+    "sha256": "70a73675405f439ab2834356f58140292aadd9b3c27e02f32ee99a9305a0ba4f",
+    "bytes": 46885
+  },
+  "inputs": [
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\runtime\\cpu\\n2_runtime.json",
+      "sha256": "df9dc8c498e941e73499457715456536ea5143c2110fd5278fbc9d2dda6bf499",
+      "bytes": 2575
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\runtime\\v2\\cpu\\n3_runtime.json",
+      "sha256": "1c9a192e77f4ffd1341bbe7e10558fbfe2e1e14843efc4ac4b1c761431e379d9",
+      "bytes": 4389
+    }
+  ],
+  "test_code": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\check_catalog.py",
+    "sha256": "7a09ba4213eeb5aba76d911dc1a78ea2a20ee4ff5fcd4d15518ee34cdd205f41",
+    "bytes": 3702
+  }
+}

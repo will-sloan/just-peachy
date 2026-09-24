@@ -1,0 +1,43 @@
+{
+  "status": "NOT_ADMITTED",
+  "checked_utc": "2026-09-24T20:53:47.874423+00:00",
+  "contracts_match": true,
+  "gates": [
+    "N2_MATCHED_NUMERICAL_FINAL_CHECKS_PENDING",
+    "N3_NUMERICAL_RESULTS_PENDING",
+    "N2_N3_FINAL_REVIEW_AND_N4_PROFILE_ADMISSION_NOT_RECORDED"
+  ],
+  "n2": {
+    "status": "RUNNING",
+    "completed": 352,
+    "total": 422,
+    "owner": {
+      "pid": 37776,
+      "create_time": 1790274296.5838463
+    },
+    "owner_state": "ALIVE",
+    "owner_matches_result_pid": true,
+    "chain_status": "WAITING_FOR_EXISTING"
+  },
+  "n3": {
+    "queue_status": "WAITING_N2",
+    "queue_owner": {
+      "pid": 13640,
+      "create_time": 1790280395.459189
+    },
+    "queue_owner_state": "ALIVE",
+    "numerical_status": "NOT_STARTED"
+  },
+  "n4": {
+    "inference_started": false,
+    "completed_core_cells": 0,
+    "required_core_cells": 7680,
+    "automatic_N4_queue_registered": false
+  },
+  "packaging_cutoff_utc": "2026-09-28T02:48:19.949192+00:00",
+  "upstream_files_modified": false,
+  "model_calls": 0,
+  "hardware_calls": 0,
+  "shared_ledger_modified": false,
+  "own_status_only": true
+}

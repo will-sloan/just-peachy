@@ -1,0 +1,169 @@
+{
+  "status": "PASS_EXISTING_N2_EVIDENCE_SCORING",
+  "rows": [
+    {
+      "combination": "D0_E0",
+      "job_id": "N2_S45_01_04_O0",
+      "score": {
+        "job_id": "N2_S45_01_04_O0",
+        "reference_class": "complete_nonoverlap",
+        "execution_status": "COMPLETE",
+        "reference_words": 32,
+        "audio_seconds": 44.6954375,
+        "primary_wer": {
+          "errors": 2,
+          "words": 32,
+          "substitutions": 2,
+          "deletions": 0,
+          "insertions": 0,
+          "rate": 0.0625
+        },
+        "raw_wer": {
+          "errors": 31,
+          "words": 32,
+          "substitutions": 31,
+          "deletions": 0,
+          "insertions": 0,
+          "rate": 0.96875
+        },
+        "cpwer": {
+          "errors": 45,
+          "words": 32,
+          "substitutions": 1,
+          "deletions": 22,
+          "insertions": 22,
+          "rate": 1.40625
+        },
+        "mimo": {
+          "status": "SCORED",
+          "value": {
+            "errors": 28,
+            "words": 32,
+            "substitutions": 4,
+            "deletions": 12,
+            "insertions": 12,
+            "rate": 0.875
+          }
+        },
+        "activity": {
+          "status": "UNAVAILABLE_FULL_TRACK_ACTIVITY_NOT_RECORDED",
+          "DER": null,
+          "JER": null
+        },
+        "tcpwer_status": "UNAVAILABLE_NO_EXACT_REFERENCE_WORD_TIMES",
+        "scoring_status": "SCORED"
+      },
+      "execution": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\factorial-v2\\D0_E0\\cells\\N2_S45_01_04_O0\\attempt_20260924T183543_e404df\\RESULT.json",
+        "sha256": "7cb681cdbfa094b72569d269fd95672f137b637a46bf0eff88d55e2e559476fc",
+        "bytes": 53759
+      },
+      "index": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\factorial-v2\\D0_E0\\RESULT_INDEX.json",
+        "sha256": "dc0366035e720063d682ddaefd6331fb3ac2d3c8daded8ac4335da0331e93c0c",
+        "bytes": 16048
+      }
+    },
+    {
+      "combination": "D1_E0",
+      "job_id": "N2_S45_01_04_O0",
+      "score": {
+        "job_id": "N2_S45_01_04_O0",
+        "reference_class": "complete_nonoverlap",
+        "execution_status": "COMPLETE",
+        "reference_words": 32,
+        "audio_seconds": 44.6954375,
+        "primary_wer": {
+          "errors": 2,
+          "words": 32,
+          "substitutions": 2,
+          "deletions": 0,
+          "insertions": 0,
+          "rate": 0.0625
+        },
+        "raw_wer": {
+          "errors": 31,
+          "words": 32,
+          "substitutions": 31,
+          "deletions": 0,
+          "insertions": 0,
+          "rate": 0.96875
+        },
+        "cpwer": {
+          "errors": 4,
+          "words": 32,
+          "substitutions": 2,
+          "deletions": 1,
+          "insertions": 1,
+          "rate": 0.125
+        },
+        "mimo": {
+          "status": "SCORED",
+          "value": {
+            "errors": 4,
+            "words": 32,
+            "substitutions": 2,
+            "deletions": 1,
+            "insertions": 1,
+            "rate": 0.125
+          }
+        },
+        "activity": {
+          "status": "APPROXIMATE_ACTIVITY_ONLY",
+          "DER": 0.02116608646957511,
+          "JER": 0.02072736918119904,
+          "DER_components": {
+            "confusion": 0.0,
+            "correct": 3.879999999999998,
+            "total": 3.879999999999998,
+            "missed detection": 0.0,
+            "false alarm": 0.08212441550195138
+          },
+          "JER_components": {
+            "speaker count": 1.0,
+            "speaker error": 0.02072736918119904
+          },
+          "collar_parameter_seconds": 0.25,
+          "collar_halfwidth_seconds": 0.125,
+          "overlap": "include",
+          "mapping": "per-scene Hungarian",
+          "uem_seconds": [
+            0,
+            44.6954375
+          ],
+          "timing": "existing mapped estimated activity, not phonetic gold"
+        },
+        "tcpwer_status": "UNAVAILABLE_NO_EXACT_REFERENCE_WORD_TIMES",
+        "scoring_status": "SCORED"
+      },
+      "execution": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\factorial-v2\\D1_E0\\cells\\N2_S45_01_04_O0\\attempt_20260924T182458_9b2d90\\RESULT.json",
+        "sha256": "599ef184edde2a187b224701f3224f3fec9eb9d8ac6afd3b9de5a95c89dca0d0",
+        "bytes": 54302
+      },
+      "index": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\factorial-v2\\D1_E0\\RESULT_INDEX.json",
+        "sha256": "676805dfdf39e779dc7323a6469e400450d21420a6c57e48b35d8a163fc17bec",
+        "bytes": 16048
+      }
+    }
+  ],
+  "metric_versions": {
+    "meeteval": "0.4.3",
+    "pyannote.metrics": "4.1"
+  },
+  "truth": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\evaluation\\EVALUATOR_TRUTH.json",
+    "sha256": "7a734f62819f4341f8bbb62c4ed33099e2597f2ee7d9fb536d82c11cb6975244",
+    "bytes": 2312939
+  },
+  "scope": "Two evaluator smoke cells; no new inference and no N4 integrated completion credit",
+  "N4_completed_cells": 0,
+  "model_calls": 0,
+  "hardware_calls": 0,
+  "code": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\smoke_scoring.py",
+    "sha256": "eff427d8bdb8c4bd8ec1ee5fdc7da71193c9227fd62b39b5e9016eeb970042df",
+    "bytes": 2280
+  }
+}

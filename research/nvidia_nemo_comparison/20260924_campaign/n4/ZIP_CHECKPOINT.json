@@ -1,0 +1,11 @@
+{
+  "status": "VERIFIED_PREPARATION_CHECKPOINT_NOT_FINAL_N4",
+  "artifact": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\handoffs\\N4_PREPARATION_CHECKPOINT_20260924_rc1.zip",
+    "sha256": "60e4bb5572149b7de0ce50d8b7e29e9bb446a276a772ccc5b14ed48fb343e8fa",
+    "bytes": 259984
+  },
+  "files": 47,
+  "target_limit_bytes": 10485760,
+  "hard_limit_bytes": 20971520
+}

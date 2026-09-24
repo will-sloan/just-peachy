@@ -1,0 +1,24 @@
+{
+  "status": "ACTUALLY_RECORDED",
+  "packages": 31,
+  "metric_versions": {
+    "meeteval": "0.4.3",
+    "pyannote.metrics": "4.1"
+  },
+  "environment": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\metrics\\environment-v1\\ENVIRONMENT.json",
+    "sha256": "d8959e31325151d68e031d163c1d21957c88de550a32efabc631614c2e432461",
+    "bytes": 2209419
+  },
+  "requirements": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\metrics\\environment-v1\\requirements.txt",
+    "sha256": "855663011e75b2a7c13680cf8be6e23a7c369a88e77559256e9370ad3bd3c3a4",
+    "bytes": 565
+  },
+  "notices": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\metrics\\environment-v1\\THIRD_PARTY_NOTICES.md",
+    "sha256": "d388a1d245b92c942fe9a1d754bc631a6d02016a3e1ce3a49d6ab33a76c3cd55",
+    "bytes": 478695
+  },
+  "packages_without_license_file": []
+}

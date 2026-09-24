@@ -1,0 +1,34 @@
+{
+  "schema": "n4-catalog-derivative-v1",
+  "status": "IMPLEMENTED_NOT_NUMERICALLY_ADMITTED",
+  "prototype": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\releases\\n4-catalog-v2\\prototype",
+  "parent": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\releases\\n3-common-v2\\SOURCE_RECEIPT.json",
+    "sha256": "301381b357f0641bc5e36646daacbfdd64938cd42d3e00c04526d90ad7bd8c7f",
+    "bytes": 60097
+  },
+  "changed_files": [
+    "config/backends.json",
+    "tests/test_backend_catalog.py"
+  ],
+  "files_sha256": "071d46a765da9ef4d040515018fdc6cc8390243417a88305455727be6f2a2e2a",
+  "common_ui_source_sha256": "54c0283b8058978eca87dc9b0461a15addf804200856e41d2c83b55bff590456",
+  "common_ui_files": {
+    "app/ui.py": "93bbc6326bb54634a2bc3f4249630383bc52aa9c82a4f0dd5384444a14a26b96",
+    "app/caption_display.py": "ac5d0b13a253329e5bb9aaa2956c2033a297444813f8b88a0ecffd0feaf96dde",
+    "app/backends.py": "57fd16631c008a4a035cfdacca518bef81f960c2f30e79da8d52f557dbc5a4fc",
+    "app/mode_policy.py": "40d6ce574a31c190a243977863f22f81345e994f47ee3694c4fe4ac9650b3f88",
+    "vendor/edge_speech_pipeline/research_n1_spans.py": "a81478569480bb927943a460c17aad0549377e3b7365c4417e3b9f17ecd0d238",
+    "vendor/edge_speech_pipeline/research_s7_presentation.py": "a6229a1cc1f967012de2b79780ab92029e63dc3a64e52bf56b563d7e44f18f10"
+  },
+  "implemented_compositions": 12,
+  "actual_N4_inference_cells": 0,
+  "N3_bound_source_modified": false,
+  "personal_data_accessed": false,
+  "gates": [
+    "N2 final checks",
+    "N3 numerical review",
+    "D0/E1 C-only association profile",
+    "real smoke/regression for each added composition"
+  ]
+}

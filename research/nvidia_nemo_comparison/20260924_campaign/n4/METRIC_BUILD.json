@@ -1,0 +1,37 @@
+{
+  "status": "BUILT",
+  "exit_code": 0,
+  "input": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\metrics\\downloads\\meeteval-0.4.3.tar.gz",
+    "sha256": "02d3a359f375d39c67dfb8fe1c061e7dac19d6fc1fb89ee72d793a5813dafeb2",
+    "bytes": 843558
+  },
+  "python": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\metrics\\env\\Scripts\\python.exe",
+    "sha256": "1eaca0c6c6b306f084e46cd3ac96505cddae0004fb638ff0b69097f9e977d702",
+    "bytes": 270096
+  },
+  "command": [
+    "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\metrics\\env\\Scripts\\python.exe",
+    "-m",
+    "pip",
+    "install",
+    "--no-build-isolation",
+    "--no-deps",
+    "--report",
+    "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\metrics\\msvc20-v1\\install.json",
+    "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\metrics\\downloads\\meeteval-0.4.3.tar.gz"
+  ],
+  "build_flags": {
+    "CL": "/std:c++20",
+    "MAX_JOBS": "1"
+  },
+  "code_changes": [],
+  "reason": "Unmodified source uses C++ designated initializers; MSVC default rejected them (C7555).",
+  "prior_attempt": "Default flags failed; preserved tool output. No metric algorithm changes.",
+  "log": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\metrics\\msvc20-v1\\build.log",
+    "sha256": "71d417c467623eef0b06d6da06a79e12ee41b665c21c8bc985eace108064562a",
+    "bytes": 994
+  }
+}
