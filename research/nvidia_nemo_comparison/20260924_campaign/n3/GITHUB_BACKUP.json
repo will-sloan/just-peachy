@@ -1,0 +1,12 @@
+{
+  "status": "VERIFIED_REMOTE_SOURCE_BACKUP",
+  "remote": "https://github.com/will-sloan/just-peachy.git",
+  "branch": "codex/n1-foundation-20260924",
+  "source_commit": "f709f1fdf49f7dbdaef73f4e9d332c37120bae92",
+  "tag": "n3-integration-20260924-rc1",
+  "verified_tag_commit": "f709f1fdf49f7dbdaef73f4e9d332c37120bae92",
+  "verification": "Successful push followed by git ls-remote matching both branch and integration tag",
+  "scope": "Reviewed N3 source, configuration, tests, notices and preparation reports",
+  "excluded": ["weights", "audio", "personal galleries", "raw inference transcripts", "credentials"],
+  "stage_complete": false
+}

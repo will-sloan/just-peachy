@@ -1,0 +1,10 @@
+{
+  "status": "VERIFIED_PREPARATION_ZIP_NOT_FINAL_HANDOFF",
+  "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\handoffs\\N3_PREPARATION_CHECKPOINT_20260924_rc1.zip",
+  "bytes": 144505,
+  "sha256": "33afa661b75a6eb7d5796f2b84c3e39c6662fe96e55d200bfd5ac91ced529849",
+  "file_count": 58,
+  "source_commit": "f709f1fdf49f7dbdaef73f4e9d332c37120bae92",
+  "created_utc": "2026-09-24T20:10:01.655514+00:00",
+  "no_stage_completion_claim": true
+}

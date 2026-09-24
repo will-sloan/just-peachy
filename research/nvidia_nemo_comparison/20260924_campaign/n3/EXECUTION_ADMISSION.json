@@ -1,0 +1,28 @@
+{
+  "schema": "just-peachy.n3.execution-admission.v1",
+  "status": "QUEUED_WAITING_MATCHING_N2",
+  "observed_utc": "2026-09-24T20:08:13.433762+00:00",
+  "source_commit": "f709f1fdf49f7dbdaef73f4e9d332c37120bae92",
+  "source_tag": "n3-integration-20260924-rc1",
+  "plan_path": "G:/Just_Peachy_N1/20260924_campaign/local/n3/plan-v2.json",
+  "plan_sha256": "60b6cef58fdb0f685f6bb74de9f13f5cd85e783910fcee592264881ac4bb4fe3",
+  "jobs": 32,
+  "queue_owner": {
+    "pid": 13640,
+    "create_time": 1790280395.459189
+  },
+  "queue_started_utc": "2026-09-24T20:06:35.616746+00:00",
+  "queue_result_path": "G:/Just_Peachy_N1/20260924_campaign/local/n3/numerical-v2/QUEUE_RESULT.json",
+  "frozen_source_receipt": "G:/Just_Peachy_N1/20260924_campaign/local/releases/n3-common-v2/SOURCE_RECEIPT.json",
+  "frozen_source_receipt_sha256": "301381b357f0641bc5e36646daacbfdd64938cd42d3e00c04526d90ad7bd8c7f",
+  "frontend_runtime_sha256": "f7791d5c0fb8791bde6972070888b88545928b06b2aa922524f8850e08dfd91e",
+  "common_ui_source_sha256": "54c0283b8058978eca87dc9b0461a15addf804200856e41d2c83b55bff590456",
+  "n2_observed_completed": 241,
+  "n2_required_cells": 422,
+  "gui_input_admission": "Both three-cell panels passed prepare-only checks; no neural or Tk execution",
+  "scheduled_probes": "10/15/30-minute existing tasks Ready; last result 0 at 2026-09-24 20:04:30 UTC",
+  "inference_started": false,
+  "stage_acceptance": false,
+  "llm_dispatch": "MANUAL_ONLY_NO_VERIFIED_ATOMIC_IDLE_GUARD",
+  "ledger_note": "Automatic approval review blocked a combined receipt/shared-ledger update with only 'blocked by policy'. The live ledger was left unchanged; this separate receipt records the verified queue."
+}

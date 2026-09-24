@@ -42,7 +42,11 @@ superseded evidence after the module-name and reference-import preflights.
 accuracy, CPU and VRAM measurements are intentional. Read the live private
 results for later numerical changes; do not treat this checkpoint as acceptance.
 EXECUTION_ADMISSION.json and GITHUB_BACKUP.json record admission/backup once
-created. A source tag named integration/rc is not a validated backend release.
+created. Both now exist: the hidden waiter was verified at PID 13640 with its
+creation time, in WAITING_N2. A source tag named integration/rc is not a validated
+backend release. A combined live-ledger update was blocked by automatic approval
+review (only "blocked by policy" was supplied); the live ledger was left
+unchanged and the separate execution receipt is authoritative for queue status.
 
 ## Run, rollback and resume
 
