@@ -81,5 +81,10 @@
   ],
   "publication_scope": "Existing repository remains public. Only reviewed source, manifests, small redacted reports and three synthetic/idle images enter Git or the analysis handoff.",
   "later_metadata_receipts": "This privacy receipt and the final Git/package status receipts contain only paths, hashes, sizes, counts and reviewed completion statements. Final receipt changes are checked separately before packaging.",
-  "scan_limit": "Pattern and structural checks supplement source/report and image review; the full-reference phrase check covers strings of at least28characters and is not the sole privacy check."
+  "scan_limit": "Pattern and structural checks supplement source/report and image review; the full-reference phrase check covers strings of at least28characters and is not the sole privacy check.",
+  "final_metadata_review": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\checks\\final-metadata-privacy-review.json",
+    "sha256": "be29aa986d7eae85aa58798f23d3036d1c7ea97f8c726051eec39aba0a0daeb4",
+    "bytes": 1095
+  }
 }

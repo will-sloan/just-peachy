@@ -1,5 +1,5 @@
 {
-  "created_at_utc": "2026-09-24T15:51:43.137Z",
+  "created_at_utc": "2026-09-24T15:56:06.567Z",
   "status": "PASS",
   "rows": 73,
   "columns": [
@@ -34,7 +34,7 @@
   ],
   "unique_keys": true,
   "csv_roundtrip_exact": true,
-  "csv_sha256": "0940c746338bdac9c3e9c389feedf55c217ab983687a7faa85ce5a9ae795d99e",
+  "csv_sha256": "ba49e3d0950279893ada6796256585c1a782a54f4ee78983e144e163f5262679",
   "preview_path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\checks\\note_coverage_preview.png",
   "inspection": "{\"kind\":\"table\",\"sheet\":\"Note coverage\",\"address\":\"A1:H4\",\"rows\":4,\"cols\":8,\"values\":[[\"section\",\"item\",\"observation_vs_hypothesis\",\"existing_status\",\"change_or_test_or_deferral\",\"final_status\",\"evidence_path\",\"limitation\"],[\"1\",\"Fixed live caption region\",\"OBSERVATION_AND_REQUEST\",\"Compact captions existed; active content shared scrolling history\",\"Added anchored 184px live pane and separate transcript history\",\"ACTUALLY_RUN\",\"prototype/tests/test_n1_frontend.py; G:/Just_Peachy_N1/20260924_campaign/local/checks/final-core-01/tests.json\",\"Source/interface checks do not establish acoustic accuracy or physical hardware behavior.\"],[\"1\",\"Append or revise stable suffix\",\"REQUEST\",\"Earlier rows retained marks but active partial updates were not separately anchored\",\"ActiveCaptionPane updates changed suffix and retains unchanged marks\",\"ACTUALLY_RUN\",\"prototype/tests/test_n1_frontend.py; G:/Just_Peachy_N1/20260924_campaign/local/checks/final-core-01/tests.json\",\"Source/interface checks do not establish acoustic accuracy or physical hardware behavior.\"],[\"1\",\"Smaller selectable caption font\",\"REQUEST\",\"Compact/Normal/Large/Extra large choices already implemented\",\"Retained 21/25/31/37px caption sizes and Compact default\",\"ACTUALLY_RUN\",\"prototype/config/ui.json; prototype/tests/test_caption_display.py; G:/Just_Peachy_N1/20260924_campaign/local/checks/full-suite-v1/tests.json\",\"Source/interface checks do not establish acoustic accuracy or physical hardware behavior.\"]]}",
   "completion_receipts": [
@@ -55,8 +55,8 @@
     },
     {
       "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\GIT_RECEIPT.json",
-      "sha256": "b85031cb80e32d4bb17cc3fdb005b9fe8607ba0188a23ea9d8fbb746f0cbc44f",
-      "bytes": 1699
+      "sha256": "0bbd9c9d9d3e7b57f9d871773f8fd209dff5c5866a1088d81a4ca2d23c76c185",
+      "bytes": 2304
     },
     {
       "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\checks\\supervisor-final-v3.txt",

@@ -1,7 +1,7 @@
 {
   "schema": "just-peachy.n1.acceptance.v1",
   "status": "COMPLETE",
-  "completed_utc": "2026-09-24T15:53:02.168773+00:00",
+  "completed_utc": "2026-09-24T15:56:07.066528+00:00",
   "N2_may_proceed": true,
   "stage_scope": "N1 only; no global candidate ranking or hardware session",
   "classification": {
