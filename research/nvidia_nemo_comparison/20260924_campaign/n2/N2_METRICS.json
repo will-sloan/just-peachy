@@ -1,7 +1,7 @@
 {
   "schema": "n2-stage-metrics-v1",
   "status": "IN_PROGRESS",
-  "updated_utc": "2026-09-24T18:28:39.805414+00:00",
+  "updated_utc": "2026-09-24T18:34:21.386229+00:00",
   "source_release": "n2-common-v7",
   "runtime_sha256": "774ad5254c52a7e7644ae815140130d124c3f036517061179c8a5ef4399679ec",
   "common_ui_sha256": "54c0283b8058978eca87dc9b0461a15addf804200856e41d2c83b55bff590456",
@@ -40,19 +40,19 @@
   },
   "full_run": {
     "status": "RUNNING",
-    "completed_snapshot": 6,
+    "completed_snapshot": 15,
     "total": 422,
     "main_expected": 384,
     "regression_expected": 32,
     "GUI_expected": 6,
     "errors_snapshot": [],
-    "snapshot_utc": "2026-09-24T18:28:39.805414+00:00",
+    "snapshot_utc": "2026-09-24T18:34:21.386229+00:00",
     "result_path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\numerical-v2\\RESULT.json",
     "chain_path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\numerical-v2\\CHAIN_RESULT.json"
   },
   "nominal_D1_profile": "low_latency",
   "integrated_candidate_selection": "PENDING_FULL_MATCHED_RESULTS",
-  "github_backup": "RC1_VERIFIED_RC2_PENDING",
+  "github_backup": "VERIFIED",
   "evidence": {
     "N2_HANDOFF.md": {
       "sha256": "09d1d550a2c5bb299c43568afca19a5e7a8547911b600d7a237bbc1b6ba06ee5",
@@ -63,8 +63,8 @@
       "bytes": 2708
     },
     "WORKBOOK_UPDATE.md": {
-      "sha256": "d0996710e3f7faa1f7bd42ae43952279f71c5a12e063fd7ef0c0bb3c9efae3e7",
-      "bytes": 2259
+      "sha256": "43a445fb2687426a69b10232e8ecf063a8ea0c943bbeace8a5ef6809c2746fe2",
+      "bytes": 2535
     },
     "README.md": {
       "sha256": "14cddb8f81cfaf2ec4dfafd04a66dcb0b091e95c0a09168e37e19bb8e1ea9629",
@@ -95,8 +95,8 @@
       "bytes": 6056
     },
     "GIT_BACKUP.json": {
-      "sha256": "66bfbdfae0d4153dac8a426cc67058a9318fb5c47eefd51de824ed66046b9e7e",
-      "bytes": 3680
+      "sha256": "0346ec2ad6be67e94fc820a5a2aea6839f53e2cbb3d8c0f2cc4fe0c592579047",
+      "bytes": 3914
     },
     "GUI_VISUAL_REVIEW.json": {
       "sha256": "dbec4554639ca96c364ea1c5bd68780a337c2ce96994b127180ddc0e38b3a5c4",
@@ -263,5 +263,7 @@
       "bytes": 5338
     }
   },
-  "final_package_created": false
+  "final_package_created": false,
+  "github_source_commit": "9924e687af76e218b17124ffa4ce04ddcfdec293",
+  "github_source_tag": "n2-integration-20260924-rc2"
 }

@@ -2,48 +2,48 @@
   "schema": "n2-git-backup-v1",
   "status": "VERIFIED",
   "scope": "INTEGRATION_CANDIDATE_NOT_STAGE_COMPLETION",
-  "verified_utc": "2026-09-24T18:09:56.497739+00:00",
+  "verified_utc": "2026-09-24T18:34:21.383875+00:00",
   "remote": "https://github.com/will-sloan/just-peachy.git",
   "branch": "codex/n1-foundation-20260924",
-  "source_commit": "d22ec20477fea6cbc78a2a4e65011eaab9a3c3ba",
-  "source_tag": "n2-integration-20260924-rc1",
+  "source_commit": "9924e687af76e218b17124ffa4ce04ddcfdec293",
+  "source_tag": "n2-integration-20260924-rc2",
   "verified_refs_at_source_push": {
-    "refs/heads/codex/n1-foundation-20260924": "d22ec20477fea6cbc78a2a4e65011eaab9a3c3ba",
-    "refs/tags/n2-d0-e1-20260924-rc1": "5ce294a1e538cd9d8c15eb1293b62c531cb9edf2",
-    "refs/tags/n2-d0-e1-20260924-rc1^{}": "d22ec20477fea6cbc78a2a4e65011eaab9a3c3ba",
-    "refs/tags/n2-d1-e0-low-latency-20260924-rc1": "dd111c27e9e9dfbe59bc09f61a945b8deeb8a629",
-    "refs/tags/n2-d1-e0-low-latency-20260924-rc1^{}": "d22ec20477fea6cbc78a2a4e65011eaab9a3c3ba",
-    "refs/tags/n2-d1-e1-low-latency-20260924-rc1": "6d515a204f66db7bcaed8482514e491d61fdd064",
-    "refs/tags/n2-d1-e1-low-latency-20260924-rc1^{}": "d22ec20477fea6cbc78a2a4e65011eaab9a3c3ba",
-    "refs/tags/n2-integration-20260924-rc1": "3a3b2f39db935ff5ffb9174c4b84220020667f99",
-    "refs/tags/n2-integration-20260924-rc1^{}": "d22ec20477fea6cbc78a2a4e65011eaab9a3c3ba"
+    "refs/heads/codex/n1-foundation-20260924": "9924e687af76e218b17124ffa4ce04ddcfdec293",
+    "refs/tags/n2-d0-e1-20260924-rc2": "ae9a6b0b6792e6f8bcf0d9dc064bbcf31c4ef7e9",
+    "refs/tags/n2-d0-e1-20260924-rc2^{}": "9924e687af76e218b17124ffa4ce04ddcfdec293",
+    "refs/tags/n2-d1-e0-low-latency-20260924-rc2": "242b0b4048263aa642fa6e8bcd9bb5635c2110a7",
+    "refs/tags/n2-d1-e0-low-latency-20260924-rc2^{}": "9924e687af76e218b17124ffa4ce04ddcfdec293",
+    "refs/tags/n2-d1-e1-low-latency-20260924-rc2": "25d8aeb161ec62cf544bd5a0c78a0ee173ea1215",
+    "refs/tags/n2-d1-e1-low-latency-20260924-rc2^{}": "9924e687af76e218b17124ffa4ce04ddcfdec293",
+    "refs/tags/n2-integration-20260924-rc2": "299de854c7570a2f3e7a4b4203b27bacbc67b898",
+    "refs/tags/n2-integration-20260924-rc2^{}": "9924e687af76e218b17124ffa4ce04ddcfdec293"
   },
   "config_sha256": "b4627f1139bad8ac2425e751c6b9bb702ba76a518952d9ca78ecc98235f6d8c4",
-  "frontend_runtime_sha256": "6b1c960e1f31955e6d9dc93716ade0315182ea3ea0f922e5b2ee4e976d4db0a7",
+  "frontend_runtime_sha256": "774ad5254c52a7e7644ae815140130d124c3f036517061179c8a5ef4399679ec",
   "common_ui_source_sha256": "54c0283b8058978eca87dc9b0461a15addf804200856e41d2c83b55bff590456",
   "source_archive": {
-    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\releases\\n2-common-v6.zip",
-    "sha256": "c326ea970ffc74a462c6e0e376c2b787889b00f98427a00eb2d8b7194b9b6da6",
-    "bytes": 1382186
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\releases\\n2-common-v7.zip",
+    "sha256": "55aaea67e7686a32de6bf2a0fcfa47023c2100997c350a76359352d90027ee48",
+    "bytes": 1385546
   },
   "backends": [
     {
       "key": "nemotron_hybrid",
       "manifest_id": "sha256:2cae7524dc49970f0492bd38d9fd8584609d07bbc83ea36bf0efd9355a154fe1",
-      "tag": "n2-d1-e0-low-latency-20260924-rc1",
-      "commit": "d22ec20477fea6cbc78a2a4e65011eaab9a3c3ba"
+      "tag": "n2-d1-e0-low-latency-20260924-rc2",
+      "commit": "9924e687af76e218b17124ffa4ce04ddcfdec293"
     },
     {
       "key": "titanet",
       "manifest_id": "sha256:2d1bb8c33a075294877cc92af1e78bcc01a3e9164c1c69c2417e038eadc28c4e",
-      "tag": "n2-d0-e1-20260924-rc1",
-      "commit": "d22ec20477fea6cbc78a2a4e65011eaab9a3c3ba"
+      "tag": "n2-d0-e1-20260924-rc2",
+      "commit": "9924e687af76e218b17124ffa4ce04ddcfdec293"
     },
     {
       "key": "nemotron_titanet",
       "manifest_id": "sha256:8ae4679a5f922ef5aa84a632f8de20868227cdb73aaaadc515955940813a0ff9",
-      "tag": "n2-d1-e1-low-latency-20260924-rc1",
-      "commit": "d22ec20477fea6cbc78a2a4e65011eaab9a3c3ba"
+      "tag": "n2-d1-e1-low-latency-20260924-rc2",
+      "commit": "9924e687af76e218b17124ffa4ce04ddcfdec293"
     }
   ],
   "reproducibility_manifests": {
@@ -61,5 +61,12 @@
     "force_pushed": false,
     "private_payloads_uploaded": false
   },
-  "remaining": "Full application comparison, final interpretation, stage metrics and handoff ZIP remain pending. The receipt itself is stored in a subsequent documentation commit."
+  "remaining": "Full application comparison, final interpretation, stage metrics and handoff ZIP remain pending. The receipt itself is stored in a subsequent documentation commit.",
+  "prior_backups": [
+    {
+      "source_commit": "d22ec20477fea6cbc78a2a4e65011eaab9a3c3ba",
+      "source_tag": "n2-integration-20260924-rc1",
+      "scope": "Preserved v6 integration before archive-record repair"
+    }
+  ]
 }

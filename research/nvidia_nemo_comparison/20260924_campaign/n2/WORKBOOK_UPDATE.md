@@ -31,3 +31,8 @@ unavailable. The Pi was neither contacted nor deployed to.
 Before accepting this insertion, replace pending application counts
 with final bound receipts, add the verified Git commit/tag and handoff ZIP
 SHA-256, and record the candidate disposition without omitting failures.
+
+The corrected v7 source backup is remotely verified at commit
+`9924e687af76e218b17124ffa4ce04ddcfdec293`, tag
+`n2-integration-20260924-rc2`, with matching backend/profile tags. This does not
+complete the application screen or authorize accepting the workbook insertion.
