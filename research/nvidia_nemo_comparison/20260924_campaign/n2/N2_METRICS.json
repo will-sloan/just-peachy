@@ -1,7 +1,7 @@
 {
   "schema": "n2-stage-metrics-v1",
   "status": "IN_PROGRESS",
-  "updated_utc": "2026-09-24T18:34:21.386229+00:00",
+  "updated_utc": "2026-09-24T18:40:20.284048+00:00",
   "source_release": "n2-common-v7",
   "runtime_sha256": "774ad5254c52a7e7644ae815140130d124c3f036517061179c8a5ef4399679ec",
   "common_ui_sha256": "54c0283b8058978eca87dc9b0461a15addf804200856e41d2c83b55bff590456",
@@ -26,7 +26,9 @@
       "v7_repaired_scene_cells": 1,
       "v7_repaired_scene_ASR_checks": 6,
       "prior_v6_GUI_cells": 6,
-      "prior_v6_GUI_images_reviewed": 16
+      "prior_v6_GUI_images_reviewed": 16,
+      "v7_GUI_cells": 6,
+      "v7_GUI_images_reviewed": 16
     },
     "FAILED_RETAINED": [
       "V6 actual archive integrity failure",
@@ -40,13 +42,13 @@
   },
   "full_run": {
     "status": "RUNNING",
-    "completed_snapshot": 15,
+    "completed_snapshot": 28,
     "total": 422,
     "main_expected": 384,
     "regression_expected": 32,
     "GUI_expected": 6,
     "errors_snapshot": [],
-    "snapshot_utc": "2026-09-24T18:34:21.386229+00:00",
+    "snapshot_utc": "2026-09-24T18:40:20.284048+00:00",
     "result_path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\numerical-v2\\RESULT.json",
     "chain_path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\numerical-v2\\CHAIN_RESULT.json"
   },
@@ -55,16 +57,16 @@
   "github_backup": "VERIFIED",
   "evidence": {
     "N2_HANDOFF.md": {
-      "sha256": "09d1d550a2c5bb299c43568afca19a5e7a8547911b600d7a237bbc1b6ba06ee5",
-      "bytes": 6487
+      "sha256": "4e53d9efbf0507f63d15b0b9604c60713f3ddae631a2a447b9b0954a1728d87e",
+      "bytes": 6634
     },
     "LIMITATIONS.json": {
-      "sha256": "230746098715ffdc30850c07bf8a1c64bb6b1e727ff3b17cb8224404712220a1",
-      "bytes": 2708
+      "sha256": "58f9cd8bedeb0004e9e9f63940b4ea5e8fdb02772ece6c0ca9d5c5b716d3107f",
+      "bytes": 2616
     },
     "WORKBOOK_UPDATE.md": {
-      "sha256": "43a445fb2687426a69b10232e8ecf063a8ea0c943bbeace8a5ef6809c2746fe2",
-      "bytes": 2535
+      "sha256": "e86c9b298636731da026e282fe03887d8162eed694f03d411b2c96861331eebf",
+      "bytes": 2572
     },
     "README.md": {
       "sha256": "14cddb8f81cfaf2ec4dfafd04a66dcb0b091e95c0a09168e37e19bb8e1ea9629",
@@ -91,16 +93,16 @@
       "bytes": 2172
     },
     "INTEGRATION_RECEIPT.json": {
-      "sha256": "c3b91ea03ad6c25e15c1bff4453f4abf5ca9f76f16ca3018b855cd169d98a71c",
-      "bytes": 6056
+      "sha256": "12dda2cc48a7dad0adca92ebc2901f59720c8c827a89ffe282346eb7997e4a69",
+      "bytes": 6620
     },
     "GIT_BACKUP.json": {
       "sha256": "0346ec2ad6be67e94fc820a5a2aea6839f53e2cbb3d8c0f2cc4fe0c592579047",
       "bytes": 3914
     },
     "GUI_VISUAL_REVIEW.json": {
-      "sha256": "dbec4554639ca96c364ea1c5bd68780a337c2ce96994b127180ddc0e38b3a5c4",
-      "bytes": 25136
+      "sha256": "7b3ac98bfa5de9e9d00c88e3b119b4baab688e3ea0fcf285eeb40a4b5b92a873",
+      "bytes": 25910
     },
     "IO_TEST_RECEIPT.json": {
       "sha256": "1e02c8ad9328a51311c9667df91363d488f218294f58dd531fb5ea056e7bce92",

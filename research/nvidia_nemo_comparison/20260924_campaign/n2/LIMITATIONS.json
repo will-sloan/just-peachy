@@ -31,7 +31,6 @@
   ],
   "pending_acceptance": [
     "All 384 main Controller and 32 supplemental cells on v7.",
-    "All six actual GUI cases and image review on v7; prior six-case GUI evidence is v6.",
     "Final interpretation/metrics, final report backup and analysis-only handoff ZIP."
   ]
 }

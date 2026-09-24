@@ -29,9 +29,11 @@ speaker fragmentation and the noise-control caption remain reported failures.
 The current v7 isolated suite passed all 46 modules: 436 discovered tests,
 434 passed, two explicit Linux-only skips, zero failures or errors. It includes
 20 archive tests and all 44 N2 integration tests, with actual saved-audio E1
-execution. Every private test process exited. The earlier v6 GUI panel passed
-all six cases and all 16 saved images were reviewed. All six GUI cases rerun
-on v7 as part of the current plan; v6 receipts do not satisfy that requirement.
+execution. Every private test process exited. The v7 actual GUI panel also
+completed all six cases with clean exits and full archive integrity. All 16
+saved images were inspected, with no archive warning. Closed labels remain
+assumed, open labels Unknown, noise has one caption and silence has none.
+`GUI_VISUAL_REVIEW.json` binds this review and preserves the earlier v6 review.
 
 ## Preserved archive failure and correction
 

@@ -113,7 +113,7 @@
     "final_review": "MANUAL_IN_THIS_TASK",
     "stage_completion_claimed": false
   },
-  "updated_utc": "2026-09-24T18:28:39.805414+00:00",
+  "updated_utc": "2026-09-24T18:40:20.275048+00:00",
   "prior_source_gui": {
     "status": "COMPLETE",
     "cells": 6,
@@ -127,8 +127,20 @@
   },
   "gui": {
     "source_release": "n2-common-v7",
-    "status": "RERUN_IN_PROGRESS",
-    "expected_cells": 6
+    "status": "COMPLETE",
+    "cells": 6,
+    "exit_code": 0,
+    "report": {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\gui-panel-isolated-v2\\GUI_PANEL_REPORT.json",
+      "sha256": "923880f1258f3834cd057613e88b4993991a53e5a9d4edd27d7e34b3d7a6ef12",
+      "bytes": 128485
+    },
+    "visual_review": {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n2\\GUI_VISUAL_REVIEW.json",
+      "sha256": "7b3ac98bfa5de9e9d00c88e3b119b4baab688e3ea0fcf285eeb40a4b5b92a873",
+      "bytes": 25910
+    },
+    "images_inspected": 16
   },
   "archive_repair": {
     "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n2\\ARCHIVE_REPAIR_RECEIPT.json",

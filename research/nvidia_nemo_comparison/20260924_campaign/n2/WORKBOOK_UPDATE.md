@@ -12,8 +12,9 @@ Actually completed: 288 native streaming profile cells, native/reference and
 CPU/CUDA parity panels, 2×1,194 identical component embedding windows, actual
 personal save/reload/scoring, and four matched first-cell Controller smokes.
 The isolated test suite completed all 46 modules: 434 passed, two Linux-only
-skips, no failures. All six actual isolated GUI cells passed on v6. They rerun on v7;
-prior GUI evidence does not satisfy the new-source acceptance. The v6 full run stopped on a 128 KiB archive record limit; its failures
+skips, no failures. All six actual isolated GUI cells now pass on v7, with clean exits,
+complete archives and all 16 saved images inspected. The v6 review remains
+preserved separately. The v6 full run stopped on a 128 KiB archive record limit; its failures
 remain preserved. V7 keeps the 4 MiB queue bound and archives the exact failed
 scene successfully with all six ASR signatures unchanged. The 384 main and
 32 supplemental cells have restarted with fresh outputs; the reviewed background waiter will run their final analysis.
