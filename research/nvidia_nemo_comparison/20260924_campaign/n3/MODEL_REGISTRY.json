@@ -1,0 +1,141 @@
+{
+  "schema": "just-peachy.n3.candidates.v1",
+  "stage_status": "IN_PROGRESS",
+  "candidates": [
+    {
+      "variant": "A1",
+      "repository": "nvidia/parakeet_realtime_eou_120m-v1",
+      "revision": "a7e2b4629593dce0ec19f600e00e9904353fda2d",
+      "filename": "parakeet_realtime_eou_120m-v1.nemo",
+      "bytes": 460062720,
+      "sha256": "6603a22a53b7c1a4bac4736cb24628fb568a7102ba931a28c799e2e72f109893",
+      "url": "https://huggingface.co/nvidia/parakeet_realtime_eou_120m-v1/resolve/a7e2b4629593dce0ec19f600e00e9904353fda2d/parakeet_realtime_eou_120m-v1.nemo",
+      "license": "NVIDIA Open Model License",
+      "card_sha256": "618bce4a1ac767cc01c1d7fd5aafee3341667185b855bae7d4abc656008bfa93",
+      "status": "DOWNLOADED_HASH_VERIFIED_NOT_EXECUTED",
+      "implementation_status": "IMPLEMENTED_REFERENCE",
+      "actual_model_inference": "NOT_TESTED_WAITING_N2",
+      "arm64_status": "NOT_TESTED",
+      "cm5_2gb_status": "NOT_QUALIFIED",
+      "n4_eligible": false
+    },
+    {
+      "variant": "A2",
+      "repository": "nvidia/nemotron-speech-streaming-en-0.6b",
+      "revision": "ebe59e5a817142986528bbbee5dba8db7b38ed50",
+      "filename": "nemotron-speech-streaming-en-0.6b.q8_0.gguf",
+      "bytes": 699872960,
+      "sha256": "d9a01898d2a611c8764e23a1c2f45e70bbd5a425dc4de93692ac951dd603812d",
+      "url": "https://huggingface.co/nvidia/nemotron-speech-streaming-en-0.6b/resolve/ebe59e5a817142986528bbbee5dba8db7b38ed50/nemotron-speech-streaming-en-0.6b.q8_0.gguf",
+      "license": "NVIDIA Open Model License",
+      "card_sha256": "7701f4b2f1c16542c8ceb2b3a61dd144032898c17f4dc9cc1bbecda6972edec8",
+      "status": "DOWNLOADED_HASH_VERIFIED_NOT_EXECUTED",
+      "implementation_status": "IMPLEMENTED_NATIVE_CPU_AND_CUDA",
+      "actual_model_inference": "NOT_TESTED_WAITING_N2",
+      "arm64_status": "NOT_TESTED",
+      "cm5_2gb_status": "NOT_QUALIFIED",
+      "n4_eligible": false
+    },
+    {
+      "variant": "A2",
+      "repository": "nvidia/nemotron-speech-streaming-en-0.6b",
+      "revision": "ebe59e5a817142986528bbbee5dba8db7b38ed50",
+      "filename": "nemotron-speech-streaming-en-0.6b.nemo",
+      "bytes": 2473041920,
+      "sha256": "283638054c44f6794e74fe9af9048d78a6d9d6c058c12131856c7859a62ac9cd",
+      "url": "https://huggingface.co/nvidia/nemotron-speech-streaming-en-0.6b/resolve/ebe59e5a817142986528bbbee5dba8db7b38ed50/nemotron-speech-streaming-en-0.6b.nemo",
+      "license": "NVIDIA Open Model License",
+      "card_sha256": "7701f4b2f1c16542c8ceb2b3a61dd144032898c17f4dc9cc1bbecda6972edec8",
+      "status": "DOWNLOADED_HASH_VERIFIED_NOT_EXECUTED",
+      "implementation_status": "IMPLEMENTED_REFERENCE",
+      "actual_model_inference": "NOT_TESTED_WAITING_N2",
+      "arm64_status": "NOT_TESTED",
+      "cm5_2gb_status": "NOT_QUALIFIED",
+      "n4_eligible": false
+    },
+    {
+      "variant": "A3",
+      "repository": "nvidia/nemotron-3.5-asr-streaming-0.6b",
+      "revision": "ea30d66debe3740a08b573244286791d423d6b3e",
+      "filename": "nemotron-3.5-asr-streaming-0.6b.q8_0.gguf",
+      "bytes": 742090464,
+      "sha256": "3fc991d3badad7277c11030a7519832cddaf2057aafed6d4b25147e953a070b1",
+      "url": "https://huggingface.co/nvidia/nemotron-3.5-asr-streaming-0.6b/resolve/ea30d66debe3740a08b573244286791d423d6b3e/nemotron-3.5-asr-streaming-0.6b.q8_0.gguf",
+      "license": "OpenMDW-1.1",
+      "card_sha256": "a3344caadf796c084c6b90a9fa5978068fd45e3a019790bebe50489bb3c0f7b7",
+      "status": "DOWNLOADED_HASH_VERIFIED_NOT_EXECUTED",
+      "implementation_status": "IMPLEMENTED_NATIVE_CPU_AND_CUDA",
+      "actual_model_inference": "NOT_TESTED_WAITING_N2",
+      "arm64_status": "NOT_TESTED",
+      "cm5_2gb_status": "NOT_QUALIFIED",
+      "n4_eligible": false
+    },
+    {
+      "variant": "A3",
+      "repository": "nvidia/nemotron-3.5-asr-streaming-0.6b",
+      "revision": "ea30d66debe3740a08b573244286791d423d6b3e",
+      "filename": "nemotron-3.5-asr-streaming-0.6b.nemo",
+      "bytes": 2368284501,
+      "sha256": "210214ed94039bf6bfbb9a047c7fa289628db75b103e2bf6381fa78285436a74",
+      "url": "https://huggingface.co/nvidia/nemotron-3.5-asr-streaming-0.6b/resolve/ea30d66debe3740a08b573244286791d423d6b3e/nemotron-3.5-asr-streaming-0.6b.nemo",
+      "license": "OpenMDW-1.1",
+      "card_sha256": "a3344caadf796c084c6b90a9fa5978068fd45e3a019790bebe50489bb3c0f7b7",
+      "status": "DOWNLOADED_HASH_VERIFIED_NOT_EXECUTED",
+      "implementation_status": "IMPLEMENTED_REFERENCE",
+      "actual_model_inference": "NOT_TESTED_WAITING_N2",
+      "arm64_status": "NOT_TESTED",
+      "cm5_2gb_status": "NOT_QUALIFIED",
+      "n4_eligible": false
+    }
+  ],
+  "nominal": {
+    "A1": {
+      "context": [
+        70,
+        1
+      ],
+      "chunk_ms": 80,
+      "precision": "FP32 reference"
+    },
+    "A2": {
+      "context": [
+        70,
+        1
+      ],
+      "language": "en-US",
+      "precision": "Q8_0 weights"
+    },
+    "A3": {
+      "context": [
+        56,
+        1
+      ],
+      "language": "en-US",
+      "precision": "Q8_0 weights"
+    }
+  },
+  "baseline": "Exact existing Sherpa Giga/Pyannote/ReDimNet/P0; preserved",
+  "selection": "No winner or full-bank release acceptance",
+  "backend_compositions": [
+    {
+      "key": "baseline",
+      "manifest_id": "sha256:1a6be7490786a81d971c19ad35572b8c13c30993f7b8a7c1903f4b0617b6b1b5",
+      "validation": "PENDING"
+    },
+    {
+      "key": "compact_eou",
+      "manifest_id": "sha256:c12631ab0a1adc98aa8072cd635b8c8f4267b8e138f4c44d5df2c82099c3577b",
+      "validation": "PENDING"
+    },
+    {
+      "key": "nemotron_600m",
+      "manifest_id": "sha256:377262016bfd68f234f1ee5fd18a478ac31917f4c55b9253c0ececf0f6e4b8e4",
+      "validation": "PENDING"
+    },
+    {
+      "key": "nemotron_35_600m",
+      "manifest_id": "sha256:b227e30c880b67cd2d990c13944ad0408e00164019b86a6820b5ee15c410427f",
+      "validation": "PENDING"
+    }
+  ]
+}

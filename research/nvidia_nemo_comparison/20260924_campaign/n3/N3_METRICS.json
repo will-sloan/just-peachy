@@ -1,0 +1,22 @@
+{
+  "schema": "just-peachy.n3.metrics.v1",
+  "status": "PREPARATION_CHECKPOINT_NOT_STAGE_ACCEPTANCE",
+  "actual_inference_cells": 0,
+  "planned_screen_cells": 384,
+  "planned_regression_cells": 32,
+  "planned_gui_cells": 6,
+  "WER": null,
+  "CER": null,
+  "punctuation_F1": null,
+  "native_reference_parity": "NOT_TESTED",
+  "cpu_resources": "NOT_MEASURED",
+  "VRAM": "NOT_MEASURED_PER_PROCESS_NATIVE_WDDM",
+  "ITN": {
+    "status": "COMPILED_EXHAUSTIVE_NUMERIC_PARITY_PASSED",
+    "number_forms": 110,
+    "unit_forms": 16,
+    "grammar_sha256": "fc4df22c58d326c24f99e80dc5344729d0edbf9ba212804781dbddc8fc34e01a"
+  },
+  "pi": "OFF_NOT_TESTED",
+  "errors_not_hidden": true
+}

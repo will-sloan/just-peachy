@@ -1,0 +1,40 @@
+{
+  "schema": "just-peachy.n3.model-head-inspection.v1",
+  "status": "METADATA_INSPECTED_NO_NEURAL_INFERENCE",
+  "models": [
+    {
+      "model": "nemotron-3.5-asr-streaming-0.6b.nemo",
+      "config_sha256": "44c6758d4856ab67a6f1f27703a9c06b2ff8b7462179df722e0c569d84c4195a",
+      "target": "nemo.collections.asr.models.rnnt_bpe_models_prompt.EncDecRNNTBPEModelWithPrompt",
+      "top_level_ctc_keys": [
+        "aux_ctc",
+        "interctc"
+      ],
+      "encoder_type": "nemo.collections.asr.modules.ConformerEncoder",
+      "decoder_type": "nemo.collections.asr.modules.RNNTDecoder"
+    },
+    {
+      "model": "nemotron-speech-streaming-en-0.6b.nemo",
+      "config_sha256": "6ede192eeaa2bd4f79b6f4cbb9f86d7153d46afe3f51fd7592629d5928f2f493",
+      "target": "nemo.collections.asr.models.rnnt_bpe_models.EncDecRNNTBPEModel",
+      "top_level_ctc_keys": [
+        "aux_ctc",
+        "interctc"
+      ],
+      "encoder_type": "nemo.collections.asr.modules.ConformerEncoder",
+      "decoder_type": "nemo.collections.asr.modules.RNNTDecoder"
+    },
+    {
+      "model": "parakeet_realtime_eou_120m-v1.nemo",
+      "config_sha256": "1e878056cd93f6556c2d2695cc39062d89a4b1c024330033905f26a162fe507d",
+      "target": "nemo.collections.asr.models.EncDecRNNTBPEModel",
+      "top_level_ctc_keys": [
+        "interctc"
+      ],
+      "encoder_type": "nemo.collections.asr.modules.ConformerEncoder",
+      "decoder_type": "nemo.collections.asr.modules.RNNTDecoder"
+    }
+  ],
+  "forced_alignment_status": "DEFERRED_NO_CTC_HEAD_VERIFIED_IN_AVAILABLE_N3_CHECKPOINTS",
+  "limits": "Configuration inspection, not a runtime head test. No new aligner model is fetched for this optional ablation. Existing disjoint E metadata remains intact."
+}

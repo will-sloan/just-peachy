@@ -42,6 +42,7 @@ class Controller(TranscriptReviewWorkflow,AdaptationWorkflow,SeatWorkflow,Sessio
         self.store=PersonalStore(self.data_root/'people',self.config.asset('redimnet2_b2_fp32').sha256)
         self._baseline_store=self.store
         self._n2_components=None
+        self._n3_components=None
         self.lock=threading.RLock();self.commands=queue.Queue(32)
         self.engine=None;self.consumer=None;self.epoch=0;self.rows=OrderedDict()
         self.source_kind=None;self.file_path=None;self.file_offset=0;self.live_consent=False
@@ -186,6 +187,9 @@ class Controller(TranscriptReviewWorkflow,AdaptationWorkflow,SeatWorkflow,Sessio
             from .n2_pipeline import N2Engine
             engine_type=N2Engine;engine_args['diarization']=self._n2_components['diarization']
             engine_args['n2_observer_factory']=getattr(self,'n2_observer_factory',None)
+        if getattr(self,'_n3_components',None):
+            from .n3_pipeline import N3Engine,N3IdentityEngine
+            engine_type=N3IdentityEngine if self._n2_components else N3Engine
         engine=engine_type(self.config,self.models,profile,gallery,self.mode,writer_delay=self.writer_delay,
                                ram_horizon_sec=self.settings.get('ram_horizon_sec',120), spatial_provider=spatial,
                                enhancement_route=self.settings.get('enhancement_route','bypass'),
@@ -381,6 +385,12 @@ class Controller(TranscriptReviewWorkflow,AdaptationWorkflow,SeatWorkflow,Sessio
                 new_store=titanet_store(self.data_root,document['embedding_namespace'])
             else:new_store=self._baseline_store
         else:new_models=ResidentModels();new_store=self._baseline_store
+        asr_components=composition.get('n3')
+        if asr_components:
+            from .n3_models import N3ResidentModels,load_asr_runtime
+            asr_document=load_asr_runtime(self.data_root,asr_components)
+            new_models=N3ResidentModels(asr_document,identity=components,
+                identity_document=document if components else None)
         available={row['id'] for row in new_store.list()}
         remembered=rosters.get(str(new_store.root.resolve()),previous)
         missing=(set(remembered['selected_ids'])|set(remembered['display_ids']))-available
@@ -389,6 +399,7 @@ class Controller(TranscriptReviewWorkflow,AdaptationWorkflow,SeatWorkflow,Sessio
         if backend_id!=getattr(self,'backend_id',None):self._adaptation_backend_changed()
         if hasattr(self.models,'close'):self.models.close()
         self.models=new_models;self.store=new_store;self._n2_components=components
+        self._n3_components=asr_components
         self._backend_store_rosters=rosters;self.selected_ids=selected;self.display_ids=displayed
         if not displayed:self.strict=False
         self.backend_id=backend_id
@@ -528,6 +539,8 @@ class Controller(TranscriptReviewWorkflow,AdaptationWorkflow,SeatWorkflow,Sessio
             if offered is not None:
                 self.enrollment['offered_reference']=offered
                 try:
+                    if not getattr(self.models,'supports_read_progress',True):
+                        raise RuntimeError('Read-along progress is not yet supported by this streaming ASR backend')
                     _,asr=self.models.acquire(self.config,caption_only=True)
                     self._enroll_read=ReadProgress(asr,offered['offered_text'],token_timing=self._enroll_script_enabled)
                 except Exception as exc:

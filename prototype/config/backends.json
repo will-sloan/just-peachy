@@ -265,11 +265,11 @@
     },
     {
       "key": "nemotron_600m",
-      "label": "Seed \u00b7 Nemotron ASR 600M / Nemotron diarization",
-      "manifest_id": "sha256:b72b1e5273053c6c2792763549920a24763be60f145db3aae951be64f643c1ef",
+      "label": "Nemotron English / Nemotron / ReDimNet",
+      "manifest_id": "sha256:377262016bfd68f234f1ee5fd18a478ac31917f4c55b9253c0ececf0f6e4b8e4",
       "composition": {
         "schema": "just-peachy.backend-composition.v1",
-        "runtime": "UNIMPLEMENTED seeded adapter; exact runtime/revisions require admission",
+        "runtime": "N3 native cache-aware RNNT + N2 identity + shared UI",
         "input": {
           "sample_rate_hz": 16000,
           "channels": 1,
@@ -279,15 +279,20 @@
         "components": {
           "asr": {
             "repository": "nvidia/nemotron-speech-streaming-en-0.6b",
-            "revision": null,
-            "artifact_sha256": null,
-            "status": "UNPINNED_SEED"
+            "revision": "ebe59e5a817142986528bbbee5dba8db7b38ed50",
+            "artifact_sha256": "d9a01898d2a611c8764e23a1c2f45e70bbd5a425dc4de93692ac951dd603812d",
+            "precision": "Q8_0",
+            "runtime_revision": "97a15afa5caa9bce5baaa86c1184103877af4101",
+            "status": "IMPLEMENTED_VALIDATION_PENDING"
           },
           "diarization": {
             "repository": "nvidia/Nemotron-3-Diarization",
-            "revision": null,
-            "artifact_sha256": null,
-            "status": "UNPINNED_SEED"
+            "revision": "f667ed73aee57d40cc39428eb768b4fd87a0a29e",
+            "artifact_sha256": "08456d9e22cd9a323c0364d98375f3746d6e68507ebb705cd46438c534c7a3a1",
+            "precision": "Q8_0",
+            "channels": 8,
+            "runtime_revision": "97a15afa5caa9bce5baaa86c1184103877af4101",
+            "status": "IMPLEMENTED_NATIVE_CPU"
           },
           "enrollment": {
             "name": "selected ReDimNet2-B2",
@@ -302,29 +307,40 @@
             ]
           },
           "punctuation": {
-            "repository": "ASR-native casing/punctuation (pending validation)",
-            "revision": null,
-            "artifact_sha256": null,
-            "status": "UNPINNED_SEED"
+            "name": "native P1 punctuation/casing; no redundant P0 pass",
+            "source_asr": "A2"
           }
+        },
+        "n2": {
+          "diarization": "D1",
+          "embedding": "E0",
+          "streaming_profile": "low_latency"
+        },
+        "n3": {
+          "variant": "A2",
+          "model_sha256": "d9a01898d2a611c8764e23a1c2f45e70bbd5a425dc4de93692ac951dd603812d",
+          "right_context": 1,
+          "language": "en-US",
+          "decoder": "greedy",
+          "endpoint_history_ms": 800
         }
       },
-      "implemented": false,
-      "reason": "UNAVAILABLE \u00b7 seeded composition only; model license/assets/runtime and shared adapter validation are pending. No candidate model is loaded.",
+      "implemented": true,
+      "reason": "Local N3 runtime binding required; validation in progress; Pi performance unqualified",
       "capacity": {
         "speaker_channels": 8,
-        "speaker_channels_status": "Eight anonymous activity channels is a planning seed; pinned official verification required",
+        "speaker_channels_status": "Verified eight persistent anonymous model slots; >8-person overflow cannot be detected or resolved from these channels",
         "system_ram_2gb": "NOT_TESTED; model bytes are not total RAM",
         "simultaneous_model_stacks": 1
       }
     },
     {
       "key": "nemotron_35_600m",
-      "label": "Seed \u00b7 Nemotron 3.5 ASR / Nemotron diarization",
-      "manifest_id": "sha256:51753cb2a7010a1d0afc2a92ed056099f4d6ee8d1a5a1247707f0cbe3a04fcfa",
+      "label": "Nemotron 3.5 English / Nemotron / ReDimNet",
+      "manifest_id": "sha256:b227e30c880b67cd2d990c13944ad0408e00164019b86a6820b5ee15c410427f",
       "composition": {
         "schema": "just-peachy.backend-composition.v1",
-        "runtime": "UNIMPLEMENTED seeded adapter; exact runtime/revisions require admission",
+        "runtime": "N3 native cache-aware RNNT + N2 identity + shared UI",
         "input": {
           "sample_rate_hz": 16000,
           "channels": 1,
@@ -334,15 +350,20 @@
         "components": {
           "asr": {
             "repository": "nvidia/nemotron-3.5-asr-streaming-0.6b",
-            "revision": null,
-            "artifact_sha256": null,
-            "status": "UNPINNED_SEED"
+            "revision": "ea30d66debe3740a08b573244286791d423d6b3e",
+            "artifact_sha256": "3fc991d3badad7277c11030a7519832cddaf2057aafed6d4b25147e953a070b1",
+            "precision": "Q8_0",
+            "runtime_revision": "97a15afa5caa9bce5baaa86c1184103877af4101",
+            "status": "IMPLEMENTED_VALIDATION_PENDING"
           },
           "diarization": {
             "repository": "nvidia/Nemotron-3-Diarization",
-            "revision": null,
-            "artifact_sha256": null,
-            "status": "UNPINNED_SEED"
+            "revision": "f667ed73aee57d40cc39428eb768b4fd87a0a29e",
+            "artifact_sha256": "08456d9e22cd9a323c0364d98375f3746d6e68507ebb705cd46438c534c7a3a1",
+            "precision": "Q8_0",
+            "channels": 8,
+            "runtime_revision": "97a15afa5caa9bce5baaa86c1184103877af4101",
+            "status": "IMPLEMENTED_NATIVE_CPU"
           },
           "enrollment": {
             "name": "selected ReDimNet2-B2",
@@ -357,18 +378,29 @@
             ]
           },
           "punctuation": {
-            "repository": "ASR-native casing/punctuation (fixed English; pending validation)",
-            "revision": null,
-            "artifact_sha256": null,
-            "status": "UNPINNED_SEED"
+            "name": "native P1 punctuation/casing; no redundant P0 pass",
+            "source_asr": "A3"
           }
+        },
+        "n2": {
+          "diarization": "D1",
+          "embedding": "E0",
+          "streaming_profile": "low_latency"
+        },
+        "n3": {
+          "variant": "A3",
+          "model_sha256": "3fc991d3badad7277c11030a7519832cddaf2057aafed6d4b25147e953a070b1",
+          "right_context": 1,
+          "language": "en-US",
+          "decoder": "greedy",
+          "endpoint_history_ms": 800
         }
       },
-      "implemented": false,
-      "reason": "UNAVAILABLE \u00b7 seeded composition only; model license/assets/runtime and shared adapter validation are pending. No candidate model is loaded.",
+      "implemented": true,
+      "reason": "Local N3 runtime binding required; validation in progress; Pi performance unqualified",
       "capacity": {
         "speaker_channels": 8,
-        "speaker_channels_status": "Eight anonymous activity channels is a planning seed; pinned official verification required",
+        "speaker_channels_status": "Verified eight persistent anonymous model slots; >8-person overflow cannot be detected or resolved from these channels",
         "system_ram_2gb": "NOT_TESTED; model bytes are not total RAM",
         "simultaneous_model_stacks": 1
       }

@@ -1,0 +1,54 @@
+{
+  "status": "PASS_MODEL_FREE_ONLY",
+  "utc": "2026-09-24T20:03:49.503966+00:00",
+  "test_cases": 24,
+  "syntax_files": 23,
+  "portable_itn_numeric_forms_checked": 110,
+  "checks": [
+    {
+      "command": [
+        "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\.edge-speech-env\\python.exe",
+        "-B",
+        "-m",
+        "unittest",
+        "prototype.tests.test_n3_components",
+        "prototype.tests.test_backend_catalog"
+      ],
+      "exit_code": 0,
+      "output": "...............\n----------------------------------------------------------------------\nRan 15 tests in 0.007s\n\nOK\n"
+    },
+    {
+      "command": [
+        "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\.edge-speech-env\\python.exe",
+        "-B",
+        "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n3\\test_queue.py"
+      ],
+      "exit_code": 0,
+      "output": "........\n----------------------------------------------------------------------\nRan 8 tests in 0.063s\n\nOK\n"
+    },
+    {
+      "command": [
+        "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\.edge-speech-env\\python.exe",
+        "-B",
+        "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n3\\test_scoring.py"
+      ],
+      "exit_code": 0,
+      "output": ".\n----------------------------------------------------------------------\nRan 1 test in 0.568s\n\nOK\n"
+    }
+  ],
+  "real_model_inference": false,
+  "hardware_access": false,
+  "reference_imports": {
+    "status": "PASS_NO_MODELS_LOADED",
+    "source": "cf724ac337d1ebc7d0dda1e23fb80916f52927a5",
+    "torch": "2.8.0+cpu",
+    "onnx": "1.23.0",
+    "onnxruntime": "1.29.0"
+  },
+  "prior_preparation": {
+    "version": "v1",
+    "status": "SUPERSEDED_UNLAUNCHED",
+    "reason": "stdlib queue filename collision; A1 package parent required unused Pipecat; explicit pinned source imports now checked",
+    "evidence_preserved": true
+  }
+}

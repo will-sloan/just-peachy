@@ -1,0 +1,18 @@
+{
+  "source_revision": "cf724ac337d1ebc7d0dda1e23fb80916f52927a5",
+  "changes": "Package-free import path and notice only; no algorithm changes",
+  "files": [
+    {
+      "original": "utils.py",
+      "original_sha256": "7c489f3d1e1363a6eb5332d15dcb0ff7e242140a3d194e2f855b99bbd98bab3e",
+      "local": "a1_features.py",
+      "local_sha256": "06766f12be5a29462571f83c643e830e2bf6f47075fe4e843717bd824962c620"
+    },
+    {
+      "original": "streaming_asr.py",
+      "original_sha256": "54aa45307ee92bc072928a072ea642a94e0f42ee1617215e044ca5aa6636bd44",
+      "local": "a1_service.py",
+      "local_sha256": "4eb83d0c0944f3901c9612ef135d5d46a68ff51512491be71e16caa7a455b22d"
+    }
+  ]
+}

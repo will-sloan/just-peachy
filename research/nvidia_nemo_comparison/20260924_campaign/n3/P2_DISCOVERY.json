@@ -1,0 +1,19 @@
+{
+  "status": "UNAVAILABLE_NO_EXACT_LICENSED_CHECKPOINT_VERIFIED",
+  "queries": [
+    {
+      "url": "https://huggingface.co/api/models?author=nvidia&search=punct&limit=100",
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "model_ids": [],
+      "retrieved_utc": "2026-09-24T19:49:59.109588+00:00"
+    },
+    {
+      "url": "https://huggingface.co/api/models?author=nvidia&search=pnc&limit=100",
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "model_ids": [],
+      "retrieved_utc": "2026-09-24T19:49:59.174565+00:00"
+    }
+  ],
+  "scope": "Bounded official NVIDIA HF repository-name search, not proof that no checkpoint exists anywhere",
+  "decision": "Retain P0 and compare native P1; example pnc-bert filenames do not establish downloadable weights or their license"
+}
