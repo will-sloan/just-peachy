@@ -3,10 +3,11 @@
 `finish_campaign.py` is an offline evidence validator and report generator. It
 does not start models, run the GUI, wait for jobs, package a release, change Git,
 or declare the wider project stage complete. Invoke it only after the numerical
-coordinator has exited and the isolated test suite has completed. The current
-run has an active `execute_campaign.py --wait-for-existing` waiter, which owns
-this finalization step. Do not also invoke the commands below while that waiter
-is active; they document its finalizer inputs and a later controlled resume.
+coordinator has exited and the isolated test suite has completed. The v6 run
+and waiter ended with retained archive-failure/interruption evidence. The paths
+below describe the planned v7 rerun, not a successful result. If the root starts
+an `execute_campaign.py --wait-for-existing` waiter for it, that waiter owns
+finalization. Do not also invoke these commands while that waiter is active.
 
 The finisher takes the coordinator's OS lifetime lock without waiting and holds
 it through final publication. It rejects a live or unverified coordinator/child
@@ -35,16 +36,16 @@ lost items or unfinished worker cannot pass.
 ## Inputs
 
 - `--spec`: the reviewed coordinator JSON. The final planned file is
-  `local/n2/numerical-spec-v3.json`.
+  `local/n2/numerical-spec-v4.json`.
 - `--coordinator-result`: its completed `RESULT.json`, with adjacent
   `ADMISSION.json` and `owner.lock`; final planned output is
-  `local/n2/numerical-v1`.
+  `local/n2/numerical-v2`.
 - `--source-receipt`: the actual frozen release receipt; final source is
-  `local/releases/n2-common-v6/SOURCE_RECEIPT.json`.
+  `local/releases/n2-common-v7/SOURCE_RECEIPT.json`.
 - `--test-report`: completed isolated suite report; final planned output is
-  `local/n2/checks/full-suite-isolated-v2/RESULT.json`.
+  `local/n2/checks/full-suite-isolated-v3/RESULT.json`.
 - `--gui-report`: the completed six-cell report at
-  `local/n2/gui-panel-isolated-v1/GUI_PANEL_REPORT.json`.
+  `local/n2/gui-panel-isolated-v2/GUI_PANEL_REPORT.json`.
 - `--output`: a new private directory outside the frozen source and public tree.
 - `--public-out`: a public report directory, normally this campaign's
   `n2/evaluation`. Existing final/summary target files are never overwritten.
@@ -56,6 +57,11 @@ The Controller admissions must bind the existing private normalized
 directory with `EVALUATOR_TRUTH.json`, `ROSTERS.json` and `MANIFEST_RECEIPT.json`.
 The finisher never creates, normalizes or changes these populations. Regression
 and main-screen summaries remain separate. No evaluator truth reaches a model.
+Generate the replacement specification with `make_plan.py --run-version v2`:
+all eight Controller jobs use fresh `factorial-v2` / `regressions-v2` roots,
+and all six GUI cases use `gui-panel-isolated-v2`. v6 results remain historical
+evidence and cannot satisfy the new common-source admission. The new suite must
+bind v7; the earlier completed v6 suite is not reused as its test acceptance.
 
 ## PowerShell
 
@@ -73,12 +79,12 @@ an existing receipt. This command is not a promise that those runs passed:
 
 ```powershell
 & 'C:\Users\amiri\Documents\GitHub\just-peachy\.edge-speech-env\python.exe' -B 'research\nvidia_nemo_comparison\20260924_campaign\n2\finish_campaign.py' `
-  --spec 'G:\Just_Peachy_N1\20260924_campaign\local\n2\numerical-spec-v3.json' `
-  --coordinator-result 'G:\Just_Peachy_N1\20260924_campaign\local\n2\numerical-v1\RESULT.json' `
-  --source-receipt 'G:\Just_Peachy_N1\20260924_campaign\local\releases\n2-common-v6\SOURCE_RECEIPT.json' `
-  --test-report 'G:\Just_Peachy_N1\20260924_campaign\local\n2\checks\full-suite-isolated-v2\RESULT.json' `
-  --gui-report 'G:\Just_Peachy_N1\20260924_campaign\local\n2\gui-panel-isolated-v1\GUI_PANEL_REPORT.json' `
-  --output 'G:\Just_Peachy_N1\20260924_campaign\local\n2\final-analysis-v1' `
+  --spec 'G:\Just_Peachy_N1\20260924_campaign\local\n2\numerical-spec-v4.json' `
+  --coordinator-result 'G:\Just_Peachy_N1\20260924_campaign\local\n2\numerical-v2\RESULT.json' `
+  --source-receipt 'G:\Just_Peachy_N1\20260924_campaign\local\releases\n2-common-v7\SOURCE_RECEIPT.json' `
+  --test-report 'G:\Just_Peachy_N1\20260924_campaign\local\n2\checks\full-suite-isolated-v3\RESULT.json' `
+  --gui-report 'G:\Just_Peachy_N1\20260924_campaign\local\n2\gui-panel-isolated-v2\GUI_PANEL_REPORT.json' `
+  --output 'G:\Just_Peachy_N1\20260924_campaign\local\n2\final-analysis-v2' `
   --public-out 'G:\Just_Peachy_N1\20260924_campaign\worktree\research\nvidia_nemo_comparison\20260924_campaign\n2\evaluation' --cpu 4
 if ($LASTEXITCODE -ne 0) { throw 'N2 final evidence or quality checks failed; preserve and inspect the reports.' }
 ```
@@ -92,12 +98,12 @@ installation is required. The caret continues a CMD command:
 cd /d G:\Just_Peachy_N1\20260924_campaign\worktree
 "C:\Users\amiri\Documents\GitHub\just-peachy\.edge-speech-env\python.exe" -B -c "import psutil,unittest; p=psutil.Process(); p.cpu_affinity([4]); p.nice(psutil.BELOW_NORMAL_PRIORITY_CLASS); r=unittest.TextTestRunner(verbosity=2).run(unittest.defaultTestLoader.loadTestsFromName('research.nvidia_nemo_comparison.20260924_campaign.n2.test_finish_campaign')); raise SystemExit(not r.wasSuccessful())"
 "C:\Users\amiri\Documents\GitHub\just-peachy\.edge-speech-env\python.exe" -B "research\nvidia_nemo_comparison\20260924_campaign\n2\finish_campaign.py" ^
- --spec "G:\Just_Peachy_N1\20260924_campaign\local\n2\numerical-spec-v3.json" ^
- --coordinator-result "G:\Just_Peachy_N1\20260924_campaign\local\n2\numerical-v1\RESULT.json" ^
- --source-receipt "G:\Just_Peachy_N1\20260924_campaign\local\releases\n2-common-v6\SOURCE_RECEIPT.json" ^
- --test-report "G:\Just_Peachy_N1\20260924_campaign\local\n2\checks\full-suite-isolated-v2\RESULT.json" ^
- --gui-report "G:\Just_Peachy_N1\20260924_campaign\local\n2\gui-panel-isolated-v1\GUI_PANEL_REPORT.json" ^
- --output "G:\Just_Peachy_N1\20260924_campaign\local\n2\final-analysis-v1" ^
+ --spec "G:\Just_Peachy_N1\20260924_campaign\local\n2\numerical-spec-v4.json" ^
+ --coordinator-result "G:\Just_Peachy_N1\20260924_campaign\local\n2\numerical-v2\RESULT.json" ^
+ --source-receipt "G:\Just_Peachy_N1\20260924_campaign\local\releases\n2-common-v7\SOURCE_RECEIPT.json" ^
+ --test-report "G:\Just_Peachy_N1\20260924_campaign\local\n2\checks\full-suite-isolated-v3\RESULT.json" ^
+ --gui-report "G:\Just_Peachy_N1\20260924_campaign\local\n2\gui-panel-isolated-v2\GUI_PANEL_REPORT.json" ^
+ --output "G:\Just_Peachy_N1\20260924_campaign\local\n2\final-analysis-v2" ^
  --public-out "G:\Just_Peachy_N1\20260924_campaign\worktree\research\nvidia_nemo_comparison\20260924_campaign\n2\evaluation" --cpu 4
 if errorlevel 1 echo N2 final checks failed. Preserve and inspect the reports.
 ```

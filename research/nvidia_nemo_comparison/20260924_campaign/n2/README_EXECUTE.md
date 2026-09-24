@@ -2,7 +2,7 @@
 
 `execute_campaign.py` joins the existing numerical coordinator to the offline finalizer. It verifies the frozen source, the complete isolated test suite through `check_suite.validate_completed_report`, and the exact nine-job population: 384 main Controller cells, 32 separate regression cells and six GUI cells. It performs no model calls itself. It never packages, commits, pushes, marks a project stage complete or invokes an LLM.
 
-The current campaign already has an independently supervised coordinator. **Use `--wait-for-existing` for this run.** This mode binds `state/worker_spec.json`, its exact coordinator/spec/output/state command, the supervisor host and child PID/creation times, and the existing coordinator admission. It observes that exact child every five seconds. It neither stops nor launches a coordinator and never substitutes a process whose PID has been reused. After the process ends, it requires the supervisor's successful zero-exit receipt, releases no locks belonging to another process, verifies the coordinator's complete 422-cell evidence, then launches `finish_campaign.py`. A transient gap before the supervisor writes the exit receipt is bounded to 30 seconds.
+The v6 coordinator and its waiter ended after the preserved archive-integrity failure. The replacement coordinator started on 2026-09-24 at 18:24:56 UTC on v7 and fresh v2 result directories; its waiter attached at 18:25:23 UTC. **Do not start another copy while these owners are active.** This mode binds `state/worker_spec.json`, its exact coordinator/spec/output/state command, the supervisor host and child PID/creation times, and the existing coordinator admission. It observes that exact child every five seconds. It neither stops nor launches a coordinator and never substitutes a process whose PID has been reused. After the process ends, it requires the supervisor's successful zero-exit receipt, releases no locks belonging to another process, verifies the coordinator's complete 422-cell evidence, then launches `finish_campaign.py`. A transient gap before the supervisor writes the exit receipt is bounded to 30 seconds.
 
 Without `--wait-for-existing`, the wrapper starts `run_campaign.py` as its owned child and waits for its exit before running the finalizer. This optional mode is for a separately authorized future launch or safe resume. The coordinator's existing cache owns job reuse; completed GUI jobs are not launched again. A nonzero coordinator exit or incomplete coordinator receipt prevents finalization.
 
@@ -12,16 +12,16 @@ Outputs stay in the private coordinator directory: `CHAIN_RESULT.json`, `chain.o
 
 Finalizer outputs are documented in `README_FINISH.md`: private analysis evidence and redacted `SCREEN_SUMMARY`, `REGRESSION_SUMMARY` and `FINAL_CHECKS` JSON/Markdown. Existing finalizer outputs are preserved. A failed or interrupted finalizer requires new private/public destinations before another attempt. An identical already successful chain verifies its saved report hashes and returns without another finalizer launch. Chain status is `INCOMPLETE` after coordinator/admission failure, `FAILED_FINAL_CHECKS` after finalizer failure, and `READY_FOR_REVIEW` only after a zero finalizer exit plus passing bound reports. The latter is a review handoff, not a stage-completion claim.
 
-## Current existing-coordinator invocation
+## Current replacement-coordinator invocation
 
-Do not start a second copy if the root-owned waiter is already running. These commands wait in the terminal, while their subprocess windows stay hidden. The campaign root owns background dispatch. The numeric runner is already active; this command adds only a lightweight waiter and, after it exits successfully, offline final checks.
+Do not start a second copy if the root-owned waiter is running. These commands wait in the terminal, while their subprocess windows stay hidden. The campaign root owns background dispatch. After it starts the v7 coordinator with `numerical-spec-v4.json` and `numerical-v2`, this command adds only a lightweight waiter and, after a successful coordinator exit, offline final checks. The plan must have been generated with `--run-version v2`; all 384 main, 32 regression and six GUI cells rerun under the new common source. Preserve the earlier `numerical-v1`, v1 result roots and recovery receipts.
 
 PowerShell, from any directory:
 
 ```powershell
 $N2Dir = 'G:\Just_Peachy_N1\20260924_campaign\worktree\research\nvidia_nemo_comparison\20260924_campaign\n2'
 $PythonExe = 'C:\Users\amiri\Documents\GitHub\just-peachy\.edge-speech-env\python.exe'
-& $PythonExe -B "$N2Dir\execute_campaign.py" --wait-for-existing --spec 'G:\Just_Peachy_N1\20260924_campaign\local\n2\numerical-spec-v3.json' --output 'G:\Just_Peachy_N1\20260924_campaign\local\n2\numerical-v1' --state 'G:\Just_Peachy_N1\20260924_campaign\local\supervision' --source-receipt 'G:\Just_Peachy_N1\20260924_campaign\local\releases\n2-common-v6\SOURCE_RECEIPT.json' --test-report 'G:\Just_Peachy_N1\20260924_campaign\local\n2\checks\full-suite-isolated-v2\RESULT.json' --analysis-output 'G:\Just_Peachy_N1\20260924_campaign\local\n2\final-analysis-v1' --public-out "$N2Dir\evaluation"
+& $PythonExe -B "$N2Dir\execute_campaign.py" --wait-for-existing --spec 'G:\Just_Peachy_N1\20260924_campaign\local\n2\numerical-spec-v4.json' --output 'G:\Just_Peachy_N1\20260924_campaign\local\n2\numerical-v2' --state 'G:\Just_Peachy_N1\20260924_campaign\local\supervision' --source-receipt 'G:\Just_Peachy_N1\20260924_campaign\local\releases\n2-common-v7\SOURCE_RECEIPT.json' --test-report 'G:\Just_Peachy_N1\20260924_campaign\local\n2\checks\full-suite-isolated-v3\RESULT.json' --analysis-output 'G:\Just_Peachy_N1\20260924_campaign\local\n2\final-analysis-v2' --public-out "$N2Dir\evaluation"
 ```
 
 Command Prompt / Anaconda Prompt (the explicit interpreter avoids changing conda):
@@ -29,7 +29,7 @@ Command Prompt / Anaconda Prompt (the explicit interpreter avoids changing conda
 ```bat
 set "N2_DIR=G:\Just_Peachy_N1\20260924_campaign\worktree\research\nvidia_nemo_comparison\20260924_campaign\n2"
 set "PYTHON_EXE=C:\Users\amiri\Documents\GitHub\just-peachy\.edge-speech-env\python.exe"
-"%PYTHON_EXE%" -B "%N2_DIR%\execute_campaign.py" --wait-for-existing --spec "G:\Just_Peachy_N1\20260924_campaign\local\n2\numerical-spec-v3.json" --output "G:\Just_Peachy_N1\20260924_campaign\local\n2\numerical-v1" --state "G:\Just_Peachy_N1\20260924_campaign\local\supervision" --source-receipt "G:\Just_Peachy_N1\20260924_campaign\local\releases\n2-common-v6\SOURCE_RECEIPT.json" --test-report "G:\Just_Peachy_N1\20260924_campaign\local\n2\checks\full-suite-isolated-v2\RESULT.json" --analysis-output "G:\Just_Peachy_N1\20260924_campaign\local\n2\final-analysis-v1" --public-out "%N2_DIR%\evaluation"
+"%PYTHON_EXE%" -B "%N2_DIR%\execute_campaign.py" --wait-for-existing --spec "G:\Just_Peachy_N1\20260924_campaign\local\n2\numerical-spec-v4.json" --output "G:\Just_Peachy_N1\20260924_campaign\local\n2\numerical-v2" --state "G:\Just_Peachy_N1\20260924_campaign\local\supervision" --source-receipt "G:\Just_Peachy_N1\20260924_campaign\local\releases\n2-common-v7\SOURCE_RECEIPT.json" --test-report "G:\Just_Peachy_N1\20260924_campaign\local\n2\checks\full-suite-isolated-v3\RESULT.json" --analysis-output "G:\Just_Peachy_N1\20260924_campaign\local\n2\final-analysis-v2" --public-out "%N2_DIR%\evaluation"
 ```
 
 ## Focused verification without numerical jobs

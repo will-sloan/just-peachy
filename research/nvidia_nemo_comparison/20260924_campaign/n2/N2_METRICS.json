@@ -1,0 +1,267 @@
+{
+  "schema": "n2-stage-metrics-v1",
+  "status": "IN_PROGRESS",
+  "updated_utc": "2026-09-24T18:28:39.805414+00:00",
+  "source_release": "n2-common-v7",
+  "runtime_sha256": "774ad5254c52a7e7644ae815140130d124c3f036517061179c8a5ef4399679ec",
+  "common_ui_sha256": "54c0283b8058978eca87dc9b0461a15addf804200856e41d2c83b55bff590456",
+  "classification": {
+    "IMPLEMENTED": [
+      "Selectable D1/E0, D0/E1 and D1/E1 backends",
+      "Streaming native Nemotron eight-slot activity",
+      "Model-specific TitaNet personal galleries",
+      "Bounded complete-caption archive handling"
+    ],
+    "ACTUALLY_RUN": {
+      "native_profile_cells": 288,
+      "embedding_windows_per_model": 1194,
+      "embedding_models": 2,
+      "four_way_smoke_cells": 4,
+      "four_way_smoke_ASR_checks": 18,
+      "four_way_smoke_caption_checks": 60,
+      "v7_suite_tests": 436,
+      "v7_suite_passed": 434,
+      "v7_suite_skipped": 2,
+      "v7_suite_modules": 46,
+      "v7_repaired_scene_cells": 1,
+      "v7_repaired_scene_ASR_checks": 6,
+      "prior_v6_GUI_cells": 6,
+      "prior_v6_GUI_images_reviewed": 16
+    },
+    "FAILED_RETAINED": [
+      "V6 actual archive integrity failure",
+      "Prior source/test/GUI attempts recorded in LIMITATIONS.json"
+    ],
+    "NOT_TESTED": [
+      "Physical Pi/hardware",
+      "Total-system 2GB qualification",
+      "Complete v7 screen acceptance"
+    ]
+  },
+  "full_run": {
+    "status": "RUNNING",
+    "completed_snapshot": 6,
+    "total": 422,
+    "main_expected": 384,
+    "regression_expected": 32,
+    "GUI_expected": 6,
+    "errors_snapshot": [],
+    "snapshot_utc": "2026-09-24T18:28:39.805414+00:00",
+    "result_path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\numerical-v2\\RESULT.json",
+    "chain_path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\numerical-v2\\CHAIN_RESULT.json"
+  },
+  "nominal_D1_profile": "low_latency",
+  "integrated_candidate_selection": "PENDING_FULL_MATCHED_RESULTS",
+  "github_backup": "RC1_VERIFIED_RC2_PENDING",
+  "evidence": {
+    "N2_HANDOFF.md": {
+      "sha256": "09d1d550a2c5bb299c43568afca19a5e7a8547911b600d7a237bbc1b6ba06ee5",
+      "bytes": 6487
+    },
+    "LIMITATIONS.json": {
+      "sha256": "230746098715ffdc30850c07bf8a1c64bb6b1e727ff3b17cb8224404712220a1",
+      "bytes": 2708
+    },
+    "WORKBOOK_UPDATE.md": {
+      "sha256": "d0996710e3f7faa1f7bd42ae43952279f71c5a12e063fd7ef0c0bb3c9efae3e7",
+      "bytes": 2259
+    },
+    "README.md": {
+      "sha256": "14cddb8f81cfaf2ec4dfafd04a66dcb0b091e95c0a09168e37e19bb8e1ea9629",
+      "bytes": 12596
+    },
+    "README_CHECK_SUITE.md": {
+      "sha256": "3eb573bbce5baeab5f4789e3bdc27956484d6b97b88d9381930a67608e206d60",
+      "bytes": 6869
+    },
+    "README_EXECUTE.md": {
+      "sha256": "fe220eb5cd5e553aa3c137d9c32cbcfe00af4fc1a471ced1a76ff694085022f5",
+      "bytes": 7286
+    },
+    "README_FINISH.md": {
+      "sha256": "e75421acf4463d1aef16b1c99a0a1f71c2c1929fc26cd1abb2c82b35deb779f3",
+      "bytes": 9293
+    },
+    "README_IO.md": {
+      "sha256": "74392215fa7b2dd5aa4c9da75664307891f1a6de0732c2860669364e339fbca9",
+      "bytes": 3645
+    },
+    "README_PACKAGE.md": {
+      "sha256": "7a45efa7b5b6df702664ab52b4789c40df1937451539d7932c02835cb9e8a0a4",
+      "bytes": 2172
+    },
+    "INTEGRATION_RECEIPT.json": {
+      "sha256": "c3b91ea03ad6c25e15c1bff4453f4abf5ca9f76f16ca3018b855cd169d98a71c",
+      "bytes": 6056
+    },
+    "GIT_BACKUP.json": {
+      "sha256": "66bfbdfae0d4153dac8a426cc67058a9318fb5c47eefd51de824ed66046b9e7e",
+      "bytes": 3680
+    },
+    "GUI_VISUAL_REVIEW.json": {
+      "sha256": "dbec4554639ca96c364ea1c5bd68780a337c2ce96994b127180ddc0e38b3a5c4",
+      "bytes": 25136
+    },
+    "IO_TEST_RECEIPT.json": {
+      "sha256": "1e02c8ad9328a51311c9667df91363d488f218294f58dd531fb5ea056e7bce92",
+      "bytes": 1218
+    },
+    "diarization/D1_HANDOFF.md": {
+      "sha256": "49c059c411c4b4a202f90139d166e84561240b89356d764fc73829d31517db8b",
+      "bytes": 14782
+    },
+    "diarization/README.md": {
+      "sha256": "d7062f167e22ff76779601c6bcc558eb429a792a20c301ad016ea8ec5f70ed86",
+      "bytes": 17974
+    },
+    "diarization/NATIVE_SOURCE_REVIEW.md": {
+      "sha256": "c55ba5b67fb8c10bdf38761f95cc5eaf99fe2889bc0d4816635144dc936d65a5",
+      "bytes": 6014
+    },
+    "diarization/FULL_NATIVE_SCREEN_RECEIPT.json": {
+      "sha256": "159450aeb5a97b20d66f57fd7a6fa732da6e665faa98ce98c5c3d87839f8d139",
+      "bytes": 2612
+    },
+    "diarization/NATIVE_BUILD_RECEIPT.json": {
+      "sha256": "a46d6c76cdd56d34dd24982b47539ebaa69f50baa3d632c42cc36703d5d79d07",
+      "bytes": 4666
+    },
+    "diarization/CUDA_BUILD_RECEIPT.json": {
+      "sha256": "d8b52c59eada182c58e7ded2456a051452f89cea127b4a8a9704ccae46b8dc46",
+      "bytes": 9327
+    },
+    "diarization/CUDA_BUILD_VS_AUTODETECT_FAILED.json": {
+      "sha256": "aec56541fd58a68d77d99d71f92e3f4ddac444dc2c162df778e456acfcf3b903",
+      "bytes": 2784
+    },
+    "diarization/CUDA_PARITY_RECEIPT.json": {
+      "sha256": "3f893a3e19a669389a39b0e6e1810e99fb576d142f7db7d52f76c1ed277cbc61",
+      "bytes": 14019
+    },
+    "diarization/NATIVE_BOUNDARY_RECEIPT.json": {
+      "sha256": "4b079900e16db439169974531535d62017f1db527b3a94e9bf7bd97f9b3a2709",
+      "bytes": 968
+    },
+    "diarization/REFERENCE_PARITY_RECEIPT.json": {
+      "sha256": "2546d3f1b5c26fa199e999e86762bbde2be5fd573db79f058b49397513d33741",
+      "bytes": 8380
+    },
+    "diarization/REFERENCE_OVERLAP_O0_RECEIPT.json": {
+      "sha256": "2aac92e95a862f0fbea7d386b5f748a129dce45f52dcfd78a5a769425bb95977",
+      "bytes": 6204
+    },
+    "diarization/REFERENCE_OVERLAP_O1_RECEIPT.json": {
+      "sha256": "e09333e9094f0dfaf760bae59208a2e8510a514a5d7653055253e1873270f71c",
+      "bytes": 6175
+    },
+    "diarization/NATIVE_OVERLAP_O0_RECEIPT.json": {
+      "sha256": "73f7c820a3123113c344474900eb2240343e198964faa304f265d002ca92ff59",
+      "bytes": 5097
+    },
+    "diarization/NATIVE_OVERLAP_O1_RECEIPT.json": {
+      "sha256": "80b5ef21243639c971c360eb0a873995e57275fe067b80333bf423a104acfcf0",
+      "bytes": 5100
+    },
+    "embeddings/README.md": {
+      "sha256": "e8f8ea0e6bc3ef7d333625dd3455e50fb4244c43130d3d3fa05af432eda1ea4d",
+      "bytes": 10346
+    },
+    "embeddings/E1_RECEIPT.json": {
+      "sha256": "5b0db5987cbdf98048243813b5d9dccd528c7ec42f00b83194bfb0eb1d661d0d",
+      "bytes": 6064
+    },
+    "embeddings/EXPORT_MANIFEST.json": {
+      "sha256": "9dc697fb5e1d23aa40568f4e3631d8df4812f80a89c65685cea077ceecd9254b",
+      "bytes": 1284
+    },
+    "embeddings/APPLICATION_RUNTIME_RECEIPT.json": {
+      "sha256": "c6d94d1c51329b1b5b07945ccc8441768ee6888b1d91f40f2bb71617578e94d6",
+      "bytes": 1926
+    },
+    "embeddings/INDEPENDENT_REVIEW_RECEIPT.json": {
+      "sha256": "e64e71b56e006db98e0348e7c7c2ddb7c100a41617304a2dbe781c987cadf607",
+      "bytes": 1847
+    },
+    "embeddings/INTEGRATION_TEST_RECEIPT.json": {
+      "sha256": "786fcdeebf98d7ca5e24e2d3e3fb3ddace1516ab66033f95a025c28db3e5d816",
+      "bytes": 1237
+    },
+    "embeddings/ENVIRONMENT.md": {
+      "sha256": "96197319e583135680fbcb332ffbd475745f300c781400970392567708d15555",
+      "bytes": 4175
+    },
+    "embeddings/LICENSE_NVIDIA_NEMO.txt": {
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "bytes": 11357
+    },
+    "evaluation/N2_HANDOFF_ANALYSIS.md": {
+      "sha256": "4e0c8c565e39355c18d8a973eb8dff7017a6c2c778bffd85e53375a2b9eb3ebf",
+      "bytes": 8357
+    },
+    "evaluation/README.md": {
+      "sha256": "7129a59851e01b839e2b9035665bdbea6c5f86dc84a49f6fec8350d06f80b8ae",
+      "bytes": 24465
+    },
+    "evaluation/METRICS_AND_SCHEMA.md": {
+      "sha256": "e42b5d067f911afd9da236da2b50acbb8c9bfff05aaaa3a8aed71b5a0a0f6a25",
+      "bytes": 10000
+    },
+    "evaluation/COMPONENT_RESULTS.md": {
+      "sha256": "d02fdb69bd5664c4f07db667ab22dc6616190fb00274896eb19ec0c5911353f4",
+      "bytes": 2912
+    },
+    "evaluation/COMPONENT_SUMMARY.json": {
+      "sha256": "c5a52b861c1f449485fb03045ea2f25a51407860f6feb65db6760591e9eb3a9e",
+      "bytes": 106487
+    },
+    "evaluation/EVALUATION_AUDIT.json": {
+      "sha256": "b5f2a7c6735db1c5c443d4a91a455c1cfcc9c8738f2d7f7cb135dee89de59a9c",
+      "bytes": 10833
+    },
+    "evaluation/NOMINAL_PROFILE_DECISION_V1.json": {
+      "sha256": "09b86b287ae76f64f13bddd26ae30a7aa26d3f6ab12f94c2093e176ebdf30eac",
+      "bytes": 8605
+    },
+    "evaluation/NOMINAL_PROFILE_DECISION_V1.md": {
+      "sha256": "a5aa597833743d07e1cf6d32ababfd4103e30b7f1a56b917cb291d315428f5fe",
+      "bytes": 2686
+    },
+    "evaluation/PROTOCOL_AMENDMENT_01.json": {
+      "sha256": "c7e647682a6f50639ffc9bb4a298d9ce58ae4e168b8c92cfeb1a8d921c2beb43",
+      "bytes": 1332
+    },
+    "evaluation/REGRESSION_PREPARATION_RECEIPT_V1.json": {
+      "sha256": "98c0684f4f19fab15acceb760f83ed2058ac402a7768d96cc91cc02d59ea27a0",
+      "bytes": 1661
+    },
+    "evaluation/FOUR_WAY_SMOKE_RECEIPT_V1.json": {
+      "sha256": "8a044c3b94dcc3eb1ead53a8471a4cdf744f040f04181ce7709b3f8b87c18b1b",
+      "bytes": 12870
+    },
+    "evaluation/SCREEN_SMOKE_READINESS_REVIEW_V1.md": {
+      "sha256": "5c49a7f060c61cc185997002129387cdfe05e3468e9e832efac2488241062bb1",
+      "bytes": 7474
+    },
+    "evaluation/native_profiles/NATIVE_PROFILE_SUMMARY.json": {
+      "sha256": "bcf38177d0e4c622d07c58eb63386ffc32c7797add32c008fc29147422107452",
+      "bytes": 247292
+    },
+    "evaluation/native_profiles/NATIVE_PROFILE_SUMMARY.md": {
+      "sha256": "ee69f7ec82adcdb255ee9fd3b1be1092fbf5e125dd5e5c37a468b775e2b33e8e",
+      "bytes": 2757
+    },
+    "gui/README.md": {
+      "sha256": "fdfeb21c855ffedd2df3742a73acd2574bd31d71163043336c626c5bb1ff5d58",
+      "bytes": 14162
+    },
+    "ARCHIVE_LIMIT_FAILURE_V1.json": {
+      "sha256": "ebdc5f9e14c998dcdf0b6c536b55eae582c07f8fd1c7bfabc13acff07f8a3208",
+      "bytes": 2170
+    },
+    "ARCHIVE_REPAIR_RECEIPT.json": {
+      "sha256": "ac54a81822b9cefb7de9182a007d9d34f0f65b2a359e7471f3989c0e70b4c94f",
+      "bytes": 5338
+    }
+  },
+  "final_package_created": false
+}

@@ -99,8 +99,13 @@ CPU values are process measurements, not watts; no estimated SNR is recorded.
   needed for the quota/10-draft policy. **Save pins against automatic deletion.**
   If pinned data fills the target, new archival fails visibly; nothing pinned is
   silently deleted. Explicit Delete can remove saved data after confirmation.
-- The side writer is bounded to 512 items / 4 MiB pending bytes; individual
-  records are limited to 128 KiB. Audio copying/encoding, inference, disk and
+- The side writer is bounded to 512 items / 4 MiB pending bytes. The explicit
+  `record_bytes` limit defaults to the configured `queue_bytes` budget (4 MiB),
+  and any override must be a positive integer no larger than that budget.
+  Pending bytes include the item currently being written. Whole JSON records,
+  including large display/identity metadata, are preserved without truncation,
+  chunking or coalescing; the SQLite index retains their exact byte offsets and
+  lengths. Audio copying/encoding, inference, disk and
   resource sampling happen outside PortAudio's callback. Records are source
   indexed, not buffered in an unlimited transcript list.
 - A full queue, disk/full quota or failed write stops that epoch's archive and
@@ -108,6 +113,14 @@ CPU values are process measurements, not watts; no estimated SNR is recorded.
   The independent live journal/captions can continue. Existing native pipeline
   storage/hardware failures can still stop the pipeline when continuation is
   infeasible. RAM status remains visible if even final metadata cannot be saved.
+  `ARCHIVE_RECORD_OVERSIZE` identifies a single item exceeding `record_bytes`;
+  `ARCHIVE_QUEUE_FULL` identifies aggregate pending-byte or item exhaustion.
+  Loss receipts record the offered item size/kind, current queue occupancy and
+  configured limits. `archive_queue_limits` in the epoch manifest binds those
+  limits. Admission remains nonblocking; the 4 MiB/512-item queue and the 64 MiB
+  metadata quota are unchanged. This fixes the former independent 128 KiB item
+  cap; it does not guarantee every future record/session will fit or establish
+  total-system memory suitability.
 - Atomic metadata/checkpoints, periodic/final fsync and rebuildable SQLite indexes
   support process-interruption recovery. Startup marks unfinished epochs
   `RECOVERED_PARTIAL`; complete float samples are usable, torn trailing bytes and
@@ -121,5 +134,34 @@ CPU values are process measurements, not watts; no estimated SNR is recorded.
   underflow are reported. No resampling/volume/default-device fallback is hidden.
 
 See `../docs/UIITER2_03_HANDOFF.md` for exact checks, limitations and rollback.
+
+## Archive regression tests without models or hardware
+
+Purpose: verify exact JSON/float32 and SQLite round trips, including display
+records larger than 128 KiB, nonblocking queue exhaustion, oversized records,
+quota/disk failures and source-preserving recovery. Inputs are synthetic data
+in temporary directories and mocked playback devices; no model or microphone
+is opened. Outputs are unittest results and temporary archive fixtures.
+
+Run from the campaign worktree in PowerShell. This pins the small test process
+to CPU14 with BelowNormal priority and one numerical thread:
+
+```powershell
+Set-Location 'G:\Just_Peachy_N1\20260924_campaign\worktree'
+& 'C:\Users\amiri\Documents\GitHub\just-peachy\.edge-speech-env\python.exe' -B -c "import os,psutil,unittest; p=psutil.Process(); p.cpu_affinity([14]); p.nice(psutil.BELOW_NORMAL_PRIORITY_CLASS); [os.environ.__setitem__(k,'1') for k in ('OMP_NUM_THREADS','OPENBLAS_NUM_THREADS','MKL_NUM_THREADS','NUMEXPR_NUM_THREADS')]; r=unittest.TextTestRunner(verbosity=2).run(unittest.defaultTestLoader.loadTestsFromName('prototype.tests.test_sessions')); raise SystemExit(not r.wasSuccessful())"
+```
+
+CMD / Anaconda Prompt (no activation or package installation required):
+
+```bat
+cd /d G:\Just_Peachy_N1\20260924_campaign\worktree
+"C:\Users\amiri\Documents\GitHub\just-peachy\.edge-speech-env\python.exe" -B -c "import os,psutil,unittest; p=psutil.Process(); p.cpu_affinity([14]); p.nice(psutil.BELOW_NORMAL_PRIORITY_CLASS); [os.environ.__setitem__(k,'1') for k in ('OMP_NUM_THREADS','OPENBLAS_NUM_THREADS','MKL_NUM_THREADS','NUMEXPR_NUM_THREADS')]; r=unittest.TextTestRunner(verbosity=2).run(unittest.defaultTestLoader.loadTestsFromName('prototype.tests.test_sessions')); raise SystemExit(not r.wasSuccessful())"
+```
+
+These tests do not replay neural inference or prove source-paced end-to-end
+performance. Replay of a real saved failed event must use a new private output,
+preserve the original failed artifacts, compare the entire stored payload and
+SQLite-indexed bytes, and retain a separate receipt rather than relabeling the
+failed run as successful.
 
 Task10 optional enhancement: `model_input.f32le` retains original post-XVF input; `enhanced.f32le` and transforms identify the optional output/fallback. ASR/identity stream selections are explicit in each epoch. Both count toward audio quotas and require consent. Reopen controls can listen to either; exported model windows use their recorded stream. See README_NOISE.md.

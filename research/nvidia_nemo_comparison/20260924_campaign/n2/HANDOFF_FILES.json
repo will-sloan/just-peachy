@@ -55,5 +55,7 @@
   "evaluation/REGRESSION_SUMMARY.md",
   "evaluation/FINAL_CHECKS.json",
   "evaluation/FINAL_CHECKS.md",
-  "gui/README.md"
+  "gui/README.md",
+  "ARCHIVE_LIMIT_FAILURE_V1.json",
+  "ARCHIVE_REPAIR_RECEIPT.json"
 ]

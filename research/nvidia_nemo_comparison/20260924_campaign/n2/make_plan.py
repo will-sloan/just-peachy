@@ -4,6 +4,7 @@ import argparse
 import hashlib
 import json
 from pathlib import Path
+import re
 import sys
 
 from run_campaign import admit
@@ -11,12 +12,20 @@ from run_campaign import admit
 HERE=Path(__file__).resolve().parent
 
 
-def main():
+def run_version(value):
+    if not re.fullmatch(r'v[1-9][0-9]*',value):
+        raise argparse.ArgumentTypeError('Run version must be v followed by a positive integer, such as v1 or v2')
+    return value
+
+
+def main(argv=None):
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--source',required=True,type=Path)
     parser.add_argument('--local',required=True,type=Path)
     parser.add_argument('--output',required=True,type=Path)
-    args=parser.parse_args()
+    parser.add_argument('--run-version',default='v1',type=run_version,
+                        help='Version suffix for fresh factorial, regression and GUI outputs (default: v1)')
+    args=parser.parse_args(argv)
     source=args.source.resolve(strict=True);local=args.local.resolve(strict=True)
     destination=args.output.resolve()
     if destination.exists():raise ValueError('Plan output must be new')
@@ -26,7 +35,7 @@ def main():
         if len(manifest['jobs'])!=count or len({j['job_id'] for j in manifest['jobs']})!=count:
             raise ValueError('Unexpected fixed population '+name)
     def controller(combo,scope,cpu,device):
-        out=local/('factorial-v1' if scope=='screen' else 'regressions-v1')/combo
+        out=local/(('factorial-' if scope=='screen' else 'regressions-')+args.run_version)/combo
         manifest=evaluation/('AUDIO_ONLY.json' if scope=='screen' else 'REGRESSION_AUDIO_ONLY.json')
         encoder=combo.split('_')[1]
         argv=[sys.executable,'-B',str(HERE/'run_screen.py'),'--source',str(source),'--output',str(out),
@@ -36,7 +45,7 @@ def main():
         return dict(id=scope+'-'+combo,argv=argv,cwd=str(cwd),cells=96 if scope=='screen' else 8,
                     device=device,result_kind='controller',timeout_seconds=12600 if scope=='screen' else 1800,
                     result=str(out/'RESULT_INDEX.json'),progress=str(out/'PROGRESS.json'))
-    gui_out=local/'gui-panel-isolated-v1'
+    gui_out=local/('gui-panel-isolated-'+args.run_version)
     gui=[sys.executable,'-B',str(HERE/'gui/panel.py'),'--source',str(source),
          '--common-source',str(local.parent/'releases/n1-common-v1/prototype'),
          '--models-root','C:/Users/amiri/JustPeachy/shared/models',

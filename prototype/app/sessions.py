@@ -27,7 +27,7 @@ from .paths import atomic_json, read_json, sha256
 RATE=16000
 MIB=1024**2
 POLICY=dict(quota_mib=2048, draft_limit=10, audio_epoch_mib=256, metadata_epoch_mib=64,
-            free_floor_mib=2048, queue_bytes=4*MIB, queue_items=512, resource_interval_sec=1.)
+            free_floor_mib=2048, queue_bytes=4*MIB, queue_items=512, record_bytes=None, resource_interval_sec=1.)
 
 
 def utc(): return datetime.now(timezone.utc).isoformat()
@@ -76,13 +76,19 @@ class EpochArchive:
     def __init__(self,path,metadata,audio,*,policy=None,budget_bytes=None,delay_once=0):
         self.path=Path(path);self.path.mkdir(parents=True,exist_ok=False)
         self.policy={**POLICY,**(policy or {})};self.audio=bool(audio);self.metadata=deepcopy(metadata)
+        record_limit=self.policy['record_bytes']
+        if record_limit is None:record_limit=self.policy['queue_bytes']
+        if type(record_limit) is not int or not 0<record_limit<=self.policy['queue_bytes']:
+            raise ValueError('Archive record_bytes must be a positive integer within queue_bytes')
+        self.policy['record_bytes']=record_limit
         self.metadata.update(schema='just-peachy.epoch.v1',created_utc=utc(),state='OPEN',
             archive_epoch_id=self.path.name,audio_enabled=self.audio,sample_rate=RATE,channels=1,
             master='model_input.f32le' if audio else None,format='IEEE754 little-endian float32; headerless',
             domain='post-XVF model input, not raw microphones',identity_stream='same mono source as ASR',
             quantization='none relative to admitted float32 model input',
             available_timestamp_quality='preserve upstream declared clocks; not calibrated acoustic arrival',
-            window_index='half-open model-input sample indices; segmentation left padding explicitly recorded')
+            window_index='half-open model-input sample indices; segmentation left padding explicitly recorded',
+            archive_queue_limits={key:self.policy[key] for key in ('record_bytes','queue_bytes','queue_items')})
         self.enhancement=self.metadata.get('enhancement') or {'route':'bypass','asr_stream':'input','identity_stream':'input'}
         self.enhanced_enabled=self.enhancement['route']!='bypass'
         if self.enhanced_enabled:self.metadata.update(identity_stream=self.enhancement['identity_stream'],
@@ -109,9 +115,14 @@ class EpochArchive:
         n=len(data)
         with self.lock:
             if self.error or self.closed:return False
-            if n>128*1024 or self.pending_bytes+n>self.policy['queue_bytes'] or self.queue.full():
-                self.error='ARCHIVE_QUEUE_FULL';self.loss=dict(reason=self.error,first_unarchived_sample=self.written_samples,
-                    noticed_monotonic_sec=time.perf_counter(),policy='Archive stopped; live captions continue')
+            reason=('ARCHIVE_RECORD_OVERSIZE' if n>self.policy['record_bytes'] else
+                    'ARCHIVE_QUEUE_FULL' if self.pending_bytes+n>self.policy['queue_bytes'] or self.queue.full() else None)
+            if reason:
+                self.error=reason;self.loss=dict(reason=reason,first_unarchived_sample=self.written_samples,
+                    noticed_monotonic_sec=time.perf_counter(),offered_kind=kind,offered_bytes=n,
+                    pending_bytes=self.pending_bytes,pending_items=self.queue.qsize(),
+                    limits={key:self.policy[key] for key in ('record_bytes','queue_bytes','queue_items')},
+                    policy='Archive stopped; live captions continue')
                 return False
             self.pending_bytes+=n;self.max_pending_bytes=max(self.max_pending_bytes,self.pending_bytes)
             self.queue.put_nowait((kind,data,extra,time.perf_counter()));self.accepted+=1

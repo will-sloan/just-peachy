@@ -11,10 +11,12 @@ punctuation remain fixed. N2 session adaptation is disabled.
 Actually completed: 288 native streaming profile cells, native/reference and
 CPU/CUDA parity panels, 2×1,194 identical component embedding windows, actual
 personal save/reload/scoring, and four matched first-cell Controller smokes.
-The isolated test suite completed all 46 modules: 430 passed, two Linux-only
-skips, no failures. All six actual isolated GUI cells completed with clean exits
-and complete archive checks. The 384 main and 32 supplemental cells remain in
-progress; the reviewed background waiter will run their final analysis.
+The isolated test suite completed all 46 modules: 434 passed, two Linux-only
+skips, no failures. All six actual isolated GUI cells passed on v6. They rerun on v7;
+prior GUI evidence does not satisfy the new-source acceptance. The v6 full run stopped on a 128 KiB archive record limit; its failures
+remain preserved. V7 keeps the 4 MiB queue bound and archives the exact failed
+scene successfully with all six ASR signatures unchanged. The 384 main and
+32 supplemental cells have restarted with fresh outputs; the reviewed background waiter will run their final analysis.
 Low latency 1.04 s was selected before the application factorial. The raw and
 formatted ASR/source sequence matched in all 18 smoke checks; this does not
 establish whole-screen invariance. Open names remain Unknown without sufficient

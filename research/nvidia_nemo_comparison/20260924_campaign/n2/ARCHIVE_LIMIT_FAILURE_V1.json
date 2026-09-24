@@ -1,0 +1,55 @@
+{
+  "schema": "n2-archive-limit-failure-v1",
+  "status": "FAILED_REPAIR_IN_PROGRESS",
+  "detected_utc": "2026-09-24T18:10:32.997068+00:00",
+  "source_release": "n2-common-v6",
+  "job": "N2_S45_03_16_O0",
+  "combination": "D1_E0",
+  "cause": "Valid s6d_display serialized metadata exceeded the hardcoded 128KiB single-record guard, which reported ARCHIVE_QUEUE_FULL. The aggregate byte and item bounds were not demonstrated exhausted.",
+  "checks": {
+    "stopped": true,
+    "no_error": true,
+    "all_samples": true,
+    "drained": true,
+    "archive_complete": false
+  },
+  "archive": {
+    "source_samples": 715127,
+    "archive_error": "ARCHIVE_QUEUE_FULL",
+    "accepted_items": 2325,
+    "completed_items": 2319,
+    "max_queue_bytes": 1160201,
+    "max_queue_age_sec": 0.18547440000111237,
+    "metadata_bytes": 26213693,
+    "closed": true,
+    "worker_alive": false
+  },
+  "failed_result": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\factorial-v1\\D1_E0\\cells\\N2_S45_03_16_O0\\attempt_20260924T180931_00576f\\RESULT.json",
+    "sha256": "25d306e057d5573eb0e25ff3e83b64f769b2ac517f14069ace4471604cf44e98",
+    "bytes": 53004
+  },
+  "preserved_checkpoint_counts": {
+    "D0_E0": {
+      "complete": 14,
+      "failed": 0,
+      "interrupted_uncheckpointed_attempts": "Retained; not counted as complete"
+    },
+    "D1_E0": {
+      "complete": 20,
+      "failed": 1,
+      "interrupted_uncheckpointed_attempts": "Retained; not counted as complete"
+    }
+  },
+  "interruption": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\recovery\\archive-item-limit-v1\\INTERRUPTION.json",
+    "sha256": "fd614cfd0a75c819c08f8a2c6e10faea673f52eb7d4f5a7a8102658021631328",
+    "bytes": 1047
+  },
+  "supervisor_outcome": "FAILED_EXIT_15",
+  "waiter_outcome": "INCOMPLETE_FINALIZER_NOT_LAUNCHED",
+  "caption_words_changed_for_repair": false,
+  "inference_or_score_tuning": false,
+  "old_evidence_reused_as_corrected_source": false,
+  "next": "Bounded lossless metadata-record correction, regression tests, exact failed-scene smoke, fresh common source and complete four-way rerun."
+}

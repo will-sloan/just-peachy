@@ -1,0 +1,129 @@
+{
+  "schema": "n2-archive-repair-receipt-v1",
+  "status": "REPAIR_VERIFIED_FULL_SCREEN_PENDING",
+  "updated_utc": "2026-09-24T18:28:39.805414+00:00",
+  "source_release": "n2-common-v7",
+  "frontend_runtime_sha256": "774ad5254c52a7e7644ae815140130d124c3f036517061179c8a5ef4399679ec",
+  "change": "Complete archive records can use the existing aggregate byte allowance; no truncation or inference/association changes. Oversized records and backlog have distinct failure reasons.",
+  "bounds": {
+    "record_bytes": 4194304,
+    "aggregate_queue_bytes": 4194304,
+    "queue_items": 512,
+    "metadata_epoch_bytes": 67108864
+  },
+  "source_files": [
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\releases\\n2-common-v7\\prototype\\app\\sessions.py",
+      "sha256": "33dc0f6d5764a4f1c469c9ad66c047163cdb44dbd779fed399276d96e21094db",
+      "bytes": 36596
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\releases\\n2-common-v7\\prototype\\tests\\test_sessions.py",
+      "sha256": "dcf3671aba0e53d7f49921d80ceec0053d11449828d76d76bf47bd4c07e9316a",
+      "bytes": 17393
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\releases\\n2-common-v7\\prototype\\app\\README_SESSIONS.md",
+      "sha256": "b0f38cc618ecf48280278358fcd80d2c15d98b5a360d0ccd9ae59b253cafa015",
+      "bytes": 11312
+    }
+  ],
+  "focused_tests": {
+    "tests": 20,
+    "passed": 20,
+    "new_regressions": 4
+  },
+  "metadata_replay": {
+    "status": "PASS",
+    "events_replayed": 5547,
+    "records_over_old_128KiB_limit": 30,
+    "maximum_record_bytes": 134517,
+    "accepted_items": 5582,
+    "completed_items": 5582,
+    "exact_event_bytes_equal": true,
+    "all_payloads_equal": true,
+    "sqlite_offsets_lengths_bytes_equal": true,
+    "metadata_bytes": 57934280,
+    "metadata_limit_bytes": 67108864,
+    "metadata_headroom_bytes": 9174584,
+    "elapsed_seconds": 3.707678599999781
+  },
+  "metadata_replay_limitations": [
+    "Every available record from the failed archive, filtered runtime observer and three native journal files was replayed; duplicate records are intentionally retained.",
+    "Original archived formatted records, windows and resource records were replayed; unavailable post-failure formatting was not synthesized.",
+    "Native and observer wrappers gain only a kind classification field for indexing; every original field and entire payload remains unchanged.",
+    "Explicit queue.join pacing makes this an exact persistence/quota test, not source-paced throughput or neural-quality evidence.",
+    "Missing publication sequences cannot be recovered from rotated/lost logs; the original failed campaign remains FAILED."
+  ],
+  "metadata_replay_receipt": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\recovery\\archive-record-v1\\run\\REPLAY_RECEIPT.json",
+    "sha256": "ffc92c072e1d7d36e30592ae0c287c147db56445047a144df7c2451d739843a0",
+    "bytes": 12503
+  },
+  "actual_source_paced_replay": {
+    "job": "N2_S45_03_16_O0",
+    "combination": "D1_E0",
+    "status": "COMPLETE",
+    "checks": {
+      "stopped": true,
+      "no_error": true,
+      "all_samples": true,
+      "drained": true,
+      "archive_complete": true
+    },
+    "elapsed_seconds": 63.12301119999938,
+    "source_samples": 715127,
+    "archive": {
+      "accepted_items": 4454,
+      "completed_items": 4454,
+      "metadata_bytes": 32364951,
+      "max_queue_bytes": 1120595,
+      "max_queue_age_sec": 0.14962800000103016,
+      "archive_error": null,
+      "loss": null,
+      "closed": true,
+      "worker_alive": false
+    },
+    "result": {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\recovery\\archive-item-limit-v1\\failed-scene-v7\\cells\\N2_S45_03_16_O0\\attempt_20260924T182220_1913da\\RESULT.json",
+      "sha256": "6092336e6eab4acf9b87976c94879dcf7fd8658ea71f08730254dd0ba130cbaa",
+      "bytes": 55503
+    },
+    "index": {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\recovery\\archive-item-limit-v1\\failed-scene-v7\\RESULT_INDEX.json",
+      "sha256": "51acc13fed57c8a913521ce1ee9e94db2f8d01d7275f408ae89245b96094653d",
+      "bytes": 402
+    }
+  },
+  "same_scene_ASR_invariance": {
+    "status": "PASS",
+    "checks": {
+      "raw_observations": true,
+      "raw_final_events": true,
+      "dispatch_reset_source_sequence": true,
+      "final_utterance_text": true,
+      "final_raw_word_order": true,
+      "formatted_final_utterance_text": true
+    },
+    "receipt": {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\recovery\\archive-item-limit-v1\\SAME_SCENE_ASR_INVARIANCE.json",
+      "sha256": "400c7b701dbbc106fe071cc37aab2f623dad650ff8377fe7bd464d1d5005bc2b",
+      "bytes": 2567
+    }
+  },
+  "full_suite": {
+    "tests": 436,
+    "skipped": 2,
+    "failures": 0,
+    "errors": 0,
+    "requested_modules": 46,
+    "finished_modules": 46,
+    "report": {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\checks\\full-suite-isolated-v3\\RESULT.json",
+      "sha256": "b606bf350bf671a21dad142c1732608048fbeedd981e838fd781c94a32174273",
+      "bytes": 207837
+    }
+  },
+  "prior_failed_attempt_preserved": true,
+  "full_422_cell_rerun_required": true
+}

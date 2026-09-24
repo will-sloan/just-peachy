@@ -1,5 +1,6 @@
 """Synthetic archival/failure/isolation tests. See README_SESSIONS.md."""
 from pathlib import Path
+from contextlib import closing
 from types import SimpleNamespace
 import json
 import sqlite3
@@ -14,7 +15,7 @@ import zipfile
 import numpy as np
 
 ROOT=Path(__file__).resolve().parents[1];sys.path[:0]=[str(ROOT),str(ROOT/'vendor')]
-from app.sessions import SessionStore,EpochArchive,records
+from app.sessions import SessionStore,EpochArchive,records,encoded
 from app.buffers import MemoryJournal
 from app.session_playback import SessionPlayback
 from app.controller import Controller
@@ -55,6 +56,54 @@ class ArchiveTests(unittest.TestCase):
         self.assertEqual([r['payload']['text'] for r in records(a.path/'events.jsonl')],['FIRST RAW','REVISED RAW'])
         self.assertFalse((a.path/'model_input.f32le').exists());self.assertTrue(restarted.metadata(ident)['pinned'])
         with self.assertRaises(ValueError):restarted.audio_slice(ident,a.path.name,0,320)
+
+    def test_large_display_record_roundtrips_exact_json_and_sqlite_index(self):
+        ident,a=self.begin(False)
+        event=caption('LARGE CAPTION')
+        event.payload.update(segments=[dict(id=str(i),text='unchanged words '+('x'*1600),identity={'label':'Unknown'}) for i in range(100)])
+        original=json.loads(json.dumps(event.payload));self.assertGreater(len(encoded(original)),128*1024)
+        a.event(event);receipt=self.finish(ident,a)
+        self.assertIsNone(receipt['archive_error']);self.assertEqual(a.accepted,a.completed)
+        with closing(sqlite3.connect(a.path/'captions.sqlite')) as db:
+            key,offset,length=db.execute('SELECT key,offset,length FROM captions').fetchone()
+        with (a.path/'events.jsonl').open('rb') as stream:stream.seek(offset);raw=stream.read(length)
+        self.assertEqual(key,event.payload['caption_key']);self.assertGreater(length,128*1024)
+        self.assertEqual(json.loads(raw)['payload'],original);self.assertEqual(event.payload,original)
+        self.assertEqual(self.store.rows(ident)[0]['segments'],original['segments'])
+        checkpoint=json.loads((a.path/'epoch.json').read_text())
+        self.assertEqual(checkpoint['state'],'CLOSED');self.assertEqual(checkpoint['archive_queue_limits'],dict(record_bytes=4*1024**2,queue_bytes=4*1024**2,queue_items=512))
+
+    def test_single_record_limit_reports_oversize_without_queue_admission(self):
+        self.store.policy.update(queue_bytes=2048,record_bytes=1024)
+        ident,a=self.begin(False);self.assertFalse(a.offer('events',b'x'*1025))
+        self.finish(ident,a)
+        self.assertEqual(a.error,'ARCHIVE_RECORD_OVERSIZE');self.assertEqual(a.accepted,0)
+        self.assertEqual(a.loss['offered_bytes'],1025);self.assertEqual(a.loss['pending_bytes'],0)
+        self.assertEqual(a.loss['limits']['record_bytes'],1024)
+        self.assertEqual(json.loads((a.path/'epoch.json').read_text())['state'],'PARTIAL')
+
+    def test_aggregate_byte_limit_stays_nonblocking_and_distinct_from_oversize(self):
+        self.store.policy.update(queue_bytes=2048,record_bytes=None,queue_items=512)
+        ident,a=self.begin(False);entered=threading.Event();release=threading.Event();original=a._write
+        def hold_event(handle,data,kind):
+            if kind=='events':entered.set();release.wait(2)
+            return original(handle,data,kind)
+        one=encoded(dict(kind='fixture',payload={'text':'x'*1400}))
+        self.assertLess(len(one),2048)
+        with patch.object(a,'_write',side_effect=hold_event):
+            try:
+                self.assertTrue(a.offer('events',one));self.assertTrue(entered.wait(1))
+                started=time.perf_counter();self.assertFalse(a.offer('events',one))
+                self.assertLess(time.perf_counter()-started,.1)
+                self.assertEqual(a.error,'ARCHIVE_QUEUE_FULL');self.assertEqual(a.accepted,1)
+                self.assertLessEqual(a.max_pending_bytes,2048);self.assertEqual(a.loss['limits']['record_bytes'],2048)
+                self.assertEqual(a.loss['pending_bytes'],len(one))
+            finally:release.set();self.finish(ident,a)
+
+    def test_record_limit_cannot_exceed_aggregate_budget(self):
+        for value in (0,True,2049):
+            with self.subTest(value=value),self.assertRaisesRegex(ValueError,'record_bytes'):
+                EpochArchive(self.root/('invalid_'+str(value)),{},False,policy={'queue_bytes':2048,'record_bytes':value})
 
     def test_window_export_exact_slice_plus_segmentation_padding_only(self):
         ident,a=self.begin();x=np.linspace(-.2,.2,16000,dtype=np.float32);a.audio_block(0,x)

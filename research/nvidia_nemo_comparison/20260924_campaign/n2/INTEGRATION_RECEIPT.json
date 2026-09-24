@@ -1,10 +1,10 @@
 {
   "schema": "n2-integration-receipt-v1",
-  "status": "IMPLEMENTED_TESTED_FULL_SCREEN_RUNNING",
+  "status": "IMPLEMENTED_ARCHIVE_REPAIR_VERIFIED_FULL_RERUN_RUNNING",
   "source": {
     "schema": "just-peachy.n1.frozen-source.v1",
-    "prototype": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\releases\\n2-common-v6\\prototype",
-    "frontend_runtime_sha256": "6b1c960e1f31955e6d9dc93716ade0315182ea3ea0f922e5b2ee4e976d4db0a7",
+    "prototype": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\releases\\n2-common-v7\\prototype",
+    "frontend_runtime_sha256": "774ad5254c52a7e7644ae815140130d124c3f036517061179c8a5ef4399679ec",
     "frontend_hash_scope": "all app/vendor/config/release_tools content plus main.py and root launchers",
     "common_ui_source_sha256": "54c0283b8058978eca87dc9b0461a15addf804200856e41d2c83b55bff590456",
     "common_ui_files": {
@@ -22,20 +22,20 @@
         "bytes": 16194
       },
       "research/nvidia_nemo_comparison/20260924_campaign/n2/evaluation/README.md": {
-        "sha256": "87bb8421544f4b0e1a83107751b8e9d88d05d4ed96a2c6caff415c6d70f1167d",
-        "bytes": 21343
+        "sha256": "7129a59851e01b839e2b9035665bdbea6c5f86dc84a49f6fec8350d06f80b8ae",
+        "bytes": 24465
       }
     },
     "archive": {
-      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\releases\\n2-common-v6.zip",
-      "sha256": "c326ea970ffc74a462c6e0e376c2b787889b00f98427a00eb2d8b7194b9b6da6",
-      "bytes": 1382186
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\releases\\n2-common-v7.zip",
+      "sha256": "55aaea67e7686a32de6bf2a0fcfa47023c2100997c350a76359352d90027ee48",
+      "bytes": 1385546
     }
   },
   "source_receipt": {
-    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\releases\\n2-common-v6\\SOURCE_RECEIPT.json",
-    "sha256": "2480ce43e1e6a3565fb7e2ea6e8d82df3bea32d61aa8bee608396006c14c8776",
-    "bytes": 58275
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\releases\\n2-common-v7\\SOURCE_RECEIPT.json",
+    "sha256": "a9078a384bf0bab35a5e9d713c00153cb202bf4ccdf0f812884e87832676776b",
+    "bytes": 58276
   },
   "tests": {
     "status": "COMPLETE",
@@ -43,16 +43,16 @@
     "requested_modules": 46,
     "finished_modules": 46,
     "successful_modules": 46,
-    "tests": 432,
-    "planned_tests": 432,
+    "tests": 436,
+    "planned_tests": 436,
     "failures": 0,
     "errors": 0,
     "skipped": 2
   },
   "test_report": {
-    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\checks\\full-suite-isolated-v2\\RESULT.json",
-    "sha256": "5815daa4bd8ff16cdf59280576395b0dbce87d9533b4ba4e32372f66083e4742",
-    "bytes": 207370
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\checks\\full-suite-isolated-v3\\RESULT.json",
+    "sha256": "b606bf350bf671a21dad142c1732608048fbeedd981e838fd781c94a32174273",
+    "bytes": 207837
   },
   "test_limitations": [
     "Two Linux-only tests skipped on Windows",
@@ -82,8 +82,8 @@
     }
   ],
   "full_plan": {
-    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\numerical-spec-v3.json",
-    "sha256": "eed4a7fd15e77d024f52e9807b049f60924710c72263ed0233b4362b2ddeb648",
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\numerical-spec-v4.json",
+    "sha256": "ea49c3dd76a815a4be9db97498ffd8cd05aa7e62288bf7c662dee1c8afca83db",
     "bytes": 14253
   },
   "notes": [
@@ -92,16 +92,6 @@
     "No model weights, audio, transcripts or voice vectors in Git"
   ],
   "expected_numerical_cells": 422,
-  "gui": {
-    "status": "COMPLETE",
-    "cells": 6,
-    "exit_code": 0,
-    "report": {
-      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\gui-panel-isolated-v1\\GUI_PANEL_REPORT.json",
-      "sha256": "7c2232db1b5ee5bbef625f8447c885ecd2516bff298174a393481b765d2ef091",
-      "bytes": 128505
-    }
-  },
   "background_analysis": {
     "mode": "WAIT_FOR_EXISTING_COORDINATOR",
     "wrapper": {
@@ -110,18 +100,39 @@
       "bytes": 18764
     },
     "dispatch_receipt": {
-      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\logs\\WAITER_DISPATCH.json",
-      "sha256": "37a6a4279c6ba473ca48c954f6ab18c6b00df898104b7c645feef052a080511f",
-      "bytes": 1351
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\logs\\WAITER_DISPATCH_V2.json",
+      "sha256": "4ac3da46838a84556f0541ca067e5936d1608f68149664d3a5057af997a5665a",
+      "bytes": 1422
     },
-    "chain_contract_sha256": "2e89aad38261b5b862c4f9781e961c7e17ca9dfd88ddee9014a542b558083ffe",
+    "chain_contract_sha256": "aed20e2259722017bafaf6843304d33aa043a446f14692a20842c110f905fd9e",
     "chain_admission": {
-      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\numerical-v1\\chains\\2e89aad38261b5b862c4f9781e961c7e17ca9dfd88ddee9014a542b558083ffe\\CHAIN_ADMISSION.json",
-      "sha256": "79813e12ead1656927156d4293612044ef21dbe6550a70335c47e559508de993",
-      "bytes": 11340
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\numerical-v2\\chains\\aed20e2259722017bafaf6843304d33aa043a446f14692a20842c110f905fd9e\\CHAIN_ADMISSION.json",
+      "sha256": "3e3085cedd17a35b09310954d230e390b9c2f5cf829754164b2687ae19e0eb46",
+      "bytes": 11339
     },
     "final_review": "MANUAL_IN_THIS_TASK",
     "stage_completion_claimed": false
   },
-  "updated_utc": "2026-09-24T18:06:50.084949+00:00"
+  "updated_utc": "2026-09-24T18:28:39.805414+00:00",
+  "prior_source_gui": {
+    "status": "COMPLETE",
+    "cells": 6,
+    "exit_code": 0,
+    "report": {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\gui-panel-isolated-v1\\GUI_PANEL_REPORT.json",
+      "sha256": "7c2232db1b5ee5bbef625f8447c885ecd2516bff298174a393481b765d2ef091",
+      "bytes": 128505
+    },
+    "source_release": "n2-common-v6"
+  },
+  "gui": {
+    "source_release": "n2-common-v7",
+    "status": "RERUN_IN_PROGRESS",
+    "expected_cells": 6
+  },
+  "archive_repair": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n2\\ARCHIVE_REPAIR_RECEIPT.json",
+    "sha256": "ac54a81822b9cefb7de9182a007d9d34f0f65b2a359e7471f3989c0e70b4c94f",
+    "bytes": 5338
+  }
 }

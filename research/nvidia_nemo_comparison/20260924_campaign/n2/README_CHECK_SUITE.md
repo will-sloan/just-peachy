@@ -43,7 +43,7 @@ From PowerShell (CPU4 must be allocated and free):
 ```powershell
 Set-Location 'G:\Just_Peachy_N1\20260924_campaign\worktree'
 $py='C:\Users\amiri\Documents\GitHub\just-peachy\.edge-speech-env\python.exe'
-& $py -B research\nvidia_nemo_comparison\20260924_campaign\n2\check_suite.py --source 'G:\Just_Peachy_N1\20260924_campaign\local\releases\n2-common-v6\prototype' --output 'G:\Just_Peachy_N1\20260924_campaign\local\n2\checks\full-suite-isolated-v2' --cpu 4
+& $py -B research\nvidia_nemo_comparison\20260924_campaign\n2\check_suite.py --source 'G:\Just_Peachy_N1\20260924_campaign\local\releases\n2-common-v7\prototype' --output 'G:\Just_Peachy_N1\20260924_campaign\local\n2\checks\full-suite-isolated-v3' --cpu 4
 ```
 
 Command Prompt / Anaconda Prompt (no environment activation/install needed):
@@ -51,7 +51,7 @@ Command Prompt / Anaconda Prompt (no environment activation/install needed):
 ```bat
 cd /d G:\Just_Peachy_N1\20260924_campaign\worktree
 set "PY=C:\Users\amiri\Documents\GitHub\just-peachy\.edge-speech-env\python.exe"
-"%PY%" -B research\nvidia_nemo_comparison\20260924_campaign\n2\check_suite.py --source "G:\Just_Peachy_N1\20260924_campaign\local\releases\n2-common-v6\prototype" --output "G:\Just_Peachy_N1\20260924_campaign\local\n2\checks\full-suite-isolated-v2" --cpu 4
+"%PY%" -B research\nvidia_nemo_comparison\20260924_campaign\n2\check_suite.py --source "G:\Just_Peachy_N1\20260924_campaign\local\releases\n2-common-v7\prototype" --output "G:\Just_Peachy_N1\20260924_campaign\local\n2\checks\full-suite-isolated-v3" --cpu 4
 ```
 
 `validate_completed_report(report_path, source_receipt_path)` in `check_suite.py`
@@ -94,3 +94,14 @@ those issues without editing the frozen application or skipping tests.
 `full-suite-isolated-v2` is completed evidence: choose an unused output name to
 run the command again. These results establish the software tests performed,
 not Linux/CM5 execution or physical hardware validation.
+
+After the separately reviewed archive-record bound fix, the full v7 run at
+`local/n2/checks/full-suite-isolated-v3/RESULT.json` passed all 46 modules and
+accounted for all 436 tests: 434 passed and the same two Linux-only tests skipped.
+All 20 session tests (including four new record/queue regressions) and all 44 N2
+integration tests passed. Source, auxiliary-file, tool and evidence validation
+passed; all 46 launcher owners had ended before CPU4 was released. RESULT SHA256
+is `b606bf350bf671a21dad142c1732608048fbeedd981e838fd781c94a32174273`.
+The commands above record that v7 run; use a fresh output name for a new run.
+No model, association, N2 revision-dedup or common-UI change was made by this
+suite runner. Earlier passed and failed receipts remain intact.

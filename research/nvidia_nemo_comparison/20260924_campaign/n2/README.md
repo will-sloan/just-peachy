@@ -101,16 +101,35 @@ CPU14 alone owns CUDA for D1/E0 and D1/E1. The whole file is always source paced
 All combinations use the frozen low-latency decision; 288 native-only cells
 already provide the three-profile sensitivity.
 
+`--run-version` defaults to `v1`, preserving the original generated paths.
+Use `--run-version v2` for the planned v7 common-source rerun: its outputs are
+`local/n2/factorial-v2/<combination>`, `regressions-v2/<combination>` and
+`gui-panel-isolated-v2`. Accepted suffixes are `v` followed by a positive
+integer without leading zeros, such as `v1`, `v2` or `v12`; separators and
+traversal strings are rejected. The generator changes only result/progress and
+job output locations. It reuses the same evaluation manifests, galleries and
+runtime assets without copying them, creating model results or launching jobs.
+The plan JSON destination must be new.
+
+The v6 run under `numerical-spec-v3.json` / `numerical-v1` was interrupted after
+a real D1/E0 archive-integrity failure. Its complete and failed cells, six GUI
+cases and `local/n2/recovery/archive-item-limit-v1/INTERRUPTION.json` remain
+historical evidence. The v7 plan requires all 422 cells again, including all six
+GUI cases, under the new common application source. Do not import v6 results
+as v7 cache. The planned suite is `checks/full-suite-isolated-v3/RESULT.json`;
+offline analysis targets `final-analysis-v2` after the new coordinator and
+suite complete. These destinations do not imply that the rerun has passed.
+
 PowerShell:
 
 ```powershell
-& $py -B research\nvidia_nemo_comparison\20260924_campaign\n2\make_plan.py --source 'G:\Just_Peachy_N1\20260924_campaign\local\releases\n2-common-v6\prototype' --local 'G:\Just_Peachy_N1\20260924_campaign\local\n2' --output 'G:\Just_Peachy_N1\20260924_campaign\local\n2\numerical-spec-v3.json'
+& $py -B research\nvidia_nemo_comparison\20260924_campaign\n2\make_plan.py --source 'G:\Just_Peachy_N1\20260924_campaign\local\releases\n2-common-v7\prototype' --local 'G:\Just_Peachy_N1\20260924_campaign\local\n2' --run-version v2 --output 'G:\Just_Peachy_N1\20260924_campaign\local\n2\numerical-spec-v4.json'
 ```
 
 CMD / Anaconda Prompt:
 
 ```bat
-"%PY%" -B research\nvidia_nemo_comparison\20260924_campaign\n2\make_plan.py --source "G:\Just_Peachy_N1\20260924_campaign\local\releases\n2-common-v6\prototype" --local "G:\Just_Peachy_N1\20260924_campaign\local\n2" --output "G:\Just_Peachy_N1\20260924_campaign\local\n2\numerical-spec-v3.json"
+"%PY%" -B research\nvidia_nemo_comparison\20260924_campaign\n2\make_plan.py --source "G:\Just_Peachy_N1\20260924_campaign\local\releases\n2-common-v7\prototype" --local "G:\Just_Peachy_N1\20260924_campaign\local\n2" --run-version v2 --output "G:\Just_Peachy_N1\20260924_campaign\local\n2\numerical-spec-v4.json"
 ```
 
 The main paired screen contains 4,290.762 seconds per combination. Its strict
@@ -137,13 +156,13 @@ GUI completion reads `GUI_PANEL_REPORT.json`. It never contains evaluator truth.
 PowerShell (use the actual reviewed private specification path):
 
 ```powershell
-& $py -B research\nvidia_nemo_comparison\20260924_campaign\n2\run_campaign.py --spec 'G:\Just_Peachy_N1\20260924_campaign\local\n2\numerical-spec-v3.json' --output 'G:\Just_Peachy_N1\20260924_campaign\local\n2\numerical-v1' --state 'G:\Just_Peachy_N1\20260924_campaign\local\supervision'
+& $py -B research\nvidia_nemo_comparison\20260924_campaign\n2\run_campaign.py --spec 'G:\Just_Peachy_N1\20260924_campaign\local\n2\numerical-spec-v4.json' --output 'G:\Just_Peachy_N1\20260924_campaign\local\n2\numerical-v2' --state 'G:\Just_Peachy_N1\20260924_campaign\local\supervision'
 ```
 
 CMD / Anaconda Prompt:
 
 ```bat
-"%PY%" -B research\nvidia_nemo_comparison\20260924_campaign\n2\run_campaign.py --spec "G:\Just_Peachy_N1\20260924_campaign\local\n2\numerical-spec-v3.json" --output "G:\Just_Peachy_N1\20260924_campaign\local\n2\numerical-v1" --state "G:\Just_Peachy_N1\20260924_campaign\local\supervision"
+"%PY%" -B research\nvidia_nemo_comparison\20260924_campaign\n2\run_campaign.py --spec "G:\Just_Peachy_N1\20260924_campaign\local\n2\numerical-spec-v4.json" --output "G:\Just_Peachy_N1\20260924_campaign\local\n2\numerical-v2" --state "G:\Just_Peachy_N1\20260924_campaign\local\supervision"
 ```
 
 For unattended runs, put this exact argument list in the existing supervisor's
@@ -174,3 +193,19 @@ CMD / Anaconda Prompt:
 
 The 11 coordinator tests passed with real harmless children. This verifies
 orchestration behavior, not numerical model completion or timing.
+
+`test_make_plan.py` verifies default/explicit-v1 byte compatibility, fresh v2
+output paths, unchanged shared asset locations, the fixed 422-cell denominator,
+traversal rejection and refusal to overwrite a plan. It uses only temporary
+JSON fixtures and creates no result directories, models or processes. Run from
+the worktree; results print to the terminal and temporary fixtures are removed.
+
+```powershell
+& $py -B -m unittest discover -s research\nvidia_nemo_comparison\20260924_campaign\n2 -p test_make_plan.py -v
+```
+
+Command Prompt / Anaconda Prompt:
+
+```bat
+"%PY%" -B -m unittest discover -s research\nvidia_nemo_comparison\20260924_campaign\n2 -p test_make_plan.py -v
+```

@@ -21,7 +21,8 @@
     "D0/E0 and D0/E1 speaker fragmentation in the matched first-cell smoke; no Q-based tuning.",
     "Native screen coordinator Windows progress replacement denial after195 cells; original failure retained and remaining93 resumed with unchanged numerical admission.",
     "Earlier GUI gallery admission and archive-index integration failures; corrected and regression-tested.",
-    "Native Tcl assertion in a multi-root GUI/test process; superseded by 46 successful isolated test modules and six successful isolated actual GUI cells, with earlier failed evidence preserved."
+    "Native Tcl assertion in a multi-root GUI/test process; superseded by 46 successful isolated test modules and six successful isolated actual GUI cells, with earlier failed evidence preserved.",
+    "The v6 full run hit a valid caption record above the old 128KiB archive guard; old failed/interrupted evidence remains. V7 fixes the bounded record admission and passes the exact scene, but its full comparison is still in progress."
   ],
   "intentionally_disabled": [
     "N2 session adaptation/reference-bank collection and promotion.",
@@ -29,7 +30,8 @@
     "Live input/enrollment and audio playback during this saved-audio campaign."
   ],
   "pending_acceptance": [
-    "All384 main Controller cells and32 supplemental cells.",
-    "Final analysis-only ZIP and verified scoped remote backup."
+    "All 384 main Controller and 32 supplemental cells on v7.",
+    "All six actual GUI cases and image review on v7; prior six-case GUI evidence is v6.",
+    "Final interpretation/metrics, final report backup and analysis-only handoff ZIP."
   ]
 }
