@@ -1,8 +1,8 @@
 {
   "schema": "n2-git-backup-v1",
   "status": "VERIFIED",
-  "scope": "INTEGRATION_CANDIDATE_NOT_STAGE_COMPLETION",
-  "verified_utc": "2026-09-24T18:34:21.383875+00:00",
+  "scope": "N2_ACCEPTED_OFFLINE_SOURCE_AND_FINAL_REVIEW",
+  "verified_utc": "2026-09-24T23:32:44.670410+00:00",
   "remote": "https://github.com/will-sloan/just-peachy.git",
   "branch": "codex/n1-foundation-20260924",
   "source_commit": "9924e687af76e218b17124ffa4ce04ddcfdec293",
@@ -61,12 +61,14 @@
     "force_pushed": false,
     "private_payloads_uploaded": false
   },
-  "remaining": "Full application comparison, final interpretation, stage metrics and handoff ZIP remain pending. The receipt itself is stored in a subsequent documentation commit.",
+  "remaining": "This backup receipt and the final archive hash are recorded in a subsequent documentation commit.",
   "prior_backups": [
     {
       "source_commit": "d22ec20477fea6cbc78a2a4e65011eaab9a3c3ba",
       "source_tag": "n2-integration-20260924-rc1",
       "scope": "Preserved v6 integration before archive-record repair"
     }
-  ]
+  ],
+  "final_report_commit": "21b6e90a818108f9f203a7772b3ec38808b6d59e",
+  "final_report_verified_ref": "refs/heads/codex/n1-foundation-20260924"
 }

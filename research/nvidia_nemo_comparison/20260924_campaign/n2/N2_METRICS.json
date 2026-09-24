@@ -1,7 +1,7 @@
 {
   "schema": "n2-stage-metrics-v1",
   "status": "COMPLETE",
-  "updated_utc": "2026-09-24T23:28:47.285272+00:00",
+  "updated_utc": "2026-09-24T23:32:44.670410+00:00",
   "source_release": "n2-common-v7",
   "runtime_sha256": "774ad5254c52a7e7644ae815140130d124c3f036517061179c8a5ef4399679ec",
   "common_ui_sha256": "54c0283b8058978eca87dc9b0461a15addf804200856e41d2c83b55bff590456",
@@ -58,7 +58,7 @@
   },
   "nominal_D1_profile": "low_latency",
   "integrated_candidate_selection": "Retain baseline and nominal D1/E0 for N4; E1 remains a controlled comparator, no verified open-naming or CM5 deployment claim",
-  "github_backup": "PENDING_FINAL_REPORT_PUSH",
+  "github_backup": "VERIFIED",
   "evidence": {
     "N2_HANDOFF.md": {
       "sha256": "99c01eb8aefa89b5e95d7f4f9aa146e56bb5c77f0f49500bba9b066ab4cb3907",
@@ -101,8 +101,8 @@
       "bytes": 6620
     },
     "GIT_BACKUP.json": {
-      "sha256": "0346ec2ad6be67e94fc820a5a2aea6839f53e2cbb3d8c0f2cc4fe0c592579047",
-      "bytes": 3914
+      "sha256": "b9d838727278b45e9b0e37c9c74ed356137970d2beba5cea93acd6d7a7c28b95",
+      "bytes": 3920
     },
     "GUI_VISUAL_REVIEW.json": {
       "sha256": "7b3ac98bfa5de9e9d00c88e3b119b4baab688e3ea0fcf285eeb40a4b5b92a873",
@@ -293,8 +293,9 @@
       "bytes": 2709
     }
   },
-  "final_package_created": false,
   "github_source_commit": "9924e687af76e218b17124ffa4ce04ddcfdec293",
   "github_source_tag": "n2-integration-20260924-rc2",
-  "acceptance_review": "FINAL_REVIEW.json"
+  "acceptance_review": "FINAL_REVIEW.json",
+  "final_report_commit": "21b6e90a818108f9f203a7772b3ec38808b6d59e",
+  "package_receipt": "HANDOFF_PACKAGE.json: external post-archive hash receipt, avoiding a circular hash"
 }

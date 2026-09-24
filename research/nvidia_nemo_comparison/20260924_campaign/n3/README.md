@@ -6,10 +6,12 @@ licensed asset downloads and independent adapter preparation may proceed;
 numerical work must respect the campaign's two CPU cores and sole GPU owner.
 N2's running source, admission files and helpers remain immutable.
 
-Status: IN_PROGRESS. No N3 comparison results or target performance are claimed.
+Status: IN_PROGRESS. Stage acceptance and target performance remain unproven.
 The v3 queue has finished with valid A0/A1 screen/regression/paced evidence,
 but failed native initialization and A1 export checks prevent acceptance.
 See README_REUSE.md for the bounded v4 recovery and its provenance rules.
+RECOVERY_V4.md records its verified native smoke/conformance progress and the
+remaining A1 numerical parity failure after successful graph export.
 Pi is powered off throughout. Use saved hash-bound audio only. Do not open a
 microphone, enumerate input devices, play audio or change desktop focus.
 
