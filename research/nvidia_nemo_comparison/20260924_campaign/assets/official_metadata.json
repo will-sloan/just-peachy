@@ -1,0 +1,3299 @@
+{
+  "checked_at_utc": "2026-09-24T14:56:23.774471+00:00",
+  "anonymous_access": true,
+  "models": {
+    "D1": {
+      "repo": "nvidia/Nemotron-3-Diarization",
+      "revision": "f667ed73aee57d40cc39428eb768b4fd87a0a29e",
+      "created_at": "2026-09-01T13:16:57.000Z",
+      "repo_last_modified": "2026-09-24T05:52:51.000Z",
+      "gated": false,
+      "license_card_metadata": "openmdw-1.1",
+      "siblings": [
+        {
+          "rfilename": ".gitattributes",
+          "blobId": "ee93e73362f0b2ee47e8bf1f9dc207678b1b3eeb",
+          "size": 1896
+        },
+        {
+          "rfilename": "ASR_INTEGRATION_GUIDE.md",
+          "blobId": "6d86ea88c0eebed10bd7c161878d9eaea00a7c2a",
+          "size": 16331
+        },
+        {
+          "rfilename": "Nemotron-3-Diarization.nemo",
+          "blobId": "f542ad216e5600f52c15987246f699df698a02f2",
+          "size": 198676480,
+          "lfs": {
+            "sha256": "867c53f552998f772e5b5e5c082962ae85ee7ca5669c2bc17d7f615133d4e96d",
+            "size": 198676480,
+            "pointerSize": 134
+          }
+        },
+        {
+          "rfilename": "Nemotron-3-Diarization.q8_0.gguf",
+          "blobId": "03fe996f050dd23349a56ab53c8005a21957470d",
+          "size": 107012128,
+          "lfs": {
+            "sha256": "08456d9e22cd9a323c0364d98375f3746d6e68507ebb705cd46438c534c7a3a1",
+            "size": 107012128,
+            "pointerSize": 134
+          }
+        },
+        {
+          "rfilename": "README.md",
+          "blobId": "98045f8a7eda17cb99e48dfca4a7e9401811e6b1",
+          "size": 43239
+        },
+        {
+          "rfilename": "bias.md",
+          "blobId": "d2c93e0076af6c03d471a639da78b61f5c411afa",
+          "size": 296
+        },
+        {
+          "rfilename": "config.json",
+          "blobId": "d09665951c8d48abe9c74626cd39fbfd615297fe",
+          "size": 1458
+        },
+        {
+          "rfilename": "diarization_evaluation.md",
+          "blobId": "36730d2efccf177b817d216920cd1a9d5000962a",
+          "size": 6898
+        },
+        {
+          "rfilename": "explainability.md",
+          "blobId": "d86d18e42dc517aec857004ee47935ed6562ca65",
+          "size": 2330
+        },
+        {
+          "rfilename": "model.safetensors",
+          "blobId": "e6354d288eb56c3db0cd7a78774039e8d4967104",
+          "size": 396954592,
+          "lfs": {
+            "sha256": "c074d86335b3b794f8fa5edc25594558f128bdb3914d27806a3a5a2e44963cb6",
+            "size": 396954592,
+            "pointerSize": 134
+          }
+        },
+        {
+          "rfilename": "nemotron3_tts_8_open_voices.mp4",
+          "blobId": "635277618581de07cff071b537b224a226c8d865",
+          "size": 2453587,
+          "lfs": {
+            "sha256": "292668a8679eb27f039f7afb0ed938165b399762d2cd3ecef017b600e82457e7",
+            "size": 2453587,
+            "pointerSize": 132
+          }
+        },
+        {
+          "rfilename": "privacy.md",
+          "blobId": "6b55712fc47a40448a6e4900cb7e09f640f98226",
+          "size": 1283
+        },
+        {
+          "rfilename": "processor_config.json",
+          "blobId": "5779fbbbb8401983be84e0b4f09a236ad8227dfe",
+          "size": 623
+        },
+        {
+          "rfilename": "safety.md",
+          "blobId": "56a2cab67d7fa45dfeb8e3d79e9b034fcb426403",
+          "size": 489
+        },
+        {
+          "rfilename": "streaming_diarization_demo.gif",
+          "blobId": "e4734c92eb8966e520b926719d536968ad6d5012",
+          "size": 4604955,
+          "lfs": {
+            "sha256": "30eda66150b34e0140a9b92a761362450f8518b575c056211df6208362e2194b",
+            "size": 4604955,
+            "pointerSize": 132
+          }
+        },
+        {
+          "rfilename": "streaming_diarization_demo.png",
+          "blobId": "908ccb7d28e4457ad8fe3216d3ec51869344ed03",
+          "size": 78317,
+          "lfs": {
+            "sha256": "05dd18ddd1068dbfff5195f3a9bd8d8acb2c3002498fe35a9ebad96a45afbe8f",
+            "size": 78317,
+            "pointerSize": 130
+          }
+        }
+      ],
+      "commits": [
+        {
+          "id": "f667ed73aee57d40cc39428eb768b4fd87a0a29e",
+          "title": "add: q8_0 GGUF for NeMo-Speech.cpp (#3)",
+          "message": "\n\n\n- add: q8_0 GGUF for NeMo-Speech.cpp (6a002fd9cad5e8dfa624d97a7ee0388a7153243d)\n\n\nCo-authored-by: Prabhsimran Singh <prabhsimrans-nv@users.noreply.huggingface.co>\n",
+          "authors": [
+            {
+              "user": "taejinp",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/no-auth/zuXrk1DZCYWoLPTXEzprh.png"
+            },
+            {
+              "user": "prabhsimrans-nv",
+              "avatar": "/avatars/161ba583c7f806ed13919429c53f55f9.svg"
+            }
+          ],
+          "date": "2026-09-24T05:52:51.000Z"
+        },
+        {
+          "id": "a435e9867d79e789e90053f9b6d6834053af564a",
+          "title": "Update README.md (#2)",
+          "message": "\n\n\n- Update README.md (c8d3419b0ef498297e6e9d316a140d6ac652cb1c)\n\n\nCo-authored-by: Eustache Le Bihan <eustlb@users.noreply.huggingface.co>\n",
+          "authors": [
+            {
+              "user": "taejinp",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/no-auth/zuXrk1DZCYWoLPTXEzprh.png"
+            },
+            {
+              "user": "eustlb",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/660bc459d81d6112496f30f8/jMrpAckFyg-_iHMI7sn2h.jpeg"
+            }
+          ],
+          "date": "2026-09-23T17:09:56.000Z"
+        },
+        {
+          "id": "0f087031414a6616bda8228f447d915a70a25720",
+          "title": "Add Transformers weights, config and usage section (#1)",
+          "message": "\n\n\n- Add Transformers weights, config and usage section (426f871cbef6df4e20ca0545f4259ab29d482209)\n- Rebase the README on main: only add the Transformers usage section (febb9d857e67889784e1d2a0d9dc38b5dd503ce6)\n- Use a superscript footnote marker for the streaming latency (c3245314b2287763c97e811b943df640b42ed702)\n\n\nCo-authored-by: Eustache Le Bihan <eustlb@users.noreply.huggingface.co>\n",
+          "authors": [
+            {
+              "user": "taejinp",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/no-auth/zuXrk1DZCYWoLPTXEzprh.png"
+            },
+            {
+              "user": "eustlb",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/660bc459d81d6112496f30f8/jMrpAckFyg-_iHMI7sn2h.jpeg"
+            }
+          ],
+          "date": "2026-09-23T16:49:01.000Z"
+        },
+        {
+          "id": "723e19c601d99b7e58fba6a14e32153e0afe48d9",
+          "title": "Update README.md",
+          "message": "",
+          "authors": [
+            {
+              "user": "taejinp",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/no-auth/zuXrk1DZCYWoLPTXEzprh.png"
+            }
+          ],
+          "date": "2026-09-23T15:11:04.000Z"
+        },
+        {
+          "id": "ecafaca4af16315355cf664e6d913b775e919963",
+          "title": "Update README.md",
+          "message": "",
+          "authors": [
+            {
+              "user": "taejinp",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/no-auth/zuXrk1DZCYWoLPTXEzprh.png"
+            }
+          ],
+          "date": "2026-09-23T15:08:47.000Z"
+        },
+        {
+          "id": "0b1d1eecc349c9625a9142b51f83699151f61eb8",
+          "title": "Delete Nemotron-3-Diarization.nemo.bak",
+          "message": "",
+          "authors": [
+            {
+              "user": "imedennikov",
+              "avatar": "/avatars/d1c29cca6e8e57dd141a6ef33cb9dd7f.svg"
+            }
+          ],
+          "date": "2026-09-23T09:22:50.000Z"
+        },
+        {
+          "id": "98fcee8e866bb534eee85d1eb3817170700ae717",
+          "title": "Upload streaming_diarization_demo.gif",
+          "message": "",
+          "authors": [
+            {
+              "user": "taejinp",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/no-auth/zuXrk1DZCYWoLPTXEzprh.png"
+            }
+          ],
+          "date": "2026-09-23T01:32:12.000Z"
+        },
+        {
+          "id": "9d5be26a2d458b1c717ae9dba90bc754fd805f94",
+          "title": "Upload streaming_diarization_demo.gif",
+          "message": "",
+          "authors": [
+            {
+              "user": "taejinp",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/no-auth/zuXrk1DZCYWoLPTXEzprh.png"
+            }
+          ],
+          "date": "2026-09-23T01:28:14.000Z"
+        },
+        {
+          "id": "8a0a0437e482da027fb4e64e259ed21cbde60e95",
+          "title": "Update README.md",
+          "message": "",
+          "authors": [
+            {
+              "user": "taejinp",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/no-auth/zuXrk1DZCYWoLPTXEzprh.png"
+            }
+          ],
+          "date": "2026-09-23T01:23:23.000Z"
+        },
+        {
+          "id": "3e8a99f31741cb43e9cf62541ba19a5ab47d6b45",
+          "title": "Upload streaming_diarization_demo.gif",
+          "message": "",
+          "authors": [
+            {
+              "user": "taejinp",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/no-auth/zuXrk1DZCYWoLPTXEzprh.png"
+            }
+          ],
+          "date": "2026-09-23T01:22:59.000Z"
+        },
+        {
+          "id": "ec53b553cc3606a3a970340e0efeefad7af77b04",
+          "title": "Update README.md",
+          "message": "",
+          "authors": [
+            {
+              "user": "taejinp",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/no-auth/zuXrk1DZCYWoLPTXEzprh.png"
+            }
+          ],
+          "date": "2026-09-23T01:07:23.000Z"
+        },
+        {
+          "id": "8fddd0efb6427eeac2842425218df8e100fcb4d6",
+          "title": "Upload streaming_diarization_demo.png",
+          "message": "",
+          "authors": [
+            {
+              "user": "taejinp",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/no-auth/zuXrk1DZCYWoLPTXEzprh.png"
+            }
+          ],
+          "date": "2026-09-23T01:03:43.000Z"
+        },
+        {
+          "id": "4f34df0bdeec42fbc1affcf9c09a3cb4572a6c2c",
+          "title": "Update README.md",
+          "message": "",
+          "authors": [
+            {
+              "user": "taejinp",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/no-auth/zuXrk1DZCYWoLPTXEzprh.png"
+            }
+          ],
+          "date": "2026-09-23T00:56:57.000Z"
+        },
+        {
+          "id": "e07ca82299bce14f06199365281206f940840bd5",
+          "title": "uploading a demo page image",
+          "message": "",
+          "authors": [
+            {
+              "user": "taejinp",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/no-auth/zuXrk1DZCYWoLPTXEzprh.png"
+            }
+          ],
+          "date": "2026-09-23T00:53:15.000Z"
+        },
+        {
+          "id": "27730429fccffce3777493254e60ace1a6166621",
+          "title": "Update README.md",
+          "message": "",
+          "authors": [
+            {
+              "user": "taejinp",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/no-auth/zuXrk1DZCYWoLPTXEzprh.png"
+            }
+          ],
+          "date": "2026-09-23T00:27:55.000Z"
+        },
+        {
+          "id": "2a6b18eb33d5ba2eb4021990187d64b71fc588fc",
+          "title": "Update README.md",
+          "message": "",
+          "authors": [
+            {
+              "user": "taejinp",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/no-auth/zuXrk1DZCYWoLPTXEzprh.png"
+            }
+          ],
+          "date": "2026-09-23T00:25:08.000Z"
+        },
+        {
+          "id": "89c011d96dc2c9de5bd8e09b85a755cd188c9fdd",
+          "title": "Update README.md",
+          "message": "",
+          "authors": [
+            {
+              "user": "taejinp",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/no-auth/zuXrk1DZCYWoLPTXEzprh.png"
+            }
+          ],
+          "date": "2026-09-22T20:45:33.000Z"
+        },
+        {
+          "id": "ff9887f7dc47a6ada4cad9656b882e8eaeb787a2",
+          "title": "Upload nemotron3_tts_8_open_voices.mp4",
+          "message": "",
+          "authors": [
+            {
+              "user": "imedennikov",
+              "avatar": "/avatars/d1c29cca6e8e57dd141a6ef33cb9dd7f.svg"
+            }
+          ],
+          "date": "2026-09-18T14:36:48.000Z"
+        },
+        {
+          "id": "f9b0717c21ca5e0e18dfe3c573da4a37f3e8f1fa",
+          "title": "Update README.md",
+          "message": "",
+          "authors": [
+            {
+              "user": "imedennikov",
+              "avatar": "/avatars/d1c29cca6e8e57dd141a6ef33cb9dd7f.svg"
+            }
+          ],
+          "date": "2026-09-18T14:31:58.000Z"
+        },
+        {
+          "id": "4eb39e886b690a85cdd6d09ec295f58329f0a38d",
+          "title": "Update README.md",
+          "message": "",
+          "authors": [
+            {
+              "user": "imedennikov",
+              "avatar": "/avatars/d1c29cca6e8e57dd141a6ef33cb9dd7f.svg"
+            }
+          ],
+          "date": "2026-09-18T14:08:21.000Z"
+        },
+        {
+          "id": "e6901e90a2caff20a0bca70035a6393885b50142",
+          "title": "Upload diarization_evaluation.md with huggingface_hub",
+          "message": "",
+          "authors": [
+            {
+              "user": "imedennikov",
+              "avatar": "/avatars/d1c29cca6e8e57dd141a6ef33cb9dd7f.svg"
+            }
+          ],
+          "date": "2026-09-18T14:05:28.000Z"
+        },
+        {
+          "id": "243283ecd1ea09f4003c89e6329944a8114ca596",
+          "title": "Upload safety.md with huggingface_hub",
+          "message": "",
+          "authors": [
+            {
+              "user": "imedennikov",
+              "avatar": "/avatars/d1c29cca6e8e57dd141a6ef33cb9dd7f.svg"
+            }
+          ],
+          "date": "2026-09-18T14:05:18.000Z"
+        },
+        {
+          "id": "d478659b72f0b559a2617fabde8866f2ffa47520",
+          "title": "Upload privacy.md with huggingface_hub",
+          "message": "",
+          "authors": [
+            {
+              "user": "imedennikov",
+              "avatar": "/avatars/d1c29cca6e8e57dd141a6ef33cb9dd7f.svg"
+            }
+          ],
+          "date": "2026-09-18T14:05:11.000Z"
+        },
+        {
+          "id": "73aa580cce9b8b16838133e5f8a0a07925998b6c",
+          "title": "Upload explainability.md with huggingface_hub",
+          "message": "",
+          "authors": [
+            {
+              "user": "imedennikov",
+              "avatar": "/avatars/d1c29cca6e8e57dd141a6ef33cb9dd7f.svg"
+            }
+          ],
+          "date": "2026-09-18T14:05:03.000Z"
+        },
+        {
+          "id": "ed361a07ce9bdc3c3d9e2dd64d1d0f1341104cb2",
+          "title": "Upload bias.md with huggingface_hub",
+          "message": "",
+          "authors": [
+            {
+              "user": "imedennikov",
+              "avatar": "/avatars/d1c29cca6e8e57dd141a6ef33cb9dd7f.svg"
+            }
+          ],
+          "date": "2026-09-18T14:04:54.000Z"
+        },
+        {
+          "id": "0e224186f30112a1b555f2ee402e2be781146535",
+          "title": "Upload Nemotron-3-Diarization.nemo with huggingface_hub",
+          "message": "",
+          "authors": [
+            {
+              "user": "imedennikov",
+              "avatar": "/avatars/d1c29cca6e8e57dd141a6ef33cb9dd7f.svg"
+            }
+          ],
+          "date": "2026-09-18T13:58:10.000Z"
+        },
+        {
+          "id": "8a21a39e09d88d18cbf61406e03236938d9cc69e",
+          "title": "Rename Nemotron-3-Diarization.nemo to Nemotron-3-Diarization.nemo.bak",
+          "message": "",
+          "authors": [
+            {
+              "user": "imedennikov",
+              "avatar": "/avatars/d1c29cca6e8e57dd141a6ef33cb9dd7f.svg"
+            }
+          ],
+          "date": "2026-09-18T13:56:45.000Z"
+        },
+        {
+          "id": "9f01a752e165dff07e8df073470a6b3cfbc1ef6f",
+          "title": "Upload ASR_INTEGRATION_GUIDE.md with huggingface_hub",
+          "message": "",
+          "authors": [
+            {
+              "user": "imedennikov",
+              "avatar": "/avatars/d1c29cca6e8e57dd141a6ef33cb9dd7f.svg"
+            }
+          ],
+          "date": "2026-09-18T13:42:49.000Z"
+        },
+        {
+          "id": "78c0cc2510b9256f0ca3153fb76854578b097015",
+          "title": "Update ASR integration guide",
+          "message": "\n\nRefresh streaming ASR integration docs for Nemotron 3.5 ASR and local diarization usage.",
+          "authors": [
+            {
+              "user": "taejinp",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/no-auth/zuXrk1DZCYWoLPTXEzprh.png"
+            }
+          ],
+          "date": "2026-09-18T09:58:09.000Z"
+        },
+        {
+          "id": "68760c399633bd56b95ee8cc1956891c99357aca",
+          "title": "Clarify ASR service integration options",
+          "message": "",
+          "authors": [
+            {
+              "user": "taejinp",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/no-auth/zuXrk1DZCYWoLPTXEzprh.png"
+            }
+          ],
+          "date": "2026-09-18T09:32:00.000Z"
+        },
+        {
+          "id": "5c7c10355591fa1762ae0d30491cd39b19376b3b",
+          "title": "Update ASR integration guide",
+          "message": "",
+          "authors": [
+            {
+              "user": "taejinp",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/no-auth/zuXrk1DZCYWoLPTXEzprh.png"
+            }
+          ],
+          "date": "2026-09-18T08:44:29.000Z"
+        },
+        {
+          "id": "1e03fda397d39befe2c47ac74359614f2d8a2ef0",
+          "title": "Update ASR_INTEGRATION_GUIDE.md",
+          "message": "",
+          "authors": [
+            {
+              "user": "taejinp",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/no-auth/zuXrk1DZCYWoLPTXEzprh.png"
+            }
+          ],
+          "date": "2026-09-15T17:54:29.000Z"
+        },
+        {
+          "id": "c39e97fa837fbdf3db623f7aa942e39174d9fcd0",
+          "title": "Upload ASR_INTEGRATION_GUIDE.md",
+          "message": "\n\nASR integration guide.",
+          "authors": [
+            {
+              "user": "taejinp",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/no-auth/zuXrk1DZCYWoLPTXEzprh.png"
+            }
+          ],
+          "date": "2026-09-15T17:45:14.000Z"
+        },
+        {
+          "id": "81d3a1381adf0efc8316d6279e65ad2575123d0c",
+          "title": "Upload Nemotron-3-Diarization.nemo with huggingface_hub",
+          "message": "",
+          "authors": [
+            {
+              "user": "imedennikov",
+              "avatar": "/avatars/d1c29cca6e8e57dd141a6ef33cb9dd7f.svg"
+            }
+          ],
+          "date": "2026-09-07T12:08:25.000Z"
+        },
+        {
+          "id": "9fc6cfb9768b64b0aca3326c28de22fc13d0262b",
+          "title": "Upload Nemotron-3-Diarization.nemo with huggingface_hub",
+          "message": "",
+          "authors": [
+            {
+              "user": "imedennikov",
+              "avatar": "/avatars/d1c29cca6e8e57dd141a6ef33cb9dd7f.svg"
+            }
+          ],
+          "date": "2026-09-07T11:18:36.000Z"
+        },
+        {
+          "id": "f817d7735c26a672f8f6cb03f4d81266c1e37904",
+          "title": "initial commit",
+          "message": "",
+          "authors": [
+            {
+              "user": "imedennikov",
+              "avatar": "/avatars/d1c29cca6e8e57dd141a6ef33cb9dd7f.svg"
+            }
+          ],
+          "date": "2026-09-01T13:16:57.000Z"
+        }
+      ],
+      "snapshots": [
+        {
+          "name": "ASR_INTEGRATION_GUIDE.md",
+          "sha256": "6eb2213b72aac92f9fdecf7481a4ac2d9f5fa4926841248a0f4db79be380f70e",
+          "size": 16331,
+          "url": "https://huggingface.co/nvidia/Nemotron-3-Diarization/resolve/f667ed73aee57d40cc39428eb768b4fd87a0a29e/ASR_INTEGRATION_GUIDE.md",
+          "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\metadata\\D1\\ASR_INTEGRATION_GUIDE.md"
+        },
+        {
+          "name": "README.md",
+          "sha256": "5fe88ca4020d2ee134f806a0a02c52c19855b73047bc2e6f25b9171e1abeebfd",
+          "size": 43239,
+          "url": "https://huggingface.co/nvidia/Nemotron-3-Diarization/resolve/f667ed73aee57d40cc39428eb768b4fd87a0a29e/README.md",
+          "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\metadata\\D1\\README.md"
+        },
+        {
+          "name": "bias.md",
+          "sha256": "94a85f2260ab9d825b11ff28c3686af668bfe44f6b3d0e4525f5c0de9d968a17",
+          "size": 296,
+          "url": "https://huggingface.co/nvidia/Nemotron-3-Diarization/resolve/f667ed73aee57d40cc39428eb768b4fd87a0a29e/bias.md",
+          "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\metadata\\D1\\bias.md"
+        },
+        {
+          "name": "config.json",
+          "sha256": "dd795ec07ffa09acf18d231aa3fa8642aa5c521760953754e02559a7413b6873",
+          "size": 1458,
+          "url": "https://huggingface.co/nvidia/Nemotron-3-Diarization/resolve/f667ed73aee57d40cc39428eb768b4fd87a0a29e/config.json",
+          "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\metadata\\D1\\config.json"
+        },
+        {
+          "name": "diarization_evaluation.md",
+          "sha256": "7bfbb965f50360f2fb261a81388448e0d2572aa4f77f1ec04995fed82ee68b71",
+          "size": 6898,
+          "url": "https://huggingface.co/nvidia/Nemotron-3-Diarization/resolve/f667ed73aee57d40cc39428eb768b4fd87a0a29e/diarization_evaluation.md",
+          "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\metadata\\D1\\diarization_evaluation.md"
+        },
+        {
+          "name": "explainability.md",
+          "sha256": "e3a4c7664d0c71cebcbff90ba1776316b37c6e445c20307bd5b8a1a622899d47",
+          "size": 2330,
+          "url": "https://huggingface.co/nvidia/Nemotron-3-Diarization/resolve/f667ed73aee57d40cc39428eb768b4fd87a0a29e/explainability.md",
+          "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\metadata\\D1\\explainability.md"
+        },
+        {
+          "name": "privacy.md",
+          "sha256": "ce9c4820379a1a1a077c26ea8ae5b380cf1a2c200b121f9c6fc1fd552f49a109",
+          "size": 1283,
+          "url": "https://huggingface.co/nvidia/Nemotron-3-Diarization/resolve/f667ed73aee57d40cc39428eb768b4fd87a0a29e/privacy.md",
+          "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\metadata\\D1\\privacy.md"
+        },
+        {
+          "name": "processor_config.json",
+          "sha256": "91726746788a024a2f0f2f699a6c3667f0d74e6a0e9288fc44fe3018e23af68e",
+          "size": 623,
+          "url": "https://huggingface.co/nvidia/Nemotron-3-Diarization/resolve/f667ed73aee57d40cc39428eb768b4fd87a0a29e/processor_config.json",
+          "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\metadata\\D1\\processor_config.json"
+        },
+        {
+          "name": "safety.md",
+          "sha256": "c178dc56b306f33e7981267a8a73ad11dd0ded16336f62e8eb1452398af45cbf",
+          "size": 489,
+          "url": "https://huggingface.co/nvidia/Nemotron-3-Diarization/resolve/f667ed73aee57d40cc39428eb768b4fd87a0a29e/safety.md",
+          "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\metadata\\D1\\safety.md"
+        }
+      ]
+    },
+    "E1": {
+      "repo": "nvidia/speakerverification_en_titanet_large",
+      "revision": "0dc382f40121a5fbd34db10a2bb04d826c2be6a8",
+      "created_at": "2022-07-15T00:26:00.000Z",
+      "repo_last_modified": "2023-11-14T16:58:18.000Z",
+      "gated": false,
+      "license_card_metadata": "cc-by-4.0",
+      "siblings": [
+        {
+          "rfilename": ".gitattributes",
+          "blobId": "5ab29491cd47b7cbb6f8aed9add0b81973da9334",
+          "size": 1251
+        },
+        {
+          "rfilename": "README.md",
+          "blobId": "e9984ef8ec452639d768526c301d0ecae3fef423",
+          "size": 8114
+        },
+        {
+          "rfilename": "an255-fash-b.wav",
+          "blobId": "e5996872ff85e17d1860d26a4ac724ce45550fbe",
+          "size": 83244
+        },
+        {
+          "rfilename": "cen7-fash-b.wav",
+          "blobId": "f4718ede41606e10a6c42cb9c5dea00996d9b2aa",
+          "size": 80044
+        },
+        {
+          "rfilename": "speakerverification_en_titanet_large.nemo",
+          "blobId": "1c9686181bb1265a9103ac7b51e2a52236c57c65",
+          "size": 101621760,
+          "lfs": {
+            "sha256": "e838520693f269e7984f55bc8eb3c2d60ccf246bf4b896d4be9bcabe3e4b0fe3",
+            "size": 101621760,
+            "pointerSize": 134
+          }
+        }
+      ],
+      "commits": [
+        {
+          "id": "0dc382f40121a5fbd34db10a2bb04d826c2be6a8",
+          "title": "Update README.md",
+          "message": "",
+          "authors": [
+            {
+              "user": "nithinraok",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/627c7b641b02d7b5bf67f4cc/WDxJiOaqgh-BoH7AcvBYi.png"
+            }
+          ],
+          "date": "2023-11-14T16:58:18.000Z"
+        },
+        {
+          "id": "4e0b2d387a805da7c208b13d5898ee09de8ec1e9",
+          "title": "Update README.md (#4)",
+          "message": "\n\n\n- Update README.md (02f33b04d9ed36ecdf6e94be6a8cc803f194ba9e)\n\n\nCo-authored-by: Nithin Rao Koluguri <nithinraok@users.noreply.huggingface.co>\n",
+          "authors": [
+            {
+              "user": "smajumdar94",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/1649899774659-6254f8e5d21e4cc386b881ad.jpeg"
+            },
+            {
+              "user": "nithinraok",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/627c7b641b02d7b5bf67f4cc/WDxJiOaqgh-BoH7AcvBYi.png"
+            }
+          ],
+          "date": "2023-03-13T19:13:57.000Z"
+        },
+        {
+          "id": "fa8ee5ddf24f3d3fffc1212d791e0922e5bfb53d",
+          "title": "Upload speakerverification_en_titanet_large.nemo (#3)",
+          "message": "\n\n\n- Upload speakerverification_en_titanet_large.nemo (48f4fde3e017830f9bdd4e313d6c050b15e4298f)\n\n\nCo-authored-by: Nithin Rao Koluguri <nithinraok@users.noreply.huggingface.co>\n",
+          "authors": [
+            {
+              "user": "smajumdar94",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/1649899774659-6254f8e5d21e4cc386b881ad.jpeg"
+            },
+            {
+              "user": "nithinraok",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/627c7b641b02d7b5bf67f4cc/WDxJiOaqgh-BoH7AcvBYi.png"
+            }
+          ],
+          "date": "2023-03-13T19:13:10.000Z"
+        },
+        {
+          "id": "3c99844ecb1a732dde2d438f762068a4aa6a72ab",
+          "title": "Update README.md",
+          "message": "",
+          "authors": [
+            {
+              "user": "smajumdar94",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/1649899774659-6254f8e5d21e4cc386b881ad.jpeg"
+            }
+          ],
+          "date": "2022-07-15T19:38:45.000Z"
+        },
+        {
+          "id": "5f243eeaa004fcc672bbb9f9b3f4a542cd9eaaa2",
+          "title": "Update README.md",
+          "message": "",
+          "authors": [
+            {
+              "user": "nithinraok",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/627c7b641b02d7b5bf67f4cc/WDxJiOaqgh-BoH7AcvBYi.png"
+            }
+          ],
+          "date": "2022-07-15T05:49:18.000Z"
+        },
+        {
+          "id": "6a20f8c200dc5b71abc11577b70447530ec9bdac",
+          "title": "Update README.md",
+          "message": "",
+          "authors": [
+            {
+              "user": "nithinraok",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/627c7b641b02d7b5bf67f4cc/WDxJiOaqgh-BoH7AcvBYi.png"
+            }
+          ],
+          "date": "2022-07-15T05:48:31.000Z"
+        },
+        {
+          "id": "37664aa0813b8978a0328f01a680162f6f13dc5b",
+          "title": "update diarization numbers to show on papers with code",
+          "message": "",
+          "authors": [
+            {
+              "user": "nithinraok",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/627c7b641b02d7b5bf67f4cc/WDxJiOaqgh-BoH7AcvBYi.png"
+            }
+          ],
+          "date": "2022-07-15T05:47:24.000Z"
+        },
+        {
+          "id": "8d3063e293c1ed8db4494ffa55165d5cd2b25745",
+          "title": "update task to show on papers with code",
+          "message": "",
+          "authors": [
+            {
+              "user": "nithinraok",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/627c7b641b02d7b5bf67f4cc/WDxJiOaqgh-BoH7AcvBYi.png"
+            }
+          ],
+          "date": "2022-07-15T05:39:23.000Z"
+        },
+        {
+          "id": "7bfc225713038d6d0e8288af80082cada1309ea0",
+          "title": "update widget info",
+          "message": "",
+          "authors": [
+            {
+              "user": "nithinraok",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/627c7b641b02d7b5bf67f4cc/WDxJiOaqgh-BoH7AcvBYi.png"
+            }
+          ],
+          "date": "2022-07-15T05:31:42.000Z"
+        },
+        {
+          "id": "5191a8f164409596f665d34b3f5a9449a94a5eaf",
+          "title": "update audio file names",
+          "message": "",
+          "authors": [
+            {
+              "user": "nithinraok",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/627c7b641b02d7b5bf67f4cc/WDxJiOaqgh-BoH7AcvBYi.png"
+            }
+          ],
+          "date": "2022-07-15T05:26:11.000Z"
+        },
+        {
+          "id": "0165198faa2dd17f70c4e90de6aabee96c6c7526",
+          "title": "Upload cen7-fash-b.wav",
+          "message": "",
+          "authors": [
+            {
+              "user": "nithinraok",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/627c7b641b02d7b5bf67f4cc/WDxJiOaqgh-BoH7AcvBYi.png"
+            }
+          ],
+          "date": "2022-07-15T05:18:37.000Z"
+        },
+        {
+          "id": "909c3ca8f1d15a0d29f1b45b278cb4c356eaedd5",
+          "title": "Upload an255-fash-b.wav",
+          "message": "",
+          "authors": [
+            {
+              "user": "nithinraok",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/627c7b641b02d7b5bf67f4cc/WDxJiOaqgh-BoH7AcvBYi.png"
+            }
+          ],
+          "date": "2022-07-15T05:18:17.000Z"
+        },
+        {
+          "id": "b202bcd14f5457575d02070e36c3f752d9c46880",
+          "title": "Update README.md",
+          "message": "\n\nInitial commit",
+          "authors": [
+            {
+              "user": "nithinraok",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/627c7b641b02d7b5bf67f4cc/WDxJiOaqgh-BoH7AcvBYi.png"
+            }
+          ],
+          "date": "2022-07-15T05:11:58.000Z"
+        },
+        {
+          "id": "225159be9709fac3fccd3922280448701ad1699e",
+          "title": "Upload speakerverification_en_titanet_large.nemo",
+          "message": "",
+          "authors": [
+            {
+              "user": "nithinraok",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/627c7b641b02d7b5bf67f4cc/WDxJiOaqgh-BoH7AcvBYi.png"
+            }
+          ],
+          "date": "2022-07-15T00:32:06.000Z"
+        },
+        {
+          "id": "507a0e876439b5d95b3dc802d6062834549f4c63",
+          "title": "initial commit",
+          "message": "",
+          "authors": [
+            {
+              "user": "nithinraok",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/627c7b641b02d7b5bf67f4cc/WDxJiOaqgh-BoH7AcvBYi.png"
+            }
+          ],
+          "date": "2022-07-15T00:26:00.000Z"
+        }
+      ],
+      "snapshots": [
+        {
+          "name": "README.md",
+          "sha256": "fc21d601b62a6645490308611caf681958d8141dcf21e7fc5c53f1d7bc97e2f7",
+          "size": 8114,
+          "url": "https://huggingface.co/nvidia/speakerverification_en_titanet_large/resolve/0dc382f40121a5fbd34db10a2bb04d826c2be6a8/README.md",
+          "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\metadata\\E1\\README.md"
+        }
+      ]
+    },
+    "A1": {
+      "repo": "nvidia/parakeet_realtime_eou_120m-v1",
+      "revision": "a7e2b4629593dce0ec19f600e00e9904353fda2d",
+      "created_at": "2025-10-10T16:57:16.000Z",
+      "repo_last_modified": "2025-12-03T22:28:49.000Z",
+      "gated": false,
+      "license_card_metadata": "other",
+      "siblings": [
+        {
+          "rfilename": ".gitattributes",
+          "blobId": "78277c02910242d74fc2e5f8ae70cb6a2391e424",
+          "size": 1642
+        },
+        {
+          "rfilename": "README.md",
+          "blobId": "4433297cccfa02fe8c94d84fb95fe4845d39f23d",
+          "size": 8514
+        },
+        {
+          "rfilename": "figure-streaming.png",
+          "blobId": "bcede83bc7150fc3357e0858810636745e45d0cc",
+          "size": 58717
+        },
+        {
+          "rfilename": "parakeet_realtime_eou_120m-v1.nemo",
+          "blobId": "20161e19a0666bd55219b70a0d4321dee4a2f9cf",
+          "size": 460062720,
+          "lfs": {
+            "sha256": "6603a22a53b7c1a4bac4736cb24628fb568a7102ba931a28c799e2e72f109893",
+            "size": 460062720,
+            "pointerSize": 134
+          }
+        },
+        {
+          "rfilename": "voice-agent.png",
+          "blobId": "bf70ad4944bb5a3e8ac22572db3ede9dfd3e0975",
+          "size": 159571,
+          "lfs": {
+            "sha256": "91ba46c05bf6a211b340a361e1f0c853210b008975743942796c08203c1a16f3",
+            "size": 159571,
+            "pointerSize": 131
+          }
+        }
+      ],
+      "commits": [
+        {
+          "id": "a7e2b4629593dce0ec19f600e00e9904353fda2d",
+          "title": "Added NVIDIA doc links",
+          "message": "",
+          "authors": [
+            {
+              "user": "jbalam-nv",
+              "avatar": "/avatars/388f8b4666335fa92487656bc284504f.svg"
+            }
+          ],
+          "date": "2025-12-03T22:28:49.000Z"
+        },
+        {
+          "id": "c15a6c7233c53b68f522ee8b612f064e2ecc0540",
+          "title": "Update README.md",
+          "message": "",
+          "authors": [
+            {
+              "user": "steveheh",
+              "avatar": "/avatars/9bf417300c7d8426edc78f116bb9a28e.svg"
+            }
+          ],
+          "date": "2025-11-18T15:24:02.000Z"
+        },
+        {
+          "id": "22306ae7e76930747fe5c861716345a02acc83a2",
+          "title": "Upload voice-agent.png",
+          "message": "",
+          "authors": [
+            {
+              "user": "steveheh",
+              "avatar": "/avatars/9bf417300c7d8426edc78f116bb9a28e.svg"
+            }
+          ],
+          "date": "2025-11-18T15:23:21.000Z"
+        },
+        {
+          "id": "73186ab63d69af992d996f7c79507a465c21ed82",
+          "title": "Update README.md",
+          "message": "",
+          "authors": [
+            {
+              "user": "steveheh",
+              "avatar": "/avatars/9bf417300c7d8426edc78f116bb9a28e.svg"
+            }
+          ],
+          "date": "2025-11-18T15:23:01.000Z"
+        },
+        {
+          "id": "777a8b9d0e903ac0b88b67317dbb34744817c544",
+          "title": "Upload figure-streaming.png",
+          "message": "",
+          "authors": [
+            {
+              "user": "steveheh",
+              "avatar": "/avatars/9bf417300c7d8426edc78f116bb9a28e.svg"
+            }
+          ],
+          "date": "2025-11-18T15:12:30.000Z"
+        },
+        {
+          "id": "ed95dd446e2eb354598e3b32f3eb02826a129841",
+          "title": "Update README.md",
+          "message": "",
+          "authors": [
+            {
+              "user": "steveheh",
+              "avatar": "/avatars/9bf417300c7d8426edc78f116bb9a28e.svg"
+            }
+          ],
+          "date": "2025-11-14T18:44:11.000Z"
+        },
+        {
+          "id": "1a94e738d07f17c9581a356a017292f4fabbe512",
+          "title": "Update README.md",
+          "message": "",
+          "authors": [
+            {
+              "user": "steveheh",
+              "avatar": "/avatars/9bf417300c7d8426edc78f116bb9a28e.svg"
+            }
+          ],
+          "date": "2025-11-14T18:28:43.000Z"
+        },
+        {
+          "id": "cf40ffb25023d45c8de49973cffcf1c075acee11",
+          "title": "Update README.md",
+          "message": "",
+          "authors": [
+            {
+              "user": "steveheh",
+              "avatar": "/avatars/9bf417300c7d8426edc78f116bb9a28e.svg"
+            }
+          ],
+          "date": "2025-11-14T00:25:41.000Z"
+        },
+        {
+          "id": "ecacaa600d8430c8efc9e3d478758673d7964904",
+          "title": "Update README.md",
+          "message": "",
+          "authors": [
+            {
+              "user": "steveheh",
+              "avatar": "/avatars/9bf417300c7d8426edc78f116bb9a28e.svg"
+            }
+          ],
+          "date": "2025-11-14T00:23:28.000Z"
+        },
+        {
+          "id": "53ca30ae62f9c6fd11de4a97807280c74959dfd4",
+          "title": "Update README.md",
+          "message": "",
+          "authors": [
+            {
+              "user": "steveheh",
+              "avatar": "/avatars/9bf417300c7d8426edc78f116bb9a28e.svg"
+            }
+          ],
+          "date": "2025-11-14T00:21:32.000Z"
+        },
+        {
+          "id": "11c29aa8432b25d907daaaf67f26c719b985042c",
+          "title": "Update README.md",
+          "message": "",
+          "authors": [
+            {
+              "user": "steveheh",
+              "avatar": "/avatars/9bf417300c7d8426edc78f116bb9a28e.svg"
+            }
+          ],
+          "date": "2025-11-14T00:19:56.000Z"
+        },
+        {
+          "id": "5660c7e758b29ef7aec4869cf2be7ad6f3573681",
+          "title": "Update README.md",
+          "message": "",
+          "authors": [
+            {
+              "user": "steveheh",
+              "avatar": "/avatars/9bf417300c7d8426edc78f116bb9a28e.svg"
+            }
+          ],
+          "date": "2025-11-14T00:19:03.000Z"
+        },
+        {
+          "id": "6b94316da43316b557521848b9d50308958a3c7c",
+          "title": "clean up for public release",
+          "message": "\n\nSigned-off-by: stevehuang52 <heh@nvidia.com>\n",
+          "authors": [
+            {
+              "user": "steveheh",
+              "avatar": "/avatars/9bf417300c7d8426edc78f116bb9a28e.svg"
+            }
+          ],
+          "date": "2025-11-14T00:06:28.000Z"
+        },
+        {
+          "id": "3aeb2dfa07ab4696531dd374d38625d096e7869f",
+          "title": "update for public release",
+          "message": "\n\nSigned-off-by: stevehuang52 <heh@nvidia.com>\n",
+          "authors": [
+            {
+              "user": "steveheh",
+              "avatar": "/avatars/9bf417300c7d8426edc78f116bb9a28e.svg"
+            }
+          ],
+          "date": "2025-11-14T00:03:05.000Z"
+        },
+        {
+          "id": "6b63e62c17ee6d0537faa4f4122177a1b9109268",
+          "title": "Update README_private.md",
+          "message": "",
+          "authors": [
+            {
+              "user": "steveheh",
+              "avatar": "/avatars/9bf417300c7d8426edc78f116bb9a28e.svg"
+            }
+          ],
+          "date": "2025-11-14T00:01:28.000Z"
+        },
+        {
+          "id": "43494edbff6d6db86358e2f85d0acf89a0330987",
+          "title": "Update README.md",
+          "message": "",
+          "authors": [
+            {
+              "user": "steveheh",
+              "avatar": "/avatars/9bf417300c7d8426edc78f116bb9a28e.svg"
+            }
+          ],
+          "date": "2025-11-07T22:30:28.000Z"
+        },
+        {
+          "id": "f282756146c68f203ff059c3abe04549b2a92e8b",
+          "title": "Update README.md",
+          "message": "",
+          "authors": [
+            {
+              "user": "steveheh",
+              "avatar": "/avatars/9bf417300c7d8426edc78f116bb9a28e.svg"
+            }
+          ],
+          "date": "2025-11-03T14:37:08.000Z"
+        },
+        {
+          "id": "ed622f45f8a341ebf81719585a326bde29e555ed",
+          "title": "Update README_private.md",
+          "message": "",
+          "authors": [
+            {
+              "user": "steveheh",
+              "avatar": "/avatars/9bf417300c7d8426edc78f116bb9a28e.svg"
+            }
+          ],
+          "date": "2025-10-31T18:14:00.000Z"
+        },
+        {
+          "id": "5394f9043498f1a0cf7100cec8c9977657323d43",
+          "title": "Update README.md",
+          "message": "",
+          "authors": [
+            {
+              "user": "steveheh",
+              "avatar": "/avatars/9bf417300c7d8426edc78f116bb9a28e.svg"
+            }
+          ],
+          "date": "2025-10-31T18:06:57.000Z"
+        },
+        {
+          "id": "925b81afe9501bbb21dff989f2e6c0c65ad4e4eb",
+          "title": "change to EA",
+          "message": "\n\nSigned-off-by: stevehuang52 <heh@nvidia.com>\n",
+          "authors": [
+            {
+              "user": "steveheh",
+              "avatar": "/avatars/9bf417300c7d8426edc78f116bb9a28e.svg"
+            }
+          ],
+          "date": "2025-10-31T18:04:22.000Z"
+        },
+        {
+          "id": "20adc199ecb535e1d078301fe7e0b272c6cc72a5",
+          "title": "Update README.md",
+          "message": "",
+          "authors": [
+            {
+              "user": "steveheh",
+              "avatar": "/avatars/9bf417300c7d8426edc78f116bb9a28e.svg"
+            }
+          ],
+          "date": "2025-10-31T17:44:51.000Z"
+        },
+        {
+          "id": "1439a75742132287d3ea046edbb52560ffc41bab",
+          "title": "Update README.md",
+          "message": "",
+          "authors": [
+            {
+              "user": "steveheh",
+              "avatar": "/avatars/9bf417300c7d8426edc78f116bb9a28e.svg"
+            }
+          ],
+          "date": "2025-10-24T20:16:39.000Z"
+        },
+        {
+          "id": "0f29b3c64c2181fa77d57f0a5ccc0902fec98b56",
+          "title": "Upload parakeet_realtime_eou_120m-v1.nemo",
+          "message": "",
+          "authors": [
+            {
+              "user": "steveheh",
+              "avatar": "/avatars/9bf417300c7d8426edc78f116bb9a28e.svg"
+            }
+          ],
+          "date": "2025-10-14T22:16:46.000Z"
+        },
+        {
+          "id": "daa0c43e55806f93cf95d42d052c0382a965e79f",
+          "title": "Update README.md",
+          "message": "",
+          "authors": [
+            {
+              "user": "steveheh",
+              "avatar": "/avatars/9bf417300c7d8426edc78f116bb9a28e.svg"
+            }
+          ],
+          "date": "2025-10-10T17:20:55.000Z"
+        },
+        {
+          "id": "6947d2ef90f9e16f4731492aed8a688cc2d88c14",
+          "title": "initial commit",
+          "message": "",
+          "authors": [
+            {
+              "user": "steveheh",
+              "avatar": "/avatars/9bf417300c7d8426edc78f116bb9a28e.svg"
+            }
+          ],
+          "date": "2025-10-10T16:57:16.000Z"
+        }
+      ],
+      "snapshots": [
+        {
+          "name": "README.md",
+          "sha256": "618bce4a1ac767cc01c1d7fd5aafee3341667185b855bae7d4abc656008bfa93",
+          "size": 8514,
+          "url": "https://huggingface.co/nvidia/parakeet_realtime_eou_120m-v1/resolve/a7e2b4629593dce0ec19f600e00e9904353fda2d/README.md",
+          "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\metadata\\A1\\README.md"
+        }
+      ]
+    },
+    "A2": {
+      "repo": "nvidia/nemotron-speech-streaming-en-0.6b",
+      "revision": "ebe59e5a817142986528bbbee5dba8db7b38ed50",
+      "created_at": "2025-12-17T01:07:38.000Z",
+      "repo_last_modified": "2026-08-05T21:45:11.000Z",
+      "gated": false,
+      "license_card_metadata": "other",
+      "siblings": [
+        {
+          "rfilename": ".gitattributes",
+          "blobId": "30356058c54e0aecf5ed470871851616fd7b15b5",
+          "size": 2027
+        },
+        {
+          "rfilename": "README.md",
+          "blobId": "cdb360a84249a00bb5d43681daa5b6b410a4d3d3",
+          "size": 25987
+        },
+        {
+          "rfilename": "bias.md",
+          "blobId": "2051b9ffb7dbd4f14cc69da44f743412c136dbcf",
+          "size": 510
+        },
+        {
+          "rfilename": "config.json",
+          "blobId": "0a4407c941061cfad747faac762965ab5fa19008",
+          "size": 1284
+        },
+        {
+          "rfilename": "explainability.md",
+          "blobId": "faf175e3d63a50a22979a16597c95271328cc809",
+          "size": 2180
+        },
+        {
+          "rfilename": "figures/caching_schema.png",
+          "blobId": "79b5839498d7ce6bbe6591420877c81f5e70c9e5",
+          "size": 535197,
+          "lfs": {
+            "sha256": "a9e37c37b8a1031ed2be549c1087c4de792debe2928e66b66f1d0ae916428f03",
+            "size": 535197,
+            "pointerSize": 131
+          }
+        },
+        {
+          "rfilename": "figures/inference_pipeline.png",
+          "blobId": "ac84999570e37c134ad66dca5082f891f1d24814",
+          "size": 258059,
+          "lfs": {
+            "sha256": "b5654d12c83d93db6296782284b878a5e582a7164920f733679d431eb079f79c",
+            "size": 258059,
+            "pointerSize": 131
+          }
+        },
+        {
+          "rfilename": "figures/results_wer_and_scaling.png",
+          "blobId": "bb55137ed23b01511a5c0c9c64b72eb1004934bf",
+          "size": 76583,
+          "lfs": {
+            "sha256": "38e0483d0c56ec3d683060ca5def3a0eeb17898bbfc74497d0c9ec987440e636",
+            "size": 76583,
+            "pointerSize": 130
+          }
+        },
+        {
+          "rfilename": "generation_config.json",
+          "blobId": "f50a0008608073c219fb7bb1d1af79ff7e285d08",
+          "size": 192
+        },
+        {
+          "rfilename": "model.safetensors",
+          "blobId": "71dbf130aefe3ec9c269e6f4bff70c0545106b8f",
+          "size": 2472413604,
+          "lfs": {
+            "sha256": "bddd8a7300826efd19cf7e01f1c7db8402bed6786fc4c7739632894f69c71473",
+            "size": 2472413604,
+            "pointerSize": 135
+          }
+        },
+        {
+          "rfilename": "nemotron-speech-streaming-en-0.6b.nemo",
+          "blobId": "df851778ea5d78c00e2d2a5b00d1ccdc899c092a",
+          "size": 2473041920,
+          "lfs": {
+            "sha256": "283638054c44f6794e74fe9af9048d78a6d9d6c058c12131856c7859a62ac9cd",
+            "size": 2473041920,
+            "pointerSize": 135
+          }
+        },
+        {
+          "rfilename": "nemotron-speech-streaming-en-0.6b.q8_0.gguf",
+          "blobId": "26cde7e94456d3a1dd33dbe05f2365c1280960dc",
+          "size": 699872960,
+          "lfs": {
+            "sha256": "d9a01898d2a611c8764e23a1c2f45e70bbd5a425dc4de93692ac951dd603812d",
+            "size": 699872960,
+            "pointerSize": 134
+          }
+        },
+        {
+          "rfilename": "privacy.md",
+          "blobId": "3c5fe0740aa4db1c687bee9c869a5fa486da5c4c",
+          "size": 1902
+        },
+        {
+          "rfilename": "processor_config.json",
+          "blobId": "4c2462d269dfd467b0563c3a53b29edbe4fc6b4b",
+          "size": 525
+        },
+        {
+          "rfilename": "safety.md",
+          "blobId": "bd1438245f05b74c91671dfee1221de6ba63586f",
+          "size": 737
+        },
+        {
+          "rfilename": "tokenizer.json",
+          "blobId": "c6a2d8ea9725cf8128d3b9945167843b7b812d9f",
+          "size": 400216
+        },
+        {
+          "rfilename": "tokenizer_config.json",
+          "blobId": "fc2533a70f51659db5b182bc3e34be4b51902675",
+          "size": 270
+        }
+      ],
+      "commits": [
+        {
+          "id": "ebe59e5a817142986528bbbee5dba8db7b38ed50",
+          "title": "Add NeMo-Speech.cpp GGUF (#21)",
+          "message": "\n\n\n- Add NeMo-Speech.cpp GGUF (7ac7a627a5b084698780079d63a26396bfe40a4c)\n\n\nCo-authored-by: Prabhsimran Singh <prabhsimrans-nv@users.noreply.huggingface.co>\n",
+          "authors": [
+            {
+              "user": "kunaldhawan",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/6452ac513f80ad88c779fdb8/mH1KJExNc4YnNVwGmbE5j.jpeg"
+            },
+            {
+              "user": "prabhsimrans-nv",
+              "avatar": "/avatars/161ba583c7f806ed13919429c53f55f9.svg"
+            }
+          ],
+          "date": "2026-08-05T21:45:11.000Z"
+        },
+        {
+          "id": "df1f0fe9dfdf05152936192b4c8c7653d53bf557",
+          "title": "Update README: available in Transformers 5.13.0 (#20)",
+          "message": "\n\n\n- Update README: available in Transformers 5.13.0 (28ce897913f9aff1d9eff22fc96c261e79851c25)\n\n\nCo-authored-by: Eustache Le Bihan <eustlb@users.noreply.huggingface.co>\n",
+          "authors": [
+            {
+              "user": "nithinraok",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/627c7b641b02d7b5bf67f4cc/WDxJiOaqgh-BoH7AcvBYi.png"
+            },
+            {
+              "user": "eustlb",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/660bc459d81d6112496f30f8/jMrpAckFyg-_iHMI7sn2h.jpeg"
+            }
+          ],
+          "date": "2026-07-06T13:53:07.000Z"
+        },
+        {
+          "id": "7b176baa37b4692ca5e4f671edbcbfd6541fe52b",
+          "title": "docs(readme): add \ud83e\udd17 Transformers usage + transformers/hf-asr-leaderboard tags (#19)",
+          "message": "\n\n\n- docs(readme): add \ud83e\udd17 Transformers usage + transformers/hf-asr-leaderboard tags (00acbbc4732c7936dc3229daeca723faf74b66da)\n- Trim to hf-asr-leaderboard tag only (Transformers section/tag handled by PR #17) (f4f3f30b358f8d054df8f5b4b2478b5e3c3e389a)\n\n\nCo-authored-by: Adi- margolin <Amargolin@users.noreply.huggingface.co>\n",
+          "authors": [
+            {
+              "user": "kunaldhawan",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/6452ac513f80ad88c779fdb8/mH1KJExNc4YnNVwGmbE5j.jpeg"
+            },
+            {
+              "user": "Amargolin",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/67b10be888060c5a7c5423b3/FIOvkNhjeFiksYG7nn3QJ.jpeg"
+            }
+          ],
+          "date": "2026-06-25T23:20:38.000Z"
+        },
+        {
+          "id": "58f2ac575b767741f81f5ee0f7b379bcdb7572b7",
+          "title": "Add \ud83e\udd17 Transformers support (#17)",
+          "message": "\n\n\n- Upload processor (4b68ff9ccf25b24be368417d37318257c5f36168)\n- Upload NemotronAsrForRNNT (8f2df032bc79721f0a1575f09881c2f0a2904b47)\n- Add Transformers usage section to model card (796824b2e6d920ce8530963aad5dc42996a98605)\n- Restore original model-card metadata (frontmatter) (0a6e63507c66cac61903b07bcf73c60dfe05b236)\n- Add `transformers` tag to model card (b80fd892b17d5751d68c9102fec4e2f66befd41f)\n- Rename NemotronAsr -> NemotronAsrStreaming (model_type nemotron_asr_streaming) (bcf2d7ce386a40eb1e1de17fa9bff65e41d1459f)\n- Remove unused joint_hidden_size and durations from config (eba3da442509948a6868256b1fed05b4768b345a)\n- Upload processor (8e6c7a8d09545b4c8aa99233da87f98b4467ebce)\n- Upload NemotronAsrStreamingForRNNT (0103cc99b1af46938086ae65338c109e88f65de8)\n- Drop stale decoder_type from processor_config (RNN-T only processor) (72bcd2e963b9049930a6e5849ba26c19c8ab52a0)\n- nit (9ca599f630837edc6901839a1541e85ca985e37f)\n- Add \ud83e\udd17 Transformers usage to model card (a6ba39540bed34f0b0bcd009bc5f6cb5ef243283)\n- Rebase model card on main; add \ud83e\udd17 Transformers usage only (8e2cff661420cf605ead37b0ccc8ee4641dfec34)\n- Drop revision pin from Transformers snippets (not needed post-merge) (afcc3268e81eaa57a4e62a6ea3c628479fe638eb)\n- Add Pipeline usage snippet to Transformers section (2f8aff0f26d14b5f08372d0d0de7066d465f40b0)\n\n\nCo-authored-by: Eustache Le Bihan <eustlb@users.noreply.huggingface.co>\n",
+          "authors": [
+            {
+              "user": "kunaldhawan",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/6452ac513f80ad88c779fdb8/mH1KJExNc4YnNVwGmbE5j.jpeg"
+            },
+            {
+              "user": "eustlb",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/660bc459d81d6112496f30f8/jMrpAckFyg-_iHMI7sn2h.jpeg"
+            }
+          ],
+          "date": "2026-06-25T20:37:07.000Z"
+        },
+        {
+          "id": "7a9b763e6c5fb103da690219c049fac917aa50b1",
+          "title": "Add link to nemotron-3.5-asr-streaming-0.6b",
+          "message": "",
+          "authors": [
+            {
+              "user": "kunaldhawan",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/6452ac513f80ad88c779fdb8/mH1KJExNc4YnNVwGmbE5j.jpeg"
+            }
+          ],
+          "date": "2026-06-10T00:41:47.000Z"
+        },
+        {
+          "id": "ef3bf40c90df5cd2de55cc07e06681e03d8e6ee4",
+          "title": "docs(readme): add NIM Try via API (Nemotron ASR Streaming) (#16)",
+          "message": "\n\n\n- docs(readme): add NIM Try via API (Nemotron ASR Streaming) (0bb8bc1b23dee9bbaf2112f40fb982e1c97c0269)\n\n\nCo-authored-by: Adi- margolin <Amargolin@users.noreply.huggingface.co>\n",
+          "authors": [
+            {
+              "user": "kunaldhawan",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/6452ac513f80ad88c779fdb8/mH1KJExNc4YnNVwGmbE5j.jpeg"
+            },
+            {
+              "user": "Amargolin",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/67b10be888060c5a7c5423b3/FIOvkNhjeFiksYG7nn3QJ.jpeg"
+            }
+          ],
+          "date": "2026-05-03T15:17:33.000Z"
+        },
+        {
+          "id": "ac0580bb7d3d6e39c4361db6afe28db9211793e4",
+          "title": "update NIM checkpoint",
+          "message": "",
+          "authors": [
+            {
+              "user": "kunaldhawan",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/6452ac513f80ad88c779fdb8/mH1KJExNc4YnNVwGmbE5j.jpeg"
+            }
+          ],
+          "date": "2026-03-13T21:55:22.000Z"
+        },
+        {
+          "id": "2ea504fbea82042685dbce331687b1af9d7b0567",
+          "title": "update the model checkpoint",
+          "message": "",
+          "authors": [
+            {
+              "user": "kunaldhawan",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/6452ac513f80ad88c779fdb8/mH1KJExNc4YnNVwGmbE5j.jpeg"
+            }
+          ],
+          "date": "2026-03-13T21:35:37.000Z"
+        },
+        {
+          "id": "151430b4e286feeadaf27cc9411b5d2a2c75d461",
+          "title": "update the results figure",
+          "message": "",
+          "authors": [
+            {
+              "user": "kunaldhawan",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/6452ac513f80ad88c779fdb8/mH1KJExNc4YnNVwGmbE5j.jpeg"
+            }
+          ],
+          "date": "2026-03-13T21:33:46.000Z"
+        },
+        {
+          "id": "29175b5e2cf5f359740c512f8a243257416ad31e",
+          "title": "Update model card with new model checkpoint March 13 2026 and results",
+          "message": "",
+          "authors": [
+            {
+              "user": "kunaldhawan",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/6452ac513f80ad88c779fdb8/mH1KJExNc4YnNVwGmbE5j.jpeg"
+            }
+          ],
+          "date": "2026-03-13T21:30:31.000Z"
+        },
+        {
+          "id": "c0acae9cc4163ab0d45cd403fbecbcb0635ee685",
+          "title": "Add links to Multitalker Parakeet Streaming and Parakeet Realtime EOU",
+          "message": "",
+          "authors": [
+            {
+              "user": "kunaldhawan",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/6452ac513f80ad88c779fdb8/mH1KJExNc4YnNVwGmbE5j.jpeg"
+            }
+          ],
+          "date": "2026-01-30T00:09:16.000Z"
+        },
+        {
+          "id": "e6a95c855dabb83223055f513d9f9fbce96d6970",
+          "title": "update link to pipecat repo",
+          "message": "",
+          "authors": [
+            {
+              "user": "kunaldhawan",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/6452ac513f80ad88c779fdb8/mH1KJExNc4YnNVwGmbE5j.jpeg"
+            }
+          ],
+          "date": "2026-01-05T23:49:39.000Z"
+        },
+        {
+          "id": "b34c85be3b5458fd6f104a8dbd603a4afad6f511",
+          "title": "fix typo in model card",
+          "message": "",
+          "authors": [
+            {
+              "user": "kunaldhawan",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/6452ac513f80ad88c779fdb8/mH1KJExNc4YnNVwGmbE5j.jpeg"
+            }
+          ],
+          "date": "2026-01-05T20:12:17.000Z"
+        },
+        {
+          "id": "87439d092c20efcfac00ef7fc801c33b188b6d9a",
+          "title": "add wer_scaling figure to readme",
+          "message": "",
+          "authors": [
+            {
+              "user": "kunaldhawan",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/6452ac513f80ad88c779fdb8/mH1KJExNc4YnNVwGmbE5j.jpeg"
+            }
+          ],
+          "date": "2026-01-05T20:11:00.000Z"
+        },
+        {
+          "id": "d8a590d8e6f3240f8b5b440e563c241ed57b8881",
+          "title": "Upload results_wer_and_scaling.png",
+          "message": "",
+          "authors": [
+            {
+              "user": "kunaldhawan",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/6452ac513f80ad88c779fdb8/mH1KJExNc4YnNVwGmbE5j.jpeg"
+            }
+          ],
+          "date": "2026-01-05T19:59:19.000Z"
+        },
+        {
+          "id": "601a5bb24cbb8ac82e337289cef9c4b306e26011",
+          "title": "update tags",
+          "message": "",
+          "authors": [
+            {
+              "user": "kunaldhawan",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/6452ac513f80ad88c779fdb8/mH1KJExNc4YnNVwGmbE5j.jpeg"
+            }
+          ],
+          "date": "2026-01-05T19:05:28.000Z"
+        },
+        {
+          "id": "b3705b0cec897fddeb265afafb9279099e5a7d58",
+          "title": "Update README.md",
+          "message": "",
+          "authors": [
+            {
+              "user": "kunaldhawan",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/6452ac513f80ad88c779fdb8/mH1KJExNc4YnNVwGmbE5j.jpeg"
+            }
+          ],
+          "date": "2026-01-05T18:53:55.000Z"
+        },
+        {
+          "id": "a8c3120b35e3d01889641eb266f9d9706ff33676",
+          "title": "update model card based on feedback",
+          "message": "",
+          "authors": [
+            {
+              "user": "kunaldhawan",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/6452ac513f80ad88c779fdb8/mH1KJExNc4YnNVwGmbE5j.jpeg"
+            }
+          ],
+          "date": "2026-01-05T18:53:01.000Z"
+        },
+        {
+          "id": "5234a502a88dcde641b98037df8d1167ca47a832",
+          "title": "update model card based on feedback",
+          "message": "",
+          "authors": [
+            {
+              "user": "kunaldhawan",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/6452ac513f80ad88c779fdb8/mH1KJExNc4YnNVwGmbE5j.jpeg"
+            }
+          ],
+          "date": "2026-01-05T18:48:57.000Z"
+        },
+        {
+          "id": "fb142fb5e348460ca2510c3f4296450e6623c0f0",
+          "title": "Updated model card based on feedback",
+          "message": "",
+          "authors": [
+            {
+              "user": "kunaldhawan",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/6452ac513f80ad88c779fdb8/mH1KJExNc4YnNVwGmbE5j.jpeg"
+            }
+          ],
+          "date": "2026-01-05T18:40:31.000Z"
+        },
+        {
+          "id": "6a9698f17b8f145fc3356c7cb418cc880ca0a275",
+          "title": "Added links to HF blog, HF space, Modal endpoint, and Pipecat voicebot implementation",
+          "message": "",
+          "authors": [
+            {
+              "user": "kunaldhawan",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/6452ac513f80ad88c779fdb8/mH1KJExNc4YnNVwGmbE5j.jpeg"
+            }
+          ],
+          "date": "2026-01-03T02:09:34.000Z"
+        },
+        {
+          "id": "ea54570eca0cd25d74a38d3c2e5e316a28f0afa3",
+          "title": "upload nemotron-speech-streaming-en-0.6b.nemo checkpoint",
+          "message": "",
+          "authors": [
+            {
+              "user": "kunaldhawan",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/6452ac513f80ad88c779fdb8/mH1KJExNc4YnNVwGmbE5j.jpeg"
+            }
+          ],
+          "date": "2026-01-03T01:57:08.000Z"
+        },
+        {
+          "id": "6e7aef1495c1705e68a6d1a51b62ab43c110caa5",
+          "title": "Delete nemotron-speech-streaming-en-0.6b.nemo",
+          "message": "",
+          "authors": [
+            {
+              "user": "kunaldhawan",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/6452ac513f80ad88c779fdb8/mH1KJExNc4YnNVwGmbE5j.jpeg"
+            }
+          ],
+          "date": "2026-01-03T01:51:03.000Z"
+        },
+        {
+          "id": "e730059607cecd9cccf501d8a39f5d22f0993db8",
+          "title": "added pipeline inference code",
+          "message": "\n\nSigned-off-by: Kunal Dhawan <kunaldhawan97@gmail.com>\n",
+          "authors": [
+            {
+              "user": "Kunal Dhawan"
+            }
+          ],
+          "date": "2025-12-23T23:04:23.000Z"
+        },
+        {
+          "id": "0a6619d09d35683b5b0d2ec3599dd2006ba7d960",
+          "title": "add description of streaming inference pipeline (#1)",
+          "message": "\n\n\n- add description of streaming inference pipelin (0a82d63d57cfa5277f77f12d9cf14fe948a5a508)\n- Add code snippet for nemo streaming inference (0fc559672ae5cfcde07dbaed7a1f0fb00d0de055)\n- fix typo (d3b4b8f0996d9e2fbe93d1e6569e472cabb56d30)\n\n\nCo-authored-by: Mayank Jain <mayjainNV@users.noreply.huggingface.co>\n",
+          "authors": [
+            {
+              "user": "kunaldhawan",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/6452ac513f80ad88c779fdb8/mH1KJExNc4YnNVwGmbE5j.jpeg"
+            },
+            {
+              "user": "mayjainNV",
+              "avatar": "/avatars/7aeb9b6a658a1b1c7d762532f3f8ff21.svg"
+            }
+          ],
+          "date": "2025-12-23T22:58:54.000Z"
+        },
+        {
+          "id": "9b88d7eefc05b79344428d9c3ada99f3f7856163",
+          "title": "added bais, explainability, privacy, safety model cards",
+          "message": "\n\nSigned-off-by: Kunal Dhawan <kunaldhawan97@gmail.com>\n",
+          "authors": [
+            {
+              "user": "Kunal Dhawan"
+            }
+          ],
+          "date": "2025-12-23T02:15:03.000Z"
+        },
+        {
+          "id": "777a58be834be7ff3d4490c2261b054ad1d71e54",
+          "title": "Added DGX spark after testing",
+          "message": "",
+          "authors": [
+            {
+              "user": "kunaldhawan",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/6452ac513f80ad88c779fdb8/mH1KJExNc4YnNVwGmbE5j.jpeg"
+            }
+          ],
+          "date": "2025-12-23T01:54:27.000Z"
+        },
+        {
+          "id": "ad1dcbd80f5736e093acb57865141564691c239c",
+          "title": "update model card",
+          "message": "\n\nSigned-off-by: Kunal Dhawan <kunaldhawan97@gmail.com>\n",
+          "authors": [
+            {
+              "user": "Kunal Dhawan"
+            }
+          ],
+          "date": "2025-12-19T22:30:37.000Z"
+        },
+        {
+          "id": "87024928100976eb2649f0013aeb29c486a52402",
+          "title": "corrected model name",
+          "message": "\n\nSigned-off-by: Kunal Dhawan <kunaldhawan97@gmail.com>\n",
+          "authors": [
+            {
+              "user": "Kunal Dhawan"
+            }
+          ],
+          "date": "2025-12-19T22:00:19.000Z"
+        },
+        {
+          "id": "794c6c9e872fe4393bb58446bd2f5161d9e2f82e",
+          "title": "improved UI components",
+          "message": "\n\nSigned-off-by: Kunal Dhawan <kunaldhawan97@gmail.com>\n",
+          "authors": [
+            {
+              "user": "Kunal Dhawan"
+            }
+          ],
+          "date": "2025-12-19T21:59:26.000Z"
+        },
+        {
+          "id": "a680b856ea119de1203604381683c88586e2df8d",
+          "title": "updated model card",
+          "message": "\n\nSigned-off-by: Kunal Dhawan <kunaldhawan97@gmail.com>\n",
+          "authors": [
+            {
+              "user": "Kunal Dhawan"
+            }
+          ],
+          "date": "2025-12-19T20:25:21.000Z"
+        },
+        {
+          "id": "315535b2068c618fb0ddcdf1ef26e13b34a83783",
+          "title": "updated model name, table beautification",
+          "message": "\n\nSigned-off-by: Kunal Dhawan <kunaldhawan97@gmail.com>\n",
+          "authors": [
+            {
+              "user": "Kunal Dhawan"
+            }
+          ],
+          "date": "2025-12-19T01:52:30.000Z"
+        },
+        {
+          "id": "046c83d230008f4aa95777dcc92f5218c50d0aea",
+          "title": "Rename nemotron-speech-realtime-en-600m.nemo to nemotron-speech-streaming-en-0.6b.nemo",
+          "message": "",
+          "authors": [
+            {
+              "user": "kunaldhawan",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/6452ac513f80ad88c779fdb8/mH1KJExNc4YnNVwGmbE5j.jpeg"
+            }
+          ],
+          "date": "2025-12-19T01:23:56.000Z"
+        },
+        {
+          "id": "8d7222b3c0ae53668fc1b98f61b4316769429533",
+          "title": "Update the inference script parameters",
+          "message": "",
+          "authors": [
+            {
+              "user": "kunaldhawan",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/6452ac513f80ad88c779fdb8/mH1KJExNc4YnNVwGmbE5j.jpeg"
+            }
+          ],
+          "date": "2025-12-18T21:46:07.000Z"
+        },
+        {
+          "id": "9e21a4f0482c4ac609afb25f7eae1b0d09a07d14",
+          "title": "added results for 80msec",
+          "message": "\n\nSigned-off-by: Kunal Dhawan <kunaldhawan97@gmail.com>\n",
+          "authors": [
+            {
+              "user": "Kunal Dhawan"
+            }
+          ],
+          "date": "2025-12-18T01:46:05.000Z"
+        },
+        {
+          "id": "b17229561dde1fbfa2d552d168715328b9a54457",
+          "title": "upload figures for model card",
+          "message": "",
+          "authors": [
+            {
+              "user": "kunaldhawan",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/6452ac513f80ad88c779fdb8/mH1KJExNc4YnNVwGmbE5j.jpeg"
+            }
+          ],
+          "date": "2025-12-18T01:17:16.000Z"
+        },
+        {
+          "id": "b206256d91274a68ad4c44e7868b7369454c6e3e",
+          "title": "Delete figures/caching_schema.png",
+          "message": "",
+          "authors": [
+            {
+              "user": "kunaldhawan",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/6452ac513f80ad88c779fdb8/mH1KJExNc4YnNVwGmbE5j.jpeg"
+            }
+          ],
+          "date": "2025-12-18T01:16:20.000Z"
+        },
+        {
+          "id": "03418bbe3ebcb3dbfb076aed937b04e2516ee3b7",
+          "title": "add figures for model card",
+          "message": "\n\nSigned-off-by: Kunal Dhawan <kunaldhawan97@gmail.com>\n",
+          "authors": [
+            {
+              "user": "Kunal Dhawan"
+            }
+          ],
+          "date": "2025-12-18T01:03:02.000Z"
+        },
+        {
+          "id": "70ac68194effad76f27ef3f8bae7be373fbfdbc6",
+          "title": "upload figures for model card",
+          "message": "",
+          "authors": [
+            {
+              "user": "kunaldhawan",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/6452ac513f80ad88c779fdb8/mH1KJExNc4YnNVwGmbE5j.jpeg"
+            }
+          ],
+          "date": "2025-12-18T01:02:19.000Z"
+        },
+        {
+          "id": "8c16f1ab1ee997aeae276f0da38a96a4904ab576",
+          "title": "Upload nemotron-speech-realtime-en-600m.nemo",
+          "message": "",
+          "authors": [
+            {
+              "user": "kunaldhawan",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/6452ac513f80ad88c779fdb8/mH1KJExNc4YnNVwGmbE5j.jpeg"
+            }
+          ],
+          "date": "2025-12-18T01:01:33.000Z"
+        },
+        {
+          "id": "0fad992e92dd482cf8e8ac5a7cf12147ba0d2111",
+          "title": "updated model card fixing reference to google speech commands dataset",
+          "message": "\n\nSigned-off-by: Kunal Dhawan <kunaldhawan97@gmail.com>\n",
+          "authors": [
+            {
+              "user": "Kunal Dhawan"
+            }
+          ],
+          "date": "2025-12-18T00:59:52.000Z"
+        },
+        {
+          "id": "150339c4204db8f5a51faa6704895288e9364c11",
+          "title": "added nemotron-speech-realtime-en-600m model card",
+          "message": "\n\nSigned-off-by: Kunal Dhawan <kunaldhawan97@gmail.com>\n",
+          "authors": [
+            {
+              "user": "Kunal Dhawan"
+            }
+          ],
+          "date": "2025-12-18T00:57:43.000Z"
+        },
+        {
+          "id": "100fc004811c3fa365e8248f77ce81c5bea3d0aa",
+          "title": "initial commit",
+          "message": "",
+          "authors": [
+            {
+              "user": "kunaldhawan",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/6452ac513f80ad88c779fdb8/mH1KJExNc4YnNVwGmbE5j.jpeg"
+            }
+          ],
+          "date": "2025-12-17T01:07:38.000Z"
+        }
+      ],
+      "snapshots": [
+        {
+          "name": "README.md",
+          "sha256": "7701f4b2f1c16542c8ceb2b3a61dd144032898c17f4dc9cc1bbecda6972edec8",
+          "size": 25987,
+          "url": "https://huggingface.co/nvidia/nemotron-speech-streaming-en-0.6b/resolve/ebe59e5a817142986528bbbee5dba8db7b38ed50/README.md",
+          "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\metadata\\A2\\README.md"
+        },
+        {
+          "name": "bias.md",
+          "sha256": "39e6946fc24c38a9465843b43d24a7b58c4edb62f4b48a5c8d6a4b0e60a575f4",
+          "size": 510,
+          "url": "https://huggingface.co/nvidia/nemotron-speech-streaming-en-0.6b/resolve/ebe59e5a817142986528bbbee5dba8db7b38ed50/bias.md",
+          "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\metadata\\A2\\bias.md"
+        },
+        {
+          "name": "config.json",
+          "sha256": "dffe850bc79ad2b0f8117804502b24d2c4a445aafbed4c1e40f8d78e0cb44065",
+          "size": 1284,
+          "url": "https://huggingface.co/nvidia/nemotron-speech-streaming-en-0.6b/resolve/ebe59e5a817142986528bbbee5dba8db7b38ed50/config.json",
+          "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\metadata\\A2\\config.json"
+        },
+        {
+          "name": "explainability.md",
+          "sha256": "61fef25aef4c9eb07de62c5af97f2a313d05facc39ea24ed1f524b6798819c3b",
+          "size": 2180,
+          "url": "https://huggingface.co/nvidia/nemotron-speech-streaming-en-0.6b/resolve/ebe59e5a817142986528bbbee5dba8db7b38ed50/explainability.md",
+          "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\metadata\\A2\\explainability.md"
+        },
+        {
+          "name": "generation_config.json",
+          "sha256": "6ce531b39df8046cc8dbbe29dc64458b72972011d4717e160e6efb2c1af198d1",
+          "size": 192,
+          "url": "https://huggingface.co/nvidia/nemotron-speech-streaming-en-0.6b/resolve/ebe59e5a817142986528bbbee5dba8db7b38ed50/generation_config.json",
+          "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\metadata\\A2\\generation_config.json"
+        },
+        {
+          "name": "privacy.md",
+          "sha256": "11b539ce3b6bafc829628ce26b8fdb23ee6783b5ca66380b342c9291ee79bdde",
+          "size": 1902,
+          "url": "https://huggingface.co/nvidia/nemotron-speech-streaming-en-0.6b/resolve/ebe59e5a817142986528bbbee5dba8db7b38ed50/privacy.md",
+          "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\metadata\\A2\\privacy.md"
+        },
+        {
+          "name": "processor_config.json",
+          "sha256": "cf35efc9abdd0963db7e96967f8a91d9c8243803b9f6bbd900aa936ee3ce42f3",
+          "size": 525,
+          "url": "https://huggingface.co/nvidia/nemotron-speech-streaming-en-0.6b/resolve/ebe59e5a817142986528bbbee5dba8db7b38ed50/processor_config.json",
+          "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\metadata\\A2\\processor_config.json"
+        },
+        {
+          "name": "safety.md",
+          "sha256": "644108dc43bfab59a5ed3da41cbaf3e0fdb85a004dad5cbeafef76d3a1817a40",
+          "size": 737,
+          "url": "https://huggingface.co/nvidia/nemotron-speech-streaming-en-0.6b/resolve/ebe59e5a817142986528bbbee5dba8db7b38ed50/safety.md",
+          "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\metadata\\A2\\safety.md"
+        },
+        {
+          "name": "tokenizer.json",
+          "sha256": "60dc0361763fa3cd62df60f34fca3e61134676a939967853931db5f3869b2db2",
+          "size": 400216,
+          "url": "https://huggingface.co/nvidia/nemotron-speech-streaming-en-0.6b/resolve/ebe59e5a817142986528bbbee5dba8db7b38ed50/tokenizer.json",
+          "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\metadata\\A2\\tokenizer.json"
+        },
+        {
+          "name": "tokenizer_config.json",
+          "sha256": "0665bee664daf39a155e5ee013bb1d885c58b4901994abc07b9a6b3904cce132",
+          "size": 270,
+          "url": "https://huggingface.co/nvidia/nemotron-speech-streaming-en-0.6b/resolve/ebe59e5a817142986528bbbee5dba8db7b38ed50/tokenizer_config.json",
+          "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\metadata\\A2\\tokenizer_config.json"
+        }
+      ]
+    },
+    "A3": {
+      "repo": "nvidia/nemotron-3.5-asr-streaming-0.6b",
+      "revision": "ea30d66debe3740a08b573244286791d423d6b3e",
+      "created_at": "2026-05-15T21:52:25.000Z",
+      "repo_last_modified": "2026-09-10T16:49:07.000Z",
+      "gated": false,
+      "license_card_metadata": "other",
+      "siblings": [
+        {
+          "rfilename": ".gitattributes",
+          "blobId": "833a4f3d8b44e72954de07bf2e3f868e4e4bb131",
+          "size": 1647
+        },
+        {
+          "rfilename": "README.md",
+          "blobId": "0895dd071a831de8198d84ce219cd0640d8c8999",
+          "size": 54239
+        },
+        {
+          "rfilename": "arch_slide10.png",
+          "blobId": "40500aaec714b9329987c2f3da4602d9ee9cadd0",
+          "size": 87843,
+          "lfs": {
+            "sha256": "2be5d8ccfcd8232c6fc57ffacda125221382ef181ec239e1b6fdd78cf0c1c020",
+            "size": 87843,
+            "pointerSize": 130
+          }
+        },
+        {
+          "rfilename": "avg_wer_summary.png",
+          "blobId": "a20162960a4aedfc64a952222665e693ef2ec966",
+          "size": 65515,
+          "lfs": {
+            "sha256": "9a5474f81b64e0ce844c5907f073f7fab56a353d21db9196cd11aba22f787060",
+            "size": 65515,
+            "pointerSize": 130
+          }
+        },
+        {
+          "rfilename": "bias.md",
+          "blobId": "e46cac5e4f6f0c817b7e1fa83cf7cdf96af12ebd",
+          "size": 2104
+        },
+        {
+          "rfilename": "config.json",
+          "blobId": "3ba627e56b655f0600b652b273c6d1e05fbc78e4",
+          "size": 1376
+        },
+        {
+          "rfilename": "explainability.md",
+          "blobId": "cbb22303311f86dd77803b9efd392b5101436f0e",
+          "size": 2388
+        },
+        {
+          "rfilename": "fleurs_langid_vs_auto.png",
+          "blobId": "c8a7bed81ac5aa2f14d13e4ca0ca1bc0ec7dcf02",
+          "size": 83849,
+          "lfs": {
+            "sha256": "56c360a710c99cbf70c04006ec1f842b3796b72f5093178d438b2140049b3626",
+            "size": 83849,
+            "pointerSize": 130
+          }
+        },
+        {
+          "rfilename": "fleurs_wer_vs_chunk_size.png",
+          "blobId": "1f64e91a706ad0d50dfef976f9d8cc5034afc7bc",
+          "size": 92234,
+          "lfs": {
+            "sha256": "9b340101e45a7ba6268f1b9c90037d9c2cf00c2c1768272bd3bdcaffd9b231ff",
+            "size": 92234,
+            "pointerSize": 130
+          }
+        },
+        {
+          "rfilename": "generation_config.json",
+          "blobId": "b7ca70126139d1bfe866146bb414f372903effdb",
+          "size": 193
+        },
+        {
+          "rfilename": "latency_vs_parallel.png",
+          "blobId": "a4e0b27a1f5c845c767f64445b030fda1971123b",
+          "size": 139167,
+          "lfs": {
+            "sha256": "3e5636204786c68914f69c3f3158b4e698774b6e0dbd9120dbd996947e396638",
+            "size": 139167,
+            "pointerSize": 131
+          }
+        },
+        {
+          "rfilename": "model.safetensors",
+          "blobId": "f35b4becad4abfe0944047d71d6cec23fcf345e1",
+          "size": 2552062944,
+          "lfs": {
+            "sha256": "9eebdd6590289cb3030f310858f3df93256600a800a3e8200c5993d5f967e174",
+            "size": 2552062944,
+            "pointerSize": 135
+          }
+        },
+        {
+          "rfilename": "model_architecture.png",
+          "blobId": "aff8a16f447f72b3e48cb1b6746717ecb3f22766",
+          "size": 150586,
+          "lfs": {
+            "sha256": "3146643d1a7c8dd424adcb221a5dabbda6951da1ef3937f7d15b29e46e5fa272",
+            "size": 150586,
+            "pointerSize": 131
+          }
+        },
+        {
+          "rfilename": "model_overview.png",
+          "blobId": "77f3630cd3e8f4531e7a2635e8a2ddd0c35292af",
+          "size": 114032,
+          "lfs": {
+            "sha256": "075554d371b33de450cb7a13fa9886c3689855d4930b37edc1ecb954b01f33c5",
+            "size": 114032,
+            "pointerSize": 131
+          }
+        },
+        {
+          "rfilename": "nemotron-3.5-asr-streaming-0.6b.nemo",
+          "blobId": "cdc07d0eb40c1b945f0618098d388177f83c4bcf",
+          "size": 2368284501,
+          "lfs": {
+            "sha256": "210214ed94039bf6bfbb9a047c7fa289628db75b103e2bf6381fa78285436a74",
+            "size": 2368284501,
+            "pointerSize": 135
+          }
+        },
+        {
+          "rfilename": "nemotron-3.5-asr-streaming-0.6b.q8_0.gguf",
+          "blobId": "78118b9d4213c773ef1248d4a0d20a79ae2f2ac0",
+          "size": 742090464,
+          "lfs": {
+            "sha256": "3fc991d3badad7277c11030a7519832cddaf2057aafed6d4b25147e953a070b1",
+            "size": 742090464,
+            "pointerSize": 134
+          }
+        },
+        {
+          "rfilename": "privacy.md",
+          "blobId": "615cf01e1c9c95993bcb0768d141f295e45eb1a1",
+          "size": 2097
+        },
+        {
+          "rfilename": "processor_config.json",
+          "blobId": "d430fe73aa4a2a97b2a0ea606f768b5e71765c3d",
+          "size": 2519
+        },
+        {
+          "rfilename": "safety.md",
+          "blobId": "73d152c1bab8b6b7bbe7fd5c57f2dce5b1e49f30",
+          "size": 737
+        },
+        {
+          "rfilename": "throughput_vs_chunk.png",
+          "blobId": "392d9ecaf643acba7fb023cdc5e0a949ad84fd68",
+          "size": 69454,
+          "lfs": {
+            "sha256": "276b2f4e3dca6f5550f4215c8180ab244bc998401d65b54ce40400d228fee5da",
+            "size": 69454,
+            "pointerSize": 130
+          }
+        },
+        {
+          "rfilename": "tokenizer.json",
+          "blobId": "425c659bba34d7116233c6e102d2948c26e114f7",
+          "size": 752051
+        },
+        {
+          "rfilename": "tokenizer_config.json",
+          "blobId": "33e468c971b257265e23a56ca113d2e86b363b30",
+          "size": 881
+        }
+      ],
+      "commits": [
+        {
+          "id": "ea30d66debe3740a08b573244286791d423d6b3e",
+          "title": "Re-convert GGUF with embedded SentencePiece tokenizer (#32)",
+          "message": "\n\n\n- Re-convert GGUF with embedded SentencePiece tokenizer (f45952512456650fdf78d6beeb686c6e13bb2ae2)\n\n\nCo-authored-by: Ryan Leary <rleary@users.noreply.huggingface.co>\n",
+          "authors": [
+            {
+              "user": "Jinhanw",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/no-auth/c0hQHZxEJZVcYl8u0KJ8f.png"
+            },
+            {
+              "user": "rleary",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/1655835723403-62a9f031471f7e078320be8c.jpeg"
+            }
+          ],
+          "date": "2026-09-10T16:49:07.000Z"
+        },
+        {
+          "id": "1c8deaecc64b91f034d73e08dd8b64625eb3395d",
+          "title": "Add NeMo-Speech.cpp GGUF (#28)",
+          "message": "\n\n\n- Add NeMo-Speech.cpp GGUF (2e83bd1da4f3e470babc6711d6ce7f9436dced74)\n\n\nCo-authored-by: Prabhsimran Singh <prabhsimrans-nv@users.noreply.huggingface.co>\n",
+          "authors": [
+            {
+              "user": "Jinhanw",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/no-auth/c0hQHZxEJZVcYl8u0KJ8f.png"
+            },
+            {
+              "user": "prabhsimrans-nv",
+              "avatar": "/avatars/161ba583c7f806ed13919429c53f55f9.svg"
+            }
+          ],
+          "date": "2026-08-05T18:52:16.000Z"
+        },
+        {
+          "id": "f3d333391852ba876df169dcc9ba902d25b6ab0b",
+          "title": "Update README: available in Transformers 5.13.0 (#23)",
+          "message": "\n\n\n- Update README: available in Transformers 5.13.0 (577b270c0db7b1c23dda1903beec16f7c9b1a016)\n\n\nCo-authored-by: Eustache Le Bihan <eustlb@users.noreply.huggingface.co>\n",
+          "authors": [
+            {
+              "user": "nithinraok",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/627c7b641b02d7b5bf67f4cc/WDxJiOaqgh-BoH7AcvBYi.png"
+            },
+            {
+              "user": "eustlb",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/660bc459d81d6112496f30f8/jMrpAckFyg-_iHMI7sn2h.jpeg"
+            }
+          ],
+          "date": "2026-07-06T13:53:14.000Z"
+        },
+        {
+          "id": "c9bd53605b8b385d186177a93a9dddfbe2e67bef",
+          "title": "Add \ud83e\udd17 Transformers support (#20)",
+          "message": "\n\n\n- Upload processor (2af778cf06cfcc4bb943ed309c66a12008d98475)\n- Upload Nemotron3_5AsrForRNNT (6f4cda233ca61c8aab428544a3344d96904f9983)\n- Add \ud83e\udd17 Transformers usage to model card (65267afc897a237850eda75e6ce45eb278fa73a4)\n- Rebase model card on main; add \ud83e\udd17 Transformers usage only (153610ad16586dfc19b57ad9060b9bb6e367b04d)\n- Drop revision pin from Transformers snippets (not needed post-merge) (be133a9c2559b9f39bad8c7a789832bdc21a3fde)\n- Add Pipeline usage snippet to Transformers section (92bc43f5297e5b145773660d07935052f9419a9e)\n- config: drop unused joint_hidden_size, add default_prompt_id=101 (auto) (3afa791cd14f1c185541cb7b8c015096db946b66)\n- config: drop redundant decoder_start_token_id (carried by generation_config) (299cc89044b022111fef860bee4244296b0eaf95)\n\n\nCo-authored-by: Eustache Le Bihan <eustlb@users.noreply.huggingface.co>\n",
+          "authors": [
+            {
+              "user": "kunaldhawan",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/6452ac513f80ad88c779fdb8/mH1KJExNc4YnNVwGmbE5j.jpeg"
+            },
+            {
+              "user": "eustlb",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/660bc459d81d6112496f30f8/jMrpAckFyg-_iHMI7sn2h.jpeg"
+            }
+          ],
+          "date": "2026-06-26T17:53:33.000Z"
+        },
+        {
+          "id": "3fc30f3e2ae5d78d462441f3ce89dda694f89bd7",
+          "title": "Update model card",
+          "message": "\n\nSigned-off-by: Jinhan <jinhanw@nvidia.com>\n",
+          "authors": [
+            {
+              "user": "Jinhanw",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/no-auth/c0hQHZxEJZVcYl8u0KJ8f.png"
+            }
+          ],
+          "date": "2026-06-16T16:01:48.000Z"
+        },
+        {
+          "id": "5cc9a6b1f36afa5817f60fd159807b573fe3a0fd",
+          "title": "Update model card",
+          "message": "\n\nSigned-off-by: Jinhan <jinhanw@nvidia.com>\n",
+          "authors": [
+            {
+              "user": "Jinhanw",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/no-auth/c0hQHZxEJZVcYl8u0KJ8f.png"
+            }
+          ],
+          "date": "2026-06-16T01:19:04.000Z"
+        },
+        {
+          "id": "4feb1a47492c18bf3f1d480289778287862e674e",
+          "title": "Update model card",
+          "message": "\n\nSigned-off-by: Jinhan <jinhanw@nvidia.com>\n",
+          "authors": [
+            {
+              "user": "Jinhanw",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/no-auth/c0hQHZxEJZVcYl8u0KJ8f.png"
+            }
+          ],
+          "date": "2026-06-16T01:16:36.000Z"
+        },
+        {
+          "id": "114e5325c0fc501471e90d977165d15432c12d65",
+          "title": "Update model card",
+          "message": "\n\nSigned-off-by: Jinhan <jinhanw@nvidia.com>\n",
+          "authors": [
+            {
+              "user": "Jinhanw",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/no-auth/c0hQHZxEJZVcYl8u0KJ8f.png"
+            }
+          ],
+          "date": "2026-06-16T01:13:54.000Z"
+        },
+        {
+          "id": "9e6abce08da928dc23a59a9610d1f00734e3dace",
+          "title": "Update model card",
+          "message": "\n\nSigned-off-by: Jinhan <jinhanw@nvidia.com>\n",
+          "authors": [
+            {
+              "user": "Jinhanw",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/no-auth/c0hQHZxEJZVcYl8u0KJ8f.png"
+            }
+          ],
+          "date": "2026-06-16T01:12:35.000Z"
+        },
+        {
+          "id": "24b151a851dd15909e1fc611b11bb2da52b9fc81",
+          "title": "Update License",
+          "message": "\n\nSigned-off-by: Jinhan <jinhanw@nvidia.com>\n",
+          "authors": [
+            {
+              "user": "Jinhanw",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/no-auth/c0hQHZxEJZVcYl8u0KJ8f.png"
+            }
+          ],
+          "date": "2026-06-05T21:59:07.000Z"
+        },
+        {
+          "id": "ab89ab0ff2d7518b5069af932c1bd95169cc258d",
+          "title": "Update License",
+          "message": "\n\nSigned-off-by: Jinhan <jinhanw@nvidia.com>\n",
+          "authors": [
+            {
+              "user": "Jinhanw",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/no-auth/c0hQHZxEJZVcYl8u0KJ8f.png"
+            }
+          ],
+          "date": "2026-06-05T21:58:15.000Z"
+        },
+        {
+          "id": "41defcb14fafdcf62317e151731f094e9e7da654",
+          "title": "Update License",
+          "message": "\n\nSigned-off-by: Jinhan <jinhanw@nvidia.com>\n",
+          "authors": [
+            {
+              "user": "Jinhanw",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/no-auth/c0hQHZxEJZVcYl8u0KJ8f.png"
+            }
+          ],
+          "date": "2026-06-05T21:56:57.000Z"
+        },
+        {
+          "id": "3d84923842d4425b4c10a8eca776858b8af9765c",
+          "title": "Stack Results-at-a-Glance and Throughput figures vertically at larger size for readability (#3)",
+          "message": "\n\n\n- Stack Results-at-a-Glance and Throughput figures vertically at larger size for readability (037465b1a75eee292df23d7446c99a371ebb6142)\n\n",
+          "authors": [
+            {
+              "user": "enas-albasiri",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/6a1e13728a8594a3b4c406a7/s5Jjp1xwq_8UD4TX-tdGx.jpeg"
+            }
+          ],
+          "date": "2026-06-04T14:11:00.000Z"
+        },
+        {
+          "id": "1ac733f92a345e6d7f08cc9563d58a2e7a6d50a7",
+          "title": "Update README.md",
+          "message": "\n\nSigned-off-by: Jinhan <jinhanw@nvidia.com>\n",
+          "authors": [
+            {
+              "user": "Jinhanw",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/no-auth/c0hQHZxEJZVcYl8u0KJ8f.png"
+            }
+          ],
+          "date": "2026-06-04T12:54:31.000Z"
+        },
+        {
+          "id": "fa8778bd989a9bf3f7cd8610248b8134f806239f",
+          "title": "Update blog post URL",
+          "message": "\n\nSigned-off-by: Jinhan <jinhanw@nvidia.com>\n",
+          "authors": [
+            {
+              "user": "Jinhanw",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/no-auth/c0hQHZxEJZVcYl8u0KJ8f.png"
+            }
+          ],
+          "date": "2026-06-04T04:54:48.000Z"
+        },
+        {
+          "id": "ac83711d54f4a7fdca6bbe4911db12a4a84a82c2",
+          "title": "Update blog post URL",
+          "message": "\n\nSigned-off-by: Jinhan <jinhanw@nvidia.com>\n",
+          "authors": [
+            {
+              "user": "Jinhanw",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/no-auth/c0hQHZxEJZVcYl8u0KJ8f.png"
+            }
+          ],
+          "date": "2026-06-04T04:54:02.000Z"
+        },
+        {
+          "id": "82d5ee1134f5746f627815d0e192b4ec8f939816",
+          "title": "Update other docs + Update Figures",
+          "message": "\n\nSigned-off-by: Jinhan <jinhanw@nvidia.com>\n",
+          "authors": [
+            {
+              "user": "Jinhanw",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/no-auth/c0hQHZxEJZVcYl8u0KJ8f.png"
+            }
+          ],
+          "date": "2026-06-04T04:26:55.000Z"
+        },
+        {
+          "id": "334418fec07d177857ee81b8ec6ab36f1c45533c",
+          "title": "Update model card",
+          "message": "\n\nSigned-off-by: Jinhan <jinhanw@nvidia.com>\n",
+          "authors": [
+            {
+              "user": "Jinhanw",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/no-auth/c0hQHZxEJZVcYl8u0KJ8f.png"
+            }
+          ],
+          "date": "2026-06-04T02:53:25.000Z"
+        },
+        {
+          "id": "3cfc51fd3ea0a9b91c237556fbda958c4c30e9fb",
+          "title": "Update Figure",
+          "message": "\n\nSigned-off-by: Jinhan <jinhanw@nvidia.com>\n",
+          "authors": [
+            {
+              "user": "Jinhanw",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/no-auth/c0hQHZxEJZVcYl8u0KJ8f.png"
+            }
+          ],
+          "date": "2026-06-04T02:26:28.000Z"
+        },
+        {
+          "id": "984e9260e4802976ef8474fc719949b7308ddb45",
+          "title": "Update Model Card",
+          "message": "\n\nSigned-off-by: Jinhan <jinhanw@nvidia.com>\n",
+          "authors": [
+            {
+              "user": "Jinhanw",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/no-auth/c0hQHZxEJZVcYl8u0KJ8f.png"
+            }
+          ],
+          "date": "2026-06-04T01:59:43.000Z"
+        },
+        {
+          "id": "bc3fe965233cde3e07ef8bf34a84ad1dd17e9510",
+          "title": "Update model_card",
+          "message": "\n\nSigned-off-by: Jinhan <jinhanw@nvidia.com>\n",
+          "authors": [
+            {
+              "user": "Jinhanw",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/no-auth/c0hQHZxEJZVcYl8u0KJ8f.png"
+            }
+          ],
+          "date": "2026-06-04T01:40:34.000Z"
+        },
+        {
+          "id": "8b8793c968fa0bf4a1aae291889db88e97837c5e",
+          "title": "Update Model Name",
+          "message": "\n\nSigned-off-by: Jinhan <jinhanw@nvidia.com>\n",
+          "authors": [
+            {
+              "user": "Jinhanw",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/no-auth/c0hQHZxEJZVcYl8u0KJ8f.png"
+            }
+          ],
+          "date": "2026-06-04T01:08:49.000Z"
+        },
+        {
+          "id": "22a16aed12c83a96c13be1eef6b93f37a1d73a4c",
+          "title": "Update private_README.md and add figures (PNGs via LFS)",
+          "message": "\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>\n",
+          "authors": [
+            {
+              "user": "Jinhanw",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/no-auth/c0hQHZxEJZVcYl8u0KJ8f.png"
+            },
+            {
+              "user": "Claude Opus 4.8 (1M context)"
+            }
+          ],
+          "date": "2026-06-04T00:44:11.000Z"
+        },
+        {
+          "id": "a81a6498fff4e9cbe9325cc099e63e42daa1018f",
+          "title": "Fixing Typo",
+          "message": "\n\nSigned-off-by: Jinhan <jinhanw@nvidia.com>\n",
+          "authors": [
+            {
+              "user": "Jinhanw",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/no-auth/c0hQHZxEJZVcYl8u0KJ8f.png"
+            }
+          ],
+          "date": "2026-06-02T23:23:47.000Z"
+        },
+        {
+          "id": "fb1edfb7c1c90f996a737694798548211c4c4352",
+          "title": "Update context_size",
+          "message": "\n\nSigned-off-by: Jinhan <jinhanw@nvidia.com>\n",
+          "authors": [
+            {
+              "user": "Jinhanw",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/no-auth/c0hQHZxEJZVcYl8u0KJ8f.png"
+            }
+          ],
+          "date": "2026-05-31T03:08:36.000Z"
+        },
+        {
+          "id": "42887a1043221f9f6e678e620d0749eb7ccd1d27",
+          "title": "Set default context size to [56,3]",
+          "message": "\n\nSigned-off-by: Jinhan <jinhanw@nvidia.com>\n",
+          "authors": [
+            {
+              "user": "Jinhanw",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/no-auth/c0hQHZxEJZVcYl8u0KJ8f.png"
+            }
+          ],
+          "date": "2026-05-30T06:16:19.000Z"
+        },
+        {
+          "id": "b0da14f6c967bc523561323dfb22dc8ba68c8d20",
+          "title": "Update ckpt & README.md & Renaming",
+          "message": "\n\nSigned-off-by: Jinhan <jinhanw@nvidia.com>\n",
+          "authors": [
+            {
+              "user": "Jinhanw",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/no-auth/c0hQHZxEJZVcYl8u0KJ8f.png"
+            }
+          ],
+          "date": "2026-05-30T00:35:45.000Z"
+        },
+        {
+          "id": "1b1af86024e3b2b7af07fa38493acb88b1ea0c94",
+          "title": "Update README.md",
+          "message": "\n\nSigned-off-by: Jinhan <jinhanw@nvidia.com>\n",
+          "authors": [
+            {
+              "user": "Jinhanw",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/no-auth/c0hQHZxEJZVcYl8u0KJ8f.png"
+            }
+          ],
+          "date": "2026-05-16T05:35:07.000Z"
+        },
+        {
+          "id": "87d48421cdd39b7c093403b299f6288629ff921a",
+          "title": "Update README.md",
+          "message": "\n\nSigned-off-by: Jinhan <jinhanw@nvidia.com>\n",
+          "authors": [
+            {
+              "user": "Jinhanw",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/no-auth/c0hQHZxEJZVcYl8u0KJ8f.png"
+            }
+          ],
+          "date": "2026-05-16T02:55:30.000Z"
+        },
+        {
+          "id": "d1e31d16a2b08ee5937fcd87c08bd48c83527115",
+          "title": "Temp private_README.md",
+          "message": "\n\nSigned-off-by: Jinhan <jinhanw@nvidia.com>\n",
+          "authors": [
+            {
+              "user": "Jinhanw",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/no-auth/c0hQHZxEJZVcYl8u0KJ8f.png"
+            }
+          ],
+          "date": "2026-05-16T00:53:43.000Z"
+        },
+        {
+          "id": "35cfa15d348ad842e4be4528f39b59c32d04051f",
+          "title": "Add supported att_context_size",
+          "message": "\n\nSigned-off-by: Jinhan <jinhanw@nvidia.com>\n",
+          "authors": [
+            {
+              "user": "Jinhanw",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/no-auth/c0hQHZxEJZVcYl8u0KJ8f.png"
+            }
+          ],
+          "date": "2026-05-15T23:07:11.000Z"
+        },
+        {
+          "id": "832de54000fe0ab4f24e23ce1f8a3efa834844a7",
+          "title": "Add streaming inference scripts",
+          "message": "\n\nSigned-off-by: Jinhan <jinhanw@nvidia.com>\n",
+          "authors": [
+            {
+              "user": "Jinhanw",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/no-auth/c0hQHZxEJZVcYl8u0KJ8f.png"
+            }
+          ],
+          "date": "2026-05-15T22:46:42.000Z"
+        },
+        {
+          "id": "9c77e2ff41681e132992a31774a8194558f997ea",
+          "title": "Upload nemo model",
+          "message": "\n\nSigned-off-by: Jinhan <jinhanw@nvidia.com>\n",
+          "authors": [
+            {
+              "user": "Jinhanw",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/no-auth/c0hQHZxEJZVcYl8u0KJ8f.png"
+            }
+          ],
+          "date": "2026-05-15T22:19:58.000Z"
+        },
+        {
+          "id": "1b7da11b4a7be4ed88e13dc1815b049a1315c0b7",
+          "title": "Revise README.md format",
+          "message": "\n\nSigned-off-by: Jinhan <jinhanw@nvidia.com>\n",
+          "authors": [
+            {
+              "user": "Jinhanw",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/no-auth/c0hQHZxEJZVcYl8u0KJ8f.png"
+            }
+          ],
+          "date": "2026-05-15T22:15:22.000Z"
+        },
+        {
+          "id": "aeb9faa2b64d1a82f5579d81f9a39022d5a7fa83",
+          "title": "Add documents",
+          "message": "\n\nSigned-off-by: Jinhan <jinhanw@nvidia.com>\n",
+          "authors": [
+            {
+              "user": "Jinhanw",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/no-auth/c0hQHZxEJZVcYl8u0KJ8f.png"
+            }
+          ],
+          "date": "2026-05-15T22:10:53.000Z"
+        },
+        {
+          "id": "41383e61aa0f9db486d358a935f84b13c08676d4",
+          "title": "initial commit",
+          "message": "",
+          "authors": [
+            {
+              "user": "Jinhanw",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/no-auth/c0hQHZxEJZVcYl8u0KJ8f.png"
+            }
+          ],
+          "date": "2026-05-15T21:52:26.000Z"
+        }
+      ],
+      "snapshots": [
+        {
+          "name": "README.md",
+          "sha256": "a3344caadf796c084c6b90a9fa5978068fd45e3a019790bebe50489bb3c0f7b7",
+          "size": 54239,
+          "url": "https://huggingface.co/nvidia/nemotron-3.5-asr-streaming-0.6b/resolve/ea30d66debe3740a08b573244286791d423d6b3e/README.md",
+          "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\metadata\\A3\\README.md"
+        },
+        {
+          "name": "bias.md",
+          "sha256": "c867da097b69770c3c12d06debbb7df9d8fbf63764fb8a8bad0fee01a98e61c2",
+          "size": 2104,
+          "url": "https://huggingface.co/nvidia/nemotron-3.5-asr-streaming-0.6b/resolve/ea30d66debe3740a08b573244286791d423d6b3e/bias.md",
+          "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\metadata\\A3\\bias.md"
+        },
+        {
+          "name": "config.json",
+          "sha256": "62d186fd91f518e00e7867500f1f5819225e8ee95ea3e21b546514bf2048e845",
+          "size": 1376,
+          "url": "https://huggingface.co/nvidia/nemotron-3.5-asr-streaming-0.6b/resolve/ea30d66debe3740a08b573244286791d423d6b3e/config.json",
+          "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\metadata\\A3\\config.json"
+        },
+        {
+          "name": "explainability.md",
+          "sha256": "0f7b9ef8481da911bc54d2f57ba0960cad80f74a6acbc7e4fd5dd57d1fc2d93a",
+          "size": 2388,
+          "url": "https://huggingface.co/nvidia/nemotron-3.5-asr-streaming-0.6b/resolve/ea30d66debe3740a08b573244286791d423d6b3e/explainability.md",
+          "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\metadata\\A3\\explainability.md"
+        },
+        {
+          "name": "generation_config.json",
+          "sha256": "993e5d4cb74a6fe9d6e7084a76b3313c1446740679be4676570c23b664fdc07e",
+          "size": 193,
+          "url": "https://huggingface.co/nvidia/nemotron-3.5-asr-streaming-0.6b/resolve/ea30d66debe3740a08b573244286791d423d6b3e/generation_config.json",
+          "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\metadata\\A3\\generation_config.json"
+        },
+        {
+          "name": "privacy.md",
+          "sha256": "c662e372f07b12892e4a6f6d5d74abb503b82931fa74c3ef959859719ef5788b",
+          "size": 2097,
+          "url": "https://huggingface.co/nvidia/nemotron-3.5-asr-streaming-0.6b/resolve/ea30d66debe3740a08b573244286791d423d6b3e/privacy.md",
+          "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\metadata\\A3\\privacy.md"
+        },
+        {
+          "name": "processor_config.json",
+          "sha256": "ec47870f1091ea4f25539208387b45b902c92d0e3f997a30061ef88f73437ab0",
+          "size": 2519,
+          "url": "https://huggingface.co/nvidia/nemotron-3.5-asr-streaming-0.6b/resolve/ea30d66debe3740a08b573244286791d423d6b3e/processor_config.json",
+          "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\metadata\\A3\\processor_config.json"
+        },
+        {
+          "name": "safety.md",
+          "sha256": "0eb7a4d7eac77d0a3a1af275a73d69b94989dcc04ddb905f06937ac36d6dd3c2",
+          "size": 737,
+          "url": "https://huggingface.co/nvidia/nemotron-3.5-asr-streaming-0.6b/resolve/ea30d66debe3740a08b573244286791d423d6b3e/safety.md",
+          "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\metadata\\A3\\safety.md"
+        },
+        {
+          "name": "tokenizer.json",
+          "sha256": "3f3d481deb073b64c2082e8c7860d487a3a62774bf4e9e4faac83007e181f246",
+          "size": 752051,
+          "url": "https://huggingface.co/nvidia/nemotron-3.5-asr-streaming-0.6b/resolve/ea30d66debe3740a08b573244286791d423d6b3e/tokenizer.json",
+          "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\metadata\\A3\\tokenizer.json"
+        },
+        {
+          "name": "tokenizer_config.json",
+          "sha256": "5c641c5b3f50702a60082690d27c1ce7fcb5a92c4a624793bcae0f21eda3d6e0",
+          "size": 881,
+          "url": "https://huggingface.co/nvidia/nemotron-3.5-asr-streaming-0.6b/resolve/ea30d66debe3740a08b573244286791d423d6b3e/tokenizer_config.json",
+          "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\metadata\\A3\\tokenizer_config.json"
+        }
+      ]
+    },
+    "X1": {
+      "repo": "nvidia/multitalker-parakeet-streaming-0.6b-v1",
+      "revision": "8749fc71fd6e2d88ef230159bbf2aea69b524ee1",
+      "created_at": "2025-10-15T23:41:41.000Z",
+      "repo_last_modified": "2026-01-28T02:03:41.000Z",
+      "gated": false,
+      "license_card_metadata": "other",
+      "siblings": [
+        {
+          "rfilename": ".gitattributes",
+          "blobId": "3f84bba92c0299a8f79f15b0d18ab24ceb221231",
+          "size": 2120
+        },
+        {
+          "rfilename": "README.md",
+          "blobId": "bf927e219867766ae946c6dd40d9f14a27863007",
+          "size": 19703
+        },
+        {
+          "rfilename": "README_expired.md",
+          "blobId": "f68ac8d3371fa70d6410319d90d99e544935fbdd",
+          "size": 189
+        },
+        {
+          "rfilename": "bias.md",
+          "blobId": "2d46469a08dd9a70dec5032f941a703cbe9f56f2",
+          "size": 542
+        },
+        {
+          "rfilename": "example.py",
+          "blobId": "7b22510db36c510aae194f52fec7f1e88a0c0c49",
+          "size": 3641
+        },
+        {
+          "rfilename": "explainability.md",
+          "blobId": "f8c1a37e48dbc9dccbdd96a2e4a81ebc95fa60e8",
+          "size": 2889
+        },
+        {
+          "rfilename": "figures/multi_instance.png",
+          "blobId": "6ff9dd4e4fb18ceabedc1dcc38df51dbb4ffe893",
+          "size": 838801,
+          "lfs": {
+            "sha256": "608a4444100748c45dbc0f38d0382c0daabf2670c1fc53c1cdb2fa452ac86b22",
+            "size": 838801,
+            "pointerSize": 131
+          }
+        },
+        {
+          "rfilename": "figures/speaker_injection.png",
+          "blobId": "5378433045628ee12286dde33ee7df1df5acc2e7",
+          "size": 336113,
+          "lfs": {
+            "sha256": "d9401ded881c1104bebcac66db09464715eef1008f4911208f7918cf37a1c62e",
+            "size": 336113,
+            "pointerSize": 131
+          }
+        },
+        {
+          "rfilename": "figures/test.txt",
+          "blobId": "cc12087def83027be7cb8486ab4422fa3dd0741a",
+          "size": 5
+        },
+        {
+          "rfilename": "multitalker-parakeet-streaming-0.6b-v1.nemo",
+          "blobId": "6e65563817243874d0eef3794e13fe11d1b172a5",
+          "size": 2489825280,
+          "lfs": {
+            "sha256": "afaefe89829e201a0ee22c67a715eb5a467bd06c0704cc1579fbfb370fb5be73",
+            "size": 2489825280,
+            "pointerSize": 135
+          }
+        },
+        {
+          "rfilename": "multitalker_transcript_config.py",
+          "blobId": "155ee917fe2f271a58b627b440b4a93c2850ba70",
+          "size": 4524
+        },
+        {
+          "rfilename": "privacy.md",
+          "blobId": "3c5fe0740aa4db1c687bee9c869a5fa486da5c4c",
+          "size": 1902
+        },
+        {
+          "rfilename": "safety.md",
+          "blobId": "1df9cb23b6fe895ec9b880138b83c7c16f531714",
+          "size": 782
+        }
+      ],
+      "commits": [
+        {
+          "id": "8749fc71fd6e2d88ef230159bbf2aea69b524ee1",
+          "title": "Update README.md",
+          "message": "",
+          "authors": [
+            {
+              "user": "taejinp",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/no-auth/zuXrk1DZCYWoLPTXEzprh.png"
+            }
+          ],
+          "date": "2026-01-28T02:03:41.000Z"
+        },
+        {
+          "id": "f6a2b511daab19ba3a49375f2c29fe696eeae23c",
+          "title": "Update README.md",
+          "message": "",
+          "authors": [
+            {
+              "user": "taejinp",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/no-auth/zuXrk1DZCYWoLPTXEzprh.png"
+            }
+          ],
+          "date": "2026-01-28T02:02:37.000Z"
+        },
+        {
+          "id": "8237d7afd7b7984323070d194485dba68d2d9790",
+          "title": "Update README.md",
+          "message": "",
+          "authors": [
+            {
+              "user": "taejinp",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/no-auth/zuXrk1DZCYWoLPTXEzprh.png"
+            }
+          ],
+          "date": "2026-01-28T01:59:22.000Z"
+        },
+        {
+          "id": "448b48ba2f48785a70fc17d6cacd00f7be77f94e",
+          "title": "Update README.md",
+          "message": "",
+          "authors": [
+            {
+              "user": "taejinp",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/no-auth/zuXrk1DZCYWoLPTXEzprh.png"
+            }
+          ],
+          "date": "2026-01-28T01:42:56.000Z"
+        },
+        {
+          "id": "9006626f3d79837a61e92ec873f44ab023d0140b",
+          "title": "Update README.md",
+          "message": "",
+          "authors": [
+            {
+              "user": "taejinp",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/no-auth/zuXrk1DZCYWoLPTXEzprh.png"
+            }
+          ],
+          "date": "2026-01-28T01:39:43.000Z"
+        },
+        {
+          "id": "cc868d9cde4f8b33b46cdd0c4d99ddd55fb9009a",
+          "title": "Update README.md",
+          "message": "",
+          "authors": [
+            {
+              "user": "taejinp",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/no-auth/zuXrk1DZCYWoLPTXEzprh.png"
+            }
+          ],
+          "date": "2025-12-15T17:35:38.000Z"
+        },
+        {
+          "id": "8ac562212b5199f5f3977e5b585c843fbafcedee",
+          "title": "Update README.md",
+          "message": "",
+          "authors": [
+            {
+              "user": "taejinp",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/no-auth/zuXrk1DZCYWoLPTXEzprh.png"
+            }
+          ],
+          "date": "2025-12-09T22:24:51.000Z"
+        },
+        {
+          "id": "2065eb113e3fa09cd19c1379e8055fa055d9e08d",
+          "title": "Update README.md",
+          "message": "",
+          "authors": [
+            {
+              "user": "taejinp",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/no-auth/zuXrk1DZCYWoLPTXEzprh.png"
+            }
+          ],
+          "date": "2025-12-08T19:01:48.000Z"
+        },
+        {
+          "id": "457d5e7b9bff14f732fc585a58b996a70220b379",
+          "title": "Update README.md",
+          "message": "",
+          "authors": [
+            {
+              "user": "taejinp",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/no-auth/zuXrk1DZCYWoLPTXEzprh.png"
+            }
+          ],
+          "date": "2025-12-08T18:59:53.000Z"
+        },
+        {
+          "id": "1be9bf9c8259b93d786b0040215fbf016c7b4cc1",
+          "title": "Adding subcards from nemo model cards",
+          "message": "\n\nSigned-off-by: taejinp <tango4j@gmail.com>\n",
+          "authors": [
+            {
+              "user": "Taejin",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/6286810cd238eeca5889782c/DTuyjQQJRSFAdISK20wUF.jpeg"
+            }
+          ],
+          "date": "2025-12-05T22:33:27.000Z"
+        },
+        {
+          "id": "d12f0f393957d737cd0284160add024b7ef6a391",
+          "title": "Added documentation links",
+          "message": "",
+          "authors": [
+            {
+              "user": "jbalam-nv",
+              "avatar": "/avatars/388f8b4666335fa92487656bc284504f.svg"
+            }
+          ],
+          "date": "2025-12-03T22:21:31.000Z"
+        },
+        {
+          "id": "870c2babd40ba704cbb6a62b44bec03b08553a9f",
+          "title": "Rename private_README.md to README.md",
+          "message": "",
+          "authors": [
+            {
+              "user": "taejinp",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/no-auth/zuXrk1DZCYWoLPTXEzprh.png"
+            }
+          ],
+          "date": "2025-12-01T13:25:26.000Z"
+        },
+        {
+          "id": "861e2fc3e7a75a992e50f1f68648228a92007535",
+          "title": "Rename README.md to README_expired.md",
+          "message": "",
+          "authors": [
+            {
+              "user": "taejinp",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/no-auth/zuXrk1DZCYWoLPTXEzprh.png"
+            }
+          ],
+          "date": "2025-12-01T13:25:12.000Z"
+        },
+        {
+          "id": "ac28d6b0253a380429017443e74e23a80e0ca3a4",
+          "title": "Update private_README.md",
+          "message": "",
+          "authors": [
+            {
+              "user": "taejinp",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/no-auth/zuXrk1DZCYWoLPTXEzprh.png"
+            }
+          ],
+          "date": "2025-11-06T02:06:11.000Z"
+        },
+        {
+          "id": "cfc5de5194e98158bf75507e79a4c9684bf47d29",
+          "title": "Update multitalker_transcript_config.py",
+          "message": "",
+          "authors": [
+            {
+              "user": "taejinp",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/no-auth/zuXrk1DZCYWoLPTXEzprh.png"
+            }
+          ],
+          "date": "2025-11-01T00:33:08.000Z"
+        },
+        {
+          "id": "958700cce42af75271a168ad6307ea51f4608300",
+          "title": "Create README.md",
+          "message": "",
+          "authors": [
+            {
+              "user": "taejinp",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/no-auth/zuXrk1DZCYWoLPTXEzprh.png"
+            }
+          ],
+          "date": "2025-10-31T23:07:44.000Z"
+        },
+        {
+          "id": "36a59437767ccbc40e0aa077572834f1f3fce767",
+          "title": "Rename README.md to private_README.md",
+          "message": "",
+          "authors": [
+            {
+              "user": "taejinp",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/no-auth/zuXrk1DZCYWoLPTXEzprh.png"
+            }
+          ],
+          "date": "2025-10-31T22:56:44.000Z"
+        },
+        {
+          "id": "719134e12f2e214a52102630c9251619b4361754",
+          "title": "Adding exampl.py",
+          "message": "\n\nSigned-off-by: taejinp <tango4j@gmail.com>\n",
+          "authors": [
+            {
+              "user": "Taejin",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/6286810cd238eeca5889782c/DTuyjQQJRSFAdISK20wUF.jpeg"
+            }
+          ],
+          "date": "2025-10-31T22:47:08.000Z"
+        },
+        {
+          "id": "8b4a1988c89f2f28a0c115dca8b1134280e55d12",
+          "title": "Merge branch 'main' of https://huggingface.co/nvidia/multitalker-parakeet-streaming-0.6b-v1 into main",
+          "message": "\n",
+          "authors": [
+            {
+              "user": "Taejin",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/6286810cd238eeca5889782c/DTuyjQQJRSFAdISK20wUF.jpeg"
+            }
+          ],
+          "date": "2025-10-31T22:36:58.000Z"
+        },
+        {
+          "id": "22e85363003b8384d331d9dd9a60f24965fe7bfe",
+          "title": "Edited README with the codesnippets",
+          "message": "\n\nSigned-off-by: taejinp <tango4j@gmail.com>\n",
+          "authors": [
+            {
+              "user": "Taejin",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/6286810cd238eeca5889782c/DTuyjQQJRSFAdISK20wUF.jpeg"
+            }
+          ],
+          "date": "2025-10-31T22:36:02.000Z"
+        },
+        {
+          "id": "bc68e4e4e29ccf0fc83df2ab16bb3e520947d085",
+          "title": "Rename multitalker-parakeet-streaming-0.6b-v1 to multitalker-parakeet-streaming-0.6b-v1.nemo",
+          "message": "",
+          "authors": [
+            {
+              "user": "taejinp",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/no-auth/zuXrk1DZCYWoLPTXEzprh.png"
+            }
+          ],
+          "date": "2025-10-31T20:54:57.000Z"
+        },
+        {
+          "id": "6b5086ddbadfbc8cb3cf50fc31cf9cf89d5cb0a9",
+          "title": "Fixing the code snippets",
+          "message": "\n\nSigned-off-by: taejinp <tango4j@gmail.com>\n",
+          "authors": [
+            {
+              "user": "Taejin",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/6286810cd238eeca5889782c/DTuyjQQJRSFAdISK20wUF.jpeg"
+            }
+          ],
+          "date": "2025-10-31T01:24:08.000Z"
+        },
+        {
+          "id": "e9ea518bb4080e3dc9ebe448bd065652175c1f3e",
+          "title": "Updating the README.md with diarization model links",
+          "message": "\n\nSigned-off-by: taejinp <tango4j@gmail.com>\n",
+          "authors": [
+            {
+              "user": "Taejin",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/6286810cd238eeca5889782c/DTuyjQQJRSFAdISK20wUF.jpeg"
+            }
+          ],
+          "date": "2025-10-31T01:22:51.000Z"
+        },
+        {
+          "id": "0b09b5efb31da04eb7d797aaf4e026b0386eb269",
+          "title": "Updating the README.md file",
+          "message": "\n\nSigned-off-by: taejinp <tango4j@gmail.com>\n",
+          "authors": [
+            {
+              "user": "Taejin",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/6286810cd238eeca5889782c/DTuyjQQJRSFAdISK20wUF.jpeg"
+            }
+          ],
+          "date": "2025-10-31T00:49:16.000Z"
+        },
+        {
+          "id": "a7109eb921d004e597df80c6814be3a30547f34c",
+          "title": "Updating the README.md file",
+          "message": "\n\nSigned-off-by: taejinp <tango4j@gmail.com>\n",
+          "authors": [
+            {
+              "user": "Taejin",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/6286810cd238eeca5889782c/DTuyjQQJRSFAdISK20wUF.jpeg"
+            }
+          ],
+          "date": "2025-10-31T00:16:56.000Z"
+        },
+        {
+          "id": "9438a9ff91d66358412e9259bb851cc2a6d32ee0",
+          "title": "Updating README.md and adding multitalker config",
+          "message": "\n\nSigned-off-by: taejinp <tango4j@gmail.com>\n",
+          "authors": [
+            {
+              "user": "Taejin",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/6286810cd238eeca5889782c/DTuyjQQJRSFAdISK20wUF.jpeg"
+            }
+          ],
+          "date": "2025-10-30T23:59:10.000Z"
+        },
+        {
+          "id": "a80cdf2ac2ad9cc854e8b666eedb752d83bc964d",
+          "title": "Rename multitalker_parakeet_streaming_v1.nemo to multitalker-parakeet-streaming-0.6b-v1",
+          "message": "",
+          "authors": [
+            {
+              "user": "taejinp",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/no-auth/zuXrk1DZCYWoLPTXEzprh.png"
+            }
+          ],
+          "date": "2025-10-29T21:11:52.000Z"
+        },
+        {
+          "id": "7584e1e291c8445f92c1fd8ea00fd8a59293c608",
+          "title": "Upload multitalker_parakeet_streaming_v1.nemo",
+          "message": "",
+          "authors": [
+            {
+              "user": "taejinp",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/no-auth/zuXrk1DZCYWoLPTXEzprh.png"
+            }
+          ],
+          "date": "2025-10-29T20:58:12.000Z"
+        },
+        {
+          "id": "c7f2b60d63f4dedcee121ca653d6e2a4ff55c5a8",
+          "title": "Update README.md",
+          "message": "",
+          "authors": [
+            {
+              "user": "taejinp",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/no-auth/zuXrk1DZCYWoLPTXEzprh.png"
+            }
+          ],
+          "date": "2025-10-22T18:07:40.000Z"
+        },
+        {
+          "id": "2006ffd350386d9144111e2d18d66f503e1b6541",
+          "title": "Update README.md",
+          "message": "",
+          "authors": [
+            {
+              "user": "taejinp",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/no-auth/zuXrk1DZCYWoLPTXEzprh.png"
+            }
+          ],
+          "date": "2025-10-22T17:39:26.000Z"
+        },
+        {
+          "id": "37f2657776057023f0af0440efb5224818c5a38a",
+          "title": "Update README.md (#1)",
+          "message": "\n\n\n- Update README.md (8e83774ce9f5496cb96a5af3649af2a92f9b6708)\n\n\nCo-authored-by: Weiqing Wang <weiqingw4ng@users.noreply.huggingface.co>\n",
+          "authors": [
+            {
+              "user": "taejinp",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/no-auth/zuXrk1DZCYWoLPTXEzprh.png"
+            },
+            {
+              "user": "weiqingw4ng",
+              "avatar": "/avatars/d6c614d82aba1dceb43924227037c016.svg"
+            }
+          ],
+          "date": "2025-10-16T04:50:27.000Z"
+        },
+        {
+          "id": "f8e3b9301be7d97d63601ec3e9034d20c398aba9",
+          "title": "Upload 2 files",
+          "message": "",
+          "authors": [
+            {
+              "user": "taejinp",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/no-auth/zuXrk1DZCYWoLPTXEzprh.png"
+            }
+          ],
+          "date": "2025-10-16T01:34:21.000Z"
+        },
+        {
+          "id": "6aa67c56820ceda18c6caf806ccd2fdb8440a702",
+          "title": "Delete figures/speaker_injection.pdf",
+          "message": "",
+          "authors": [
+            {
+              "user": "taejinp",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/no-auth/zuXrk1DZCYWoLPTXEzprh.png"
+            }
+          ],
+          "date": "2025-10-16T01:33:49.000Z"
+        },
+        {
+          "id": "32ce028496440554fd2528deac91a706598b3510",
+          "title": "Delete figures/multi_instance.pdf",
+          "message": "",
+          "authors": [
+            {
+              "user": "taejinp",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/no-auth/zuXrk1DZCYWoLPTXEzprh.png"
+            }
+          ],
+          "date": "2025-10-16T01:33:41.000Z"
+        },
+        {
+          "id": "f55d4d2c28507c10317f02167bd745f56210275e",
+          "title": "Upload 2 files",
+          "message": "",
+          "authors": [
+            {
+              "user": "taejinp",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/no-auth/zuXrk1DZCYWoLPTXEzprh.png"
+            }
+          ],
+          "date": "2025-10-16T01:24:42.000Z"
+        },
+        {
+          "id": "479e4d64e8c9514300979cf4861a52372c83a1aa",
+          "title": "Adding figures",
+          "message": "\n\nSigned-off-by: taejinp <tango4j@gmail.com>\n",
+          "authors": [
+            {
+              "user": "Taejin",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/6286810cd238eeca5889782c/DTuyjQQJRSFAdISK20wUF.jpeg"
+            }
+          ],
+          "date": "2025-10-16T01:23:23.000Z"
+        },
+        {
+          "id": "63e2fd3977de905040991ff8320092125d7895d6",
+          "title": "Delete speaker_injection.pdf",
+          "message": "",
+          "authors": [
+            {
+              "user": "taejinp",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/no-auth/zuXrk1DZCYWoLPTXEzprh.png"
+            }
+          ],
+          "date": "2025-10-16T00:39:42.000Z"
+        },
+        {
+          "id": "d7edc2c1042b6bc29f6279a493fde61f429a82c3",
+          "title": "Delete multi_instance.pdf",
+          "message": "",
+          "authors": [
+            {
+              "user": "taejinp",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/no-auth/zuXrk1DZCYWoLPTXEzprh.png"
+            }
+          ],
+          "date": "2025-10-16T00:39:37.000Z"
+        },
+        {
+          "id": "e33be9e89f483cf5c70db038e86f22c6e9328eba",
+          "title": "Upload 2 files",
+          "message": "",
+          "authors": [
+            {
+              "user": "taejinp",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/no-auth/zuXrk1DZCYWoLPTXEzprh.png"
+            }
+          ],
+          "date": "2025-10-16T00:39:23.000Z"
+        },
+        {
+          "id": "2f57641acd25ef4cbbe83ffe930c517c360f54c8",
+          "title": "Update README.md",
+          "message": "",
+          "authors": [
+            {
+              "user": "taejinp",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/no-auth/zuXrk1DZCYWoLPTXEzprh.png"
+            }
+          ],
+          "date": "2025-10-16T00:07:59.000Z"
+        },
+        {
+          "id": "178ea2382f79c6a1b1522d0ef76b33973c7ce085",
+          "title": "initial commit",
+          "message": "",
+          "authors": [
+            {
+              "user": "taejinp",
+              "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/no-auth/zuXrk1DZCYWoLPTXEzprh.png"
+            }
+          ],
+          "date": "2025-10-15T23:41:41.000Z"
+        }
+      ],
+      "snapshots": [
+        {
+          "name": "README.md",
+          "sha256": "55c365b16ba3265d2d5e9dcf6422802bafaa4c95f9ef17373ef6c4715a27aae7",
+          "size": 19703,
+          "url": "https://huggingface.co/nvidia/multitalker-parakeet-streaming-0.6b-v1/resolve/8749fc71fd6e2d88ef230159bbf2aea69b524ee1/README.md",
+          "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\metadata\\X1\\README.md"
+        },
+        {
+          "name": "README_expired.md",
+          "sha256": "aec782c9025d589ea37f4d866bec41cb39880d1ebd0099d7160775947c211b72",
+          "size": 189,
+          "url": "https://huggingface.co/nvidia/multitalker-parakeet-streaming-0.6b-v1/resolve/8749fc71fd6e2d88ef230159bbf2aea69b524ee1/README_expired.md",
+          "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\metadata\\X1\\README_expired.md"
+        },
+        {
+          "name": "bias.md",
+          "sha256": "afe1dfe019237a3e23e48a57f5f44de30303709898720c1fac3152898a15e86c",
+          "size": 542,
+          "url": "https://huggingface.co/nvidia/multitalker-parakeet-streaming-0.6b-v1/resolve/8749fc71fd6e2d88ef230159bbf2aea69b524ee1/bias.md",
+          "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\metadata\\X1\\bias.md"
+        },
+        {
+          "name": "explainability.md",
+          "sha256": "43cb304eda73db8f59bd6e0e700d5fe87c5ebf63bbca7e4fa7367e9e00f407e2",
+          "size": 2889,
+          "url": "https://huggingface.co/nvidia/multitalker-parakeet-streaming-0.6b-v1/resolve/8749fc71fd6e2d88ef230159bbf2aea69b524ee1/explainability.md",
+          "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\metadata\\X1\\explainability.md"
+        },
+        {
+          "name": "figures/test.txt",
+          "sha256": "28f9436ae931b31becb4815bb93848af531dbc3609f6090b2e7c28b15568557d",
+          "size": 5,
+          "url": "https://huggingface.co/nvidia/multitalker-parakeet-streaming-0.6b-v1/resolve/8749fc71fd6e2d88ef230159bbf2aea69b524ee1/figures/test.txt",
+          "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\metadata\\X1\\figures\\test.txt"
+        },
+        {
+          "name": "privacy.md",
+          "sha256": "11b539ce3b6bafc829628ce26b8fdb23ee6783b5ca66380b342c9291ee79bdde",
+          "size": 1902,
+          "url": "https://huggingface.co/nvidia/multitalker-parakeet-streaming-0.6b-v1/resolve/8749fc71fd6e2d88ef230159bbf2aea69b524ee1/privacy.md",
+          "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\metadata\\X1\\privacy.md"
+        },
+        {
+          "name": "safety.md",
+          "sha256": "c666670bad2c2e73ec2bd5e54d129930446ab438a8b5dd749ac398ed861201e0",
+          "size": 782,
+          "url": "https://huggingface.co/nvidia/multitalker-parakeet-streaming-0.6b-v1/resolve/8749fc71fd6e2d88ef230159bbf2aea69b524ee1/safety.md",
+          "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\metadata\\X1\\safety.md"
+        }
+      ]
+    }
+  }
+}

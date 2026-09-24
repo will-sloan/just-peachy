@@ -1,0 +1,88 @@
+{
+  "schema": "just-peachy.n1.acceptance.v1",
+  "status": "COMPLETE",
+  "completed_utc": "2026-09-24T15:53:02.168773+00:00",
+  "N2_may_proceed": true,
+  "stage_scope": "N1 only; no global candidate ranking or hardware session",
+  "classification": {
+    "IMPLEMENTED": [
+      "common backend selector",
+      "stable timestamped caption spans",
+      "idle saved-audio startup",
+      "supervisor/checkpoint/locks"
+    ],
+    "ACTUALLY_RUN": [
+      "240-scene full local audit",
+      "48-scene/96-cell baseline",
+      "4-scene/8-cell saved regressions",
+      "96-cell final-state GUI replay",
+      "software and scheduler checks",
+      "native Windows CPU build"
+    ],
+    "UNAVAILABLE": [
+      "exact word/phonetic truth",
+      "independent conversation punctuation gold",
+      "automatic authenticated safe Codex resume",
+      "unverified standalone NVIDIA PnC weights"
+    ],
+    "NOT_TESTED": [
+      "Pi/physical hardware/2GB total-system performance",
+      "candidate model inference and ranking",
+      "N2-N5 efficacy",
+      "live enrollment"
+    ],
+    "FAILED": []
+  },
+  "corpus_scenes": 240,
+  "corpus_waveform_cells": 480,
+  "full_transcript_occurrences_audited": 777,
+  "baseline_cells": 96,
+  "baseline_paired_scenes": 48,
+  "supplemental_regression_cells": 8,
+  "gui_rendered_cells": 96,
+  "note_coverage_rows": 73,
+  "application_tests": 386,
+  "application_skips": 2,
+  "application_failures": 0,
+  "frontend_runtime_sha256": "c704856684409dbb1d5d1a708009623f03f45de40967d6f8c881307d8f87611b",
+  "common_ui_source_sha256": "54c0283b8058978eca87dc9b0461a15addf804200856e41d2c83b55bff590456",
+  "baseline_neural_output_reuse": "No historical predictions; only new hash-bound N1 checkpoints",
+  "clock_order_findings": 0,
+  "evidence": {
+    "CODE_TESTS.json": {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\CODE_TESTS.json",
+      "sha256": "89558e9abfa6f6128e3a3104f920274dd303e90806c1f47fe5b4ce01ee2a953c",
+      "bytes": 7431
+    },
+    "BASELINE_RECOVERY.json": {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\BASELINE_RECOVERY.json",
+      "sha256": "78142a0a6c879f0b10a19a4d3381ef84357eaa9a9b03f3f3de2776e2a2c88072",
+      "bytes": 5319
+    },
+    "RELEASE_RECEIPT.json": {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\RELEASE_RECEIPT.json",
+      "sha256": "c0f0819dfe185a9f1a83ad00ab82343dcd7f398289a4eecb83e46ede705841df",
+      "bytes": 2721
+    },
+    "SUPERVISION_RECEIPT.json": {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\SUPERVISION_RECEIPT.json",
+      "sha256": "e5dcdae5a40c7b4aade16ef8aa20603b3d285e5395bd1204675166332db06a82",
+      "bytes": 6050
+    },
+    "data/BASELINE_ANALYSIS_SUMMARY.json": {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\data\\BASELINE_ANALYSIS_SUMMARY.json",
+      "sha256": "732588c69368ffb48e20f712cebbc485cfcad00eabf4bea2e312f4d3bb8b725e",
+      "bytes": 6934
+    },
+    "data/REGRESSION_ANALYSIS_SUMMARY.json": {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\data\\REGRESSION_ANALYSIS_SUMMARY.json",
+      "sha256": "70506eab2e61f5d4ea712324ac3a99b071a7762771615c6dd68ad6b8a95c3d8c",
+      "bytes": 6680
+    },
+    "LIMITATIONS.md": {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\LIMITATIONS.md",
+      "sha256": "a9b27df69d3a93858c72de5557c16b66b818a3a8872a0e84389f25bf162243f9",
+      "bytes": 4839
+    }
+  }
+}

@@ -1,0 +1,11 @@
+# D1 model-card low-latency geometry: (9 + 4) * 80 ms = 1.04 s input buffering.
+# Computation and delivery must be measured separately. Do not pass --preset.
+diar:
+  chunk: 9
+  right_context: 4
+  left_context: 0
+  fifo: 264
+  spkcache: 264
+  update_period: 222
+batching:
+  enabled: false

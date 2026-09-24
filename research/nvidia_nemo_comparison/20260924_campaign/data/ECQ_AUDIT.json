@@ -1,0 +1,38 @@
+{
+  "clean_E_clips": 385,
+  "clean_C_clips": 367,
+  "query_occurrences": 777,
+  "clean_people": 43,
+  "clean_matrix_rows": 129,
+  "same_device_E_people": 30,
+  "same_device_E_cells": 360,
+  "E_C_Q_intersections": {
+    "E_C_source_id": [],
+    "E_C_original_sha256": [],
+    "E_C_decoded_pcm_sha256": [],
+    "E_C_normalized_text": [],
+    "E_C_prompt_group": [],
+    "E_C_native_prompt_key": [],
+    "E_Q_source_id": [],
+    "E_Q_original_sha256": [],
+    "E_Q_decoded_pcm_sha256": [],
+    "E_Q_normalized_text": [],
+    "E_Q_prompt_group": [],
+    "E_Q_native_prompt_key": [],
+    "C_Q_source_id": [],
+    "C_Q_original_sha256": [],
+    "C_Q_decoded_pcm_sha256": [],
+    "C_Q_normalized_text": [],
+    "C_Q_prompt_group": [],
+    "C_Q_native_prompt_key": []
+  },
+  "leakage_limit": "Canonical original parents and prepared aliases, exact native/decoded bytes, prompt/text groups and known book/chapter lineage are excluded. No exhaustive search for undocumented transformed recordings across unrelated corpus files or unique-human re-identification.",
+  "same_book_E_C_fallback_people": [
+    "HIFITTS_11697",
+    "HIFITTS_6671",
+    "HIFITTS_9136"
+  ],
+  "personal_profile_access": false,
+  "personal_gallery_modified": false,
+  "vector_reuse_across_encoders": false
+}

@@ -1,0 +1,42 @@
+[
+  {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\runtime_install\\share\\licenses\\nemo-speech\\LICENSE",
+    "bytes": 12238,
+    "sha256": "eaaca34b26b27c7be5a5099a0b9ddf9913f2db0aa96f6d5854435f2916d6fdc3"
+  },
+  {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\runtime_install\\share\\licenses\\nemo-speech\\NOTICE",
+    "bytes": 233,
+    "sha256": "d5ea773d67035e676503579ecf7d5836a124649d7fe99d59ec3c50cd101e1a80"
+  },
+  {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\runtime_install\\share\\licenses\\nemo-speech\\THIRD_PARTY_NOTICES.md",
+    "bytes": 9171,
+    "sha256": "865dbd5bb2fb4e08811d2d6c90ebf260645b101ba8b0a9e6ba739b1d0222acf0"
+  },
+  {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\runtime_install\\share\\licenses\\nemo-speech\\third_party\\ggml\\LICENSE",
+    "bytes": 1078,
+    "sha256": "94f29bbed6a22c35b992c5c6ebf0e7c92f13b836b90f36f461c9cf2f0f1d010d"
+  },
+  {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\runtime_install\\share\\licenses\\nemo-speech\\third_party\\sentencepiece\\absl-LICENSE",
+    "bytes": 11365,
+    "sha256": "d3e2f59e1d71176dfdb555ece6a41f7a5aa0f52ff21211010ace314f57695f6b"
+  },
+  {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\runtime_install\\share\\licenses\\nemo-speech\\third_party\\sentencepiece\\darts-clone-LICENSE",
+    "bytes": 1481,
+    "sha256": "155f59997298ee336602c49f9c1110f268ac394ca2197eb02647a3555935ad52"
+  },
+  {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\runtime_install\\share\\licenses\\nemo-speech\\third_party\\sentencepiece\\LICENSE",
+    "bytes": 11358,
+    "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+  },
+  {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\runtime_install\\share\\licenses\\nemo-speech\\third_party\\sentencepiece\\protobuf-lite-LICENSE",
+    "bytes": 1732,
+    "sha256": "6e5e117324afd944dcf67f36cf329843bc1a92229a8cd9bb573d7a83130fea7d"
+  }
+]

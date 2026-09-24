@@ -1,0 +1,188 @@
+{
+  "schema": "just-peachy.n1.supervision-receipt.v1",
+  "campaign": {
+    "schema": "just-peachy.n1.campaign.v1",
+    "campaign_id": "20260924_campaign",
+    "started_utc": "2026-09-24T14:48:19.949192+00:00",
+    "target_utc": "2026-09-28T14:48:19.949192+00:00",
+    "packaging_reserve_hours": 12,
+    "phase": "replay",
+    "stage": "N1_COMPLETE",
+    "status": "AWAITING_N2_MANUAL_CONTINUATION",
+    "session_id": "01a0d3df-f647-75f1-bd82-aab88c1f570b",
+    "requested_model": "gpt-6-astra",
+    "requested_reasoning": "ultra",
+    "requested_speed": "normal",
+    "llm_dispatch": "MANUAL_REVIEW_ONLY_NO_VERIFIED_CROSS_TURN_IDLE_GUARD",
+    "llm_dispatch_reason": "CLI accepts exact session resume, but no authenticated atomic idle/queue guard is verified. Never resume a competing live turn.",
+    "scheduler_intervals_minutes": {
+      "setup": 10,
+      "inference": 15,
+      "replay": 30
+    },
+    "worker_spec": null,
+    "resource_policy": {
+      "max_parallel_workers": 2,
+      "max_cpu_cores": 2,
+      "gpu_owner": null,
+      "minimum_free_gib": {
+        "C:": 50,
+        "G:": 75
+      },
+      "new_payload_allowance_gib": 50
+    },
+    "downgrade_order": [
+      "retain baseline and Nemotron hybrid",
+      "compact ASR and enrollment",
+      "600M alternatives",
+      "optional multitalker and standalone punctuation"
+    ],
+    "user_constraints": [
+      "No desktop control or focus changes",
+      "Pi off throughout campaign",
+      "Saved processed audio only",
+      "No microphone enumeration"
+    ],
+    "current_codex_turn_active": true,
+    "created_utc": "2026-09-24T15:03:21.010277+00:00",
+    "n1_numerical_checks_complete_utc": "2026-09-24T15:50:47.747160+00:00",
+    "n1_result_counts": {
+      "baseline": 96,
+      "supplemental": 8,
+      "gui": 96
+    }
+  },
+  "latest_status": {
+    "schema": "just-peachy.n1.status.v1",
+    "checked_utc": "2026-09-24T15:52:04.429858+00:00",
+    "meaningful": {
+      "stage": "N1_COMPLETE",
+      "phase": "replay",
+      "worker_health": "COMPLETED",
+      "worker_run": "496e4bd918884fcd9685a61f89a253ee",
+      "error": null,
+      "progress_decile": 10
+    },
+    "meaningful_hash": "1c2dfb82e7c4042b2baea36e642d2e94f64b631c29d79407a389c6a517a5bc99",
+    "changed": true,
+    "completed": 8,
+    "total": 8,
+    "eta_seconds": 0,
+    "eta_basis": "New cells since first observed current worker/PID; cached cells excluded; null until a throughput interval exists",
+    "throughput_reference": {
+      "identity": [
+        "496e4bd918884fcd9685a61f89a253ee",
+        35780
+      ],
+      "completed": 4,
+      "elapsed_seconds": 113.53200000000015
+    },
+    "throughput_new_cells": 4,
+    "throughput_window_seconds": 75.3119999999999,
+    "target_utc": "2026-09-28T14:48:19.949192+00:00",
+    "worker_heartbeat_age_sec": 79.38531422615051,
+    "available_disk_gib": {
+      "C:": 137.46257400512695,
+      "G:": 134.56713485717773
+    },
+    "llm_invoked": false,
+    "review_dispatch": "MANUAL_REVIEW_ONLY_NO_VERIFIED_CROSS_TURN_IDLE_GUARD",
+    "interval_minutes": 30
+  },
+  "scheduler": {
+    "credentials_saved": false,
+    "logged_in_user_required": true,
+    "utc": "2026-09-24T15:52:06.6772331Z",
+    "action": "Inspect",
+    "llm_invoked": false,
+    "tasks": [
+      {
+        "state": "Ready",
+        "last_result": 0,
+        "name": "JustPeachy-N1-20260924-setup",
+        "last_run": "2026-09-24T15:44:30.0000000Z",
+        "next_run": "2026-09-24T15:54:29.0000000Z"
+      },
+      {
+        "state": "Ready",
+        "last_result": 0,
+        "name": "JustPeachy-N1-20260924-inference",
+        "last_run": "2026-09-24T15:49:30.0000000Z",
+        "next_run": "2026-09-24T16:04:29.0000000Z"
+      },
+      {
+        "state": "Ready",
+        "last_result": 0,
+        "name": "JustPeachy-N1-20260924-replay",
+        "last_run": "2026-09-24T15:34:30.0000000Z",
+        "next_run": "2026-09-24T16:04:29.0000000Z"
+      }
+    ]
+  },
+  "registration": {
+    "tasks": [
+      {
+        "name": "JustPeachy-N1-20260924-setup",
+        "registered": true,
+        "interval_minutes": 10,
+        "expected_phase": "setup"
+      },
+      {
+        "name": "JustPeachy-N1-20260924-inference",
+        "registered": true,
+        "interval_minutes": 15,
+        "expected_phase": "inference"
+      },
+      {
+        "name": "JustPeachy-N1-20260924-replay",
+        "registered": true,
+        "interval_minutes": 30,
+        "expected_phase": "replay"
+      }
+    ],
+    "action": "Register",
+    "utc": "2026-09-24T15:03:29.7620018Z",
+    "credentials_saved": false,
+    "logged_in_user_required": true,
+    "llm_invoked": false
+  },
+  "trigger_test": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\supervision\\scheduler-test-trigger.json",
+    "sha256": "e3f0f2518daa0561078dbfb73f5644663daab469f4c4430f711b24ea211a690c",
+    "bytes": 851
+  },
+  "cleanup_test": {
+    "tasks": [
+      {
+        "removed": true,
+        "name": "JustPeachy-N1-20260924-test-setup"
+      },
+      {
+        "removed": true,
+        "name": "JustPeachy-N1-20260924-test-inference"
+      },
+      {
+        "removed": true,
+        "name": "JustPeachy-N1-20260924-test-replay"
+      }
+    ],
+    "action": "Remove",
+    "utc": "2026-09-24T15:03:29.5666901Z",
+    "credentials_saved": false,
+    "logged_in_user_required": true,
+    "llm_invoked": false
+  },
+  "process_contract_tests": {
+    "tests": 10,
+    "elapsed_seconds": 11.418,
+    "status": "PASS",
+    "receipt": {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\checks\\supervisor-final-v3.txt",
+      "sha256": "1cf6d501871f6918539293b42db188df448fd914245f7cc5ab741418ec1432ef",
+      "bytes": 1501
+    }
+  },
+  "code_sha256": "3c69557405d260386080d2293af8f6c9c2e4fdf846f835dc297d9220b6260315",
+  "llm_dispatch": "MANUAL_REVIEW_ONLY_NO_VERIFIED_CROSS_TURN_IDLE_GUARD",
+  "automatic_llm_calls": 0
+}

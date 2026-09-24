@@ -1,0 +1,131 @@
+{
+  "schema": "n1-data-audit-v1",
+  "status": "PASS",
+  "created_utc": "2026-09-24T15:23:11.647374+00:00",
+  "scenes": 240,
+  "waveform_tap_cells": 480,
+  "accepted_physical_pairs_verified": 240,
+  "prepared_and_raw_waveforms_verified": 960,
+  "full_transcript_occurrences_audited": 777,
+  "reference_classes": {
+    "complete_nonoverlap": 156,
+    "complete_overlap": 47,
+    "incomplete_ambient_reference": 26,
+    "empty_control": 11
+  },
+  "screen_reference_classes": {
+    "complete_nonoverlap": 32,
+    "complete_overlap": 9,
+    "incomplete_ambient_reference": 6,
+    "empty_control": 1
+  },
+  "screen_families": {
+    "F01": 4,
+    "F02": 4,
+    "F03": 4,
+    "F04": 4,
+    "F05": 4,
+    "F06": 4,
+    "F07": 4,
+    "F08": 4,
+    "F09": 4,
+    "F10": 4,
+    "F11": 4,
+    "F12": 4
+  },
+  "screen_corpora": {
+    "HiFiTTS": 18,
+    "CMU ARCTIC": 16,
+    "Common Voice": 13
+  },
+  "screen_rooms": {
+    "Library Conference Room": 6,
+    "Arise Kitchen Main Table": 10,
+    "Arise Floor 2 Kitchen": 15,
+    "Upper Loeb": 12,
+    "Arise 5th floor low table": 5
+  },
+  "screen_historical_partitions": {
+    "development": 30,
+    "downstream_reserve": 18
+  },
+  "screen_total_audio_s_both_taps": 4290.7620000000015,
+  "panel_binding": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\data\\SCREEN_48.json",
+    "sha256": "289fbf1e216762dd1b56c1d53b650cc0f176fb9410282cc8b579687183fdbd94",
+    "bytes": 1242
+  },
+  "exact_word_timed_occurrences": 0,
+  "punctuated_original_occurrences": 773,
+  "exact_word_and_phonetic_timing": "UNAVAILABLE; all activity is estimated and preserved without rescore alignment",
+  "punctuation_reference": "SOURCE_TEXT_ONLY; no independent conversational punctuation gold",
+  "Loeb_Caf_scenes": 0,
+  "Upper_Loeb_scenes": 30,
+  "gain_policy": "O0 +3dB already once, O1 unity; both prepared inputs runtime gain 1.0",
+  "timing_policy": "800-sample/50ms RIR convention already included, not physical latency; keep original per-tap saved approximate mapping",
+  "inference_ground_truth_firewall": "Runner uses separate audio-only job list; local references never passed to model",
+  "all_240_retained": true,
+  "historical_180_60_labels_metadata_only": true,
+  "reference_capability": {
+    "clean_E_clips": 385,
+    "clean_C_clips": 367,
+    "query_occurrences": 777,
+    "clean_people": 43,
+    "clean_matrix_rows": 129,
+    "same_device_E_people": 30,
+    "same_device_E_cells": 360,
+    "E_C_Q_intersections": {
+      "E_C_source_id": [],
+      "E_C_original_sha256": [],
+      "E_C_decoded_pcm_sha256": [],
+      "E_C_normalized_text": [],
+      "E_C_prompt_group": [],
+      "E_C_native_prompt_key": [],
+      "E_Q_source_id": [],
+      "E_Q_original_sha256": [],
+      "E_Q_decoded_pcm_sha256": [],
+      "E_Q_normalized_text": [],
+      "E_Q_prompt_group": [],
+      "E_Q_native_prompt_key": [],
+      "C_Q_source_id": [],
+      "C_Q_original_sha256": [],
+      "C_Q_decoded_pcm_sha256": [],
+      "C_Q_normalized_text": [],
+      "C_Q_prompt_group": [],
+      "C_Q_native_prompt_key": []
+    },
+    "leakage_limit": "Canonical original parents and prepared aliases, exact native/decoded bytes, prompt/text groups and known book/chapter lineage are excluded. No exhaustive search for undocumented transformed recordings across unrelated corpus files or unique-human re-identification.",
+    "same_book_E_C_fallback_people": [
+      "HIFITTS_11697",
+      "HIFITTS_6671",
+      "HIFITTS_9136"
+    ],
+    "personal_profile_access": false,
+    "personal_gallery_modified": false,
+    "vector_reuse_across_encoders": false
+  },
+  "unique_bound_files": 3310,
+  "verified_file_bytes": 2562430621,
+  "local_evidence": [
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\data\\CORPUS_BINDINGS_240.json",
+      "sha256": "4c73ebe86d21185ebfe9e4614339da527af18ea4549e4de68a37aec43ab6c423",
+      "bytes": 5517965
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\data\\FULL_TRANSCRIPT_AUDIT.json",
+      "sha256": "ac583fd8b67b33ca7539a7121ad650c7f03e1f0446ae67d0963bb8088a0a052c",
+      "bytes": 5914822
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\data\\ECQ_BINDINGS.json",
+      "sha256": "67d74274c4429e5448230225dbbfb7e766b888001febc1782eb90acc008834c8",
+      "bytes": 14884402
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\data\\FILE_HASH_AUDIT.json",
+      "sha256": "2df3e5254b7696e1ed2476f56265000391e5e92a2e52c05f1bfd2caf56bcc8a7",
+      "bytes": 864496
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "schema": "just-peachy.n1.release.v1",
+  "source_commit": "2a8a2183c0050b6abf76ef27bbd803adad632a87",
+  "tag": "n1-common-ui-20260924-v1",
+  "frontend_runtime_sha256": "c704856684409dbb1d5d1a708009623f03f45de40967d6f8c881307d8f87611b",
+  "common_ui_source_sha256": "54c0283b8058978eca87dc9b0461a15addf804200856e41d2c83b55bff590456",
+  "archive": {
+    "status": "BUILT",
+    "archive": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\packages\\just-peachy-n1-common-20260924-v1.zip",
+    "sha256": "92ace449cc60c5967e00d038a966ddb4c12fd68d51121b88417dcff848bcb42d",
+    "bytes": 1074526,
+    "file_count": 240,
+    "version": "n1-common-20260924-v1"
+  },
+  "stage": {
+    "status": "STAGED",
+    "version": "n1-common-20260924-v1",
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\Installed Baseline\\releases\\n1-common-20260924-v1",
+    "archive_sha256": "92ace449cc60c5967e00d038a966ddb4c12fd68d51121b88417dcff848bcb42d"
+  },
+  "activation": {
+    "status": "ACTIVE",
+    "version": "n1-common-20260924-v1",
+    "data_root": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\Installed Baseline Data",
+    "inference_started": false
+  },
+  "healthcheck": {
+    "status": "PASS",
+    "version": "n1-common-20260924-v1",
+    "release": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\Installed Baseline\\releases\\n1-common-20260924-v1",
+    "files_verified": 240,
+    "data_schema": 1,
+    "runtime_owner_present": false,
+    "platform": "Windows-10-10.0.26200-SP0",
+    "machine": "AMD64",
+    "python": "3.11.16",
+    "free_bytes": 145477423104,
+    "models": "NOT_CHECKED",
+    "imports": {
+      "numpy": "2.2.6",
+      "scipy": "1.15.3",
+      "onnxruntime": "1.29.0",
+      "sherpa_onnx": "1.13.4",
+      "sounddevice": "0.5.5",
+      "soundfile": "0.13.1",
+      "tkinter": "stdlib/unknown",
+      "psutil": "7.2.2"
+    },
+    "cm5": "CM5_HARDWARE_NOT_TESTED",
+    "inference": "NOT_RUN",
+    "microphone": "NOT_OPENED"
+  },
+  "asset_validation": {
+    "status": "CONFIGURATION_AND_ASSETS_VALID",
+    "profile": "PROTO1_fast_caption_only_O0",
+    "models": "C:\\Users\\amiri\\JustPeachy\\shared\\models",
+    "microphone_opened": false,
+    "native_inference_executed": false
+  },
+  "installed_idle_entrypoint": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\evidence\\frontend\\installed_idle_v2\\INSTALLED_MAIN_RECEIPT.json",
+    "sha256": "b2b1e75a697c852074665a51b2637bbb6ad1a31a5b414ecff25dd85223d449cd",
+    "bytes": 2196
+  },
+  "launch": "Start-N1.cmd or Start-N1.ps1; opens idle with isolated data root",
+  "rollback": "Select original checkout/immutable baseline with separate data; no original activation was changed"
+}

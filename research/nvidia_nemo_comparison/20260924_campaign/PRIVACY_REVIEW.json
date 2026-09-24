@@ -1,0 +1,85 @@
+{
+  "schema": "just-peachy.n1.privacy-review.v1",
+  "status": "PASS",
+  "created_utc": "2026-09-24T15:55:15.457727+00:00",
+  "audit": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\checks\\public-file-audit.json",
+    "sha256": "eb831f5ad27965044ccec408ea59190fa49ebca855402ad14538ab33210f8f09",
+    "bytes": 34145
+  },
+  "reviewed_public_campaign_files": 83,
+  "text_files": 80,
+  "visually_reviewed_synthetic_or_idle_images": 3,
+  "methods": {
+    "enumeration": "git ls-files --cached --others --exclude-standard under campaign prefix; exact byte snapshot",
+    "full_reference_match": "Case-insensitive literal matches for original and normalized full transcript strings >=28 characters; no phrase values included in receipt",
+    "unique_reference_phrases": 606,
+    "reference_occurrences": 777,
+    "reference_manifest": {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\data\\FULL_TRANSCRIPT_AUDIT.json",
+      "sha256": "ac583fd8b67b33ca7539a7121ad650c7f03e1f0446ae67d0963bb8088a0a052c",
+      "bytes": 5914822
+    },
+    "credential_pattern_categories": [
+      "private_key",
+      "github_token",
+      "hf_token",
+      "openai_key",
+      "bearer_value",
+      "signed_url"
+    ],
+    "json_structure": "Populated raw text/transcript/vector/embedding/credential key fields and numeric arrays longer than64",
+    "forbidden_extension_check": [
+      ".7z",
+      ".bin",
+      ".cert",
+      ".ckpt",
+      ".db",
+      ".dll",
+      ".exe",
+      ".flac",
+      ".gz",
+      ".key",
+      ".m4a",
+      ".mp3",
+      ".mp4",
+      ".node",
+      ".npy",
+      ".npz",
+      ".ogg",
+      ".onnx",
+      ".p12",
+      ".pcm",
+      ".pem",
+      ".pickle",
+      ".pkl",
+      ".pt",
+      ".pth",
+      ".safetensors",
+      ".sqlite",
+      ".tar",
+      ".wav",
+      ".zip"
+    ],
+    "image_review": "All three Git-eligible PNGs visually reviewed: idle empty caption state, and two explicitly synthetic Alex/Blair fixture states; no private corpus transcript visible",
+    "evidence_review": "Final main and supplemental summary/CSV cardinalities, counters, paired taps, source frame delivery, lexical inclusion/omission and denominators independently reconciled"
+  },
+  "findings": {
+    "full_reference_transcript_matches": [],
+    "credential_pattern_matches": [],
+    "sensitive_json_value_fields_or_numeric_arrays": [],
+    "forbidden_recording_model_vector_archive_binary_extensions": [],
+    "files_changed_during_audit": []
+  },
+  "excluded_payloads": [
+    "all captured/private audio",
+    "full reference and recognized speech text",
+    "personal profiles and voiceprints",
+    "model binaries and native build binaries",
+    "complete journals and GUI images of actual corpus speech",
+    "ignored dependency junction, bytecode and interim reports"
+  ],
+  "publication_scope": "Existing repository remains public. Only reviewed source, manifests, small redacted reports and three synthetic/idle images enter Git or the analysis handoff.",
+  "later_metadata_receipts": "This privacy receipt and the final Git/package status receipts contain only paths, hashes, sizes, counts and reviewed completion statements. Final receipt changes are checked separately before packaging.",
+  "scan_limit": "Pattern and structural checks supplement source/report and image review; the full-reference phrase check covers strings of at least28characters and is not the sole privacy check."
+}

@@ -1,0 +1,120 @@
+{
+  "schema": "just-peachy.n1.baseline-recovery.v1",
+  "baseline_commit": "509195b8c95c3a93eb63666e17038afc05a60d79",
+  "baseline_tag": "n1-baseline-20260924-rc5",
+  "original_head": "5b12f88430e619e37ce3397e005ca683b1fb9094",
+  "original_checkout": "C:/Users/amiri/Documents/GitHub/just-peachy",
+  "original_checkout_reset": false,
+  "original_personal_data": "C:/Users/amiri/JustPeachy/data",
+  "personal_gallery_modified": false,
+  "baseline_archive": {
+    "status": "BUILT",
+    "archive": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\baseline\\just-peachy-n1-baseline-20260924-rc5.zip",
+    "sha256": "4020ae975c140e8046c8cf5a473372be1da14972d6d436386275da5ba85cec8e",
+    "bytes": 1058118,
+    "file_count": 236,
+    "version": "n1-baseline-20260924-rc5"
+  },
+  "prior_source_manifest_sha256": "a5cf07616214867d6c1d0a55f88012b0dabcbc63852250fef65770f7e71b3f6e",
+  "prior_inspection": {
+    "path": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\research\\nvidia_nemo_comparison\\20260924_n1_inspection\\evidence\\source_inventory.json",
+    "sha256": "a0e0d25aa6733a8f7a190fada07740e16cc2c00fda7f5db68a81c68ac7fac4e1",
+    "bytes": 37488
+  },
+  "original_source_preservation": {
+    "status": "PASS",
+    "utc": "2026-09-24T15:43:13.328494+00:00",
+    "scope": "Original checkout 112 runtime/config files captured before N1",
+    "original_source_root": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\prototype",
+    "files_checked": 112,
+    "missing": [],
+    "changed": [],
+    "prior_manifest_sha256": "a5cf07616214867d6c1d0a55f88012b0dabcbc63852250fef65770f7e71b3f6e",
+    "receipt": {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\checks\\original-source-preservation.json",
+      "sha256": "a0f16c534b524597465b936d56044945a75af83f3d7d2efc10882149986c4478",
+      "bytes": 396
+    }
+  },
+  "pi_saved_source": "G:\\Just_Peachy_PROTO1\\cm5_bringup_20260922\\source-rc5",
+  "pi_comparison_kind": "saved Windows copy of rc5; not a current remote read",
+  "pi_source_comparison": {
+    "changed": [],
+    "windows_only": [],
+    "saved_pi_only": [],
+    "identical": 112
+  },
+  "pi_current_status": "OFFLINE_NOT_CONTACTED",
+  "original_caption_bug_probe": {
+    "path": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\research\\nvidia_nemo_comparison\\20260924_n1_inspection\\evidence\\caption_ownership_probe.json",
+    "sha256": "e38de414915ee958ab2342234206fd73c28723b1e41852f2b522394734458dc0",
+    "bytes": 13740
+  },
+  "original_caption_bug_finding": "WHOLE_CAPTION_RELABEL_REPRODUCED in source-only A/B/A event fixture",
+  "selected_assets": [
+    {
+      "component_id": "sherpa_giga_encoder_int8",
+      "sha256": "32c98281c7bd8b63e3e142d007251b37f120572e8fdea9a4f5a79ce22b10ec4f",
+      "deployment_relative_path": "models/sherpa_giga/encoder-epoch-99-avg-1.int8.onnx",
+      "filename": "encoder-epoch-99-avg-1.int8.onnx",
+      "bytes": 187823992
+    },
+    {
+      "component_id": "sherpa_giga_decoder_fp32",
+      "sha256": "9da02b77cb08826756ec6a88635f35a40374e4164e7c6359121a9145958a6ceb",
+      "deployment_relative_path": "models/sherpa_giga/decoder-epoch-99-avg-1.onnx",
+      "filename": "decoder-epoch-99-avg-1.onnx",
+      "bytes": 2092566
+    },
+    {
+      "component_id": "sherpa_giga_joiner_int8",
+      "sha256": "831477d390e59a61f1b6a6f763b9903e6c6366ff6034f1ddba613be82637122f",
+      "deployment_relative_path": "models/sherpa_giga/joiner-epoch-99-avg-1.int8.onnx",
+      "filename": "joiner-epoch-99-avg-1.int8.onnx",
+      "bytes": 259335
+    },
+    {
+      "component_id": "sherpa_giga_tokens",
+      "sha256": "49e3c2646595fd907228b3c6787069658f67b17377c60aeb8619c4551b2316fb",
+      "deployment_relative_path": "models/sherpa_giga/tokens.txt",
+      "filename": "tokens.txt",
+      "bytes": 5048
+    },
+    {
+      "component_id": "sherpa_online_punctuation_int8",
+      "sha256": "9d611f445fe4a46186080fe161be6059d87d72eb88d3a8cb00c1a06e83a6067e",
+      "deployment_relative_path": "models/punctuation/model.int8.onnx",
+      "filename": "model.int8.onnx",
+      "bytes": 7490500
+    },
+    {
+      "component_id": "sherpa_online_punctuation_bpe",
+      "sha256": "e118b7ad88c54db562517df49e1cffd4836d166c34fb190fd311d7f34eb238f5",
+      "deployment_relative_path": "models/punctuation/bpe.vocab",
+      "filename": "bpe.vocab",
+      "bytes": 149430
+    },
+    {
+      "component_id": "redimnet2_b2_fp32",
+      "sha256": "5c1a8635cba0d4648463f3b6d30c5a6137bc38d1200ab00c5944400aaa7b5609",
+      "deployment_relative_path": "models/h2/redimnet2_b2_fp32.onnx",
+      "filename": "redimnet2_b2_fp32.onnx",
+      "bytes": 16025408
+    },
+    {
+      "component_id": "pyannote_segmentation_3_0_fp32",
+      "sha256": "b4b65085bbf2cc455565696604c87fedade1359aa6ddfac5d726d69124d5069a",
+      "deployment_relative_path": "models/h2/pyannote_segmentation_3_0_fp32.onnx",
+      "filename": "pyannote_segmentation_3_0_fp32.onnx",
+      "bytes": 5925265
+    }
+  ],
+  "default_launch": {
+    "mode": "caption_only",
+    "recipe": "fast",
+    "tap": "O0",
+    "state": "IDLE",
+    "saved_audio_only": true
+  },
+  "preserved_live_adapters": "Explicit future-live opt-in; not exercised by N1; unassigned hardware fields remain disabled"
+}

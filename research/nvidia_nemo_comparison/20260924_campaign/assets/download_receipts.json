@@ -1,0 +1,79 @@
+{
+  "artifacts": [
+    {
+      "model_id": "D1",
+      "filename": "Nemotron-3-Diarization.q8_0.gguf",
+      "repo": "nvidia/Nemotron-3-Diarization",
+      "revision": "f667ed73aee57d40cc39428eb768b4fd87a0a29e",
+      "url": "https://huggingface.co/nvidia/Nemotron-3-Diarization/resolve/f667ed73aee57d40cc39428eb768b4fd87a0a29e/Nemotron-3-Diarization.q8_0.gguf",
+      "expected_sha256": "08456d9e22cd9a323c0364d98375f3746d6e68507ebb705cd46438c534c7a3a1",
+      "expected_bytes": 107012128,
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\sha256\\08456d9e22cd9a323c0364d98375f3746d6e68507ebb705cd46438c534c7a3a1\\Nemotron-3-Diarization.q8_0.gguf",
+      "started_at_utc": "2026-09-24T14:57:16.303042+00:00",
+      "status": "VERIFIED",
+      "sha256": "08456d9e22cd9a323c0364d98375f3746d6e68507ebb705cd46438c534c7a3a1",
+      "bytes": 107012128,
+      "finished_at_utc": "2026-09-24T14:57:19.400747+00:00"
+    },
+    {
+      "model_id": "E1",
+      "filename": "speakerverification_en_titanet_large.nemo",
+      "repo": "nvidia/speakerverification_en_titanet_large",
+      "revision": "0dc382f40121a5fbd34db10a2bb04d826c2be6a8",
+      "url": "https://huggingface.co/nvidia/speakerverification_en_titanet_large/resolve/0dc382f40121a5fbd34db10a2bb04d826c2be6a8/speakerverification_en_titanet_large.nemo",
+      "expected_sha256": "e838520693f269e7984f55bc8eb3c2d60ccf246bf4b896d4be9bcabe3e4b0fe3",
+      "expected_bytes": 101621760,
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\sha256\\e838520693f269e7984f55bc8eb3c2d60ccf246bf4b896d4be9bcabe3e4b0fe3\\speakerverification_en_titanet_large.nemo",
+      "started_at_utc": "2026-09-24T14:57:19.544587+00:00",
+      "status": "VERIFIED",
+      "sha256": "e838520693f269e7984f55bc8eb3c2d60ccf246bf4b896d4be9bcabe3e4b0fe3",
+      "bytes": 101621760,
+      "finished_at_utc": "2026-09-24T14:57:22.048159+00:00"
+    },
+    {
+      "model_id": "A1",
+      "filename": "parakeet_realtime_eou_120m-v1.nemo",
+      "repo": "nvidia/parakeet_realtime_eou_120m-v1",
+      "revision": "a7e2b4629593dce0ec19f600e00e9904353fda2d",
+      "url": "https://huggingface.co/nvidia/parakeet_realtime_eou_120m-v1/resolve/a7e2b4629593dce0ec19f600e00e9904353fda2d/parakeet_realtime_eou_120m-v1.nemo",
+      "expected_sha256": "6603a22a53b7c1a4bac4736cb24628fb568a7102ba931a28c799e2e72f109893",
+      "expected_bytes": 460062720,
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\sha256\\6603a22a53b7c1a4bac4736cb24628fb568a7102ba931a28c799e2e72f109893\\parakeet_realtime_eou_120m-v1.nemo",
+      "started_at_utc": "2026-09-24T14:57:22.193877+00:00",
+      "status": "VERIFIED",
+      "sha256": "6603a22a53b7c1a4bac4736cb24628fb568a7102ba931a28c799e2e72f109893",
+      "bytes": 460062720,
+      "finished_at_utc": "2026-09-24T14:57:39.537717+00:00"
+    },
+    {
+      "model_id": "A2",
+      "filename": "nemotron-speech-streaming-en-0.6b.q8_0.gguf",
+      "repo": "nvidia/nemotron-speech-streaming-en-0.6b",
+      "revision": "ebe59e5a817142986528bbbee5dba8db7b38ed50",
+      "url": "https://huggingface.co/nvidia/nemotron-speech-streaming-en-0.6b/resolve/ebe59e5a817142986528bbbee5dba8db7b38ed50/nemotron-speech-streaming-en-0.6b.q8_0.gguf",
+      "expected_sha256": "d9a01898d2a611c8764e23a1c2f45e70bbd5a425dc4de93692ac951dd603812d",
+      "expected_bytes": 699872960,
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\sha256\\d9a01898d2a611c8764e23a1c2f45e70bbd5a425dc4de93692ac951dd603812d\\nemotron-speech-streaming-en-0.6b.q8_0.gguf",
+      "started_at_utc": "2026-09-24T14:57:39.682313+00:00",
+      "status": "VERIFIED",
+      "sha256": "d9a01898d2a611c8764e23a1c2f45e70bbd5a425dc4de93692ac951dd603812d",
+      "bytes": 699872960,
+      "finished_at_utc": "2026-09-24T14:58:02.108681+00:00"
+    },
+    {
+      "model_id": "A3",
+      "filename": "nemotron-3.5-asr-streaming-0.6b.q8_0.gguf",
+      "repo": "nvidia/nemotron-3.5-asr-streaming-0.6b",
+      "revision": "ea30d66debe3740a08b573244286791d423d6b3e",
+      "url": "https://huggingface.co/nvidia/nemotron-3.5-asr-streaming-0.6b/resolve/ea30d66debe3740a08b573244286791d423d6b3e/nemotron-3.5-asr-streaming-0.6b.q8_0.gguf",
+      "expected_sha256": "3fc991d3badad7277c11030a7519832cddaf2057aafed6d4b25147e953a070b1",
+      "expected_bytes": 742090464,
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\sha256\\3fc991d3badad7277c11030a7519832cddaf2057aafed6d4b25147e953a070b1\\nemotron-3.5-asr-streaming-0.6b.q8_0.gguf",
+      "started_at_utc": "2026-09-24T14:58:02.255260+00:00",
+      "status": "VERIFIED",
+      "sha256": "3fc991d3badad7277c11030a7519832cddaf2057aafed6d4b25147e953a070b1",
+      "bytes": 742090464,
+      "finished_at_utc": "2026-09-24T14:58:28.619212+00:00"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "argv": [
+    "C:/Users/amiri/Documents/GitHub/just-peachy/.edge-speech-env/python.exe",
+    "-B",
+    "G:/Just_Peachy_N1/20260924_campaign/worktree/research/nvidia_nemo_comparison/20260924_campaign/data/run_baseline_screen.py",
+    "--source", "G:/Just_Peachy_N1/20260924_campaign/local/releases/n1-common-v1/prototype",
+    "--manifest", "G:/Just_Peachy_N1/20260924_campaign/local/data/BASELINE_SCREEN_AUDIO_ONLY.json",
+    "--output", "G:/Just_Peachy_N1/20260924_campaign/local/baseline_screen_v1",
+    "--progress", "G:/Just_Peachy_N1/20260924_campaign/local/supervision/panel_progress.json",
+    "--workers", "2"
+  ],
+  "cwd": "G:/Just_Peachy_N1/20260924_campaign/worktree"
+}

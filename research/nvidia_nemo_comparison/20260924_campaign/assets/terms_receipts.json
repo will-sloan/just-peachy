@@ -1,0 +1,42 @@
+[
+  {
+    "id": "openmdw-1.1",
+    "url": "https://openmdw.ai/license/1-1/",
+    "path": "G:/Just_Peachy_N1/20260924_campaign/local/assets/terms/openmdw-1.1.html",
+    "sha256": "bca09256a5633296b55c859a37009473a7f466ad5b4a7836c6782984076efa2b",
+    "bytes": 54206,
+    "fetched_utc": "2026-09-24T15:01:50.5795371Z"
+  },
+  {
+    "id": "nvidia-open-model-license",
+    "url": "https://www.nvidia.com/en-us/agreements/enterprise-software/nvidia-open-model-license/",
+    "path": "G:/Just_Peachy_N1/20260924_campaign/local/assets/terms/nvidia-open-model-license.html",
+    "sha256": "6cfaf0573ce77af6abf6cde501f7381f15c26ce2b1cc189d62e62f858d9fb570",
+    "bytes": 307675,
+    "fetched_utc": "2026-09-24T15:01:50.792649Z"
+  },
+  {
+    "id": "nvidia-trustworthy-ai",
+    "url": "https://www.nvidia.com/en-us/agreements/trustworthy-ai/terms/",
+    "path": "G:/Just_Peachy_N1/20260924_campaign/local/assets/terms/nvidia-trustworthy-ai.html",
+    "sha256": "c893312c01ef4d13c41c5ec39278a2964bba23c0e53323a4d8e54a08767b15f5",
+    "bytes": 291352,
+    "fetched_utc": "2026-09-24T15:01:51.2133819Z"
+  },
+  {
+    "id": "cc-by-4.0",
+    "url": "https://creativecommons.org/licenses/by/4.0/legalcode.en",
+    "path": "G:/Just_Peachy_N1/20260924_campaign/local/assets/terms/cc-by-4.0.html",
+    "sha256": "6d55b998ed5c54f43426d059a8c549ed58a3321e5463e6a6af1c6b56ab78c333",
+    "bytes": 48970,
+    "fetched_utc": "2026-09-24T15:01:51.3271968Z"
+  },
+  {
+    "id": "microsoft-vs2022-redistribution",
+    "url": "https://learn.microsoft.com/en-us/visualstudio/releases/2022/redistribution",
+    "path": "G:/Just_Peachy_N1/20260924_campaign/local/assets/terms/microsoft-vs2022-redistribution.html",
+    "sha256": "7af9976ce54fd089caebc67a00318a4af35eb124430232fc706e18e5eb462232",
+    "bytes": 62969,
+    "fetched_utc": "2026-09-24T15:11:22.3644411Z"
+  }
+]

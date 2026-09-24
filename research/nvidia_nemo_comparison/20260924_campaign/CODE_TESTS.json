@@ -1,0 +1,172 @@
+{
+  "schema": "just-peachy.n1.code-checks.v1",
+  "application": {
+    "schema": "just-peachy.private-desktop-test.v1",
+    "desktop": "codex-n1-e58bca86c43b4daaa759e075bf2a19cd",
+    "tests": 386,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 2,
+    "successful": true,
+    "modules": [
+      "research.nvidia_nemo_comparison.20260924_campaign.review.hardware_blocked_suite"
+    ],
+    "visible_on_input_desktop": false,
+    "input_injection": false,
+    "hardware_access": false
+  },
+  "application_isolation": {
+    "schema": "just-peachy.private-desktop-launch.v1",
+    "desktop": "codex-n1-e58bca86c43b4daaa759e075bf2a19cd",
+    "input_desktop_before": "Default",
+    "input_desktop_after": "Default",
+    "input_desktop_unchanged": true,
+    "switch_desktop_called": false,
+    "input_injection": false,
+    "exit_code": 0,
+    "timed_out": false,
+    "elapsed_seconds": 39.422,
+    "desktop_handle_closed": true
+  },
+  "application_log": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\checks\\full-suite-v1\\unittest.txt",
+    "sha256": "4f94f74d076641d5d20518a3b880ee5263695936c9640c84d90cc42896db938c",
+    "bytes": 66955
+  },
+  "hardware_guard": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\checks\\full-suite-v1\\hardware_guard.json",
+    "sha256": "37886d020c7963e38e0127762165872d3e356f096278ba5b6d9da58248352bd3",
+    "bytes": 2058
+  },
+  "release_tools": {
+    "tests": 22,
+    "elapsed_seconds": 1.449,
+    "status": "PASS",
+    "receipt": {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\checks\\release-tools-v1.txt",
+      "sha256": "1e001fe7ab593685ec989a9113b5212d090c4bc15c19e1012a5a41ed2f555893",
+      "bytes": 2420
+    }
+  },
+  "supervisor": {
+    "tests": 10,
+    "elapsed_seconds": 11.418,
+    "status": "PASS",
+    "receipt": {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\checks\\supervisor-final-v3.txt",
+      "sha256": "1cf6d501871f6918539293b42db188df448fd914245f7cc5ab741418ec1432ef",
+      "bytes": 1501
+    }
+  },
+  "note_examples": {
+    "checked_at_utc": "2026-09-24T15:14:47.641833+00:00",
+    "status": "PASS",
+    "tests_run": 4,
+    "failures": 0,
+    "errors": 0,
+    "fixture_kind": "SOURCE_TEXT_AND_EVENTS_ONLY",
+    "microphone_opened": false,
+    "model_inference": false,
+    "production_code_changed": false,
+    "wd40_normalization": "DEFERRED_N3_UNSUPPORTED_BY_CURRENT_LETTERS_ONLY_RULES",
+    "amir": "APPROVED_CONTEXTUAL_HEURISTIC_ONLY",
+    "output": "test_amir_requires_approved_context_and_avoids_ambiguity (__main__.NoteExamples.test_amir_requires_approved_context_and_avoids_ambiguity) ... ok\ntest_raw_caption_and_span_ids_survive_separate_text_suggestion (__main__.NoteExamples.test_raw_caption_and_span_ids_survive_separate_text_suggestion) ... ok\ntest_wd40_literal_is_retained_without_reconstruction (__main__.NoteExamples.test_wd40_literal_is_retained_without_reconstruction) ... ok\ntest_wd40_rule_is_unavailable_and_not_silently_claimed (__main__.NoteExamples.test_wd40_rule_is_unavailable_and_not_silently_claimed) ... ok\n\n----------------------------------------------------------------------\nRan 4 tests in 0.017s\n\nOK\n"
+  },
+  "installed_entrypoint": {
+    "schema": "n1-installed-main-idle-audit.v1",
+    "scope": "Actual installed main.py, real Controller, private desktop, no inference/hardware",
+    "installed_source": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\Installed Baseline\\releases\\n1-common-20260924-v1",
+    "main_sha256": "e7dfd33c3f9dc9b3d0167be75ff321340be5ec5e01431bb6dd1b534f494d411c",
+    "bound_file_count": 161,
+    "capture_helper_sha256": "c72c94b0403b9c7732d1d7fb5ab5dcaead66d515b3d746fc58de93d7590c624a",
+    "private_desktop": "codex-n1-bb46b4cebc8f4d8f8bfbf76791a2b18a",
+    "isolated_data_root": "G:\\Just_Peachy_N1\\20260924_campaign\\evidence\\frontend\\installed_idle_v2\\isolated_app_data",
+    "failures": [],
+    "allow_auto_start_argument": false,
+    "idle_observation_seconds": 0.9850000000001273,
+    "idle_state": "IDLE",
+    "saved_audio_only": true,
+    "saved_preferences": {
+      "microphone_preapproved": true,
+      "auto_start_listening": true,
+      "caption_size": "Compact",
+      "preview_zoom": 1.0
+    },
+    "root_pixels": [
+      480,
+      800
+    ],
+    "model_counts": {
+      "asr_loads": 0,
+      "speaker_loads": 0,
+      "streams": 0,
+      "enhancer_loads": 0
+    },
+    "runtime_lock_exists_during_ui": true,
+    "endpoint_observations": [
+      {
+        "stage": "application_open",
+        "status": "DISABLED_SAVED_AUDIO_ONLY"
+      },
+      {
+        "stage": "application_exit",
+        "status": "DISABLED_SAVED_AUDIO_ONLY"
+      }
+    ],
+    "imu_is_none": true,
+    "engine_is_none": true,
+    "ui_pending_auto_start": false,
+    "screenshot": {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\evidence\\frontend\\installed_idle_v2\\INSTALLED_IDLE.png",
+      "sha256": "d6ec8f3a01acdcf8921e684ae6aca565be694bea33c19a4a7a0ee1cabde91d59",
+      "width": 480,
+      "height": 800,
+      "scope": "Known app client PrintWindow rendering on private desktop; no user screen or physical scanout"
+    },
+    "normal_ui_close_called": true,
+    "main_exit_code": 0,
+    "closed": true,
+    "final_state": "CLOSED",
+    "controller_worker_alive": false,
+    "runtime_lock_exists_after_close": false,
+    "guarded_forbidden_calls": [],
+    "runtime_lock_reacquired_and_released": true,
+    "installed_source_unchanged": true
+  },
+  "gui_final_snapshot_replay": {
+    "status": "COMPLETE",
+    "rendered": 96,
+    "scope": "FINAL_SNAPSHOT render through frozen common UI after inference; not live/source-paced GUI latency or physical scanout",
+    "receipt": {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\evidence\\frontend\\baseline_full_gui_v1\\GUI_REPLAY_REPORT.json",
+      "sha256": "061af89f14fa4c9c5f9c4d59497b0ead97a7adc0ea4944f0b19c58653c25e34b",
+      "bytes": 128690
+    }
+  },
+  "historical_C105": {
+    "status": "ACTUALLY_RUN_PASS_SOURCE_EVENT_REPLAY_ONLY",
+    "variants": 10,
+    "raw_words_preserved_all_variants": true,
+    "source_binding_checks": 12,
+    "neural_calls": 0,
+    "hardware_calls": 0,
+    "recorded_case": "C105/S45_08_07/O0",
+    "scope": "Exact historical observed pair plus evaluator ordering overlays; original historical application implementation, not current-neural or GUI accuracy",
+    "current_neural_attribution_fix_proven": false,
+    "private_result": {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\data\\c105_boundary_exact_replay\\RESULT.json",
+      "sha256": "0ebd7321202e4d48e8b5a3c1154735aae27fde069f0db32c7225a89bfbad09cb",
+      "bytes": 15033
+    },
+    "helper": {
+      "path": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\XVF 3800 Testing\\XVF Integration Real World RIRs\\simulation\\scripts\\s6d_application_boundary.py",
+      "bytes": 6541,
+      "sha256": "1425bc0cf249924d2f0db4ed54998f64016ac49626540ec9c077fb18894408fc"
+    },
+    "historical_application_source": {
+      "path": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\Software Validation from Datasets\\Evaluation Tool\\app\\edge_speech_pipeline\\research_s6d.py",
+      "bytes": 26579,
+      "sha256": "959fbdb407ff650b84962f4f2773254074698ef0224668b4812891d3a8d98218"
+    }
+  }
+}

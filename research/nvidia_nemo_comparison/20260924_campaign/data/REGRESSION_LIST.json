@@ -1,0 +1,86 @@
+{
+  "schema": "n1-saved-regressions-v1",
+  "created_utc": "2026-09-24T15:29:31.742385+00:00",
+  "main_screen_unchanged": true,
+  "saved_scene_additions": [
+    {
+      "case_id": "S45_08_07",
+      "taps": [
+        "O0",
+        "O1"
+      ],
+      "already_in_screen": false,
+      "reason": "Saved C105 arrival-order/native attribution regression; keep diagnostic even when new UI fixtures pass",
+      "audio_sha256": {
+        "O0": "4126f87778ac12a14ab5128fb7c2ba67947ec4a7278344c2a1d14f48c51b4408",
+        "O1": "7034fcffed1236ad1bdb8911efdc6d808bd131a2280335d466f9e8fa81ba36ee"
+      },
+      "status": "SAVED_INPUT_VERIFIED_NOT_NEW_N1_INFERENCE",
+      "scope": "explicit diagnostic addition outside fixed48; never alter main-panel denominator"
+    },
+    {
+      "case_id": "S45_03_03",
+      "taps": [
+        "O0",
+        "O1"
+      ],
+      "already_in_screen": false,
+      "reason": "Existing short replies/rapid handoff acceptance regression",
+      "audio_sha256": {
+        "O0": "c69e22f55c28a8f06dcb26258dddf9accbcb17a34a4968bccc1daae21217f606",
+        "O1": "8cd39321e9c95a1bb8de32ee6cd47a9961dbb5a179f3493921a2a1686c6f142c"
+      },
+      "status": "SAVED_INPUT_VERIFIED_NOT_NEW_N1_INFERENCE",
+      "scope": "explicit diagnostic addition outside fixed48; never alter main-panel denominator"
+    },
+    {
+      "case_id": "S45_06_07",
+      "taps": [
+        "O0",
+        "O1"
+      ],
+      "already_in_screen": false,
+      "reason": "Existing source-paced long pause/return regression",
+      "audio_sha256": {
+        "O0": "deef29018bdf2c518638e416d0697095b709c98c15ed33cc640586e482205a1a",
+        "O1": "0355ea748e67e6f2b73a9dad8945d4639a13242f3b408313ac10af787850697e"
+      },
+      "status": "SAVED_INPUT_VERIFIED_NOT_NEW_N1_INFERENCE",
+      "scope": "explicit diagnostic addition outside fixed48; never alter main-panel denominator"
+    },
+    {
+      "case_id": "S45_12_15",
+      "taps": [
+        "O0",
+        "O1"
+      ],
+      "already_in_screen": false,
+      "reason": "Already-existing digital silence control; complements one noise-only screen control",
+      "audio_sha256": {
+        "O0": "2749912b017d5f016bcd244874c05b4bc3c5c5a9d30cbd3a9948a0905516ebec",
+        "O1": "2749912b017d5f016bcd244874c05b4bc3c5c5a9d30cbd3a9948a0905516ebec"
+      },
+      "status": "SAVED_INPUT_VERIFIED_NOT_NEW_N1_INFERENCE",
+      "scope": "explicit diagnostic addition outside fixed48; never alter main-panel denominator"
+    }
+  ],
+  "total_additional_cells": 8,
+  "total_source_seconds": 357.5635,
+  "historical_C105_boundary": {
+    "receipt_sha256": "ecc9c1d31fdf955fac5abd1a6c532e907c661f4bdad4e18b7332c79872748a98",
+    "source_variants": 10,
+    "historical_status": "COMPLETE_REPLAY_ONLY",
+    "neural_calls": 0,
+    "source_bindings_verified": 12,
+    "source_bindings_unavailable": 0,
+    "N1_status": "REPLAY_RUN_STATUS_IN_C105_REPLAY_RECEIPT.json",
+    "caveat": "Historical event replay did not cure native C105 attribution; source-event fixtures cannot certify neural identity accuracy."
+  },
+  "existing_nonhardware_timing_tests": [
+    "prototype/tests/test_live_timing.py",
+    "prototype/tests/test_sessions.py",
+    "prototype/tests/test_caption_display.py"
+  ],
+  "new_acoustic_scenes_created": 0,
+  "hardware_calls": 0
+}

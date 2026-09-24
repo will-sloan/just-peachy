@@ -1,0 +1,115 @@
+{
+  "schema": "n1-frontend-status.v1",
+  "implementation_status": "IMPLEMENTED",
+  "tests_status": "ACTUALLY_RUN",
+  "focused_test_count": 44,
+  "focused_failures": 0,
+  "focused_errors": 0,
+  "synthetic_app_renders": 7,
+  "client_pixels": [
+    480,
+    800
+  ],
+  "active_region_height_px": 184,
+  "baseline_smoke_gui": {
+    "status": "ACTUALLY_RUN",
+    "passed": 2,
+    "expected_final": 96,
+    "scope": "FINAL_SNAPSHOT render through frozen common UI after inference; not live/source-paced GUI latency or physical scanout"
+  },
+  "all96_gui_status": "ACTUALLY_RUN_COMPLETE",
+  "backend_count": 7,
+  "implemented_backend_count": 1,
+  "seeded_unavailable_backend_count": 6,
+  "physical_display_mic_usb_playback_status": "NOT_TESTED_NOT_AUTHORIZED",
+  "user_input_desktop_unchanged": true,
+  "evidence": [
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\evidence\\frontend\\render_check_retry1\\tests.json",
+      "sha256": "136791bc7da7b21912ad671de725184ebcd7992322f85fa0e898e212d33e75a9"
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\evidence\\frontend\\render_check_retry1\\isolation.json",
+      "sha256": "7467be8022f180a78b827925bdc61da9030effa8e339b9789132cfd0d016833c"
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\evidence\\frontend\\render_check_retry1\\unittest.txt",
+      "sha256": "bbbe0149c5f9075c199a90d9422ca8f69ff49e0f779fb826be49d2e1d2777d4d"
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\evidence\\frontend\\render_check_retry1\\screenshots\\render_receipts.json",
+      "sha256": "a84b56f2fa0c484b4b46d81324dbbfa3f315e0907b7e44d62c8241ba9adbcfc9"
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\evidence\\frontend\\baseline_smoke_gui_v2\\GUI_REPLAY_REPORT.json",
+      "sha256": "b3b21dbae781822c4ff62727bbf8e6981dcd9121398f6ebf017b7c2780142092"
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\evidence\\frontend\\baseline_smoke_gui_v2\\isolation.json",
+      "sha256": "c0409b16638ec1ecaa6f156203b4d5e0220780dc257be6fe46199f0554c9b1af"
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\evidence\\frontend\\installed_idle_v2\\INSTALLED_MAIN_RECEIPT.json",
+      "sha256": "b2b1e75a697c852074665a51b2637bbb6ad1a31a5b414ecff25dd85223d449cd"
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\evidence\\frontend\\installed_idle_v2\\isolation.json",
+      "sha256": "240754f287913c56cd5f0e3d0f6a195f5b391e29155bc513e01d8951c20cb174"
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\evidence\\frontend\\baseline_full_gui_v1\\GUI_REPLAY_REPORT.json",
+      "sha256": "061af89f14fa4c9c5f9c4d59497b0ead97a7adc0ea4944f0b19c58653c25e34b"
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\evidence\\frontend\\baseline_full_gui_v1\\isolation.json",
+      "sha256": "63666815ba5679af74158df004d188a13b7dae6e3edba3d3a7916bb88389ee93"
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\evidence\\frontend\\baseline_full_gui_v1\\tests.json",
+      "sha256": "68dacb32562289495074dbc415cab0b971d4b4e7fcb6f59e5108c4d9077d1e80"
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\evidence\\frontend\\baseline_full_gui_v1\\VISUAL_REVIEW.json",
+      "sha256": "f42eda030ef989842044a83819b7349288dcb2ea190ffe4157fbf729769d9b73"
+    }
+  ],
+  "installed_entrypoint": {
+    "status": "ACTUALLY_RUN",
+    "real_main_and_controller": true,
+    "idle_despite_saved_autostart": true,
+    "client_pixels": [
+      480,
+      800
+    ],
+    "model_load_counts": {
+      "asr_loads": 0,
+      "speaker_loads": 0,
+      "streams": 0,
+      "enhancer_loads": 0
+    },
+    "guarded_hardware_calls": 0,
+    "normal_ui_close_releases_lock": true,
+    "installed_source_unchanged": true
+  },
+  "baseline_full_gui": {
+    "status": "ACTUALLY_RUN",
+    "passed": 96,
+    "expected": 96,
+    "failed": 0,
+    "total_rendered_rows": 1469,
+    "sum_scene_stable_span_counts": 2493,
+    "total_gui_application_receipts": 2938,
+    "all_row_display_text_retained": true,
+    "all_span_receipts_present": true,
+    "app_client_pngs_created": 6,
+    "app_client_pngs_visually_inspected": 3,
+    "scope": "FINAL_SNAPSHOT render through frozen common UI after inference; not live/source-paced GUI latency or physical scanout",
+    "first_gui_label_scope": "Initial application of saved final state, not original online first labels",
+    "minimum_display_settle_seconds": 1.3,
+    "contract_sha256": "3a9ae26a62eaae5687a911800615775f7e9555645bf0f667b7b66dbadf1740e7",
+    "source_binding_count": 165,
+    "source_hashes_verified_before_and_after": true,
+    "input_desktop_unchanged": true,
+    "private_desktop_handle_closed": true
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "partition_type": "GPT: Logical Disk Manager Data",
+  "filesystem": "NTFS",
+  "minimum_free_gib": 75,
+  "benchmark_run": false,
+  "drive": "G:",
+  "media": "SSD",
+  "free_bytes": 145101803520,
+  "new_payload_allowance_gib": 50,
+  "bus": "NVMe",
+  "disk_index": 3,
+  "model": "KINGSTON SNVS2000G",
+  "size": 2000381014016,
+  "checked_utc": "2026-09-24T15:28:18.1980990Z"
+}

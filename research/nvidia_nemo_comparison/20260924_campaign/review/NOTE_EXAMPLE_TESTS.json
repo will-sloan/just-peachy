@@ -1,0 +1,14 @@
+{
+  "checked_at_utc": "2026-09-24T15:14:47.641833+00:00",
+  "status": "PASS",
+  "tests_run": 4,
+  "failures": 0,
+  "errors": 0,
+  "fixture_kind": "SOURCE_TEXT_AND_EVENTS_ONLY",
+  "microphone_opened": false,
+  "model_inference": false,
+  "production_code_changed": false,
+  "wd40_normalization": "DEFERRED_N3_UNSUPPORTED_BY_CURRENT_LETTERS_ONLY_RULES",
+  "amir": "APPROVED_CONTEXTUAL_HEURISTIC_ONLY",
+  "output": "test_amir_requires_approved_context_and_avoids_ambiguity (__main__.NoteExamples.test_amir_requires_approved_context_and_avoids_ambiguity) ... ok\ntest_raw_caption_and_span_ids_survive_separate_text_suggestion (__main__.NoteExamples.test_raw_caption_and_span_ids_survive_separate_text_suggestion) ... ok\ntest_wd40_literal_is_retained_without_reconstruction (__main__.NoteExamples.test_wd40_literal_is_retained_without_reconstruction) ... ok\ntest_wd40_rule_is_unavailable_and_not_silently_claimed (__main__.NoteExamples.test_wd40_rule_is_unavailable_and_not_silently_claimed) ... ok\n\n----------------------------------------------------------------------\nRan 4 tests in 0.017s\n\nOK\n"
+}

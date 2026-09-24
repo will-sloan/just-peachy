@@ -1,0 +1,143 @@
+[
+  {
+    "id": "D1",
+    "readme": {
+      "path": "README.md",
+      "lastCommit": {
+        "id": "f667ed73aee57d40cc39428eb768b4fd87a0a29e",
+        "title": "add: q8_0 GGUF for NeMo-Speech.cpp (#3)",
+        "date": "2026-09-24T05:52:51Z"
+      }
+    },
+    "checkpoint": {
+      "path": "Nemotron-3-Diarization.nemo",
+      "lastCommit": {
+        "id": "0e224186f30112a1b555f2ee402e2be781146535",
+        "title": "Upload Nemotron-3-Diarization.nemo with huggingface_hub",
+        "date": "2026-09-18T13:58:10Z"
+      }
+    },
+    "gguf": {
+      "path": "Nemotron-3-Diarization.q8_0.gguf",
+      "lastCommit": {
+        "id": "f667ed73aee57d40cc39428eb768b4fd87a0a29e",
+        "title": "add: q8_0 GGUF for NeMo-Speech.cpp (#3)",
+        "date": "2026-09-24T05:52:51Z"
+      }
+    }
+  },
+  {
+    "id": "E1",
+    "readme": {
+      "path": "README.md",
+      "lastCommit": {
+        "id": "0dc382f40121a5fbd34db10a2bb04d826c2be6a8",
+        "title": "Update README.md",
+        "date": "2023-11-14T16:58:18Z"
+      }
+    },
+    "checkpoint": {
+      "path": "speakerverification_en_titanet_large.nemo",
+      "lastCommit": {
+        "id": "fa8ee5ddf24f3d3fffc1212d791e0922e5bfb53d",
+        "title": "Upload speakerverification_en_titanet_large.nemo (#3)",
+        "date": "2023-03-13T19:13:10Z"
+      }
+    },
+    "gguf": null
+  },
+  {
+    "id": "A1",
+    "readme": {
+      "path": "README.md",
+      "lastCommit": {
+        "id": "a7e2b4629593dce0ec19f600e00e9904353fda2d",
+        "title": "Added NVIDIA doc links",
+        "date": "2025-12-03T22:28:49Z"
+      }
+    },
+    "checkpoint": {
+      "path": "parakeet_realtime_eou_120m-v1.nemo",
+      "lastCommit": {
+        "id": "0f29b3c64c2181fa77d57f0a5ccc0902fec98b56",
+        "title": "Upload parakeet_realtime_eou_120m-v1.nemo",
+        "date": "2025-10-14T22:16:46Z"
+      }
+    },
+    "gguf": null
+  },
+  {
+    "id": "A2",
+    "readme": {
+      "path": "README.md",
+      "lastCommit": {
+        "id": "ebe59e5a817142986528bbbee5dba8db7b38ed50",
+        "title": "Add NeMo-Speech.cpp GGUF (#21)",
+        "date": "2026-08-05T21:45:11Z"
+      }
+    },
+    "checkpoint": {
+      "path": "nemotron-speech-streaming-en-0.6b.nemo",
+      "lastCommit": {
+        "id": "2ea504fbea82042685dbce331687b1af9d7b0567",
+        "title": "update the model checkpoint",
+        "date": "2026-03-13T21:35:37Z"
+      }
+    },
+    "gguf": {
+      "path": "nemotron-speech-streaming-en-0.6b.q8_0.gguf",
+      "lastCommit": {
+        "id": "ebe59e5a817142986528bbbee5dba8db7b38ed50",
+        "title": "Add NeMo-Speech.cpp GGUF (#21)",
+        "date": "2026-08-05T21:45:11Z"
+      }
+    }
+  },
+  {
+    "id": "A3",
+    "readme": {
+      "path": "README.md",
+      "lastCommit": {
+        "id": "1c8deaecc64b91f034d73e08dd8b64625eb3395d",
+        "title": "Add NeMo-Speech.cpp GGUF (#28)",
+        "date": "2026-08-05T18:52:16Z"
+      }
+    },
+    "checkpoint": {
+      "path": "nemotron-3.5-asr-streaming-0.6b.nemo",
+      "lastCommit": {
+        "id": "b0da14f6c967bc523561323dfb22dc8ba68c8d20",
+        "title": "Update ckpt & README.md & Renaming",
+        "date": "2026-05-30T00:35:45Z"
+      }
+    },
+    "gguf": {
+      "path": "nemotron-3.5-asr-streaming-0.6b.q8_0.gguf",
+      "lastCommit": {
+        "id": "ea30d66debe3740a08b573244286791d423d6b3e",
+        "title": "Re-convert GGUF with embedded SentencePiece tokenizer (#32)",
+        "date": "2026-09-10T16:49:07Z"
+      }
+    }
+  },
+  {
+    "id": "X1",
+    "readme": {
+      "path": "README.md",
+      "lastCommit": {
+        "id": "8749fc71fd6e2d88ef230159bbf2aea69b524ee1",
+        "title": "Update README.md",
+        "date": "2026-01-28T02:03:41Z"
+      }
+    },
+    "checkpoint": {
+      "path": "multitalker-parakeet-streaming-0.6b-v1.nemo",
+      "lastCommit": {
+        "id": "bc68e4e4e29ccf0fc83df2ab16bb3e520947d085",
+        "title": "Rename multitalker-parakeet-streaming-0.6b-v1 to multitalker-parakeet-streaming-0.6b-v1.nemo",
+        "date": "2025-10-31T20:54:57Z"
+      }
+    },
+    "gguf": null
+  }
+]

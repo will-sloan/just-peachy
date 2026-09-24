@@ -1,0 +1,277 @@
+{
+  "inspected_at_utc": "2026-09-24T15:09:40.825358+00:00",
+  "artifacts": [
+    {
+      "model_id": "D1",
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\sha256\\08456d9e22cd9a323c0364d98375f3746d6e68507ebb705cd46438c534c7a3a1\\Nemotron-3-Diarization.q8_0.gguf",
+      "sha256": "08456d9e22cd9a323c0364d98375f3746d6e68507ebb705cd46438c534c7a3a1",
+      "model_executed": false,
+      "pickle_deserialized": false,
+      "gguf_version": 3,
+      "tensor_count": 360,
+      "metadata": {
+        "general.architecture": "sortformer",
+        "general.name": "Nemotron-3-Diarization.q8_0",
+        "sortformer.version": "v3",
+        "general.file_type": 7,
+        "sortformer.encoder.d_model": 512,
+        "sortformer.encoder.n_layers": 31,
+        "sortformer.encoder.n_heads": 8,
+        "sortformer.encoder.d_ff": 2048,
+        "sortformer.encoder.conv_kernel_size": 0,
+        "sortformer.encoder.subsampling_factor": 8,
+        "sortformer.encoder.subsampling_conv_channels": 256,
+        "sortformer.encoder.feat_in": 128,
+        "sortformer.encoder.xscaling": false,
+        "sortformer.encoder.use_bias": true,
+        "sortformer.encoder.pos_emb_max_len": 5000,
+        "sortformer.encoder.conv_norm": "batch_norm",
+        "sortformer.encoder.conv_context": "symmetric",
+        "sortformer.encoder.att_context_style": "regular",
+        "sortformer.encoder.type": "transformer_rope",
+        "sortformer.encoder.subsampling_type": "feature_stacking",
+        "sortformer.encoder.qkv_bias": false,
+        "sortformer.encoder.qk_norm": false,
+        "sortformer.encoder.pre_block_norm": true,
+        "sortformer.encoder.rope_base": 10000.0,
+        "sortformer.encoder.rotary_fraction": 1.0,
+        "sortformer.transformer.n_layers": 0,
+        "sortformer.transformer.hidden_size": 192,
+        "sortformer.transformer.inner_size": 0,
+        "sortformer.transformer.n_heads": 0,
+        "sortformer.transformer.pre_ln": true,
+        "sortformer.num_speakers": 8,
+        "sortformer.high_resolution": true,
+        "sortformer.output_subsampling_factor": 1,
+        "sortformer.upsample_factor": 8,
+        "sortformer.learnable_silence": true,
+        "sortformer.preprocessor.sample_rate": 16000,
+        "sortformer.preprocessor.window_size": 0.02500000037252903,
+        "sortformer.preprocessor.window_stride": 0.009999999776482582,
+        "sortformer.preprocessor.n_fft": 512,
+        "sortformer.preprocessor.features": 128,
+        "sortformer.preprocessor.normalize": "NA",
+        "sortformer.preprocessor.preemph": 0.9700000286102295,
+        "sortformer.preprocessor.dither": 9.999999747378752e-06,
+        "sortformer.preprocessor.log_zero_guard": 5.960464477539063e-08,
+        "sortformer.scoring.spkcache_sil_frames_per_spk": 1,
+        "sortformer.scoring.pred_score_threshold": 0.25,
+        "sortformer.scoring.scores_boost_latest": 0.05000000074505806,
+        "sortformer.scoring.sil_threshold": 0.20000000298023224,
+        "sortformer.scoring.strong_boost_rate": 0.75,
+        "sortformer.scoring.weak_boost_rate": 1.5,
+        "sortformer.scoring.min_pos_scores_rate": 0.5,
+        "sortformer.streaming.spkcache_len": 264,
+        "sortformer.streaming.fifo_len": 0,
+        "sortformer.streaming.chunk_len": 264,
+        "sortformer.streaming.spkcache_update_period": 264,
+        "sortformer.streaming.chunk_left_context": 0,
+        "sortformer.streaming.chunk_right_context": 0
+      }
+    },
+    {
+      "model_id": "E1",
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\sha256\\e838520693f269e7984f55bc8eb3c2d60ccf246bf4b896d4be9bcabe3e4b0fe3\\speakerverification_en_titanet_large.nemo",
+      "sha256": "e838520693f269e7984f55bc8eb3c2d60ccf246bf4b896d4be9bcabe3e4b0fe3",
+      "model_executed": false,
+      "pickle_deserialized": false,
+      "members": [
+        {
+          "name": "model_config.yaml",
+          "bytes": 2833,
+          "regular_file": true
+        },
+        {
+          "name": "model_weights.ckpt",
+          "bytes": 101611209,
+          "regular_file": true
+        }
+      ],
+      "configuration_snapshots": [
+        {
+          "name": "model_config.yaml",
+          "sha256": "fd3daa439843876d5e6679ee8b98ff37a278bce938fc9f8bcaf43f090a6a37fb",
+          "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\metadata\\E1\\archive_model_config.yaml"
+        }
+      ]
+    },
+    {
+      "model_id": "A1",
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\sha256\\6603a22a53b7c1a4bac4736cb24628fb568a7102ba931a28c799e2e72f109893\\parakeet_realtime_eou_120m-v1.nemo",
+      "sha256": "6603a22a53b7c1a4bac4736cb24628fb568a7102ba931a28c799e2e72f109893",
+      "model_executed": false,
+      "pickle_deserialized": false,
+      "members": [
+        {
+          "name": "model_config.yaml",
+          "bytes": 20501,
+          "regular_file": true
+        },
+        {
+          "name": "model_weights.ckpt",
+          "bytes": 459751983,
+          "regular_file": true
+        },
+        {
+          "name": "579c55db5b0a40b5874fbc53d419e619_tokenizer.model",
+          "bytes": 258183,
+          "regular_file": true
+        },
+        {
+          "name": "7e6bee0b885f479781f5c7a4b9081eca_tokenizer.vocab",
+          "bytes": 12293,
+          "regular_file": true
+        },
+        {
+          "name": "f6a50eb344a74986b216239ab75c6ee6_vocab.txt",
+          "bytes": 5090,
+          "regular_file": true
+        }
+      ],
+      "configuration_snapshots": [
+        {
+          "name": "model_config.yaml",
+          "sha256": "1e878056cd93f6556c2d2695cc39062d89a4b1c024330033905f26a162fe507d",
+          "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\metadata\\A1\\archive_model_config.yaml"
+        },
+        {
+          "name": "f6a50eb344a74986b216239ab75c6ee6_vocab.txt",
+          "sha256": "196da68aad36fda46399fc8a007fd931109ddbb479d9328b5579b2a6ae64e84b",
+          "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\metadata\\A1\\archive_f6a50eb344a74986b216239ab75c6ee6_vocab.txt"
+        }
+      ]
+    },
+    {
+      "model_id": "A2",
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\sha256\\d9a01898d2a611c8764e23a1c2f45e70bbd5a425dc4de93692ac951dd603812d\\nemotron-speech-streaming-en-0.6b.q8_0.gguf",
+      "sha256": "d9a01898d2a611c8764e23a1c2f45e70bbd5a425dc4de93692ac951dd603812d",
+      "model_executed": false,
+      "pickle_deserialized": false,
+      "gguf_version": 3,
+      "tensor_count": 653,
+      "metadata": {
+        "general.architecture": "asr",
+        "general.name": ".nemotron-speech-streaming-en-0.6b.q8_0.gguf",
+        "asr.head_type": "rnnt",
+        "general.file_type": 7,
+        "asr.encoder.d_model": 1024,
+        "asr.encoder.n_layers": 24,
+        "asr.encoder.n_heads": 8,
+        "asr.encoder.d_ff": 4096,
+        "asr.encoder.conv_kernel_size": 9,
+        "asr.encoder.subsampling_factor": 8,
+        "asr.encoder.subsampling_conv_channels": 256,
+        "asr.encoder.feat_in": 128,
+        "asr.encoder.xscaling": false,
+        "asr.encoder.use_bias": false,
+        "asr.encoder.q8_layout": "block_q8_0",
+        "asr.encoder.qkv_q8_layout": "block_q8_0",
+        "asr.encoder.pos_emb_max_len": 5000,
+        "asr.encoder.cache_supported": true,
+        "asr.encoder.train_left_ctx": 70,
+        "asr.encoder.train_right_ctx": 13,
+        "asr.encoder.offline_left_ctx": 70,
+        "asr.encoder.offline_right_ctx": 13,
+        "asr.encoder.conv_norm": "layer_norm",
+        "asr.encoder.conv_context": "causal",
+        "asr.encoder.att_context_style": "chunked_limited",
+        "asr.preprocessor.sample_rate": 16000,
+        "asr.preprocessor.window_size": 0.02500000037252903,
+        "asr.preprocessor.window_stride": 0.009999999776482582,
+        "asr.preprocessor.n_fft": 512,
+        "asr.preprocessor.features": 128,
+        "asr.preprocessor.normalize": "NA",
+        "asr.preprocessor.preemph": 0.9700000286102295,
+        "asr.preprocessor.dither": 9.999999747378752e-06,
+        "asr.preprocessor.stft_center_window": true,
+        "asr.preprocessor.hann_periodic": false,
+        "asr.preprocessor.mask_invalid_frames": true,
+        "asr.rnnt.vocab_size": 1025,
+        "asr.rnnt.blank_id": 1024,
+        "asr.rnnt.pred_embed_dim": 640,
+        "asr.rnnt.pred_hidden": 640,
+        "asr.rnnt.pred_num_layers": 2,
+        "asr.rnnt.joint_dim": 640,
+        "asr.rnnt.max_symbols_per_step": 10,
+        "asr.rnnt.num_prompts": 0,
+        "asr.tokenizer.type": "sentencepiece_bpe",
+        "asr.tokenizer.vocab": {
+          "array_type": 8,
+          "count": 1024,
+          "contents_omitted": true
+        }
+      }
+    },
+    {
+      "model_id": "A3",
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\sha256\\3fc991d3badad7277c11030a7519832cddaf2057aafed6d4b25147e953a070b1\\nemotron-3.5-asr-streaming-0.6b.q8_0.gguf",
+      "sha256": "3fc991d3badad7277c11030a7519832cddaf2057aafed6d4b25147e953a070b1",
+      "model_executed": false,
+      "pickle_deserialized": false,
+      "gguf_version": 3,
+      "tensor_count": 657,
+      "metadata": {
+        "general.architecture": "asr",
+        "general.name": "nemotron-3.5-asr-streaming-0.6b.q8_0",
+        "asr.head_type": "rnnt",
+        "general.file_type": 7,
+        "asr.encoder.d_model": 1024,
+        "asr.encoder.n_layers": 24,
+        "asr.encoder.n_heads": 8,
+        "asr.encoder.d_ff": 4096,
+        "asr.encoder.conv_kernel_size": 9,
+        "asr.encoder.subsampling_factor": 8,
+        "asr.encoder.subsampling_conv_channels": 256,
+        "asr.encoder.feat_in": 128,
+        "asr.encoder.xscaling": false,
+        "asr.encoder.use_bias": false,
+        "asr.encoder.q8_layout": "block_q8_0",
+        "asr.encoder.qkv_q8_layout": "block_q8_0",
+        "asr.encoder.pos_emb_max_len": 5000,
+        "asr.encoder.cache_supported": true,
+        "asr.encoder.train_left_ctx": 56,
+        "asr.encoder.train_right_ctx": 3,
+        "asr.encoder.offline_left_ctx": 56,
+        "asr.encoder.offline_right_ctx": 3,
+        "asr.encoder.conv_norm": "layer_norm",
+        "asr.encoder.conv_context": "causal",
+        "asr.encoder.att_context_style": "chunked_limited",
+        "asr.preprocessor.sample_rate": 16000,
+        "asr.preprocessor.window_size": 0.02500000037252903,
+        "asr.preprocessor.window_stride": 0.009999999776482582,
+        "asr.preprocessor.n_fft": 512,
+        "asr.preprocessor.features": 128,
+        "asr.preprocessor.normalize": "NA",
+        "asr.preprocessor.preemph": 0.9700000286102295,
+        "asr.preprocessor.dither": 9.999999747378752e-06,
+        "asr.preprocessor.stft_center_window": true,
+        "asr.preprocessor.hann_periodic": false,
+        "asr.preprocessor.mask_invalid_frames": true,
+        "asr.rnnt.vocab_size": 13088,
+        "asr.rnnt.blank_id": 13087,
+        "asr.rnnt.pred_embed_dim": 640,
+        "asr.rnnt.pred_hidden": 640,
+        "asr.rnnt.pred_num_layers": 2,
+        "asr.rnnt.joint_dim": 640,
+        "asr.rnnt.max_symbols_per_step": 10,
+        "asr.rnnt.num_prompts": 128,
+        "asr.rnnt.prompt_dictionary": {
+          "array_type": 8,
+          "count": 121,
+          "contents_omitted": true
+        },
+        "asr.tokenizer.type": "sentencepiece_bpe",
+        "asr.tokenizer.vocab": {
+          "array_type": 8,
+          "count": 13087,
+          "contents_omitted": true
+        },
+        "asr.tokenizer.spm_model": {
+          "string_bytes": 542072,
+          "sha256": "7b2c9db3a6db919dfd6ac0784a45f885bfe308866a4ef2e8f5cbc52efd64e171",
+          "contents_omitted": true
+        }
+      }
+    }
+  ]
+}

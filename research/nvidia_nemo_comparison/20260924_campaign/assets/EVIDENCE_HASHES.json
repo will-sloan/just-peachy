@@ -1,0 +1,72 @@
+[
+  {
+    "name": "artifact_dates.json",
+    "bytes": 4169,
+    "sha256": "efc98442a52fe45ec3d258aecb97cfc1d5b51d307a2ed9049821362e056d3e0a"
+  },
+  {
+    "name": "asset_structure_receipt.json",
+    "bytes": 11903,
+    "sha256": "cfdaab9ffe6fb4fcf37dd5d4051a0fcbd730fa8fec24f1f4df29ccae91c2ccaf"
+  },
+  {
+    "name": "build_runtime.py",
+    "bytes": 6874,
+    "sha256": "6be78ecb5ae744fc6759386cf611f7c43ee380f959c7e84cb23f394f57abddce"
+  },
+  {
+    "name": "d1_low_latency.yaml",
+    "bytes": 288,
+    "sha256": "148cfb570d41e00d8c4a3e20c281c2762444f0732ce297fc408f9619b5375971"
+  },
+  {
+    "name": "download_receipts.json",
+    "bytes": 4853,
+    "sha256": "05c3213142639c84087abd85b79d91230a5e2ba077417f2350db51f6989b8f5e"
+  },
+  {
+    "name": "environment_receipt.json",
+    "bytes": 1897,
+    "sha256": "f359cb802c6afcdf58a1a57e24f8697821846ea9fd82605a13f4de210ee317da"
+  },
+  {
+    "name": "MODEL_ACCESS_MATRIX.md",
+    "bytes": 9053,
+    "sha256": "dee4c0480a45057548a7cf517bd4e6d7781e1b03f24ee12c663af008333b3968"
+  },
+  {
+    "name": "model_manifest.json",
+    "bytes": 8550,
+    "sha256": "5cfe72b1f1c96e9305364fd44a537dc5ea8edf0705a5766797349d0d869ea8ef"
+  },
+  {
+    "name": "official_metadata.json",
+    "bytes": 130282,
+    "sha256": "d76e13708438232a6d77f6d9e658464ec3f3544c5b9ef81d08602ec08bfa560f"
+  },
+  {
+    "name": "README.md",
+    "bytes": 4971,
+    "sha256": "e6d991458fc2f30e82bf18b06e6b5e0ccf8cabad8584fc49eedecb7dc849a058"
+  },
+  {
+    "name": "runtime_license_index.json",
+    "bytes": 2087,
+    "sha256": "19786e0e46cbc75daf8f68169e24bf3cec1690629b13aa4939842a61e81bea61"
+  },
+  {
+    "name": "runtime_receipt.json",
+    "bytes": 15266,
+    "sha256": "d57987c6fbc8e798ff4c1b0e2685d43c409d5322b4818580155b644e4f04b5f4"
+  },
+  {
+    "name": "stage_assets.py",
+    "bytes": 12128,
+    "sha256": "91233dc72f5627b7cc8edee8d61b2019a411b73622ecea034f6edc656a4bfbc2"
+  },
+  {
+    "name": "terms_receipts.json",
+    "bytes": 1879,
+    "sha256": "1a876954a1d19b1d9d43bb03ce820c886018803da3e90ffabeb3fbac8fcf943a"
+  }
+]

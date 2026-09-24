@@ -1,0 +1,17 @@
+{
+  "status": "VERIFIED_COLLECTION_ONLY",
+  "accepted_saved_cases": 12,
+  "mono_waveform_conditions": 72,
+  "C_source_clips": 30,
+  "C_people": 30,
+  "source_ids_subset_of_independent_C": true,
+  "E_Q_overlap": false,
+  "exact_gold_projection_admitted": false,
+  "selector_thresholds_admitted": false,
+  "disposition": "Prefer same-device E; processed C is preserved but remains collection-only until a separate C-only timing/projection review. Use clean C as the declared available calibration condition without importing old encoder vectors.",
+  "private_evidence": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\data\\PROCESSED_C_BINDINGS.json",
+    "sha256": "a9a30e292da94d07d08e2219e03a26458bc9138d6de2b6ad054dfb39c3c5c965",
+    "bytes": 665320
+  }
+}

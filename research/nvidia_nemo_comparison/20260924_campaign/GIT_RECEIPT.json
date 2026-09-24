@@ -1,0 +1,36 @@
+{
+  "schema": "just-peachy.n1.git-receipt.v1",
+  "status": "SOURCE_REFS_VERIFIED_REPORT_PAYLOAD_PENDING",
+  "verified_utc": "2026-09-24T15:42:28.481311+00:00",
+  "remote": "https://github.com/will-sloan/just-peachy.git",
+  "repository_visibility": "public",
+  "visibility_changed": false,
+  "branch": "codex/n1-foundation-20260924",
+  "verified_source_commit": "2a8a2183c0050b6abf76ef27bbd803adad632a87",
+  "baseline": {
+    "commit": "509195b8c95c3a93eb63666e17038afc05a60d79",
+    "tag": "n1-baseline-20260924-rc5",
+    "annotated_tag_object": "963f7c351e61eee2b6e5491e11cb7d1189e4c06f"
+  },
+  "common": {
+    "commit": "2a8a2183c0050b6abf76ef27bbd803adad632a87",
+    "tag": "n1-common-ui-20260924-v1",
+    "annotated_tag_object": "ba3f190e0522f1c41e4d3137b1665ab2ccc39553"
+  },
+  "source_push": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\checks\\git-source-push.txt",
+    "sha256": "7208add0f6350688322825fb84c8069c7076895850a06f92488c2fa300b8f37d",
+    "bytes": 283
+  },
+  "source_remote_refs": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\checks\\git-source-remote-refs.txt",
+    "sha256": "07bf5a7ab498de85f4b3eb1435a180754732f91468550ff791a72f8789ad410a",
+    "bytes": 391
+  },
+  "force_push": false,
+  "main_merged": false,
+  "original_checkout_reset": false,
+  "public_payload": "Reviewed source, configuration, tests, small redacted reports and synthetic/idle GUI images; no private speech, full corpus transcripts, voiceprints or model binaries",
+  "verified_payload_commit": null,
+  "receipt_scope": "Source refs already verified. Final reviewed report payload is committed and remotely verified after acceptance."
+}

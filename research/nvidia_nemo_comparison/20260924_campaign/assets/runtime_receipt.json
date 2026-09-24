@@ -1,0 +1,323 @@
+{
+  "started_at_utc": "2026-09-24T11:05:44.264953-04:00",
+  "status": "BUILT_AND_HELP_VERIFIED",
+  "source_archives": [
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\NeMo-Speech.cpp-97a15afa5caa9bce5baaa86c1184103877af4101.zip",
+      "sha256": "f1fdefc70fc810f70f5cdf86eb31f27a990005506cb9c9938941b53bda53677c",
+      "revision": "97a15afa5caa9bce5baaa86c1184103877af4101",
+      "url": "https://codeload.github.com/NVIDIA/NeMo-Speech.cpp/zip/97a15afa5caa9bce5baaa86c1184103877af4101"
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\ggml-c03b4e2bcece5134827881af90242086daf75be5.zip",
+      "sha256": "dd9bc340931eb7d12b3b8fd946cbf545c4430b1594835f36c3ac368a0a085c49",
+      "revision": "c03b4e2bcece5134827881af90242086daf75be5",
+      "url": "https://codeload.github.com/ggml-org/ggml/zip/c03b4e2bcece5134827881af90242086daf75be5"
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\sentencepiece-17d7580d6407802f85855d2cc9190634e2c95624.zip",
+      "sha256": "73b688b48130c2979d70215e571980ce64ee4b343878ade8f9104e779ec43d04",
+      "revision": "17d7580d6407802f85855d2cc9190634e2c95624",
+      "url": "https://codeload.github.com/google/sentencepiece/zip/17d7580d6407802f85855d2cc9190634e2c95624"
+    }
+  ],
+  "commands": [
+    {
+      "name": "sentencepiece-configure",
+      "argv": [
+        "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\bin\\cmake.exe",
+        "-S",
+        "G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\source\\sentencepiece-17d7580d6407802f85855d2cc9190634e2c95624",
+        "-B",
+        "G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\build\\sentencepiece",
+        "-G",
+        "Visual Studio 17 2022",
+        "-A",
+        "x64",
+        "-DSPM_ENABLE_SHARED=OFF",
+        "-DSPM_BUILD_TEST=OFF",
+        "-DSPM_ENABLE_TCMALLOC=OFF"
+      ],
+      "started_at_utc": "2026-09-24T11:05:46.205762-04:00",
+      "finished_at_utc": "2026-09-24T11:05:46.791664-04:00",
+      "exit_code": 0,
+      "log": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\build_logs\\sentencepiece-configure.log",
+      "log_sha256": "1293aeb944f278f641b7a68ac8e56735f6519f25be38f0dba692b4d04b084339"
+    },
+    {
+      "name": "sentencepiece-build",
+      "argv": [
+        "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\bin\\cmake.exe",
+        "--build",
+        "G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\build\\sentencepiece",
+        "--config",
+        "Release",
+        "--target",
+        "sentencepiece-static",
+        "--parallel",
+        "1"
+      ],
+      "started_at_utc": "2026-09-24T11:05:46.797666-04:00",
+      "finished_at_utc": "2026-09-24T11:05:47.447181-04:00",
+      "exit_code": 0,
+      "log": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\build_logs\\sentencepiece-build.log",
+      "log_sha256": "b06edaff34341491326d026ca1993445926bf988c63488adbbb1cab2de68eaf8"
+    },
+    {
+      "name": "nemo-configure",
+      "argv": [
+        "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\bin\\cmake.exe",
+        "-S",
+        "G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\source\\NeMo-Speech.cpp-97a15afa5caa9bce5baaa86c1184103877af4101",
+        "-B",
+        "G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\build\\nemo-cpu",
+        "-G",
+        "Visual Studio 17 2022",
+        "-A",
+        "x64",
+        "-DGGML_CUDA=OFF",
+        "-DGGML_VULKAN=OFF",
+        "-DGGML_NATIVE=OFF",
+        "-DGGML_OPENMP=OFF",
+        "-DGGML_CPU_KLEIDIAI=OFF",
+        "-DFETCHCONTENT_FULLY_DISCONNECTED=ON",
+        "-DNEMO_SPEECH_GGML_PATCHED=OFF",
+        "-DNEMO_SPEECH_BUILD_TTS=OFF",
+        "-DNEMO_SPEECH_BUILD_NMT=OFF",
+        "-DNEMO_SPEECH_BUILD_S2S=OFF",
+        "-DNEMO_SPEECH_BUILD_MIC_CAPTURE=OFF",
+        "-DNEMO_SPEECH_BUILD_HTTP=OFF",
+        "-DNEMO_SPEECH_BUILD_GRPC=OFF",
+        "-DNEMO_SPEECH_WITH_FLASHLIGHT=OFF",
+        "-DNEMO_SPEECH_WITH_NORM=OFF",
+        "-DNEMO_SPEECH_BUILD_TESTS=OFF",
+        "-DBUILD_TESTING=OFF",
+        "-DNEMO_SPEECH_BUILD_EXAMPLES=OFF",
+        "-DNEMO_SPEECH_BUILD_TOOLS=OFF",
+        "-DSENTENCEPIECE_LIB=G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\build\\sentencepiece\\src\\Release\\sentencepiece.lib",
+        "-DSENTENCEPIECE_INCLUDE_DIR=G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\source\\sentencepiece-17d7580d6407802f85855d2cc9190634e2c95624\\src"
+      ],
+      "started_at_utc": "2026-09-24T11:05:47.454181-04:00",
+      "finished_at_utc": "2026-09-24T11:05:48.917548-04:00",
+      "exit_code": 0,
+      "log": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\build_logs\\nemo-configure.log",
+      "log_sha256": "40014591751ca27a0ff252b225f7dc6ae7fbd384484163578faf017f9da00688"
+    },
+    {
+      "name": "nemo-build",
+      "argv": [
+        "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\bin\\cmake.exe",
+        "--build",
+        "G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\build\\nemo-cpu",
+        "--config",
+        "Release",
+        "--target",
+        "nemo_speech_cli",
+        "nemo_speech_asr_c",
+        "--parallel",
+        "1"
+      ],
+      "started_at_utc": "2026-09-24T11:05:48.923548-04:00",
+      "finished_at_utc": "2026-09-24T11:05:52.771374-04:00",
+      "exit_code": 0,
+      "log": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\build_logs\\nemo-build.log",
+      "log_sha256": "148c7cd095a15a6439a340890ad85b93d763b08d85c979de2b6fd7480900d542"
+    },
+    {
+      "name": "nemo-install",
+      "argv": [
+        "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\bin\\cmake.exe",
+        "--install",
+        "G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\build\\nemo-cpu",
+        "--config",
+        "Release",
+        "--prefix",
+        "G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\runtime_install"
+      ],
+      "started_at_utc": "2026-09-24T11:05:52.778375-04:00",
+      "finished_at_utc": "2026-09-24T11:05:52.9617-04:00",
+      "exit_code": 0,
+      "log": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\build_logs\\nemo-install.log",
+      "log_sha256": "a46d954220c44b361601d02204b6419a1487e80c0113a6ebf4ae146bab42f08a"
+    },
+    {
+      "name": "nemo-version",
+      "argv": [
+        "G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\build\\nemo-cpu\\bin\\Release\\nemo-speech.exe",
+        "--version"
+      ],
+      "started_at_utc": "2026-09-24T11:05:52.974704-04:00",
+      "finished_at_utc": "2026-09-24T11:05:53.109645-04:00",
+      "exit_code": 0,
+      "log": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\build_logs\\nemo-version.log",
+      "log_sha256": "9328be13ecb10ba05239948ca2fe98b501496541926add7f5efe1a69cd4c8a68"
+    },
+    {
+      "name": "nemo-help",
+      "argv": [
+        "G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\build\\nemo-cpu\\bin\\Release\\nemo-speech.exe",
+        "--help"
+      ],
+      "started_at_utc": "2026-09-24T11:05:53.110645-04:00",
+      "finished_at_utc": "2026-09-24T11:05:53.1358-04:00",
+      "exit_code": 0,
+      "log": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\build_logs\\nemo-help.log",
+      "log_sha256": "4ae4c295d15d9deccbe2d4cb44d380c9e4d83b54481cc0f1b53add45285d46fd"
+    },
+    {
+      "name": "nemo-diarize-help",
+      "argv": [
+        "G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\build\\nemo-cpu\\bin\\Release\\nemo-speech.exe",
+        "diarize",
+        "--help"
+      ],
+      "started_at_utc": "2026-09-24T11:05:53.137799-04:00",
+      "finished_at_utc": "2026-09-24T11:05:53.16193-04:00",
+      "exit_code": 0,
+      "log": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\build_logs\\nemo-diarize-help.log",
+      "log_sha256": "bec124dab260a81f0476cc4d17859ec33181bd8a200f7b7f036a3bdf3679f8d8"
+    },
+    {
+      "name": "nemo-transcribe-help",
+      "argv": [
+        "G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\build\\nemo-cpu\\bin\\Release\\nemo-speech.exe",
+        "transcribe",
+        "--help"
+      ],
+      "started_at_utc": "2026-09-24T11:05:53.16393-04:00",
+      "finished_at_utc": "2026-09-24T11:05:53.18793-04:00",
+      "exit_code": 0,
+      "log": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\build_logs\\nemo-transcribe-help.log",
+      "log_sha256": "94909e9f9ce600c694cc2e7692e4b8e94d006b8801b83490a549674a0da6941b"
+    }
+  ],
+  "jobs": 1,
+  "priority": "BELOW_NORMAL",
+  "microphone_capture_compiled": false,
+  "cuda_enabled": false,
+  "model_inference_executed": false,
+  "review": "Root/component CMake, optional-dependency conditions, native CLI entry/help paths, ggml CPU build, and SentencePiece bundled dependencies reviewed before execution. No installer scripts executed.",
+  "binary": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\build\\nemo-cpu\\bin\\Release\\nemo-speech.exe",
+    "sha256": "b8acadd5c68807969f322125ddc7742dab7eb9718baa706c4ed9f1d16d6410c9"
+  },
+  "installed_files": [
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\runtime_install\\bin\\concrt140.dll",
+      "sha256": "1cccd0f5553d6c4eaf452c5524b4312db7edb206c5d06fdcb6052e9586f6c611",
+      "bytes": 322672
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\runtime_install\\bin\\ggml-base.dll",
+      "sha256": "6e240901a1874bf6c3e509d297ee6bc4449433c5e66e9a1443fb3f7fdaf863eb",
+      "bytes": 621056
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\runtime_install\\bin\\ggml-cpu.dll",
+      "sha256": "1513ec23590a7db625143a2ec5695088b2459c6b500dcd42079d8a9b643aebd5",
+      "bytes": 773632
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\runtime_install\\bin\\ggml.dll",
+      "sha256": "628052b3826639d8f9260cdba0b0a6df4d836a7847456d03f4cfaa09c645c99a",
+      "bytes": 68096
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\runtime_install\\bin\\msvcp140.dll",
+      "sha256": "b99eb28a471311113f5c4109cb3c463f39cfd9bdb3b07f706204dedddb4516a1",
+      "bytes": 575568
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\runtime_install\\bin\\msvcp140_1.dll",
+      "sha256": "576d2ab235e32acc129eda78a3b9a3d3e78b0c97a01940d962cb8502acd030d1",
+      "bytes": 35920
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\runtime_install\\bin\\msvcp140_2.dll",
+      "sha256": "9c9e06d56add83e08f0c530de6f0a82c5bfbee2b6ffa8b71e7b0446ec08e8970",
+      "bytes": 267888
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\runtime_install\\bin\\msvcp140_atomic_wait.dll",
+      "sha256": "5ec85a18501af700e3ee748daed242b8e33040f090371a2759217cb71ff26469",
+      "bytes": 50288
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\runtime_install\\bin\\msvcp140_codecvt_ids.dll",
+      "sha256": "a12581d37f291121346e8ba2fdfec64a3d72c07aec6350ea0cd2f7aac2f750a4",
+      "bytes": 31856
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\runtime_install\\bin\\nemo-speech.exe",
+      "sha256": "b8acadd5c68807969f322125ddc7742dab7eb9718baa706c4ed9f1d16d6410c9",
+      "bytes": 469504
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\runtime_install\\bin\\nemo_speech_asr.dll",
+      "sha256": "6f6e035bfb1bca7523d1b8e3f01fc094a98ea8ace649335ed64d57d7270978e2",
+      "bytes": 1654784
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\runtime_install\\bin\\nemo_speech_asr_c.dll",
+      "sha256": "635233fa50f151e2e3b185f12bf0572ecd1a982380415e5b6390278ca0d6c51a",
+      "bytes": 59904
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\runtime_install\\bin\\vcruntime140.dll",
+      "sha256": "052ad6a20d375957e82aa6a3c441ea548d89be0981516ca7eb306e063d5027f4",
+      "bytes": 120400
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\runtime_install\\bin\\vcruntime140_1.dll",
+      "sha256": "6a99bc0128e0c7d6cbbf615fcc26909565e17d4ca3451b97f8987f9c6acbc6c8",
+      "bytes": 49776
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\runtime_install\\share\\licenses\\nemo-speech\\LICENSE",
+      "sha256": "eaaca34b26b27c7be5a5099a0b9ddf9913f2db0aa96f6d5854435f2916d6fdc3",
+      "bytes": 12238
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\runtime_install\\share\\licenses\\nemo-speech\\NOTICE",
+      "sha256": "d5ea773d67035e676503579ecf7d5836a124649d7fe99d59ec3c50cd101e1a80",
+      "bytes": 233
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\runtime_install\\share\\licenses\\nemo-speech\\third_party\\ggml\\LICENSE",
+      "sha256": "94f29bbed6a22c35b992c5c6ebf0e7c92f13b836b90f36f461c9cf2f0f1d010d",
+      "bytes": 1078
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\runtime_install\\share\\licenses\\nemo-speech\\third_party\\sentencepiece\\absl-LICENSE",
+      "sha256": "d3e2f59e1d71176dfdb555ece6a41f7a5aa0f52ff21211010ace314f57695f6b",
+      "bytes": 11365
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\runtime_install\\share\\licenses\\nemo-speech\\third_party\\sentencepiece\\darts-clone-LICENSE",
+      "sha256": "155f59997298ee336602c49f9c1110f268ac394ca2197eb02647a3555935ad52",
+      "bytes": 1481
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\runtime_install\\share\\licenses\\nemo-speech\\third_party\\sentencepiece\\LICENSE",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "bytes": 11358
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\runtime_install\\share\\licenses\\nemo-speech\\third_party\\sentencepiece\\protobuf-lite-LICENSE",
+      "sha256": "6e5e117324afd944dcf67f36cf329843bc1a92229a8cd9bb573d7a83130fea7d",
+      "bytes": 1732
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\assets\\runtime_install\\share\\licenses\\nemo-speech\\THIRD_PARTY_NOTICES.md",
+      "sha256": "865dbd5bb2fb4e08811d2d6c90ebf260645b101ba8b0a9e6ba739b1d0222acf0",
+      "bytes": 9171
+    }
+  ],
+  "finished_at_utc": "2026-09-24T11:05:53.610317-04:00",
+  "installed_version_check": {
+    "command": "G:/Just_Peachy_N1/20260924_campaign/local/assets/runtime_install/bin/nemo-speech.exe --version",
+    "exit_code": 0,
+    "stdout": "nemo-speech 0.1.0",
+    "checked_at_utc": "2026-09-24T15:10:10.1809549Z"
+  }
+}

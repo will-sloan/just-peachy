@@ -1,0 +1,2805 @@
+{
+  "schema": "n1-enrollment-rosters-v1",
+  "status": "FROZEN_BEFORE_NEW_ENROLLMENT_MODEL_COMPARISON",
+  "source_E_C_Q_plan_sha256": "1ba3916e84c1769c565a61bcef25836b3b857d520e35f4a81449b6a515971ec8",
+  "membership_rule": "existing fixed roster memberships; sorted corpus names, round-robin each existing per-corpus seed order, deterministic prefixes; unsupported E remains unavailable without replacements",
+  "reference_domains_separate": true,
+  "processed_E_positions_and_streams_separate": true,
+  "processed_C_collection_only": true,
+  "Q_dependent_fitting": false,
+  "vector_spaces": "ReDimNet/TitaNet require independent extraction from the same permitted E and C waveform spans",
+  "conditions": [
+    {
+      "condition_id": "clean_source_5s_FIXED_ROTATION_A_R00",
+      "domain": "clean_source",
+      "requested_active_seconds": 5,
+      "roster_family": "FIXED_ROTATION_A",
+      "intended_size": 0,
+      "actual_available_size": 0,
+      "intended_identities": [],
+      "available_identities": [],
+      "unavailable_identities": [],
+      "query_scenes_with_known_reference_strangers": 229,
+      "query_scenes_with_absent_enrolled_people": 0,
+      "all_240_queries_retained": true,
+      "scene_truth_used_for_membership": false
+    },
+    {
+      "condition_id": "clean_source_5s_FIXED_ROTATION_A_R01",
+      "domain": "clean_source",
+      "requested_active_seconds": 5,
+      "roster_family": "FIXED_ROTATION_A",
+      "intended_size": 1,
+      "actual_available_size": 1,
+      "intended_identities": [
+        "CMU_ARCTIC_jmk"
+      ],
+      "available_identities": [
+        "CMU_ARCTIC_jmk"
+      ],
+      "unavailable_identities": [],
+      "query_scenes_with_known_reference_strangers": 229,
+      "query_scenes_with_absent_enrolled_people": 233,
+      "all_240_queries_retained": true,
+      "scene_truth_used_for_membership": false
+    },
+    {
+      "condition_id": "clean_source_5s_FIXED_ROTATION_A_R02",
+      "domain": "clean_source",
+      "requested_active_seconds": 5,
+      "roster_family": "FIXED_ROTATION_A",
+      "intended_size": 2,
+      "actual_available_size": 2,
+      "intended_identities": [
+        "CMU_ARCTIC_jmk",
+        "CV_c86d546169ef5ac0dbe9"
+      ],
+      "available_identities": [
+        "CMU_ARCTIC_jmk",
+        "CV_c86d546169ef5ac0dbe9"
+      ],
+      "unavailable_identities": [],
+      "query_scenes_with_known_reference_strangers": 229,
+      "query_scenes_with_absent_enrolled_people": 240,
+      "all_240_queries_retained": true,
+      "scene_truth_used_for_membership": false
+    },
+    {
+      "condition_id": "clean_source_5s_FIXED_ROTATION_A_R04",
+      "domain": "clean_source",
+      "requested_active_seconds": 5,
+      "roster_family": "FIXED_ROTATION_A",
+      "intended_size": 4,
+      "actual_available_size": 4,
+      "intended_identities": [
+        "CMU_ARCTIC_jmk",
+        "CV_c86d546169ef5ac0dbe9",
+        "HIFITTS_6671",
+        "CMU_ARCTIC_rxr"
+      ],
+      "available_identities": [
+        "CMU_ARCTIC_jmk",
+        "CV_c86d546169ef5ac0dbe9",
+        "HIFITTS_6671",
+        "CMU_ARCTIC_rxr"
+      ],
+      "unavailable_identities": [],
+      "query_scenes_with_known_reference_strangers": 229,
+      "query_scenes_with_absent_enrolled_people": 240,
+      "all_240_queries_retained": true,
+      "scene_truth_used_for_membership": false
+    },
+    {
+      "condition_id": "clean_source_5s_FIXED_ROTATION_A_R08",
+      "domain": "clean_source",
+      "requested_active_seconds": 5,
+      "roster_family": "FIXED_ROTATION_A",
+      "intended_size": 8,
+      "actual_available_size": 7,
+      "intended_identities": [
+        "CMU_ARCTIC_jmk",
+        "CV_c86d546169ef5ac0dbe9",
+        "HIFITTS_6671",
+        "CMU_ARCTIC_rxr",
+        "CV_2abbf1ec09fa0aeb6d9b",
+        "HIFITTS_6670",
+        "CMU_ARCTIC_slp",
+        "CV_6b5e3c9ca9030b7da6be"
+      ],
+      "available_identities": [
+        "CMU_ARCTIC_jmk",
+        "CV_c86d546169ef5ac0dbe9",
+        "HIFITTS_6671",
+        "CMU_ARCTIC_rxr",
+        "CV_2abbf1ec09fa0aeb6d9b",
+        "HIFITTS_6670",
+        "CMU_ARCTIC_slp"
+      ],
+      "unavailable_identities": [
+        "CV_6b5e3c9ca9030b7da6be"
+      ],
+      "query_scenes_with_known_reference_strangers": 213,
+      "query_scenes_with_absent_enrolled_people": 240,
+      "all_240_queries_retained": true,
+      "scene_truth_used_for_membership": false
+    },
+    {
+      "condition_id": "clean_source_5s_FIXED_ROTATION_A_R15",
+      "domain": "clean_source",
+      "requested_active_seconds": 5,
+      "roster_family": "FIXED_ROTATION_A",
+      "intended_size": 15,
+      "actual_available_size": 13,
+      "intended_identities": [
+        "CMU_ARCTIC_jmk",
+        "CV_c86d546169ef5ac0dbe9",
+        "HIFITTS_6671",
+        "CMU_ARCTIC_rxr",
+        "CV_2abbf1ec09fa0aeb6d9b",
+        "HIFITTS_6670",
+        "CMU_ARCTIC_slp",
+        "CV_6b5e3c9ca9030b7da6be",
+        "HIFITTS_9136",
+        "CMU_ARCTIC_fem",
+        "CV_8c9d6f14b797c3ffeb85",
+        "HIFITTS_11614",
+        "CMU_ARCTIC_ljm",
+        "CV_d3c1e11354306288eba3",
+        "HIFITTS_11697"
+      ],
+      "available_identities": [
+        "CMU_ARCTIC_jmk",
+        "CV_c86d546169ef5ac0dbe9",
+        "HIFITTS_6671",
+        "CMU_ARCTIC_rxr",
+        "CV_2abbf1ec09fa0aeb6d9b",
+        "HIFITTS_6670",
+        "CMU_ARCTIC_slp",
+        "HIFITTS_9136",
+        "CMU_ARCTIC_fem",
+        "CV_8c9d6f14b797c3ffeb85",
+        "HIFITTS_11614",
+        "CMU_ARCTIC_ljm",
+        "HIFITTS_11697"
+      ],
+      "unavailable_identities": [
+        "CV_6b5e3c9ca9030b7da6be",
+        "CV_d3c1e11354306288eba3"
+      ],
+      "query_scenes_with_known_reference_strangers": 191,
+      "query_scenes_with_absent_enrolled_people": 240,
+      "all_240_queries_retained": true,
+      "scene_truth_used_for_membership": false
+    },
+    {
+      "condition_id": "clean_source_5s_FIXED_ROTATION_A_R22",
+      "domain": "clean_source",
+      "requested_active_seconds": 5,
+      "roster_family": "FIXED_ROTATION_A",
+      "intended_size": 22,
+      "actual_available_size": 19,
+      "intended_identities": [
+        "CMU_ARCTIC_jmk",
+        "CV_c86d546169ef5ac0dbe9",
+        "HIFITTS_6671",
+        "CMU_ARCTIC_rxr",
+        "CV_2abbf1ec09fa0aeb6d9b",
+        "HIFITTS_6670",
+        "CMU_ARCTIC_slp",
+        "CV_6b5e3c9ca9030b7da6be",
+        "HIFITTS_9136",
+        "CMU_ARCTIC_fem",
+        "CV_8c9d6f14b797c3ffeb85",
+        "HIFITTS_11614",
+        "CMU_ARCTIC_ljm",
+        "CV_d3c1e11354306288eba3",
+        "HIFITTS_11697",
+        "CMU_ARCTIC_awb",
+        "CV_bc25d4fe155478871b18",
+        "CMU_ARCTIC_ksp",
+        "CV_6780c1e3d0bfe13078f7",
+        "CMU_ARCTIC_slt",
+        "CV_5bb2ca9b27ebe4cea0b5",
+        "CMU_ARCTIC_bdl"
+      ],
+      "available_identities": [
+        "CMU_ARCTIC_jmk",
+        "CV_c86d546169ef5ac0dbe9",
+        "HIFITTS_6671",
+        "CMU_ARCTIC_rxr",
+        "CV_2abbf1ec09fa0aeb6d9b",
+        "HIFITTS_6670",
+        "CMU_ARCTIC_slp",
+        "HIFITTS_9136",
+        "CMU_ARCTIC_fem",
+        "CV_8c9d6f14b797c3ffeb85",
+        "HIFITTS_11614",
+        "CMU_ARCTIC_ljm",
+        "HIFITTS_11697",
+        "CMU_ARCTIC_awb",
+        "CV_bc25d4fe155478871b18",
+        "CMU_ARCTIC_ksp",
+        "CMU_ARCTIC_slt",
+        "CV_5bb2ca9b27ebe4cea0b5",
+        "CMU_ARCTIC_bdl"
+      ],
+      "unavailable_identities": [
+        "CV_6b5e3c9ca9030b7da6be",
+        "CV_d3c1e11354306288eba3",
+        "CV_6780c1e3d0bfe13078f7"
+      ],
+      "query_scenes_with_known_reference_strangers": 167,
+      "query_scenes_with_absent_enrolled_people": 240,
+      "all_240_queries_retained": true,
+      "scene_truth_used_for_membership": false
+    },
+    {
+      "condition_id": "clean_source_5s_FIXED_ROTATION_B_R00",
+      "domain": "clean_source",
+      "requested_active_seconds": 5,
+      "roster_family": "FIXED_ROTATION_B",
+      "intended_size": 0,
+      "actual_available_size": 0,
+      "intended_identities": [],
+      "available_identities": [],
+      "unavailable_identities": [],
+      "query_scenes_with_known_reference_strangers": 229,
+      "query_scenes_with_absent_enrolled_people": 0,
+      "all_240_queries_retained": true,
+      "scene_truth_used_for_membership": false
+    },
+    {
+      "condition_id": "clean_source_5s_FIXED_ROTATION_B_R01",
+      "domain": "clean_source",
+      "requested_active_seconds": 5,
+      "roster_family": "FIXED_ROTATION_B",
+      "intended_size": 1,
+      "actual_available_size": 1,
+      "intended_identities": [
+        "CMU_ARCTIC_gka"
+      ],
+      "available_identities": [
+        "CMU_ARCTIC_gka"
+      ],
+      "unavailable_identities": [],
+      "query_scenes_with_known_reference_strangers": 229,
+      "query_scenes_with_absent_enrolled_people": 233,
+      "all_240_queries_retained": true,
+      "scene_truth_used_for_membership": false
+    },
+    {
+      "condition_id": "clean_source_5s_FIXED_ROTATION_B_R02",
+      "domain": "clean_source",
+      "requested_active_seconds": 5,
+      "roster_family": "FIXED_ROTATION_B",
+      "intended_size": 2,
+      "actual_available_size": 2,
+      "intended_identities": [
+        "CMU_ARCTIC_gka",
+        "CV_cb8bbb33611dc9825ccf"
+      ],
+      "available_identities": [
+        "CMU_ARCTIC_gka",
+        "CV_cb8bbb33611dc9825ccf"
+      ],
+      "unavailable_identities": [],
+      "query_scenes_with_known_reference_strangers": 229,
+      "query_scenes_with_absent_enrolled_people": 240,
+      "all_240_queries_retained": true,
+      "scene_truth_used_for_membership": false
+    },
+    {
+      "condition_id": "clean_source_5s_FIXED_ROTATION_B_R04",
+      "domain": "clean_source",
+      "requested_active_seconds": 5,
+      "roster_family": "FIXED_ROTATION_B",
+      "intended_size": 4,
+      "actual_available_size": 4,
+      "intended_identities": [
+        "CMU_ARCTIC_gka",
+        "CV_cb8bbb33611dc9825ccf",
+        "HIFITTS_8051",
+        "CMU_ARCTIC_rms"
+      ],
+      "available_identities": [
+        "CMU_ARCTIC_gka",
+        "CV_cb8bbb33611dc9825ccf",
+        "HIFITTS_8051",
+        "CMU_ARCTIC_rms"
+      ],
+      "unavailable_identities": [],
+      "query_scenes_with_known_reference_strangers": 228,
+      "query_scenes_with_absent_enrolled_people": 240,
+      "all_240_queries_retained": true,
+      "scene_truth_used_for_membership": false
+    },
+    {
+      "condition_id": "clean_source_5s_FIXED_ROTATION_B_R08",
+      "domain": "clean_source",
+      "requested_active_seconds": 5,
+      "roster_family": "FIXED_ROTATION_B",
+      "intended_size": 8,
+      "actual_available_size": 8,
+      "intended_identities": [
+        "CMU_ARCTIC_gka",
+        "CV_cb8bbb33611dc9825ccf",
+        "HIFITTS_8051",
+        "CMU_ARCTIC_rms",
+        "CV_e2570918d433fe70613d",
+        "HIFITTS_12787",
+        "CMU_ARCTIC_clb",
+        "CV_da7630c05ea3de5a8b18"
+      ],
+      "available_identities": [
+        "CMU_ARCTIC_gka",
+        "CV_cb8bbb33611dc9825ccf",
+        "HIFITTS_8051",
+        "CMU_ARCTIC_rms",
+        "CV_e2570918d433fe70613d",
+        "HIFITTS_12787",
+        "CMU_ARCTIC_clb",
+        "CV_da7630c05ea3de5a8b18"
+      ],
+      "unavailable_identities": [],
+      "query_scenes_with_known_reference_strangers": 228,
+      "query_scenes_with_absent_enrolled_people": 240,
+      "all_240_queries_retained": true,
+      "scene_truth_used_for_membership": false
+    },
+    {
+      "condition_id": "clean_source_5s_FIXED_ROTATION_B_R15",
+      "domain": "clean_source",
+      "requested_active_seconds": 5,
+      "roster_family": "FIXED_ROTATION_B",
+      "intended_size": 15,
+      "actual_available_size": 13,
+      "intended_identities": [
+        "CMU_ARCTIC_gka",
+        "CV_cb8bbb33611dc9825ccf",
+        "HIFITTS_8051",
+        "CMU_ARCTIC_rms",
+        "CV_e2570918d433fe70613d",
+        "HIFITTS_12787",
+        "CMU_ARCTIC_clb",
+        "CV_da7630c05ea3de5a8b18",
+        "HIFITTS_9017",
+        "CMU_ARCTIC_lnh",
+        "CV_f82fc5dd15117edcfe9a",
+        "HIFITTS_6097",
+        "CMU_ARCTIC_aup",
+        "CV_3b33694cdeb42c66d688",
+        "HIFITTS_92"
+      ],
+      "available_identities": [
+        "CMU_ARCTIC_gka",
+        "CV_cb8bbb33611dc9825ccf",
+        "HIFITTS_8051",
+        "CMU_ARCTIC_rms",
+        "CV_e2570918d433fe70613d",
+        "HIFITTS_12787",
+        "CMU_ARCTIC_clb",
+        "CV_da7630c05ea3de5a8b18",
+        "HIFITTS_9017",
+        "CMU_ARCTIC_lnh",
+        "HIFITTS_6097",
+        "CMU_ARCTIC_aup",
+        "HIFITTS_92"
+      ],
+      "unavailable_identities": [
+        "CV_f82fc5dd15117edcfe9a",
+        "CV_3b33694cdeb42c66d688"
+      ],
+      "query_scenes_with_known_reference_strangers": 197,
+      "query_scenes_with_absent_enrolled_people": 240,
+      "all_240_queries_retained": true,
+      "scene_truth_used_for_membership": false
+    },
+    {
+      "condition_id": "clean_source_5s_FIXED_ROTATION_B_R21",
+      "domain": "clean_source",
+      "requested_active_seconds": 5,
+      "roster_family": "FIXED_ROTATION_B",
+      "intended_size": 21,
+      "actual_available_size": 18,
+      "intended_identities": [
+        "CMU_ARCTIC_gka",
+        "CV_cb8bbb33611dc9825ccf",
+        "HIFITTS_8051",
+        "CMU_ARCTIC_rms",
+        "CV_e2570918d433fe70613d",
+        "HIFITTS_12787",
+        "CMU_ARCTIC_clb",
+        "CV_da7630c05ea3de5a8b18",
+        "HIFITTS_9017",
+        "CMU_ARCTIC_lnh",
+        "CV_f82fc5dd15117edcfe9a",
+        "HIFITTS_6097",
+        "CMU_ARCTIC_aup",
+        "CV_3b33694cdeb42c66d688",
+        "HIFITTS_92",
+        "CMU_ARCTIC_eey",
+        "CV_0ec4d6799c8c83a9a047",
+        "CMU_ARCTIC_ahw",
+        "CV_ba6b4113f6df628a21fe",
+        "CMU_ARCTIC_aew",
+        "CMU_ARCTIC_axb"
+      ],
+      "available_identities": [
+        "CMU_ARCTIC_gka",
+        "CV_cb8bbb33611dc9825ccf",
+        "HIFITTS_8051",
+        "CMU_ARCTIC_rms",
+        "CV_e2570918d433fe70613d",
+        "HIFITTS_12787",
+        "CMU_ARCTIC_clb",
+        "CV_da7630c05ea3de5a8b18",
+        "HIFITTS_9017",
+        "CMU_ARCTIC_lnh",
+        "HIFITTS_6097",
+        "CMU_ARCTIC_aup",
+        "HIFITTS_92",
+        "CMU_ARCTIC_eey",
+        "CMU_ARCTIC_ahw",
+        "CV_ba6b4113f6df628a21fe",
+        "CMU_ARCTIC_aew",
+        "CMU_ARCTIC_axb"
+      ],
+      "unavailable_identities": [
+        "CV_f82fc5dd15117edcfe9a",
+        "CV_3b33694cdeb42c66d688",
+        "CV_0ec4d6799c8c83a9a047"
+      ],
+      "query_scenes_with_known_reference_strangers": 181,
+      "query_scenes_with_absent_enrolled_people": 240,
+      "all_240_queries_retained": true,
+      "scene_truth_used_for_membership": false
+    },
+    {
+      "condition_id": "clean_source_5s_LARGE_COHORT_R00",
+      "domain": "clean_source",
+      "requested_active_seconds": 5,
+      "roster_family": "LARGE_COHORT",
+      "intended_size": 0,
+      "actual_available_size": 0,
+      "intended_identities": [],
+      "available_identities": [],
+      "unavailable_identities": [],
+      "query_scenes_with_known_reference_strangers": 229,
+      "query_scenes_with_absent_enrolled_people": 0,
+      "all_240_queries_retained": true,
+      "scene_truth_used_for_membership": false
+    },
+    {
+      "condition_id": "clean_source_5s_LARGE_COHORT_R01",
+      "domain": "clean_source",
+      "requested_active_seconds": 5,
+      "roster_family": "LARGE_COHORT",
+      "intended_size": 1,
+      "actual_available_size": 1,
+      "intended_identities": [
+        "CMU_ARCTIC_jmk"
+      ],
+      "available_identities": [
+        "CMU_ARCTIC_jmk"
+      ],
+      "unavailable_identities": [],
+      "query_scenes_with_known_reference_strangers": 229,
+      "query_scenes_with_absent_enrolled_people": 233,
+      "all_240_queries_retained": true,
+      "scene_truth_used_for_membership": false
+    },
+    {
+      "condition_id": "clean_source_5s_LARGE_COHORT_R02",
+      "domain": "clean_source",
+      "requested_active_seconds": 5,
+      "roster_family": "LARGE_COHORT",
+      "intended_size": 2,
+      "actual_available_size": 2,
+      "intended_identities": [
+        "CMU_ARCTIC_jmk",
+        "CV_c86d546169ef5ac0dbe9"
+      ],
+      "available_identities": [
+        "CMU_ARCTIC_jmk",
+        "CV_c86d546169ef5ac0dbe9"
+      ],
+      "unavailable_identities": [],
+      "query_scenes_with_known_reference_strangers": 229,
+      "query_scenes_with_absent_enrolled_people": 240,
+      "all_240_queries_retained": true,
+      "scene_truth_used_for_membership": false
+    },
+    {
+      "condition_id": "clean_source_5s_LARGE_COHORT_R04",
+      "domain": "clean_source",
+      "requested_active_seconds": 5,
+      "roster_family": "LARGE_COHORT",
+      "intended_size": 4,
+      "actual_available_size": 4,
+      "intended_identities": [
+        "CMU_ARCTIC_jmk",
+        "CV_c86d546169ef5ac0dbe9",
+        "HIFITTS_6671",
+        "CMU_ARCTIC_gka"
+      ],
+      "available_identities": [
+        "CMU_ARCTIC_jmk",
+        "CV_c86d546169ef5ac0dbe9",
+        "HIFITTS_6671",
+        "CMU_ARCTIC_gka"
+      ],
+      "unavailable_identities": [],
+      "query_scenes_with_known_reference_strangers": 223,
+      "query_scenes_with_absent_enrolled_people": 240,
+      "all_240_queries_retained": true,
+      "scene_truth_used_for_membership": false
+    },
+    {
+      "condition_id": "clean_source_5s_LARGE_COHORT_R08",
+      "domain": "clean_source",
+      "requested_active_seconds": 5,
+      "roster_family": "LARGE_COHORT",
+      "intended_size": 8,
+      "actual_available_size": 8,
+      "intended_identities": [
+        "CMU_ARCTIC_jmk",
+        "CV_c86d546169ef5ac0dbe9",
+        "HIFITTS_6671",
+        "CMU_ARCTIC_gka",
+        "CV_cb8bbb33611dc9825ccf",
+        "HIFITTS_8051",
+        "CMU_ARCTIC_rxr",
+        "CV_2abbf1ec09fa0aeb6d9b"
+      ],
+      "available_identities": [
+        "CMU_ARCTIC_jmk",
+        "CV_c86d546169ef5ac0dbe9",
+        "HIFITTS_6671",
+        "CMU_ARCTIC_gka",
+        "CV_cb8bbb33611dc9825ccf",
+        "HIFITTS_8051",
+        "CMU_ARCTIC_rxr",
+        "CV_2abbf1ec09fa0aeb6d9b"
+      ],
+      "unavailable_identities": [],
+      "query_scenes_with_known_reference_strangers": 219,
+      "query_scenes_with_absent_enrolled_people": 240,
+      "all_240_queries_retained": true,
+      "scene_truth_used_for_membership": false
+    },
+    {
+      "condition_id": "clean_source_5s_LARGE_COHORT_R15",
+      "domain": "clean_source",
+      "requested_active_seconds": 5,
+      "roster_family": "LARGE_COHORT",
+      "intended_size": 15,
+      "actual_available_size": 14,
+      "intended_identities": [
+        "CMU_ARCTIC_jmk",
+        "CV_c86d546169ef5ac0dbe9",
+        "HIFITTS_6671",
+        "CMU_ARCTIC_gka",
+        "CV_cb8bbb33611dc9825ccf",
+        "HIFITTS_8051",
+        "CMU_ARCTIC_rxr",
+        "CV_2abbf1ec09fa0aeb6d9b",
+        "HIFITTS_6670",
+        "CMU_ARCTIC_slp",
+        "CV_6b5e3c9ca9030b7da6be",
+        "HIFITTS_9136",
+        "CMU_ARCTIC_clb",
+        "CV_da7630c05ea3de5a8b18",
+        "HIFITTS_9017"
+      ],
+      "available_identities": [
+        "CMU_ARCTIC_jmk",
+        "CV_c86d546169ef5ac0dbe9",
+        "HIFITTS_6671",
+        "CMU_ARCTIC_gka",
+        "CV_cb8bbb33611dc9825ccf",
+        "HIFITTS_8051",
+        "CMU_ARCTIC_rxr",
+        "CV_2abbf1ec09fa0aeb6d9b",
+        "HIFITTS_6670",
+        "CMU_ARCTIC_slp",
+        "HIFITTS_9136",
+        "CMU_ARCTIC_clb",
+        "CV_da7630c05ea3de5a8b18",
+        "HIFITTS_9017"
+      ],
+      "unavailable_identities": [
+        "CV_6b5e3c9ca9030b7da6be"
+      ],
+      "query_scenes_with_known_reference_strangers": 194,
+      "query_scenes_with_absent_enrolled_people": 240,
+      "all_240_queries_retained": true,
+      "scene_truth_used_for_membership": false
+    },
+    {
+      "condition_id": "clean_source_5s_LARGE_COHORT_R34",
+      "domain": "clean_source",
+      "requested_active_seconds": 5,
+      "roster_family": "LARGE_COHORT",
+      "intended_size": 34,
+      "actual_available_size": 30,
+      "intended_identities": [
+        "CMU_ARCTIC_jmk",
+        "CV_c86d546169ef5ac0dbe9",
+        "HIFITTS_6671",
+        "CMU_ARCTIC_gka",
+        "CV_cb8bbb33611dc9825ccf",
+        "HIFITTS_8051",
+        "CMU_ARCTIC_rxr",
+        "CV_2abbf1ec09fa0aeb6d9b",
+        "HIFITTS_6670",
+        "CMU_ARCTIC_slp",
+        "CV_6b5e3c9ca9030b7da6be",
+        "HIFITTS_9136",
+        "CMU_ARCTIC_clb",
+        "CV_da7630c05ea3de5a8b18",
+        "HIFITTS_9017",
+        "CMU_ARCTIC_fem",
+        "CV_8c9d6f14b797c3ffeb85",
+        "HIFITTS_11614",
+        "CMU_ARCTIC_ljm",
+        "CV_d3c1e11354306288eba3",
+        "HIFITTS_11697",
+        "CMU_ARCTIC_aup",
+        "CV_3b33694cdeb42c66d688",
+        "HIFITTS_92",
+        "CMU_ARCTIC_awb",
+        "CV_bc25d4fe155478871b18",
+        "CMU_ARCTIC_ksp",
+        "CV_6780c1e3d0bfe13078f7",
+        "CMU_ARCTIC_ahw",
+        "CV_ba6b4113f6df628a21fe",
+        "CMU_ARCTIC_slt",
+        "CV_5bb2ca9b27ebe4cea0b5",
+        "CMU_ARCTIC_bdl",
+        "CMU_ARCTIC_axb"
+      ],
+      "available_identities": [
+        "CMU_ARCTIC_jmk",
+        "CV_c86d546169ef5ac0dbe9",
+        "HIFITTS_6671",
+        "CMU_ARCTIC_gka",
+        "CV_cb8bbb33611dc9825ccf",
+        "HIFITTS_8051",
+        "CMU_ARCTIC_rxr",
+        "CV_2abbf1ec09fa0aeb6d9b",
+        "HIFITTS_6670",
+        "CMU_ARCTIC_slp",
+        "HIFITTS_9136",
+        "CMU_ARCTIC_clb",
+        "CV_da7630c05ea3de5a8b18",
+        "HIFITTS_9017",
+        "CMU_ARCTIC_fem",
+        "CV_8c9d6f14b797c3ffeb85",
+        "HIFITTS_11614",
+        "CMU_ARCTIC_ljm",
+        "HIFITTS_11697",
+        "CMU_ARCTIC_aup",
+        "HIFITTS_92",
+        "CMU_ARCTIC_awb",
+        "CV_bc25d4fe155478871b18",
+        "CMU_ARCTIC_ksp",
+        "CMU_ARCTIC_ahw",
+        "CV_ba6b4113f6df628a21fe",
+        "CMU_ARCTIC_slt",
+        "CV_5bb2ca9b27ebe4cea0b5",
+        "CMU_ARCTIC_bdl",
+        "CMU_ARCTIC_axb"
+      ],
+      "unavailable_identities": [
+        "CV_6b5e3c9ca9030b7da6be",
+        "CV_d3c1e11354306288eba3",
+        "CV_3b33694cdeb42c66d688",
+        "CV_6780c1e3d0bfe13078f7"
+      ],
+      "query_scenes_with_known_reference_strangers": 106,
+      "query_scenes_with_absent_enrolled_people": 240,
+      "all_240_queries_retained": true,
+      "scene_truth_used_for_membership": false
+    },
+    {
+      "condition_id": "clean_source_15s_FIXED_ROTATION_A_R00",
+      "domain": "clean_source",
+      "requested_active_seconds": 15,
+      "roster_family": "FIXED_ROTATION_A",
+      "intended_size": 0,
+      "actual_available_size": 0,
+      "intended_identities": [],
+      "available_identities": [],
+      "unavailable_identities": [],
+      "query_scenes_with_known_reference_strangers": 229,
+      "query_scenes_with_absent_enrolled_people": 0,
+      "all_240_queries_retained": true,
+      "scene_truth_used_for_membership": false
+    },
+    {
+      "condition_id": "clean_source_15s_FIXED_ROTATION_A_R01",
+      "domain": "clean_source",
+      "requested_active_seconds": 15,
+      "roster_family": "FIXED_ROTATION_A",
+      "intended_size": 1,
+      "actual_available_size": 1,
+      "intended_identities": [
+        "CMU_ARCTIC_jmk"
+      ],
+      "available_identities": [
+        "CMU_ARCTIC_jmk"
+      ],
+      "unavailable_identities": [],
+      "query_scenes_with_known_reference_strangers": 229,
+      "query_scenes_with_absent_enrolled_people": 233,
+      "all_240_queries_retained": true,
+      "scene_truth_used_for_membership": false
+    },
+    {
+      "condition_id": "clean_source_15s_FIXED_ROTATION_A_R02",
+      "domain": "clean_source",
+      "requested_active_seconds": 15,
+      "roster_family": "FIXED_ROTATION_A",
+      "intended_size": 2,
+      "actual_available_size": 1,
+      "intended_identities": [
+        "CMU_ARCTIC_jmk",
+        "CV_c86d546169ef5ac0dbe9"
+      ],
+      "available_identities": [
+        "CMU_ARCTIC_jmk"
+      ],
+      "unavailable_identities": [
+        "CV_c86d546169ef5ac0dbe9"
+      ],
+      "query_scenes_with_known_reference_strangers": 229,
+      "query_scenes_with_absent_enrolled_people": 233,
+      "all_240_queries_retained": true,
+      "scene_truth_used_for_membership": false
+    },
+    {
+      "condition_id": "clean_source_15s_FIXED_ROTATION_A_R04",
+      "domain": "clean_source",
+      "requested_active_seconds": 15,
+      "roster_family": "FIXED_ROTATION_A",
+      "intended_size": 4,
+      "actual_available_size": 3,
+      "intended_identities": [
+        "CMU_ARCTIC_jmk",
+        "CV_c86d546169ef5ac0dbe9",
+        "HIFITTS_6671",
+        "CMU_ARCTIC_rxr"
+      ],
+      "available_identities": [
+        "CMU_ARCTIC_jmk",
+        "HIFITTS_6671",
+        "CMU_ARCTIC_rxr"
+      ],
+      "unavailable_identities": [
+        "CV_c86d546169ef5ac0dbe9"
+      ],
+      "query_scenes_with_known_reference_strangers": 229,
+      "query_scenes_with_absent_enrolled_people": 240,
+      "all_240_queries_retained": true,
+      "scene_truth_used_for_membership": false
+    },
+    {
+      "condition_id": "clean_source_15s_FIXED_ROTATION_A_R08",
+      "domain": "clean_source",
+      "requested_active_seconds": 15,
+      "roster_family": "FIXED_ROTATION_A",
+      "intended_size": 8,
+      "actual_available_size": 5,
+      "intended_identities": [
+        "CMU_ARCTIC_jmk",
+        "CV_c86d546169ef5ac0dbe9",
+        "HIFITTS_6671",
+        "CMU_ARCTIC_rxr",
+        "CV_2abbf1ec09fa0aeb6d9b",
+        "HIFITTS_6670",
+        "CMU_ARCTIC_slp",
+        "CV_6b5e3c9ca9030b7da6be"
+      ],
+      "available_identities": [
+        "CMU_ARCTIC_jmk",
+        "HIFITTS_6671",
+        "CMU_ARCTIC_rxr",
+        "HIFITTS_6670",
+        "CMU_ARCTIC_slp"
+      ],
+      "unavailable_identities": [
+        "CV_c86d546169ef5ac0dbe9",
+        "CV_2abbf1ec09fa0aeb6d9b",
+        "CV_6b5e3c9ca9030b7da6be"
+      ],
+      "query_scenes_with_known_reference_strangers": 216,
+      "query_scenes_with_absent_enrolled_people": 240,
+      "all_240_queries_retained": true,
+      "scene_truth_used_for_membership": false
+    },
+    {
+      "condition_id": "clean_source_15s_FIXED_ROTATION_A_R15",
+      "domain": "clean_source",
+      "requested_active_seconds": 15,
+      "roster_family": "FIXED_ROTATION_A",
+      "intended_size": 15,
+      "actual_available_size": 10,
+      "intended_identities": [
+        "CMU_ARCTIC_jmk",
+        "CV_c86d546169ef5ac0dbe9",
+        "HIFITTS_6671",
+        "CMU_ARCTIC_rxr",
+        "CV_2abbf1ec09fa0aeb6d9b",
+        "HIFITTS_6670",
+        "CMU_ARCTIC_slp",
+        "CV_6b5e3c9ca9030b7da6be",
+        "HIFITTS_9136",
+        "CMU_ARCTIC_fem",
+        "CV_8c9d6f14b797c3ffeb85",
+        "HIFITTS_11614",
+        "CMU_ARCTIC_ljm",
+        "CV_d3c1e11354306288eba3",
+        "HIFITTS_11697"
+      ],
+      "available_identities": [
+        "CMU_ARCTIC_jmk",
+        "HIFITTS_6671",
+        "CMU_ARCTIC_rxr",
+        "HIFITTS_6670",
+        "CMU_ARCTIC_slp",
+        "HIFITTS_9136",
+        "CMU_ARCTIC_fem",
+        "HIFITTS_11614",
+        "CMU_ARCTIC_ljm",
+        "HIFITTS_11697"
+      ],
+      "unavailable_identities": [
+        "CV_c86d546169ef5ac0dbe9",
+        "CV_2abbf1ec09fa0aeb6d9b",
+        "CV_6b5e3c9ca9030b7da6be",
+        "CV_8c9d6f14b797c3ffeb85",
+        "CV_d3c1e11354306288eba3"
+      ],
+      "query_scenes_with_known_reference_strangers": 194,
+      "query_scenes_with_absent_enrolled_people": 240,
+      "all_240_queries_retained": true,
+      "scene_truth_used_for_membership": false
+    },
+    {
+      "condition_id": "clean_source_15s_FIXED_ROTATION_A_R22",
+      "domain": "clean_source",
+      "requested_active_seconds": 15,
+      "roster_family": "FIXED_ROTATION_A",
+      "intended_size": 22,
+      "actual_available_size": 15,
+      "intended_identities": [
+        "CMU_ARCTIC_jmk",
+        "CV_c86d546169ef5ac0dbe9",
+        "HIFITTS_6671",
+        "CMU_ARCTIC_rxr",
+        "CV_2abbf1ec09fa0aeb6d9b",
+        "HIFITTS_6670",
+        "CMU_ARCTIC_slp",
+        "CV_6b5e3c9ca9030b7da6be",
+        "HIFITTS_9136",
+        "CMU_ARCTIC_fem",
+        "CV_8c9d6f14b797c3ffeb85",
+        "HIFITTS_11614",
+        "CMU_ARCTIC_ljm",
+        "CV_d3c1e11354306288eba3",
+        "HIFITTS_11697",
+        "CMU_ARCTIC_awb",
+        "CV_bc25d4fe155478871b18",
+        "CMU_ARCTIC_ksp",
+        "CV_6780c1e3d0bfe13078f7",
+        "CMU_ARCTIC_slt",
+        "CV_5bb2ca9b27ebe4cea0b5",
+        "CMU_ARCTIC_bdl"
+      ],
+      "available_identities": [
+        "CMU_ARCTIC_jmk",
+        "HIFITTS_6671",
+        "CMU_ARCTIC_rxr",
+        "HIFITTS_6670",
+        "CMU_ARCTIC_slp",
+        "HIFITTS_9136",
+        "CMU_ARCTIC_fem",
+        "HIFITTS_11614",
+        "CMU_ARCTIC_ljm",
+        "HIFITTS_11697",
+        "CMU_ARCTIC_awb",
+        "CMU_ARCTIC_ksp",
+        "CMU_ARCTIC_slt",
+        "CV_5bb2ca9b27ebe4cea0b5",
+        "CMU_ARCTIC_bdl"
+      ],
+      "unavailable_identities": [
+        "CV_c86d546169ef5ac0dbe9",
+        "CV_2abbf1ec09fa0aeb6d9b",
+        "CV_6b5e3c9ca9030b7da6be",
+        "CV_8c9d6f14b797c3ffeb85",
+        "CV_d3c1e11354306288eba3",
+        "CV_bc25d4fe155478871b18",
+        "CV_6780c1e3d0bfe13078f7"
+      ],
+      "query_scenes_with_known_reference_strangers": 181,
+      "query_scenes_with_absent_enrolled_people": 240,
+      "all_240_queries_retained": true,
+      "scene_truth_used_for_membership": false
+    },
+    {
+      "condition_id": "clean_source_15s_FIXED_ROTATION_B_R00",
+      "domain": "clean_source",
+      "requested_active_seconds": 15,
+      "roster_family": "FIXED_ROTATION_B",
+      "intended_size": 0,
+      "actual_available_size": 0,
+      "intended_identities": [],
+      "available_identities": [],
+      "unavailable_identities": [],
+      "query_scenes_with_known_reference_strangers": 229,
+      "query_scenes_with_absent_enrolled_people": 0,
+      "all_240_queries_retained": true,
+      "scene_truth_used_for_membership": false
+    },
+    {
+      "condition_id": "clean_source_15s_FIXED_ROTATION_B_R01",
+      "domain": "clean_source",
+      "requested_active_seconds": 15,
+      "roster_family": "FIXED_ROTATION_B",
+      "intended_size": 1,
+      "actual_available_size": 1,
+      "intended_identities": [
+        "CMU_ARCTIC_gka"
+      ],
+      "available_identities": [
+        "CMU_ARCTIC_gka"
+      ],
+      "unavailable_identities": [],
+      "query_scenes_with_known_reference_strangers": 229,
+      "query_scenes_with_absent_enrolled_people": 233,
+      "all_240_queries_retained": true,
+      "scene_truth_used_for_membership": false
+    },
+    {
+      "condition_id": "clean_source_15s_FIXED_ROTATION_B_R02",
+      "domain": "clean_source",
+      "requested_active_seconds": 15,
+      "roster_family": "FIXED_ROTATION_B",
+      "intended_size": 2,
+      "actual_available_size": 1,
+      "intended_identities": [
+        "CMU_ARCTIC_gka",
+        "CV_cb8bbb33611dc9825ccf"
+      ],
+      "available_identities": [
+        "CMU_ARCTIC_gka"
+      ],
+      "unavailable_identities": [
+        "CV_cb8bbb33611dc9825ccf"
+      ],
+      "query_scenes_with_known_reference_strangers": 229,
+      "query_scenes_with_absent_enrolled_people": 233,
+      "all_240_queries_retained": true,
+      "scene_truth_used_for_membership": false
+    },
+    {
+      "condition_id": "clean_source_15s_FIXED_ROTATION_B_R04",
+      "domain": "clean_source",
+      "requested_active_seconds": 15,
+      "roster_family": "FIXED_ROTATION_B",
+      "intended_size": 4,
+      "actual_available_size": 3,
+      "intended_identities": [
+        "CMU_ARCTIC_gka",
+        "CV_cb8bbb33611dc9825ccf",
+        "HIFITTS_8051",
+        "CMU_ARCTIC_rms"
+      ],
+      "available_identities": [
+        "CMU_ARCTIC_gka",
+        "HIFITTS_8051",
+        "CMU_ARCTIC_rms"
+      ],
+      "unavailable_identities": [
+        "CV_cb8bbb33611dc9825ccf"
+      ],
+      "query_scenes_with_known_reference_strangers": 228,
+      "query_scenes_with_absent_enrolled_people": 240,
+      "all_240_queries_retained": true,
+      "scene_truth_used_for_membership": false
+    },
+    {
+      "condition_id": "clean_source_15s_FIXED_ROTATION_B_R08",
+      "domain": "clean_source",
+      "requested_active_seconds": 15,
+      "roster_family": "FIXED_ROTATION_B",
+      "intended_size": 8,
+      "actual_available_size": 6,
+      "intended_identities": [
+        "CMU_ARCTIC_gka",
+        "CV_cb8bbb33611dc9825ccf",
+        "HIFITTS_8051",
+        "CMU_ARCTIC_rms",
+        "CV_e2570918d433fe70613d",
+        "HIFITTS_12787",
+        "CMU_ARCTIC_clb",
+        "CV_da7630c05ea3de5a8b18"
+      ],
+      "available_identities": [
+        "CMU_ARCTIC_gka",
+        "HIFITTS_8051",
+        "CMU_ARCTIC_rms",
+        "HIFITTS_12787",
+        "CMU_ARCTIC_clb",
+        "CV_da7630c05ea3de5a8b18"
+      ],
+      "unavailable_identities": [
+        "CV_cb8bbb33611dc9825ccf",
+        "CV_e2570918d433fe70613d"
+      ],
+      "query_scenes_with_known_reference_strangers": 228,
+      "query_scenes_with_absent_enrolled_people": 240,
+      "all_240_queries_retained": true,
+      "scene_truth_used_for_membership": false
+    },
+    {
+      "condition_id": "clean_source_15s_FIXED_ROTATION_B_R15",
+      "domain": "clean_source",
+      "requested_active_seconds": 15,
+      "roster_family": "FIXED_ROTATION_B",
+      "intended_size": 15,
+      "actual_available_size": 11,
+      "intended_identities": [
+        "CMU_ARCTIC_gka",
+        "CV_cb8bbb33611dc9825ccf",
+        "HIFITTS_8051",
+        "CMU_ARCTIC_rms",
+        "CV_e2570918d433fe70613d",
+        "HIFITTS_12787",
+        "CMU_ARCTIC_clb",
+        "CV_da7630c05ea3de5a8b18",
+        "HIFITTS_9017",
+        "CMU_ARCTIC_lnh",
+        "CV_f82fc5dd15117edcfe9a",
+        "HIFITTS_6097",
+        "CMU_ARCTIC_aup",
+        "CV_3b33694cdeb42c66d688",
+        "HIFITTS_92"
+      ],
+      "available_identities": [
+        "CMU_ARCTIC_gka",
+        "HIFITTS_8051",
+        "CMU_ARCTIC_rms",
+        "HIFITTS_12787",
+        "CMU_ARCTIC_clb",
+        "CV_da7630c05ea3de5a8b18",
+        "HIFITTS_9017",
+        "CMU_ARCTIC_lnh",
+        "HIFITTS_6097",
+        "CMU_ARCTIC_aup",
+        "HIFITTS_92"
+      ],
+      "unavailable_identities": [
+        "CV_cb8bbb33611dc9825ccf",
+        "CV_e2570918d433fe70613d",
+        "CV_f82fc5dd15117edcfe9a",
+        "CV_3b33694cdeb42c66d688"
+      ],
+      "query_scenes_with_known_reference_strangers": 197,
+      "query_scenes_with_absent_enrolled_people": 240,
+      "all_240_queries_retained": true,
+      "scene_truth_used_for_membership": false
+    },
+    {
+      "condition_id": "clean_source_15s_FIXED_ROTATION_B_R21",
+      "domain": "clean_source",
+      "requested_active_seconds": 15,
+      "roster_family": "FIXED_ROTATION_B",
+      "intended_size": 21,
+      "actual_available_size": 15,
+      "intended_identities": [
+        "CMU_ARCTIC_gka",
+        "CV_cb8bbb33611dc9825ccf",
+        "HIFITTS_8051",
+        "CMU_ARCTIC_rms",
+        "CV_e2570918d433fe70613d",
+        "HIFITTS_12787",
+        "CMU_ARCTIC_clb",
+        "CV_da7630c05ea3de5a8b18",
+        "HIFITTS_9017",
+        "CMU_ARCTIC_lnh",
+        "CV_f82fc5dd15117edcfe9a",
+        "HIFITTS_6097",
+        "CMU_ARCTIC_aup",
+        "CV_3b33694cdeb42c66d688",
+        "HIFITTS_92",
+        "CMU_ARCTIC_eey",
+        "CV_0ec4d6799c8c83a9a047",
+        "CMU_ARCTIC_ahw",
+        "CV_ba6b4113f6df628a21fe",
+        "CMU_ARCTIC_aew",
+        "CMU_ARCTIC_axb"
+      ],
+      "available_identities": [
+        "CMU_ARCTIC_gka",
+        "HIFITTS_8051",
+        "CMU_ARCTIC_rms",
+        "HIFITTS_12787",
+        "CMU_ARCTIC_clb",
+        "CV_da7630c05ea3de5a8b18",
+        "HIFITTS_9017",
+        "CMU_ARCTIC_lnh",
+        "HIFITTS_6097",
+        "CMU_ARCTIC_aup",
+        "HIFITTS_92",
+        "CMU_ARCTIC_eey",
+        "CMU_ARCTIC_ahw",
+        "CMU_ARCTIC_aew",
+        "CMU_ARCTIC_axb"
+      ],
+      "unavailable_identities": [
+        "CV_cb8bbb33611dc9825ccf",
+        "CV_e2570918d433fe70613d",
+        "CV_f82fc5dd15117edcfe9a",
+        "CV_3b33694cdeb42c66d688",
+        "CV_0ec4d6799c8c83a9a047",
+        "CV_ba6b4113f6df628a21fe"
+      ],
+      "query_scenes_with_known_reference_strangers": 186,
+      "query_scenes_with_absent_enrolled_people": 240,
+      "all_240_queries_retained": true,
+      "scene_truth_used_for_membership": false
+    },
+    {
+      "condition_id": "clean_source_15s_LARGE_COHORT_R00",
+      "domain": "clean_source",
+      "requested_active_seconds": 15,
+      "roster_family": "LARGE_COHORT",
+      "intended_size": 0,
+      "actual_available_size": 0,
+      "intended_identities": [],
+      "available_identities": [],
+      "unavailable_identities": [],
+      "query_scenes_with_known_reference_strangers": 229,
+      "query_scenes_with_absent_enrolled_people": 0,
+      "all_240_queries_retained": true,
+      "scene_truth_used_for_membership": false
+    },
+    {
+      "condition_id": "clean_source_15s_LARGE_COHORT_R01",
+      "domain": "clean_source",
+      "requested_active_seconds": 15,
+      "roster_family": "LARGE_COHORT",
+      "intended_size": 1,
+      "actual_available_size": 1,
+      "intended_identities": [
+        "CMU_ARCTIC_jmk"
+      ],
+      "available_identities": [
+        "CMU_ARCTIC_jmk"
+      ],
+      "unavailable_identities": [],
+      "query_scenes_with_known_reference_strangers": 229,
+      "query_scenes_with_absent_enrolled_people": 233,
+      "all_240_queries_retained": true,
+      "scene_truth_used_for_membership": false
+    },
+    {
+      "condition_id": "clean_source_15s_LARGE_COHORT_R02",
+      "domain": "clean_source",
+      "requested_active_seconds": 15,
+      "roster_family": "LARGE_COHORT",
+      "intended_size": 2,
+      "actual_available_size": 1,
+      "intended_identities": [
+        "CMU_ARCTIC_jmk",
+        "CV_c86d546169ef5ac0dbe9"
+      ],
+      "available_identities": [
+        "CMU_ARCTIC_jmk"
+      ],
+      "unavailable_identities": [
+        "CV_c86d546169ef5ac0dbe9"
+      ],
+      "query_scenes_with_known_reference_strangers": 229,
+      "query_scenes_with_absent_enrolled_people": 233,
+      "all_240_queries_retained": true,
+      "scene_truth_used_for_membership": false
+    },
+    {
+      "condition_id": "clean_source_15s_LARGE_COHORT_R04",
+      "domain": "clean_source",
+      "requested_active_seconds": 15,
+      "roster_family": "LARGE_COHORT",
+      "intended_size": 4,
+      "actual_available_size": 3,
+      "intended_identities": [
+        "CMU_ARCTIC_jmk",
+        "CV_c86d546169ef5ac0dbe9",
+        "HIFITTS_6671",
+        "CMU_ARCTIC_gka"
+      ],
+      "available_identities": [
+        "CMU_ARCTIC_jmk",
+        "HIFITTS_6671",
+        "CMU_ARCTIC_gka"
+      ],
+      "unavailable_identities": [
+        "CV_c86d546169ef5ac0dbe9"
+      ],
+      "query_scenes_with_known_reference_strangers": 223,
+      "query_scenes_with_absent_enrolled_people": 240,
+      "all_240_queries_retained": true,
+      "scene_truth_used_for_membership": false
+    },
+    {
+      "condition_id": "clean_source_15s_LARGE_COHORT_R08",
+      "domain": "clean_source",
+      "requested_active_seconds": 15,
+      "roster_family": "LARGE_COHORT",
+      "intended_size": 8,
+      "actual_available_size": 5,
+      "intended_identities": [
+        "CMU_ARCTIC_jmk",
+        "CV_c86d546169ef5ac0dbe9",
+        "HIFITTS_6671",
+        "CMU_ARCTIC_gka",
+        "CV_cb8bbb33611dc9825ccf",
+        "HIFITTS_8051",
+        "CMU_ARCTIC_rxr",
+        "CV_2abbf1ec09fa0aeb6d9b"
+      ],
+      "available_identities": [
+        "CMU_ARCTIC_jmk",
+        "HIFITTS_6671",
+        "CMU_ARCTIC_gka",
+        "HIFITTS_8051",
+        "CMU_ARCTIC_rxr"
+      ],
+      "unavailable_identities": [
+        "CV_c86d546169ef5ac0dbe9",
+        "CV_cb8bbb33611dc9825ccf",
+        "CV_2abbf1ec09fa0aeb6d9b"
+      ],
+      "query_scenes_with_known_reference_strangers": 222,
+      "query_scenes_with_absent_enrolled_people": 240,
+      "all_240_queries_retained": true,
+      "scene_truth_used_for_membership": false
+    },
+    {
+      "condition_id": "clean_source_15s_LARGE_COHORT_R15",
+      "domain": "clean_source",
+      "requested_active_seconds": 15,
+      "roster_family": "LARGE_COHORT",
+      "intended_size": 15,
+      "actual_available_size": 11,
+      "intended_identities": [
+        "CMU_ARCTIC_jmk",
+        "CV_c86d546169ef5ac0dbe9",
+        "HIFITTS_6671",
+        "CMU_ARCTIC_gka",
+        "CV_cb8bbb33611dc9825ccf",
+        "HIFITTS_8051",
+        "CMU_ARCTIC_rxr",
+        "CV_2abbf1ec09fa0aeb6d9b",
+        "HIFITTS_6670",
+        "CMU_ARCTIC_slp",
+        "CV_6b5e3c9ca9030b7da6be",
+        "HIFITTS_9136",
+        "CMU_ARCTIC_clb",
+        "CV_da7630c05ea3de5a8b18",
+        "HIFITTS_9017"
+      ],
+      "available_identities": [
+        "CMU_ARCTIC_jmk",
+        "HIFITTS_6671",
+        "CMU_ARCTIC_gka",
+        "HIFITTS_8051",
+        "CMU_ARCTIC_rxr",
+        "HIFITTS_6670",
+        "CMU_ARCTIC_slp",
+        "HIFITTS_9136",
+        "CMU_ARCTIC_clb",
+        "CV_da7630c05ea3de5a8b18",
+        "HIFITTS_9017"
+      ],
+      "unavailable_identities": [
+        "CV_c86d546169ef5ac0dbe9",
+        "CV_cb8bbb33611dc9825ccf",
+        "CV_2abbf1ec09fa0aeb6d9b",
+        "CV_6b5e3c9ca9030b7da6be"
+      ],
+      "query_scenes_with_known_reference_strangers": 197,
+      "query_scenes_with_absent_enrolled_people": 240,
+      "all_240_queries_retained": true,
+      "scene_truth_used_for_membership": false
+    },
+    {
+      "condition_id": "clean_source_15s_LARGE_COHORT_R34",
+      "domain": "clean_source",
+      "requested_active_seconds": 15,
+      "roster_family": "LARGE_COHORT",
+      "intended_size": 34,
+      "actual_available_size": 24,
+      "intended_identities": [
+        "CMU_ARCTIC_jmk",
+        "CV_c86d546169ef5ac0dbe9",
+        "HIFITTS_6671",
+        "CMU_ARCTIC_gka",
+        "CV_cb8bbb33611dc9825ccf",
+        "HIFITTS_8051",
+        "CMU_ARCTIC_rxr",
+        "CV_2abbf1ec09fa0aeb6d9b",
+        "HIFITTS_6670",
+        "CMU_ARCTIC_slp",
+        "CV_6b5e3c9ca9030b7da6be",
+        "HIFITTS_9136",
+        "CMU_ARCTIC_clb",
+        "CV_da7630c05ea3de5a8b18",
+        "HIFITTS_9017",
+        "CMU_ARCTIC_fem",
+        "CV_8c9d6f14b797c3ffeb85",
+        "HIFITTS_11614",
+        "CMU_ARCTIC_ljm",
+        "CV_d3c1e11354306288eba3",
+        "HIFITTS_11697",
+        "CMU_ARCTIC_aup",
+        "CV_3b33694cdeb42c66d688",
+        "HIFITTS_92",
+        "CMU_ARCTIC_awb",
+        "CV_bc25d4fe155478871b18",
+        "CMU_ARCTIC_ksp",
+        "CV_6780c1e3d0bfe13078f7",
+        "CMU_ARCTIC_ahw",
+        "CV_ba6b4113f6df628a21fe",
+        "CMU_ARCTIC_slt",
+        "CV_5bb2ca9b27ebe4cea0b5",
+        "CMU_ARCTIC_bdl",
+        "CMU_ARCTIC_axb"
+      ],
+      "available_identities": [
+        "CMU_ARCTIC_jmk",
+        "HIFITTS_6671",
+        "CMU_ARCTIC_gka",
+        "HIFITTS_8051",
+        "CMU_ARCTIC_rxr",
+        "HIFITTS_6670",
+        "CMU_ARCTIC_slp",
+        "HIFITTS_9136",
+        "CMU_ARCTIC_clb",
+        "CV_da7630c05ea3de5a8b18",
+        "HIFITTS_9017",
+        "CMU_ARCTIC_fem",
+        "HIFITTS_11614",
+        "CMU_ARCTIC_ljm",
+        "HIFITTS_11697",
+        "CMU_ARCTIC_aup",
+        "HIFITTS_92",
+        "CMU_ARCTIC_awb",
+        "CMU_ARCTIC_ksp",
+        "CMU_ARCTIC_ahw",
+        "CMU_ARCTIC_slt",
+        "CV_5bb2ca9b27ebe4cea0b5",
+        "CMU_ARCTIC_bdl",
+        "CMU_ARCTIC_axb"
+      ],
+      "unavailable_identities": [
+        "CV_c86d546169ef5ac0dbe9",
+        "CV_cb8bbb33611dc9825ccf",
+        "CV_2abbf1ec09fa0aeb6d9b",
+        "CV_6b5e3c9ca9030b7da6be",
+        "CV_8c9d6f14b797c3ffeb85",
+        "CV_d3c1e11354306288eba3",
+        "CV_3b33694cdeb42c66d688",
+        "CV_bc25d4fe155478871b18",
+        "CV_6780c1e3d0bfe13078f7",
+        "CV_ba6b4113f6df628a21fe"
+      ],
+      "query_scenes_with_known_reference_strangers": 125,
+      "query_scenes_with_absent_enrolled_people": 240,
+      "all_240_queries_retained": true,
+      "scene_truth_used_for_membership": false
+    },
+    {
+      "condition_id": "clean_source_30s_FIXED_ROTATION_A_R00",
+      "domain": "clean_source",
+      "requested_active_seconds": 30,
+      "roster_family": "FIXED_ROTATION_A",
+      "intended_size": 0,
+      "actual_available_size": 0,
+      "intended_identities": [],
+      "available_identities": [],
+      "unavailable_identities": [],
+      "query_scenes_with_known_reference_strangers": 229,
+      "query_scenes_with_absent_enrolled_people": 0,
+      "all_240_queries_retained": true,
+      "scene_truth_used_for_membership": false
+    },
+    {
+      "condition_id": "clean_source_30s_FIXED_ROTATION_A_R01",
+      "domain": "clean_source",
+      "requested_active_seconds": 30,
+      "roster_family": "FIXED_ROTATION_A",
+      "intended_size": 1,
+      "actual_available_size": 1,
+      "intended_identities": [
+        "CMU_ARCTIC_jmk"
+      ],
+      "available_identities": [
+        "CMU_ARCTIC_jmk"
+      ],
+      "unavailable_identities": [],
+      "query_scenes_with_known_reference_strangers": 229,
+      "query_scenes_with_absent_enrolled_people": 233,
+      "all_240_queries_retained": true,
+      "scene_truth_used_for_membership": false
+    },
+    {
+      "condition_id": "clean_source_30s_FIXED_ROTATION_A_R02",
+      "domain": "clean_source",
+      "requested_active_seconds": 30,
+      "roster_family": "FIXED_ROTATION_A",
+      "intended_size": 2,
+      "actual_available_size": 1,
+      "intended_identities": [
+        "CMU_ARCTIC_jmk",
+        "CV_c86d546169ef5ac0dbe9"
+      ],
+      "available_identities": [
+        "CMU_ARCTIC_jmk"
+      ],
+      "unavailable_identities": [
+        "CV_c86d546169ef5ac0dbe9"
+      ],
+      "query_scenes_with_known_reference_strangers": 229,
+      "query_scenes_with_absent_enrolled_people": 233,
+      "all_240_queries_retained": true,
+      "scene_truth_used_for_membership": false
+    },
+    {
+      "condition_id": "clean_source_30s_FIXED_ROTATION_A_R04",
+      "domain": "clean_source",
+      "requested_active_seconds": 30,
+      "roster_family": "FIXED_ROTATION_A",
+      "intended_size": 4,
+      "actual_available_size": 3,
+      "intended_identities": [
+        "CMU_ARCTIC_jmk",
+        "CV_c86d546169ef5ac0dbe9",
+        "HIFITTS_6671",
+        "CMU_ARCTIC_rxr"
+      ],
+      "available_identities": [
+        "CMU_ARCTIC_jmk",
+        "HIFITTS_6671",
+        "CMU_ARCTIC_rxr"
+      ],
+      "unavailable_identities": [
+        "CV_c86d546169ef5ac0dbe9"
+      ],
+      "query_scenes_with_known_reference_strangers": 229,
+      "query_scenes_with_absent_enrolled_people": 240,
+      "all_240_queries_retained": true,
+      "scene_truth_used_for_membership": false
+    },
+    {
+      "condition_id": "clean_source_30s_FIXED_ROTATION_A_R08",
+      "domain": "clean_source",
+      "requested_active_seconds": 30,
+      "roster_family": "FIXED_ROTATION_A",
+      "intended_size": 8,
+      "actual_available_size": 5,
+      "intended_identities": [
+        "CMU_ARCTIC_jmk",
+        "CV_c86d546169ef5ac0dbe9",
+        "HIFITTS_6671",
+        "CMU_ARCTIC_rxr",
+        "CV_2abbf1ec09fa0aeb6d9b",
+        "HIFITTS_6670",
+        "CMU_ARCTIC_slp",
+        "CV_6b5e3c9ca9030b7da6be"
+      ],
+      "available_identities": [
+        "CMU_ARCTIC_jmk",
+        "HIFITTS_6671",
+        "CMU_ARCTIC_rxr",
+        "HIFITTS_6670",
+        "CMU_ARCTIC_slp"
+      ],
+      "unavailable_identities": [
+        "CV_c86d546169ef5ac0dbe9",
+        "CV_2abbf1ec09fa0aeb6d9b",
+        "CV_6b5e3c9ca9030b7da6be"
+      ],
+      "query_scenes_with_known_reference_strangers": 216,
+      "query_scenes_with_absent_enrolled_people": 240,
+      "all_240_queries_retained": true,
+      "scene_truth_used_for_membership": false
+    },
+    {
+      "condition_id": "clean_source_30s_FIXED_ROTATION_A_R15",
+      "domain": "clean_source",
+      "requested_active_seconds": 30,
+      "roster_family": "FIXED_ROTATION_A",
+      "intended_size": 15,
+      "actual_available_size": 10,
+      "intended_identities": [
+        "CMU_ARCTIC_jmk",
+        "CV_c86d546169ef5ac0dbe9",
+        "HIFITTS_6671",
+        "CMU_ARCTIC_rxr",
+        "CV_2abbf1ec09fa0aeb6d9b",
+        "HIFITTS_6670",
+        "CMU_ARCTIC_slp",
+        "CV_6b5e3c9ca9030b7da6be",
+        "HIFITTS_9136",
+        "CMU_ARCTIC_fem",
+        "CV_8c9d6f14b797c3ffeb85",
+        "HIFITTS_11614",
+        "CMU_ARCTIC_ljm",
+        "CV_d3c1e11354306288eba3",
+        "HIFITTS_11697"
+      ],
+      "available_identities": [
+        "CMU_ARCTIC_jmk",
+        "HIFITTS_6671",
+        "CMU_ARCTIC_rxr",
+        "HIFITTS_6670",
+        "CMU_ARCTIC_slp",
+        "HIFITTS_9136",
+        "CMU_ARCTIC_fem",
+        "HIFITTS_11614",
+        "CMU_ARCTIC_ljm",
+        "HIFITTS_11697"
+      ],
+      "unavailable_identities": [
+        "CV_c86d546169ef5ac0dbe9",
+        "CV_2abbf1ec09fa0aeb6d9b",
+        "CV_6b5e3c9ca9030b7da6be",
+        "CV_8c9d6f14b797c3ffeb85",
+        "CV_d3c1e11354306288eba3"
+      ],
+      "query_scenes_with_known_reference_strangers": 194,
+      "query_scenes_with_absent_enrolled_people": 240,
+      "all_240_queries_retained": true,
+      "scene_truth_used_for_membership": false
+    },
+    {
+      "condition_id": "clean_source_30s_FIXED_ROTATION_A_R22",
+      "domain": "clean_source",
+      "requested_active_seconds": 30,
+      "roster_family": "FIXED_ROTATION_A",
+      "intended_size": 22,
+      "actual_available_size": 14,
+      "intended_identities": [
+        "CMU_ARCTIC_jmk",
+        "CV_c86d546169ef5ac0dbe9",
+        "HIFITTS_6671",
+        "CMU_ARCTIC_rxr",
+        "CV_2abbf1ec09fa0aeb6d9b",
+        "HIFITTS_6670",
+        "CMU_ARCTIC_slp",
+        "CV_6b5e3c9ca9030b7da6be",
+        "HIFITTS_9136",
+        "CMU_ARCTIC_fem",
+        "CV_8c9d6f14b797c3ffeb85",
+        "HIFITTS_11614",
+        "CMU_ARCTIC_ljm",
+        "CV_d3c1e11354306288eba3",
+        "HIFITTS_11697",
+        "CMU_ARCTIC_awb",
+        "CV_bc25d4fe155478871b18",
+        "CMU_ARCTIC_ksp",
+        "CV_6780c1e3d0bfe13078f7",
+        "CMU_ARCTIC_slt",
+        "CV_5bb2ca9b27ebe4cea0b5",
+        "CMU_ARCTIC_bdl"
+      ],
+      "available_identities": [
+        "CMU_ARCTIC_jmk",
+        "HIFITTS_6671",
+        "CMU_ARCTIC_rxr",
+        "HIFITTS_6670",
+        "CMU_ARCTIC_slp",
+        "HIFITTS_9136",
+        "CMU_ARCTIC_fem",
+        "HIFITTS_11614",
+        "CMU_ARCTIC_ljm",
+        "HIFITTS_11697",
+        "CMU_ARCTIC_awb",
+        "CMU_ARCTIC_ksp",
+        "CMU_ARCTIC_slt",
+        "CMU_ARCTIC_bdl"
+      ],
+      "unavailable_identities": [
+        "CV_c86d546169ef5ac0dbe9",
+        "CV_2abbf1ec09fa0aeb6d9b",
+        "CV_6b5e3c9ca9030b7da6be",
+        "CV_8c9d6f14b797c3ffeb85",
+        "CV_d3c1e11354306288eba3",
+        "CV_bc25d4fe155478871b18",
+        "CV_6780c1e3d0bfe13078f7",
+        "CV_5bb2ca9b27ebe4cea0b5"
+      ],
+      "query_scenes_with_known_reference_strangers": 181,
+      "query_scenes_with_absent_enrolled_people": 240,
+      "all_240_queries_retained": true,
+      "scene_truth_used_for_membership": false
+    },
+    {
+      "condition_id": "clean_source_30s_FIXED_ROTATION_B_R00",
+      "domain": "clean_source",
+      "requested_active_seconds": 30,
+      "roster_family": "FIXED_ROTATION_B",
+      "intended_size": 0,
+      "actual_available_size": 0,
+      "intended_identities": [],
+      "available_identities": [],
+      "unavailable_identities": [],
+      "query_scenes_with_known_reference_strangers": 229,
+      "query_scenes_with_absent_enrolled_people": 0,
+      "all_240_queries_retained": true,
+      "scene_truth_used_for_membership": false
+    },
+    {
+      "condition_id": "clean_source_30s_FIXED_ROTATION_B_R01",
+      "domain": "clean_source",
+      "requested_active_seconds": 30,
+      "roster_family": "FIXED_ROTATION_B",
+      "intended_size": 1,
+      "actual_available_size": 1,
+      "intended_identities": [
+        "CMU_ARCTIC_gka"
+      ],
+      "available_identities": [
+        "CMU_ARCTIC_gka"
+      ],
+      "unavailable_identities": [],
+      "query_scenes_with_known_reference_strangers": 229,
+      "query_scenes_with_absent_enrolled_people": 233,
+      "all_240_queries_retained": true,
+      "scene_truth_used_for_membership": false
+    },
+    {
+      "condition_id": "clean_source_30s_FIXED_ROTATION_B_R02",
+      "domain": "clean_source",
+      "requested_active_seconds": 30,
+      "roster_family": "FIXED_ROTATION_B",
+      "intended_size": 2,
+      "actual_available_size": 1,
+      "intended_identities": [
+        "CMU_ARCTIC_gka",
+        "CV_cb8bbb33611dc9825ccf"
+      ],
+      "available_identities": [
+        "CMU_ARCTIC_gka"
+      ],
+      "unavailable_identities": [
+        "CV_cb8bbb33611dc9825ccf"
+      ],
+      "query_scenes_with_known_reference_strangers": 229,
+      "query_scenes_with_absent_enrolled_people": 233,
+      "all_240_queries_retained": true,
+      "scene_truth_used_for_membership": false
+    },
+    {
+      "condition_id": "clean_source_30s_FIXED_ROTATION_B_R04",
+      "domain": "clean_source",
+      "requested_active_seconds": 30,
+      "roster_family": "FIXED_ROTATION_B",
+      "intended_size": 4,
+      "actual_available_size": 3,
+      "intended_identities": [
+        "CMU_ARCTIC_gka",
+        "CV_cb8bbb33611dc9825ccf",
+        "HIFITTS_8051",
+        "CMU_ARCTIC_rms"
+      ],
+      "available_identities": [
+        "CMU_ARCTIC_gka",
+        "HIFITTS_8051",
+        "CMU_ARCTIC_rms"
+      ],
+      "unavailable_identities": [
+        "CV_cb8bbb33611dc9825ccf"
+      ],
+      "query_scenes_with_known_reference_strangers": 228,
+      "query_scenes_with_absent_enrolled_people": 240,
+      "all_240_queries_retained": true,
+      "scene_truth_used_for_membership": false
+    },
+    {
+      "condition_id": "clean_source_30s_FIXED_ROTATION_B_R08",
+      "domain": "clean_source",
+      "requested_active_seconds": 30,
+      "roster_family": "FIXED_ROTATION_B",
+      "intended_size": 8,
+      "actual_available_size": 5,
+      "intended_identities": [
+        "CMU_ARCTIC_gka",
+        "CV_cb8bbb33611dc9825ccf",
+        "HIFITTS_8051",
+        "CMU_ARCTIC_rms",
+        "CV_e2570918d433fe70613d",
+        "HIFITTS_12787",
+        "CMU_ARCTIC_clb",
+        "CV_da7630c05ea3de5a8b18"
+      ],
+      "available_identities": [
+        "CMU_ARCTIC_gka",
+        "HIFITTS_8051",
+        "CMU_ARCTIC_rms",
+        "HIFITTS_12787",
+        "CMU_ARCTIC_clb"
+      ],
+      "unavailable_identities": [
+        "CV_cb8bbb33611dc9825ccf",
+        "CV_e2570918d433fe70613d",
+        "CV_da7630c05ea3de5a8b18"
+      ],
+      "query_scenes_with_known_reference_strangers": 228,
+      "query_scenes_with_absent_enrolled_people": 240,
+      "all_240_queries_retained": true,
+      "scene_truth_used_for_membership": false
+    },
+    {
+      "condition_id": "clean_source_30s_FIXED_ROTATION_B_R15",
+      "domain": "clean_source",
+      "requested_active_seconds": 30,
+      "roster_family": "FIXED_ROTATION_B",
+      "intended_size": 15,
+      "actual_available_size": 10,
+      "intended_identities": [
+        "CMU_ARCTIC_gka",
+        "CV_cb8bbb33611dc9825ccf",
+        "HIFITTS_8051",
+        "CMU_ARCTIC_rms",
+        "CV_e2570918d433fe70613d",
+        "HIFITTS_12787",
+        "CMU_ARCTIC_clb",
+        "CV_da7630c05ea3de5a8b18",
+        "HIFITTS_9017",
+        "CMU_ARCTIC_lnh",
+        "CV_f82fc5dd15117edcfe9a",
+        "HIFITTS_6097",
+        "CMU_ARCTIC_aup",
+        "CV_3b33694cdeb42c66d688",
+        "HIFITTS_92"
+      ],
+      "available_identities": [
+        "CMU_ARCTIC_gka",
+        "HIFITTS_8051",
+        "CMU_ARCTIC_rms",
+        "HIFITTS_12787",
+        "CMU_ARCTIC_clb",
+        "HIFITTS_9017",
+        "CMU_ARCTIC_lnh",
+        "HIFITTS_6097",
+        "CMU_ARCTIC_aup",
+        "HIFITTS_92"
+      ],
+      "unavailable_identities": [
+        "CV_cb8bbb33611dc9825ccf",
+        "CV_e2570918d433fe70613d",
+        "CV_da7630c05ea3de5a8b18",
+        "CV_f82fc5dd15117edcfe9a",
+        "CV_3b33694cdeb42c66d688"
+      ],
+      "query_scenes_with_known_reference_strangers": 197,
+      "query_scenes_with_absent_enrolled_people": 240,
+      "all_240_queries_retained": true,
+      "scene_truth_used_for_membership": false
+    },
+    {
+      "condition_id": "clean_source_30s_FIXED_ROTATION_B_R21",
+      "domain": "clean_source",
+      "requested_active_seconds": 30,
+      "roster_family": "FIXED_ROTATION_B",
+      "intended_size": 21,
+      "actual_available_size": 14,
+      "intended_identities": [
+        "CMU_ARCTIC_gka",
+        "CV_cb8bbb33611dc9825ccf",
+        "HIFITTS_8051",
+        "CMU_ARCTIC_rms",
+        "CV_e2570918d433fe70613d",
+        "HIFITTS_12787",
+        "CMU_ARCTIC_clb",
+        "CV_da7630c05ea3de5a8b18",
+        "HIFITTS_9017",
+        "CMU_ARCTIC_lnh",
+        "CV_f82fc5dd15117edcfe9a",
+        "HIFITTS_6097",
+        "CMU_ARCTIC_aup",
+        "CV_3b33694cdeb42c66d688",
+        "HIFITTS_92",
+        "CMU_ARCTIC_eey",
+        "CV_0ec4d6799c8c83a9a047",
+        "CMU_ARCTIC_ahw",
+        "CV_ba6b4113f6df628a21fe",
+        "CMU_ARCTIC_aew",
+        "CMU_ARCTIC_axb"
+      ],
+      "available_identities": [
+        "CMU_ARCTIC_gka",
+        "HIFITTS_8051",
+        "CMU_ARCTIC_rms",
+        "HIFITTS_12787",
+        "CMU_ARCTIC_clb",
+        "HIFITTS_9017",
+        "CMU_ARCTIC_lnh",
+        "HIFITTS_6097",
+        "CMU_ARCTIC_aup",
+        "HIFITTS_92",
+        "CMU_ARCTIC_eey",
+        "CMU_ARCTIC_ahw",
+        "CMU_ARCTIC_aew",
+        "CMU_ARCTIC_axb"
+      ],
+      "unavailable_identities": [
+        "CV_cb8bbb33611dc9825ccf",
+        "CV_e2570918d433fe70613d",
+        "CV_da7630c05ea3de5a8b18",
+        "CV_f82fc5dd15117edcfe9a",
+        "CV_3b33694cdeb42c66d688",
+        "CV_0ec4d6799c8c83a9a047",
+        "CV_ba6b4113f6df628a21fe"
+      ],
+      "query_scenes_with_known_reference_strangers": 186,
+      "query_scenes_with_absent_enrolled_people": 240,
+      "all_240_queries_retained": true,
+      "scene_truth_used_for_membership": false
+    },
+    {
+      "condition_id": "clean_source_30s_LARGE_COHORT_R00",
+      "domain": "clean_source",
+      "requested_active_seconds": 30,
+      "roster_family": "LARGE_COHORT",
+      "intended_size": 0,
+      "actual_available_size": 0,
+      "intended_identities": [],
+      "available_identities": [],
+      "unavailable_identities": [],
+      "query_scenes_with_known_reference_strangers": 229,
+      "query_scenes_with_absent_enrolled_people": 0,
+      "all_240_queries_retained": true,
+      "scene_truth_used_for_membership": false
+    },
+    {
+      "condition_id": "clean_source_30s_LARGE_COHORT_R01",
+      "domain": "clean_source",
+      "requested_active_seconds": 30,
+      "roster_family": "LARGE_COHORT",
+      "intended_size": 1,
+      "actual_available_size": 1,
+      "intended_identities": [
+        "CMU_ARCTIC_jmk"
+      ],
+      "available_identities": [
+        "CMU_ARCTIC_jmk"
+      ],
+      "unavailable_identities": [],
+      "query_scenes_with_known_reference_strangers": 229,
+      "query_scenes_with_absent_enrolled_people": 233,
+      "all_240_queries_retained": true,
+      "scene_truth_used_for_membership": false
+    },
+    {
+      "condition_id": "clean_source_30s_LARGE_COHORT_R02",
+      "domain": "clean_source",
+      "requested_active_seconds": 30,
+      "roster_family": "LARGE_COHORT",
+      "intended_size": 2,
+      "actual_available_size": 1,
+      "intended_identities": [
+        "CMU_ARCTIC_jmk",
+        "CV_c86d546169ef5ac0dbe9"
+      ],
+      "available_identities": [
+        "CMU_ARCTIC_jmk"
+      ],
+      "unavailable_identities": [
+        "CV_c86d546169ef5ac0dbe9"
+      ],
+      "query_scenes_with_known_reference_strangers": 229,
+      "query_scenes_with_absent_enrolled_people": 233,
+      "all_240_queries_retained": true,
+      "scene_truth_used_for_membership": false
+    },
+    {
+      "condition_id": "clean_source_30s_LARGE_COHORT_R04",
+      "domain": "clean_source",
+      "requested_active_seconds": 30,
+      "roster_family": "LARGE_COHORT",
+      "intended_size": 4,
+      "actual_available_size": 3,
+      "intended_identities": [
+        "CMU_ARCTIC_jmk",
+        "CV_c86d546169ef5ac0dbe9",
+        "HIFITTS_6671",
+        "CMU_ARCTIC_gka"
+      ],
+      "available_identities": [
+        "CMU_ARCTIC_jmk",
+        "HIFITTS_6671",
+        "CMU_ARCTIC_gka"
+      ],
+      "unavailable_identities": [
+        "CV_c86d546169ef5ac0dbe9"
+      ],
+      "query_scenes_with_known_reference_strangers": 223,
+      "query_scenes_with_absent_enrolled_people": 240,
+      "all_240_queries_retained": true,
+      "scene_truth_used_for_membership": false
+    },
+    {
+      "condition_id": "clean_source_30s_LARGE_COHORT_R08",
+      "domain": "clean_source",
+      "requested_active_seconds": 30,
+      "roster_family": "LARGE_COHORT",
+      "intended_size": 8,
+      "actual_available_size": 5,
+      "intended_identities": [
+        "CMU_ARCTIC_jmk",
+        "CV_c86d546169ef5ac0dbe9",
+        "HIFITTS_6671",
+        "CMU_ARCTIC_gka",
+        "CV_cb8bbb33611dc9825ccf",
+        "HIFITTS_8051",
+        "CMU_ARCTIC_rxr",
+        "CV_2abbf1ec09fa0aeb6d9b"
+      ],
+      "available_identities": [
+        "CMU_ARCTIC_jmk",
+        "HIFITTS_6671",
+        "CMU_ARCTIC_gka",
+        "HIFITTS_8051",
+        "CMU_ARCTIC_rxr"
+      ],
+      "unavailable_identities": [
+        "CV_c86d546169ef5ac0dbe9",
+        "CV_cb8bbb33611dc9825ccf",
+        "CV_2abbf1ec09fa0aeb6d9b"
+      ],
+      "query_scenes_with_known_reference_strangers": 222,
+      "query_scenes_with_absent_enrolled_people": 240,
+      "all_240_queries_retained": true,
+      "scene_truth_used_for_membership": false
+    },
+    {
+      "condition_id": "clean_source_30s_LARGE_COHORT_R15",
+      "domain": "clean_source",
+      "requested_active_seconds": 30,
+      "roster_family": "LARGE_COHORT",
+      "intended_size": 15,
+      "actual_available_size": 10,
+      "intended_identities": [
+        "CMU_ARCTIC_jmk",
+        "CV_c86d546169ef5ac0dbe9",
+        "HIFITTS_6671",
+        "CMU_ARCTIC_gka",
+        "CV_cb8bbb33611dc9825ccf",
+        "HIFITTS_8051",
+        "CMU_ARCTIC_rxr",
+        "CV_2abbf1ec09fa0aeb6d9b",
+        "HIFITTS_6670",
+        "CMU_ARCTIC_slp",
+        "CV_6b5e3c9ca9030b7da6be",
+        "HIFITTS_9136",
+        "CMU_ARCTIC_clb",
+        "CV_da7630c05ea3de5a8b18",
+        "HIFITTS_9017"
+      ],
+      "available_identities": [
+        "CMU_ARCTIC_jmk",
+        "HIFITTS_6671",
+        "CMU_ARCTIC_gka",
+        "HIFITTS_8051",
+        "CMU_ARCTIC_rxr",
+        "HIFITTS_6670",
+        "CMU_ARCTIC_slp",
+        "HIFITTS_9136",
+        "CMU_ARCTIC_clb",
+        "HIFITTS_9017"
+      ],
+      "unavailable_identities": [
+        "CV_c86d546169ef5ac0dbe9",
+        "CV_cb8bbb33611dc9825ccf",
+        "CV_2abbf1ec09fa0aeb6d9b",
+        "CV_6b5e3c9ca9030b7da6be",
+        "CV_da7630c05ea3de5a8b18"
+      ],
+      "query_scenes_with_known_reference_strangers": 197,
+      "query_scenes_with_absent_enrolled_people": 240,
+      "all_240_queries_retained": true,
+      "scene_truth_used_for_membership": false
+    },
+    {
+      "condition_id": "clean_source_30s_LARGE_COHORT_R34",
+      "domain": "clean_source",
+      "requested_active_seconds": 30,
+      "roster_family": "LARGE_COHORT",
+      "intended_size": 34,
+      "actual_available_size": 22,
+      "intended_identities": [
+        "CMU_ARCTIC_jmk",
+        "CV_c86d546169ef5ac0dbe9",
+        "HIFITTS_6671",
+        "CMU_ARCTIC_gka",
+        "CV_cb8bbb33611dc9825ccf",
+        "HIFITTS_8051",
+        "CMU_ARCTIC_rxr",
+        "CV_2abbf1ec09fa0aeb6d9b",
+        "HIFITTS_6670",
+        "CMU_ARCTIC_slp",
+        "CV_6b5e3c9ca9030b7da6be",
+        "HIFITTS_9136",
+        "CMU_ARCTIC_clb",
+        "CV_da7630c05ea3de5a8b18",
+        "HIFITTS_9017",
+        "CMU_ARCTIC_fem",
+        "CV_8c9d6f14b797c3ffeb85",
+        "HIFITTS_11614",
+        "CMU_ARCTIC_ljm",
+        "CV_d3c1e11354306288eba3",
+        "HIFITTS_11697",
+        "CMU_ARCTIC_aup",
+        "CV_3b33694cdeb42c66d688",
+        "HIFITTS_92",
+        "CMU_ARCTIC_awb",
+        "CV_bc25d4fe155478871b18",
+        "CMU_ARCTIC_ksp",
+        "CV_6780c1e3d0bfe13078f7",
+        "CMU_ARCTIC_ahw",
+        "CV_ba6b4113f6df628a21fe",
+        "CMU_ARCTIC_slt",
+        "CV_5bb2ca9b27ebe4cea0b5",
+        "CMU_ARCTIC_bdl",
+        "CMU_ARCTIC_axb"
+      ],
+      "available_identities": [
+        "CMU_ARCTIC_jmk",
+        "HIFITTS_6671",
+        "CMU_ARCTIC_gka",
+        "HIFITTS_8051",
+        "CMU_ARCTIC_rxr",
+        "HIFITTS_6670",
+        "CMU_ARCTIC_slp",
+        "HIFITTS_9136",
+        "CMU_ARCTIC_clb",
+        "HIFITTS_9017",
+        "CMU_ARCTIC_fem",
+        "HIFITTS_11614",
+        "CMU_ARCTIC_ljm",
+        "HIFITTS_11697",
+        "CMU_ARCTIC_aup",
+        "HIFITTS_92",
+        "CMU_ARCTIC_awb",
+        "CMU_ARCTIC_ksp",
+        "CMU_ARCTIC_ahw",
+        "CMU_ARCTIC_slt",
+        "CMU_ARCTIC_bdl",
+        "CMU_ARCTIC_axb"
+      ],
+      "unavailable_identities": [
+        "CV_c86d546169ef5ac0dbe9",
+        "CV_cb8bbb33611dc9825ccf",
+        "CV_2abbf1ec09fa0aeb6d9b",
+        "CV_6b5e3c9ca9030b7da6be",
+        "CV_da7630c05ea3de5a8b18",
+        "CV_8c9d6f14b797c3ffeb85",
+        "CV_d3c1e11354306288eba3",
+        "CV_3b33694cdeb42c66d688",
+        "CV_bc25d4fe155478871b18",
+        "CV_6780c1e3d0bfe13078f7",
+        "CV_ba6b4113f6df628a21fe",
+        "CV_5bb2ca9b27ebe4cea0b5"
+      ],
+      "query_scenes_with_known_reference_strangers": 125,
+      "query_scenes_with_absent_enrolled_people": 240,
+      "all_240_queries_retained": true,
+      "scene_truth_used_for_membership": false
+    },
+    {
+      "condition_id": "XVF_processed_15s_FIXED_ROTATION_A_R00",
+      "domain": "XVF_processed",
+      "requested_active_seconds": 15,
+      "roster_family": "FIXED_ROTATION_A",
+      "intended_size": 0,
+      "actual_available_size": 0,
+      "intended_identities": [],
+      "available_identities": [],
+      "unavailable_identities": [],
+      "query_scenes_with_known_reference_strangers": 229,
+      "query_scenes_with_absent_enrolled_people": 0,
+      "all_240_queries_retained": true,
+      "scene_truth_used_for_membership": false
+    },
+    {
+      "condition_id": "XVF_processed_15s_FIXED_ROTATION_A_R01",
+      "domain": "XVF_processed",
+      "requested_active_seconds": 15,
+      "roster_family": "FIXED_ROTATION_A",
+      "intended_size": 1,
+      "actual_available_size": 1,
+      "intended_identities": [
+        "CMU_ARCTIC_jmk"
+      ],
+      "available_identities": [
+        "CMU_ARCTIC_jmk"
+      ],
+      "unavailable_identities": [],
+      "query_scenes_with_known_reference_strangers": 229,
+      "query_scenes_with_absent_enrolled_people": 233,
+      "all_240_queries_retained": true,
+      "scene_truth_used_for_membership": false
+    },
+    {
+      "condition_id": "XVF_processed_15s_FIXED_ROTATION_A_R02",
+      "domain": "XVF_processed",
+      "requested_active_seconds": 15,
+      "roster_family": "FIXED_ROTATION_A",
+      "intended_size": 2,
+      "actual_available_size": 1,
+      "intended_identities": [
+        "CMU_ARCTIC_jmk",
+        "CV_c86d546169ef5ac0dbe9"
+      ],
+      "available_identities": [
+        "CMU_ARCTIC_jmk"
+      ],
+      "unavailable_identities": [
+        "CV_c86d546169ef5ac0dbe9"
+      ],
+      "query_scenes_with_known_reference_strangers": 229,
+      "query_scenes_with_absent_enrolled_people": 233,
+      "all_240_queries_retained": true,
+      "scene_truth_used_for_membership": false
+    },
+    {
+      "condition_id": "XVF_processed_15s_FIXED_ROTATION_A_R04",
+      "domain": "XVF_processed",
+      "requested_active_seconds": 15,
+      "roster_family": "FIXED_ROTATION_A",
+      "intended_size": 4,
+      "actual_available_size": 3,
+      "intended_identities": [
+        "CMU_ARCTIC_jmk",
+        "CV_c86d546169ef5ac0dbe9",
+        "HIFITTS_6671",
+        "CMU_ARCTIC_rxr"
+      ],
+      "available_identities": [
+        "CMU_ARCTIC_jmk",
+        "HIFITTS_6671",
+        "CMU_ARCTIC_rxr"
+      ],
+      "unavailable_identities": [
+        "CV_c86d546169ef5ac0dbe9"
+      ],
+      "query_scenes_with_known_reference_strangers": 229,
+      "query_scenes_with_absent_enrolled_people": 240,
+      "all_240_queries_retained": true,
+      "scene_truth_used_for_membership": false
+    },
+    {
+      "condition_id": "XVF_processed_15s_FIXED_ROTATION_A_R08",
+      "domain": "XVF_processed",
+      "requested_active_seconds": 15,
+      "roster_family": "FIXED_ROTATION_A",
+      "intended_size": 8,
+      "actual_available_size": 5,
+      "intended_identities": [
+        "CMU_ARCTIC_jmk",
+        "CV_c86d546169ef5ac0dbe9",
+        "HIFITTS_6671",
+        "CMU_ARCTIC_rxr",
+        "CV_2abbf1ec09fa0aeb6d9b",
+        "HIFITTS_6670",
+        "CMU_ARCTIC_slp",
+        "CV_6b5e3c9ca9030b7da6be"
+      ],
+      "available_identities": [
+        "CMU_ARCTIC_jmk",
+        "HIFITTS_6671",
+        "CMU_ARCTIC_rxr",
+        "HIFITTS_6670",
+        "CMU_ARCTIC_slp"
+      ],
+      "unavailable_identities": [
+        "CV_c86d546169ef5ac0dbe9",
+        "CV_2abbf1ec09fa0aeb6d9b",
+        "CV_6b5e3c9ca9030b7da6be"
+      ],
+      "query_scenes_with_known_reference_strangers": 216,
+      "query_scenes_with_absent_enrolled_people": 240,
+      "all_240_queries_retained": true,
+      "scene_truth_used_for_membership": false
+    },
+    {
+      "condition_id": "XVF_processed_15s_FIXED_ROTATION_A_R15",
+      "domain": "XVF_processed",
+      "requested_active_seconds": 15,
+      "roster_family": "FIXED_ROTATION_A",
+      "intended_size": 15,
+      "actual_available_size": 10,
+      "intended_identities": [
+        "CMU_ARCTIC_jmk",
+        "CV_c86d546169ef5ac0dbe9",
+        "HIFITTS_6671",
+        "CMU_ARCTIC_rxr",
+        "CV_2abbf1ec09fa0aeb6d9b",
+        "HIFITTS_6670",
+        "CMU_ARCTIC_slp",
+        "CV_6b5e3c9ca9030b7da6be",
+        "HIFITTS_9136",
+        "CMU_ARCTIC_fem",
+        "CV_8c9d6f14b797c3ffeb85",
+        "HIFITTS_11614",
+        "CMU_ARCTIC_ljm",
+        "CV_d3c1e11354306288eba3",
+        "HIFITTS_11697"
+      ],
+      "available_identities": [
+        "CMU_ARCTIC_jmk",
+        "HIFITTS_6671",
+        "CMU_ARCTIC_rxr",
+        "HIFITTS_6670",
+        "CMU_ARCTIC_slp",
+        "HIFITTS_9136",
+        "CMU_ARCTIC_fem",
+        "HIFITTS_11614",
+        "CMU_ARCTIC_ljm",
+        "HIFITTS_11697"
+      ],
+      "unavailable_identities": [
+        "CV_c86d546169ef5ac0dbe9",
+        "CV_2abbf1ec09fa0aeb6d9b",
+        "CV_6b5e3c9ca9030b7da6be",
+        "CV_8c9d6f14b797c3ffeb85",
+        "CV_d3c1e11354306288eba3"
+      ],
+      "query_scenes_with_known_reference_strangers": 194,
+      "query_scenes_with_absent_enrolled_people": 240,
+      "all_240_queries_retained": true,
+      "scene_truth_used_for_membership": false
+    },
+    {
+      "condition_id": "XVF_processed_15s_FIXED_ROTATION_A_R22",
+      "domain": "XVF_processed",
+      "requested_active_seconds": 15,
+      "roster_family": "FIXED_ROTATION_A",
+      "intended_size": 22,
+      "actual_available_size": 15,
+      "intended_identities": [
+        "CMU_ARCTIC_jmk",
+        "CV_c86d546169ef5ac0dbe9",
+        "HIFITTS_6671",
+        "CMU_ARCTIC_rxr",
+        "CV_2abbf1ec09fa0aeb6d9b",
+        "HIFITTS_6670",
+        "CMU_ARCTIC_slp",
+        "CV_6b5e3c9ca9030b7da6be",
+        "HIFITTS_9136",
+        "CMU_ARCTIC_fem",
+        "CV_8c9d6f14b797c3ffeb85",
+        "HIFITTS_11614",
+        "CMU_ARCTIC_ljm",
+        "CV_d3c1e11354306288eba3",
+        "HIFITTS_11697",
+        "CMU_ARCTIC_awb",
+        "CV_bc25d4fe155478871b18",
+        "CMU_ARCTIC_ksp",
+        "CV_6780c1e3d0bfe13078f7",
+        "CMU_ARCTIC_slt",
+        "CV_5bb2ca9b27ebe4cea0b5",
+        "CMU_ARCTIC_bdl"
+      ],
+      "available_identities": [
+        "CMU_ARCTIC_jmk",
+        "HIFITTS_6671",
+        "CMU_ARCTIC_rxr",
+        "HIFITTS_6670",
+        "CMU_ARCTIC_slp",
+        "HIFITTS_9136",
+        "CMU_ARCTIC_fem",
+        "HIFITTS_11614",
+        "CMU_ARCTIC_ljm",
+        "HIFITTS_11697",
+        "CMU_ARCTIC_awb",
+        "CMU_ARCTIC_ksp",
+        "CMU_ARCTIC_slt",
+        "CV_5bb2ca9b27ebe4cea0b5",
+        "CMU_ARCTIC_bdl"
+      ],
+      "unavailable_identities": [
+        "CV_c86d546169ef5ac0dbe9",
+        "CV_2abbf1ec09fa0aeb6d9b",
+        "CV_6b5e3c9ca9030b7da6be",
+        "CV_8c9d6f14b797c3ffeb85",
+        "CV_d3c1e11354306288eba3",
+        "CV_bc25d4fe155478871b18",
+        "CV_6780c1e3d0bfe13078f7"
+      ],
+      "query_scenes_with_known_reference_strangers": 181,
+      "query_scenes_with_absent_enrolled_people": 240,
+      "all_240_queries_retained": true,
+      "scene_truth_used_for_membership": false
+    },
+    {
+      "condition_id": "XVF_processed_15s_FIXED_ROTATION_B_R00",
+      "domain": "XVF_processed",
+      "requested_active_seconds": 15,
+      "roster_family": "FIXED_ROTATION_B",
+      "intended_size": 0,
+      "actual_available_size": 0,
+      "intended_identities": [],
+      "available_identities": [],
+      "unavailable_identities": [],
+      "query_scenes_with_known_reference_strangers": 229,
+      "query_scenes_with_absent_enrolled_people": 0,
+      "all_240_queries_retained": true,
+      "scene_truth_used_for_membership": false
+    },
+    {
+      "condition_id": "XVF_processed_15s_FIXED_ROTATION_B_R01",
+      "domain": "XVF_processed",
+      "requested_active_seconds": 15,
+      "roster_family": "FIXED_ROTATION_B",
+      "intended_size": 1,
+      "actual_available_size": 1,
+      "intended_identities": [
+        "CMU_ARCTIC_gka"
+      ],
+      "available_identities": [
+        "CMU_ARCTIC_gka"
+      ],
+      "unavailable_identities": [],
+      "query_scenes_with_known_reference_strangers": 229,
+      "query_scenes_with_absent_enrolled_people": 233,
+      "all_240_queries_retained": true,
+      "scene_truth_used_for_membership": false
+    },
+    {
+      "condition_id": "XVF_processed_15s_FIXED_ROTATION_B_R02",
+      "domain": "XVF_processed",
+      "requested_active_seconds": 15,
+      "roster_family": "FIXED_ROTATION_B",
+      "intended_size": 2,
+      "actual_available_size": 1,
+      "intended_identities": [
+        "CMU_ARCTIC_gka",
+        "CV_cb8bbb33611dc9825ccf"
+      ],
+      "available_identities": [
+        "CMU_ARCTIC_gka"
+      ],
+      "unavailable_identities": [
+        "CV_cb8bbb33611dc9825ccf"
+      ],
+      "query_scenes_with_known_reference_strangers": 229,
+      "query_scenes_with_absent_enrolled_people": 233,
+      "all_240_queries_retained": true,
+      "scene_truth_used_for_membership": false
+    },
+    {
+      "condition_id": "XVF_processed_15s_FIXED_ROTATION_B_R04",
+      "domain": "XVF_processed",
+      "requested_active_seconds": 15,
+      "roster_family": "FIXED_ROTATION_B",
+      "intended_size": 4,
+      "actual_available_size": 3,
+      "intended_identities": [
+        "CMU_ARCTIC_gka",
+        "CV_cb8bbb33611dc9825ccf",
+        "HIFITTS_8051",
+        "CMU_ARCTIC_rms"
+      ],
+      "available_identities": [
+        "CMU_ARCTIC_gka",
+        "HIFITTS_8051",
+        "CMU_ARCTIC_rms"
+      ],
+      "unavailable_identities": [
+        "CV_cb8bbb33611dc9825ccf"
+      ],
+      "query_scenes_with_known_reference_strangers": 228,
+      "query_scenes_with_absent_enrolled_people": 240,
+      "all_240_queries_retained": true,
+      "scene_truth_used_for_membership": false
+    },
+    {
+      "condition_id": "XVF_processed_15s_FIXED_ROTATION_B_R08",
+      "domain": "XVF_processed",
+      "requested_active_seconds": 15,
+      "roster_family": "FIXED_ROTATION_B",
+      "intended_size": 8,
+      "actual_available_size": 6,
+      "intended_identities": [
+        "CMU_ARCTIC_gka",
+        "CV_cb8bbb33611dc9825ccf",
+        "HIFITTS_8051",
+        "CMU_ARCTIC_rms",
+        "CV_e2570918d433fe70613d",
+        "HIFITTS_12787",
+        "CMU_ARCTIC_clb",
+        "CV_da7630c05ea3de5a8b18"
+      ],
+      "available_identities": [
+        "CMU_ARCTIC_gka",
+        "HIFITTS_8051",
+        "CMU_ARCTIC_rms",
+        "HIFITTS_12787",
+        "CMU_ARCTIC_clb",
+        "CV_da7630c05ea3de5a8b18"
+      ],
+      "unavailable_identities": [
+        "CV_cb8bbb33611dc9825ccf",
+        "CV_e2570918d433fe70613d"
+      ],
+      "query_scenes_with_known_reference_strangers": 228,
+      "query_scenes_with_absent_enrolled_people": 240,
+      "all_240_queries_retained": true,
+      "scene_truth_used_for_membership": false
+    },
+    {
+      "condition_id": "XVF_processed_15s_FIXED_ROTATION_B_R15",
+      "domain": "XVF_processed",
+      "requested_active_seconds": 15,
+      "roster_family": "FIXED_ROTATION_B",
+      "intended_size": 15,
+      "actual_available_size": 11,
+      "intended_identities": [
+        "CMU_ARCTIC_gka",
+        "CV_cb8bbb33611dc9825ccf",
+        "HIFITTS_8051",
+        "CMU_ARCTIC_rms",
+        "CV_e2570918d433fe70613d",
+        "HIFITTS_12787",
+        "CMU_ARCTIC_clb",
+        "CV_da7630c05ea3de5a8b18",
+        "HIFITTS_9017",
+        "CMU_ARCTIC_lnh",
+        "CV_f82fc5dd15117edcfe9a",
+        "HIFITTS_6097",
+        "CMU_ARCTIC_aup",
+        "CV_3b33694cdeb42c66d688",
+        "HIFITTS_92"
+      ],
+      "available_identities": [
+        "CMU_ARCTIC_gka",
+        "HIFITTS_8051",
+        "CMU_ARCTIC_rms",
+        "HIFITTS_12787",
+        "CMU_ARCTIC_clb",
+        "CV_da7630c05ea3de5a8b18",
+        "HIFITTS_9017",
+        "CMU_ARCTIC_lnh",
+        "HIFITTS_6097",
+        "CMU_ARCTIC_aup",
+        "HIFITTS_92"
+      ],
+      "unavailable_identities": [
+        "CV_cb8bbb33611dc9825ccf",
+        "CV_e2570918d433fe70613d",
+        "CV_f82fc5dd15117edcfe9a",
+        "CV_3b33694cdeb42c66d688"
+      ],
+      "query_scenes_with_known_reference_strangers": 197,
+      "query_scenes_with_absent_enrolled_people": 240,
+      "all_240_queries_retained": true,
+      "scene_truth_used_for_membership": false
+    },
+    {
+      "condition_id": "XVF_processed_15s_FIXED_ROTATION_B_R21",
+      "domain": "XVF_processed",
+      "requested_active_seconds": 15,
+      "roster_family": "FIXED_ROTATION_B",
+      "intended_size": 21,
+      "actual_available_size": 15,
+      "intended_identities": [
+        "CMU_ARCTIC_gka",
+        "CV_cb8bbb33611dc9825ccf",
+        "HIFITTS_8051",
+        "CMU_ARCTIC_rms",
+        "CV_e2570918d433fe70613d",
+        "HIFITTS_12787",
+        "CMU_ARCTIC_clb",
+        "CV_da7630c05ea3de5a8b18",
+        "HIFITTS_9017",
+        "CMU_ARCTIC_lnh",
+        "CV_f82fc5dd15117edcfe9a",
+        "HIFITTS_6097",
+        "CMU_ARCTIC_aup",
+        "CV_3b33694cdeb42c66d688",
+        "HIFITTS_92",
+        "CMU_ARCTIC_eey",
+        "CV_0ec4d6799c8c83a9a047",
+        "CMU_ARCTIC_ahw",
+        "CV_ba6b4113f6df628a21fe",
+        "CMU_ARCTIC_aew",
+        "CMU_ARCTIC_axb"
+      ],
+      "available_identities": [
+        "CMU_ARCTIC_gka",
+        "HIFITTS_8051",
+        "CMU_ARCTIC_rms",
+        "HIFITTS_12787",
+        "CMU_ARCTIC_clb",
+        "CV_da7630c05ea3de5a8b18",
+        "HIFITTS_9017",
+        "CMU_ARCTIC_lnh",
+        "HIFITTS_6097",
+        "CMU_ARCTIC_aup",
+        "HIFITTS_92",
+        "CMU_ARCTIC_eey",
+        "CMU_ARCTIC_ahw",
+        "CMU_ARCTIC_aew",
+        "CMU_ARCTIC_axb"
+      ],
+      "unavailable_identities": [
+        "CV_cb8bbb33611dc9825ccf",
+        "CV_e2570918d433fe70613d",
+        "CV_f82fc5dd15117edcfe9a",
+        "CV_3b33694cdeb42c66d688",
+        "CV_0ec4d6799c8c83a9a047",
+        "CV_ba6b4113f6df628a21fe"
+      ],
+      "query_scenes_with_known_reference_strangers": 186,
+      "query_scenes_with_absent_enrolled_people": 240,
+      "all_240_queries_retained": true,
+      "scene_truth_used_for_membership": false
+    },
+    {
+      "condition_id": "XVF_processed_15s_LARGE_COHORT_R00",
+      "domain": "XVF_processed",
+      "requested_active_seconds": 15,
+      "roster_family": "LARGE_COHORT",
+      "intended_size": 0,
+      "actual_available_size": 0,
+      "intended_identities": [],
+      "available_identities": [],
+      "unavailable_identities": [],
+      "query_scenes_with_known_reference_strangers": 229,
+      "query_scenes_with_absent_enrolled_people": 0,
+      "all_240_queries_retained": true,
+      "scene_truth_used_for_membership": false
+    },
+    {
+      "condition_id": "XVF_processed_15s_LARGE_COHORT_R01",
+      "domain": "XVF_processed",
+      "requested_active_seconds": 15,
+      "roster_family": "LARGE_COHORT",
+      "intended_size": 1,
+      "actual_available_size": 1,
+      "intended_identities": [
+        "CMU_ARCTIC_jmk"
+      ],
+      "available_identities": [
+        "CMU_ARCTIC_jmk"
+      ],
+      "unavailable_identities": [],
+      "query_scenes_with_known_reference_strangers": 229,
+      "query_scenes_with_absent_enrolled_people": 233,
+      "all_240_queries_retained": true,
+      "scene_truth_used_for_membership": false
+    },
+    {
+      "condition_id": "XVF_processed_15s_LARGE_COHORT_R02",
+      "domain": "XVF_processed",
+      "requested_active_seconds": 15,
+      "roster_family": "LARGE_COHORT",
+      "intended_size": 2,
+      "actual_available_size": 1,
+      "intended_identities": [
+        "CMU_ARCTIC_jmk",
+        "CV_c86d546169ef5ac0dbe9"
+      ],
+      "available_identities": [
+        "CMU_ARCTIC_jmk"
+      ],
+      "unavailable_identities": [
+        "CV_c86d546169ef5ac0dbe9"
+      ],
+      "query_scenes_with_known_reference_strangers": 229,
+      "query_scenes_with_absent_enrolled_people": 233,
+      "all_240_queries_retained": true,
+      "scene_truth_used_for_membership": false
+    },
+    {
+      "condition_id": "XVF_processed_15s_LARGE_COHORT_R04",
+      "domain": "XVF_processed",
+      "requested_active_seconds": 15,
+      "roster_family": "LARGE_COHORT",
+      "intended_size": 4,
+      "actual_available_size": 3,
+      "intended_identities": [
+        "CMU_ARCTIC_jmk",
+        "CV_c86d546169ef5ac0dbe9",
+        "HIFITTS_6671",
+        "CMU_ARCTIC_gka"
+      ],
+      "available_identities": [
+        "CMU_ARCTIC_jmk",
+        "HIFITTS_6671",
+        "CMU_ARCTIC_gka"
+      ],
+      "unavailable_identities": [
+        "CV_c86d546169ef5ac0dbe9"
+      ],
+      "query_scenes_with_known_reference_strangers": 223,
+      "query_scenes_with_absent_enrolled_people": 240,
+      "all_240_queries_retained": true,
+      "scene_truth_used_for_membership": false
+    },
+    {
+      "condition_id": "XVF_processed_15s_LARGE_COHORT_R08",
+      "domain": "XVF_processed",
+      "requested_active_seconds": 15,
+      "roster_family": "LARGE_COHORT",
+      "intended_size": 8,
+      "actual_available_size": 5,
+      "intended_identities": [
+        "CMU_ARCTIC_jmk",
+        "CV_c86d546169ef5ac0dbe9",
+        "HIFITTS_6671",
+        "CMU_ARCTIC_gka",
+        "CV_cb8bbb33611dc9825ccf",
+        "HIFITTS_8051",
+        "CMU_ARCTIC_rxr",
+        "CV_2abbf1ec09fa0aeb6d9b"
+      ],
+      "available_identities": [
+        "CMU_ARCTIC_jmk",
+        "HIFITTS_6671",
+        "CMU_ARCTIC_gka",
+        "HIFITTS_8051",
+        "CMU_ARCTIC_rxr"
+      ],
+      "unavailable_identities": [
+        "CV_c86d546169ef5ac0dbe9",
+        "CV_cb8bbb33611dc9825ccf",
+        "CV_2abbf1ec09fa0aeb6d9b"
+      ],
+      "query_scenes_with_known_reference_strangers": 222,
+      "query_scenes_with_absent_enrolled_people": 240,
+      "all_240_queries_retained": true,
+      "scene_truth_used_for_membership": false
+    },
+    {
+      "condition_id": "XVF_processed_15s_LARGE_COHORT_R15",
+      "domain": "XVF_processed",
+      "requested_active_seconds": 15,
+      "roster_family": "LARGE_COHORT",
+      "intended_size": 15,
+      "actual_available_size": 11,
+      "intended_identities": [
+        "CMU_ARCTIC_jmk",
+        "CV_c86d546169ef5ac0dbe9",
+        "HIFITTS_6671",
+        "CMU_ARCTIC_gka",
+        "CV_cb8bbb33611dc9825ccf",
+        "HIFITTS_8051",
+        "CMU_ARCTIC_rxr",
+        "CV_2abbf1ec09fa0aeb6d9b",
+        "HIFITTS_6670",
+        "CMU_ARCTIC_slp",
+        "CV_6b5e3c9ca9030b7da6be",
+        "HIFITTS_9136",
+        "CMU_ARCTIC_clb",
+        "CV_da7630c05ea3de5a8b18",
+        "HIFITTS_9017"
+      ],
+      "available_identities": [
+        "CMU_ARCTIC_jmk",
+        "HIFITTS_6671",
+        "CMU_ARCTIC_gka",
+        "HIFITTS_8051",
+        "CMU_ARCTIC_rxr",
+        "HIFITTS_6670",
+        "CMU_ARCTIC_slp",
+        "HIFITTS_9136",
+        "CMU_ARCTIC_clb",
+        "CV_da7630c05ea3de5a8b18",
+        "HIFITTS_9017"
+      ],
+      "unavailable_identities": [
+        "CV_c86d546169ef5ac0dbe9",
+        "CV_cb8bbb33611dc9825ccf",
+        "CV_2abbf1ec09fa0aeb6d9b",
+        "CV_6b5e3c9ca9030b7da6be"
+      ],
+      "query_scenes_with_known_reference_strangers": 197,
+      "query_scenes_with_absent_enrolled_people": 240,
+      "all_240_queries_retained": true,
+      "scene_truth_used_for_membership": false
+    },
+    {
+      "condition_id": "XVF_processed_15s_LARGE_COHORT_R34",
+      "domain": "XVF_processed",
+      "requested_active_seconds": 15,
+      "roster_family": "LARGE_COHORT",
+      "intended_size": 34,
+      "actual_available_size": 24,
+      "intended_identities": [
+        "CMU_ARCTIC_jmk",
+        "CV_c86d546169ef5ac0dbe9",
+        "HIFITTS_6671",
+        "CMU_ARCTIC_gka",
+        "CV_cb8bbb33611dc9825ccf",
+        "HIFITTS_8051",
+        "CMU_ARCTIC_rxr",
+        "CV_2abbf1ec09fa0aeb6d9b",
+        "HIFITTS_6670",
+        "CMU_ARCTIC_slp",
+        "CV_6b5e3c9ca9030b7da6be",
+        "HIFITTS_9136",
+        "CMU_ARCTIC_clb",
+        "CV_da7630c05ea3de5a8b18",
+        "HIFITTS_9017",
+        "CMU_ARCTIC_fem",
+        "CV_8c9d6f14b797c3ffeb85",
+        "HIFITTS_11614",
+        "CMU_ARCTIC_ljm",
+        "CV_d3c1e11354306288eba3",
+        "HIFITTS_11697",
+        "CMU_ARCTIC_aup",
+        "CV_3b33694cdeb42c66d688",
+        "HIFITTS_92",
+        "CMU_ARCTIC_awb",
+        "CV_bc25d4fe155478871b18",
+        "CMU_ARCTIC_ksp",
+        "CV_6780c1e3d0bfe13078f7",
+        "CMU_ARCTIC_ahw",
+        "CV_ba6b4113f6df628a21fe",
+        "CMU_ARCTIC_slt",
+        "CV_5bb2ca9b27ebe4cea0b5",
+        "CMU_ARCTIC_bdl",
+        "CMU_ARCTIC_axb"
+      ],
+      "available_identities": [
+        "CMU_ARCTIC_jmk",
+        "HIFITTS_6671",
+        "CMU_ARCTIC_gka",
+        "HIFITTS_8051",
+        "CMU_ARCTIC_rxr",
+        "HIFITTS_6670",
+        "CMU_ARCTIC_slp",
+        "HIFITTS_9136",
+        "CMU_ARCTIC_clb",
+        "CV_da7630c05ea3de5a8b18",
+        "HIFITTS_9017",
+        "CMU_ARCTIC_fem",
+        "HIFITTS_11614",
+        "CMU_ARCTIC_ljm",
+        "HIFITTS_11697",
+        "CMU_ARCTIC_aup",
+        "HIFITTS_92",
+        "CMU_ARCTIC_awb",
+        "CMU_ARCTIC_ksp",
+        "CMU_ARCTIC_ahw",
+        "CMU_ARCTIC_slt",
+        "CV_5bb2ca9b27ebe4cea0b5",
+        "CMU_ARCTIC_bdl",
+        "CMU_ARCTIC_axb"
+      ],
+      "unavailable_identities": [
+        "CV_c86d546169ef5ac0dbe9",
+        "CV_cb8bbb33611dc9825ccf",
+        "CV_2abbf1ec09fa0aeb6d9b",
+        "CV_6b5e3c9ca9030b7da6be",
+        "CV_8c9d6f14b797c3ffeb85",
+        "CV_d3c1e11354306288eba3",
+        "CV_3b33694cdeb42c66d688",
+        "CV_bc25d4fe155478871b18",
+        "CV_6780c1e3d0bfe13078f7",
+        "CV_ba6b4113f6df628a21fe"
+      ],
+      "query_scenes_with_known_reference_strangers": 125,
+      "query_scenes_with_absent_enrolled_people": 240,
+      "all_240_queries_retained": true,
+      "scene_truth_used_for_membership": false
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "status": "ACTUALLY_RUN_PASS_SOURCE_EVENT_REPLAY_ONLY",
+  "variants": 10,
+  "raw_words_preserved_all_variants": true,
+  "source_binding_checks": 12,
+  "neural_calls": 0,
+  "hardware_calls": 0,
+  "recorded_case": "C105/S45_08_07/O0",
+  "scope": "Exact historical observed pair plus evaluator ordering overlays; original historical application implementation, not current-neural or GUI accuracy",
+  "current_neural_attribution_fix_proven": false,
+  "private_result": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\data\\c105_boundary_exact_replay\\RESULT.json",
+    "sha256": "0ebd7321202e4d48e8b5a3c1154735aae27fde069f0db32c7225a89bfbad09cb",
+    "bytes": 15033
+  },
+  "helper": {
+    "path": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\XVF 3800 Testing\\XVF Integration Real World RIRs\\simulation\\scripts\\s6d_application_boundary.py",
+    "bytes": 6541,
+    "sha256": "1425bc0cf249924d2f0db4ed54998f64016ac49626540ec9c077fb18894408fc"
+  },
+  "historical_application_source": {
+    "path": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\Software Validation from Datasets\\Evaluation Tool\\app\\edge_speech_pipeline\\research_s6d.py",
+    "bytes": 26579,
+    "sha256": "959fbdb407ff650b84962f4f2773254074698ef0224668b4812891d3a8d98218"
+  }
+}

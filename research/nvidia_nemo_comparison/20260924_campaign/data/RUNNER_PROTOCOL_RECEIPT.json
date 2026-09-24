@@ -1,0 +1,39 @@
+{
+  "status": "ACTUALLY_RUN_PASS_NONINFERENCE_PROTOCOL",
+  "checks": [
+    {
+      "case": "live_one_writer_lock",
+      "pass": true,
+      "exit_code": 1,
+      "expected_evidence": "live worker coordinator already owns this output",
+      "private_receipt": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\data\\runner_protocol_09b1b9f25f\\live_one_writer_lock\\CHECK_RECEIPT.json"
+    },
+    {
+      "case": "changed_contract_refused",
+      "pass": true,
+      "exit_code": 1,
+      "expected_evidence": "Resume source/model/runtime/config/manifest binding changed",
+      "private_receipt": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\data\\runner_protocol_09b1b9f25f\\changed_contract_refused\\CHECK_RECEIPT.json"
+    },
+    {
+      "case": "completed_cell_resume",
+      "pass": true,
+      "exit_code": 0,
+      "expected_evidence": "\"jobs_pending\": 95",
+      "private_receipt": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\data\\runner_protocol_09b1b9f25f\\completed_cell_resume\\CHECK_RECEIPT.json"
+    },
+    {
+      "case": "changed_result_hash_refused",
+      "pass": true,
+      "exit_code": 1,
+      "expected_evidence": "Checkpoint result changed",
+      "private_receipt": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\data\\runner_protocol_09b1b9f25f\\changed_result_hash_refused\\CHECK_RECEIPT.json"
+    }
+  ],
+  "neural_calls": 0,
+  "hardware_calls": 0,
+  "original_baseline_evidence_unchanged": true,
+  "scope": "Isolated lock/contract/cache fixtures plus exact current N1 completed-cell evidence; does not simulate neural worker correctness",
+  "private_fixture_root": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\data\\runner_protocol_09b1b9f25f",
+  "worker_failure_scope": "Actual worker-failure supervision tests are recorded separately by the supervisor; no active inference worker was killed by these tests."
+}

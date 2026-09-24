@@ -1,0 +1,36 @@
+{
+  "schema": "just-peachy.n1.forecast.v1",
+  "status": "MEASURED_MAIN_SCREEN_COMPLETE",
+  "created_utc": "2026-09-24T15:48:55.122534+00:00",
+  "campaign_start_utc": "2026-09-24T14:48:19.949192+00:00",
+  "target_utc": "2026-09-28T14:48:19.949192+00:00",
+  "packaging_reserve_hours": 12,
+  "measured_screen_cells": 96,
+  "screen_cells": 96,
+  "elapsed_current_launch_seconds": 2140.5940000000005,
+  "prior_smoke_cells_excluded_from_throughput": 2,
+  "observed_new_cells_per_hour": 158.0869609089813,
+  "all_240_both_taps_audio_seconds": 21787.809999999987,
+  "source_paced_two_worker_floor_hours": 3.0260847222222202,
+  "one_full_bank_at_observed_screen_throughput_hours": 3.0363035460992918,
+  "scope": "Windows two-worker same baseline source-paced projection; candidate throughput and target CM5 performance unmeasured",
+  "priorities": [
+    "retain baseline and Nemotron hybrid",
+    "compact ASR and enrollment",
+    "600M alternatives",
+    "optional multitalker and standalone punctuation"
+  ],
+  "finish_is_target_not_minimum": true,
+  "remaining_to_target_hours": 94.99022962722222,
+  "remaining_execution_before_packaging_hours": 82.99022962722222,
+  "screen_receipt": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\baseline_screen_v1\\RESULT_INDEX.json",
+    "sha256": "e35022999626c5dae6b37012c0c57e7b42079ca564317374dab6cd5d3f6639b1"
+  },
+  "projection_limitations": [
+    "Current launch completed94new cells and reused2new-N1 smoke checkpoints; elapsed includes startup/drain.",
+    "Cell-count projection assumes comparable scene durations. Audio-duration source pacing floor is reported separately.",
+    "Candidates, GPU throughput, isolated latency/RAM and CM5 performance are unmeasured.",
+    "Forecast must be updated after each actual candidate; deadline and packaging reserve remain fixed."
+  ]
+}

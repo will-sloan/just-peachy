@@ -1,0 +1,61 @@
+{
+  "checked_at_utc": "2026-09-24T15:07:13.3332092Z",
+  "cpu": "AMD Ryzen 7 5700X3D 8-Core Processor           ",
+  "physical_cores": 8,
+  "logical_processors": 16,
+  "physical_memory_bytes": 68641923072,
+  "gpu": {
+    "name": "NVIDIA GeForce RTX 3080",
+    "vram_mib": 10240,
+    "driver": "610.62",
+    "evidence_command": "nvidia-smi --query-gpu=name,memory.total,driver_version --format=csv,noheader"
+  },
+  "volumes": [
+    {
+      "DriveLetter": "G",
+      "Size": 2000381014016,
+      "SizeRemaining": 145648439296
+    },
+    {
+      "DriveLetter": "C",
+      "Size": 1999321116672,
+      "SizeRemaining": 147650740224
+    }
+  ],
+  "asset_tree_bytes": 2277277144.0,
+  "new_asset_cap_bytes": 53687091200,
+  "reserves_bytes": {
+    "C": 53687091200,
+    "G": 80530636800
+  },
+  "toolchain": {
+    "system_cmake": "3.21.0 (insufficient)",
+    "used_cmake": "3.30.5-msvc23",
+    "visual_studio": "Microsoft Visual Studio 2022 Community, existing VC Tools x86/x64",
+    "ninja": "1.13.2",
+    "wsl": "Existing Ubuntu WSL2; python3 present, cmake/g++/ninja absent",
+    "windows_features_changed": false,
+    "global_environment_changed": false
+  },
+  "reference_environment": {
+    "checked": [
+      ".edge-speech-env",
+      ".stage8-envs/core-cuda",
+      ".stage8-envs/credential-diarization",
+      ".stage8-envs/extended-local",
+      "anaconda3/envs/speech_eval",
+      "anaconda3/envs/Peachy"
+    ],
+    "nemo_present": false,
+    "transformers_present": false,
+    "probe": "importlib.util.find_spec only; no torch import or CUDA initialization",
+    "status": "RUNTIME_SETUP_REQUIRED for NeMo reference/export; native CPU route built"
+  },
+  "hardware": {
+    "microphones_opened": false,
+    "microphones_enumerated": false,
+    "pi_connected": false,
+    "pi_target_tested": false,
+    "gpu_model_inference": false
+  }
+}

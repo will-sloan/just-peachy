@@ -1,0 +1,13 @@
+# Baseline screen execution contract
+
+The fixed 96-cell screen contains 4,290.762 seconds of prepared audio (71.51 minutes). Two source-speed workers have a theoretical 35.76-minute delivery floor; model initialization, finalization and imbalance add time. A first two-cell smoke measures real throughput before the remaining work. No historical neural prediction is reused.
+
+`run_baseline_screen.py` runs the frozen common `Controller` in saved-audio-only mode, using `anonymous_conversation` and the `balanced` recipe on O0/O1. Each cell has a fresh controller, empty isolated profile store, tracker/history and data root. Each worker reuses only resident model weights between sequential independent cells. Both ASR and speaker models are exercised; existing final punctuation remains enabled by the profile. The workers do not open a visible UI, microphone or Pi session. Final event snapshots and native journals support separate hidden shared-UI replay by the stage integrator.
+
+Concurrency is bounded to two below-normal processes, one CPU affinity each and one inference thread per ASR/speaker/punctuation model. This uses the Windows machine's available memory and is explicitly not the 2 GiB GUI profile. Concurrent resource/latency observations are descriptive screening telemetry; isolated single-stack measurement must remain separate. No GPU is requested.
+
+Resume keys bind the audio bytes, tap/gain, source files, runner, all selected model assets, runtime versions, profile configuration, streaming delivery and empty state/history policy. Completed checkpoints are reused only if every persisted evidence hash still matches. Failed attempts remain on disk. `--retry-failed` writes a new attempt without overwriting the earlier one. Parent-owned progress records completion/failure counts, elapsed time and active PID/job identity. A live coordinator lock blocks a second writer; a stale lock is preserved with a receipt when its exact process identity is no longer alive.
+
+Timeouts are source duration times five plus 120 seconds for the cell, plus a bounded cleanup margin in the parent. A failed/hung owned worker is recorded, safely terminated by its own process handle, and replaced for subsequent cells. No competing application or Codex process is targeted. Full transcript/event outputs remain under the external private output root. Success requires all source frames delivered, all asynchronous writers drained, no controller error, no gallery queries and both neural stacks loaded.
+
+Source-speed replay does not establish physical input latency. Baseline accuracy is scored separately against the private evaluator catalogue; no labels, transcripts, activity, family or seats enter the inference-only jobs.
