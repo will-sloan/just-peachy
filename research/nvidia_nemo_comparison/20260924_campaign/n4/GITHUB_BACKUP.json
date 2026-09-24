@@ -1,0 +1,23 @@
+{
+  "status": "REMOTE_SOURCE_BACKUP_VERIFIED",
+  "stage_status": "PARTIAL_PREPARATION_NOT_COMPLETE",
+  "remote": "https://github.com/will-sloan/just-peachy.git",
+  "branch": "codex/n1-foundation-20260924",
+  "source_commit": "06f2ce066d21183e25434ce025b188863d2cdfa4",
+  "tag": "n4-preparation-20260924-rc1",
+  "verified_remote_branch_at_source_push": "06f2ce066d21183e25434ce025b188863d2cdfa4",
+  "verified_remote_tag": "06f2ce066d21183e25434ce025b188863d2cdfa4",
+  "verification": "git ls-remote returned exact matching branch and tag hashes after successful non-force push",
+  "scope": "48 reviewed N4 source, readme, redacted report, license and figure files",
+  "private_payloads_pushed": false,
+  "main_merged": false,
+  "validated_backend_release": false,
+  "zip": {
+    "path": "G:/Just_Peachy_N1/20260924_campaign/local/n4/handoffs/N4_PREPARATION_CHECKPOINT_20260924_rc1.zip",
+    "sha256": "60e4bb5572149b7de0ce50d8b7e29e9bb446a276a772ccc5b14ed48fb343e8fa",
+    "bytes": 259984,
+    "files": 47,
+    "classification": "PREPARATION_CHECKPOINT_NOT_FINAL_N4"
+  },
+  "receipt_location": "This post-push receipt is external to the immutable first checkpoint ZIP. The source tag binds the generator, matrix and derivative source receipt."
+}
