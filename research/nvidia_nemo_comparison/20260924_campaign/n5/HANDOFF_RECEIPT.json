@@ -1,0 +1,11 @@
+{
+  "status": "PARTIAL_CHECKPOINT_NOT_COMPLETED_N5",
+  "archive": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\handoffs\\NVIDIA_CAMPAIGN_CHATGPT_HANDOFF_20260924_campaign.zip",
+  "bytes": 74893,
+  "sha256": "faebbc469fe130a37004ab6355526e70df7845bab7b70c103601b9939ce70cd5",
+  "files": 43,
+  "readback": "PASS",
+  "model_weights": false,
+  "audio": false,
+  "voiceprints": false
+}

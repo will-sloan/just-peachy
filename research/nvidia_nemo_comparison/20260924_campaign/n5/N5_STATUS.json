@@ -2,8 +2,8 @@
   "stage": "N5",
   "status": "PARTIAL_RELEASE_PREPARATION",
   "completed": false,
-  "checked_utc": "2026-09-24T21:33:24.248763+00:00",
-  "elapsed_campaign_wall_seconds": 24304.299571,
+  "checked_utc": "2026-09-24T21:34:57.376662+00:00",
+  "elapsed_campaign_wall_seconds": 24397.42747,
   "N2": {
     "status": "COMPLETE",
     "completed": 422,
@@ -13,9 +13,9 @@
   "N3": {
     "queue": "DISPATCHED_N3",
     "run_status": "RUNNING",
-    "jobs_attempted": 0,
+    "jobs_attempted": 2,
     "plan_jobs": 32,
-    "active": "prototype-suite",
+    "active": "smoke-A1",
     "current_run": "numerical-v3",
     "prior_run": "v2 stopped before inference: bytecode cache was incorrectly bound; preserved"
   },
@@ -47,8 +47,8 @@
     "n3_binding_check": "32_JOBS_VERIFIED"
   },
   "free_bytes": {
-    "C": 144010153984,
-    "G": 112278523904
+    "C": 144007528448,
+    "G": 112277217280
   },
   "packaging_cutoff_utc": "2026-09-28T02:48:19.949192Z",
   "deadline_utc": "2026-09-28T14:48:19.949192Z",

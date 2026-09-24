@@ -47,5 +47,18 @@
       "resumed": false,
       "argv_sha256": "4ba5a3589bb5394a5cd2156bfc03e76a7120e75a3a3c902837fbb91408ca6a4b"
     }
-  }
+  },
+  "actual_suite": {
+    "status": "COMPLETE",
+    "successful": true,
+    "tests": 447,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 2,
+    "finished_modules": 47,
+    "requested_modules": 47,
+    "source_unchanged": true,
+    "sha256": "7c4dc924b1a12790692fbfbb52ca2e329a9df484a03d062bbe64743719c6a267"
+  },
+  "actual_baseline_smoke": "COMPLETE"
 }

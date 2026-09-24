@@ -1,0 +1,46 @@
+{
+  "status": "REMOTE_REFS_VERIFIED",
+  "checked_utc": "2026-09-24T21:34:23.624887+00:00",
+  "remote": "https://github.com/will-sloan/just-peachy.git",
+  "branch": "codex/n1-foundation-20260924",
+  "source_commit": "0817be1c0459d8e1f0bb4cd4c0df57b1960335f4",
+  "tag": "n5-preparation-20260924-rc1",
+  "verified_remote_branch": "0817be1c0459d8e1f0bb4cd4c0df57b1960335f4",
+  "verified_remote_peeled_tag": "0817be1c0459d8e1f0bb4cd4c0df57b1960335f4",
+  "mappings": [
+    {
+      "profile": "PRESERVED_BASELINE_WINDOWS",
+      "source_commit": "2a8a2183c0050b6abf76ef27bbd803adad632a87",
+      "tag": "n1-common-ui-20260924-v1",
+      "verified_remote_peeled_tag": "2a8a2183c0050b6abf76ef27bbd803adad632a87",
+      "catalog_sha256": "b94bbcd5a60deff6210dc5b2185f81e6e93638b8cb5439283eabecd9af718527",
+      "assets_sha256": "2cd9bccf7d89bc4ee3c142c89167f3217325934ba48800ec3e7f1769c6b4cda7",
+      "status": "N1_EVIDENCE_RETAINED_NOT_NEW_N5_GUI_ACCEPTANCE"
+    },
+    {
+      "profile": "PRESERVED_BASELINE_ARM64_OFFLINE",
+      "source_tag": "n1-common-ui-20260924-v1",
+      "packaging_tag": "n5-preparation-20260924-rc1",
+      "wheel_manifest_sha256": "f24f02434424f74ad6b845980cfaea3a42f9a82b1295ccd616f557b264721fb0",
+      "status": "PREPARED_NOT_FUNCTIONALLY_TESTED"
+    },
+    {
+      "profile": "NATIVE_ARM64_ENGINEERING",
+      "source_tag": "n5-preparation-20260924-rc1",
+      "build_receipt_sha256": "ff864c110d00da373225506c1cb5bfc2a889a6e604d75c21c7aa3c04aac5faa8",
+      "status": "CROSS_BUILD_AND_EMULATED_LOADER_ONLY",
+      "accepted_N4_composition": false
+    }
+  ],
+  "exclusions": [
+    "All model weights and private offline bundle",
+    "All audio, full transcripts, research cells, E/C/Q galleries and personal voiceprints",
+    "Credentials and account files",
+    "Vendor XMOS source/binaries pending licensing scope",
+    "New N2 aggregate report files remain outside this scoped N5 commit pending stage report integration"
+  ],
+  "repository_visibility_changed": false,
+  "force_push": false,
+  "main_merge": false,
+  "pull_request_created": false
+}
