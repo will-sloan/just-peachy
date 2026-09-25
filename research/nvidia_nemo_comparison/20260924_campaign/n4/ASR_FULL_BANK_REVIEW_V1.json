@@ -1,0 +1,59 @@
+{
+  "schema": "n4-asr-full-bank-review-v1",
+  "status": "PASS_ASR_FULL_BANK_COMPONENTS_ONLY",
+  "utc": "2026-09-25T15:38:01.822318+00:00",
+  "component_cells": 1920,
+  "per_variant": 480,
+  "component_contract_sha256": "08fba1c037d988c79a7f48bc77c46a188351025b7b2fe433ffd7edaebcdae26b",
+  "admission": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-full-bank-v1\\ADMISSION.json",
+    "sha256": "f5c5868f5e9237e25e7c3241d3f5e66f28d46cd03bc83c01c3d42b2762cf33a7",
+    "bytes": 200229
+  },
+  "final_result": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-full-bank-v1\\RESULT.json",
+    "sha256": "fc05ba07bf9fc612f828b5c6b835cd2215a3218066d063d5b6fc09b2d5f5c25a",
+    "bytes": 1406
+  },
+  "integrated_N4_cells": 0,
+  "full_bank_component_coverage": true,
+  "Controller_or_widget_parity_qualified": false,
+  "live_latency_qualified": false,
+  "notes": "Native application ASR-loop evidence only. Actual text remains private; formatting quality needs separate metrics.",
+  "code": [
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\review_asr_full_bank.py",
+      "sha256": "760561c5e737bf9574a96377ac2d7c3660817fc59b7d6c1fffb48fa3d59ce4df",
+      "bytes": 5367
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\test_review_asr_full_bank.py",
+      "sha256": "c31e6fcdabe1fd91911b374f393da6dcf68d8095aa8c97461688b62cb8cf818b",
+      "bytes": 4895
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\README_ASR_FULL_BANK.md",
+      "sha256": "a2fbb6a3b9d70f0443971f6343b9eed5521b26773f20bd6999f2297eaf683a05",
+      "bytes": 7447
+    }
+  ],
+  "totals": {
+    "dispatches": 871600,
+    "source_samples": 1394419840,
+    "raw_observations": 64021,
+    "final_utterances": 5501,
+    "raw_final_words": 48363,
+    "expanded_bytes": 800434526
+  },
+  "per_variant_counts": {
+    "A0": 480,
+    "A1": 480,
+    "A2": 480,
+    "A3": 480
+  },
+  "private_review": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-full-bank-review-v1\\REVIEW.json",
+    "sha256": "9aeec14010376135e760b0a1aa02925a062fda605d0bb512312512199bba9249",
+    "bytes": 1150812
+  }
+}

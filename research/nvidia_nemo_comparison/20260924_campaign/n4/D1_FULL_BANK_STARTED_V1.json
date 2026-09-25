@@ -1,0 +1,68 @@
+{
+  "status": "ACTUALLY_STARTED_D1_FULL_BANK_NOT_COMPLETE",
+  "utc": "2026-09-25T15:42:38.891264+00:00",
+  "admission": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\d1-full-bank-v1\\ADMISSION.json",
+    "sha256": "7a290ff7ba55a790c7f5c129eed125af538fbae48d66fc195c2a77ef77d960f5",
+    "bytes": 200193
+  },
+  "prelaunch": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\d1-full-bank-v1\\PRELAUNCH_20260925.json",
+    "sha256": "0cdc6feffd5b5e3fb794ac41fd0a861ed4c36b253f617fc641ab6c2a557254ee",
+    "bytes": 3057
+  },
+  "worker_spec": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\d1-full-bank-v1\\worker.json",
+    "sha256": "d56f463745cefdd0c819aa349782ba420bda0fd316eac5bc486a6fafa20913d0",
+    "bytes": 434
+  },
+  "accepted_ASR_predecessor": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-full-bank-review-v1\\REVIEW.json",
+    "sha256": "9aeec14010376135e760b0a1aa02925a062fda605d0bb512312512199bba9249",
+    "bytes": 1150812
+  },
+  "run_id": "92319cd2f5274448be8ee0cefb26e5f9",
+  "owners": [
+    {
+      "role": "supervisor",
+      "pid": 32696,
+      "create_time": 1790350774.0235264,
+      "affinity": [
+        14
+      ]
+    },
+    {
+      "role": "coordinator",
+      "pid": 4092,
+      "create_time": 1790350774.1659436,
+      "affinity": [
+        14
+      ]
+    },
+    {
+      "role": "model",
+      "pid": 29756,
+      "create_time": 1790350782.179587,
+      "affinity": [
+        4
+      ]
+    }
+  ],
+  "progress_observed": {
+    "stage": "N4_D1_FULL_BANK_COMPONENTS",
+    "encoder": "E0",
+    "completed": 1,
+    "total": 960
+  },
+  "first_component_cell": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\d1-full-bank-v1\\E0\\N2_S45_01_01_O0\\RESULT.json",
+    "sha256": "1d04fd9879e8e6552608f400311c8f828e971dc177f1816b531ea5a03171664a",
+    "bytes": 134869
+  },
+  "required_component_cells": 960,
+  "model_library_threads": 1,
+  "GPU_enabled": false,
+  "integrated_N4_cells": 0,
+  "N4_accepted": false,
+  "scope": "Actual sequential D1/E0 then D1/E1 component collection started under the existing supervisor after the complete ASR review and exact previous owner exit. This snapshot does not establish full-bank completion or controlled application resource acceptance."
+}

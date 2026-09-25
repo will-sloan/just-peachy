@@ -1,0 +1,93 @@
+{
+  "status": "SUMMARIZED_REVIEWED_ASR_COMPONENT_OBSERVATIONS_ONLY",
+  "review": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-full-bank-review-v1\\REVIEW.json",
+    "sha256": "9aeec14010376135e760b0a1aa02925a062fda605d0bb512312512199bba9249",
+    "bytes": 1150812
+  },
+  "rows": [
+    {
+      "variant": "A0",
+      "component_cells": 480,
+      "source_frames": 348604960,
+      "source_seconds": 21787.81,
+      "sum_recorded_cell_elapsed_seconds": 1196.8634895999348,
+      "median_recorded_cell_elapsed_seconds": 2.4480065500029013,
+      "maximum_recorded_cell_elapsed_seconds": 5.411845700000413,
+      "recorded_compute_seconds_per_audio_second": 0.05493271189715418,
+      "first_model_constructor_seconds": 1.309930200004601,
+      "maximum_cell_end_sampled_process_rss_bytes": 593915904
+    },
+    {
+      "variant": "A1",
+      "component_cells": 480,
+      "source_frames": 348604960,
+      "source_seconds": 21787.81,
+      "sum_recorded_cell_elapsed_seconds": 12627.389080900073,
+      "median_recorded_cell_elapsed_seconds": 26.265339899997343,
+      "maximum_recorded_cell_elapsed_seconds": 60.79031489999761,
+      "recorded_compute_seconds_per_audio_second": 0.5795621074766153,
+      "first_model_constructor_seconds": 2.0117745000025025,
+      "maximum_cell_end_sampled_process_rss_bytes": 792371200
+    },
+    {
+      "variant": "A2",
+      "component_cells": 480,
+      "source_frames": 348604960,
+      "source_seconds": 21787.81,
+      "sum_recorded_cell_elapsed_seconds": 12533.034948600092,
+      "median_recorded_cell_elapsed_seconds": 25.691008549998514,
+      "maximum_recorded_cell_elapsed_seconds": 57.25036970000656,
+      "recorded_compute_seconds_per_audio_second": 0.5752315147139658,
+      "first_model_constructor_seconds": 0.4923332000034861,
+      "maximum_cell_end_sampled_process_rss_bytes": 1113423872
+    },
+    {
+      "variant": "A3",
+      "component_cells": 480,
+      "source_frames": 348604960,
+      "source_seconds": 21787.81,
+      "sum_recorded_cell_elapsed_seconds": 12375.849428300047,
+      "median_recorded_cell_elapsed_seconds": 25.280441949995293,
+      "maximum_recorded_cell_elapsed_seconds": 59.84606039999926,
+      "recorded_compute_seconds_per_audio_second": 0.5680171356506252,
+      "first_model_constructor_seconds": 0.5341230000049109,
+      "maximum_cell_end_sampled_process_rss_bytes": 1102233600
+    }
+  ],
+  "total_component_cells": 1920,
+  "cpu_affinity": [
+    4
+  ],
+  "model_library_threads": 1,
+  "GPU_enabled": false,
+  "integrated_N4_cells": 0,
+  "accuracy_qualified": false,
+  "source_paced_latency_qualified": false,
+  "controlled_whole_stack_resources_qualified": false,
+  "CM5_qualified": false,
+  "deployment_tier": "UNKNOWN",
+  "limitations": [
+    "Accelerated stateful component inference; ratios are not source-paced end-to-end latency or full-application throughput.",
+    "Only end-of-cell process RSS samples are summarized; they can miss peaks and include runtime/resident caches.",
+    "RSS is not unique physical memory, USS, private commit, model file bytes or whole-stack memory.",
+    "First model-constructor duration does not establish cold disk/cache behavior or complete GUI/gallery startup.",
+    "No diarization/embedding/gallery/Controller/widget/OS reserve is included as a complete-stack measurement.",
+    "No accuracy winner, deployment tier, physical 2-GB fit or live Pi performance is inferred."
+  ],
+  "admission": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-component-report-v1\\ADMISSION.json",
+    "sha256": "f172c35b6115293117d316cc0e939989b0e2246d75ebb6de0d16de1d456664d1",
+    "bytes": 2789
+  },
+  "utc": "2026-09-25T15:41:47.434524+00:00",
+  "private_report": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-component-report-v1\\REPORT.json",
+    "sha256": "db58276fd6526cc86b30eb2de2a3b8b16ced4166672168fd0d43da118831898b",
+    "bytes": 3793
+  },
+  "exited_report_owner": {
+    "pid": 37340,
+    "create_time": 1790350901.3888397
+  }
+}

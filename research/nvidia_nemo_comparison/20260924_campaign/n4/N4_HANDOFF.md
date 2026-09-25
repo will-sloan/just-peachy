@@ -866,3 +866,42 @@ and this common input. Run it once for each retained release candidate, verify
 the full source/consumer/archive/UI/resource evidence and functional stop/restart,
 then score where references permit. Actual continuity and integrated N4/N5
 acceptance remain outstanding. The healthy A3 bank remains the numerical owner.
+
+ASR has now finished all 1,920 cells. The full review at 2026-09-25 15:38 UTC
+passed all four 480-cell variants, complete raw gzip/expanded hashes,
+source/profile/cache/index joins, source dispatch/tail/drain counts, native/raw
+final outputs and formatting parent/FIFO checks. Its private receipt is
+local/n4/asr-full-bank-review-v1/REVIEW.json, SHA-256
+9aeec14010376135e760b0a1aa02925a062fda605d0bb512312512199bba9249.
+ASR_FULL_BANK_REVIEW_V1.json is the small redacted public copy. Exact ASR
+supervisor 28376/1790310624.033616, coordinator 38788/1790310624.1776628 and
+model 44952/1790337711.83974 exited before the next numerical launch.
+
+D1's existing admission and accepted ASR predecessor passed a fresh preflight.
+The unchanged supervisor phase/start interfaces launched the existing prepared
+local/n4/d1-full-bank-v1 worker at 15:39:34 UTC, run ID
+92319cd2f5274448be8ee0cefb26e5f9. Observed exact owners: supervisor
+32696/1790350774.0235264 on CPU14, coordinator 4092/1790350774.1659436 on CPU14,
+model 29756/1790350782.179587 on CPU4. E0's first actual cell completed; E1 follows
+sequentially. Re-read live identities/results rather than assuming these remain
+current. The only known model owner is D1. No second copy or waiting worker was
+started. D1_FULL_BANK_STARTED_V1.json binds preflight, predecessor, worker spec
+and the first-cell evidence; it does not claim 960-cell completion.
+
+ASR_COMPONENT_FINDINGS.md and ASR_COMPONENT_REPORT_V1.json summarize all reviewed
+component timing and cell-end RSS observations. They do not establish accuracy,
+full-stack/CM5 memory, a deployment tier or paced latency. The reproducible
+summarizer and README_ASR_COMPONENT_REPORT.md provide bounded input/output
+contracts and PowerShell/CMD/Anaconda commands. REMAINING_EXECUTION.md records the
+acceptance order, rough 22.75-hour D1 smoke-based planning extrapolation and the
+unchanged packaging/deadline reserve. The report helper exited.
+
+Next follow local/n4/d1-full-bank-v1/RESULT.json and the granular supervision
+panel_progress.json. Once D1 reaches FULL_BANK_COLLECTED_REQUIRES_REVIEW with all
+960 cells and its exact owners exit, run review_d1_full_bank.py into a fresh
+d1-full-bank-review-v1 output using README_D1_FULL_BANK.md. Only after its strict
+review passes may integrated_bank_plan.py join the accepted ASR/D0/D1 components
+and current accepted source into the main and mode-panel banks. Actual panel
+review, the continuity runner, integrated/full application acceptance and N5
+remain outstanding. The unresolved unrelated shell census still blocks any
+future exclusive application admission; do not weaken that gate or stop it.
