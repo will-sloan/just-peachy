@@ -1,0 +1,133 @@
+{
+  "schema": "n3-portable-recovery-review-v1",
+  "reviewed_utc": "2026-09-25T00:50:40.256535+00:00",
+  "stage_status": "IN_PROGRESS",
+  "A1": {
+    "status": "HOST_SERVICE_PARITY_AND_APPLICATION_SMOKE_PASSED",
+    "service_plan": {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\plan-a1servicev2.json",
+      "sha256": "cb7ab946f78e4bb6ccb49bc39e310eeb1f4b41bc07b25c036e0a35fcd85040c4",
+      "bytes": 1288815
+    },
+    "service_result": {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-a1servicev2\\RESULT.json",
+      "sha256": "4cd312de6bd8f558172d3145075c6e07a2bf7f4c2d38117232e66eeef7a742c5",
+      "bytes": 2083
+    },
+    "parity": {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-a1servicev2\\parity\\RESULT.json",
+      "sha256": "e0bb6a3b0fa35a070745ced8a53c014aa0e1c0895bea3649ccb36716c0ba5854",
+      "bytes": 14607
+    },
+    "bundle": {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-a1servicev2\\bundle\\BUNDLE.json",
+      "sha256": "29b70f460ed15c4b57f02bd7f6a08e143ceb6276b5acc18156f0cae756c1cbb6",
+      "bytes": 1086
+    },
+    "dynamic_cases": 6,
+    "saved_cells": 4,
+    "exact_replays": 1,
+    "stream_steps": 2875,
+    "float_tolerance": {
+      "rtol": 0.0002,
+      "atol": 0.0002,
+      "policy": "combined numpy allclose; not an absolute-only ceiling"
+    },
+    "integer_lengths": "exact",
+    "words_and_control_events": "exact",
+    "original_frontend_training": true,
+    "current_frontend": "eval_no_dither",
+    "export_repair": "Restore exact service chunk/shift after set_export_config resets geometry; require INT32 decoder targets/lengths",
+    "initial_failure_preserved": {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-a1servicev1\\parity\\RESULT.json",
+      "sha256": "85621ee7218f6ebeda1a468b6c71f61ace7b347f730ead9ac5e7419d772eb4c7",
+      "bytes": 11783
+    },
+    "application_smoke": {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-a1nominalv1\\smoke-A1-onnx\\RESULT.json",
+      "sha256": "f415ed0250ef7b32cb5933261c9009a086b65c33a771e2306e3aace77ec6ebd5",
+      "bytes": 1390
+    },
+    "nominal_plan": {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\plan-a1nominalv1.json",
+      "sha256": "9da6747a0133683d257785286bdc9649a194c8104cd27689f2bb9f34aebef880",
+      "bytes": 1346965
+    },
+    "nominal_status": "RUNNING; new 96 screen, 8 regression, 4 paced, lexical/text rescoring",
+    "controller_plan": {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\plan-a1controllerv2.json",
+      "sha256": "b087ff40538008edcf89f17627944abcbc61e10a5505e387d747f9224ea6f465",
+      "bytes": 1452476
+    },
+    "controller_source": {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\releases\\n3-common-a1controllerv2\\SOURCE_RECEIPT.json",
+      "sha256": "05d8d49b268101761de849a11cecea4ec879e954615a160aa5618458e1baab3e",
+      "bytes": 61403
+    },
+    "controller_status": "QUEUED; six new package/lifecycle tests and four catalog tests passed; actual full suite/GUI still required",
+    "prior_controller_preparation": {
+      "plan": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\plan-a1controllerv1.json",
+        "sha256": "a0f831bc7c1b18d2accab171269cc244b959ca4c748d84d1c5368b5334ba2526",
+        "bytes": 1451897
+      },
+      "status": "NOT_EXECUTED; source inventory lacked separate NeMo notice/license; superseded by v2"
+    },
+    "ARM64": "NOT_TESTED",
+    "CM5": "DEFERRED_PI_OFFLINE"
+  },
+  "GUI": {
+    "latest_plan": {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\plan-guifinalv1.json",
+      "sha256": "342fc7d0eb3a3366582eeb9a6375ae65a9e7cc8cccc6f85448122684f38e2181",
+      "bytes": 1295826
+    },
+    "latest_terminal": {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-guifinalv1\\RESULT.json",
+      "sha256": "8a8109a1f0d9266eae31b99de26cdefeb4f9153251690351b09066aa9f08f1df",
+      "bytes": 2095
+    },
+    "A2": {
+      "status": "3_OF_3_PASSED",
+      "panel": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-guifinalv1\\gui-A2\\GUI_PANEL_REPORT.json",
+        "sha256": "b46d63dfe85c692c8e8a521ee321d0306e6e49f7862a560d6157764df63edb22",
+        "bytes": 69619
+      }
+    },
+    "A3": {
+      "status": "LATEST_BOUNDARY_FAILED_FINALIZATION_TIMEOUT",
+      "panel": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-guifinalv1\\gui-A3\\GUI_PANEL_REPORT.json",
+        "sha256": "94c2e1f470c92a6980c9e28cc184124d97006b5310cb9d7c9d3080d38427b335",
+        "bytes": 1053
+      },
+      "failed_cell": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-guifinalv1\\gui-A3\\private_cells\\A3_boundary\\cells\\A3_boundary\\RESULT.json",
+        "sha256": "916eba8ad2d4daec8eee1e89f81779c0762299530086915a665558d2ef545e09",
+        "bytes": 4997
+      },
+      "reason": "edge-asr did not finish within existing 60-second lane join; archive unsuccessful",
+      "previous_three_passes": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-guilabelsv1\\gui-A3\\GUI_PANEL_REPORT.json",
+        "sha256": "7dfa7ffc762deed803f49aff56751e41e166c54a5a97ae3c141b4e82ed2ee702",
+        "bytes": 69710
+      },
+      "interpretation": "Previous passing cells remain evidence; latest failure is not erased or credited as success. CPU drain robustness remains unresolved."
+    },
+    "audit": "Observe finality after actual render returns, including unchanged-text path; never invent first-display receipts or force redraw",
+    "input_desktop": "unchanged; no injection or switching"
+  },
+  "remaining": [
+    "Complete fresh deterministic A1 screen/regression/paced and actual Controller/GUI",
+    "Resolve or explicitly qualify latest A3 CPU finalization failure before accepting affected runtime",
+    "Interpret lexical/PnC/ITN/native-reference/resource evidence; finish N3 report and handoff",
+    "N4 full-bank integrated evaluation and selection, then N5 final Windows/ARM64 packages and backup"
+  ],
+  "unaffected": {
+    "N1": "COMPLETE_OFFLINE_SCOPE",
+    "N2": "COMPLETE_ACCEPTED",
+    "N4": "PARTIAL_NOT_ACCEPTED",
+    "N5": "PARTIAL_NOT_ACCEPTED"
+  }
+}

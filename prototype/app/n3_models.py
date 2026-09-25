@@ -20,6 +20,11 @@ def load_asr_runtime(data_root, component):
         raise ValueError('Selected backend differs from local N3 model binding')
     if binding['right_context'] != component['right_context']:
         raise ValueError('Selected streaming profile differs from local binding')
+    if component['variant'] == 'A1':
+        from edge_speech_pipeline.n3_a1_adapter import validate_binding
+        if binding.get('bundle_sha256') != component.get('bundle_sha256'):
+            raise ValueError('Selected A1 export differs from local bundle')
+        validate_binding(binding)
     return binding
 
 
@@ -34,7 +39,11 @@ class N3ResidentModels(N2ResidentModels):
 
     def acquire(self, config, caption_only=False):
         if self.native_asr is None:
-            self.native_asr = NativeRecognizer(self.asr_document)
+            if self.asr_document['variant'] == 'A1':
+                from edge_speech_pipeline.n3_a1_adapter import A1Recognizer
+                self.native_asr = A1Recognizer(self.asr_document, config)
+            else:
+                self.native_asr = NativeRecognizer(self.asr_document)
             self.asr_loads += 1
         if not caption_only and self.speakers is None:
             self.speakers = (N2SpeakerModels(config,self.embedding,self.document,pyannote=self.diarization=='D0')
@@ -49,3 +58,4 @@ class N3ResidentModels(N2ResidentModels):
         if self.native_asr is not None:
             self.native_asr.close()
             self.native_asr = None
+        self.speakers = self.asr = self.enhancer = None

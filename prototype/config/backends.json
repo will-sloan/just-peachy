@@ -3,7 +3,7 @@
   "backends": [
     {
       "key": "baseline",
-      "label": "Baseline \u00b7 Giga / Pyannote / ReDimNet",
+      "label": "Baseline · Giga / Pyannote / ReDimNet",
       "manifest_id": "sha256:1a6be7490786a81d971c19ad35572b8c13c30993f7b8a7c1903f4b0617b6b1b5",
       "composition": {
         "schema": "just-peachy.backend-composition.v1",
@@ -194,11 +194,11 @@
     },
     {
       "key": "compact_eou",
-      "label": "Seed \u00b7 Parakeet EOU 120M / Pyannote / ReDimNet",
-      "manifest_id": "sha256:c12631ab0a1adc98aa8072cd635b8c8f4267b8e138f4c44d5df2c82099c3577b",
+      "label": "Parakeet EOU 120M / Pyannote / ReDimNet",
+      "manifest_id": "sha256:46c8e01284cedf5d5e30953b149ff43dafb2a11b1a25d4eceeda2afca23574e6",
       "composition": {
         "schema": "just-peachy.backend-composition.v1",
-        "runtime": "UNIMPLEMENTED seeded adapter; exact runtime/revisions require admission",
+        "runtime": "A1 stateful ONNX CPU + N2 identity + final-only P0 + shared UI",
         "input": {
           "sample_rate_hz": 16000,
           "channels": 1,
@@ -208,9 +208,33 @@
         "components": {
           "asr": {
             "repository": "nvidia/parakeet_realtime_eou_120m-v1",
-            "revision": null,
-            "artifact_sha256": null,
-            "status": "UNPINNED_SEED"
+            "revision": "a7e2b4629593dce0ec19f600e00e9904353fda2d",
+            "artifact_sha256": "6603a22a53b7c1a4bac4736cb24628fb568a7102ba931a28c799e2e72f109893",
+            "precision": "FP32",
+            "bundle_sha256": "29b70f460ed15c4b57f02bd7f6a08e143ceb6276b5acc18156f0cae756c1cbb6",
+            "files": [
+              {
+                "name": "decoder_joint-service.onnx",
+                "sha256": "9d2553ac043c2fc5f69e970769b0fb8ab9103fbfdeb7d26a1ea9729d4bd2dddd",
+                "bytes": 21347639
+              },
+              {
+                "name": "encoder-service.onnx",
+                "sha256": "deaef5dda6ed5910c177bc283823060dece1197bbc65a15dcd7b2087544da0af",
+                "bytes": 459266501
+              },
+              {
+                "name": "frontend_buffers.npz",
+                "sha256": "8fcca584e086555ce673bcc09136bca4b31bdc38cd4a19cfea48a2bfa1c901d2",
+                "bytes": 133702
+              },
+              {
+                "name": "service_config.json",
+                "sha256": "1aeac840e99a634a01f824dde7b5a1dec266eae9b3f503ae94d7a3fec9e88002",
+                "bytes": 15786
+              }
+            ],
+            "status": "HOST_SERVICE_PARITY_PASSED_CONTROLLER_PENDING"
           },
           "diarization": {
             "name": "selected Pyannote 3.0 ONNX",
@@ -252,10 +276,25 @@
               }
             ]
           }
+        },
+        "n2": {
+          "diarization": "D0",
+          "embedding": "E0",
+          "streaming_profile": "low_latency"
+        },
+        "n3": {
+          "variant": "A1",
+          "model_sha256": "6603a22a53b7c1a4bac4736cb24628fb568a7102ba931a28c799e2e72f109893",
+          "bundle_sha256": "29b70f460ed15c4b57f02bd7f6a08e143ceb6276b5acc18156f0cae756c1cbb6",
+          "right_context": 1,
+          "language": "en-US",
+          "decoder": "greedy",
+          "chunk_samples": 1280,
+          "frontend_policy": "eval_no_dither"
         }
       },
-      "implemented": false,
-      "reason": "UNAVAILABLE \u00b7 seeded composition only; model license/assets/runtime and shared adapter validation are pending. No candidate model is loaded.",
+      "implemented": true,
+      "reason": "Local qualified A1 ONNX bundle required; Controller validation pending; CM5 unqualified",
       "capacity": {
         "speaker_channels": null,
         "speaker_channels_status": "Not established for this composition",
@@ -503,7 +542,7 @@
     },
     {
       "key": "multitalker",
-      "label": "Optional seed \u00b7 Multitalker / predicted activity",
+      "label": "Optional seed · Multitalker / predicted activity",
       "manifest_id": "sha256:4c98a854b110539d8475f20698bda5a744bdbb53273d52f1d70889f44ccbcb6d",
       "composition": {
         "schema": "just-peachy.backend-composition.v1",
@@ -548,7 +587,7 @@
         }
       },
       "implemented": false,
-      "reason": "UNAVAILABLE \u00b7 seeded composition only; model license/assets/runtime and shared adapter validation are pending. No candidate model is loaded.",
+      "reason": "UNAVAILABLE · seeded composition only; model license/assets/runtime and shared adapter validation are pending. No candidate model is loaded.",
       "capacity": {
         "speaker_channels": 8,
         "speaker_channels_status": "Eight anonymous activity channels is a planning seed; pinned official verification required",

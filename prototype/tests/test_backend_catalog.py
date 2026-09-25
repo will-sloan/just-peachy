@@ -20,7 +20,7 @@ class BackendCatalogTests(unittest.TestCase):
 
     def test_n2_n3_compositions_and_no_unimplemented_seed_fallback(self):
         self.assertEqual({r['key'] for r in backend_catalog() if r['implemented']},
-            {'baseline','nemotron_hybrid','titanet','nemotron_titanet','nemotron_600m','nemotron_35_600m'})
+            {'baseline','nemotron_hybrid','titanet','nemotron_titanet','compact_eou','nemotron_600m','nemotron_35_600m'})
         self.assertEqual(BASELINE_BACKEND_ID,'sha256:1a6be7490786a81d971c19ad35572b8c13c30993f7b8a7c1903f4b0617b6b1b5')
         for row in backend_catalog():
             if not row['implemented']:

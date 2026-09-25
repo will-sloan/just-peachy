@@ -5,19 +5,21 @@ accepted with its final report, handoff ZIP and verified Git backup. Numerical
 work respects the campaign's two CPU cores and sole GPU owner. Accepted and
 running source, admission files and evidence remain immutable.
 
-Status: IN_PROGRESS. Stage acceptance and target performance remain unproven.
-The v3 queue has finished with valid A0/A1 screen/regression/paced evidence,
-but failed native initialization and A1 export checks prevent acceptance.
-See README_REUSE.md for the bounded v4 recovery and its provenance rules.
-RECOVERY_V4.md records the native recovery. V4 is terminal: 29 jobs complete,
-three failed (A1 export checker and both GUI panels). A fresh reference
-diagnostic then passed eight strict encoder/cache cases on the preserved graph.
-The GUI failures were traced to two corrupted expected-label literals; all six
-GUI cells rerun in numerical-guilabelsv1 using the exact frozen application.
-README_A1_DIAGNOSTIC.md and README_GUI_RECOVERY.md describe these checks. A1
-portable frontend/decoder/EOU and real-audio qualification remains outstanding.
-Pi is powered off throughout. Use saved hash-bound audio only. Do not open a
-microphone, enumerate input devices, play audio or change desktop focus.
+Status: IN_PROGRESS. A1 now passes strict full-service parity on four saved
+cells plus exact replay, and its independent application-Python smoke passes.
+The new deterministic 96-cell screen is running in numerical-a1nominalv1;
+regression/paced and updated text comparisons follow. Its shared Controller/P0
+adapter is implemented, with actual source-suite/GUI checks queued in
+numerical-a1controllerv2. Native A2 has three passing GUI cells. The latest A3
+boundary retest exceeded the existing ASR finalization limit despite an earlier
+three-cell pass; preserve and review that failure before accepting the runtime.
+
+Read N3_HANDOFF.md and PORTABLE_RECOVERY_REVIEW_20260925.json for current plans,
+precise scope and evidence. README_A1_PORTABLE.md, README_A1_SCREEN.md,
+README_A1_CONTROLLER.md and README_GUI_RECOVERY.md describe new implementations
+and checks. Historical v3/v4/default-export and dither-enabled A1 evidence stays
+immutable. No queue status establishes N3 acceptance. The Pi remains powered
+off; no microphone, playback, desktop input/focus or personal-store changes.
 
 ## Fetch exact official artifacts
 

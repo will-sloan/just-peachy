@@ -1,4 +1,12 @@
-# N3 v4 recovery — running, not accepted
+# N3 v4 recovery — historical admission and later review
+
+Current September 25 checkpoint: read N3_HANDOFF.md and
+PORTABLE_RECOVERY_REVIEW_20260925.json. Actual A1 portable service parity and
+application smoke pass; a fresh deterministic screen and Controller checks are
+running/queued. A2 GUI passes three cells. A later A3 retest failed its existing
+60-second ASR finalization join; the earlier passing panel does not erase it.
+The following paragraphs preserve the v4 recovery history, not current status.
+
 
 Later checkpoint, September 25: v4 finished 29 complete / three failed jobs.
 All native screen/regression/CPU/paced/conformance jobs completed. Its GUI

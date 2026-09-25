@@ -1,108 +1,131 @@
-# N3 implementation checkpoint — not complete
+# N3 implementation and evaluation checkpoint — not complete
 
-N3 is implemented and undergoing numerical review; stage acceptance is pending.
-N2's 422-cell run, final checks, reviewed report and accepted handoff are closed.
-The latest N3 recovery is v4, not the historical v2 plan described below. Read
-RECOVERY_V4.md and the fresh private numerical-v4 RESULT before doing work.
-A2/A3 native conformance, CPU, paced, lower-buffer, screen and regression jobs
-completed. V4 is terminal: 29 complete jobs, three failed (the A1 post-export
-checker and two GUI panels). Aggregate lexical/text/route reports exist and
-need interpretation. A fresh A1 model then passed eight strict encoder/cache
-cases on the preserved graph, maximum absolute error 3.0517578125e-5. Portable
-frontend/decoder/EOU and real-audio parity are still outstanding; the original
-post-export mismatch has not yet been causally resolved.
+Updated September 25, 2026, approximately 00:51 UTC. N1 is complete within the
+agreed offline scope; N2 is accepted with 422 evaluations, final checks, report,
+handoff ZIP and verified Git backup. N3 remains IN_PROGRESS. N4/N5 preparation
+is not stage completion. The Pi stays powered off throughout the campaign.
 
-Both GUI failures were the same corrupted expected-label suffix in the test.
-Actual Tk labels were correct. The unchanged application is now undergoing all
-six GUI cells through `plan-guilabelsv1.json`, with only two test literals and
-the private module identifier corrected. See README_A1_DIAGNOSTIC.md and
-README_GUI_RECOVERY.md. No duplicate numerical owner or tolerance change was
-introduced. RECOVERY_REVIEW_V4.json binds the terminal evidence and diagnosis.
+## Latest verified progress
 
-## Implemented and checked
+A1 now has an actual portable CPU service using ONNX Runtime, NumPy and SciPy.
+The exact nominal encoder/decoder, frontend, caches, tokens and EOU behavior
+passed four saved-audio cases plus an exact replay: 2,875 steps in total. Six
+additional dynamic encoder/cache cases passed. Float tolerances remain combined
+rtol/atol 2e-4; integer lengths and text/control outputs are exact. This is host
+component parity, not a CM5 or performance qualification.
 
-- Exact native A2/A3 Q8 CPU/CUDA streams, raw/lexical/formatted/manual layers,
-  complete journal/tail handling, persistent identity state and private runtime
-  catalogs; explicit English, greedy decoding and right-context settings.
-- A1 actual recurrent EOU reference and A2/A3 FP32 NeMo reference. A1's two
-  official service files are extracted with attribution and one import change;
-  no Pipecat/server dependency was installed. All reference imports pass.
-- Frozen common 480x800 UI and mode contract. New ASR composition selection
-  changes Controller/model wiring; the six UI/presentation files and layout
-  configuration have matching N1 hashes. Baseline assets remain unchanged.
-- 24 model-free tests pass. Native C header ABI checks compile. The NeMo-derived
-  ITN subset passes 110 numeric FST comparisons and all 110 Windows trace/toggle
-  cases. Source, asset and configuration checks are separate from neural tests.
-- Five exact official model artifacts are downloaded and hash verified. P2,
-  alignment and reconstruction decisions are in SOURCE_DECISIONS.md.
+Two concrete export details were repaired in fresh v2 derivatives: export setup
+resets the service's one-frame streaming geometry unless explicitly restored,
+and the decoder expects INT32 targets/lengths. The separately constructed
+reference feature processor was actually in training mode. The new nominal
+explicitly uses eval without random dither. Old A1 reference predictions remain
+historical; the new screen performs actual inference rather than reusing them.
+The original failed exports, v1 service attempt and source hashes are preserved.
 
-## Numerical plan and current evidence
+The independent two-cell A1 smoke passed in the ordinary application Python,
+without importing Torch/NeMo. Its fresh 96-cell screen is running. Eight
+regressions, four source-paced cases and updated lexical/text comparisons follow
+in that same sequential plan. Existing A0/A2/A3 predictions are hash-bound for
+matched scoring. A1/P0 is also wired into the shared Controller with D0/E0,
+separate recurrent state per scene and model release on backend close. Six
+package/lifecycle tests and four catalog tests pass. Its full source suite and
+three actual private GUI cells are queued; implementation is not acceptance.
 
-The historical v2 plan had 32 sequential jobs. The v4 recovery includes the complete frozen
-prototype test suite; real smokes; A1 empty/silence/replay and stateful ONNX
-attempt; A2/A3 CPU conformance and reference/native comparisons; one lower-buffer
-contrast; 384 screen cells, 32 regression cells, paced cases, six actual GUI
-cells; lexical, punctuation/ITN and route comparison reports. Nothing uses
-prerecorded transcript substitution or evaluator truth inside inference.
+The GUI final-state observer now checks the actual widget after render returns,
+including the unchanged-text path. It never fabricates a first-display receipt
+or forces redraw. All three A2 cells pass. A3's previous label-corrected panel
+passed three cells, but its latest boundary retest failed: the ASR lane exceeded
+the existing 60-second finalization join, leaving an unsuccessful archive. That
+later failure is preserved and remains an unresolved CPU-runtime limitation.
+Do not collapse the two runs into a claim that the latest six-cell panel passed.
+
+PORTABLE_RECOVERY_REVIEW_20260925.json binds these results without publishing
+private captions, audio, vectors or weights. README_A1_PORTABLE.md,
+README_A1_SCREEN.md, README_A1_CONTROLLER.md and README_GUI_RECOVERY.md provide
+purpose, inputs, outputs and PowerShell/CMD/Anaconda commands for new code.
+
+## Current numerical ownership and exact paths
 
 Private root: `G:\Just_Peachy_N1\20260924_campaign\local\n3`.
-Active plan: `plan-v4.json`. Frozen source: `..\releases\n3-common-v4\prototype`.
-Live status: `numerical-v4\RESULT.json`. The queued diagnostic uses
-`plan-a1diagv1.json` and `numerical-a1diagv1\QUEUE_RESULT.json`, then RESULT.json.
-That diagnostic is now terminal. The live GUI recovery uses
-`plan-guilabelsv1.json` and `numerical-guilabelsv1\RESULT.json`.
-V2 failed a bytecode-binding preflight. V3 attempted all jobs but its native
-initialization and A1 metadata failures prevented dependent runs. V4 reuses
-eleven verified unchanged jobs with explicit original-event and timing receipts.
-No v1 numerical run was launched. Its preparation files are preserved as
-superseded evidence after the module-name and reference-import preflights.
+Read fresh receipts and exact PID creation times; this dated checkpoint is not
+an ownership lock.
 
-`N3_METRICS.json` and PREPARATION_TESTS.json are preparation snapshots. Null
-accuracy, CPU and VRAM measurements are intentional. Read the live private
-results for later numerical changes; do not treat this checkpoint as acceptance.
-EXECUTION_ADMISSION.json and GITHUB_BACKUP.json record admission/backup once
-created. Both now exist: the hidden waiter was verified at PID 13640 with its
-creation time, in WAITING_N2. A source tag named integration/rc is not a validated
-backend release. A combined live-ledger update was blocked by automatic approval
-review (only "blocked by policy" was supplied); the live ledger was left
-unchanged and the separate execution receipt is authoritative for queue status.
+- Active: `plan-a1nominalv1.json`, SHA-256
+  `9da6747a0133683d257785286bdc9649a194c8104cd27689f2bb9f34aebef880`.
+  Live result: `numerical-a1nominalv1\RESULT.json`. Supervisor PID 42408,
+  creation 1790296689.4198787; coordinator PID 44592, creation
+  1790296689.5662203 at admission. Both were freshly verified alive.
+- Queued: `plan-a1controllerv2.json`, SHA-256
+  `b087ff40538008edcf89f17627944abcbc61e10a5505e387d747f9224ea6f465`.
+  Waiter PID 33444, creation 1790297346.0805807; queue status READY means
+  waiting for the occupied numerical slot, not stage acceptance. Inspect
+  `numerical-a1controllerv2\QUEUE_RESULT.json`, then RESULT.json after dispatch.
+  Frozen source: `..\releases\n3-common-a1controllerv2\prototype`.
+  V1 Controller preparation was never launched; v2 includes the separate NeMo
+  license/notice in its source inventory. Both preparations are preserved.
+- Completed component check: `numerical-a1servicev2\parity\RESULT.json`,
+  SHA-256 `e0bb6a3b0fa35a070745ced8a53c014aa0e1c0895bea3649ccb36716c0ba5854`.
+- Latest native GUI: `numerical-guifinalv1\RESULT.json` is terminal, one
+  complete A2 panel and one failed A3 panel. Earlier GUI evidence lives in
+  `numerical-guilabelsv1`. No GUI numerical process remains from those attempts.
 
-## Run, rollback and resume
+Only one numerical candidate owns resources. A lightweight waiter coordinates
+the next plan through the existing supervisor; it does not run a second model.
+The active screen uses its previously frozen source. New Controller source is
+in a separate immutable derivative. Do not edit sources bound to either plan,
+start duplicate workers, or retry manual shared-ledger writes.
 
-README_QUEUE.md gives exact PowerShell and CMD/Anaconda commands for checking
-and supervising the plan. README_RUN.md covers actual saved-audio inference;
-README_GUI.md describes private-desktop tests. Every new executable/helper has
-a README describing purpose, inputs, outputs and invocation.
+## Earlier evidence retained
 
-The numerical queue uses the existing OS supervisor, disk reserves and campaign
-deadline. It starts no LLM and changes no user desktop focus. The Pi stays off;
-there is no SSH, device enumeration, recording, playback or new acoustic bank.
-It writes an exact-task manual resume request on completion/failure. The
-registered in-task heartbeat `continue-just-peachy-n1-n5-campaign` now provides
-15-minute LLM continuation through the campaign deadline; it has actually
-triggered follow-ups. Existing owned scheduled probes remain active. The
-numerical queue's older manual-only notice describes its own dispatch method.
+V3 attempted 32 jobs: 15 complete, three failed, 14 dependency-skipped. V4 fixed
+the explicit native streaming geometry and A1 export metadata; it finished 29
+jobs with three failures (A1 checker and both original GUI panels). A2/A3 native
+smoke, conformance, CPU, source-paced, lower-buffer, 96-cell screen and eight
+regressions completed. Eleven unchanged jobs carry explicit original-event and
+timing reuse receipts. The frozen v4 source suite ran 448 tests, zero failures
+and two platform skips. The common six UI/presentation modules and 480x800
+layout retain N1 hashes in both v4 and the new A1 Controller derivative.
 
-Rollback: the original checkout, normal launcher, assets and personal data are
-untouched. In a candidate Controller select Baseline and start a fresh session.
-Do not terminate N2 or unrelated processes. A queue failure preserves evidence;
-create a new reviewed run path for changed or failed cells.
+A fresh-reference diagnostic passed eight strict encoder/cache cases on the
+preserved first export. That diagnostic is separate from the later complete
+service-geometry parity. The original corrupted expected-label suffix was a
+test defect; actual Tk labels were correct. The subsequent missing finality
+observation and latest A3 drain timeout are separate findings.
 
-Exact resume instruction for this existing task:
+P0/P1 comparisons, the licensed portable ITN subset and source-accurate P2,
+alignment/reconstruction decisions remain available. The 110 ITN grammar and
+Windows trace/toggle cases passed earlier. Final numerical interpretation must
+use the new deterministic A1 screen. N3_METRICS.json and other admission JSONs
+remain immutable preparation snapshots while plans bind them; do not interpret
+their earlier null values as the latest measured results.
 
-> Complete N3 in G:\Just_Peachy_N1\20260924_campaign\worktree. Inspect N2's
-> numerical-v2 RESULT/CHAIN_RESULT and N3's numerical-v4 RESULT plus the queued
-> numerical-a1diagv1 and numerical-guilabelsv1 QUEUE_RESULT/RESULT and
-> live PID creation times. Do not duplicate either stage. If N3 finished,
-> review every job, denominator and private GUI capture; diagnose failures;
-> finish A1 portable frontend/predictor/EOU parity if feasible; publish actual
-> lexical/PnC/ITN/resource and capability tables; update N3_HANDOFF, metrics,
-> limitations and proposed workbook update; create a final small analysis ZIP
-> and verify the scoped GitHub backup. Preserve failed evidence. Continue the
-> already-authorized N4 after reviewed prerequisites, regenerating its catalog
-> from the accepted N3 source. Keep the desktop available and the Pi offline.
+## Remaining acceptance and continuation
 
-Open acceptance items: actual model/GUI/file evidence and interpretation; native
-reference comparisons; A1 portable qualification or documented tested failure;
-final artifact/Git receipts. CPU/ARM64/CM5 2-GB qualification remains explicitly
-separate. No model is declared the winner from the 48-scene screen.
+Review the completed A1 nominal screen, regressions, source-paced events and
+Controller/GUI output. Investigate or explicitly qualify the latest A3 CPU
+finalization failure before accepting the affected runtime. Do not lengthen a
+timeout merely to claim real-time success; report actual backlog, elapsed time,
+CPU and memory separately. Finish native/reference comparisons and lexical,
+overlap/control, PnC/ITN, capability and resource tables. No winner follows from
+the small screen alone. Complete limitations, WORKBOOK_UPDATE.md, the small
+analysis-first ZIP and remotely verified scoped Git backup.
+
+Then regenerate N4 inputs from the accepted N3 source and complete its missing
+integration, full-bank evaluation, calibration, paced/continuity and resource
+selection. N5 uses accepted configurations for Windows/ARM64 software checks,
+release packaging and backup. Actual CM5 checks remain deferred until the user
+reconnects it. An ARM64 build or emulator result is not target performance.
+
+The existing in-task heartbeat `continue-just-peachy-n1-n5-campaign` supplies
+15-minute LLM continuation. Numerical queues and OS probes coordinate processes;
+READY_FOR_REVIEW only means the plan finished attempting its jobs. The packaging
+reserve begins September 28 at 02:48:19 UTC; the campaign deadline remains
+September 28 at 14:48:19 UTC. Stop the recurring follow-up on offline completion
+or at that deadline; do not extend either limit.
+
+Use saved, hash-bound audio only. Keep the desktop available, all process
+launches hidden and GUI tests on their private desktop without input injection
+or switching. No Pi contact, microphone enumeration, new capture, playback,
+training, human enrollment or personal-data modification. Preserve the original
+checkout and all evidence. C:50 GiB/G:75 GiB reserves and admitted CPU/GPU/download
+limits remain enforced. Rollback selects Baseline and starts a fresh session.
