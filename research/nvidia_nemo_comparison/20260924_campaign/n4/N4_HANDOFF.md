@@ -57,6 +57,23 @@ refuses full-bank preparation until that separate review/implementation step.
 Preserve failures and derivatives. Neither preparation nor this smoke earns any
 of the 7,680 integrated-cell count.
 
+The following D1 smoke is also prepared, not started, with no waiter:
+`local/n4/d1-smoke-v1/ADMISSION.json`, SHA-256
+`af4c0767c8552bf7bfa73f2c69bc3c3c90375e4a20043b81c727cf486631747f`.
+README_D1_COMPONENTS.md and README_REVIEW_D1.md describe the actual unchanged
+N2Engine speaker loop/activity selector, paired E0/E1 collection, exact native
+frames/query bytes, short-turn denominators, and explicitly modeled timing.
+D1_SMOKE_PREPARATION_V1.json binds 22 passing tests and the frozen code. The
+four-cell smoke uses the first O0/O1 pair, E0 then E1, no ASR/gallery/UI models.
+It retains nominal low_latency D1 (1.04-second native input buffering) and CPU1
+runtime. Its separate 2-GiB reservation conservatively charges existing D0 4 GiB,
+ASR 2 GiB and another 1 GiB contingency against the shared 50-GiB allowance.
+Launch only after D0 terminal review and ASR smoke review, through the same
+supervisor after fresh exact ownership verification. Then review the four cells
+with review_d1_components.py. Full-bank D1 admission remains unavailable pending
+that evidence. Model setup/endpoint failures must be preserved in a fresh
+derivative, not retried in place. No integrated or GUI execution credit is earned.
+
 The earlier `d0-calibration-v1` finished 734/734 jobs. The strict review passed
 3,409 matched windows per encoder (1,985 short, 1,424 mature); no C clip lacked
 an admitted window. D0_COLLECTION_REVIEW_V1.json binds this evidence. The single
@@ -192,6 +209,10 @@ No desktop input/focus control, SSH, microphone, USB, playback or new capture ra
 > Then dispatch the already-prepared asr-smoke-v1 worker through the existing
 > supervisor after verifying the numerical slot is free. Review its eight actual
 > cells with review_asr_components.py before admitting full-bank ASR collection.
+> After ASR review and fresh ownership verification, the prepared d1-smoke-v1
+> provides the next four-cell native speaker-lane check. Read its immutable
+> admission and README_D1_COMPONENTS/README_REVIEW_D1; use the existing supervisor
+> and review its exact paired frames/windows before full-bank D1 admission.
 > Preserve its bound source/code; source chunking/formatting clocks are documented
 > in README_ASR_BANK.md and README_REVIEW_ASR.md. Do not count component smoke as
 > integrated execution, observed S7 Controller parity or live caption timing.

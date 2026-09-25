@@ -1,0 +1,105 @@
+{
+  "schema": "n4-d1-smoke-preparation-v1",
+  "status": "PREPARED_VERIFIED_NOT_STARTED",
+  "recorded_utc": "2026-09-25T03:51:15.259710+00:00",
+  "admission": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\d1-smoke-v1\\ADMISSION.json",
+    "sha256": "af4c0767c8552bf7bfa73f2c69bc3c3c90375e4a20043b81c727cf486631747f",
+    "bytes": 22877
+  },
+  "worker": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\d1-smoke-v1\\worker.json",
+    "sha256": "b5e05c5dc7eed85f47b50b6ab1e34f976eef0e0a3784be74790dfd59c0260c8d",
+    "bytes": 436
+  },
+  "encoders": [
+    "E0",
+    "E1"
+  ],
+  "jobs": [
+    "N2_S45_01_01_O0",
+    "N2_S45_01_01_O1"
+  ],
+  "expected_component_cells": 4,
+  "integrated_N4_cells": 0,
+  "model_inference_started": false,
+  "common_source_receipt": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\releases\\n4-catalog-v3\\SOURCE_RECEIPT.json",
+    "sha256": "8050c8bee52a6ec83c95f3514cb81219c3664dd43e172a477d35a54888e610d5",
+    "bytes": 61188
+  },
+  "runtime": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\runtime\\cpu\\n2_runtime.json",
+    "sha256": "df9dc8c498e941e73499457715456536ea5143c2110fd5278fbc9d2dda6bf499",
+    "bytes": 2575
+  },
+  "tests": [
+    {
+      "module": "test_d1_lane_components",
+      "tests": 10,
+      "failures": 0,
+      "errors": 0,
+      "elapsed_seconds": 1.096
+    },
+    {
+      "module": "test_d1_bank_components",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "elapsed_seconds": 0.005
+    },
+    {
+      "module": "test_review_d1_components",
+      "tests": 7,
+      "failures": 0,
+      "errors": 0,
+      "elapsed_seconds": 1.032
+    }
+  ],
+  "test_evidence": "Separate successful unittest runs in this task; actual frozen application loops with stub models and arrays, no neural inference",
+  "allocation_bytes": 2147483648,
+  "other_component_reservations_bytes": 6442450944,
+  "code": [
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\d1_bank_components.py",
+      "sha256": "eda37f2c7082ca8094ce1c2ee94ff49d1fa795bc4f66eecadab337e45d2f85db",
+      "bytes": 15493
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\d1_lane_components.py",
+      "sha256": "6cf4e75983e1e7b8e113d86eb6a3a42db9aeb2f53717e3c8bb925f792f9df98e",
+      "bytes": 10389
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\test_d1_lane_components.py",
+      "sha256": "ef94de5796ead2a311840b3648d95f0380f1db5a4539c4c44a2fead6c1fab32b",
+      "bytes": 8581
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\test_d1_bank_components.py",
+      "sha256": "5858419e8c258d005641e278a348ce38650deb301243b16cd391eb0c31f20e7e",
+      "bytes": 3276
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\README_D1_COMPONENTS.md",
+      "sha256": "710d581dc2ce5b3bea640b1158e6f917ed88cde1215b78bd220ab994e50aab3c",
+      "bytes": 7946
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\review_d1_components.py",
+      "sha256": "0c362db97dac373f4b99142f15d70722e65f35fdf096dc1daac8350c33a41531",
+      "bytes": 16403
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\test_review_d1_components.py",
+      "sha256": "84c4620aad33ef7917a2bd31380dbb5a05bb672dc25f06c88cbed796f81973ae",
+      "bytes": 4019
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\README_REVIEW_D1.md",
+      "sha256": "52624a57ad40185b67f59ed6c4969a9e5fa65738ad595ce722673f9894f0b679",
+      "bytes": 3586
+    }
+  ],
+  "next": "After D0 full-bank review and ASR smoke/review, verify the numerical slot is free, launch the four-cell D1 smoke through the existing supervisor, then review_d1_components.py. No full-bank admission or integrated credit yet."
+}

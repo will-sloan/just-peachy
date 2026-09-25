@@ -57,6 +57,16 @@ After the D0 worker exits and its full-bank review passes, dispatch this ASR smo
 through the existing supervisor. Do not start a competing worker. Full-bank ASR
 admission and integrated application/presentation parity remain pending.
 
+The following four-cell D1 smoke is prepared at `local/n4/d1-smoke-v1`, with no
+model or waiter started. Its capture runs the unchanged actual N2Engine speaker
+loop and activity-window selector with admitted D1 and E0/E1 owners. All native
+frames, overlap/silence, exact contiguous query bytes and short-turn denominators
+are retained; component timing is explicitly modeled. Twenty-two tests pass.
+D1_SMOKE_PREPARATION_V1.json, README_D1_COMPONENTS.md and README_REVIEW_D1.md bind
+the code and commands. Keep the launch order D0 review, ASR smoke/review, then
+D1 smoke/review through the sole supervisor. Full-bank D1 and integrated/GUI
+parity remain pending; component smoke supplies zero integrated-cell credit.
+
 The specification ceiling is 80 GiB; the shared resource-policy record retains
 a more conservative 50-GiB payload allowance. Reconcile actual previous usage
 and remaining allocation before admitting N4. Do not infer a fresh allowance
