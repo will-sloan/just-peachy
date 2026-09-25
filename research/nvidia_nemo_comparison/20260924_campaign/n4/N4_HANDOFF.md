@@ -68,9 +68,21 @@ README_D1_COMPONENTS.md and README_REVIEW_D1.md describe the exact unchanged
 N2Engine speaker loop and activity-window selector. All four cells retain
 nominal 1.04-second D1 input buffering and admitted CPU1 runtime, actual frames,
 overlap/silence and query bytes. Twenty-two protocol/review tests passed.
-These workers exited before ASR full-bank launch. Implement a fresh full-bank
-D1 admission/runner/reviewer using this passed evidence; its current smoke
-runner still refuses full scope. Do not modify preserved smoke code in place.
+These workers exited before ASR full-bank launch. A fresh D1 full-bank runner,
+admission and reviewer are now prepared at `local/n4/d1-full-bank-v1`, not started.
+Its admission SHA-256 is
+`7a290ff7ba55a790c7f5c129eed125af538fbae48d66fc195c2a77ef77d960f5`.
+D1_FULL_BANK_PREPARATION_V1.json binds nine passing tests, including complete
+960-cell D1 and 1,920-cell ASR predecessor fixtures. README_D1_FULL_BANK.md has
+purpose, inputs/outputs and PowerShell/CMD/Anaconda instructions. The real
+predecessor check currently refuses model start because the ASR full-bank review
+is not yet available; no D1 model or waiter was launched. Preparation reverified
+the four smoke cells and all 480 waveform files. Fresh inventory plus this
+2-GiB allocation, the full active ASR 2-GiB reservation and 1-GiB contingency
+is 41.0163 GiB beneath the shared 50-GiB allowance. Each cell is capped at 32 MiB
+expanded text and a 2-MiB serialized summary. The earlier smoke runner still
+refuses full scope; its code/admission/results remain unchanged. Preserve both
+prepared and active admissions; further changes require a fresh derivative.
 
 The earlier `d0-calibration-v1` finished 734/734 jobs. The strict review passed
 3,409 matched windows per encoder (1,985 short, 1,424 mature); no C clip lacked
@@ -231,15 +243,21 @@ No desktop input/focus control, SSH, microphone, USB, playback or new capture ra
 > review_asr_full_bank.py from README_ASR_FULL_BANK.md for all 1,920 cells.
 > Queue completion does not establish review/acceptance.
 >
-> During healthy ASR work, implement a separate full-bank D1 runner/admission
-> and reviewer using the accepted four-cell smoke and immutable helper code.
-> Charge existing payload and reservations accurately; no parallel model or
-> waiter. Launch through the existing supervisor only after ASR review and
-> fresh exact ownership verification. Continue useful unbound application
+> Full-bank D1 is prepared at local/n4/d1-full-bank-v1 (960 cells); read
+> D1_FULL_BANK_PREPARATION_V1.json and README_D1_FULL_BANK.md. Preserve its
+> bound code. Its coordinator/child enforce a passed complete ASR review and
+> unchanged predecessor evidence before model loading. Charge actual payload
+> and reservations accurately; no parallel model or waiter. Launch through
+> the existing supervisor only after ASR review and fresh exact ownership
+> verification, then run review_d1_full_bank.py on terminal 960-cell evidence.
+> During healthy ASR work continue useful unbound application
 > integration meanwhile: exact ASR/D0 commands and modeled span presentation
 > are tested, but D1/causal merge, observed S7 policy eligibility/publication
-> freshness and actual Controller parity remain unresolved. Plain S6C batch
-> replay is not that parity. D0 diagnostic masks are not a persistent-source
+> freshness and actual Controller parity remain unresolved. INTEGRATION_NEXT.md
+> records the verified source APIs: D1 uses its actual N2 activity/name/history/
+> caption-span revision path, not D0 clustering. ObservedClock accepts an
+> injected clock, but inherited observed field names cannot turn modeled replay
+> into observed latency. Plain S6C batch replay is not Controller parity. D0 diagnostic masks are not a persistent-source
 > decoder: retain unsupported/conflicting/overlap/tail regions and never use
 > embedding-window proxies as DER. The C-scale fit failed and was not applied;
 > keep nominal D0/E1 explicitly unqualified, without validation/Q retuning.

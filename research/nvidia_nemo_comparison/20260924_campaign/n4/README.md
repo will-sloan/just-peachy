@@ -54,8 +54,12 @@ native frames per file and 20 O0 / 19 O1 exact query windows. Two/four short
 exclusive runs stayed explicit. D1_SMOKE_REVIEW_V1.json binds the results.
 README_D1_COMPONENTS.md/README_REVIEW_D1.md document the unchanged actual N2
 speaker loop, activity selector, native CPU1 owners and 22 passing tests.
-Its timing remains modeled; full-bank D1 admission/runner and integrated
-Controller/widget parity still need implementation. All smoke workers exited.
+Its timing remains modeled. Full-bank D1 is now implemented and prepared at
+`local/n4/d1-full-bank-v1` for 960 cells, with nine passing tests and a runtime
+gate requiring the passed ASR full-bank review before model loading. It has
+not started; no waiter exists. D1_FULL_BANK_PREPARATION_V1.json and
+README_D1_FULL_BANK.md bind its admission, code, storage and launch/review commands.
+Integrated Controller/widget parity still needs implementation. All smoke workers exited.
 
 D0ActivityEvidence retains complete speech/silence/overlap masks, exact clean
 track support, conflicts, unassigned speech and unobserved tails. Its two-cell
@@ -74,6 +78,8 @@ and a 12-cell real-evidence reconstruction probe pass; COMPONENT_COMMANDS_CHECK_
 and README_COMPONENT_COMMANDS.md bind that work. D1 command integration, causal
 merge, observed S7 policy parity, Controller/GUI runs and full-bank scoring are
 still required. Modeled values cannot be reported as first-visible latency.
+INTEGRATION_NEXT.md records the actual D1 naming/span path and the injectable
+S7 clock API; a D0 tracker substitution would change the D1 application.
 
 The specification ceiling is 80 GiB; the shared resource-policy record retains
 a more conservative 50-GiB payload allowance. Reconcile actual previous usage

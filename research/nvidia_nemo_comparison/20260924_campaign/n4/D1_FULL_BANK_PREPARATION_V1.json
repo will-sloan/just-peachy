@@ -1,0 +1,95 @@
+{
+  "schema": "n4-d1-full-bank-preparation-v1",
+  "status": "PREPARED_VERIFIED_NOT_STARTED",
+  "recorded_utc": "2026-09-25T04:48:49.956618+00:00",
+  "admission": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\d1-full-bank-v1\\ADMISSION.json",
+    "sha256": "7a290ff7ba55a790c7f5c129eed125af538fbae48d66fc195c2a77ef77d960f5",
+    "bytes": 200193
+  },
+  "worker": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\d1-full-bank-v1\\worker.json",
+    "sha256": "d56f463745cefdd0c819aa349782ba420bda0fd316eac5bc486a6fafa20913d0",
+    "bytes": 434
+  },
+  "expected_component_cells": 960,
+  "integrated_N4_cells": 0,
+  "smoke_review": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\d1-smoke-review-v1\\REVIEW.json",
+    "sha256": "765a5f1d70a871b05e80f2bc193767a9d8ecd3ab3f8ee36f60a03b97fbe15c31",
+    "bytes": 3416
+  },
+  "asr_full_admission": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-full-bank-v1\\ADMISSION.json",
+    "sha256": "f5c5868f5e9237e25e7c3241d3f5e66f28d46cd03bc83c01c3d42b2762cf33a7",
+    "bytes": 200229
+  },
+  "predecessor_review_path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-full-bank-review-v1\\REVIEW.json",
+  "predecessor_gate_actual_status": "ASR full-bank terminal review is not available; D1 remains prepared",
+  "model_started": false,
+  "waiter_started": false,
+  "tests": 9,
+  "failures": 0,
+  "errors": 0,
+  "elapsed_seconds": 53.451,
+  "test_fixture_scope": "Real frozen application loop with stub models; complete temporary 1920-cell ASR predecessor and 960-cell D1 integrity fixtures. No actual integrated inference credit.",
+  "code": [
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\d1_full_bank.py",
+      "sha256": "266abfaeff290fa1465f9b56d7d3f70bca929f05f240c6eae5b65cae68f1ebca",
+      "bytes": 20818
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\test_d1_full_bank.py",
+      "sha256": "63a0ab664040860db56331dfc3dbdfd4c4b42903cc371ed43d2d7887f5314e69",
+      "bytes": 4981
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\review_d1_full_bank.py",
+      "sha256": "c9cdcc7739cf6a77daefbdbc860892071c0105d970919c7678c6d19dfb2dd440",
+      "bytes": 7215
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\test_review_d1_full_bank.py",
+      "sha256": "37ee261cbe800adc6dc9e518ba674e6a778fdd2f79de2bb554100157f0431975",
+      "bytes": 5984
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\README_D1_FULL_BANK.md",
+      "sha256": "97f140576149225314a50de1c1034a19cbb733071c6f12d8b87f8c1316287776",
+      "bytes": 7758
+    }
+  ],
+  "allocation_bytes": 2147483648,
+  "per_cell_expanded_limit_bytes": 33554432,
+  "conservative_inventory_plus_reservations_gib": 41.01625604555011,
+  "ASR_ownership_at_preparation": [
+    {
+      "pid": 28376,
+      "create_time": 1790310624.033616,
+      "affinity": [
+        14
+      ]
+    },
+    {
+      "pid": 38788,
+      "create_time": 1790310624.1776628,
+      "affinity": [
+        14
+      ]
+    },
+    {
+      "pid": 40244,
+      "create_time": 1790310626.0298579,
+      "affinity": [
+        4
+      ]
+    }
+  ],
+  "ASR_progress_at_preparation": {
+    "stage": "N4_ASR_FULL_BANK_COMPONENTS",
+    "variant": "A0",
+    "completed": 414,
+    "total": 1920
+  }
+}
