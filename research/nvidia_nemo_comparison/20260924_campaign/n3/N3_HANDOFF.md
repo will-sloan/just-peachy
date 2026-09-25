@@ -1,6 +1,6 @@
 # N3 implementation and evaluation checkpoint — not complete
 
-Updated September 25, 2026, approximately 00:51 UTC. N1 is complete within the
+Updated September 25, 2026, approximately 01:25 UTC. N1 is complete within the
 agreed offline scope; N2 is accepted with 422 evaluations, final checks, report,
 handoff ZIP and verified Git backup. N3 remains IN_PROGRESS. N4/N5 preparation
 is not stage completion. The Pi stays powered off throughout the campaign.
@@ -23,8 +23,8 @@ historical; the new screen performs actual inference rather than reusing them.
 The original failed exports, v1 service attempt and source hashes are preserved.
 
 The independent two-cell A1 smoke passed in the ordinary application Python,
-without importing Torch/NeMo. Its fresh 96-cell screen is running. Eight
-regressions, four source-paced cases and updated lexical/text comparisons follow
+without importing Torch/NeMo. Its fresh 96-cell screen completed all 96 cells on September 25. Eight
+regressions are running; four source-paced cases and updated lexical/text comparisons follow
 in that same sequential plan. Existing A0/A2/A3 predictions are hash-bound for
 matched scoring. A1/P0 is also wired into the shared Controller with D0/E0,
 separate recurrent state per scene and model release on backend close. Six

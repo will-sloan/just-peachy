@@ -5,6 +5,15 @@ model-free integrity tests, including the implemented A1/P0 adapter. Its actual
 source derivation/Controller check waits for accepted N3 input. No new N4 model
 run or stage acceptance is claimed; older 12-entry commands below are historical.
 
+README_EVIDENCE_STORE.md describes the new-run-only storage lifecycle. Twelve
+temporary-data tests pass, including archive recovery, failed-cell retention,
+disk floors and CPU-allocation restoration. It has not been connected to an
+admitted production runner, and no existing campaign evidence was removed.
+The specification ceiling is 80 GiB; the current shared resource-policy record
+still carries a more conservative 50-GiB payload allowance. A later real N4
+admission must reconcile prior allocations and use the remaining effective
+allowance, never infer a fresh 80-GiB grant from the helper parameter.
+
 N2 is accepted; N4 is pending N3 numerical review and its own admission. Nothing in this
 directory changes the active N2/N3 source, personal profiles or Windows desktop.
 The Pi stays off. Only accepted saved audio is used; there is no device access.

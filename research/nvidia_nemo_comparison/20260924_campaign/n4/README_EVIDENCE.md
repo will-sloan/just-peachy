@@ -25,9 +25,11 @@ CMD/Anaconda Prompt:
 "C:\Users\amiri\Documents\GitHub\just-peachy\.edge-speech-env\python.exe" -B research\nvidia_nemo_comparison\20260924_campaign\n4\evidence_archive.py --result G:\path\to\completed\attempt\RESULT.json --output G:\Just_Peachy_N1\20260924_campaign\local\n4\storage\cell-v1.zip
 ```
 
-`verify_archive(path)` is the imported verifier. There is no prune command:
-active N2/N3 evidence remains at its exact admitted paths. Before N4 full-bank
-execution, integrate a verified bounded per-cell lifecycle in a new admission.
+`verify_archive(path)` is the imported verifier. There is no historical prune
+command: active N2/N3 evidence remains at its exact admitted paths. The new
+README_EVIDENCE_STORE.md documents evidence_store.py, which only accepts its own
+freshly reserved attempts and passes 12 temporary-data tests. Before N4 full-bank
+execution, integrate it into the runner with measured bounds and a new admission.
 A successful compression probe alone does not make the full matrix's disk
 budget feasible. Preserve 75 GiB free on G and 50 GiB on C, and the campaign's
 80-GiB new allocation ceiling.

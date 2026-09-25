@@ -1,8 +1,8 @@
 # N4 partial checkpoint — preparation complete, comparison pending
 
 Latest code checkpoint, September 25: A1 now has a qualified host portable
-component and a passing application smoke; its Controller/GUI validation and
-fresh nominal screen are still pending. `compose_release_v3.py` is prepared for
+component and a passing application smoke; its 96-cell nominal screen is complete, with regression/paced and Controller/GUI
+validation still pending. `compose_release_v3.py` is prepared for
 the eventual accepted N3 source and builds all 16 intended compositions. Five
 new model-free integrity tests pass, including A1/P0/bundle preservation and
 refusal to silently omit A1. `check_catalog_v3.py` is prepared for actual
@@ -48,7 +48,13 @@ snapshot; read the live private upstream status files for later changes.
   It rejects changed, duplicate, outside and unbound inputs, and checks the
   full scorer's archive-index path. ARCHIVE_READER_CHECK.json records exact
   prediction/metric equality on the real N2 probe cell without extraction or
-  source changes. The bounded full-run archival lifecycle remains pending.
+  source changes. The new evidence_store.py lifecycle now passes 12 temporary-data tests: exact
+  binary/JSON archival, interruption recovery, refusal of corruption or late
+  unbound writes, failed-cell preservation, OS writer locking, disk floors and
+  restoration of the caller's CPU allocation. It refuses existing directories.
+  EVIDENCE_STORE_CHECK.json binds the final check. Production-runner integration,
+  a measured cell peak and aggregate remaining allocation are still pending;
+  no existing campaign evidence was removed and no N4 cell was executed.
 
 No candidate has been selected, promoted or assigned a measured deployment tier.
 `MATRIX.json`/`MATRIX.csv` retain all 16 intended profiles, 480 rows each, with
