@@ -1,0 +1,62 @@
+{
+  "status": "PREPARED_VERIFIED_CONTINUITY_INPUT_ONLY",
+  "utc": "2026-09-25T15:15:48.331465+00:00",
+  "qualification": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\CONTINUITY_SEQUENCE_CHECK_V2.json",
+    "sha256": "13981d80facdba7d69724cae5fa411a9271b78640843398c3fef691a8258dff7",
+    "bytes": 6070
+  },
+  "private_receipt": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\continuity-sequence-v2\\RESULT.json",
+    "sha256": "161f1602239de7c15c6f6dcb0be0a298e78e99276c90230daaa2d8a115866888",
+    "bytes": 1529
+  },
+  "private_admission": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\continuity-sequence-v2\\ADMISSION.json",
+    "sha256": "af7e89a5be3961064fda2e83a37f3de70babb3fed0a2c8364191061d39030b62",
+    "bytes": 6380
+  },
+  "plan": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\continuity-sequence-v2\\PLAN.json",
+    "sha256": "cf6f4be944ac3ecf2ce5028b83e66bd769c9ac8c36dab286bdbe1adcb886af62",
+    "bytes": 19607
+  },
+  "audio_only": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\continuity-sequence-v2\\INFERENCE_AUDIO_ONLY.json",
+    "sha256": "daa53b43ee35572ac05c5ed381ce15033971fbd2b118e5939720fabce47a2a81",
+    "bytes": 467
+  },
+  "evaluator_truth": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\continuity-sequence-v2\\EVALUATOR_TRUTH.json",
+    "sha256": "8211d3e3e563f113f87c701f7f26a15431798b9bfe63e4b2535a78d5dc51bc6b",
+    "bytes": 128195
+  },
+  "copy_receipt": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\continuity-sequence-v2\\COPY_RECEIPT.json",
+    "sha256": "0a9d458488b314bc0c66dfd6ba33ce815bebb7585ce4438f21f808c502507eb2",
+    "bytes": 10977
+  },
+  "waveform": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\continuity-sequence-v2\\CONTINUITY_O0.wav",
+    "sha256": "04fe4c8f7cf4e973a05cc04093176e32c56572ac568f44697eaf203f56501447",
+    "bytes": 38616902
+  },
+  "exited_preparation_owner": {
+    "pid": 48500,
+    "create_time": 1790349297.530363
+  },
+  "sessions": 27,
+  "frames": 19308429,
+  "seconds": 1206.7768125,
+  "tap": "O0",
+  "distinct_global_actors": 8,
+  "source_pcm_segments_independently_compared": 27,
+  "all_original_words_and_reference_offsets_reconstructed": true,
+  "no_join_reset": true,
+  "actual_application_spawned": false,
+  "actual_source_execution": false,
+  "actual_continuity_test": false,
+  "integrated_N4_cells": 0,
+  "N4_accepted": false,
+  "scope": "Lossless concatenation of whole existing accepted capture sessions for later host software continuity, with evaluator-only references. Not continuous XVF state, application execution, accuracy, latency, resource or release qualification."
+}

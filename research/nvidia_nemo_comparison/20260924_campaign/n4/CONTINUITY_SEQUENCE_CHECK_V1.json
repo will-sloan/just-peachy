@@ -1,0 +1,99 @@
+{
+  "status": "PASS_CONTINUITY_SEQUENCE_DEVELOPMENT_ONLY",
+  "utc": "2026-09-25T15:11:28.415919+00:00",
+  "code": [
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\continuity_sequence.py",
+      "sha256": "91ed93e86744907cc8ef8e3a2011a234a4904521baff492fa32183101ce71ad8",
+      "bytes": 15931
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\test_continuity_sequence.py",
+      "sha256": "c013a1aa9804c9d6a061a53e6231d52980b3536ab61a9f0e5213a3b135a7ea99",
+      "bytes": 7563
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\probe_continuity_sequence.py",
+      "sha256": "052f1d5be53d03b81c99422396c07061ef04f1cc97fd304b78550022ee9dfb48",
+      "bytes": 3838
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\README_CONTINUITY_SEQUENCE.md",
+      "sha256": "8da177e54f842d408c506bece1637001fec387c8f5c3c77887b98d356f792784",
+      "bytes": 6535
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\common.py",
+      "sha256": "a44e389d3c80c8c21e74ea3423d8270273e5b3132a84095218dee078c53f059e",
+      "bytes": 3267
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\integrated_bank_plan.py",
+      "sha256": "595ffe3e877fdd56468e9cda0b15a793b5d0e0453a19641f3394c604d4ae4690",
+      "bytes": 14170
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\metric_process.py",
+      "sha256": "1a1279c44ce906ce13733db1ba32ba86ffd7419cb1a4b767df3505d66d3e36f8",
+      "bytes": 10902
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\review_scoring_bank.py",
+      "sha256": "e7bd08e3fb9d19cafd761a778b9dba230bed1002b7dbcd180c620e47b48f51e2",
+      "bytes": 19917
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\scoring_bank.py",
+      "sha256": "394a4ebf02d8e5e73eb60a0ce89f66c92563fdb42f212261404b485113c75b84",
+      "bytes": 19772
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\asr_full_bank.py",
+      "sha256": "ab9ebf7ee64d70b859935b4d3725cce24adb03a713c0a2ad4328253bc02900f9",
+      "bytes": 17580
+    }
+  ],
+  "private_receipt": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\continuity-sequence-probe-v1\\RESULT.json",
+    "sha256": "074926e1c52b16c245784758bb94a1a3751c05fc9c82b61ccca29ee909ecc729",
+    "bytes": 1561
+  },
+  "private_admission": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\continuity-sequence-probe-v1\\ADMISSION.json",
+    "sha256": "745ded84c4e09dad7620dffb3b64bf90202917db8ee6583cbab1166a8b64e441",
+    "bytes": 8042
+  },
+  "tests": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\continuity-sequence-probe-v1\\tests.txt",
+    "sha256": "ebe17fb4b72dcc36f2f8c5cd5da59f76c31e11e459be58caf2f2c21ab12ffaed",
+    "bytes": 1690
+  },
+  "tests_passed": 10,
+  "exited_development_owner": {
+    "pid": 33148,
+    "create_time": 1790349048.5931568
+  },
+  "metadata_plan": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\continuity-sequence-probe-v1\\METADATA_PLAN.json",
+    "sha256": "cf6f4be944ac3ecf2ce5028b83e66bd769c9ac8c36dab286bdbe1adcb886af62",
+    "bytes": 19607
+  },
+  "selected_sessions": 27,
+  "seconds": 1206.7768125,
+  "actors": 8,
+  "reference_classes": {
+    "complete_nonoverlap": 23,
+    "empty_control": 1,
+    "complete_overlap": 3
+  },
+  "primary_tap": "O0",
+  "synthetic_pcm_byte_copy_checked": true,
+  "actual_audio_assembled": false,
+  "actual_application_spawned": false,
+  "model_inference_started": false,
+  "actual_source_execution": false,
+  "actual_continuity_test": false,
+  "integrated_N4_cells": 0,
+  "N4_accepted": false,
+  "scope": "Whole-session sequence planning from the accepted bank, truthful global actor capacity and reference offsets, and lossless synthetic PCM transport checks. Actual saved-audio assembly and application execution are separate evidence."
+}

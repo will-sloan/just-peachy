@@ -826,3 +826,43 @@ exclusive slot, source/engine/consumer/archive closure and evaluated configurati
 for the actual shortlisted panel. The continuity sequence still needs its own
 truthful actor/capacity protocol and actual execution. A3 remains healthy; D1
 still waits for the complete ASR bank review and free numerical ownership.
+
+The host-continuity input is now prepared and independently byte-verified in
+local/n4/continuity-sequence-v2. It concatenates 27 whole accepted O0 sessions,
+19,308,429 samples / 1206.7768125 seconds (20:06.78), with eight global actor IDs,
+23 complete-nonoverlap sessions, three overlap sessions and one empty control.
+Selection is deterministic metadata coverage under a fixed eight-actor capacity;
+it uses no model scores. No session is repeated, no actor is renamed at a join,
+and no gain, trim, padding, crossfade, mixing or resampling is introduced. Retaining
+the final whole session preserves every word beyond the 20-minute minimum.
+
+The single prediction input contains only the usual eight audio fields; all
+turn text, global identities, estimated activity and exact cumulative frame
+offsets stay in a separate private evaluator file. Initial reset applies once
+to the combined file; joins cannot trigger application resets. Both original
+taps/capture mappings were checked, but the predeclared continuity tap is O0.
+O1 continuity, continuous physical XVF state and ordinary WER across overlapping
+speakers are not implied. No research profiles or enrollment were created.
+
+V1 passed ten selection/reference/PCM tests but its actual assembly hit an
+inappropriate inherited 8-MiB report guard. That failed WAV prefix, source and
+ADMISSION/PLAN/FAILED evidence remain preserved in continuity-sequence-v1.
+The fresh V2 entry point retains the original selection/copy implementation and
+adds a dedicated 64-MiB allowance while preserving CPU14, the helper lock, global
+50-GiB allowance, existing six-GiB reserve, drive floors and original packaging
+cutoff. Four added guard regressions plus all ten original checks passed. V2's
+actual 38,616,902-byte output was independently compared against all 27 original
+PCM streams, and its plan/reference offsets were reconstructed. Every preparation
+and probe helper exited. CONTINUITY_SEQUENCE_CHECK_V1/V2.json bind development;
+CONTINUITY_INPUT_PREPARATION_V2.json binds the actual prepared input. The two
+README_CONTINUITY_SEQUENCE files document purpose, inputs/outputs and full
+PowerShell/CMD/Anaconda commands; V2 is the entry point for actual assembly.
+
+No application, playback or new numerical model ran. This input does not yet
+pass the current paced-panel admission and must not be slipped into that plan.
+Implement/qualify a separate continuity runner using the accepted shortlist,
+identical source/backend/gallery policy, exact exclusive supervisor/child owner
+and this common input. Run it once for each retained release candidate, verify
+the full source/consumer/archive/UI/resource evidence and functional stop/restart,
+then score where references permit. Actual continuity and integrated N4/N5
+acceptance remain outstanding. The healthy A3 bank remains the numerical owner.

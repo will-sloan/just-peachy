@@ -1,0 +1,128 @@
+{
+  "status": "PASS_CONTINUITY_SEQUENCE_V2_DEVELOPMENT_ONLY",
+  "utc": "2026-09-25T15:14:50.478313+00:00",
+  "code": [
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\continuity_sequence_v2.py",
+      "sha256": "f80295c1a84275ab8c8a1808f0498f9b55a1b7b777273f7b1de66bf9e67ad91f",
+      "bytes": 4803
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\test_continuity_sequence_v2.py",
+      "sha256": "ca26067521e0eabaa770e5b1dfaa59ed2a08ae0135653c39cb03304a3de35a79",
+      "bytes": 2640
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\probe_continuity_sequence_v2.py",
+      "sha256": "de6159a7915683d3318d156dc1d580c68bbe382c26338a6ee1143c44486f9ede",
+      "bytes": 4065
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\README_CONTINUITY_SEQUENCE_V2.md",
+      "sha256": "e9b5d33f59688651e8beb9e978138f8107e05a53f60549144d0647746e200b8b",
+      "bytes": 3803
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\continuity_sequence.py",
+      "sha256": "91ed93e86744907cc8ef8e3a2011a234a4904521baff492fa32183101ce71ad8",
+      "bytes": 15931
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\test_continuity_sequence.py",
+      "sha256": "c013a1aa9804c9d6a061a53e6231d52980b3536ab61a9f0e5213a3b135a7ea99",
+      "bytes": 7563
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\probe_continuity_sequence.py",
+      "sha256": "052f1d5be53d03b81c99422396c07061ef04f1cc97fd304b78550022ee9dfb48",
+      "bytes": 3838
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\README_CONTINUITY_SEQUENCE.md",
+      "sha256": "8da177e54f842d408c506bece1637001fec387c8f5c3c77887b98d356f792784",
+      "bytes": 6535
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\common.py",
+      "sha256": "a44e389d3c80c8c21e74ea3423d8270273e5b3132a84095218dee078c53f059e",
+      "bytes": 3267
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\integrated_bank_plan.py",
+      "sha256": "595ffe3e877fdd56468e9cda0b15a793b5d0e0453a19641f3394c604d4ae4690",
+      "bytes": 14170
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\metric_process.py",
+      "sha256": "1a1279c44ce906ce13733db1ba32ba86ffd7419cb1a4b767df3505d66d3e36f8",
+      "bytes": 10902
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\review_scoring_bank.py",
+      "sha256": "e7bd08e3fb9d19cafd761a778b9dba230bed1002b7dbcd180c620e47b48f51e2",
+      "bytes": 19917
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\scoring_bank.py",
+      "sha256": "394a4ebf02d8e5e73eb60a0ce89f66c92563fdb42f212261404b485113c75b84",
+      "bytes": 19772
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\asr_full_bank.py",
+      "sha256": "ab9ebf7ee64d70b859935b4d3725cce24adb03a713c0a2ad4328253bc02900f9",
+      "bytes": 17580
+    }
+  ],
+  "private_receipt": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\continuity-sequence-probe-v2\\RESULT.json",
+    "sha256": "d12aa8e3f3d41cdf5923eb074f7d2270f5ddfbd518e9a1ad6ffb85ca83bd3ab7",
+    "bytes": 1314
+  },
+  "private_admission": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\continuity-sequence-probe-v2\\ADMISSION.json",
+    "sha256": "cf1a346e96b50cdae383968ad7cd6db229ee8671d673d9ed050ba9287c030af3",
+    "bytes": 10420
+  },
+  "tests": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\continuity-sequence-probe-v2\\tests.txt",
+    "sha256": "12182691a88d3620abb592bed497bd8862d06477fa79d3a3219968590ecb8bab",
+    "bytes": 2274
+  },
+  "tests_passed": 14,
+  "exited_development_owner": {
+    "pid": 41992,
+    "create_time": 1790349264.5335827
+  },
+  "preserved_failed_preparation": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\continuity-sequence-v1\\FAILED.json",
+    "sha256": "4ef3f685350d9c71f292aa2ad6e18f14592844cdeac39829976bdf41f9f5cdb9",
+    "bytes": 321
+  },
+  "exited_failed_preparation_owner": {
+    "pid": 47748,
+    "create_time": 1790349096.269062
+  },
+  "metadata_plan": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\continuity-sequence-probe-v2\\METADATA_PLAN.json",
+    "sha256": "cf6f4be944ac3ecf2ce5028b83e66bd769c9ac8c36dab286bdbe1adcb886af62",
+    "bytes": 19607
+  },
+  "selected_sessions": 27,
+  "seconds": 1206.7768125,
+  "actors": 8,
+  "reference_classes": {
+    "complete_nonoverlap": 23,
+    "empty_control": 1,
+    "complete_overlap": 3
+  },
+  "primary_tap": "O0",
+  "maximum_output_bytes": 67108864,
+  "actual_audio_assembled": false,
+  "actual_application_spawned": false,
+  "model_inference_started": false,
+  "actual_source_execution": false,
+  "actual_continuity_test": false,
+  "integrated_N4_cells": 0,
+  "N4_accepted": false,
+  "scope": "Original sequence/reference/PCM checks plus dedicated 64-MiB allocation, floors, deadline and global allowance regression. V1 failed prefix preserved. Actual saved-audio assembly and application execution remain separate evidence."
+}
