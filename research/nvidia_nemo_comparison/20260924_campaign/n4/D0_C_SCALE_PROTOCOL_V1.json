@@ -1,0 +1,57 @@
+{
+  "schema": "n4-d0-C-association-scale-protocol-v1",
+  "status": "FROZEN_BEFORE_READING_NEW_C_VECTOR_VALUES",
+  "purpose": "One model-specific anonymous association scale proposal; not a known-person confidence calibration",
+  "collection_admission_sha256": "e387f392ff5c4a3399ce0e75938524619357bd26e5278c508158069484829a79",
+  "roles_allowed": ["C"],
+  "Q_scoring_or_tuning_allowed": false,
+  "nominal_baseline": "Frozen Balanced normalized_joint, cues disabled, D0/E0 profile unchanged",
+  "nominal_E1": "Retain unchanged inherited D0/E0 threshold profile as an explicitly uncalibrated E1 sensitivity condition",
+  "pair_admission": {
+    "require_both_encoder_collections_complete": true,
+    "require_exact_matching_source_window_sample_bounds_and_waveform_sha256": true,
+    "require_matching_evidence_kind_and_clean_intervals": true,
+    "require_finite_unit_192_vectors": true,
+    "single_source_or_overlapping_waveform_pairs": "EXCLUDED; compare different original source IDs and different decoded PCM hashes only",
+    "representatives_per_source_and_evidence_kind": "Sort by end_sample, start_sample; select unique indices 0, floor((n-1)/2), n-1 without consulting values or truth activity",
+    "evidence_kinds": ["short", "mature"],
+    "role_pairs": ["short/short", "short/mature", "mature/mature"],
+    "missing_window_or_single_clip_identities": "Retain explicit denominators and unavailable positive-pair status; never invent support"
+  },
+  "C_partition": {
+    "unit": "identity; all original source clips of one identity stay together",
+    "rule": "int(SHA256(UTF8(identity)) first 8 hex digits, 16) modulo 3 equals 0 -> validation; otherwise fit",
+    "cross_partition_pairs": "EXCLUDED",
+    "minimum_fit_positive_identity_groups": 5,
+    "minimum_fit_negative_identity_pairs": 10,
+    "minimum_validation_positive_identity_groups": 5,
+    "minimum_validation_negative_identity_pairs": 10,
+    "if_insufficient": "UNAVAILABLE; do not change the split to improve the result"
+  },
+  "fit": {
+    "pair_scores": "Raw normalized-vector cosine; same exact waveform pairs for E0 and E1",
+    "weighting": "Median within each source-pair/role-pair, then median over source pairs for each identity-pair/role-pair, then median across present role-pairs per identity-pair, then median across identity-pair groups separately for same and different identities",
+    "centers": "n0,p0 are E0 different/same centers; n1,p1 are E1 different/same centers from fit partition only",
+    "require_center_gap_greater_than": 0.01,
+    "affine_mapping": "slope=(p1-n1)/(p0-n0); intercept=n1-slope*n0; map E0 cosine threshold t to slope*t+intercept",
+    "raw_cosine_threshold_fields": ["cosine_threshold", "prototype_update_threshold", "prototype_novelty_cosine", "archive_reentry_cosine", "conflict_cosine_floor", "reliable_voice_cosine"],
+    "cosine_difference_fields": ["ambiguity_margin", "archive_reentry_margin", "voice_score_scale"],
+    "difference_mapping": "Multiply by positive slope; no intercept",
+    "unchanged": "Normalized joint weights/margins, timing, evidence admission, lifecycle, dimensions, vector/prototype updates, inactive defaults, naming calibration and all E0 settings",
+    "invalid_parameter_or_profile_validation": "UNAVAILABLE; no clipping, extrapolation rescue or second parameter fit"
+  },
+  "validation": {
+    "scoring": "At each candidate cosine_threshold, report identity-group weighted same-pair rejection, different-pair acceptance and balanced mean; report all role-pair strata separately",
+    "comparators": ["E0 frozen nominal", "E1 inherited nominal", "E1 single C-fit affine profile"],
+    "admission_rule": "Candidate validation balanced mean <= E1 inherited nominal + 0.02 and different-pair acceptance <= E1 inherited nominal + 0.01; strict finite/group-support/profile validation must also pass",
+    "uncertainty": "Descriptive identity/source-correlated engineering calibration; no independent trial or deployment-confidence claim",
+    "failure": "Preserve proposal and failure; label UNQUALIFIED_C_SCALE; do not tune on validation or Q"
+  },
+  "integration_gates": [
+    "Frozen new derivative with explicit E1 profile binding and score-unit metadata",
+    "Real tracker regression on C only before the full bank; source order is deterministic and resets between independent sequences",
+    "Reconfirm unchanged E0 baseline and common frontend/event policy",
+    "Keep operational processed-query naming Unknown without a separate valid domain-matched C gate"
+  ],
+  "prohibited_claims": ["Probability of identity", "Processed-query false-known qualification", "GUI latency", "Complete N4 acceptance", "Improvement on unseen rooms or speakers"]
+}

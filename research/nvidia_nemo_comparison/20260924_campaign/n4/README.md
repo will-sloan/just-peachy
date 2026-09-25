@@ -13,8 +13,15 @@ supports all 16 intended catalog tuples. Actual Controller selection/cleanup
 passed 16/16 with model acquisition forbidden. See README_COMPOSITIONS.md,
 ACCEPTED_SOURCE_CATALOG_CHECK.json and UPSTREAM_ACCEPTANCE_20260925.json.
 
-N4 is not complete: zero of 7,680 integrated files have executed. No numerical
-worker is running. D0 activity, C-only D0/E1 calibration, exact caching and the
+N4 is not complete: zero of 7,680 integrated files have executed. The supervised
+`local/n4/d0-calibration-v1` collector now extracts genuine 0.5/1.5-second
+D0 windows from 367 protected C clips for E0 then E1, sequentially. Read its
+fresh RESULT.json and the supervisor heartbeat before starting any model work.
+README_D0_CALIBRATION.md gives purpose, inputs, outputs and run commands;
+eight tests passed. README_D0_REVIEW.md describes strict paired evidence review
+with six passing tests. D0_C_SCALE_PROTOCOL_V1.json was frozen before inspecting
+new C score values; collection alone does not qualify an association profile.
+D0 anonymous activity, C-only D0/E1 calibration, exact caching and the
 full-bank runner/admission still need implementation. README_EVIDENCE_STORE.md
 covers the tested new-run-only storage helper (12 tests); production integration
 and measured cell/storage bounds remain. Existing evidence was not removed.

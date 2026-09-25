@@ -19,8 +19,18 @@ acquisition/enrollment forbidden and zero hardware/audio/GUI starts. This is
 wiring evidence, not inference. ACCEPTED_SOURCE_CATALOG_CHECK.json and
 UPSTREAM_ACCEPTANCE_20260925.json bind the transition and exact source.
 
-**N4 is not complete.** No N4 numerical worker is running, and zero of 7,680
-intended integrated scene/tap cells have executed. Complete D0 activity,
+**N4 is not complete.** The supervised `local/n4/d0-calibration-v1` worker is
+collecting genuine D0 query windows from 367 protected C clips for each encoder
+(734 encoder/clip jobs). Its immutable admission SHA-256 is
+`e387f392ff5c4a3399ce0e75938524619357bd26e5278c508158069484829a79`.
+Inspect that run's fresh result, exact PID creation identities and the shared
+worker heartbeat before starting any numerical work. Eight collector tests and
+six paired-review tests pass. Run README_D0_REVIEW.md's verification only after
+the worker releases ownership. D0_C_SCALE_PROTOCOL_V1.json freezes one C-only
+fit/validation proposal before reading new vector scores; it is not a fitted
+or accepted profile. Whole-clip N2 C vectors were insufficient to validate
+D0's 0.5/1.5-second query scale, which is why this bounded collection is needed.
+Zero of 7,680 intended integrated scene/tap cells have executed. Complete D0 activity,
 C-only D0/E1 calibration, component-cache/archive integration and the admitted
 full-bank runner before numerical execution. Then perform paired scoring,
 GUI/paced/continuity and resource selection. N5 remains preparation only.
@@ -79,7 +89,12 @@ D0/E1 currently inherits D0's original anonymous association settings. Its own
 C-only scale/profile is not validated. Processed-query operational naming is
 uncalibrated and must remain Unknown; closed labels remain assumptions. D0 also
 lacks a recorded complete anonymous activity timeline in current Controller
-evidence. Its DER cannot be replaced with an embedding-window proxy or zero.
+evidence. Inspection confirmed that `research_evidence_v3.py` already emits
+full speech/overlap/posterior frames. What is absent is a total mapping from
+that activity to persistent anonymous tracks, including unassigned speech and
+overlap. The embedding admission windows are not that mapping. Preserve the
+actual source/availability times and unsupported regions; do not invent names,
+extend track support or substitute an embedding-window proxy for DER.
 
 Completed N2 D0/E0 and D1/E0 screens retain about 25.86 and 35.25 MiB of bound
 evidence per cell. Their simple 480-cell extrapolations are 12.12 and 16.52 GiB
@@ -111,8 +126,11 @@ No desktop input/focus control, SSH, microphone, USB, playback or new capture ra
 
 > Continue N4 from the accepted N3 source and fresh n4-catalog-v3 derivative.
 > Read UPSTREAM_ACCEPTANCE_20260925.json, current process identities, worker
-> state and resource ownership. N1/N2/N3 acceptance is complete; do not repeat
-> their old queues. Implement D0 activity observability and C-only D0/E1
+> state and resource ownership. First follow the newer d0-calibration-v1 run;
+> never duplicate it. Review its exact matching E0/E1 windows on completion,
+> then implement the frozen C-only scale protocol without Q feedback. N1/N2/N3
+> acceptance is complete; do not repeat their old queues. Implement the full
+> D0 anonymous activity output and qualified D0/E1
 > association calibration, then integrate exact component caching and the
 > verified new-run storage lifecycle into a full-bank runner. Freeze a new
 > derivative for source changes; do not edit accepted releases. Admit the
@@ -124,5 +142,6 @@ No desktop input/focus control, SSH, microphone, USB, playback or new capture ra
 > then N5 validation and releases. Preserve every earlier artifact and all
 > desktop/Pi/privacy constraints; do not extend the packaging cutoff/deadline.
 
-The registered in-task heartbeat continues. There is currently no N4 numerical
-queue or model worker. N5 preparation is not a completed-stage deliverable.
+The registered in-task heartbeat continues. The C-window collector is the sole
+N4 model worker; it does not run the full bank or earn integrated-cell credit.
+N5 preparation is not a completed-stage deliverable.
