@@ -13,68 +13,67 @@ supports all 16 intended catalog tuples. Actual Controller selection/cleanup
 passed 16/16 with model acquisition forbidden. See README_COMPOSITIONS.md,
 ACCEPTED_SOURCE_CATALOG_CHECK.json and UPSTREAM_ACCEPTANCE_20260925.json.
 
-N4 is not complete: zero of 7,680 integrated files have executed. The supervised
-`local/n4/d0-bank-v1` now collects D0 component evidence on all 480 saved
-scene/tap files, E0 then E1 sequentially (960 component jobs). Read its fresh
-RESULT.json and the supervisor heartbeat before starting any model work.
-README_D0_BANK.md covers bounded compressed storage and launch commands.
-The earlier `d0-calibration-v1` completed 734/734 encoder/clip jobs; strict review
-passed 3,409 matching windows per encoder. D0_COLLECTION_REVIEW_V1.json records
-that result. The one frozen C-scale proposal failed its validation tradeoff and
-remains UNQUALIFIED_C_SCALE: see D0_C_SCALE_DECISION_V1.md/D0_SCALE_FIT_V1.json.
-It was not retuned or applied; nominal D0/E1 remains an unqualified comparison.
-README_D0_CALIBRATION.md gives purpose, inputs, outputs and run commands;
-eight tests passed. README_D0_REVIEW.md describes strict paired evidence review
-with six passing tests. D0_C_SCALE_PROTOCOL_V1.json was frozen before inspecting
-new C score values; collection alone does not qualify an association profile.
-The fitting and bank runner add eight and five passing tests respectively.
-The new full-bank reviewer and activity observer passed 33 tests including the
-six reused geometry tests. README_REVIEW_D0_BANK.md gives the terminal-only
-review command; do not run the C-population reviewer on these bank results.
-README_D0_ACTIVITY.md describes the observer and its real closed-cell probe:
-83 actual E0 O0/O1 embeddings gave identical anonymous decisions under the
-native scheduler's incremental and batched causal ordering. Full speech masks,
-unassigned speech, conflicts, overlap and the unobserved tail remain explicit.
-D0_IMPLEMENTATION_CHECK_V1.json binds the code, tests and private probe.
-This is two-cell development evidence, with no neural model loaded, no ASR or
-gallery, and modeled clocks. It is not S7 Controller parity, a global-source
-diarization decoder, paired full-bank review or an integrated result. Complete
-D0 activity/application integration and the full-bank runner/cache replay still
-need implementation; D0/E1 calibration remains unqualified. README_EVIDENCE_STORE.md
-covers the tested new-run-only storage helper (12 tests); production integration
-and measured cell/storage bounds remain. Existing evidence was not removed.
+N4 is not complete: zero of 7,680 integrated files have executed. The current
+sole numerical run is `local/n4/asr-full-bank-v1`: 1,920 actual ASR component
+cells, A0/A1/A2/A3 sequentially across all 480 admitted files. It started at
+2026-09-25 04:30:24 UTC. ASR_FULL_BANK_START_V1.json binds its fresh admission,
+source/runtime/code, 11 passing tests and initial exact ownership. Always read
+fresh RESULT.json, panel progress and the supervisor heartbeat before model work.
+README_ASR_FULL_BANK.md covers its 2-GiB cap, 32-MiB expanded per-cell limit,
+full-bank admission and mandatory terminal review. Current private logical
+inventory plus this run and conservative downstream reservations was 43.000 GiB
+against the existing 50-GiB allowance. No competing model or waiter was started.
 
-E0 has completed all 480 bank files and E1 is the active model worker. The first
-two closed O0/O1 pairs passed exact geometry, full segmentation/admission and
-event checks (D0_PAIR_PREFIX_CHECK_V1.json); this is not the final 960-cell review.
-The next ASR smoke is prepared at `local/n4/asr-smoke-v1`, not started.
-ASR_SMOKE_PREPARATION_V1.json binds its admission and 18 passing protocol/review
-tests. README_ASR_BANK.md covers the unchanged application streaming loops,
-accepted A0/A1/A2/A3 owners and separate final-only formatting. The actual source
-reads 100-ms chunks, so the earlier 80-ms N3 screen is not silently reused.
-README_REVIEW_ASR.md describes the mandatory terminal eight-cell integrity review.
-After the D0 worker exits and its full-bank review passes, dispatch this ASR smoke
-through the existing supervisor. Do not start a competing worker. Full-bank ASR
-admission and integrated application/presentation parity remain pending.
+D0 full-bank component collection and review are complete: 960/960 cells,
+480 per encoder, 13,006 exactly matched query windows per encoder (7,404 short,
+5,602 mature). Eight files per encoder without admitted queries remain in the
+denominator. Review verified 43,388 segmentation calls per encoder and all
+2,621,822,924 expanded event bytes. D0_FULL_BANK_REVIEW_V1.json records
+PASS_MATCHED_FULL_BANK_COMPONENTS_ONLY. This does not qualify a calibrated
+D0/E1 profile, integrated application, full-stack resources or live latency.
+README_D0_BANK.md and README_REVIEW_D0_BANK.md document collection and review.
 
-The following four-cell D1 smoke is prepared at `local/n4/d1-smoke-v1`, with no
-model or waiter started. Its capture runs the unchanged actual N2Engine speaker
-loop and activity-window selector with admitted D1 and E0/E1 owners. All native
-frames, overlap/silence, exact contiguous query bytes and short-turn denominators
-are retained; component timing is explicitly modeled. Twenty-two tests pass.
-D1_SMOKE_PREPARATION_V1.json, README_D1_COMPONENTS.md and README_REVIEW_D1.md bind
-the code and commands. Keep the launch order D0 review, ASR smoke/review, then
-D1 smoke/review through the sole supervisor. Full-bank D1 and integrated/GUI
-parity remain pending; component smoke supplies zero integrated-cell credit.
+The earlier C collection completed 734/734 jobs and passed paired review with
+3,409 matched windows per encoder. The single predeclared C scale fit failed:
+balanced error rose 2.583 percentage points versus E1 nominal, beyond the 2.0
+limit. D0_C_SCALE_DECISION_V1.md/D0_SCALE_FIT_V1.json retain this failure; the
+profile was not applied or retuned. Nominal D0/E1 remains an unqualified
+engineering comparison. D0_COLLECTION_REVIEW_V1.json and the calibration,
+review and scale-protocol READMEs retain exact evidence and commands.
 
-The component-to-caption interface now calls the actual frozen S7/N1 span state
-with an explicit modeled replay scope (README_COMPONENT_PRESENTATION.md).
-Seven tests preserve raw words and formatting, same-boundary native finals,
-correct/stale identity targets and session isolation. It does not supply the
-causal merge, observed-policy parity, Controller or GUI execution; those remain
-required. Inherited `monotonic` field names in this diagnostic contain modeled
-values and cannot be reported as first-visible latency. COMPONENT_PRESENTATION_CHECK_V1.json
-binds the implementation and test receipt.
+The actual application ASR smoke passed 8/8 cells at 04:21:20 UTC, two per
+variant. ASR_SMOKE_REVIEW_V1.json binds every complete log, raw/native final,
+source tail, reset/drain and separate final-only formatting result. The actual
+100-ms journal reads differ from the earlier N3 external 80-ms screen. The
+new full-bank admission was made only after this review; the old smoke runner
+still refuses full-bank scope. README_ASR_BANK.md and README_REVIEW_ASR.md
+remain the reproducible smoke protocol, with 18 prior passing tests.
+
+D1 smoke passed 4/4 cells at 04:29:22 UTC. Each E0/E1 pair matched all 4,470
+native frames per file and 20 O0 / 19 O1 exact query windows. Two/four short
+exclusive runs stayed explicit. D1_SMOKE_REVIEW_V1.json binds the results.
+README_D1_COMPONENTS.md/README_REVIEW_D1.md document the unchanged actual N2
+speaker loop, activity selector, native CPU1 owners and 22 passing tests.
+Its timing remains modeled; full-bank D1 admission/runner and integrated
+Controller/widget parity still need implementation. All smoke workers exited.
+
+D0ActivityEvidence retains complete speech/silence/overlap masks, exact clean
+track support, conflicts, unassigned speech and unobserved tails. Its two-cell
+83-embedding probe matched incremental and batched nominal anonymous decisions;
+33 tests passed. D0_IMPLEMENTATION_CHECK_V1.json and README_D0_ACTIVITY.md
+bind that diagnostic. A global persistent-source decoder and actual S7 observed
+policy/application integration remain pending; embedding windows are not DER.
+The tested evidence_store.py helper has 12 passing lifecycle tests; production
+integration and whole-stack storage bounds remain required.
+
+The component-to-caption adapter calls actual frozen S7/N1 span state under an
+explicit modeled replay contract; seven tests passed (COMPONENT_PRESENTATION_CHECK_V1.json,
+README_COMPONENT_PRESENTATION.md). component_commands.py now reconstructs the
+actual ASR/D0 prediction pushes and source watermarks. Seven actual-loop tests
+and a 12-cell real-evidence reconstruction probe pass; COMPONENT_COMMANDS_CHECK_V1.json
+and README_COMPONENT_COMMANDS.md bind that work. D1 command integration, causal
+merge, observed S7 policy parity, Controller/GUI runs and full-bank scoring are
+still required. Modeled values cannot be reported as first-visible latency.
 
 The specification ceiling is 80 GiB; the shared resource-policy record retains
 a more conservative 50-GiB payload allowance. Reconcile actual previous usage

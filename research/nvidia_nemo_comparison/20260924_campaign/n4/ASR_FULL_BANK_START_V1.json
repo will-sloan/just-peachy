@@ -1,0 +1,88 @@
+{
+  "schema": "n4-asr-full-bank-start-v1",
+  "status": "RUNNING_NOT_ACCEPTED",
+  "recorded_utc": "2026-09-25T04:31:46.501013+00:00",
+  "admission": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-full-bank-v1\\ADMISSION.json",
+    "sha256": "f5c5868f5e9237e25e7c3241d3f5e66f28d46cd03bc83c01c3d42b2762cf33a7",
+    "bytes": 200229
+  },
+  "worker": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-full-bank-v1\\worker.json",
+    "sha256": "e8beaf4e5cbb115954678f6c002407b7e31520f534ae8c8d2bdad81d53c3b491",
+    "bytes": 436
+  },
+  "initial_verified_ownership": [
+    {
+      "pid": 28376,
+      "create_time": 1790310624.033616,
+      "affinity": [
+        14
+      ]
+    },
+    {
+      "pid": 38788,
+      "create_time": 1790310624.1776628,
+      "affinity": [
+        14
+      ]
+    },
+    {
+      "pid": 40244,
+      "create_time": 1790310626.0298579,
+      "affinity": [
+        4
+      ]
+    }
+  ],
+  "run_id": "9cf9cc25ee7d44738b9bc96a7282ddc0",
+  "component_cells_required": 1920,
+  "integrated_N4_cells": 0,
+  "smoke_review": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-smoke-review-v1\\REVIEW.json",
+    "sha256": "7e0ff33b1221a1d9335c14595ef9cd369274f29bb0c6c41b36afa74845e1d30d",
+    "bytes": 6619
+  },
+  "preceding_D1_review": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\d1-smoke-review-v1\\REVIEW.json",
+    "sha256": "765a5f1d70a871b05e80f2bc193767a9d8ecd3ab3f8ee36f60a03b97fbe15c31",
+    "bytes": 3416
+  },
+  "code": [
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\asr_full_bank.py",
+      "sha256": "ab9ebf7ee64d70b859935b4d3725cce24adb03a713c0a2ad4328253bc02900f9",
+      "bytes": 17580
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\test_asr_full_bank.py",
+      "sha256": "403f4076503c86eab15453b47a5f7eecd571d679863c5dbc82a757ed02009050",
+      "bytes": 4248
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\review_asr_full_bank.py",
+      "sha256": "760561c5e737bf9574a96377ac2d7c3660817fc59b7d6c1fffb48fa3d59ce4df",
+      "bytes": 5367
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\test_review_asr_full_bank.py",
+      "sha256": "c31e6fcdabe1fd91911b374f393da6dcf68d8095aa8c97461688b62cb8cf818b",
+      "bytes": 4895
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\README_ASR_FULL_BANK.md",
+      "sha256": "a2fbb6a3b9d70f0443971f6343b9eed5521b26773f20bd6999f2297eaf683a05",
+      "bytes": 7447
+    }
+  ],
+  "tests": 11,
+  "failures": 0,
+  "errors": 0,
+  "elapsed_seconds": 25.408,
+  "full_review_fixture_cells": 1920,
+  "inventory_gib": 35.99958867859095,
+  "conservative_allocation_plus_inventory_gib": 42.99958867859095,
+  "allocation_bytes": 2147483648,
+  "per_cell_expanded_limit_bytes": 33554432,
+  "review_required": "review_asr_full_bank.py after exact coordinator exits; no integrated or GUI credit"
+}

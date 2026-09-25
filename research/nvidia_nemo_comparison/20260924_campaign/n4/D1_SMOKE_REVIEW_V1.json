@@ -1,0 +1,82 @@
+{
+  "status": "PASS_D1_COMPONENT_SMOKE",
+  "reviewed_utc": "2026-09-25T04:29:22.587045+00:00",
+  "admission": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\d1-smoke-v1\\ADMISSION.json",
+    "sha256": "af4c0767c8552bf7bfa73f2c69bc3c3c90375e4a20043b81c727cf486631747f",
+    "bytes": 22877
+  },
+  "terminal": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\d1-smoke-v1\\RESULT.json",
+    "sha256": "e8ffc33bcc14c0c350cf6c1d681640fea1d1f4cd28ec79d3426aac708c392613",
+    "bytes": 934
+  },
+  "reviewer": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\review_d1_components.py",
+    "sha256": "0c362db97dac373f4b99142f15d70722e65f35fdf096dc1daac8350c33a41531",
+    "bytes": 16403
+  },
+  "component_cells": 4,
+  "paired_files": 2,
+  "rows": [
+    {
+      "encoder": "E0",
+      "job_id": "N2_S45_01_01_O0",
+      "result": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\d1-smoke-v1\\E0\\N2_S45_01_01_O0\\RESULT.json",
+        "sha256": "4ff8cbbefcbfc44d57e8e22eaa9eb7c655fe99313bf1b53e9eba4fe959f0fc25",
+        "bytes": 134866
+      },
+      "native_frames": 4470,
+      "embeddings": 20,
+      "short_runs": 2,
+      "semantic_frames_sha256": "2ba7abf6cb2e00e66413930c1bd09a3cd07a3d0f9cae33bfc32b6021a05cf28e",
+      "query_geometry_sha256": "4b011d49ca2068a122913c83085b3dfa2b9d89b63f287486bc1b6bc023bfde8b"
+    },
+    {
+      "encoder": "E0",
+      "job_id": "N2_S45_01_01_O1",
+      "result": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\d1-smoke-v1\\E0\\N2_S45_01_01_O1\\RESULT.json",
+        "sha256": "ac1c7b499f1e026a863dc6aebec5550b8e5120a17d045540ca09d8e53887c468",
+        "bytes": 128177
+      },
+      "native_frames": 4470,
+      "embeddings": 19,
+      "short_runs": 4,
+      "semantic_frames_sha256": "b261a015b6b1c30cb0a800c68b6f6eda58332ddcca9f02c58287d9f5364367c8",
+      "query_geometry_sha256": "3b1f9407e1e77bbb19c9a1f597fe9f14e60867e9007089ffde2f2bc0535f35fb"
+    },
+    {
+      "encoder": "E1",
+      "job_id": "N2_S45_01_01_O0",
+      "result": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\d1-smoke-v1\\E1\\N2_S45_01_01_O0\\RESULT.json",
+        "sha256": "88af0d15b76676b5877f74ae42c71019419b830dcad38b06f2c3a3e03c5090e6",
+        "bytes": 135094
+      },
+      "native_frames": 4470,
+      "embeddings": 20,
+      "short_runs": 2,
+      "semantic_frames_sha256": "2ba7abf6cb2e00e66413930c1bd09a3cd07a3d0f9cae33bfc32b6021a05cf28e",
+      "query_geometry_sha256": "4b011d49ca2068a122913c83085b3dfa2b9d89b63f287486bc1b6bc023bfde8b"
+    },
+    {
+      "encoder": "E1",
+      "job_id": "N2_S45_01_01_O1",
+      "result": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\d1-smoke-v1\\E1\\N2_S45_01_01_O1\\RESULT.json",
+        "sha256": "c8de37c0894977d8066d418d92dfa91271e413455c2030d429b3858188fc63f1",
+        "bytes": 128447
+      },
+      "native_frames": 4470,
+      "embeddings": 19,
+      "short_runs": 4,
+      "semantic_frames_sha256": "b261a015b6b1c30cb0a800c68b6f6eda58332ddcca9f02c58287d9f5364367c8",
+      "query_geometry_sha256": "3b1f9407e1e77bbb19c9a1f597fe9f14e60867e9007089ffde2f2bc0535f35fb"
+    }
+  ],
+  "integrated_N4_cells": 0,
+  "full_bank_admitted": false,
+  "Controller_widget_parity": false
+}

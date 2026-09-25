@@ -19,60 +19,58 @@ acquisition/enrollment forbidden and zero hardware/audio/GUI starts. This is
 wiring evidence, not inference. ACCEPTED_SOURCE_CATALOG_CHECK.json and
 UPSTREAM_ACCEPTANCE_20260925.json bind the transition and exact source.
 
-**N4 is not complete.** The supervised `local/n4/d0-bank-v1` now collects actual
-D0 components on all 480 saved scene/tap files, first E0 then E1 sequentially.
-Its immutable admission SHA-256 is
-`1a99b124348d6e933665efb268edbfc0864191880400d469804ab0f65b4c42af`.
-Inspect this newer run's result, exact PID creation identities and the shared
-worker heartbeat before numerical work. README_D0_BANK.md describes the
-4-GiB bounded compressed store and unchanged fixed-cadence causal speaker lane.
-This is 960 component jobs, zero completed integrated scene/tap results.
+**N4 is not complete: 0/7,680 integrated cells.** The sole current numerical
+run is `local/n4/asr-full-bank-v1`, started 2026-09-25 04:30:24 UTC. It collects
+1,920 actual component cells: A0/A1/A2/A3, all 480 files each, sequential owners.
+Admission SHA-256: `f5c5868f5e9237e25e7c3241d3f5e66f28d46cd03bc83c01c3d42b2762cf33a7`.
+Read README_ASR_FULL_BANK.md and ASR_FULL_BANK_START_V1.json. Its coordinator is
+initially PID 38788 / creation 1790310624.1776628, supervisor 28376 /
+1790310624.033616, both CPU14; initial A0 model 40244 / 1790310626.0298579 uses
+CPU4. These are discovery hints, not durable ownership: inspect fresh result,
+worker heartbeat, exact PID creation and resource ownership before work.
+Do not edit code, tests or README bound by this admission while it runs.
 
-E0 finished 480/480; E1 is now the active child. Its initial exact process
-identity is PID 43344 / creation 1790306326.6970823, affinity [4]; coordinator
-41744 / 1790304091.8017163 and supervisor 31900 / 1790304091.670885 use [14].
-These are discovery hints: always inspect fresh identities and progress.
-D0_PAIR_PREFIX_CHECK_V1.json verifies the first two closed O0/O1 E0/E1 pairs,
-including all event bytes and exact segmentation/admission semantics. The final
-480-pair full-bank review has not run while E1 remains active.
+The full-bank ASR runner and terminal reviewer passed 11 tests, including a
+complete 1,920-cell integrity fixture, missing-cell/index rejection, source/gain
+firewall, actual endpoint/tail capture and bounded UTF-8 storage. Preparation
+reverified every waveform and all upstream smoke/source/runtime bindings. The
+fresh inventory was 35.9996 GiB; adding full ASR 2 GiB, pending D1 smoke 2 GiB,
+future D1 bank 2 GiB and contingency 1 GiB totals 42.9996 GiB beneath 50 GiB.
+This conservatively counts already-written smoke bytes as well as future
+reservations. Per-cell expanded text is capped at 32 MiB, run allocation at
+2 GiB, C/G floors at 50/75 GiB, and the existing packaging cutoff is retained.
+No new model download, numerical waiter or concurrent model was launched.
 
-Next prepared model work: `local/n4/asr-smoke-v1/ADMISSION.json`, SHA-256
-`127be50f7d42b2271b744dd9a9de3e18844031c873d882ee2d2ffef6743e902a`.
-It is NOT_STARTED, with no waiter/model process. Its eight cells use A0/A1/A2/A3
-sequentially on the first admitted O0/O1 pair, calling the actual unchanged
-application ASR loops and qualified owners. Read README_ASR_BANK.md and
-ASR_SMOKE_PREPARATION_V1.json. Ten real-loop stub protocol tests and eight
-integrity-review tests pass; model inference has not yet occurred. The source's
-100-ms journal reads differ from the earlier N3 external 80-ms screen feeds.
-Formatting calls use actual P0 or native P1 in a separate modeled FIFO after
-ASR closure; they supply no observed GUI/worker timing claim. The conservative
-2-GiB ASR reservation includes the existing D0 4-GiB reservation separately,
-plus 1 GiB contingency beneath the shared 50-GiB allowance. No download ran.
+D0 full-bank collection finished 960/960 at 04:02:47 UTC; strict review passed
+at 04:11:11 UTC. D0_FULL_BANK_REVIEW_V1.json binds 480 cells per encoder,
+13,006 exact matched query windows per encoder (7,404 short, 5,602 mature),
+43,388 segmentation calls per encoder, all rejection categories and
+2,621,822,924 fully verified expanded event bytes. Eight no-query files per
+encoder remain counted. Its exact old coordinator/model/supervisor exited.
+The full receipt is private: local/n4/d0-bank-review-v1/REVIEW.json, SHA-256
+`0c2eb703ee2cf66d6cd328032fa36507fd3f1cd77281c8cca3668cdae3abc725`.
+This is matched component evidence, not calibrated D0/E1, global activity,
+integrated/GUI execution or complete-stack resource qualification.
 
-After D0 is terminal, reviewed, and all exact numerical ownership is free, use
-the existing supervisor to start the prepared ASR worker. On completion, run
-review_asr_components.py as described in README_REVIEW_ASR.md; only its passed
-eight-cell evidence can support a fresh full-bank admission. The current runner
-refuses full-bank preparation until that separate review/implementation step.
-Preserve failures and derivatives. Neither preparation nor this smoke earns any
-of the 7,680 integrated-cell count.
+ASR smoke passed 8/8 at 04:21:20 UTC. ASR_SMOKE_REVIEW_V1.json binds all four
+variants' two actual application-loop cells. Source 100-ms reads, exact tails,
+EOU/reset/drain, original raw/native finals and final-only formatting passed.
+Formatting remains actual P0/native P1 in a separately modeled FIFO after ASR
+closure, not observed GUI/worker timing. The full-bank run reuses the same
+frozen loop/owner contracts and recollects every file, including the smoke pair.
+Historical ASR_SMOKE_PREPARATION_V1.json remains an immutable earlier snapshot.
 
-The following D1 smoke is also prepared, not started, with no waiter:
-`local/n4/d1-smoke-v1/ADMISSION.json`, SHA-256
-`af4c0767c8552bf7bfa73f2c69bc3c3c90375e4a20043b81c727cf486631747f`.
-README_D1_COMPONENTS.md and README_REVIEW_D1.md describe the actual unchanged
-N2Engine speaker loop/activity selector, paired E0/E1 collection, exact native
-frames/query bytes, short-turn denominators, and explicitly modeled timing.
-D1_SMOKE_PREPARATION_V1.json binds 22 passing tests and the frozen code. The
-four-cell smoke uses the first O0/O1 pair, E0 then E1, no ASR/gallery/UI models.
-It retains nominal low_latency D1 (1.04-second native input buffering) and CPU1
-runtime. Its separate 2-GiB reservation conservatively charges existing D0 4 GiB,
-ASR 2 GiB and another 1 GiB contingency against the shared 50-GiB allowance.
-Launch only after D0 terminal review and ASR smoke review, through the same
-supervisor after fresh exact ownership verification. Then review the four cells
-with review_d1_components.py. Full-bank D1 admission remains unavailable pending
-that evidence. Model setup/endpoint failures must be preserved in a fresh
-derivative, not retried in place. No integrated or GUI execution credit is earned.
+D1 smoke passed 4/4 at 04:29:22 UTC: both encoders, first O0/O1 pair. All 4,470
+native frames per file and 20 O0 / 19 O1 query windows match across E0/E1;
+two O0 and four O1 short exclusive runs are retained. D1_SMOKE_REVIEW_V1.json
+binds the review, SHA-256 `765a5f1d70a871b05e80f2bc193767a9d8ecd3ab3f8ee36f60a03b97fbe15c31`.
+README_D1_COMPONENTS.md and README_REVIEW_D1.md describe the exact unchanged
+N2Engine speaker loop and activity-window selector. All four cells retain
+nominal 1.04-second D1 input buffering and admitted CPU1 runtime, actual frames,
+overlap/silence and query bytes. Twenty-two protocol/review tests passed.
+These workers exited before ASR full-bank launch. Implement a fresh full-bank
+D1 admission/runner/reviewer using this passed evidence; its current smoke
+runner still refuses full scope. Do not modify preserved smoke code in place.
 
 The earlier `d0-calibration-v1` finished 734/734 jobs. The strict review passed
 3,409 matched windows per encoder (1,985 short, 1,424 mature); no C clip lacked
@@ -89,7 +87,7 @@ The full-bank acceptance checker is now implemented: README_REVIEW_D0_BANK.md
 and `review_d0_bank.py`. It requires terminal 960-cell coverage and an exited
 exact coordinator, verifies all bindings, full gzip bytes/CRC, every dispatch
 and rejected admission, exact vectors/waveform slices, and paired segmentation/
-admission semantics. It has not yet reviewed the running full-bank collection.
+admission semantics. The completed full-bank review passed as recorded above.
 
 The new `D0ActivityEvidence` observer retains total scene coverage, first/latest
 mask observations, exact clean track support, conflicts, overlap and unobserved
@@ -124,6 +122,15 @@ Source inspection confirmed that observed S7 eligibility also checks current
 source freshness and publication age; a plain S6C batch replay is insufficient
 evidence of that behavior. The integrated runner must resolve and test this
 contract rather than silently replacing the observed application clock.
+
+
+Command reconstruction now preserves actual ASR/D0 scheduler push/watermark
+sequences, including partial tails and rejected D0 queries. Seven actual-loop
+stub tests passed, followed by successful reconstruction from 12 closed real
+component cells (eight ASR smoke, four D0). COMPONENT_COMMANDS_CHECK_V1.json and
+README_COMPONENT_COMMANDS.md bind this evidence. D1 commands and the causal
+joint merge are still required. The probe does not establish Controller/policy
+parity and supplies zero integrated-cell credit.
 
 ## Implemented and actually checked
 
@@ -213,42 +220,41 @@ No desktop input/focus control, SSH, microphone, USB, playback or new capture ra
 
 ## Exact continuation in this existing task
 
-> Continue N4 from the accepted N3 source and fresh n4-catalog-v3 derivative.
-> Read UPSTREAM_ACCEPTANCE_20260925.json, current process identities, worker
-> state and resource ownership. First follow the newer d0-bank-v1 run;
-> never duplicate it or edit its bound source/code. The C collection/review
-> finished and the single frozen scale fit failed; preserve that result without
-> retuning. Review the full-bank exact E0/E1 geometry after completion using
-> review_d0_bank.py (README_REVIEW_D0_BANK.md), after the exact coordinator exits.
-> Then dispatch the already-prepared asr-smoke-v1 worker through the existing
-> supervisor after verifying the numerical slot is free. Review its eight actual
-> cells with review_asr_components.py before admitting full-bank ASR collection.
-> After ASR review and fresh ownership verification, the prepared d1-smoke-v1
-> provides the next four-cell native speaker-lane check. Read its immutable
-> admission and README_D1_COMPONENTS/README_REVIEW_D1; use the existing supervisor
-> and review its exact paired frames/windows before full-bank D1 admission.
-> Preserve its bound source/code; source chunking/formatting clocks are documented
-> in README_ASR_BANK.md and README_REVIEW_ASR.md. Do not count component smoke as
-> integrated execution, observed S7 Controller parity or live caption timing.
-> The activity observer and two-cell native policy ordering probe are implemented
-> with 33 passing tests; use README_D0_ACTIVITY.md and D0_IMPLEMENTATION_CHECK_V1.json.
-> They do not establish S7 observed-clock Controller parity or a global-source
-> decoder. Preserve explicit unassigned/conflicting/overlap support when wiring
-> the real integrated activity output; do not promote the diagnostic to DER.
-> N1/N2/N3
-> acceptance is complete; do not repeat their old queues. Implement the full
-> D0 anonymous activity output, keep D0/E1's calibration limitation visible,
-> then integrate exact component caching and the
-> verified new-run storage lifecycle into a full-bank runner. Freeze a new
-> derivative for source changes; do not edit accepted releases. Admit the
-> numerical plan only with complete contracts, resource ownership and a bounded
-> remaining disk allocation. Execute the actual 7,680-cell matrix with honest
-> failure/incompatibility/missing counts, followed by common-GUI paced panels,
-> continuity and whole-stack resource checks. Keep frozen baseline/model/event
-> policies and calibration/test separation. Complete the N4 report/selection,
-> then N5 validation and releases. Preserve every earlier artifact and all
-> desktop/Pi/privacy constraints; do not extend the packaging cutoff/deadline.
+> Continue N4 in this same worktree from accepted n4-catalog-v3. N1/N2/N3 are
+> accepted in their stated offline/component scopes; do not restart their old
+> queues. The current model run is local/n4/asr-full-bank-v1. Inspect fresh
+> RESULT.json, panel progress, exact worker/coordinator/model PID creation and
+> CPU/resource ownership. Preserve its frozen code and let healthy work continue.
+> D0 full bank (960), ASR smoke (8) and D1 smoke (4) all passed separate strict
+> reviews; public *_REVIEW_V1 receipts bind those results. Do not repeat them.
+> After ASR full bank is terminal and its exact coordinator exits, use
+> review_asr_full_bank.py from README_ASR_FULL_BANK.md for all 1,920 cells.
+> Queue completion does not establish review/acceptance.
+>
+> During healthy ASR work, implement a separate full-bank D1 runner/admission
+> and reviewer using the accepted four-cell smoke and immutable helper code.
+> Charge existing payload and reservations accurately; no parallel model or
+> waiter. Launch through the existing supervisor only after ASR review and
+> fresh exact ownership verification. Continue useful unbound application
+> integration meanwhile: exact ASR/D0 commands and modeled span presentation
+> are tested, but D1/causal merge, observed S7 policy eligibility/publication
+> freshness and actual Controller parity remain unresolved. Plain S6C batch
+> replay is not that parity. D0 diagnostic masks are not a persistent-source
+> decoder: retain unsupported/conflicting/overlap/tail regions and never use
+> embedding-window proxies as DER. The C-scale fit failed and was not applied;
+> keep nominal D0/E1 explicitly unqualified, without validation/Q retuning.
+>
+> Implement the actual 7,680-cell coupled matrix with exact cache keys, bounded
+> evidence storage, present/absent gallery and mode comparisons, honest failed/
+> unavailable counts and paired metrics. Then complete common-GUI source-paced
+> panels, timing repeats, continuity and whole-stack resource selection. Preserve
+> baseline/event policies and calibration/test separation. Complete N4 reporting
+> and selection, then N5 validation, packages, documentation and verified Git.
+> Preserve earlier artifacts and the user's desktop/Pi/privacy constraints.
+> Packaging reserve starts Sep28 02:48:19 UTC, deadline Sep28 14:48:19 UTC;
+> do not extend them. If coverage cannot finish, classify the actual gap and
+> package supported candidates within the reserve rather than fabricate success.
 
-The registered in-task heartbeat continues. The full-bank D0 component collector
-is the sole N4 model worker; it earns no integrated-cell credit by itself.
-N5 preparation is not a completed-stage deliverable.
+The registered in-task heartbeat continues. ASR full-bank components are the
+sole active numerical workload at this checkpoint; integrated count stays zero.
+N5 remains preparation only until accepted N4 configuration selection.

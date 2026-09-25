@@ -1,0 +1,194 @@
+{
+  "schema": "n4-asr-smoke-review-v1",
+  "status": "PASS_ASR_COMPONENT_SMOKE",
+  "utc": "2026-09-25T04:21:20.665221+00:00",
+  "component_cells": 8,
+  "per_variant": 2,
+  "component_contract_sha256": "9e7f70a077bd3585215b13e20f44356f94dbc268786c9b4318ab3cf3a410aeb6",
+  "admission": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-smoke-v1\\ADMISSION.json",
+    "sha256": "127be50f7d42b2271b744dd9a9de3e18844031c873d882ee2d2ffef6743e902a",
+    "bytes": 24341
+  },
+  "final_result": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-smoke-v1\\RESULT.json",
+    "sha256": "7d1936fe5ad58a59e4cb06633ba7f5617307fe74d1b200cc02a1e0176be71094",
+    "bytes": 1363
+  },
+  "cells": [
+    {
+      "variant": "A0",
+      "result": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-smoke-v1\\A0\\N2_S45_01_01_O0\\RESULT.json",
+        "sha256": "8772891a7f61b8837e0b50e34421b839b6d330049b7d45233f4695a29522b26d",
+        "bytes": 2551
+      },
+      "scan": {
+        "dispatches": 447,
+        "source_samples": 715127,
+        "raw_observations": 41,
+        "final_utterances": 3,
+        "raw_final_words": 38,
+        "punctuation_statuses": {
+          "learned": 3
+        },
+        "expanded_bytes": 433820
+      }
+    },
+    {
+      "variant": "A0",
+      "result": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-smoke-v1\\A0\\N2_S45_01_01_O1\\RESULT.json",
+        "sha256": "4fee0847ee85fd4739847de2915ed7f09da53bce580ee9a4400ac56ff676b7d6",
+        "bytes": 2550
+      },
+      "scan": {
+        "dispatches": 447,
+        "source_samples": 715127,
+        "raw_observations": 40,
+        "final_utterances": 3,
+        "raw_final_words": 36,
+        "punctuation_statuses": {
+          "learned": 3
+        },
+        "expanded_bytes": 433623
+      }
+    },
+    {
+      "variant": "A1",
+      "result": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-smoke-v1\\A1\\N2_S45_01_01_O0\\RESULT.json",
+        "sha256": "32b9efe0f3589474f7813439d1b28107e0eef781d3f854c098f6e97ee4df9b6d",
+        "bytes": 2383
+      },
+      "scan": {
+        "dispatches": 447,
+        "source_samples": 715127,
+        "raw_observations": 44,
+        "final_utterances": 2,
+        "raw_final_words": 25,
+        "punctuation_statuses": {
+          "learned": 2
+        },
+        "expanded_bytes": 332344
+      }
+    },
+    {
+      "variant": "A1",
+      "result": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-smoke-v1\\A1\\N2_S45_01_01_O1\\RESULT.json",
+        "sha256": "55901def6fca481f374463b2b54639eb8f6a96004fb274cba0b4a39de8aaebb7",
+        "bytes": 2436
+      },
+      "scan": {
+        "dispatches": 447,
+        "source_samples": 715127,
+        "raw_observations": 50,
+        "final_utterances": 3,
+        "raw_final_words": 33,
+        "punctuation_statuses": {
+          "learned": 3
+        },
+        "expanded_bytes": 395130
+      }
+    },
+    {
+      "variant": "A2",
+      "result": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-smoke-v1\\A2\\N2_S45_01_01_O0\\RESULT.json",
+        "sha256": "37d507618460325e4234447d4abd5725568fc8f9f7b12c159dc19a38c2f36464",
+        "bytes": 2285
+      },
+      "scan": {
+        "dispatches": 447,
+        "source_samples": 715127,
+        "raw_observations": 25,
+        "final_utterances": 4,
+        "raw_final_words": 17,
+        "punctuation_statuses": {
+          "native_punctuation_preserved": 4
+        },
+        "expanded_bytes": 369157
+      }
+    },
+    {
+      "variant": "A2",
+      "result": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-smoke-v1\\A2\\N2_S45_01_01_O1\\RESULT.json",
+        "sha256": "1dd62e1ee461a4c000e840ca7b2aa4cacfc3912c916743345a0c56eef1562cfa",
+        "bytes": 2322
+      },
+      "scan": {
+        "dispatches": 447,
+        "source_samples": 715127,
+        "raw_observations": 28,
+        "final_utterances": 6,
+        "raw_final_words": 19,
+        "punctuation_statuses": {
+          "native_punctuation_preserved": 6
+        },
+        "expanded_bytes": 415243
+      }
+    },
+    {
+      "variant": "A3",
+      "result": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-smoke-v1\\A3\\N2_S45_01_01_O0\\RESULT.json",
+        "sha256": "3918cb4f90dbfe682bbef3493f61b6d786d03c5763fe334c4fe4b2887cba2493",
+        "bytes": 2514
+      },
+      "scan": {
+        "dispatches": 447,
+        "source_samples": 715127,
+        "raw_observations": 60,
+        "final_utterances": 3,
+        "raw_final_words": 37,
+        "punctuation_statuses": {
+          "native_punctuation_preserved": 3
+        },
+        "expanded_bytes": 538150
+      }
+    },
+    {
+      "variant": "A3",
+      "result": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-smoke-v1\\A3\\N2_S45_01_01_O1\\RESULT.json",
+        "sha256": "c3f8a0faf3a2d1dae5b73829e922b38965ef2cce95d846b60902574cf219fd06",
+        "bytes": 2508
+      },
+      "scan": {
+        "dispatches": 447,
+        "source_samples": 715127,
+        "raw_observations": 62,
+        "final_utterances": 3,
+        "raw_final_words": 37,
+        "punctuation_statuses": {
+          "native_punctuation_preserved": 3
+        },
+        "expanded_bytes": 550922
+      }
+    }
+  ],
+  "integrated_N4_cells": 0,
+  "full_bank_admitted": false,
+  "Controller_or_widget_parity_qualified": false,
+  "live_latency_qualified": false,
+  "notes": "Native application ASR-loop evidence only. Actual text remains private; formatting quality needs separate metrics.",
+  "code": [
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\review_asr_components.py",
+      "sha256": "a2a9aecbd7c4d241ad3ca1466ce09943bfcc25dacc55e19e7b8ced8e8b085e6e",
+      "bytes": 10732
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\test_review_asr_components.py",
+      "sha256": "0da74b23cf1d2e20b2f2d2910ad7351839c9754c79ee554e7432623040703a55",
+      "bytes": 3934
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\README_REVIEW_ASR.md",
+      "sha256": "6b4d9b6ad24ccc2b2275495a2e32920897e5ec73dc77dae66ff80ba0b0d16965",
+      "bytes": 3565
+    }
+  ]
+}

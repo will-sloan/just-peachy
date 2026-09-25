@@ -1,0 +1,41 @@
+{
+  "status": "PASS_ASR_D0_COMMAND_RECONSTRUCTION_ONLY",
+  "recorded_utc": "2026-09-25T04:31:46.501013+00:00",
+  "code": [
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\component_commands.py",
+      "sha256": "eb9ab2085d7849223baef290b876d9abf4b82322ca06989f7a50a625304f6880",
+      "bytes": 7817
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\test_component_commands.py",
+      "sha256": "2d4bfb7c3cb93f41e986e2d598b33f3af6d377099a0d225fe285134a61356595",
+      "bytes": 5853
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\README_COMPONENT_COMMANDS.md",
+      "sha256": "4f91d68a5436a8dbe57dd4547be5d59af5de429322e9b7c2ed0227a3c74a39d0",
+      "bytes": 4375
+    }
+  ],
+  "source_receipt": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\releases\\n4-catalog-v3\\SOURCE_RECEIPT.json",
+    "sha256": "8050c8bee52a6ec83c95f3514cb81219c3664dd43e172a477d35a54888e610d5",
+    "bytes": 61188
+  },
+  "tests": 7,
+  "failures": 0,
+  "errors": 0,
+  "elapsed_seconds": 1.088,
+  "test_evidence": "Successful actual-loop stub unittest run in this task before compaction; seven tests, no models",
+  "real_component_probe": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\component-command-probe-v1\\RESULT.json",
+    "sha256": "cbafd0d5b5eca0cb576d1bb527c234825bd267d0a2bd513c56a52e09ad7169d0",
+    "bytes": 4545
+  },
+  "real_component_cells": 12,
+  "integrated_N4_cells": 0,
+  "Controller_parity": false,
+  "GUI_observed": false,
+  "clock_kind": "modeled component availability; actual source watermarks"
+}

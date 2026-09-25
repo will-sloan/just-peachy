@@ -1,0 +1,106 @@
+{
+  "schema": "n4-d0-bank-review-v1",
+  "status": "PASS_MATCHED_FULL_BANK_COMPONENTS_ONLY",
+  "reviewed_utc": "2026-09-25T04:11:11.741083+00:00",
+  "clips_per_encoder": 480,
+  "encoder_clip_cells": 960,
+  "matched_query_windows_per_encoder": 13006,
+  "query_kinds_per_encoder": {
+    "short": 7404,
+    "mature": 5602
+  },
+  "clips_without_admitted_windows_per_encoder": 8,
+  "segmentation_calls_per_encoder": 43388,
+  "admission_rejections_per_encoder": {
+    "no_speech_gate": 135272,
+    "unclean_window": 16139,
+    "cadence_budget": 5027,
+    "below_rms": 1448,
+    "overlap_gate": 2660
+  },
+  "expanded_event_bytes_verified": 2621822924,
+  "source_seconds_per_encoder": 21787.81,
+  "inputs": [
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\d0-bank-v1\\RESULT.json",
+      "sha256": "836ac27332e7e805b46d50c92240e962288f636343d18e55044bea92549da6d2",
+      "bytes": 987
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\d0-bank-v1\\ADMISSION.json",
+      "sha256": "1a99b124348d6e933665efb268edbfc0864191880400d469804ab0f65b4c42af",
+      "bytes": 5724
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\preparation-v2\\AUDIO_ONLY_480.json",
+      "sha256": "318eaf58784015b3579f1485875fc52f1d5b3d9663b1963c4f0ca6bc93efa106",
+      "bytes": 174782
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\d0-bank-v1\\E0\\RESULT.json",
+      "sha256": "dfd9999b662985c23eee1d7d50f4d9ef56ec637f80fcf44eba1fd847a7976ffe",
+      "bytes": 135803
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\d0-bank-v1\\E0\\RESULT_INDEX.json",
+      "sha256": "fdfadd27e49acbfdc748d3b170f5f2fcb04045e47bcf7bf57de076317dd49822",
+      "bytes": 120065
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\d0-bank-v1\\E1\\RESULT.json",
+      "sha256": "73211b63a244f3087398c2a0bfeee9d1ff32b13bac19b49e54facb7805f3e56d",
+      "bytes": 135975
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\d0-bank-v1\\E1\\RESULT_INDEX.json",
+      "sha256": "e55321101399038e4def9d5a399b62d23a3d34d9c65381fd7eda8a6de48d0fbb",
+      "bytes": 120065
+    }
+  ],
+  "code": [
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\review_d0_bank.py",
+      "sha256": "01f4a007b6c161ae2ad21bd57de28a8a0dc9d26a1e20ff5dedd0aaa0e7b7dd52",
+      "bytes": 14891
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\review_d0_collection.py",
+      "sha256": "33d100a0e1ff2dcf5a8cae6ae5acf0fbc28abf87e92e034b7512dae937f572ad",
+      "bytes": 6873
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\d0_bank_components.py",
+      "sha256": "49027c697561b23335f30e87780808162a5e3b94fc26e8457a4c01df90ac30dd",
+      "bytes": 12976
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\d0_calibration_windows.py",
+      "sha256": "95e6154b536c0b50977b6fd2775df16f4e30750dd26af1bbac5105b492ab827f",
+      "bytes": 17729
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\common.py",
+      "sha256": "a44e389d3c80c8c21e74ea3423d8270273e5b3132a84095218dee078c53f059e",
+      "bytes": 3267
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\test_review_d0_bank.py",
+      "sha256": "a67dc11a9a848b8b0eb1d80701fbc3530a2d086fc8f03da6e407d9c6fe84c997",
+      "bytes": 9413
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\README_REVIEW_D0_BANK.md",
+      "sha256": "c988077ac7113c628e846a7358212b1ff5bfb164101ed25d9797e334523bcbea",
+      "bytes": 4136
+    }
+  ],
+  "integrated_N4_cells": 0,
+  "live_latency_qualified": false,
+  "complete_stack_resources_qualified": false,
+  "calibrated_D0_E1_profile_accepted": false,
+  "private_review": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\d0-bank-review-v1\\REVIEW.json",
+    "sha256": "0c2eb703ee2cf66d6cd328032fa36507fd3f1cd77281c8cca3668cdae3abc725",
+    "bytes": 867227
+  }
+}
