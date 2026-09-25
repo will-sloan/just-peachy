@@ -132,6 +132,18 @@ the real application run is complete. The positive production path has not run.
 PASS_COMPLETE_V2_PANEL_EVIDENCE_COVERAGE_ONLY must not be treated as N4 acceptance.
 Do not redirect or overwrite the V1 wrapper/qualifications.
 
+NATIVE_TEXT_REVIEW_CHECK_V1.json now qualifies `review_native_text.py` for private
+raw-ASR/text-publication lineage and separate punctuation. Twelve development
+tests passed; all nine incomplete historical journals remain unusable for this
+purpose. Use README_NATIVE_TEXT_REVIEW.md and compose its `review` API with an
+independently reconstructed V2 cell envelope. Preserve earlier qualified cell
+and panel readers instead of editing their bound code. This component does not
+yet join pane strings, names or visible timing to raw text, and no actual complete
+application source history has been projected. Partial-only utterances remain
+explicit; they require a separate completeness decision before final-only
+accuracy metrics. Raw hypotheses, formatted display, inferred speaker labels and
+evaluator truth must remain separate. The accepted integrated count is still zero.
+
 An earlier read-only census could not inspect an unrelated `cmd.exe` process.
 Re-observe at actual application admission. The exclusive application gate must
 continue to refuse unresolved ownership uncertainty; do not stop that process,

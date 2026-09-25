@@ -1274,3 +1274,54 @@ continuity/stop/restart runner; after D1's complete review, execute/review the m
 and modes banks, score, select and run the actual paired application panels.
 N4 accepted integrated cells remain 0/7680. N5 remains dependent on accepted N4
 configurations; live CM5 checks remain deferred throughout the offline campaign.
+
+### 2026-09-25 19:18 UTC — native raw-text publication review
+
+Fresh inspection found D1 healthy at E0 154/960, with unchanged model identity
+29756/1790350782.179587, coordinator 4092/1790350774.1659436 and supervisor
+32696/1790350774.0235264. Heartbeat age was 4.41 seconds; C: 124.57 GiB and
+G: 100.67 GiB remained free. All 33 active/predecessor bindings were reverified.
+The only new execution was model-free CPU14 evaluation; the active source and
+numerical owner were not changed. The historical N2/N3 filenames in the heartbeat
+remain superseded by their already accepted reviews.
+
+`review_native_text.py` adds private semantic interpretation of the raw ASR and
+independent text-publication streams. It reconstructs the complete envelope and
+requires its exact prior fingerprint, then checks revision identities, exact
+raw/display/formatting fields including JSON types, one publication per raw
+revision, source support, token counts and same-clock publication order. Speaker
+and display events may interleave. Asynchronous punctuation must target the
+preceding final raw utterance and remains a separate formatting diagnostic.
+Raw final words, empty finals and partial-only utterances retain separate facts;
+unfinished utterances are not silently finalized or removed from denominators.
+ASR support overhang remains unchanged and is counted, not clamped. Token/source
+windows do not become phonetic alignment, and empty events do not establish that
+inference ran.
+
+Twelve development tests passed, including stream corruption, mismatched raw
+fields/types, duplicate/missing publications, final rewrites, source/observed
+clock errors, Unicode, empty and unfinished output, formatting isolation,
+bounded accumulation and changed bindings. The actual native envelope reader
+was used on synthetic positive facts. All nine historical truncated journals
+were refused again; no actual complete application history was projected.
+No new source, application, model or device access occurred. Attempt v1 passed
+its initial checks; its exact sources and results are preserved. A pre-publication
+audit strengthened JSON type equality and raw-observation/text-ready clock order
+in fresh attempt v2, without changing any previously qualified implementation.
+
+NATIVE_TEXT_REVIEW_CHECK_V1.json SHA-256
+db0e36f50cc1adee69900627f28591c973b381b87258ca0adb96005236cb06b8
+binds 72 helper code records and private
+local/n4/native-text-review-probe-v2/RESULT.json, SHA-256
+521fe63e377ecd573fc205c3bff26f6d4f155489afeb8f0d5afadf69eb7d25ca.
+Helpers 19348/1790363705.714592 and 50096/1790363783.1234882 exited; publication
+helper 52632/1790363847.4353855 exited normally. README_NATIVE_TEXT_REVIEW.md gives
+purpose, inputs, outputs, limitations and PowerShell/CMD/Anaconda instructions.
+
+This is raw-text lineage qualification only. Application owner/source/plan joins
+remain the caller's responsibility. Pane content, naming, actual visibility and
+latency interpretation, inference completeness, continuity and stop/restart
+still need qualification. Preserve earlier V2 cell/panel readers and compose
+this new reader explicitly in a future version. Complete/review D1, then the
+main/modes banks and selection before admitting the actual paired application
+panels. Accepted integrated N4 cells remain 0/7680; N5 remains dependent on N4.
