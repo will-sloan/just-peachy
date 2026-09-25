@@ -43,8 +43,10 @@ other comparisons, paced panels, continuity and N5 still require additional time
 Existing application infrastructure is qualified only to its declared scope.
 Private process lifetime, child admission, fixed runner wiring, viewport/resource
 reconstruction and input preparation do not replace the first real source run.
-Full-panel review and the continuity runner still require implementation and
-qualification. The frozen application source/drain branch has not yet been
+Full-panel evidence-population review is now implemented and development-qualified;
+its positive production plan/run path awaits real complete inputs. Native text,
+pane/naming/timing evaluation and the continuity runner still require implementation
+and qualification. The frozen application source/drain branch has not yet been
 validated on the proposed complete stacks. If that first run finds a common bug,
 preserve it and use a versioned repair with affected paired retests.
 
@@ -108,15 +110,27 @@ filename. The runner checks complete native event envelopes after normal child
 closure and before recording a collected cell; the stopped reviewer reconstructs
 that envelope independently. Sixteen runner tests and 15 reviewer tests passed,
 including rejection of freshly rebound truncated logs. No actual application
-source/production-plan admission occurred. Next compose the full
-population/native/pane content review. Then reconfirm source/GUI/worker closure under the new
+source/production-plan admission occurred. Next implement the native/pane content,
+naming and timing review. Then reconfirm source/GUI/worker closure under the new
 logging policy. Continuity and stop/restart remain separate outstanding work.
 
 The existing observation review's `review_collected_cell` wrapper still selects
-the V1 transport reviewer. For V2, qualify a new composition using
-`review_application_transport_v2.review_cell` and the reusable
-`review_application_observations.review_observations` API with the reconstructed
-V2 payload. Do not silently redirect the old wrapper or overwrite its qualification.
+the V1 transport reviewer. For V2 use `review_application_cell_v2.review_cell`,
+qualified by APPLICATION_CELL_REVIEW_CHECK_V2.json. It composes the V2 transport
+and existing observation readers, joins common evidence/native terminal bindings,
+source origins/publication clocks and event populations. Eight synthetic checks
+passed with actual readers and the qualified derivative context. Its output is
+still evidence consistency, not semantic/accuracy/performance acceptance.
+
+APPLICATION_PANEL_REVIEW_CHECK_V2.json qualifies the exact population validator
+and compact evidence output in `review_application_panel_v2.py`: eight tests on
+40/240-cell development populations and missing-input refusal. Its production CLI
+reconstructs the real V2 plan/run, verifies stopped owners and fixed runner,
+requires every expected directory/progress/collected binding, and calls the joined
+cell reader for every row. Use README_APPLICATION_PANEL_REVIEW_V2.md only after
+the real application run is complete. The positive production path has not run.
+PASS_COMPLETE_V2_PANEL_EVIDENCE_COVERAGE_ONLY must not be treated as N4 acceptance.
+Do not redirect or overwrite the V1 wrapper/qualifications.
 
 An earlier read-only census could not inspect an unrelated `cmd.exe` process.
 Re-observe at actual application admission. The exclusive application gate must

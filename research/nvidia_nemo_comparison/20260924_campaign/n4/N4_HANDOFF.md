@@ -1202,3 +1202,75 @@ transport reader and existing independent observation API, then complete full
 plan/population reconstruction and native payload/pane/naming/timing review.
 Actual panels, continuity/stop/restart, controlled resources and N5 remain pending.
 Continue D1 without editing its source or launching a competing numerical worker.
+
+## 2026-09-25: joined V2 cell checks and full planned evidence census
+
+Fresh audit observed D1 E0 at 122/960 with a 0.36-second heartbeat; it reached
+132/960 during this follow-up. Supervisor 32696/1790350774.0235264, coordinator
+4092/1790350774.1659436 and sole CPU4 model 29756/1790350782.179587 were unchanged.
+All 33 active/predecessor code/dependency bindings verified. Model-free work used
+CPU14 and did not alter active source. The unrelated cmd.exe AccessDenied census
+uncertainty persists; the exclusive application gate remains unchanged.
+
+review_application_cell_v2.py now composes the qualified V2 transport/native
+envelope reader with the existing source/worker/archive, viewport and resource
+readers. Transport determines the resource owner. It requires matching shared
+file bindings, native/engine terminal receipts and event populations, and exact
+source-start publication serial/time and native/consumer/viewport origin joins.
+Native session completion must precede the captured engine closure. Recorded
+same-process perf_counter facts are joined; lifetime clocks are not subtracted
+and these checks do not establish physical delivery or latency.
+
+Eight tests passed using actual readers on unified synthetic transport, event,
+owner, clock, resource and viewport facts with the qualified derivative context.
+Historical terminal/archive metadata was copied and changed only inside fixtures.
+No new application, saved source or model ran. Tests reject individually valid
+but mutually inconsistent source-start records, changed shared bindings, late
+completion and wrong resource owners; offscreen spans remain denominators.
+Helper 52164/1790361610.6147673 exited. APPLICATION_CELL_REVIEW_CHECK_V2.json
+binds 122 helper code records and private
+local/n4/application-cell-v2-review-probe-v3/RESULT.json, SHA-256
+553e3d0f3a339bbe1e9c16fca72d9765cf66d1429e13537b04e3b160a2a3cb1c.
+The public qualification SHA-256 is
+254738a9bc13da95c95a9d188ce3e1e7f59fed41b39f28520a41d61f57a96dea.
+
+Two failed development attempts remain preserved. Attempt v1 failed before
+admission because one public qualification's admission is nested through its
+private result. Its exact files/failure are saved; the original exited helper
+identity was not recorded. Attempt v2 identified a missing member-observation
+event in the synthetic lifetime fixture; helper 47792/1790361574.1330965 exited,
+and its admission, snapshots, log and failure remain. The probe binding traversal
+and fixture were corrected in fresh attempts. No production validation was relaxed.
+The probe now records its owner before prerequisite reconstruction.
+
+review_application_panel_v2.py adds the complete planned evidence-population
+review. Its production path reconstructs the actual qualified V2 plan, requires
+stopped preparer/coordinator identities, joins admission/result/owner/worker
+command and fixed runner/interpreter, and checks every expected cell directory,
+ordered COLLECTED binding and progress record. Missing/extra/duplicated/partial
+or failed rows cannot be hidden by deriving the denominator from existing files.
+Each planned cell uses the joined V2 reader; compact outputs retain raw-evidence
+bindings, counts, phase intervals, final-span visibility census and a digest of
+the full reproducible reader output. The existing 8-MiB/hour review limits apply.
+
+Eight model-free population/scope tests passed, including 40/240-cell synthetic
+populations, incomplete/failed/reordered evidence and missing-production-input
+refusal. No actual plan or panel was fabricated or reviewed, and the full positive
+production admission remains unexecuted. Helper 48868/1790361978.9904332 exited.
+APPLICATION_PANEL_REVIEW_CHECK_V2.json binds 127 helper code records and private
+local/n4/application-panel-v2-review-probe-v1/RESULT.json, SHA-256
+dcde334bcef186f64820a7b1687ba4cc90e4b6a90aab4bade5c39ce1ce77be57.
+The public qualification SHA-256 is
+525f869a6e144690e3edc7df216483698cf1c870e82f1753a02ae8cb466c020d.
+These helper inventories do not replace the unchanged 88-record child runner
+inventory. V1 and V2 runner/source/plan qualifications remain immutable.
+
+README_APPLICATION_CELL_REVIEW_V2.md and README_APPLICATION_PANEL_REVIEW_V2.md
+contain purpose, inputs/outputs, limitations and PowerShell/CMD/Anaconda commands.
+The old observation wrapper still calls V1 transport; use the new V2 composition.
+PASS_COMPLETE_V2_PANEL_EVIDENCE_COVERAGE_ONLY is a coverage check, not acceptance.
+Next implement native raw-text/pane/naming/timing interpretation and the actual
+continuity/stop/restart runner; after D1's complete review, execute/review the main
+and modes banks, score, select and run the actual paired application panels.
+N4 accepted integrated cells remain 0/7680. N5 remains dependent on accepted N4
+configurations; live CM5 checks remain deferred throughout the offline campaign.
