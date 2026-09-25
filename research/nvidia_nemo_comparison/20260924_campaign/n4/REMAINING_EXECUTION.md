@@ -44,8 +44,10 @@ Existing application infrastructure is qualified only to its declared scope.
 Private process lifetime, child admission, fixed runner wiring, viewport/resource
 reconstruction and input preparation do not replace the first real source run.
 Full-panel evidence-population review is now implemented and development-qualified;
-its positive production plan/run path awaits real complete inputs. Native text,
-pane/naming/timing evaluation and the continuity runner still require implementation
+its positive production plan/run path awaits real complete inputs. Raw native
+text, caption partitions, recorded pane content and fixed-roster consistency
+now have qualified readers and a complete-panel wrapper. Evaluator-only naming
+and timing interpretation and the continuity runner still require implementation
 and qualification. The frozen application source/drain branch has not yet been
 validated on the proposed complete stacks. If that first run finds a common bug,
 preserve it and use a versioned repair with affected paired retests.
@@ -176,11 +178,24 @@ and checks both final snapshot people fields, primary settings and shared
 bindings. Twelve checks passed using actual readers and synthetic cell facts,
 including both baseline name sorting and N2 document order. See
 README_APPLICATION_CONTENT.md. No real complete application history has been
-reviewed by this composition. The previous immutable panel wrapper still uses
-its original narrower cell reader; add a separately qualified wrapper to call
-the content composition with reconstructed plan/run expectations. Naming,
+reviewed by this composition. The original immutable panel wrapper retains
+its narrower cell reader; use the separately qualified content wrapper below
+with reconstructed plan/run expectations. Naming,
 timing, continuity and stop/restart remain separate work; no acceptance count
 has changed. Preserve all existing code and source qualifications.
+
+APPLICATION_CONTENT_PANEL_CHECK_V1.json qualifies
+`review_application_content_panel.py`, which applies the content composition to
+the exact full stopped V2 panel population. Fourteen development checks passed
+on synthetic populations and a saved synthetic cell. It retains a deduplicated
+input-binding registry, full-review fingerprints and per-composition/kind/tap
+counts for missing captions, missing visibility and ambiguous native states.
+Use README_APPLICATION_CONTENT_PANEL.md for development and actual stopped-run
+commands. PASS_COMPLETE_V2_PANEL_CONTENT_COVERAGE_ONLY is evidence consistency
+and coverage only, not naming/timing/resource, continuity or stage acceptance.
+No actual production plan or complete application panel has run. The next
+independent work is evaluator-only naming/timing interpretation and the
+continuity/stop-restart runner, preserving all original source and reader hashes.
 
 An earlier read-only census could not inspect an unrelated `cmd.exe` process.
 Re-observe at actual application admission. The exclusive application gate must

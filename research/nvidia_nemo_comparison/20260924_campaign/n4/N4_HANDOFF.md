@@ -1498,3 +1498,59 @@ interpretation, continuity and stop/restart remain to implement/qualify. Finish
 and review D1, then the main/modes banks and selection before actual paired
 application runs. Integrated accepted N4 cells remain 0/7680. N5 requires accepted
 N4 configurations, and live CM5 checks remain deferred.
+
+### 2026-09-25 21:08 UTC — complete panel content-review wrapper
+
+Fresh historical and current receipt checks confirmed accepted N2/N3 and the
+accepted ASR component review. D1 was healthy at E0 220/960 on entry and reached
+222/960 during independent CPU14 work. Exact model/coordinator/supervisor owners
+remained 29756/1790350782.179587, 4092/1790350774.1659436 and
+32696/1790350774.0235264. The entry heartbeat was 0.99 seconds old; active and
+predecessor code bindings matched. C: 124.41 GiB and G: 100.63 GiB were free.
+The conservative census still reports unrelated cmd.exe 40092 AccessDenied;
+preserve the existing exclusive application admission gate without weakening it.
+
+`review_application_content_panel.py` now applies the qualified content/roster
+composition to every cell of a stopped reconstructed V2 plan/run. It reuses the
+immutable run-admission and exact population checks, requires all planned cells
+and ordered progress receipts, and checks each cell's audio job, contract, ID
+and collected binding. All content input bindings are retained once in a shared
+registry, with conflicts rejected. Compact cell records fingerprint the full
+reconstructed result and its input set; original histories remain intact and
+must still be used for subsequent naming/timing metrics.
+
+Grouped diagnostics preserve composition, tap and panel/timing-repeat kind.
+Unobserved native spans, never-visible observed spans, missing final visibility,
+missing native-caption revisions, ambiguous predecessor states and cells without
+native segments remain explicit. Counting units are cell-span observations,
+not deduplicated corpus words or people. Maximum observation interval is only a
+sampling-gap diagnostic. PASS_COMPLETE_V2_PANEL_CONTENT_COVERAGE_ONLY means
+all planned content reviews passed, not naming/accuracy/timing/resource or N4
+acceptance. Output is checked against the 8 MiB allowance before each write.
+
+Fourteen development tests passed on the first attempt: eight inherited exact
+population/scope tests and six new content compaction/grouping/integrity tests.
+They use 40/240-cell synthetic populations and the saved synthetic all-reader
+cell result. No admitted production plan was manufactured, and the positive
+production plan/run path still awaits actual complete inputs. No application,
+audio source, model, window, device or Pi was started.
+
+APPLICATION_CONTENT_PANEL_CHECK_V1.json SHA-256
+1bcab365284cb76ac19d3522ae3069f8867ac95388d4815037c8773b655c8af9
+binds 152 helper code records and private
+local/n4/application-content-panel-probe-v1/RESULT.json, SHA-256
+ec60267aaef6b2978a5b97c98408691106b6687d82ee64e0b80ac066335b1885.
+Probe owner 31424/1790370478.8687177 and publication owner
+31192/1790370515.861126 exited normally. README_APPLICATION_CONTENT_PANEL.md
+documents purpose, inputs, outputs, scope and PowerShell/CMD/Anaconda commands.
+The existing child runner and all prior qualified code remain unchanged.
+
+Next implement/qualify evaluator-only naming and timing interpretation from
+the complete retained native/widget histories, keeping raw text, recorded
+headings, roster assumptions and reference truth separate. Preserve source-time
+uncertainty and ambiguous publication attribution; never invent phonetic word
+times or subtract unrelated clocks. The continuity runner and functional
+stop/restart also remain. Finish/review D1 before main/modes banks, scoring,
+selection and actual paired application panels; use the new wrapper explicitly
+after those runs stop. Accepted integrated N4 cells remain 0/7680, N5 still
+depends on accepted N4 configurations, and live CM5 work remains deferred.
