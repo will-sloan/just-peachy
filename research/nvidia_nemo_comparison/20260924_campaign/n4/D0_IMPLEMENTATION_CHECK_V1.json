@@ -1,0 +1,106 @@
+{
+  "schema": "n4-d0-implementation-check-v1",
+  "status": "PASS_IMPLEMENTATION_AND_TWO_CLOSED_CELL_PROBES",
+  "checked_utc": "2026-09-25T03:07:02.760418+00:00",
+  "tests_run": 33,
+  "failures": 0,
+  "errors": 0,
+  "test_log": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\d0-implementation-tests-v1.txt",
+    "sha256": "2da97fb33a5fbda409984fae9357363010c5f36f9a1e4610aad2605b73563b58",
+    "bytes": 4675
+  },
+  "private_probe": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\d0-activity-probe-v1\\RESULT.json",
+    "sha256": "130642b24fcaf0528a7a01dc4a649263e68050399aee4d427f3e2bfd19043bd7",
+    "bytes": 4330
+  },
+  "probe_cells": [
+    {
+      "source_result": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\d0-bank-v1\\E0\\N2_S45_01_01_O0\\RESULT.json",
+        "sha256": "8b7649f13b67a38b262debfdf5896f17b2ffb70fdd2446851b3988e7668a22d2",
+        "bytes": 258412
+      },
+      "actual_embedding_decisions": 41,
+      "anonymous_decisions_sha256": "c5e986d0dcd40f0ee40867ec9aaab8d323aac2636004aad9d40d0f3f175dfc28",
+      "activity_coverage": {
+        "duration_sec": 44.6954375,
+        "mask_seconds": {
+          "silence": 30.685656249999994,
+          "speech": 13.231874999999995,
+          "overlap": 0.5443750000000023,
+          "unobserved": 0.23353124999999864
+        },
+        "supported_single_speech_sec": 9.029968749999998,
+        "unassigned_single_speech_sec": 1.8161875000000007,
+        "conflicting_single_speech_sec": 2.3857187499999988,
+        "overlap_without_global_source_assignment_sec": 0.5443750000000005
+      }
+    },
+    {
+      "source_result": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\d0-bank-v1\\E0\\N2_S45_01_01_O1\\RESULT.json",
+        "sha256": "e969d406092bc2d5815caeb7a3ad514ee0d0563b82b02d1252b1defae262faeb",
+        "bytes": 264783
+      },
+      "actual_embedding_decisions": 42,
+      "anonymous_decisions_sha256": "7265144cc5a7f6ffd449c2fce876f11de5fa724bf85c1af29c106163408181d4",
+      "activity_coverage": {
+        "duration_sec": 44.6954375,
+        "mask_seconds": {
+          "silence": 30.556906249999997,
+          "speech": 12.961875000000006,
+          "overlap": 0.9431249999999984,
+          "unobserved": 0.23353124999999864
+        },
+        "supported_single_speech_sec": 7.601687500000001,
+        "unassigned_single_speech_sec": 1.588750000000001,
+        "conflicting_single_speech_sec": 3.7714374999999993,
+        "overlap_without_global_source_assignment_sec": 0.9431249999999993
+      }
+    }
+  ],
+  "scope": "Full-bank reviewer implemented; real E0 O0/O1 logs verified. Native nominal tracker incremental/batched ordering equal on 83 actual vectors. Activity observer retains all source support; no global decoder, no S7 Controller parity.",
+  "integrated_N4_cells": 0,
+  "paired_full_bank_review_complete": false,
+  "global_D0_DER_qualified": false,
+  "models_loaded": 0,
+  "code": [
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\review_d0_bank.py",
+      "sha256": "01f4a007b6c161ae2ad21bd57de28a8a0dc9d26a1e20ff5dedd0aaa0e7b7dd52",
+      "bytes": 14891
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\test_review_d0_bank.py",
+      "sha256": "a67dc11a9a848b8b0eb1d80701fbc3530a2d086fc8f03da6e407d9c6fe84c997",
+      "bytes": 9413
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\README_REVIEW_D0_BANK.md",
+      "sha256": "c988077ac7113c628e846a7358212b1ff5bfb164101ed25d9797e334523bcbea",
+      "bytes": 4136
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\d0_activity_evidence.py",
+      "sha256": "846594a6aba305a86f586d8c4f36ca9af7cbc8ba0af3a27630c89fe416622e73",
+      "bytes": 8873
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\test_d0_activity.py",
+      "sha256": "77e14d202ae593ef56ff19deccf7d57480496a31f3da75b8a1424174bf028a11",
+      "bytes": 6615
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\probe_d0_activity.py",
+      "sha256": "22a904a6bcbcd6bc959bc00f57f06e1278efdbdbf66cb5d93cc2035984fb965b",
+      "bytes": 8618
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\README_D0_ACTIVITY.md",
+      "sha256": "c5c9b28b74ba251bab92a1b962bc7fb8ae4dd1a95b1b7a894fb94c58a18249c8",
+      "bytes": 6818
+    }
+  ]
+}

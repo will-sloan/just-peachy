@@ -28,7 +28,18 @@ eight tests passed. README_D0_REVIEW.md describes strict paired evidence review
 with six passing tests. D0_C_SCALE_PROTOCOL_V1.json was frozen before inspecting
 new C score values; collection alone does not qualify an association profile.
 The fitting and bank runner add eight and five passing tests respectively.
-D0 anonymous activity and the integrated full-bank runner/cache replay still
+The new full-bank reviewer and activity observer passed 33 tests including the
+six reused geometry tests. README_REVIEW_D0_BANK.md gives the terminal-only
+review command; do not run the C-population reviewer on these bank results.
+README_D0_ACTIVITY.md describes the observer and its real closed-cell probe:
+83 actual E0 O0/O1 embeddings gave identical anonymous decisions under the
+native scheduler's incremental and batched causal ordering. Full speech masks,
+unassigned speech, conflicts, overlap and the unobserved tail remain explicit.
+D0_IMPLEMENTATION_CHECK_V1.json binds the code, tests and private probe.
+This is two-cell development evidence, with no neural model loaded, no ASR or
+gallery, and modeled clocks. It is not S7 Controller parity, a global-source
+diarization decoder, paired full-bank review or an integrated result. Complete
+D0 activity/application integration and the full-bank runner/cache replay still
 need implementation; D0/E1 calibration remains unqualified. README_EVIDENCE_STORE.md
 covers the tested new-run-only storage helper (12 tests); production integration
 and measured cell/storage bounds remain. Existing evidence was not removed.

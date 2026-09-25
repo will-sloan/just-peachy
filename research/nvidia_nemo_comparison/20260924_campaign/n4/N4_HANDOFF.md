@@ -39,8 +39,28 @@ comparison condition, not an accepted calibrated release. Its window selection
 does not use tracker scores, so full-bank component collection remains valid.
 The collector/reviewer/fitter/bank runner have 8/6/8/5 passing tests.
 
+The full-bank acceptance checker is now implemented: README_REVIEW_D0_BANK.md
+and `review_d0_bank.py`. It requires terminal 960-cell coverage and an exited
+exact coordinator, verifies all bindings, full gzip bytes/CRC, every dispatch
+and rejected admission, exact vectors/waveform slices, and paired segmentation/
+admission semantics. It has not yet reviewed the running full-bank collection.
+
+The new `D0ActivityEvidence` observer retains total scene coverage, first/latest
+mask observations, exact clean track support, conflicts, overlap and unobserved
+tails. It never collapses all unassigned speech into an invented person. Its
+real closed-cell probe replayed 41 O0 and 42 O1 E0 embeddings through the frozen
+native nominal anonymous scheduler; incremental/batched causal ordering matched.
+Thirty-three tests pass (15 review, 12 activity, six reused geometry tests).
+D0_IMPLEMENTATION_CHECK_V1.json binds this work; README_D0_ACTIVITY.md documents
+the API, constraints and probe commands. Probe root: local/n4/d0-activity-probe-v1.
+This is development evidence, with no ASR/gallery or neural model loading, not
+S7 observed-clock Controller parity or a global-source decoder. The two probe
+files expose 1.82/1.59 seconds of unassigned single speech and 2.39/3.77 seconds
+of conflicting track support; these regions must not disappear from evaluation.
+The whole-bank distribution remains unmeasured. Global D0 DER stays unqualified.
+
 Zero of 7,680 intended integrated scene/tap cells have executed. Complete D0
-anonymous activity, component-cache/archive integration and the admitted
+activity/application integration, component-cache/archive integration and the admitted
 integrated runner; preserve D0/E1's calibration limitation. Then perform paired scoring,
 GUI/paced/continuity and resource selection. N5 remains preparation only.
 Earlier READINESS/MATRIX snapshots and 12-entry releases remain historical.
@@ -138,7 +158,14 @@ No desktop input/focus control, SSH, microphone, USB, playback or new capture ra
 > state and resource ownership. First follow the newer d0-bank-v1 run;
 > never duplicate it or edit its bound source/code. The C collection/review
 > finished and the single frozen scale fit failed; preserve that result without
-> retuning. Review the full-bank exact E0/E1 geometry after completion. N1/N2/N3
+> retuning. Review the full-bank exact E0/E1 geometry after completion using
+> review_d0_bank.py (README_REVIEW_D0_BANK.md), after the exact coordinator exits.
+> The activity observer and two-cell native policy ordering probe are implemented
+> with 33 passing tests; use README_D0_ACTIVITY.md and D0_IMPLEMENTATION_CHECK_V1.json.
+> They do not establish S7 observed-clock Controller parity or a global-source
+> decoder. Preserve explicit unassigned/conflicting/overlap support when wiring
+> the real integrated activity output; do not promote the diagnostic to DER.
+> N1/N2/N3
 > acceptance is complete; do not repeat their old queues. Implement the full
 > D0 anonymous activity output, keep D0/E1's calibration limitation visible,
 > then integrate exact component caching and the
