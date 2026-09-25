@@ -155,6 +155,20 @@ multiple possible native publications. The viewport has no text-revision/native
 publication field, so do not invent exact event attribution or latency. Preserve
 the existing source and qualified readers; add a separately qualified composition.
 
+The separately qualified NATIVE_WIDGET_REVIEW_CHECK_V1.json now provides
+`review_native_widget.py` for primary native caption/recorded viewport joins.
+Twelve checks passed with synthetic events and geometry and unchanged pure
+application span/casing code. It checks raw and formatted pane text, clock
+origin/order, first/final/latest references, missing visibility and ambiguous
+native predecessors. Recorded headings are predictions, not verified names;
+there is no exact consumed-event attribution or qualified latency. See
+README_NATIVE_WIDGET_REVIEW.md for purpose, inputs, outputs and run commands.
+Next compose it with a reconstructed V2 cell and the actual prepared display
+roster and primary settings. Its caller-supplied roster is not independently
+admitted by this helper. No real complete application history has passed this
+join, and accepted integrated N4 cells remain zero. Preserve earlier qualified
+readers and add a separate composition rather than editing their bound files.
+
 An earlier read-only census could not inspect an unrelated `cmd.exe` process.
 Re-observe at actual application admission. The exclusive application gate must
 continue to refuse unresolved ownership uncertainty; do not stop that process,

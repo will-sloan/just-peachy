@@ -1386,3 +1386,60 @@ acoustic word boundaries nor actual visible times. Pane strings, first/final/lat
 visible labels, naming scores, timing, continuity and stop/restart still need
 review/execution. N4 accepted integrated cells remain 0/7680; N5 awaits accepted
 N4 configurations and live CM5 work remains deferred.
+
+### 2026-09-25 20:18 UTC — native caption to widget content interpretation
+
+D1 was healthy at E0 186/960 on entry and reached 198/960 while independent
+CPU14 work continued. Its model 29756/1790350782.179587, coordinator
+4092/1790350774.1659436 and supervisor 32696/1790350774.0235264 remained the
+same exact owners. Protected active and predecessor bindings were verified
+before and after the tests. No additional model, saved-source replay, window
+or device access was started. The conservative census still reported the
+unrelated cmd.exe 40092 AccessDenied at entry; preserve the exclusive application
+admission refusal until a fresh census resolves it through the existing gate.
+
+`review_native_widget.py` independently reconstructs the native caption and
+viewport reviews, checks source origins and joins native raw/fragment metadata
+and formatted strings to recorded pane content. Every changed row and each
+span's first visible, first final visible and latest state must have compatible
+preceding native publications. The helper calls the unchanged pure casing
+function from the qualified source and interprets the Controller's segment
+formatting seam. It keeps raw words separate from display casing/punctuation.
+Recorded heading strings are preserved without re-executing stateful labels or
+claiming a person was recognized correctly.
+
+The viewport lacks a consumed native publication ID. Candidate counts, ranges
+and fingerprints retain ambiguity; even unique content matches do not establish
+exact consumed-event attribution or measured source-to-widget latency. Native
+spans never observed, observed spans never visible, missing final visibility and
+sampling gaps retain their denominators. A caller must independently admit the
+actual fixed display roster, primary open mode/settings, source and application
+ownership. This helper does not perform that production composition itself.
+
+Twelve development checks passed using actual unchanged pure span/casing code
+and synthetic events, widget geometry and clocks. They cover raw/applied text
+corruption, source clock order/origin, sparse visibility, ambiguous identical
+states, labels, formatting fallback, mode, allocation bounds and changed files.
+Attempt v1 preserved eleven passes and one fixture assertion failure: rewriting
+tokens in a reused row does not retire the row. V2 adds an explicit empty
+viewport observation to exercise row removal. The production reader did not
+change; both attempts and their source snapshots remain private evidence.
+
+NATIVE_WIDGET_REVIEW_CHECK_V1.json SHA-256
+9719142bd3176577c46a2eab6c199c6b4036f6c7a547d3fce3d1b3ac408f2aa4
+binds 88 helper code records and private
+local/n4/native-widget-review-probe-v2/RESULT.json, SHA-256
+481d326ace9828a3997679a7e5b311819e7960548f43b04cdf0d19131067f654.
+Passing helper 52640/1790367467.591113, failed helper
+51356/1790367417.4594965 and publication helper 48972/1790367513.4750295 exited
+normally. README_NATIVE_WIDGET_REVIEW.md gives purpose, inputs, outputs,
+limitations and PowerShell/CMD/Anaconda commands. Existing qualified source,
+readers, runner, plans and active numerical code remain unchanged.
+
+Next compose this helper with an independently reconstructed V2 application
+cell and actual prepared display roster; do not accept an arbitrary caller
+roster as evidence of runtime configuration. Then qualify naming/visibility and
+timing interpretation, continuity and stop/restart. No complete real application
+history has yet passed this join. Complete/review D1 before main/modes banks,
+selection and actual paired application runs. Accepted integrated N4 cells remain
+0/7680; N5 awaits accepted N4 configurations. Pi checks remain deferred.
