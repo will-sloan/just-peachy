@@ -1443,3 +1443,58 @@ timing interpretation, continuity and stop/restart. No complete real application
 history has yet passed this join. Complete/review D1 before main/modes banks,
 selection and actual paired application runs. Accepted integrated N4 cells remain
 0/7680; N5 awaits accepted N4 configurations. Pi checks remain deferred.
+
+### 2026-09-25 20:43 UTC — application content and fixed-roster composition
+
+Fresh inspection confirmed historical N2/N3 queue results, the later accepted
+N2/N3 stage receipts, the accepted ASR review and the last verified Git backup.
+D1 was healthy at E0 204/960 and advanced to 210/960 during independent CPU14
+work. The exact model/coordinator/supervisor remained
+29756/1790350782.179587, 4092/1790350774.1659436 and
+32696/1790350774.0235264. Active/predecessor bindings remained unchanged.
+Entry heartbeat age was 3.50 seconds, with C: 124.40 GiB and G: 100.64 GiB free.
+The read-only process census again reported AccessDenied for unrelated cmd.exe
+40092; no process was stopped, and the exclusive application gate is unchanged.
+
+`review_application_content.py` composes the qualified V2 cell evidence reader
+with native-caption/recorded-widget interpretation. It reconstructs the fixed
+qualified application context before reading cell evidence. The display roster
+comes from the prepared research gallery, not a caller-provided names list, and
+must match both people fields in the final Controller snapshot. N2 preserves
+document profile order; the baseline uses sorted display names. Baseline
+manifest, per-profile metadata and vector bindings are checked without loading
+vectors or starting models. Available/intended/unavailable counts remain
+separate. Primary mode, selected IDs, strict filtering, text assistance, manual
+edits and optional corrected text are checked. Shared native/widget/cell input
+bindings must agree before and after the composition.
+
+Twelve checks passed using the actual independent readers with synthetic
+transport/process/clock/journal/viewport facts and unchanged pure span/casing
+methods. Both positive loader paths passed. Negative cases cover changed names
+and order, assistance, manual correction, wrong applied text, corrupt native
+partitions, foreign context, between-reader mutation, denominator drift and
+baseline metadata mismatch. Attempt v1 failed during fixture construction:
+the reused emitter stamped its old session ID while the pure state was scoped
+to the enclosing cell. V2 sets that ID before consumption. Production validation
+was unchanged, and the original attempt and source snapshots are preserved.
+
+APPLICATION_CONTENT_CHECK_V1.json SHA-256
+232b0f067618c7b2c7393939ba0fa32ba3b1ac4d6fc2856cf62aa9da247a541e
+binds 142 helper code records and private
+local/n4/application-content-probe-v2/RESULT.json, SHA-256
+8ce3955121a119767d967e019dec53c25db547ce1590b042fa7a7c2fc83b874d.
+Passing helper 52308/1790368899.858067, failed helper
+9252/1790368850.783197 and publication helper 49508/1790368975.1184423 exited
+normally. README_APPLICATION_CONTENT.md gives purpose, inputs, outputs, limits
+and PowerShell/CMD/Anaconda commands. Its 142 helper dependencies do not change
+the existing child runner's separate bound code inventory or admission limits.
+
+This is development qualification, not a real complete application observation.
+No new model, audio replay, window or device started. The API still requires
+caller reconstruction of the full V2 panel plan/population. The older immutable
+panel wrapper uses its narrower cell reader; add a separately qualified wrapper
+to invoke this content composition explicitly. Naming scores, timing
+interpretation, continuity and stop/restart remain to implement/qualify. Finish
+and review D1, then the main/modes banks and selection before actual paired
+application runs. Integrated accepted N4 cells remain 0/7680. N5 requires accepted
+N4 configurations, and live CM5 checks remain deferred.

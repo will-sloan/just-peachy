@@ -169,6 +169,19 @@ admitted by this helper. No real complete application history has passed this
 join, and accepted integrated N4 cells remain zero. Preserve earlier qualified
 readers and add a separate composition rather than editing their bound files.
 
+APPLICATION_CONTENT_CHECK_V1.json now qualifies `review_application_content.py`
+to compose the V2 cell evidence reader with fixed-roster and native/widget
+content interpretation. It derives names from the admitted research gallery
+and checks both final snapshot people fields, primary settings and shared
+bindings. Twelve checks passed using actual readers and synthetic cell facts,
+including both baseline name sorting and N2 document order. See
+README_APPLICATION_CONTENT.md. No real complete application history has been
+reviewed by this composition. The previous immutable panel wrapper still uses
+its original narrower cell reader; add a separately qualified wrapper to call
+the content composition with reconstructed plan/run expectations. Naming,
+timing, continuity and stop/restart remain separate work; no acceptance count
+has changed. Preserve all existing code and source qualifications.
+
 An earlier read-only census could not inspect an unrelated `cmd.exe` process.
 Re-observe at actual application admission. The exclusive application gate must
 continue to refuse unresolved ownership uncertainty; do not stop that process,
