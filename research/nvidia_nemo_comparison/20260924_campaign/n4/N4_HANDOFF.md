@@ -591,3 +591,26 @@ unchanged. Next implement the actual private application runner joining the
 qualified V3 store/clock, V2 viewport ledger, V2 closure and resource observer.
 Its real shortlist/panel admission still requires accepted component and full
 modeled-bank reviews. No neural/resource fairness run may overlap collection.
+
+The internal one-cell application primitive is now implemented in
+paced_application_cell.py, joining the actual Controller/backend/mode setup,
+V3 fixed research store/source clock, V2 viewport ledger, V2 source/worker/archive
+closure and bounded resource observer. paced_viewport.py observes after the
+original render and on a Tk timer, retains last-rendered rows, defers a pending
+strict-filter context change, preserves original exceptions and restores only
+its own hook. It never advances labels or invokes an additional application render.
+
+Eight private-desktop tests passed, including preparation and clean closure of
+the actual Controller and 480x800 Tk frontend for all three engine families.
+Acquisition was forbidden and no source started. Render/finality/scroll/clock/
+hook/thread failures were checked with event fixtures. The private worker and
+launcher exited, all Controller/resource owners closed, and input desktop stayed
+unchanged with no switch or injection. PACED_APPLICATION_CELL_CHECK_V1.json binds
+this scope; README_PACED_APPLICATION_CELL.md includes the API and all shell commands.
+
+The primitive's actual start_file/drain branch is implemented but remains
+unexecuted and unqualified. It has no standalone neural-launch CLI. Still build
+the reviewed shortlist/panel admission and exclusive-slot launcher, then execute
+and review real saved-source panels/repeats/continuity when component and full
+modeled-bank prerequisites pass. Do not turn pre-start tests into a full-run,
+latency, resource-tier, naming or N4 acceptance claim. ASR A2 remains active.

@@ -1,0 +1,133 @@
+{
+  "status": "PASS_PRIVATE_TK_AND_APPLICATION_PRESTART_ONLY",
+  "utc": "2026-09-25T10:44:27.373169+00:00",
+  "private_receipt": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\paced-application-cell-v1\\RESULT.json",
+    "sha256": "5812c79d974e2d5b6d0e7b89c8cf9db895533428e2bbc94c518e0eac0cc997ad",
+    "bytes": 1504
+  },
+  "source_receipt": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\releases\\n4-catalog-v3\\SOURCE_RECEIPT.json",
+    "sha256": "8050c8bee52a6ec83c95f3514cb81219c3664dd43e172a477d35a54888e610d5",
+    "bytes": 61188
+  },
+  "gallery_preparation": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\mode-galleries-v1\\GALLERIES.json",
+    "sha256": "1d715373e6504a9688265adaafc3dab33129f7bb1550fd691cacea7a4ebb9ac9",
+    "bytes": 16716
+  },
+  "code": [
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\paced_application_cell.py",
+      "sha256": "a59f5f2003880160d9310a0da91cfad115c0da08949611eec83b9fbce38f601b",
+      "bytes": 11466
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\paced_viewport.py",
+      "sha256": "fa895391ede1c812c30d82a695efd8373dd1f5245f7fecb1c3c1dbce808df9eb",
+      "bytes": 4570
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\test_paced_application_cell.py",
+      "sha256": "f33ba819696098a50977a9f5b60cdfbd4228e22c40b398d4d8b20c3b68c10173",
+      "bytes": 8534
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\probe_paced_application_cell.py",
+      "sha256": "23d1564cce9bc2352e8e28dd53677cdf3584687ed37cc76ddf7c37297b17d88d",
+      "bytes": 5000
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\README_PACED_APPLICATION_CELL.md",
+      "sha256": "13fb8b36658e2bbacbca6749379dc2f4d09ea31f0c7ecbc16ce4e648eee3a4ec",
+      "bytes": 5696
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\paced_adapters_v3.py",
+      "sha256": "204fdc236548ff91e770951f50ba4b3f0095aea7c880df6eb29b5fcf9e24fad7",
+      "bytes": 14475
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\mode_galleries.py",
+      "sha256": "6235b2b26d056e8ff0e7e0dd4e17b7d18562c0debd24b97abd63b78ea29c09d5",
+      "bytes": 13633
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\widget_visibility.py",
+      "sha256": "ec1bf5cd22b0c4129a2632b4ae72c82722e76e5333872a2c6ef10ea058bb7580",
+      "bytes": 10960
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\viewport_ledger_v2.py",
+      "sha256": "7a78cd859c3f767bb7439cc20225d5adc34731dcee157443bce5e3c381803263",
+      "bytes": 12636
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\application_resources.py",
+      "sha256": "7dde0f757510567d1faa685b8d81c3e8e90f0e43ada1ac4f605e105740c60600",
+      "bytes": 13015
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\application_closure.py",
+      "sha256": "96c581a4cca0b445949cb1c47b6e9c468ebb53bff8916fc6d893e9d7f6e54acc",
+      "bytes": 14078
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\application_closure_v2.py",
+      "sha256": "c1748dc41093bdf0634959840349849d6f76dbc51bdc10b8c8ac7d3b697897b8",
+      "bytes": 2805
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\controller_projection.py",
+      "sha256": "5f75e8158b9bfe04d031c599fba349888271b2cd3dc1495b297669acde85c8e0",
+      "bytes": 13528
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\common.py",
+      "sha256": "a44e389d3c80c8c21e74ea3423d8270273e5b3132a84095218dee078c53f059e",
+      "bytes": 3267
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\resources.py",
+      "sha256": "808f28726271b94cac7e3a97e806c95483162baabb53d5520cdd5864438f07ec",
+      "bytes": 6659
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\metric_process.py",
+      "sha256": "1a1279c44ce906ce13733db1ba32ba86ffd7419cb1a4b767df3505d66d3e36f8",
+      "bytes": 10902
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\asr_full_bank.py",
+      "sha256": "ab9ebf7ee64d70b859935b4d3725cce24adb03a713c0a2ad4328253bc02900f9",
+      "bytes": 17580
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\probe_integrated_scoring.py",
+      "sha256": "48e7eda0c7ac88ce4fb445645714bd1a00b4fb7561fdc22a02fb7564c4620435",
+      "bytes": 8006
+    }
+  ],
+  "tests_passed": 8,
+  "prepared_engine_families": [
+    "PrototypeEngine",
+    "N2Engine",
+    "N3IdentityEngine"
+  ],
+  "actual_Controller_and_Tk_prepared_and_closed": true,
+  "private_test_process_exited": true,
+  "launcher_helper_exited": true,
+  "input_desktop_unchanged": true,
+  "switch_desktop_called": false,
+  "input_injection": false,
+  "models_loaded": 0,
+  "source_events_are_fixtures": true,
+  "actual_source_execution": false,
+  "actual_source_branch_implemented_but_untested": true,
+  "model_slot_or_shortlist_admission_created": false,
+  "source_to_widget_latency_qualified": false,
+  "controlled_whole_stack_qualified": false,
+  "complete_application_acceptance": false,
+  "integrated_N4_cells": 0,
+  "scope": "Actual common Tk render/timer hooks and pre-start Controller setup/closure across three engine families. No source-paced inference, full-run publication/content/naming, repeat/continuity or deployment acceptance."
+}
