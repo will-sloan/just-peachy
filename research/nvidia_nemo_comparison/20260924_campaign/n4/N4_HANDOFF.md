@@ -572,3 +572,22 @@ observer and join the qualified store, clock, compact viewport and closure hooks
 into the actual shortlisted panels/repeats/continuity runner. Complete publication
 and inference/content/naming evaluation remains separate from lifecycle success.
 At this checkpoint ASR A2 remains the sole neural owner; D1 has not started.
+
+application_resources.py now provides a bounded in-process resource observer
+for the later real application runner. Seven tests passed, including an actual
+hidden 16-MiB allocation child and clean normal exit. Five samples observed up
+to three processes (helper, child and console host); the phase marks were test
+fixtures. PID creation identities, retained/reparented children, separate RSS/
+USS/private-commit/PSS accounting, incomplete samples, CPU counter regression,
+clock/census bounds and storage/deadline failures are covered. Evidence streams
+to bounded JSONL; only finite phase aggregates and owner identities stay in RAM.
+Read APPLICATION_RESOURCES_CHECK_V1.json and README_APPLICATION_RESOURCES.md.
+
+This tests accounting only, with no source/model/GUI execution or device tier.
+Sampling can miss peaks and short-lived workers; CPU deltas are lower bounds,
+and phase labels alone do not establish cold/warm or whole-stack coverage.
+The observer and fixture owners exited; active/prepared numerical code remains
+unchanged. Next implement the actual private application runner joining the
+qualified V3 store/clock, V2 viewport ledger, V2 closure and resource observer.
+Its real shortlist/panel admission still requires accepted component and full
+modeled-bank reviews. No neural/resource fairness run may overlap collection.
