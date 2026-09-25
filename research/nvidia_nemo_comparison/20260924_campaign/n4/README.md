@@ -1,5 +1,19 @@
 # N4 comparison implementation and evaluation
 
+Latest Controller check: eight tests and all 160 sealed-display replay cases
+passed at 2026-09-25 06:28:18 UTC. The actual constructor, backend/mode switching,
+caption-consumer thread, snapshot label/text projection and close path consumed
+20,673 displays and preserved every raw caption fragment. All owners closed,
+all consumer closure receipts were verified and the exact probe process exited.
+CONTROLLER_PROJECTION_CHECK_V1.json binds code and private evidence;
+README_CONTROLLER_PROJECTION.md supplies purpose, inputs/outputs, bounds and
+PowerShell/CMD/Anaconda commands. The 16 tuples x 5 modes x both taps reuse the
+same two smoke sources. They are downstream method checks, not new model runs.
+CONTROLLER_FINDINGS_V1.md records numbered fallback in all 32 selected-focus
+cases despite the mode's constant-Unknown description. Actual upstream
+publication, coupled Controller/GUI parity, full-bank scoring and resources
+remain unqualified; integrated acceptance stays 0/7,680.
+
 Latest mode preparation: README_MODE_GALLERIES.md and MODE_GALLERIES_CHECK_V1.json
 bind the original fixed E0/E1 rosters, exact vector/namespace/source verification,
 12 passing tests and 160 actual catalog/mode/tap begin-method checks. Open

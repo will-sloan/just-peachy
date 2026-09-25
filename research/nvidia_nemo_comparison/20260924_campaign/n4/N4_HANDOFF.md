@@ -1,5 +1,28 @@
 # N4 implementation checkpoint — upstream accepted, integrated run pending
 
+Latest downstream qualification: eight tests and 160 actual Controller consumer
+and label-projection checks passed at 2026-09-25 06:28:18 UTC. Each isolated
+Controller selected its real backend/mode, consumed the sealed modeled displays
+on its actual consumer thread, preserved raw words, wrote its closure receipt
+and closed. All 20,673 displays were delivered across the reused 16 x 5 x 2
+cases; no model, microphone, GUI or personal profile was used. Private result:
+local/n4/controller-projection-v1/RESULT.json, SHA-256
+`b8cda6e34779b93a51295e1eab7360802e1b08c80319305b05b47b2dc035c18b`.
+Its 160 private gzip outputs total 23,342,988 bytes. All code/closure bindings
+and the exact probe process exit were verified. CONTROLLER_PROJECTION_CHECK_V1.json
+and README_CONTROLLER_PROJECTION.md bind scope and all run commands.
+
+CONTROLLER_FINDINGS_V1.md records actual numbered fallback in every one of the
+32 selected-focus development cases, despite the constant-Unknown description.
+Keep these observed projections, and retain closed display assumptions separately
+from confirmed profile IDs. Do not silently rewrite the baseline. This is
+downstream method qualification only: upstream publication ordering/stamping,
+complete coupled Controller parity, physical widget delivery, global D0 activity,
+integrated scoring and paced resource tests remain pending. INTEGRATION_NEXT.md
+now identifies the exact producer methods and gaps to address next. The probe
+ran on CPU14 without competing model inference; ASR remains the sole numerical
+owner, with D1 prepared but not started. Existing receipt-bound code is immutable.
+
 Latest independent integration work: fixed E0/E1 primary galleries and actual
 catalog/mode routing are implemented. MODE_GALLERIES_CHECK_V1.json binds 12 tests
 and 160 actual begin-method checks; private mode-galleries-v1/RESULT.json SHA-256
@@ -325,8 +348,13 @@ No desktop input/focus control, SSH, microphone, USB, playback or new capture ra
 > READMEs and MODE_POLICY_FINDINGS_V1.md before generalizing prior anonymous
 > results. COMPONENT_MODES_CHECK_V1.json records 160 passed modeled development
 > replays, all worker cleanup and exact raw/final census; it does not establish
-> new inference or integrated coverage. Complete actual Controller parity
-> remains unresolved. INTEGRATION_NEXT.md
+> new inference or integrated coverage. CONTROLLER_PROJECTION_CHECK_V1.json now
+> adds eight tests and 160 actual downstream consumer/snapshot/cleanup checks,
+> with every sealed display and raw fragment retained. Read
+> README_CONTROLLER_PROJECTION.md and CONTROLLER_FINDINGS_V1.md. Complete
+> upstream publication/coupled Controller parity remains unresolved; the
+> producer qualification checklist at the end of INTEGRATION_NEXT.md gives
+> the specific next work. INTEGRATION_NEXT.md
 > records the verified source APIs: D1 uses its actual N2 activity/name/history/
 > caption-span revision path, not D0 clustering. ObservedClock accepts an
 > injected clock, but inherited observed field names cannot turn modeled replay

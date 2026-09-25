@@ -183,3 +183,53 @@ private component-modes-probe-v1/RESULT.json, SHA-256
 The actual application methods are now exercised for fixed named galleries;
 next work is complete Controller event/label projection parity, global activity
 and the admitted/scored matrix. Keep the original method limitations intact.
+
+## Downstream Controller projection and remaining producer qualification
+
+The new controller_projection.py runs actual Controller construction, backend
+selection, mode switching, caption-consumer threading, snapshot label/text
+projection, closure and cleanup over sealed modeled display records. Eight
+tests passed. README_CONTROLLER_PROJECTION.md gives the API, exact input/output
+bindings, isolated research roster, limits and all shell commands. There is no
+model Start, neural inference or GUI. CONTROLLER_FINDINGS_V1.md records the
+selected-focus constant-Unknown description versus numbered output discrepancy
+and keeps closed display assumptions distinct from confirmed profile IDs.
+
+This qualifies a downstream consumer path, not the complete producer chain.
+The next independent implementation must exercise the actual source methods
+below before claiming complete application replay parity:
+
+- PipelineEngine._transcript_event emits the research observation and independent
+  raw s6d_text_ready before policy admission, with its actual ASR serial, token
+  IDs and text revision. Its source-start, raw final and formatting parents must
+  exactly match the component evidence.
+- PipelineEngine._scheduled_event expands D0 speaker_decision fields into the
+  published payload while preserving S7 availability fields. Existing modeled
+  policy records retain nested decisions; they are not identical serialized
+  application publication events.
+- PipelineEngine._emit assigns publication_sequence across all event kinds,
+  source cursor and session fields, performs publication_freshness under its
+  event lock, consumes the actual presentation state and recursively emits
+  s6d_display. PrototypeEngine annotates the immediate display, and N2Engine
+  invokes its nonblocking D1 revision hook after raw/policy text events. A
+  caption-only synthetic sequence is not an exact full publication sequence.
+
+Use a separately bounded derivative/harness and preserve all existing source
+and result hashes. Check full event ordering and fields, stale publication,
+raw-text independence, revision/span targeting, tail/final formatting and drain.
+Any modeled clock remains explicit; it cannot supply first-visible hardware
+latency. Compare resulting display output through the actual Controller path
+already exercised here. Complete coupled inference/GUI/resource confirmation
+still requires the source-paced retained-stack runs. Global D0 activity and
+full-bank scoring remain separate open requirements; no integrated acceptance
+credit follows from either helper alone.
+
+The sealed production probe passed all 160 consumer/projection cases at
+06:28:18 UTC. Every one of 20,673 inputs was consumed, every primary raw-text
+fragment remained visible and all actual closure/owner checks passed. Exact
+private receipt SHA-256 is
+`b8cda6e34779b93a51295e1eab7360802e1b08c80319305b05b47b2dc035c18b`
+at local/n4/controller-projection-v1/RESULT.json. The 160 compressed outputs
+total 23,342,988 bytes. CONTROLLER_PROJECTION_CHECK_V1.json binds the evidence
+and tests. Counts include deliberate reuse and unchanged snapshot context;
+they are not accuracy, independent-scene coverage or integrated acceptance.
