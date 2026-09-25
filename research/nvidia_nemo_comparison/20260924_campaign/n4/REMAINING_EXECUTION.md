@@ -101,10 +101,22 @@ child allowlist while binding that explicit derivative context. It can prepare
 and independently reconstruct production plans only after full main/modes score
 reviews and a justified selection exist. No production plan exists yet. Use
 README_PACED_PANEL_PLAN_V2.md; preserve V1 plans and do not pass V2 plans to the
-V1 runner. Next implement/requalify the V2 runner, update the versioned transport
-reviewer's fixed runner identity, and compose the full population/native/pane
-content review. Then reconfirm actual source/GUI/worker closure under the new
+V1 runner. The V2 runner and transport reviewer are now qualified to their
+development scope by PACED_RUNNER_CHECK_V2.json and
+APPLICATION_TRANSPORT_REVIEW_CHECK_V2.json. Use their V2 READMEs and fixed runner
+filename. The runner checks complete native event envelopes after normal child
+closure and before recording a collected cell; the stopped reviewer reconstructs
+that envelope independently. Sixteen runner tests and 15 reviewer tests passed,
+including rejection of freshly rebound truncated logs. No actual application
+source/production-plan admission occurred. Next compose the full
+population/native/pane content review. Then reconfirm source/GUI/worker closure under the new
 logging policy. Continuity and stop/restart remain separate outstanding work.
+
+The existing observation review's `review_collected_cell` wrapper still selects
+the V1 transport reviewer. For V2, qualify a new composition using
+`review_application_transport_v2.review_cell` and the reusable
+`review_application_observations.review_observations` API with the reconstructed
+V2 payload. Do not silently redirect the old wrapper or overwrite its qualification.
 
 An earlier read-only census could not inspect an unrelated `cmd.exe` process.
 Re-observe at actual application admission. The exclusive application gate must

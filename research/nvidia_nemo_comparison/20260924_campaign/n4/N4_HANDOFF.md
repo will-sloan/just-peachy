@@ -1136,3 +1136,69 @@ Actual paired source runs, controlled resources, continuity and stop/restart
 remain unexecuted. The source receipt still says IMPLEMENTED_NOT_APPLICATION_ADMITTED;
 this prestart qualification does not promote it to full application acceptance.
 N4 integrated acceptance remains 0/7680 and N5 remains downstream.
+
+## 2026-09-25: V2 runner and independent complete-envelope transport review
+
+Fresh audit at this follow-up found D1 E0 at 101/960 with a 1.44-second heartbeat;
+it reached 112/960 while independent development ran. Exact supervisor
+32696/1790350774.0235264, coordinator 4092/1790350774.1659436 and model
+29756/1790350782.179587 remained unchanged. The sole model remained on CPU4,
+helpers on CPU14, and all 33 active/predecessor code/dependency bindings verified.
+The unrelated cmd.exe AccessDenied census uncertainty remains an eventual
+exclusive-application admission blocker; no bypass or process interference occurred.
+
+Added paced_application_runner_v2.py. It imports V2 planner admission and payload
+reconstruction rather than reusing the V1 source-equality assumptions. Its own
+run receipts use n4-paced-application-run-v2. The fixed child command, suspended
+private desktop/job, renewable admission, exclusive slot, resource bounds and
+verified closure-before-release rules are retained. V1 code/receipts are unchanged.
+
+After a normal application-child exit and closed cell, the coordinator verifies
+the planned job/engine and direct native session beneath the cell data root,
+reconstructs the native event envelope and requires its complete prefix/suffix.
+It writes NATIVE_JOURNAL_ENVELOPE.json with exact evidence bindings. A well-formed
+incomplete envelope is preserved before rejection; that cell cannot get COLLECTED
+or progress credit. Cleanup still releases only a verifiably closed child/job.
+This is a collection gate, not native payload/accuracy/naming/timing acceptance.
+
+Sixteen model-free runner checks passed, including synthetic native journal
+parsing, exact cleanup order, preserved truncated-log failure, foreign/nested
+session and job/engine mismatch rejection, synthetic-permit atomic leases and
+refusal of missing V2 production inputs. No application/source/model was launched.
+Helper 43948/1790360036.7516675 exited. PACED_RUNNER_CHECK_V2.json binds 88 code
+records and private local/n4/paced-runner-v2-probe-v1/RESULT.json, SHA-256
+6528146e445988f4e2d68c327c02ab9b37409b1c49ecedbe7884e73a64086cb0.
+Its public qualification SHA-256 is
+c5c0c1407d0b73cf66143ec8d61636cc6873bb242aeba8c35a0c1886ddc34b8e.
+
+Added review_application_transport_v2.py, requiring the exact V2 child script
+even when V1 is present in the dependency inventory. It preserves the earlier
+process/permit/lease/slot/closure joins and independently rereads native bytes,
+reconstructs the whole envelope receipt and joins its binding to COLLECTED.
+Changing summary counts or rebinding a truncated journal cannot qualify it.
+Fifteen tests passed; seven preserved native lifetime fixtures were reread
+(two normal, five correctly refused) without starting a process. Helper
+44912/1790360267.7110512 exited. APPLICATION_TRANSPORT_REVIEW_CHECK_V2.json
+binds 93 code records and private
+local/n4/application-transport-v2-review-probe-v2/RESULT.json, SHA-256
+c4a9d3832eb597b2f79dffe78278278465985993b765f55f9bf7346c2e839dcf.
+Its public qualification SHA-256 is
+74ee5f574f70f156fbdbe7bdb6db78135a2b79191cd233024e4c844ae08dabe8.
+
+The review probe's first attempt failed before admission/tests because its
+single-file loader received two arguments. All four exact files and the failure
+receipt are retained in application-transport-v2-review-probe-v1. Its original
+helper identity was not captured before the failure; the tool observed exit 1.
+This limitation is explicit, not reconstructed as a fabricated owner receipt.
+The loader was corrected and tested in fresh attempt v2. No production worker
+or shared supervision record was changed by that failed development probe.
+
+README_PACED_APPLICATION_RUNNER_V2.md and README_APPLICATION_TRANSPORT_REVIEW_V2.md
+document purpose, inputs/outputs, limits and PowerShell/CMD/Anaconda commands.
+Both qualifications are development evidence only. No production plan, actual
+application source run or integrated N4 acceptance was created. The V1 observation
+wrapper still calls V1 transport; next qualify a V2 composition around the new
+transport reader and existing independent observation API, then complete full
+plan/population reconstruction and native payload/pane/naming/timing review.
+Actual panels, continuity/stop/restart, controlled resources and N5 remain pending.
+Continue D1 without editing its source or launching a competing numerical worker.
