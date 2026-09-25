@@ -1,0 +1,102 @@
+{
+  "status": "PASS_RESOURCE_REVIEW_DEVELOPMENT_ONLY",
+  "utc": "2026-09-25T14:10:00.219833+00:00",
+  "code": [
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\review_resource_evidence.py",
+      "sha256": "b763349b5997184e88642bc8f336d280c7b3f08f50e94c619c99214292831481",
+      "bytes": 9982
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\test_resource_review.py",
+      "sha256": "5d7f4733c44480c3320c61e8b37692ac74ceaec21cbd45ea4ecad40c2d9c1d5e",
+      "bytes": 6334
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\probe_resource_review.py",
+      "sha256": "38e4b4efe2770d482297d800e7e730052d1984e3d525096bf9f5590d9784a861",
+      "bytes": 4368
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\README_RESOURCE_REVIEW.md",
+      "sha256": "ef5936568fbf8586f8b2c716f2d6500ad8a7f57bb85b0d9bfab915ec864604da",
+      "bytes": 5124
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\test_application_resources.py",
+      "sha256": "015e4eed99366c3025c5f03508fc2bf84908c64230eece55ee8459df4d9dba2a",
+      "bytes": 7951
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\application_resources.py",
+      "sha256": "7dde0f757510567d1faa685b8d81c3e8e90f0e43ada1ac4f605e105740c60600",
+      "bytes": 13015
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\resources.py",
+      "sha256": "808f28726271b94cac7e3a97e806c95483162baabb53d5520cdd5864438f07ec",
+      "bytes": 6659
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\common.py",
+      "sha256": "a44e389d3c80c8c21e74ea3423d8270273e5b3132a84095218dee078c53f059e",
+      "bytes": 3267
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\metric_process.py",
+      "sha256": "1a1279c44ce906ce13733db1ba32ba86ffd7419cb1a4b767df3505d66d3e36f8",
+      "bytes": 10902
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\review_scoring_bank.py",
+      "sha256": "e7bd08e3fb9d19cafd761a778b9dba230bed1002b7dbcd180c620e47b48f51e2",
+      "bytes": 19917
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\scoring_bank.py",
+      "sha256": "394a4ebf02d8e5e73eb60a0ce89f66c92563fdb42f212261404b485113c75b84",
+      "bytes": 19772
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\asr_full_bank.py",
+      "sha256": "ab9ebf7ee64d70b859935b4d3725cce24adb03a713c0a2ad4328253bc02900f9",
+      "bytes": 17580
+    }
+  ],
+  "private_receipt": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\resource-review-probe-v1\\RESULT.json",
+    "sha256": "b88944c70e0f446768b22e6e7fdc559c6e3885abbfc5b9cdc84797db6b972eca",
+    "bytes": 1084
+  },
+  "private_admission": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\resource-review-probe-v1\\ADMISSION.json",
+    "sha256": "2a1f691ebbd4f51a2cc14c2590897706c6d22de1eba846b8b20bd78549bdda5b",
+    "bytes": 8282
+  },
+  "tests": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\resource-review-probe-v1\\tests.txt",
+    "sha256": "f71151fc43cb661ce3689cc4433fd311afc6943d89122ad55c5782c289ca476d",
+    "bytes": 1414
+  },
+  "tests_passed": 9,
+  "exited_development_owner": {
+    "pid": 23244,
+    "create_time": 1790345330.2217555
+  },
+  "saved_observation_review": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\resource-review-probe-v1\\SAVED_RESOURCE_REVIEW.json",
+    "sha256": "b9d14dd2cef95addca7984d197606781c46691e2e2f4469b90566edabb90a634",
+    "bytes": 6254
+  },
+  "saved_samples_reconstructed": 5,
+  "saved_process_identities": 3,
+  "new_resource_measurement": false,
+  "actual_application_spawned": false,
+  "model_inference_started": false,
+  "controlled_whole_stack_qualified": false,
+  "target_qualified": false,
+  "deployment_tier": "UNKNOWN",
+  "integrated_N4_cells": 0,
+  "N4_accepted": false,
+  "scope": "Bounded raw-resource reconstruction, independent per-process sums and malformed-evidence checks. Reuses original saved model-free process-tree observations; no new resource benchmark or actual application acceptance."
+}

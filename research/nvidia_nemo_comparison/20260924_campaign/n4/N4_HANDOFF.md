@@ -780,3 +780,23 @@ Its command/executable are unavailable, so a future exclusive application slot
 must continue to refuse while that uncertainty persists. Do not terminate it,
 weaken the gate or disturb the user's other work. Re-observe at actual admission;
 the current known ASR numerical owner remains healthy and unchanged.
+
+review_resource_evidence.py now reconstructs a stopped collector's complete raw
+resource stream, independently recomputing per-process memory/thread totals before
+replaying ResourceLedger and checking every summary field. It checks phase order,
+timing, identity/census, incomplete observations, byte/record bounds and exact
+input hashes. RSS, USS, Windows private commit and PSS remain separate; unavailable
+values stay unavailable. First/last running-sample growth needs two complete
+samples and is not interpreted as a leak. Resource review alone always retains
+UNKNOWN deployment tier and no controlled-stack, CM5 or integrated acceptance.
+
+Nine tests passed, including reconstruction of the original saved actual
+model-free resource-tree observations and refusals for malformed sums, summaries,
+CPU/clocks, phase/process census, truncation, foreign identity and false acceptance.
+Incomplete or missing lifecycle coverage remains explicit. No new collector,
+child, model, GUI or source was launched. The helper exited. Evidence is bound by
+RESOURCE_REVIEW_CHECK_V1.json; README_RESOURCE_REVIEW.md documents purpose,
+inputs/outputs, bounded review API and PowerShell/CMD/Anaconda commands. Future
+actual panel review must join these resource observations to the successful
+source/GUI, exact process lifetime, exclusive slot and common configuration before
+using them for deployment planning. A3 remains the sole healthy numerical owner.
