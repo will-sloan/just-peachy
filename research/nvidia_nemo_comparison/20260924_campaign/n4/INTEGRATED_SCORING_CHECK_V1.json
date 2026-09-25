@@ -1,0 +1,94 @@
+{
+  "status": "PASS_SCORING_ADAPTER_DEVELOPMENT_ONLY",
+  "utc": "2026-09-25T07:37:04.790002+00:00",
+  "private_receipt": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\integrated-scoring-probe-v1\\RESULT.json",
+    "sha256": "57720d1273239bd065059deb102079724aac830eb5da240000d12c2909066feb",
+    "bytes": 14241
+  },
+  "admission": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\integrated-scoring-probe-v1\\ADMISSION.json",
+    "sha256": "90e9cfd1c783bbe49633f676d19c4e5625769b9d0c7a146709ff2e207b015ae9",
+    "bytes": 2851
+  },
+  "code": [
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\integrated_scoring_adapter.py",
+      "sha256": "f1b437e1633d4967a0181521cb6533abcd5ca2e0ca079ffdecccca19b56f0635",
+      "bytes": 9570
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\probe_integrated_scoring.py",
+      "sha256": "48e7eda0c7ac88ce4fb445645714bd1a00b4fb7561fdc22a02fb7564c4620435",
+      "bytes": 8006
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\test_integrated_scoring.py",
+      "sha256": "619178aba1c51210eb9e80a009d05c7db46b8e3126d06de4f47ceb377ab915d0",
+      "bytes": 7543
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\README_INTEGRATED_SCORING.md",
+      "sha256": "1a30cca7a406594f1b6cd46a12ac6e8fddd42077a08d3b9d41683d88185f3635",
+      "bytes": 6662
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\metrics.py",
+      "sha256": "33a038f2d709209209c4117fc1024f1e015868b6e45260a0737950fef53a4c49",
+      "bytes": 7827
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\common.py",
+      "sha256": "a44e389d3c80c8c21e74ea3423d8270273e5b3132a84095218dee078c53f059e",
+      "bytes": 3267
+    }
+  ],
+  "tests": {
+    "total": 10,
+    "failures": 0,
+    "errors": 0,
+    "elapsed_seconds": 5.158,
+    "log": {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\integrated-scoring-development-v1\\tests-initial.txt",
+      "sha256": "0adafe6c094ea192d1561fd5073ee3061303684d84c1e407ea5f15f6a3432a39",
+      "bytes": 1878
+    }
+  },
+  "environment": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\metrics\\environment-v1\\ENVIRONMENT.json",
+    "sha256": "d8959e31325151d68e031d163c1d21957c88de550a32efabc631614c2e432461",
+    "bytes": 2209419
+  },
+  "environment_files_verified": 5931,
+  "metric_versions": {
+    "meeteval": "0.4.3",
+    "pyannote.metrics": "4.1"
+  },
+  "actual_saved_checks": {
+    "total": 51,
+    "main_mode_cases": 32,
+    "main_mode_unique_audio_files": 2,
+    "main_mode_reference_class": "complete_nonoverlap",
+    "main_mode_activity_statuses": {
+      "UNAVAILABLE_FULL_TRACK_ACTIVITY_NOT_RECORDED": 16,
+      "APPROXIMATE_ACTIVITY_ONLY": 16
+    },
+    "empty_output_cases": 19,
+    "all_real_empty_cases_are_empty_reference_controls": true,
+    "empty_control_insertions": 0,
+    "formatting_lexical_edits": 0,
+    "constant_speaker_controls_equal_in_all_main_cases": true
+  },
+  "fixture_scope": "Missed-word deletions, overlap, incomplete references and invalid frames exercised by explicit dictionary fixtures; not by additional saved-scene inference",
+  "exact_probe_owner_exited": true,
+  "models_loaded": 0,
+  "physical_widget_observed": false,
+  "integrated_N4_cells": 0,
+  "production_bank_scored": false,
+  "remaining": [
+    "Full-bank scoring driver with exact-owner per-cell timeout protection",
+    "Paired and stratified bank report integration",
+    "Actual source-paced GUI/name/resource qualification"
+  ],
+  "scope": "Established metrics over unchanged sealed method predictions; reused smoke cases and empty controls only; no full-bank accuracy or naming recognition claim"
+}

@@ -1,5 +1,32 @@
 # N4 implementation checkpoint — upstream accepted, integrated run pending
 
+New scoring boundary: integrated_scoring_adapter.py uses only the isolated
+evaluator and standard-library artifact readers, with no application/model
+imports. Ten tests passed in 5.158 seconds. The subsequent model-free probe
+scored all 32 open-mode composition/tap smoke checks and all 19 closed A0 empty
+outputs. Every raw fragment rejoined exactly; D1 actual native activity was
+retained and D0 global-speaker DER/JER stayed unavailable. Formatting made no
+lexical edits in this subset. All real empty cases were empty-reference controls
+and scored zero insertions; missed words, overlap and incomplete-reference
+handling were tested with explicit fixtures, not new saved scenes.
+
+INTEGRATED_SCORING_CHECK_V1.json and README_INTEGRATED_SCORING.md bind code,
+tests, purpose, inputs/outputs and all shell commands. The probe verified all
+5,931 installed evaluator code/native files and used the unchanged pinned
+MeetEval 0.4.3/pyannote.metrics 4.1 environment. The exact worker
+14504 / 1790321651.3604755 exited; it loaded no models. Private result:
+local/n4/integrated-scoring-probe-v1/RESULT.json, SHA-256
+`57720d1273239bd065059deb102079724aac830eb5da240000d12c2909066feb`.
+All per-check receipts and code hashes were reverified. These 51 checks are
+development evidence with deliberate smoke reuse, not full-bank accuracy.
+
+Next independent work: connect this adapter to a closed complete/partial bank
+scoring driver with exact-owner per-cell timeouts, then the existing paired
+and stratified report tools. Keep successful empty, failed and not-tested rows
+distinct; actual first-visible/naming/complete-stack metrics remain unavailable
+until their required observations exist. Preserve all bound helpers and the
+ongoing ASR numerical worker. N4/N5 are not accepted.
+
 New complete-bank implementation: integrated_bank_plan.py requires passed,
 terminal, owner-closed ASR/D0/D1 reviews and rejoins all 3,840 component parents
 against exact audio/source/profile/cache/gallery namespaces. integrated_bank.py

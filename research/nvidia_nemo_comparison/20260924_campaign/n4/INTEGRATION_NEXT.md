@@ -286,7 +286,9 @@ Remaining integration work, in dependency order:
    README_INTEGRATED_BANK.md. Then admit the separate mode panel. Keep execution,
    missing input, successful empty hypothesis and unqualified measurements
    distinct. Preserve the new code/README bindings and use derivatives for fixes.
-3. Integrate scoring with immutable Q references only after prediction closure.
+3. Use the now-tested integrated_scoring_adapter.py with immutable Q references
+   only after prediction closure. Implement its full-bank driver with exact-owner
+   per-cell native-metric timeout protection and paired/stratified reporting.
    Empty successful hypotheses count missed reference words; execution failures
    remain failures. Preserve fragments, source overlap, speaker identity and all
    denominators. Existing D0 speech/overlap masks and sparse track support do not
@@ -319,3 +321,34 @@ remaining counts; pre-cell resource stops do not become failed predictions.
 Complete lossless publication/projection artifacts and real Controller closure
 are retained for each result. Its terminal review still grants only modeled
 method qualification, not N4 acceptance or physical GUI timing.
+
+## Evaluator boundary checked on sealed method output
+
+integrated_scoring_adapter.py now verifies gzip hashes/CRC and expanded bounds,
+reconstructs raw words from contiguous token fragments and requires agreement
+with actual caption state and Controller raw rows. It never imports predictor
+code. D1 uses all actual native slots with the frozen .5 activity threshold and
+intersection with delivered waveform support; native overhang remains explicit.
+D0 binary masks and sparse embedding tracks do not become a global speaker
+timeline. D0 DER/JER remains unavailable. Formatting is only an ASR-word
+preservation diagnostic without formatting gold. All-one-name and all-Unknown
+controls expose the fact that permutation-invariant scores cannot certify names.
+
+Ten tests passed. The real saved-evidence probe then scored 32 main-mode checks
+from the same two nonoverlap smoke sources plus 19 A0 empty outputs; all 51
+passed. All real empty cases were empty-reference controls and had zero
+insertions. Missed-word, overlap and incomplete-reference behavior was checked
+with dictionary fixtures, not additional saved-scene predictions. There were
+no lexical formatting edits in the saved subset. These are development checks,
+not new neural inferences or bank results. INTEGRATED_SCORING_CHECK_V1.json binds
+the probe receipt, source, tests and the original metric environment; 5,931
+installed code/native files were reverified. The exact probe worker exited.
+
+README_INTEGRATED_SCORING.md has purpose, inputs/outputs and all shell commands.
+The remaining scoring driver must consume terminal, hash-verified complete or
+explicitly partial prediction banks, preserve every failed/missing denominator,
+bound individual native-library calls using exact owned process identities,
+and produce per-composition/mode/tap counts plus paired/stratified reports.
+Do not pool reused smoke cases into a scientific aggregate or substitute
+modeled publication clocks for widget visibility. N4 integration acceptance,
+GUI/name/resource evidence and N5 releases remain separate pending work.

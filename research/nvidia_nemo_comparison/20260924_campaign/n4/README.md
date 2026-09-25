@@ -1,5 +1,19 @@
 # N4 comparison implementation and evaluation
 
+The scoring conversion boundary now passes ten tests and 51 saved-evidence
+checks. integrated_scoring_adapter.py preserves exact raw caption fragments,
+uses the pinned established metrics, retains successful-empty/failed/missing
+denominators and exposes D1 native-slot activity without inventing D0 global
+speaker activity. The 32 main-mode checks reuse two nonoverlap smoke files;
+all 19 real empty cases are empty-reference controls with zero insertions.
+Overlap, incomplete-reference and missed-word behavior was checked in explicit
+fixtures. Formatting made no lexical edits in these saved cases. Constant-name
+controls expose permutation-invariant metrics' naming blind spot.
+INTEGRATED_SCORING_CHECK_V1.json binds all results and 5,931 reverified evaluator
+code/native files. README_INTEGRATED_SCORING.md supplies the API and all shell
+commands. Full-bank scoring with bounded metric workers, paired/stratified
+report integration and actual GUI/name/resource evidence remain pending.
+
 The complete-bank join, bounded method runner and terminal reviewer are now
 implemented in integrated_bank_plan.py and integrated_bank.py. Thirteen tests
 passed: exact 7,680 main/1,536 additional-mode fixture counts, all 960 reviewed
