@@ -523,3 +523,33 @@ component and full modeled-bank reviews. ASR moved from A1 to A2 during this
 checkpoint; the sole model slot remains occupied and D1 is not started. The
 existing in-task follow-up was changed to every 30 minutes at the user's request;
 its deadline and meaningful-change notification policy are preserved.
+
+Use paced_adapters_v3.py for the future full application. V2 exercised constructor
+queues, but full startup replaces them with EventInbox: it adds consumer timing
+fields and can coalesce obsolete partial events. V3 now exercises all three
+engines' actual emission through that inbox and the original Controller drain.
+Nine tests passed, including the 160 gallery cases, real permitted coalescence
+and rejection of an unexplained missing publication. After drain, reconcile the
+published serial with consumed events plus the inbox's own coalescence count.
+V2 remains method-only evidence. PACED_ADAPTERS_CHECK_V3.json binds this repair;
+README_PACED_ADAPTERS_V3.md has inputs, outputs and all shell commands.
+
+viewport_ledger_v2.py now stores changed viewport rows once and keeps compact
+first/final/latest references. Eight tests passed; all 160 prior saved GUI
+histories reconstruct exactly. The synthetic 8,192-span/40-observation fixture
+wrote 483,963 log bytes and a 5,750,345-byte summary with no caption-body copies
+in span metadata. These are serialized sizes, not application memory or an
+actual continuity result. Disk/span bounds, corruption and clock errors fail
+explicitly. V1's shared-reference expansion failure and oversized formatted
+summary are preserved. VIEWPORT_LEDGER_CHECK_V2.json and its README bind scope
+and commands. Never expand these summaries inside a measured application.
+
+Next full-application closure work must retain the engine reference before
+Controller.close clears it. FileSource ends by finishing its journal; it emits
+no source_stopped event. Check its sent count, each source/ASR/identity journal,
+worker exit and the finalization receipt's source/identity counts against the
+admitted WAV. Reuse the existing joined archive-integrity validator rather than
+accepting an earlier session summary as proof of writer closure. Keep archive,
+consumer and all lane/policy/punctuation/text/source owners in the closure census.
+The source-paced panels and continuity still cannot run alongside component
+extraction, and controlled whole-application resource evidence is still missing.
