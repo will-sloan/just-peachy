@@ -947,3 +947,47 @@ remain to be composed and executed. No production panel or continuity run was
 created, and N4 integrated acceptance remains 0/7680. Continue the D1 full bank
 and its terminal review before the main and modes banks. This change qualifies
 one review component; it does not close N4 or N5.
+
+## 2026-09-25: joined application observations
+
+Fresh D1 audit found the same supervisor 32696/1790350774.0235264 and coordinator
+4092/1790350774.1659436 on CPU14, with model 29756/1790350782.179587 on CPU4.
+Granular E0 progress advanced from 37 to 45 of 960 during this follow-up.
+The 33 active/predecessor code and dependency bindings stayed unchanged.
+The unrelated cmd.exe census still reported AccessDenied; no process was
+stopped and the future exclusive application admission gate stays unchanged.
+
+Added review_application_observations.py and its documented model-free probe.
+The internal review_collected_cell API composes the qualified transport check
+with independent source/worker/consumer/archive closure, resource and viewport
+reconstruction. It checks the prepared frontend/backend/gallery, exact engine
+class and audio job, terminal/source clock equality, Controller backend/mode/
+epoch, primary assistance settings and CPU-only environment. It checks source
+and closure times against this application's resource phases and joins the
+viewport source origin to that same clock. Final Controller span metadata must
+match the latest ledger rows. Never-visible and never-final-visible captions
+remain explicit denominator counts, not omitted results.
+
+Twelve tests passed using the real independent validators on explicit synthetic
+owner/clock/Controller/viewport/resource observations and private copies of
+historical terminal/archive metadata. No application, source, model, desktop,
+capture or playback was started. The initial V1 fixture failed because stored
+catalog entries use manifest_id while the runtime catalog adds an id alias.
+The failed log and exact source snapshots remain preserved. The V2 repair uses
+manifest_id and independently verifies its composition digest.
+
+APPLICATION_OBSERVATION_REVIEW_CHECK_V1.json binds 86 code/dependency records
+and private local/n4/application-observation-review-probe-v2/RESULT.json, SHA-256
+09709f8c9d89429d1e16f9cf894dadad8c6716230cfa1cdf4c608dd547cf75d3.
+Passing helper 38116/create1790354573.5967152 and failed helper
+47964/create1790354525.3838024 exited. README_APPLICATION_OBSERVATION_REVIEW.md
+documents the purpose, inputs/outputs, limitations and all three shell run
+instructions. Earlier qualified implementations and their receipts are intact.
+
+This is structural evidence composition only. Full production plan/population
+review, native publication contents, actual caption-string and naming metrics,
+timing interpretation, continuity, stop/restart and release qualification
+remain outstanding. No new integrated result is accepted and no deployment
+tier is assigned. Continue the current D1 evaluation; after terminal review,
+generate and score the main/modes banks before preparing actual shortlisted
+application runs. The Pi remains off and live checks remain deferred.

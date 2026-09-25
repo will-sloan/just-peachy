@@ -58,6 +58,17 @@ archive, viewport content, naming/timing and resources still need composition
 and review. Complete lease and short-lived-process histories are unavailable
 in the existing runner evidence and must not be inferred.
 
+APPLICATION_OBSERVATION_REVIEW_CHECK_V1.json now qualifies the composition of
+source/worker/archive closure, resource replay and viewport replay with the
+prepared backend and final Controller state. The internal
+`review_collected_cell` API in review_application_observations.py runs the
+transport join first. Positive qualification uses explicitly synthetic owner,
+clock, resource and viewport facts plus copied historical terminal metadata;
+it is not an actual N4 application test. Full-plan/population reconstruction,
+native publication and actual pane-string scoring, naming/timing evaluation,
+continuity and stop/restart still remain. See
+README_APPLICATION_OBSERVATION_REVIEW.md for scope and probe commands.
+
 An earlier read-only census could not inspect an unrelated `cmd.exe` process.
 Re-observe at actual application admission. The exclusive application gate must
 continue to refuse unresolved ownership uncertainty; do not stop that process,
