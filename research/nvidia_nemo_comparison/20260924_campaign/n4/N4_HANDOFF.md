@@ -463,3 +463,24 @@ No desktop input/focus control, SSH, microphone, USB, playback or new capture ra
 The registered in-task heartbeat continues. ASR full-bank components are the
 sole active numerical workload at this checkpoint; integrated count stays zero.
 N5 remains preparation only until accepted N4 configuration selection.
+
+Latest scoring implementation: `scoring_bank.py`, `metric_process.py` and
+`scoring_report.py` now provide terminal-bank admission, a bounded persistent
+established-metric worker, explicit execution-versus-metric failure counts and
+count-weighted paired/stratified reporting. Eleven tests passed and 51 saved
+checks retained identical metric objects; all exact metric owners and pipe
+threads exited. Three actual V2 method cells (baseline, A3/D1/E1, empty A0)
+also passed the production conversion boundary, matching their older qualified
+semantic parents and rejecting changed counts. An initial check supplied older
+V1 artifacts without V2's explicit empty-session field and was rejected; it is
+preserved as a schema-mismatch attempt, not a production failure or source fix.
+
+Use README_SCORING_BANK.md and README_SCORING_BANK_BOUNDARY.md for purposes,
+inputs/outputs and all shell commands. SCORING_BANK_IMPLEMENTATION_V1.json binds
+the qualification evidence. Complete prediction banks require their passed
+review; preserved partial runs retain their full declared population. There is
+still no production method-bank plan, method worker or bank scoring result.
+Continue ASR review, then the single D1 collection, then actual method-bank
+admission/execution/review/scoring. The source-paced common-GUI panels,
+continuity, naming visibility and whole-stack resources remain outstanding;
+none of these model-free helpers adds integrated acceptance credit.

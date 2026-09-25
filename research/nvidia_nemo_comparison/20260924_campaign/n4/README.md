@@ -1,5 +1,19 @@
 # N4 comparison implementation and evaluation
 
+The next scoring layer is implemented in scoring_bank.py, metric_process.py
+and scoring_report.py. Eleven tests pass, and all 51 saved scoring checks give
+identical metric objects through the bounded persistent evaluator process.
+Exact launcher/interpreter identities and pipe cleanup were verified, including
+timeout, EOF, malformed/oversized responses and metric failures. Successful
+predictions with unavailable metrics keep separate missing-metric denominators;
+failed/not-tested inference is never treated as an empty hypothesis. Reports
+pool integer counts by composition/mode/tap and retain excluded paired cases
+and dependency-aware uncertainty. README_SCORING_BANK.md gives the full inputs,
+outputs, resource bounds and PowerShell/CMD/Anaconda commands. Production bank
+scoring still awaits terminal predictions and their required reviews; none has
+been started. SCORING_BANK_IMPLEMENTATION_V1.json records the exact qualification
+scope. GUI/name/resource evidence and N4 acceptance remain separate requirements.
+
 The scoring conversion boundary now passes ten tests and 51 saved-evidence
 checks. integrated_scoring_adapter.py preserves exact raw caption fragments,
 uses the pinned established metrics, retains successful-empty/failed/missing
@@ -11,8 +25,9 @@ fixtures. Formatting made no lexical edits in these saved cases. Constant-name
 controls expose permutation-invariant metrics' naming blind spot.
 INTEGRATED_SCORING_CHECK_V1.json binds all results and 5,931 reverified evaluator
 code/native files. README_INTEGRATED_SCORING.md supplies the API and all shell
-commands. Full-bank scoring with bounded metric workers, paired/stratified
-report integration and actual GUI/name/resource evidence remain pending.
+commands. The bounded bank driver and paired/stratified reporting are now
+implemented as described above; full-bank execution and actual GUI/name/resource
+evidence remain pending.
 
 The complete-bank join, bounded method runner and terminal reviewer are now
 implemented in integrated_bank_plan.py and integrated_bank.py. Thirteen tests

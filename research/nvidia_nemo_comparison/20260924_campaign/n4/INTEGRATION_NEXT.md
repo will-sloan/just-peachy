@@ -286,9 +286,10 @@ Remaining integration work, in dependency order:
    README_INTEGRATED_BANK.md. Then admit the separate mode panel. Keep execution,
    missing input, successful empty hypothesis and unqualified measurements
    distinct. Preserve the new code/README bindings and use derivatives for fixes.
-3. Use the now-tested integrated_scoring_adapter.py with immutable Q references
-   only after prediction closure. Implement its full-bank driver with exact-owner
-   per-cell native-metric timeout protection and paired/stratified reporting.
+3. Use integrated_scoring_adapter.py with immutable Q references only after
+   prediction closure. The full-bank driver, exact-owner per-cell metric timeout
+   and paired/stratified reporting are now implemented in scoring_bank.py,
+   metric_process.py and scoring_report.py; follow README_SCORING_BANK.md.
    Empty successful hypotheses count missed reference words; execution failures
    remain failures. Preserve fragments, source overlap, speaker identity and all
    denominators. Existing D0 speech/overlap masks and sparse track support do not
@@ -345,10 +346,47 @@ the probe receipt, source, tests and the original metric environment; 5,931
 installed code/native files were reverified. The exact probe worker exited.
 
 README_INTEGRATED_SCORING.md has purpose, inputs/outputs and all shell commands.
-The remaining scoring driver must consume terminal, hash-verified complete or
-explicitly partial prediction banks, preserve every failed/missing denominator,
-bound individual native-library calls using exact owned process identities,
-and produce per-composition/mode/tap counts plus paired/stratified reports.
+The new scoring driver consumes terminal, hash-verified complete or explicitly
+partial prediction banks, preserves every failed/missing denominator, bounds
+individual native-library calls using exact owned process identities, and
+produces per-composition/mode/tap counts plus paired/stratified reports.
 Do not pool reused smoke cases into a scientific aggregate or substitute
 modeled publication clocks for widget visibility. N4 integration acceptance,
 GUI/name/resource evidence and N5 releases remain separate pending work.
+
+## Persistent metric process and bank-report implementation
+
+Eleven tests now pass for full main/mode-panel census, causal-key corruption,
+explicit failed-prefix denominators, weighted/paired counts, actual established
+scorer empty-versus-failed behavior and process/pipe fault cleanup. A 51-case
+saved-output probe then produced identical metric objects through one persistent
+worker. Every installed evaluator code/native file (5,931) was verified again.
+All exact launcher/interpreter identities exited. SCORING_BANK_IMPLEMENTATION_V1.json
+binds the code, test log and private probe; README_SCORING_BANK.md provides the
+complete run contract. No production method bank or scoring run has started.
+
+The driver requires complete-bank terminal review or an explicitly preserved
+failed prefix; a still-running or silently reduced bank is rejected. Timeouts
+and metric-input errors retain execution COMPLETE with unavailable metrics,
+while failed/not-tested predictions retain their own denominators. After three
+consecutive scoring errors it stops new metric work and accounts for the rest.
+Each scorer run uses an OS writer lock, CPU14, no model loading, a 512-MiB output
+bound, drive floors and the existing shared allowance/reservations. Timed calls
+never kill by process name or a recycled bare PID. All raw artifacts remain private.
+
+Reports keep composition, mode and tap separate; edit counts and duration are
+pooled, not scene percentages. Paired baseline comparisons state excluded cells
+and reference denominators and use the existing dependency-cluster bootstrap;
+both taps stay together, with room/actor/family sensitivity. The whole bank is
+still seen engineering evidence. Names, widget visibility, complete source/GUI
+parity and hardware feasibility cannot be inferred from these modeled results.
+Run the production driver only after the actual bank is admitted and closed.
+
+The production conversion boundary additionally passed three newly sealed V2
+method replays at 08:00:54 UTC: baseline, A3/D1/E1 and successful empty A0. They
+match the earlier semantic predictions and reject changed publication counts;
+the missing production bank is still refused. These are model-free development
+replays, not new neural results. README_SCORING_BANK_BOUNDARY.md documents the
+probe. Its first exploratory attempt used older V1 artifacts and was rejected
+because they lack V2's explicit empty-session field; that attempt is preserved.
+No frozen code was changed to accept the wrong artifact version.
