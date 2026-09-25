@@ -1,5 +1,31 @@
 # N4 implementation checkpoint — upstream accepted, integrated run pending
 
+New complete-bank implementation: integrated_bank_plan.py requires passed,
+terminal, owner-closed ASR/D0/D1 reviews and rejoins all 3,840 component parents
+against exact audio/source/profile/cache/gallery namespaces. integrated_bank.py
+executes the actual publication and empty-safe Controller paths, preserves full
+private gzip/closure evidence and provides a strict terminal reviewer. Main mode
+is predeclared open_with_names for 7,680 cells; the frozen 24-cell panel adds
+four modes (1,536 cells). Unavailable multitalker remains outside the 16 core
+tuples with its reason and zero credit. D0/E1 stays nominal and unqualified.
+
+Thirteen tests passed in 19.804 seconds. They include the full matrix fixture,
+all 960 real reviewed D0 bindings, actual baseline and A3/D1/E1 replay boundaries,
+a real empty-output boundary, incorrect parent/namespace/owner rejection and
+failed-versus-not-tested lifecycle counts. The initial catalog-placeholder
+failure and passing retests are preserved. INTEGRATED_BANK_IMPLEMENTATION_V1.json
+binds code and private logs. A real production prepare call then refused the
+still-missing ASR/D1 terminal reviews; no production plan, waiter or worker was
+created. Private gate: local/n4/integrated-bank-development-v1/PREPARATION_GATE_CHECK.json,
+SHA-256 `649b2acfbf02d01ddf77e99ffa30f271ed1f0a8c2ba53bc7f473f9d6966d656b`.
+
+Read README_INTEGRATED_BANK.md for complete commands and resource admission.
+After accepted ASR and D1 component reviews, prepare and execute the main method
+bank, then the separate mode panel under a new allocation. Do not overlap either
+with controlled source-paced/resource qualification. The runner remains a
+modeled method execution: scoring, full source/session/GUI/resource confirmation
+and N4 acceptance must still follow. No accepted integrated cells are claimed.
+
 Latest qualification at 2026-09-25 06:58:55 UTC: nine tests and all 160 actual
 publication/Controller method checks passed. application_publication.py uses
 the actual engine constructors, begin routing, raw transcript publication,

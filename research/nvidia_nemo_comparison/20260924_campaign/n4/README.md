@@ -1,5 +1,19 @@
 # N4 comparison implementation and evaluation
 
+The complete-bank join, bounded method runner and terminal reviewer are now
+implemented in integrated_bank_plan.py and integrated_bank.py. Thirteen tests
+passed: exact 7,680 main/1,536 additional-mode fixture counts, all 960 reviewed
+D0 parent bindings, real baseline/A3-D1-E1/empty prediction boundaries, lineage,
+truth firewall, owner checks and failure/resource-stop denominators. The existing
+disabled multitalker placeholder stays separately unavailable. The primary mode
+is fixed as open_with_names; the other four modes use the frozen 24-cell panel.
+INTEGRATED_BANK_IMPLEMENTATION_V1.json binds tests and the real preparation gate.
+Production preparation correctly refused the missing complete ASR/D1 reviews:
+no full-bank plan or worker has been created. README_INTEGRATED_BANK.md gives
+inputs/outputs, resource/storage bounds and PowerShell/CMD/Anaconda commands.
+This is tested implementation, not bank execution or stage acceptance. Source-
+paced full application/GUI/resource qualification and scoring remain required.
+
 Latest publication check: nine tests and 160 actual producer/Controller method
 checks passed at 2026-09-25 06:58:55 UTC. All complete caption histories and
 final projections match the earlier mode/consumer results. The actual emit

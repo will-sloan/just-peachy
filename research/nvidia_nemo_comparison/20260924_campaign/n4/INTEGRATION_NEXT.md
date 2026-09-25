@@ -280,11 +280,12 @@ Remaining integration work, in dependency order:
    resource affinities and heartbeat. After terminal completion and coordinator
    exit, run the already-prepared full ASR reviewer. Only its passed review may
    admit the existing D1 full-bank plan; do not launch a duplicate model/waiter.
-2. Implement the bounded complete-bank join/runner from accepted ASR, D0 and D1
-   receipts, exact job/audio/source/runtime/gallery bindings and the actual
-   publication/empty-safe Controller methods. Keep execution, missing input,
-   successful empty hypothesis and unqualified measurement statuses distinct.
-   Use fresh code derivatives and storage admission before collecting outputs.
+2. The bounded complete-bank join/runner is now implemented and tested in
+   integrated_bank_plan.py and integrated_bank.py. After all three reviews pass,
+   prepare the exact main plan and execute under fresh storage admission using
+   README_INTEGRATED_BANK.md. Then admit the separate mode panel. Keep execution,
+   missing input, successful empty hypothesis and unqualified measurements
+   distinct. Preserve the new code/README bindings and use derivatives for fixes.
 3. Integrate scoring with immutable Q references only after prediction closure.
    Empty successful hypotheses count missed reference words; execution failures
    remain failures. Preserve fragments, source overlap, speaker identity and all
@@ -299,3 +300,22 @@ Remaining integration work, in dependency order:
 N4 acceptance remains 0/7,680 integrated cells. N5 remains preparation until
 accepted N4 configurations and offline release validation exist. The packaging
 reserve and campaign deadline remain unchanged; live CM5 checks stay deferred.
+
+The complete-bank implementation passes 13 tests, including full 7,680/1,536
+fixture counts, all 960 real D0 parent bindings and actual baseline, A3/D1/E1
+and empty-output prediction boundaries. Main mode was declared open_with_names
+before bank execution; four additional modes use the unchanged 24-cell panel.
+The unavailable multitalker placeholder is recorded separately, while all 16
+core tuples remain mandatory. A real prepare call verified the source and
+qualification receipts, then refused missing ASR/D1 terminal reviews. No plan
+or worker exists yet. INTEGRATED_BANK_IMPLEMENTATION_V1.json binds the results.
+The initial catalog-placeholder failure is preserved; code now uses the same
+factorial inventory as accepted preparation and keeps unavailable entries visible.
+
+The runner has a single OS writer lock, CPU14/no-model execution, at most 8 GiB
+per run, 70-MiB cell peak, drive floors, periodic shared-inventory rechecks and
+the original packaging cutoff. Failed predictions retain evidence and explicit
+remaining counts; pre-cell resource stops do not become failed predictions.
+Complete lossless publication/projection artifacts and real Controller closure
+are retained for each result. Its terminal review still grants only modeled
+method qualification, not N4 acceptance or physical GUI timing.

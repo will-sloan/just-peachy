@@ -1,0 +1,194 @@
+{
+  "status": "IMPLEMENTED_AND_TESTED_REQUIRES_TERMINAL_COMPONENT_REVIEWS",
+  "utc": "2026-09-25T07:21:55.548873+00:00",
+  "code": [
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\integrated_bank_plan.py",
+      "sha256": "595ffe3e877fdd56468e9cda0b15a793b5d0e0453a19641f3394c604d4ae4690",
+      "bytes": 14170
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\integrated_bank.py",
+      "sha256": "278abf1ed11d6c3f452991e27683f68596fd25f220952a3f4690fdc5646aff61",
+      "bytes": 15499
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\test_integrated_bank.py",
+      "sha256": "f578ecb004f30ff96d3cdaa977ba4b447eac09f0b0f0a2a1509ee176e54c4653",
+      "bytes": 12972
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\README_INTEGRATED_BANK.md",
+      "sha256": "c1dbe3c548a9cca4b5931ff766a334f1e5c6e99571851c9cd70c52abd994556d",
+      "bytes": 8342
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\application_publication.py",
+      "sha256": "687cb1f24b2a6b14b99968ca82df7d1507c9782f5e6deca55ba2dfa6e8305062",
+      "bytes": 16513
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\controller_projection_v2.py",
+      "sha256": "0ef96c5d39bcb88f0f6805baa427c3dd0d4d89fcef6d8a9f6c04546339f134dd",
+      "bytes": 15804
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\controller_projection.py",
+      "sha256": "5f75e8158b9bfe04d031c599fba349888271b2cd3dc1495b297669acde85c8e0",
+      "bytes": 13528
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\component_commands.py",
+      "sha256": "eb9ab2085d7849223baef290b876d9abf4b82322ca06989f7a50a625304f6880",
+      "bytes": 7817
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\component_d1_replay.py",
+      "sha256": "528c9c1f286437953a17981947f1cccb0d73fd57013e1c7c27d8b360d6582546",
+      "bytes": 17131
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\component_s7_replay.py",
+      "sha256": "03d1bb54808ea833056f8458ac2ed9b35dea41d98b69d591e9d395b27ad5019b",
+      "bytes": 13113
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\component_presentation.py",
+      "sha256": "dd77f86c58bbb6a4924cbb3b56df0ca15e4d1c94e6ee2b2e2451ac1c4a670de7",
+      "bytes": 6111
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\mode_galleries.py",
+      "sha256": "6235b2b26d056e8ff0e7e0dd4e17b7d18562c0debd24b97abd63b78ea29c09d5",
+      "bytes": 13633
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\probe_component_s7.py",
+      "sha256": "284a18f5aeeec63d2519725026f4971d8a6fe3e6de47076fadc9e1ce7f751a3b",
+      "bytes": 8460
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\probe_controller_projection.py",
+      "sha256": "ebc27cce2213019ebe06ece53dd1acc56215d0ebd687bbd58d7e581111b0a3b8",
+      "bytes": 7139
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\common.py",
+      "sha256": "a44e389d3c80c8c21e74ea3423d8270273e5b3132a84095218dee078c53f059e",
+      "bytes": 3267
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\evidence_store.py",
+      "sha256": "f97dda934623c0c098127f0a1e4ca55f3c57ff647fb580a8f08b8502d151b4ca",
+      "bytes": 15016
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\evidence_archive.py",
+      "sha256": "cc04584cd350592fada58eb48d5c7279795811631eb2e85e7824941303254e70",
+      "bytes": 4506
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\evidence_reader.py",
+      "sha256": "0c4df28e474c9bb61282af58226e30c775be577978d3d8e14d5f8b5ac699bfc3",
+      "bytes": 3270
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\compose_release_v3.py",
+      "sha256": "8fc1736989d8f38dbd5e926c6f45cba21f741b8755b46b9a6986c0e9571a63cd",
+      "bytes": 7585
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\asr_full_bank.py",
+      "sha256": "ab9ebf7ee64d70b859935b4d3725cce24adb03a713c0a2ad4328253bc02900f9",
+      "bytes": 17580
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\asr_bank_components.py",
+      "sha256": "832b323dc79724201e9f54f874aaf8613cf0f2adc943400a3a03965c403b5602",
+      "bytes": 17329
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\d0_bank_components.py",
+      "sha256": "49027c697561b23335f30e87780808162a5e3b94fc26e8457a4c01df90ac30dd",
+      "bytes": 12976
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\d1_full_bank.py",
+      "sha256": "266abfaeff290fa1465f9b56d7d3f70bca929f05f240c6eae5b65cae68f1ebca",
+      "bytes": 20818
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\d1_bank_components.py",
+      "sha256": "eda37f2c7082ca8094ce1c2ee94ff49d1fa795bc4f66eecadab337e45d2f85db",
+      "bytes": 15493
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\supervision\\supervisor.py",
+      "sha256": "49f6cb3ec50e008905feb562879aaf28f28827fd218bf1a3e2fd8f65fe1776ee",
+      "bytes": 17090
+    }
+  ],
+  "tests": {
+    "total": 13,
+    "failures": 0,
+    "errors": 0,
+    "elapsed_seconds": 19.804,
+    "logs": [
+      {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\integrated-bank-development-v1\\tests-initial.txt",
+        "sha256": "60215c2248520e2069856d6b4b41c5bfcbc854c011149f0301cf4ea050248929",
+        "bytes": 9107
+      },
+      {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\integrated-bank-development-v1\\tests-catalog-fix.txt",
+        "sha256": "65c852c9d45b9957274d93fb7cccd02d4590ba968c496f11995892807be89a7c",
+        "bytes": 1877
+      },
+      {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\integrated-bank-development-v1\\tests-lifecycle.txt",
+        "sha256": "d751651dabe7b102c0d8f0b9f30c2bdefbcd49c36697e18f994ca4d6c2e8f27d",
+        "bytes": 2243
+      }
+    ],
+    "initial_failure": "Disabled multitalker placeholder was incorrectly sent to the core composition validator; corrected by using the existing factorial inventory and retaining unavailable entries separately",
+    "final_prepare_guard": "Real preparation subsequently verified the final stricter qualification/source/catalog checks and refused missing terminal reviews"
+  },
+  "matrix_fixture": {
+    "main_rows": 7680,
+    "additional_mode_panel_rows": 1536,
+    "core_compositions": 16,
+    "main_mode": "open_with_names",
+    "unavailable_multitalker_execution_credit": 0,
+    "fixtures_are_not_production_evidence": true
+  },
+  "real_evidence_checks": {
+    "reviewed_D0_parent_bindings_verified": 960,
+    "prediction_boundary_cases": 3,
+    "cases": [
+      "baseline open O0",
+      "A3 D1 E1 open O0",
+      "closed A0 zero-output baseline anonymous"
+    ],
+    "new_neural_inferences": 0
+  },
+  "lifecycle_checks": [
+    "Exact exited owner required",
+    "Missing/duplicate/foreign parent rejection",
+    "Audio-only truth firewall",
+    "Model namespace and cache lineage",
+    "Failed prediction preserved with remaining rows not tested",
+    "Pre-cell storage stop is not a failed prediction"
+  ],
+  "production_gate": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\integrated-bank-development-v1\\PREPARATION_GATE_CHECK.json",
+    "sha256": "649b2acfbf02d01ddf77e99ffa30f271ed1f0a8c2ba53bc7f473f9d6966d656b",
+    "bytes": 7301
+  },
+  "production_plan_created": false,
+  "bank_worker_started": false,
+  "integrated_N4_cells": 0,
+  "required_integrated_N4_cells": 7680,
+  "complete_Controller_parity": false,
+  "physical_widget_observed": false,
+  "scope": "Bounded exact reviewed-component join, model-free method runner and terminal reviewer; full bank not admitted or executed; scoring and source-paced GUI/resource qualification pending"
+}
