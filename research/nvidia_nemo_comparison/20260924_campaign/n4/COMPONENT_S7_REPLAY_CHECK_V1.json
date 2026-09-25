@@ -1,0 +1,70 @@
+{
+  "status": "PASS_MODELED_D0_E0_S7_DEVELOPMENT_ONLY",
+  "utc": "2026-09-25T05:12:00.491892+00:00",
+  "source_receipt": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\releases\\n4-catalog-v3\\SOURCE_RECEIPT.json",
+    "sha256": "8050c8bee52a6ec83c95f3514cb81219c3664dd43e172a477d35a54888e610d5",
+    "bytes": 61188
+  },
+  "code": [
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\probe_component_s7.py",
+      "sha256": "284a18f5aeeec63d2519725026f4971d8a6fe3e6de47076fadc9e1ce7f751a3b",
+      "bytes": 8460
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\component_s7_replay.py",
+      "sha256": "03d1bb54808ea833056f8458ac2ed9b35dea41d98b69d591e9d395b27ad5019b",
+      "bytes": 13113
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\test_component_s7_replay.py",
+      "sha256": "b0216683e71ed09f10897956c81f2a5d3ab121b7a8ea9f7bc6677a7918931496",
+      "bytes": 10208
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\README_COMPONENT_S7_REPLAY.md",
+      "sha256": "16bb93402cd25e0db90f812c90b1545267de5acc7e81831a1120c4419acad678",
+      "bytes": 6515
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\component_commands.py",
+      "sha256": "eb9ab2085d7849223baef290b876d9abf4b82322ca06989f7a50a625304f6880",
+      "bytes": 7817
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\component_presentation.py",
+      "sha256": "dd77f86c58bbb6a4924cbb3b56df0ca15e4d1c94e6ee2b2e2451ac1c4a670de7",
+      "bytes": 6111
+    }
+  ],
+  "private_probe": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\component-s7-probe-v1\\RESULT.json",
+    "sha256": "8feb8b09bef81f504ef4b739b46bd6c8dfe72e4208405501bad4a2f20d2f13ed",
+    "bytes": 21959
+  },
+  "tests": {
+    "total": 12,
+    "failures": 0,
+    "errors": 0,
+    "elapsed_seconds": 1.137,
+    "evidence": "Successful unittest output in the current task; actual scheduler, worker and span implementation; no models"
+  },
+  "probe_compositions": 8,
+  "raw_observations": 350,
+  "final_utterances": 27,
+  "commands": 6435,
+  "scope": {
+    "clock_kind": "MODELED_S7_REPLAY_NOT_OBSERVED_CONTROLLER_OR_WIDGET",
+    "policy_queue_delay_sec": 0.0,
+    "policy_compute_delay_sec": 0.0,
+    "publication_delay_sec": 0.0,
+    "assumptions": "independent component FIFOs; synchronous policy drain per command; no contention model",
+    "first_visible_latency": "UNAVAILABLE_MODELED_REPLAY",
+    "observed_Controller_parity": false,
+    "physical_widget_observed": false,
+    "integrated_N4_cells": 0,
+    "models_loaded": 0,
+    "limits": "E0 anonymous only; no D1/named/Controller parity/global activity or performance acceptance"
+  }
+}

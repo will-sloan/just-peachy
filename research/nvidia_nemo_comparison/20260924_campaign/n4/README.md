@@ -1,5 +1,13 @@
 # N4 comparison implementation and evaluation
 
+Latest joint integration: README_COMPONENT_S7_REPLAY.md documents the actual
+S7 scheduler/worker/span replay under an explicit modeled clock. Twelve tests
+and eight sealed ASR/D0/E0 development replays passed, preserving all raw words
+and final-formatting parents. COMPONENT_S7_REPLAY_CHECK_V1.json binds code and
+private evidence. These checks do not count as integrated acceptance or observed
+GUI latency. Named/D1 integration and complete application qualification remain
+pending; N4_HANDOFF.md and INTEGRATION_NEXT.md describe the exact next work.
+
 README_PREPARATION_V2.md describes the regenerated preparation-v2 inputs from
 the accepted 16-entry derivative. All 480 waveforms were reverified; the five
 data/provenance payloads are byte-identical to v1, and all 16 matrix rows now

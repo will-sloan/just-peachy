@@ -144,6 +144,24 @@ README_COMPONENT_COMMANDS.md bind this evidence. D1 commands and the causal
 joint merge are still required. The probe does not establish Controller/policy
 parity and supplies zero integrated-cell credit.
 
+The first causal S7 integration path is now implemented for Balanced anonymous
+D0/E0: `component_s7_replay.py`. Twelve real-policy/worker/span tests passed.
+An eight-composition development probe reused the sealed ASR smoke evidence
+(four variants x both taps) and matching D0/E0 pair, with model loading forbidden.
+It reverified source, waveform, profile, compressed/expanded event bindings,
+all 350 raw observations and 27 exact final-formatting parents. Actual S7
+freshness/publication checks and caption guards executed, and every real bounded
+worker drained. COMPONENT_S7_REPLAY_CHECK_V1.json and README_COMPONENT_S7_REPLAY.md
+bind the evidence and run instructions. Private receipt:
+`local/n4/component-s7-probe-v1/RESULT.json`, SHA-256
+`8feb8b09bef81f504ef4b739b46bd6c8dfe72e4208405501bad4a2f20d2f13ed`.
+These are modeled development replays with zero policy queue/compute/publication
+delay assumptions, not observed Controller/GUI or accepted integrated cells.
+Inherited observed/monotonic/GUI field names are explicitly modeled; invalid
+mixed-clock worker ages are omitted. No component or release source was edited.
+D1, named galleries/modes, global D0 activity and exact Controller parity remain
+the next integration requirements; the eight probes do not complete the matrix.
+
 ## Implemented and actually checked
 
 - All 480 accepted prepared waveform files were independently rehashed, checked
@@ -252,8 +270,10 @@ No desktop input/focus control, SSH, microphone, USB, playback or new capture ra
 > verification, then run review_d1_full_bank.py on terminal 960-cell evidence.
 > During healthy ASR work continue useful unbound application
 > integration meanwhile: exact ASR/D0 commands and modeled span presentation
-> are tested, but D1/causal merge, observed S7 policy eligibility/publication
-> freshness and actual Controller parity remain unresolved. INTEGRATION_NEXT.md
+> are tested. The causal merge and actual S7 eligibility/publication freshness
+> now pass the modeled D0/E0 adapter's 12 tests and eight sealed-evidence probes;
+> see COMPONENT_S7_REPLAY_CHECK_V1.json. Named/D1 paths and actual Controller
+> parity remain unresolved. INTEGRATION_NEXT.md
 > records the verified source APIs: D1 uses its actual N2 activity/name/history/
 > caption-span revision path, not D0 clustering. ObservedClock accepts an
 > injected clock, but inherited observed field names cannot turn modeled replay
