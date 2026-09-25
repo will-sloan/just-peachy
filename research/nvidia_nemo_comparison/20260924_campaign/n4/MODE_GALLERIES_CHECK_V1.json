@@ -1,0 +1,77 @@
+{
+  "status": "PASS_FIXED_GALLERIES_AND_ACTUAL_MODE_BEGIN_METHODS_ONLY",
+  "utc": "2026-09-25T05:45:17.707088+00:00",
+  "source_receipt": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\releases\\n4-catalog-v3\\SOURCE_RECEIPT.json",
+    "sha256": "8050c8bee52a6ec83c95f3514cb81219c3664dd43e172a477d35a54888e610d5",
+    "bytes": 61188
+  },
+  "code": [
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\mode_galleries.py",
+      "sha256": "6235b2b26d056e8ff0e7e0dd4e17b7d18562c0debd24b97abd63b78ea29c09d5",
+      "bytes": 13633
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\prepare_mode_galleries.py",
+      "sha256": "14aaf607a0d3551c1283ba527e89a6897e541ac040d5ead8df823653b4fd9a12",
+      "bytes": 8395
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\test_mode_galleries.py",
+      "sha256": "3e9fe1baeea858100f964bd7eca6a697bacccfcadd4db7c8b2f365cbaceddc12",
+      "bytes": 12792
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\README_MODE_GALLERIES.md",
+      "sha256": "f8eec6408a680d8d827e5fe481b1c00ae5779e676f07a34c9e7588bd03ba0ed3",
+      "bytes": 7246
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\component_s7_replay.py",
+      "sha256": "03d1bb54808ea833056f8458ac2ed9b35dea41d98b69d591e9d395b27ad5019b",
+      "bytes": 13113
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\common.py",
+      "sha256": "a44e389d3c80c8c21e74ea3423d8270273e5b3132a84095218dee078c53f059e",
+      "bytes": 3267
+    }
+  ],
+  "private_receipt": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\mode-galleries-v1\\RESULT.json",
+    "sha256": "13ca4c7c749df7399a8ddaeb44b045524e513937cc475f5981184f5a907a70b1",
+    "bytes": 151141
+  },
+  "tests": {
+    "total": 12,
+    "failures": 0,
+    "errors": 0,
+    "elapsed_seconds": 2.239
+  },
+  "actual_mode_begin_checks": 160,
+  "resolver_counts": {
+    "ResearchIdentityResolver": 2,
+    "PrototypeIdentityResolver": 8,
+    "N2NameMap": 150
+  },
+  "gallery_payload_bytes": 86660,
+  "rosters": {
+    "each_encoder_open": {
+      "intended": 34,
+      "available": 24,
+      "unavailable": 10
+    },
+    "each_encoder_selected": {
+      "intended": 4,
+      "available": 3,
+      "unavailable": 1
+    }
+  },
+  "scope": "Actual application begin() resolver/tracker/annotator routing at scheduler seam; no audio query, full Controller, visible caption, GUI or accuracy qualification",
+  "integrated_N4_cells": 0,
+  "models_loaded": 0,
+  "observed_Controller_parity": false,
+  "calibration_limit": "N2 open reject-all; baseline original thresholds preserved and processed recognition unqualified",
+  "closed_mode_gap": "Baseline missing-voice display fallback exists; N2 does not implement that fallback"
+}

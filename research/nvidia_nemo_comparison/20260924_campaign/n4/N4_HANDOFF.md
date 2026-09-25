@@ -1,5 +1,30 @@
 # N4 implementation checkpoint — upstream accepted, integrated run pending
 
+Latest independent integration work: fixed E0/E1 primary galleries and actual
+catalog/mode routing are implemented. MODE_GALLERIES_CHECK_V1.json binds 12 tests
+and 160 actual begin-method checks; private mode-galleries-v1/RESULT.json SHA-256
+is `13ca4c7c749df7399a8ddaeb44b045524e513937cc475f5981184f5a907a70b1`.
+README_MODE_GALLERIES.md and README_COMPONENT_MODES.md give inputs/outputs and
+all run commands. The new causal mode adapter passes eight integration tests
+and preserves immediate display annotation separately from raw caption state.
+MODE_POLICY_FINDINGS_V1.md records baseline-versus-N2 resolver/calibration and
+closed-fallback differences. Original nominal baseline behavior is preserved;
+N2 open names reject, closed labels remain unverified assumptions. These method
+checks do not establish Controller/GUI parity or any accepted integrated cell.
+
+The subsequent mode probe passed 160/160 at 05:56:59 UTC. Its 16 catalog tuples
+x 5 modes x 2 taps preserved 7,000 raw observations, 540 finals and 20,673
+modeled displays over 146,300 commands, reusing the two smoke-source files.
+COMPONENT_MODES_CHECK_V1.json binds code and private receipt SHA-256
+`eac273f168f5cc7e7be46677a23514752c7586cfcc1c308b965f6000e8498b01` at
+local/n4/component-modes-probe-v1/RESULT.json. All policy/activity workers exited;
+private gzip output totals 117,570,100 bytes. No neural model or GUI started.
+This completes the modeled mode-method development check, not Controller parity,
+visible naming metrics or integrated acceptance. Latest resource inventory plus
+full ASR/D1/contingency and extra gallery/probe reservations was 41.598 GiB under
+50 GiB, with 33 active/prepared code bindings unchanged. Do not edit code now
+bound by these new completed receipts; extend in a fresh derivative if needed.
+
 README_PREPARATION_V2.md describes the regenerated preparation-v2 inputs from
 the accepted 16-entry derivative. All 480 waveforms were reverified; the five
 data/provenance payloads are byte-identical to v1, and all 16 matrix rows now
@@ -159,8 +184,9 @@ These are modeled development replays with zero policy queue/compute/publication
 delay assumptions, not observed Controller/GUI or accepted integrated cells.
 Inherited observed/monotonic/GUI field names are explicitly modeled; invalid
 mixed-clock worker ages are omitted. No component or release source was edited.
-D1, named galleries/modes, global D0 activity and exact Controller parity remain
-the next integration requirements; the eight probes do not complete the matrix.
+D1 and named modes were next at that checkpoint; the later helpers now implement
+their modeled method paths. Global D0 activity and complete Controller parity
+remain required; the eight earlier probes do not complete the matrix.
 
 The separate anonymous D1 path is now implemented in `component_d1_replay.py`.
 It executes unchanged N2Engine activity/query/name-history/span methods using
@@ -176,9 +202,9 @@ private receipt, limits and all shell commands. Private receipt SHA-256:
 `1bb7c21dea22065bfb7e6f5a8baa0908f1cf07a5064c4ab2e950ef52c467f21b`, under
 `local/n4/component-d1-probe-v1/RESULT.json`. Its 16 private gzip outputs total
 11,603,787 bytes. No inference worker, model weights or common source changed.
-This is anonymous application-method development evidence. Named gallery/mode
-paths, full Controller/GUI parity, global D0 activity and full-matrix scoring
-remain pending. Timing is explicitly modeled and supplies zero accepted
+This is anonymous application-method development evidence. Later mode helpers
+add fixed named galleries. Full Controller/GUI parity, global D0 activity and
+full-matrix scoring remain pending. Timing is explicitly modeled and supplies zero accepted
 integrated cells or measured first-visible/resource qualification.
 
 ## Implemented and actually checked
@@ -293,8 +319,14 @@ No desktop input/focus control, SSH, microphone, USB, playback or new capture ra
 > now pass the modeled D0/E0 adapter's 12 tests and eight sealed-evidence probes;
 > see COMPONENT_S7_REPLAY_CHECK_V1.json. Anonymous D1 activity/name/span methods
 > now pass nine tests and 16 modeled smoke-derived checks; see
-> COMPONENT_D1_REPLAY_CHECK_V1.json. Named/gallery/mode integration and actual
-> Controller parity remain unresolved. INTEGRATION_NEXT.md
+> COMPONENT_D1_REPLAY_CHECK_V1.json. The new mode_galleries.py and
+> component_mode_replay.py add fixed rosters, actual catalog resolver selection
+> and named/selected/closed histories and display annotations. Read their two
+> READMEs and MODE_POLICY_FINDINGS_V1.md before generalizing prior anonymous
+> results. COMPONENT_MODES_CHECK_V1.json records 160 passed modeled development
+> replays, all worker cleanup and exact raw/final census; it does not establish
+> new inference or integrated coverage. Complete actual Controller parity
+> remains unresolved. INTEGRATION_NEXT.md
 > records the verified source APIs: D1 uses its actual N2 activity/name/history/
 > caption-span revision path, not D0 clustering. ObservedClock accepts an
 > injected clock, but inherited observed field names cannot turn modeled replay

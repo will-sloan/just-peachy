@@ -1,0 +1,96 @@
+{
+  "status": "PASS_160_MODELED_CATALOG_MODE_DEVELOPMENT_REPLAYS",
+  "utc": "2026-09-25T05:56:59.864132+00:00",
+  "source_receipt": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\releases\\n4-catalog-v3\\SOURCE_RECEIPT.json",
+    "sha256": "8050c8bee52a6ec83c95f3514cb81219c3664dd43e172a477d35a54888e610d5",
+    "bytes": 61188
+  },
+  "private_receipt": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\component-modes-probe-v1\\RESULT.json",
+    "sha256": "eac273f168f5cc7e7be46677a23514752c7586cfcc1c308b965f6000e8498b01",
+    "bytes": 267254
+  },
+  "gallery_preparation": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\mode-galleries-v1\\GALLERIES.json",
+    "sha256": "1d715373e6504a9688265adaafc3dab33129f7bb1550fd691cacea7a4ebb9ac9",
+    "bytes": 16716
+  },
+  "code": [
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\component_mode_replay.py",
+      "sha256": "0e5c82cf6b9a2b05ca2efbe94c022061436966d59c8eb497136fd8a3674c1c58",
+      "bytes": 11858
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\probe_component_modes.py",
+      "sha256": "ee92bcc5ff8a5ae0a01a0aae783d24c81e2a43bcb26fd2ef4aaa8e213389be5f",
+      "bytes": 9853
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\test_component_modes.py",
+      "sha256": "7b8acc71f03fa70a2485bd61383ea9e55c2db09ee29ea8139dcaec9fe1aa9968",
+      "bytes": 8766
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\README_COMPONENT_MODES.md",
+      "sha256": "3b6aff511e247995ed718089ebda13273addc0af8fb78cc24dfa674dc36a8595",
+      "bytes": 6622
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\mode_galleries.py",
+      "sha256": "6235b2b26d056e8ff0e7e0dd4e17b7d18562c0debd24b97abd63b78ea29c09d5",
+      "bytes": 13633
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\component_d1_replay.py",
+      "sha256": "528c9c1f286437953a17981947f1cccb0d73fd57013e1c7c27d8b360d6582546",
+      "bytes": 17131
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\component_s7_replay.py",
+      "sha256": "03d1bb54808ea833056f8458ac2ed9b35dea41d98b69d591e9d395b27ad5019b",
+      "bytes": 13113
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\component_presentation.py",
+      "sha256": "dd77f86c58bbb6a4924cbb3b56df0ca15e4d1c94e6ee2b2e2451ac1c4a670de7",
+      "bytes": 6111
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\component_commands.py",
+      "sha256": "eb9ab2085d7849223baef290b876d9abf4b82322ca06989f7a50a625304f6880",
+      "bytes": 7817
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\probe_component_s7.py",
+      "sha256": "284a18f5aeeec63d2519725026f4971d8a6fe3e6de47076fadc9e1ce7f751a3b",
+      "bytes": 8460
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\common.py",
+      "sha256": "a44e389d3c80c8c21e74ea3423d8270273e5b3132a84095218dee078c53f059e",
+      "bytes": 3267
+    }
+  ],
+  "tests": {
+    "total": 8,
+    "failures": 0,
+    "errors": 0,
+    "elapsed_seconds": 2.518,
+    "initial_fixture_correction": "D0 speaker_decision stores identity under decision; test assertion corrected, implementation unchanged"
+  },
+  "checks_count": 160,
+  "census_across_intentional_reuse": {
+    "commands": 146300,
+    "raw_observations": 7000,
+    "final_utterances": 540,
+    "display_events": 20673
+  },
+  "private_compressed_bytes": 117570100,
+  "models_loaded": 0,
+  "integrated_N4_cells": 0,
+  "observed_Controller_parity": false,
+  "physical_widget_observed": false,
+  "scope": "Modeled actual resolver/activity/span/display-annotation methods; missing-voice baseline/N2 behavior preserved; no Controller projection, GUI, first-visible timing or accuracy acceptance"
+}

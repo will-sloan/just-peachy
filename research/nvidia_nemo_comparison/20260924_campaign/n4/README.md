@@ -1,18 +1,38 @@
 # N4 comparison implementation and evaluation
 
-Latest joint integration: README_COMPONENT_S7_REPLAY.md documents the actual
+Latest mode preparation: README_MODE_GALLERIES.md and MODE_GALLERIES_CHECK_V1.json
+bind the original fixed E0/E1 rosters, exact vector/namespace/source verification,
+12 passing tests and 160 actual catalog/mode/tap begin-method checks. Open
+rosters retain 24/34 available references; selected rosters retain 3/4. All
+missing references remain in denominators. MODE_POLICY_FINDINGS_V1.md records
+the original baseline resolver versus N2NameMap distinction, unqualified
+baseline nominal naming thresholds and N2's missing no-voice closed fallback.
+No application source, threshold, roster or accepted release changed.
+
+README_COMPONENT_MODES.md describes the new catalog-correct D0/D1 mode replay
+with eight passing integration tests. It records actual caption-state rows and
+separate immediately annotated display rows. Named state cannot borrow an
+unfinished D1 query; open N2 names still reject and closed names remain explicit
+assumptions. All 160 sealed-component development replays passed: 16 catalog
+tuples x 5 modes x both taps. COMPONENT_MODES_CHECK_V1.json binds 7,000 raw ASR
+observations, 540 finals and 20,673 modeled display events across intentional
+reuse, with all workers drained and no new neural inference. Full
+Controller/widget parity, global D0 activity, full-bank
+scoring, source-paced panels and complete-stack resource checks remain required.
+
+Earlier joint integration: README_COMPONENT_S7_REPLAY.md documents the actual
 S7 scheduler/worker/span replay under an explicit modeled clock. Twelve tests
 and eight sealed ASR/D0/E0 development replays passed, preserving all raw words
 and final-formatting parents. COMPONENT_S7_REPLAY_CHECK_V1.json binds code and
 private evidence. These checks do not count as integrated acceptance or observed
-GUI latency. Named/D1 integration and complete application qualification remain
-pending; N4_HANDOFF.md and INTEGRATION_NEXT.md describe the exact next work.
+GUI latency. The later mode adapter follows each actual catalog resolver;
+N4_HANDOFF.md and INTEGRATION_NEXT.md describe the remaining qualification.
 
 README_COMPONENT_D1_REPLAY.md now adds the separate native D1 activity/name/
 caption-span path. Nine tests and 16 sealed-evidence modeled checks passed across
 four ASRs, two encoders and both taps. The real N2 lock stays held while a cached
-embedding is pending; raw text remains independent. Named-gallery modes and
-actual Controller/GUI parity remain pending. COMPONENT_D1_REPLAY_CHECK_V1.json
+embedding is pending; raw text remains independent. The later mode adapter adds
+fixed galleries; actual Controller/GUI parity remains pending. COMPONENT_D1_REPLAY_CHECK_V1.json
 binds this anonymous-only implementation and its private evidence.
 
 README_PREPARATION_V2.md describes the regenerated preparation-v2 inputs from
@@ -90,9 +110,9 @@ explicit modeled replay contract; seven tests passed (COMPONENT_PRESENTATION_CHE
 README_COMPONENT_PRESENTATION.md). component_commands.py now reconstructs the
 actual ASR/D0 prediction pushes and source watermarks. Seven actual-loop tests
 and a 12-cell real-evidence reconstruction probe pass; COMPONENT_COMMANDS_CHECK_V1.json
-and README_COMPONENT_COMMANDS.md bind that work. D1 command integration, causal
-merge, observed S7 policy parity, Controller/GUI runs and full-bank scoring are
-still required. Modeled values cannot be reported as first-visible latency.
+and README_COMPONENT_COMMANDS.md bind that work. The later D1/mode helpers add
+the causal merge. Observed policy/Controller parity, GUI runs and full-bank
+scoring remain required. Modeled values are not first-visible latency.
 INTEGRATION_NEXT.md records the actual D1 naming/span path and the injectable
 S7 clock API; a D0 tracker substitution would change the D1 application.
 
