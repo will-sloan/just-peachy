@@ -553,3 +553,22 @@ accepting an earlier session summary as proof of writer closure. Keep archive,
 consumer and all lane/policy/punctuation/text/source owners in the closure census.
 The source-paced panels and continuity still cannot run alongside component
 extraction, and controlled whole-application resource evidence is still missing.
+
+application_closure_v2.py now joins the source, journals, engine/consumer owners,
+finalization and archive to the same source-clock session and admitted file.
+Nine tests passed, including nine accepted N3 sessions' persisted closure/archive
+subsets and a real model-free partial-startup cancellation. Successful complete
+owner observations in the tests are synthetic fixtures, not a new application
+run. Missing samples, live writers, late trace failures, incomplete or foreign
+archives and mismatched clock/session evidence are rejected. V1's seven-test
+qualification is preserved; V2 adds the clock ownership join. Both helpers exited.
+APPLICATION_CLOSURE_CHECK_V2.json binds the evidence; README_APPLICATION_CLOSURE.md
+and README_APPLICATION_CLOSURE_V2.md describe purpose, inputs, outputs and commands.
+
+Use V2 with retained engine/consumer references in the future application runner.
+The qualification loads no models, starts no audio source and opens no GUI; it
+adds no integrated N4 acceptance. Still implement the whole-application resource
+observer and join the qualified store, clock, compact viewport and closure hooks
+into the actual shortlisted panels/repeats/continuity runner. Complete publication
+and inference/content/naming evaluation remains separate from lifecycle success.
+At this checkpoint ASR A2 remains the sole neural owner; D1 has not started.
