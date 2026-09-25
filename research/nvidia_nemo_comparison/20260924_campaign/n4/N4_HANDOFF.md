@@ -746,3 +746,37 @@ exclusive slot, register the suspended child, issue permission and renew it only
 after successful live slot checks. The fixed coordinator/worker integration and
 actual ApplicationCell source/drain qualification remain the next implementation
 and execution steps. Existing active/prepared numerical source is unchanged.
+
+paced_application_runner.py now joins the production panel admission, exclusive
+parent slot, private suspended process, renewable child gate and ApplicationCell.
+Preparation reconstructs the full panel against both passed score reviews and
+binds its code/interpreter; it emits an existing-supervisor worker spec without
+launching it. The fixed coordinator admits one fresh process per cell, registers
+it before resume and renews permission only after successful slot checks. The
+fixed child primes source/assets, imports the frozen app, prepares, runs saved
+audio and closes on both success and failure. Cleanup must verify every owned
+process before explicit slot release. Partial/failed evidence is preserved and
+stops the run; collected panels still receive zero acceptance until review.
+
+Eleven model-free tests passed, including parent check/lease ordering, guard
+failure, timeouts and the exact root-exit race; cleanup before release and slot
+retention when descendant exit is unverified; mocked child prepare/run/close and
+failure closure; and actual atomic private lease replacement/rollback refusal
+using a synthetic permit. No real production permit, supervised application,
+model or source was launched. The helper exited. PACED_RUNNER_CHECK_V1.json binds
+this implementation-only evidence; README_PACED_APPLICATION_RUNNER.md supplies
+purpose, inputs/outputs and PowerShell/CMD/Anaconda probe, preparation and guarded
+supervisor commands. Production plan reconstruction and the real ApplicationCell
+source/drain branch still require their first actual runs and strict reviews.
+
+Next finish/review the healthy A3 bank, start the prepared D1 bank only after
+that accepted predecessor and free ownership, then execute/review the modeled
+comparison and scores. Use those complete reports for the actual shortlist and
+panel plan before running this application coordinator. The separate continuity
+sequence and subsequent content/naming/visibility/resource acceptance still need
+implementation/execution. A read-only census currently cannot inspect cmd.exe
+PID 40092 (created 2026-09-25 13:00:00.031140 UTC, parent schedul2.exe PID 5156).
+Its command/executable are unavailable, so a future exclusive application slot
+must continue to refuse while that uncertainty persists. Do not terminate it,
+weaken the gate or disturb the user's other work. Re-observe at actual admission;
+the current known ASR numerical owner remains healthy and unchanged.
