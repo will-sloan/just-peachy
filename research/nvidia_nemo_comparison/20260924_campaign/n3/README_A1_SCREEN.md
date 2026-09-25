@@ -20,7 +20,9 @@ accepted service parity attempt), and fresh alphanumeric `--version`. It
 requires the terminal service queue, all five saved-audio/replay parity cases
 and its exact bundle. Outputs: private plan and worker specification. Six jobs
 run serially: two-cell application-Python smoke, 96-cell portable screen,
-eight regressions, four source-paced cells, then updated lexical/text reports.
+eight regressions, eight source-paced cells, then updated lexical/text reports.
+The frozen paced job incorrectly expected four in its coordinator metadata;
+README_REVIEW.md documents the verified eight-file manifest/census correction.
 All full screen/regression/paced rows require actual new inference. No new
 GUI or ARM64/CM5 claim is made. The earlier two-cell smoke is separate coverage.
 

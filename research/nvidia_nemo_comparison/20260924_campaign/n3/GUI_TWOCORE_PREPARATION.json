@@ -1,0 +1,57 @@
+{
+  "status": "PREPARED_NOT_STARTED",
+  "utc": "2026-09-25T01:35:08.087998+00:00",
+  "tests": 6,
+  "test_exit_code": 0,
+  "preparation_exit_code": 0,
+  "prior_preparation_check": "Refused before writing plan: timeout message resides in cleanup_error, not traceback. Corrected check now also binds exact diagnosed result.",
+  "logs": [
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\gui2core-preparation-v1\\tests.log",
+      "sha256": "f8a706b81b9d5a7063df2bdbb739f0d79cf585a8cb8d6b50d373a43340619273",
+      "bytes": 104
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\gui2core-preparation-v1\\prepare.log",
+      "sha256": "2182ee9c925fbdad5f8e794b75673eba45cfb0e5df44990eb696078790d1fd18",
+      "bytes": 295
+    }
+  ],
+  "sources": [
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n3\\gui_twocore.py",
+      "sha256": "7871120cf70a8fc04c320da2a705f3e697daf2ff9582e158338e2c97d0b297a7",
+      "bytes": 40472
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n3\\supervise_n3_twocore.py",
+      "sha256": "bc434002a0fdf63b2c2c0ab86933f335719e8296d2660a2dfe513bcba6c9d0ff",
+      "bytes": 12806
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n3\\prepare_gui_twocore.py",
+      "sha256": "bd4367d93c01f484dd1c01aa42958e0eb8b999594a69333a7b325a5545388d83",
+      "bytes": 7430
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n3\\test_gui_twocore.py",
+      "sha256": "399891f96f49493b8384563646b2e44d32a9bc891e62f44fb1dd5f11db2f8bd4",
+      "bytes": 5561
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n3\\README_GUI_TWOCORE.md",
+      "sha256": "bfc915db69d92a6a8b7f41c8be8cfe601224ef56a47296506151848e475ae895",
+      "bytes": 5509
+    }
+  ],
+  "plan": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\plan-gui2corev1.json",
+    "sha256": "613f4403bccab32f90fd0a3d9ef301e6b5c2d116441068a6986812b53dde9247",
+    "bytes": 1274802
+  },
+  "cpu_affinity": [
+    4,
+    14
+  ],
+  "stage_accepted": false
+}

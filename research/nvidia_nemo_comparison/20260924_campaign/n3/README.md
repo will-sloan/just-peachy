@@ -5,21 +5,23 @@ accepted with its final report, handoff ZIP and verified Git backup. Numerical
 work respects the campaign's two CPU cores and sole GPU owner. Accepted and
 running source, admission files and evidence remain immutable.
 
-Status: IN_PROGRESS. A1 now passes strict full-service parity on four saved
-cells plus exact replay, and its independent application-Python smoke passes.
-The new deterministic 96-cell screen is running in numerical-a1nominalv1;
-regression/paced and updated text comparisons follow. Its shared Controller/P0
-adapter is implemented, with actual source-suite/GUI checks queued in
-numerical-a1controllerv2. Native A2 has three passing GUI cells. The latest A3
-boundary retest exceeded the existing ASR finalization limit despite an earlier
-three-cell pass; preserve and review that failure before accepting the runtime.
+Status: ACCEPTED for offline N3 component comparison and N4 inputs. Read
+REPORT_N3.md, N3_FINAL_METRICS.json, FINAL_CHECKS.json, N3_ACCEPTANCE.json and
+N3_HANDOFF.md. All four 96-file screens, 32 regressions, 20 paced files and nine
+new/native GUI cases are reviewed. The final A1-capable source suite passes
+452 tests with two platform skips. A1's complete ONNX service is qualified on
+Windows without Torch/NeMo in the deployed service. ARM64/CM5 remain separate.
 
-Read N3_HANDOFF.md and PORTABLE_RECOVERY_REVIEW_20260925.json for current plans,
-precise scope and evidence. README_A1_PORTABLE.md, README_A1_SCREEN.md,
-README_A1_CONTROLLER.md and README_GUI_RECOVERY.md describe new implementations
-and checks. Historical v3/v4/default-export and dither-enabled A1 evidence stays
-immutable. No queue status establishes N3 acceptance. The Pi remains powered
-off; no microphone, playback, desktop input/focus or personal-store changes.
+The original A1 paced queue count defect and A3 single-core GUI failure remain
+preserved. A separate census receipt admits the exact eight predeclared A1
+files; A3's bounded two-core functional panel passes without a timeout change.
+Neither is a general performance or model-quality claim. Earlier preparation
+JSONs and failed attempts remain historical, not rewritten.
+
+README_REVIEW.md and README_PACKAGE.md describe reproducible final review and
+analysis packaging. README_GUI_TWOCORE.md documents the bounded resource
+contrast. N4/N5 are not complete. The Pi remains off; no user desktop input,
+focus, microphone, playback or personal-profile changes were used.
 
 ## Fetch exact official artifacts
 

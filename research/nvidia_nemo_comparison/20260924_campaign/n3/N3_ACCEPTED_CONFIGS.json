@@ -1,0 +1,372 @@
+{
+  "schema": "n3-accepted-component-configurations-v1",
+  "scope": "N4 component inputs; not final deployment shortlist",
+  "source_receipt": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\releases\\n3-common-a1controllerv2\\SOURCE_RECEIPT.json",
+    "sha256": "05d8d49b268101761de849a11cecea4ec879e954615a160aa5618458e1baab3e",
+    "bytes": 61403
+  },
+  "catalog": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\releases\\n3-common-a1controllerv2\\prototype\\config\\backends.json",
+    "sha256": "c7467cdd000765c57450eb311df583fd1af6f4667a94207f7393934407412e00",
+    "bytes": 29571
+  },
+  "common_ui_sha256": "54c0283b8058978eca87dc9b0461a15addf804200856e41d2c83b55bff590456",
+  "rows": [
+    {
+      "key": "baseline",
+      "label": "Baseline · Giga / Pyannote / ReDimNet",
+      "manifest_id": "sha256:1a6be7490786a81d971c19ad35572b8c13c30993f7b8a7c1903f4b0617b6b1b5",
+      "composition": {
+        "schema": "just-peachy.backend-composition.v1",
+        "runtime": "existing Sherpa ONNX + S7 prototype adapter",
+        "input": {
+          "sample_rate_hz": 16000,
+          "channels": 1,
+          "format": "PCM_16",
+          "gain_policy": "already-prepared samples; do not reapply gain"
+        },
+        "components": {
+          "asr": {
+            "name": "selected Sherpa Giga",
+            "assets": [
+              {
+                "component_id": "sherpa_giga_encoder_int8",
+                "sha256": "32c98281c7bd8b63e3e142d007251b37f120572e8fdea9a4f5a79ce22b10ec4f",
+                "deployment_relative_path": "models/sherpa_giga/encoder-epoch-99-avg-1.int8.onnx",
+                "bytes": 187823992
+              },
+              {
+                "component_id": "sherpa_giga_decoder_fp32",
+                "sha256": "9da02b77cb08826756ec6a88635f35a40374e4164e7c6359121a9145958a6ceb",
+                "deployment_relative_path": "models/sherpa_giga/decoder-epoch-99-avg-1.onnx",
+                "bytes": 2092566
+              },
+              {
+                "component_id": "sherpa_giga_joiner_int8",
+                "sha256": "831477d390e59a61f1b6a6f763b9903e6c6366ff6034f1ddba613be82637122f",
+                "deployment_relative_path": "models/sherpa_giga/joiner-epoch-99-avg-1.int8.onnx",
+                "bytes": 259335
+              },
+              {
+                "component_id": "sherpa_giga_tokens",
+                "sha256": "49e3c2646595fd907228b3c6787069658f67b17377c60aeb8619c4551b2316fb",
+                "deployment_relative_path": "models/sherpa_giga/tokens.txt",
+                "bytes": 5048
+              }
+            ]
+          },
+          "diarization": {
+            "name": "selected Pyannote 3.0 ONNX",
+            "assets": [
+              {
+                "component_id": "pyannote_segmentation_3_0_fp32",
+                "sha256": "b4b65085bbf2cc455565696604c87fedade1359aa6ddfac5d726d69124d5069a",
+                "deployment_relative_path": "models/h2/pyannote_segmentation_3_0_fp32.onnx",
+                "bytes": 5925265
+              }
+            ]
+          },
+          "enrollment": {
+            "name": "selected ReDimNet2-B2",
+            "embedding_space": "redimnet2-b2/5c1a8635cba0d4648463f3b6d30c5a6137bc38d1200ab00c5944400aaa7b5609",
+            "assets": [
+              {
+                "component_id": "redimnet2_b2_fp32",
+                "sha256": "5c1a8635cba0d4648463f3b6d30c5a6137bc38d1200ab00c5944400aaa7b5609",
+                "deployment_relative_path": "models/h2/redimnet2_b2_fp32.onnx",
+                "bytes": 16025408
+              }
+            ]
+          },
+          "punctuation": {
+            "name": "selected final-only punctuation",
+            "assets": [
+              {
+                "component_id": "sherpa_online_punctuation_int8",
+                "sha256": "9d611f445fe4a46186080fe161be6059d87d72eb88d3a8cb00c1a06e83a6067e",
+                "deployment_relative_path": "models/punctuation/model.int8.onnx",
+                "bytes": 7490500
+              },
+              {
+                "component_id": "sherpa_online_punctuation_bpe",
+                "sha256": "e118b7ad88c54db562517df49e1cffd4836d166c34fb190fd311d7f34eb238f5",
+                "deployment_relative_path": "models/punctuation/bpe.vocab",
+                "bytes": 149430
+              }
+            ]
+          }
+        }
+      },
+      "implemented": true,
+      "reason": "",
+      "capacity": {
+        "speaker_channels": null,
+        "speaker_channels_status": "No validated simultaneous speaker capacity; anonymous tracker may retain multiple tracks",
+        "system_ram_2gb": "NOT_TESTED on target CM5 total-system 2 GB",
+        "simultaneous_model_stacks": 1
+      }
+    },
+    {
+      "key": "compact_eou",
+      "label": "Parakeet EOU 120M / Pyannote / ReDimNet",
+      "manifest_id": "sha256:46c8e01284cedf5d5e30953b149ff43dafb2a11b1a25d4eceeda2afca23574e6",
+      "composition": {
+        "schema": "just-peachy.backend-composition.v1",
+        "runtime": "A1 stateful ONNX CPU + N2 identity + final-only P0 + shared UI",
+        "input": {
+          "sample_rate_hz": 16000,
+          "channels": 1,
+          "format": "PCM_16",
+          "gain_policy": "already-prepared samples; do not reapply gain"
+        },
+        "components": {
+          "asr": {
+            "repository": "nvidia/parakeet_realtime_eou_120m-v1",
+            "revision": "a7e2b4629593dce0ec19f600e00e9904353fda2d",
+            "artifact_sha256": "6603a22a53b7c1a4bac4736cb24628fb568a7102ba931a28c799e2e72f109893",
+            "precision": "FP32",
+            "bundle_sha256": "29b70f460ed15c4b57f02bd7f6a08e143ceb6276b5acc18156f0cae756c1cbb6",
+            "files": [
+              {
+                "name": "decoder_joint-service.onnx",
+                "sha256": "9d2553ac043c2fc5f69e970769b0fb8ab9103fbfdeb7d26a1ea9729d4bd2dddd",
+                "bytes": 21347639
+              },
+              {
+                "name": "encoder-service.onnx",
+                "sha256": "deaef5dda6ed5910c177bc283823060dece1197bbc65a15dcd7b2087544da0af",
+                "bytes": 459266501
+              },
+              {
+                "name": "frontend_buffers.npz",
+                "sha256": "8fcca584e086555ce673bcc09136bca4b31bdc38cd4a19cfea48a2bfa1c901d2",
+                "bytes": 133702
+              },
+              {
+                "name": "service_config.json",
+                "sha256": "1aeac840e99a634a01f824dde7b5a1dec266eae9b3f503ae94d7a3fec9e88002",
+                "bytes": 15786
+              }
+            ],
+            "status": "HOST_SERVICE_PARITY_PASSED_CONTROLLER_PENDING"
+          },
+          "diarization": {
+            "name": "selected Pyannote 3.0 ONNX",
+            "assets": [
+              {
+                "component_id": "pyannote_segmentation_3_0_fp32",
+                "sha256": "b4b65085bbf2cc455565696604c87fedade1359aa6ddfac5d726d69124d5069a",
+                "deployment_relative_path": "models/h2/pyannote_segmentation_3_0_fp32.onnx",
+                "bytes": 5925265
+              }
+            ]
+          },
+          "enrollment": {
+            "name": "selected ReDimNet2-B2",
+            "embedding_space": "redimnet2-b2/5c1a8635cba0d4648463f3b6d30c5a6137bc38d1200ab00c5944400aaa7b5609",
+            "assets": [
+              {
+                "component_id": "redimnet2_b2_fp32",
+                "sha256": "5c1a8635cba0d4648463f3b6d30c5a6137bc38d1200ab00c5944400aaa7b5609",
+                "deployment_relative_path": "models/h2/redimnet2_b2_fp32.onnx",
+                "bytes": 16025408
+              }
+            ]
+          },
+          "punctuation": {
+            "name": "selected final-only punctuation",
+            "assets": [
+              {
+                "component_id": "sherpa_online_punctuation_int8",
+                "sha256": "9d611f445fe4a46186080fe161be6059d87d72eb88d3a8cb00c1a06e83a6067e",
+                "deployment_relative_path": "models/punctuation/model.int8.onnx",
+                "bytes": 7490500
+              },
+              {
+                "component_id": "sherpa_online_punctuation_bpe",
+                "sha256": "e118b7ad88c54db562517df49e1cffd4836d166c34fb190fd311d7f34eb238f5",
+                "deployment_relative_path": "models/punctuation/bpe.vocab",
+                "bytes": 149430
+              }
+            ]
+          }
+        },
+        "n2": {
+          "diarization": "D0",
+          "embedding": "E0",
+          "streaming_profile": "low_latency"
+        },
+        "n3": {
+          "variant": "A1",
+          "model_sha256": "6603a22a53b7c1a4bac4736cb24628fb568a7102ba931a28c799e2e72f109893",
+          "bundle_sha256": "29b70f460ed15c4b57f02bd7f6a08e143ceb6276b5acc18156f0cae756c1cbb6",
+          "right_context": 1,
+          "language": "en-US",
+          "decoder": "greedy",
+          "chunk_samples": 1280,
+          "frontend_policy": "eval_no_dither"
+        }
+      },
+      "implemented": true,
+      "reason": "Local qualified A1 ONNX bundle required; Controller validation pending; CM5 unqualified",
+      "capacity": {
+        "speaker_channels": null,
+        "speaker_channels_status": "Not established for this composition",
+        "system_ram_2gb": "NOT_TESTED; model bytes are not total RAM",
+        "simultaneous_model_stacks": 1
+      }
+    },
+    {
+      "key": "nemotron_600m",
+      "label": "Nemotron English / Nemotron / ReDimNet",
+      "manifest_id": "sha256:377262016bfd68f234f1ee5fd18a478ac31917f4c55b9253c0ececf0f6e4b8e4",
+      "composition": {
+        "schema": "just-peachy.backend-composition.v1",
+        "runtime": "N3 native cache-aware RNNT + N2 identity + shared UI",
+        "input": {
+          "sample_rate_hz": 16000,
+          "channels": 1,
+          "format": "PCM_16",
+          "gain_policy": "already-prepared samples; do not reapply gain"
+        },
+        "components": {
+          "asr": {
+            "repository": "nvidia/nemotron-speech-streaming-en-0.6b",
+            "revision": "ebe59e5a817142986528bbbee5dba8db7b38ed50",
+            "artifact_sha256": "d9a01898d2a611c8764e23a1c2f45e70bbd5a425dc4de93692ac951dd603812d",
+            "precision": "Q8_0",
+            "runtime_revision": "97a15afa5caa9bce5baaa86c1184103877af4101",
+            "status": "IMPLEMENTED_VALIDATION_PENDING"
+          },
+          "diarization": {
+            "repository": "nvidia/Nemotron-3-Diarization",
+            "revision": "f667ed73aee57d40cc39428eb768b4fd87a0a29e",
+            "artifact_sha256": "08456d9e22cd9a323c0364d98375f3746d6e68507ebb705cd46438c534c7a3a1",
+            "precision": "Q8_0",
+            "channels": 8,
+            "runtime_revision": "97a15afa5caa9bce5baaa86c1184103877af4101",
+            "status": "IMPLEMENTED_NATIVE_CPU"
+          },
+          "enrollment": {
+            "name": "selected ReDimNet2-B2",
+            "embedding_space": "redimnet2-b2/5c1a8635cba0d4648463f3b6d30c5a6137bc38d1200ab00c5944400aaa7b5609",
+            "assets": [
+              {
+                "component_id": "redimnet2_b2_fp32",
+                "sha256": "5c1a8635cba0d4648463f3b6d30c5a6137bc38d1200ab00c5944400aaa7b5609",
+                "deployment_relative_path": "models/h2/redimnet2_b2_fp32.onnx",
+                "bytes": 16025408
+              }
+            ]
+          },
+          "punctuation": {
+            "name": "native P1 punctuation/casing; no redundant P0 pass",
+            "source_asr": "A2"
+          }
+        },
+        "n2": {
+          "diarization": "D1",
+          "embedding": "E0",
+          "streaming_profile": "low_latency"
+        },
+        "n3": {
+          "variant": "A2",
+          "model_sha256": "d9a01898d2a611c8764e23a1c2f45e70bbd5a425dc4de93692ac951dd603812d",
+          "right_context": 1,
+          "language": "en-US",
+          "decoder": "greedy",
+          "endpoint_history_ms": 800
+        }
+      },
+      "implemented": true,
+      "reason": "Local N3 runtime binding required; validation in progress; Pi performance unqualified",
+      "capacity": {
+        "speaker_channels": 8,
+        "speaker_channels_status": "Verified eight persistent anonymous model slots; >8-person overflow cannot be detected or resolved from these channels",
+        "system_ram_2gb": "NOT_TESTED; model bytes are not total RAM",
+        "simultaneous_model_stacks": 1
+      }
+    },
+    {
+      "key": "nemotron_35_600m",
+      "label": "Nemotron 3.5 English / Nemotron / ReDimNet",
+      "manifest_id": "sha256:b227e30c880b67cd2d990c13944ad0408e00164019b86a6820b5ee15c410427f",
+      "composition": {
+        "schema": "just-peachy.backend-composition.v1",
+        "runtime": "N3 native cache-aware RNNT + N2 identity + shared UI",
+        "input": {
+          "sample_rate_hz": 16000,
+          "channels": 1,
+          "format": "PCM_16",
+          "gain_policy": "already-prepared samples; do not reapply gain"
+        },
+        "components": {
+          "asr": {
+            "repository": "nvidia/nemotron-3.5-asr-streaming-0.6b",
+            "revision": "ea30d66debe3740a08b573244286791d423d6b3e",
+            "artifact_sha256": "3fc991d3badad7277c11030a7519832cddaf2057aafed6d4b25147e953a070b1",
+            "precision": "Q8_0",
+            "runtime_revision": "97a15afa5caa9bce5baaa86c1184103877af4101",
+            "status": "IMPLEMENTED_VALIDATION_PENDING"
+          },
+          "diarization": {
+            "repository": "nvidia/Nemotron-3-Diarization",
+            "revision": "f667ed73aee57d40cc39428eb768b4fd87a0a29e",
+            "artifact_sha256": "08456d9e22cd9a323c0364d98375f3746d6e68507ebb705cd46438c534c7a3a1",
+            "precision": "Q8_0",
+            "channels": 8,
+            "runtime_revision": "97a15afa5caa9bce5baaa86c1184103877af4101",
+            "status": "IMPLEMENTED_NATIVE_CPU"
+          },
+          "enrollment": {
+            "name": "selected ReDimNet2-B2",
+            "embedding_space": "redimnet2-b2/5c1a8635cba0d4648463f3b6d30c5a6137bc38d1200ab00c5944400aaa7b5609",
+            "assets": [
+              {
+                "component_id": "redimnet2_b2_fp32",
+                "sha256": "5c1a8635cba0d4648463f3b6d30c5a6137bc38d1200ab00c5944400aaa7b5609",
+                "deployment_relative_path": "models/h2/redimnet2_b2_fp32.onnx",
+                "bytes": 16025408
+              }
+            ]
+          },
+          "punctuation": {
+            "name": "native P1 punctuation/casing; no redundant P0 pass",
+            "source_asr": "A3"
+          }
+        },
+        "n2": {
+          "diarization": "D1",
+          "embedding": "E0",
+          "streaming_profile": "low_latency"
+        },
+        "n3": {
+          "variant": "A3",
+          "model_sha256": "3fc991d3badad7277c11030a7519832cddaf2057aafed6d4b25147e953a070b1",
+          "right_context": 1,
+          "language": "en-US",
+          "decoder": "greedy",
+          "endpoint_history_ms": 800
+        }
+      },
+      "implemented": true,
+      "reason": "Local N3 runtime binding required; validation in progress; Pi performance unqualified",
+      "capacity": {
+        "speaker_channels": 8,
+        "speaker_channels_status": "Verified eight persistent anonymous model slots; >8-person overflow cannot be detected or resolved from these channels",
+        "system_ram_2gb": "NOT_TESTED; model bytes are not total RAM",
+        "simultaneous_model_stacks": 1
+      }
+    }
+  ],
+  "qualification": {
+    "A0": "unchanged baseline; CPU screen/regression/paced evidence",
+    "A1": "full ONNX service parity, new CPU screen/regression/paced and three actual GUI cases",
+    "A2": "native CPU/CUDA/reference evidence and three one-core GUI cases",
+    "A3": "native CPU/CUDA/reference evidence; single-core GUI failure retained, three two-core functional GUI cases passed"
+  },
+  "historical_catalog_status": "The frozen A1 composition contains a pre-test CONTROLLER_PENDING annotation; this separate verified qualification supersedes that dated annotation without changing its immutable manifest ID.",
+  "ARM64_software_execution": "N5_PENDING",
+  "CM5_live": "DEFERRED_USER_PI_OFF"
+}

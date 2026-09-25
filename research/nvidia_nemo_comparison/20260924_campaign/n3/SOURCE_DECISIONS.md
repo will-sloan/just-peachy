@@ -1,12 +1,13 @@
 # N3 source and capability decisions
 
-Status: preparation checkpoint, 24 September 2026. Real N3 model runs are pending
-the N2 prerequisite. Source inspection and downloaded bytes are not efficacy.
+Status: accepted offline N3 component evidence, 25 September 2026.
+REPORT_N3.md and N3_FINAL_METRICS.json record actual model/GUI results.
+Pinned source/model terms remain separate from measured efficacy.
 
 | Component | Exact source / terms | Decision |
 |---|---|---|
 | A0 | Existing selected Sherpa Giga and its fine-tuned artifacts | Retain exact weights, final-only P0 and baseline identity |
-| A1 | [NVIDIA Parakeet Realtime EOU 120M](https://huggingface.co/nvidia/parakeet_realtime_eou_120m-v1), revision a7e2b4629593dce0ec19f600e00e9904353fda2d | Actual NeMo recurrent reference; stateful ONNX export/parity attempt queued; native GGUF route unavailable |
+| A1 | [NVIDIA Parakeet Realtime EOU 120M](https://huggingface.co/nvidia/parakeet_realtime_eou_120m-v1), revision a7e2b4629593dce0ec19f600e00e9904353fda2d | Actual NeMo recurrent reference and qualified full-service ONNX CPU route; three actual Controller/GUI cases passed; native GGUF route unavailable |
 | A2 | [NVIDIA English Nemotron Streaming](https://huggingface.co/nvidia/nemotron-speech-streaming-en-0.6b), revision ebe59e5a817142986528bbbee5dba8db7b38ed50 | Exact official Q8_0 native CPU/CUDA artifacts plus FP32 NeMo reference, explicit English |
 | A3 | [NVIDIA Nemotron 3.5](https://huggingface.co/nvidia/nemotron-3.5-asr-streaming-0.6b), revision ea30d66debe3740a08b573244286791d423d6b3e | Exact official Q8_0 native CPU/CUDA plus FP32 reference, explicit en-US |
 | Native code | [NeMo-Speech.cpp supported models](https://github.com/NVIDIA/NeMo-Speech.cpp/blob/97a15afa5caa9bce5baaa86c1184103877af4101/docs/asr/models.md), Apache-2.0 | A2/A3 supported. No evidence that this runtime accepts A1 EOU; offline TDT is not substituted |

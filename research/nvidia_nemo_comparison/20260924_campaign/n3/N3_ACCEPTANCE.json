@@ -1,0 +1,157 @@
+{
+  "schema": "n3-final-acceptance-v1",
+  "status": "ACCEPTED_N3_OFFLINE_COMPONENT_SCOPE",
+  "utc": "2026-09-25T01:55:42.121224+00:00",
+  "release_tag": "n3-accepted-20260925-v1",
+  "analysis_files": {
+    "REPORT_N3.md": {
+      "sha256": "1666f960c94ca6d21bc83d44da213aa2a127c3cae6b949281c009638105a841b",
+      "bytes": 8505
+    },
+    "N3_FINAL_METRICS.json": {
+      "sha256": "6daedee6fef19a1a93b5cdec5bcbd07f5d3550f10ff4363e94368aa4591f4277",
+      "bytes": 86452
+    },
+    "N3_ACCEPTED_CONFIGS.json": {
+      "sha256": "b4acb4e64eea9f2e4aed8a7d498f7011185c8835c0e0eff1b0345299829f4fff",
+      "bytes": 16002
+    },
+    "N3_HANDOFF.md": {
+      "sha256": "2bbb985a5a05827409af414a2dd2cace6085f3f01cf0d19ac4fa09ef154787b1",
+      "bytes": 4913
+    },
+    "N3_LIMITATIONS.md": {
+      "sha256": "ea1df3d9191394dd435eedc7d232b41e7054c4d5be2edf647c6ddaf6a4b666cd",
+      "bytes": 3505
+    },
+    "WORKBOOK_UPDATE.md": {
+      "sha256": "97a8585b4c550180b79d6298098d682cc3562146e2b87a84151664d4207e4f25",
+      "bytes": 1622
+    },
+    "SOURCE_DECISIONS.md": {
+      "sha256": "8e67339bbfc89b0a5d938698c2e33dc2c2090fc9d373972bb38b97c06a72a97e",
+      "bytes": 4050
+    },
+    "MODEL_REGISTRY.json": {
+      "sha256": "fe873411d1bd28b3d4375c8e55835ec7f41b5f8c27e7b259a8b755de5f8ebda8",
+      "bytes": 6016
+    },
+    "P2_DISCOVERY.json": {
+      "sha256": "d3de92f5d564e24593b46967b2fcb35543aa634cf48871a8d4f685fbfa026214",
+      "bytes": 876
+    },
+    "MODEL_HEADS.json": {
+      "sha256": "8541134e11dd0e0b4eb663c46090d8e0e1af9d0e52fa2135726140ada7e78eca",
+      "bytes": 1775
+    },
+    "FINAL_CHECKS.json": {
+      "sha256": "d7c11016b9c87ff8242e7656e2c28268ab50bef697e1f0ec0be3862c0cb2ff46",
+      "bytes": 2562
+    },
+    "GUI_TWOCORE_PREPARATION.json": {
+      "sha256": "4a077e4f7291a28a921a846c45d415c1875877fda8f1fefa335f3040ff25273f",
+      "bytes": 2375
+    },
+    "GUI_DRAIN_REVIEW_20260925.json": {
+      "sha256": "c9b03bdc2dd7f910da0eacb321b253e484e19457f6f96db2d54b03501e97ea7c",
+      "bytes": 10373
+    },
+    "PORTABLE_RECOVERY_REVIEW_20260925.json": {
+      "sha256": "7d1f51757127f96c8289b72a2ab6e544b27689930f3f9e9ea71a9094f7285436",
+      "bytes": 6319
+    },
+    "README.md": {
+      "sha256": "ea447c85504a63efa5cd477994eead4766f6325ebb6bf8b2c9ca1747ac6f0db2",
+      "bytes": 3455
+    },
+    "README_A1_PORTABLE.md": {
+      "sha256": "104fbbd3d9adea43a95d419d11f5f305c33b1066e2ee81631cd3a630bbebb833",
+      "bytes": 6652
+    },
+    "README_A1_CONTROLLER.md": {
+      "sha256": "d16b152ba71a8e016b05334db6c5cd00093c657e5387732517b83f63878c6348",
+      "bytes": 4556
+    },
+    "README_A1_SCREEN.md": {
+      "sha256": "f564ae4c778f0d02ee15ea380a0a00908cee30b769d33b3ef0f27688a0d7a9a0",
+      "bytes": 4097
+    },
+    "README_GUI_TWOCORE.md": {
+      "sha256": "bfc915db69d92a6a8b7f41c8be8cfe601224ef56a47296506151848e475ae895",
+      "bytes": 5509
+    },
+    "README_REVIEW.md": {
+      "sha256": "abdf92a13ff62d7f72bcad1cbeb7d119971b97511a41f4d4c1746a519aedb4b8",
+      "bytes": 4557
+    },
+    "README_GUI_RECOVERY.md": {
+      "sha256": "a25a8a07841479376ec6ab02df654ab301ae62027341060d0ab405cd9cf28c02",
+      "bytes": 7355
+    },
+    "README_SCORING.md": {
+      "sha256": "1e1ab962c9b918212209e901df7dfa58d18fe08252f7ff55c80b08ab17513eef",
+      "bytes": 1884
+    },
+    "README_TEXT_COMPARISON.md": {
+      "sha256": "ebdc61810ef05c7581a7ced821f9622ee25e0b691abf6edd2dacccd632a4c6ce",
+      "bytes": 1780
+    },
+    "README_ROUTES.md": {
+      "sha256": "93a3f022b8bb16b54856c063959c92d5bce7f66f32aa5857d1262085fc5b2584",
+      "bytes": 1465
+    },
+    "README_ITN.md": {
+      "sha256": "29a0a5db7a53c2b9cd768df1978c6895e7c80a6b50b678e7fd345fbc39f9edaf",
+      "bytes": 2327
+    },
+    "README_REFERENCE.md": {
+      "sha256": "31b377049868ac2c15b4be8df354f24cfed3e8046e8cdfc28c7140ebecc4f053",
+      "bytes": 2216
+    },
+    "README_PROBE.md": {
+      "sha256": "8a13cd79ea377efef9175cb879ed2817d45536eb76b80a6017cbcb8756cca4fe",
+      "bytes": 2110
+    },
+    "README_RUN.md": {
+      "sha256": "7adea826b76385937ad98ed73b623c111562da6ebe0ec430919f8df6b1980265",
+      "bytes": 2608
+    },
+    "README_EXPORT.md": {
+      "sha256": "77f448f27310ff8baee382f0769cb202c9c710d00b02b26af4d92365da087eaf",
+      "bytes": 2591
+    },
+    "README_PACKAGE.md": {
+      "sha256": "08180caf576b639777a27e8a1d68e725f597144afef536d298418a149e8422c2",
+      "bytes": 2622
+    },
+    "LICENSE_NVIDIA_NEMO.txt": {
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "bytes": 11357
+    },
+    "A1_SOURCE_EXTRACTION.json": {
+      "sha256": "4019c4ad14ff1483f6436a061234e77e0615457a1823304e65fa6fb1c1a801f1",
+      "bytes": 705
+    }
+  },
+  "scope": "Implemented and actually evaluated A0–A3/text components for N4; no default promotion or CM5 performance qualification",
+  "census": {
+    "screen": 384,
+    "regression": 32,
+    "paced": 20,
+    "gui": 9
+  },
+  "retained_exceptions": [
+    "A1 paced coordinator expected four but eight-file frozen manifest/results verified separately",
+    "A3 one-core full-stack finalization failed; separate two-core functional panel passed"
+  ],
+  "upstream": {
+    "N1": "COMPLETE_OFFLINE",
+    "N2": "ACCEPTED"
+  },
+  "downstream": {
+    "N4": "NOT_COMPLETE",
+    "N5": "NOT_COMPLETE"
+  },
+  "live_CM5": "DEFERRED_USER_PI_OFF",
+  "git_and_package": "Exact remote tag/commit and archive verified by separate final receipts; no circular self-hash claim"
+}

@@ -1,0 +1,2254 @@
+{
+  "schema": "n3-completed-evidence-review-v1",
+  "status": "EVIDENCE_REVIEW_COMPLETE",
+  "utc": "2026-09-25T01:47:23.744915+00:00",
+  "stage_acceptance_claimed": false,
+  "screen_cells": 384,
+  "regression_cells": 32,
+  "paced_cells": 20,
+  "gui_cells": 9,
+  "a1_paced_census_review": {
+    "status": "ACCEPTED_PREDECLARED_EIGHT_FILE_EVIDENCE",
+    "original_queue_status": "FAILED",
+    "original_reason": "incomplete cell census",
+    "coordinator_expected_cells": 4,
+    "frozen_manifest_cells": 8,
+    "completed_cells": 8,
+    "all_result_event_and_manifest_hashes_verified": true,
+    "new_inference": false,
+    "original_plan_or_evidence_modified": false,
+    "interpretation": "The frozen command executed its complete eight-file manifest; only the coordinator count was wrong. Preserve both records."
+  },
+  "lexical_normalization": "N2 words: lowercase, delete ASCII punctuation, whitespace split; CER joins normalized words with spaces",
+  "primary": [
+    {
+      "variant": "A0",
+      "runtime": "sherpa",
+      "primary_cells": 64,
+      "reference_words": 1792,
+      "word_errors": 215,
+      "combined_lexical_WER": 0.11997767857142858,
+      "by_tap": [
+        {
+          "cells": 32,
+          "reference_words": 896,
+          "word_errors": 102,
+          "reference_characters": 4777,
+          "character_errors": 269,
+          "output_words": 881,
+          "source_seconds": 1430.2540000000006,
+          "compute_seconds": 78.47439040020254,
+          "wall_seconds": 78.94880139999805,
+          "cpu_seconds": 78.25,
+          "peak_rss_bytes": 367624192,
+          "revision_removals": 226,
+          "cp_errors": 0,
+          "cp_reference_words": 0,
+          "reference_class": "complete_nonoverlap",
+          "tap": "O0",
+          "WER": 0.11383928571428571,
+          "CER": 0.05631149256855767,
+          "chronological_diagnostic_WER": null,
+          "diagnostic_scope": "complete nonoverlap reference",
+          "single_output_cpWER": null,
+          "cpWER_scope": "complete overlap reference speakers versus one unassigned mono hypothesis; no speaker attribution claim",
+          "false_words_per_minute": null,
+          "compute_RTF": 0.05486745039706409
+        },
+        {
+          "cells": 32,
+          "reference_words": 896,
+          "word_errors": 113,
+          "reference_characters": 4777,
+          "character_errors": 316,
+          "output_words": 878,
+          "source_seconds": 1430.2540000000006,
+          "compute_seconds": 78.5481778001049,
+          "wall_seconds": 79.01974299997892,
+          "cpu_seconds": 77.859375,
+          "peak_rss_bytes": 367632384,
+          "revision_removals": 228,
+          "cp_errors": 0,
+          "cp_reference_words": 0,
+          "reference_class": "complete_nonoverlap",
+          "tap": "O1",
+          "WER": 0.12611607142857142,
+          "CER": 0.06615030353778523,
+          "chronological_diagnostic_WER": null,
+          "diagnostic_scope": "complete nonoverlap reference",
+          "single_output_cpWER": null,
+          "cpWER_scope": "complete overlap reference speakers versus one unassigned mono hypothesis; no speaker attribution claim",
+          "false_words_per_minute": null,
+          "compute_RTF": 0.05491904081380291
+        }
+      ],
+      "other_reference_classes": [
+        {
+          "cells": 9,
+          "reference_words": 277,
+          "word_errors": 95,
+          "reference_characters": 1532,
+          "character_errors": 427,
+          "output_words": 209,
+          "source_seconds": 402.2589375,
+          "compute_seconds": 22.020850999688264,
+          "wall_seconds": 22.147114599993074,
+          "cpu_seconds": 21.984375,
+          "peak_rss_bytes": 367493120,
+          "revision_removals": 65,
+          "cp_errors": 175,
+          "cp_reference_words": 277,
+          "reference_class": "complete_overlap",
+          "tap": "O0",
+          "WER": null,
+          "CER": null,
+          "chronological_diagnostic_WER": 0.34296028880866425,
+          "diagnostic_scope": "fixed chronological order; ambient references are target-only and incomplete",
+          "single_output_cpWER": 0.631768953068592,
+          "cpWER_scope": "complete overlap reference speakers versus one unassigned mono hypothesis; no speaker attribution claim",
+          "false_words_per_minute": null,
+          "compute_RTF": 0.05474297510092803
+        },
+        {
+          "cells": 9,
+          "reference_words": 277,
+          "word_errors": 100,
+          "reference_characters": 1532,
+          "character_errors": 452,
+          "output_words": 204,
+          "source_seconds": 402.2589375,
+          "compute_seconds": 21.963454399879993,
+          "wall_seconds": 22.089339400001336,
+          "cpu_seconds": 21.921875,
+          "peak_rss_bytes": 367505408,
+          "revision_removals": 60,
+          "cp_errors": 182,
+          "cp_reference_words": 277,
+          "reference_class": "complete_overlap",
+          "tap": "O1",
+          "WER": null,
+          "CER": null,
+          "chronological_diagnostic_WER": 0.36101083032490977,
+          "diagnostic_scope": "fixed chronological order; ambient references are target-only and incomplete",
+          "single_output_cpWER": 0.6570397111913358,
+          "cpWER_scope": "complete overlap reference speakers versus one unassigned mono hypothesis; no speaker attribution claim",
+          "false_words_per_minute": null,
+          "compute_RTF": 0.05460028939662775
+        },
+        {
+          "cells": 1,
+          "reference_words": 0,
+          "word_errors": 1,
+          "reference_characters": 0,
+          "character_errors": 3,
+          "output_words": 1,
+          "source_seconds": 44.6954375,
+          "compute_seconds": 2.4141788000015367,
+          "wall_seconds": 2.4252296999984537,
+          "cpu_seconds": 2.375,
+          "peak_rss_bytes": 367636480,
+          "revision_removals": 0,
+          "cp_errors": 0,
+          "cp_reference_words": 0,
+          "reference_class": "empty_control",
+          "tap": "O0",
+          "WER": null,
+          "CER": null,
+          "chronological_diagnostic_WER": null,
+          "diagnostic_scope": "fixed chronological order; ambient references are target-only and incomplete",
+          "single_output_cpWER": null,
+          "cpWER_scope": "complete overlap reference speakers versus one unassigned mono hypothesis; no speaker attribution claim",
+          "false_words_per_minute": 1.3424188990207335,
+          "compute_RTF": 0.05401398744562098
+        },
+        {
+          "cells": 1,
+          "reference_words": 0,
+          "word_errors": 1,
+          "reference_characters": 0,
+          "character_errors": 3,
+          "output_words": 1,
+          "source_seconds": 44.6954375,
+          "compute_seconds": 2.40737779997653,
+          "wall_seconds": 2.418744099999458,
+          "cpu_seconds": 2.359375,
+          "peak_rss_bytes": 367640576,
+          "revision_removals": 0,
+          "cp_errors": 0,
+          "cp_reference_words": 0,
+          "reference_class": "empty_control",
+          "tap": "O1",
+          "WER": null,
+          "CER": null,
+          "chronological_diagnostic_WER": null,
+          "diagnostic_scope": "fixed chronological order; ambient references are target-only and incomplete",
+          "single_output_cpWER": null,
+          "cpWER_scope": "complete overlap reference speakers versus one unassigned mono hypothesis; no speaker attribution claim",
+          "false_words_per_minute": 1.3424188990207335,
+          "compute_RTF": 0.053861824262857474
+        },
+        {
+          "cells": 6,
+          "reference_words": 178,
+          "word_errors": 24,
+          "reference_characters": 967,
+          "character_errors": 97,
+          "output_words": 160,
+          "source_seconds": 268.172625,
+          "compute_seconds": 14.583202200028609,
+          "wall_seconds": 14.670699499994953,
+          "cpu_seconds": 14.4375,
+          "peak_rss_bytes": 367521792,
+          "revision_removals": 53,
+          "cp_errors": 0,
+          "cp_reference_words": 0,
+          "reference_class": "incomplete_ambient_reference",
+          "tap": "O0",
+          "WER": null,
+          "CER": null,
+          "chronological_diagnostic_WER": 0.1348314606741573,
+          "diagnostic_scope": "fixed chronological order; ambient references are target-only and incomplete",
+          "single_output_cpWER": null,
+          "cpWER_scope": "complete overlap reference speakers versus one unassigned mono hypothesis; no speaker attribution claim",
+          "false_words_per_minute": null,
+          "compute_RTF": 0.05437990622655318
+        },
+        {
+          "cells": 6,
+          "reference_words": 178,
+          "word_errors": 24,
+          "reference_characters": 967,
+          "character_errors": 102,
+          "output_words": 159,
+          "source_seconds": 268.172625,
+          "compute_seconds": 14.673061000085,
+          "wall_seconds": 14.759827399997448,
+          "cpu_seconds": 14.59375,
+          "peak_rss_bytes": 367542272,
+          "revision_removals": 51,
+          "cp_errors": 0,
+          "cp_reference_words": 0,
+          "reference_class": "incomplete_ambient_reference",
+          "tap": "O1",
+          "WER": null,
+          "CER": null,
+          "chronological_diagnostic_WER": 0.1348314606741573,
+          "diagnostic_scope": "fixed chronological order; ambient references are target-only and incomplete",
+          "single_output_cpWER": null,
+          "cpWER_scope": "complete overlap reference speakers versus one unassigned mono hypothesis; no speaker attribution claim",
+          "false_words_per_minute": null,
+          "compute_RTF": 0.05471498442499491
+        }
+      ]
+    },
+    {
+      "variant": "A1",
+      "runtime": "onnx",
+      "primary_cells": 64,
+      "reference_words": 1792,
+      "word_errors": 267,
+      "combined_lexical_WER": 0.14899553571428573,
+      "by_tap": [
+        {
+          "cells": 32,
+          "reference_words": 896,
+          "word_errors": 126,
+          "reference_characters": 4777,
+          "character_errors": 433,
+          "output_words": 849,
+          "source_seconds": 1430.2540000000006,
+          "compute_seconds": 795.971489300362,
+          "wall_seconds": 797.2527992999894,
+          "cpu_seconds": 792.46875,
+          "peak_rss_bytes": 642351104,
+          "revision_removals": 295,
+          "cp_errors": 0,
+          "cp_reference_words": 0,
+          "reference_class": "complete_nonoverlap",
+          "tap": "O0",
+          "WER": 0.140625,
+          "CER": 0.0906426627590538,
+          "chronological_diagnostic_WER": null,
+          "diagnostic_scope": "complete nonoverlap reference",
+          "single_output_cpWER": null,
+          "cpWER_scope": "complete overlap reference speakers versus one unassigned mono hypothesis; no speaker attribution claim",
+          "false_words_per_minute": null,
+          "compute_RTF": 0.5565245678742109
+        },
+        {
+          "cells": 32,
+          "reference_words": 896,
+          "word_errors": 141,
+          "reference_characters": 4777,
+          "character_errors": 446,
+          "output_words": 848,
+          "source_seconds": 1430.2540000000006,
+          "compute_seconds": 806.1868357007843,
+          "wall_seconds": 807.4814432000348,
+          "cpu_seconds": 797.828125,
+          "peak_rss_bytes": 642351104,
+          "revision_removals": 303,
+          "cp_errors": 0,
+          "cp_reference_words": 0,
+          "reference_class": "complete_nonoverlap",
+          "tap": "O1",
+          "WER": 0.15736607142857142,
+          "CER": 0.09336403600586142,
+          "chronological_diagnostic_WER": null,
+          "diagnostic_scope": "complete nonoverlap reference",
+          "single_output_cpWER": null,
+          "cpWER_scope": "complete overlap reference speakers versus one unassigned mono hypothesis; no speaker attribution claim",
+          "false_words_per_minute": null,
+          "compute_RTF": 0.5636668981179455
+        }
+      ],
+      "other_reference_classes": [
+        {
+          "cells": 9,
+          "reference_words": 277,
+          "word_errors": 101,
+          "reference_characters": 1532,
+          "character_errors": 458,
+          "output_words": 198,
+          "source_seconds": 402.2589375,
+          "compute_seconds": 228.35749799984478,
+          "wall_seconds": 228.7262042000075,
+          "cpu_seconds": 226.171875,
+          "peak_rss_bytes": 642351104,
+          "revision_removals": 76,
+          "cp_errors": 177,
+          "cp_reference_words": 277,
+          "reference_class": "complete_overlap",
+          "tap": "O0",
+          "WER": null,
+          "CER": null,
+          "chronological_diagnostic_WER": 0.36462093862815886,
+          "diagnostic_scope": "fixed chronological order; ambient references are target-only and incomplete",
+          "single_output_cpWER": 0.6389891696750902,
+          "cpWER_scope": "complete overlap reference speakers versus one unassigned mono hypothesis; no speaker attribution claim",
+          "false_words_per_minute": null,
+          "compute_RTF": 0.5676878167557055
+        },
+        {
+          "cells": 9,
+          "reference_words": 277,
+          "word_errors": 101,
+          "reference_characters": 1532,
+          "character_errors": 473,
+          "output_words": 197,
+          "source_seconds": 402.2589375,
+          "compute_seconds": 227.37465459995292,
+          "wall_seconds": 227.7409951999798,
+          "cpu_seconds": 226.078125,
+          "peak_rss_bytes": 642351104,
+          "revision_removals": 77,
+          "cp_errors": 177,
+          "cp_reference_words": 277,
+          "reference_class": "complete_overlap",
+          "tap": "O1",
+          "WER": null,
+          "CER": null,
+          "chronological_diagnostic_WER": 0.36462093862815886,
+          "diagnostic_scope": "fixed chronological order; ambient references are target-only and incomplete",
+          "single_output_cpWER": 0.6389891696750902,
+          "cpWER_scope": "complete overlap reference speakers versus one unassigned mono hypothesis; no speaker attribution claim",
+          "false_words_per_minute": null,
+          "compute_RTF": 0.5652445064690524
+        },
+        {
+          "cells": 1,
+          "reference_words": 0,
+          "word_errors": 0,
+          "reference_characters": 0,
+          "character_errors": 0,
+          "output_words": 0,
+          "source_seconds": 44.6954375,
+          "compute_seconds": 26.184175900030823,
+          "wall_seconds": 26.21993530000327,
+          "cpu_seconds": 25.28125,
+          "peak_rss_bytes": 642318336,
+          "revision_removals": 0,
+          "cp_errors": 0,
+          "cp_reference_words": 0,
+          "reference_class": "empty_control",
+          "tap": "O0",
+          "WER": null,
+          "CER": null,
+          "chronological_diagnostic_WER": null,
+          "diagnostic_scope": "fixed chronological order; ambient references are target-only and incomplete",
+          "single_output_cpWER": null,
+          "cpWER_scope": "complete overlap reference speakers versus one unassigned mono hypothesis; no speaker attribution claim",
+          "false_words_per_minute": 0.0,
+          "compute_RTF": 0.5858355430580767
+        },
+        {
+          "cells": 1,
+          "reference_words": 0,
+          "word_errors": 0,
+          "reference_characters": 0,
+          "character_errors": 0,
+          "output_words": 0,
+          "source_seconds": 44.6954375,
+          "compute_seconds": 25.1998064999716,
+          "wall_seconds": 25.23397229999682,
+          "cpu_seconds": 24.953125,
+          "peak_rss_bytes": 642318336,
+          "revision_removals": 0,
+          "cp_errors": 0,
+          "cp_reference_words": 0,
+          "reference_class": "empty_control",
+          "tap": "O1",
+          "WER": null,
+          "CER": null,
+          "chronological_diagnostic_WER": null,
+          "diagnostic_scope": "fixed chronological order; ambient references are target-only and incomplete",
+          "single_output_cpWER": null,
+          "cpWER_scope": "complete overlap reference speakers versus one unassigned mono hypothesis; no speaker attribution claim",
+          "false_words_per_minute": 0.0,
+          "compute_RTF": 0.5638116082871233
+        },
+        {
+          "cells": 6,
+          "reference_words": 178,
+          "word_errors": 47,
+          "reference_characters": 967,
+          "character_errors": 202,
+          "output_words": 141,
+          "source_seconds": 268.172625,
+          "compute_seconds": 150.6257678999973,
+          "wall_seconds": 150.86745930000325,
+          "cpu_seconds": 150.03125,
+          "peak_rss_bytes": 642301952,
+          "revision_removals": 51,
+          "cp_errors": 0,
+          "cp_reference_words": 0,
+          "reference_class": "incomplete_ambient_reference",
+          "tap": "O0",
+          "WER": null,
+          "CER": null,
+          "chronological_diagnostic_WER": 0.2640449438202247,
+          "diagnostic_scope": "fixed chronological order; ambient references are target-only and incomplete",
+          "single_output_cpWER": null,
+          "cpWER_scope": "complete overlap reference speakers versus one unassigned mono hypothesis; no speaker attribution claim",
+          "false_words_per_minute": null,
+          "compute_RTF": 0.5616746597457414
+        },
+        {
+          "cells": 6,
+          "reference_words": 178,
+          "word_errors": 37,
+          "reference_characters": 967,
+          "character_errors": 151,
+          "output_words": 153,
+          "source_seconds": 268.172625,
+          "compute_seconds": 150.93963550007174,
+          "wall_seconds": 151.1824201999916,
+          "cpu_seconds": 150.21875,
+          "peak_rss_bytes": 642306048,
+          "revision_removals": 56,
+          "cp_errors": 0,
+          "cp_reference_words": 0,
+          "reference_class": "incomplete_ambient_reference",
+          "tap": "O1",
+          "WER": null,
+          "CER": null,
+          "chronological_diagnostic_WER": 0.20786516853932585,
+          "diagnostic_scope": "fixed chronological order; ambient references are target-only and incomplete",
+          "single_output_cpWER": null,
+          "cpWER_scope": "complete overlap reference speakers versus one unassigned mono hypothesis; no speaker attribution claim",
+          "false_words_per_minute": null,
+          "compute_RTF": 0.5628450536294365
+        }
+      ]
+    },
+    {
+      "variant": "A2",
+      "runtime": "native",
+      "primary_cells": 64,
+      "reference_words": 1792,
+      "word_errors": 183,
+      "combined_lexical_WER": 0.10212053571428571,
+      "by_tap": [
+        {
+          "cells": 32,
+          "reference_words": 896,
+          "word_errors": 83,
+          "reference_characters": 4777,
+          "character_errors": 246,
+          "output_words": 875,
+          "source_seconds": 1430.2540000000006,
+          "compute_seconds": 51.5189593998075,
+          "wall_seconds": 52.42274780001026,
+          "cpu_seconds": 51.90625,
+          "peak_rss_bytes": 709656576,
+          "revision_removals": 210,
+          "cp_errors": 0,
+          "cp_reference_words": 0,
+          "reference_class": "complete_nonoverlap",
+          "tap": "O0",
+          "WER": 0.09263392857142858,
+          "CER": 0.05149675528574419,
+          "chronological_diagnostic_WER": null,
+          "diagnostic_scope": "complete nonoverlap reference",
+          "single_output_cpWER": null,
+          "cpWER_scope": "complete overlap reference speakers versus one unassigned mono hypothesis; no speaker attribution claim",
+          "false_words_per_minute": null,
+          "compute_RTF": 0.03602084622717886
+        },
+        {
+          "cells": 32,
+          "reference_words": 896,
+          "word_errors": 100,
+          "reference_characters": 4777,
+          "character_errors": 285,
+          "output_words": 867,
+          "source_seconds": 1430.2540000000006,
+          "compute_seconds": 50.80320059996302,
+          "wall_seconds": 51.70142169999599,
+          "cpu_seconds": 50.96875,
+          "peak_rss_bytes": 709656576,
+          "revision_removals": 216,
+          "cp_errors": 0,
+          "cp_reference_words": 0,
+          "reference_class": "complete_nonoverlap",
+          "tap": "O1",
+          "WER": 0.11160714285714286,
+          "CER": 0.05966087502616705,
+          "chronological_diagnostic_WER": null,
+          "diagnostic_scope": "complete nonoverlap reference",
+          "single_output_cpWER": null,
+          "cpWER_scope": "complete overlap reference speakers versus one unassigned mono hypothesis; no speaker attribution claim",
+          "false_words_per_minute": null,
+          "compute_RTF": 0.035520404487568644
+        }
+      ],
+      "other_reference_classes": [
+        {
+          "cells": 9,
+          "reference_words": 277,
+          "word_errors": 85,
+          "reference_characters": 1532,
+          "character_errors": 414,
+          "output_words": 204,
+          "source_seconds": 402.2589375,
+          "compute_seconds": 14.214121500204783,
+          "wall_seconds": 14.451903300003323,
+          "cpu_seconds": 14.390625,
+          "peak_rss_bytes": 709611520,
+          "revision_removals": 53,
+          "cp_errors": 169,
+          "cp_reference_words": 277,
+          "reference_class": "complete_overlap",
+          "tap": "O0",
+          "WER": null,
+          "CER": null,
+          "chronological_diagnostic_WER": 0.30685920577617326,
+          "diagnostic_scope": "fixed chronological order; ambient references are target-only and incomplete",
+          "single_output_cpWER": 0.6101083032490975,
+          "cpWER_scope": "complete overlap reference speakers versus one unassigned mono hypothesis; no speaker attribution claim",
+          "false_words_per_minute": null,
+          "compute_RTF": 0.035335750620096
+        },
+        {
+          "cells": 9,
+          "reference_words": 277,
+          "word_errors": 92,
+          "reference_characters": 1532,
+          "character_errors": 458,
+          "output_words": 197,
+          "source_seconds": 402.2589375,
+          "compute_seconds": 14.197836899744289,
+          "wall_seconds": 14.432584099988162,
+          "cpu_seconds": 14.390625,
+          "peak_rss_bytes": 709623808,
+          "revision_removals": 52,
+          "cp_errors": 169,
+          "cp_reference_words": 277,
+          "reference_class": "complete_overlap",
+          "tap": "O1",
+          "WER": null,
+          "CER": null,
+          "chronological_diagnostic_WER": 0.33212996389891697,
+          "diagnostic_scope": "fixed chronological order; ambient references are target-only and incomplete",
+          "single_output_cpWER": 0.6101083032490975,
+          "cpWER_scope": "complete overlap reference speakers versus one unassigned mono hypothesis; no speaker attribution claim",
+          "false_words_per_minute": null,
+          "compute_RTF": 0.03529526773968643
+        },
+        {
+          "cells": 1,
+          "reference_words": 0,
+          "word_errors": 0,
+          "reference_characters": 0,
+          "character_errors": 0,
+          "output_words": 0,
+          "source_seconds": 44.6954375,
+          "compute_seconds": 1.5515674001871957,
+          "wall_seconds": 1.5747751999952015,
+          "cpu_seconds": 1.578125,
+          "peak_rss_bytes": 709656576,
+          "revision_removals": 0,
+          "cp_errors": 0,
+          "cp_reference_words": 0,
+          "reference_class": "empty_control",
+          "tap": "O0",
+          "WER": null,
+          "CER": null,
+          "chronological_diagnostic_WER": null,
+          "diagnostic_scope": "fixed chronological order; ambient references are target-only and incomplete",
+          "single_output_cpWER": null,
+          "cpWER_scope": "complete overlap reference speakers versus one unassigned mono hypothesis; no speaker attribution claim",
+          "false_words_per_minute": 0.0,
+          "compute_RTF": 0.03471422335192929
+        },
+        {
+          "cells": 1,
+          "reference_words": 0,
+          "word_errors": 0,
+          "reference_characters": 0,
+          "character_errors": 0,
+          "output_words": 0,
+          "source_seconds": 44.6954375,
+          "compute_seconds": 1.5250028000737075,
+          "wall_seconds": 1.5477505000017118,
+          "cpu_seconds": 1.546875,
+          "peak_rss_bytes": 709656576,
+          "revision_removals": 0,
+          "cp_errors": 0,
+          "cp_reference_words": 0,
+          "reference_class": "empty_control",
+          "tap": "O1",
+          "WER": null,
+          "CER": null,
+          "chronological_diagnostic_WER": null,
+          "diagnostic_scope": "fixed chronological order; ambient references are target-only and incomplete",
+          "single_output_cpWER": null,
+          "cpWER_scope": "complete overlap reference speakers versus one unassigned mono hypothesis; no speaker attribution claim",
+          "false_words_per_minute": 0.0,
+          "compute_RTF": 0.03411987633130804
+        },
+        {
+          "cells": 6,
+          "reference_words": 178,
+          "word_errors": 26,
+          "reference_characters": 967,
+          "character_errors": 103,
+          "output_words": 159,
+          "source_seconds": 268.172625,
+          "compute_seconds": 9.254292200050259,
+          "wall_seconds": 9.41063209999993,
+          "cpu_seconds": 9.40625,
+          "peak_rss_bytes": 709632000,
+          "revision_removals": 44,
+          "cp_errors": 0,
+          "cp_reference_words": 0,
+          "reference_class": "incomplete_ambient_reference",
+          "tap": "O0",
+          "WER": null,
+          "CER": null,
+          "chronological_diagnostic_WER": 0.14606741573033707,
+          "diagnostic_scope": "fixed chronological order; ambient references are target-only and incomplete",
+          "single_output_cpWER": null,
+          "cpWER_scope": "complete overlap reference speakers versus one unassigned mono hypothesis; no speaker attribution claim",
+          "false_words_per_minute": null,
+          "compute_RTF": 0.03450871318446564
+        },
+        {
+          "cells": 6,
+          "reference_words": 178,
+          "word_errors": 26,
+          "reference_characters": 967,
+          "character_errors": 104,
+          "output_words": 158,
+          "source_seconds": 268.172625,
+          "compute_seconds": 9.220407499946305,
+          "wall_seconds": 9.37556639999093,
+          "cpu_seconds": 9.34375,
+          "peak_rss_bytes": 709636096,
+          "revision_removals": 46,
+          "cp_errors": 0,
+          "cp_reference_words": 0,
+          "reference_class": "incomplete_ambient_reference",
+          "tap": "O1",
+          "WER": null,
+          "CER": null,
+          "chronological_diagnostic_WER": 0.14606741573033707,
+          "diagnostic_scope": "fixed chronological order; ambient references are target-only and incomplete",
+          "single_output_cpWER": null,
+          "cpWER_scope": "complete overlap reference speakers versus one unassigned mono hypothesis; no speaker attribution claim",
+          "false_words_per_minute": null,
+          "compute_RTF": 0.03438235912389009
+        }
+      ]
+    },
+    {
+      "variant": "A3",
+      "runtime": "native",
+      "primary_cells": 64,
+      "reference_words": 1792,
+      "word_errors": 280,
+      "combined_lexical_WER": 0.15625,
+      "by_tap": [
+        {
+          "cells": 32,
+          "reference_words": 896,
+          "word_errors": 135,
+          "reference_characters": 4777,
+          "character_errors": 391,
+          "output_words": 866,
+          "source_seconds": 1430.2540000000006,
+          "compute_seconds": 52.02092460005224,
+          "wall_seconds": 52.96910720001324,
+          "cpu_seconds": 52.46875,
+          "peak_rss_bytes": 714104832,
+          "revision_removals": 381,
+          "cp_errors": 0,
+          "cp_reference_words": 0,
+          "reference_class": "complete_nonoverlap",
+          "tap": "O0",
+          "WER": 0.15066964285714285,
+          "CER": 0.08185053380782918,
+          "chronological_diagnostic_WER": null,
+          "diagnostic_scope": "complete nonoverlap reference",
+          "single_output_cpWER": null,
+          "cpWER_scope": "complete overlap reference speakers versus one unassigned mono hypothesis; no speaker attribution claim",
+          "false_words_per_minute": null,
+          "compute_RTF": 0.036371808503980564
+        },
+        {
+          "cells": 32,
+          "reference_words": 896,
+          "word_errors": 145,
+          "reference_characters": 4777,
+          "character_errors": 465,
+          "output_words": 854,
+          "source_seconds": 1430.2540000000006,
+          "compute_seconds": 51.58207000014227,
+          "wall_seconds": 52.50644439999451,
+          "cpu_seconds": 52.109375,
+          "peak_rss_bytes": 714104832,
+          "revision_removals": 370,
+          "cp_errors": 0,
+          "cp_reference_words": 0,
+          "reference_class": "complete_nonoverlap",
+          "tap": "O1",
+          "WER": 0.16183035714285715,
+          "CER": 0.09734142767427256,
+          "chronological_diagnostic_WER": null,
+          "diagnostic_scope": "complete nonoverlap reference",
+          "single_output_cpWER": null,
+          "cpWER_scope": "complete overlap reference speakers versus one unassigned mono hypothesis; no speaker attribution claim",
+          "false_words_per_minute": null,
+          "compute_RTF": 0.036064971676459036
+        }
+      ],
+      "other_reference_classes": [
+        {
+          "cells": 9,
+          "reference_words": 277,
+          "word_errors": 101,
+          "reference_characters": 1532,
+          "character_errors": 481,
+          "output_words": 196,
+          "source_seconds": 402.2589375,
+          "compute_seconds": 14.324729000254592,
+          "wall_seconds": 14.569814699993003,
+          "cpu_seconds": 14.453125,
+          "peak_rss_bytes": 714055680,
+          "revision_removals": 98,
+          "cp_errors": 165,
+          "cp_reference_words": 277,
+          "reference_class": "complete_overlap",
+          "tap": "O0",
+          "WER": null,
+          "CER": null,
+          "chronological_diagnostic_WER": 0.36462093862815886,
+          "diagnostic_scope": "fixed chronological order; ambient references are target-only and incomplete",
+          "single_output_cpWER": 0.5956678700361011,
+          "cpWER_scope": "complete overlap reference speakers versus one unassigned mono hypothesis; no speaker attribution claim",
+          "false_words_per_minute": null,
+          "compute_RTF": 0.035610716543133594
+        },
+        {
+          "cells": 9,
+          "reference_words": 277,
+          "word_errors": 105,
+          "reference_characters": 1532,
+          "character_errors": 497,
+          "output_words": 191,
+          "source_seconds": 402.2589375,
+          "compute_seconds": 14.60500489990227,
+          "wall_seconds": 14.86094759999105,
+          "cpu_seconds": 14.515625,
+          "peak_rss_bytes": 714072064,
+          "revision_removals": 95,
+          "cp_errors": 173,
+          "cp_reference_words": 277,
+          "reference_class": "complete_overlap",
+          "tap": "O1",
+          "WER": null,
+          "CER": null,
+          "chronological_diagnostic_WER": 0.37906137184115524,
+          "diagnostic_scope": "fixed chronological order; ambient references are target-only and incomplete",
+          "single_output_cpWER": 0.6245487364620939,
+          "cpWER_scope": "complete overlap reference speakers versus one unassigned mono hypothesis; no speaker attribution claim",
+          "false_words_per_minute": null,
+          "compute_RTF": 0.03630747147762819
+        },
+        {
+          "cells": 1,
+          "reference_words": 0,
+          "word_errors": 0,
+          "reference_characters": 0,
+          "character_errors": 0,
+          "output_words": 0,
+          "source_seconds": 44.6954375,
+          "compute_seconds": 1.6020644000018365,
+          "wall_seconds": 1.626384399998642,
+          "cpu_seconds": 1.625,
+          "peak_rss_bytes": 714108928,
+          "revision_removals": 0,
+          "cp_errors": 0,
+          "cp_reference_words": 0,
+          "reference_class": "empty_control",
+          "tap": "O0",
+          "WER": null,
+          "CER": null,
+          "chronological_diagnostic_WER": null,
+          "diagnostic_scope": "fixed chronological order; ambient references are target-only and incomplete",
+          "single_output_cpWER": null,
+          "cpWER_scope": "complete overlap reference speakers versus one unassigned mono hypothesis; no speaker attribution claim",
+          "false_words_per_minute": 0.0,
+          "compute_RTF": 0.035844025466846285
+        },
+        {
+          "cells": 1,
+          "reference_words": 0,
+          "word_errors": 0,
+          "reference_characters": 0,
+          "character_errors": 0,
+          "output_words": 0,
+          "source_seconds": 44.6954375,
+          "compute_seconds": 1.5709489000510075,
+          "wall_seconds": 1.5935058999966714,
+          "cpu_seconds": 1.59375,
+          "peak_rss_bytes": 714108928,
+          "revision_removals": 0,
+          "cp_errors": 0,
+          "cp_reference_words": 0,
+          "reference_class": "empty_control",
+          "tap": "O1",
+          "WER": null,
+          "CER": null,
+          "chronological_diagnostic_WER": null,
+          "diagnostic_scope": "fixed chronological order; ambient references are target-only and incomplete",
+          "single_output_cpWER": null,
+          "cpWER_scope": "complete overlap reference speakers versus one unassigned mono hypothesis; no speaker attribution claim",
+          "false_words_per_minute": 0.0,
+          "compute_RTF": 0.03514785821373843
+        },
+        {
+          "cells": 6,
+          "reference_words": 178,
+          "word_errors": 37,
+          "reference_characters": 967,
+          "character_errors": 128,
+          "output_words": 157,
+          "source_seconds": 268.172625,
+          "compute_seconds": 10.000681699726556,
+          "wall_seconds": 10.267612200004805,
+          "cpu_seconds": 9.671875,
+          "peak_rss_bytes": 714072064,
+          "revision_removals": 77,
+          "cp_errors": 0,
+          "cp_reference_words": 0,
+          "reference_class": "incomplete_ambient_reference",
+          "tap": "O0",
+          "WER": null,
+          "CER": null,
+          "chronological_diagnostic_WER": 0.20786516853932585,
+          "diagnostic_scope": "fixed chronological order; ambient references are target-only and incomplete",
+          "single_output_cpWER": null,
+          "cpWER_scope": "complete overlap reference speakers versus one unassigned mono hypothesis; no speaker attribution claim",
+          "false_words_per_minute": null,
+          "compute_RTF": 0.03729195588001034
+        },
+        {
+          "cells": 6,
+          "reference_words": 178,
+          "word_errors": 42,
+          "reference_characters": 967,
+          "character_errors": 151,
+          "output_words": 155,
+          "source_seconds": 268.172625,
+          "compute_seconds": 9.780331000009028,
+          "wall_seconds": 9.952559099998325,
+          "cpu_seconds": 9.875,
+          "peak_rss_bytes": 714080256,
+          "revision_removals": 70,
+          "cp_errors": 0,
+          "cp_reference_words": 0,
+          "reference_class": "incomplete_ambient_reference",
+          "tap": "O1",
+          "WER": null,
+          "CER": null,
+          "chronological_diagnostic_WER": 0.23595505617977527,
+          "diagnostic_scope": "fixed chronological order; ambient references are target-only and incomplete",
+          "single_output_cpWER": null,
+          "cpWER_scope": "complete overlap reference speakers versus one unassigned mono hypothesis; no speaker attribution claim",
+          "false_words_per_minute": null,
+          "compute_RTF": 0.03647028103636241
+        }
+      ]
+    }
+  ],
+  "screen_resources": [
+    {
+      "variant": "A0",
+      "runtime": "sherpa",
+      "cells": 96,
+      "gpu": false,
+      "cpu_affinity": [
+        4
+      ],
+      "numerical_threads": 1,
+      "delivery": "accelerated_causal_not_live_latency",
+      "source_seconds": 4290.762,
+      "load_seconds": 1.298627200001647,
+      "compute_RTF": 0.054788565154619946,
+      "peak_sampled_process_rss_bytes": 367640576,
+      "first_text_elapsed_sec": {
+        "n": 96,
+        "min": 0.17602469999837922,
+        "max": 1.9989116999968246
+      },
+      "completion_after_audio_duration_sec": null,
+      "last_speech_final_vs_audio_end_sec": {
+        "n": 0,
+        "min": null,
+        "max": null
+      },
+      "timing_interpretation": "Negative last-speech-final offsets mean EOU before trailing audio, not negative completion latency. Completion residual includes producer/flush/closure overhead.",
+      "memory_scope": "sampled Windows ASR-process RSS; excludes full GUI/identity stack and native GPU device memory"
+    },
+    {
+      "variant": "A1",
+      "runtime": "onnx",
+      "cells": 96,
+      "gpu": false,
+      "cpu_affinity": [
+        4
+      ],
+      "numerical_threads": 1,
+      "delivery": "accelerated_causal_not_live_latency",
+      "source_seconds": 4290.762,
+      "load_seconds": 1.9103878000023542,
+      "compute_RTF": 0.5618675338788346,
+      "peak_sampled_process_rss_bytes": 642351104,
+      "first_text_elapsed_sec": {
+        "n": 93,
+        "min": 1.5724886000025435,
+        "max": 8.484473500000604
+      },
+      "completion_after_audio_duration_sec": null,
+      "last_speech_final_vs_audio_end_sec": {
+        "n": 0,
+        "min": null,
+        "max": null
+      },
+      "timing_interpretation": "Negative last-speech-final offsets mean EOU before trailing audio, not negative completion latency. Completion residual includes producer/flush/closure overhead.",
+      "memory_scope": "sampled Windows ASR-process RSS; excludes full GUI/identity stack and native GPU device memory"
+    },
+    {
+      "variant": "A2",
+      "runtime": "native",
+      "cells": 96,
+      "gpu": false,
+      "cpu_affinity": [
+        14
+      ],
+      "numerical_threads": 1,
+      "delivery": "accelerated_causal_not_live_latency",
+      "source_seconds": 4290.762,
+      "load_seconds": 1.3402042999950936,
+      "compute_RTF": 0.035491455433784735,
+      "peak_sampled_process_rss_bytes": 709656576,
+      "first_text_elapsed_sec": {
+        "n": 94,
+        "min": 0.11741749999782769,
+        "max": 0.56295329999557
+      },
+      "completion_after_audio_duration_sec": null,
+      "last_speech_final_vs_audio_end_sec": {
+        "n": 0,
+        "min": null,
+        "max": null
+      },
+      "timing_interpretation": "Negative last-speech-final offsets mean EOU before trailing audio, not negative completion latency. Completion residual includes producer/flush/closure overhead.",
+      "memory_scope": "sampled Windows ASR-process RSS; excludes full GUI/identity stack and native GPU device memory"
+    },
+    {
+      "variant": "A3",
+      "runtime": "native",
+      "cells": 96,
+      "gpu": false,
+      "cpu_affinity": [
+        14
+      ],
+      "numerical_threads": 1,
+      "delivery": "accelerated_causal_not_live_latency",
+      "source_seconds": 4290.762,
+      "load_seconds": 1.4023079000035068,
+      "compute_RTF": 0.03623756211603902,
+      "peak_sampled_process_rss_bytes": 714108928,
+      "first_text_elapsed_sec": {
+        "n": 94,
+        "min": 0.12623359999997774,
+        "max": 0.5526791000011144
+      },
+      "completion_after_audio_duration_sec": null,
+      "last_speech_final_vs_audio_end_sec": {
+        "n": 0,
+        "min": null,
+        "max": null
+      },
+      "timing_interpretation": "Negative last-speech-final offsets mean EOU before trailing audio, not negative completion latency. Completion residual includes producer/flush/closure overhead.",
+      "memory_scope": "sampled Windows ASR-process RSS; excludes full GUI/identity stack and native GPU device memory"
+    }
+  ],
+  "regression_resources": [
+    {
+      "variant": "A0",
+      "runtime": "sherpa",
+      "cells": 8,
+      "gpu": false,
+      "cpu_affinity": [
+        4
+      ],
+      "numerical_threads": 1,
+      "delivery": "accelerated_causal_not_live_latency",
+      "source_seconds": 357.5635,
+      "load_seconds": 1.3002522999995563,
+      "compute_RTF": 0.05538170842367951,
+      "peak_sampled_process_rss_bytes": 365834240,
+      "first_text_elapsed_sec": {
+        "n": 6,
+        "min": 0.20880079999915324,
+        "max": 0.3044724999999744
+      },
+      "completion_after_audio_duration_sec": null,
+      "last_speech_final_vs_audio_end_sec": {
+        "n": 0,
+        "min": null,
+        "max": null
+      },
+      "timing_interpretation": "Negative last-speech-final offsets mean EOU before trailing audio, not negative completion latency. Completion residual includes producer/flush/closure overhead.",
+      "memory_scope": "sampled Windows ASR-process RSS; excludes full GUI/identity stack and native GPU device memory"
+    },
+    {
+      "variant": "A1",
+      "runtime": "onnx",
+      "cells": 8,
+      "gpu": false,
+      "cpu_affinity": [
+        4
+      ],
+      "numerical_threads": 1,
+      "delivery": "accelerated_causal_not_live_latency",
+      "source_seconds": 357.5635,
+      "load_seconds": 2.0421372999990126,
+      "compute_RTF": 0.5705933824344359,
+      "peak_sampled_process_rss_bytes": 642228224,
+      "first_text_elapsed_sec": {
+        "n": 6,
+        "min": 2.08435979999922,
+        "max": 2.3109293000015896
+      },
+      "completion_after_audio_duration_sec": null,
+      "last_speech_final_vs_audio_end_sec": {
+        "n": 0,
+        "min": null,
+        "max": null
+      },
+      "timing_interpretation": "Negative last-speech-final offsets mean EOU before trailing audio, not negative completion latency. Completion residual includes producer/flush/closure overhead.",
+      "memory_scope": "sampled Windows ASR-process RSS; excludes full GUI/identity stack and native GPU device memory"
+    },
+    {
+      "variant": "A2",
+      "runtime": "native",
+      "cells": 8,
+      "gpu": false,
+      "cpu_affinity": [
+        14
+      ],
+      "numerical_threads": 1,
+      "delivery": "accelerated_causal_not_live_latency",
+      "source_seconds": 357.5635,
+      "load_seconds": 1.543012699999963,
+      "compute_RTF": 0.03539626807544256,
+      "peak_sampled_process_rss_bytes": 708763648,
+      "first_text_elapsed_sec": {
+        "n": 6,
+        "min": 0.13885409999784315,
+        "max": 0.48575960000016494
+      },
+      "completion_after_audio_duration_sec": null,
+      "last_speech_final_vs_audio_end_sec": {
+        "n": 0,
+        "min": null,
+        "max": null
+      },
+      "timing_interpretation": "Negative last-speech-final offsets mean EOU before trailing audio, not negative completion latency. Completion residual includes producer/flush/closure overhead.",
+      "memory_scope": "sampled Windows ASR-process RSS; excludes full GUI/identity stack and native GPU device memory"
+    },
+    {
+      "variant": "A3",
+      "runtime": "native",
+      "cells": 8,
+      "gpu": false,
+      "cpu_affinity": [
+        14
+      ],
+      "numerical_threads": 1,
+      "delivery": "accelerated_causal_not_live_latency",
+      "source_seconds": 357.5635,
+      "load_seconds": 1.431970999998157,
+      "compute_RTF": 0.03670013074661371,
+      "peak_sampled_process_rss_bytes": 713560064,
+      "first_text_elapsed_sec": {
+        "n": 6,
+        "min": 0.1475092999971821,
+        "max": 0.49648240000533406
+      },
+      "completion_after_audio_duration_sec": null,
+      "last_speech_final_vs_audio_end_sec": {
+        "n": 0,
+        "min": null,
+        "max": null
+      },
+      "timing_interpretation": "Negative last-speech-final offsets mean EOU before trailing audio, not negative completion latency. Completion residual includes producer/flush/closure overhead.",
+      "memory_scope": "sampled Windows ASR-process RSS; excludes full GUI/identity stack and native GPU device memory"
+    }
+  ],
+  "paced_resources": [
+    {
+      "variant": "A0",
+      "runtime": "sherpa",
+      "cells": 4,
+      "gpu": false,
+      "cpu_affinity": [
+        4
+      ],
+      "numerical_threads": 1,
+      "delivery": "source_paced_independent_producer",
+      "source_seconds": 178.78175,
+      "load_seconds": 1.2983612999996694,
+      "compute_RTF": 0.058320196552359274,
+      "peak_sampled_process_rss_bytes": 365928448,
+      "first_text_elapsed_sec": {
+        "n": 4,
+        "min": 4.029022700000496,
+        "max": 4.324150799999188
+      },
+      "completion_after_audio_duration_sec": {
+        "n": 4,
+        "min": 0.03857879999716829,
+        "max": 0.04911709999808522
+      },
+      "last_speech_final_vs_audio_end_sec": {
+        "n": 4,
+        "min": 0.038359799999426514,
+        "max": 0.04892630000043141
+      },
+      "timing_interpretation": "Negative last-speech-final offsets mean EOU before trailing audio, not negative completion latency. Completion residual includes producer/flush/closure overhead.",
+      "memory_scope": "sampled Windows ASR-process RSS; excludes full GUI/identity stack and native GPU device memory"
+    },
+    {
+      "variant": "A1",
+      "runtime": "onnx",
+      "cells": 8,
+      "gpu": false,
+      "cpu_affinity": [
+        4
+      ],
+      "numerical_threads": 1,
+      "delivery": "source_paced_independent_producer",
+      "source_seconds": 357.5635,
+      "load_seconds": 1.9447740000032354,
+      "compute_RTF": 0.5855430126397322,
+      "peak_sampled_process_rss_bytes": 642596864,
+      "first_text_elapsed_sec": {
+        "n": 6,
+        "min": 3.9780644999991637,
+        "max": 4.2102224999980535
+      },
+      "completion_after_audio_duration_sec": {
+        "n": 8,
+        "min": 0.7850070999980119,
+        "max": 0.9080608999998105
+      },
+      "last_speech_final_vs_audio_end_sec": {
+        "n": 6,
+        "min": -34.64555500000412,
+        "max": -20.87699830000335
+      },
+      "timing_interpretation": "Negative last-speech-final offsets mean EOU before trailing audio, not negative completion latency. Completion residual includes producer/flush/closure overhead.",
+      "memory_scope": "sampled Windows ASR-process RSS; excludes full GUI/identity stack and native GPU device memory"
+    },
+    {
+      "variant": "A2",
+      "runtime": "native",
+      "cells": 4,
+      "gpu": true,
+      "cpu_affinity": [
+        4
+      ],
+      "numerical_threads": 1,
+      "delivery": "source_paced_independent_producer",
+      "source_seconds": 178.78175,
+      "load_seconds": 0.4823677000022144,
+      "compute_RTF": 0.5712113921028187,
+      "peak_sampled_process_rss_bytes": 1074851840,
+      "first_text_elapsed_sec": {
+        "n": 4,
+        "min": 4.33782969999811,
+        "max": 4.661694000002171
+      },
+      "completion_after_audio_duration_sec": {
+        "n": 4,
+        "min": 0.2732431999998255,
+        "max": 0.2947726999978215
+      },
+      "last_speech_final_vs_audio_end_sec": {
+        "n": 4,
+        "min": 0.27301350000064417,
+        "max": 0.29455019999889487
+      },
+      "timing_interpretation": "Negative last-speech-final offsets mean EOU before trailing audio, not negative completion latency. Completion residual includes producer/flush/closure overhead.",
+      "memory_scope": "sampled Windows ASR-process RSS; excludes full GUI/identity stack and native GPU device memory"
+    },
+    {
+      "variant": "A3",
+      "runtime": "native",
+      "cells": 4,
+      "gpu": true,
+      "cpu_affinity": [
+        4
+      ],
+      "numerical_threads": 1,
+      "delivery": "source_paced_independent_producer",
+      "source_seconds": 178.78175,
+      "load_seconds": 0.5323477999991155,
+      "compute_RTF": 0.5560126852998267,
+      "peak_sampled_process_rss_bytes": 1072369664,
+      "first_text_elapsed_sec": {
+        "n": 4,
+        "min": 4.334739800004172,
+        "max": 4.827016800001729
+      },
+      "completion_after_audio_duration_sec": {
+        "n": 4,
+        "min": 0.2634681999975612,
+        "max": 0.27032119999651627
+      },
+      "last_speech_final_vs_audio_end_sec": {
+        "n": 4,
+        "min": 0.26324440000328764,
+        "max": 0.2701300000030926
+      },
+      "timing_interpretation": "Negative last-speech-final offsets mean EOU before trailing audio, not negative completion latency. Completion residual includes producer/flush/closure overhead.",
+      "memory_scope": "sampled Windows ASR-process RSS; excludes full GUI/identity stack and native GPU device memory"
+    }
+  ],
+  "cpu_panels": [
+    {
+      "variant": "A2",
+      "runtime": "native",
+      "cells": 4,
+      "gpu": true,
+      "cpu_affinity": [
+        4
+      ],
+      "numerical_threads": 1,
+      "delivery": "accelerated_causal_not_live_latency",
+      "source_seconds": 178.78175,
+      "load_seconds": 0.4747899000030884,
+      "compute_RTF": 0.5688914584398785,
+      "peak_sampled_process_rss_bytes": 1075494912,
+      "first_text_elapsed_sec": {
+        "n": 4,
+        "min": 2.250700600001437,
+        "max": 2.5918815000004543
+      },
+      "completion_after_audio_duration_sec": null,
+      "last_speech_final_vs_audio_end_sec": {
+        "n": 0,
+        "min": null,
+        "max": null
+      },
+      "timing_interpretation": "Negative last-speech-final offsets mean EOU before trailing audio, not negative completion latency. Completion residual includes producer/flush/closure overhead.",
+      "memory_scope": "sampled Windows ASR-process RSS; excludes full GUI/identity stack and native GPU device memory"
+    },
+    {
+      "variant": "A3",
+      "runtime": "native",
+      "cells": 4,
+      "gpu": true,
+      "cpu_affinity": [
+        4
+      ],
+      "numerical_threads": 1,
+      "delivery": "accelerated_causal_not_live_latency",
+      "source_seconds": 178.78175,
+      "load_seconds": 0.532081700002891,
+      "compute_RTF": 0.5523727679143835,
+      "peak_sampled_process_rss_bytes": 1072570368,
+      "first_text_elapsed_sec": {
+        "n": 4,
+        "min": 2.254945900000166,
+        "max": 2.5990891000001284
+      },
+      "completion_after_audio_duration_sec": null,
+      "last_speech_final_vs_audio_end_sec": {
+        "n": 0,
+        "min": null,
+        "max": null
+      },
+      "timing_interpretation": "Negative last-speech-final offsets mean EOU before trailing audio, not negative completion latency. Completion residual includes producer/flush/closure overhead.",
+      "memory_scope": "sampled Windows ASR-process RSS; excludes full GUI/identity stack and native GPU device memory"
+    }
+  ],
+  "text": {
+    "metrics": {
+      "A0_hypothesis": {
+        "cases": 275,
+        "input_words": 2493,
+        "lexically_changed_cases": 0,
+        "inserted_words": 0,
+        "removed_words": 0,
+        "p0_compute_ms": 1796.0204000410158,
+        "input_punctuation_boundaries": 0,
+        "p0_punctuation_boundaries": 431,
+        "itn_changed_cases": 0,
+        "itn_trace_edits": 0,
+        "reference_punctuation_tp": 0,
+        "reference_punctuation_fp": 0,
+        "reference_punctuation_fn": 0,
+        "reference_punctuation_eligible_clips": 0,
+        "isolated_clip_punctuation_F1": null
+      },
+      "A1_hypothesis": {
+        "cases": 263,
+        "input_words": 2386,
+        "lexically_changed_cases": 0,
+        "inserted_words": 0,
+        "removed_words": 0,
+        "p0_compute_ms": 1772.465599955467,
+        "input_punctuation_boundaries": 0,
+        "p0_punctuation_boundaries": 402,
+        "itn_changed_cases": 0,
+        "itn_trace_edits": 0,
+        "reference_punctuation_tp": 0,
+        "reference_punctuation_fp": 0,
+        "reference_punctuation_fn": 0,
+        "reference_punctuation_eligible_clips": 0,
+        "isolated_clip_punctuation_F1": null
+      },
+      "A2_hypothesis": {
+        "cases": 307,
+        "input_words": 2460,
+        "lexically_changed_cases": 0,
+        "inserted_words": 0,
+        "removed_words": 0,
+        "p0_compute_ms": 2048.1125000078464,
+        "input_punctuation_boundaries": 74,
+        "p0_punctuation_boundaries": 438,
+        "itn_changed_cases": 0,
+        "itn_trace_edits": 0,
+        "reference_punctuation_tp": 0,
+        "reference_punctuation_fp": 0,
+        "reference_punctuation_fn": 0,
+        "reference_punctuation_eligible_clips": 0,
+        "isolated_clip_punctuation_F1": null
+      },
+      "A3_hypothesis": {
+        "cases": 306,
+        "input_words": 2419,
+        "lexically_changed_cases": 0,
+        "inserted_words": 0,
+        "removed_words": 0,
+        "p0_compute_ms": 2026.7858000443084,
+        "input_punctuation_boundaries": 68,
+        "p0_punctuation_boundaries": 446,
+        "itn_changed_cases": 0,
+        "itn_trace_edits": 0,
+        "reference_punctuation_tp": 0,
+        "reference_punctuation_fp": 0,
+        "reference_punctuation_fn": 0,
+        "reference_punctuation_eligible_clips": 0,
+        "isolated_clip_punctuation_F1": null
+      },
+      "original_isolated_clip_reference": {
+        "cases": 132,
+        "input_words": 1084,
+        "lexically_changed_cases": 0,
+        "inserted_words": 0,
+        "removed_words": 0,
+        "p0_compute_ms": 891.4890000087325,
+        "input_punctuation_boundaries": 182,
+        "p0_punctuation_boundaries": 186,
+        "itn_changed_cases": 0,
+        "itn_trace_edits": 0,
+        "reference_punctuation_tp": 108,
+        "reference_punctuation_fp": 41,
+        "reference_punctuation_fn": 40,
+        "reference_punctuation_eligible_clips": 110,
+        "isolated_clip_punctuation_F1": 0.7272727272727273
+      },
+      "text_only_fixture": {
+        "cases": 6,
+        "input_words": 44,
+        "lexically_changed_cases": 0,
+        "inserted_words": 0,
+        "removed_words": 0,
+        "p0_compute_ms": 39.38160001416691,
+        "input_punctuation_boundaries": 6,
+        "p0_punctuation_boundaries": 7,
+        "itn_changed_cases": 2,
+        "itn_trace_edits": 2,
+        "reference_punctuation_tp": 0,
+        "reference_punctuation_fp": 0,
+        "reference_punctuation_fn": 0,
+        "reference_punctuation_eligible_clips": 0,
+        "isolated_clip_punctuation_F1": null
+      }
+    },
+    "P0": {
+      "model_sha256": "9d611f445fe4a46186080fe161be6059d87d72eb88d3a8cb00c1a06e83a6067e",
+      "vocabulary_sha256": "e118b7ad88c54db562517df49e1cffd4836d166c34fb190fd311d7f34eb238f5",
+      "final_only": true
+    },
+    "P1": {
+      "route": "A2/A3 native formatted hypotheses retained unchanged in ASR events",
+      "comparison": "complete stacks scored separately; P0 same-lexical diagnostic is not a redundant production pass"
+    },
+    "P2": {
+      "status": "UNAVAILABLE_VERIFIED_STANDALONE_CHECKPOINT",
+      "reason": "Official NVIDIA HF punct and pnc searches returned no candidate; native example filename is not a weight license"
+    },
+    "ITN": {
+      "grammar_sha256": "fc4df22c58d326c24f99e80dc5344729d0edbf9ba212804781dbddc8fc34e01a",
+      "number_forms": 110,
+      "default_enabled": false,
+      "WD40_contextual_fixture": "PASS",
+      "unsupported_large_number_fixture": "PASS",
+      "personal_mappings_created": 0
+    },
+    "contextual_reconstruction_F1": null,
+    "limits": [
+      "Punctuation reference diagnostics apply to original isolated clips only",
+      "No invented conversation-level punctuation gold",
+      "Name/negation/amount/pronoun preservation measured as lexical preservation",
+      "Unconstrained missing-word or grammar rewriting deferred; no LLM captions"
+    ]
+  },
+  "gui": [
+    {
+      "variant": "A1",
+      "cpu_affinity": [
+        4
+      ],
+      "completed": 3,
+      "elapsed_seconds": 158.39317740000115,
+      "verified_actual_processes": [
+        {
+          "cell_id": "A1_boundary",
+          "cpu_affinity": [
+            4
+          ]
+        },
+        {
+          "cell_id": "A1_short",
+          "cpu_affinity": [
+            4
+          ]
+        },
+        {
+          "cell_id": "A1_returning",
+          "cpu_affinity": [
+            4
+          ]
+        }
+      ],
+      "cells": [
+        {
+          "cell_id": "A1_boundary",
+          "status": "COMPLETE",
+          "archive_integrity_passed": true,
+          "elapsed_seconds": 50.59715810000489
+        },
+        {
+          "cell_id": "A1_short",
+          "status": "COMPLETE",
+          "archive_integrity_passed": true,
+          "elapsed_seconds": 50.49539569999615
+        },
+        {
+          "cell_id": "A1_returning",
+          "status": "COMPLETE",
+          "archive_integrity_passed": true,
+          "elapsed_seconds": 50.72431830000278
+        }
+      ],
+      "scope": "actual private desktop; unchanged 480x800 common GUI; functional checks, not CM5/realtime qualification"
+    },
+    {
+      "variant": "A2",
+      "cpu_affinity": [
+        4
+      ],
+      "completed": 3,
+      "elapsed_seconds": 384.26307290000113,
+      "verified_actual_processes": [
+        {
+          "cell_id": "A2_boundary",
+          "cpu_affinity": [
+            4
+          ]
+        },
+        {
+          "cell_id": "A2_short",
+          "cpu_affinity": [
+            4
+          ]
+        },
+        {
+          "cell_id": "A2_returning",
+          "cpu_affinity": [
+            4
+          ]
+        }
+      ],
+      "cells": [
+        {
+          "cell_id": "A2_boundary",
+          "status": "COMPLETE",
+          "archive_integrity_passed": true,
+          "elapsed_seconds": 130.1015148000006
+        },
+        {
+          "cell_id": "A2_short",
+          "status": "COMPLETE",
+          "archive_integrity_passed": true,
+          "elapsed_seconds": 121.67393900000025
+        },
+        {
+          "cell_id": "A2_returning",
+          "status": "COMPLETE",
+          "archive_integrity_passed": true,
+          "elapsed_seconds": 126.14931739999884
+        }
+      ],
+      "scope": "actual private desktop; unchanged 480x800 common GUI; functional checks, not CM5/realtime qualification"
+    },
+    {
+      "variant": "A3",
+      "cpu_affinity": [
+        4,
+        14
+      ],
+      "completed": 3,
+      "elapsed_seconds": 284.7240224999987,
+      "verified_actual_processes": [
+        {
+          "cell_id": "A3_boundary",
+          "cpu_affinity": [
+            4,
+            14
+          ]
+        },
+        {
+          "cell_id": "A3_short",
+          "cpu_affinity": [
+            4,
+            14
+          ]
+        },
+        {
+          "cell_id": "A3_returning",
+          "cpu_affinity": [
+            4,
+            14
+          ]
+        }
+      ],
+      "cells": [
+        {
+          "cell_id": "A3_boundary",
+          "status": "COMPLETE",
+          "archive_integrity_passed": true,
+          "elapsed_seconds": 92.7522314999951
+        },
+        {
+          "cell_id": "A3_short",
+          "status": "COMPLETE",
+          "archive_integrity_passed": true,
+          "elapsed_seconds": 91.00178389999928
+        },
+        {
+          "cell_id": "A3_returning",
+          "status": "COMPLETE",
+          "archive_integrity_passed": true,
+          "elapsed_seconds": 94.41904250000516
+        }
+      ],
+      "scope": "actual private desktop; unchanged 480x800 common GUI; functional checks, not CM5/realtime qualification"
+    }
+  ],
+  "suite": {
+    "tests": 454,
+    "skipped": 2,
+    "failures": 0,
+    "errors": 0,
+    "requested_modules": 48,
+    "successful_modules": 48,
+    "source": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\releases\\n3-common-a1controllerv2\\prototype",
+    "source_unchanged": true
+  },
+  "route_comparison": {
+    "schema": "just-peachy.n3.route-comparison.v1",
+    "status": "COMPLETE",
+    "comparisons": [
+      {
+        "variant": "A2",
+        "comparison": "cuda",
+        "scope": "same Q8 weights, primary context; CPU/CUDA lexical output parity",
+        "status": "COMPLETE",
+        "required_pairs": 4,
+        "observed_pairs": 4,
+        "identical_lexical_pairs": 4,
+        "cells": [
+          {
+            "audio_sha256": "61169f9875d8d4df967348239a88c1f9f4134f0528f6f5c1289401a1566e020e",
+            "input_samples": 715127,
+            "identical_lexical_output": true,
+            "lexical_edit_distance": 0,
+            "native_words": 13,
+            "other_words": 13,
+            "raw_output_equal": true,
+            "native_compute_ms": 25266.010499955883,
+            "other_compute_ms": 1539.4444998019026
+          },
+          {
+            "audio_sha256": "8a8080c327d5bf70ef0e7616a36befe995eff6bbdfbdb32b74332569c70dcc31",
+            "input_samples": 715127,
+            "identical_lexical_output": true,
+            "lexical_edit_distance": 0,
+            "native_words": 14,
+            "other_words": 14,
+            "raw_output_equal": true,
+            "native_compute_ms": 25237.53550001129,
+            "other_compute_ms": 1613.5704000116675
+          },
+          {
+            "audio_sha256": "b62a9af84ec19fc9bb6aba66026d97feb357d1f549eab5459dd53a743266e004",
+            "input_samples": 715127,
+            "identical_lexical_output": true,
+            "lexical_edit_distance": 0,
+            "native_words": 32,
+            "other_words": 32,
+            "raw_output_equal": true,
+            "native_compute_ms": 25801.73339998146,
+            "other_compute_ms": 1990.1539000638877
+          },
+          {
+            "audio_sha256": "db418ef0d0e79a59a1d29af6a38ab947da8318519eb093caee0b5e903fdeb3af",
+            "input_samples": 715127,
+            "identical_lexical_output": true,
+            "lexical_edit_distance": 0,
+            "native_words": 32,
+            "other_words": 32,
+            "raw_output_equal": true,
+            "native_compute_ms": 25402.131099985127,
+            "other_compute_ms": 1664.4563999361708
+          }
+        ]
+      },
+      {
+        "variant": "A2",
+        "comparison": "reference",
+        "scope": "Q8 native versus FP32 NeMo; quantization, decoder and endpoint routes differ",
+        "status": "COMPLETE",
+        "required_pairs": 4,
+        "observed_pairs": 4,
+        "identical_lexical_pairs": 4,
+        "cells": [
+          {
+            "audio_sha256": "61169f9875d8d4df967348239a88c1f9f4134f0528f6f5c1289401a1566e020e",
+            "input_samples": 715127,
+            "identical_lexical_output": true,
+            "lexical_edit_distance": 0,
+            "native_words": 13,
+            "other_words": 13,
+            "raw_output_equal": true,
+            "native_compute_ms": 25266.010499955883,
+            "other_compute_ms": 85744.02879997433
+          },
+          {
+            "audio_sha256": "8a8080c327d5bf70ef0e7616a36befe995eff6bbdfbdb32b74332569c70dcc31",
+            "input_samples": 715127,
+            "identical_lexical_output": true,
+            "lexical_edit_distance": 0,
+            "native_words": 14,
+            "other_words": 14,
+            "raw_output_equal": true,
+            "native_compute_ms": 25237.53550001129,
+            "other_compute_ms": 86390.34310003626
+          },
+          {
+            "audio_sha256": "b62a9af84ec19fc9bb6aba66026d97feb357d1f549eab5459dd53a743266e004",
+            "input_samples": 715127,
+            "identical_lexical_output": true,
+            "lexical_edit_distance": 0,
+            "native_words": 32,
+            "other_words": 32,
+            "raw_output_equal": true,
+            "native_compute_ms": 25801.73339998146,
+            "other_compute_ms": 86516.95370004381
+          },
+          {
+            "audio_sha256": "db418ef0d0e79a59a1d29af6a38ab947da8318519eb093caee0b5e903fdeb3af",
+            "input_samples": 715127,
+            "identical_lexical_output": true,
+            "lexical_edit_distance": 0,
+            "native_words": 32,
+            "other_words": 32,
+            "raw_output_equal": true,
+            "native_compute_ms": 25402.131099985127,
+            "other_compute_ms": 86723.84179997971
+          }
+        ]
+      },
+      {
+        "variant": "A2",
+        "comparison": "lower_buffer",
+        "scope": "right-context 1 versus 0; deliberate configuration contrast",
+        "status": "COMPLETE",
+        "required_pairs": 4,
+        "observed_pairs": 4,
+        "identical_lexical_pairs": 3,
+        "cells": [
+          {
+            "audio_sha256": "61169f9875d8d4df967348239a88c1f9f4134f0528f6f5c1289401a1566e020e",
+            "input_samples": 715127,
+            "identical_lexical_output": true,
+            "lexical_edit_distance": 0,
+            "native_words": 13,
+            "other_words": 13,
+            "raw_output_equal": true,
+            "native_compute_ms": 25266.010499955883,
+            "other_compute_ms": 2956.8559000254027
+          },
+          {
+            "audio_sha256": "8a8080c327d5bf70ef0e7616a36befe995eff6bbdfbdb32b74332569c70dcc31",
+            "input_samples": 715127,
+            "identical_lexical_output": false,
+            "lexical_edit_distance": 1,
+            "native_words": 14,
+            "other_words": 14,
+            "raw_output_equal": false,
+            "native_compute_ms": 25237.53550001129,
+            "other_compute_ms": 2878.6864000067
+          },
+          {
+            "audio_sha256": "b62a9af84ec19fc9bb6aba66026d97feb357d1f549eab5459dd53a743266e004",
+            "input_samples": 715127,
+            "identical_lexical_output": true,
+            "lexical_edit_distance": 0,
+            "native_words": 32,
+            "other_words": 32,
+            "raw_output_equal": true,
+            "native_compute_ms": 25801.73339998146,
+            "other_compute_ms": 3380.27149996924
+          },
+          {
+            "audio_sha256": "db418ef0d0e79a59a1d29af6a38ab947da8318519eb093caee0b5e903fdeb3af",
+            "input_samples": 715127,
+            "identical_lexical_output": true,
+            "lexical_edit_distance": 0,
+            "native_words": 32,
+            "other_words": 32,
+            "raw_output_equal": true,
+            "native_compute_ms": 25402.131099985127,
+            "other_compute_ms": 2971.4354999596253
+          }
+        ]
+      },
+      {
+        "variant": "A3",
+        "comparison": "cuda",
+        "scope": "same Q8 weights, primary context; CPU/CUDA lexical output parity",
+        "status": "COMPLETE",
+        "required_pairs": 4,
+        "observed_pairs": 4,
+        "identical_lexical_pairs": 3,
+        "cells": [
+          {
+            "audio_sha256": "61169f9875d8d4df967348239a88c1f9f4134f0528f6f5c1289401a1566e020e",
+            "input_samples": 715127,
+            "identical_lexical_output": false,
+            "lexical_edit_distance": 1,
+            "native_words": 23,
+            "other_words": 23,
+            "raw_output_equal": false,
+            "native_compute_ms": 24556.298000003153,
+            "other_compute_ms": 1527.4409998819465
+          },
+          {
+            "audio_sha256": "8a8080c327d5bf70ef0e7616a36befe995eff6bbdfbdb32b74332569c70dcc31",
+            "input_samples": 715127,
+            "identical_lexical_output": true,
+            "lexical_edit_distance": 0,
+            "native_words": 24,
+            "other_words": 24,
+            "raw_output_equal": true,
+            "native_compute_ms": 24718.829300072684,
+            "other_compute_ms": 1525.037999956112
+          },
+          {
+            "audio_sha256": "b62a9af84ec19fc9bb6aba66026d97feb357d1f549eab5459dd53a743266e004",
+            "input_samples": 715127,
+            "identical_lexical_output": true,
+            "lexical_edit_distance": 0,
+            "native_words": 32,
+            "other_words": 32,
+            "raw_output_equal": true,
+            "native_compute_ms": 24926.736300014454,
+            "other_compute_ms": 1918.0944000254385
+          },
+          {
+            "audio_sha256": "db418ef0d0e79a59a1d29af6a38ab947da8318519eb093caee0b5e903fdeb3af",
+            "input_samples": 715127,
+            "identical_lexical_output": true,
+            "lexical_edit_distance": 0,
+            "native_words": 32,
+            "other_words": 32,
+            "raw_output_equal": true,
+            "native_compute_ms": 24552.306499987026,
+            "other_compute_ms": 1537.5445999015938
+          }
+        ]
+      },
+      {
+        "variant": "A3",
+        "comparison": "reference",
+        "scope": "Q8 native versus FP32 NeMo; quantization, decoder and endpoint routes differ",
+        "status": "COMPLETE",
+        "required_pairs": 4,
+        "observed_pairs": 4,
+        "identical_lexical_pairs": 1,
+        "cells": [
+          {
+            "audio_sha256": "61169f9875d8d4df967348239a88c1f9f4134f0528f6f5c1289401a1566e020e",
+            "input_samples": 715127,
+            "identical_lexical_output": false,
+            "lexical_edit_distance": 2,
+            "native_words": 23,
+            "other_words": 24,
+            "raw_output_equal": false,
+            "native_compute_ms": 24556.298000003153,
+            "other_compute_ms": 80337.43710002818
+          },
+          {
+            "audio_sha256": "8a8080c327d5bf70ef0e7616a36befe995eff6bbdfbdb32b74332569c70dcc31",
+            "input_samples": 715127,
+            "identical_lexical_output": false,
+            "lexical_edit_distance": 1,
+            "native_words": 24,
+            "other_words": 24,
+            "raw_output_equal": false,
+            "native_compute_ms": 24718.829300072684,
+            "other_compute_ms": 81534.18009997768
+          },
+          {
+            "audio_sha256": "b62a9af84ec19fc9bb6aba66026d97feb357d1f549eab5459dd53a743266e004",
+            "input_samples": 715127,
+            "identical_lexical_output": false,
+            "lexical_edit_distance": 2,
+            "native_words": 32,
+            "other_words": 33,
+            "raw_output_equal": false,
+            "native_compute_ms": 24926.736300014454,
+            "other_compute_ms": 80649.1858000154
+          },
+          {
+            "audio_sha256": "db418ef0d0e79a59a1d29af6a38ab947da8318519eb093caee0b5e903fdeb3af",
+            "input_samples": 715127,
+            "identical_lexical_output": true,
+            "lexical_edit_distance": 0,
+            "native_words": 32,
+            "other_words": 32,
+            "raw_output_equal": true,
+            "native_compute_ms": 24552.306499987026,
+            "other_compute_ms": 79053.6274000442
+          }
+        ]
+      },
+      {
+        "variant": "A3",
+        "comparison": "lower_buffer",
+        "scope": "right-context 1 versus 0; deliberate configuration contrast",
+        "status": "COMPLETE",
+        "required_pairs": 4,
+        "observed_pairs": 4,
+        "identical_lexical_pairs": 1,
+        "cells": [
+          {
+            "audio_sha256": "61169f9875d8d4df967348239a88c1f9f4134f0528f6f5c1289401a1566e020e",
+            "input_samples": 715127,
+            "identical_lexical_output": false,
+            "lexical_edit_distance": 6,
+            "native_words": 23,
+            "other_words": 24,
+            "raw_output_equal": false,
+            "native_compute_ms": 24556.298000003153,
+            "other_compute_ms": 3011.8355999074993
+          },
+          {
+            "audio_sha256": "8a8080c327d5bf70ef0e7616a36befe995eff6bbdfbdb32b74332569c70dcc31",
+            "input_samples": 715127,
+            "identical_lexical_output": false,
+            "lexical_edit_distance": 2,
+            "native_words": 24,
+            "other_words": 24,
+            "raw_output_equal": false,
+            "native_compute_ms": 24718.829300072684,
+            "other_compute_ms": 3145.6765998664196
+          },
+          {
+            "audio_sha256": "b62a9af84ec19fc9bb6aba66026d97feb357d1f549eab5459dd53a743266e004",
+            "input_samples": 715127,
+            "identical_lexical_output": false,
+            "lexical_edit_distance": 1,
+            "native_words": 32,
+            "other_words": 32,
+            "raw_output_equal": false,
+            "native_compute_ms": 24926.736300014454,
+            "other_compute_ms": 3458.4291000501253
+          },
+          {
+            "audio_sha256": "db418ef0d0e79a59a1d29af6a38ab947da8318519eb093caee0b5e903fdeb3af",
+            "input_samples": 715127,
+            "identical_lexical_output": true,
+            "lexical_edit_distance": 0,
+            "native_words": 32,
+            "other_words": 32,
+            "raw_output_equal": false,
+            "native_compute_ms": 24552.306499987026,
+            "other_compute_ms": 3107.770799957507
+          }
+        ]
+      }
+    ],
+    "limits": [
+      "Four fixed preselected rows; not full numerical tensor/state parity",
+      "Different routes can have different precision/endpoint behavior; disagreements are retained, not rescore-aligned",
+      "No truth, fitted word alignment or arbitrary equality threshold is used"
+    ]
+  },
+  "receipts": [
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\plan-a1nominalv1.json",
+      "sha256": "9da6747a0133683d257785286bdc9649a194c8104cd27689f2bb9f34aebef880",
+      "bytes": 1346965
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-a1nominalv1\\RESULT.json",
+      "sha256": "b26ccc05a4d45f4b45a1e31b70ced801856b1c3a4dbd7c415e6d3696172f9ffb",
+      "bytes": 4813
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-a1nominalv1\\analysis\\LEXICAL_COMPARISON.json",
+      "sha256": "e087ba22a1d2fbdf2bfffacda6751fbd84c415ac5e88603836bdc858242c30c2",
+      "bytes": 195008
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-a1nominalv1\\text\\TEXT_COMPARISON.json",
+      "sha256": "0052e3ae006d5c538798f15b991460a2565591f6250695f3f90f61f14a718557",
+      "bytes": 5093
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-v4\\screen-A0\\RESULT.json",
+      "sha256": "ff3fde6d53a58379f16167667bbc8d04f50d0b615f927663162fe1710ecde02e",
+      "bytes": 27837
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-v4\\screen-A0\\RUN_LOCK.json",
+      "sha256": "97f309e595e3385853c15f71bb2514e87518edf9f18d6102c9ca5608616082b1",
+      "bytes": 29102
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-a1nominalv1\\screen-A1-onnx\\RESULT.json",
+      "sha256": "b79997cecb741b9d95ced442281b8d705735524fd28eb9e593570b24bc342daf",
+      "bytes": 29406
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-a1nominalv1\\screen-A1-onnx\\RUN_LOCK.json",
+      "sha256": "c8816c828e82867d5d2bf7888a03e35fc92b6e239a63c837fa73b9be12ec229e",
+      "bytes": 26001
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-v4\\screen-A2\\RESULT.json",
+      "sha256": "3af0307dda9f1720b8bd7d5152ff8bafe0081decce383a2a1aedb213d7a0bca1",
+      "bytes": 27838
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-v4\\screen-A2\\RUN_LOCK.json",
+      "sha256": "d83eeb2e3df4f807cf996d0b4fadbd696a866d60a1cc063276784a80b7bbce66",
+      "bytes": 27763
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-v4\\screen-A3\\RESULT.json",
+      "sha256": "55661524935c7ee70acd810e7180238d5262720325bfca849064d6e8f433e535",
+      "bytes": 27838
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-v4\\screen-A3\\RUN_LOCK.json",
+      "sha256": "9d3baef811ae7b4ab76538da12d3496e8a8789e1cd3b905f3b8ffa0f9b170869",
+      "bytes": 27761
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\plan-v4.json",
+      "sha256": "8000480360bb6620ba266bb585bc9e10f229c52366f0570a4aae3ae63ee7836f",
+      "bytes": 1318268
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-v4\\RESULT.json",
+      "sha256": "9a08e7dfb9f87b51f8d49a6438f4ab9e53e78e3e62b9d63e1b6d281c980033d0",
+      "bytes": 21770
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-v4\\regression-A0\\RESULT.json",
+      "sha256": "6fb1172b7b19cf344caeefa1e14e0401dbd231f3652980590eadf201a75ec3a5",
+      "bytes": 2874
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-v4\\regression-A0\\RUN_LOCK.json",
+      "sha256": "340f3b392d9a305094f493ca4d79b94ae7320c6b7fbcf0ab6da0b65525e8dee8",
+      "bytes": 29110
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-v4\\paced-A0\\RESULT.json",
+      "sha256": "006f70f7fab4680eab6659cf12fa90e4ec630265c93ab21eed794351cec3b399",
+      "bytes": 1703
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-v4\\paced-A0\\RUN_LOCK.json",
+      "sha256": "8bd33ff890cb1aaeb45226bbc2fca80b566cfdb21ea5cf9996b5c70d5c59a683",
+      "bytes": 29098
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-a1nominalv1\\regression-A1-onnx\\RESULT.json",
+      "sha256": "5d3b2660c1abc5ba009b543ee7cd4578db98914580b37af43fc69e153e5eb660",
+      "bytes": 3211
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-a1nominalv1\\regression-A1-onnx\\RUN_LOCK.json",
+      "sha256": "9fbcdc80bc55fe60d4478ee08a9721b92067a38df0f35aa1fc498c3bbe8500cb",
+      "bytes": 26001
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-a1nominalv1\\paced-A1-onnx\\RESULT.json",
+      "sha256": "2a063c9c13b34b70a4da42f5eed38611cb49b5040ee2d210e68348b06f9bdf07",
+      "bytes": 3171
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-a1nominalv1\\paced-A1-onnx\\RUN_LOCK.json",
+      "sha256": "a8e3745c8a3ad9b7b266732bdd39bdb458f2545f00f4eb86491c4d041048227e",
+      "bytes": 25999
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n2\\evaluation\\REGRESSION_AUDIO_ONLY.json",
+      "sha256": "de531914dc23d991135f92138a131212f6d004dff01f80eb801c4f99f7b1052d",
+      "bytes": 3023
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-v4\\regression-A2\\RESULT.json",
+      "sha256": "21fb6d6455b26186b6ff79c30f6275f4426ba89366680b82a83d8891b69fac2c",
+      "bytes": 2874
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-v4\\regression-A2\\RUN_LOCK.json",
+      "sha256": "914283b8b6c0d0bd228ffc668dbe6d344e80804222ffcb6d43eb891fc8a32331",
+      "bytes": 27763
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-v4\\paced-A2\\RESULT.json",
+      "sha256": "b90c12dc11025715613f0b8afa7603fd752f54ef2154d0323c6133d980981635",
+      "bytes": 1704
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-v4\\paced-A2\\RUN_LOCK.json",
+      "sha256": "f516b653e3df7a39565a57f45ad2500224c2f44ccc0f8fdaec9cc0424177aed3",
+      "bytes": 26666
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-v4\\cpu-panel-A2\\RESULT.json",
+      "sha256": "cebeb1adcb1811575b901e3933a4cf305277a2acebd45478dbe18c7b296d90db",
+      "bytes": 1720
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-v4\\cpu-panel-A2\\RUN_LOCK.json",
+      "sha256": "29a07c9cf539a789f46b53d1c7194b890c04814be498e8c752ab97e3c974faed",
+      "bytes": 26668
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-v4\\regression-A3\\RESULT.json",
+      "sha256": "b34f7436b7b44ea7f9d653f84226d179b49767a74197c46ab0217b51db82c36a",
+      "bytes": 2875
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-v4\\regression-A3\\RUN_LOCK.json",
+      "sha256": "e66350140fad9fec51b7b2374eb908e00175c4f6ad6999bf894cec2ebdb521dc",
+      "bytes": 27761
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-v4\\paced-A3\\RESULT.json",
+      "sha256": "4b33451bfb433d5e57734d735fd4e81ac3eb0be5e8b2db688eaaea2520c0ab9d",
+      "bytes": 1704
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-v4\\paced-A3\\RUN_LOCK.json",
+      "sha256": "18ef2c3aebd84f0b63e619e9bbdb22b97e52fa274ba0fa20769e8d37085a4ca1",
+      "bytes": 26664
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-v4\\cpu-panel-A3\\RESULT.json",
+      "sha256": "d71e868a363c8df7c5af3008610881fbc47f01d32770b9ad8d37985839ce3263",
+      "bytes": 1719
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-v4\\cpu-panel-A3\\RUN_LOCK.json",
+      "sha256": "e3d93c98c8cab9eb1271d3be079d166bf7e719b35c4a0587c4edc73af5f2141e",
+      "bytes": 26666
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\plan-a1controllerv2.json",
+      "sha256": "b087ff40538008edcf89f17627944abcbc61e10a5505e387d747f9224ea6f465",
+      "bytes": 1452476
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-a1controllerv2\\RESULT.json",
+      "sha256": "17dd7651dfc8ddfafc576bbedccd551f80e521ca4f6dc6112f8559e008635910",
+      "bytes": 2095
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-a1controllerv2\\suite\\RESULT.json",
+      "sha256": "1af9033cd203b72c98fbb4d93661b82ecbeda1131d00eff5dcfa77bda7247a9e",
+      "bytes": 217528
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-a1controllerv2\\gui-A1\\GUI_PANEL_REPORT.json",
+      "sha256": "d4cf51a4bd793dce27ac9f0e12d50806f48984e274b84f1238878857dc9ed990",
+      "bytes": 56641
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-a1controllerv2\\gui-A1\\private_cells\\A1_boundary\\GUI_PANEL_REPORT.json",
+      "sha256": "13938b3856014a5d52c78df3fa45de2c16ffaef14eab36fcbd4ddb1e8b99e79c",
+      "bytes": 19677
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-a1controllerv2\\gui-A1\\private_cells\\A1_short\\GUI_PANEL_REPORT.json",
+      "sha256": "464c51d124935225d790584fef4ee6f55195b7c8fde875cd25c1844516c232d7",
+      "bytes": 14791
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-a1controllerv2\\gui-A1\\private_cells\\A1_returning\\GUI_PANEL_REPORT.json",
+      "sha256": "5a856211a1446ea9edfdf200948b04382a1667fab125e443e27ca078faecc27d",
+      "bytes": 19477
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\plan-guifinalv1.json",
+      "sha256": "342fc7d0eb3a3366582eeb9a6375ae65a9e7cc8cccc6f85448122684f38e2181",
+      "bytes": 1295826
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-guifinalv1\\RESULT.json",
+      "sha256": "8a8109a1f0d9266eae31b99de26cdefeb4f9153251690351b09066aa9f08f1df",
+      "bytes": 2095
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-guifinalv1\\gui-A2\\GUI_PANEL_REPORT.json",
+      "sha256": "b46d63dfe85c692c8e8a521ee321d0306e6e49f7862a560d6157764df63edb22",
+      "bytes": 69619
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-guifinalv1\\gui-A2\\private_cells\\A2_boundary\\GUI_PANEL_REPORT.json",
+      "sha256": "feb954ebd93f0f5c7c32618764c0ca0a4e6e934c38b58a00fecc11d13e3d3276",
+      "bytes": 23158
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-guifinalv1\\gui-A2\\private_cells\\A2_short\\GUI_PANEL_REPORT.json",
+      "sha256": "e7dd1be7fbe874d314eb72af86e66698ec6c1aa127f8857ec25e13e036dbe10a",
+      "bytes": 20767
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-guifinalv1\\gui-A2\\private_cells\\A2_returning\\GUI_PANEL_REPORT.json",
+      "sha256": "4d2ff801af1f2abcdf5e0892d21c5f49de9ed73550ec8c45806e8054e33e5d52",
+      "bytes": 23049
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\plan-gui2corev1.json",
+      "sha256": "613f4403bccab32f90fd0a3d9ef301e6b5c2d116441068a6986812b53dde9247",
+      "bytes": 1274802
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-gui2corev1\\RESULT.json",
+      "sha256": "85050ef5cd916def41036c152464ee3ddca69f482a2d9bcbe3e5d05c8d513fe3",
+      "bytes": 1465
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-gui2corev1\\gui-A3\\GUI_PANEL_REPORT.json",
+      "sha256": "ba7b01b9bfbdbbf76e980f5e14c500461aceac792caee4d9b28600059f0d8a14",
+      "bytes": 69653
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-gui2corev1\\gui-A3\\private_cells\\A3_boundary\\GUI_PANEL_REPORT.json",
+      "sha256": "2288419091d45cdf1ea3302342ad7e592526cfc636a69176347ce380f4c60d73",
+      "bytes": 23188
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-gui2corev1\\gui-A3\\private_cells\\A3_short\\GUI_PANEL_REPORT.json",
+      "sha256": "ce6c2279031f5c327f90ee98de351813325b20836fa754eaa2d9246a8b432294",
+      "bytes": 20769
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-gui2corev1\\gui-A3\\private_cells\\A3_returning\\GUI_PANEL_REPORT.json",
+      "sha256": "e67eaf613429970fca94e2b49cc8a8e375f22af7b6906b5d811ca76f420a4fda",
+      "bytes": 23076
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-a1servicev2\\parity\\RESULT.json",
+      "sha256": "e0bb6a3b0fa35a070745ced8a53c014aa0e1c0895bea3649ccb36716c0ba5854",
+      "bytes": 14607
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-v4\\routes\\ROUTE_COMPARISON.json",
+      "sha256": "7145e6e623775a8bf2316bd4317b2fd7f0b5f3a976304d2924d2b4491f6b78b3",
+      "bytes": 12749
+    }
+  ],
+  "review_source": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n3\\review_completed.py",
+    "sha256": "e9cdf8a1a0b28a12e062b0d312b6f4fb625b76dcc71b538ef4091862ea7790ba",
+    "bytes": 14503
+  },
+  "limitations": [
+    "A3 one-core GUI failure remains; two-core contrast is a separate resource configuration.",
+    "A0/A1 screens use CPU; A2/A3 screens use native CUDA. Compare CPU panels separately.",
+    "One mono overlap hypothesis cpWER is diagnostic, not a diarized-system result.",
+    "48 paired seen scenes do not select an N4 winner; complete 240-scene bank is pending.",
+    "No raw transcripts, voice vectors, audio or weights are copied to this report.",
+    "ARM64 software deployment is N5 work; physical CM5 checks remain deferred."
+  ]
+}

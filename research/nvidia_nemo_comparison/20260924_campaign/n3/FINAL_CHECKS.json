@@ -1,0 +1,76 @@
+{
+  "schema": "n3-final-evidence-checks-v1",
+  "status": "PASS",
+  "utc": "2026-09-25T01:54:54.434178+00:00",
+  "numerical_review": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\final-review-v1.json",
+    "sha256": "6daedee6fef19a1a93b5cdec5bcbd07f5d3550f10ff4363e94368aa4591f4277",
+    "bytes": 86452
+  },
+  "review_source": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n3\\review_completed.py",
+    "sha256": "e9cdf8a1a0b28a12e062b0d312b6f4fb625b76dcc71b538ef4091862ea7790ba",
+    "bytes": 14503
+  },
+  "review_tests": {
+    "count": 6,
+    "failures": 0,
+    "errors": 0
+  },
+  "two_core_preparation": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\gui2core-preparation-v1\\RESULT.json",
+    "sha256": "4a077e4f7291a28a921a846c45d415c1875877fda8f1fefa335f3040ff25273f",
+    "bytes": 2375
+  },
+  "suite": {
+    "tests": 454,
+    "skipped": 2,
+    "failures": 0,
+    "errors": 0,
+    "requested_modules": 48,
+    "successful_modules": 48,
+    "source": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\releases\\n3-common-a1controllerv2\\prototype",
+    "source_unchanged": true
+  },
+  "census": {
+    "screen": 384,
+    "regression": 32,
+    "paced": 20,
+    "gui": 9
+  },
+  "source_receipt": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\releases\\n3-common-a1controllerv2\\SOURCE_RECEIPT.json",
+    "sha256": "05d8d49b268101761de849a11cecea4ec879e954615a160aa5618458e1baab3e",
+    "bytes": 61403
+  },
+  "source_file_count": 380,
+  "source_files_verified": true,
+  "gui_real_affinities_verified": true,
+  "visual_review": {
+    "cases": [
+      "A1_boundary LATEST",
+      "A3_boundary LATEST"
+    ],
+    "portrait": [
+      480,
+      800
+    ],
+    "controls_visible": true,
+    "limitation": "A3 short caption fragments remain a readability concern for N4"
+  },
+  "one_core_A3_failure_preserved": true,
+  "a1_paced_count_adjudication": {
+    "status": "ACCEPTED_PREDECLARED_EIGHT_FILE_EVIDENCE",
+    "original_queue_status": "FAILED",
+    "original_reason": "incomplete cell census",
+    "coordinator_expected_cells": 4,
+    "frozen_manifest_cells": 8,
+    "completed_cells": 8,
+    "all_result_event_and_manifest_hashes_verified": true,
+    "new_inference": false,
+    "original_plan_or_evidence_modified": false,
+    "interpretation": "The frozen command executed its complete eight-file manifest; only the coordinator count was wrong. Preserve both records."
+  },
+  "no_stage4_execution_credit": true,
+  "CM5_live": "NOT_TESTED"
+}

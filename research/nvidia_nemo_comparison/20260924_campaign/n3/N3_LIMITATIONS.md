@@ -1,38 +1,48 @@
-# N3 limitations at preparation checkpoint
+# N3 accepted component scope and remaining limits
 
-- N3 is not complete. No N3 real-model accuracy/resource/GUI result is claimed
-  before the supervised queue executes and its evidence is reviewed.
-- N2's v7 run and final checks must finish successfully and release all owners.
-  A failed prerequisite blocks N3; no overlapping model jobs are admitted.
-- A1 actual EOU reference is implemented. Its dynamic ONNX encoder/export test
-  still requires execution and complete frontend/predictor/EOU rollout parity.
-  An exported graph alone will not qualify a portable streaming release.
-- A2/A3 Q8 native CPU/CUDA adapters and FP32 references are implemented. The
-  Windows x64 C ABI passed a compile-only header check; neural execution is
-  separate. CPU DLLs do not prove ARM64 build, target RAM or latency.
-- The Pi remains off. CM5 2-GB total-system qualification, ARM64 performance,
-  physical microphones, scanout, camera, GPIO and all hardware work are untested.
-- Resource probes use one numerical candidate. Sampled process RSS is not peak
-  total-system RAM. Native WDDM per-process VRAM is not measured; null stays null.
-- The paired screen is 48 scenes / 96 files, not whole-bank release acceptance.
-  All 240 bank scenes reconcile to 156 complete nonoverlap, 47 overlap,
-  26 incomplete ambient references and 11 empty controls per tap.
-- Complete nonoverlap WER/CER are primary. Overlap cpWER uses one unassigned
-  mono output versus speaker references and cannot certify diarized transcripts.
-  Ambient scoring is target-only. Exact phonetic word-time truth is unavailable.
-- Isolated source-clip punctuation supports a diagnostic only; there is no
-  invented conversation-level punctuation/reconstruction gold standard.
+N3 is accepted for offline component comparison and N4 composition. It does not
+qualify a CM5 deployment or select a winning stack. REPORT_N3.md and
+N3_FINAL_METRICS.json supersede the immutable preparation metrics/admissions.
+
+- A3/D1/E0's latest one-core GUI boundary attempt failed the unchanged 60-second
+  ASR join. A separately declared two-core [4,14] contrast passed all three
+  functional GUI cases. Full cells still took about 91–94 seconds for 44.7
+  seconds of audio, including setup/test work; no real-time claim follows.
+- A1's paced coordinator expected four files while its original command and
+  manifest specified eight. The eight successful files were independently
+  verified against their hashes, samples and delivery in a separate census
+  receipt. The FAILED coordinator record is preserved, not rewritten.
+- GUI captures show readable portrait controls but A3 often produces very short
+  caption fragments. Functional widget/archive assertions do not establish
+  satisfactory usability. Retain this issue in N4's full-stack evaluation.
+- The final A1-capable source passed 454 tests (452 passes, two platform skips).
+  A2/A3 GUI evidence uses the earlier frozen v4 source; the A1 derivative keeps
+  the common frontend/native modules and adds the A1 branch. N4 must reconfirm
+  actual combinations derived from the final accepted source.
+- A0/A1 screens are CPU; A2/A3 screens use CUDA. Native CPU panels are reported
+  separately. Sampled ASR-process RSS excludes the complete GUI/identity stack
+  and GPU device memory. Native WDDM per-process VRAM remains unavailable.
+- The 48-scene paired screen is a dependent, seen engineering subset, not the
+  240-scene N4 bank or unseen-room validation. No statistical winner is claimed.
+- Primary WER/CER use complete nonoverlap references and explicit lexical
+  normalization. Overlap cpWER is a one-mono-hypothesis diagnostic. Ambient
+  references are target-only. Exact phonetic word-time gold is unavailable.
+- A1 negative last-final offsets are speech endpoints before trailing audio,
+  not negative end-to-end latency. The review separates measured completion.
+- Punctuation F1 applies only to 110 eligible original isolated clips. No
+  conversation-level reconstruction gold/F1 is invented. P0 preserved normalized
+  lexical sequences in all 1,289 tested inputs; broader behavior is not proven.
 - P2 has no exact licensed official standalone checkpoint verified. Optional
-  CTC alignment and multitalker work are deferred, independently of ASR quality.
-- ITN is a shared callable component and evaluator toggle, default off. A new
-  on-screen ITN control has not been added to the frozen UI. The finite subset
-  does not cover hundreds, decimals, fractions, dates, times or currency.
-- Private GUI checks use the actual application on an isolated desktop, with
-  captures of that application's own window only. They do not control the user
-  desktop. Human visual review of those new captures remains pending.
-- Naming retains N2's uncalibrated Unknown/explicit assumed-closed-roster rules.
-  Read-along progress is unavailable in the new native ASR backend. No human
-  enrollment or personal gallery conversion is performed in this stage.
-- The numerical queue runs without an LLM. No authenticated atomic idle guard
-  for an automatic Codex resume was verified. It writes an exact-task manual
-  resume request; it does not promise automatic interpretation or final acceptance.
+  CTC E-window alignment and multitalker work remain explicitly deferred.
+- ITN is a finite callable/evaluator toggle, default off, with explicit traces.
+  There is no new ITN control in the frozen UI. Hundreds, broad decimals,
+  fractions, dates/times and currency grammars are outside this finite subset.
+- N2's processed-query naming remains uncalibrated Unknown; closed-roster names
+  are assumptions. New native ASR read-along remains unavailable. No personal
+  profile conversion, real enrollment or source-word reconstruction was added.
+- Windows model/GUI execution is verified. N5 ARM64 software/model tests remain;
+  a C ABI build or emulator is not target performance. The Pi is off: physical
+  mic/XVF, scanout, camera, GPIO and 2-GB total-system performance are deferred.
+- Original failed/superseded results, source locks and evidence are retained.
+  The existing in-task heartbeat supplies LLM continuation; numerical queues
+  alone do not interpret results or establish stage acceptance.
