@@ -991,3 +991,76 @@ remain outstanding. No new integrated result is accepted and no deployment
 tier is assigned. Continue the current D1 evaluation; after terminal review,
 generate and score the main/modes banks before preparing actual shortlisted
 application runs. The Pi remains off and live checks remain deferred.
+
+## 2026-09-25: native event completeness and bounded retention repair
+
+The current exact D1 supervisor/coordinator/model identities stayed unchanged;
+E0 advanced from 58 to 73 of 960 during this follow-up. The model retains CPU4
+and the supervisors/model-free helpers CPU14. All 33 active/predecessor source
+bindings remained unchanged. No new application, source replay or model ran.
+
+A read-only audit found that the native AsyncText event sink rotates at 1 MiB
+with only two backups. All nine saved N3 GUI sessions retain contiguous terminal
+tails, but every initial prefix and source_started marker has been discarded.
+Terminal worker completion alone cannot supply a complete event-content history.
+This finding does not replace or invalidate the narrower N3 acceptance receipt;
+it prevents reuse of these tails as complete N4 publication/timing evidence.
+
+| Historical cell | Retained events | First serial | Terminal serial |
+|---|---:|---:|---:|
+| A1_boundary | 1606 | 2610 | 4215 |
+| A1_short | 2196 | 1686 | 3881 |
+| A1_returning | 1743 | 2388 | 4130 |
+| A2_boundary | 912 | 1513 | 2424 |
+| A2_short | 1291 | 464 | 1754 |
+| A2_returning | 754 | 1512 | 2265 |
+| A3_boundary | 1937 | 2096 | 4032 |
+| A3_short | 2751 | 950 | 3700 |
+| A3_returning | 1915 | 2351 | 4265 |
+
+Added review_native_journal.py, a bounded reader that independently verifies
+rotation order, strict JSON, publication serials/session/clocks/source cursor,
+source-start identity and terminal consumer/handle census. It reports exact
+missing prefixes/suffixes and refuses incomplete journals through require_complete.
+Native diagnostic source-time overhang is counted without clamping. Twelve tests
+passed, including all nine historical journals and synthetic complete/corrupted
+cases. No private words or vectors are copied into public reports.
+NATIVE_JOURNAL_REVIEW_CHECK_V1.json binds the private passing V2 receipt,
+SHA-256 7d979000f8b397208cb40578753355639db06083bc5d2090e1b08793d9abdd6a.
+The failed V1 fixture accidentally reused its own session name as the supposed
+foreign name; its source/logs remain preserved. V2 fixes only that fixture and
+run documentation. Helpers 23236/1790356596.2055917 (failed) and
+38312/1790356643.1811156 (passed) exited.
+
+Also built a fresh private release, local/releases/n4-complete-journal-v1.
+Its SOURCE_RECEIPT SHA-256 is
+72943995fed1b85e649fa4d72143580bad1b5b36479b343adbf2030419700b63.
+Only app/buffers.py and app/pipeline.py differ from the immutable catalog parent,
+with a new app/native_complete_text.py and README_N4_COMPLETE_JOURNAL.md.
+All common frontend hashes and prediction code remain unchanged. AsyncText keeps
+its existing worker/FIFO/queue and single-record limits; the event-only sink
+preserves a fresh complete file up to 256 MiB and raises an explicit writer
+failure instead of rotating away the prefix. Other journal behavior is unchanged.
+
+Eight checks passed against the actual copied AsyncText and isolated actual
+factory method, using synthetic strings. They include preservation beyond the
+old three-MiB window, exact byte/count closure, Unicode budget accounting,
+existing-file protection, oversized records, unchanged ordinary rotation and
+failure propagation through worker shutdown. Helper 51032/1790356950.4298415
+exited. NATIVE_JOURNAL_RETENTION_CHECK_V1.json binds the private result,
+SHA-256 15928e45976ed06b178a435ab33eb10164cf7b8a60ece8b03887687513065925.
+
+The derivative is IMPLEMENTED_NOT_APPLICATION_ADMITTED. Before paced work,
+version/requalify the application preparation, runner, planner and reviewer
+contracts to bind it; reconfirm actual source/GUI/worker closure for the paired
+candidates and include logging overhead in all resource measurements. Never
+silently replace an old plan's source receipt. The older completeness README
+describes the previously pending repair; README_NATIVE_JOURNAL_RETENTION.md
+documents the now-implemented writer derivative and its remaining admission gates.
+Both new READMEs include purpose, inputs/outputs and PowerShell/CMD/Anaconda runs.
+
+These 20 passing checks qualify only envelope review and writer retention.
+Full native semantic/pane/naming/timing scoring, full production plan/population
+review, actual application panels, continuity/stop/restart and N5 remain pending.
+N4 integrated acceptance is still 0/7680. Continue the current D1 bank and review
+its terminal evidence before generating/scoring the main and modes banks.

@@ -69,6 +69,27 @@ native publication and actual pane-string scoring, naming/timing evaluation,
 continuity and stop/restart still remain. See
 README_APPLICATION_OBSERVATION_REVIEW.md for scope and probe commands.
 
+Native journal retention gate added 2026-09-25: all nine historical N3 GUI logs
+lost their initial event prefix through the original 1-MiB/two-backup rotation.
+NATIVE_JOURNAL_REVIEW_CHECK_V1.json qualifies strict envelope/census review and
+explicit incomplete-tail classification. These old tails cannot supply complete
+N4 content/timing evidence, even though their terminal queue counts close.
+Use README_NATIVE_JOURNAL_REVIEW.md for the 12-check model-free reader probe.
+
+NATIVE_JOURNAL_RETENTION_CHECK_V1.json binds a fresh private source derivative,
+local/releases/n4-complete-journal-v1/SOURCE_RECEIPT.json, with an event-only
+256-MiB complete sink that fails instead of deleting its prefix. Eight checks
+passed on the copied actual AsyncText and isolated factory; no application or
+model ran. Its status remains IMPLEMENTED_NOT_APPLICATION_ADMITTED. The next
+application implementation step is to version/requalify the preparation,
+runner/planner and review contracts around this new source, then reconfirm
+actual candidate source/GUI/worker closure. Include the same logging policy and
+overhead in all paired measurements. Do not substitute it into a bound old plan
+or change the active numerical source. See README_NATIVE_JOURNAL_RETENTION.md
+for its guarded builder, inputs/outputs and all three shell commands. Native
+payload semantics, actual pane words/names and latency interpretation still
+require review beyond the now-qualified envelope census.
+
 An earlier read-only census could not inspect an unrelated `cmd.exe` process.
 Re-observe at actual application admission. The exclusive application gate must
 continue to refuse unresolved ownership uncertainty; do not stop that process,
