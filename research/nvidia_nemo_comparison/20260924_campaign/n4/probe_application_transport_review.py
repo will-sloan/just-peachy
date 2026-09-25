@@ -1,0 +1,88 @@
+"""Qualify stopped transport review without any new application/process launch."""
+import argparse
+from datetime import datetime, timezone
+import io
+from pathlib import Path
+import time
+import unittest
+
+from common import bind, freeze, load, verify
+from metric_process import exact_process, identity, pin
+from paced_slot import observe_owner, validate_supervision
+from review_scoring_bank import guard, require, shared_allowance
+from scoring_bank import writer_lock
+import test_application_transport_review as regression
+
+HERE = Path(__file__).resolve().parent
+LOCAL = Path('G:/Just_Peachy_N1/20260924_campaign/local')
+
+
+def code_bindings():
+    names = ('review_application_transport.py','test_application_transport_review.py','probe_application_transport_review.py',
+        'README_APPLICATION_TRANSPORT_REVIEW.md','common.py','metric_process.py','paced_child_admission.py','paced_slot.py',
+        'paced_panel_plan.py','review_scoring_bank.py','scoring_bank.py','asr_full_bank.py','test_paced_child_admission.py')
+    code = [bind(HERE/name) for name in names]
+    for name in ('PACED_RUNNER_CHECK_V1.json','PRIVATE_PROCESS_CHECK_V3.json'):
+        q=load(HERE/name);verify(q['private_receipt'])
+        code += [bind(HERE/name),*q['code']]
+    return list({b['path']:b for b in code}.values())
+
+
+def active_d1():
+    value=load(LOCAL/'n4/d1-full-bank-v1/RESULT.json');require(value['status']=='RUNNING','Re-observe current numerical run before this probe')
+    process=exact_process(value['child']);require(process is not None and process.cpu_affinity()==[4],'Exact D1 numerical owner missing')
+    coordinator=exact_process(value['owner']);require(coordinator is not None and process.ppid()==coordinator.pid,'D1 child ownership differs')
+    record=load(LOCAL/'supervision/worker.json');supervisor=dict(pid=record['pid'],create_time=record['create_time'])
+    validate_supervision(record,value['owner'],{p['pid']:observe_owner(p) for p in (supervisor,value['owner'])},time.time())
+    admission=load(value['admission']['path']);verify(value['admission'])
+    contract=admission['component_contract']
+    for b in contract['code']+contract['dependencies']:verify(b)
+    verify(admission['asr_full_admission']);predecessor=load(admission['asr_full_admission']['path'])['component_contract']
+    for b in predecessor['code']+predecessor['dependencies']:verify(b)
+    return dict(result=value,supervisor=supervisor,heartbeat_unix=record['heartbeat_unix'],run_id=record['run_id'],
+        granular=load(LOCAL/'supervision/panel_progress.json'))
+
+
+def run(output):
+    process=pin();started=time.monotonic()
+    require(not output.exists() and output.resolve().is_relative_to(LOCAL/'n4'),'Fresh private N4 output required')
+    with writer_lock(LOCAL/'n4/metric-scoring.owner.lock'):
+        guard(output,LOCAL,started,720);inventory=shared_allowance(LOCAL);numerical=active_d1()
+        code=code_bindings()
+        for b in code:verify(b)
+        qualification=load(HERE/'PRIVATE_PROCESS_CHECK_V3.json')
+        require(qualification['status']=='PASS_PRIVATE_PROCESS_LIFETIME_DEVELOPMENT_ONLY','Native fixture qualification differs')
+        original=load(qualification['private_receipt']['path']);regression.SAVED=original['fixture_lifetimes']
+        for binding in regression.SAVED:
+            verify(binding);require(exact_process(load(binding['path'])['owner']) is None,'Saved native fixture owner remains')
+        (output/'source').mkdir(parents=True);snapshots=[]
+        # Dependencies remain bound in-place; snapshot this attempt's new files.
+        for b in code[:4]:
+            target=output/'source'/Path(b['path']).name;target.write_bytes(Path(b['path']).read_bytes())
+            require(bind(target)['sha256']==b['sha256'],'Attempt source snapshot differs');snapshots.append(bind(target))
+        freeze(output/'ADMISSION.json',dict(owner=identity(process),code=code,source_snapshots=snapshots,inventory=inventory,
+            D1_snapshot=numerical,native_fixture_receipt=qualification['private_receipt'],new_application_or_model_started=False))
+        try:
+            regression.OUTPUT=output/'tests';regression.OUTPUT.mkdir()
+            stream=io.StringIO();tests=unittest.TextTestRunner(stream=stream,verbosity=2).run(
+                unittest.defaultTestLoader.loadTestsFromTestCase(regression.TransportReviewTests))
+            (output/'tests.txt').write_text(stream.getvalue(),encoding='utf-8')
+            require(tests.wasSuccessful() and tests.testsRun==12 and not tests.skipped,'Transport review checks failed')
+            for b in code:verify(b)
+            guard(output,LOCAL,started,720);after=active_d1()
+            require(after['result']['owner']==numerical['result']['owner'] and after['result']['child']==numerical['result']['child']
+                and after['run_id']==numerical['run_id'],'Numerical ownership changed during probe; re-observe')
+            freeze(output/'RESULT.json',dict(status='PASS_APPLICATION_TRANSPORT_REVIEW_CHECKS_ONLY',utc=datetime.now(timezone.utc).isoformat(),
+                admission=bind(output/'ADMISSION.json'),tests=bind(output/'tests.txt'),tests_passed=tests.testsRun,
+                saved_lifetimes_reviewed=len(regression.SAVED),saved_classifications=bind(output/'tests/test_saved_actual_native_closure_and_failure_classification/SAVED_CLASSIFICATIONS.json'),
+                synthetic_join_review=bind(output/'tests/test_join_preserves_all_acceptance_and_history_limits/SYNTHETIC_REVIEW.json'),
+                D1_after=after,new_application_or_model_started=False,actual_panel_reviewed=False,integrated_N4_cells=0,N4_accepted=False))
+            print('PASS: 12 transport-review tests; seven saved native lifetimes checked; no new application or model',flush=True)
+        except BaseException as exc:
+            freeze(output/'FAILED.json',dict(status='FAILED_TRANSPORT_REVIEW_PROBE_PRESERVED',error_type=type(exc).__name__,admission=bind(output/'ADMISSION.json')))
+            raise
+
+
+if __name__=='__main__':
+    parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--output',type=Path,required=True)
+    run(parser.parse_args().output)

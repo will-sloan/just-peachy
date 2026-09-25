@@ -48,6 +48,16 @@ qualification. The frozen application source/drain branch has not yet been
 validated on the proposed complete stacks. If that first run finds a common bug,
 preserve it and use a versioned repair with affected paired retests.
 
+The stopped-cell transport join is now separately qualified by
+APPLICATION_TRANSPORT_REVIEW_CHECK_V1.json. Its internal `review_cell` API
+requires independently reconstructed plan expectations. It checks input,
+permit, exact process/command, final lease, initial slot census and parent
+closure joins. Use README_APPLICATION_TRANSPORT_REVIEW.md for its guarded
+model-free probe. It does not replace full-panel review: source, workers,
+archive, viewport content, naming/timing and resources still need composition
+and review. Complete lease and short-lived-process histories are unavailable
+in the existing runner evidence and must not be inferred.
+
 An earlier read-only census could not inspect an unrelated `cmd.exe` process.
 Re-observe at actual application admission. The exclusive application gate must
 continue to refuse unresolved ownership uncertainty; do not stop that process,

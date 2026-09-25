@@ -905,3 +905,45 @@ and current accepted source into the main and mode-panel banks. Actual panel
 review, the continuity runner, integrated/full application acceptance and N5
 remain outstanding. The unresolved unrelated shell census still blocks any
 future exclusive application admission; do not weaken that gate or stop it.
+
+## 2026-09-25: stopped application transport review
+
+Added review_application_transport.py as an internal evidence-join primitive
+for the future full application-panel reviewer. It requires expected payload,
+plan digest, coordinator, fixed code/interpreter/commands and supervision path
+from an independent plan reconstruction. It checks the actual input/permit,
+normal private-process receipt, fresh exact identity exit, final lease, child
+and prepared application identities, initial exclusive-slot census and parent
+cleanup/release joins. Duplicate JSON keys, oversized records, reparse paths,
+changed bound source, uncertain census and failed/forced closure are refused.
+No source bound to the active D1 or accepted ASR run was edited.
+
+Twelve model-free tests passed. Seven saved native V3 lifetime records were
+rechecked: two normal resumed closures satisfy this receipt contract; five
+failed, forced or unresumed cases are refused. Synthetic transport inputs are
+explicitly fixtures and do not establish actual application acceptance. The
+probe started no application, private desktop, source or model process. D1
+remained on its same exact CPU4 owner while this CPU14 helper ran. Helper
+35140/create1790352988.5609963 exited after the passing probe.
+
+APPLICATION_TRANSPORT_REVIEW_CHECK_V1.json binds 62 code/dependency records and
+private local/n4/application-transport-review-probe-v2/RESULT.json, SHA-256
+9f59cd266707e898661b689612224f11f2823296f5d92e1e5e57ae0091e21bce.
+The V1 preflight failed before tests because it looked for D1 code bindings at
+the wrong admission level. Its source snapshots and FAILED_PREFLIGHT.json are
+preserved. The repaired V2 probe verifies both D1 and ASR predecessor code and
+dependency bindings. README_APPLICATION_TRANSPORT_REVIEW.md documents purpose,
+inputs/outputs, limitations and PowerShell/CMD/Anaconda commands.
+
+Only the final renewable lease is retained by the existing runner, so the
+review cannot reconstruct continuous renewals. Windows job assignment totals
+can include short-lived processes whose identities were not sampled; the
+review reports this gap rather than claiming a complete process history.
+Recorded desktop before/after equality is also only that observation.
+
+Full production panel reconstruction and census, source/worker/archive joins,
+viewport/content/naming/timing scoring and controlled resource interpretation
+remain to be composed and executed. No production panel or continuity run was
+created, and N4 integrated acceptance remains 0/7680. Continue the D1 full bank
+and its terminal review before the main and modes banks. This change qualifies
+one review component; it does not close N4 or N5.
