@@ -1,5 +1,24 @@
 # N4 implementation checkpoint — upstream accepted, integrated run pending
 
+Latest independent addition: APPLICATION_TIMING_CHECK_V1.json qualifies
+`review_application_timing.py` for recorded caption-row timing arithmetic only.
+Thirteen development checks passed, including the complete cell/content readers
+with synthetic facts, hand-calculated elapsed ranges, signed source uncertainty,
+missing visibility, empty-caption denominators and changed evidence refusal.
+Read README_APPLICATION_TIMING.md for inputs, outputs, limits and shell commands.
+Row-level visible glyphs do not prove each word is visible, and sampled points
+do not measure continuous exposure or exact first paint. Source callback deadlines
+are not present in the current closure evidence. Preserve these limitations;
+this addition creates no actual latency qualification or accepted N4 cells.
+Existing immutable panel wrappers retain their narrower scope. Naming, actual
+source/GUI/resource tests, continuity and stop/restart remain outstanding.
+
+The user's Pi reconnection priority is captured in
+`../n5/PI_RECONNECTION_REQUIREMENTS.md`: final accepted backends should have a
+short verified offline-bundle deployment and launch path, storage-aware optional
+assets, a common GUI/picker and rollback. Device validation waits until the Pi
+is reconnected; offline builds and synthetic checks do not certify installation.
+
 New scoring boundary: integrated_scoring_adapter.py uses only the isolated
 evaluator and standard-library artifact readers, with no application/model
 imports. Ten tests passed in 5.158 seconds. The subsequent model-free probe

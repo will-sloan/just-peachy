@@ -197,6 +197,27 @@ No actual production plan or complete application panel has run. The next
 independent work is evaluator-only naming/timing interpretation and the
 continuity/stop-restart runner, preserving all original source and reader hashes.
 
+APPLICATION_TIMING_CHECK_V1.json adds the separately qualified
+`review_application_timing.py` composition. Thirteen tests passed with actual
+readers and synthetic cell facts plus hand-calculated timing cases. It preserves
+first native publication, first final publication, compatible-event elapsed
+ranges and signed source uncertainty intervals, with null visibility stages and
+separate empty-caption denominators. See README_APPLICATION_TIMING.md. Recorded
+visibility is per caption row, not per-word glyph: clipping can hide a word in a
+row that has other visible text. Exact event attribution, phonetic alignment,
+continuous exposure and source-callback deadlines remain unavailable. This is
+recorded timing arithmetic, not qualified latency. No actual complete source
+run or N4 acceptance was added. Naming interpretation and bounded instrumentation
+for unresolved timing claims remain open, as do continuity and stop/restart.
+Do not edit the existing source or qualified readers to conceal these limits.
+
+The user's 2026-09-25 Pi reminder is recorded in
+`../n5/PI_RECONNECTION_REQUIREMENTS.md`: prioritize a short verified reconnect/
+install/launch path, one shared GUI with accepted backend choices, actual storage
+preflight and optional shared model assets, preserved data and rollback. Prepare
+and validate offline now; on-device installation/integration checks wait until
+the Pi is reachable. This does not authorize a Pi connection during this campaign.
+
 An earlier read-only census could not inspect an unrelated `cmd.exe` process.
 Re-observe at actual application admission. The exclusive application gate must
 continue to refuse unresolved ownership uncertainty; do not stop that process,
