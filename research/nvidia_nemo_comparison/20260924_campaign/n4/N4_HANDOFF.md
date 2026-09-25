@@ -28,6 +28,35 @@ worker heartbeat before numerical work. README_D0_BANK.md describes the
 4-GiB bounded compressed store and unchanged fixed-cadence causal speaker lane.
 This is 960 component jobs, zero completed integrated scene/tap results.
 
+E0 finished 480/480; E1 is now the active child. Its initial exact process
+identity is PID 43344 / creation 1790306326.6970823, affinity [4]; coordinator
+41744 / 1790304091.8017163 and supervisor 31900 / 1790304091.670885 use [14].
+These are discovery hints: always inspect fresh identities and progress.
+D0_PAIR_PREFIX_CHECK_V1.json verifies the first two closed O0/O1 E0/E1 pairs,
+including all event bytes and exact segmentation/admission semantics. The final
+480-pair full-bank review has not run while E1 remains active.
+
+Next prepared model work: `local/n4/asr-smoke-v1/ADMISSION.json`, SHA-256
+`127be50f7d42b2271b744dd9a9de3e18844031c873d882ee2d2ffef6743e902a`.
+It is NOT_STARTED, with no waiter/model process. Its eight cells use A0/A1/A2/A3
+sequentially on the first admitted O0/O1 pair, calling the actual unchanged
+application ASR loops and qualified owners. Read README_ASR_BANK.md and
+ASR_SMOKE_PREPARATION_V1.json. Ten real-loop stub protocol tests and eight
+integrity-review tests pass; model inference has not yet occurred. The source's
+100-ms journal reads differ from the earlier N3 external 80-ms screen feeds.
+Formatting calls use actual P0 or native P1 in a separate modeled FIFO after
+ASR closure; they supply no observed GUI/worker timing claim. The conservative
+2-GiB ASR reservation includes the existing D0 4-GiB reservation separately,
+plus 1 GiB contingency beneath the shared 50-GiB allowance. No download ran.
+
+After D0 is terminal, reviewed, and all exact numerical ownership is free, use
+the existing supervisor to start the prepared ASR worker. On completion, run
+review_asr_components.py as described in README_REVIEW_ASR.md; only its passed
+eight-cell evidence can support a fresh full-bank admission. The current runner
+refuses full-bank preparation until that separate review/implementation step.
+Preserve failures and derivatives. Neither preparation nor this smoke earns any
+of the 7,680 integrated-cell count.
+
 The earlier `d0-calibration-v1` finished 734/734 jobs. The strict review passed
 3,409 matched windows per encoder (1,985 short, 1,424 mature); no C clip lacked
 an admitted window. D0_COLLECTION_REVIEW_V1.json binds this evidence. The single
@@ -160,6 +189,12 @@ No desktop input/focus control, SSH, microphone, USB, playback or new capture ra
 > finished and the single frozen scale fit failed; preserve that result without
 > retuning. Review the full-bank exact E0/E1 geometry after completion using
 > review_d0_bank.py (README_REVIEW_D0_BANK.md), after the exact coordinator exits.
+> Then dispatch the already-prepared asr-smoke-v1 worker through the existing
+> supervisor after verifying the numerical slot is free. Review its eight actual
+> cells with review_asr_components.py before admitting full-bank ASR collection.
+> Preserve its bound source/code; source chunking/formatting clocks are documented
+> in README_ASR_BANK.md and README_REVIEW_ASR.md. Do not count component smoke as
+> integrated execution, observed S7 Controller parity or live caption timing.
 > The activity observer and two-cell native policy ordering probe are implemented
 > with 33 passing tests; use README_D0_ACTIVITY.md and D0_IMPLEMENTATION_CHECK_V1.json.
 > They do not establish S7 observed-clock Controller parity or a global-source

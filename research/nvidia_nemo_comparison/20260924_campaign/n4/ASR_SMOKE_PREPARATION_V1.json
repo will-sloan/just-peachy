@@ -1,0 +1,99 @@
+{
+  "schema": "n4-asr-smoke-preparation-v1",
+  "status": "PREPARED_VERIFIED_NOT_STARTED",
+  "recorded_utc": "2026-09-25T03:29:18.462204+00:00",
+  "admission": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-smoke-v1\\ADMISSION.json",
+    "sha256": "127be50f7d42b2271b744dd9a9de3e18844031c873d882ee2d2ffef6743e902a",
+    "bytes": 24341
+  },
+  "worker": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-smoke-v1\\worker.json",
+    "sha256": "631a341b1690d0435aa2662160111d850b260dd6ba7c0c1f29b8525dc671358d",
+    "bytes": 438
+  },
+  "variants": [
+    "A0",
+    "A1",
+    "A2",
+    "A3"
+  ],
+  "jobs": [
+    "N2_S45_01_01_O0",
+    "N2_S45_01_01_O1"
+  ],
+  "expected_component_cells": 8,
+  "integrated_N4_cells": 0,
+  "model_inference_started": false,
+  "common_source_receipt": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\releases\\n4-catalog-v3\\SOURCE_RECEIPT.json",
+    "sha256": "8050c8bee52a6ec83c95f3514cb81219c3664dd43e172a477d35a54888e610d5",
+    "bytes": 61188
+  },
+  "n3_runtime": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\runtime\\a1controllerv2\\cpu\\n3_runtime.json",
+    "sha256": "9de870725127f04f169d4205ec73b083e894d6e9a442d3e543c8ba81f5c64c86",
+    "bytes": 5048
+  },
+  "journal_read_ms": {
+    "O0": 100,
+    "O1": 100
+  },
+  "tests": [
+    {
+      "module": "test_asr_lane_components",
+      "tests": 10,
+      "failures": 0,
+      "errors": 0,
+      "elapsed_seconds": 1.035
+    },
+    {
+      "module": "test_review_asr_components",
+      "tests": 8,
+      "failures": 0,
+      "errors": 0,
+      "elapsed_seconds": 1.139
+    }
+  ],
+  "test_evidence": "Separate successful unittest runs in this task; actual frozen application loops with stub models, no neural inference",
+  "allocation_bytes": 2147483648,
+  "existing_D0_reservation_bytes": 4294967296,
+  "code": [
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\asr_bank_components.py",
+      "sha256": "832b323dc79724201e9f54f874aaf8613cf0f2adc943400a3a03965c403b5602",
+      "bytes": 17329
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\asr_lane_components.py",
+      "sha256": "366a1825e396bdb65ae9c7d219780ce967660b76364737ca72e5977f8832b489",
+      "bytes": 5663
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\test_asr_lane_components.py",
+      "sha256": "7b15151f4eff3fe58610d714165cdbd2e600328e299f3fecde4ec173b2d7702d",
+      "bytes": 8728
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\README_ASR_BANK.md",
+      "sha256": "16b52ecac4cafeb1af9c876b1f2079ee289e1db8aacf614cc6904cd8fa23e674",
+      "bytes": 7470
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\review_asr_components.py",
+      "sha256": "a2a9aecbd7c4d241ad3ca1466ce09943bfcc25dacc55e19e7b8ced8e8b085e6e",
+      "bytes": 10732
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\test_review_asr_components.py",
+      "sha256": "0da74b23cf1d2e20b2f2d2910ad7351839c9754c79ee554e7432623040703a55",
+      "bytes": 3934
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\README_REVIEW_ASR.md",
+      "sha256": "6b4d9b6ad24ccc2b2275495a2e32920897e5ec73dc77dae66ff80ba0b0d16965",
+      "bytes": 3565
+    }
+  ],
+  "next": "After active D0 E1 completes and exact ownership is free, use existing supervisor to run the eight-cell ASR smoke, then review_asr_components.py. No full-bank admission until smoke review."
+}

@@ -44,6 +44,19 @@ need implementation; D0/E1 calibration remains unqualified. README_EVIDENCE_STOR
 covers the tested new-run-only storage helper (12 tests); production integration
 and measured cell/storage bounds remain. Existing evidence was not removed.
 
+E0 has completed all 480 bank files and E1 is the active model worker. The first
+two closed O0/O1 pairs passed exact geometry, full segmentation/admission and
+event checks (D0_PAIR_PREFIX_CHECK_V1.json); this is not the final 960-cell review.
+The next ASR smoke is prepared at `local/n4/asr-smoke-v1`, not started.
+ASR_SMOKE_PREPARATION_V1.json binds its admission and 18 passing protocol/review
+tests. README_ASR_BANK.md covers the unchanged application streaming loops,
+accepted A0/A1/A2/A3 owners and separate final-only formatting. The actual source
+reads 100-ms chunks, so the earlier 80-ms N3 screen is not silently reused.
+README_REVIEW_ASR.md describes the mandatory terminal eight-cell integrity review.
+After the D0 worker exits and its full-bank review passes, dispatch this ASR smoke
+through the existing supervisor. Do not start a competing worker. Full-bank ASR
+admission and integrated application/presentation parity remain pending.
+
 The specification ceiling is 80 GiB; the shared resource-policy record retains
 a more conservative 50-GiB payload allowance. Reconcile actual previous usage
 and remaining allocation before admitting N4. Do not infer a fresh allowance
