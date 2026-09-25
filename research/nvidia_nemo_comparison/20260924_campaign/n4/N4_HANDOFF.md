@@ -723,3 +723,26 @@ supervised happy path once numerical resources and reviewed inputs are available
 Do not substitute fixture registration callbacks for production admission. No
 new model/audio run, successful supervised application slot, integrated N4 cell
 or N5 release acceptance occurred. The sole A3 evaluation continues unchanged.
+
+paced_child_admission.py adds the child-side pre-model/source gate. It binds the
+exact supervised parent/child identities and commands, private desktop, launch
+nonce, fixed code and existing audio-only input allowlist. A five-second renewable
+parent lease uses monotonic time, immutable permit content digest and advancing
+sequence; cancellation, stale/future/revoked permission, ownership changes and
+the original resource/deadline policy fail closed. The optional prime branch
+hashes the frozen source, runtime/model/gallery/catalog and saved waveform before
+returning the source import root, with ownership checks before and after hashing.
+It does not construct an application or start a source by itself.
+
+Nine tests passed: dictionary/schema/input/lease/path refusals, bounded record
+reads, actual CPU14 development-helper refusal before input/source acquisition,
+and refusal of a foreign lease writer. The helper exited. Qualification is
+PACED_CHILD_ADMISSION_CHECK_V1.json; README_PACED_CHILD_ADMISSION.md documents
+the transport/application layout, APIs, scope and PowerShell/CMD/Anaconda probe.
+Successful supervised admission, successful atomic lease renewal and asset/source
+priming were not exercised. No actual production permit, child or model was
+started. The parent must still admit the reviewed full panel plan, acquire the
+exclusive slot, register the suspended child, issue permission and renew it only
+after successful live slot checks. The fixed coordinator/worker integration and
+actual ApplicationCell source/drain qualification remain the next implementation
+and execution steps. Existing active/prepared numerical source is unchanged.

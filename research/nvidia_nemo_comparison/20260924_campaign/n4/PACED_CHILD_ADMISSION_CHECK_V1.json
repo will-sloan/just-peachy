@@ -1,0 +1,97 @@
+{
+  "status": "PASS_CHILD_ADMISSION_GUARD_DEVELOPMENT_ONLY",
+  "utc": "2026-09-25T13:10:06.207272+00:00",
+  "code": [
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\paced_child_admission.py",
+      "sha256": "546bd7b0fbd60665642b8200cc47a2f1aa0ac6916130cbabf258a96f5f8c1af4",
+      "bytes": 12726
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\test_paced_child_admission.py",
+      "sha256": "3fc0dae0e4ee82e1b06ac444703ab50f82a205440fdfdf62713584a9ac7109b7",
+      "bytes": 6963
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\probe_paced_child_admission.py",
+      "sha256": "81e694ebf28f4a5c375af2ed2a2da70c50288bae1a4396c2d9417de1791c0baa",
+      "bytes": 3624
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\README_PACED_CHILD_ADMISSION.md",
+      "sha256": "8da361afb909ac4dce2586a8182a8d45e8cda71e9146d988da507e56fcbee0af",
+      "bytes": 5777
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\paced_slot.py",
+      "sha256": "561a2b0485432a397fdab80cdc9fbd578ff9b75caf80ac5372477f1785f31255",
+      "bytes": 11981
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\paced_panel_plan.py",
+      "sha256": "5b3af047b4f0490323ed5f65e436b1bd0b1d200fd0d50be279eaaf618935d4d1",
+      "bytes": 16419
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\mode_galleries.py",
+      "sha256": "6235b2b26d056e8ff0e7e0dd4e17b7d18562c0debd24b97abd63b78ea29c09d5",
+      "bytes": 13633
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\common.py",
+      "sha256": "a44e389d3c80c8c21e74ea3423d8270273e5b3132a84095218dee078c53f059e",
+      "bytes": 3267
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\metric_process.py",
+      "sha256": "1a1279c44ce906ce13733db1ba32ba86ffd7419cb1a4b767df3505d66d3e36f8",
+      "bytes": 10902
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\scoring_bank.py",
+      "sha256": "394a4ebf02d8e5e73eb60a0ce89f66c92563fdb42f212261404b485113c75b84",
+      "bytes": 19772
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\review_scoring_bank.py",
+      "sha256": "e7bd08e3fb9d19cafd761a778b9dba230bed1002b7dbcd180c620e47b48f51e2",
+      "bytes": 19917
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\asr_full_bank.py",
+      "sha256": "ab9ebf7ee64d70b859935b4d3725cce24adb03a713c0a2ad4328253bc02900f9",
+      "bytes": 17580
+    }
+  ],
+  "private_receipt": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\paced-child-admission-probe-v1\\RESULT.json",
+    "sha256": "cf274993fd4d3247948486d71b851f5e4e37a140060a2be68dda77f09789af8a",
+    "bytes": 941
+  },
+  "private_admission": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\paced-child-admission-probe-v1\\ADMISSION.json",
+    "sha256": "3e0e278dc9dc29e60a1da55de36787e341f8f5b3c2d6d11b8470e60bf3d35b8c",
+    "bytes": 7836
+  },
+  "tests": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\paced-child-admission-probe-v1\\tests.txt",
+    "sha256": "23b341a3bae6ae451a0c11422cc5eea53e75f90c9d4b7825921a60b215e0b7ab",
+    "bytes": 1262
+  },
+  "tests_passed": 9,
+  "exited_development_owner": {
+    "pid": 43340,
+    "create_time": 1790341745.1193182
+  },
+  "actual_CPU14_helper_rejected": true,
+  "foreign_lease_writer_rejected": true,
+  "production_permit_created": false,
+  "successful_supervised_child_admission": false,
+  "successful_lease_renewal_exercised": false,
+  "model_source_priming_executed": false,
+  "application_spawned": false,
+  "model_inference_started": false,
+  "integrated_N4_cells": 0,
+  "N4_accepted": false,
+  "scope": "Pure schema, identity, lifetime and path rejection checks plus actual CPU14 helper and foreign writer refusals. No supervised successful admission, permit renewal, source hashing/priming or model/source execution."
+}
