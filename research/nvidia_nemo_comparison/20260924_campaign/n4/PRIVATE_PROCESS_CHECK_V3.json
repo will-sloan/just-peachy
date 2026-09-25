@@ -1,0 +1,143 @@
+{
+  "status": "PASS_PRIVATE_PROCESS_LIFETIME_DEVELOPMENT_ONLY",
+  "utc": "2026-09-25T12:47:00.510713+00:00",
+  "code": [
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\private_application_process_v3.py",
+      "sha256": "1522e1b6882d319e3ce3f2905321fb2ac2fd752467d57502d70982fa5e76afa4",
+      "bytes": 16488
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\private_process_fixture_v3.py",
+      "sha256": "f9a62dcc9a9a2881c116ee4635cb1fe26caa3c008291a0acf8b85f29dba4e6f9",
+      "bytes": 3599
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\test_private_application_process_v3.py",
+      "sha256": "116fa66c71f7c062b4fb9a207527a3437cc185f610d5c0d1cbcb9afd5da28864",
+      "bytes": 7242
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\probe_private_application_process_v3.py",
+      "sha256": "ea75eddf37f5ef8c04f6c0f982ea7743c4824406076386eba16c25394b7c2f90",
+      "bytes": 4288
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\README_PRIVATE_APPLICATION_PROCESS_V3.md",
+      "sha256": "70a31a230d1b4080a057b635c4c3455d186f48daae9ad26466ac737ca4d6cf78",
+      "bytes": 6029
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\common.py",
+      "sha256": "a44e389d3c80c8c21e74ea3423d8270273e5b3132a84095218dee078c53f059e",
+      "bytes": 3267
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\metric_process.py",
+      "sha256": "1a1279c44ce906ce13733db1ba32ba86ffd7419cb1a4b767df3505d66d3e36f8",
+      "bytes": 10902
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\review_scoring_bank.py",
+      "sha256": "e7bd08e3fb9d19cafd761a778b9dba230bed1002b7dbcd180c620e47b48f51e2",
+      "bytes": 19917
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\scoring_bank.py",
+      "sha256": "394a4ebf02d8e5e73eb60a0ce89f66c92563fdb42f212261404b485113c75b84",
+      "bytes": 19772
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\asr_full_bank.py",
+      "sha256": "ab9ebf7ee64d70b859935b4d3725cce24adb03a713c0a2ad4328253bc02900f9",
+      "bytes": 17580
+    }
+  ],
+  "private_receipt": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\private-process-probe-v3\\RESULT.json",
+    "sha256": "ca6085ad8dcf4f5ec041b4988ab6875c6dd7ffd109f4f5aa75a65d3e23b1b610",
+    "bytes": 2810
+  },
+  "attempts": [
+    {
+      "version": 1,
+      "admission": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\private-process-probe-v1\\ADMISSION.json",
+        "sha256": "27498ab4514c34b16716cbd211d4828a5d14ed7d28341c40f77f3755e3bfed7b",
+        "bytes": 6854
+      },
+      "outcome": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\private-process-probe-v1\\FAILED.json",
+        "sha256": "4ccfd77d0c7fe4e9513bf06a891ced98995a19cec6fa82a06d123cc95111c810",
+        "bytes": 353
+      },
+      "tests": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\private-process-probe-v1\\tests.txt",
+        "sha256": "83d7730683ad1d931ba77e25965b026cce5f2ff5509b70cf973c4e162926c778",
+        "bytes": 3358
+      },
+      "helper_exited": {
+        "pid": 35120,
+        "create_time": 1790340176.5512772
+      },
+      "all_fixture_identities_exited": true
+    },
+    {
+      "version": 2,
+      "admission": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\private-process-probe-v2\\ADMISSION.json",
+        "sha256": "00f2d9962588df74461b34e4c6ae10ce9c37fb71a45d5457287d90d5e731b509",
+        "bytes": 6884
+      },
+      "outcome": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\private-process-probe-v2\\FAILED.json",
+        "sha256": "7371d6da2ae6d016b76a284967d1d35ef56d3afbab1d7d161150df091381f44e",
+        "bytes": 353
+      },
+      "tests": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\private-process-probe-v2\\tests.txt",
+        "sha256": "472033208301f91119b552eb6c583a13db624604cf5d26e550da8cd172fa7706",
+        "bytes": 2752
+      },
+      "helper_exited": {
+        "pid": 45796,
+        "create_time": 1790340263.1193068
+      },
+      "all_fixture_identities_exited": true
+    },
+    {
+      "version": 3,
+      "admission": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\private-process-probe-v3\\ADMISSION.json",
+        "sha256": "9917139c483f18a14a2fca62d90c0f98f354b11a74d6b11d87e1105c79fa4165",
+        "bytes": 6883
+      },
+      "outcome": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\private-process-probe-v3\\RESULT.json",
+        "sha256": "ca6085ad8dcf4f5ec041b4988ab6875c6dd7ffd109f4f5aa75a65d3e23b1b610",
+        "bytes": 2810
+      },
+      "tests": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\private-process-probe-v3\\tests.txt",
+        "sha256": "c77dc76d0e701cc51453f03c224d907201f582ca93bc8b650ecacdf46a5689c3",
+        "bytes": 1251
+      },
+      "helper_exited": {
+        "pid": 18508,
+        "create_time": 1790340341.622706
+      },
+      "all_fixture_identities_exited": true
+    }
+  ],
+  "tests_passed": 8,
+  "qualification": "V3 suspended spawn, exact registration, private-desktop Tk, graceful cancellation, owned-job forced cleanup, root-exit orphan cleanup and abrupt job-owner death fixtures only",
+  "failed_attempts_preserved": "V1 assumed Python-only process counts; V2 exposed process-table lag after empty job accounting. V3 waits for all observed exact member identities to disappear.",
+  "all_fixture_identities_exited": true,
+  "input_desktop_names_unchanged": true,
+  "production_plan_admitted": false,
+  "successful_supervised_slot_admission": false,
+  "actual_application_source_started": false,
+  "model_inference_started": false,
+  "integrated_N4_cells": 0,
+  "N4_accepted": false
+}

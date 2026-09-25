@@ -694,3 +694,32 @@ actual model execution or its cleanup. Successful supervised slot admission,
 private process lifecycle and real ApplicationCell source execution remain
 unqualified. Continue A3 without interference; D1 remains prepared, waiting for
 the terminal ASR review. No N4 integrated or N5 release acceptance was added.
+
+private_application_process_v3.py now qualifies the Windows process-lifetime
+primitive through eight model-free tests. It creates a private desktop and an
+owned job, starts the bound child suspended, applies CPU affinity and below-normal
+priority, verifies the exact executable/command/identity, and invokes registration
+before resume. Cancellation is an owned file; bounded forced cleanup targets only
+the retained job handle. Job accounting, root exit and disappearance of every
+observed exact member identity must all pass before a successful closure receipt.
+The job also contains native console helpers and root-orphaned descendants.
+
+Tests passed for private-desktop Tk create/destroy, suspended registration and
+refusal, child exception, graceful cancellation, forced root/descendant cleanup,
+root-exit orphan cleanup and abrupt inner owner death with nested-job containment.
+All fixtures and three development helpers exited; input desktop names remained
+unchanged. V1 and V2 failures and source snapshots are preserved: V1 incorrectly
+assumed Python-only job counts, and V2 exposed the brief process-table lag after
+job accounting reached zero. V3 adds bounded exact-identity exit checks. Only V3
+is qualified; PRIVATE_PROCESS_CHECK_V3.json binds the tests and failed attempts.
+README_PRIVATE_APPLICATION_PROCESS_V3.md documents purpose, inputs, outputs,
+internal API and guarded PowerShell/CMD/Anaconda probe commands.
+
+This is still a process-lifetime primitive, not an admitted application runner.
+Next connect the reviewed production panel plan, ExclusiveApplicationSlot and
+this primitive to a fixed child entry point with child-side pre-model/source
+admission. Qualify that actual ApplicationCell source/drain branch and the
+supervised happy path once numerical resources and reviewed inputs are available.
+Do not substitute fixture registration callbacks for production admission. No
+new model/audio run, successful supervised application slot, integrated N4 cell
+or N5 release acceptance occurred. The sole A3 evaluation continues unchanged.
