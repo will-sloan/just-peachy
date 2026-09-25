@@ -1,0 +1,414 @@
+{
+  "schema": "n4-d0-C-scale-fit-v1",
+  "status": "UNQUALIFIED_C_SCALE",
+  "protocol": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\D0_C_SCALE_PROTOCOL_V1.json",
+    "sha256": "ad9c6a9a953d9931a2f2e2bb4ce3d7d79b254952ccfcebad404ac4e0bde954e1",
+    "bytes": 4706
+  },
+  "review": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\d0-calibration-review-v1\\REVIEW.json",
+    "sha256": "927958c023f76a90d16314dc1fe9733d0a38460987da6d15aaa27cc3ad846e4b",
+    "bytes": 284341
+  },
+  "protected_labels": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\d0-calibration-v1\\C_LABELS_EVALUATOR_ONLY.json",
+    "sha256": "66e3ad8a6d034601264097233e987f19ad45f0c5e33e0db44ad6eca84da19c73",
+    "bytes": 95481
+  },
+  "code": [
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\fit_d0_scale.py",
+      "sha256": "e0a7e278a6dec5cf18ec4c2667e1f2b3ff9fc2fe0f502eb00b6157f9ff484c55",
+      "bytes": 12562
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\common.py",
+      "sha256": "a44e389d3c80c8c21e74ea3423d8270273e5b3132a84095218dee078c53f059e",
+      "bytes": 3267
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\review_d0_collection.py",
+      "sha256": "33d100a0e1ff2dcf5a8cae6ae5acf0fbc28abf87e92e034b7512dae937f572ad",
+      "bytes": 6873
+    }
+  ],
+  "source_receipt": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\releases\\n4-catalog-v3\\SOURCE_RECEIPT.json",
+    "sha256": "8050c8bee52a6ec83c95f3514cb81219c3664dd43e172a477d35a54888e610d5",
+    "bytes": 61188
+  },
+  "source_changed": false,
+  "integrated_N4_cells": 0,
+  "calibration_source_clips": 367,
+  "source_split_counts": {
+    "fit": 264,
+    "validation": 103
+  },
+  "identity_split_counts": {
+    "fit": 27,
+    "validation": 9
+  },
+  "source_role_representatives": {
+    "short": 1074,
+    "mature": 930
+  },
+  "pair_admission": {
+    "included_source_role_pairs": 116021,
+    "included_window_pairs_per_encoder": 1183236,
+    "cross_partition_excluded": 27192,
+    "unavailable_source_role_pairs": 3886
+  },
+  "fit_centers": {
+    "E0": {
+      "positive_identity_groups": 25,
+      "negative_identity_pairs": 351,
+      "same": 0.37420971519836693,
+      "different": 0.05221390927115033
+    },
+    "E1": {
+      "positive_identity_groups": 25,
+      "negative_identity_pairs": 351,
+      "same": 0.409025626794942,
+      "different": 0.016913228678217252
+    }
+  },
+  "mapping": {
+    "slope": 1.217756228183162,
+    "intercept": -0.04667058453451661,
+    "changes": {
+      "cosine_threshold": {
+        "old": 0.35,
+        "new": 0.37954409532959005,
+        "units": "raw E1 cosine"
+      },
+      "prototype_update_threshold": {
+        "old": 0.5,
+        "new": 0.5622075295570643,
+        "units": "raw E1 cosine"
+      },
+      "prototype_novelty_cosine": {
+        "old": 0.75,
+        "new": 0.866646586602855,
+        "units": "raw E1 cosine"
+      },
+      "archive_reentry_cosine": {
+        "old": 0.7,
+        "new": 0.8057587751936968,
+        "units": "raw E1 cosine"
+      },
+      "conflict_cosine_floor": {
+        "old": 0.2,
+        "new": 0.1968806611021158,
+        "units": "raw E1 cosine"
+      },
+      "reliable_voice_cosine": {
+        "old": 0.65,
+        "new": 0.7448709637845388,
+        "units": "raw E1 cosine"
+      },
+      "ambiguity_margin": {
+        "old": 0.03,
+        "new": 0.036532686845494856,
+        "units": "E1 cosine difference"
+      },
+      "archive_reentry_margin": {
+        "old": 0.05,
+        "new": 0.0608878114091581,
+        "units": "E1 cosine difference"
+      },
+      "voice_score_scale": {
+        "old": 0.15,
+        "new": 0.1826634342274743,
+        "units": "E1 cosine difference"
+      }
+    }
+  },
+  "scores": {
+    "E0_nominal": {
+      "fit": {
+        "overall": {
+          "positive_identity_groups": 25,
+          "negative_identity_pairs": 351,
+          "same": 0.39917644287579124,
+          "different": 0.002156222266011669,
+          "threshold": 0.35,
+          "balanced_mean": 0.20066633257090144,
+          "same_meaning": "same-speaker pair rejection",
+          "different_meaning": "different-speaker pair acceptance"
+        },
+        "roles": {
+          "short/short": {
+            "positive_identity_groups": 25,
+            "negative_identity_pairs": 351,
+            "same": 0.7035212472712473,
+            "different": 0.002250872421092751,
+            "threshold": 0.35,
+            "balanced_mean": 0.35288605984617005,
+            "same_meaning": "same-speaker pair rejection",
+            "different_meaning": "different-speaker pair acceptance"
+          },
+          "short/mature": {
+            "positive_identity_groups": 25,
+            "negative_identity_pairs": 351,
+            "same": 0.45307394142198654,
+            "different": 0.0016294298044198655,
+            "threshold": 0.35,
+            "balanced_mean": 0.2273516856132032,
+            "same_meaning": "same-speaker pair rejection",
+            "different_meaning": "different-speaker pair acceptance"
+          },
+          "mature/mature": {
+            "positive_identity_groups": 25,
+            "negative_identity_pairs": 351,
+            "same": 0.040934139934139926,
+            "different": 0.00258836457252239,
+            "threshold": 0.35,
+            "balanced_mean": 0.021761252253331156,
+            "same_meaning": "same-speaker pair rejection",
+            "different_meaning": "different-speaker pair acceptance"
+          }
+        }
+      },
+      "validation": {
+        "overall": {
+          "positive_identity_groups": 8,
+          "negative_identity_pairs": 36,
+          "same": 0.2940189241974956,
+          "different": 0.0025940042527428904,
+          "threshold": 0.35,
+          "balanced_mean": 0.14830646422511923,
+          "same_meaning": "same-speaker pair rejection",
+          "different_meaning": "different-speaker pair acceptance"
+        },
+        "roles": {
+          "short/short": {
+            "positive_identity_groups": 8,
+            "negative_identity_pairs": 36,
+            "same": 0.6036102786102786,
+            "different": 0.002530283700155495,
+            "threshold": 0.35,
+            "balanced_mean": 0.30307028115521706,
+            "same_meaning": "same-speaker pair rejection",
+            "different_meaning": "different-speaker pair acceptance"
+          },
+          "short/mature": {
+            "positive_identity_groups": 8,
+            "negative_identity_pairs": 36,
+            "same": 0.27694105497676924,
+            "different": 0.0016346615076010679,
+            "threshold": 0.35,
+            "balanced_mean": 0.13928785824218515,
+            "same_meaning": "same-speaker pair rejection",
+            "different_meaning": "different-speaker pair acceptance"
+          },
+          "mature/mature": {
+            "positive_identity_groups": 8,
+            "negative_identity_pairs": 36,
+            "same": 0.001505439005439005,
+            "different": 0.003617067550472108,
+            "threshold": 0.35,
+            "balanced_mean": 0.0025612532779555565,
+            "same_meaning": "same-speaker pair rejection",
+            "different_meaning": "different-speaker pair acceptance"
+          }
+        }
+      }
+    },
+    "E1_inherited_nominal": {
+      "fit": {
+        "overall": {
+          "positive_identity_groups": 25,
+          "negative_identity_pairs": 351,
+          "same": 0.36916608985370886,
+          "different": 0.0007278780132949576,
+          "threshold": 0.35,
+          "balanced_mean": 0.1849469839335019,
+          "same_meaning": "same-speaker pair rejection",
+          "different_meaning": "different-speaker pair acceptance"
+        },
+        "roles": {
+          "short/short": {
+            "positive_identity_groups": 25,
+            "negative_identity_pairs": 351,
+            "same": 0.6855410607910608,
+            "different": 0.00037831777246208966,
+            "threshold": 0.35,
+            "balanced_mean": 0.34295968928176146,
+            "same_meaning": "same-speaker pair rejection",
+            "different_meaning": "different-speaker pair acceptance"
+          },
+          "short/mature": {
+            "positive_identity_groups": 25,
+            "negative_identity_pairs": 351,
+            "same": 0.3702201680330252,
+            "different": 0.00042200308853635024,
+            "threshold": 0.35,
+            "balanced_mean": 0.18532108556078078,
+            "same_meaning": "same-speaker pair rejection",
+            "different_meaning": "different-speaker pair acceptance"
+          },
+          "mature/mature": {
+            "positive_identity_groups": 25,
+            "negative_identity_pairs": 351,
+            "same": 0.05173704073704074,
+            "different": 0.0013833131788864325,
+            "threshold": 0.35,
+            "balanced_mean": 0.026560176957963585,
+            "same_meaning": "same-speaker pair rejection",
+            "different_meaning": "different-speaker pair acceptance"
+          }
+        }
+      },
+      "validation": {
+        "overall": {
+          "positive_identity_groups": 8,
+          "negative_identity_pairs": 36,
+          "same": 0.2290545205822984,
+          "different": 0.0014934365749002501,
+          "threshold": 0.35,
+          "balanced_mean": 0.11527397857859932,
+          "same_meaning": "same-speaker pair rejection",
+          "different_meaning": "different-speaker pair acceptance"
+        },
+        "roles": {
+          "short/short": {
+            "positive_identity_groups": 8,
+            "negative_identity_pairs": 36,
+            "same": 0.5117565305065306,
+            "different": 0.0007693220834246475,
+            "threshold": 0.35,
+            "balanced_mean": 0.2562629262949776,
+            "same_meaning": "same-speaker pair rejection",
+            "different_meaning": "different-speaker pair acceptance"
+          },
+          "short/mature": {
+            "positive_identity_groups": 8,
+            "negative_identity_pairs": 36,
+            "same": 0.1743022332605666,
+            "different": 0.0011604762165659602,
+            "threshold": 0.35,
+            "balanced_mean": 0.08773135473856628,
+            "same_meaning": "same-speaker pair rejection",
+            "different_meaning": "different-speaker pair acceptance"
+          },
+          "mature/mature": {
+            "positive_identity_groups": 8,
+            "negative_identity_pairs": 36,
+            "same": 0.0011047979797979798,
+            "different": 0.0025505114247101426,
+            "threshold": 0.35,
+            "balanced_mean": 0.001827654702254061,
+            "same_meaning": "same-speaker pair rejection",
+            "different_meaning": "different-speaker pair acceptance"
+          }
+        }
+      }
+    },
+    "E1_C_affine": {
+      "fit": {
+        "overall": {
+          "positive_identity_groups": 25,
+          "negative_identity_pairs": 351,
+          "same": 0.4240441437611863,
+          "different": 0.0003224676604396324,
+          "threshold": 0.37954409532959005,
+          "balanced_mean": 0.21218330571081298,
+          "same_meaning": "same-speaker pair rejection",
+          "different_meaning": "different-speaker pair acceptance"
+        },
+        "roles": {
+          "short/short": {
+            "positive_identity_groups": 25,
+            "negative_identity_pairs": 351,
+            "same": 0.7603140100640101,
+            "different": 0.00013146048383069197,
+            "threshold": 0.37954409532959005,
+            "balanced_mean": 0.3802227352739204,
+            "same_meaning": "same-speaker pair rejection",
+            "different_meaning": "different-speaker pair acceptance"
+          },
+          "short/mature": {
+            "positive_identity_groups": 25,
+            "negative_identity_pairs": 351,
+            "same": 0.4394100518111796,
+            "different": 0.0002076474781675449,
+            "threshold": 0.37954409532959005,
+            "balanced_mean": 0.21980884964467357,
+            "same_meaning": "same-speaker pair rejection",
+            "different_meaning": "different-speaker pair acceptance"
+          },
+          "mature/mature": {
+            "positive_identity_groups": 25,
+            "negative_identity_pairs": 351,
+            "same": 0.0724083694083694,
+            "different": 0.0006282950193206604,
+            "threshold": 0.37954409532959005,
+            "balanced_mean": 0.036518332213845026,
+            "same_meaning": "same-speaker pair rejection",
+            "different_meaning": "different-speaker pair acceptance"
+          }
+        }
+      },
+      "validation": {
+        "overall": {
+          "positive_identity_groups": 8,
+          "negative_identity_pairs": 36,
+          "same": 0.2817448475980222,
+          "different": 0.00046202554304406156,
+          "threshold": 0.37954409532959005,
+          "balanced_mean": 0.14110343657053315,
+          "same_meaning": "same-speaker pair rejection",
+          "different_meaning": "different-speaker pair acceptance"
+        },
+        "roles": {
+          "short/short": {
+            "positive_identity_groups": 8,
+            "negative_identity_pairs": 36,
+            "same": 0.6053027219693886,
+            "different": 0.0002578973732819887,
+            "threshold": 0.37954409532959005,
+            "balanced_mean": 0.3027803096713353,
+            "same_meaning": "same-speaker pair rejection",
+            "different_meaning": "different-speaker pair acceptance"
+          },
+          "short/mature": {
+            "positive_identity_groups": 8,
+            "negative_identity_pairs": 36,
+            "same": 0.2383009285687857,
+            "different": 0.0004126238394400788,
+            "threshold": 0.37954409532959005,
+            "balanced_mean": 0.11935677620411289,
+            "same_meaning": "same-speaker pair rejection",
+            "different_meaning": "different-speaker pair acceptance"
+          },
+          "mature/mature": {
+            "positive_identity_groups": 8,
+            "negative_identity_pairs": 36,
+            "same": 0.0016308922558922558,
+            "different": 0.0007155554164101173,
+            "threshold": 0.37954409532959005,
+            "balanced_mean": 0.0011732238361511866,
+            "same_meaning": "same-speaker pair rejection",
+            "different_meaning": "different-speaker pair acceptance"
+          }
+        }
+      }
+    }
+  },
+  "failures": [
+    "Fixed validation error-rate gate failed"
+  ],
+  "application_profile_accepted": false,
+  "processed_query_naming": "UNCALIBRATED_REJECT_ALL",
+  "limitations": [
+    "Clean C association scale only; processed query behavior unknown",
+    "Pair score screening does not validate online tracker dynamics or name recognition",
+    "Correlated engineering sources; no independent-trial accuracy guarantee"
+  ],
+  "proposal": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\d0-scale-fit-v1\\PROPOSED_PROFILE.json",
+    "sha256": "6b89b41829bfe38c5df38a12bdf1b514c6e1400e1872568da681e35caf1ae9db",
+    "bytes": 5907
+  }
+}

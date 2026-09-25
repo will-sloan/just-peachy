@@ -1,0 +1,52 @@
+{
+  "schema": "n4-d0-C-collection-review-v1",
+  "status": "PASS_MATCHED_C_COLLECTION_ONLY",
+  "clips_per_encoder": 367,
+  "encoder_clip_cells": 734,
+  "matched_query_windows_per_encoder": 3409,
+  "query_kinds_per_encoder": {
+    "short": 1985,
+    "mature": 1424
+  },
+  "clips_without_admitted_windows_per_encoder": 0,
+  "segmentation_calls_per_encoder": 2290,
+  "source_seconds_per_encoder": 1239.8155625,
+  "input_bindings": [
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\d0-calibration-v1\\RESULT.json",
+      "sha256": "be523bd80375d26ec56295c552ee149e9b7616cf369d65914bd2eb46a0f1ef8c",
+      "bytes": 1017
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\d0-calibration-v1\\ADMISSION.json",
+      "sha256": "e387f392ff5c4a3399ce0e75938524619357bd26e5278c508158069484829a79",
+      "bytes": 4441
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\D0_C_SCALE_PROTOCOL_V1.json",
+      "sha256": "ad9c6a9a953d9931a2f2e2bb4ce3d7d79b254952ccfcebad404ac4e0bde954e1",
+      "bytes": 4706
+    }
+  ],
+  "code": [
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\review_d0_collection.py",
+      "sha256": "33d100a0e1ff2dcf5a8cae6ae5acf0fbc28abf87e92e034b7512dae937f572ad",
+      "bytes": 6873
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\common.py",
+      "sha256": "a44e389d3c80c8c21e74ea3423d8270273e5b3132a84095218dee078c53f059e",
+      "bytes": 3267
+    }
+  ],
+  "collection_complete": true,
+  "calibrated_profile_accepted": false,
+  "integrated_N4_cells": 0,
+  "privacy": "Detailed matched window evidence and all vectors retained privately",
+  "private_review": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\d0-calibration-review-v1\\REVIEW.json",
+    "sha256": "927958c023f76a90d16314dc1fe9733d0a38460987da6d15aaa27cc3ad846e4b",
+    "bytes": 284341
+  }
+}

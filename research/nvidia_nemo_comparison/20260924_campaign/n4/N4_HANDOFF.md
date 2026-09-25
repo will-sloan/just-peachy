@@ -19,20 +19,29 @@ acquisition/enrollment forbidden and zero hardware/audio/GUI starts. This is
 wiring evidence, not inference. ACCEPTED_SOURCE_CATALOG_CHECK.json and
 UPSTREAM_ACCEPTANCE_20260925.json bind the transition and exact source.
 
-**N4 is not complete.** The supervised `local/n4/d0-calibration-v1` worker is
-collecting genuine D0 query windows from 367 protected C clips for each encoder
-(734 encoder/clip jobs). Its immutable admission SHA-256 is
-`e387f392ff5c4a3399ce0e75938524619357bd26e5278c508158069484829a79`.
-Inspect that run's fresh result, exact PID creation identities and the shared
-worker heartbeat before starting any numerical work. Eight collector tests and
-six paired-review tests pass. Run README_D0_REVIEW.md's verification only after
-the worker releases ownership. D0_C_SCALE_PROTOCOL_V1.json freezes one C-only
-fit/validation proposal before reading new vector scores; it is not a fitted
-or accepted profile. Whole-clip N2 C vectors were insufficient to validate
-D0's 0.5/1.5-second query scale, which is why this bounded collection is needed.
-Zero of 7,680 intended integrated scene/tap cells have executed. Complete D0 activity,
-C-only D0/E1 calibration, component-cache/archive integration and the admitted
-full-bank runner before numerical execution. Then perform paired scoring,
+**N4 is not complete.** The supervised `local/n4/d0-bank-v1` now collects actual
+D0 components on all 480 saved scene/tap files, first E0 then E1 sequentially.
+Its immutable admission SHA-256 is
+`1a99b124348d6e933665efb268edbfc0864191880400d469804ab0f65b4c42af`.
+Inspect this newer run's result, exact PID creation identities and the shared
+worker heartbeat before numerical work. README_D0_BANK.md describes the
+4-GiB bounded compressed store and unchanged fixed-cadence causal speaker lane.
+This is 960 component jobs, zero completed integrated scene/tap results.
+
+The earlier `d0-calibration-v1` finished 734/734 jobs. The strict review passed
+3,409 matched windows per encoder (1,985 short, 1,424 mature); no C clip lacked
+an admitted window. D0_COLLECTION_REVIEW_V1.json binds this evidence. The single
+predeclared C scale fit FAILED its validation tradeoff: balanced error rose
+2.583 percentage points versus E1 nominal, beyond the allowed 2.0. Preserve
+D0_SCALE_FIT_V1.json/D0_C_SCALE_DECISION_V1.md; do not tune on validation or Q.
+The profile was not applied. Nominal D0/E1 remains an explicitly unqualified
+comparison condition, not an accepted calibrated release. Its window selection
+does not use tracker scores, so full-bank component collection remains valid.
+The collector/reviewer/fitter/bank runner have 8/6/8/5 passing tests.
+
+Zero of 7,680 intended integrated scene/tap cells have executed. Complete D0
+anonymous activity, component-cache/archive integration and the admitted
+integrated runner; preserve D0/E1's calibration limitation. Then perform paired scoring,
 GUI/paced/continuity and resource selection. N5 remains preparation only.
 Earlier READINESS/MATRIX snapshots and 12-entry releases remain historical.
 
@@ -126,12 +135,13 @@ No desktop input/focus control, SSH, microphone, USB, playback or new capture ra
 
 > Continue N4 from the accepted N3 source and fresh n4-catalog-v3 derivative.
 > Read UPSTREAM_ACCEPTANCE_20260925.json, current process identities, worker
-> state and resource ownership. First follow the newer d0-calibration-v1 run;
-> never duplicate it. Review its exact matching E0/E1 windows on completion,
-> then implement the frozen C-only scale protocol without Q feedback. N1/N2/N3
+> state and resource ownership. First follow the newer d0-bank-v1 run;
+> never duplicate it or edit its bound source/code. The C collection/review
+> finished and the single frozen scale fit failed; preserve that result without
+> retuning. Review the full-bank exact E0/E1 geometry after completion. N1/N2/N3
 > acceptance is complete; do not repeat their old queues. Implement the full
-> D0 anonymous activity output and qualified D0/E1
-> association calibration, then integrate exact component caching and the
+> D0 anonymous activity output, keep D0/E1's calibration limitation visible,
+> then integrate exact component caching and the
 > verified new-run storage lifecycle into a full-bank runner. Freeze a new
 > derivative for source changes; do not edit accepted releases. Admit the
 > numerical plan only with complete contracts, resource ownership and a bounded
@@ -142,6 +152,6 @@ No desktop input/focus control, SSH, microphone, USB, playback or new capture ra
 > then N5 validation and releases. Preserve every earlier artifact and all
 > desktop/Pi/privacy constraints; do not extend the packaging cutoff/deadline.
 
-The registered in-task heartbeat continues. The C-window collector is the sole
-N4 model worker; it does not run the full bank or earn integrated-cell credit.
+The registered in-task heartbeat continues. The full-bank D0 component collector
+is the sole N4 model worker; it earns no integrated-cell credit by itself.
 N5 preparation is not a completed-stage deliverable.

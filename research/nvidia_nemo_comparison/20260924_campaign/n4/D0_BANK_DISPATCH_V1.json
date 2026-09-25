@@ -1,0 +1,117 @@
+{
+  "schema": "n4-d0-bank-dispatch-check-v1",
+  "checked_utc": "2026-09-25T02:45:25.546237+00:00",
+  "status": "RUNNING_FIRST_TWO_COMPONENT_CELLS_VERIFIED",
+  "admission": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\d0-bank-v1\\ADMISSION.json",
+    "sha256": "1a99b124348d6e933665efb268edbfc0864191880400d469804ab0f65b4c42af",
+    "bytes": 5724
+  },
+  "worker_spec": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\d0-bank-v1\\worker.json",
+    "sha256": "4631d9c1195fb5df16038165082734ccb6c208081eaffd104d03366c60913c6a",
+    "bytes": 435
+  },
+  "run_id": "2f73b8002d744a69ab87d27f15c84b5a",
+  "heartbeat_unix": 1790304321.9674554,
+  "owners": [
+    {
+      "role": "host",
+      "pid": 31900,
+      "create_time": 1790304091.670885,
+      "exact": true,
+      "affinity": [
+        14
+      ]
+    },
+    {
+      "role": "coordinator",
+      "pid": 41744,
+      "create_time": 1790304091.8017163,
+      "exact": true,
+      "affinity": [
+        14
+      ]
+    },
+    {
+      "role": "model",
+      "pid": 17196,
+      "create_time": 1790304092.3076942,
+      "exact": true,
+      "affinity": [
+        4
+      ]
+    }
+  ],
+  "progress": {
+    "completed": 49,
+    "total": 960,
+    "elapsed_seconds": 231.17199999999866,
+    "stage": "N4_D0_FULL_BANK_COMPONENTS",
+    "encoder": "E0"
+  },
+  "checks": [
+    {
+      "job_id": "N2_S45_01_01_O0",
+      "result": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\d0-bank-v1\\E0\\N2_S45_01_01_O0\\RESULT.json",
+        "sha256": "8b7649f13b67a38b262debfdf5896f17b2ffb70fdd2446851b3988e7668a22d2",
+        "bytes": 258412
+      },
+      "status": "PASS_EXACT_COMPONENT_EVIDENCE",
+      "windows": 41,
+      "segmentation_calls": 89,
+      "compressed_event_bytes": 885603,
+      "expanded_event_bytes": 2817609,
+      "source_samples": 715127,
+      "consumed_samples": 715127
+    },
+    {
+      "job_id": "N2_S45_01_01_O1",
+      "result": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\d0-bank-v1\\E0\\N2_S45_01_01_O1\\RESULT.json",
+        "sha256": "e969d406092bc2d5815caeb7a3ad514ee0d0563b82b02d1252b1defae262faeb",
+        "bytes": 264783
+      },
+      "status": "PASS_EXACT_COMPONENT_EVIDENCE",
+      "windows": 42,
+      "segmentation_calls": 89,
+      "compressed_event_bytes": 901615,
+      "expanded_event_bytes": 2839630,
+      "source_samples": 715127,
+      "consumed_samples": 715127
+    }
+  ],
+  "tests": {
+    "fit_protocol": 8,
+    "bank_runner": 5,
+    "failures": 0,
+    "errors": 0
+  },
+  "source_changed": false,
+  "integrated_N4_cells": 0,
+  "N4_required_integrated_cells": 7680,
+  "calibrated_E1_profile_accepted": false,
+  "code": [
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\d0_bank_components.py",
+      "sha256": "49027c697561b23335f30e87780808162a5e3b94fc26e8457a4c01df90ac30dd",
+      "bytes": 12976
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\test_d0_bank.py",
+      "sha256": "5e8d9c8be0a934911a6bfb496213e4230d592be87de6e32b53f0cc54cf0faf8e",
+      "bytes": 2803
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\fit_d0_scale.py",
+      "sha256": "e0a7e278a6dec5cf18ec4c2667e1f2b3ff9fc2fe0f502eb00b6157f9ff484c55",
+      "bytes": 12562
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\test_fit_d0_scale.py",
+      "sha256": "5454bab1f1d579e2ea57672b39e1be70c074adcd8426ba9ff86a2eb76e6dc513",
+      "bytes": 4660
+    }
+  ]
+}

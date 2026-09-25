@@ -14,15 +14,22 @@ passed 16/16 with model acquisition forbidden. See README_COMPOSITIONS.md,
 ACCEPTED_SOURCE_CATALOG_CHECK.json and UPSTREAM_ACCEPTANCE_20260925.json.
 
 N4 is not complete: zero of 7,680 integrated files have executed. The supervised
-`local/n4/d0-calibration-v1` collector now extracts genuine 0.5/1.5-second
-D0 windows from 367 protected C clips for E0 then E1, sequentially. Read its
-fresh RESULT.json and the supervisor heartbeat before starting any model work.
+`local/n4/d0-bank-v1` now collects D0 component evidence on all 480 saved
+scene/tap files, E0 then E1 sequentially (960 component jobs). Read its fresh
+RESULT.json and the supervisor heartbeat before starting any model work.
+README_D0_BANK.md covers bounded compressed storage and launch commands.
+The earlier `d0-calibration-v1` completed 734/734 encoder/clip jobs; strict review
+passed 3,409 matching windows per encoder. D0_COLLECTION_REVIEW_V1.json records
+that result. The one frozen C-scale proposal failed its validation tradeoff and
+remains UNQUALIFIED_C_SCALE: see D0_C_SCALE_DECISION_V1.md/D0_SCALE_FIT_V1.json.
+It was not retuned or applied; nominal D0/E1 remains an unqualified comparison.
 README_D0_CALIBRATION.md gives purpose, inputs, outputs and run commands;
 eight tests passed. README_D0_REVIEW.md describes strict paired evidence review
 with six passing tests. D0_C_SCALE_PROTOCOL_V1.json was frozen before inspecting
 new C score values; collection alone does not qualify an association profile.
-D0 anonymous activity, C-only D0/E1 calibration, exact caching and the
-full-bank runner/admission still need implementation. README_EVIDENCE_STORE.md
+The fitting and bank runner add eight and five passing tests respectively.
+D0 anonymous activity and the integrated full-bank runner/cache replay still
+need implementation; D0/E1 calibration remains unqualified. README_EVIDENCE_STORE.md
 covers the tested new-run-only storage helper (12 tests); production integration
 and measured cell/storage bounds remain. Existing evidence was not removed.
 
