@@ -1,0 +1,92 @@
+{
+  "status": "PASS_PRIVATE_TK_VIEWPORT_OBSERVER_QUALIFICATION",
+  "utc": "2026-09-25T08:19:16.075528+00:00",
+  "source_receipt": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\releases\\n4-catalog-v3\\SOURCE_RECEIPT.json",
+    "sha256": "8050c8bee52a6ec83c95f3514cb81219c3664dd43e172a477d35a54888e610d5",
+    "bytes": 61188
+  },
+  "code": [
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\widget_visibility.py",
+      "sha256": "ec1bf5cd22b0c4129a2632b4ae72c82722e76e5333872a2c6ef10ea058bb7580",
+      "bytes": 10960
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\test_widget_visibility_v2.py",
+      "sha256": "0cf8dc2890393dc55dc85a8d6cf2fcf863da09b02659de6d409462611ffc32d0",
+      "bytes": 8310
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\probe_widget_visibility_v2.py",
+      "sha256": "21fc60ad790bc2359f304b08eef2cd77a617290513701e834b7a6e10f13f5f49",
+      "bytes": 4860
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\README_WIDGET_VISIBILITY.md",
+      "sha256": "08bbdbff80ecd8e9ab74df0b42895c6296e53afcdd552ef2a35f76251eb58d7c",
+      "bytes": 4307
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\README_WIDGET_VISIBILITY_V2.md",
+      "sha256": "9a8274915edd0fa4d6022f849a420d30d9e18fb0af414008bbb79e5eb6a62e34",
+      "bytes": 1859
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\integrated_scoring_adapter.py",
+      "sha256": "f1b437e1633d4967a0181521cb6533abcd5ca2e0ca079ffdecccca19b56f0635",
+      "bytes": 9570
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\common.py",
+      "sha256": "a44e389d3c80c8c21e74ea3423d8270273e5b3132a84095218dee078c53f059e",
+      "bytes": 3267
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\PACED_APPLICATION_FINDINGS.md",
+      "sha256": "77f0f438555d51f2023d0992916ac2fdec6120024bb19395762a8a6497ecaa3b",
+      "bytes": 6031
+    }
+  ],
+  "private_receipt": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\widget-visibility-v2\\RESULT.json",
+    "sha256": "bae3879549b1cab987ff30c10264290da727483b21395c8ce2859e79eb94587e",
+    "bytes": 1481
+  },
+  "tests_passed": 7,
+  "test_seconds": 63.611,
+  "saved_output_cases": 160,
+  "final_point_observation_counts": {
+    "cases": 160,
+    "rows": 3252,
+    "caption_visible": 1132,
+    "heading_visible": 837,
+    "history_applied_but_elided_or_offscreen": 2572,
+    "active_caption_visible_heading_not_visible": 228,
+    "maximum_character_checks": 546
+  },
+  "private_output_bytes": 39541146,
+  "limitations": [
+    "Two smoke sources reused across 16 tuples, five modes and both taps",
+    "One test UI reused across saved-output cases; geometry qualification only, not independent name acquisition or application session parity",
+    "Point samples are not continuous exposure; actual source clock absent",
+    "Private Tk viewport geometry is not physical scanout or user visibility",
+    "Memory/cost of instrumentation must be accounted in future actual full-stack measurements"
+  ],
+  "preserved_failure": {
+    "receipt": {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\widget-visibility-v1\\RESULT.json",
+      "sha256": "ca6dcf3a95575ee40c541870ab256976c0439f8aea1d6143ee07a5fa679202f5",
+      "bytes": 745
+    },
+    "reason": "Saved-reader package import lacked the script-local common module; six other GUI tests passed",
+    "repair": "Fresh V2 test/launcher supplies the exact N4 script directory; unchanged observer/app/inputs"
+  },
+  "input_desktop_unchanged": true,
+  "input_injection": false,
+  "switch_desktop_called": false,
+  "private_child_exited": true,
+  "models_loaded": 0,
+  "source_paced_application_cells": 0,
+  "integrated_N4_cells": 0
+}

@@ -1,5 +1,18 @@
 # N4 comparison implementation and evaluation
 
+The private Tk viewport observer now passes seven actual GUI regressions and
+160 saved-output render checks. It distinguishes text applied to the full-caption
+widget, visible caption glyphs, visible name headings, suppressed headings,
+strict filtering, scrolling and retirement. All raw rows remain accounted for.
+WIDGET_VISIBILITY_CHECK_V2.json binds the evidence and preserved V1 import-path
+failure; the fix is a fresh test/launcher derivative, with no app/source change.
+README_WIDGET_VISIBILITY.md and README_WIDGET_VISIBILITY_V2.md provide purpose,
+inputs/outputs and all commands. Tests ran on a private desktop without switching
+the user's input desktop, injecting input or loading models. This is actual Tk
+geometry over saved modeled output, not source-paced application qualification.
+PACED_APPLICATION_FINDINGS.md records the specific remaining baseline gallery
+counter, common source-clock observation, fixed panel and resource requirements.
+
 The next scoring layer is implemented in scoring_bank.py, metric_process.py
 and scoring_report.py. Eleven tests pass, and all 51 saved scoring checks give
 identical metric objects through the bounded persistent evaluator process.

@@ -390,3 +390,38 @@ replays, not new neural results. README_SCORING_BANK_BOUNDARY.md documents the
 probe. Its first exploratory attempt used older V1 artifacts and was rejected
 because they lack V2's explicit empty-session field; that attempt is preserved.
 No frozen code was changed to accept the wrong artifact version.
+
+## Actual Tk viewport observation
+
+The remaining naming/timing work exposed a distinction in the existing common
+frontend: record_presentation records applied Tk text, but its history widget
+elides active rows and long paragraphs can scroll headings independently of
+caption text. widget_visibility.py now reads exact marked text and actual glyph
+rectangles from both panes without calling the stateful display-label function,
+changing data, scrolling or rendering. First/final/latest samples retain filtered,
+offscreen and retired spans. Bounded point samples never imply continuous exposure.
+
+Seven actual private-desktop regressions and 160 saved-output checks passed in
+63.611 seconds. These use one test UI and the same two saved smoke sources across
+16 tuples/five modes/both taps; they do not qualify independent session naming.
+At the final sampled instants, 1,132 of 3,252 fragment rows had caption glyphs in
+a viewport and 837 had visible headings. There were 2,572 history-applied rows
+without visible history text and 228 active-caption observations with no visible
+heading. These counts include intentional reuse, scrolling and elision; they are
+not word-loss/error rates or complete-bank coverage. No source origin was supplied
+and no source-relative latency or physical scanout was claimed.
+
+WIDGET_VISIBILITY_CHECK_V2.json binds the source, private result, 37.71-MiB output,
+isolation and preserved failed V1 test. That first attempt passed the six synthetic
+GUI regressions but failed the saved-reader import; the fresh V2 setup fixes only
+its package/script import path. The observer, frontend and all old evidence remain
+unchanged. Actual private-child exit, unchanged input desktop and no input injection
+were verified. Use README_WIDGET_VISIBILITY_V2.md for the current command.
+
+PACED_APPLICATION_FINDINGS.md records the actual Controller source APIs needed
+next: baseline gallery query_count/adapter semantics, the N2-only clock hook,
+the common consumer event seam, fixed N4 gallery domains and the 24-cell panel.
+The full source/model/journal/archive/Controller/Tk chain, timing repeats,
+continuity and controlled whole-stack resource work still require admission
+after component/matrix review. Account for instrumentation memory and sampling
+cost in those runs; this helper does not establish 2-GB feasibility or acceptance.

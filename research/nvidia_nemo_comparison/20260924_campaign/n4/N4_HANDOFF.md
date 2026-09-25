@@ -484,3 +484,22 @@ Continue ASR review, then the single D1 collection, then actual method-bank
 admission/execution/review/scoring. The source-paced common-GUI panels,
 continuity, naming visibility and whole-stack resources remain outstanding;
 none of these model-free helpers adds integrated acceptance credit.
+
+Viewport qualification now adds seven passing private-desktop GUI regressions
+and 160 saved-output render checks (same two smoke sources deliberately reused).
+The unchanged 480x800 frontend keeps active rows elided in history and visible
+in its active pane; an applied caption may also be offscreen, and its heading
+can scroll away independently. widget_visibility.py records these distinctions
+without advancing label state or changing UI data. V1's saved-reader import
+failure is preserved; V2 supplies the exact script import directory and passes.
+Use WIDGET_VISIBILITY_CHECK_V2.json and the two README_WIDGET_VISIBILITY files.
+Private child closure and unchanged user input desktop were verified. These are
+point observations, not continuous name exposure, source-paced inference or
+physical scanout; no integrated cells are accepted from them.
+
+PACED_APPLICATION_FINDINGS.md is the next source-level guide. The complete
+baseline Controller requires actual gallery query counts absent from the plain
+research bridge, and its source clock does not use the N2 observer factory.
+Qualify narrow research-store and common clock/resource hooks before admitting
+the 24-cell shortlisted application panels. Keep CPU4 collection healthy and
+do not start another neural owner or controlled timing run alongside it.
