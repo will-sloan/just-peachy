@@ -1064,3 +1064,75 @@ Full native semantic/pane/naming/timing scoring, full production plan/population
 review, actual application panels, continuity/stop/restart and N5 remain pending.
 N4 integrated acceptance is still 0/7680. Continue the current D1 bank and review
 its terminal evidence before generating/scoring the main and modes banks.
+
+## 2026-09-25: derivative source context, all-backend prestart and V2 planning
+
+The next follow-up observed the same exact supervisor 32696/1790350774.0235264,
+coordinator 4092/1790350774.1659436 and sole model 29756/1790350782.179587.
+D1 E0 advanced from 79 to 90 of 960 while independent CPU14 preparation ran.
+The model remained on CPU4, its heartbeat stayed fresh, and all 33 protected
+active/predecessor source/dependency bindings remained unchanged. The unrelated
+cmd.exe AccessDenied census uncertainty remains; the exclusive production gate
+was not weakened or bypassed.
+
+application_source_context.py now reconstructs the logging derivative's exact
+relationship to the catalog source used for the component banks. It verifies
+the two allowed edits/two additions, fixed retention policy, all source hashes,
+unchanged frontend/prediction code, identical catalog bytes and runtime metadata.
+It produces a separate gallery-preparation receipt with only the catalog file
+location changed. Existing gallery payloads, missing-person denominators,
+calibration gates and vectors remain unchanged. It keeps the component parent
+and application derivative bindings separate; no older receipt is modified.
+
+Four lineage tests and nine actual private Tk/Controller tests passed. All 16
+implemented backend rows were prepared and closed, with the common 480x800
+client/184-pixel active region, adaptation and assistance off, and no engine or
+consumer started. The seven earlier viewport-hook regressions were rerun. All
+three imported engine families used the actual complete-event-journal factory
+with synthetic strings. Resident/ONNX model acquisition, file-source construction
+and Controller source-start calls were forbidden in application preparation.
+No saved audio, device or model execution occurred.
+
+The V3 owned private job closed normally with exit code zero, no forced
+termination, no active members and exact observed-member exit checks. The input
+desktop remained Default. CPU14 helper 41484/1790357959.3838544 and its private
+test child 51144/1790357969.0409584 exited. These are prestart observations only,
+not source-paced execution or complete process-history/resource qualification.
+
+JOURNAL_APPLICATION_PRESTART_CHECK_V1.json binds 73 code/dependency records and
+private local/n4/journal-application-prestart-v1/RESULT.json, SHA-256
+08f29c9a78ae64bab751cd4e7369f4be19010dc7f80046d5fcbead1326d98cf8.
+Its private context receipt is SHA-256
+069d5728ff49bfd51dbc0d912c98df198e01202222575a32159aefa095d240e5;
+the rebound gallery metadata is SHA-256
+088e40e8dcd6f860cf62cc751e42007dcec618e4b3ba9ea88ba49b4ca155dc9b.
+README_APPLICATION_SOURCE_CONTEXT.md documents exact purpose, inputs/outputs,
+model-free execution and PowerShell/CMD/Anaconda commands.
+
+Added paced_panel_plan_v2.py with schema n4-paced-panel-plan-v2. It retains the
+original fixed panel, repetitions, source-speed policy and selection rules, but
+joins complete scored banks to the qualified journal application through the
+explicit context. Scored parent and application hashes remain separate, while
+cache keys bind the complete context. The child allowlist still carries only
+the actual application source/catalog/gallery/runtime/assets and audio-only job;
+comparison reports, selection rationale and parent metadata do not enter it.
+
+Six V2 planner tests and 1,240 development payloads across all 16 catalog routes
+passed. They check lineage mismatches, separate parent/derivative cache keys,
+unchanged census/child allowlist, old-schema rejection and refusal of partial
+score reviews. No production selection/plan was created and the full positive
+production-review gate remains unexecuted until the complete banks exist.
+Helper 30500/1790358410.592402 exited. PACED_PANEL_PLAN_CHECK_V2.json binds 78
+code/dependency records and private local/n4/paced-panel-plan-probe-v2/RESULT.json,
+SHA-256 2dfa39419ed31dc718bfaf5501601dcbb85f7db86be785283930ec87e7ec2464.
+README_PACED_PANEL_PLAN_V2.md includes preparation/reconstruction scope and probe
+plus eventual production commands for all three shells.
+
+Next application work: implement/requalify the V2 runner using the V2 planner's
+admit_plan and execution_payload; version the transport reviewer that currently
+expects the V1 runner filename; compose full plan/population review and complete
+native-event/pane/naming/timing interpretation. Preserve all V1 qualifications.
+Actual paired source runs, controlled resources, continuity and stop/restart
+remain unexecuted. The source receipt still says IMPLEMENTED_NOT_APPLICATION_ADMITTED;
+this prestart qualification does not promote it to full application acceptance.
+N4 integrated acceptance remains 0/7680 and N5 remains downstream.

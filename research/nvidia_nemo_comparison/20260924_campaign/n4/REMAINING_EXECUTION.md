@@ -80,15 +80,31 @@ NATIVE_JOURNAL_RETENTION_CHECK_V1.json binds a fresh private source derivative,
 local/releases/n4-complete-journal-v1/SOURCE_RECEIPT.json, with an event-only
 256-MiB complete sink that fails instead of deleting its prefix. Eight checks
 passed on the copied actual AsyncText and isolated factory; no application or
-model ran. Its status remains IMPLEMENTED_NOT_APPLICATION_ADMITTED. The next
-application implementation step is to version/requalify the preparation,
-runner/planner and review contracts around this new source, then reconfirm
-actual candidate source/GUI/worker closure. Include the same logging policy and
+model ran in that writer check. Its status remains IMPLEMENTED_NOT_APPLICATION_ADMITTED.
+Include the same logging policy and
 overhead in all paired measurements. Do not substitute it into a bound old plan
 or change the active numerical source. See README_NATIVE_JOURNAL_RETENTION.md
 for its guarded builder, inputs/outputs and all three shell commands. Native
 payload semantics, actual pane words/names and latency interpretation still
 require review beyond the now-qualified envelope census.
+
+JOURNAL_APPLICATION_PRESTART_CHECK_V1.json now qualifies the explicit source
+context and actual private Tk/Controller preparation/closure for all 16 backend
+rows. Four lineage tests plus nine GUI/factory tests passed with model/source
+start forbidden. The context records both original component parents and new
+application bindings; gallery metadata changes only the byte-identical catalog's
+location. No actual source run is certified. See README_APPLICATION_SOURCE_CONTEXT.md.
+
+PACED_PANEL_PLAN_CHECK_V2.json qualifies paced_panel_plan_v2.py: six tests and
+1,240 development payloads passed. This version retains the fixed panel and
+child allowlist while binding that explicit derivative context. It can prepare
+and independently reconstruct production plans only after full main/modes score
+reviews and a justified selection exist. No production plan exists yet. Use
+README_PACED_PANEL_PLAN_V2.md; preserve V1 plans and do not pass V2 plans to the
+V1 runner. Next implement/requalify the V2 runner, update the versioned transport
+reviewer's fixed runner identity, and compose the full population/native/pane
+content review. Then reconfirm actual source/GUI/worker closure under the new
+logging policy. Continuity and stop/restart remain separate outstanding work.
 
 An earlier read-only census could not inspect an unrelated `cmd.exe` process.
 Re-observe at actual application admission. The exclusive application gate must
