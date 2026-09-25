@@ -1,0 +1,32 @@
+{
+  "status": "PASS_FULL_BANK_REBIND_NO_INFERENCE",
+  "utc": "2026-09-25T02:01:43.964828+00:00",
+  "preparation": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\preparation-v2\\PREPARATION_RECEIPT.json",
+    "sha256": "aa841befa35f49d697baaecdade5492fd1b167b149b4ef269fac487785dfac38",
+    "bytes": 4399
+  },
+  "matrix": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\preparation-v2\\MATRIX_PREPARATION.json",
+    "sha256": "5b04548c041a65ca4ea50b848f0afbc26775a997f7d9710302019fc1d457c900",
+    "bytes": 62707
+  },
+  "source": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\prepare_v2.py",
+    "sha256": "e3b2c829479d199ba627798e3897a0cfe035430587e83a1b58975c410d3501af",
+    "bytes": 11211
+  },
+  "preserved_data_payloads": [
+    "AUDIO_ONLY_480.json",
+    "PACED_AUDIO_ONLY_24.json",
+    "REGRESSION_AUDIO_ONLY_8.json",
+    "EVALUATOR_STRATA.json",
+    "PAIRED_CAPTURE_PROVENANCE.json"
+  ],
+  "all_data_payloads_byte_identical": true,
+  "implemented_compositions": 16,
+  "waveform_files_reverified": 480,
+  "neural_calls": 0,
+  "integrated_cells_completed": 0,
+  "integrated_cells_required": 7680
+}

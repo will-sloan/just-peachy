@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\handoffs\\N3_ACCEPTED_HANDOFF_20260925_v1.zip",
+  "sha256": "b96a398edefec582b18378204305ebaf556bf5f1b9f7c47d324f345ae0baed95",
+  "bytes": 74996,
+  "files": 34,
+  "target_10mib_met": true,
+  "accepted_git_commit": "5bd5cc09291613419aaf8850a16e8a316feb0c0d",
+  "release_tag": "n3-accepted-20260925-v1"
+}

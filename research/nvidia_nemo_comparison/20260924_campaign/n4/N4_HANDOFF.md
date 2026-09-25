@@ -1,23 +1,30 @@
-# N4 partial checkpoint — preparation complete, comparison pending
+# N4 implementation checkpoint — upstream accepted, integrated run pending
 
-Latest code checkpoint, September 25: A1 now has a qualified host portable
-component and a passing application smoke; its 96-cell nominal screen is complete, with regression/paced and Controller/GUI
-validation still pending. `compose_release_v3.py` is prepared for
-the eventual accepted N3 source and builds all 16 intended compositions. Five
-new model-free integrity tests pass, including A1/P0/bundle preservation and
-refusal to silently omit A1. `check_catalog_v3.py` is prepared for actual
-16-entry Controller selection. Neither a new N4 derivative nor N4 inference has
-been started from the pending N3 source. See README_COMPOSITIONS.md and
-COMPOSITION_BUILDER_CHECK.json. The older 12-row preparation remains historical.
+README_PREPARATION_V2.md describes the regenerated preparation-v2 inputs from
+the accepted 16-entry derivative. All 480 waveforms were reverified; the five
+data/provenance payloads are byte-identical to v1, and all 16 matrix rows now
+bind actual catalog entries. PREPARATION_V2_CHECK.json records zero inference
+credit and 7,680 cells still NOT_TESTED.
 
-**N4 is not complete.** The full 7,680 intended integrated scene/tap results,
-shortlist, resource qualification and actual-application confirmation have not
-run. N2 is accepted. N3's deterministic A1 screen runs in numerical-a1nominalv1,
-with numerical-a1controllerv2 queued behind it. A2 GUI has three passing cells;
-A3's latest D1/E0 single-CPU boundary test timed out during finalization despite
-an earlier passing panel. N3 acceptance remains pending. N4 creates
-no duplicate worker or automatic inference queue. `READINESS.json` is a dated
-snapshot; read the live private upstream status files for later changes.
+N1/N2/N3 are accepted in their stated offline/component scopes. N3's accepted
+source tag is n3-accepted-20260925-v1; its 34-file analysis ZIP and exact remote
+commit were verified. Its report preserves the A1 paced-count correction and
+A3 one-core failure/two-core functional qualification. Read the final N3 handoff.
+
+N4 now has a fresh 16-composition derivative from that accepted source:
+local/releases/n4-catalog-v3/prototype. Its source receipt verifies unchanged
+common UI/layout and only the catalog/expected-set fixture changes. Actual
+Controller selection and cleanup passed for all 16 entries, with model
+acquisition/enrollment forbidden and zero hardware/audio/GUI starts. This is
+wiring evidence, not inference. ACCEPTED_SOURCE_CATALOG_CHECK.json and
+UPSTREAM_ACCEPTANCE_20260925.json bind the transition and exact source.
+
+**N4 is not complete.** No N4 numerical worker is running, and zero of 7,680
+intended integrated scene/tap cells have executed. Complete D0 activity,
+C-only D0/E1 calibration, component-cache/archive integration and the admitted
+full-bank runner before numerical execution. Then perform paired scoring,
+GUI/paced/continuity and resource selection. N5 remains preparation only.
+Earlier READINESS/MATRIX snapshots and 12-entry releases remain historical.
 
 ## Implemented and actually checked
 
@@ -30,8 +37,8 @@ snapshot; read the live private upstream status files for later changes.
 - Twelve A0/A2/A3 compositions are wired in a separate source derivative. Actual
   Controller selection/cleanup passed for all 12 with model loading forbidden.
   Fifteen inherited catalog/native-protocol/text tests pass. These are wiring
-  checks, not model execution. A1 now has a separately implemented adapter pending actual Controller/GUI
-  validation; the older 12-entry derivative does not contain it.
+  checks, not model execution. A1 now has actual Controller/GUI
+  validation in the accepted N3 source; the historical 12-entry derivative does not contain it.
 - Thirty-five N4 tests pass: missed-word/failure/empty/overlap denominators,
   established cpWER/MIMO and estimated-activity DER/JER, cache invalidation,
   paired clusters, coverage, RAM headroom, process identity and archive corruption.
@@ -86,7 +93,7 @@ Worktree: `G:\Just_Peachy_N1\20260924_campaign\worktree`, branch
 `codex/n1-foundation-20260924`. Private N4 root:
 `G:\Just_Peachy_N1\20260924_campaign\local\n4`.
 
-Derivative: `local\releases\n4-catalog-v2\prototype`; its source receipt binds
+Historical derivative: `local\releases\n4-catalog-v2\prototype`; its source receipt binds
 the N3 v2 parent and exactly two changed files: backend catalog and its expected
 set test. The six common UI/presentation files retain SHA-256
 `54c0283b8058978eca87dc9b0461a15addf804200856e41d2c83b55bff590456`.
@@ -102,29 +109,20 @@ No desktop input/focus control, SSH, microphone, USB, playback or new capture ra
 
 ## Exact continuation in this existing task
 
-> Complete the already-authorized N2, N3 and N4 campaign in
-> G:\Just_Peachy_N1\20260924_campaign\worktree. First inspect live N2
-> local/n2/numerical-v2 RESULT/CHAIN_RESULT and N3 local/n3/numerical-a1nominalv1
-> RESULT plus numerical-a1controllerv2 QUEUE_RESULT/RESULT with exact PID creation
-> identities. Do not duplicate or
-> interrupt their admitted owners. Review completed N2/N3 evidence and finalize
-> their acceptance reports; preserve every failed attempt and diagnose actual
-> failures before changing frozen choices. N4 is authorized after prerequisites
-> pass, superseding older stage-specific "do not start N4" handoff prose.
-> Finish N4's integrated runner/admission, validated D0/E1 association profile,
-> A1 integrated adapter or documented bounded rescue outcome, full D0 activity
-> observability and archive-aware evidence lifecycle. Keep exact source/event
-> policy common and reconfirm affected paired results. Run admitted full-bank
-> combinations with honest 7,680-cell accounting, score with pinned evaluators,
-> and retain gallery/mode controls and dependency-aware strata. Measure each
-> candidate alone for whole-app CPU/GPU resources. Select functioning alternatives
-> without forcing a winner; run actual common-GUI 24-cell paced panels, timing
-> repeats and each candidate's 20-minute saved-audio continuity test. Finalize
-> N4 metrics, limitations, deployment tiers, workbook proposal, scoped Git backup
-> and the final small handoff ZIP. Keep the desktop free and Pi off. Preserve the
-> 2026-09-28T02:48:19.949192Z packaging cutoff; report PARTIAL if coverage remains.
+> Continue N4 from the accepted N3 source and fresh n4-catalog-v3 derivative.
+> Read UPSTREAM_ACCEPTANCE_20260925.json, current process identities, worker
+> state and resource ownership. N1/N2/N3 acceptance is complete; do not repeat
+> their old queues. Implement D0 activity observability and C-only D0/E1
+> association calibration, then integrate exact component caching and the
+> verified new-run storage lifecycle into a full-bank runner. Freeze a new
+> derivative for source changes; do not edit accepted releases. Admit the
+> numerical plan only with complete contracts, resource ownership and a bounded
+> remaining disk allocation. Execute the actual 7,680-cell matrix with honest
+> failure/incompatibility/missing counts, followed by common-GUI paced panels,
+> continuity and whole-stack resource checks. Keep frozen baseline/model/event
+> policies and calibration/test separation. Complete the N4 report/selection,
+> then N5 validation and releases. Preserve every earlier artifact and all
+> desktop/Pi/privacy constraints; do not extend the packaging cutoff/deadline.
 
-The registered 15-minute in-task campaign heartbeat has triggered continuations.
-N4 inference has not started. N5 has independent packaging/cross-build
-preparation, but final accepted configurations depend on N4. This preparation
-ZIP is not a completed-stage deliverable.
+The registered in-task heartbeat continues. There is currently no N4 numerical
+queue or model worker. N5 preparation is not a completed-stage deliverable.

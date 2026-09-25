@@ -1,24 +1,29 @@
-# N4 comparison preparation and evaluation
+# N4 comparison implementation and evaluation
 
-README_COMPOSITIONS.md describes the new 16-composition builder and five passing
-model-free integrity tests, including the implemented A1/P0 adapter. Its actual
-source derivation/Controller check waits for accepted N3 input. No new N4 model
-run or stage acceptance is claimed; older 12-entry commands below are historical.
+README_PREPARATION_V2.md describes the regenerated preparation-v2 inputs from
+the accepted 16-entry derivative. All 480 waveforms were reverified; the five
+data/provenance payloads are byte-identical to v1, and all 16 matrix rows now
+bind actual catalog entries. PREPARATION_V2_CHECK.json records zero inference
+credit and 7,680 cells still NOT_TESTED.
 
-README_EVIDENCE_STORE.md describes the new-run-only storage lifecycle. Twelve
-temporary-data tests pass, including archive recovery, failed-cell retention,
-disk floors and CPU-allocation restoration. It has not been connected to an
-admitted production runner, and no existing campaign evidence was removed.
-The specification ceiling is 80 GiB; the current shared resource-policy record
-still carries a more conservative 50-GiB payload allowance. A later real N4
-admission must reconcile prior allocations and use the remaining effective
-allowance, never infer a fresh 80-GiB grant from the helper parameter.
+N1/N2/N3 are accepted in their offline/component scopes. N4 has begun using the
+accepted n3-common-a1controllerv2 source, not the historical 12-entry preparation.
+The fresh local/releases/n4-catalog-v3 derivative preserves common UI/layout and
+supports all 16 intended catalog tuples. Actual Controller selection/cleanup
+passed 16/16 with model acquisition forbidden. See README_COMPOSITIONS.md,
+ACCEPTED_SOURCE_CATALOG_CHECK.json and UPSTREAM_ACCEPTANCE_20260925.json.
 
-N2 is accepted; N4 is pending N3 numerical review and its own admission. Nothing in this
-directory changes the active N2/N3 source, personal profiles or Windows desktop.
-The Pi stays off. Only accepted saved audio is used; there is no device access.
-README_EVIDENCE.md documents the later archive reader and scorer integration;
-this is supporting implementation, not full-bank execution or stage acceptance.
+N4 is not complete: zero of 7,680 integrated files have executed. No numerical
+worker is running. D0 activity, C-only D0/E1 calibration, exact caching and the
+full-bank runner/admission still need implementation. README_EVIDENCE_STORE.md
+covers the tested new-run-only storage helper (12 tests); production integration
+and measured cell/storage bounds remain. Existing evidence was not removed.
+
+The specification ceiling is 80 GiB; the shared resource-policy record retains
+a more conservative 50-GiB payload allowance. Reconcile actual previous usage
+and remaining allocation before admitting N4. Do not infer a fresh allowance
+from a helper's maximum parameter. Preserve C:50 GiB/G:75 GiB and the deadline.
+The user desktop remains available, the Pi stays off, and only saved audio is used.
 
 `prepare.py` independently rehashes the 480 accepted PCM16 mono16k files, checks
 their physical O0/O1 pair, gain and existing reference mapping, and freezes an

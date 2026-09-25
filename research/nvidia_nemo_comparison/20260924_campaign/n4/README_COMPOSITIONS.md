@@ -14,8 +14,9 @@ and its expected-set test are changed; all shared UI hashes and auxiliary files
 are checked/preserved. It runs no inference, calibrates no threshold and confers
 no compatibility or performance acceptance. The executable does not decide N3
 acceptance: the campaign reviewer must first verify the final handoff and supply
-that exact accepted source. No new derivative was generated during this code
-preparation; the pending A1 Controller source is not yet accepted for N4.
+that exact accepted source. The accepted n3-common-a1controllerv2 receipt has
+now generated local/releases/n4-catalog-v3. Its 16 actual Controller selections
+passed with zero model loads; see ACCEPTED_SOURCE_CATALOG_CHECK.json.
 
 `test_compositions.py` uses the current source catalog without loading models.
 It tests all 16 unique tuples, source/baseline preservation, exact family-specific
@@ -58,7 +59,9 @@ It uses CPU4/BelowNormal. Inputs are `--source` (new derivative prototype),
 `--n2-runtime`, `--n3-runtime` (including the accepted A1 bundle), `--models`
 (existing baseline model root), and fresh `--output`. Outputs: private
 RESULT.json with selection/cleanup, modes, zero model loads and bound inputs.
-It is prepared but has not yet run against an accepted N4 derivative.
+It passed all 16 entries against n4-catalog-v3 using the accepted A1 runtime.
+The private result is local/n4/catalog-check-v3/RESULT.json; this remains a
+model-free wiring check with zero integrated numerical execution credit.
 
 Using reviewed environment paths, PowerShell:
 

@@ -1,0 +1,11 @@
+{
+  "status": "REMOTE_REF_VERIFIED",
+  "utc": "2026-09-25T01:56:38.443887+00:00",
+  "commit": "5bd5cc09291613419aaf8850a16e8a316feb0c0d",
+  "remote_commit": "5bd5cc09291613419aaf8850a16e8a316feb0c0d",
+  "tag": "n3-accepted-20260925-v1",
+  "remote_tag_commit": "5bd5cc09291613419aaf8850a16e8a316feb0c0d",
+  "remote": "https://github.com/will-sloan/just-peachy.git",
+  "branch": "codex/n1-foundation-20260924",
+  "private_payloads_uploaded": false
+}

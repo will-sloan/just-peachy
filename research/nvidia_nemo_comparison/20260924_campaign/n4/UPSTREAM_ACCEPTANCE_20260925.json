@@ -1,0 +1,40 @@
+{
+  "status": "N4_IMPLEMENTATION_ACTIVE_NO_NUMERICAL_RUN",
+  "utc": "2026-09-25T01:58:59.195730+00:00",
+  "upstream_n3_acceptance": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n3\\N3_ACCEPTANCE.json",
+    "sha256": "070783f77f3aec030fb837859f719317d6ecdaab4585e31c5e92d8c5f0e66204",
+    "bytes": 5459
+  },
+  "n3_package": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\handoffs\\N3_ACCEPTED_HANDOFF_20260925_v1.json",
+    "sha256": "c9b44f1e8dce6df4ba57439e9a96dc3bbdd132bf8a47b2dc0afc48f45884dd82",
+    "bytes": 386
+  },
+  "n3_git": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\git-backup-accepted-20260925-v1.json",
+    "sha256": "a0c44490f9ee14bc208410a9f735fd144228d8b53e92c87fcde8f60410917cfb",
+    "bytes": 448
+  },
+  "source_receipt": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\releases\\n4-catalog-v3\\SOURCE_RECEIPT.json",
+    "sha256": "8050c8bee52a6ec83c95f3514cb81219c3664dd43e172a477d35a54888e610d5",
+    "bytes": 61188
+  },
+  "catalog_check": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\catalog-check-v3\\RESULT.json",
+    "sha256": "ee7a9c57c40aa616a95f19650a1e8bec1fcbe0efbfc5bebf5cdb02ae9d8c59f2",
+    "bytes": 8503
+  },
+  "implemented_compositions": 16,
+  "integrated_cells_completed": 0,
+  "integrated_cells_required": 7680,
+  "numerical_worker_running": false,
+  "remaining": [
+    "D0 full activity observability",
+    "C-only D0/E1 association profile",
+    "Component-cache and archive lifecycle integration",
+    "Full-bank runner/admission",
+    "Paced/continuity/GUI/resource evaluation and selection"
+  ]
+}
