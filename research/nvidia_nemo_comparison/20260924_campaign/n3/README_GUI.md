@@ -1,5 +1,10 @@
 # Actual N3 GUI panel
 
+The initial v4 panels failed on an incorrectly encoded expected label suffix.
+README_GUI_RECOVERY.md documents the exact diagnosis, unchanged application
+hashes, derivative `gui_labels.py` and fresh six-cell supervised retest. Use
+that retest's receipts for current status; original failed evidence remains.
+
 `gui.py` adapts N2's reviewed isolated-desktop panel. It starts the real common
 480x800 Tk interface and Controller, selects the actual A2/A3 backend through
 the existing catalog, and uses D1/E0 research identity inference. It runs the

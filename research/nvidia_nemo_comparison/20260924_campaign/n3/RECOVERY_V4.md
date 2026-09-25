@@ -1,5 +1,15 @@
 # N3 v4 recovery — running, not accepted
 
+Later checkpoint, September 25: v4 finished 29 complete / three failed jobs.
+All native screen/regression/CPU/paced/conformance jobs completed. Its GUI
+failures are a test-only Unicode suffix defect, diagnosed against the actual
+Tk receipts. `numerical-guilabelsv1` retests all six cells using the identical
+application and corrected assertions; see README_GUI_RECOVERY.md. The separate
+`numerical-a1diagv1` diagnostic passed all eight encoder/cache cases against a
+fresh reference model, without relaxing tolerance. Full A1 portable rollout
+remains unqualified. RECOVERY_REVIEW_V4.json binds these later observations;
+the paragraphs below preserve the earlier recovery history.
+
 The first registered recurring follow-up ran on September 24, 2026. It found
 numerical-v3 terminal at 32/32 attempted jobs: 15 complete, three failed and
 14 dependency-skipped. The exact previous supervisor and coordinator had

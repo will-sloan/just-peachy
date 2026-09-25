@@ -1,8 +1,10 @@
 # N4 comparison preparation and evaluation
 
-N4 is pending N2/N3 numerical results and reviewed admission. Nothing in this
+N2 is accepted; N4 is pending N3 numerical review and its own admission. Nothing in this
 directory changes the active N2/N3 source, personal profiles or Windows desktop.
 The Pi stays off. Only accepted saved audio is used; there is no device access.
+README_EVIDENCE.md documents the later archive reader and scorer integration;
+this is supporting implementation, not full-bank execution or stage acceptance.
 
 `prepare.py` independently rehashes the 480 accepted PCM16 mono16k files, checks
 their physical O0/O1 pair, gain and existing reference mapping, and freezes an

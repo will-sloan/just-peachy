@@ -27,6 +27,13 @@ experiment. A 96-cell N2 screen cannot count as N4's 480-cell bank. CPU4/BelowNo
 limits this process. Library pins/tests are in README_METRICS.md. Name display
 timing and whole-GUI resources are separate qualifications.
 
+For archived cells, append `--archive-index PRIVATE_INDEX.json` to either command.
+README_EVIDENCE.md specifies the hash-bound index and reader verification.
+Unlisted cells use live files; listed cells use their verified ZIP without
+extraction. Small execution metadata and checkpoints remain at original paths.
+Outputs also bind all archive sources and reader code. Archive reading does not
+change scoring or authorize source pruning.
+
 `coverage.py` takes intended profile/job IDs and execution rows. Missing rows are
 NOT_TESTED. COMPLETE requires a binding; FAILED/INCOMPATIBLE require reasons. It
 counts, but does not certify a binding or infer compatibility. `paired.py` takes

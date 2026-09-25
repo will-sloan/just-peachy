@@ -1,27 +1,23 @@
 """Score immutable Controller results into a new directory. README_METRICS.md."""
 import argparse
-from collections import defaultdict
 import json
 import hashlib
 from pathlib import Path
-from common import load,sha,bind,freeze,audio_only
+from common import load,bind,freeze,audio_only
 from metrics import score_cell,aggregate,require_versions
+from evidence_reader import ControllerEvidence
 
 
-def convert(result):
+def convert(result, archive_binding=None):
     """Actual words only; no shadow-label outputs are promoted to widget evidence."""
+    with ControllerEvidence(result, archive_binding) as reader:
+        return convert_evidence(result, reader)
+
+
+def convert_evidence(result, reader):
     attempt=Path(result['attempt'])
-    by_path={str(Path(r['path']).resolve()):r for r in result['evidence']}
-    def evidence(path):
-        bound=by_path.get(str(path.resolve()))
-        if not bound or path.stat().st_size!=bound['bytes'] or sha(path)!=bound['sha256']:
-            raise ValueError('Required execution evidence missing or changed: '+str(path))
-        return load(path)
-    snapshot=evidence(attempt/'FINAL_SNAPSHOT.json')
+    snapshot=reader.json(attempt/'FINAL_SNAPSHOT.json')
     events_path=attempt/'RUNTIME_EVENTS.jsonl'
-    event_binding=by_path.get(str(events_path.resolve()))
-    if not event_binding or bind(events_path)!=event_binding:
-        raise ValueError('Runtime events are not bound to completed execution')
     groups={}
     for row in snapshot['rows']:
         groups.setdefault(row['utterance_id'],[]).append(row)
@@ -39,21 +35,20 @@ def convert(result):
             raise ValueError('Ambiguous repeated utterance without token-fragment support')
     duration=result['audio']['frames']/16000
     activity=[];native_frames=0;overhang=0.
-    with events_path.open(encoding='utf-8') as stream:
-        for line in stream:
-            row=json.loads(line)
-            if row['event_type']!='n2_diarization_frames':continue
-            p=row['payload'];step=p['frame_step_sec']
-            support=min(duration,p['audio_received_sec'])
-            for offset,probabilities in enumerate(p['probabilities']):
-                start=(p['frame_start']+offset)*step;end=start+step;native_frames+=1
-                overhang+=max(0,end-max(start,support))
-                # Score only the actual observed waveform's support; preserve
-                # all original probabilities/timestamps and report excluded tail.
-                if start>=support:continue
-                for slot,probability in enumerate(probabilities):
-                    if probability>=p.get('activity_threshold',.5):
-                        activity.append(dict(start=start,end=min(end,support),label=p['track_ids'][slot]))
+    for line in reader.lines(events_path):
+        row=json.loads(line)
+        if row['event_type']!='n2_diarization_frames':continue
+        p=row['payload'];step=p['frame_step_sec']
+        support=min(duration,p['audio_received_sec'])
+        for offset,probabilities in enumerate(p['probabilities']):
+            start=(p['frame_start']+offset)*step;end=start+step;native_frames+=1
+            overhang+=max(0,end-max(start,support))
+            # Score only the actual observed waveform's support; preserve
+            # all original probabilities/timestamps and report excluded tail.
+            if start>=support:continue
+            for slot,probability in enumerate(probabilities):
+                if probability>=p.get('activity_threshold',.5):
+                    activity.append(dict(start=start,end=min(end,support),label=p['track_ids'][slot]))
     return dict(job_id=result['job_id'],status='COMPLETE',raw_text=' '.join(texts),segments=segments,
         activity=activity if native_frames else None,
         activity_support=dict(native_frames=native_frames,overhang_seconds=overhang,
@@ -69,6 +64,10 @@ def main(args):
     if os.name=='nt':process.nice(psutil.BELOW_NORMAL_PRIORITY_CLASS)
     args.output.mkdir(parents=True,exist_ok=False)
     index=load(args.index);manifest=load(args.manifest)
+    archive_index_path=getattr(args,'archive_index',None)
+    archive_index=load(archive_index_path) if archive_index_path else None
+    if archive_index is not None and archive_index.get('schema')!='n4-archive-index-v1':
+        raise ValueError('Unsupported archive index')
     admission_path=args.index.parent/'ADMISSION.json'
     admission=load(admission_path)
     def n2_hash(value):
@@ -82,7 +81,7 @@ def main(args):
     ids={j['job_id'] for j in jobs}
     if len(ids)!=len(jobs) or not set(complete).isdisjoint(failed) or (set(complete)|set(failed))-ids:
         raise ValueError('Unknown, duplicate or contradictory result population')
-    rows=[];bindings=[]
+    rows=[];bindings=[];archive_sources=[]
     for job in jobs:
         audio_only(job)
         jid=job['job_id']
@@ -102,7 +101,14 @@ def main(args):
             expected='COMPLETE' if jid in complete else 'FAILED'
             if result['status']!=expected:
                 raise ValueError('Result/index status disagreement')
-            prediction=convert(result) if expected=='COMPLETE' else dict(job_id=jid,status='FAILED')
+            archive_binding=None
+            if expected=='COMPLETE' and archive_index is not None:
+                entry=archive_index['archives'].get(bind(result_path)['sha256'])
+                if entry is not None:
+                    if entry['execution_result']!=bind(result_path):
+                        raise ValueError('Archive index targets different execution evidence')
+                    archive_binding=entry['archive'];archive_sources.append(archive_binding)
+            prediction=convert(result,archive_binding) if expected=='COMPLETE' else dict(job_id=jid,status='FAILED')
         else:
             prediction=dict(job_id=jid,status='NOT_TESTED')
         row=score_cell(truth[jid],prediction)
@@ -112,8 +118,11 @@ def main(args):
         status='ACTUALLY_SCORED_EXISTING_EXECUTION',scope=args.scope,
         completed_N4_inference_claimed=False,metrics=aggregate(rows),rows=rows,
         metric_versions=require_versions(),
-        inputs=[bind(p) for p in (args.index,admission_path,args.manifest,args.truth,Path(__file__),Path(__file__).with_name('metrics.py'))],
-        execution_results=bindings)
+        inputs=[bind(p) for p in (args.index,admission_path,args.manifest,args.truth)]+[
+            bind(Path(__file__).with_name(name)) for name in
+            ('score_controller.py','metrics.py','evidence_reader.py','evidence_archive.py','common.py')],
+        execution_results=bindings,archive_sources=archive_sources,
+        archive_index=bind(archive_index_path) if archive_index_path else None)
     freeze(args.output/'SCORES.json',result)
     print(json.dumps(dict(status=result['status'],scope=args.scope,metrics=result['metrics']),indent=2))
 
@@ -122,4 +131,5 @@ if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__)
     for name in ('index','manifest','truth','output'):p.add_argument('--'+name,type=Path,required=True)
     p.add_argument('--scope',required=True,help='e.g. N2 screen rescore; never relabel as N4 full bank')
+    p.add_argument('--archive-index',type=Path,help='Optional verified archive locations keyed by original result SHA-256')
     main(p.parse_args())

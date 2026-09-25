@@ -2,7 +2,9 @@
 
 **N4 is not complete.** The full 7,680 intended integrated scene/tap results,
 shortlist, resource qualification and actual-application confirmation have not
-run. N2 remains active and N3's exact 32-job queue is waiting for it. N4 creates
+run. N2 is accepted; N3's v4 queue finished and its A1 diagnostic passed eight
+encoder/cache cases. A corrected six-cell GUI test is running in
+numerical-guilabelsv1. N3 acceptance remains pending. N4 creates
 no duplicate worker or automatic inference queue. `READINESS.json` is a dated
 snapshot; read the live private upstream status files for later changes.
 
@@ -18,7 +20,7 @@ snapshot; read the live private upstream status files for later changes.
   Controller selection/cleanup passed for all 12 with model loading forbidden.
   Fifteen inherited catalog/native-protocol/text tests pass. These are wiring
   checks, not model execution. A1 has no integrated Controller adapter yet.
-- Twenty-seven N4 tests pass: missed-word/failure/empty/overlap denominators,
+- Thirty-five N4 tests pass: missed-word/failure/empty/overlap denominators,
   established cpWER/MIMO and estimated-activity DER/JER, cache invalidation,
   paired clusters, coverage, RAM headroom, process identity and archive corruption.
   Two completed N2 cells also passed the new evaluator's real-evidence smoke.
@@ -29,7 +31,12 @@ snapshot; read the live private upstream status files for later changes.
   reference JER is explicitly unavailable; false alarms remain counted.
 - Lossless archival was verified on one completed N2 cell: 59 bound files,
   35,893,789 input bytes, 2,934,765 archive bytes, no original changed or removed.
-  Archive-aware runtime/scoring lifecycle integration remains pending.
+  Archive-aware scoring now has eight passing additional fixtures, including
+  identical predictions/metrics after deleting only temporary test originals.
+  It rejects changed, duplicate, outside and unbound inputs, and checks the
+  full scorer's archive-index path. ARCHIVE_READER_CHECK.json records exact
+  prediction/metric equality on the real N2 probe cell without extraction or
+  source changes. The bounded full-run archival lifecycle remains pending.
 
 No candidate has been selected, promoted or assigned a measured deployment tier.
 `MATRIX.json`/`MATRIX.csv` retain all 16 intended profiles, 480 rows each, with
@@ -79,8 +86,9 @@ No desktop input/focus control, SSH, microphone, USB, playback or new capture ra
 
 > Complete the already-authorized N2, N3 and N4 campaign in
 > G:\Just_Peachy_N1\20260924_campaign\worktree. First inspect live N2
-> local/n2/numerical-v2 RESULT/CHAIN_RESULT and N3 local/n3/numerical-v2
-> QUEUE_RESULT/RESULT with exact PID creation identities. Do not duplicate or
+> local/n2/numerical-v2 RESULT/CHAIN_RESULT and N3 local/n3/numerical-v4
+> RESULT plus numerical-a1diagv1 and numerical-guilabelsv1 QUEUE_RESULT/RESULT with exact PID creation
+> identities. Do not duplicate or
 > interrupt their admitted owners. Review completed N2/N3 evidence and finalize
 > their acceptance reports; preserve every failed attempt and diagnose actual
 > failures before changing frozen choices. N4 is authorized after prerequisites
@@ -98,6 +106,7 @@ No desktop input/focus control, SSH, microphone, USB, playback or new capture ra
 > and the final small handoff ZIP. Keep the desktop free and Pi off. Preserve the
 > 2026-09-28T02:48:19.949192Z packaging cutoff; report PARTIAL if coverage remains.
 
-N2/N3 numerical work continues without an active LLM. Automatic LLM continuation
-has not been verified; N4 is not automatically scheduled by this checkpoint.
-No N5 work is started. This preparation ZIP is not a completed-stage deliverable.
+The registered 15-minute in-task campaign heartbeat has triggered continuations.
+N4 inference has not started. N5 has independent packaging/cross-build
+preparation, but final accepted configurations depend on N4. This preparation
+ZIP is not a completed-stage deliverable.

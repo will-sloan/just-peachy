@@ -1,0 +1,519 @@
+{
+  "schema": "n3-v4-post-run-review-checkpoint-v1",
+  "status": "IN_PROGRESS_NOT_STAGE_ACCEPTANCE",
+  "created_utc": "2026-09-25T00:04:12.864793+00:00",
+  "source_plan": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\plan-v4.json",
+    "sha256": "8000480360bb6620ba266bb585bc9e10f229c52366f0570a4aae3ae63ee7836f",
+    "bytes": 1318268
+  },
+  "terminal": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-v4\\RESULT.json",
+    "sha256": "9a08e7dfb9f87b51f8d49a6438f4ab9e53e78e3e62b9d63e1b6d281c980033d0",
+    "bytes": 21770
+  },
+  "job_counts": {
+    "COMPLETE": 29,
+    "FAILED": 3
+  },
+  "jobs": [
+    {
+      "job": "prototype-suite",
+      "status": "COMPLETE",
+      "reason": null,
+      "result": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-v4\\suite\\RESULT.json",
+        "sha256": "dacbbe45dbb67ebb7de8db4067585d97d5d0d4982f369ed59f554b12903e2f17",
+        "bytes": 207361
+      }
+    },
+    {
+      "job": "smoke-A0",
+      "status": "COMPLETE",
+      "reason": null,
+      "result": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-v4\\smoke-A0\\RESULT.json",
+        "sha256": "6fb6c79a7e4e4c33f9c05ab71b560a43b7289ca0443c111b1814a665976ffc22",
+        "bytes": 855
+      }
+    },
+    {
+      "job": "smoke-A1",
+      "status": "COMPLETE",
+      "reason": null,
+      "result": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-v4\\smoke-A1\\RESULT.json",
+        "sha256": "3c66de25f68843423a5264166ac24284495db09627feb6ce352cb2d3a06d62e8",
+        "bytes": 858
+      }
+    },
+    {
+      "job": "probe-A1",
+      "status": "COMPLETE",
+      "reason": null,
+      "result": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-v4\\probe-A1\\RESULT.json",
+        "sha256": "fe88fb924744c6a3af9c46892b09f6dbecae384388a83d95cc8801737916ebea",
+        "bytes": 3445
+      }
+    },
+    {
+      "job": "smoke-A2",
+      "status": "COMPLETE",
+      "reason": null,
+      "result": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-v4\\smoke-A2\\RESULT.json",
+        "sha256": "918682588ad742450509023940dfe0153e6840232e9c7fae67566e8d1a0a7fc2",
+        "bytes": 855
+      }
+    },
+    {
+      "job": "smoke-A3",
+      "status": "COMPLETE",
+      "reason": null,
+      "result": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-v4\\smoke-A3\\RESULT.json",
+        "sha256": "7458dddb1026d79731bc869a215301109cdae7482b6d414495ad6b1adb353ea5",
+        "bytes": 854
+      }
+    },
+    {
+      "job": "A1-export",
+      "status": "FAILED",
+      "reason": "result status EXPORT_OR_STATE_PARITY_FAILED",
+      "result": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-v4\\A1-export\\EXPORT_RESULT.json",
+        "sha256": "9fa1ad8bb7fb716805b47ed43f973bb3bff1e9db5e3fe2ef4043fa5e8b8b13eb",
+        "bytes": 3823
+      }
+    },
+    {
+      "job": "probe-A2",
+      "status": "COMPLETE",
+      "reason": null,
+      "result": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-v4\\probe-A2\\RESULT.json",
+        "sha256": "fff939890b40403108626c1a55d7a5925c6591d9e0c25af008b9911d1527793c",
+        "bytes": 4322
+      }
+    },
+    {
+      "job": "reference-A2",
+      "status": "COMPLETE",
+      "reason": null,
+      "result": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-v4\\reference-A2\\RESULT.json",
+        "sha256": "eeaa3d2835a82ec8c854a0e967aa90ba97fe067cfacd5c4fcbc9d913d555cfa8",
+        "bytes": 1724
+      }
+    },
+    {
+      "job": "cpu-panel-A2",
+      "status": "COMPLETE",
+      "reason": null,
+      "result": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-v4\\cpu-panel-A2\\RESULT.json",
+        "sha256": "cebeb1adcb1811575b901e3933a4cf305277a2acebd45478dbe18c7b296d90db",
+        "bytes": 1720
+      }
+    },
+    {
+      "job": "paced-A2",
+      "status": "COMPLETE",
+      "reason": null,
+      "result": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-v4\\paced-A2\\RESULT.json",
+        "sha256": "b90c12dc11025715613f0b8afa7603fd752f54ef2154d0323c6133d980981635",
+        "bytes": 1704
+      }
+    },
+    {
+      "job": "lower-buffer-A2",
+      "status": "COMPLETE",
+      "reason": null,
+      "result": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-v4\\lower-buffer-A2\\RESULT.json",
+        "sha256": "d938f9de9f970a7262b149eaf7b292b24d9c36704f2fae3da3907656f2f5d9a5",
+        "bytes": 1732
+      }
+    },
+    {
+      "job": "probe-A3",
+      "status": "COMPLETE",
+      "reason": null,
+      "result": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-v4\\probe-A3\\RESULT.json",
+        "sha256": "4cc4544474d7c8e8ee93d1185a91d4ab010459eefd347da3f9d2151cccfefa00",
+        "bytes": 4319
+      }
+    },
+    {
+      "job": "reference-A3",
+      "status": "COMPLETE",
+      "reason": null,
+      "result": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-v4\\reference-A3\\RESULT.json",
+        "sha256": "f96573371a8a78a30f5fa22016fd46ce6ebad0730a76e21aa1409c9ed3fe4f57",
+        "bytes": 1723
+      }
+    },
+    {
+      "job": "cpu-panel-A3",
+      "status": "COMPLETE",
+      "reason": null,
+      "result": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-v4\\cpu-panel-A3\\RESULT.json",
+        "sha256": "d71e868a363c8df7c5af3008610881fbc47f01d32770b9ad8d37985839ce3263",
+        "bytes": 1719
+      }
+    },
+    {
+      "job": "paced-A3",
+      "status": "COMPLETE",
+      "reason": null,
+      "result": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-v4\\paced-A3\\RESULT.json",
+        "sha256": "4b33451bfb433d5e57734d735fd4e81ac3eb0be5e8b2db688eaaea2520c0ab9d",
+        "bytes": 1704
+      }
+    },
+    {
+      "job": "lower-buffer-A3",
+      "status": "COMPLETE",
+      "reason": null,
+      "result": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-v4\\lower-buffer-A3\\RESULT.json",
+        "sha256": "450a1de7627ca93fa22ee9d2946a6fc5b6bc0c53751cc73cacda5b0341fa2d9a",
+        "bytes": 1731
+      }
+    },
+    {
+      "job": "screen-A0",
+      "status": "COMPLETE",
+      "reason": null,
+      "result": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-v4\\screen-A0\\RESULT.json",
+        "sha256": "ff3fde6d53a58379f16167667bbc8d04f50d0b615f927663162fe1710ecde02e",
+        "bytes": 27837
+      }
+    },
+    {
+      "job": "regression-A0",
+      "status": "COMPLETE",
+      "reason": null,
+      "result": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-v4\\regression-A0\\RESULT.json",
+        "sha256": "6fb1172b7b19cf344caeefa1e14e0401dbd231f3652980590eadf201a75ec3a5",
+        "bytes": 2874
+      }
+    },
+    {
+      "job": "paced-A0",
+      "status": "COMPLETE",
+      "reason": null,
+      "result": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-v4\\paced-A0\\RESULT.json",
+        "sha256": "006f70f7fab4680eab6659cf12fa90e4ec630265c93ab21eed794351cec3b399",
+        "bytes": 1703
+      }
+    },
+    {
+      "job": "screen-A1",
+      "status": "COMPLETE",
+      "reason": null,
+      "result": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-v4\\screen-A1\\RESULT.json",
+        "sha256": "bfea869974f97c7beed63cc8c5e8a4119b202b2e530f897c2ee324fe4cd1e96d",
+        "bytes": 27841
+      }
+    },
+    {
+      "job": "regression-A1",
+      "status": "COMPLETE",
+      "reason": null,
+      "result": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-v4\\regression-A1\\RESULT.json",
+        "sha256": "bd65fe8066ce149af37925fb37eaf69b5bca606f8ca9d871d0b916129a3ffaf5",
+        "bytes": 2879
+      }
+    },
+    {
+      "job": "paced-A1",
+      "status": "COMPLETE",
+      "reason": null,
+      "result": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-v4\\paced-A1\\RESULT.json",
+        "sha256": "6f73efde6236faf57541ef5f4394d49aebf3fcd5679ea95170d5368593977a72",
+        "bytes": 1708
+      }
+    },
+    {
+      "job": "screen-A2",
+      "status": "COMPLETE",
+      "reason": null,
+      "result": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-v4\\screen-A2\\RESULT.json",
+        "sha256": "3af0307dda9f1720b8bd7d5152ff8bafe0081decce383a2a1aedb213d7a0bca1",
+        "bytes": 27838
+      }
+    },
+    {
+      "job": "regression-A2",
+      "status": "COMPLETE",
+      "reason": null,
+      "result": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-v4\\regression-A2\\RESULT.json",
+        "sha256": "21fb6d6455b26186b6ff79c30f6275f4426ba89366680b82a83d8891b69fac2c",
+        "bytes": 2874
+      }
+    },
+    {
+      "job": "screen-A3",
+      "status": "COMPLETE",
+      "reason": null,
+      "result": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-v4\\screen-A3\\RESULT.json",
+        "sha256": "55661524935c7ee70acd810e7180238d5262720325bfca849064d6e8f433e535",
+        "bytes": 27838
+      }
+    },
+    {
+      "job": "regression-A3",
+      "status": "COMPLETE",
+      "reason": null,
+      "result": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-v4\\regression-A3\\RESULT.json",
+        "sha256": "b34f7436b7b44ea7f9d653f84226d179b49767a74197c46ab0217b51db82c36a",
+        "bytes": 2875
+      }
+    },
+    {
+      "job": "actual-gui-A2",
+      "status": "FAILED",
+      "reason": "exit 2",
+      "result": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-v4\\gui-A2\\GUI_PANEL_REPORT.json",
+        "sha256": "4832fb9ad5b9c04fc0b2f2f9904912a6844758a9d7e022d5819e8e6576beaada",
+        "bytes": 1035
+      }
+    },
+    {
+      "job": "actual-gui-A3",
+      "status": "FAILED",
+      "reason": "exit 2",
+      "result": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-v4\\gui-A3\\GUI_PANEL_REPORT.json",
+        "sha256": "41bb00baffcab02bc928923a731bcd5ee79d80de4b20074da7329bb4d6fba50c",
+        "bytes": 1034
+      }
+    },
+    {
+      "job": "lexical-comparison",
+      "status": "COMPLETE",
+      "reason": null,
+      "result": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-v4\\analysis\\LEXICAL_COMPARISON.json",
+        "sha256": "74fccb709a10cb5fde2cc2a975da3a9c3043fa0dacc09fb1be8290796eba857f",
+        "bytes": 195050
+      }
+    },
+    {
+      "job": "text-comparison",
+      "status": "COMPLETE",
+      "reason": null,
+      "result": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-v4\\text\\TEXT_COMPARISON.json",
+        "sha256": "8897327b1d0cbc539133bd2c0a3e19feab5165e617d10d2fabd104b57cc185cd",
+        "bytes": 5085
+      }
+    },
+    {
+      "job": "route-comparison",
+      "status": "COMPLETE",
+      "reason": null,
+      "result": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-v4\\routes\\ROUTE_COMPARISON.json",
+        "sha256": "7145e6e623775a8bf2316bd4317b2fd7f0b5f3a976304d2924d2b4491f6b78b3",
+        "bytes": 12749
+      }
+    }
+  ],
+  "encoder_diagnostic": {
+    "result": {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-a1diagv1\\diagnostic\\RESULT.json",
+      "sha256": "0e71626f69cf798aa9da978e529c9576512bd5da55716097cddbb21aef6001ec",
+      "bytes": 40686
+    },
+    "plan": {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\plan-a1diagv1.json",
+      "sha256": "5484bd6ac112037eaf792b9575ade6e4cb6f711de1d35104ad4d00b21e6f3262",
+      "bytes": 1286941
+    },
+    "cases": 8,
+    "all_outputs_within_original_tolerance": true,
+    "integer_lengths_exact": true,
+    "execution_modes_equal": true,
+    "maximum_absolute_error": 3.0517578125e-05,
+    "graph": {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-v4\\A1-export\\encoder-a1.onnx",
+      "sha256": "7612b037889ad212db93e2f141305b6145bf448909cae80b08c91faa277623e4",
+      "bytes": 459246651,
+      "inputs": [
+        {
+          "name": "audio_signal",
+          "shape": [
+            "audio_signal_dynamic_axes_1",
+            128,
+            "audio_signal_dynamic_axes_2"
+          ]
+        },
+        {
+          "name": "length",
+          "shape": [
+            "length_dynamic_axes_1"
+          ]
+        },
+        {
+          "name": "cache_last_channel",
+          "shape": [
+            "cache_last_channel_dynamic_axes_1",
+            17,
+            "cache_last_channel_dynamic_axes_2",
+            512
+          ]
+        },
+        {
+          "name": "cache_last_time",
+          "shape": [
+            "cache_last_time_dynamic_axes_1",
+            17,
+            512,
+            "cache_last_time_dynamic_axes_2"
+          ]
+        },
+        {
+          "name": "cache_last_channel_len",
+          "shape": [
+            "cache_last_channel_len_dynamic_axes_1"
+          ]
+        }
+      ],
+      "outputs": [
+        "outputs",
+        "encoded_lengths",
+        "cache_last_channel_next",
+        "cache_last_time_next",
+        "cache_last_channel_next_len"
+      ]
+    },
+    "portable_streaming_qualified": false
+  },
+  "gui_retest": {
+    "plan": {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\plan-guilabelsv1.json",
+      "sha256": "fe97109baeac8e7d45110de30b010844b34d2bf0b0cb1bb28ddfc4da59d659b5",
+      "bytes": 1293613
+    },
+    "diagnosis": [
+      {
+        "variant": "A2",
+        "actual_expected_labels": 89,
+        "assertion_codepoints": [
+          32,
+          194,
+          183,
+          32,
+          97,
+          115,
+          115,
+          117,
+          109,
+          101,
+          100
+        ],
+        "actual_suffix_codepoints": [
+          32,
+          183,
+          32,
+          97,
+          115,
+          115,
+          117,
+          109,
+          101,
+          100
+        ],
+        "original_panel": {
+          "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-v4\\gui-A2\\GUI_PANEL_REPORT.json",
+          "sha256": "4832fb9ad5b9c04fc0b2f2f9904912a6844758a9d7e022d5819e8e6576beaada",
+          "bytes": 1035
+        },
+        "cell_result": {
+          "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-v4\\gui-A2\\private_cells\\A2_boundary\\cells\\A2_boundary\\RESULT.json",
+          "sha256": "d21c45c94aeb8e8ba9ded456c83963f7b6a16d57b8049e21892d2f49f265a3cc",
+          "bytes": 4265
+        },
+        "receipts": {
+          "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-v4\\gui-A2\\private_cells\\A2_boundary\\cells\\A2_boundary\\PRESENTATION_RECEIPTS.jsonl",
+          "sha256": "544623955a39efa128980b60f17ae09f999bb0e4d0e903a83071543ca7a7fa42",
+          "bytes": 187534
+        }
+      },
+      {
+        "variant": "A3",
+        "actual_expected_labels": 106,
+        "assertion_codepoints": [
+          32,
+          194,
+          183,
+          32,
+          97,
+          115,
+          115,
+          117,
+          109,
+          101,
+          100
+        ],
+        "actual_suffix_codepoints": [
+          32,
+          183,
+          32,
+          97,
+          115,
+          115,
+          117,
+          109,
+          101,
+          100
+        ],
+        "original_panel": {
+          "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-v4\\gui-A3\\GUI_PANEL_REPORT.json",
+          "sha256": "41bb00baffcab02bc928923a731bcd5ee79d80de4b20074da7329bb4d6fba50c",
+          "bytes": 1034
+        },
+        "cell_result": {
+          "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-v4\\gui-A3\\private_cells\\A3_boundary\\cells\\A3_boundary\\RESULT.json",
+          "sha256": "79e578e04e812fd5ee26c460416cb4dc828c9263eba4a10beb5d33915ccaef0d",
+          "bytes": 4265
+        },
+        "receipts": {
+          "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-v4\\gui-A3\\private_cells\\A3_boundary\\cells\\A3_boundary\\PRESENTATION_RECEIPTS.jsonl",
+          "sha256": "2b8af5d88672e70d962047badf8d8c0206c60191dec6b41f1b72cc8dc0a015ff",
+          "bytes": 205516
+        }
+      }
+    ],
+    "required_cells": 6,
+    "application_source_unchanged": true,
+    "inference_logic_changed": false,
+    "status": "RUNNING_AT_CHECKPOINT"
+  },
+  "limitations": [
+    "Original post-export-instance mismatch remains to diagnose; fresh reference encoder cases pass",
+    "Full portable A1 frontend/decoder/EOU/saved-audio and ARM64 qualification outstanding",
+    "GUI retest needs completion and actual capture review",
+    "Lexical/PnC/ITN/reference/resource reports need final interpretation and acceptance",
+    "CM5 offline; no target performance claims"
+  ]
+}
