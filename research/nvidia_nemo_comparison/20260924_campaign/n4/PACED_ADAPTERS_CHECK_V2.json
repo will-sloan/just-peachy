@@ -1,0 +1,86 @@
+{
+  "status": "PASS_MODEL_FREE_RESEARCH_GALLERY_AND_CONSUMER_CLOCK",
+  "utc": "2026-09-25T08:36:31.397378+00:00",
+  "private_receipt": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\paced-adapters-v2\\RESULT.json",
+    "sha256": "e9944cdfc6a397b1d4708da3b5b65d94e105f840b64e309a1689c935e19714be",
+    "bytes": 1052
+  },
+  "preserved_attempt": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\paced-adapters-v1\\RESULT.json",
+    "sha256": "efd2eeb1ac048ac820a40b310079af70772ba2c3c1333fbf9a97e522efac0782",
+    "bytes": 1038
+  },
+  "source_receipt": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\releases\\n4-catalog-v3\\SOURCE_RECEIPT.json",
+    "sha256": "8050c8bee52a6ec83c95f3514cb81219c3664dd43e172a477d35a54888e610d5",
+    "bytes": 61188
+  },
+  "gallery_preparation": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\mode-galleries-v1\\GALLERIES.json",
+    "sha256": "1d715373e6504a9688265adaafc3dab33129f7bb1550fd691cacea7a4ebb9ac9",
+    "bytes": 16716
+  },
+  "code": [
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\paced_adapters_v2.py",
+      "sha256": "dd174aaf3fa883e4fff362258b0a3f05a0e9714a8a7c49ca99e85ff49400994b",
+      "bytes": 12378
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\test_paced_adapters_v2.py",
+      "sha256": "93a9e4eeace18c91acfabff21a1b09566d5886541e0408cde60ef0405d54e513",
+      "bytes": 12311
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\probe_paced_adapters_v2.py",
+      "sha256": "7cbd6b8b72a027359adee06d77fab4892b25c671bacf06ecd9f413e8d7baa467",
+      "bytes": 4277
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\README_PACED_ADAPTERS_V2.md",
+      "sha256": "c5a0cc561966d9e96ec6a895862dab2fdcaae10c8860a08983098c446d81dbf5",
+      "bytes": 3173
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\mode_galleries.py",
+      "sha256": "6235b2b26d056e8ff0e7e0dd4e17b7d18562c0debd24b97abd63b78ea29c09d5",
+      "bytes": 13633
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\controller_projection.py",
+      "sha256": "5f75e8158b9bfe04d031c599fba349888271b2cd3dc1495b297669acde85c8e0",
+      "bytes": 13528
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\common.py",
+      "sha256": "a44e389d3c80c8c21e74ea3423d8270273e5b3132a84095218dee078c53f059e",
+      "bytes": 3267
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\metric_process.py",
+      "sha256": "1a1279c44ce906ce13733db1ba32ba86ffd7419cb1a4b767df3505d66d3e36f8",
+      "bytes": 10902
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\probe_integrated_scoring.py",
+      "sha256": "48e7eda0c7ac88ce4fb445645714bd1a00b4fb7561fdc22a02fb7564c4620435",
+      "bytes": 8006
+    }
+  ],
+  "tests_passed": 7,
+  "gallery_mode_tap_cases": 160,
+  "actual_engine_consumer_classes": [
+    "PrototypeEngine",
+    "N2Engine",
+    "N3IdentityEngine"
+  ],
+  "helper_exited": true,
+  "models_loaded": 0,
+  "source_events_are_fixtures": true,
+  "actual_source_execution": false,
+  "actual_GUI_execution": false,
+  "source_to_widget_latency_qualified": false,
+  "integrated_N4_cells": 0,
+  "scope": "Unchanged score delegation and counters; actual three engine publication/Controller-drain methods on fixture source events. No source, inference, GUI, resource or full-stage acceptance."
+}

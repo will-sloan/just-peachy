@@ -503,3 +503,23 @@ research bridge, and its source clock does not use the N2 observer factory.
 Qualify narrow research-store and common clock/resource hooks before admitting
 the 24-cell shortlisted application panels. Keep CPU4 collection healthy and
 do not start another neural owner or controlled timing run alongside it.
+
+The narrow roster/clock hooks are now qualified in paced_adapters_v2.py. Seven
+model-free tests passed: 160 verified gallery/mode/tap cases preserve scores,
+template bytes, counts and fixed rosters, and all three actual engine classes
+publish fixture source-start events through their unchanged Controller consumer
+and final drain. V1's plain wrapper failed the baseline's ResearchGallery type
+admission; that attempt is preserved. V2 subclasses the actual gallery while
+delegating scores unchanged and checks the complete S6D publication metadata.
+The source origin, publication stamp and consumer receipt remain distinct;
+duplicate starts, changed epochs/sessions and event sequence gaps invalidate
+observer evidence. See PACED_ADAPTERS_CHECK_V2.json and README_PACED_ADAPTERS_V2.md.
+
+These checks run no source audio, models or GUI and confer no integrated or
+latency acceptance. Still implement/join actual FileSource sample and journal
+closure, bounded viewport histories and whole-application resource receipts,
+then execute the predeclared shortlisted panels/repeats/continuity after the
+component and full modeled-bank reviews. ASR moved from A1 to A2 during this
+checkpoint; the sole model slot remains occupied and D1 is not started. The
+existing in-task follow-up was changed to every 30 minutes at the user's request;
+its deadline and meaningful-change notification policy are preserved.
