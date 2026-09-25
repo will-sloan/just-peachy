@@ -1,6 +1,39 @@
 # N4 implementation checkpoint — upstream accepted, integrated run pending
 
-Latest downstream qualification: eight tests and 160 actual Controller consumer
+Latest qualification at 2026-09-25 06:58:55 UTC: nine tests and all 160 actual
+publication/Controller method checks passed. application_publication.py uses
+the actual engine constructors, begin routing, raw transcript publication,
+scheduled decisions, watermark, punctuation and inherited emit methods with
+isolated module-local modeled clocks. Full projected history and final rows
+match the preserved mode/consumer results in 160/160 cases. The two smoke
+sources remain deliberate reuse, including 16 reverified smoke checks; this
+is not new inference or independent full-bank coverage. Counts are 189,662
+publications, 20,673 displays, 7,000 raw observations and 540 final utterances.
+APPLICATION_PUBLICATION_CHECK_V1.json and README_APPLICATION_PUBLICATION.md
+bind code, purpose, limits, inputs/outputs and all shell commands. Private
+local/n4/publication-modes-v1/RESULT.json SHA-256:
+`6360ff7d520789d7bbe3b76f62a105f8d5f8e0a22dbfa6baaa489be29591d186`.
+
+controller_projection_v2.py additionally admits only proven complete empty
+publication sessions. Four tests and 38 saved-evidence checks passed at
+06:58:59 UTC: 19 closed A0 zero-output files x anonymous/selected-closed
+baseline modes, each joined to reviewed D0/E0 evidence. No placeholder text
+or identity is generated. Later scoring must count the empty hypotheses'
+missed words. The ASR full-bank terminal review is still pending; this is
+development evidence, not bank acceptance. EMPTY_CONTROLLER_CHECK_V1.json
+and README_CONTROLLER_PROJECTION_V2.md bind the fresh derivative and commands.
+Private local/n4/empty-controller-v1/RESULT.json SHA-256:
+`43c1ebc1f90810e51978944f37843a004e11f0795fdc118840add878a1bb434a`.
+
+All 396 gzip artifacts (153,576,504 compressed bytes; 3,145,968,702 expanded)
+and 198 closure receipts were independently reverified. The exact probe owners
+45044 / 1790318773.1361148 and 30588 / 1790319398.284181 exited. Neither probe
+loaded a model or opened a GUI. ASR remains the sole numerical run, D1 remains
+prepared without a waiter, and integrated N4 acceptance remains 0/7,680.
+Continue with fresh numerical ownership/progress inspection and the actions
+in the final section of INTEGRATION_NEXT.md; preserve these bound helpers.
+
+Earlier downstream qualification: eight tests and 160 actual Controller consumer
 and label-projection checks passed at 2026-09-25 06:28:18 UTC. Each isolated
 Controller selected its real backend/mode, consumed the sealed modeled displays
 on its actual consumer thread, preserved raw words, wrote its closure receipt

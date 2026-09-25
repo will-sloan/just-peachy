@@ -233,3 +233,69 @@ at local/n4/controller-projection-v1/RESULT.json. The 160 compressed outputs
 total 23,342,988 bytes. CONTROLLER_PROJECTION_CHECK_V1.json binds the evidence
 and tests. Counts include deliberate reuse and unchanged snapshot context;
 they are not accuracy, independent-scene coverage or integrated acceptance.
+
+## Actual publication methods and successful empty outputs
+
+The producer-method gap above now has a bounded implementation in
+application_publication.py. Actual constructors, begin routing, transcript,
+scheduled decision, watermark, formatting and inherited emit methods execute
+against the sealed components. Only session/model/source startup is suppressed;
+the publication observer sits at the real events.put seam. Module-local clock
+facades preserve modeled timing without changing the global clock, filesystem
+source or another process. The actual emitter assigns serials, flattens the
+scheduled decision payload, applies freshness/state and recursively publishes
+annotated displays. Actual D1 lock/history/query/revision behavior remains in
+the path. These are harness-scoped serials: startup/I-O and ASR/D0 dispatch
+diagnostic events are omitted, so full-session publication parity is unqualified.
+
+Nine tests passed. The 16-case selected-closed O0 smoke matched all earlier
+caption histories and final projections; the expanded 160-case check reused
+those 16 unchanged artifacts and matched all 160 histories/finals at
+2026-09-25 06:58:55 UTC. It retained 189,662 actual publications, 20,673 displays,
+7,000 raw observations and 540 finals across deliberate source reuse.
+APPLICATION_PUBLICATION_CHECK_V1.json and README_APPLICATION_PUBLICATION.md
+record evidence, inputs/outputs, modeled-clock limitations and run commands.
+Private publication-modes-v1/RESULT.json SHA-256 is
+`6360ff7d520789d7bbe3b76f62a105f8d5f8e0a22dbfa6baaa489be29591d186`.
+
+The closed A0 index also exposed 19 files with zero ASR observations. V1's
+nonempty display admission could not represent these successful executions.
+The fresh controller_projection_v2.py accepts an empty result only with a
+fully drained, closed publication trace, one exact closing watermark per lane,
+zero raw/final/formatting counts and no hidden text/caption event. Actual
+Controller consumer/closure succeeds without a made-up caption. Four tests
+passed, including nonempty regression and invalid empty-trace rejection; all
+19 closed files x two baseline modes then passed (38 cases). The ASR terminal
+review remains pending. EMPTY_CONTROLLER_CHECK_V1.json and its V2 README bind
+this development result. Private empty-controller-v1/RESULT.json SHA-256 is
+`43c1ebc1f90810e51978944f37843a004e11f0795fdc118840add878a1bb434a`.
+
+All 396 compressed/expanded artifacts and 198 Controller closure bindings were
+reverified, and both exact helper owners exited. No numerical model was loaded.
+These completed helpers and their code/README bindings are now immutable.
+
+Remaining integration work, in dependency order:
+
+1. Inspect the current ASR supervisor/coordinator/model PID creation identities,
+   resource affinities and heartbeat. After terminal completion and coordinator
+   exit, run the already-prepared full ASR reviewer. Only its passed review may
+   admit the existing D1 full-bank plan; do not launch a duplicate model/waiter.
+2. Implement the bounded complete-bank join/runner from accepted ASR, D0 and D1
+   receipts, exact job/audio/source/runtime/gallery bindings and the actual
+   publication/empty-safe Controller methods. Keep execution, missing input,
+   successful empty hypothesis and unqualified measurement statuses distinct.
+   Use fresh code derivatives and storage admission before collecting outputs.
+3. Integrate scoring with immutable Q references only after prediction closure.
+   Empty successful hypotheses count missed reference words; execution failures
+   remain failures. Preserve fragments, source overlap, speaker identity and all
+   denominators. Existing D0 speech/overlap masks and sparse track support do not
+   supply a persistent global-speaker timeline; do not manufacture D0 DER.
+4. Qualify the source/model/journal/Controller chain on the predeclared panels
+   and retained stacks, then actual private-desktop GUI delivery, continuity
+   and whole-stack resources at source speed. Modeled timestamps and this
+   helper's partial publication trace cannot establish observed GUI latency,
+   complete source/session parity or hardware fit.
+
+N4 acceptance remains 0/7,680 integrated cells. N5 remains preparation until
+accepted N4 configurations and offline release validation exist. The packaging
+reserve and campaign deadline remain unchanged; live CM5 checks stay deferred.

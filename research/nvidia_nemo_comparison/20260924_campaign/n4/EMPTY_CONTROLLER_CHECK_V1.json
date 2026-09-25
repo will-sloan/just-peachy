@@ -1,0 +1,90 @@
+{
+  "status": "PASS_38_REAL_EMPTY_OUTPUT_METHOD_CHECKS",
+  "utc": "2026-09-25T06:58:59.924385+00:00",
+  "private_receipt": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\empty-controller-v1\\RESULT.json",
+    "sha256": "43c1ebc1f90810e51978944f37843a004e11f0795fdc118840add878a1bb434a",
+    "bytes": 74790
+  },
+  "admission": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\empty-controller-v1\\ADMISSION.json",
+    "sha256": "acf881833907390265a4ef03b144d6d810335916e9226ac9dec613ef7f6598f4",
+    "bytes": 3993
+  },
+  "source_receipt": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\releases\\n4-catalog-v3\\SOURCE_RECEIPT.json",
+    "sha256": "8050c8bee52a6ec83c95f3514cb81219c3664dd43e172a477d35a54888e610d5",
+    "bytes": 61188
+  },
+  "empty_audit": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\EMPTY_ASR_OUTPUT_AUDIT_V1.json",
+    "sha256": "fcc504052e96a5655a0600e01f765e39a8a5a33975feaceac13086f9f163655b",
+    "bytes": 7704
+  },
+  "code": [
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\controller_projection_v2.py",
+      "sha256": "0ef96c5d39bcb88f0f6805baa427c3dd0d4d89fcef6d8a9f6c04546339f134dd",
+      "bytes": 15804
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\test_controller_projection_v2.py",
+      "sha256": "8eda13e34b2d8ecc47afddbab769f97148f3985465ee56fdf7ff197c6562ed65",
+      "bytes": 4381
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\probe_empty_publication.py",
+      "sha256": "4d8153a4424657d4fc9f42f2d651f44b6641f374a8a10e60e624e90209486f50",
+      "bytes": 7445
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\README_CONTROLLER_PROJECTION_V2.md",
+      "sha256": "1bc9b76958c70130d77191672e29cb26f7d2a8fc20433f9d04fe168c1526cd78",
+      "bytes": 4849
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\application_publication.py",
+      "sha256": "687cb1f24b2a6b14b99968ca82df7d1507c9782f5e6deca55ba2dfa6e8305062",
+      "bytes": 16513
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\component_commands.py",
+      "sha256": "eb9ab2085d7849223baef290b876d9abf4b82322ca06989f7a50a625304f6880",
+      "bytes": 7817
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\probe_application_publication.py",
+      "sha256": "45dffab523d1b3ff3dd7c773a881fc72165c43a206db9c8396ccd03adeb5ef13",
+      "bytes": 11318
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\probe_component_s7.py",
+      "sha256": "284a18f5aeeec63d2519725026f4971d8a6fe3e6de47076fadc9e1ce7f751a3b",
+      "bytes": 8460
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\common.py",
+      "sha256": "a44e389d3c80c8c21e74ea3423d8270273e5b3132a84095218dee078c53f059e",
+      "bytes": 3267
+    }
+  ],
+  "tests": {
+    "total": 4,
+    "failures": 0,
+    "errors": 0,
+    "elapsed_seconds": 9.45
+  },
+  "checks_count": 38,
+  "closed_A0_files": 19,
+  "topology": "19 closed A0 zero-output cells x anonymous and selected-closed baseline modes; matching reviewed D0/E0 evidence",
+  "ASR_terminal_review_pending": true,
+  "private_compressed_bytes": 1230364,
+  "all_compressed_and_expanded_bindings_verified": true,
+  "all_consumer_closures_verified": true,
+  "exact_probe_process_exited": true,
+  "models_loaded": 0,
+  "physical_widget_observed": false,
+  "integrated_N4_cells": 0,
+  "scope": "Closed A0 empty evidence through modeled actual publication and empty-safe Controller; no bank acceptance, new inference or accuracy claim",
+  "scoring_requirement": "Successful empty hypotheses must remain successful executions and retain all missed reference words in later scoring; scoring not yet run"
+}

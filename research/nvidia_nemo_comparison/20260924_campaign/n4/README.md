@@ -1,6 +1,27 @@
 # N4 comparison implementation and evaluation
 
-Latest Controller check: eight tests and all 160 sealed-display replay cases
+Latest publication check: nine tests and 160 actual producer/Controller method
+checks passed at 2026-09-25 06:58:55 UTC. All complete caption histories and
+final projections match the earlier mode/consumer results. The actual emit
+chain produced 189,662 publications and 20,673 displays; the two smoke sources
+are intentionally reused across 16 tuples, five modes and both taps. Sixteen
+unchanged smoke checks were reused with full artifact verification.
+APPLICATION_PUBLICATION_CHECK_V1.json binds the evidence; purpose, inputs,
+outputs and all shell commands are in README_APPLICATION_PUBLICATION.md.
+The source/model/startup/I-O chain is still outside this modeled helper, so
+complete application/GUI/resource parity and integrated acceptance remain open.
+
+A fresh empty-safe Controller derivative also passed four tests and 38 actual
+method checks at 06:58:59 UTC: all 19 closed A0 zero-output files in anonymous
+and selected-closed baseline modes, joined to reviewed D0/E0 evidence. Complete
+empty sessions close successfully without invented captions. Later scoring
+must retain every missed reference word; this check does not score accuracy or
+accept the still-running ASR bank. EMPTY_CONTROLLER_CHECK_V1.json and
+README_CONTROLLER_PROJECTION_V2.md bind the implementation and evidence.
+All 396 compressed/expanded artifacts, 198 consumer closure receipts and both
+exact probe process exits were verified. Existing V1 evidence is preserved.
+
+Earlier Controller check: eight tests and all 160 sealed-display replay cases
 passed at 2026-09-25 06:28:18 UTC. The actual constructor, backend/mode switching,
 caption-consumer thread, snapshot label/text projection and close path consumed
 20,673 displays and preserved every raw caption fragment. All owners closed,
