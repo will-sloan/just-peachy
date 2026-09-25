@@ -1325,3 +1325,64 @@ still need qualification. Preserve earlier V2 cell/panel readers and compose
 this new reader explicitly in a future version. Complete/review D1, then the
 main/modes banks and selection before admitting the actual paired application
 panels. Accepted integrated N4 cells remain 0/7680; N5 remains dependent on N4.
+
+### 2026-09-25 19:41 UTC — native caption partition interpretation
+
+The initial check re-read the historical N2/N3 results and verified the accepted
+N2/N3 reviews plus the accepted ASR component review. D1 was healthy at E0 165/960
+and advanced to 171/960 during independent CPU14 work. Exact owners remain model
+29756/1790350782.179587, coordinator 4092/1790350774.1659436 and supervisor
+32696/1790350774.0235264; the latest heartbeat age was 3.06 seconds. All 33 active
+and predecessor code/dependency bindings were verified. C: 124.57 GiB and
+G: 100.66 GiB remained free. The conservative process census still reports
+AccessDenied for unrelated cmd.exe 40092. Preserve the existing exclusive
+application admission refusal; no process was stopped and no gate was weakened.
+
+`review_native_captions.py` reconstructs the qualified raw-text review and joins
+each native s6d_display to its exact raw ASR revision and preceding cause. It
+checks original words/finality/source support, increasing display versions,
+publication order, allowed formatting provenance and exact character/token
+partitions across speaker fragments. Word/span identities retain immutable raw
+text, source windows and first-seen facts; retired identities cannot reappear.
+Empty finals and missing caption revisions remain explicit. A partition PASS
+does not imply full raw-revision coverage: check the missing IDs and the separate
+coverage flag. Track zero and identity/closed-assignment fields are preserved as
+predictions, with no naming correctness or confidence inferred from labels.
+
+Twelve development tests passed. Positive fixtures call the unchanged pure
+S6D/S7/N1 span-state modules from the qualified complete-journal derivative in
+an isolated package namespace, with synthetic protocol inputs and clocks. The
+probe does not import application model runtimes, open a window, replay audio or
+claim real delivery. Tests cover rewrites, split ownership, track zero, formatting,
+corrupted and missing fragments, stable/retired spans, causes, versions, missing
+display denominators, empty finals and bounded accumulation. Attempt v1 had
+eleven passing tests and one fixture assertion failure: an omitted fragment also
+triggered the single-fragment formatting guard before the intended missing-tail
+check. Its owner, exact source snapshots, admission, test log and FAILED receipt
+remain preserved. The v2 fixture keeps the remaining formatting coherent and
+reaches the intended guard. The production reader was unchanged between attempts.
+
+NATIVE_CAPTION_REVIEW_CHECK_V1.json SHA-256
+b2ad9c6af967d7d9f91c4cf159062962976ad4dcfe03421c06158206a6bffae2
+binds 77 helper code records and private
+local/n4/native-caption-review-probe-v2/RESULT.json, SHA-256
+1042ed494d26347663d5c6ee0191856fcfc9318ad5bf2afc91a057ee4fc7b5dc.
+Failed helper 50332/1790365187.6510367 and passing helper
+50524/1790365237.264637 exited. Publication helper 51232/1790365293.3354886 exited
+normally. README_NATIVE_CAPTION_REVIEW.md records purpose, inputs, outputs,
+bounds, limitations and PowerShell/CMD/Anaconda commands. Prior reader, source,
+plan, runner and numerical qualifications remain unchanged.
+
+Next join the native segment histories to Controller/viewport evidence. The
+viewport currently records row_id, caption_key, span IDs, raw text, source
+support, finality, speaker revision and profile/assignment fields, but no native
+text revision/publication serial. Repeated identical native states can therefore
+be ambiguous: retain possible predecessor bindings instead of assigning a unique
+publication or fabricating exact latency. Controller.snapshot partitions
+provisional/final formatting, and UI._display_row selects those strings before
+stateful label rendering. Do not re-execute the stateful label function to read
+an already observed widget. Native span first_seen and word windows are neither
+acoustic word boundaries nor actual visible times. Pane strings, first/final/latest
+visible labels, naming scores, timing, continuity and stop/restart still need
+review/execution. N4 accepted integrated cells remain 0/7680; N5 awaits accepted
+N4 configurations and live CM5 work remains deferred.

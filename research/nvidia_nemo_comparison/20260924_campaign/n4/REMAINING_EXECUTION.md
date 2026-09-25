@@ -144,6 +144,17 @@ explicit; they require a separate completeness decision before final-only
 accuracy metrics. Raw hypotheses, formatted display, inferred speaker labels and
 evaluator truth must remain separate. The accepted integrated count is still zero.
 
+NATIVE_CAPTION_REVIEW_CHECK_V1.json adds `review_native_captions.py`: twelve
+development tests call the unchanged pure S6D/S7/N1 span-state code with synthetic
+protocol facts, then verify raw/caption/word-fragment lineage. It preserves track
+zero and missing display-revision denominators; label fields remain predictions.
+Use README_NATIVE_CAPTION_REVIEW.md. No actual complete source history or widget
+content was joined. Next compare native segment histories with the existing
+Controller/viewport records, retaining ambiguity when identical states have
+multiple possible native publications. The viewport has no text-revision/native
+publication field, so do not invent exact event attribution or latency. Preserve
+the existing source and qualified readers; add a separately qualified composition.
+
 An earlier read-only census could not inspect an unrelated `cmd.exe` process.
 Re-observe at actual application admission. The exclusive application gate must
 continue to refuse unresolved ownership uncertainty; do not stop that process,
