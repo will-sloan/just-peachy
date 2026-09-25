@@ -640,3 +640,31 @@ existing supervision. Then admit, execute and review the modeled main/mode banks
 and their scores, followed by the actual predeclared application panels/repeats/
 continuity. At this checkpoint ASR A2 is healthy, with no second neural owner;
 N4 accepted integrated cells remain zero and N5 remains preparation only.
+
+paced_panel_plan.py now implements admission from both complete main/mode
+scoring reviews and explicit reasoned candidate selection, requiring the exact
+baseline and reasons for all other selected/excluded compositions. It binds the
+same source, component parents, runtime assets, galleries and panel. The fixed
+schedule has 24 panel cells plus two additional passes over eight timing anchors
+per candidate (40 cells; every anchor occurs three times). Selection remains an
+engineering decision after reviewed reports, not a forced metric winner or a
+new claim that the unqualified naming/association gates became calibrated.
+
+Nine rejection tests and 16 frozen-catalog routing rehearsals passed, covering
+1,240 constructed fixture input payloads with the real unchanged panel/anchor
+bindings. The explicit child-input allowlist contains no evaluator truth,
+reports or selection rationale, and carries source_execution_authorized=false.
+No actual shortlist or production plan was created. Both real full-score reviews
+are still unavailable; the successful production admission branch remains
+unexecuted. The helper exited and no GUI, source or model started. Qualification
+is PACED_PANEL_PLAN_CHECK_V1.json; README_PACED_PANEL_PLAN.md gives the full
+selection schema, scope, inputs/outputs and PowerShell/CMD/Anaconda commands.
+
+Still implement and qualify the exact supervised exclusive-slot launcher and
+its real source execution/drain path. These panel plans do not include the
+separate 20-minute existing-audio continuity sequence; its actor/timebase
+provenance, execution and scoring remain required for retained releases. Other
+actual mode/release checks and naming/visibility/resource acceptance remain
+pending. Keep source execution serialized after the ongoing component banks
+and both complete modeled/scoring reviews. Current ASR A2 remains the sole
+neural owner; all prior numerical source bindings remain unchanged.
