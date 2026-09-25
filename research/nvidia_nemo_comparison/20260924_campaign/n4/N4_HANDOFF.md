@@ -800,3 +800,29 @@ inputs/outputs, bounded review API and PowerShell/CMD/Anaconda commands. Future
 actual panel review must join these resource observations to the successful
 source/GUI, exact process lifetime, exclusive slot and common configuration before
 using them for deployment planning. A3 remains the sole healthy numerical owner.
+
+review_viewport_evidence.py now independently reconstructs every first-visible,
+first-final, latest and heading-change span state from the bounded raw viewport
+change log. It checks exact references and times, byte/index/row/span census,
+source-clock availability, pane/glyph consistency and all stored summary states.
+It refuses ambiguous simultaneous rows sharing a span: V2 did not record the
+order of unchanged rows, so that ordering cannot be safely reconstructed. No
+existing collector, active numerical source or prepared D1 binding was edited.
+
+Ten tests passed, including reconstruction of all 160 original saved actual Tk
+histories and the saved synthetic 8192-span/40-observation history. Mutation tests
+cover altered summaries, references, clocks, visibility, truncation, duplicate
+JSON keys, hashes, indices and bounds. The development helper exited; qualification
+is VIEWPORT_REVIEW_CHECK_V1.json. The standalone CLI also reviewed the first saved
+history successfully under its helper/resource guards; private evidence is in
+local/n4/saved-viewport-review-v1. README_VIEWPORT_REVIEW.md documents purpose,
+inputs/outputs, API, limits and PowerShell/CMD/Anaconda commands for both tools.
+
+These are reconstructed point observations, not new GUI/source measurements.
+Source delivery, latency, continuous exposure, actual 20-minute continuity,
+identity accuracy, physical scanout and integrated N4 acceptance remain unclaimed.
+Next join this review and the resource review to exact application lifetime,
+exclusive slot, source/engine/consumer/archive closure and evaluated configuration
+for the actual shortlisted panel. The continuity sequence still needs its own
+truthful actor/capacity protocol and actual execution. A3 remains healthy; D1
+still waits for the complete ASR bank review and free numerical ownership.

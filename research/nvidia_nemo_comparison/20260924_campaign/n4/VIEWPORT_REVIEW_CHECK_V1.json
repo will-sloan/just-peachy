@@ -1,0 +1,102 @@
+{
+  "status": "PASS_VIEWPORT_REVIEW_DEVELOPMENT_ONLY",
+  "utc": "2026-09-25T14:43:50.364711+00:00",
+  "code": [
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\review_viewport_evidence.py",
+      "sha256": "e2aea6c672dd0a0f810b6bbaaea20653de5af55d5253222bfa46596af387a05d",
+      "bytes": 15051
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\test_viewport_review.py",
+      "sha256": "52f11fe39501240b8aca32daf97b8106b9ff6d9bc6ca66f6b3255711d471e4f0",
+      "bytes": 9074
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\probe_viewport_review.py",
+      "sha256": "8813503a7f15d2f335356d9f69bb5701a2c8f074dfa5c491a0ba31cca8258b68",
+      "bytes": 4649
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\README_VIEWPORT_REVIEW.md",
+      "sha256": "a13c2eb8c9f57773bd50d17f7d36d1b7360ddcda74c1e9af4e1cb79142ccde96",
+      "bytes": 5043
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\viewport_ledger_v2.py",
+      "sha256": "7a78cd859c3f767bb7439cc20225d5adc34731dcee157443bce5e3c381803263",
+      "bytes": 12636
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\test_viewport_ledger_v2.py",
+      "sha256": "b3e692d5621d19167d75f3e9423d5b918cd8a773ed1261b0a44817764da3ae7f",
+      "bytes": 8786
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\widget_visibility.py",
+      "sha256": "ec1bf5cd22b0c4129a2632b4ae72c82722e76e5333872a2c6ef10ea058bb7580",
+      "bytes": 10960
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\common.py",
+      "sha256": "a44e389d3c80c8c21e74ea3423d8270273e5b3132a84095218dee078c53f059e",
+      "bytes": 3267
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\metric_process.py",
+      "sha256": "1a1279c44ce906ce13733db1ba32ba86ffd7419cb1a4b767df3505d66d3e36f8",
+      "bytes": 10902
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\review_scoring_bank.py",
+      "sha256": "e7bd08e3fb9d19cafd761a778b9dba230bed1002b7dbcd180c620e47b48f51e2",
+      "bytes": 19917
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\scoring_bank.py",
+      "sha256": "394a4ebf02d8e5e73eb60a0ce89f66c92563fdb42f212261404b485113c75b84",
+      "bytes": 19772
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\asr_full_bank.py",
+      "sha256": "ab9ebf7ee64d70b859935b4d3725cce24adb03a713c0a2ad4328253bc02900f9",
+      "bytes": 17580
+    }
+  ],
+  "private_receipt": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\viewport-review-probe-v1\\RESULT.json",
+    "sha256": "fa2fa5a802b24ff23d1622d6a6ba66751ea3466266d14bbceca5fd3068c72129",
+    "bytes": 1160
+  },
+  "private_admission": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\viewport-review-probe-v1\\ADMISSION.json",
+    "sha256": "893365676d20a81438a543a88be8c401ba702fd61f302f33b0231eb4b90fb55d",
+    "bytes": 8256
+  },
+  "tests": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\viewport-review-probe-v1\\tests.txt",
+    "sha256": "2621104034006ff90fd3f5072d5fdff77bf08614c3965f407ba859473de9f527",
+    "bytes": 1670
+  },
+  "tests_passed": 10,
+  "exited_development_owner": {
+    "pid": 43880,
+    "create_time": 1790347374.3270278
+  },
+  "saved_reviews": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\viewport-review-probe-v1\\SAVED_REVIEWS.json",
+    "sha256": "0cec390dbaf8d2ee3ab7c985f2321ca356f446ef54744cb2b6a56d077d7aa47c",
+    "bytes": 331098
+  },
+  "saved_actual_viewport_histories_reconstructed": 160,
+  "synthetic_large_history_spans": 8192,
+  "synthetic_large_history_observations": 40,
+  "actual_application_spawned": false,
+  "model_inference_started": false,
+  "actual_source_execution": false,
+  "source_to_widget_latency_qualified": false,
+  "actual_continuity_test": false,
+  "integrated_N4_cells": 0,
+  "N4_accepted": false,
+  "scope": "Independent bounded raw viewport reconstruction and malformed-evidence checks. Reuses saved actual widget histories and synthetic collector fixtures; no source delivery, accuracy, latency, resource, target or stage acceptance."
+}
