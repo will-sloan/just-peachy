@@ -668,3 +668,29 @@ actual mode/release checks and naming/visibility/resource acceptance remain
 pending. Keep source execution serialized after the ongoing component banks
 and both complete modeled/scoring reviews. Current ASR A2 remains the sole
 neural owner; all prior numerical source bindings remain unchanged.
+
+ASR has transitioned from A2 to its final A3 bank. paced_slot.py now supplies
+the future launcher's live ownership/resource guard: exact supervised direct
+ancestry, fresh heartbeat/run identity, CPU14 coordination and CPU4 application,
+known competing Python/native/WSL helpers, OS ownership locks, bounded private
+cell output, shared/disk reserves and the original packaging cutoff. It never
+signals a process or mutates supervision. Its conservative runtime census does
+not establish that unrelated host applications are idle; retain that limitation.
+
+Nine tests passed, including real Windows lock contention and retention when
+a registered live process has not exited. The read-only probe observed the live
+A3 coordinator/model, detected both as conflicts for an unsupervised application
+helper, and rejected that helper's ownership. It did not acquire an actual
+application slot or start/stop a process. The helper exited. PACED_SLOT_CHECK_V1.json
+binds this guard-only evidence; README_PACED_SLOT.md describes its inputs, outputs,
+internal API, limitations and PowerShell/CMD/Anaconda tests/probe commands.
+
+Next implement the fixed private-desktop process launcher with suspended spawn,
+CPU placement, exact executable/argv registration, resume and graceful shutdown
+plus exact owned-tree cleanup on failure. It must join the passed production
+panel admission to this guard and check admission in the child before model or
+source acquisition. Do not use the old test-desktop launcher as evidence of
+actual model execution or its cleanup. Successful supervised slot admission,
+private process lifecycle and real ApplicationCell source execution remain
+unqualified. Continue A3 without interference; D1 remains prepared, waiting for
+the terminal ASR review. No N4 integrated or N5 release acceptance was added.
