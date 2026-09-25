@@ -1,5 +1,10 @@
 # N4 comparison preparation and evaluation
 
+README_COMPOSITIONS.md describes the new 16-composition builder and five passing
+model-free integrity tests, including the implemented A1/P0 adapter. Its actual
+source derivation/Controller check waits for accepted N3 input. No new N4 model
+run or stage acceptance is claimed; older 12-entry commands below are historical.
+
 N2 is accepted; N4 is pending N3 numerical review and its own admission. Nothing in this
 directory changes the active N2/N3 source, personal profiles or Windows desktop.
 The Pi stays off. Only accepted saved audio is used; there is no device access.

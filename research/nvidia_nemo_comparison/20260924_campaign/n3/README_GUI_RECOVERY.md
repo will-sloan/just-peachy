@@ -1,6 +1,7 @@
 # A2/A3 GUI label assertion recovery
 
-Latest result: guifinalv1 is terminal. A2 passed all three cells. A3 failed its
+Latest result: guifinalv1 is terminal. README_GUI_DRAIN.md describes the
+subsequent read-only timing diagnosis and its equal-contract checks. A2 passed all three cells. A3 failed its
 first boundary cell because the ASR lane did not finish within the existing
 60-second finalization join, and its archive did not close successfully. Earlier
 A3 guilabelsv1 cells all passed; both outcomes remain separate evidence. The
@@ -52,7 +53,7 @@ plan, after checking current ownership. Its input and focus constraints remain.
 The v4 actual private GUI panels both failed on their first boundary cell at
 the expected assumed-label assertion. The test expected an extra U+00C2 before
 the U+00B7 middle dot. Actual Tk receipts contained the correct suffix: 89 A2
-and 106 A3 assumed-label receipts, all ending in ` Â· assumed`. Both cells closed
+and 106 A3 assumed-label receipts, all ending in ` · assumed`. Both cells closed
 the Controller and passed archive integrity. This is a test encoding defect;
 the failed attempts remain preserved and receive no successful GUI credit.
 

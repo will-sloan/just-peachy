@@ -37,6 +37,14 @@ or forces redraw. All three A2 cells pass. A3's previous label-corrected panel
 passed three cells, but its latest boundary retest failed: the ASR lane exceeded
 the existing 60-second finalization join, leaving an unsuccessful archive. That
 later failure is preserved and remains an unresolved CPU-runtime limitation.
+The read-only GUI_DRAIN_REVIEW_20260925.json now verifies equal application,
+runtime, audio, UI and CPU contracts for the two boundary attempts. The passing
+A3/D1/E0 CPU4 run finished ASR at 103.192 seconds for 44.695 seconds of audio;
+the failed run's last recorded ASR dispatch left 7.975 seconds unprocessed;
+finalization failed at the existing 60-second lane join. This is a limitation of that tested complete stack/resource profile,
+not a rejection of every A3 configuration. Audit/host/queue activity differences
+prevent attributing the slowdown to one change. README_GUI_DRAIN.md documents
+the invariant checks and redacted report. No timeout or source was changed.
 Do not collapse the two runs into a claim that the latest six-cell panel passed.
 
 PORTABLE_RECOVERY_REVIEW_20260925.json binds these results without publishing
@@ -106,8 +114,12 @@ Controller/GUI output. Investigate or explicitly qualify the latest A3 CPU
 finalization failure before accepting the affected runtime. Do not lengthen a
 timeout merely to claim real-time success; report actual backlog, elapsed time,
 CPU and memory separately. Finish native/reference comparisons and lexical,
-overlap/control, PnC/ITN, capability and resource tables. No winner follows from
-the small screen alone. Complete limitations, WORKBOOK_UPDATE.md, the small
+overlap/control, PnC/ITN, capability and resource tables. On four fixed paired files, A2 native CPU/CUDA and native/FP32 reference lexical
+outputs agree 4/4; A3 agrees 3/4 and 1/4 respectively. Its differences are retained,
+not converted into a tensor-parity claim. Native CPU component compute RTF was
+about 0.55–0.58 on that panel, while the full GUI/identity stack can fall behind.
+The private v4 ROUTE_COMPARISON.json remains the bound comparison source. No
+winner follows from the small screen alone. Complete limitations, WORKBOOK_UPDATE.md, the small
 analysis-first ZIP and remotely verified scoped Git backup.
 
 Then regenerate N4 inputs from the accepted N3 source and complete its missing

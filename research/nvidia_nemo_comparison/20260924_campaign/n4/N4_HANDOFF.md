@@ -1,10 +1,21 @@
 # N4 partial checkpoint — preparation complete, comparison pending
 
+Latest code checkpoint, September 25: A1 now has a qualified host portable
+component and a passing application smoke; its Controller/GUI validation and
+fresh nominal screen are still pending. `compose_release_v3.py` is prepared for
+the eventual accepted N3 source and builds all 16 intended compositions. Five
+new model-free integrity tests pass, including A1/P0/bundle preservation and
+refusal to silently omit A1. `check_catalog_v3.py` is prepared for actual
+16-entry Controller selection. Neither a new N4 derivative nor N4 inference has
+been started from the pending N3 source. See README_COMPOSITIONS.md and
+COMPOSITION_BUILDER_CHECK.json. The older 12-row preparation remains historical.
+
 **N4 is not complete.** The full 7,680 intended integrated scene/tap results,
 shortlist, resource qualification and actual-application confirmation have not
-run. N2 is accepted; N3's v4 queue finished and its A1 diagnostic passed eight
-encoder/cache cases. A corrected six-cell GUI test is running in
-numerical-guilabelsv1. N3 acceptance remains pending. N4 creates
+run. N2 is accepted. N3's deterministic A1 screen runs in numerical-a1nominalv1,
+with numerical-a1controllerv2 queued behind it. A2 GUI has three passing cells;
+A3's latest D1/E0 single-CPU boundary test timed out during finalization despite
+an earlier passing panel. N3 acceptance remains pending. N4 creates
 no duplicate worker or automatic inference queue. `READINESS.json` is a dated
 snapshot; read the live private upstream status files for later changes.
 
@@ -19,7 +30,8 @@ snapshot; read the live private upstream status files for later changes.
 - Twelve A0/A2/A3 compositions are wired in a separate source derivative. Actual
   Controller selection/cleanup passed for all 12 with model loading forbidden.
   Fifteen inherited catalog/native-protocol/text tests pass. These are wiring
-  checks, not model execution. A1 has no integrated Controller adapter yet.
+  checks, not model execution. A1 now has a separately implemented adapter pending actual Controller/GUI
+  validation; the older 12-entry derivative does not contain it.
 - Thirty-five N4 tests pass: missed-word/failure/empty/overlap denominators,
   established cpWER/MIMO and estimated-activity DER/JER, cache invalidation,
   paired clusters, coverage, RAM headroom, process identity and archive corruption.
@@ -86,8 +98,8 @@ No desktop input/focus control, SSH, microphone, USB, playback or new capture ra
 
 > Complete the already-authorized N2, N3 and N4 campaign in
 > G:\Just_Peachy_N1\20260924_campaign\worktree. First inspect live N2
-> local/n2/numerical-v2 RESULT/CHAIN_RESULT and N3 local/n3/numerical-v4
-> RESULT plus numerical-a1diagv1 and numerical-guilabelsv1 QUEUE_RESULT/RESULT with exact PID creation
+> local/n2/numerical-v2 RESULT/CHAIN_RESULT and N3 local/n3/numerical-a1nominalv1
+> RESULT plus numerical-a1controllerv2 QUEUE_RESULT/RESULT with exact PID creation
 > identities. Do not duplicate or
 > interrupt their admitted owners. Review completed N2/N3 evidence and finalize
 > their acceptance reports; preserve every failed attempt and diagnose actual

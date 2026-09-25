@@ -1,0 +1,197 @@
+{
+  "schema": "n3-actual-gui-drain-diagnostic-v1",
+  "created_utc": "2026-09-25T00:58:08.186311+00:00",
+  "status": "DIAGNOSED_NOT_REPAIRED",
+  "equal_application_runtime_audio_and_cpu_contract": true,
+  "cpu_affinity": 4,
+  "common_ui_unchanged": true,
+  "passing": {
+    "cell_id": "A3_boundary",
+    "status": "COMPLETE",
+    "final_state": "COMPLETED",
+    "archive_integrity_passed": true,
+    "input_samples": 715127,
+    "input_seconds": 44.6954375,
+    "consumed_samples": 715127,
+    "unprocessed_audio_seconds": 0.0,
+    "asr_dispatches": 498,
+    "asr_dispatch_compute_wall_seconds": 54.54344709995348,
+    "last_asr_dispatch_elapsed_from_source_seconds": 102.95651020000514,
+    "tail_drain_count": 1,
+    "tail_drain_elapsed_from_source_seconds": [
+      103.19210820000444
+    ],
+    "tail_drain_sample_counts": [
+      715127
+    ],
+    "failures": [],
+    "lane_drain_timeout_seconds": 60.0,
+    "live_lanes_at_finalization": [],
+    "sampled_process_cpu_seconds": 127.953125,
+    "sampled_process_elapsed_seconds": 129.35313150000002,
+    "peak_sampled_rss_bytes": 1415680000,
+    "spans": 57,
+    "spans_with_final_widget_observation": 41,
+    "original_runner": {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n3\\gui_labels.py",
+      "sha256": "e448ac743d6dd8b4a79ad8ac903d0bd6f709d7ea47269080531ecbde0011c7c5",
+      "bytes": 40082
+    },
+    "evidence": [
+      {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-guilabelsv1\\gui-A3\\private_cells\\A3_boundary\\cells\\A3_boundary\\RESULT.json",
+        "sha256": "507a056e9435c50e80da65edb39986d79ce7f5662e2124c4b0e573c9bdb066c9",
+        "bytes": 20565
+      },
+      {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-guilabelsv1\\gui-A3\\private_cells\\A3_boundary\\cells\\A3_boundary\\PROCESS_SAMPLES.json",
+        "sha256": "48a1ebf3cace22b1f7648e7f2745ba92a390314b9e1ccd36bb490c2e0d45e6c4",
+        "bytes": 8464
+      },
+      {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-guilabelsv1\\gui-A3\\private_cells\\A3_boundary\\cells\\A3_boundary\\SPAN_PRESENTATION_SUMMARY.json",
+        "sha256": "cc992ffca6446685871e75bfa346cf4e7fd64212242bc6ca0cbd2e68735d1cfd",
+        "bytes": 234853
+      },
+      {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-guilabelsv1\\gui-A3\\private_cells\\A3_boundary\\cells\\A3_boundary\\PRESENTATION_RECEIPTS.jsonl",
+        "sha256": "fbe979ee743634a11fd3710aaf4b08e43b04a762631de63903f7e3271821fed4",
+        "bytes": 199893
+      },
+      {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-guilabelsv1\\gui-A3\\private_cells\\A3_boundary\\cells\\A3_boundary\\FINAL_STATE_APPLIED.jsonl",
+        "sha256": "2b255a88763794a4977a3d74e1da06f437db2160779d07538f445c34bc60a8ba",
+        "bytes": 30481
+      },
+      {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-guilabelsv1\\gui-A3\\private_cells\\A3_boundary\\ADMISSION.json",
+        "sha256": "81e4f98b840fa73c78f128bdcf6ebe0f8a5d659321b92a4aed98f46c9a92ad26",
+        "bytes": 24354
+      },
+      {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-guilabelsv1\\gui-A3\\private_cells\\A3_boundary\\cells\\A3_boundary\\data\\sessions\\edge_prototype_20260925T000733Z_30058933\\session_finalization_v3.json",
+        "sha256": "0b74867aeb63e1939e3e845896eb88c0be8106508965309a41c2d5d647585d07",
+        "bytes": 797
+      },
+      {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-guilabelsv1\\gui-A3\\private_cells\\A3_boundary\\cells\\A3_boundary\\ARCHIVE_INTEGRITY.json",
+        "sha256": "1fc9b22cfa406a7e31e0efac1dd55dbf1b31a314fc6e85ac7df4055a0054b04d",
+        "bytes": 4471
+      },
+      {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-guilabelsv1\\gui-A3\\private_cells\\A3_boundary\\cells\\A3_boundary\\data\\conversations\\f5f9c83dc682445f95b1d6f980a3ca0b\\epochs\\1b15cefb50ea4841bb25a16f266fb065\\epoch.json",
+        "sha256": "5bd812c2a5ddebadfd7e3a65ccbf4b925cfb6a995480d8d2abcd4d179c28badd",
+        "bytes": 35163
+      },
+      {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-guilabelsv1\\gui-A3\\private_cells\\A3_boundary\\cells\\A3_boundary\\data\\conversations\\f5f9c83dc682445f95b1d6f980a3ca0b\\epochs\\1b15cefb50ea4841bb25a16f266fb065\\events.jsonl",
+        "sha256": "5449518f6a5b0937d69cfed3416d10d1ec0cdf86c4a49f4ccbf514223a982d0f",
+        "bytes": 31247771
+      }
+    ]
+  },
+  "failed": {
+    "cell_id": "A3_boundary",
+    "status": "FAILED",
+    "final_state": "FAILED",
+    "archive_integrity_passed": false,
+    "input_samples": 715127,
+    "input_seconds": 44.6954375,
+    "consumed_samples": 587520,
+    "unprocessed_audio_seconds": 7.9754375,
+    "asr_dispatches": 387,
+    "asr_dispatch_compute_wall_seconds": 48.07191960002092,
+    "last_asr_dispatch_elapsed_from_source_seconds": 105.32888680000178,
+    "tail_drain_count": 0,
+    "tail_drain_elapsed_from_source_seconds": [],
+    "tail_drain_sample_counts": [],
+    "failures": [
+      {
+        "source_elapsed_seconds": 105.1148686000015,
+        "expected_drain_timeout": true
+      }
+    ],
+    "lane_drain_timeout_seconds": 60.0,
+    "live_lanes_at_finalization": [],
+    "sampled_process_cpu_seconds": 100.609375,
+    "sampled_process_elapsed_seconds": 107.29841090000264,
+    "peak_sampled_rss_bytes": 1410998272,
+    "spans": 60,
+    "spans_with_final_widget_observation": 41,
+    "original_runner": {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n3\\gui_finalaudit.py",
+      "sha256": "11b9771d760a87b3f902093e978f401af1368da3cc09b1f263fa53d459b11cdc",
+      "bytes": 40436
+    },
+    "evidence": [
+      {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-guifinalv1\\gui-A3\\private_cells\\A3_boundary\\cells\\A3_boundary\\RESULT.json",
+        "sha256": "916eba8ad2d4daec8eee1e89f81779c0762299530086915a665558d2ef545e09",
+        "bytes": 4997
+      },
+      {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-guifinalv1\\gui-A3\\private_cells\\A3_boundary\\cells\\A3_boundary\\PROCESS_SAMPLES.json",
+        "sha256": "28917da5b0d4dd7ace53030f35dde220b0044d66e7a62cb3f3e962408817d8d4",
+        "bytes": 6960
+      },
+      {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-guifinalv1\\gui-A3\\private_cells\\A3_boundary\\cells\\A3_boundary\\SPAN_PRESENTATION_SUMMARY.json",
+        "sha256": "025ffa4eced48e4c9cde1111c69303eb1a9416c6b36cd0470bf2677bf94bba11",
+        "bytes": 240955
+      },
+      {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-guifinalv1\\gui-A3\\private_cells\\A3_boundary\\cells\\A3_boundary\\PRESENTATION_RECEIPTS.jsonl",
+        "sha256": "2a14864e4befe7bb0f8d2946cb9d65365da96dca38cc4b63f1eb37d8ef212bac",
+        "bytes": 193840
+      },
+      {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-guifinalv1\\gui-A3\\private_cells\\A3_boundary\\cells\\A3_boundary\\FINAL_STATE_APPLIED.jsonl",
+        "sha256": "ebeda3d381307139a37bdb7ec753211236e12be7566bb8591468d802d5e04c17",
+        "bytes": 33064
+      },
+      {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-guifinalv1\\gui-A3\\private_cells\\A3_boundary\\ADMISSION.json",
+        "sha256": "ff8e6fe8c2639a71193fd558946b9e97728782ee701bdedffd1b7a289798f779",
+        "bytes": 24356
+      },
+      {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-guifinalv1\\gui-A3\\private_cells\\A3_boundary\\cells\\A3_boundary\\data\\sessions\\edge_prototype_20260925T003557Z_3eb69f90\\session_finalization_v3.json",
+        "sha256": "798da5c967d6a88c99cc07e965922be4be6f5a44fae03133d61b230e95ccec23",
+        "bytes": 846
+      },
+      {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-guifinalv1\\gui-A3\\private_cells\\A3_boundary\\cells\\A3_boundary\\ARCHIVE_INTEGRITY.json",
+        "sha256": "4e103e0aba766848badfcfd96413a66d6b3ec68b35203ebb4db26b3d19b3b7b3",
+        "bytes": 4660
+      },
+      {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-guifinalv1\\gui-A3\\private_cells\\A3_boundary\\cells\\A3_boundary\\data\\conversations\\f2eae575c199479fb1e24e3f2840cb8e\\epochs\\5deee8090d7a4c67920b54c1c12050bc\\epoch.json",
+        "sha256": "f0c024c8e8b21403ef69194f147d0a46a929462401cfb081348ad2ff1e118d37",
+        "bytes": 35158
+      },
+      {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n3\\numerical-guifinalv1\\gui-A3\\private_cells\\A3_boundary\\cells\\A3_boundary\\data\\conversations\\f2eae575c199479fb1e24e3f2840cb8e\\epochs\\5deee8090d7a4c67920b54c1c12050bc\\events.jsonl",
+        "sha256": "6cb730eac421a04db73ef6d5029c5fa6d099ff8af6ab3be959f99815ec495788",
+        "bytes": 29724207
+      }
+    ]
+  },
+  "interpretation": [
+    "Both actual runs accumulate ASR backlog on the admitted single CPU affinity.",
+    "The passing run completes only after source delivery ends; it is not real-time qualification.",
+    "The failed run is still advancing when the fixed lane-finalization deadline stops it.",
+    "No missing recognized words are invented or dropped from an accuracy denominator.",
+    "Different GUI audit callbacks and ordinary host/queue activity prevent a causal attribution of the slowdown.",
+    "A1 queue verification overlapped the failed panel; its resource contribution was not measured independently.",
+    "Preserve the existing timeout and failure. A3 single-CPU full-GUI use is not accepted from this evidence."
+  ],
+  "inference_rerun": false,
+  "modified_application": false,
+  "changed_timeout": false,
+  "required_next": "Evaluate the admitted resource profile and full integration in N4; only a separately bound, justified repair and actual retest can qualify the affected runtime.",
+  "diagnostic_source": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n3\\diagnose_gui_drain.py",
+    "sha256": "0c01d75e240cee682a56181206b2976ea4bc9dc7edbd1bd908816b5ad3885999",
+    "bytes": 8123
+  }
+}

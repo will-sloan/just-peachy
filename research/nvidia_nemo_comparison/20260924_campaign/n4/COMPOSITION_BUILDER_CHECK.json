@@ -1,0 +1,43 @@
+{
+  "schema": "n4-composition-builder-check-v1",
+  "created_utc": "2026-09-25T01:05:35.888649+00:00",
+  "status": "PASS_MODEL_FREE_ONLY",
+  "tests": 5,
+  "failures": 0,
+  "errors": 0,
+  "expected_compositions": 16,
+  "accepted_N4_compositions": 0,
+  "integrated_N4_inference_cells": 0,
+  "new_release_created": false,
+  "actual_Controller_selection_run": false,
+  "inputs": [
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\prototype\\config\\backends.json",
+      "sha256": "c7467cdd000765c57450eb311df583fd1af6f4667a94207f7393934407412e00",
+      "bytes": 29571
+    }
+  ],
+  "code": [
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\compose_release_v3.py",
+      "sha256": "8fc1736989d8f38dbd5e926c6f45cba21f741b8755b46b9a6986c0e9571a63cd",
+      "bytes": 7585
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\check_catalog_v3.py",
+      "sha256": "13cb2f0e54c4789a121c24384475499821ccb0d2436b5a00834b984fe057004f",
+      "bytes": 4000
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\test_compositions.py",
+      "sha256": "a6c09282fd893aa1447595837b5cb6167d70ac4722061d417d0cc0d7c39feeb3",
+      "bytes": 3149
+    }
+  ],
+  "remaining": [
+    "Use the exact accepted N3 source for release derivation",
+    "Actual Controller selection and model execution",
+    "D0/E1 C-only association profile, D0 activity and evidence lifecycle",
+    "Full-bank, GUI and resource acceptance"
+  ]
+}
