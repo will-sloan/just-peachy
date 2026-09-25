@@ -1,5 +1,28 @@
 # N4 implementation checkpoint — upstream accepted, integrated run pending
 
+Latest observed-heading addition: APPLICATION_LABEL_CHECK_V1.json qualifies
+`review_application_labels.py` with 16 passing development checks. It composes
+the actual cell/content/timing readers on synthetic evidence, then preserves
+exact recorded strings independently in active/history panes. Pending, Unknown,
+suppressed, absent, offscreen, ambiguous and forced headings stay distinct;
+cross-pane visibility is not collapsed into joint visibility, and native profile
+disagreements remain explicit. See README_APPLICATION_LABELS.md for inputs,
+outputs, limits and all shell commands. No evaluator truth or identity mapping
+was loaded, so this is interpretation of observed headings, not naming accuracy.
+No actual GUI/audio/model session was launched. D1 remained healthy under the
+same exact owners, at 266/960 during publication on 2026-09-25 22:10 UTC.
+
+Next naming work must bind the accepted evaluator-only truth and research roster
+identity provenance, retain estimated activity versus phonetic timing limits,
+and compare observed labels at the requested stages without substituting core
+proposals. Include constant-name/all-Unknown controls and missing/suppressed
+denominators. Native span counts include changed/retired hypotheses and virtual
+empty-caption IDs; do not call them reference-word accuracy or speech fractions.
+First caption-row visibility is not first name acquisition. The current records
+do not establish continuously visible wrong-name duration or exact GUI hysteresis.
+Full source-paced application measurements and the independent continuity/restart
+runner remain outstanding; accepted integrated N4 cells remain zero.
+
 Latest independent addition: APPLICATION_TIMING_CHECK_V1.json qualifies
 `review_application_timing.py` for recorded caption-row timing arithmetic only.
 Thirteen development checks passed, including the complete cell/content readers

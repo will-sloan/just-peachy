@@ -211,6 +211,21 @@ run or N4 acceptance was added. Naming interpretation and bounded instrumentatio
 for unresolved timing claims remain open, as do continuity and stop/restart.
 Do not edit the existing source or qualified readers to conceal these limits.
 
+APPLICATION_LABEL_CHECK_V1.json adds `review_application_labels.py` with 16
+passing development checks and an actual-reader synthetic composition. It
+interprets exact observed active/history heading strings against the already
+joined display roster, with native-profile disagreements, suppressed/absent/
+pending/Unknown/forced/ambiguous categories and same-pane visibility diagnostics.
+Read README_APPLICATION_LABELS.md. It does not replay the GUI identity state
+machine, infer a suppressed heading from a neighboring row, or select one name
+when panes conflict. No evaluator truth is loaded and naming accuracy is still
+unqualified. The next scoring layer needs an independently admitted evaluator
+truth/roster identity join, missing and approximate-support denominators, and
+constant-name/all-Unknown controls. Stable/native span populations are not
+reference word counts. Source-paced naming acquisition, continuous wrong-name
+exposure, continuity and stop/restart still require their own evidence. Existing
+panel readers remain immutable and must not be relabelled as naming-scored.
+
 The user's 2026-09-25 Pi reminder is recorded in
 `../n5/PI_RECONNECTION_REQUIREMENTS.md`: prioritize a short verified reconnect/
 install/launch path, one shared GUI with accepted backend choices, actual storage
