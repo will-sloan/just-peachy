@@ -1,0 +1,38 @@
+{
+  "status": "PASS_MODELED_PRESENTATION_PROTOCOL_ONLY",
+  "recorded_utc": "2026-09-25T04:00:20.091939+00:00",
+  "code": [
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\component_presentation.py",
+      "sha256": "dd77f86c58bbb6a4924cbb3b56df0ca15e4d1c94e6ee2b2e2451ac1c4a670de7",
+      "bytes": 6111
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\test_component_presentation.py",
+      "sha256": "4f9ebd027cbf9ef20cca1ca8acf3c72be34cee93a735a01549d52d32920a1146",
+      "bytes": 5983
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\README_COMPONENT_PRESENTATION.md",
+      "sha256": "d13dbe436fd69a14ab8c35108c7f862cd5717a02ff7dfe91f76213ae3f5487ec",
+      "bytes": 3727
+    }
+  ],
+  "source_receipt": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\releases\\n4-catalog-v3\\SOURCE_RECEIPT.json",
+    "sha256": "8050c8bee52a6ec83c95f3514cb81219c3664dd43e172a477d35a54888e610d5",
+    "bytes": 61188
+  },
+  "tests": 7,
+  "failures": 0,
+  "errors": 0,
+  "elapsed_seconds": 0.988,
+  "models_loaded": 0,
+  "saved_audio_loaded": 0,
+  "source_edited": false,
+  "integrated_N4_cells": 0,
+  "Controller_parity": false,
+  "GUI_observed": false,
+  "clock_kind": "MODELED_COMPONENT_REPLAY_NOT_OBSERVED_CONTROLLER_OR_WIDGET",
+  "test_evidence": "Successful unittest run in this task against actual frozen S7/N1 span state with synthetic protocol records; no neural inference"
+}

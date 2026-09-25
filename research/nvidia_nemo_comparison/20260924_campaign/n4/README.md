@@ -67,6 +67,15 @@ the code and commands. Keep the launch order D0 review, ASR smoke/review, then
 D1 smoke/review through the sole supervisor. Full-bank D1 and integrated/GUI
 parity remain pending; component smoke supplies zero integrated-cell credit.
 
+The component-to-caption interface now calls the actual frozen S7/N1 span state
+with an explicit modeled replay scope (README_COMPONENT_PRESENTATION.md).
+Seven tests preserve raw words and formatting, same-boundary native finals,
+correct/stale identity targets and session isolation. It does not supply the
+causal merge, observed-policy parity, Controller or GUI execution; those remain
+required. Inherited `monotonic` field names in this diagnostic contain modeled
+values and cannot be reported as first-visible latency. COMPONENT_PRESENTATION_CHECK_V1.json
+binds the implementation and test receipt.
+
 The specification ceiling is 80 GiB; the shared resource-policy record retains
 a more conservative 50-GiB payload allowance. Reconcile actual previous usage
 and remaining allocation before admitting N4. Do not infer a fresh allowance

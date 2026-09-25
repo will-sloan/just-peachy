@@ -111,6 +111,20 @@ integrated runner; preserve D0/E1's calibration limitation. Then perform paired 
 GUI/paced/continuity and resource selection. N5 remains preparation only.
 Earlier READINESS/MATRIX snapshots and 12-entry releases remain historical.
 
+Joint-replay building block: `component_presentation.py` connects causal raw ASR,
+actual caption-policy and formatting records to the frozen S7/N1 presentation
+state. Seven tests pass; COMPONENT_PRESENTATION_CHECK_V1.json and
+README_COMPONENT_PRESENTATION.md bind purpose, inputs/outputs and commands.
+It preserves all raw tokens, exact-final formatting, same-boundary EOU finals,
+session identity and coarse source-span ownership. Observed-clock inputs are
+rejected; all inherited presentation `monotonic` fields are explicitly modeled.
+This adapter is not the scheduler merge, S7 observed-clock parity or Controller
+execution. Do not count it as an integrated cell or claim first-visible timing.
+Source inspection confirmed that observed S7 eligibility also checks current
+source freshness and publication age; a plain S6C batch replay is insufficient
+evidence of that behavior. The integrated runner must resolve and test this
+contract rather than silently replacing the observed application clock.
+
 ## Implemented and actually checked
 
 - All 480 accepted prepared waveform files were independently rehashed, checked
