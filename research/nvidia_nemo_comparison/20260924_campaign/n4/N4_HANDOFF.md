@@ -614,3 +614,29 @@ the reviewed shortlist/panel admission and exclusive-slot launcher, then execute
 and review real saved-source panels/repeats/continuity when component and full
 modeled-bank prerequisites pass. Do not turn pre-start tests into a full-run,
 latency, resource-tier, naming or N4 acceptance claim. ASR A2 remains active.
+
+review_scoring_bank.py now provides the missing complete modeled-score review
+before candidate selection. It rejects partial banks and checks the full plan,
+sealed method/prediction joins, exact stopped scoring owners and pipe/request
+closure, original evaluator/environment bindings, every metric input digest,
+reference-specific count algebra and availability, formatting/control/activity
+scope, and the complete recomputed aggregate and paired report. Its output is
+PASS_REVIEWED_MODELED_SCORING_ONLY; it does not rerun metric alignments or confer
+actual application, naming, widget, resource or N4 acceptance.
+
+SCORING_REVIEW_IMPLEMENTATION_V1.json binds nine passed dictionary rejection
+tests and all 51 original saved development score/input reviews. All 5,931
+pinned environment files were verified; the development helper exited. No new
+scorer, model, source or GUI was started. README_SCORING_REVIEW.md documents
+purpose, inputs, outputs and PowerShell/CMD/Anaconda commands. Original method
+and scoring implementations remain unchanged. The production full-bank entry
+point remains unexecuted because no complete production scoring bank exists yet.
+
+Next, qualify the shortlist/panel admission and exclusive-slot launcher using
+the reviewed full-bank reports. Do not select from development smoke cases or
+mere queue completion. Continue the active ASR collection; after its stopped
+owner and full component review, launch the already-prepared D1 bank through
+existing supervision. Then admit, execute and review the modeled main/mode banks
+and their scores, followed by the actual predeclared application panels/repeats/
+continuity. At this checkpoint ASR A2 is healthy, with no second neural owner;
+N4 accepted integrated cells remain zero and N5 remains preparation only.
