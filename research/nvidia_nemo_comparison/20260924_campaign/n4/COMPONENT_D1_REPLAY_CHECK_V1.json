@@ -1,0 +1,82 @@
+{
+  "status": "PASS_MODELED_D1_ANONYMOUS_APPLICATION_METHODS_ONLY",
+  "utc": "2026-09-25T05:24:39.793426+00:00",
+  "source_receipt": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\releases\\n4-catalog-v3\\SOURCE_RECEIPT.json",
+    "sha256": "8050c8bee52a6ec83c95f3514cb81219c3664dd43e172a477d35a54888e610d5",
+    "bytes": 61188
+  },
+  "code": [
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\component_d1_replay.py",
+      "sha256": "528c9c1f286437953a17981947f1cccb0d73fd57013e1c7c27d8b360d6582546",
+      "bytes": 17131
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\test_component_d1_replay.py",
+      "sha256": "2118eeef52618491a6c91db88436b634e87f02e49e79831a232242307369ed8e",
+      "bytes": 8320
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\probe_component_d1.py",
+      "sha256": "0735b4c152e395611a54a05d535f8b5e88f74738902b94b43853cc5f4733830b",
+      "bytes": 7099
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\README_COMPONENT_D1_REPLAY.md",
+      "sha256": "6f35bdcd7032da92823ed52642d84f3ad5e3aba04188e67fbf9712bfa2f02f20",
+      "bytes": 6469
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\component_commands.py",
+      "sha256": "eb9ab2085d7849223baef290b876d9abf4b82322ca06989f7a50a625304f6880",
+      "bytes": 7817
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\component_s7_replay.py",
+      "sha256": "03d1bb54808ea833056f8458ac2ed9b35dea41d98b69d591e9d395b27ad5019b",
+      "bytes": 13113
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\component_presentation.py",
+      "sha256": "dd77f86c58bbb6a4924cbb3b56df0ca15e4d1c94e6ee2b2e2451ac1c4a670de7",
+      "bytes": 6111
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\probe_component_s7.py",
+      "sha256": "284a18f5aeeec63d2519725026f4971d8a6fe3e6de47076fadc9e1ce7f751a3b",
+      "bytes": 8460
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\review_d1_components.py",
+      "sha256": "0c362db97dac373f4b99142f15d70722e65f35fdf096dc1daac8350c33a41531",
+      "bytes": 16403
+    }
+  ],
+  "private_probe": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\component-d1-probe-v1\\RESULT.json",
+    "sha256": "1bb7c21dea22065bfb7e6f5a8baa0908f1cf07a5064c4ab2e950ef52c467f21b",
+    "bytes": 45549
+  },
+  "tests": {
+    "total": 9,
+    "failures": 0,
+    "errors": 0,
+    "elapsed_seconds": 1.27,
+    "evidence": "Successful unittest output in this task; unchanged activity/name/span methods and actual worker locks; no models"
+  },
+  "probe_compositions": 16,
+  "raw_observations": 700,
+  "final_utterances": 54,
+  "commands": 16390,
+  "query_calls_replayed": 312,
+  "private_compressed_bytes": 11603787,
+  "scope": {
+    "scope": "Modeled anonymous application-method replay; real cooperative D1 lock, activity/window/name/span code. No named gallery, full Controller, GUI or hardware claim.",
+    "models_loaded": 0,
+    "integrated_N4_cells": 0,
+    "observed_Controller_parity": false,
+    "physical_widget_observed": false,
+    "live_latency_qualified": false
+  }
+}

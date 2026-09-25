@@ -8,6 +8,13 @@ private evidence. These checks do not count as integrated acceptance or observed
 GUI latency. Named/D1 integration and complete application qualification remain
 pending; N4_HANDOFF.md and INTEGRATION_NEXT.md describe the exact next work.
 
+README_COMPONENT_D1_REPLAY.md now adds the separate native D1 activity/name/
+caption-span path. Nine tests and 16 sealed-evidence modeled checks passed across
+four ASRs, two encoders and both taps. The real N2 lock stays held while a cached
+embedding is pending; raw text remains independent. Named-gallery modes and
+actual Controller/GUI parity remain pending. COMPONENT_D1_REPLAY_CHECK_V1.json
+binds this anonymous-only implementation and its private evidence.
+
 README_PREPARATION_V2.md describes the regenerated preparation-v2 inputs from
 the accepted 16-entry derivative. All 480 waveforms were reverified; the five
 data/provenance payloads are byte-identical to v1, and all 16 matrix rows now

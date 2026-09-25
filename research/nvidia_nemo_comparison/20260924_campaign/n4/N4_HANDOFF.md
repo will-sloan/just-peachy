@@ -162,6 +162,25 @@ mixed-clock worker ages are omitted. No component or release source was edited.
 D1, named galleries/modes, global D0 activity and exact Controller parity remain
 the next integration requirements; the eight probes do not complete the matrix.
 
+The separate anonymous D1 path is now implemented in `component_d1_replay.py`.
+It executes unchanged N2Engine activity/query/name-history/span methods using
+sealed frames and vectors, with a cooperative cached embed call retaining the
+actual identity lock. Raw ASR can arrive during that call, and the real
+nonblocking revision method must wait for eligible activity/query completion.
+D1 embeddings never enter D0 clustering. Nine tests and 16 modeled smoke-derived
+checks passed (four ASRs x E0/E1 x both taps), reproducing all exact query windows
+and short-run coverage, preserving 700 raw observations and 54 final utterances
+across the reused combinations. Both actual helper workers exited cleanly.
+COMPONENT_D1_REPLAY_CHECK_V1.json and README_COMPONENT_D1_REPLAY.md bind the code,
+private receipt, limits and all shell commands. Private receipt SHA-256:
+`1bb7c21dea22065bfb7e6f5a8baa0908f1cf07a5064c4ab2e950ef52c467f21b`, under
+`local/n4/component-d1-probe-v1/RESULT.json`. Its 16 private gzip outputs total
+11,603,787 bytes. No inference worker, model weights or common source changed.
+This is anonymous application-method development evidence. Named gallery/mode
+paths, full Controller/GUI parity, global D0 activity and full-matrix scoring
+remain pending. Timing is explicitly modeled and supplies zero accepted
+integrated cells or measured first-visible/resource qualification.
+
 ## Implemented and actually checked
 
 - All 480 accepted prepared waveform files were independently rehashed, checked
@@ -272,8 +291,10 @@ No desktop input/focus control, SSH, microphone, USB, playback or new capture ra
 > integration meanwhile: exact ASR/D0 commands and modeled span presentation
 > are tested. The causal merge and actual S7 eligibility/publication freshness
 > now pass the modeled D0/E0 adapter's 12 tests and eight sealed-evidence probes;
-> see COMPONENT_S7_REPLAY_CHECK_V1.json. Named/D1 paths and actual Controller
-> parity remain unresolved. INTEGRATION_NEXT.md
+> see COMPONENT_S7_REPLAY_CHECK_V1.json. Anonymous D1 activity/name/span methods
+> now pass nine tests and 16 modeled smoke-derived checks; see
+> COMPONENT_D1_REPLAY_CHECK_V1.json. Named/gallery/mode integration and actual
+> Controller parity remain unresolved. INTEGRATION_NEXT.md
 > records the verified source APIs: D1 uses its actual N2 activity/name/history/
 > caption-span revision path, not D0 clustering. ObservedClock accepts an
 > injected clock, but inherited observed field names cannot turn modeled replay

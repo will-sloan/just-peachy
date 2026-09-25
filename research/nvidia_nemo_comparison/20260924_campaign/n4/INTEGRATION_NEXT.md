@@ -105,3 +105,38 @@ activity/history/span paths, then qualify exact application parity and integrate
 full activity/scoring. Do not generalize this adapter to D1 by using the D0
 cluster tracker. Integrated acceptance remains 0/7,680; read
 README_COMPONENT_S7_REPLAY.md for API, purpose, limits and all shell commands.
+
+## D1 anonymous application-method integration
+
+`component_d1_replay.py` now executes the unchanged N2Engine activity, query,
+N2NameMap(None), temporal-history and span-revision methods with sealed native
+frames and compatible cached vectors. A cooperative worker yields inside
+`embed` while retaining the actual N2 RLock. Raw ASR publication and the actual
+nonblocking caption-revision call can run during that wait; they cannot use a
+query before its modeled completion. D1 embeddings never enter D0 clustering.
+Actual query waveform hashes, slot/session identity, native coverage and all
+short-run denominators must reproduce the sealed component exactly.
+
+Nine tests passed, including text arriving while the real lock is held, precise
+target revision/span IDs, overlap rejection, short speech without an embedding,
+tail/formatting preservation, corruption and thread cleanup. Sixteen modeled
+development checks then passed with the accepted smoke evidence: four ASRs x
+two encoders x both taps, 312 replayed queries, 700 raw observations and 54 final
+utterances across those compositions. These counts include intentional reuse;
+they are not 16 new neural inferences. Private receipt:
+`local/n4/component-d1-probe-v1/RESULT.json`, SHA-256
+`1bb7c21dea22065bfb7e6f5a8baa0908f1cf07a5064c4ab2e950ef52c467f21b`.
+COMPONENT_D1_REPLAY_CHECK_V1.json binds the exact code and evidence.
+
+The scope remains anonymous. Native name-history/embedding host timestamps and
+name compute are diagnostic values outside the injected modeled clock. Native
+frame receipt/availability in replay uses the dispatch-completion endpoint, not
+a measured input receipt. No first-visible or full-stack resource claim follows.
+The next integration work is the correct model-bound E/C/Q gallery and distinct
+named/selected/closed mode/display paths, global D0 activity mapping, and exact
+Controller parity. Use the accepted source's real N2Gallery/N2NameMap and
+PrototypeIdentityResolver/annotation paths appropriate to each catalog tuple;
+do not infer named behavior from these anonymous probes. Then run/scoring-bind
+the full matrix and qualify retained stacks at source speed. All 7,680 integrated
+acceptance cells remain pending. README_COMPONENT_D1_REPLAY.md gives the complete
+inputs/outputs, limitations and PowerShell/CMD/Anaconda commands.
