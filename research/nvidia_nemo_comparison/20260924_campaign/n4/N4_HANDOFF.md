@@ -1,5 +1,66 @@
 # N4 implementation checkpoint — upstream accepted, integrated run pending
 
+### 2026-09-26 05:46 UTC — same-Controller lifecycle and open archive boundary
+
+Fresh entry audit found D1 E1 healthy at 579/960, heartbeat age 2.45 seconds,
+with the same exact supervisor/coordinator/model identities as the preceding
+checkpoint. C: 121.51 and G: 100.37 GiB were free. Later accepted N2/N3 receipts,
+accepted ASR review, Pi reconnection requirements, the 96 release-helper code
+bindings and Git backup fbd28424b329205d1301e1bde47d3caa3de85872 were verified.
+D1 reached 588/960 during publication; active/predecessor bindings still matched.
+The unrelated cmd.exe 40092 census AccessDenied remains explicit and untouched.
+
+`restart_application_cell.py` now implements the bounded two-session lifecycle
+in the same prepared Controller, UI, Tk root, command worker and model store.
+It stops a positive first prefix, validates complete release, closes that epoch's
+observers, then starts the same full file at zero with new engine/source/journal/
+consumer/clock/viewport objects and the next epoch. It requires distinct native
+sessions and a second source origin after first-session evidence completion.
+Both native sessions are pinned. A single resource observer covers both runs;
+the Controller and GUI close after both releases. Admission is rechecked while
+pumping the private GUI; inputs are at most 120 seconds and the pair deadline
+is 900 seconds from construction. Stop thresholds are explicit multiples of
+320 samples with at least 640 samples remaining before EOF.
+
+Integration identified that the older combined archive validator requires a
+closed Controller. Its preserved synthetic tests did not exercise an actual
+between-session boundary. The new `restart_archive.py` derivative explicitly
+requires an open Controller/live command worker with released session owners
+while retaining every archive queue, count, loss/error, owner, epoch and persisted
+metadata check. The paired cell uses the qualified prefix engine capture/reader
+plus this new archive composition. Do not use the older
+restart_session_closure.validate_complete for this boundary, fake shutdown flags,
+or mutate earlier qualification files to hide the distinction.
+
+Prior caption history stays visible. Per-session VIEWPORT_SCOPE.json records
+the current native session, earlier sessions and the fact that old rows cannot
+inherit the new source clock. Later readers must partition caption keys and
+publication sessions before timing/naming interpretation. Raw GUI observations
+remain available; the lifecycle result itself grants no timing or naming credit.
+
+RESTART_APPLICATION_CHECK_V1.json SHA-256
+9d07ed6a2d7d1c70e0e86c09452e0d72d76719f8d88935ac430e294c2270c608 binds
+102 code records and final private restart-application-probe-v3/RESULT.json
+(SHA-256 ada2800d09e1ca0da56e894bf07491797bec94c148c3a1c3ec6f70c691fd329a).
+All 21 checks pass. V1's two failures were an equal-timestamp synthetic clock
+fixture; runtime ordering checks stayed strict. V2 passed 20 checks; V3 adds
+the actual frontend's Controller/root/open-state binding check. All three
+attempts and source snapshots remain. Probe owners 31404/1790401309.8268123,
+32116/1790401385.3928542 and 45108/1790401491.145304 exited; publication owner
+47464/1790401548.199075 also completed. README_RESTART_APPLICATION.md documents
+all new code, inputs/outputs, limits and PowerShell/CMD/Anaconda commands.
+
+These checks invoke actual lifecycle methods with mocked application owners,
+gates, source, observers and closure facts; separate archive tests join synthetic
+open-Controller metadata to unchanged historical receipts. No actual new
+Controller/GUI/source/model or Pi ran. Actual engine capture and model-backed
+reset/state behavior still require execution. Next implement a selected-job
+restart planner, exclusive launcher integration and independent two-session
+native/delivery/viewport review. Preserve the existing child binding limit.
+Run only after D1 review, main/modes scoring and accepted selection. Continuity
+semantics/timing/resources and remaining naming metrics also remain. Accepted
+integrated N4 cells stay 0/7680; N4/N5 are incomplete, live CM5 remains deferred.
+
 ### 2026-09-26 05:19 UTC — explicit partial-session stop and release
 
 Fresh entry audit found healthy D1 E1 at 558/960; it reached 570/960 during

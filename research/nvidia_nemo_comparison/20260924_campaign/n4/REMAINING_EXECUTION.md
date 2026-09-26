@@ -1,5 +1,27 @@
 # N4 and N5 execution order and acceptance gates
 
+Checkpoint 2026-09-26 05:46 UTC: **21 same-Controller lifecycle/archive development
+checks pass**. RESTART_APPLICATION_CHECK_V1.json SHA-256
+`9d07ed6a2d7d1c70e0e86c09452e0d72d76719f8d88935ac430e294c2270c608`
+binds 102 code records. The paired cell retains Controller/UI/model store,
+drains a deliberate first prefix and then starts the same full file from zero
+with new epoch/session/source/journal/consumer/clock/viewport objects. It keeps
+old captions and explicitly marks their different session/clock scope.
+
+Use restart_archive.py's explicit open-Controller archive composition for the
+between-session boundary. The older restart_session_closure.validate_complete
+requires full Controller shutdown through its original archive validator and
+cannot serve this boundary. Earlier code/qualifications remain preserved.
+Three private attempts and source snapshots are retained; the first two failures
+were synthetic equal-timestamp fixture errors, not a runtime model failure.
+
+Next: selected-job restart planner, exclusive launcher integration and independent
+two-session native/delivery/viewport review, then actual execution after reviewed
+D1/main/modes/selection prerequisites. No real GUI/source/model or Pi ran in the
+development probe. Runtime engine capture and model-backed restart remain
+unverified. D1 is healthy at 588/960 during publication. Continuity interpretation,
+remaining naming metrics, N4 acceptance and final N5 work are still outstanding.
+
 Checkpoint 2026-09-26 05:19 UTC: **22 released-session development checks pass**.
 RESTART_SESSION_CHECK_V1.json SHA-256
 `4f0604a3f095fb5907aa52137530b741d48af3be050160fb90bd26b3e5592ad7`
