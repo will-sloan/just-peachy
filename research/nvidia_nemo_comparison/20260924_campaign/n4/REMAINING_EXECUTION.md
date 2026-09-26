@@ -226,6 +226,23 @@ reference word counts. Source-paced naming acquisition, continuous wrong-name
 exposure, continuity and stop/restart still require their own evidence. Existing
 panel readers remain immutable and must not be relabelled as naming-scored.
 
+NAMING_REFERENCE_CHECK_V1.json now qualifies the evaluator-only reference join
+in `naming_reference.py`. Sixteen checks passed over all 480 existing reference
+cells, both actual E galleries and the saved synthetic heading review. Read
+README_NAMING_REFERENCE.md for the fixed input bindings, API and probe commands.
+The exact observed INPUT.json and actual roster ordering are joined before any
+reference support is described. E provenance yields 24 available of 34 intended
+profiles per encoder; missing E members are not automatically treated as genuine
+outsiders. Multiple intersecting identities, no activity, incomplete target-only
+references, empty/zero windows and out-of-file native windows remain explicit.
+Estimated activity intersections never establish exact word identity or phonetic
+timing, even when only one reference identity intersects. Contexts and mappings
+remain evaluator-private and never enter the runtime or Git. No naming metric or
+actual GUI measurement has yet been produced. Next qualify fixed-identity
+scoring and constant-name/all-Unknown controls with appropriate approximate and
+missing-reference denominators, then invoke them explicitly on real complete
+application evidence. Existing qualified readers/runner/source remain unchanged.
+
 The user's 2026-09-25 Pi reminder is recorded in
 `../n5/PI_RECONNECTION_REQUIREMENTS.md`: prioritize a short verified reconnect/
 install/launch path, one shared GUI with accepted backend choices, actual storage

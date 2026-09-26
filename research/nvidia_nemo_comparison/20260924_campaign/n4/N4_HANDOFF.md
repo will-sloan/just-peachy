@@ -1,6 +1,54 @@
 # N4 implementation checkpoint — upstream accepted, integrated run pending
 
-Latest observed-heading addition: APPLICATION_LABEL_CHECK_V1.json qualifies
+### 2026-09-26 00:12 UTC — evaluator reference and enrollment provenance join
+
+NAMING_REFERENCE_CHECK_V1.json qualifies `naming_reference.py` with 16 passing
+development checks. All 480 existing evaluator cells (240 paired scenes, 1,554
+turns and 43 reference identities) were checked against the admitted audio-only
+manifest and accepted N2/scorer bindings. E0/E1 mappings come from each profile's
+E-window, template, source and manifest provenance. Each open gallery retains
+24 available, 34 intended and 10 unavailable members. Q/C contamination, mixed
+identities, changed UUIDs, invalid reference ranges and changed observed input
+are rejected. An alternative valid bank job cannot replace the exact recorded
+cell input. No truth or reference identity is supplied to inference or the GUI.
+
+The join was exercised against the earlier synthetic observed-heading receipt.
+It retains all positive estimated activity intersections, same-identity interval
+unions and ambiguous, incomplete, empty, zero-width or out-of-file categories.
+It does not assign a dominant person or treat one tiny intersection as exact
+word identity. Native revision windows and estimated reference activity cannot
+supply phonetic word timing. No actual GUI accuracy, acquisition latency,
+continuous wrong-name exposure, full panel or accepted N4 cell is added.
+
+Public qualification SHA-256:
+`c5c77670e624dafc45c5891a39b3c62f42da07523a4a8c20d2c2bef5c48a2cae`.
+It binds 160 code/dependency records and private
+`local/n4/naming-reference-probe-v1/RESULT.json`, SHA-256
+`2057ab3d69acee11d088efc74b09848aeac2dd8ff7c547b7cc2b624419dc0ab7`.
+Probe 20412/1790381498.6809835 and publication helper
+15968/1790381568.6749663 exited normally. README_NAMING_REFERENCE.md documents
+purpose, inputs, outputs, bounds and PowerShell/CMD/Anaconda commands. Contexts,
+transcripts, profile mappings and detailed joins remain private.
+
+D1 advanced from E0 346/960 at the 00:02 audit to 354/960 during publication.
+The exact numerical/coordinator/supervisor owners remained
+29756/1790350782.179587, 4092/1790350774.1659436 and
+32696/1790350774.0235264; the admitted active and predecessor bindings matched.
+Independent work used CPU14 without starting another app/model/audio source.
+Accepted N2/N3 and ASR review bindings were reverified. The earlier unrelated
+cmd.exe AccessDenied still requires a fresh census at exclusive application
+admission; do not weaken that gate or stop unrelated work.
+
+Next implement the evaluator's fixed-identity naming metrics and explicit
+constant-name/all-Unknown controls on the admitted observation/reference joins.
+Keep approximate support, missing/suppressed stages, conflicts, target-only
+references and actual roster availability in their own denominators. This helper
+does not itself compute accuracy. Actual application runs, unresolved timing
+instrumentation, continuity and stop/restart remain. Finish/review D1 before
+main/modes banks, scoring, selection and paired application panels. N4 remains
+unaccepted; N5 still requires accepted configurations and live Pi checks wait.
+
+Earlier observed-heading addition: APPLICATION_LABEL_CHECK_V1.json qualifies
 `review_application_labels.py` with 16 passing development checks. It composes
 the actual cell/content/timing readers on synthetic evidence, then preserves
 exact recorded strings independently in active/history panes. Pending, Unknown,
