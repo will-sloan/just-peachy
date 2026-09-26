@@ -1,5 +1,25 @@
 # N4 and N5 execution order and acceptance gates
 
+Latest checkpoint (2026-09-26 02:20 UTC): the explicit
+`paced_application_cell_v2.py` variant now captures source delivery and requires
+its independent engine/source/consumer clock join before successful closure.
+APPLICATION_DELIVERY_CHECK_V1.json binds 16 model-free launch/join/cell wiring
+checks; DELIVERY_APPLICATION_PRESTART_CHECK_V1.json binds four lineage and nine
+actual invisible GUI/prestart checks, including all 16 implemented backends.
+No source or model started. All prepared Controllers and the owned native job
+closed; one short-lived process assignment remains unobserved, explicitly
+limiting lifetime history. See README_APPLICATION_DELIVERY.md and the newer
+README_DELIVERY_APPLICATION_PRESTART.md for scope and run commands.
+
+The original source/cell and V2 runner/planner are immutable. A new explicit
+runner/planner/reader must bind this cell and its new success status; the old
+runner does not collect delivery evidence. Continue that work, then actual
+20-minute continuity/functional restart and remaining supported metrics. The
+healthy D1 numerical worker progressed from 432/960 to 444/960 during this
+checkpoint. Read fresh identities/progress before acting. Full-bank comparison,
+scoring and selection still precede actual paired source-speed GUI runs. N4
+acceptance remains zero, N5 requires accepted configurations, and CM5 stays off.
+
 Latest implementation checkpoint (2026-09-26): SOURCE_DELIVERY_CHECK_V1.json
 qualifies the bounded `source_delivery.py` instance observer and independent
 binary trace parser with 18 isolated exact-class development checks. It measures

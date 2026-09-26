@@ -1,5 +1,74 @@
 # N4 implementation checkpoint — upstream accepted, integrated run pending
 
+### 2026-09-26 02:20 UTC — source-delivery cell integration and actual prestart
+
+`paced_application_cell_v2.py` is a separate application variant; the existing
+cell, V2 runner/planner and qualified source remain unchanged. Its launch adapter
+checks the actual Controller command thread, STARTING saved-file state, fixed
+job/mode/tap, adaptation-off state, retained engine/callback and common bypass
+journal before attaching SourceDelivery at FileSource.start. It forwards the
+one admitted start to the original method. Duplicate or wrong starts fail before
+launch, and restoration preserves foreign hooks while recording failure.
+
+After ordinary Controller, engine/archive and consumer cleanup, the variant
+persists delivery metadata and binary trace before closing resource observation.
+The independent reader checks fixed private filenames, reparse/size bounds,
+caller-bound source files, every trace record, exact sample counts and matching
+engine/source/consumer origin and session. Test-seam flags, missing/partial
+delivery, counter drift or a failed join prevent the new successful cell status
+CELL_WITH_SOURCE_DELIVERY_CLOSED_REQUIRES_REVIEW. Engine/archive closure still
+has to pass separately. The old runner neither imports this cell nor accepts its
+new success status; do not silently substitute it into an old plan.
+
+APPLICATION_DELIVERY_CHECK_V1.json SHA-256
+`1f2f603cea608a1cd77686daa83ba7c833655a6f6736a81761190424015e7cf3`
+binds 91 code records and 16 passing model-free launch/join/cell wiring checks.
+Private `local/n4/application-delivery-probe-v2/RESULT.json` SHA-256 is
+`6ebbac5ba29c3b2807cd3aa42e29f7b6c472410c989e73230d379d2c3cadb3dc`.
+V1's successful 14-test attempt is retained unchanged; V2 adds bounded file reads
+and the positive synthetic file-reader path. These tests explicitly use RAM-only
+source fixtures and mocked Controller/UI/closure facts. Copied flags normalized
+for pure positive validator tests are labelled synthetic; real fixture flags are
+also tested for rejection. This does not manufacture actual source-run evidence.
+
+DELIVERY_APPLICATION_PRESTART_CHECK_V1.json SHA-256
+`a25420eece1127b290845ff08a81198fb30581ffccb3df78f8bc8a5e84b7d7e0`
+then qualifies the actual new cell's invisible Tk/Controller preparation on all
+16 implemented backends: four lineage checks and nine GUI/factory/prestart tests
+passed. FileSource construction, file/live starts and model acquisition were
+forbidden. All 16 real delivery adapters remained uninstalled with zero starts;
+all Controllers and their workers closed. The input desktop stayed unchanged,
+normal native process closure was verified and the owned job was empty. One of
+three lifetime assignments was too short-lived to observe; the lifetime record
+explicitly retains incomplete process-history scope, not resource acceptance.
+Private `local/n4/delivery-application-prestart-v1/RESULT.json` SHA-256 is
+`e362f1a9df96bfa7a649755e725ed1785ab03af162d370e75f40d715022987a2`.
+The qualification binds 95 code records. Probe 44404/1790389117.2412848, invisible
+child 39220/1790389127.2177672 and publication helper
+38180/1790389186.6945653 exited normally. Integration probe
+38408/1790388947.1925375 and publication helper 50984/1790389008.005068 also exited.
+
+README_APPLICATION_DELIVERY.md documents the new interface and its development
+probe. README_DELIVERY_APPLICATION_PRESTART.md documents the later actual
+prestart qualification and supersedes the earlier README's pending-prestart
+status. Both provide purpose, inputs, outputs and PowerShell/CMD/Anaconda
+commands. No actual audio source, inference, device or Pi was started.
+
+Fresh inspection verified the historical queues, accepted N2/N3 and ASR receipts,
+exact D1 owners and protected source bindings. D1 advanced from E0 432/960 at
+entry to 444/960 during publication. Only helper CPU14 was added beside the
+unchanged CPU4 numerical owner; the unrelated cmd.exe AccessDenied census row
+does not authorize weakening the controlled application gate.
+
+Next add an explicit runner/planner/reader variant binding this new cell,
+qualification and collection gate. Then implement actual 20-minute continuity
+and functional Controller stop/restart, plus the remaining supported timing/
+identity metrics. Preserve the source observer's one-hour buffer bound and the
+cell's inherited 3,500-second execution limit; longer lifetimes need a deliberate
+policy change. Full main/modes comparison, scoring and selection must follow
+the completed/reviewed D1 bank before real paired application runs. Integrated
+N4 acceptance remains 0/7680; N5 acceptance and live CM5 checks remain pending.
+
 ### 2026-09-26 — bounded source-delivery observation
 
 SOURCE_DELIVERY_CHECK_V1.json qualifies `source_delivery.py` and its independent
