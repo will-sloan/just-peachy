@@ -1,5 +1,26 @@
 # N4 and N5 execution order and acceptance gates
 
+Checkpoint 2026-09-26 12:26 UTC: D1 E1 reached **855/960** with unchanged exact
+owners. **22 restart observation development checks pass**, using synthetic saved
+logs and real viewport/resource reconstruction. Two composition tests mock the
+pair reader and preparation resolver. The new component partitions retained
+captions by original caption-key session and source clock, joins terminal GUI
+state/geometry, and partitions resource samples by full measurement intervals.
+Cross-boundary samples are counted separately; missing measurements remain missing.
+
+RESTART_OBSERVATION_CHECK_V1.json SHA-256
+`55fe93f294861faf2a8f85db21113cc3c14c03df85370723d7c714b813a24925`
+binds 177 code records. See README_RESTART_OBSERVATIONS.md for guarded commands,
+inputs, outputs and scope. The earlier run reviewer is immutable and does not
+invoke this new component. Next independent work: compose it into a fresh
+qualified selected-run reviewer and add native caption semantics/timing and
+functional acceptance. Actual model-backed runs still require completed D1,
+full-bank integration, selection and exclusive resource admission. Unrelated
+cmd.exe 40092 AccessDenied remains an unresolved census observation.
+
+No actual restart run or integrated N4 cell is accepted by this preparation.
+No CM5 connection occurred. Packaging reserve and campaign deadline are unchanged.
+
 Checkpoint 2026-09-26 11:22 UTC: **29 independent restart review development
 checks pass**, including seven saved native lifetime classifications. The new
 transport reader checks split manifests, the fixed child argv, exact closed

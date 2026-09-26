@@ -1,5 +1,48 @@
 # N4 implementation checkpoint — upstream accepted, integrated run pending
 
+### 2026-09-26 12:26 UTC — restart viewport/resource attribution
+
+Fresh entry audit: D1 E1 845/960, supervisor 32696/1790350774.0235264,
+coordinator 4092/1790350774.1659436, model 51884/1790392138.9657671,
+CPU14/14/4, run 92319cd2f5274448be8ee0cefb26e5f9, heartbeat age 1.22 sec.
+C: 114.84/G: 100.21 GiB free; current/predecessor code, accepted N2/N3/ASR,
+Pi requirements and backup db59f4c3db5aa59028ce7451baeb44b419d0ba3b
+verified. D1 reached 855/960 at publication with the same owners. Unrelated
+cmd.exe 40092 AccessDenied still prevents assuming a complete future exclusive
+census. No process was disturbed and no shared ledger was manually changed.
+
+`review_restart_observations.py` reconstructs both raw viewport ledgers and the
+pair resource log. Caption-key sessions assign retained rows to their original
+source origin; unknown/future sessions and reused row/span identities fail.
+Retired row versions remain in the census. First visibility is per ledger,
+without assuming visibility across the restart gap. Resource samples wholly
+inside each source-to-release interval are attributed once; samples crossing
+boundaries and outside both windows are counted separately. Missing complete
+measurements and unavailable PSS stay unavailable. The reader also joins each
+released Controller snapshot, viewport geometry/timers, preparation and clocks.
+
+RESTART_OBSERVATION_CHECK_V1.json SHA-256
+`55fe93f294861faf2a8f85db21113cc3c14c03df85370723d7c714b813a24925`
+binds 177 code records and 22 passing synthetic saved-log checks. Private probe
+`restart-observations-probe-v2/RESULT.json` SHA-256
+`8b469d7e5422fa4553569c1ffdfddf566a4fddc0e7d459633601ec264e3d70dc`;
+publication `restart-observations-publication-v1/RESULT.json` SHA-256
+`fe73c4ce1906d26e193abd0b757f4234e8fcafde8f03da571f65e13a316ab039`
+preserves 84 fixture-file bindings and both attempts' source snapshots.
+Attempt v1 stopped before tests because an older qualification stores admission
+inside its bound result. V2 follows that recorded receipt; v1 remains unchanged.
+
+Two composition tests mock the previously qualified pair reader and preparation
+resolver; the raw viewport/resource readers run normally. These are development
+checks, not actual restart acceptance. Caption-key attribution does not yet join
+native caption payload semantics. The original selected-run reviewer remains
+frozen and does not call this new component. Next: a fresh qualified composition
+of transport/population/observations, native caption and timing/functional review,
+then actual selected model-backed restart runs when resources and accepted banks
+permit. N4 remains 0/7680 accepted integrated cells; N5 remains preparation.
+PowerShell, CMD and Anaconda instructions are in README_RESTART_OBSERVATIONS.md.
+The Pi remains off and untouched; live CM5 checks await reconnection.
+
 ### 2026-09-26 11:22 UTC — independent complete restart run review
 
 The entry audit found D1 E1 healthy at 803/960, with unchanged supervisor
