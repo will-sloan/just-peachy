@@ -1,5 +1,58 @@
 # N4 checkpoint — components reviewed; integrated method bank running
 
+### 2026-09-26 23:35 UTC - V4 content and naming family qualified for development
+
+The main V3 method bank is healthy at 7,459/7,680, with exact worker
+46448/1790444329.9990232 and supervisor 31132/1790444329.8372655,
+fresh heartbeats, CPU14 affinity and all 58 plan source bindings. Before
+this derivative, 6,498 fixed evidence bindings and 15 prior public files,
+including accepted N2/N3, were reverified. The running sources are unchanged.
+
+SEMANTIC_FAMILY_CHECK_V4.json SHA-256
+`198b9b80aff49299fd7daf13d0f91091b6a0c7d8105f9d9b67f0bd8d16536777`
+qualifies 351 retained source/proof bindings. The fresh V4 cell semantic reader,
+complete content-panel reviewer and conditional naming-panel reviewer now
+consume the V4 scored planner, runner, transport and cell evidence family.
+AST checks preserve semantic calculations and existing population/count joins.
+Raw delivery summaries remain in exact bound envelopes, while compact summaries
+retain their hash; no scheduling cost is subtracted. The bounded writer counts
+UTF-8 bytes and platform newline expansion before writing, retains prior
+receipts and reserves 64 KiB for failure evidence within the 8-MiB allowance.
+Old V2/V3 statuses are refused by the new composition.
+
+The fresh semantic-family-v4-probe-v1 passed 66 checks: 20 semantic,
+22 naming-panel, 16 content-panel and eight cross-family checks, including
+complete 40/240-cell synthetic populations and maximum output boundaries.
+Its ten source snapshots and four test logs are preserved privately. Exact
+helper 32072/1790465224.937579 exited; output is 4,823,616 bytes within 8 MiB.
+The sealed qualification was read successfully after its owner exited.
+The tests compose real evidence readers over synthetic source/delivery/native/
+viewport/process facts, with evaluator references kept separate from runtime
+inputs. They did not launch an application/model, perform saved-audio inference,
+or admit a production plan. Naming accuracy, source-to-widget latency,
+controlled resource, continuity, restart, N4 and N5 acceptance remain pending.
+README_SEMANTIC_FAMILY_V4.md documents all ten new files, purpose, inputs,
+outputs and PowerShell/CMD/Anaconda commands for probe and subsequent review.
+
+The V4 selected application, restart and semantic/content review families are
+now connected for development. Next require a complete, stopped main bank and
+full artifact/closure review, then V3 scoring and its independent review.
+Build the separate 1,536-cell modes panel from accepted component evidence;
+no prefix reuse is permitted for that panel. Only complete reviewed/scored
+main and modes banks may feed the V4 production selection and application plan.
+Actual paced GUI/resource/naming/timing, continuity and restart evidence and
+final N4 selection/report acceptance are still needed before N5 Windows/ARM64
+validation, accepted-configuration packaging and release.
+
+The unclassified cmd.exe PID 40092 and the earlier pending user clarification
+still block controlled GUI/resource admission. The process was not stopped or
+bypassed. Projected private allocation is 49.738 GiB, including remaining
+active allocation, 6 GiB pending and 0.5 GiB contingency; free C116.212/G94.301
+GiB passes C50/G75 floors. The Pi remains offline; easy reconnection/install,
+shared GUI backend selection and storage checks remain N5 requirements,
+with live CM5 validation explicitly deferred. Packaging reserve and deadline
+remain 2026-09-28 02:48:19 and 14:48:19 UTC respectively.
+
 ### 2026-09-26 22:33 UTC - V4-scored restart family qualified for development
 
 The main V3 method bank remains healthy at 6,407/7,680. Its exact worker
