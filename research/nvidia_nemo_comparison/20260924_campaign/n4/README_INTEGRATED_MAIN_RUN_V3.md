@@ -81,9 +81,14 @@ rem Only after complete terminal and exact owner exit:
 ```
 
 All output paths must be new for a reproduction; existing production paths are
-immutable. Read the stage start receipt before running anything. The V2 scorer
-is intentionally incompatible with this changed plan/artifact cap: qualify an
-explicit evaluator derivative before full-bank scoring. The modes panel,
+immutable. Read the stage start receipt before running anything. The qualified V3 scorer
+and reviewer now support this plan, its 128-MiB full artifacts and the exact
+reused producer receipts. See SCORING_HISTORY_CHECK_V3.json and
+README_SCORING_HISTORY_V3.md for qualification evidence and PowerShell/CMD/
+Anaconda commands. After the method bank stops and its V3 review passes, run
+scoring_bank_v3.py followed by review_scoring_bank_v3.py, each to a fresh private
+output. Development qualification does not establish full-bank acceptance.
+The modes panel,
 selected source-paced GUI/resource, continuity/restart, final N4 report and N5
 Windows/ARM64 packaging remain separate. Live CM5 validation waits for the user
 to reconnect the Pi. The fixed packaging reserve and campaign deadline remain.

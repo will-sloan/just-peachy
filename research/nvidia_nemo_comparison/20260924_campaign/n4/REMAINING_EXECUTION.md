@@ -1,5 +1,42 @@
 # N4 and N5 execution order and acceptance gates
 
+### 2026-09-26 18:27 UTC — V3 scoring compatibility qualified; main bank continues
+
+SCORING_HISTORY_CHECK_V3.json SHA-256 `eeb8a08f62a21139fa45c1e2e1ff67b417e7cee7ec9a5d9f956af4057dd975b8` qualifies
+32 scorer and 37 reviewer code bindings against the immutable V3 method plan.
+The pure evaluator reads complete artifacts up to 128 MiB, preserving compressed
+and expanded hashes, byte counts and gzip integrity. Original conversion,
+component reader, metrics, denominators and report calculations are unchanged.
+Admission requires exact V3 qualification, stopped method owners and the passed
+matching complete-bank review. Reused cells retain their original payload and
+producer binding; missing, substituted or out-of-prefix reuse provenance fails.
+
+Private scoring-history-v3-probe-v1 passed 39 tests, 51 saved metric-input/score
+reviews, six large-history and four native-clock boundary metric requests.
+Largest verified expansion: 85,532,356 bytes. All 1,382 reused producer metadata
+joins were checked without scoring an active prefix. Probe and exact metric
+owners exited; all 37 source snapshots match. This is development qualification
+only: no production bank was admitted, scored or score-reviewed; zero integrated
+N4 acceptance credit and no physical widget/resource measurement.
+
+The main V3 worker remains healthy at 2027/7,680; worker
+46448/1790444329.9990232 and supervisor 31132/1790444329.8372655 remain unchanged.
+Its 58 source bindings were reverified and not edited. No duplicate method or
+numerical worker was started. Development shared CPU14 BelowNormal with GPU
+and model loading disabled. Reserved total was 49.71 GiB, including the active
+run's remaining allocation, 6 GiB pending and 0.5 GiB contingency. Unrelated
+cmd.exe 40092 remains AccessDenied in the census; this supplies no exclusive
+application admission. No Pi connection or desktop interaction occurred.
+
+After terminal completion and exact owner exit, run integrated_bank_v3.py review;
+then scoring_bank_v3.py and review_scoring_bank_v3.py sequentially using the
+commands in README_SCORING_HISTORY_V3.md. The separately admitted 1,536-cell
+modes bank still needs execution and scoring. Candidate panels, actual GUI and
+resource evaluation, continuity/restart composition, final N4 acceptance and
+N5 release validation/packaging remain. Pi reconnection and storage-aware GUI
+installation requirements remain in n5/PI_RECONNECTION_REQUIREMENTS.md; live
+CM5 checks are deferred. Packaging reserve/deadline remain unchanged.
+
 ### 2026-09-26 17:43 UTC — history limit repaired; V3 continuation past failed cell
 
 Fresh inspection found the V2 main bank stopped at 16:51:03 UTC: 1,382 complete,
