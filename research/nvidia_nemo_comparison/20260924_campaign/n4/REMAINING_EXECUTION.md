@@ -1,5 +1,24 @@
 # N4 and N5 execution order and acceptance gates
 
+Checkpoint 2026-09-26 10:19 UTC: **24 supervised restart coordinator development
+checks pass**. RESTART_RUNNER_CHECK_V1.json SHA-256
+`e4f13abcf99148bfa637a3533912a182824e17376bb3afb07734c363150c42a8`
+binds 148 parent dependencies. The fixed child and its permit retain exactly
+122/128 records. The new coordinator prepares worker configuration, reconstructs
+the admitted plan under existing supervision, collects sequential private Job
+pairs, verifies normal lifetime/child closure and invokes the independent pair
+reader. Lease checks, failure cleanup, post-exit resource/deadline checks and
+terminal-attempt preservation passed mocked wiring tests; no production worker
+was prepared or started. See README_RESTART_RUNNER.md for all run instructions.
+
+Next: independent complete restart transport/selected-pair population review,
+then viewport/resource/timing interpretation. Check every PARENT_CLOSURE even
+when COLLECTED.json exists; late slot-release failure cannot qualify. Preserve
+the separate manifests and fixed child argv without the old child subcommand.
+Actual execution still requires reviewed D1, main/modes banks, scoring and
+selection. D1 is healthy at 766/960 during publication. Accepted integrated N4
+cells remain zero, N4/N5 are incomplete, and the Pi remains untouched.
+
 Checkpoint 2026-09-26 09:23 UTC: **18 restart pair evidence development checks
 pass**. The new parent-only reader independently invokes the qualified released
 trace, engine/archive and native readers and joins their full job, delivered

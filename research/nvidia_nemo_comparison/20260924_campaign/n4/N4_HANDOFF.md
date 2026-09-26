@@ -1,5 +1,63 @@
 # N4 implementation checkpoint — upstream accepted, integrated run pending
 
+### 2026-09-26 10:19 UTC — supervised restart coordinator wiring
+
+The fresh audit found D1 E1 healthy at 760/960. Supervisor
+32696/1790350774.0235264, coordinator 4092/1790350774.1659436 and model
+51884/1790392138.9657671 retain their exact identities and CPU14/14/4
+placement. Heartbeat age was 4.54 seconds, with C: 114.84 and G: 100.26 GiB
+free. Active/predecessor code, accepted N2/N3 and ASR, Pi requirements and
+backup 4dcd09b899e149be1c8cc98bb8962b254e156fdf were verified. Unrelated
+cmd.exe 40092 still reports AccessDenied; no exclusive admission bypass or
+process termination was attempted. D1 reached 766/960 at publication.
+
+restart_application_runner.py now provides preparation and supervised sequential
+collection for the actual admitted selected restart plan. It launches only the
+qualified fixed child script with --permit/--nonce, suspended in the existing
+private desktop/owned Job on CPU4. The parent has 148 dependency records; every
+one of the immutable child's 122 records remains present, and only that exact
+122-record list enters the unchanged child permit. The live slot check precedes
+every lease renewal. The parent permits 1,200 seconds per child while the child's
+pair lifecycle retains its existing 900-second bound.
+
+After normal exit the coordinator validates the exact persisted lifetime,
+interpreter/script/argv/desktop/CPU, child result and planned controls, then
+independently runs restart_pair_evidence. Post-exit checks preserve the original
+packaging cutoff, disk floors, bounded cell output and unchanged supervised
+identity without requiring the exited application to remain alive. Cleanup
+releases the slot only after verified empty Job and exited observed owners;
+unverified descendants retain it. A late release failure preserves the parent
+failure even if COLLECTED.json already exists. Complete review must check both.
+
+Twenty-four development tests passed on the first attempt: inherited qualified
+supervision-loop checks plus split child launch, lease/registration/cleanup
+failures, foreign or failed child/reader outputs, post-exit guard behavior,
+preparation without launch, exact run census, partial failure and terminal
+attempt preservation. Private processes, slots, leases, supervision, production
+plan admission and downstream readers are mocked in these wiring fixtures.
+The prior native-process and reader qualifications remain separately bound.
+No actual application, source, GUI, model or Pi was started.
+
+RESTART_RUNNER_CHECK_V1.json SHA-256
+e4f13abcf99148bfa637a3533912a182824e17376bb3afb07734c363150c42a8 binds
+local/n4/restart-runner-probe-v1/RESULT.json SHA-256
+0d556edc90944abe29385f80ccdfafecbe174819a146925f9fb4809db2c24071.
+Probe owner 37756/1790417864.163946 and publication owner
+50764/1790417932.1879816 exited. Publication preserves 173 test evidence-file
+bindings and all source snapshots. README_RESTART_RUNNER.md documents purpose,
+inputs/outputs, PowerShell/CMD/Anaconda probe and preparation commands, and the
+existing-supervisor requirement for the internal run entry point.
+
+Next implement/qualify independent complete restart transport and selected-pair
+population review against the reconstructed plan, including separate parent and
+child manifests, fixed child argv without a subcommand, every parent closure,
+exact lifetime/final lease/slot census and independent pair reread. Viewport row
+attribution and resource/timing interpretation remain separate. No production
+restart plan or model-backed pair has run. Review D1 when its full bank finishes,
+then execute/review main/modes, score/select and run admitted application panels.
+Accepted integrated N4 cells remain 0/7680; N4/N5 are incomplete. Preserve the
+existing reserve/deadline and leave live CM5 checks deferred until reconnect.
+
 ### 2026-09-26 09:23 UTC — independent restart pair evidence joins
 
 The entry audit found D1 E1 healthy at 717/960 with supervisor
