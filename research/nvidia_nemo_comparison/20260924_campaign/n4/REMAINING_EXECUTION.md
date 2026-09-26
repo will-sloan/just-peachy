@@ -1,5 +1,25 @@
 # N4 and N5 execution order and acceptance gates
 
+Checkpoint 2026-09-26 07:18 UTC: **16 selected restart planner checks pass**,
+covering all 16 backend routes and 62 fixture pairs. The fixed S45_03_03 O0/O1
+anchors are identical across candidates, with their real saved hashes/headers
+verified read-only. Each candidate will receive two pairs/four sessions: stop a
+positive first prefix at the predeclared midpoint threshold, fully drain it,
+then restart the unchanged full file from zero in the same Controller/UI/models.
+RESTART_PLAN_CHECK_V1.json SHA-256
+`1be341cbf182806712f37d742b4a574391416b0e8d24ff6e4d5a8d6bd7929798`
+binds 117 code records and the exited private probe. No production selection,
+plan, actual application or new model run was fabricated. See README_RESTART_PLAN.md.
+
+Next implement the fixed exclusive paired runner, independent native prefix/full
+and source-delivery envelopes, then session-aware viewport/resource interpretation.
+The projected runner dependency union already reaches 128 before a separate new
+prefix reader; preserve the existing child limit and plan the bounded dependency
+layout explicitly. The existing single-source/continuity runner cannot execute
+restart plans. D1 remains healthy (652/960 at publication). Full D1 review,
+main/modes execution and scoring, selection, actual paced/continuity/restart
+validation, N4 acceptance and final N5 releases remain. The Pi stays offline.
+
 Checkpoint 2026-09-26 05:46 UTC: **21 same-Controller lifecycle/archive development
 checks pass**. RESTART_APPLICATION_CHECK_V1.json SHA-256
 `9d07ed6a2d7d1c70e0e86c09452e0d72d76719f8d88935ac430e294c2270c608`

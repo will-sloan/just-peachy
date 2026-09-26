@@ -1,5 +1,57 @@
 # N4 implementation checkpoint — upstream accepted, integrated run pending
 
+### 2026-09-26 07:18 UTC — fixed paired-tap restart planner
+
+Fresh audit found D1 E1 healthy at 646/960, heartbeat age 0.45 seconds, with
+unchanged supervisor 32696/1790350774.0235264, coordinator
+4092/1790350774.1659436 and model 51884/1790392138.9657671. Active/predecessor
+source bindings matched. C: 121.50 and G: 100.33 GiB were free. Later N2/N3
+acceptance receipts and prior Git backup cb87ff738d3f37343e00961281fea0e6f343bb2c
+were verified. Unrelated cmd.exe 40092 still reports AccessDenied; do not bypass
+the unresolved census for a future exclusive application admission.
+
+The new restart_application_plan.py reconstructs the qualified V3 selected panel
+and retained lifecycle qualification, then prepares two restart pairs per
+candidate: the fixed S45_03_03 O0 and O1 regression anchors. Each pair uses its
+unchanged full saved file twice in the same application, with a predeclared
+first-session stop threshold of floor(frames / 2 / 320) * 320. This threshold is
+not the observed delivered length. Source identity, gain and full length remain
+unchanged; no per-candidate content-based selection is permitted. Baseline plus
+at most five alternatives gives 2–12 pairs and 4–24 sessions. No production plan
+or shortlist is invented before complete main/modes scoring review and selection.
+
+restart_plan_policy.py is the small inference-side control dependency. The
+existing 13-field child payload remains unchanged and contains no references,
+selection, comparison reports, evaluator plan or stop metadata. The future fixed
+runner must derive the same control from the full audio-only job. Cache keys bind
+the distinct application policy, selected panel, lifecycle qualification, source,
+composition and threshold. Old single-source or continuity runners cannot execute
+this plan. README_RESTART_PLAN.md covers purpose, inputs/outputs, prerequisites,
+limits and PowerShell/CMD/Anaconda commands for all five new files.
+
+RESTART_PLAN_CHECK_V1.json SHA-256
+1be341cbf182806712f37d742b4a574391416b0e8d24ff6e4d5a8d6bd7929798 binds
+117 code records and private restart-plan-probe-v1/RESULT.json SHA-256
+4bba0c4897e5da913f457cfcfab0b86a0aa7d7c018415522d1de892d5a6bbb48.
+All 16 development checks passed, including 62 fixture candidate/tap pairs across
+16 routes, false-acceptance and upstream-admission rejection, immutable lineage,
+candidate/anchor census, audio firewall and threshold checks. Both actual saved
+anchor WAV hashes and headers were verified read-only. No new Controller, GUI,
+source, model or Pi ran. Probe owner 41900/1790406939.7063284 exited before
+publication; publication owner 36580/1790407048.484924 also completed. Private
+source snapshots and receipts remain. D1 reached 652/960 at publication.
+
+Next: exclusive paired-runner integration, independently verified prefix/full
+native and delivery envelopes, and session-partitioned viewport/resource review.
+An inventory-only calculation gives 128 bindings for this planner plus the six
+missing V3 native/planner qualification records, one new qualification and four
+runner files, before any additional prefix reader. Preserve the 128 child limit:
+inspect dependency overlap and design the bounded implementation before adding
+files; do not silently raise the limit or drop dependencies to fit. This count
+is planning information, not runner qualification. Actual engine capture and
+model-backed stop/restart remain unverified. Continuity interpretation, naming
+metrics, full main/modes execution and N4/N5 acceptance remain outstanding.
+
 ### 2026-09-26 05:46 UTC — same-Controller lifecycle and open archive boundary
 
 Fresh entry audit found D1 E1 healthy at 579/960, heartbeat age 2.45 seconds,
