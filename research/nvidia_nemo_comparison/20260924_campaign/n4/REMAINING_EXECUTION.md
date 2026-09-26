@@ -1,5 +1,30 @@
 # N4 and N5 execution order and acceptance gates
 
+Checkpoint 2026-09-26 08:22 UTC: **34 development checks pass**: 19 explicit-prefix
+native-reader checks and 15 fixed-child wiring checks. The native derivative
+preserves the full planned job and verifies a separately declared delivered span;
+all nine historical missing-prefix classifications stay unchanged. The fixed
+child now calls the same-Controller pair lifecycle through the unchanged live
+ChildAdmission gate and records failure through cleanup. Positive application
+objects/admission are mocked in these checks; no actual restart pair ran.
+
+RESTART_NATIVE_CHECK_V1.json SHA-256
+`0d7f3b84bdfaea4186d672302c359f73fe01d76c38f887a12448af49b2bbc253`
+and RESTART_CHILD_CHECK_V1.json SHA-256
+`79131545b8c870631e9bcbd1f42bc875653ba57e0bacdb84dbf82b63fef61b8f`
+bind the exited probes and immutable code. All 117 prior dependencies stay in the
+fixed child, which has 122/128 records. Parent-only native/review code has a separate
+manifest; the earlier monolithic binding-limit concern is resolved by this explicit
+boundary without removing child dependencies or raising the limit.
+
+Next: parent coordinator/launcher, complete per-session native/delivery/engine/
+archive and pair/process joins, then viewport/resource review. Launch the fixed
+child script with --permit/--nonce in the existing suspended owned private Job;
+do not use the old single-source runner or manually synthesize a permit. Actual
+execution still follows full D1 review, main/modes execution/scoring and selected
+configurations. D1 is healthy at 690/960 during publication. N4/N5 are incomplete;
+CM5 work remains offline. See README_RESTART_NATIVE.md and README_RESTART_CHILD.md.
+
 Checkpoint 2026-09-26 07:18 UTC: **16 selected restart planner checks pass**,
 covering all 16 backend routes and 62 fixture pairs. The fixed S45_03_03 O0/O1
 anchors are identical across candidates, with their real saved hashes/headers

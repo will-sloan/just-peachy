@@ -1,5 +1,75 @@
 # N4 implementation checkpoint — upstream accepted, integrated run pending
 
+### 2026-09-26 08:22 UTC — released-prefix native reader and bounded fixed child
+
+Fresh audit found D1 E1 healthy at 684/960, heartbeat age 0.92 seconds, with
+unchanged supervisor 32696/1790350774.0235264, coordinator
+4092/1790350774.1659436 and model 51884/1790392138.9657671. Active/predecessor
+bindings, later N2/N3 acceptance, accepted ASR review, Pi requirements and Git
+backup 762d887513a8dc3791550a3911ee14b8eb0b20bb were verified. C: 121.31 and
+G: 100.31 GiB were free. Unrelated cmd.exe 40092 still reports AccessDenied;
+preserve this uncertainty at future exclusive admission. D1 reached 690/960
+while the independent work below completed.
+
+restart_native_journal.py is an explicit derivative of the unchanged full-file
+reader. It keeps the original terminal, native-record, source-clock, rotation,
+bounded-read and mutation checks, while accepting a separate delivered count
+and mid-file/full-release intent. It never changes the full job length/path/
+fingerprint. Partial counts must be positive, chunk aligned and below EOF;
+finalization and the last publication cursor must equal that delivered span.
+The output keeps separate planned/delivered lengths and explicitly states that
+delivery and same-Controller ownership are not independently joined by this
+native census alone. All nine historical missing-prefix classifications match
+the original full-file reader exactly; none was promoted to successful restart.
+
+The native reader passed 19 checks, including inherited corruption/retention
+cases, explicit prefix/full distinction, unchanged-job identity and false claim
+rejection. RESTART_NATIVE_CHECK_V1.json SHA-256
+0d7f3b84bdfaea4186d672302c359f73fe01d76c38f887a12448af49b2bbc253 binds
+72 code records and restart-native-probe-v1/RESULT.json SHA-256
+4b509068b1e2969136c38d9f76050aaeac45c9f5fa26be251b70d7ea8e30717f.
+
+restart_application_child.py now dispatches the actual RestartApplicationCell
+through the unchanged ChildAdmission gate, derives the fixed midpoint from the
+full audio-only input, invokes run_pair with the live lease callback, always
+closes a constructed cell, and checks matching returned/persisted closure and
+two fixed session receipts. Failed priming, preparation, run, lease or cleanup
+cannot be changed into success by a successful close. Invalid constructor/
+desktop admission writes no result to an untrusted path. This is an internal
+child entry point, not a new manually callable resource admission.
+
+The child preserves every one of the prior 117 planner/lifecycle dependency
+records plus the planner qualification and four new files: 122/128 bindings.
+The parent-only native reader and future coordinator are not imported here.
+Their complete manifests belong to the parent's own qualification/admission;
+no actual child dependency was removed and the child limit is unchanged. This
+supersedes the earlier projected monolithic 128-binding constraint.
+
+The child passed 15 mocked wiring/control/cleanup checks.
+RESTART_CHILD_CHECK_V1.json SHA-256
+79131545b8c870631e9bcbd1f42bc875653ba57e0bacdb84dbf82b63fef61b8f binds
+122 code records and restart-child-probe-v1/RESULT.json SHA-256
+eba5ceb98e89ecce101e928d672e7d27f04e99e192f58f9b2840b139beb33895.
+Probe owners 25508/1790410479.8095164 and 28608/1790410795.674884 exited;
+publication owner 51616/1790410889.1618464 completed. Both source snapshots,
+all private receipts and 280 test-evidence bindings are preserved. The native
+checks use synthetic records and saved historical journals; child checks mock
+admission, desktop and application. No actual new process/GUI/audio/model pair
+or Pi ran. README_RESTART_NATIVE.md and README_RESTART_CHILD.md document all
+eight files, purpose/inputs/outputs, scope and PowerShell/CMD/Anaconda commands.
+
+Next build the parent coordinator with separate parent/child manifests. It must
+launch restart_application_child.py (arguments --permit and --nonce, without a
+"child" subcommand) in the existing suspended private Windows Job, using this
+qualified 122-record child set, the existing interpreter, slot and renewable
+lease. Independently join each native delivered count to released-source trace,
+engine/consumer/archive closure, actual session, pair/control and process
+lifetime. Partition viewport history by native session before timing/naming.
+Parent collection and independent complete-pair review still remain. Then actual
+model-backed execution requires reviewed D1/main/modes/scoring/selection and an
+exclusive slot. Continuity interpretation, naming metrics, N4 acceptance and
+N5 release work remain; integrated accepted cells stay 0/7680 and Pi stays off.
+
 ### 2026-09-26 07:18 UTC — fixed paired-tap restart planner
 
 Fresh audit found D1 E1 healthy at 646/960, heartbeat age 0.45 seconds, with
