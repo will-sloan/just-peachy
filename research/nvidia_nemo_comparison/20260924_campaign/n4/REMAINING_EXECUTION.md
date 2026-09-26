@@ -1,5 +1,27 @@
 # N4 and N5 execution order and acceptance gates
 
+Checkpoint 2026-09-26 14:22 UTC: D1 E1 **937/960**, exact owners unchanged.
+**23 released native-content development checks pass**. The new
+`review_restart_native_content.py` preserves the full job while interpreting the
+first delivered prefix, then matches retained/current widget captions against
+their own native histories and original clocks. Partial-only text, overhang,
+missing caption revisions, unobserved spans and ambiguous predecessors remain
+explicit. Real pure parsers/state code run on synthetic clocks/geometry; no
+actual production pair, source, model or GUI was executed.
+
+RESTART_NATIVE_CONTENT_CHECK_V1.json SHA-256
+`8fc6d8fa710f70bc2b22674a047c01be13559e1bdd854371e8fd803a91674a6d`
+binds 202 code records. README_RESTART_NATIVE_CONTENT.md documents guarded tests
+and internal APIs. Next independent work: join this component to the qualified
+complete run/owner/lifecycle/delivery and fixed roster, then timing/functional
+acceptance. The earlier selected-run reviewer remains immutable and does not
+yet invoke it. D1 must become terminal and pass independent review before
+integrated main/mode plans can be prepared; do not admit its active prefix.
+
+Integrated N4 acceptance remains 0/7680. N5 and live CM5 acceptance are not
+complete; the Pi remains disconnected and off. The existing reserve/deadline
+and unresolved cmd.exe 40092 AccessDenied census observation remain unchanged.
+
 Checkpoint 2026-09-26 13:19 UTC: D1 E1 **893/960**, exact owners unchanged.
 The new `review_restart_complete.py` composes transport, pair, viewport and
 resource checks over the reconstructed complete selected population. It checks

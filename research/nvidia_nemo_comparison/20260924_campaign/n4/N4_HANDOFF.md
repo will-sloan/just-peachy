@@ -1,5 +1,52 @@
 # N4 implementation checkpoint — upstream accepted, integrated run pending
 
+### 2026-09-26 14:22 UTC — released native caption and retained-widget content
+
+Entry audit: D1 E1 931/960, unchanged supervisor 32696/1790350774.0235264,
+coordinator 4092/1790350774.1659436, model 51884/1790392138.9657671 and run
+92319cd2f5274448be8ee0cefb26e5f9, CPU14/14/4. Heartbeat age 2.70 sec;
+C: 114.83/G: 100.17 GiB free. Accepted N2/N3/ASR, Pi requirements, prior
+qualification evidence and backup 5529d22eadaab068c20f0ee8999c1ca30d7bc458
+were reverified. D1 reached 937/960 during publication. Unrelated cmd.exe
+40092 AccessDenied remains unchanged; no process or ledger was disturbed.
+
+`review_restart_native_content.py` now independently reconstructs the released
+native envelope and uses the unchanged raw-text/caption parsers against the
+actual delivered duration. The full planned audio job is retained. Partial-only
+utterances, raw support overhang and missing caption revisions remain explicit.
+The second viewport can join both original native histories; retained captions
+must match the first session's actual published words/metadata. Each matched
+state retains its original source clock. Future-session borrowing, corrupted
+retained text, swapped source clocks and reused native identities are rejected.
+Native spans never observed and ambiguous predecessors remain denominators.
+
+RESTART_NATIVE_CONTENT_CHECK_V1.json SHA-256
+`8fc6d8fa710f70bc2b22674a047c01be13559e1bdd854371e8fd803a91674a6d`
+binds 202 code records and 23 passing checks using the original pure caption
+state/casing and real native/viewport parsers. Private receipt
+`restart-native-content-probe-v2/RESULT.json` SHA-256
+`73ad8c2274a5d3ba21a0b5bba093d6f14db1346919fade758d6a2248bb239ff3`;
+publication `restart-native-content-publication-v1/RESULT.json` SHA-256
+`88beb08011877c9c799d87e4edc5173ca6d85fabfb2e8b4771d73f60c204c8a7`.
+It preserves 112 passing-attempt fixture files and 112 failed-attempt/test-log
+bindings, both source snapshots and verified pure application modules. Attempt
+v1 had one invalid synthetic publication clock preceding its 11-second source
+support; v2 corrects only that fixture. The original failed attempt is retained.
+
+These clocks/geometry are synthetic; no model/source/GUI or actual production
+pair was run. The new component does not independently admit owner, lifecycle,
+delivery or fixed roster. Next: compose it with the complete selected-run review
+and independently admitted roster, then timing/functional acceptance. Earlier
+qualified code remains frozen. README_RESTART_NATIVE_CONTENT.md contains purpose,
+inputs, outputs and PowerShell/CMD/Anaconda instructions.
+
+Numerical transition is unchanged: after D1 reaches terminal 960/960 and exact
+owners exit, run review_d1_full_bank.py. Only a passed review admits the main
+7,680 and mode-panel 1,536 application-method cases; integrated_bank_plan.py
+cannot prepare a production plan against the still-active D1 prefix. No early
+admission or duplicate worker was created. N4 accepted integrated credit stays
+zero, N5 remains incomplete, the Pi stays off, and deadlines remain unchanged.
+
 ### 2026-09-26 13:19 UTC — complete selected restart observation review
 
 Fresh audit found D1 E1 healthy at 889/960, with supervisor
