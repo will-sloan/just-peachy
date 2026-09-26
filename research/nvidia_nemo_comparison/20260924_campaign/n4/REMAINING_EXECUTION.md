@@ -1,5 +1,28 @@
 # N4 and N5 execution order and acceptance gates
 
+Checkpoint 2026-09-26 11:22 UTC: **29 independent restart review development
+checks pass**, including seven saved native lifetime classifications. The new
+transport reader checks split manifests, the fixed child argv, exact closed
+process/lease/slot/parent receipts and an independent pair reread. The run reader
+reconstructs the accepted plan and enforces the complete selected O0/O1 pair
+population, both sessions, midpoint policy, exact progress/order and no extra
+or missing cells. A late cleanup failure cannot pass via COLLECTED.json alone.
+
+RESTART_REVIEW_CHECK_V1.json SHA-256
+`b423f826c7d0cec5ea8a486e7bac1a44cd93c565c9b8c8e2f2541fdf048706c6`
+binds 155 code records. Positive transport/population fixtures are synthetic;
+their pair leaf review and production plan admission are mocked. No actual
+complete production run was reviewed or accepted. The terminal lease and
+sampled process history keep their explicit limits. See README_RESTART_REVIEW.md
+for probe and later production review commands in all requested shells.
+
+Next: restart viewport attribution with retained old caption history and separate
+source clocks, plus resource/timing interpretation and actual functional
+validation. D1 is healthy at 810/960 during publication. Full-bank review,
+main/modes execution/scoring, selected actual application runs, N4 acceptance and
+final N5 validation/package/backup remain. Integrated N4 credit stays zero; the
+Pi and the original packaging reserve/deadline remain unchanged.
+
 Checkpoint 2026-09-26 10:19 UTC: **24 supervised restart coordinator development
 checks pass**. RESTART_RUNNER_CHECK_V1.json SHA-256
 `e4f13abcf99148bfa637a3533912a182824e17376bb3afb07734c363150c42a8`

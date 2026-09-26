@@ -1,5 +1,61 @@
 # N4 implementation checkpoint — upstream accepted, integrated run pending
 
+### 2026-09-26 11:22 UTC — independent complete restart run review
+
+The entry audit found D1 E1 healthy at 803/960, with unchanged supervisor
+32696/1790350774.0235264, coordinator 4092/1790350774.1659436 and model
+51884/1790392138.9657671 on CPU14/14/4. Heartbeat age was 0.88 seconds;
+C: 114.85 and G: 100.24 GiB were free. Active/predecessor code, accepted N2/N3
+and ASR, Pi requirements and backup 98129d5af5f9f96abef18c01ccc0a139c5ef98c3
+were reverified. Unrelated cmd.exe 40092 AccessDenied remains an unresolved
+ownership observation for future exclusive admission; no bypass was attempted.
+D1 reached 810/960 during publication.
+
+review_restart_transport.py now independently checks the fixed child command
+without a subcommand, separate parent/child manifests, exact normal private
+process lifetime, final lease and monitor count, initial slot ownership and
+inventory, child/preparation/input joins, every parent cleanup and slot release,
+and a fresh independent reread of the pair evidence. It rejects a collected
+receipt with late cleanup failure. Shared evidence bindings must agree across
+the transport and pair readers, and all inputs are checked again after reading.
+
+review_restart_run.py reconstructs the admitted selected restart plan and fixed
+runner command/manifests from a stopped run. It requires the baseline plus at
+most five selected alternatives, exactly both fixed O0/O1 anchor pairs per
+candidate, two sessions per pair, unchanged jobs and midpoint controls, exact
+progress/terminal order and zero integrated-cell credit. Missing, extra,
+duplicate, reordered, failed or promoted evidence is rejected. It checks the
+directory census again at the end and saves each complete cell review privately.
+Success means complete planned evidence coverage, not functional restart or N4
+acceptance. Final-lease-only and unsampled-process history limitations remain
+explicit. Viewport rows, resource samples, timing and naming remain unreviewed.
+
+Twenty-nine development checks passed on the first attempt, including inherited
+transport corruption cases, split-manifest/paired reread joins, exact minimum/
+maximum population and stopped-run gates. Seven saved native process lifetimes
+were reread with fresh real OS exit checks. Synthetic PID existence, pair leaf
+review and production plan admission are mocked in the applicable fixtures;
+there is no new actual private process, source/model/GUI run or production review.
+
+RESTART_REVIEW_CHECK_V1.json SHA-256
+b423f826c7d0cec5ea8a486e7bac1a44cd93c565c9b8c8e2f2541fdf048706c6 binds
+155 code records and local/n4/restart-review-probe-v1/RESULT.json SHA-256
+7d0cbdfde8df7a28f35f425728b70761775cdb29c43908ab928893fbffa41c1b.
+Probe owner 46248/1790421620.4888248 and publication owner
+18168/1790421683.92932 exited. Publication preserves 974 test evidence-file
+bindings, source snapshots and the seven saved native lifetime bindings.
+README_RESTART_REVIEW.md documents purpose, inputs/outputs and PowerShell/CMD/
+Anaconda commands for the probe and later stopped-run review.
+
+Next implement/qualify restart viewport attribution across retained old captions
+and the two fresh source clocks, plus resource/timing interpretation without
+clock correction or false acquisition/exposure claims. Keep actual restart
+acceptance separate from collection and evidence coverage. D1 completion still
+requires its independent full-bank review; main/modes, scoring/selection and
+actual admitted paced/continuity/restart runs follow. No accepted integrated N4
+cell exists yet. N4/N5 remain incomplete, Pi untouched, and live CM5 validation
+is deferred until reconnect. Preserve the original reserve and hard deadline.
+
 ### 2026-09-26 10:19 UTC — supervised restart coordinator wiring
 
 The fresh audit found D1 E1 healthy at 760/960. Supervisor
