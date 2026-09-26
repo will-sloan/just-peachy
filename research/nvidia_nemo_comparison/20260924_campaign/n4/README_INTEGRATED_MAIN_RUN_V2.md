@@ -45,9 +45,10 @@ private integrated-main-worker-v2.json with `--allocation-gib 5`; both processes
 were hidden. Prior worker/campaign/spec snapshots are preserved under
 local/n4/integrated-main-dispatch-v2. No shared ledger was changed manually.
 
-Next: qualify an explicit scorer/reviewer derivative using method_artifact_v2's
-64-MiB reader while this bank runs. Preserve original 32-MiB scoring code and
-checks. Only a passed complete-bank review admits complete-bank scoring. Prepare
+The explicit evaluator derivative is qualified in SCORING_CLOCK_CHECK_V2.json.
+See README_SCORING_CLOCK_V2.md for its pure 64-MiB reader and PowerShell/CMD/
+Anaconda scoring/review commands. The original 32-MiB scoring code and checks
+remain intact. Only a passed complete-bank review admits scoring. Prepare
 and execute the separate 1,536-case modes bank, then use scored accepted evidence
 for baseline plus at most five candidates, actual paced GUI/resource checks,
 continuity and restart. These method outputs do not establish integrated stage

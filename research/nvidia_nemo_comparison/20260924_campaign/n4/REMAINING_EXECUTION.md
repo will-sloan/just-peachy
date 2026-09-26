@@ -1,5 +1,47 @@
 # N4 and N5 execution order and acceptance gates
 
+### 2026-09-26 16:29 UTC — V2 scoring compatibility qualified in parallel
+
+Main method bank remains healthy at 970/7,680; supervisor
+48424/1790437009.6059947 and worker 13032/1790437009.773104 retain their exact
+identities, CPU14 affinity and original command. All 47 bound code files remain
+unchanged. N2/N3 acceptance and the Pi reconnection requirements were reverified.
+No duplicate bank, neural evaluation, GUI or Pi operation was started.
+
+The explicit evaluator derivative now reads full method artifacts up to 64 MiB
+without importing the predictor writer. Compressed/expanded hashes, exact size,
+gzip CRC and the unchanged 32-MiB component reader are enforced. Conversion,
+metrics and aggregate reporting remain the original implementations. The new
+scorer requires the exact qualified V2 method code/receipt, closed owners and a
+passed complete-bank review. The derivative reviewer retains complete census,
+metric input reconstruction, owner/pipe closure and recomputed report checks.
+
+SCORING_CLOCK_CHECK_V2.json SHA-256 `6b51687668c535d989eb34efa76d8bbe16bdf4afb2b1b69b5bc93ff7cd1bc2ce` binds
+20 scorer and 25 reviewer code records, 27 passing derivative regression tests,
+51 unchanged saved metric input/score checks, and four newly scored sealed
+native-clock boundary cases. The largest publication is 33,670,553 expanded
+bytes. Private scoring-clock-v2-probe-v1/RESULT.json SHA-256
+`14d7a54e7ff0ec2ab7b7622406f7bca64fe4c20eb1df0fcd9c74d8563e957f81` preserves sources, inputs, checks and exact
+worker closure. Probe owner 19752/1790439907.9744344 and its metric owners exited;
+four metric requests and drained pipes verified. No production bank admission,
+scoring or score review has yet occurred; integrated N4 accepted credit is zero.
+
+Use README_SCORING_CLOCK_V2.md for purpose, inputs, outputs and PowerShell/CMD/
+Anaconda commands. After the main worker exits with a complete terminal result,
+run integrated_bank_v2.py review, then scoring_bank_v2.py, then
+review_scoring_bank_v2.py with the matching V2 paths. All outputs must be fresh.
+The 1,536-case modes bank still needs separate preparation, execution and reviews.
+Preserve all original qualified code and the active plan; do not substitute
+method_artifact_v2 imports into the pure evaluator.
+
+The current inventory plus remaining 5-GiB main allocation, 6-GiB reservations
+and the 8-MiB probe budget projected 48.09 GiB within the 50-GiB allowance.
+Unrelated cmd.exe 40092 remains AccessDenied in the census; this development
+probe records that uncertainty and does not authorize exclusive application
+execution. Actual selected paced/GUI/resource, continuity and restart validation,
+N4 acceptance and N5 Windows/ARM64 packaging remain. Live CM5 validation is
+explicitly deferred until reconnection; packaging/deadline limits are unchanged.
+
 ### 2026-09-26 15:38 UTC — D1 fully reviewed; integrated main bank running
 
 Fresh audit found D1 terminal 960/960 at 14:52:54 UTC and supervisor completion

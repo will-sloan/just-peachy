@@ -1,0 +1,417 @@
+{
+  "status": "PASS_SCORING_CLOCK_DERIVATIVE_DEVELOPMENT_ONLY",
+  "utc": "2026-09-26T16:28:18.226866+00:00",
+  "scoring_code": [
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\metric_process.py",
+      "sha256": "1a1279c44ce906ce13733db1ba32ba86ffd7419cb1a4b767df3505d66d3e36f8",
+      "bytes": 10902
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\scoring_bank.py",
+      "sha256": "394a4ebf02d8e5e73eb60a0ce89f66c92563fdb42f212261404b485113c75b84",
+      "bytes": 19772
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\scoring_report.py",
+      "sha256": "a1912e445f82d161ad900bd210d4493f7d095372f8e60c8ee70b918462a08f37",
+      "bytes": 5628
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\test_scoring_bank.py",
+      "sha256": "4d89c287ed6b3167ffc66ecfc2a8097e49e5371fb743d614ecebcd9cd5380a12",
+      "bytes": 8971
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\probe_metric_process.py",
+      "sha256": "9896c10c4e5443c876da2fbbbb90021cf768cd598900f7788980e057b056c148",
+      "bytes": 4400
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\README_SCORING_BANK.md",
+      "sha256": "e307f36abe1e3e341e2e7b371c914941499a9737e55481bb0217d88e9730fa2e",
+      "bytes": 6719
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\integrated_scoring_adapter.py",
+      "sha256": "f1b437e1633d4967a0181521cb6533abcd5ca2e0ca079ffdecccca19b56f0635",
+      "bytes": 9570
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\metrics.py",
+      "sha256": "33a038f2d709209209c4117fc1024f1e015868b6e45260a0737950fef53a4c49",
+      "bytes": 7827
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\paired.py",
+      "sha256": "ee3de3a5ab0dcb8aac7b4499b5057ebb32ab230fbf13f39a65086064253d3d6b",
+      "bytes": 3263
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\common.py",
+      "sha256": "a44e389d3c80c8c21e74ea3423d8270273e5b3132a84095218dee078c53f059e",
+      "bytes": 3267
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\probe_integrated_scoring.py",
+      "sha256": "48e7eda0c7ac88ce4fb445645714bd1a00b4fb7561fdc22a02fb7564c4620435",
+      "bytes": 8006
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\integrated_scoring_adapter_v2.py",
+      "sha256": "46fe4a3132cb07cf12e3ff292a3462297d18b5da641458fd0c0cb165fb4005e1",
+      "bytes": 889
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\scoring_bank_v2.py",
+      "sha256": "26f5eae502405771f2701f40bd62c5374687009e8f8c1f074e5721446cf49d02",
+      "bytes": 20799
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\review_scoring_bank_v2.py",
+      "sha256": "09a1f92fcae4f33b1b6ddf100606686e7066481a8e3b84e43c38421385b94737",
+      "bytes": 20002
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\test_scoring_bank_v2.py",
+      "sha256": "656f1e7ecb3c41cb824d8d308ab9ace3fc074faefe6dcfa8f6f4ed5052fa8b9f",
+      "bytes": 8978
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\test_scoring_review_v2.py",
+      "sha256": "30e698fef36766da191db600d9c1b285f2f1ac2cc0316da8ff43dac62af7ed1e",
+      "bytes": 9959
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\test_scoring_clock_v2.py",
+      "sha256": "58a5c7558035ca0e508926c61899f8a8a53805ad65e155d5dabdab7fbe9a972b",
+      "bytes": 4984
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\probe_scoring_clock_v2.py",
+      "sha256": "0b8fb3a5cd27ca5414492ce1b1f9cfba4616c43076da6313107e24c9ebc9187b",
+      "bytes": 10329
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\README_SCORING_CLOCK_V2.md",
+      "sha256": "c0a6b1f444a3f9cd6e0cc4c4a72cbc18e17ff5c04fdc3a833dcbea0b7867704a",
+      "bytes": 6593
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\paced_slot.py",
+      "sha256": "561a2b0485432a397fdab80cdc9fbd578ff9b75caf80ac5372477f1785f31255",
+      "bytes": 11981
+    }
+  ],
+  "review_code": [
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\review_scoring_bank.py",
+      "sha256": "e7bd08e3fb9d19cafd761a778b9dba230bed1002b7dbcd180c620e47b48f51e2",
+      "bytes": 19917
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\test_scoring_review.py",
+      "sha256": "e869f3e6bcd841dc6e5fd913ce3d7ee49e171eff979d3df9fc550a8825bff9ba",
+      "bytes": 9954
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\probe_scoring_review.py",
+      "sha256": "254bb9c5c5e59d2c9adb0b8b8d2014635ee3652f08eeec91b490a6011ef1a264",
+      "bytes": 5197
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\README_SCORING_REVIEW.md",
+      "sha256": "66819f0eca4c86adb0d5b1e36eb84d0d02e19615881ed4a4666373fe0dab1553",
+      "bytes": 5412
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\asr_full_bank.py",
+      "sha256": "ab9ebf7ee64d70b859935b4d3725cce24adb03a713c0a2ad4328253bc02900f9",
+      "bytes": 17580
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\metric_process.py",
+      "sha256": "1a1279c44ce906ce13733db1ba32ba86ffd7419cb1a4b767df3505d66d3e36f8",
+      "bytes": 10902
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\scoring_bank.py",
+      "sha256": "394a4ebf02d8e5e73eb60a0ce89f66c92563fdb42f212261404b485113c75b84",
+      "bytes": 19772
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\scoring_report.py",
+      "sha256": "a1912e445f82d161ad900bd210d4493f7d095372f8e60c8ee70b918462a08f37",
+      "bytes": 5628
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\test_scoring_bank.py",
+      "sha256": "4d89c287ed6b3167ffc66ecfc2a8097e49e5371fb743d614ecebcd9cd5380a12",
+      "bytes": 8971
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\probe_metric_process.py",
+      "sha256": "9896c10c4e5443c876da2fbbbb90021cf768cd598900f7788980e057b056c148",
+      "bytes": 4400
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\README_SCORING_BANK.md",
+      "sha256": "e307f36abe1e3e341e2e7b371c914941499a9737e55481bb0217d88e9730fa2e",
+      "bytes": 6719
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\integrated_scoring_adapter.py",
+      "sha256": "f1b437e1633d4967a0181521cb6533abcd5ca2e0ca079ffdecccca19b56f0635",
+      "bytes": 9570
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\metrics.py",
+      "sha256": "33a038f2d709209209c4117fc1024f1e015868b6e45260a0737950fef53a4c49",
+      "bytes": 7827
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\paired.py",
+      "sha256": "ee3de3a5ab0dcb8aac7b4499b5057ebb32ab230fbf13f39a65086064253d3d6b",
+      "bytes": 3263
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\common.py",
+      "sha256": "a44e389d3c80c8c21e74ea3423d8270273e5b3132a84095218dee078c53f059e",
+      "bytes": 3267
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\probe_integrated_scoring.py",
+      "sha256": "48e7eda0c7ac88ce4fb445645714bd1a00b4fb7561fdc22a02fb7564c4620435",
+      "bytes": 8006
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\integrated_scoring_adapter_v2.py",
+      "sha256": "46fe4a3132cb07cf12e3ff292a3462297d18b5da641458fd0c0cb165fb4005e1",
+      "bytes": 889
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\scoring_bank_v2.py",
+      "sha256": "26f5eae502405771f2701f40bd62c5374687009e8f8c1f074e5721446cf49d02",
+      "bytes": 20799
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\review_scoring_bank_v2.py",
+      "sha256": "09a1f92fcae4f33b1b6ddf100606686e7066481a8e3b84e43c38421385b94737",
+      "bytes": 20002
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\test_scoring_bank_v2.py",
+      "sha256": "656f1e7ecb3c41cb824d8d308ab9ace3fc074faefe6dcfa8f6f4ed5052fa8b9f",
+      "bytes": 8978
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\test_scoring_review_v2.py",
+      "sha256": "30e698fef36766da191db600d9c1b285f2f1ac2cc0316da8ff43dac62af7ed1e",
+      "bytes": 9959
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\test_scoring_clock_v2.py",
+      "sha256": "58a5c7558035ca0e508926c61899f8a8a53805ad65e155d5dabdab7fbe9a972b",
+      "bytes": 4984
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\probe_scoring_clock_v2.py",
+      "sha256": "0b8fb3a5cd27ca5414492ce1b1f9cfba4616c43076da6313107e24c9ebc9187b",
+      "bytes": 10329
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\README_SCORING_CLOCK_V2.md",
+      "sha256": "c0a6b1f444a3f9cd6e0cc4c4a72cbc18e17ff5c04fdc3a833dcbea0b7867704a",
+      "bytes": 6593
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\paced_slot.py",
+      "sha256": "561a2b0485432a397fdab80cdc9fbd578ff9b75caf80ac5372477f1785f31255",
+      "bytes": 11981
+    }
+  ],
+  "private_receipt": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\scoring-clock-v2-probe-v1\\RESULT.json",
+    "sha256": "14d7a54e7ff0ec2ab7b7622406f7bca64fe4c20eb1df0fcd9c74d8563e957f81",
+    "bytes": 32451
+  },
+  "private_admission": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\scoring-clock-v2-probe-v1\\ADMISSION.json",
+    "sha256": "4271a8027a593d45c6270a1872434677bb6eb75559a6bb5c5943292661109176",
+    "bytes": 19247
+  },
+  "source_snapshots": [
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\scoring-clock-v2-probe-v1\\sources\\review_scoring_bank.py",
+      "sha256": "e7bd08e3fb9d19cafd761a778b9dba230bed1002b7dbcd180c620e47b48f51e2",
+      "bytes": 19917
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\scoring-clock-v2-probe-v1\\sources\\test_scoring_review.py",
+      "sha256": "e869f3e6bcd841dc6e5fd913ce3d7ee49e171eff979d3df9fc550a8825bff9ba",
+      "bytes": 9954
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\scoring-clock-v2-probe-v1\\sources\\probe_scoring_review.py",
+      "sha256": "254bb9c5c5e59d2c9adb0b8b8d2014635ee3652f08eeec91b490a6011ef1a264",
+      "bytes": 5197
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\scoring-clock-v2-probe-v1\\sources\\README_SCORING_REVIEW.md",
+      "sha256": "66819f0eca4c86adb0d5b1e36eb84d0d02e19615881ed4a4666373fe0dab1553",
+      "bytes": 5412
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\scoring-clock-v2-probe-v1\\sources\\asr_full_bank.py",
+      "sha256": "ab9ebf7ee64d70b859935b4d3725cce24adb03a713c0a2ad4328253bc02900f9",
+      "bytes": 17580
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\scoring-clock-v2-probe-v1\\sources\\metric_process.py",
+      "sha256": "1a1279c44ce906ce13733db1ba32ba86ffd7419cb1a4b767df3505d66d3e36f8",
+      "bytes": 10902
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\scoring-clock-v2-probe-v1\\sources\\scoring_bank.py",
+      "sha256": "394a4ebf02d8e5e73eb60a0ce89f66c92563fdb42f212261404b485113c75b84",
+      "bytes": 19772
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\scoring-clock-v2-probe-v1\\sources\\scoring_report.py",
+      "sha256": "a1912e445f82d161ad900bd210d4493f7d095372f8e60c8ee70b918462a08f37",
+      "bytes": 5628
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\scoring-clock-v2-probe-v1\\sources\\test_scoring_bank.py",
+      "sha256": "4d89c287ed6b3167ffc66ecfc2a8097e49e5371fb743d614ecebcd9cd5380a12",
+      "bytes": 8971
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\scoring-clock-v2-probe-v1\\sources\\probe_metric_process.py",
+      "sha256": "9896c10c4e5443c876da2fbbbb90021cf768cd598900f7788980e057b056c148",
+      "bytes": 4400
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\scoring-clock-v2-probe-v1\\sources\\README_SCORING_BANK.md",
+      "sha256": "e307f36abe1e3e341e2e7b371c914941499a9737e55481bb0217d88e9730fa2e",
+      "bytes": 6719
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\scoring-clock-v2-probe-v1\\sources\\integrated_scoring_adapter.py",
+      "sha256": "f1b437e1633d4967a0181521cb6533abcd5ca2e0ca079ffdecccca19b56f0635",
+      "bytes": 9570
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\scoring-clock-v2-probe-v1\\sources\\metrics.py",
+      "sha256": "33a038f2d709209209c4117fc1024f1e015868b6e45260a0737950fef53a4c49",
+      "bytes": 7827
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\scoring-clock-v2-probe-v1\\sources\\paired.py",
+      "sha256": "ee3de3a5ab0dcb8aac7b4499b5057ebb32ab230fbf13f39a65086064253d3d6b",
+      "bytes": 3263
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\scoring-clock-v2-probe-v1\\sources\\common.py",
+      "sha256": "a44e389d3c80c8c21e74ea3423d8270273e5b3132a84095218dee078c53f059e",
+      "bytes": 3267
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\scoring-clock-v2-probe-v1\\sources\\probe_integrated_scoring.py",
+      "sha256": "48e7eda0c7ac88ce4fb445645714bd1a00b4fb7561fdc22a02fb7564c4620435",
+      "bytes": 8006
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\scoring-clock-v2-probe-v1\\sources\\integrated_scoring_adapter_v2.py",
+      "sha256": "46fe4a3132cb07cf12e3ff292a3462297d18b5da641458fd0c0cb165fb4005e1",
+      "bytes": 889
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\scoring-clock-v2-probe-v1\\sources\\scoring_bank_v2.py",
+      "sha256": "26f5eae502405771f2701f40bd62c5374687009e8f8c1f074e5721446cf49d02",
+      "bytes": 20799
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\scoring-clock-v2-probe-v1\\sources\\review_scoring_bank_v2.py",
+      "sha256": "09a1f92fcae4f33b1b6ddf100606686e7066481a8e3b84e43c38421385b94737",
+      "bytes": 20002
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\scoring-clock-v2-probe-v1\\sources\\test_scoring_bank_v2.py",
+      "sha256": "656f1e7ecb3c41cb824d8d308ab9ace3fc074faefe6dcfa8f6f4ed5052fa8b9f",
+      "bytes": 8978
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\scoring-clock-v2-probe-v1\\sources\\test_scoring_review_v2.py",
+      "sha256": "30e698fef36766da191db600d9c1b285f2f1ac2cc0316da8ff43dac62af7ed1e",
+      "bytes": 9959
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\scoring-clock-v2-probe-v1\\sources\\test_scoring_clock_v2.py",
+      "sha256": "58a5c7558035ca0e508926c61899f8a8a53805ad65e155d5dabdab7fbe9a972b",
+      "bytes": 4984
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\scoring-clock-v2-probe-v1\\sources\\probe_scoring_clock_v2.py",
+      "sha256": "0b8fb3a5cd27ca5414492ce1b1f9cfba4616c43076da6313107e24c9ebc9187b",
+      "bytes": 10329
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\scoring-clock-v2-probe-v1\\sources\\README_SCORING_CLOCK_V2.md",
+      "sha256": "c0a6b1f444a3f9cd6e0cc4c4a72cbc18e17ff5c04fdc3a833dcbea0b7867704a",
+      "bytes": 6593
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\scoring-clock-v2-probe-v1\\sources\\paced_slot.py",
+      "sha256": "561a2b0485432a397fdab80cdc9fbd578ff9b75caf80ac5372477f1785f31255",
+      "bytes": 11981
+    }
+  ],
+  "tests": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\scoring-clock-v2-probe-v1\\tests.txt",
+    "sha256": "0ee2b52b8b36fdd6ca87c6db7f947c7628d87abbe3174f8bb3d8dc1d5baa4a54",
+    "bytes": 4154
+  },
+  "tests_passed": 27,
+  "saved_score_input_reviews": 51,
+  "saved_boundary_metric_checks": 4,
+  "maximum_boundary_artifact_bytes": 33670553,
+  "artifact_cap_bytes": 67108864,
+  "qualification_dependencies": [
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\SCORING_BANK_IMPLEMENTATION_V1.json",
+      "sha256": "0111013c5bbf7b6255d74cd682d470c2f56872f0a12957e2acfad6dcfc316155",
+      "bytes": 5612
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\SCORING_REVIEW_IMPLEMENTATION_V1.json",
+      "sha256": "7d877503d43aad483c555205be0e16385007df733a905f4bab7320ac2e8d92d6",
+      "bytes": 5963
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\INTEGRATED_BANK_CLOCK_CHECK_V2.json",
+      "sha256": "2cfe66ac1977d3aa8a5e13a040b928daf97f2be2b2261fe0c2094cdb9d0ffe22",
+      "bytes": 18979
+    }
+  ],
+  "environment": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\metrics\\environment-v1\\ENVIRONMENT.json",
+    "sha256": "d8959e31325151d68e031d163c1d21957c88de550a32efabc631614c2e432461",
+    "bytes": 2209419
+  },
+  "environment_files_verified": 5931,
+  "exact_probe_owner_exited": {
+    "pid": 19752,
+    "create_time": 1790439907.9744344
+  },
+  "metric_requests": 4,
+  "all_exact_metric_owners_exited": true,
+  "production_bank_admitted": false,
+  "production_bank_scored": false,
+  "production_scoring_reviewed": false,
+  "models_loaded": 0,
+  "physical_widget_observed": false,
+  "integrated_N4_cells": 0,
+  "N4_accepted": false,
+  "scope": "27 derivative regression/rejection checks, 51 unchanged saved metric inputs/scores, four sealed native-clock boundary conversions and owned-process metric scores. Production admission/full-bank scoring/review and actual application acceptance remain pending."
+}
