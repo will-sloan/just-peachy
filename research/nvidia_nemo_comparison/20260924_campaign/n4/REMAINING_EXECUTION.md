@@ -1,5 +1,32 @@
 # N4 and N5 execution order and acceptance gates
 
+Checkpoint 2026-09-26 03:46 UTC: V3 content/timing/heading/reference/name
+composition and full-panel diagnostics now have 42 passing development checks.
+APPLICATION_SEMANTICS_CHECK_V3.json SHA-256
+`e8f13f0a66a4627b297cedc299b00c3c0b252b41855c143ac77f7a8e6f75b1c5`
+(20 checks, 207 code bindings) and SEMANTIC_PANEL_CHECK_V3.json SHA-256
+`e7b64d16b900b28b46cfb4d1f5d9ca7a36a2fb6a872835f5ecb8263ed3c49718`
+(22 checks, 232 code bindings) are immutable qualifications. Private attempts:
+`application-semantics-v3-probe-v3` and `semantic-panel-v3-probe-v2`; three prior
+failed attempts remain preserved. README_APPLICATION_SEMANTICS_V3.md and
+README_SEMANTIC_PANEL_V3.md document the exact APIs and all shell commands.
+
+The evaluator context migrates only identical gallery-manifest bytes to their
+new qualified path. Full-panel compaction preserves raw delivery in its verified
+envelope and retains its hash; maximum synthetic report plus a 2-MiB registry/
+admission reserve is 8,264,416 bytes within the unchanged 8-MiB ceiling. Actual
+production registry size remains unknown. Rates sum counts; scopes and missing
+observations remain explicit. No new application/model/source execution or
+positive production plan/panel review occurred. These are not N4 acceptance.
+
+Next: implement/qualify the actual continuity and functional stop/restart path.
+After complete main/mode scoring and selection and actual V3 paced execution,
+`review_semantic_panel_v3.py` supplies whole-panel content and conditional naming
+diagnostics. Timing/resource/continuity and remaining supported naming metrics
+still require their own evidence. Preserve all newly bound code. D1 E1 is the
+only numerical worker (505/960 at publication). N5 remains dependent on accepted
+N4 configurations; keep the Pi off and retain its reconnection handoff.
+
 Latest checkpoint (2026-09-26 03:18 UTC): explicit V3 transport, observation,
 composed-cell and full-panel readers now match the qualified V3 planner/runner.
 APPLICATION_TRANSPORT_REVIEW_CHECK_V3.json records 18 checks, including seven

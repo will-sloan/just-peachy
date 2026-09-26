@@ -1,5 +1,67 @@
 # N4 implementation checkpoint — upstream accepted, integrated run pending
 
+### 2026-09-26 03:46 UTC — V3 semantic cell and complete-panel review
+
+The delivery-aware V3 cell now feeds explicit caption, recorded timing, heading
+and conditional name-diagnostic readers in `review_application_semantics_v3.py`.
+It reuses the unchanged pure roster/parser/scoring functions and preserves the
+older qualified APIs. V2 heading receipts are rejected; native/viewport/source
+bindings must agree across the V3 chain. Evaluator truth is read only after the
+observed application result is reconstructed and never enters runtime payloads.
+
+APPLICATION_SEMANTICS_CHECK_V3.json SHA-256
+`e8f13f0a66a4627b297cedc299b00c3c0b252b41855c143ac77f7a8e6f75b1c5`
+binds 207 code records and 20 passing checks. Evidence is private
+`local/n4/application-semantics-v3-probe-v3/RESULT.json`. Attempt v1 rejected a
+changed gallery-manifest path before testing. Inspection proved byte-identical
+16,725-byte manifests; the qualified migration verifies both hashes/sizes and
+rebinds the evaluator to the new qualified context path. Source, catalog and
+runtime bindings stay exact. Attempt v2 passed 18/20, with two fixture setup
+errors after switching the fabricated backend without updating its capture
+contract. V3 fixed that fixture fingerprint; production validation is unchanged.
+Both failed attempts, admissions and source snapshots remain preserved. See
+README_APPLICATION_SEMANTICS_V3.md for purpose, inputs/outputs and shell commands.
+
+`review_semantic_panel_v3.py` now admits a complete production V3 plan/run and
+reviews exactly every declared cell through this semantic chain. It preserves
+40/240-cell population checks, content counts, raw delivery evidence, first/
+final/latest observed headings, fixed roster and conditional name count vectors.
+Rates use summed counts within composition/tap/repeat/reference-class groups.
+All-Unknown and fixed constant-name controls remain diagnostic and share the
+same observed visibility opportunities. Old or modified semantic chain receipts,
+missing cells, changed axes, denominators or fixed contexts are rejected.
+
+SEMANTIC_PANEL_CHECK_V3.json SHA-256
+`e7b64d16b900b28b46cfb4d1f5d9ca7a36a2fb6a872835f5ecb8263ed3c49718`
+binds 232 code records and 22 passing checks. Private evidence is
+`local/n4/semantic-panel-v3-probe-v2/RESULT.json`. Its first attempt passed 21/22;
+duplicate raw delivery summaries put the maximum-panel serialization fixture
+at 8,595,136 bytes including the 2-MiB registry/admission reserve. V2 keeps the
+summary hash and verified envelope reference; the full unchanged raw summary
+and trace remain in the bound evidence. The revised fixture totals 8,264,416
+bytes, below the unchanged 8-MiB ceiling. Actual production registry size remains
+unmeasured and the runtime budget still refuses overflow. See
+README_SEMANTIC_PANEL_V3.md; the failed attempt and snapshots remain preserved.
+
+This checkpoint has 42 passing development checks. Synthetic application/owner/
+clock/delivery/widget facts are not actual GUI execution. Accepted reference
+population remains 480 jobs, 240 scenes, 1,554 turns, 43 identities and both
+24-available/34-intended/10-unavailable research rosters. No positive production
+plan or panel review occurred. Exact naming/phonetic latency, continuous wrong-
+name exposure, acquisition, returning-person consistency, fragmentation, resource
+tiers, continuity, stop/restart and N4 acceptance remain unqualified.
+
+Next independent implementation priority: a separately qualified continuity and
+functional stop/restart path for the existing 20:06.78 input, with no source join
+resets and truthful actor/capacity semantics. Preserve the now-qualified V3
+semantic files. Actual main/mode comparison, score review and shortlist gates
+still precede any production paced panel. Once such a V3 panel is complete, use
+`review_semantic_panel_v3.py` for whole-panel diagnostics; this does not replace
+separate timing/resource/continuity acceptance. D1 remains the only numerical
+worker, E1 at 505/960 at publication; reread exact identities and counts before
+work. N4 acceptance stays zero; N5 awaits accepted configurations, with the Pi
+reconnection requirements retained and the physical Pi untouched.
+
 ### 2026-09-26 03:18 UTC — V3 transport, composed cell and full-panel review
 
 The explicit V3 review path now matches the qualified V3 planner/runner and
