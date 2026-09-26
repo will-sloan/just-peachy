@@ -1,5 +1,22 @@
 # N4 and N5 execution order and acceptance gates
 
+Latest checkpoint (2026-09-26 02:51 UTC): the new V3 panel planner and runner
+explicitly bind `paced_application_cell_v2.py` and its source-delivery policy.
+PACED_PANEL_PLAN_CHECK_V3.json qualifies 11 regression checks and 1,240 fixture
+payloads, with all 16 actual prestart receipts reverified. PACED_RUNNER_CHECK_V3.json
+qualifies 20 lifecycle, cleanup, native-log and delivery-envelope development
+checks. The parent independently parses delivery evidence before collection.
+Neither a production shortlist/plan nor an actual source/model run was created.
+Read README_PACED_PANEL_PLAN_V3.md and README_PACED_APPLICATION_RUNNER_V3.md.
+
+Next implement an explicit V3 transport/cell/panel reader, then connect existing
+content/timing/naming review without changing qualified V2 APIs. Continue actual
+continuity/functional restart support. Full comparison/scoring/selection precede
+exclusive source-paced application runs; development checks do not satisfy those
+gates. D1 advanced 453 to 466/960 under the unchanged worker during this checkpoint.
+N4 acceptance remains zero and the Pi remains off. Older checkpoints below are
+historical; their pending V3 planner/runner item is superseded by this entry.
+
 Latest checkpoint (2026-09-26 02:20 UTC): the explicit
 `paced_application_cell_v2.py` variant now captures source delivery and requires
 its independent engine/source/consumer clock join before successful closure.

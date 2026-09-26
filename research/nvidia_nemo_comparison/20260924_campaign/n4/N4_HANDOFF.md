@@ -1,5 +1,53 @@
 # N4 implementation checkpoint — upstream accepted, integrated run pending
 
+### 2026-09-26 02:51 UTC — explicit V3 planner and runner qualified for development
+
+The new `paced_panel_plan_v3.py` binds the delivery-observed application variant,
+its policy and distinct closure status into every row's context/cache key. It
+reconstructs the actual 16-backend prestart evidence, including exact stopped
+owners, source/runtime/gallery joins, never-started delivery captures and normal
+native closure. The existing unobserved process assignment is still disclosed.
+It preserves the strict inference payload allowlist and production requirement
+for both complete scored banks and a justified shortlist. No real shortlist or
+production plan exists yet.
+
+PACED_PANEL_PLAN_CHECK_V3.json SHA-256
+`1555083062a061ba5fa581f54ceb63722503f54462d2ad9b07c6a2fdc1cd84de`
+binds 100 code files, 11 passing regression tests and 1,240 development payloads
+across all 16 routes. Private evidence is
+`local/n4/paced-panel-plan-probe-v3/RESULT.json`. See
+README_PACED_PANEL_PLAN_V3.md for purpose, inputs, outputs and shell commands.
+
+The new `paced_application_runner_v3.py` imports `paced_application_cell_v2.py`
+and requires its distinct successful closure. After verified normal child
+closure, the parent independently parses the complete native journal and
+delivery trace, checks source-class hashes against the planned source receipt,
+and compares the recomputed delivery join with the child's saved join. Both
+envelopes must pass before collection/progress. An old cell status, foreign
+cell receipt, missing trace or inconsistent delivery cannot collect. The existing
+exclusive slot, permit limits, leases, process ownership and cleanup gates remain.
+
+PACED_RUNNER_CHECK_V3.json SHA-256
+`09473516fc15a5c84f16454ecfca42547f9d35704eca8c4a6e7c553784eadb45`
+binds 110 code files and 20 passing development checks. Private evidence is
+`local/n4/paced-runner-v3-probe-v1/RESULT.json`. Checks include mocked lifecycle
+failures, actual synthetic lease writes, synthetic native-journal parsing, and
+independent delivery parsing using RAM-only extracted source classes. The latter
+uses explicitly fabricated owner/receipt facts and copied fixture flags: it is
+not an actual application execution or production admission. See
+README_PACED_APPLICATION_RUNNER_V3.md for all run commands and limitations.
+
+Next: implement an explicit V3 transport/cell/panel reader for the new runner,
+statuses and delivery envelope; connect supported content/timing/naming review
+without silently replacing the qualified V2 APIs. Then implement/retest actual
+20-minute continuity and functional stop/restart support. Existing source, cell,
+V2 runner/planner/readers and all qualifications remain immutable. The full D1
+component bank remains the only model worker; it advanced from 453 to 466/960
+during this checkpoint under the same exact owners. Read fresh progress before
+acting. Comparison/scoring/selection still precede actual exclusive source-paced
+GUI runs. N4 acceptance remains zero; N5 needs accepted configurations. Preserve
+the Pi reconnection requirements in ../n5/PI_RECONNECTION_REQUIREMENTS.md.
+
 ### 2026-09-26 02:20 UTC — source-delivery cell integration and actual prestart
 
 `paced_application_cell_v2.py` is a separate application variant; the existing
