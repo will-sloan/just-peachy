@@ -1,5 +1,28 @@
 # N4 and N5 execution order and acceptance gates
 
+Checkpoint 2026-09-26 13:19 UTC: D1 E1 **893/960**, exact owners unchanged.
+The new `review_restart_complete.py` composes transport, pair, viewport and
+resource checks over the reconstructed complete selected population. It checks
+cross-reader bindings, owner/session separation, ordered source clocks and every
+input again at completion. Missing resource observations retain explicit gaps.
+**24 development checks pass**; synthetic cell leaf outputs/payloads and production
+plan admission are mocked in the documented tests. No actual production review
+or restart acceptance is claimed.
+
+RESTART_COMPLETE_REVIEW_CHECK_V1.json SHA-256
+`5f951f21f50b17525430cf00316eb3ba8d05b9b5c3e97a7c7286d452cd4bf0c7`
+binds 182 code records. README_RESTART_COMPLETE_REVIEW.md gives the probe and
+later stopped-run commands. All previously qualified code remains immutable.
+Next independent work: native caption semantics/timing and functional restart
+acceptance. Next numerical transition: verify D1 terminal completion and exact
+owner exit, run `review_d1_full_bank.py`, then admit main/modes full-bank execution
+and scoring before the selected actual application runs. Do not infer acceptance
+from queue completion. The unrelated cmd.exe 40092 AccessDenied census observation
+still requires resolution through existing admission policy, with no bypass.
+
+N4 integrated accepted credit remains zero, N5 is incomplete, the Pi is untouched,
+and the original packaging reserve and deadline are unchanged.
+
 Checkpoint 2026-09-26 12:26 UTC: D1 E1 reached **855/960** with unchanged exact
 owners. **22 restart observation development checks pass**, using synthetic saved
 logs and real viewport/resource reconstruction. Two composition tests mock the

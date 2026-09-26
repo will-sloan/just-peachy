@@ -1,5 +1,46 @@
 # N4 implementation checkpoint — upstream accepted, integrated run pending
 
+### 2026-09-26 13:19 UTC — complete selected restart observation review
+
+Fresh audit found D1 E1 healthy at 889/960, with supervisor
+32696/1790350774.0235264, coordinator 4092/1790350774.1659436, model
+51884/1790392138.9657671 and run 92319cd2f5274448be8ee0cefb26e5f9 unchanged.
+CPU14/14/4, heartbeat age 3.50 sec, C: 114.83/G: 100.19 GiB free. Historical
+N2/N3 queues, their later accepted receipts, ASR acceptance, Pi requirements,
+and backup b9e23640e1e4cdac8187d8624656335959c4adf6 were rechecked. D1 reached
+893/960 at publication. Unrelated cmd.exe 40092 AccessDenied remains an unresolved
+census observation for later exclusive admission; nothing was bypassed.
+
+`review_restart_complete.py` now composes the unchanged transport and observation
+readers across the exact reconstructed selected run. Both independent pair
+reconstructions must match, as must owner, full planned job, ordered viewport
+clocks, resource owner/windows and fixed COLLECTED/application result bindings.
+Conflicting shared bindings fail. Each pair needs a distinct application identity
+and native sessions. All inputs and saved per-pair reviews are reverified after
+the final pair; late changes/failures preserve partial evidence without terminal
+success. Missing complete resource samples remain explicit coverage gaps.
+
+RESTART_COMPLETE_REVIEW_CHECK_V1.json SHA-256
+`5f951f21f50b17525430cf00316eb3ba8d05b9b5c3e97a7c7286d452cd4bf0c7`
+binds 182 code records and 24 passing development checks (12 new composition/
+driver cases and 12 unchanged population/stopped-run cases). Private receipt
+`restart-complete-review-probe-v1/RESULT.json` SHA-256
+`b13e740c61512a4e92644957bcbd9c52c74c7b9c2a86d1768464ceefb0aa9a6e`;
+publication `restart-complete-review-publication-v1/RESULT.json` SHA-256
+`c5edc533b5dce2d5e10d1989d3d9adfd6d0a87dc581797d0ba9b5e1c2180a76a`
+preserves 79 fixture-file bindings and four source snapshots. The new fixtures
+use synthetic reader outputs; cell leaf readers/payloads and production plan
+admission are mocked where documented. No actual production run was reviewed.
+
+README_RESTART_COMPLETE_REVIEW.md documents guarded probe and later production
+review commands for PowerShell, CMD and Anaconda. The original review/run/child
+manifests remain frozen. Native caption semantics, latency thresholds and
+functional restart acceptance are still separate work. After D1 terminates,
+verify its exact owners exited and run the existing full-bank review before
+admitting downstream main/modes integration, scoring and selected application
+runs. N4 remains 0/7680 accepted integrated cells; N5 remains preparation.
+Packaging reserve/deadline and powered-off Pi constraints are unchanged.
+
 ### 2026-09-26 12:26 UTC — restart viewport/resource attribution
 
 Fresh entry audit: D1 E1 845/960, supervisor 32696/1790350774.0235264,
