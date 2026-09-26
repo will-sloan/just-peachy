@@ -1,5 +1,57 @@
 # N4 and N5 execution order and acceptance gates
 
+### 2026-09-26 15:38 UTC — D1 fully reviewed; integrated main bank running
+
+Fresh audit found D1 terminal 960/960 at 14:52:54 UTC and supervisor completion
+at 14:52:58. Exact owners 32696/1790350774.0235264,
+4092/1790350774.1659436 and 51884/1790392138.9657671 had exited. Accepted N2/N3,
+prior Git backup a78cb6681e7a0179fd755b00c2a8cf4b51a40c8b and Pi requirements
+were reverified. Historical N2/N3 queue labels are superseded by those receipts.
+
+The original full D1 review failed on an exact-decimal frame assumption. V2
+uses the bound native float32 10-ms interval for endpoints and ActivityTimeline;
+its full review exposed a separate query-event clock assumption. V3 checks raw
+query event clocks against native window ends while retaining exact rounded
+waveform sample support. No tolerance was widened, source event edited or
+neural model rerun. Original and V2 failed executions, qualifications, tests
+and source snapshots remain private. V3 passed 18 regression checks and then
+all 960 actual cells, 480 paired files, 1,111,489,288 expanded event bytes,
+7,412 query windows and 2,179,000 frames per encoder. Each encoder retains
+298 short runs and 16 files without queries. D1_FULL_BANK_REVIEW_V3.json binds
+private d1-full-bank-review-v3/REVIEW.json SHA-256
+`d349772e90e786735e61bbd59aac7e57677aa51af12243e1668c519da65671b4`.
+
+The explicit integrated V2 derivative propagates the scanner correction.
+Its first probe preserved one artifact-cap failure. The qualified derivative
+retains full histories with a 64-MiB per-artifact cap and 140-MiB cell reserve;
+16 checks pass, including four full saved-audio boundary cases. Original
+publication/Controller behavior and limits remain unchanged. Read
+README_D1_FRAME_CLOCK_V3.md and README_INTEGRATED_BANK_CLOCK_V2.md.
+
+Production plan integrated-main-plan-v2.json (7,680 rows) SHA-256
+`c42150c83eb007bf976418233d4f53ebe0ccc6b77dc8e317511a97764b0de8d5`
+is admitted from all three passed component banks. Existing supervisor phase/
+start interfaces launched run `8d0e7a5cee5d46cc887b4777ebf48450` at 15:36:49 UTC:
+supervisor 48424/1790437009.6059947; method worker 13032/1790437009.773104.
+Both CPU14/BelowNormal, hidden, no models or GUI. Initial verified progress
+18/7,680; follow local/n4/integrated-main-v2/PROGRESS.json and worker.json, not
+stale shared panel_progress.json. Actual allocation 5 GiB retains 6 GiB pending
+reservations plus 1 GiB contingency under 50 GiB. Prior shared-state snapshots
+are preserved; no manual ledger mutation. INTEGRATED_MAIN_STARTED_V2.json and
+README_INTEGRATED_MAIN_RUN_V2.md give exact evidence and commands.
+
+Do not edit code bound to this plan or start another bank. While it runs,
+qualify an explicit scorer/reviewer derivative for the 64-MiB artifacts; the
+original 32-MiB reader will reject some complete histories. After terminal
+owner exit, use integrated_bank_v2.py review, then scoring. The separate
+1,536-case modes bank and actual selected paced/GUI/resource, continuity and
+restart execution/review remain pending. The restart native-content component
+still needs composition with the complete run and admitted roster/timing.
+Accepted integrated N4 credit remains zero; N5 packaging/ARM64 software work
+is incomplete and live CM5 checks wait for reconnection. The unrelated
+cmd.exe 40092 AccessDenied remains unresolved for exclusive application
+admission; no gate was bypassed. The Pi stayed off; deadlines are unchanged.
+
 Checkpoint 2026-09-26 14:22 UTC: D1 E1 **937/960**, exact owners unchanged.
 **23 released native-content development checks pass**. The new
 `review_restart_native_content.py` preserves the full job while interpreting the

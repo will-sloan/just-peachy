@@ -1,0 +1,60 @@
+{
+  "status": "RUNNING_MODELED_APPLICATION_METHOD_BANK_NOT_STAGE_ACCEPTANCE",
+  "utc": "2026-09-26T15:38:22.027963+00:00",
+  "private_receipt": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\integrated-main-dispatch-v2\\VERIFIED_RUNNING.json",
+    "sha256": "2e780cbcfbd87dd1696bbada09be4ad2dda9e44732aef6f00b99ab7ab4bf99c2",
+    "bytes": 3480
+  },
+  "plan": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\integrated-main-plan-v2.json",
+    "sha256": "c42150c83eb007bf976418233d4f53ebe0ccc6b77dc8e317511a97764b0de8d5",
+    "bytes": 18303421
+  },
+  "admission": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\integrated-main-v2\\ADMISSION.json",
+    "sha256": "5efd8448ffab618b6b1a64e021e8dfe8893b551763cb88ba00543ba91a25b8bb",
+    "bytes": 1529
+  },
+  "qualification": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\INTEGRATED_BANK_CLOCK_CHECK_V2.json",
+    "sha256": "2cfe66ac1977d3aa8a5e13a040b928daf97f2be2b2261fe0c2094cdb9d0ffe22",
+    "bytes": 18979
+  },
+  "component_reviews": {
+    "ASR": {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-full-bank-review-v1\\REVIEW.json",
+      "sha256": "9aeec14010376135e760b0a1aa02925a062fda605d0bb512312512199bba9249",
+      "bytes": 1150812
+    },
+    "D0": {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\d0-bank-review-v1\\REVIEW.json",
+      "sha256": "0c2eb703ee2cf66d6cd328032fa36507fd3f1cd77281c8cca3668cdae3abc725",
+      "bytes": 867227
+    },
+    "D1": {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\d1-full-bank-review-v3\\REVIEW.json",
+      "sha256": "d349772e90e786735e61bbd59aac7e57677aa51af12243e1668c519da65671b4",
+      "bytes": 595027
+    }
+  },
+  "required": 7680,
+  "observed_completed": 18,
+  "supervisor": {
+    "pid": 48424,
+    "create_time": 1790437009.6059947
+  },
+  "method_owner": {
+    "pid": 13032,
+    "create_time": 1790437009.773104
+  },
+  "run_id": "8d0e7a5cee5d46cc887b4777ebf48450",
+  "allocation_gib": 5,
+  "cpu_affinity": [
+    14
+  ],
+  "models_loaded": 0,
+  "physical_widget_observed": false,
+  "integrated_N4_cells": 0,
+  "next": "Follow local/n4/integrated-main-v2/PROGRESS.json; review terminal evidence with integrated_bank_v2.py after exact owner exit. Scoring needs a qualified 64-MiB reader derivative. Then separate modes bank and selected actual application checks."
+}

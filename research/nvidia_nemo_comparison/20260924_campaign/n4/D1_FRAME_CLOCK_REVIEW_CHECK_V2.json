@@ -1,0 +1,130 @@
+{
+  "status": "PASS_D1_MANIFEST_FRAME_CLOCK_REVIEW_TESTS_ONLY",
+  "utc": "2026-09-26T15:22:32.612491+00:00",
+  "private_receipt": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\d1-frame-clock-v2-probe-v1\\RESULT.json",
+    "sha256": "2b8256c41f53ee08491ef88124c257b20b939fe63d5052d30e63f7ececad06aa",
+    "bytes": 756
+  },
+  "admission": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\d1-frame-clock-v2-probe-v1\\ADMISSION.json",
+    "sha256": "8ee00598b070448e8ed28a49fe9fa7e8bc91c9cea14a5fe680076e270b60b27f",
+    "bytes": 5317
+  },
+  "code": [
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\review_d1_frame_clock_v2.py",
+      "sha256": "ba7a41aad588855b71e1e27e735935ec3d4bfc4b7fc0440fa3a416e6b56af360",
+      "bytes": 11508
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\review_d1_full_bank_v2.py",
+      "sha256": "e9b8f9487d08c19f25416ed4a0689463158a09a9e0719030ea37549725f8f3b0",
+      "bytes": 7748
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\test_d1_frame_clock_v2.py",
+      "sha256": "2b39e5057e3885854c7e5a4df3436ef4a2d7be29dbfb76b43a24676e3630e687",
+      "bytes": 4139
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\test_review_d1_full_bank_v2.py",
+      "sha256": "50258cfc642b3060405a6df843d474eaa164f3d0610ac765f3f711ca0dc2b07c",
+      "bytes": 6019
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\README_D1_FRAME_CLOCK_V2.md",
+      "sha256": "75b154547ae3c85cfef191633f6277435e2a97ad7ba5b99bff4f9f89adc6ff2e",
+      "bytes": 3867
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\review_d1_components.py",
+      "sha256": "0c362db97dac373f4b99142f15d70722e65f35fdf096dc1daac8350c33a41531",
+      "bytes": 16403
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\review_d1_full_bank.py",
+      "sha256": "c9cdcc7739cf6a77daefbdbc860892071c0105d970919c7678c6d19dfb2dd440",
+      "bytes": 7215
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\test_review_d1_components.py",
+      "sha256": "84c4620aad33ef7917a2bd31380dbb5a05bb672dc25f06c88cbed796f81973ae",
+      "bytes": 4019
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\test_review_d1_full_bank.py",
+      "sha256": "37ee261cbe800adc6dc9e518ba674e6a778fdd2f79de2bb554100157f0431975",
+      "bytes": 5984
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\test_d1_lane_components.py",
+      "sha256": "ef94de5796ead2a311840b3648d95f0380f1db5a4539c4c44a2fead6c1fab32b",
+      "bytes": 8581
+    }
+  ],
+  "source_snapshots": [
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\d1-frame-clock-v2-probe-v1\\source\\review_d1_frame_clock_v2.py",
+      "sha256": "ba7a41aad588855b71e1e27e735935ec3d4bfc4b7fc0440fa3a416e6b56af360",
+      "bytes": 11508
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\d1-frame-clock-v2-probe-v1\\source\\review_d1_full_bank_v2.py",
+      "sha256": "e9b8f9487d08c19f25416ed4a0689463158a09a9e0719030ea37549725f8f3b0",
+      "bytes": 7748
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\d1-frame-clock-v2-probe-v1\\source\\test_d1_frame_clock_v2.py",
+      "sha256": "2b39e5057e3885854c7e5a4df3436ef4a2d7be29dbfb76b43a24676e3630e687",
+      "bytes": 4139
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\d1-frame-clock-v2-probe-v1\\source\\test_review_d1_full_bank_v2.py",
+      "sha256": "50258cfc642b3060405a6df843d474eaa164f3d0610ac765f3f711ca0dc2b07c",
+      "bytes": 6019
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\d1-frame-clock-v2-probe-v1\\source\\README_D1_FRAME_CLOCK_V2.md",
+      "sha256": "75b154547ae3c85cfef191633f6277435e2a97ad7ba5b99bff4f9f89adc6ff2e",
+      "bytes": 3867
+    }
+  ],
+  "application_source": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\releases\\n4-complete-journal-v1\\SOURCE_RECEIPT.json",
+    "sha256": "72943995fed1b85e649fa4d72143580bad1b5b36479b343adbf2030419700b63",
+    "bytes": 61890
+  },
+  "native_geometry_source": [
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\releases\\n4-complete-journal-v1\\prototype\\app\\n2_pipeline.py",
+      "sha256": "25c57f0f1467e1c5597ecaf2532eda8b8939028bd8bd20fbe1bf2a21417f6553",
+      "bytes": 20320
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\releases\\n4-complete-journal-v1\\prototype\\vendor\\edge_speech_pipeline\\nemotron_diarization.py",
+      "sha256": "d067f94ab2f64d536334ca31ee87a8243efd35d17f3895f66b9621fd0e09d7bd",
+      "bytes": 15227
+    }
+  ],
+  "tests_passed": 15,
+  "original_clock_tolerance_seconds": 1e-06,
+  "accepted_frame_intervals": [
+    0.01,
+    0.009999999776482582
+  ],
+  "same_interval_required_for_all_frames": true,
+  "source_event_or_model_changed": false,
+  "actual_neural_inference": false,
+  "integrated_N4_cells": 0,
+  "failed_original_execution": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\d1-full-bank-review-execution-v1\\FAILED.json",
+    "sha256": "150596cf823687fb84330ccd81913c55f8e7cdcbb764cd6b88834eb8851ee9d0",
+    "bytes": 179
+  },
+  "diagnosis": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\d1-full-bank-review-execution-v1\\FIRST_CLOCK_MISMATCH.json",
+    "sha256": "31f83a2cb31e9d76205e842092e09c09e784039254fdbf90d39b7f8b1d21328e",
+    "bytes": 623
+  }
+}
