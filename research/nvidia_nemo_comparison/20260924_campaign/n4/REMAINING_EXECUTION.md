@@ -259,6 +259,21 @@ complete actual histories. Returning-person/fragmentation metrics, unresolved
 source timing instrumentation, continuity and functional stop/restart still need
 implementation/qualification. Accepted integrated N4 cells remain zero.
 
+NAME_PANEL_CHECK_V1.json now qualifies the explicit complete-panel composition
+`review_name_panel.py`: 18 development checks, including inherited exact census
+tests, saved synthetic all-reader/scorer compaction, unequal-denominator summed
+rates and a 240-cell/96-group output-budget fixture. Use README_NAME_PANEL.md's
+production CLI only after an actual admitted V2 panel has stopped. It verifies
+all planned cells and preserves a conflict-checked input registry, full result
+fingerprints and lossless count vectors. Groups separate composition, tap,
+panel/repeat kind and reference class; fixed roster/control/context drift fails.
+PASS_COMPLETE_V2_PANEL_NAME_DIAGNOSTICS_ONLY is conditional diagnostic coverage,
+not exact naming/latency/resource or stage acceptance. No actual production plan
+or full panel has run. Source callback deadline instrumentation, continuity and
+functional stop/restart are still outstanding, as are supported acquisition,
+exposure and returning-person/track metrics. Preserve all qualified source and
+readers; prepare explicit derivatives for any new instrumentation.
+
 The user's 2026-09-25 Pi reminder is recorded in
 `../n5/PI_RECONNECTION_REQUIREMENTS.md`: prioritize a short verified reconnect/
 install/launch path, one shared GUI with accepted backend choices, actual storage

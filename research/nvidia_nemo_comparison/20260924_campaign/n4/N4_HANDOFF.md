@@ -1,5 +1,55 @@
 # N4 implementation checkpoint — upstream accepted, integrated run pending
 
+### 2026-09-26 01:10 UTC — complete-panel naming diagnostic reviewer
+
+NAME_PANEL_CHECK_V1.json qualifies `review_name_panel.py` with 18 passing
+development checks. Its production CLI independently reconstructs a fully
+stopped V2 plan/run and requires the entire exact 40–240-cell population before
+calling the qualified heading reader and reference/name scorer on every cell.
+The exact collected receipt and planned audio/backend/roster joins must match.
+Older runner and reviewer files remain unchanged. The positive production gate
+and actual complete panel still await real inputs; no plan was manufactured.
+
+Compact cell records losslessly encode every count against fixed scenario,
+stage, pane, reference-support, heading-kind and outcome axes. Detailed review,
+score and reference-context fingerprints accompany a deduplicated input-binding
+registry. This preserves reconstruction without repeating large strings in the
+panel output. Groups separate composition, tap, panel/repeat kind and reference
+class. Rates come from summed counts, never means of percentages. Fixed roster,
+constant-control identity and reference context cannot change within a composition.
+Missing observations, unresolved support, forced choices, pane conflicts, empty
+caption exclusions and missing revision counts retain their declared scope.
+
+Tests include the eight existing exact population/admission-refusal checks,
+saved synthetic all-reader/scorer composition, count roundtrips, a hand-computed
+4/4 plus 0/8 example yielding 4/12 rather than a 50% average, stratum separation,
+changed inputs/rosters/axes/counts rejection and empty-population null rates.
+The 240-cell/96-group size fixture used 3,801,288 compact-cell bytes and 2,172,536
+group-report bytes; a 2-MiB binding/admission reserve still fit the 8-MiB cap.
+Actual production registry size is not yet observed and every write remains
+bounded. README_NAME_PANEL.md gives inputs, outputs, scope and commands for
+PowerShell, CMD and Anaconda Prompt, including the stopped-run production CLI.
+
+Qualification SHA-256:
+`3933e77035f188ecfba8bd22ea62cde598975fc079bd80957ff8b0a7e6214f2d`.
+It binds 180 code/dependency records and private
+`local/n4/name-panel-probe-v1/RESULT.json`, SHA-256
+`5db26fcad1bec5bdb0f8a4039f7b8aa47cd47ee695c90e8e131e4ac812dd86b7`.
+Probe 49352/1790384987.6347418 and publication helper
+13220/1790385048.7982805 exited normally. D1 advanced from 389/960 at entry to
+395/960 during publication under the unchanged exact model/coordinator/supervisor
+identities and active/predecessor source bindings. Only CPU14 model-free work was
+added; no actual application, waveform, model, device or Pi was started.
+
+The result is complete conditional diagnostic coverage, not exact word/person
+accuracy or elapsed exposure. Actual full-panel observations, source callback
+deadline evidence, supported acquisition/exposure and returning-person/track
+metrics, continuity and functional stop/restart remain. Prioritize that remaining
+instrumentation and execution path while D1 continues. Finish/review D1 before
+main/modes banks, scoring, selection and actual paired application panels; run
+this reviewer explicitly on the stopped V2 panel. Accepted N4 cells remain zero,
+N5 requires accepted configurations, and on-device CM5 validation remains deferred.
+
 ### 2026-09-26 00:40 UTC — observed-name diagnostic counts and controls
 
 OBSERVED_NAME_SCORING_CHECK_V1.json qualifies `score_observed_names.py` with
