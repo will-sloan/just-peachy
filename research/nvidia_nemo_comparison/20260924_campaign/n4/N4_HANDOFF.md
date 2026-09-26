@@ -1,5 +1,55 @@
 # N4 implementation checkpoint — upstream accepted, integrated run pending
 
+### 2026-09-26 09:23 UTC — independent restart pair evidence joins
+
+The entry audit found D1 E1 healthy at 717/960 with supervisor
+32696/1790350774.0235264, coordinator 4092/1790350774.1659436 and model
+51884/1790392138.9657671 unchanged. Heartbeat age was 0.27 seconds; C: 114.83
+and G: 100.28 GiB were free. Active/predecessor code, accepted N2/N3 and ASR,
+Pi requirements and backup 3eb68924bce8e3546b64eee815252e839f6dddca were
+reverified. The unrelated cmd.exe 40092 AccessDenied uncertainty remains for
+future exclusive admission. D1 reached 727/960 during publication.
+
+restart_pair_evidence.py now independently reconstructs the two released-source
+delivery, engine/archive and native-journal reviews from fixed closed files.
+It joins full job/engine identity, actual prefix/full sample counts, terminal
+bindings, source origins, event populations and completion/release order. Pair
+checks require the recorded shared Controller/UI/worker/model ownership,
+distinct native sessions, consecutive epochs, zero offsets and a second origin
+strictly after the first release. The first public stop must occur at or after
+the admitted threshold. Old caption history remains explicitly partitioned by
+session in viewport scope receipts. No source times or counts are corrected.
+
+Eighteen development checks passed on the first attempt. File-composition
+fixtures use synthetic metadata and mock the three already qualified leaf
+readers; their algorithmic qualification is preserved, not rerun or inferred
+from these mocks. Cross-reader, cross-session, ordering, count, byte-binding,
+duplicate-JSON, live-owner and false-acceptance cases are exercised. No actual
+source, model, GUI, process child or Pi was started. The new parent manifest
+contains 137 records, including all 122 unchanged child records; the child
+admission limit remains 128 and never receives the larger parent manifest.
+
+RESTART_PAIR_EVIDENCE_CHECK_V1.json SHA-256
+499f083745652b57e7d6d0a8bac26c4be55aca81620b6ae5cceee5b215e02346 binds
+local/n4/restart-pair-evidence-probe-v1/RESULT.json SHA-256
+510f88ca8e740edaa712cee2e6f1073eb92b26aa64d49ea56f24069980903cb1.
+Probe owner 37472/1790414472.0798504 and publication owner
+35436/1790414593.7841377 exited. Publication preserves all 207 fixture-file
+bindings and source snapshots. README_RESTART_PAIR_EVIDENCE.md documents
+purpose, API inputs/outputs and PowerShell/CMD/Anaconda probe commands.
+
+Next implement the exclusive parent coordinator around the fixed child
+restart_application_child.py --permit/--nonce, using separate parent/child
+manifests and the existing suspended private Job, slot and renewable lease.
+After normal child closure invoke review_pair; independently validate complete
+transport/lifetime and selected-pair census before any functional acceptance.
+The pair reader checks recorded ownership joins, not independent object identity
+instrumentation; it does not review viewport rows or resource samples. Those
+reviews and actual model-backed restart runs remain. Finish/review D1, then
+main/modes banks, scoring and selection before running any selected application
+plans. Accepted integrated N4 cells remain 0/7680; N4/N5 are incomplete and live
+CM5 checks remain deferred. Preserve all prior immutable code and evidence.
+
 ### 2026-09-26 08:22 UTC — released-prefix native reader and bounded fixed child
 
 Fresh audit found D1 E1 healthy at 684/960, heartbeat age 0.92 seconds, with

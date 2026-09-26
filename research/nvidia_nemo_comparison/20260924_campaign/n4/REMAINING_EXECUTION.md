@@ -1,5 +1,29 @@
 # N4 and N5 execution order and acceptance gates
 
+Checkpoint 2026-09-26 09:23 UTC: **18 restart pair evidence development checks
+pass**. The new parent-only reader independently invokes the qualified released
+trace, engine/archive and native readers and joins their full job, delivered
+count, epoch/session, source origin, terminal census and completion order.
+The pair composition checks the admitted stop threshold, recorded shared
+Controller/UI/worker/model ownership, fresh sessions and second-source start
+after the first release. Old viewport history keeps explicit session scope.
+
+RESTART_PAIR_EVIDENCE_CHECK_V1.json SHA-256
+`499f083745652b57e7d6d0a8bac26c4be55aca81620b6ae5cceee5b215e02346`
+binds 137 parent dependencies. The immutable child stays at 122/128. Positive
+file-composition tests mock the three previously qualified leaf readers and use
+synthetic metadata; no production restart result exists. Review-pair success
+does not qualify transport provenance, viewport rows, resource samples, timing,
+selected-pair coverage or N4. See README_RESTART_PAIR_EVIDENCE.md.
+
+Next: implement the separate parent coordinator and independent full transport/
+selected-pair review, then viewport/resource interpretation. Retain the existing
+suspended private-process and lease gates; no duplicate numerical worker or
+manually invented permit. D1 remains healthy at 727/960 during publication.
+Full D1 review, main/modes banks, scoring/selection, actual paced/continuity/
+restart evidence, N4 acceptance and final N5 validation/package/backup remain.
+The packaging reserve and hard deadline below are unchanged; Pi stays offline.
+
 Checkpoint 2026-09-26 08:22 UTC: **34 development checks pass**: 19 explicit-prefix
 native-reader checks and 15 fixed-child wiring checks. The native derivative
 preserves the full planned job and verifies a separately declared delivered span;
