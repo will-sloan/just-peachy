@@ -1,5 +1,62 @@
 # N4 checkpoint — components reviewed; integrated method bank running
 
+### 2026-09-26 21:30 UTC - V4 runner and complete evidence-review family qualified
+
+The V3 main method bank is healthy at 5,088/7,680. Worker
+46448/1790444329.9990232 and supervisor 31132/1790444329.8372655 retain exact
+identities, CPU14 affinity, fresh heartbeats and all 58 source bindings. The
+accepted N2/N3 evidence and 2,895 prior fixed backup bindings were reverified.
+No duplicate numerical worker, real application or model was launched.
+
+APPLICATION_FAMILY_CHECK_V4.json SHA-256
+`cbe87d86dea175f299917c4e3250077d1b294d58cf4cd610dbdb829dcc3678e0` qualifies 186 code records.
+The V4 coordinator and stopped transport/cell/full-panel readers now consume
+the V4 scored planner. Every old dependency remains bound. A fresh child-gate
+derivative expands only the code-list cap from 128 to 256: the permit/input
+256-KiB bound, five-second/4-KiB lease, ownership, nonce, command, private desktop,
+CPU4/CPU14 placement, cancellation, source and resource checks are unchanged.
+Exact child-gate AST comparison verifies that sole semantic change. The runner's
+collection, child, native/delivery checks and lifetime control flow are unchanged.
+The new run schema is n4-paced-application-run-v4. Original implementations,
+qualifications, frozen application and active bank sources were not edited.
+
+The fresh application-family-v4-probe-v1 passed 76 checks: nine child gates,
+twenty runner, eighteen transport, eleven cell, ten population and eight family
+checks. All 14 new source snapshots, six logs, inert fixtures and results remain
+private. Probe owner 44608/1790457863.6074936 exited. Evidence readers joined
+synthetic native/source/delivery/viewport/resource records and reclassified seven
+saved native lifetimes. The 256-record transport boundary passes; 257 records,
+wrong runner, changed parents, partial populations, expired/foreign leases and
+unsafe cleanup are refused. Coordinator/child/slot lifecycles are mocked, and
+real delivery checks use RAM fixtures. There is no successful production plan/
+slot admission, actual panel, saved-audio inference, latency or resource result.
+N4 acceptance remains zero; full semantic/naming/resource/continuity/restart
+acceptance is still pending. The probe produced 6,847,453 bytes within 8 MiB.
+
+README_APPLICATION_FAMILY_V4.md covers every new file, purpose, inputs/outputs,
+PowerShell/CMD/Anaconda commands, future supervised preparation and review.
+The actual application still uses the same 13-field audio/configuration input.
+Next qualify the restart plan/runner/stopped-run/content family against V4,
+then a matching semantic/full-content panel composition (the existing semantic
+V3 reader still imports the old V3 cell reader). Preserve fixed source delivery,
+roster and raw/native caption clocks; do not relabel old receipts. Main/modes
+method reviews/scoring and evidence-based selection must pass before production
+preparation. Exclusive controlled-slot checks remain mandatory for actual runs.
+
+Known resource-admission blocker: cmd.exe PID 40092 remains inaccessible in the
+conservative process census. A local Win32_Process CIM read confirms a start at
+2026-09-25 09:00:00.03114 America/Toronto, parent 5156, but provides neither command
+nor executable path. Its ownership/workload is unclassified, not proven idle or
+unrelated. No process was stopped and no gate bypassed. The user was asked whether
+they can identify/close it or need it running; numerical work continues meanwhile.
+Recheck exact identity/census before later controlled application admission.
+
+Projected private inventory plus remaining main allocation, 6 GiB pending and
+0.5 GiB contingency is 49.723 GiB; C50/G75 drive floors pass. N5
+validation/release remain downstream of accepted N4. The Pi is offline and live
+CM5 checks are deferred. Packaging reserve starts 2026-09-28 02:48:19 UTC; the
+campaign deadline stays 2026-09-28 14:48:19 UTC.
+
 ### 2026-09-26 20:31 UTC - V3-scored selected-panel planner qualified
 
 The healthy V3 main bank reached 4,144/7,680 at this checkpoint.
