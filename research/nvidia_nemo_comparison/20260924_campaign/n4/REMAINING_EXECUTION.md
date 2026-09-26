@@ -1,5 +1,63 @@
 # N4 and N5 execution order and acceptance gates
 
+### 2026-09-26 22:33 UTC - V4-scored restart family qualified for development
+
+The main V3 method bank remains healthy at 6,407/7,680. Its exact worker
+46448/1790444329.9990232 and supervisor 31132/1790444329.8372655 retain
+fresh heartbeats, CPU14 affinity and all 58 source bindings. Accepted N2/N3,
+5,591 prior fixed evidence bindings and the previous 17 public files were
+reverified before development. No duplicate numerical worker was started.
+
+RESTART_FAMILY_CHECK_V2.json SHA-256
+`7f4c842c22ed8be0e2b5d7dd3cb614d4af8c1c123530e491fcfae72722395f79` binds 305 parent code records.
+Fresh restart_application_plan_v2, restart_application_runner_v2,
+review_restart_run_v2 and review_restart_content_run_v2 now consume the V4
+scored panel through exact qualified reconstruction. Plan/run schemas are
+n4-restart-application-plan-v2 and n4-restart-application-run-v2. The
+same-controller child, its 122 bindings and original 128-record permit gate
+are unchanged. The larger parent manifest is never sent as child code.
+Every old dependency is retained. AST checks confirm unchanged collection,
+cleanup, run loop, payload, midpoint policy and content-population joins.
+Fixed baseline plus at most five alternatives still require both O0/O1
+anchors: 2-12 pairs and 4-24 sessions, with the same 13-field child input.
+
+The second private probe passed all 81 checks (16 planner, 24 coordinator,
+12 stopped population, 13 content-cell, eight content population and eight
+cross-family), including 62 synthetic input payloads across all 16 routes.
+All twelve source snapshots and six logs are preserved. Exact helper
+34600/1790461765.925783 exited. Its final output was 3,747,720 bytes within
+8 MiB. The first attempt passed 80/81; an empty model-assets list in the
+synthetic planner fixture was correctly rejected by the real unchanged
+child gate. Its logs, source and failure remain immutable in
+restart-family-v2-probe-v1. The repair uses saved component asset metadata
+in the fixture; it does not reload or revalidate model-weight contents.
+No production behavior or admission gate was weakened.
+
+The probe uses mocked coordinator/child/slot and lifecycle leaves where
+documented, real native/viewport/fixed-roster readers over synthetic facts,
+and mocked plan/qualification admission in stopped-run fixtures. There is
+no real restart, successful production plan/slot admission, latency/resource
+qualification or N4 acceptance credit. The sealed development qualification
+was subsequently read successfully with its exact helper already stopped.
+README_RESTART_FAMILY_V2.md covers every new file and provides purpose,
+inputs/outputs and PowerShell/CMD/Anaconda commands, with supervisor-only
+production dispatch after full admission.
+
+Next bind the semantic/full-content selected-panel review to the V4 family;
+review_application_semantics_v3 still uses the old V3 cell reader, and the
+older content-panel composition must not be relabelled. Complete main/modes
+method review and scoring, selection, actual paced GUI/resource/naming/timing,
+continuity and restart acceptance before declaring N4 complete. N5 Windows/
+ARM64 validation, accepted-configuration packaging and release remain pending.
+
+The process census still cannot classify cmd.exe PID 40092 (AccessDenied).
+The previous exact CIM observation and pending user clarification remain the
+controlled GUI/resource admission blocker; no process was killed or bypassed.
+Projected inventory including remaining main allocation, 6 GiB pending and
+0.5 GiB contingency is 49.732 GiB. C50/G75 floors pass. Pi remains offline;
+live CM5 validation waits for reconnection. Packaging reserve is unchanged at
+2026-09-28 02:48:19 UTC; campaign deadline is 14:48:19 UTC that day.
+
 ### 2026-09-26 21:30 UTC - V4 runner and complete evidence-review family qualified
 
 The V3 main method bank is healthy at 5,088/7,680. Worker
