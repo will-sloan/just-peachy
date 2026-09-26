@@ -243,6 +243,22 @@ scoring and constant-name/all-Unknown controls with appropriate approximate and
 missing-reference denominators, then invoke them explicitly on real complete
 application evidence. Existing qualified readers/runner/source remain unchanged.
 
+OBSERVED_NAME_SCORING_CHECK_V1.json now qualifies `score_observed_names.py` for
+conditional estimated-support diagnostic counts/rates in each pane at first,
+first-final and latest observations. Eighteen development tests passed, including
+the saved actual-reader synthetic cell and hand-computed fixed-name/Unknown
+controls. Read README_OBSERVED_NAME_SCORING.md before using `score_cell`; it
+repeats the admitted reference join. Counts include missing and offscreen spans,
+unresolved support, forced choices and separate empty-caption exclusions. There
+is no identity permutation, inferred suppressed name or winner between conflicting
+panes. The controls hold observed joint visibility opportunities fixed; no actual
+control GUI was rendered. These are native-span diagnostics, not exact word or
+speech-duration naming accuracy, certified outsider rate or exposure duration.
+Use a separately qualified full-panel composition to invoke this scorer on
+complete actual histories. Returning-person/fragmentation metrics, unresolved
+source timing instrumentation, continuity and functional stop/restart still need
+implementation/qualification. Accepted integrated N4 cells remain zero.
+
 The user's 2026-09-25 Pi reminder is recorded in
 `../n5/PI_RECONNECTION_REQUIREMENTS.md`: prioritize a short verified reconnect/
 install/launch path, one shared GUI with accepted backend choices, actual storage

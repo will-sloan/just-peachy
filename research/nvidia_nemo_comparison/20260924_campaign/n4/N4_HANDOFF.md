@@ -1,5 +1,52 @@
 # N4 implementation checkpoint — upstream accepted, integrated run pending
 
+### 2026-09-26 00:40 UTC — observed-name diagnostic counts and controls
+
+OBSERVED_NAME_SCORING_CHECK_V1.json qualifies `score_observed_names.py` with
+18 passing development tests. The scorer repeats the qualified reference join
+before comparing recorded labels at first visible, first final visible and
+latest observations, separately in each pane. It counts correct/wrong names
+only against a single intersecting estimated reference identity, with available,
+outside-available and unresolved reference support kept separate. Missing stages,
+offscreen or unpaired visibility, suppressed headings, forced assumptions,
+ambiguous names and incomplete/overlapping references remain explicit.
+
+Counts/rates use native lexical spans, including retired hypotheses, not reference
+words or speech durations. Empty-caption virtual IDs are excluded and counted.
+Single-person estimated activity support still does not establish exact word
+identity. Outside-available membership includes missing E profiles, so this is
+not a certified genuine-outsider rate. Conflicting panes retain both outcomes.
+Zero denominators yield null rates; forced names receive no recognition credit.
+Revision counts retain missing values and are sums over spans, not paint events
+or elapsed exposure. See README_OBSERVED_NAME_SCORING.md for exact definitions,
+inputs, outputs, limitations and PowerShell/CMD/Anaconda commands.
+
+All-Unknown and constant-name controls replace only already jointly visible
+opportunities, retaining observed geometry and missing/suppressed states. The
+constant profile is selected by fixed profile-ID ordering without reference
+accuracy. Hand-computed cases show that swapped/constant identities cannot be
+permuted into perfect recognition. These controls were not rendered by a GUI.
+The production composition was tested on the previously saved synthetic observed
+cell with the actual accepted reference context. No new app/audio/model ran.
+
+Qualification SHA-256:
+`6286de4de2ab6f6e1bb0f136fc83003cfbe87e44004a2f6205f5f17f8c932e58`.
+It binds 165 code/dependency records and private
+`local/n4/observed-name-scoring-probe-v1/RESULT.json`, SHA-256
+`c4f56729678b0fd671ca2874fa2c4b3debcaccd845a1a116a98ace76a7a255bf`.
+Probe 5240/1790383163.9422083 and publication helper
+29532/1790383214.390478 exited normally. D1 remained healthy under the same
+exact numerical/coordinator/supervisor owners, advancing from 368/960 at the
+00:32 audit to 373/960 during publication. All active/predecessor bindings and
+accepted N2/N3/ASR receipts matched; only independent CPU14 work was added.
+
+No actual full panel has these scores yet. Existing immutable panel wrappers
+must explicitly compose this new scorer in a qualified derivative. Returning
+person consistency, known-track fragmentation, source callback deadline evidence,
+supported acquisition/exposure interpretation and continuity/stop-restart remain
+outstanding. Finish/review D1, then main/modes banks, scoring and selection before
+paired actual application runs. N4/N5 remain unaccepted and the Pi remains offline.
+
 ### 2026-09-26 00:12 UTC — evaluator reference and enrollment provenance join
 
 NAMING_REFERENCE_CHECK_V1.json qualifies `naming_reference.py` with 16 passing
