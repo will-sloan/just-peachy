@@ -1,5 +1,73 @@
 # N4 implementation checkpoint — upstream accepted, integrated run pending
 
+### 2026-09-26 04:50 UTC — continuity evidence readers qualified
+
+Fresh audit rechecked historical N2/N3 receipts and their later accepted stage
+receipts, accepted ASR review, both continuity planner/runner qualifications and
+Git backup 436a3a9e466a8b8c4ffa17dfff65d95b8cbb3ede. D1 E1 advanced from
+537/960 to 549/960 during model-free CPU14 work. Exact supervisor/coordinator/
+model identities remain 32696/1790350774.0235264, 4092/1790350774.1659436 and
+51884/1790392138.9657671. Initial heartbeat age was 1.21 seconds; C: 121.54 and
+G: 100.43 GiB were free. The unrelated cmd.exe 40092 census AccessDenied remains
+explicit; no numerical/application admission was weakened to bypass it.
+
+`review_continuity_transport.py`, `review_continuity_cell.py` and
+`review_continuity_application.py` now provide an explicit stopped-run review
+path for the fixed continuity runner. The transport reader binds that exact
+script, checks private-process closure/lease/slot evidence and independently
+reconstructs native and raw source-delivery envelopes. The cell joins these to
+source/consumer/viewport origins, complete engine/archive closure and resource
+ownership, including the last append occurring before recorded engine closure.
+The production wrapper reconstructs the admitted continuity plan and requires
+the exact baseline-plus-selected candidate order (1–6), identical full O0 file,
+one initial reset, and complete cell/progress population. Short-panel schemas,
+partial or substituted sources and unclean closure cannot substitute.
+
+CONTINUITY_REVIEW_CHECK_V1.json SHA-256
+`b37890e429b9144c98c371a8d01f97879a1fba3c4041f571cce47eeffd881079`
+binds 168 reader/dependency records and **43 passing development checks**:
+19 transport, 11 composed-cell and 13 population. This read-only helper count
+does not change the child runner's 125/128 code-binding budget. Private aggregate:
+local/n4/continuity-review-qualification-v1/RESULT.json, SHA-256
+`c7eb49507855fc393bc1bba7549f8d281bf45eb10dc85281eaf50252d4ff4064`.
+Final scope outputs are continuity-transport-review-probe-v4,
+continuity-cell-review-probe-v2 and continuity-population-review-probe-v2.
+Helpers 49812/1790398064.631792, 37528/1790398097.3636105 and
+44912/1790398131.153511 exited; publisher 45944/1790398191.2022831 exited.
+README_CONTINUITY_REVIEW.md covers all eight new code/test/probe files, purpose,
+inputs/outputs, scope and PowerShell/CMD/Anaconda commands.
+
+The transport probe checks a synthetic full 19,308,429-frame delivery trace with
+60,339 append records, including its final partial chunk, and seven saved native
+lifetimes. Short synthetic cell facts exercise real joined readers. Population
+tests cover one/six candidates and reject changed candidates, internal resets,
+different files, short jobs, missing/duplicate/reordered cells and false credit.
+Transport v1/v2 each passed 18/19: the inherited one-second native fixture first
+retained 16,000 terminal samples, then retained a one-second completion cursor.
+Only new synthetic fixture counts/cursors/clocks were corrected; production
+checks and original fixture code remain unchanged. Both failed attempts and
+source snapshots are preserved. Earlier successful scope proofs also remain;
+all scopes were repeated against final source after clarifying reader wording.
+
+No actual application, saved-audio source, model, visible window or Pi operation
+started. No positive production plan/run review was fabricated. The production
+success status is PASS_COMPLETE_CONTINUITY_EVIDENCE_COVERAGE_ONLY: complete
+source/evidence consistency, not timing, semantics, resource thresholds, functional
+restart or N4 acceptance. Raw append/scheduling costs are retained; incomplete
+lease history and unobserved short-lived process assignments stay explicit.
+
+Next implement a genuine bounded mid-file stop/restart in the same Controller/UI
+with explicit partial-source/engine/consumer closure evidence. Existing full-cell
+close shuts down the Controller; a fresh process is not restart proof. Then
+complete supported continuity text/name/timing/resource interpretation (including
+remaining acquisition/exposure/returning-person/fragmentation metrics where
+references permit). Existing V3 semantic wrappers intentionally require their
+own transport status; use a separately qualified continuity composition rather
+than relabelling evidence. Finish/review D1 before main/mode comparison, scoring,
+selection, actual paced short panels and actual continuity/restart runs.
+Integrated accepted N4 remains 0/7680; N5 remains dependent on accepted N4 and
+live CM5 checks stay deferred. Preserve the Pi reconnection handoff.
+
 ### 2026-09-26 04:18 UTC — selected continuity planner and fixed runner
 
 Fresh audit verified accepted N2/N3, accepted ASR review, previous semantic

@@ -1,5 +1,34 @@
 # N4 and N5 execution order and acceptance gates
 
+Checkpoint 2026-09-26 04:50 UTC: explicit continuity transport, joined-cell and
+selected-population readers now have **43 passing development checks** (19/11/13).
+CONTINUITY_REVIEW_CHECK_V1.json SHA-256
+`b37890e429b9144c98c371a8d01f97879a1fba3c4041f571cce47eeffd881079`
+binds 168 read-only code records. The child runner still has 125/128 bindings.
+The production reader reconstructs the qualified continuity plan, fixed runner,
+exact 1–6 candidate population, same full O0 file, native/delivery envelopes,
+source/consumer/viewport clocks and complete shutdown. It preserves unknown
+historical lease/process coverage and does not subtract producer overhead.
+See README_CONTINUITY_REVIEW.md for purpose, inputs/outputs and all shell commands.
+
+Private final scopes: continuity-transport-review-probe-v4,
+continuity-cell-review-probe-v2, continuity-population-review-probe-v2; aggregate
+continuity-review-qualification-v1. Two failed long synthetic fixture attempts
+are preserved; their one-second terminal counts/cursors were corrected without
+weakening production checks. Final tests include a synthetic full 60,339-record
+delivery trace and seven saved native lifetimes. No real continuity/app/model
+run or positive production plan review occurred. Success is evidence coverage,
+not N4 acceptance, latency/resource thresholds or functional restart.
+
+Next: genuine same-Controller mid-file stop/restart with partial-source closure,
+then supported continuity semantic/timing/resource interpretation and remaining
+naming metrics. The required order remains D1 terminal review, full main/modes
+comparison and scoring, selection, actual short paced panels, actual continuity/
+restart validation, N4 acceptance, N5 release work. D1 E1 remains healthy at
+549/960 at publication. N4 accepted integrated cells remain 0/7680; N5 is not
+complete and the Pi stays off. The preceding missing continuity reader item is
+superseded by this checkpoint; functional restart and actual validation remain.
+
 Checkpoint 2026-09-26 04:18 UTC: the selected continuity planner and fixed runner
 are implemented with **36 passing development checks**. The planner reconstructs
 the qualified V3 selected short-panel plan, independently compares the prepared
