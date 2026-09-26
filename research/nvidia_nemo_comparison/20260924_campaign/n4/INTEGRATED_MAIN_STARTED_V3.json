@@ -1,0 +1,52 @@
+{
+  "status": "RUNNING_PAST_ORIGINAL_FAILURE_WITH_REVIEWED_PREFIX",
+  "utc": "2026-09-26T17:41:59.344927+00:00",
+  "proof": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\integrated-main-dispatch-v3\\VERIFIED_CONTINUATION.json",
+    "sha256": "2159c662120b5ab298ffd2b49a6ed88ef10d369fe859cf10b9db0c8782f3e84b",
+    "bytes": 4601
+  },
+  "plan": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\integrated-main-plan-v3.json",
+    "sha256": "66d6feae22bf50b46bd8935411b4efeb4e7b343ee595f4862a6f9bfa7b19d1bc",
+    "bytes": 18306790
+  },
+  "qualification": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\INTEGRATED_HISTORY_CHECK_V3.json",
+    "sha256": "68a318eaabe49251d87e9852413aea5fec1c8eb8dce3ff1efdb8d5bfc5d762cc",
+    "bytes": 33510
+  },
+  "spec": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\integrated-main-worker-v3.json",
+    "sha256": "16576a0905877db0dd4a193f52a0ce92df8a254caad8318e434050a3dbba28a4",
+    "bytes": 561
+  },
+  "supervisor": {
+    "pid": 31132,
+    "create_time": 1790444329.8372655
+  },
+  "worker": {
+    "pid": 46448,
+    "create_time": 1790444329.9990232
+  },
+  "run_id": "e79a5031a45b490486c1e86532d6bb01",
+  "required": 7680,
+  "reused_verified_prefix": 1382,
+  "completed_at_verification": 1390,
+  "prior_failure_cell": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\integrated-main-v3\\cells\\01382\\RESULT.json",
+    "sha256": "6a6f8a0bcd45060235126289a2f8af4645914f63e1b1072d2cb7ab8f25cc8c42",
+    "bytes": 3706
+  },
+  "prior_failure_cell_expanded_bytes": {
+    "publication": 73245200,
+    "projection": 12171166
+  },
+  "allocation_gib": 5,
+  "pending_reservations_gib": 6,
+  "contingency_gib": 0.5,
+  "models_loaded": 0,
+  "physical_widget_observed": false,
+  "integrated_N4_cells": 0,
+  "N4_accepted": false
+}

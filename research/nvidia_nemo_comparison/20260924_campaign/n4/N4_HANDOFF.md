@@ -1,5 +1,63 @@
 # N4 checkpoint — components reviewed; integrated method bank running
 
+### 2026-09-26 17:43 UTC — history limit repaired; V3 continuation past failed cell
+
+Fresh inspection found the V2 main bank stopped at 16:51:03 UTC: 1,382 complete,
+one failed, 6,297 not tested. Exact old supervisor/worker owners had exited.
+The next case A1_D1_E0_N2_S45_03_04_O0_open_with_names exceeded the publication
+trace's 24-MiB guard at 25,166,187 bytes / 1,450 recorded events. Its original
+RESULT, logs, code and all successful cells are immutable and preserved;
+INTEGRATED_MAIN_FAILURE_V2.json records the evidence. The first repair probe
+preserved a second bound failure: the full publication was 73,245,202 bytes,
+above the V2 64-MiB artifact limit. No evidence was truncated or discarded.
+
+Qualified V3 raises only diagnostic publication/Controller history caps to
+64 MiB and full artifact expansion to 128 MiB, with 280 MiB reserved per cell.
+Producer AST comparison permits only these explicit bounds and documentation
+changes. Model, source, clock, gallery, mode and prediction settings stay fixed.
+The final probe passed 23 tests plus six failed-scene/largest-A1 cases and four
+earlier native-clock boundaries. Maximum boundary artifact: 85,532,356 bytes.
+All three attempt source snapshots and the first failure remain preserved.
+INTEGRATED_HISTORY_CHECK_V3.json SHA-256 `68a318eaabe49251d87e9852413aea5fec1c8eb8dce3ff1efdb8d5bfc5d762cc`
+binds 58 code records and the exact private prefix review.
+
+All 1,382 old cells passed full artifact/closure checks and evaluator-only
+prediction reconstruction. Private integrated-prefix-review-v1/RESULT.json
+SHA-256 `68f3262c9abfee91b55806afe0acfac67d01abe920e9f4fa12f04408352bd6fe` permits explicit reuse. New cell
+receipts bind reused_from and execution_source, retaining old payloads, closures,
+producer plan and cache provenance. No hard links, copies or source edits are
+used to disguise the producer. The new plan changes cache keys and binds reuse;
+its complete denominator remains 7,680. Final review rechecks each reuse join.
+
+New plan integrated-main-plan-v3.json SHA-256
+`66d6feae22bf50b46bd8935411b4efeb4e7b343ee595f4862a6f9bfa7b19d1bc`
+was dispatched at 17:38:49 UTC through existing supervisor interfaces.
+Supervisor 31132/1790444329.8372655; method worker 46448/1790444329.9990232;
+run e79a5031a45b490486c1e86532d6bb01. Both CPU14/BelowNormal and hidden.
+Prior failure cell index 1,382 was regenerated successfully in the new run,
+without reused_from, with full publication/projection histories and closure.
+INTEGRATED_MAIN_STARTED_V3.json binds verification at 1,390/7,680; latest
+checkpoint is 1,411/7,680. Follow local/n4/integrated-main-v3/PROGRESS.json
+and worker.json. The old V2 terminal is historical, not the current worker.
+
+Admission projects 49.71 GiB total: all preserved attempts plus 5 GiB remaining
+run allocation, 6 GiB pending reservations and 0.5 GiB contingency. The 280-MiB
+cell reserve is inside that run allocation. C:115.07/G:98.94 GiB free at dispatch.
+The unrelated cmd.exe 40092 AccessDenied is still recorded; no exclusive
+application measurement gate was bypassed. No model inference, GUI, device,
+new capture, playback, enrollment or Pi contact occurred.
+
+Read README_INTEGRATED_MAIN_RUN_V3.md, README_INTEGRATED_HISTORY_V3.md and
+README_INTEGRATED_PREFIX_REUSE.md for inputs, outputs and PowerShell/CMD/Anaconda
+commands. Do not edit the 58 bound code files or launch another method bank.
+After terminal completion and exact owner exit, run integrated_bank_v3.py review.
+While it runs, qualify a NEW evaluator derivative for this V3 plan and 128-MiB
+artifacts: the immutable V2 scorer intentionally rejects both. Main/modes scoring
+and the separate 1,536-case modes bank remain. Actual selected paced/GUI/resource,
+continuity/restart, N4 acceptance and N5 Windows/ARM64 packaging remain incomplete.
+N2/N3 accepted receipts are preserved. Integrated accepted N4 credit remains zero;
+live CM5 validation is deferred to reconnection and deadlines remain unchanged.
+
 ### 2026-09-26 16:29 UTC — V2 scoring compatibility qualified in parallel
 
 Main method bank remains healthy at 970/7,680; supervisor

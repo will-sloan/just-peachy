@@ -1,0 +1,45 @@
+{
+  "status": "FAILED_PRESERVED_NOT_ACCEPTED",
+  "utc": "2026-09-26T16:51:03.610812+00:00",
+  "terminal": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\integrated-main-v2\\RESULT.json",
+    "sha256": "0ec4cdef473e2ffe7cc1904298d19d635b95e213b2f326bc6211c2793c87bd8a",
+    "bytes": 325662
+  },
+  "plan": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\integrated-main-plan-v2.json",
+    "sha256": "c42150c83eb007bf976418233d4f53ebe0ccc6b77dc8e317511a97764b0de8d5",
+    "bytes": 18303421
+  },
+  "admission": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\integrated-main-v2\\ADMISSION.json",
+    "sha256": "5efd8448ffab618b6b1a64e021e8dfe8893b551763cb88ba00543ba91a25b8bb",
+    "bytes": 1529
+  },
+  "supervision_snapshot": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\integrated-main-dispatch-v3\\PREVIOUS_worker.json",
+    "sha256": "1211c65cc070939ae23771cc3fb4a464cdbc9102da1591dd49eaa0a9b41d1c5b",
+    "bytes": 519
+  },
+  "log_snapshot": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\integrated-main-dispatch-v3\\PREVIOUS_worker.log",
+    "sha256": "ffe4fc94de1dfd214673ba655bd6220d10f5271aef2e8e429330c0f6e1f5ea00",
+    "bytes": 4406
+  },
+  "completed": 1382,
+  "failed": 1,
+  "not_tested": 6297,
+  "total": 7680,
+  "failed_cell": "A1_D1_E0_N2_S45_03_04_O0_open_with_names",
+  "error": "ValueError('Publication trace budget exceeded')",
+  "original_reproduction": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\integrated-history-v3-probe-v1\\ORIGINAL_FAILURE.json",
+    "sha256": "e2284ac4a06027e559b7032428844b6abe7a22cfdc710e541164770d7fa04815",
+    "bytes": 223
+  },
+  "publication_bytes_at_failure": 25166187,
+  "events_already_recorded": 1450,
+  "both_exact_owners_exited": true,
+  "integrated_N4_cells": 0,
+  "N4_accepted": false
+}
