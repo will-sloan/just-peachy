@@ -1,5 +1,24 @@
 # N4 and N5 execution order and acceptance gates
 
+Latest checkpoint (2026-09-26 03:18 UTC): explicit V3 transport, observation,
+composed-cell and full-panel readers now match the qualified V3 planner/runner.
+APPLICATION_TRANSPORT_REVIEW_CHECK_V3.json records 18 checks, including seven
+saved native lifetimes. APPLICATION_CELL_REVIEW_CHECK_V3.json records 11 actual
+reader-composition checks on synthetic facts. APPLICATION_PANEL_REVIEW_CHECK_V3.json
+records 10 exact-population/delivery-scope checks. No actual application or
+production panel ran. Every acceptance flag remains false. Read their respective
+README_APPLICATION_TRANSPORT_REVIEW_V3.md, README_APPLICATION_CELL_REVIEW_V3.md and
+README_APPLICATION_PANEL_REVIEW_V3.md for purpose, inputs, outputs and run commands.
+
+Next connect supported content/timing/naming review explicitly to V3; the existing
+qualified wrappers still use V2. Reuse pure components without changing bound
+APIs. Continue continuity/functional restart implementation and required retests.
+The actual comparison/scoring/selection and exclusive application tests remain.
+D1 completed the E0 half and began E1, reaching 486/960 during this checkpoint.
+Its sequential child transition is expected; inspect fresh exact identities and
+source bindings. The prior pending V3 transport/cell/panel item is superseded.
+N4 is incomplete, N5 requires accepted selections, and CM5 remains offline.
+
 Latest checkpoint (2026-09-26 02:51 UTC): the new V3 panel planner and runner
 explicitly bind `paced_application_cell_v2.py` and its source-delivery policy.
 PACED_PANEL_PLAN_CHECK_V3.json qualifies 11 regression checks and 1,240 fixture

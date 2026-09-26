@@ -1,5 +1,61 @@
 # N4 implementation checkpoint — upstream accepted, integrated run pending
 
+### 2026-09-26 03:18 UTC — V3 transport, composed cell and full-panel review
+
+The explicit V3 review path now matches the qualified V3 planner/runner and
+delivery-observed cell. It does not change the V1/V2 APIs or source releases.
+`review_application_transport_v3.py` independently reconstructs both native and
+delivery envelopes, checks the planned source-class hashes, exact trace bytes,
+child/parent summaries, new statuses/policies and closed transport ownership.
+It does not call the runner's envelope writer or mutate a stopped run.
+
+APPLICATION_TRANSPORT_REVIEW_CHECK_V3.json SHA-256
+`94259d4e45a69af418a264f7d6128893d6929e5612871f08af8c9ac6c429dbc0`
+binds 116 code records and 18 passing checks, including seven saved native
+lifetimes (two normal, five refused). Private evidence is
+`local/n4/application-transport-v3-review-probe-v1/RESULT.json`. Binary fixture
+append times and source/owner facts are explicitly fabricated. No source or
+application ran. README_APPLICATION_TRANSPORT_REVIEW_V3.md documents the reader,
+test-only delivery_review_fixtures.py and all shell commands.
+
+`review_application_observations_v2.py` is the explicit observation variant for
+the new cell status/policy. It retains the qualified backend/gallery, engine/
+archive, resource, viewport and final-span checks. `review_application_cell_v3.py`
+joins shared bindings across independent readers, exact native/consumer/viewport/
+delivery origin, planned source counts, terminal/publication census and final
+append time before engine closure. APPLICATION_CELL_REVIEW_CHECK_V3.json SHA-256
+`1e3cee6038289564cbe97b849278b545006d32298dbf19cc4bf454c9eaa0c1bc`
+binds 139 code records and 11 passing composed-reader tests. Private evidence is
+`local/n4/application-cell-v3-review-probe-v1/RESULT.json`. See
+README_APPLICATION_CELL_REVIEW_V3.md. These tests use real readers with synthetic
+source/transport/GUI/resource facts and copied historical terminal/archive
+metadata; they do not validate a new actual application run.
+
+`review_application_panel_v3.py` reconstructs the production V3 plan/run before
+checking exactly 40 cells per selected candidate (40–240 total), complete ordered
+progress and every independent cell review. Compact output preserves raw delivery
+diagnostics without cost subtraction and checks row/job/contract/source census.
+APPLICATION_PANEL_REVIEW_CHECK_V3.json SHA-256
+`e82017c9e7a39af60a163b69c682e91df2f179d6cbeaca2fef07020ac5b66f01`
+binds 144 reviewer code records and 10 passing population/scope checks. Private
+evidence is `local/n4/application-panel-v3-review-probe-v1/RESULT.json`; commands
+are in README_APPLICATION_PANEL_REVIEW_V3.md. Reviewer dependencies are separate
+from the unchanged child permit's 128-file limit; the runner still binds 110.
+No positive production plan/run review occurred and every acceptance flag remains
+false. All three development attempts passed; exact helpers exited before their
+qualification receipts were published.
+
+Next: explicitly connect the supported content/timing/naming review to the V3
+path. Those qualified wrappers still depend on V2; reuse their pure components
+without silently monkeypatching or replacing their APIs. Continue actual
+20-minute continuity and functional stop/restart implementation/retests. The
+full comparison/scoring/selection gates still precede actual source-paced runs.
+At this checkpoint D1 transitioned from E0 at 475/960 to E1 at 486/960; read fresh
+PID/create-time identities and evidence before action. The new evaluation child
+belongs to the existing sequential supervised bank, not a parallel model run.
+N4 acceptance remains zero. N5 awaits accepted configurations; retain the offline
+Pi deployment/reconnection requirements and leave the Pi powered off.
+
 ### 2026-09-26 02:51 UTC — explicit V3 planner and runner qualified for development
 
 The new `paced_panel_plan_v3.py` binds the delivery-observed application variant,
