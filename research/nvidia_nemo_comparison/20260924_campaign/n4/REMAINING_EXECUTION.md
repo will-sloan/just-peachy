@@ -1,5 +1,53 @@
 # N4 and N5 execution order and acceptance gates
 
+### 2026-09-26 19:30 UTC - selected restart content/roster composition qualified
+
+The active V3 main bank remains healthy at 3058/7,680 with the same
+worker 46448/1790444329.9990232 and supervisor 31132/1790444329.8372655.
+All 58 plan-bound source files remain unchanged. No duplicate bank, model run,
+GUI, microphone, playback or Pi operation was started. Accepted N2/N3 receipts
+and the previous verified Git backup were rechecked. Census uncertainty for
+unrelated cmd.exe 40092 remains; no exclusive application gate was bypassed.
+
+RESTART_CONTENT_RUN_CHECK_V1.json SHA-256
+`7a98bc3ccae91190b9a8938a71aa8d3575f06a23f2d656584769f10a9979ccd8` binds 254 code records.
+The new reviewer composes the existing selected-run transport/lifecycle,
+actual delivery, viewport and resource readers with fixed-roster admission and
+both native caption histories. Each stopped session snapshot must match the
+same prepared primary roster. Retained captions keep their original source
+clock; missing/unobserved spans, incomplete revisions and unavailable resource
+samples remain explicit. Foreign, swapped, changed or partially covered evidence
+is rejected. Complete next receipts are checked before creation against a
+64-MiB run output budget, including UTF-8/platform newlines and failure reserve.
+
+The fresh private restart-content-run-probe-v2 passed 68 checks: 21 composition/
+population/output-budget tests, 23 native-content regressions and 24 prior
+complete-population regressions. Native, viewport and roster readers are real;
+content/process clocks and geometry are synthetic. Complete lifecycle leaves
+are mocked in new content fixtures, and plan/cell leaves in population fixtures.
+This does not establish an actual model-backed restart or latency/resource fit.
+The earlier v1 attempt passed 66 tests then failed a post-test pure casing module
+identity lookup; its failure, admission, tests and five source snapshots remain
+preserved. V2 checks the actual casing function source path and binding. Both
+probe owners exited. Projected private inventory plus remaining main allocation,
+6 GiB pending and 0.5 GiB contingency was 49.72 GiB; C:/G: floors passed.
+
+See README_RESTART_CONTENT_RUN.md for purpose, inputs, outputs and PowerShell,
+CMD and Anaconda commands. Actual selected restart execution and this complete
+content review remain pending, as do naming/timing/resource acceptance.
+
+A downstream admission gap is now explicit: paced_panel_plan.py read_review
+still requires SCORING_REVIEW_IMPLEMENTATION_V1 and the original scorer/method
+admission. It cannot consume the qualified V3 score review. Before actual
+selected panels, prepare and qualify a fresh planner derivative supporting the
+exact V3 scorer/reviewer and preserve all selection, source and denominator
+checks. Follow the dependent panel/restart plan and runner bindings through that
+derivative; the current restart content composition is qualified for the current
+immutable plan/reader family. Do not relabel an old plan or weaken its hashes.
+Main/modes collection and scoring, actual selected GUI/resource/continuity/
+restart runs, N4 acceptance and N5 release work remain. Live CM5 checks stay
+deferred; packaging reserve and deadline are unchanged.
+
 ### 2026-09-26 18:27 UTC — V3 scoring compatibility qualified; main bank continues
 
 SCORING_HISTORY_CHECK_V3.json SHA-256 `eeb8a08f62a21139fa45c1e2e1ff67b417e7cee7ec9a5d9f956af4057dd975b8` qualifies
