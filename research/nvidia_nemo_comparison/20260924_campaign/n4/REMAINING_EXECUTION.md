@@ -1,5 +1,22 @@
 # N4 and N5 execution order and acceptance gates
 
+Latest implementation checkpoint (2026-09-26): SOURCE_DELIVERY_CHECK_V1.json
+qualifies the bounded `source_delivery.py` instance observer and independent
+binary trace parser with 18 isolated exact-class development checks. It measures
+FileSource input-journal append times against the unchanged absolute source
+schedule and retains exact samples, partial stops, failures and signed lateness.
+The binary cap is 5,220,000 bytes per hour. No actual application/WAV/model/GUI
+ran, and no old source/runner was changed. Read README_SOURCE_DELIVERY.md for
+scope and PowerShell/CMD/Anaconda commands. The actual cell/child/runner/planner
+still need a new explicit integration variant, independent source-origin/count
+joins, prestart/closure qualification and controlled source-speed tests. This
+is not microphone callback, GUI latency, continuity or Controller restart proof.
+Continue with that integration and continuity/restart support while D1 owns the
+numerical slot; retain equal observation overhead across paired candidates.
+The 01:32 audit found E0 411/960; publication reached 422/960 under the same
+healthy exact owners. Read current evidence before acting. Accepted N4 cells
+remain zero, and N5 release acceptance still depends on accepted N4 evidence.
+
 This is a continuation guide, not a completion receipt. Read fresh worker/result
 records before each action. Preparation and model-free development can overlap a
 healthy component worker on the admitted helper CPU. Numerical model workers run

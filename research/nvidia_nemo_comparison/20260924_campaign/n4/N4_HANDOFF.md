@@ -1,5 +1,56 @@
 # N4 implementation checkpoint — upstream accepted, integrated run pending
 
+### 2026-09-26 — bounded source-delivery observation
+
+SOURCE_DELIVERY_CHECK_V1.json qualifies `source_delivery.py` and its independent
+binary trace parser with 18 passing development checks. The observer attaches
+only to a fresh FileSource and its actual input MemoryJournal before start.
+It preserves the original absolute pacer, status callback, archive observer,
+audio objects and exceptions. Numeric append entry/return times and exact sample
+counters are kept in a bounded memory buffer. There are no observer disk writes
+or waveform copies in the source path. One hour needs 5,220,000 trace bytes.
+Caller-controlled persistence occurs after producer exit. Foreign hooks are
+preserved and reported; partial stops cannot be counted as complete delivery.
+
+The parser checks every chunk, terminal counters, failed appends and ordered
+finite clocks. It retains signed deadline lateness, nearest-rank quantiles,
+5/20-ms diagnostic counts, append duration and entry gaps without timing
+corrections. These are saved-file input-journal measurements, not physical
+microphone callback or GUI paint latency. Instrumentation has CPU/memory cost;
+paired application candidates must use the same observation policy and account
+for that cost in later measured resource results.
+
+Tests use unchanged AST-extracted FileSource, MemoryJournal and AbsolutePacer
+class bodies from the qualified journal source, with RAM-only soundfile/time/
+thread fixtures. The measured and unmeasured source outputs, callbacks and
+schedule agree. Partial final chunks, failure/exception preservation, hook
+ownership, wrong producers, invalid clocks, corrupt traces, capacity exhaustion,
+partial stops and fresh-session isolation are checked. A single helper thread
+tests wrong-producer rejection and exits normally. No actual WAV, application,
+model, GUI, device or Pi started. This is not a functional Controller restart.
+
+Qualification SHA-256:
+`efa42147eefa90d4319228e4238681a37f6c68e896b739016d64f700f1d8cd91`.
+It binds 78 helper/dependency records, three exact application source files and
+private `local/n4/source-delivery-probe-v1/RESULT.json`, SHA-256
+`56b77e08c8620fc3200b52dcd06488e052ad65f7d1eb1e2de594524116c540c8`.
+Probe 51460/1790387223.5689392 and publication helper
+12508/1790387273.1293592 exited normally. D1 progressed from E0 411/960 at the
+fresh audit to 422/960 at publication, under unchanged numerical/coordinator/
+supervisor identities and verified active/predecessor bindings. No qualified
+source or existing runner was edited. README_SOURCE_DELIVERY.md describes the
+API, limits, input/output contract and PowerShell/CMD/Anaconda probe commands.
+
+Next explicitly integrate the observer into a new application cell/runner/plan
+variant, with source-epoch/counter joins to the existing consumer clock and
+closure evidence. Qualify that variant before any source-speed application run;
+the existing immutable V2 child does not collect this trace. Add actual 20-minute
+continuity and functional stop/restart execution and review, plus remaining
+supported acquisition/exposure/returning-person metrics. Continue healthy D1,
+then full main/modes banks, scoring and selection before real paired application
+panels. Integrated accepted N4 cells remain 0/7680. N5 still requires accepted
+configurations; live CM5 validation remains deferred until reconnection.
+
 ### 2026-09-26 01:10 UTC — complete-panel naming diagnostic reviewer
 
 NAME_PANEL_CHECK_V1.json qualifies `review_name_panel.py` with 18 passing
