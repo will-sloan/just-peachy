@@ -1,5 +1,56 @@
 # N4 implementation checkpoint — upstream accepted, integrated run pending
 
+### 2026-09-26 05:19 UTC — explicit partial-session stop and release
+
+Fresh entry audit found healthy D1 E1 at 558/960; it reached 570/960 during
+independent CPU14 work. Exact supervisor/coordinator/model identities remain
+32696/1790350774.0235264, 4092/1790350774.1659436 and
+51884/1790392138.9657671. Initial heartbeat age was 3.96 seconds; C: 121.53 and
+G: 100.38 GiB were free. The active and predecessor source bindings matched,
+and prior continuity-review Git backup 3a0faf1f97dd898c6b0f663fee437d38a526e4ed
+was verified. No worker or source bound to a running plan was changed.
+
+`restart_source_capture.py` now supports one explicit `mid_file_stop` or
+`completed_release` session. It retains the exact model store, engine, consumer
+and command worker, enqueues one public Controller.stop command, and requires
+the command queue and session owners to release while the Controller remains
+open. The unchanged source observer records a positive incomplete prefix for
+mid-file stop. Planned file length and job fingerprint remain unchanged.
+`restart_session_closure.py` is an explicit derivative that validates delivered
+prefix counts through journals, ASR, consumers, all worker/handle closures,
+native finalization, released model lease and the joined archive. Separate
+delivery and engine/archive reviews remain necessary. Earlier qualified code,
+full-file semantics, active D1 and the application child allowlist are unchanged.
+
+Both preserved development attempts passed 22 checks. V2 additionally reports
+the actual Controller closed state in failed captures and rejects false restart
+or acceptance claims. Tests use unchanged extracted source classes with RAM-only
+audio/time/thread fixtures, fake Controller commands, and explicit synthetic
+owner/longer-input facts joined to existing historical terminal receipts.
+No actual new Controller, GUI, model, audio file or Pi was started. Runtime
+engine capture was not exercised. This does not establish a successful restart
+pair or N4 acceptance.
+
+RESTART_SESSION_CHECK_V1.json SHA-256
+4f0604a3f095fb5907aa52137530b741d48af3be050160fb90bd26b3e5592ad7 binds
+96 code records and the final private restart-session-probe-v2 result. Probe
+owners 50180/1790399792.3334649 and 49008/1790399863.4595952 exited; publication
+owner 31504/1790399944.066871 also completed. Private source snapshots and both
+attempts are preserved. README_RESTART_SESSION.md explains the API, purpose,
+inputs/outputs, remaining limits and PowerShell/CMD/Anaconda commands.
+
+Next implement the bounded paired lifecycle coordinator and its distinct
+exclusive application-run integration: retain the same Controller/UI/model
+store, stop a positive first prefix, validate its complete drain, then start
+the same unchanged file at offset zero with fresh epoch/engine/source/journal
+and clock/viewport observers. Partition old/new UI evidence by session and
+retain both native archives. Do not pass the new prefix schema into existing
+full-file panel readers or increase the 128-binding child limit implicitly.
+Actual paired/continuity execution still follows reviewed D1, full main/modes
+banks, scoring and selection. Remaining continuity semantics/timing/resource
+interpretation and naming metrics also remain. Accepted integrated cells stay
+0/7680; N4/N5 remain incomplete and the Pi remains offline.
+
 ### 2026-09-26 04:50 UTC — continuity evidence readers qualified
 
 Fresh audit rechecked historical N2/N3 receipts and their later accepted stage

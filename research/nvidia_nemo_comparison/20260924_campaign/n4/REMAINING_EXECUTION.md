@@ -1,5 +1,26 @@
 # N4 and N5 execution order and acceptance gates
 
+Checkpoint 2026-09-26 05:19 UTC: **22 released-session development checks pass**.
+RESTART_SESSION_CHECK_V1.json SHA-256
+`4f0604a3f095fb5907aa52137530b741d48af3be050160fb90bd26b3e5592ad7`
+binds 96 code records. The new explicit stop/release primitive preserves the
+full planned job, records delivered prefix length separately, retains an open
+Controller/model store and requires drained source/consumer/journal/worker and
+archive ownership. Both private probe attempts and source snapshots are retained;
+the final attempt also rejects false acceptance claims and accurately records
+closed Controllers in failed evidence. See README_RESTART_SESSION.md.
+
+Next build the actual two-session lifecycle coordinator: one Controller/UI and
+model store, positive mid-file stop, complete prefix drain, then new source at
+sample zero with fresh session/engine/journal/clock observers. Existing full-file
+readers cannot accept prefix evidence. Runtime engine capture and the real
+restart pair still need execution; no new source/model/GUI ran in this check.
+D1 E1 remains healthy (570/960 at publication). Preserve its resources while
+continuing independent implementation. Main/modes banks, scoring/selection and
+exclusive application tests must precede N4 acceptance and final N5 releases.
+
+The detailed earlier checkpoints below remain as historical context.
+
 Checkpoint 2026-09-26 04:50 UTC: explicit continuity transport, joined-cell and
 selected-population readers now have **43 passing development checks** (19/11/13).
 CONTINUITY_REVIEW_CHECK_V1.json SHA-256
