@@ -1,5 +1,70 @@
 # N4 implementation checkpoint — upstream accepted, integrated run pending
 
+### 2026-09-26 04:18 UTC — selected continuity planner and fixed runner
+
+Fresh audit verified accepted N2/N3, accepted ASR review, previous semantic
+qualifications and Git backup fa1258059d84b89f13a73117d8156bd11e481c23.
+D1 E1 advanced from 517/960 to 528/960 while the new model-free work ran on
+CPU14. Exact owners remained supervisor 32696/1790350774.0235264, coordinator
+4092/1790350774.1659436 and numerical child 51884/1790392138.9657671. The initial
+drive floors were C: 121.55 and G: 100.45 GiB free. No duplicate worker, GUI,
+source replay, model, visible window, microphone or Pi operation was started.
+
+`continuity_application_plan.py` now reconstructs a qualified V3 short-panel
+plan (requiring the full main/modes score reviews and selection), binds its exact
+selected contracts and runtime context, and creates one full-file continuity
+cell per candidate. The planner has a distinct schema and cache namespace.
+It reconstructs the original 27-session metadata/evaluator transformation and
+independently compares all 19,308,429 PCM frames against the frozen combined
+20:06.78 O0 file. No assembly or audio playback occurs. The one-file child
+allowlist excludes evaluator truth, actor IDs, selection and internal joins.
+Initial reset only; functional stop/restart is explicitly separate.
+
+CONTINUITY_APPLICATION_PLAN_CHECK_V1.json SHA-256
+`0d6a60b803c9997a39ca09cac171ecb908941a374d6f6afd81e94aeb9e294db5`
+binds 115 code records, 14 passing tests and 31 fixture payloads covering all 16
+backend routes. Private proof: local/n4/continuity-application-plan-probe-v1.
+Helper 46300/1790396065.6601384 and publisher 49492/1790396134.115451 exited.
+Tests reject changed source/reference/PCM identities, internal resets, partial
+production review, wrong duration/tap, selected-contract changes and false credit.
+No positive production plan or shortlist was fabricated.
+
+`continuity_application_runner.py` is an isolated derivative of the immutable
+V3 fixed runner, using the continuity admission API and a distinct run/terminal
+schema. The qualified source-delivery application cell, native journal, private
+desktop, prime-before-import gate, supervised exclusive slot, CPU4 child and
+CPU14 coordinator are preserved. Parent native/delivery envelope reconstruction
+and verified cleanup before slot release are unchanged. Maximum child lifetime
+remains 3,900 seconds; all collection and acceptance flags remain separate.
+CONTINUITY_APPLICATION_RUNNER_CHECK_V1.json SHA-256
+`4749e6c8eed8f0afe3a4f074a39bfbbff32731f28b17c21b68cb878bb8b456fe`
+binds 125 code records (below the unchanged 128-child-binding ceiling), 22 passing
+lifecycle/envelope/admission checks and private proof
+local/n4/continuity-application-runner-probe-v1. Helper 50056/1790396260.3429303
+and publisher 50788/1790396311.3549447 exited. The tests use mocked lifecycle and
+bounded synthetic RAM source fixtures, not actual saved audio or applications.
+Both new READMEs include purpose, inputs/outputs, limits and PowerShell/CMD/
+Anaconda commands. All previous qualified sources and failed attempts remain.
+
+Next: implement an explicitly qualified continuity transport/cell/population
+review for this distinct fixed runner and its one-full-file candidate census;
+the V3 short-panel readers intentionally reject its identity and schema. Reuse
+the pure native/delivery/clock/resource interpretation without changing older
+bound readers. Then implement genuine mid-file stop/restart in the same
+Controller/UI, keeping separate source/engine/consumer sessions and immutable
+per-session observations. Existing ApplicationCell.close closes the Controller;
+constructing a fresh cell is not restart evidence. SourceLaunchCapture.finish
+and full EngineClosure currently require whole-file delivery and a closed
+Controller, so a partial-stop path needs its own explicit capture/closure schema.
+Never change job.frames to pretend a partial prefix was a full source or reset
+at concatenation joins. Preserve finite waits, actual stopped threads and fresh
+source offsets, and do not relax the 128-binding child ceiling.
+
+Finish/review D1, then main/mode comparison, scoring and selected short panels
+before actual continuity/restart tests. Integrated accepted N4 remains 0/7680.
+N5 still requires accepted configurations and release validation. The Pi remains
+off; retain n5/PI_RECONNECTION_REQUIREMENTS.md and defer all live CM5 checks.
+
 ### 2026-09-26 03:46 UTC — V3 semantic cell and complete-panel review
 
 The delivery-aware V3 cell now feeds explicit caption, recorded timing, heading

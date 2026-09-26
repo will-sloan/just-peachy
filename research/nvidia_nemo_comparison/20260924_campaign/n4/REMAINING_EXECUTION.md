@@ -1,5 +1,32 @@
 # N4 and N5 execution order and acceptance gates
 
+Checkpoint 2026-09-26 04:18 UTC: the selected continuity planner and fixed runner
+are implemented with **36 passing development checks**. The planner reconstructs
+the qualified V3 selected short-panel plan, independently compares the prepared
+27-session 20:06.78 O0 PCM with original saved captures, and produces one full
+file per selected candidate with no internal joins or evaluator labels in the
+child. CONTINUITY_APPLICATION_PLAN_CHECK_V1.json SHA-256
+`0d6a60b803c9997a39ca09cac171ecb908941a374d6f6afd81e94aeb9e294db5`
+binds 14 tests/31 fixture payloads/115 code records. The separate fixed runner
+keeps V3 lease, private desktop, full source-delivery/native envelope and cleanup
+gates. CONTINUITY_APPLICATION_RUNNER_CHECK_V1.json SHA-256
+`4749e6c8eed8f0afe3a4f074a39bfbbff32731f28b17c21b68cb878bb8b456fe`
+binds 22 tests and 125 code records, within the unchanged 128-binding ceiling.
+See README_CONTINUITY_APPLICATION_PLAN.md and
+README_CONTINUITY_APPLICATION_RUNNER.md for purpose, inputs/outputs and all shells.
+
+Next implement the distinct continuity result reader and exact candidate census,
+then genuine mid-file stop/restart using the same Controller/UI and explicit
+partial-delivery closure evidence. Existing full-file cell.close shuts the
+Controller and cannot establish restart. Do not fake shorter job.frames or reset
+at internal joins. Full main/modes scoring and selection plus actual selected
+short panels precede actual continuity tests. No production plan, application,
+model or saved-audio run was created in this checkpoint; development tests do
+not confer acceptance. D1 E1 remains healthy (528/960 at publication), accepted
+integrated N4 remains 0/7680, N5 depends on accepted N4, and the Pi stays off.
+The previous checkpoint's missing continuity planner/runner is now superseded;
+post-run review, functional restart and actual evaluation remain outstanding.
+
 Checkpoint 2026-09-26 03:46 UTC: V3 content/timing/heading/reference/name
 composition and full-panel diagnostics now have 42 passing development checks.
 APPLICATION_SEMANTICS_CHECK_V3.json SHA-256
