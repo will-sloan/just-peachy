@@ -1,5 +1,52 @@
 # N4 and N5 execution order and acceptance gates
 
+### 2026-09-26 20:31 UTC - V3-scored selected-panel planner qualified
+
+The healthy V3 main bank reached 4,144/7,680 at this checkpoint.
+Worker 46448/1790444329.9990232 and supervisor 31132/1790444329.8372655
+retain their exact identities, CPU14 affinity, fresh heartbeats and 58 source
+bindings. No duplicate worker or application was started. Accepted N2/N3 and
+2,870 prior fixed evidence bindings were reverified before development.
+
+PACED_PANEL_PLAN_CHECK_V4.json SHA-256
+`65f1746525170c3f0e90a2d7e7956bfc80233421756473b76fc84a107f633665` binds 127 code records.
+The fresh derivative now requires the exact qualified V3 scorer/reviewer,
+complete 7,680/1,536 populations, closed exact owners, matching review/score/
+method/plan/report hashes and unchanged score order. Main-only verified prefix
+reuse is the sole permitted comparison-context difference. All other audio,
+source, runtime, gallery, component review, code and qualification fields must
+match. Existing V1/V3 planners, qualified readers and active sources are intact.
+
+The private paced-panel-plan-v4-probe-v1 passed 39 tests (19 new and 20 parent
+regressions), plus 1,240 metadata fixture payloads across all 16 routes using
+the saved 24-case panel and eight timing anchors. Five source snapshots and
+test output are preserved; probe owner 34648/1790454489.4442208 exited.
+The actual main reuse/context was rechecked against a clearly synthetic modes
+context header. Positive complete production score-review admission remains
+pending; no completed modes bank, selection or production plan was fabricated.
+The child keeps its original 13-field audio/configuration allowlist, with no
+scoring references. Fixed baseline, at most five alternatives, 24 panel cases
+and 16 repeats per candidate remain unchanged. N4 acceptance credit stays zero.
+
+README_PACED_PANEL_PLAN_V4.md supplies purpose, inputs, outputs and PowerShell,
+CMD and Anaconda commands. The new schema is n4-paced-panel-plan-v4. Next,
+qualify fresh dependent derivatives of paced_application_runner_v3 and
+review_application_panel_v3; follow the restart_application_plan/runner and
+review_restart_run dependencies into a matching complete content reviewer.
+The existing review_application_content_panel still uses the older V2 plan/
+population family, so it also must not be silently relabelled as V4 evidence.
+Reuse unchanged leaf readers only where their payload/semantics are identical,
+with exact dependency receipts and regression coverage. No actual application
+launch is authorized merely by this planner preparation or a passing queue.
+
+The resource audit projects 49.716 GiB including remaining main
+allocation, 6 GiB pending and 0.5 GiB contingency. C50/G75 floors pass. Unrelated
+cmd.exe 40092 remains AccessDenied in the conservative census; controlled
+application admission has not bypassed that uncertainty. Main/modes method
+review and scoring, selected GUI/resource/continuity/restart/naming evaluation,
+N4 acceptance and N5 validation/release remain. Pi is still offline. Packaging
+reserve 2026-09-28 02:48:19 UTC and deadline 14:48:19 UTC are unchanged.
+
 ### 2026-09-26 19:30 UTC - selected restart content/roster composition qualified
 
 The active V3 main bank remains healthy at 3058/7,680 with the same
