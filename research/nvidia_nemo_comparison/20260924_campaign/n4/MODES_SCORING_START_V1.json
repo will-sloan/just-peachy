@@ -1,0 +1,145 @@
+{
+  "status": "REVIEWED_MODES_SCORING_STARTED",
+  "utc": "2026-09-27T09:34:58.101096+00:00",
+  "method_acceptance": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\MODES_MODELED_METHOD_ACCEPTANCE_V1.json",
+    "sha256": "68e88a6cda7c881f601adf3de82fb515ec447df6208e45c7f0d3a1985e00b0df",
+    "bytes": 38130
+  },
+  "dispatch_admission": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\integrated-modes-scores-guarded-v1-dispatch\\ADMISSION.json",
+    "sha256": "547d6fc1886c7dd3df5e398761f359b0d5efa3519f6aa26cb71d468ced7a8257",
+    "bytes": 302347
+  },
+  "dispatch_started": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\integrated-modes-scores-guarded-v1-dispatch\\STARTED.json",
+    "sha256": "6a221261f7e010df807691b60f9d42b7902c744f09d99af3b09770c48e882cdd",
+    "bytes": 925
+  },
+  "scoring_admission": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\integrated-modes-scores-guarded-v1\\ADMISSION.json",
+    "sha256": "77fc68f4bc03604822bdd56618a07e5746010bc343aa4047fdd627ab3b7cb7f0",
+    "bytes": 33758
+  },
+  "execution_plan": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\integrated-modes-scores-guarded-v1\\EXECUTION_PLAN.json",
+    "sha256": "02db84dc352f017a916a6b97f74314980b13e62016ab87e79755c52fbb867c26",
+    "bytes": 33331
+  },
+  "original_plan": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\integrated-modes-plan-v3.json",
+    "sha256": "ab3a6f79b13cbd200b24d72c7749814cf1f170f611b828eb603b86c9b2cfbfaf",
+    "bytes": 3825365
+  },
+  "worker_spec": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\integrated-modes-scores-guarded-v1-worker.json",
+    "sha256": "fbd64f7e7d2df82fad0fbdc454798d6600e9bc2ab15b24153a85767c320b8c9d",
+    "bytes": 734
+  },
+  "live_process_observations": [
+    {
+      "role": "supervisor",
+      "owner": {
+        "pid": 33700,
+        "create_time": 1790501611.970641
+      },
+      "parent_pid": 51404,
+      "affinity": [
+        14
+      ],
+      "priority": 16384,
+      "command": [
+        "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\.edge-speech-env\\python.exe",
+        "-B",
+        "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\supervision\\supervisor.py",
+        "host",
+        "--root",
+        "G:\\Just_Peachy_N1\\20260924_campaign\\local\\supervision"
+      ]
+    },
+    {
+      "role": "launcher",
+      "owner": {
+        "pid": 49200,
+        "create_time": 1790501612.1276567
+      },
+      "parent_pid": 33700,
+      "affinity": [
+        14
+      ],
+      "priority": 16384,
+      "command": [
+        "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\metrics\\env\\Scripts\\python.exe",
+        "-B",
+        "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\guarded_scoring_v1.py",
+        "--run",
+        "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\integrated-modes-guarded-v1",
+        "--review",
+        "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\integrated-modes-method-review-guarded-v1\\RESULT.json",
+        "--output",
+        "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\integrated-modes-scores-guarded-v1",
+        "--cell-timeout",
+        "120",
+        "--max-seconds",
+        "14400"
+      ]
+    },
+    {
+      "role": "driver",
+      "owner": {
+        "pid": 41328,
+        "create_time": 1790501612.164423
+      },
+      "parent_pid": 49200,
+      "affinity": [
+        14
+      ],
+      "priority": 16384,
+      "command": [
+        "C:\\Users\\amiri\\anaconda3\\python.exe",
+        "-B",
+        "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\guarded_scoring_v1.py",
+        "--run",
+        "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\integrated-modes-guarded-v1",
+        "--review",
+        "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\integrated-modes-method-review-guarded-v1\\RESULT.json",
+        "--output",
+        "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\integrated-modes-scores-guarded-v1",
+        "--cell-timeout",
+        "120",
+        "--max-seconds",
+        "14400"
+      ]
+    }
+  ],
+  "run_id": "a08193bb589b426a882ae43a49fac7e9",
+  "source_files_reverified": 120,
+  "source_qualification": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\GUARDED_BANK_CHECK_V1.json",
+    "sha256": "12d040698032ea40dee420880c745f116466dbcf8b2db7a52ac2ee6727111e00",
+    "bytes": 40516
+  },
+  "allocation_bytes": 536870912,
+  "maximum_seconds": 14400,
+  "cell_timeout_seconds": 120,
+  "projection": {
+    "schema": "n4-reservation-calculation-v1",
+    "existing_bytes": 47171696318,
+    "active_remaining_bytes": 0,
+    "requested_bytes": 536870912,
+    "retained_pending_bytes": 2147483648,
+    "contingency_bytes": 536870912,
+    "expired_closed_reservations_bytes": 4294967296,
+    "projected_bytes": 50392921790,
+    "allowance_bytes": 53687091200,
+    "packaging_cutoff_utc": "2026-09-28T02:48:19+00:00",
+    "physical_bytes_removed_or_credited": 0,
+    "worker_execution_authorized": false
+  },
+  "scoring_complete": false,
+  "score_review_complete": false,
+  "integrated_N4_cells": 0,
+  "N4_accepted": false,
+  "N5_complete": false,
+  "Pi_contacted": false
+}

@@ -1,4 +1,38 @@
-# N4 checkpoint - modes collected; independent method review running
+# N4 checkpoint - modes methods reviewed; scoring running
+
+## 2026-09-27 09:35 UTC - Modes method review accepted; scoring started
+
+`MODES_MODELED_METHOD_ACCEPTANCE_V1.json` accepts the modes modeled method
+scope only. The independent review passed at 09:30:28 UTC for all 1,536 cases,
+verifying full artifacts and Controller closure: 49,712 raw observations,
+4,080 final utterances, 146,211 displays and 128 empty hypotheses. Empty
+hypotheses remain in the population. All 120 source bindings and 14 resource
+receipts verified, and the exact reviewer/supervisor exited. This does not
+establish numerical score, physical widget, complete Controller parity or N4
+application acceptance.
+
+After a fresh census found no active N4 allocation, the prepared scoring spec
+started at 09:33:31 UTC. Output is
+`local/n4/integrated-modes-scores-guarded-v1`. Exact supervisor is
+33700/1790501611.970641, venv launcher 49200/1790501612.1276567 and actual
+driver 41328/1790501612.164423. All three were observed on CPU14/BelowNormal
+with a fresh heartbeat and unchanged sources. `MODES_SCORING_START_V1.json`
+binds the dispatch, admitted owner, plan and method acceptance. Allocation is
+512 MiB, elapsed cap four hours, metric requests at most 120 seconds. Admission
+projected 46.932 GiB under the 50-GiB ceiling, retaining all evidence/reserves.
+
+Do not duplicate scoring or edit its source. Require the complete terminal with
+all 1,536 metrics available, source/resource verification and exact driver,
+launcher, supervisor and metric-child closure before dispatching the prepared
+independent score reviewer. After that passes and closes, qualify the prepared
+guarded reader with both actual main/modes reviews. The controlled GUI/resource
+blocker, application/naming/continuity work and N5 functional validation remain.
+
+N5's main START_HERE, INSTALL_CM5 and README now link the tested storage
+preflight and explain checking report outcomes before installation. The immutable
+baseline ZIP is unchanged; optional backend installation and actual CM5 checks
+remain unverified. Hourly continuation, packaging reserve and deadline are
+unchanged; neither N4 nor N5 is accepted.
 
 ## 2026-09-27 08:53 UTC - Full modes collection closed; review started
 

@@ -12,6 +12,23 @@ apt repository. The wheel audit found libz.so.1 as an additional OS dependency.
 All 13 Python wheels and eight baseline assets are prefetched; pip uses
 `--no-index --require-hashes`. No training environment or CUDA is included.
 
+Before extraction/installation on the Pi, transfer the original ZIP and the
+separate Git-verified `pi_storage_preflight_v1.py` companion. Follow
+`README_PI_STORAGE_PREFLIGHT_V1.md` with the actual archive path and separate
+absolute install/data roots. It verifies the full archive and declared members,
+checks prerequisite metadata and reads actual target free space without creating
+those roots. Require `PREREQUISITE_METADATA_PASS_ONLY` and `ESTIMATED_FIT` in
+the report before continuing; resolve failures first. A successful process exit
+alone is not enough: the report contains the prerequisite and space outcomes.
+
+The preserved baseline needs an estimated 2.80 GiB additional free space under
+the documented conservative budget, including a 1-GiB reserve and an unmeasured
+512-MiB overhead allowance. It gives no credit for existing files and preserves
+existing rollback releases. This is not a measured installation size or RAM
+result. Final optional backend bundles need their own matching inventory.
+The companion and these updated instructions are outside the unchanged v1 ZIP;
+the ZIP's older embedded instructions remain preserved for provenance.
+
 From PowerShell, check the archive against ARTIFACT_INDEX.json and extract it
 onto a USB drive or chosen transfer directory (substitute your actual path):
 

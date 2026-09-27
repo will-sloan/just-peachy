@@ -1,5 +1,25 @@
 # N4 and N5 execution order and acceptance gates
 
+## 2026-09-27 09:35 UTC - Scoring is now the active stage
+
+`MODES_MODELED_METHOD_ACCEPTANCE_V1.json` records the complete independent
+1,536-case method review and exact closure. `MODES_SCORING_START_V1.json` binds
+the fresh scoring launch at 09:33:31 UTC, private output
+`local/n4/integrated-modes-scores-guarded-v1`, driver
+41328/1790501612.164423, launcher 49200/1790501612.1276567 and supervisor
+33700/1790501611.970641. The 512-MiB/four-hour allocation and 120-second metric
+request cap are unchanged; fresh projection was 46.932 GiB. Source count: 120.
+
+After all 1,536 scores are available, verify the full terminal, source and
+resource chain and exact closure of the driver, launcher, supervisor and metric
+workers. Only then use a fresh census and the prepared
+`integrated-modes-score-review-guarded-v1-worker.json`. After the independent
+score review passes, run the prepared guarded reader diagnostic against both
+actual closed reviews. Application/GUI/resource, naming, continuity and N5
+functional acceptance still require their remaining work. The Pi start/install
+guides now include the verified baseline storage preflight; the archive itself
+and live-device deferral remain unchanged.
+
 ## 2026-09-27 08:53 UTC - Method review is now the active stage
 
 `MODES_METHOD_REVIEW_START_V1.json` binds the completed 1,536/1,536 modes

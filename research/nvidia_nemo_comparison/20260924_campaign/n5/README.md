@@ -5,6 +5,17 @@ upstream comparisons run. N5 is PARTIAL, not release acceptance or campaign
 closure. START_HERE.md is the operating index. README_ARM64.md covers the build,
 static ELF audit and no-model QEMU loader probes.
 
+`pi_storage_preflight_v1.py` provides a separate read-only companion for the
+preserved baseline ZIP. It takes the archive plus trusted SHA256 and explicit
+space budgets, and writes a fresh JSON inventory/space report. Later on Linux
+ARM64 it can also observe prerequisite metadata and actual install/data-root
+free space, without creating those roots or installing anything. Purpose,
+inputs/outputs and PowerShell, CMD/Anaconda and later Pi commands are in
+`README_PI_STORAGE_PREFLIGHT_V1.md`. Its 11-test and real-bundle verification
+receipt is `PI_STORAGE_PREFLIGHT_CHECK_V1.json`. It does not qualify ARM64 model
+execution or change the immutable release. START_HERE.md and INSTALL_CM5.md now
+include this step; inspect report statuses rather than relying on exit code.
+
 `package_baseline.py` takes the existing N1 release receipt/archive, the original
 hash-addressed model root, pinned ARM64 wheelhouse and publisher receipt. It
 creates a fresh private ZIP plus a SHA-256/member receipt. It verifies all eight
