@@ -1,0 +1,51 @@
+{
+  "status": "FAILED_AFTER_ONE_COLLECTED_CELL_PRESERVED",
+  "utc": "2026-09-27T14:01:25.699850+00:00",
+  "private_result": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\paced-application-v5-worktree-path-v1\\RESULT.json",
+    "sha256": "cafbc7abc3d0be953d09df30b3f0878fc53a53a5c842545034136b1a9d626320",
+    "bytes": 1853
+  },
+  "first_application": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\paced-application-v5-worktree-path-v1\\cells\\panel_0_N2_S45_01_01_O0_A0_D0_E0\\application\\RESULT.json",
+    "sha256": "58370ab728559c773da9617e0a1a8f2eb2d91ff6b1ad8c84be66fb6dec4106fd",
+    "bytes": 6869
+  },
+  "closures": [
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\paced-application-v5-worktree-path-v1\\cells\\panel_0_N2_S45_01_01_O0_A0_D0_E0\\PARENT_CLOSURE.json",
+      "sha256": "2656ee68889bbfa82574711875bf3a3d63ff1ddcec12c2a91d4fe0da25bfde68",
+      "bytes": 2699
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\paced-application-v5-worktree-path-v1\\cells\\panel_0_N2_S45_01_01_O0_A1_D0_E0\\PARENT_CLOSURE.json",
+      "sha256": "074b58d2559ecb1dc2b58e0a7158808bf3aa1cf21fe6cb0461ff13650bd8a087",
+      "bytes": 3958
+    }
+  ],
+  "closed_supervisor": {
+    "status": "FAILED",
+    "pid": 48828,
+    "create_time": 1790517118.2387855,
+    "run_id": "c38101ae1e134e3aa40fb1fb9bba7f59",
+    "started_utc": "2026-09-27T13:51:58.248720+00:00",
+    "heartbeat_unix": 1790517539.8496234,
+    "resumed": false,
+    "argv_sha256": "63a573b2f93797eee923865cb23a71d8095528d274caf416df9b372ccc11a4d5",
+    "child_launch_pending": false,
+    "child_pid": 39720,
+    "child_create_time": 1790517118.3957028,
+    "exit_code": 1,
+    "ended_utc": "2026-09-27T13:58:59.849623+00:00",
+    "error": "Worker exited 1"
+  },
+  "exact_all_owners_exited": true,
+  "verified_unchanged_sources": 304,
+  "import_path_repair_passed_first_actual_cell": true,
+  "first_cell_source_samples": 715127,
+  "failure": "Windows sharing/access error during atomic LEASE.pending to LEASE.json replacement",
+  "bounded_next_step": "Fresh V6 lease writer with limited retry only for transient Windows replacement errors; unchanged five-second expiry",
+  "accepted_N4_cells": 0,
+  "N4_accepted": false,
+  "N5_complete": false
+}

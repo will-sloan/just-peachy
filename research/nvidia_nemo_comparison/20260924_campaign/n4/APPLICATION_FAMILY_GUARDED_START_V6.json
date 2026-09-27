@@ -1,0 +1,32 @@
+{
+  "status": "STARTED_90_TEST_V6_LEASE_REPAIR_QUALIFICATION",
+  "utc": "2026-09-27T14:08:24.167703+00:00",
+  "private_start": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\application-family-v6-probe-dispatch\\STARTED.json",
+    "sha256": "d747d3bef4fe700b195c0f3031dc120a9169edfc9c884e70ac7599ad0d3a16b4",
+    "bytes": 860
+  },
+  "private_preparation": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\application-family-v6-preparation\\PREPARATION.json",
+    "sha256": "7822b16d7b34e7f290cedad0f439f137d27c7fd1ee0d37469275573449cf952a",
+    "bytes": 92647
+  },
+  "targeted_tests_passed": 16,
+  "required_full_tests": 90,
+  "source_records": 319,
+  "supervisor": {
+    "status": "STARTING",
+    "pid": 17752,
+    "create_time": 1790518104.148107,
+    "run_id": "69359d76e60e400eb2a640d2f1172611",
+    "started_utc": "2026-09-27T14:08:24.157704+00:00",
+    "heartbeat_unix": 1790518104.1577044,
+    "resumed": false,
+    "argv_sha256": "d30dfb80758a69644ad1251c5cd1992715144d67f17bb6d2b7131a8b6c314161"
+  },
+  "allocation_bytes": 16777216,
+  "maximum_seconds": 2400,
+  "actual_application_or_model_started": false,
+  "N4_accepted": false,
+  "N5_complete": false
+}

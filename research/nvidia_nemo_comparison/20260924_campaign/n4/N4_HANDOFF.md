@@ -1,5 +1,46 @@
 # N4 checkpoint - first actual attempt failed; bounded launch-path repair
 
+### Supervised qualification started at 14:08 UTC
+
+The V6 90-test probe is active at local/n4/application-family-v6-probe,
+supervisor 17752/1790518104.148107, driver 50588/1790518104.3003936,
+run ID 69359d76e60e400eb2a640d2f1172611. See
+APPLICATION_FAMILY_GUARDED_START_V6.json. All 319 source records are frozen;
+do not edit them or start a duplicate. The 16-MiB/40-minute allocation projects
+46.544 GiB after a fresh complete census with all failed-run owners closed.
+The next action is to verify every test/source/resource receipt and exact owner
+closure, then publish APPLICATION_FAMILY_CHECK_V6.json. The prepared semantic
+V6 sources passed syntax checks only and await that application qualification
+before their complete dependency manifest and supervised 66-test qualification.
+Only after both succeed, admit a fresh V6 application run with the verified
+process-local worktree PYTHONPATH and unchanged original panel plan.
+
+## 2026-09-27 14:05 UTC - Import repair confirmed; lease sharing failure preserved
+
+The first actual V5 retry cell delivered all 715,127 saved samples and passed
+source, engine, consumer and archive closure. Its child exited normally without
+forced termination, with the input desktop still Default. The import-path repair
+therefore worked on that cell. The next A1 cell stopped when Windows rejected
+an atomic LEASE.pending to LEASE.json replacement with WinError 5. The supervisor
+closed FAILED at 13:58:59 UTC with one of 240 cells collected. Both children,
+the driver and supervisor have exited; all source hashes are unchanged.
+APPLICATION_PANEL_LEASE_FAILURE_V1.json records this new failure and closure.
+Neither the first cell nor the failed panel establishes N4 acceptance.
+
+A fresh V6 derivative changes only lease-file replacement: at most 13 retries
+within 0.25 seconds, restricted to Windows sharing/access errors 5/32/33, with
+the original issue timestamp and five-second expiry unchanged. Other failures
+still stop the run and preserve evidence. Sixteen targeted preparation checks
+passed, including an actual Windows read handle that temporarily denies delete
+sharing and AST verification of the unchanged admission logic. The complete
+90-test guarded family qualification is the next required step. Current V6
+sources, including its README commands, remain separate from both V5 attempts.
+A matching semantic V6 derivative is prepared but not qualified. Follow current
+worker/dispatch receipts before any launch; no timed application is running now.
+
+Historical running-state statements below are superseded. The original reserve
+and deadline remain fixed. N4/N5 remain incomplete; live CM5 checks are deferred.
+
 ## 2026-09-27 13:52 UTC - Fresh timed retry after verified import-path repair
 
 The closed semantic V5 probe passed all 66 regressions and both isolated import
