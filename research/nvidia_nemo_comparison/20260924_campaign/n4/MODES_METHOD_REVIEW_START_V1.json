@@ -1,0 +1,211 @@
+{
+  "status": "COMPLETE_MODELED_COLLECTION_METHOD_REVIEW_STARTED",
+  "utc": "2026-09-27T08:53:10.953944+00:00",
+  "method_terminal": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\integrated-modes-guarded-v1\\RESULT.json",
+    "sha256": "64fd783a06422fc4bb1960ad678e7c19a082d833ec70eca90f532b8e03b26589",
+    "bytes": 379140
+  },
+  "method_admission": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\integrated-modes-guarded-v1\\ADMISSION.json",
+    "sha256": "c459ac0c5cdbbcfe7a5adf7084e9c1fa9a065f37d8078db2468580a65957f795",
+    "bytes": 33242
+  },
+  "method_execution_plan": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\integrated-modes-guarded-v1\\EXECUTION_PLAN.json",
+    "sha256": "0f9e6fa77c44494ca0d86e92c8994af6bcb0b01e7a24ec2a59f767a0aa0e3e24",
+    "bytes": 33331
+  },
+  "original_plan": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\integrated-modes-plan-v3.json",
+    "sha256": "ab3a6f79b13cbd200b24d72c7749814cf1f170f611b828eb603b86c9b2cfbfaf",
+    "bytes": 3825365
+  },
+  "collected": 1536,
+  "required": 1536,
+  "failed": 0,
+  "not_tested": 0,
+  "cell_receipt_bindings_reverified": 1536,
+  "guard_checks": [
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\integrated-modes-guarded-v1\\GUARD_INITIAL.json",
+      "sha256": "438f7d5f890d32db4abc1b01b06abc96ef50c549e3f3ebcd2b042996ebfdb847",
+      "bytes": 266154
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\integrated-modes-guarded-v1\\GUARD_00128.json",
+      "sha256": "ac41416e728ff5d5093e7924e92ba2fd4ac626df96d8da9c45be0f353ab6f1ee",
+      "bytes": 266162
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\integrated-modes-guarded-v1\\GUARD_00256.json",
+      "sha256": "d0edbf05ca5c36669237d96c6d0945bb8e7134726f9fba6d440bb5801a896dc5",
+      "bytes": 266162
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\integrated-modes-guarded-v1\\GUARD_00384.json",
+      "sha256": "5ce38b746942f2be245cb1aa1ffc939b8859c84fc9d8e497e6e47b601bbcb3e1",
+      "bytes": 266162
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\integrated-modes-guarded-v1\\GUARD_00512.json",
+      "sha256": "e76cfe04e7a90de38a8fa285d2cc4888f008a7a56f678f2f9eb4d527163519ca",
+      "bytes": 266162
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\integrated-modes-guarded-v1\\GUARD_00640.json",
+      "sha256": "57cef7bec7df5ac48c34c3bd72c11f277424556fad286c55f08036b95eb445fc",
+      "bytes": 266162
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\integrated-modes-guarded-v1\\GUARD_00768.json",
+      "sha256": "60e308cf4412c4b0de28ab584aac733626bc958fcd539faf44eb982f3dd4c481",
+      "bytes": 266162
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\integrated-modes-guarded-v1\\GUARD_00896.json",
+      "sha256": "a5400f74e49a5bf504a4f9c7cb658a352d1d395f749f5283510a5fd799cd72b4",
+      "bytes": 266158
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\integrated-modes-guarded-v1\\GUARD_01024.json",
+      "sha256": "4250fe6759333d710e5fcaa22bb2c2d1f85e1c7e2092631350c183e36048fa41",
+      "bytes": 266158
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\integrated-modes-guarded-v1\\GUARD_01152.json",
+      "sha256": "6cc166e065fcac89abcd1a97b918ae1178dce53804e23816f5f3f70b3088bea4",
+      "bytes": 266157
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\integrated-modes-guarded-v1\\GUARD_01280.json",
+      "sha256": "53b0a52637bf04022cea018d64ffd078845c4eee34ee98c97806302479e36429",
+      "bytes": 266159
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\integrated-modes-guarded-v1\\GUARD_01408.json",
+      "sha256": "42987dd31d3a37445bcbfc8c62a0a62ce9d26994c262fa4f599d63d36b3fd205",
+      "bytes": 266159
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\integrated-modes-guarded-v1\\GUARD_01536.json",
+      "sha256": "a2810ae60e5e3fb1dc5de12ced58c723e6b9f24d9d7d72976a3d5d05344a2b8a",
+      "bytes": 266159
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\integrated-modes-guarded-v1\\GUARD_FINAL.json",
+      "sha256": "d1c0340f61159a85fb788181d63ba1d7b3212112d9b142f6c42d1522ef36c730",
+      "bytes": 266159
+    }
+  ],
+  "exact_method_driver_and_supervisor_exited": true,
+  "method_owner": {
+    "pid": 34884,
+    "create_time": 1790491937.556375
+  },
+  "method_supervisor": {
+    "pid": 51404,
+    "create_time": 1790491937.3939457
+  },
+  "review_dispatch_admission": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\integrated-modes-method-review-guarded-v1-dispatch\\ADMISSION.json",
+    "sha256": "7abd02089779f77272f7ec7f72d59dd2d954a9cfe0b16852061fabbaaae85f00",
+    "bytes": 299106
+  },
+  "review_dispatch_started": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\integrated-modes-method-review-guarded-v1-dispatch\\STARTED.json",
+    "sha256": "1909d1124abbb2dd958ffa06392ffe69d7a2417e18f76d2f1f09cbc74e3328da",
+    "bytes": 939
+  },
+  "review_admission": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\integrated-modes-method-review-guarded-v1\\ADMISSION.json",
+    "sha256": "6f0ebfa9022acbd51dc5fcf728d0808f80e9dddf14d94b26b04c91d89d6d3380",
+    "bytes": 33496
+  },
+  "review_execution_plan": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\integrated-modes-method-review-guarded-v1\\EXECUTION_PLAN.json",
+    "sha256": "711824d89e735740c26dace59896631be43d7a5d9480097a619e40052d74ba68",
+    "bytes": 33334
+  },
+  "review_owner": {
+    "pid": 37788,
+    "create_time": 1790499134.5933845
+  },
+  "review_supervisor": {
+    "pid": 38636,
+    "create_time": 1790499134.423172
+  },
+  "live_process_observations": [
+    {
+      "owner": {
+        "pid": 37788,
+        "create_time": 1790499134.5933845
+      },
+      "affinity": [
+        14
+      ],
+      "priority": 16384,
+      "command": [
+        "C:/Users/amiri/Documents/GitHub/just-peachy/.edge-speech-env/python.exe",
+        "-B",
+        "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\guarded_review_v1.py",
+        "--kind",
+        "method-review",
+        "--run",
+        "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\integrated-modes-guarded-v1",
+        "--output",
+        "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\integrated-modes-method-review-guarded-v1",
+        "--max-seconds",
+        "7200"
+      ]
+    },
+    {
+      "owner": {
+        "pid": 38636,
+        "create_time": 1790499134.423172
+      },
+      "affinity": [
+        14
+      ],
+      "priority": 16384,
+      "command": [
+        "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\.edge-speech-env\\python.exe",
+        "-B",
+        "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\supervision\\supervisor.py",
+        "host",
+        "--root",
+        "G:\\Just_Peachy_N1\\20260924_campaign\\local\\supervision"
+      ]
+    }
+  ],
+  "source_files_reverified": 120,
+  "qualification": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\GUARDED_BANK_CHECK_V1.json",
+    "sha256": "12d040698032ea40dee420880c745f116466dbcf8b2db7a52ac2ee6727111e00",
+    "bytes": 40516
+  },
+  "review_output_cap_bytes": 8388608,
+  "review_maximum_seconds": 7200,
+  "admission_projection": {
+    "schema": "n4-reservation-calculation-v1",
+    "existing_bytes": 47167166271,
+    "active_remaining_bytes": 0,
+    "requested_bytes": 8388608,
+    "retained_pending_bytes": 2147483648,
+    "contingency_bytes": 536870912,
+    "expired_closed_reservations_bytes": 4294967296,
+    "projected_bytes": 49859909439,
+    "allowance_bytes": 53687091200,
+    "packaging_cutoff_utc": "2026-09-28T02:48:19+00:00",
+    "physical_bytes_removed_or_credited": 0,
+    "worker_execution_authorized": false
+  },
+  "method_review_complete": false,
+  "scoring_complete": false,
+  "score_review_complete": false,
+  "all_publication_artifacts_independently_reviewed": false,
+  "integrated_N4_cells": 0,
+  "N4_accepted": false,
+  "N5_complete": false,
+  "Pi_contacted": false
+}

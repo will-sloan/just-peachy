@@ -1,5 +1,23 @@
 # N4 and N5 execution order and acceptance gates
 
+## 2026-09-27 08:53 UTC - Method review is now the active stage
+
+`MODES_METHOD_REVIEW_START_V1.json` binds the completed 1,536/1,536 modes
+collection (zero failed/untested, 14 resource receipts, exact producer closure)
+and the fresh supervised independent method review. Review output is private
+`local/n4/integrated-modes-method-review-guarded-v1`, driver
+37788/1790499134.5933845, supervisor 38636/1790499134.423172, started 08:52:14
+UTC. All 120 bound sources remain unchanged. Its 8-MiB admission projected
+46.436 GiB under the existing 50-GiB allowance.
+
+Next: complete/pass and close that reviewer; fresh census; dispatch the prepared
+`integrated-modes-scores-guarded-v1-worker.json`; complete scoring with exact
+metric-child closure; fresh census; dispatch
+`integrated-modes-score-review-guarded-v1-worker.json`. Validate each actual
+terminal and its complete source/resource chain before proceeding. Then run the
+prepared reader diagnostic with both real reviews. No application selection,
+GUI/resource acceptance or N5 completion follows from collection alone.
+
 ## 2026-09-27 08:44 UTC - Pi preflight available; modes chain remains next
 
 The active modes run reached 1,443/1,536 at 08:43 UTC with unchanged exact owners

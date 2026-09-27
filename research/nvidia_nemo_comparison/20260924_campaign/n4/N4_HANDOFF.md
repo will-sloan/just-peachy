@@ -1,4 +1,32 @@
-# N4 checkpoint - main scores reviewed; guarded modes running
+# N4 checkpoint - modes collected; independent method review running
+
+## 2026-09-27 08:53 UTC - Full modes collection closed; review started
+
+The guarded modes terminal completed at 08:50:09 UTC: 1,536/1,536 collected,
+zero failed and zero untested, with 14 initial/periodic/final resource receipts.
+The exact driver 34884/1790491937.556375 and supervisor
+51404/1790491937.3939457 exited. All 1,536 cell receipt hashes, original plan,
+execution provenance and 120 source bindings were reverified. This is complete
+modeled collection requiring review, not N4 acceptance.
+
+After a fresh full census found no active N4 allocation, the existing supervisor
+started the prepared method reviewer at 08:52:14 UTC. Its output is
+`local/n4/integrated-modes-method-review-guarded-v1`; exact driver is
+37788/1790499134.5933845 and supervisor 38636/1790499134.423172. Both were
+verified live on CPU14/BelowNormal with a fresh heartbeat. The 8-MiB, two-hour
+review admission projected 46.436 GiB under the 50-GiB ceiling. See
+`MODES_METHOD_REVIEW_START_V1.json` for exact terminal, dispatch and source links.
+Do not duplicate or modify the active reviewer. Its initial resource check
+precedes the independent full-artifact review.
+
+Require PASS_REVIEWED_MODELED_METHOD_BANK_ONLY, full 1,536 scope, unchanged
+source/resource evidence and exact driver/supervisor closure before dispatching
+the already prepared scoring spec. After complete scoring and metric-owner
+closure, dispatch the prepared score-review spec. Then qualify the prepared
+guarded reader against BOTH actual closed reviews. The older preparation section
+below records the remaining application/GUI/resource blockers and future steps.
+N4/N5 remain unaccepted; live CM5 work stays deferred. Hourly continuation and
+the packaging reserve/deadline remain unchanged.
 
 ## 2026-09-27 08:44 UTC - Independent Pi preparation completed
 
