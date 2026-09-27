@@ -1,0 +1,82 @@
+{
+  "status": "FAILED_AFTER_TWO_COLLECTED_CELLS_PRESERVED",
+  "utc": "2026-09-27T15:45:35.023793+00:00",
+  "private_result": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\paced-application-v6-isolated-v1\\RESULT.json",
+    "sha256": "3dc2123094109b74798a37f306ed87075991415bb78fe14f592d5acb08cb0303",
+    "bytes": 2102
+  },
+  "private_admission": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\paced-application-v6-isolated-v1\\ADMISSION.json",
+    "sha256": "d1f9d193ca0d9039ee92825d61e3f42bbfaa0e4516f4149728c6c0080977b8d4",
+    "bytes": 89195
+  },
+  "closures": [
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\paced-application-v6-isolated-v1\\cells\\panel_0_N2_S45_01_01_O0_A0_D0_E0\\PARENT_CLOSURE.json",
+      "sha256": "b04039dccc8ee5bc757390ed3e1a1a606499f28585181d8c408b5da61105be5a",
+      "bytes": 2694
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\paced-application-v6-isolated-v1\\cells\\panel_0_N2_S45_01_01_O0_A0_D1_E0\\PARENT_CLOSURE.json",
+      "sha256": "e6f574926bd5bda2c418c62a9cab06ec56c703decd969206872b599c90da10f6",
+      "bytes": 3948
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\paced-application-v6-isolated-v1\\cells\\panel_0_N2_S45_01_01_O0_A1_D0_E0\\PARENT_CLOSURE.json",
+      "sha256": "ad5f54a450eace38ae670e42d8a9bfa69a336c82b8eb2d559778072dacc946b4",
+      "bytes": 2699
+    }
+  ],
+  "closed_supervisor": {
+    "status": "FAILED",
+    "pid": 51404,
+    "create_time": 1790520950.2665567,
+    "run_id": "5f3f200ce0f547f79a4c77da6cf14926",
+    "started_utc": "2026-09-27T14:55:50.275626+00:00",
+    "heartbeat_unix": 1790521751.8679368,
+    "resumed": false,
+    "argv_sha256": "4976b2c4e9f5c50562b13e2789473207df79ebdfe48dc9a38e5af9cef5371e46",
+    "child_launch_pending": false,
+    "child_pid": 52736,
+    "child_create_time": 1790520950.4214473,
+    "exit_code": 1,
+    "ended_utc": "2026-09-27T15:09:11.867936+00:00",
+    "error": "Worker exited 1"
+  },
+  "exact_owners_closed": [
+    {
+      "pid": 52736,
+      "create_time": 1790520950.4214473
+    },
+    {
+      "pid": 51404,
+      "create_time": 1790520950.2665567
+    },
+    {
+      "pid": 9856,
+      "create_time": 1790521539.4182465
+    },
+    {
+      "pid": 53240,
+      "create_time": 1790521660.9304693
+    },
+    {
+      "pid": 35436,
+      "create_time": 1790521661.025604
+    },
+    {
+      "pid": 15992,
+      "create_time": 1790521598.0361621
+    }
+  ],
+  "verified_unchanged_sources": 319,
+  "failure": "Windows lease replacement access denial after the bounded 0.25-second retry",
+  "blocking_process_identified": false,
+  "scheduled_probes_removed": true,
+  "collected": 2,
+  "required": 240,
+  "accepted_N4_cells": 0,
+  "N4_accepted": false,
+  "N5_complete": false
+}

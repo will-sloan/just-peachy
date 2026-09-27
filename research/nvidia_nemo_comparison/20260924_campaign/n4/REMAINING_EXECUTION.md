@@ -1,5 +1,57 @@
 # N4 and N5 execution order and acceptance gates
 
+## 2026-09-27 16:02 UTC - Corrected Windows rename primitive in full V8 qualification
+
+V7 qualification failed at the held-reader replacement test (18/19 child tests
+passed); its exact owner exited and all 320 sources/snapshots remain preserved.
+APPLICATION_FAMILY_FAILURE_V7.json binds that failure and the local API diagnostic.
+The diagnostic reproduced standard rename error 5 with an open shared reader;
+FileRenameInfoEx with REPLACE_IF_EXISTS | POSIX_SEMANTICS succeeded and retained
+the old reader's bytes. V8 uses that operation without ACL or readonly overrides,
+and keeps the same five-second lease expiry and bounded retry. The 23 targeted
+checks passed, including 100 replacements, ownership/expiry, readonly refusal,
+first publication, missing input and both handle conversion cleanup paths.
+
+APPLICATION_FAMILY_GUARDED_START_V8.json binds the full 97-test probe in
+local/n4/application-family-v8-probe, started 16:01:36 UTC under supervisor
+41500/1790524896.1998186, run c3cd8ec280c146188ca2300208841bd2. No application
+or model is running yet. Publish only after all tests/resource proofs and exact
+owner closure; then qualify matching semantic V8 consumers before a fresh
+240-cell application attempt. V7 sources and receipts are preserved, not edited.
+N5_STATUS_20260927_V7.json remains a historical snapshot of the V7 probe.
+The newest ARM64 plan is ARM64_FUNCTIONAL_VALIDATION_PLAN_V2.md; V1's hash-bound
+bytes remain unchanged. The native stream harness is still uncompiled/unexecuted.
+
+## 2026-09-27 15:53 UTC - V6 closed after another lease failure; V7 qualification running
+
+The isolated V6 attempt completed 2/240 cells, then failed on D1 lease renewal
+at 15:09:08 UTC with WinError 5 after its bounded replacement retry. All three
+child lifetimes closed, with empty jobs and no forced termination or input
+desktop change; supervisor and driver exited. The 319 bound sources are intact.
+APPLICATION_PANEL_LEASE_FAILURE_V2.json preserves the exact results and owners.
+The blocking process was not identified. This is partial evidence, not acceptance.
+
+APPLICATION_FAMILY_GUARDED_START_V7.json records the fresh 94-test qualification.
+It changes only the Windows record reader to permit atomic replacement while
+holding a complete old file version. Five-second expiry, exact owners, sequence
+checks, output bounds and the quarter-second writer retry remain unchanged.
+The full 320-record source manifest includes the prior reader as a comparison
+input. Supervisor 53008/1790524103.3582573, driver 51412/1790524103.5157852,
+run b76a2c9bb12a43bcbb9941431495757d, started 15:48:23 UTC. Follow
+local/n4/application-family-v7-probe; no application/model is running in this
+probe. Matching V7 semantic sources are prepared, not qualified. Verify the
+closed probe before publishing qualification and admitting a fresh application.
+
+The six-case native_stream_smoke_v1.cpp harness and its README now exist for
+N5 ARM64 saved-WAV/state/flush testing. They have not compiled or executed.
+No hardware/GUI/model acceptance follows from that source preparation.
+The V3 restart draft still needs qualification and must adopt the repaired
+child reader before actual restart execution. Actual application reviews,
+continuity, Windows/ARM64 software validation and accepted release packaging
+remain open. N5_STATUS_20260927_V7.json is the current checkpoint. Prior active
+V6 paragraphs below are historical. The hourly heartbeat, removed OS probes,
+packaging reserve/deadline and powered-off Pi constraints remain unchanged.
+
 ## 2026-09-27 15:00 UTC - Isolated V6 retry active; restart implementation prepared
 
 The previous V6 panel failed at 14:44:36 UTC after one baseline cell, when the

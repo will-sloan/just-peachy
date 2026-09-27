@@ -1,0 +1,33 @@
+{
+  "status": "STARTED_97_TEST_ATOMIC_RENAME_QUALIFICATION",
+  "utc": "2026-09-27T16:01:36.220931+00:00",
+  "private_start": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\application-family-v8-probe-dispatch\\STARTED.json",
+    "sha256": "d6182a06cc3d02df68a3ed0b511c522e972beb219f1b9142c31b019deb59fd5f",
+    "bytes": 861
+  },
+  "private_precheck": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\application-family-v8-precheck-v1\\CHECK.json",
+    "sha256": "b570f25edb36830ef71b39d5d9054fd6608d0edbecbb0603d3ecfbadd633f372",
+    "bytes": 90607
+  },
+  "targeted_check": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\application-family-v8-targeted-v1\\RESULT.json",
+    "sha256": "9a642befc90d7c6a3b9ba8c5e8303fb552eab9b2477d45ed7dbca2ef5e002485",
+    "bytes": 5545
+  },
+  "source_records": 320,
+  "supervisor": {
+    "status": "STARTING",
+    "pid": 41500,
+    "create_time": 1790524896.1998186,
+    "run_id": "c3cd8ec280c146188ca2300208841bd2",
+    "started_utc": "2026-09-27T16:01:36.209933+00:00",
+    "heartbeat_unix": 1790524896.2099333,
+    "resumed": false,
+    "argv_sha256": "6fc5f8c0320ce91adcb220e3759e021ec0f2c32069ace0822b459f3350ec1ba7"
+  },
+  "required_full_tests": 97,
+  "N4_accepted": false,
+  "N5_complete": false
+}

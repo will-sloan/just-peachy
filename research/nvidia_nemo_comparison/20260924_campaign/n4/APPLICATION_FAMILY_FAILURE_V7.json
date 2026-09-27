@@ -1,0 +1,40 @@
+{
+  "status": "FAILED_SHARED_READER_WITH_OLD_RENAME_PRIMITIVE_PRESERVED",
+  "private_failure": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\application-family-v7-probe\\FAILED.json",
+    "sha256": "d62fa9ff0a7e9310c4d20c13bd1778363c242e85113e15849efd30d6e6474ddb",
+    "bytes": 5719
+  },
+  "test_log": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\application-family-v7-probe\\test_paced_child_admission_v5.txt",
+    "sha256": "540b3ee4be328a3eaf1e0d3fdc97d5cc5725a6e23711de290e383893c5d606ae",
+    "bytes": 4136
+  },
+  "closed_supervisor": {
+    "status": "FAILED",
+    "pid": 53008,
+    "create_time": 1790524103.3582573,
+    "run_id": "b76a2c9bb12a43bcbb9941431495757d",
+    "started_utc": "2026-09-27T15:48:23.368282+00:00",
+    "heartbeat_unix": 1790524444.652837,
+    "resumed": false,
+    "argv_sha256": "ae54020a34bd93e30c83d4579c508465400c2580e3c7a37c6dd857f695adadbd",
+    "child_launch_pending": false,
+    "child_pid": 51412,
+    "child_create_time": 1790524103.5157852,
+    "exit_code": 1,
+    "ended_utc": "2026-09-27T15:54:04.652837+00:00",
+    "error": "Worker exited 1"
+  },
+  "exact_owners_closed": true,
+  "source_records": 320,
+  "tests_run": 19,
+  "tests_passed": 18,
+  "tests_errors": 1,
+  "api_diagnostic": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\lease-api-diagnostic-v1\\RESULT.json",
+    "sha256": "fa5c8c9cd3b6e62b68a46fb579cc134d5572edbd1a15b0cc332eefcb939031ef",
+    "bytes": 574
+  },
+  "N4_accepted": false
+}
