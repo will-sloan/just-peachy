@@ -1,0 +1,185 @@
+{
+  "status": "VERIFIED_ASSET_BYTES_STORAGE_ESTIMATE_ONLY",
+  "utc": "2026-09-27T14:27:41.6860621Z",
+  "source_plan": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\paced-plan-guarded-v2\\PLAN.json",
+    "bytes": 386795,
+    "sha256": "6a288cdbd7be997d9bdda364a73dd501a3da01a3fd7228ed096d895751b4e210"
+  },
+  "assets": [
+    {
+      "name": "encoder-epoch-99-avg-1.int8.onnx",
+      "group": "BASELINE",
+      "sha256": "32c98281c7bd8b63e3e142d007251b37f120572e8fdea9a4f5a79ce22b10ec4f",
+      "bytes": 187823992
+    },
+    {
+      "name": "tokens.txt",
+      "group": "BASELINE",
+      "sha256": "49e3c2646595fd907228b3c6787069658f67b17377c60aeb8619c4551b2316fb",
+      "bytes": 5048
+    },
+    {
+      "name": "redimnet2_b2_fp32.onnx",
+      "group": "BASELINE",
+      "sha256": "5c1a8635cba0d4648463f3b6d30c5a6137bc38d1200ab00c5944400aaa7b5609",
+      "bytes": 16025408
+    },
+    {
+      "name": "joiner-epoch-99-avg-1.int8.onnx",
+      "group": "BASELINE",
+      "sha256": "831477d390e59a61f1b6a6f763b9903e6c6366ff6034f1ddba613be82637122f",
+      "bytes": 259335
+    },
+    {
+      "name": "model.int8.onnx",
+      "group": "BASELINE",
+      "sha256": "9d611f445fe4a46186080fe161be6059d87d72eb88d3a8cb00c1a06e83a6067e",
+      "bytes": 7490500
+    },
+    {
+      "name": "decoder-epoch-99-avg-1.onnx",
+      "group": "BASELINE",
+      "sha256": "9da02b77cb08826756ec6a88635f35a40374e4164e7c6359121a9145958a6ceb",
+      "bytes": 2092566
+    },
+    {
+      "name": "pyannote_segmentation_3_0_fp32.onnx",
+      "group": "BASELINE",
+      "sha256": "b4b65085bbf2cc455565696604c87fedade1359aa6ddfac5d726d69124d5069a",
+      "bytes": 5925265
+    },
+    {
+      "name": "bpe.vocab",
+      "group": "BASELINE",
+      "sha256": "e118b7ad88c54db562517df49e1cffd4836d166c34fb190fd311d7f34eb238f5",
+      "bytes": 149430
+    },
+    {
+      "name": "Nemotron-3-Diarization.q8_0.gguf",
+      "group": "D1",
+      "sha256": "08456d9e22cd9a323c0364d98375f3746d6e68507ebb705cd46438c534c7a3a1",
+      "bytes": 107012128
+    },
+    {
+      "name": "titanet_embedding.onnx",
+      "group": "E1",
+      "sha256": "86b64bc03a7b151231f59745a8d36619fbc68b739a4abb253bd0d9ce0c350610",
+      "bytes": 88610787
+    },
+    {
+      "name": "titanet_frontend.npz",
+      "group": "E1",
+      "sha256": "582f92d2fa2a29be70f6fdc13d67fc1376083ca66cb35401f8335ed85c4115b6",
+      "bytes": 84358
+    },
+    {
+      "name": "titanet_manifest.json",
+      "group": "E1",
+      "sha256": "9dc697fb5e1d23aa40568f4e3631d8df4812f80a89c65685cea077ceecd9254b",
+      "bytes": 1284
+    },
+    {
+      "name": "nemotron-3.5-asr-streaming-0.6b.q8_0.gguf",
+      "group": "A3",
+      "sha256": "3fc991d3badad7277c11030a7519832cddaf2057aafed6d4b25147e953a070b1",
+      "bytes": 742090464
+    },
+    {
+      "name": "nemotron-speech-streaming-en-0.6b.q8_0.gguf",
+      "group": "A2",
+      "sha256": "d9a01898d2a611c8764e23a1c2f45e70bbd5a425dc4de93692ac951dd603812d",
+      "bytes": 699872960
+    },
+    {
+      "name": "BUNDLE.json",
+      "group": "A1",
+      "sha256": "29b70f460ed15c4b57f02bd7f6a08e143ceb6276b5acc18156f0cae756c1cbb6",
+      "bytes": 1086
+    },
+    {
+      "name": "decoder_joint-service.onnx",
+      "group": "A1",
+      "sha256": "9d2553ac043c2fc5f69e970769b0fb8ab9103fbfdeb7d26a1ea9729d4bd2dddd",
+      "bytes": 21347639
+    },
+    {
+      "name": "encoder-service.onnx",
+      "group": "A1",
+      "sha256": "deaef5dda6ed5910c177bc283823060dece1197bbc65a15dcd7b2087544da0af",
+      "bytes": 459266501
+    },
+    {
+      "name": "frontend_buffers.npz",
+      "group": "A1",
+      "sha256": "8fcca584e086555ce673bcc09136bca4b31bdc38cd4a19cfea48a2bfa1c901d2",
+      "bytes": 133702
+    },
+    {
+      "name": "service_config.json",
+      "group": "A1",
+      "sha256": "1aeac840e99a634a01f824dde7b5a1dec266eae9b3f503ae94d7a3fec9e88002",
+      "bytes": 15786
+    }
+  ],
+  "groups": [
+    {
+      "group": "A1",
+      "files": 5,
+      "bytes": 480764714,
+      "GiB": 0.4477470312267542
+    },
+    {
+      "group": "A2",
+      "files": 1,
+      "bytes": 699872960,
+      "GiB": 0.6518074870109558
+    },
+    {
+      "group": "A3",
+      "files": 1,
+      "bytes": 742090464,
+      "GiB": 0.6911256015300751
+    },
+    {
+      "group": "BASELINE",
+      "files": 8,
+      "bytes": 219771544,
+      "GiB": 0.20467820018529892
+    },
+    {
+      "group": "D1",
+      "files": 1,
+      "bytes": 107012128,
+      "GiB": 0.09966281056404114
+    },
+    {
+      "group": "E1",
+      "files": 3,
+      "bytes": 88696429,
+      "GiB": 0.08260498661547899
+    }
+  ],
+  "unique_asset_bytes": 2338208239,
+  "unique_asset_GiB": 2.177626117132604,
+  "additional_optional_asset_bytes": 2118436695,
+  "additional_optional_asset_GiB": 1.9729479169473052,
+  "all_asset_hashes_rechecked": true,
+  "baseline_preflight_additional_free_bytes": 3009905316,
+  "exclusions": [
+    "Windows DLLs excluded; ARM64 runtime/wheels and OS costs separate",
+    "Final packaging, transfer, extraction and rollback copies not included in optional asset totals",
+    "Personal data and logs not included",
+    "RAM, real-time performance and actual Pi free space unmeasured",
+    "No optional backend is yet an accepted N5 release"
+  ],
+  "shared_assets_counted_once": true,
+  "optional_backend_CM5_fit_verified": false,
+  "pi_contacted": false,
+  "N5_complete": false,
+  "aggregation_validation": "PASS: six named groups, 19 assets, unique sum equals asset sum and group sum; optional sum independently checked",
+  "preserved_prepublication_failure": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\optional-storage-estimate-development-v1\\FAILED_ESTIMATE.json",
+    "sha256": "83f92f7fe10714b1605594fa2c6286c4019945bff005bc30f81e1f74d81bf362"
+  }
+}

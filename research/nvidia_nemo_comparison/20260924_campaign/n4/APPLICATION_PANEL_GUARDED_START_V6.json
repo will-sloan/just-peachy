@@ -1,0 +1,39 @@
+{
+  "status": "STARTED_GUARDED_APPLICATION_V6_REQUIRES_FULL_REVIEW",
+  "utc": "2026-09-27T14:32:21.855195+00:00",
+  "private_start": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\paced-application-v6-dispatch\\STARTED.json",
+    "sha256": "c37c5ed15405a8d2d8aacc925d7979a58fbe079c2fff685a296d12804128d41c",
+    "bytes": 847
+  },
+  "private_admission": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\paced-application-v6-dispatch\\ADMISSION.json",
+    "sha256": "e80a40271c01b40fe6caa6fa37d5b402c306a2765d9a09fb495b6268def1968e",
+    "bytes": 90947
+  },
+  "supervisor_start": {
+    "status": "STARTING",
+    "pid": 52416,
+    "create_time": 1790519541.8337643,
+    "run_id": "23f328f966624e3fab434fa39a9b56e7",
+    "started_utc": "2026-09-27T14:32:21.843190+00:00",
+    "heartbeat_unix": 1790519541.8431904,
+    "resumed": false,
+    "argv_sha256": "15f01575e86a472e5b26ed6c81d25c15ed0fad6fe2ee5f54e55dbc0122bdd8f4"
+  },
+  "complete_source_records": 319,
+  "required_cells": 240,
+  "application_qualification": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\APPLICATION_FAMILY_CHECK_V6.json",
+    "sha256": "a8b33bab836f1d18f9dd440e5729e666043cf32b7a538a2fbfbb5241365cf55e",
+    "bytes": 98055
+  },
+  "semantic_qualification": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\SEMANTIC_FAMILY_CHECK_V6.json",
+    "sha256": "a5df7a1905ce0ac537fa50cec9a88b8f9e5870f1eea013a90ede5208c03d5655",
+    "bytes": 147655
+  },
+  "process_local_worktree_import_path": true,
+  "N4_accepted": false,
+  "N5_complete": false
+}

@@ -1,4 +1,92 @@
-# N4 checkpoint - first actual attempt failed; bounded launch-path repair
+# N4 checkpoint - revised application panel running
+
+## 2026-09-27 14:33 UTC - Fresh V6 application run active
+
+APPLICATION_PANEL_GUARDED_START_V6.json binds the new 240-cell run in
+local/n4/paced-application-v6. Supervisor 52416/1790519541.83376,
+driver 50788/1790519541.99814, run ID
+23f328f966624e3fab434fa39a9b56e7, started 14:32:21 UTC. Fresh heartbeat,
+exact creation identities, CPU14/BelowNormal placement and the 319-source
+admission were checked. It is performing its initial guard/plan reconstruction;
+no completed V6 application cell is claimed at this launch checkpoint.
+
+The complete dispatch census found no other active allocation. The 2-GiB,
+four-hour ceiling projects 48.544 GiB against the 50-GiB cap; free space was
+C111.93/G92.76 GiB. Process-local PYTHONPATH supplies the exact worktree.
+The 90-test application and 66-test semantic qualifications plus both isolated
+import cases passed and their exact workers closed before this dispatch.
+
+Keep this run undisturbed. Do not launch Python/WSL/QEMU or a second numerical
+worker during actual timed cells, and do not edit bound source files. Only
+independent report/unbound-source work should proceed. After terminal closure,
+inspect all cell outcomes and resource proofs, then run the matching V6 panel,
+content and naming reviews if the complete population exists. A failed partial
+run must stay preserved and cannot be accepted as a complete panel. Required
+continuity/restart checks and N5 per-build software/release checks remain open.
+N5_STATUS_20260927_V5.json is the latest machine checkpoint. Historical active
+probe notes below are superseded. Reserve/deadline and offline-Pi limits remain.
+
+## 2026-09-27 14:29 UTC - Both revised families verified; fresh run admission underway
+
+The semantic V6 probe completed at 14:28:48 UTC with exit code 0. All 66 tests,
+two isolated import checks, 497 dependency hashes, 12 source snapshots, the
+240-cell plan reconstruction and both resource boundaries were verified after
+exact supervisor/driver closure. SEMANTIC_FAMILY_CHECK_V6.json is now published,
+alongside the 90-test APPLICATION_FAMILY_CHECK_V6.json.
+
+The next actual run is being admitted through a fresh full census. Inspect
+APPLICATION_PANEL_GUARDED_START_V6.json and current private worker.json before
+any action; no start is established by this note alone. The intended output is
+local/n4/paced-application-v6, using the original 240-cell plan and process-local
+worktree PYTHONPATH. Earlier V5 failures remain preserved. The next continuation
+must follow this V6 run and use matching V6 panel/name/content reviewers.
+
+For the later Pi delivery, OPTIONAL_BACKEND_STORAGE_ESTIMATE_V2.json verifies
+19 current model/configuration assets: 2.18 GiB total, including 0.20 GiB baseline
+and 1.97 GiB additional optional assets with shared hashes counted once. Optional
+ARM64 runtime, transfer, rollback and personal-data costs remain separate.
+ARM64_FUNCTIONAL_VALIDATION_PLAN_V1.md records the pinned native C-ABI geometry
+and state/flush checks; no ARM64 model test or Pi contact occurred. These are
+preparation findings, not N5 acceptance. Earlier running-probe notes below are
+superseded by this closed qualification checkpoint.
+
+## 2026-09-27 14:20 UTC - Lease repair qualified; semantic compatibility probe active
+
+APPLICATION_FAMILY_CHECK_V6.json records 90 passing tests, all 319 unchanged
+source records, 17 verified snapshots, seven saved process lifetimes and positive
+reconstruction of the original 240-cell plan. Both resource boundaries passed;
+the exact supervisor and driver exited with code 0 at 14:16:31 UTC. The lease
+repair permits at most 13 replacement attempts within 0.25 seconds for Windows
+errors 5/32/33, preserving the original five-second lease expiry.
+
+SEMANTIC_FAMILY_GUARDED_START_V6.json now points to the active matching probe at
+local/n4/semantic-family-v6-probe. Its supervisor is 41416/1790518796.605263,
+run ID c7183ac5e0034c838ef9d87b34b40188. The complete 497-source manifest is
+frozen. Expected evidence is 66 regressions, two isolated import checks, actual
+plan reconstruction, final resource checks and exact process closure. Its fresh
+16-MiB allocation projected 46.553 GiB with no other active allocation.
+
+After verified success, publish SEMANTIC_FAMILY_CHECK_V6.json, obtain a fresh
+complete census, and dispatch paced_application_runner_v6.py into a new private
+output with the original paced-plan-guarded-v2/PLAN.json. Preserve the explicit
+process-local worktree PYTHONPATH from the proven import repair. No actual
+application panel is active at this checkpoint; the one earlier baseline cell
+remains preserved in a failed V5 attempt and does not count as N4 acceptance.
+
+The N4 main/modes numerical reviews cover 7,680/1,536 cases. Required remaining
+work is the actual panel and its matching V6 transport/content/naming/resource
+reviews; continuity and restart checks; accepted composition selection; and N5
+per-build Windows/ARM64 software validation, packaging and final verified backup.
+The six-candidate panel contains 2.980 hours of source audio. Six 20-minute
+continuity checks add at least two hours, before startup, compute and review.
+These are lower bounds, not an end-to-end completion estimate. Do not extend
+reserve 2026-09-28 02:48:19 UTC or deadline 2026-09-28 14:48:19 UTC.
+
+The revised sources and failure evidence are remotely verified at commit
+f28e597638b80ec0b4854e3d12fb5299bf1df7e1. Pi reconnection remains a later user
+step. The baseline archive/storage companion is prepared; optional backend
+installation and actual CM5 execution remain unverified. Historical checkpoint
+statements below are superseded for current worker state.
 
 ### Supervised qualification started at 14:08 UTC
 

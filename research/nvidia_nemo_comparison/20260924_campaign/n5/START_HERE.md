@@ -1,8 +1,8 @@
 # N5 release preparation — campaign not complete
 
-Latest machine-readable checkpoint: `N5_STATUS_20260927_V4.json`. It preserves
+Latest machine-readable checkpoint: `N5_STATUS_20260927_V5.json`. It preserves
 the earlier status and records accepted N2/N3, reviewed numerical N4 coverage,
-the verified import repair, one collected baseline cell, preserved lease failure and active repair qualification.
+the verified import/lease repairs and the fresh V6 application run. Earlier failed attempts remain preserved.
 
 The preserved baseline is usable on Windows. N2/N3 have accepted offline
 component handoffs. New N4-selected alternatives are not accepted yet: the
@@ -37,6 +37,13 @@ The baseline space estimate is 2.80 GiB of additional free space including a
 bundle member hashes. Actual Pi free space is unknown. This estimate does not
 cover additional backends or prove fit within the 2-GB RAM target.
 
+The currently evaluated optional A1/A2/A3/D1/E1 model/configuration assets total
+1.97 GiB beyond the baseline's 0.20 GiB of model assets, counting shared hashes
+once. OPTIONAL_BACKEND_STORAGE_ESTIMATE_V2.json records all 19 rechecked asset
+hashes and separate totals. This is an asset-size estimate: optional ARM64 runtime,
+transfer/extraction/rollback copies and personal data still need space. Several
+choices may therefore be practical to store, but actual Pi free space and 2-GB
+RAM fit must be checked separately. No optional Pi release is accepted yet.
 The intended final delivery uses one shared GUI/backend picker and named
 launchers for validated compositions, with optional assets when storage permits.
 The current archive contains the baseline only. Optional backends are not yet
