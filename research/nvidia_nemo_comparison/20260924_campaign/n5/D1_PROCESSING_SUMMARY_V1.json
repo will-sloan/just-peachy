@@ -1,0 +1,72 @@
+{
+  "schema": "d1-processing-summary-v1",
+  "status": "VERIFIED_EXISTING_MEASUREMENTS",
+  "source_check": {
+    "name": "D1_FULL_BANK_REVIEW_V3.json",
+    "sha256": "ca4eca4fdee63ca681ff1c55522495483a1ca8e67f99ed44b0408c1f71967409"
+  },
+  "source_review_sha256": "d349772e90e786735e61bbd59aac7e57677aa51af12243e1668c519da65671b4",
+  "script_sha256": "f0094c282fa5d6a98e045cd9d4c1550dc036d3133f50ce2a0e7a417343996da9",
+  "verified_cells": 960,
+  "rows": [
+    {
+      "encoder": "E0",
+      "cells": 480,
+      "audio_seconds": 21787.809999999885,
+      "collection_wall_seconds": 41252.52746769982,
+      "collection_wall_rtf": 1.8933765012500128,
+      "median_cell_collection_wall_rtf": 1.8724820850002442,
+      "minimum_cell_collection_wall_rtf": 1.8278600628978308,
+      "maximum_cell_collection_wall_rtf": 2.5133134362342298,
+      "cells_collection_slower_than_source": 480,
+      "maximum_postcell_rss_mib": 697.99609375,
+      "actual_timed_calls": {
+        "component_d1_dispatch": {
+          "count": 218380,
+          "wall_seconds": 40967.15299230233,
+          "wall_seconds_per_audio_second": 1.8802786049769367,
+          "mean_milliseconds": 187.59571843713863,
+          "maximum_milliseconds": 4175.566499994602
+        },
+        "component_d1_embedding_call": {
+          "count": 7412,
+          "wall_seconds": 216.04038380016573,
+          "wall_seconds_per_audio_second": 0.009915653927593773,
+          "mean_milliseconds": 29.14738043715134,
+          "maximum_milliseconds": 80.86879999609664
+        }
+      },
+      "remaining_collection_wall_seconds": 69.334091597324
+    },
+    {
+      "encoder": "E1",
+      "cells": 480,
+      "audio_seconds": 21787.809999999885,
+      "collection_wall_seconds": 41980.842510400194,
+      "collection_wall_rtf": 1.9268041400397937,
+      "median_cell_collection_wall_rtf": 1.9148955964463221,
+      "minimum_cell_collection_wall_rtf": 1.845237248209347,
+      "maximum_cell_collection_wall_rtf": 2.549545446350109,
+      "cells_collection_slower_than_source": 480,
+      "maximum_postcell_rss_mib": 502.65234375,
+      "actual_timed_calls": {
+        "component_d1_dispatch": {
+          "count": 218380,
+          "wall_seconds": 41474.544740105775,
+          "wall_seconds_per_audio_second": 1.903566477773856,
+          "mean_milliseconds": 189.91915349439407,
+          "maximum_milliseconds": 3967.6454000000376
+        },
+        "component_d1_embedding_call": {
+          "count": 7412,
+          "wall_seconds": 433.38368469831767,
+          "wall_seconds_per_audio_second": 0.01989110813332409,
+          "mean_milliseconds": 58.470545695941404,
+          "maximum_milliseconds": 149.90479999687523
+        }
+      },
+      "remaining_collection_wall_seconds": 72.91408559610136
+    }
+  ],
+  "scope": "CPU4 affinity, one native thread, Q8 nominal 1.04s; saved audio only. Actual call wall times include preemption. Collection includes observer/log compression and first native load. RSS is post-cell, not a sampled peak. No ASR/GUI, GPU-memory, live-latency or Pi claim. No models run by this summarizer."
+}

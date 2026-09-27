@@ -1,5 +1,11 @@
 # N5 packaging tools
 
+`COMPONENT_PERFORMANCE_REPORT_20260927.md` gives the complete component and
+combination comparison, with detailed Nemotron diarization accuracy and CPU/CUDA
+processing measurements. `README_COMPONENT_PERFORMANCE_V1.md` documents the
+read-only aggregate reproducer. The verified 960-cell CPU timing breakdown
+identifies native diarizer calls as the dominant measured component cost.
+
 Windows A2 now has verified one-file lifecycle checks in caption-only and
 anonymous-speaker modes, with normal closure of all four private GUI processes.
 `README_NEMOTRON_WINDOWS_PREVIEW_V1.md` documents the two user-invoked launchers,

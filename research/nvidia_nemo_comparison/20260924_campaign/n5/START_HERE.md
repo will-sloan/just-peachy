@@ -10,7 +10,9 @@ an already-prepared saved file; microphone/playback remain disabled. Read
 own real Windows render/save/reopen/delete checks on one complete 44.7-second
 source. All four private GUI processes closed normally. A2's main-bank WER is
 13.34% versus baseline 14.92%, with increased omissions and a short-turn
-weakness. Read `NEMO_RESULTS_AND_INSIGHTS_20260927.md` for the full comparison.
+weakness. Read `COMPONENT_PERFORMANCE_REPORT_20260927.md` for the full accuracy
+and processing comparison, including all sixteen combinations and Nemotron's
+verified CPU bottleneck. `NEMO_RESULTS_AND_INSIGHTS_20260927.md` adds ASR strata.
 No visible application was launched by the campaign.
 
 N4 actual application

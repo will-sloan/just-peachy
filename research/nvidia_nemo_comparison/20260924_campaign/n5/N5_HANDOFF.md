@@ -1,5 +1,25 @@
 # N5 partial release checkpoint
 
+## 2026-09-27 - full component report and verified D1 processing breakdown
+
+Read COMPONENT_PERFORMANCE_REPORT_20260927.md for the user's requested report.
+D1_PROCESSING_SUMMARY_V1.json rehashes all 960 accepted D1 full-bank cells and
+their compressed event files. This is read-only analysis, with zero new neural
+runs or acceptance changes. CPU4/one-thread/GPU-off nominal D1/E0 collection
+took 1.893 wall seconds per audio second across 480 files. Actual native calls
+account for 1.880 and 99.31% of collection time; embeddings account for 0.00992,
+with only 0.17% outside those calls. D1/E1 collection RTF is 1.927; its matched
+embedding calls average 58.47 ms versus E0's 29.15 ms without a cpWER gain.
+
+This is a stronger measured throughput finding than the viewport-only lead
+below: the native component is already slower than source on every full-bank
+file, before ASR/GUI. Timed calls include preemption, so do not claim isolated
+CPU instruction cost or that this proves the entire cause of each N4 failure.
+Prioritize bounded native CPU throughput diagnosis alongside application
+closure. Preserve the existing nominal profile, evidence and 60-second gate;
+smaller buffers increase measured work. GPU remains off. No worker was started
+for this report. N4/N5 and ARM64 qualification remain partial.
+
 ## 2026-09-27 22:40 UTC - A2 Windows previews verified; comparative insights
 
 Current checkpoint: N5_STATUS_20260927_V16.json. Following the user's request,
