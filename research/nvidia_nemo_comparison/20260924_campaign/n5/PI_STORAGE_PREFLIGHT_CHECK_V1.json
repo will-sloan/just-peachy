@@ -1,0 +1,72 @@
+{
+  "status": "PASS_BASELINE_METADATA_STORAGE_PREFLIGHT_ONLY",
+  "utc": "2026-09-27T08:42:33.750497+00:00",
+  "code": [
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n5\\pi_storage_preflight_v1.py",
+      "sha256": "1a080549ca225098159dd2d6b6498f4648fb52505b1b90dee4d2945235429442",
+      "bytes": 14767
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n5\\test_pi_storage_preflight_v1.py",
+      "sha256": "c231b04a05cde2b90ef9397cb6765c1ad6edc95ae35ee3864c65c6f4da64e36c",
+      "bytes": 7986
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n5\\README_PI_STORAGE_PREFLIGHT_V1.md",
+      "sha256": "311dfc589913eb3e45f97171222d9d070a3724babea80882b60bb9269d14714c",
+      "bytes": 6896
+    }
+  ],
+  "tests": {
+    "count": 11,
+    "failures": 0,
+    "exit_code": 0,
+    "log": {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\pi-storage-preflight-development-v2\\tests.txt",
+      "sha256": "5a83ee07f1f7ae786a86e625f8af13d1c7424b8d9e64e98dc59ca933d46d48be",
+      "bytes": 1714
+    },
+    "scope": "tiny artificial ZIPs; no audio"
+  },
+  "real_bundle_report": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\baseline-storage-preflight-v1.json",
+    "sha256": "08b1f16bb6300e2b90528eb4754332e447eb0bef1fa6789a8a9466fb5cf9ed8b",
+    "bytes": 1872
+  },
+  "initial_failed_attempt": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\pi-storage-preflight-development-v1\\FAILED.json",
+    "sha256": "e24c52ec12546513d46e7c12b9d1f9095e6e2b4a21c82e1d04af71b230204f09",
+    "bytes": 1393
+  },
+  "package_status": "PREPARED_NOT_ARM64_FUNCTIONALLY_TESTED",
+  "baseline_only": true,
+  "member_hashes_verified": 31,
+  "archive_bytes": 310867595,
+  "known_installed_payload_logical_bytes": 505290986,
+  "conservative_additional_peak_bytes": 1936163492,
+  "reserve_bytes": 1073741824,
+  "required_available_bytes_with_reserve": 3009905316,
+  "runtime_filesystem_overhead_budget_bytes": 536870912,
+  "overhead_is_measured": false,
+  "actual_target_storage_observed": false,
+  "installation_performed": false,
+  "CM5_software_functionally_validated": false,
+  "N4_accepted": false,
+  "N5_complete": false,
+  "private_result": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\pi-storage-preflight-development-v2\\RESULT.json",
+    "sha256": "1dcaaf8338e2d8f809781c1e6b7e0db99ce24862c4942c725cdc7eaa034d6d78",
+    "bytes": 2439
+  },
+  "reconnection_requirements": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n5\\PI_RECONNECTION_REQUIREMENTS.md",
+    "sha256": "9d191619a563af48427a164a610d4c8fe64ea8329d66ea0c9c0280ee857604e9",
+    "bytes": 5123
+  },
+  "artifact_index": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n5\\ARTIFACT_INDEX.json",
+    "sha256": "ff956b6d98d235a7a512920b4506a4912d655ea0a5c2bb78c91e820d5760f11a",
+    "bytes": 994
+  }
+}

@@ -1,5 +1,16 @@
 # N4 and N5 execution order and acceptance gates
 
+## 2026-09-27 08:44 UTC - Pi preflight available; modes chain remains next
+
+The active modes run reached 1,443/1,536 at 08:43 UTC with unchanged exact owners
+and source manifests. Preserve the next-stage sequence below. Independent N5
+metadata work passed 11 tests and verified the preserved baseline ZIP's 31
+declared member hashes. `n5/PI_STORAGE_PREFLIGHT_CHECK_V1.json` and its README
+record a 2.80-GiB conservative additional-space estimate, including 1 GiB reserve
+and an unmeasured 512-MiB runtime/filesystem budget. Actual Pi free space and
+model/GUI functionality remain untested. This companion script does not change
+the immutable bundle, supply optional backends or establish N4/N5 acceptance.
+
 ## 2026-09-27 07:40 UTC - Modes progressing; next review reader prepared
 
 The guarded modes worker remains healthy under the same exact supervisor and

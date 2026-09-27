@@ -1,5 +1,43 @@
 # N5 partial release checkpoint
 
+## 2026-09-27 08:43 UTC - Baseline storage preflight verified
+
+N2 and N3 have since been accepted within their recorded offline scopes; use
+`n2/FINAL_REVIEW.json` and `n3/N3_ACCEPTANCE.json`. The historical checkpoint
+below predates those receipts. N4's 7,680-case main modeled score review is
+accepted, and the guarded modes bank was healthy at 1,408/1,536 cases at 08:41
+UTC. Application/GUI, resource, naming and continuity acceptance remains open.
+No N4-selected N5 release exists yet.
+
+`PI_STORAGE_PREFLIGHT_CHECK_V1.json` records 11 passing software tests and a
+read-only inspection of the preserved baseline CM5 archive. All 31 declared
+member hashes and all nested archive inventories passed. The first development
+failure (Windows ZIP filename normalization) and its source are preserved; the
+corrected reader checks the original header spelling, with a passing rerun.
+`README_PI_STORAGE_PREFLIGHT_V1.md` documents purpose, inputs/outputs,
+PowerShell, CMD/Anaconda and later on-device commands.
+
+The 310,867,595-byte archive contains eight baseline model assets and 13 wheels.
+Known installed logical payload is 505,290,986 bytes. The conservative additional
+space estimate is 3,009,905,316 bytes (2.80 GiB), including transfer/extraction,
+installation/staging, an explicitly unmeasured 512-MiB runtime/filesystem budget
+and a 1-GiB reserve. Existing files receive no space credit and existing rollback
+releases are retained. Actual Pi free space is unknown. This estimate covers
+the preserved baseline only, not future optional backend models or measured RAM.
+
+The companion preflight remains outside the immutable baseline ZIP. At the later
+reconnection it can check Linux ARM64/Python/OS-library metadata and actual free
+space before the existing install/stage/health/activate/rollback flow. It never
+installs, starts a GUI, opens an audio device or connects to the Pi. A space result
+is not functional ARM64 validation. Follow `PI_RECONNECTION_REQUIREMENTS.md` for
+the user's shared GUI/backend availability and storage requirements. Live CM5
+checks remain deferred until reconnection; N5 is not complete.
+
+Packaging reserve: 2026-09-28 02:48:19 UTC. Deadline: 2026-09-28 14:48:19 UTC.
+Neither limit is extended. Follow N4/REMAINING_EXECUTION.md for the current chain.
+
+## Initial checkpoint retained for provenance
+
 N5 is not complete. The requested N4 accepted shortlist does not yet exist.
 The whole-bank comparison, final resource tiers and per-shortlist Windows and
 ARM64 model/GUI checks cannot be inferred from build success. The dated

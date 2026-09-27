@@ -1,5 +1,22 @@
 # N4 checkpoint - main scores reviewed; guarded modes running
 
+## 2026-09-27 08:44 UTC - Independent Pi preparation completed
+
+The same guarded modes worker reached 1,443/1,536 cases at 08:43 UTC. Its exact
+driver and supervisor remained live; all 120 running sources, the original plan,
+213 prepared reader bindings and three next-stage specs were reverified unchanged.
+The method review, scoring and independent score review remain the next sequence
+after exact preceding-owner closure and fresh resource admission.
+
+Independent N5 work added a read-only baseline bundle storage/prerequisite
+preflight. Eleven tests and all 31 declared archive member hashes passed, with
+the initial Windows ZIP normalization failure preserved. See
+`n5/PI_STORAGE_PREFLIGHT_CHECK_V1.json`, `n5/README_PI_STORAGE_PREFLIGHT_V1.md`
+and the updated N5 handoff. Its 2.80-GiB conservative baseline space estimate
+includes a 1-GiB reserve and an unmeasured 512-MiB overhead budget; actual target
+space and ARM64 functionality remain untested. No Pi connection or installation
+occurred. N4/N5 acceptance and the deadline are unchanged.
+
 ## 2026-09-27 07:40 UTC - Modes progressing; next review reader prepared
 
 The guarded modes worker remains healthy under the same exact supervisor and
