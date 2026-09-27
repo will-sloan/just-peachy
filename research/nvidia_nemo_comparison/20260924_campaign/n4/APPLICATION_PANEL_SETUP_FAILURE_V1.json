@@ -1,0 +1,62 @@
+{
+  "status": "FAILED_V9_SETUP_PRESERVED",
+  "utc": "2026-09-27T17:48:01.9018411Z",
+  "run": "local/n4/paced-application-v9",
+  "required": 240,
+  "collected": 1,
+  "setup_failed": 1,
+  "not_attempted": 238,
+  "reported_completed_outcomes": 1,
+  "failure_cell": "panel_0_N2_S45_01_01_O0_A1_D0_E0",
+  "primary_child_error": "FileNotFoundError: [WinError 2] The system cannot find the file specified.",
+  "primary_callsite_known": false,
+  "application_result_created": false,
+  "parent_error": "FileNotFoundError: [WinError 3] The system cannot find the path specified: 'G:\\\\Just_Peachy_N1\\\\20260924_campaign\\\\local\\\\n4\\\\paced-application-v9\\\\cells\\\\panel_0_N2_S45_01_01_O0_A1_D0_E0\\\\application\\\\RESULT.json'",
+  "code_count": 327,
+  "all_code_bindings_verified": true,
+  "exact_owners_closed": [
+    {
+      "pid": 9420,
+      "create_time": 1790528828.8733425
+    },
+    {
+      "pid": 42952,
+      "create_time": 1790528828.709884
+    },
+    {
+      "pid": 48348,
+      "create_time": 1790529429.8955462
+    },
+    {
+      "pid": 43100,
+      "create_time": 1790529496.1432085
+    }
+  ],
+  "lifetimes": [
+    {
+      "exit_code": 0,
+      "cell": "panel_0_N2_S45_01_01_O0_A0_D0_E0",
+      "sha256": "9db9f8fc1eab27e9492ca5b34fc98bf8efa3611ece7ae33694d81149301fd4ac",
+      "job_empty": true,
+      "owner": {
+        "pid": 48348,
+        "create_time": 1790529429.8955462
+      }
+    },
+    {
+      "exit_code": 1,
+      "cell": "panel_0_N2_S45_01_01_O0_A1_D0_E0",
+      "sha256": "783deb88bdd3e06798ec0ffb6c6151fe2429832d4b17519c2bf6b89a3e8c0f5d",
+      "job_empty": true,
+      "owner": {
+        "pid": 43100,
+        "create_time": 1790529496.1432085
+      }
+    }
+  ],
+  "result_sha256": "721b814b018f8bdf994ef002f760d82a9dc7a4f61ea03dd7f0760e7b0db1cf99",
+  "child_result_sha256": "7499b02dfee36eebabfc0a2f048c378b7a4cef9382a7abb8048f6c3a3d09c788",
+  "N4_accepted": false,
+  "new_profiles_accepted": 0,
+  "CM5_hardware_tested": false
+}

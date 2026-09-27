@@ -1,0 +1,32 @@
+{
+  "status": "STARTED_ACTUAL_PANEL_NOT_ACCEPTANCE",
+  "supervisor": {
+    "status": "STARTING",
+    "pid": 54816,
+    "create_time": 1790532417.4423282,
+    "run_id": "a6bc743c5a3c46738bc6e0e4b357e0d3",
+    "started_utc": "2026-09-27T18:06:57.451782+00:00",
+    "heartbeat_unix": 1790532417.4517825,
+    "resumed": false,
+    "argv_sha256": "6e8b687a880b58d33c8456511bdcfd487c4bc767c0b7f5663bc5c74a2d3e078d"
+  },
+  "dispatch": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\paced-application-v10-dispatch\\STARTED.json",
+    "sha256": "9bd7d707ff649bc8449da16572ca6e88cea4a3640812ecc9a1f57d3f1cac2cc8",
+    "bytes": 849
+  },
+  "precheck": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\paced-application-v10-precheck\\CHECK.json",
+    "sha256": "b815d4a975ffa0d29c705ac3897ff8f1a54b69162562c0aa8d92043290f1ea87",
+    "bytes": 95278
+  },
+  "qualification": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\APPLICATION_FAMILY_CHECK_V10.json",
+    "sha256": "6d045bdf2791645d8b944c96d130819cec21fb71300f799dfede60426fde6124",
+    "bytes": 94646
+  },
+  "code_records": 337,
+  "required": 240,
+  "N4_accepted": false,
+  "N5_complete": false
+}

@@ -1,5 +1,85 @@
 # N4 checkpoint - revised application panel running
 
+## 2026-09-27 18:08 UTC - V10 qualified and fresh application panel active
+
+APPLICATION_FAMILY_CHECK_V10.json records 45 passing supervised checks, nine
+verified source snapshots, the reconstructed 240-cell production plan and both
+complete resource boundaries. Its 337-source lineage retains all earlier
+qualified code. The exact qualification host/driver closed at 18:03:07 UTC.
+The supervised concurrent test completed 10,000 replacements and 2,466 reads
+without an error; the earlier V6 reproduction and V9 failed attempt remain intact.
+
+APPLICATION_PANEL_GUARDED_START_V10.json records a fresh run at
+local/n4/paced-application-v10, started 18:06:57 UTC. Host
+54816/1790532417.4423282, run a6bc743c5a3c46738bc6e0e4b357e0d3. The exact
+current driver and heartbeat are in local/supervision/worker.json and the
+N5_STATUS_20260927_V11.json checkpoint. Initial resource/plan validation is
+running; no completed cell or new configuration acceptance is claimed here.
+The single 2-GiB/four-hour allocation passed the fresh complete census and
+52,313,382,680-byte projection within the unchanged 50-GiB allowance. The
+four-hour maximum ends before the packaging reserve. CPU14 coordination,
+CPU4 application, five-second lease, source pacing and 60-second drain remain
+unchanged. Keep these sources frozen and do not run other Python/WSL/QEMU work
+or visible applications alongside the actual panel.
+
+Read progress/*.json, ADMISSION.json, RESULT.json and any FAILED_CELL.json.
+A finished outcome queue is not acceptance. Matching V10 transport/content/
+naming/timing and complete outcome-population readers still need implementation
+and qualification; V8 readers bind a different runner. Count verified timeouts
+as failures and preserve missing/setup failures. Continuity/restart and resource
+acceptance remain pending. Never combine partial runs into an invented full panel.
+
+N2/N3 accepted offline components and full-bank modeled-score evidence remain
+unchanged. N5 retains the compiled ARM64 harness/eight invalid-WAV checks;
+actual ARM64 model and GUI validation is still pending. No new profile is
+accepted, and no software has been installed or verified on the powered-off Pi.
+N5 START_HERE.md retains the storage-aware baseline transfer/stage/health/activate/
+rollback path for later reconnection. Packaging reserve is September 28
+02:48:19 UTC; final deadline is 14:48:19 UTC. Preserve both limits and report
+PARTIAL if the remaining confirmation cannot finish. Older run states below
+are historical; follow this latest run and verified later receipts.
+
+## 2026-09-27 17:57 UTC - V9 setup failure preserved; V10 qualification running
+
+The V9 attempt closed at 17:18:30 UTC after one collected cell and a setup
+failure on its A1 second cell; 238 planned cells were not attempted. No
+application RESULT was created for that failure. APPLICATION_PANEL_SETUP_FAILURE_V1.json
+binds both normal job closures, the exact closed supervisor/driver and all 327
+unchanged source hashes. The child reported WinError 2; its exact call site was
+not captured. The parent subsequently masked it by trying to read the missing
+application result. Earlier failures and evidence are preserved.
+
+LEASE_OPEN_RACE_CHECK_V1.json records a model-free reproduction: the V6 reader
+recorded 32 sampled WinError 2 failures during 10,000 concurrent replacements,
+with the target present after each sampled error. A derivative opens the
+already admitted absolute pathname without an extra filesystem resolution.
+The revised reader completed 10,000 replacements and 1,890 reads without errors.
+All 45 targeted checks passed. This supports the bounded repair but does not
+establish the uncaptured production call site or complete N4 acceptance.
+
+The supervised application-setup-v1-probe started at 17:55:04 UTC, host
+55240/1790531704.4673915, driver 53468/1790531704.6369035, run
+30d4b0d8465c4e9c8998bcf285e6e211. Its 337-source manifest is frozen. Verify its
+terminal checks and exact owner closure before publishing V10 qualification
+or admitting a fresh panel. No new actual panel has started at this checkpoint.
+V10 also retains bounded private failure phase/call-site details and reports
+setup errors directly. Missing files still fail immediately; lease expiry,
+ownership, pacing, drainage, resource limits and the narrow timeout rule are unchanged.
+
+Matching V10 outcome-population, transport, content/naming and timing reviews
+remain necessary after collection. Earlier V8 consumers are not matching
+acceptance evidence. No new backend is accepted. Continuity/restart and N5
+ARM64 real-model/GUI validation are pending. The compiled ARM64 harness and
+eight malformed-input checks remain valid only within their documented scope.
+N2/N3 and the 7,680 main / 1,536 mode modeled-scoring receipts were rehashed
+unchanged during this follow-up; modeled scoring is distinct from paced GUI acceptance.
+
+Keep the September 28 02:48:19 UTC packaging reserve and 14:48:19 UTC deadline.
+If complete confirmation cannot fit, report PARTIAL and package only supported
+configurations. Pi installation/live checks stay deferred; its storage-aware
+reconnection and baseline staging steps remain in N5 START_HERE.md.
+Older running-worker statements below are historical.
+
 ## 2026-09-27 17:08 UTC - Closed D1 timeout preserved; V9 outcome collector active
 
 V8 completed two collected cells and stopped on the first D1 cell at 16:22:59

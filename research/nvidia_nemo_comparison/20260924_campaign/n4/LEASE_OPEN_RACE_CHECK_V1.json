@@ -1,0 +1,26 @@
+{
+  "status": "REPRODUCED_LEASE_OPEN_RACE_WITH_CANDIDATE_REGRESSION_PASS",
+  "utc": "2026-09-27T17:54:11.0777521Z",
+  "prior_probe": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\lease-open-race-v1\\RESULT.json",
+    "bytes": 8687,
+    "sha256": "d940b0086f0a9c3a64ae2f8763a837ee2b1673a62a83d7ba9c176e8451d1c5e5"
+  },
+  "candidate_tests": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\application-setup-targeted-v1\\RESULT.json",
+    "bytes": 2714,
+    "sha256": "fa9b4bc9ac8f3bba491ae23f424ea851edc2b7f665dde58301356926bf38d306"
+  },
+  "original_rename_writes": 10000,
+  "original_successful_reads": 2545,
+  "original_recorded_win2_errors": 32,
+  "original_error_samples_capped_at": 32,
+  "candidate_rename_writes": 10000,
+  "candidate_successful_reads": 1890,
+  "candidate_errors": 0,
+  "targeted_tests_passed": 45,
+  "actual_failed_child_callsite_known": false,
+  "production_qualification_pending": true,
+  "new_profiles_accepted": 0,
+  "N4_accepted": false
+}

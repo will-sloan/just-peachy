@@ -1,0 +1,25 @@
+{
+  "status": "STARTED_DEVELOPMENT_PROBE_NOT_ACCEPTANCE",
+  "supervisor": {
+    "status": "STARTING",
+    "pid": 55240,
+    "create_time": 1790531704.4673915,
+    "run_id": "30d4b0d8465c4e9c8998bcf285e6e211",
+    "started_utc": "2026-09-27T17:55:04.478133+00:00",
+    "heartbeat_unix": 1790531704.4781334,
+    "resumed": false,
+    "argv_sha256": "31842256661adc64cbd46e07ad316b35c1006be262e8e0ff7457cf138751b94e"
+  },
+  "dispatch": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\application-setup-v1-probe-dispatch\\STARTED.json",
+    "sha256": "16b435d8527dc9ff86464a6bc2b3ff923587daa8cef4b44b3c9486119b365251",
+    "bytes": 859
+  },
+  "precheck": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\application-setup-v1-probe-precheck\\CHECK.json",
+    "sha256": "685b1c8b139ce46a4138ea961fe8d0e943d48dca687469a344ba154c8ba5f9a2",
+    "bytes": 95003
+  },
+  "code_records": 337,
+  "N4_accepted": false
+}

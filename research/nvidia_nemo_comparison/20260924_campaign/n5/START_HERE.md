@@ -1,11 +1,12 @@
 # N5 release preparation — campaign not complete
 
-Latest machine-readable checkpoint: `N5_STATUS_20260927_V10.json`. The V8 run
-preserved a D1 drain timeout after two collected cells. The qualified V9
-collector is running with separate attempted, collected and failed counts.
-No N4 acceptance is inferred from a completed queue. Matching V9 reviews,
-continuity and restart remain pending.
-
+Latest checkpoint: `N5_STATUS_20260927_V11.json`. V9 stopped after one collected
+cell and a setup file-open failure. A reproduced lease-open race has a qualified
+repair: 45 supervised checks passed, and the fresh V10 panel is running.
+`APPLICATION_PANEL_SETUP_FAILURE_V1.json` and `APPLICATION_FAMILY_CHECK_V10.json`
+in n4 preserve the diagnosis and its tested scope. No N4 acceptance is inferred
+from a started or completed queue. Matching V10 reviews, continuity and restart
+remain pending. Earlier V8/V9 running-worker statements are historical.
 The ARM64 native harness now compiles, and eight malformed-WAV checks passed
 under QEMU. `NATIVE_STREAM_BUILD_CHECK_V1.json` and
 `README_NATIVE_STREAM_BUILD_V1.md` supersede the earlier compilation-pending
