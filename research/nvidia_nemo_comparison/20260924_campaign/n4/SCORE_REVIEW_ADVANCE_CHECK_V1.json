@@ -1,0 +1,109 @@
+{
+  "status": "PASS_SCORE_REVIEW_ADVANCE_DEVELOPMENT_ONLY",
+  "utc": "2026-09-27T01:42:09.038149+00:00",
+  "code": [
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\advance_main_score_review_v1.py",
+      "sha256": "6ce14195fd861a9539f880e418e6352177ffaf70c033c18a0729ff46115652df",
+      "bytes": 8977
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\test_score_review_advance_v1.py",
+      "sha256": "f95bdaf6c911f44a7edaf6d30fed8247a842c9b9a09c4858df1bb2eb1e9ee331",
+      "bytes": 5332
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\README_SCORE_REVIEW_ADVANCE_V1.md",
+      "sha256": "b7d27d6f7d1a3c22add0abb9811365cbacd59d39de6027709e94a51b98970a9c",
+      "bytes": 5132
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\common.py",
+      "sha256": "a44e389d3c80c8c21e74ea3423d8270273e5b3132a84095218dee078c53f059e",
+      "bytes": 3267
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\metric_process.py",
+      "sha256": "1a1279c44ce906ce13733db1ba32ba86ffd7419cb1a4b767df3505d66d3e36f8",
+      "bytes": 10902
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\scoring_bank_v3.py",
+      "sha256": "38d472a54e3bbac07d3ff7b7eded2598861dd66edeb5eed27ccd75e75d97b26f",
+      "bytes": 22688
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\review_scoring_bank_v3.py",
+      "sha256": "68fd8d93419f1f6179e7b31fd65fffc39f78aa7508d219f0a5404cb8587748e8",
+      "bytes": 20923
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\supervision\\supervisor.py",
+      "sha256": "49f6cb3ec50e008905feb562879aaf28f28827fd218bf1a3e2fd8f65fe1776ee",
+      "bytes": 17090
+    }
+  ],
+  "private_receipt": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\score-review-advance-probe-v1\\RESULT.json",
+    "sha256": "7698cda37e366e37901e54466c0ce2d49501fc300ceeb4c9053f3fd240f3e71e",
+    "bytes": 4976
+  },
+  "private_admission": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\score-review-advance-probe-v1\\ADMISSION.json",
+    "sha256": "4e20eafcb783efeb07d132c735ba2a1eab819f67a21b7c850c9a804947b3c45b",
+    "bytes": 3504
+  },
+  "tests_passed": 13,
+  "source_snapshots": [
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\score-review-advance-probe-v1\\source\\advance_main_score_review_v1.py",
+      "sha256": "6ce14195fd861a9539f880e418e6352177ffaf70c033c18a0729ff46115652df",
+      "bytes": 8977
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\score-review-advance-probe-v1\\source\\common.py",
+      "sha256": "a44e389d3c80c8c21e74ea3423d8270273e5b3132a84095218dee078c53f059e",
+      "bytes": 3267
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\score-review-advance-probe-v1\\source\\metric_process.py",
+      "sha256": "1a1279c44ce906ce13733db1ba32ba86ffd7419cb1a4b767df3505d66d3e36f8",
+      "bytes": 10902
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\score-review-advance-probe-v1\\source\\README_SCORE_REVIEW_ADVANCE_V1.md",
+      "sha256": "b7d27d6f7d1a3c22add0abb9811365cbacd59d39de6027709e94a51b98970a9c",
+      "bytes": 5132
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\score-review-advance-probe-v1\\source\\review_scoring_bank_v3.py",
+      "sha256": "68fd8d93419f1f6179e7b31fd65fffc39f78aa7508d219f0a5404cb8587748e8",
+      "bytes": 20923
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\score-review-advance-probe-v1\\source\\scoring_bank_v3.py",
+      "sha256": "38d472a54e3bbac07d3ff7b7eded2598861dd66edeb5eed27ccd75e75d97b26f",
+      "bytes": 22688
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\score-review-advance-probe-v1\\source\\supervisor.py",
+      "sha256": "49f6cb3ec50e008905feb562879aaf28f28827fd218bf1a3e2fd8f65fe1776ee",
+      "bytes": 17090
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\score-review-advance-probe-v1\\source\\test_score_review_advance_v1.py",
+      "sha256": "f95bdaf6c911f44a7edaf6d30fed8247a842c9b9a09c4858df1bb2eb1e9ee331",
+      "bytes": 5332
+    }
+  ],
+  "test_log": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\score-review-advance-probe-v1\\tests.txt",
+    "sha256": "065aad959705e15c7cfbf101bc8d403637d227263d9de2f2dce81b308740c002",
+    "bytes": 2022
+  },
+  "exact_test_owner_exited": true,
+  "actual_dispatch_tested": false,
+  "scope": "Synthetic guarded-handoff decisions and real terminal validator; existing supervisor start reused; actual production transition remains unexecuted",
+  "N4_accepted": false,
+  "N5_complete": false
+}

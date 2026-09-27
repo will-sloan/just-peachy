@@ -1,6 +1,92 @@
 # N4 and N5 execution order and acceptance gates
 
-### 2026-09-27 00:29 UTC - Main bank collected; full review active; modes plan prepared
+### 2026-09-27 01:54 UTC - Two metric timeouts; active run preserved
+
+A fresh per-cell inspection found two TIMEOUT / NOT_SCORED_TIMEOUT receipts
+at indices 00888 and 00889 (about 60.5 and 60.8 seconds). The numerical method
+outputs are complete, but these metrics are unavailable. The scorer continues
+to produce later receipts and its supervisor has no stop reason. Preserve the
+active worker and both failures; do not modify its source or start a duplicate.
+
+Private main-scoring-timeout-observation-v1/RESULT.json binds both receipts,
+method inputs, current owners and counts. Once this run terminates and exact
+owners exit, targeted metric repair needs a fresh bounded, qualified derivative
+followed by independent full-score review. The live automatic handoff requires
+zero unavailable scores, so it must refuse this partial result unless later
+verified evidence satisfies that gate; no failed receipt may be overwritten.
+Receipt counts below denote progress, not all-scored coverage or acceptance.
+
+### 2026-09-27 01:47 UTC - Guarded automatic score-to-review handoff active
+
+The bounded waiter `advance_main_score_review_v1.py` is live as exact owner
+12420/1790473329.108624 on CPU14/BelowNormal. Its 13 development tests passed;
+SCORE_REVIEW_ADVANCE_CHECK_V1.json binds all eight dependencies and the closed
+test owner. This qualifies the ownership/failure checks, not an actual review
+handoff or N4 acceptance. At 01:46 the main scorer had accounted for 896 of
+7,680 receipts with no stop reason; independent review remains outstanding.
+
+Private waiter evidence is `local/n4/main-score-review-advance-v1` and immutable
+launch records are `local/n4/main-score-review-advance-v1-launch/STARTED.json`
+and VERIFIED_WAITING.json. Inspect these, any READY/RESULT/FAILED receipt and
+fresh supervision before manually dispatching a review. Do not start a second
+waiter or manual reviewer while its exact owner lives. Its source, README,
+tests and qualification are now bound and must remain unchanged.
+
+The waiter polls once per minute for this exact scoring run only. It requires
+a successful complete terminal, all 7,680 scores, closed metric requests and
+the exact supervisor, venv launcher and actual scoring driver to have exited.
+It rechecks source hashes, storage and ownership, preserves prior supervision,
+and invokes the existing supervisor once for independent review into
+`local/n4/integrated-main-score-review-v3`. A failure preserves FAILED evidence;
+an ambiguous dispatch is never retried automatically. The waiter has a five-
+hour maximum and obeys the unchanged packaging cutoff. It does not start the
+modes bank, GUI work or N5, and it does not change the hourly Codex follow-up.
+See README_SCORE_REVIEW_ADVANCE_V1.md for purpose, inputs, outputs, exact
+admission conditions and PowerShell/CMD/Anaconda instructions.
+
+### 2026-09-27 01:34 UTC - Full main review passed; V3 scoring active
+
+MAIN_METHOD_REVIEW_V3.json records the passed full-artifact/closure review of
+all 7,680 main method cases: 344 empty hypotheses, 256,084 raw observations,
+22,004 final utterances and 743,650 display events. These are artifact counts,
+not accepted GUI/latency measurements. Private review SHA-256 is
+`862f466b7efad61d945380b617ab526802c270fd7d928ed3f9c04cd0363f6c09`.
+Review child 36868/1790468573.2251587 and supervisor
+41592/1790468573.094462 both exited; exit zero was recorded at 00:49:31 UTC.
+All 7,166 prior fixed bindings and three prior public files were reverified.
+
+The existing supervisor started the qualified main scorer at 01:23:44 UTC.
+Supervisor: 32064/1790472224.4739268. Venv launcher:
+17356/1790472224.605898. Actual Python scoring driver:
+51780/1790472224.6372485. The launcher invokes its recorded base interpreter;
+CPU time/progress must be observed on the actual driver, not the idle wrapper.
+Driver and owned metric subprocesses are all CPU14/BelowNormal, one math
+thread, GPU off. At 01:33, 512/7,680 score receipts existed, the latest was
+SCORED and no stop reason/FAILED/terminal was present. The default bound is
+four hours and 512 MiB, with exact owned metric request timeouts. Scoring is
+not yet complete or independently reviewed. Prior review supervision/logs are
+preserved in integrated-main-scoring-dispatch-v3; no duplicate was started.
+
+The storage audit verifies the closed 1,920-case ASR and 960-case D1 reviews,
+all 2,880 result bindings and their two 2-GiB allocations. Current frozen
+guards still include their conservative historical reservations in the six-
+GiB amount, alongside all retained physical bytes. A proposed 1.5-GiB modes
+allocation fails that guard (50.736 GiB). A candidate policy that expires only
+those verified closed reservations, retains 2 GiB future plus 0.5 GiB
+contingency, and explicitly counts active scoring remainder projects to
+47.235 GiB. It is not implemented or qualified and authorizes no execution.
+See RESERVATION_RECONCILIATION_20260927.md and its bound private audit.
+Use a fresh verified derivative across affected gates; never patch the active
+scorer, silently weaken a guard, edit the shared ledger or omit existing bytes.
+
+The 1,536-case modes plan remains unexecuted. Continuity's selected-plan
+composition also still imports the V3 planner/original child gate and needs
+its own V4-compatible derivative; the qualified restart/panel families do not
+establish continuity compatibility. Full score review, modes execution/review/
+scoring, actual GUI/resource/naming/timing/continuity/restart, N4 acceptance
+and N5 release validation remain. PID 40092 is still unclassified and blocks
+controlled GUI/resource admission; earlier user clarification is pending.
+Pi remains offline and deadlines are unchanged.
 
 The main V3 bank completed all 7,680 cases with zero failed and untested rows.
 Its terminal owner 46448/1790444329.9990232 and supervisor

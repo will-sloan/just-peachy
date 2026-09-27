@@ -1,5 +1,67 @@
 # Main V3 review and modes-plan execution checkpoint
 
+## 2026-09-27 01:54 UTC - Two metric timeouts; active run preserved
+
+A fresh per-cell inspection found two TIMEOUT / NOT_SCORED_TIMEOUT receipts
+at indices 00888 and 00889 (about 60.5 and 60.8 seconds). The numerical method
+outputs are complete, but these metrics are unavailable. The scorer continues
+to produce later receipts and its supervisor has no stop reason. Preserve the
+active worker and both failures; do not modify its source or start a duplicate.
+
+Private main-scoring-timeout-observation-v1/RESULT.json binds both receipts,
+method inputs, current owners and counts. Once this run terminates and exact
+owners exit, targeted metric repair needs a fresh bounded, qualified derivative
+followed by independent full-score review. The live automatic handoff requires
+zero unavailable scores, so it must refuse this partial result unless later
+verified evidence satisfies that gate; no failed receipt may be overwritten.
+Receipt counts below denote progress, not all-scored coverage or acceptance.
+
+## 2026-09-27 01:47 UTC - Guarded automatic score-to-review handoff active
+
+The bounded waiter `advance_main_score_review_v1.py` is live as exact owner
+12420/1790473329.108624 on CPU14/BelowNormal. Its 13 development tests passed;
+SCORE_REVIEW_ADVANCE_CHECK_V1.json binds all eight dependencies and the closed
+test owner. This qualifies the ownership/failure checks, not an actual review
+handoff or N4 acceptance. At 01:46 the main scorer had accounted for 896 of
+7,680 receipts with no stop reason; independent review remains outstanding.
+
+Private waiter evidence is `local/n4/main-score-review-advance-v1` and immutable
+launch records are `local/n4/main-score-review-advance-v1-launch/STARTED.json`
+and VERIFIED_WAITING.json. Inspect these, any READY/RESULT/FAILED receipt and
+fresh supervision before manually dispatching a review. Do not start a second
+waiter or manual reviewer while its exact owner lives. Its source, README,
+tests and qualification are now bound and must remain unchanged.
+
+The waiter polls once per minute for this exact scoring run only. It requires
+a successful complete terminal, all 7,680 scores, closed metric requests and
+the exact supervisor, venv launcher and actual scoring driver to have exited.
+It rechecks source hashes, storage and ownership, preserves prior supervision,
+and invokes the existing supervisor once for independent review into
+`local/n4/integrated-main-score-review-v3`. A failure preserves FAILED evidence;
+an ambiguous dispatch is never retried automatically. The waiter has a five-
+hour maximum and obeys the unchanged packaging cutoff. It does not start the
+modes bank, GUI work or N5, and it does not change the hourly Codex follow-up.
+See README_SCORE_REVIEW_ADVANCE_V1.md for purpose, inputs, outputs, exact
+admission conditions and PowerShell/CMD/Anaconda instructions.
+
+## Update at 2026-09-27 01:34 UTC
+
+The full main review passed; MAIN_METHOD_REVIEW_V3.json records its exact
+closed owners and 7,680-case coverage. Main scoring is now running through
+integrated-main-scoring-worker-v3.json, with private dispatch/evidence under
+integrated-main-scoring-dispatch-v3 and integrated-main-scores-v3. Observe the
+actual driver 51780/1790472224.6372485 beneath the venv launcher, and require
+complete scores plus independent review before acceptance. Follow the scorer
+and review commands in README_SCORING_HISTORY_V3.md only after their exact
+predecessor exits; do not launch a duplicate. The earlier review/plan commands
+below describe completed work and refuse existing output paths.
+
+RESERVATION_RECONCILIATION_20260927.md records the audited closed component
+allocations and candidate budget correction. No qualified replacement guard
+exists yet, so the modes run is still not admitted. All other acceptance and
+Pi reconnection limits below remain in force.
+
+
 ## Purpose
 
 Record the first complete 7,680-case main method collection, its supervised

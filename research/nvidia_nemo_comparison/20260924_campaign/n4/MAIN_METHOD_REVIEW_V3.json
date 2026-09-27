@@ -1,0 +1,53 @@
+{
+  "status": "PASS_MAIN_MODELED_METHOD_REVIEW_ONLY",
+  "utc": "2026-09-27T01:34:46.644843+00:00",
+  "private_review": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\integrated-main-review-v3.json",
+    "sha256": "862f466b7efad61d945380b617ab526802c270fd7d928ed3f9c04cd0363f6c09",
+    "bytes": 1039
+  },
+  "terminal": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\integrated-main-v3\\RESULT.json",
+    "sha256": "8dceb34f2f13cc6037a7bf41d376f8c5339f6f79a980267b50dd91e9ab80c79b",
+    "bytes": 1805554
+  },
+  "plan": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\integrated-main-plan-v3.json",
+    "sha256": "66d6feae22bf50b46bd8935411b4efeb4e7b343ee595f4862a6f9bfa7b19d1bc",
+    "bytes": 18306790
+  },
+  "completed": 7680,
+  "counts": {
+    "empty_hypotheses": 344,
+    "raw_observations": 256084,
+    "final_utterances": 22004,
+    "displays": 743650
+  },
+  "all_full_artifacts_and_closures_verified": true,
+  "reviewer": {
+    "pid": 36868,
+    "create_time": 1790468573.2251587
+  },
+  "supervisor": {
+    "pid": 41592,
+    "create_time": 1790468573.094462
+  },
+  "exact_review_owners_exited": true,
+  "supervision_terminal": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\integrated-main-scoring-dispatch-v3\\PREVIOUS_worker.json",
+    "sha256": "ad953fa954a35a6ad5653131e0d699012c0c21151e894e02639f6ef1ffe2a484",
+    "bytes": 510
+  },
+  "main_method_qualification": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\INTEGRATED_HISTORY_CHECK_V3.json",
+    "sha256": "68a318eaabe49251d87e9852413aea5fec1c8eb8dce3ff1efdb8d5bfc5d762cc",
+    "bytes": 33510
+  },
+  "models_loaded": 0,
+  "complete_Controller_parity": false,
+  "physical_widget_observed": false,
+  "scoring_required": true,
+  "integrated_N4_cells": 0,
+  "N4_accepted": false,
+  "N5_complete": false
+}
