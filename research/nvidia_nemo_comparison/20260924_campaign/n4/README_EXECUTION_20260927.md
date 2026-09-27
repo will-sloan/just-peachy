@@ -1,5 +1,64 @@
 # Main V3 review and modes-plan execution checkpoint
 
+## 2026-09-27 06:58 UTC - Main scores reviewed; guarded modes running
+
+MAIN_MODELED_SCORING_ACCEPTANCE_V1.json accepts the main modeled scoring only:
+7,680/7,680 independently reviewed, zero missing metrics, failed predictions or
+untested cases, unchanged 37-file review source and exact reviewer/launcher/
+supervisor exit. The 6,848 SCORED and 832 TARGET_ONLY_NOT_ALL_SPEAKER_ACCURACY
+receipts retain their distinct scope. The reviewer checked full prediction/input
+joins, metric algebra, 5,931 evaluator environment files and regenerated totals;
+it did not recompute optimal metric alignments. N4 application acceptance is open.
+
+MAIN_MODELED_RESULTS_V1.md and MAIN_MODELED_RESULTS_V2.png provide the verified
+32-cohort table, 45 paired comparisons and aggregate chart. Reference support,
+limited independent clusters and naming limitations remain explicit. No backend
+is promoted from these numbers alone. README_MAIN_SCORE_SUMMARY_V1.md and
+README_MAIN_SCORE_PLOT_V1.md document purpose, inputs, outputs and PowerShell,
+CMD and Anaconda commands. The first chart's layout failure is preserved privately;
+V2 fixes only legend placement and passed visual inspection.
+
+GUARDED_BANK_CHECK_V1.json qualifies a fresh modeled execution family with 120
+unchanged source/receipt bindings, 44 passing regression tests and 16 predeclared
+mode/composition boundaries. All 16 converted predictions and all 32 paired metric
+requests matched the unchanged V3 implementation. The real production allocation
+guard passed initial/final complete censuses; probe, supervisor and all metric
+children exited exactly with pipes closed. This qualifies modeled execution only.
+The GUI/application provenance gate needs an explicit fresh integration later.
+
+MODES_GUARDED_START_V1.json binds the fresh 1,536-case modes dispatch at 06:52 UTC.
+The exact driver is 34884/1790491937.556375 and supervisor is
+51404/1790491937.3939457. Both are live on CPU14/BelowNormal, one math thread and
+GPU off. The original modes plan and numerical functions are unchanged; every
+new cell additionally binds its guarded EXECUTION_PLAN. Output is private
+local/n4/integrated-modes-guarded-v1. The initial projection was 46.875 GiB under
+the 50-GiB ceiling, counting its own remaining allocation once, no other active
+allocation, all retained physical evidence, 2 GiB future reserve and 0.5 GiB
+contingency. The driver holds the separate allocation lock, with full censuses
+every 128 cells and fast checks between them; it never holds the supervisor
+writer lock across a census. It has a 1.5-GiB cap, 280-MiB per-cell peak and four-hour
+limit. Follow its fresh heartbeat/progress; do not duplicate it or edit bound files.
+
+After complete terminal evidence and exact closure, run guarded method review,
+scoring, then independent score review through the existing supervision interface
+and fresh allocation census. README_GUARDED_BANK_V1.md contains the full commands,
+limits and immutable source requirements. A terminal or queue completion alone
+is not acceptance. Subsequent actual GUI/resource, source-paced timing, naming,
+continuity and restart evaluation still needs admitted execution and review.
+
+The 06:51 UTC CIM check still found inaccessible cmd.exe PID40092, created
+2026-09-25T13:00:00.0311400Z, parent5156, with no readable command line. The existing
+ownership question remains pending for controlled GUI/resource admission. Do not
+kill, bypass or claim whole-host exclusivity from the modeled allocation guard.
+
+N1-N3 offline acceptance is unchanged. N4 and N5 remain incomplete. N5 needs
+accepted selections (or an explicitly reported partial outcome), final Windows
+and ARM64 functional validation and release packaging. Preserve the Pi reconnect
+and storage-aware backend GUI requirements in n5/PI_RECONNECTION_REQUIREMENTS.md;
+the powered-off Pi is untouched and live CM5 checks remain deferred. Packaging
+reserve starts 2026-09-28 02:48:19 UTC; deadline 14:48:19 UTC, unchanged. Private
+captions, audio, profiles, models and evidence remain outside Git.
+
 ## 2026-09-27 05:53 UTC - Main scoring complete; independent review running
 
 The fresh 120-second-limit main score bank sealed all 7,680 cases at 05:48 UTC,

@@ -1,0 +1,115 @@
+{
+  "status": "STARTED_GUARDED_MODELED_MODES_ONLY",
+  "utc": "2026-09-27T06:57:27.140096+00:00",
+  "qualification": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\GUARDED_BANK_CHECK_V1.json",
+    "sha256": "12d040698032ea40dee420880c745f116466dbcf8b2db7a52ac2ee6727111e00",
+    "bytes": 40516
+  },
+  "original_plan": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\integrated-modes-plan-v3.json",
+    "sha256": "ab3a6f79b13cbd200b24d72c7749814cf1f170f611b828eb603b86c9b2cfbfaf",
+    "bytes": 3825365
+  },
+  "execution_plan": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\integrated-modes-guarded-v1\\EXECUTION_PLAN.json",
+    "sha256": "0f9e6fa77c44494ca0d86e92c8994af6bcb0b01e7a24ec2a59f767a0aa0e3e24",
+    "bytes": 33331
+  },
+  "admission": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\integrated-modes-guarded-v1\\ADMISSION.json",
+    "sha256": "c459ac0c5cdbbcfe7a5adf7084e9c1fa9a065f37d8078db2468580a65957f795",
+    "bytes": 33242
+  },
+  "initial_guard": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\integrated-modes-guarded-v1\\GUARD_INITIAL.json",
+    "sha256": "438f7d5f890d32db4abc1b01b06abc96ef50c549e3f3ebcd2b042996ebfdb847",
+    "bytes": 266154
+  },
+  "dispatch": {
+    "admission": {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\integrated-modes-guarded-v1-dispatch\\ADMISSION.json",
+      "sha256": "441fbcdf93ad6fb48a6b2f8c66b45adb52fb493b8ff4e666f7fc9c196574096d",
+      "bytes": 295774
+    },
+    "started": {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\integrated-modes-guarded-v1-dispatch\\STARTED.json",
+      "sha256": "fb7b411f976fdc5792a2da0c28bd6178773ffa4996eeafd27992f3279a5ef038",
+      "bytes": 912
+    }
+  },
+  "supervisor": {
+    "status": "RUNNING",
+    "pid": 51404,
+    "create_time": 1790491937.3939457,
+    "run_id": "b50d1725cf5b460f836ff5965ab4b054",
+    "started_utc": "2026-09-27T06:52:17.404775+00:00",
+    "heartbeat_unix": 1790492244.0349107,
+    "resumed": false,
+    "argv_sha256": "12ec44181fca4d57b27f209be5d9e2c9bc8bf52e95dac8457a1d332b112d2d60",
+    "child_launch_pending": false,
+    "child_pid": 34884,
+    "child_create_time": 1790491937.556375
+  },
+  "exact_process_observations": [
+    {
+      "pid": 51404,
+      "create_time": 1790491937.3939457,
+      "exact_live": true,
+      "cpu_affinity": [
+        14
+      ],
+      "priority": "BelowNormal",
+      "cpu_seconds": 0.21875,
+      "io": {
+        "read_count": 118,
+        "write_count": 64,
+        "read_bytes": 1690804,
+        "write_bytes": 26920,
+        "other_count": 5400,
+        "other_bytes": 204330
+      }
+    },
+    {
+      "pid": 34884,
+      "create_time": 1790491937.556375,
+      "exact_live": true,
+      "cpu_affinity": [
+        14
+      ],
+      "priority": "BelowNormal",
+      "cpu_seconds": 304.96875,
+      "io": {
+        "read_count": 84598,
+        "write_count": 842,
+        "read_bytes": 2622320321,
+        "write_bytes": 44669425,
+        "other_count": 7627811,
+        "other_bytes": 312520224
+      }
+    }
+  ],
+  "observed_progress": {
+    "owner": {
+      "pid": 34884,
+      "create_time": 1790491937.556375
+    },
+    "completed": 47,
+    "required": 1536,
+    "utc": "2026-09-27T06:57:25.307055+00:00",
+    "integrated_N4_cells": 0
+  },
+  "required": 1536,
+  "code_files_verified": 120,
+  "projected_bytes_at_initial_guard": 50332226432,
+  "allowance_bytes": 53687091200,
+  "maximum_seconds": 14400,
+  "allocation_bytes": 1610612736,
+  "periodic_guard_cells": 128,
+  "whole_host_exclusivity_proved": false,
+  "GUI_family_qualified": false,
+  "integrated_N4_cells": 0,
+  "N4_accepted": false,
+  "N5_complete": false,
+  "Pi_untouched": true
+}
