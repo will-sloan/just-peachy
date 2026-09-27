@@ -1,4 +1,66 @@
-# N4 checkpoint - modes scoring complete; independent score review running
+# N4 checkpoint - main and modes scoring accepted; reader validation running
+
+## 2026-09-27 11:54 UTC - Modes accepted; complete-manifest reader repair running
+
+`MODES_MODELED_SCORING_ACCEPTANCE_V1.json` accepts all 1,536 modes scores within
+modeled numerical scope. The independent review passed at 10:52:09 UTC with
+14 resource receipts and 5,931 environment files verified; reviewer, launcher,
+supervisor and metric owners are closed. All ordered score bindings, original
+method/plan/execution joins and report hashes were reverified. Optimal metric
+alignments were not recomputed. Together with accepted main scoring, both
+numerical populations are complete; N4 application acceptance is still open.
+
+`MODES_MODELED_RESULTS_V1.md` publishes all 128 aggregate cohorts. Its generator
+`summarize_modes_scores_v1.ps1` verifies bound inputs, complete counts and rate
+algebra; `README_MODES_SCORE_SUMMARY_V1.md` gives PowerShell/CMD/Anaconda commands.
+`MODELED_COMPARISON_HANDOFF_V1.md` joins the evidence and remaining work. The
+frozen panel/repeats contain 29.797 source minutes per candidate: six candidates
+would need 2.980 source hours plus two continuity hours, excluding startup,
+slow computation, restarts and review. This lower bound is not an ETA.
+
+The original reader probe V1 failed before any tests at its initial resource
+census: its primary 120-file `code` omitted the new entrypoint, although the
+213-file reader list existed in a secondary field. Preserve
+`local/n4/panel-scoring-guarded-probe-v1` and
+`panel-scoring-guarded-failure-audit-v1/CLOSURE.json`. All exact owners exited.
+The original planner probe V1 has the same wiring; do not dispatch its old spec.
+
+A fresh metadata-only envelope and V2 probes bind the entire producer manifest
+including the entrypoint. The unchanged resource guard still enforces full
+census, exact command/owner, one allocation, CPU14/BelowNormal, GPU off, disk
+floors and the 50-GiB allowance. Seven manifest regressions passed.
+`GUARDED_METADATA_PROBE_PREPARATION_V1.json` records 217 reader and 221 planner
+producer bindings, source snapshots and fresh private V2 specs. Its README
+documents purpose, inputs/outputs, limits and all command environments. The
+reader/planner libraries and original 120-file resource family are unchanged.
+
+The supervised reader V2 started at 11:49:00 UTC. Driver:
+17028/1790509740.4942772; supervisor: 49516/1790509740.340541. Output:
+`local/n4/panel-scoring-guarded-probe-v2`. Initial resource check and all 18 tests
+(7 admission + 11 reader) passed. It is checking both actual closed review
+chains. At this checkpoint it has no complete terminal; do not grant acceptance
+or duplicate it. All 217 producer sources and exact CPU14/BelowNormal owners
+were reverified. Fresh dispatch projected 46.466 GiB, including reserves.
+
+After actual real-pair PASS, full source/resource verification and exact probe/
+supervisor closure, use a fresh census to dispatch
+`local/n4/panel-planner-guarded-probe-v2-worker.json`. Require 7 admission + 10
+planner tests, all 16 fixture comparisons/1,240 payloads, initial/final resource
+checks and exact closure. V2 uses the distinct metadata-probe envelope; do not
+call the original modeled `validate_execution` on it or relabel its schema.
+Qualified production reconstruction and matching application/semantic/restart/
+continuity consumers still remain necessary.
+
+A fresh read-only process census has no access errors; the previous exact
+Acronis-owned cmd.exe 40092 is gone. See private
+`ownership-recheck-20260927T1150-v2/CENSUS.json` and its `NOTE.json` (the note
+corrects a narrative error: the original timestamp already matched CIM).
+This removes the observed access-denial condition, but is not a controlled-slot
+admission. Recheck the actual runtime and current allowance when that gate runs.
+No process/service was changed. The Pi remains off; N4/N5 are incomplete.
+
+The hourly schedule, 2026-09-28 02:48:19 UTC packaging reserve and 14:48:19 UTC
+deadline remain unchanged.
 
 ## 2026-09-27 10:40 UTC - Scores complete; guarded planner adapter prepared
 

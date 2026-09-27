@@ -1,0 +1,88 @@
+{
+  "status": "REPAIRED_READER_DISPATCH_AND_INITIAL_TESTS_VERIFIED",
+  "utc": "2026-09-27T11:58:09.504897+00:00",
+  "worker": {
+    "status": "RUNNING",
+    "pid": 49516,
+    "create_time": 1790509740.340541,
+    "run_id": "9c157fd29cb94a08aeb288c2dbdab55e",
+    "started_utc": "2026-09-27T11:49:00.350479+00:00",
+    "heartbeat_unix": 1790510286.6470616,
+    "resumed": false,
+    "argv_sha256": "8f125faf95dea35601954b3a6c8a11ec603977687213410d1e842a0988a25a80",
+    "child_launch_pending": false,
+    "child_pid": 17028,
+    "child_create_time": 1790509740.4942772
+  },
+  "owners": [
+    {
+      "owner": {
+        "pid": 17028,
+        "create_time": 1790509740.4942772
+      },
+      "active": true,
+      "affinity": [
+        14
+      ],
+      "priority": 16384
+    },
+    {
+      "owner": {
+        "pid": 49516,
+        "create_time": 1790509740.340541
+      },
+      "active": true,
+      "affinity": [
+        14
+      ],
+      "priority": 16384
+    }
+  ],
+  "admission": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\panel-scoring-guarded-probe-v2\\ADMISSION.json",
+    "sha256": "ed3add183df10f6b23c34c72400658a28c729b3ba886dce3f861d13ebf988931",
+    "bytes": 151034
+  },
+  "execution_plan": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\panel-scoring-guarded-probe-v2\\EXECUTION_PLAN.json",
+    "sha256": "4895fad449b422561d9ea8edafada98f2e9e670340be4b644a684d2ff2f90ef3",
+    "bytes": 92958
+  },
+  "dispatch": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\panel-scoring-guarded-probe-v2-dispatch\\STARTED.json",
+    "sha256": "24fcb4b68aa99bb4afd6317bfea061a68fde615de169c4094f72e1681e52326b",
+    "bytes": 917
+  },
+  "preparation": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\GUARDED_METADATA_PROBE_PREPARATION_V1.json",
+    "sha256": "be5d9d4e557be0651a71e6b6c5ddf9d150579ecc41dd93898818e095e6693dc8",
+    "bytes": 127191
+  },
+  "preserved_failure_audit": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\panel-scoring-guarded-failure-audit-v1\\CLOSURE.json",
+    "sha256": "1eec9839440c191c6376bf0ed8882a927221d0e0ac1b356092cf00a61d9c23cd",
+    "bytes": 2030
+  },
+  "guard_initial": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\panel-scoring-guarded-probe-v2\\GUARD_INITIAL.json",
+    "sha256": "4c673a47031fe5a15b689b958721a3fb4f14010b217d4f0b3116ebce0ae92292",
+    "bytes": 281987
+  },
+  "tests": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\panel-scoring-guarded-probe-v2\\tests.txt",
+    "sha256": "27647ef7f587303764de4fcee999fdb631a7f4cbb8d4e986e18ffbc491896ae2",
+    "bytes": 1945
+  },
+  "reader_tests_passed": 11,
+  "manifest_tests": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\panel-scoring-guarded-probe-v2\\manifest-tests.txt",
+    "sha256": "20895e43539affcc3ac0ea085ceb8541eaf36c3d1c0112923c519ae3f00223db",
+    "bytes": 980
+  },
+  "manifest_tests_passed": 7,
+  "producer_sources_reverified": 217,
+  "real_pair_terminal_available": false,
+  "reader_accepted": false,
+  "N4_accepted": false,
+  "N5_complete": false
+}

@@ -1,5 +1,45 @@
 # N4 and N5 execution order and acceptance gates
 
+## 2026-09-27 11:54 UTC - Numerical acceptance complete; use repaired V2 probes
+
+Both main (7,680) and modes (1,536) numerical score reviews are now accepted in
+modeled scope. See `MODES_MODELED_SCORING_ACCEPTANCE_V1.json` and
+`MODELED_COMPARISON_HANDOFF_V1.md`. Full N4 application acceptance is open.
+
+The first reader diagnostic stopped before tests because its primary source
+manifest omitted its entry script. Preserve that failure and its exact closure
+audit. The original planner V1 spec has the same wiring and must not be run.
+`GUARDED_METADATA_PROBE_PREPARATION_V1.json` binds the bounded V2 repair, its
+seven passing manifest regressions, 217/221 complete producer source sets and
+both new private worker specs. No frozen parent implementation changed.
+
+Current worker: `local/n4/panel-scoring-guarded-probe-v2`, started 11:49:00 UTC,
+driver 17028/1790509740.4942772, supervisor 49516/1790509740.340541. Initial
+resource check and 18 tests passed; actual review-chain verification remains
+active. Do not start another N4 worker. Then:
+
+1. Require `PASS_REAL_CLOSED_SCORE_PAIR_READER_ONLY` with 7 manifest + 11 reader
+   tests, 7,680/1,536 actual review counts, eight source snapshots, complete
+   217-file code and initial/final resource proofs, plus exact owner closure.
+2. Fresh census; dispatch `panel-planner-guarded-probe-v2-worker.json`. Require
+   `PASS_GUARDED_PANEL_ADAPTER_DIAGNOSTIC_ONLY`, 7 + 10 tests, all 16/1,240
+   comparisons, eight snapshots, 221 source bindings, resource proofs and closure.
+3. Qualify production reconstruction and compatible application, semantic,
+   restart/continuity consumers; select and run actual paced candidates. The old
+   V4 schema and 256-entry child cap cannot be bypassed by dropping dependencies.
+
+The V2 metadata envelope is intentionally separate from the original modeled
+execution envelope; manually verify its exact role/entry/code/provenance rather
+than sending it to the old modeled validator. Each probe keeps the unchanged
+resource guard, sole N4 ownership and 8-MiB/20-minute limit.
+
+The inaccessible background cmd process has exited and the fresh known-runtime
+census had zero access errors. Recheck during actual application admission; no
+controlled-resource acceptance follows from that observation. Existing allowance
+integration remains necessary. Pi live checks are deferred. Packaging reserve
+and deadline remain unchanged; package supported candidates and mark remaining
+coverage PARTIAL if full confirmation does not fit.
+
 ## 2026-09-27 10:40 UTC - Independent score review and next adapters
 
 Modes scoring completed 1,536/1,536 with no missing metrics or failed/untested

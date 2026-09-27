@@ -1,5 +1,20 @@
 # N5 partial release checkpoint
 
+## 2026-09-27 11:54 UTC - Both numerical comparison scopes reviewed
+
+N4 now has accepted independent numerical reviews for 7,680 main and 1,536 modes
+cases. Read `../n4/MODELED_COMPARISON_HANDOFF_V1.md` for the exact scope and
+remaining application work. A repaired diagnostic is checking both actual review
+chains; it does not establish an accepted release shortlist. N5 therefore still
+has no N4-selected release. N2/N3 offline acceptance remains as recorded below.
+
+The immutable baseline CM5 ZIP, tested storage preflight and reconnect/install/
+rollback instructions remain available. Optional backend installation, actual
+ARM64 model/WAV/GUI validation and per-build Windows checks remain required.
+The user's request for an easy wired reconnect and accessible backend GUIs is
+preserved in `PI_RECONNECTION_REQUIREMENTS.md`; actual Pi storage and live CM5
+integration stay deferred until reconnection. Neither deadline is extended.
+
 ## 2026-09-27 08:43 UTC - Baseline storage preflight verified
 
 N2 and N3 have since been accepted within their recorded offline scopes; use
