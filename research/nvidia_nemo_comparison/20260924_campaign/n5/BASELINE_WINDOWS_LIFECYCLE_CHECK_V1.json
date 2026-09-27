@@ -1,0 +1,55 @@
+{
+  "status": "VERIFIED_BASELINE_WINDOWS_LIFECYCLE_SMOKE_ONLY",
+  "utc": "2026-09-27T19:56:36.912285+00:00",
+  "private_audit": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\baseline-windows-lifecycle-v1-audit-v1\\RESULT.json",
+    "sha256": "3ab4e4e7897bd181778a440facf400717c4a9ef762af5e7f32ecaf589913c58d",
+    "bytes": 5226
+  },
+  "source_archive": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\packages\\just-peachy-n1-common-20260924-v1.zip",
+    "sha256": "92ace449cc60c5967e00d038a966ddb4c12fd68d51121b88417dcff848bcb42d",
+    "bytes": 1074526
+  },
+  "source_version": "n1-common-20260924-v1",
+  "required_process_phases": 2,
+  "passed_process_phases": 2,
+  "rendered_segments_each_phase": 31,
+  "persisted_utterance_rows": 3,
+  "code_records_reverified": 7,
+  "release_payload_files_reverified": 240,
+  "assets_reverified": 8,
+  "normal_unforced_process_closure": true,
+  "exact_windows_owners_absent": [
+    {
+      "pid": 51780,
+      "create_time": 1790538871.3542764
+    },
+    {
+      "pid": 38176,
+      "create_time": 1790538871.518542
+    },
+    {
+      "pid": 56280,
+      "create_time": 1790538872.026079
+    },
+    {
+      "pid": 40380,
+      "create_time": 1790538921.4517677
+    }
+  ],
+  "synthetic_people_sentinel_preserved": true,
+  "production_personal_store_used": false,
+  "GUI_scope": "Actual Tk text rendering on private desktops; no scanout/touch or physical interaction validation.",
+  "controls_scope": "Production Controller commands for save/open/delete; production page navigation methods; no mouse/keyboard automation.",
+  "full_bank": false,
+  "new_backend_accepted": false,
+  "ARM64_validated": false,
+  "N5_complete": false,
+  "CM5_tested": false,
+  "targeted_checks": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\baseline-windows-lifecycle-targeted-v1\\RESULT.json",
+    "sha256": "d17c12dbbed921f17e0b79bc4774411fe728d16b46d1094d41be6201bc718205",
+    "bytes": 1208
+  }
+}

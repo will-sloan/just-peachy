@@ -12,12 +12,21 @@ the storage preflight remain scoped preparation evidence, not installation or
 functional checks on the device. The optional model-assets estimate is separate
 from required runtime/OS/data/storage headroom and from the 2-GB RAM constraint.
 
-The native ARM64 ASR harness now compiles; eight malformed-WAV cases passed
-under QEMU. A fresh supervised A2/A3 saved-audio component run started September
-27 at 18:55:12 UTC, with seven passing model-free output-reader checks, 30-minute
-per-model limits and no GUI/CM5 acceptance claim. Follow NATIVE_STREAM_MODELS_START_V1.json,
-N5_STATUS_20260927_V12.json and later closed-result receipts. An active worker is
-not a completed model check.
+The native ARM64 ASR harness compiles; eight malformed-WAV cases passed under
+QEMU. A2 loaded and completed the first full saved-source pass, then reached
+its unchanged 30-minute limit during the repeat. State parity, forced endpoint
+and A3 are unverified; zero complete model passes. Exact Windows owners and the
+owned Linux group closed. NATIVE_STREAM_MODELS_PARTIAL_V1.md preserves the result.
+
+BASELINE_WINDOWS_LIFECYCLE_CHECK_V1.json records two passing actual Windows
+process phases using the unchanged baseline on private desktops: 480×800 Tk
+rendering, save/reopen after process restart, and deletion of only the test
+session. Both rendered 31 caption segments from three persisted utterances.
+The synthetic people sentinel survived; both processes and their jobs closed
+normally. Production Controller commands and GUI navigation methods were used;
+physical touch, new backend integration and full-bank timing are not claimed.
+All 240 payload files and eight assets were reverified. N5 remains partial;
+N5_STATUS_20260927_V13.json is the current checkpoint.
 
 Remaining work prioritizes supported baseline software validation, clear
 installation/rollback guidance, compact final handoff and verified Git release

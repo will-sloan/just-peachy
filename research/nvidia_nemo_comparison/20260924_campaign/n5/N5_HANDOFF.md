@@ -1,5 +1,39 @@
 # N5 partial release checkpoint
 
+## 2026-09-27 19:55 UTC - baseline Windows lifecycle passed; ARM64 partial
+
+Current checkpoint: N5_STATUS_20260927_V13.json. The bounded native A2 run
+timed out during its second saved-source pass; A3 never started. The first
+715,127-frame pass closed normally, but repeat/state parity and forced endpoint
+remain unverified. NATIVE_STREAM_MODELS_PARTIAL_V1.md binds the preserved audit,
+empty Linux group and exact absent Windows owners. All eleven source records
+are unchanged. Do not retry the same 30-minute allocation or claim a complete
+ARM64 component/GUI pass.
+
+BASELINE_WINDOWS_LIFECYCLE_CHECK_V1.json independently verifies the unchanged N1
+baseline in two separate real Windows GUI processes. Saved-audio inference,
+text save, reopen after process restart, rendering and isolated session deletion
+passed. Both 480×800 clients rendered 31 segments from three stored utterances;
+the synthetic people sentinel survived. Normal unforced process/job closure,
+exact owner absence, 240 unchanged payload files and eight assets were checked.
+The GUI used private desktops with unchanged input desktop; production
+Controller commands and navigation methods drove the test. This is one
+caption-only/fast saved source, not all modes, full-bank timing or touch testing.
+
+Private run: local/n5/baseline-windows-lifecycle-v1; audit:
+local/n5/baseline-windows-lifecycle-v1-audit-v1/RESULT.json. Its seven source
+records are frozen. README_BASELINE_WINDOWS_LIFECYCLE_V1.md documents the
+600-second/128-MiB admitted scope and five passing model-free refusal tests.
+Use new versioned derivatives/outputs if further changes are needed.
+
+Next prioritize the compact final handoff and explicit coverage/release mapping.
+Baseline ARM64 Python/model/GUI execution remains unverified; it needs bounded
+admission or a precise blocker. Distinguish reused N1 source-paced/release tests
+from missing N5 per-build import/export/control coverage. N4 is still PARTIAL
+with zero new accepted configurations. The Pi remains off; later reconnection
+instructions retain storage preflight, staging, health, activation and rollback.
+Neither the packaging reserve nor deadline changes. Older entries below are history.
+
 ## 2026-09-27 18:54 UTC - N4 partial; paced retries ended for this campaign
 
 APPLICATION_PANEL_CLOSURE_FAILURE_V10.json records the independently reconciled

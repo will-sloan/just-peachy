@@ -1,6 +1,6 @@
 # N5 release preparation - campaign not complete
 
-Latest checkpoint: `N5_STATUS_20260927_V12.json`. N4 actual application
+Latest checkpoint: `N5_STATUS_20260927_V13.json`. N4 actual application
 confirmation is PARTIAL: V10 has two collected cells pending acceptance, two
 failures and 236 unattempted of 240. The D1 speaker lane exceeded its drain
 limit; the fourth cell also failed Controller closure. Exact process owners
@@ -9,12 +9,22 @@ scheduled during this campaign. Read `../n4/N4_PARTIAL_REPORT_20260927.md` and
 `../n4/APPLICATION_PANEL_CLOSURE_FAILURE_V10.json` for the reconciled evidence.
 No new release profile is accepted.
 
-The existing compiled ARM64 native harness passed eight malformed-WAV checks.
-A supervised, bounded A2/A3 saved-audio component test is now active under QEMU;
-`NATIVE_STREAM_MODELS_START_V1.json` and `README_NATIVE_STREAM_MODELS_V1.md`
-record its exact scope and limits. Seven model-free reader checks passed.
-Actual model results must be reviewed after exact process closure. This is not
-full ARM64 GUI validation, a CM5 performance test or installation on the device.
+The compiled ARM64 native harness passed eight malformed-WAV checks. Its
+saved-audio run ended at the unchanged A2 time limit during the repeat pass;
+A3 was unattempted. A2 completed the first full source, but state parity and
+forced-endpoint checks remain unverified. Zero complete model passes are
+claimed. `NATIVE_STREAM_MODELS_PARTIAL_V1.md` records the preserved failure and
+verified process closure. ARM64 GUI and CM5 validation remain incomplete.
+
+`BASELINE_WINDOWS_LIFECYCLE_CHECK_V1.json` adds a passing baseline smoke from
+two real Windows processes on private desktops: 480×800 Tk rendering of the
+same 31 segments, three persisted utterances across process restart, and
+save/open/delete of only the test session. The synthetic people sentinel was
+preserved; all owners closed normally and input desktop stayed unchanged.
+Commands used the production Controller and GUI page methods; no physical
+touch, mouse/keyboard operation, full-bank timing or optional backend pass is
+implied. Purpose and run instructions are in
+`README_BASELINE_WINDOWS_LIFECYCLE_V1.md`.
 
 The preserved baseline is usable on Windows. N2/N3 have accepted offline
 component handoffs. New N4-selected alternatives are not accepted yet: the
@@ -94,4 +104,5 @@ NOT_LIVE_HARDWARE_TESTED. No denoising, new acoustic capture or human enrollment
 ran. N5 does not stop upstream workers or their scheduled probes before closure.
 
 For continuation, use N5_HANDOFF.md. Build/run commands, inputs and outputs are
-in README.md and README_ARM64.md; the workbook proposal is WORKBOOK_UPDATE.md.
+in README.md and README_ARM64.md; the current workbook proposal is
+WORKBOOK_UPDATE_20260927.md. The original WORKBOOK_UPDATE.md is historical.

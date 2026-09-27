@@ -5,6 +5,13 @@ upstream comparisons run. N5 is PARTIAL, not release acceptance or campaign
 closure. START_HERE.md is the operating index. README_ARM64.md covers the build,
 static ELF audit and no-model QEMU loader probes.
 
+`README_BASELINE_WINDOWS_LIFECYCLE_V1.md` documents the new saved-file Windows
+smoke, inputs/outputs, resource admission and PowerShell/CMD/Anaconda commands.
+`BASELINE_WINDOWS_LIFECYCLE_CHECK_V1.json` records two passing real GUI process
+phases with saved transcript persistence and isolated deletion. It is baseline
+smoke evidence only. The separate ARM64 partial result and timeout are recorded
+in `NATIVE_STREAM_MODELS_PARTIAL_V1.md`; neither result completes N5.
+
 `pi_storage_preflight_v1.py` provides a separate read-only companion for the
 preserved baseline ZIP. It takes the archive plus trusted SHA256 and explicit
 space budgets, and writes a fresh JSON inventory/space report. Later on Linux
