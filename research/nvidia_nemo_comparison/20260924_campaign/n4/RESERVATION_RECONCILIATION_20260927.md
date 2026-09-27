@@ -1,5 +1,53 @@
 # Reservation reconciliation at 2026-09-27 01:30 UTC
 
+## 2026-09-27 05:53 UTC - Main scoring complete; independent review running
+
+The fresh 120-second-limit main score bank sealed all 7,680 cases at 05:48 UTC,
+with zero failed predictions, untested cases or unavailable metrics. All five
+previously timed-out cases passed in this full rerun. The scope remains explicit:
+6,848 receipts are SCORED and 832 incomplete ambient references are
+TARGET_ONLY_NOT_ALL_SPEAKER_ACCURACY. These 832 cases do not establish all-speaker
+accuracy. Every score/report hash and exact scorer, launcher, supervisor and
+metric-child exit was checked before advancing; metric pipes also closed.
+
+MAIN_SCORING_TIMEOUT120_REVIEW_START_V1.json binds the terminal and fresh review
+dispatch. The unchanged qualified V3 independent reviewer started at 05:52 UTC
+in local/n4/integrated-main-score-review-v3-timeout120-v1. Its exact driver is
+42036/1790488329.7152524, venv launcher 46256/1790488329.679865 and supervisor
+27984/1790488329.5106719. All use CPU14/BelowNormal with one math thread and GPU
+off. The fresh legacy allowance check projected 49.329650 GiB below the 50-GiB
+ceiling. Review is limited to two hours and eight MiB. Follow fresh supervision
+and the terminal rather than starting a duplicate. Review is not yet accepted.
+The complete run/review PowerShell, CMD and Anaconda recipes remain in
+README_MAIN_SCORING_TIMEOUT120_V1.md; its bound source is unchanged.
+
+RESERVATION_GUARD_CHECK_V1.json now qualifies the serialized output guard library:
+91 tests, a real hidden lock contender refused, explicit completed-handle and
+pipe closure, exact probe/helper exit, complete census of 180 recorded admissions,
+and lock release/reacquisition. The live calculation counted its own remaining
+allocation exactly once; it projected 45.802918 GiB, retained all physical bytes,
+and left the running scorer's supervisor heartbeat advancing. It uses a separate
+allocation lock, never a long-held supervisor writer lock. V1's failed diagnostic
+and all 87 passing tests remain preserved; V2 changes only helper closure and
+adds four tests. README_RESERVATION_GUARD_V1.md and V2 document purpose,
+inputs/outputs and PowerShell/CMD/Anaconda commands. Preserve their bound source.
+
+This qualifies a library only. The modes method/scorer/reviewer/application
+family still needs fresh guarded integration, numerical/provenance parity and
+admission before its 1,536 cases can run. The complete integrated GUI/resource,
+naming, source-paced timing, continuity and restart work remains open. The
+previously reported inaccessible cmd.exe PID40092 still has CIM creation
+2026-09-25T13:00:00.0311400Z and no readable command line; controlled GUI/resource
+admission remains blocked pending ownership resolution. Do not kill or bypass it.
+
+N1-N3 offline acceptance is unchanged. N4 and N5 are not complete. N5 still needs
+accepted N4 selections, Windows and ARM64 functional validation and final release
+packaging. The Pi remains untouched; easy reconnection, storage-aware backend
+GUI launchers and installation checks remain required by N5's
+PI_RECONNECTION_REQUIREMENTS.md. Live CM5 checks are deferred until reconnection.
+Packaging reserve starts 2026-09-28 02:48:19 UTC and the deadline is
+2026-09-28 14:48:19 UTC, unchanged. Private payloads stay outside Git.
+
 ## 2026-09-27 05:08 UTC - Complete recorded allocation census qualified
 
 RESERVATION_CENSUS_CHECK_V2.json seals the completed read-only census: 69 tests,
