@@ -1,0 +1,46 @@
+{
+  "status": "STARTED_FRESH_V5_APPLICATION_RETRY_REQUIRES_FULL_REVIEW",
+  "utc": "2026-09-27T13:51:58.260729+00:00",
+  "private_start": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\paced-application-v5-worktree-path-v1-dispatch\\STARTED.json",
+    "sha256": "0e0059db352434c685ab6b3b8d277258c47e00b2d8f2f28df24eb5fc2511200e",
+    "bytes": 881
+  },
+  "private_admission": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\paced-application-v5-worktree-path-v1-dispatch\\ADMISSION.json",
+    "sha256": "fc592fb37ceb8131270599ff7d265566b75316bbf11d56a23f0d9fa9a55f04d5",
+    "bytes": 86493
+  },
+  "run_output": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\paced-application-v5-worktree-path-v1",
+  "supervisor": {
+    "status": "STARTING",
+    "pid": 48828,
+    "create_time": 1790517118.2387855,
+    "run_id": "c38101ae1e134e3aa40fb1fb9bba7f59",
+    "started_utc": "2026-09-27T13:51:58.248720+00:00",
+    "heartbeat_unix": 1790517118.2487206,
+    "resumed": false,
+    "argv_sha256": "63a573b2f93797eee923865cb23a71d8095528d274caf416df9b372ccc11a4d5"
+  },
+  "source_records": 304,
+  "plan": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\paced-plan-guarded-v2\\PLAN.json",
+    "sha256": "6a288cdbd7be997d9bdda364a73dd501a3da01a3fd7228ed096d895751b4e210",
+    "bytes": 386795
+  },
+  "launch_environment": {
+    "PYTHONPATH": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree"
+  },
+  "isolated_repair": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\APPLICATION_IMPORT_PATH_REPAIR_CHECK_V1.json",
+    "sha256": "c329e45b08ad3e9e343ea03ee439a3be9fd2be00b0eab7d5814b9e78cfef33db",
+    "bytes": 2015
+  },
+  "maximum_seconds": 14400,
+  "allocation_bytes": 2147483648,
+  "source_unchanged": true,
+  "previous_attempt_preserved": true,
+  "integrated_N4_cells": 0,
+  "N4_accepted": false,
+  "N5_complete": false
+}

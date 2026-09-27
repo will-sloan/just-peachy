@@ -1,5 +1,41 @@
 # N5 partial release checkpoint
 
+## 2026-09-27 13:52 UTC - Fresh timed retry after verified import-path repair
+
+The closed semantic V5 probe passed all 66 regressions and both isolated import
+checks. All 482 dependency hashes, 12 source snapshots, actual 240-cell plan,
+resource boundaries and exact supervisor/driver closure were verified before
+publication in SEMANTIC_FAMILY_CHECK_V5.json. The negative subprocess reproduced
+the missing N3 module; the positive subprocess validated nine saved archive
+receipts with the explicit worktree path. APPLICATION_IMPORT_PATH_REPAIR_CHECK_V1.json
+records the limited repair proof; it is not actual application acceptance.
+
+A fresh V5 actual run started at 13:51:58 UTC in
+local/n4/paced-application-v5-worktree-path-v1. Supervisor identity is
+48828/1790517118.2387855; driver is 39720/1790517118.3957028; run ID is
+c38101ae1e134e3aa40fb1fb9bba7f59. APPLICATION_PANEL_ENVIRONMENT_RETRY_START_V1.json
+binds the exact dispatch, unchanged 304-source application family and 240-cell
+plan. Only the inherited process-local PYTHONPATH is changed; no global setting
+or frozen source is edited. The earlier failed attempt remains intact.
+
+The complete fresh resource census found no active allocation; the 2-GiB/4-hour
+run projects 48.498 GiB against the 50-GiB cap, with C111.93/G92.81 GiB free.
+Follow fresh progress and RESULT receipts before doing work. Do not duplicate
+the run, edit bound files or launch Python/WSL/QEMU alongside its actual cells.
+Read-only receipts and unbound documentation can proceed independently. Never
+infer acceptance from queue completion. Matching V5 panel/name/content review,
+continuity/restart checks, deployment tiers and release selection still follow.
+
+N2/N3 offline acceptance and reviewed numerical N4 coverage (7,680 main and
+1,536 modes cases) remain valid in their stated scopes. N4/N5 are incomplete.
+Reserve 2026-09-28 02:48:19 UTC; deadline 2026-09-28 14:48:19 UTC; neither extends.
+Live CM5 checks stay deferred until the user reconnects it. Historical sections
+below are preserved and superseded by this checkpoint for current worker state.
+
+Latest machine-readable checkpoint: `N5_STATUS_20260927_V3.json`. It preserves
+the earlier status and records accepted N2/N3, reviewed numerical N4 coverage,
+the failed first actual application attempt, verified import repair, fresh timed retry and remaining N5 validation.
+
 ## 2026-09-27 13:35 UTC - Actual N4 attempt failed at archive import
 
 The V5 application development qualification passed all 84 checks. Its first

@@ -1,5 +1,9 @@
 # N5 release preparation — campaign not complete
 
+Latest machine-readable checkpoint: `N5_STATUS_20260927_V3.json`. It preserves
+the earlier status and records accepted N2/N3, reviewed numerical N4 coverage,
+the failed first actual application attempt, verified import repair, fresh timed retry and remaining N5 validation.
+
 The preserved baseline is usable on Windows. N2/N3 have accepted offline
 component handoffs. New N4-selected alternatives are not accepted yet: the
 integrated application comparison and release-specific validation remain open.
