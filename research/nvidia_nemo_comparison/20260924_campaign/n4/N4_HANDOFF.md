@@ -1,4 +1,48 @@
-# N4 checkpoint - main and modes scoring accepted; reader validation running
+# N4 checkpoint - reviewed pair accepted; guarded planner diagnostic running
+
+## 2026-09-27 12:04 UTC - Actual reader passed; planner diagnostic started
+
+`PANEL_SCORING_GUARDED_CHECK_V2.json` records the actual real-pair PASS: all
+7,680 main and 1,536 modes inputs joined, 11 reader + 7 manifest tests passed,
+217 producer source bindings and eight snapshots verified, both complete
+resource checks passed, and exact probe/supervisor owners exited. The immutable
+V1 failure remains preserved. This qualifies the read-only evidence reader;
+it does not create or admit an application plan.
+
+After a fresh complete census with no active N4 allocation, the supervisor
+started `local/n4/panel-planner-guarded-probe-v2` at 12:02:45 UTC. Exact driver:
+42632/1790510565.2684293; exact supervisor: 30164/1790510565.103138. Both are
+live on CPU14/BelowNormal with a fresh heartbeat, and all 221 producer sources
+were reverified. The 8-MiB/20-minute admission projected 46.468 GiB under the
+50-GiB ceiling. `PANEL_PLANNER_GUARDED_START_V2.json` binds the launch. Do not
+duplicate it or change its bound source. It still needs its complete terminal,
+17 tests, 16/1,240 fixture comparisons, resource checks and exact closure.
+
+`PACED_SHORTLIST_PROPOSAL_V1.json` now proposes six evaluation compositions:
+A0/D0/E0 baseline, A1/D0/E0, A0/D1/E0, A0/D1/E1, A2/D1/E0 and A3/D1/E0.
+The strict existing selection schema passed with explicit reasons for all ten
+omitted compositions; all 16 keep their full numerical evidence. This covers
+each ASR family and a matched E0/E1 comparison without claiming a memory tier,
+identity gain or release selection. Its identical private planner input is
+`local/n4/proposed-paced-selection-v1.json` (SHA-256
+`af70a048111cd8437b553c078bfe911ade2d931dea36575b34fdc03463caa682`).
+`README_PACED_SHORTLIST_PROPOSAL_V1.md` explains purpose, inputs/outputs and
+PowerShell/CMD/Anaconda inspection. Do not feed it to an incompatible old planner.
+
+Next implementation must reconstruct actual selected inputs and model assets,
+bind the qualified reader/adapter and producer resource proofs, and qualify
+matching application/semantic/restart/continuity consumers. Preserve the full
+dependency list; qualify any child-manifest bound change rather than truncating
+it. Replace stale fixed pending-resource assumptions using the established full
+census/accounting interface in a fresh derivative, not manual ledger edits.
+The old access-denied process is gone; recheck ownership during actual admission.
+No actual N4 application cell or N5 release is accepted by these diagnostics.
+
+The numerical acceptance/report/repair checkpoint is backed up at
+`b9acc3b3c49aa111f187b74a33a8a5941ce09892`, verified against the remote branch.
+Its private backup receipt is `local/n4/git-backup-modes-reader-20260927-v1.json`.
+This continuation adds the reader qualification, planner start and proposal;
+the Pi, hourly schedule, packaging reserve and deadline remain unchanged.
 
 ## 2026-09-27 11:54 UTC - Modes accepted; complete-manifest reader repair running
 

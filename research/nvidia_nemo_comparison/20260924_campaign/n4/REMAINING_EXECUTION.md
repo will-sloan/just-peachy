@@ -1,5 +1,31 @@
 # N4 and N5 execution order and acceptance gates
 
+## 2026-09-27 12:04 UTC - Reader accepted; planner V2 is the active worker
+
+The actual reader passed and closed. `PANEL_SCORING_GUARDED_CHECK_V2.json`
+binds the full accepted pair, 18 tests, 217 sources, eight snapshots and both
+resource endpoints. The next diagnostic started after a new complete census:
+`local/n4/panel-planner-guarded-probe-v2`, driver 42632/1790510565.2684293,
+supervisor 30164/1790510565.103138, run ID d378dd66149f47d2b9134e07c4df3230.
+See `PANEL_PLANNER_GUARDED_START_V2.json`. It owns the N4 slot; do not duplicate
+it. Require actual PASS, 7 admission + 10 planner tests, 16/1,240 comparisons,
+221 producer sources, eight snapshots, full initial/final resource checks and
+exact owner closure before accepting this adapter diagnostic.
+
+The proposed six-configuration input is
+`local/n4/proposed-paced-selection-v1.json`, with matching public
+`PACED_SHORTLIST_PROPOSAL_V1.json` and README. All 16 compositions are accounted
+for; no release is selected. After the diagnostic passes, implement/qualify the
+actual production reconstruction/resource producer and matching application,
+semantic, restart and continuity family. Use this proposal only through that
+qualified path. It implies 240 paced panel/repeat cells and, if all advance,
+six 20-minute continuity tests. Keep every failure and respect packaging time.
+
+The process access error has cleared in a fresh observation; the application
+slot still needs real admission and current allowance accounting. No Pi contact,
+source-schema relabeling, source-manifest truncation or shared-ledger mutation
+is authorized by this checkpoint. N4/N5 remain incomplete.
+
 ## 2026-09-27 11:54 UTC - Numerical acceptance complete; use repaired V2 probes
 
 Both main (7,680) and modes (1,536) numerical score reviews are now accepted in

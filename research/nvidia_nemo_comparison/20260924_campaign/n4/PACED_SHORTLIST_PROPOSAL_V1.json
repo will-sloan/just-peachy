@@ -1,0 +1,97 @@
+{
+  "schema": "n4-paced-selection-v1",
+  "status": "PROPOSED_PACED_EVALUATION_ONLY",
+  "reviews": {
+    "main": {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\integrated-main-score-review-v3-timeout120-v1\\RESULT.json",
+      "sha256": "3c08fbdda930ea74f5fe0d00751e965530663c4a8694ca703784f1a5a579038f",
+      "bytes": 2874
+    },
+    "modes-panel": {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\integrated-modes-score-review-guarded-v1\\RESULT.json",
+      "sha256": "0fbc2a11e9dfbbd9a3b1e901d355316206ff45a62b2f54b9d22298477010f771",
+      "bytes": 5516
+    }
+  },
+  "selected": [
+    {
+      "composition": "A0_D0_E0",
+      "objective": "baseline",
+      "rationale": "Exact baseline comparator under the same saved-input frontend and scheduler. Main primary WER is 14.92% across both taps.",
+      "limitations": "Baseline retention is required; N4 application/resource and N5 per-build acceptance are still open."
+    },
+    {
+      "composition": "A1_D0_E0",
+      "objective": "smallest_useful",
+      "rationale": "Test the nominal 120M new ASR architecture with baseline diarization/embedding held fixed. This screens the smallest new ASR family in this comparison, not a measured smallest complete stack. Main primary WER is 16.84%.",
+      "limitations": "No claim of being smaller than the baseline or fitting 2 GB. Measure full process/model state, output quality and source-speed behavior."
+    },
+    {
+      "composition": "A0_D1_E0",
+      "objective": "diarization_identity",
+      "rationale": "Isolate D1 against A0_D0_E0 while retaining A0/E0. Main modeled cpWER is 39.36% versus baseline 99.73% on the same supported population.",
+      "limitations": "Lower modeled assignment error does not establish recognized names or latency. Actual first/stable naming, Unknown and outsider errors remain required."
+    },
+    {
+      "composition": "A0_D1_E1",
+      "objective": "diarization_identity",
+      "rationale": "Pair directly with A0_D1_E0 to test TitaNet versus ReDimNet under the same ASR and D1 windows. Both have identical main modeled word-assignment totals, so functional identity differences need separate observation.",
+      "limitations": "Different embedding spaces and compatible frozen galleries must remain separate. No identity equivalence or adaptation claim follows from identical cpWER."
+    },
+    {
+      "composition": "A2_D1_E0",
+      "objective": "text_tradeoff",
+      "rationale": "Test the lowest main-bank primary WER family in the D1 configuration: 13.34% primary WER and 34.23% cpWER across both taps. Preserve native punctuation/casing labels.",
+      "limitations": "Descriptive seen-bank result, not a significant or deployable win. Its 600M family requires measured startup, CPU throughput, RAM and text-preservation checks."
+    },
+    {
+      "composition": "A3_D1_E0",
+      "objective": "independent_architecture",
+      "rationale": "Retain the distinct newer ASR architecture with the same D1/E0 comparator. Main primary WER is 17.54%; this tests a runnable alternative without requiring it to beat the baseline.",
+      "limitations": "No multilingual claim from English data. No presumed memory tier or default promotion; higher error averages remain visible."
+    }
+  ],
+  "excluded": [
+    {
+      "composition": "A0_D0_E1",
+      "reason": "Omitted from paced shortlist to spend the E0/E1 matched contrast on D1. Its complete modeled evidence remains visible, including cpWER 108.49% versus baseline 99.73%."
+    },
+    {
+      "composition": "A1_D0_E1",
+      "reason": "First isolate A1 against the baseline with E0; the E1 contrast is paired under A0/D1. This is a shortlist bound, not an incompatibility declaration."
+    },
+    {
+      "composition": "A1_D1_E0",
+      "reason": "Retain the isolated A1/D0 ASR contrast and A0/D1 diarization contrast before adding this joint change; full modeled evidence remains available."
+    },
+    {
+      "composition": "A1_D1_E1",
+      "reason": "Combines multiple changes beyond the bounded six-candidate panel; no evidence is discarded and no incompatibility is asserted."
+    },
+    {
+      "composition": "A2_D0_E0",
+      "reason": "Use the A2/D1/E0 candidate for the text/assignment tradeoff and preserve the complete A2/D0 numerical rows. This is not a release rejection."
+    },
+    {
+      "composition": "A2_D0_E1",
+      "reason": "The A2 candidate and E1 contrast are represented separately; omit the combined change from paced scope while retaining all modeled rows."
+    },
+    {
+      "composition": "A2_D1_E1",
+      "reason": "Use A2/D1/E0 plus the isolated E1 contrast under A0/D1 to avoid another combined-change paced candidate. Identity equivalence is not assumed."
+    },
+    {
+      "composition": "A3_D0_E0",
+      "reason": "Use A3/D1/E0 for architecture confirmation with the common D1/E0 comparator; retain the complete A3/D0 numerical results."
+    },
+    {
+      "composition": "A3_D0_E1",
+      "reason": "Multiple simultaneous changes fall outside this bounded paced shortlist. Numerical coverage remains complete and capability is not labelled unavailable."
+    },
+    {
+      "composition": "A3_D1_E1",
+      "reason": "Retain A3/D1/E0 and test E1 in the matched A0/D1 pair; no speaker-recognition equivalence is inferred."
+    }
+  ],
+  "limitations": "Proposed paced evaluation only, not release selection or 2-GB qualification. Modeled scores do not establish first-visible naming, private-desktop GUI behavior, source-speed throughput, total RAM, restart/continuity or ARM64 functionality. Use frozen N2/N3 configurations and the same frontend, E/C/Q discipline, source and event policy. No thresholds or identities are tuned here. All sixteen compositions remain in numerical coverage; excluded means omitted only from this bounded application shortlist. Preserve baseline and prior failures. No default promotion, device connection or deadline extension."
+}
