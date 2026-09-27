@@ -1,0 +1,49 @@
+{
+  "status": "PASS_MODEL_FREE_DERIVATIVE_ONLY",
+  "utc": "2026-09-27T23:08:45.371816+00:00",
+  "tests": 50,
+  "failures": 0,
+  "errors": 0,
+  "skips": 1,
+  "real_model_runs": 0,
+  "release_accepted": false,
+  "GUI_validated": false,
+  "derivative": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\releases\\d1-anonymous-v1\\DERIVATIVE.json",
+    "bytes": 59931,
+    "sha256": "e2772d9e900fff37643f71ce00b0d7074cb2a216d04752d777fafdb554cea246"
+  },
+  "patch": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\releases\\d1-anonymous-v1\\CHANGES.patch",
+    "bytes": 2710,
+    "sha256": "877388359a41506cac406a40e7b96f7f0b2035da813d073ba0c9abf9a21f34b2"
+  },
+  "test_log": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\releases\\d1-anonymous-v1\\MODEL_FREE_TESTS.log",
+    "bytes": 8811,
+    "sha256": "ed08c076dd48d1021dce80e085d031a804fc991beda8625206b3904846db7a4e"
+  },
+  "initial_test_failure": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\releases\\d1-anonymous-v1\\MODEL_FREE_INITIAL_TEST_RESULT.json",
+    "bytes": 439,
+    "sha256": "25acff7ba92ff69e5fbe6973da6f0f17904d4230d2427264d3ffdebd42687cc7"
+  },
+  "test_context_override": "Inherited test module CAMPAIGN points to unchanged existing campaign scoring.py; no application source edit.",
+  "code": [
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n5\\prepare_d1_anonymous_v1.py",
+      "bytes": 4932,
+      "sha256": "8e6790e0ef6abd2e63468d72d669bd85b8f5ad22f57ae3b29f65d9ae94c29655"
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n5\\test_d1_anonymous_v1.py",
+      "bytes": 4574,
+      "sha256": "f373a27937a82971d7aa8a4c0cfea867229ad268dfcc1879fb78a8c33d98c9b8"
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n5\\README_D1_ANONYMOUS_V1.md",
+      "bytes": 3326,
+      "sha256": "294aedc1fa9371687a2569e9cf2411ac194e61390f80bb148fc77785afd01613"
+    }
+  ]
+}

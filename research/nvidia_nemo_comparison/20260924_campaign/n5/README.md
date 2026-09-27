@@ -1,5 +1,11 @@
 # N5 packaging tools
 
+`NEMOTRON_UTILIZATION_AND_NAMING_20260927.md` audits native activity, optional
+embeddings, manual/automatic naming, offline modes, optimization and future
+fine-tuning. `README_D1_ANONYMOUS_V1.md` documents a fresh anonymous-mode
+derivative with 50 model-free tests (49 pass, one skip); actual neural/GUI
+qualification remains pending. Existing launchers still use their verified source.
+
 `COMPONENT_PERFORMANCE_REPORT_20260927.md` gives the complete component and
 combination comparison, with detailed Nemotron diarization accuracy and CPU/CUDA
 processing measurements. `README_COMPONENT_PERFORMANCE_V1.md` documents the

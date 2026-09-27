@@ -1,5 +1,28 @@
 # N5 partial release checkpoint
 
+## 2026-09-27 - Nemotron utilization and anonymous encoder bypass
+
+The user asked whether D1 can replace external embeddings and how names work.
+NEMOTRON_UTILIZATION_AND_NAMING_20260927.md records the official-source audit:
+anonymous native slots need no separate encoder; automatic cross-session names
+still need a validated voice matcher. Manual session labels need no embeddings.
+Training is assessed only; current no-training/GPU-off/Pi-off limits persist.
+
+Fresh source derivative: local/releases/d1-anonymous-v1/DERIVATIVE.json, based
+on the exact accepted N3 source. Only app/n2_pipeline.py code changes. It skips
+external model acquisition/embedding calls in ordinary D1 anonymous mode, while
+keeping native activity, caption association and the speaker lane active. Named,
+D0 and explicit research-observer paths retain their original behavior. Global
+package asset requirements and cached earlier encoder residency are not removed.
+D1_ANONYMOUS_PREPARATION_CHECK_V1.json records 50 model-free tests: 49 pass, one
+optional model test skip. Initial relocated-test path failure is preserved and
+resolved through test-context binding, not application edits. No neural run or
+GUI pass on this derivative; do not replace the verified preview launchers yet.
+Next bounded admission should test fresh encoder load count zero, calls zero,
+native/ASR sample completeness, anonymous-label parity and saved-file lifecycle.
+After that, examine the missing offline-style profile for saved audio; current
+upstream full-attention offline and long-chunk streaming are distinct APIs.
+
 ## 2026-09-27 - full component report and verified D1 processing breakdown
 
 Read COMPONENT_PERFORMANCE_REPORT_20260927.md for the user's requested report.
