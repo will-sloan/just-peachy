@@ -1,5 +1,44 @@
 # N4 and N5 execution order and acceptance gates
 
+## 2026-09-27 15:00 UTC - Isolated V6 retry active; restart implementation prepared
+
+The previous V6 panel failed at 14:44:36 UTC after one baseline cell, when the
+slot detected an additional runtime PID 38780. Both application lifetimes and
+the exact supervisor/driver closed without forced termination; all 319 bound
+sources are unchanged. APPLICATION_PANEL_RUNTIME_CONFLICT_V6.json preserves the
+failure. A setup probe ran at 14:44:31; its exact PID command was not retained,
+so attribution to that probe is correlation, not a verified identity join.
+The verified design conflict is that scheduled pythonw probes enter the slot's
+all-interpreter census. The existing supervisor Remove interface removed only
+the three owned setup/inference/replay probes, with XML and receipts preserved
+in local/n4/scheduled-probe-isolation-v1. Keep them absent during exclusive
+application work. The hourly Codex heartbeat and existing host/per-cell guards
+remain active; no safety check or application source was weakened.
+
+APPLICATION_PANEL_ISOLATED_START_V6.json binds the fresh retry in
+local/n4/paced-application-v6-isolated-v1, started 14:55:50 UTC. Supervisor
+51404/1790520950.266557, driver 52736/1790520950.421447, run ID
+5f3f200ce0f547f79a4c77da6cf14926. The fresh complete census found no other
+allocation; the unchanged 2-GiB/four-hour cap projected 48.577 GiB. Initial guard
+passed 14:57:47 UTC, and plan reconstruction is running. Follow this worker,
+not either prior V6/V5 directory. Do not start Python, WSL, QEMU or tests while
+it runs. Keep shell metadata operations relative; do not make metadata commands
+look like a second campaign Python launcher to the conservative slot classifier.
+
+RESTART_FAMILY_V3_PREPARATION.json records 11 new unbound source/README files
+and a 450-record candidate lineage. Guarded plan, runner and matching transport,
+content and stopped-run readers now use the current plan, nested allocation
+proofs and bounded lease handling. The intended probe retains 81 compatibility
+checks and adds 20 guard/lineage checks, plus actual plan reconstruction. These
+101 checks have NOT run. There is no V3 qualification and no restart acceptance.
+Read README_RESTART_FAMILY_V3.md; qualify this derivative only after the active
+application worker closes, then prepare and execute the 12 pairs/24 sessions.
+Continuity work, actual-panel interpretation and N5 Windows/ARM64/release checks
+remain open. N5_STATUS_20260927_V6.json is the current checkpoint. Older active
+worker paragraphs below are superseded; the reserve/deadline and offline Pi
+constraints are unchanged.
+
+
 ## 2026-09-27 14:33 UTC - Fresh V6 application run active
 
 APPLICATION_PANEL_GUARDED_START_V6.json binds the new 240-cell run in

@@ -1,0 +1,66 @@
+{
+  "schema": "n4-application-panel-runtime-conflict-v1",
+  "utc": "2026-09-27T14:57:26.5832968Z",
+  "status": "FAILED_PARTIAL_V6_PANEL_PRESERVED",
+  "run_result": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\paced-application-v6\\RESULT.json",
+    "sha256": "8314a54f97168528585ec4c39b6ee62148442f47354a9870e7d09d95c0f5074d",
+    "bytes": 1459
+  },
+  "supervisor": {
+    "status": "FAILED",
+    "pid": 52416,
+    "create_time": 1790519541.8337643,
+    "run_id": "23f328f966624e3fab434fa39a9b56e7",
+    "started_utc": "2026-09-27T14:32:21.843190+00:00",
+    "heartbeat_unix": 1790520278.111757,
+    "resumed": false,
+    "argv_sha256": "15f01575e86a472e5b26ed6c81d25c15ed0fad6fe2ee5f54e55dbc0122bdd8f4",
+    "child_launch_pending": false,
+    "child_pid": 50788,
+    "child_create_time": 1790519541.9981372,
+    "exit_code": 1,
+    "ended_utc": "2026-09-27T14:44:38.111757+00:00",
+    "error": "Worker exited 1"
+  },
+  "completed": 1,
+  "required": 240,
+  "unexpected_pid": 38780,
+  "unexpected_command_retained": false,
+  "error": "Another model/helper or unadmitted runtime is active: 38780",
+  "exact_owned_processes_exited": true,
+  "all_observed_job_members_exited": true,
+  "forced_termination": false,
+  "default_desktop_preserved": true,
+  "code_records_unchanged": 319,
+  "closures": [
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\paced-application-v6\\cells\\panel_0_N2_S45_01_01_O0_A0_D0_E0\\PARENT_CLOSURE.json",
+      "sha256": "00d7e4d72b1fdcc5c76d516ee71969a54f9e500b4b5456a8b589dfea988973ad",
+      "bytes": 2699
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\paced-application-v6\\cells\\panel_0_N2_S45_01_01_O0_A1_D0_E0\\PARENT_CLOSURE.json",
+      "sha256": "f9b5cdc6cf8a8ce0a26c947c4270a477df1d2d7344d5b50d1770453c155cfdd4",
+      "bytes": 3633
+    }
+  ],
+  "closure_and_source_check": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\paced-application-v6-isolated-precheck-v1\\CHECK.json",
+    "sha256": "ac5b06ab3dea9bac55a1a7b03351e83ab37645c1806fe5666d79107b68c65b16",
+    "bytes": 92733
+  },
+  "periodic_probe_overlap": {
+    "setup_probe_utc": "2026-09-27T14:44:31.342000+00:00",
+    "actual_command_identity": "UNAVAILABLE_AFTER_PROCESS_EXIT",
+    "causal_attribution": "TIMESTAMP_CORRELATION_ONLY",
+    "verified_design_conflict": "Scheduled pythonw probe is included by the all-interpreter slot census"
+  },
+  "isolation": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\scheduled-probe-isolation-v1\\RESULT.json",
+    "sha256": "b675b846308f4d8dd36c4ad372c297edb04c531d75f2db588e0ff9c48264188b",
+    "bytes": 596
+  },
+  "N4_accepted": false,
+  "integrated_N4_cells": 0
+}

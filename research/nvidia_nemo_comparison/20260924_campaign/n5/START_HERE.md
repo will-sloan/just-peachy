@@ -1,8 +1,8 @@
 # N5 release preparation — campaign not complete
 
-Latest machine-readable checkpoint: `N5_STATUS_20260927_V5.json`. It preserves
+Latest machine-readable checkpoint: `N5_STATUS_20260927_V6.json`. It preserves
 the earlier status and records accepted N2/N3, reviewed numerical N4 coverage,
-the verified import/lease repairs and the fresh V6 application run. Earlier failed attempts remain preserved.
+the verified import/lease repairs and the isolated V6 application retry after a runtime conflict. Earlier failed attempts remain preserved. The restart derivative is prepared but its 101 checks remain unexecuted.
 
 The preserved baseline is usable on Windows. N2/N3 have accepted offline
 component handoffs. New N4-selected alternatives are not accepted yet: the

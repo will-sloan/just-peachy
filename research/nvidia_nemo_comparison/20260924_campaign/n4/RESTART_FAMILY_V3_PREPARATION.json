@@ -1,0 +1,95 @@
+{
+  "schema": "n4-restart-family-preparation-v3",
+  "utc": "2026-09-27T14:57:26.6606209Z",
+  "status": "IMPLEMENTED_PENDING_EXECUTABLE_VALIDATION",
+  "code": [
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\restart_family_v3.py",
+      "sha256": "0d294eb4d6b7450ab907d98e3eac3b4da396a208708fcf47aa8077aa4815bbb9",
+      "bytes": 7050
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\restart_application_plan_v3.py",
+      "sha256": "6627585ffc54c83738521641788d801c8a22b788ed13f3f6a13f963ccaa000af",
+      "bytes": 12210
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\restart_application_runner_v3.py",
+      "sha256": "6726a1afb08abf4d80b333f014f8d58a79054a1caaa12da5efd666a02cf82d70",
+      "bytes": 12743
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\review_restart_transport_v3.py",
+      "sha256": "c37a8610a81b798b5e9601584e62fdcbb9ab36c1cc6da6a0182976c97b1d39c7",
+      "bytes": 11109
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\review_restart_run_v3.py",
+      "sha256": "40506b556292865bca798b5f4f1af1155692f2f4f2cdee032d4452e403b972b9",
+      "bytes": 11640
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\review_restart_complete_v3.py",
+      "sha256": "2389bce7efacaa06aff09bffc3aef82b71aaf6c75e541403916f0320c1403c72",
+      "bytes": 1281
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\review_restart_content_cell_v3.py",
+      "sha256": "648065ab6eb41fabd24de151d7d12c6838f7058b1d55b99091503b1d16251aec",
+      "bytes": 6176
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\review_restart_content_run_v3.py",
+      "sha256": "022ffa4c4db1787394b901caf6ed301f185dc5e0fa7c4a53d51222135d226dc6",
+      "bytes": 9914
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\test_restart_guarded_v3.py",
+      "sha256": "b0292a817edd014151d5eec191f6237b405887f6616ab05ed94e74c2886df3c4",
+      "bytes": 8375
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\probe_restart_family_v3.py",
+      "sha256": "0af6ec68f1c5058f192d73edca4c30c3388279cc3c8c285b155aa721ae8254b9",
+      "bytes": 6208
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\README_RESTART_FAMILY_V3.md",
+      "sha256": "6b7ee31c85bae8f9bc36e57fb2c89ef4a3fc0ebcdfae51297138f8947d643c86",
+      "bytes": 5899
+    }
+  ],
+  "parents": [
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\RESTART_FAMILY_CHECK_V2.json",
+      "sha256": "7f4c842c22ed8be0e2b5d7dd3cb614d4af8c1c123530e491fcfae72722395f79",
+      "bytes": 129061
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\APPLICATION_FAMILY_CHECK_V6.json",
+      "sha256": "a8b33bab836f1d18f9dd440e5729e666043cf32b7a538a2fbfbb5241365cf55e",
+      "bytes": 98055
+    }
+  ],
+  "candidate_complete_manifest_count": 450,
+  "planned_regression_tests": 101,
+  "executed_regression_tests": 0,
+  "production_plan_reconstructed": false,
+  "actual_restart_pairs_executed": 0,
+  "qualification_published": false,
+  "current_actual_panel_unchanged": true,
+  "required_next": "Run guarded V3 probe after current application worker closes; inspect all results and exact owner closure before publishing qualification or executing restart pairs",
+  "N4_accepted": false,
+  "N5_complete": false,
+  "previous_draft_preparation": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\restart-v3-preparation-whitespace-v1\\RESTART_FAMILY_V3_PREPARATION.json",
+    "sha256": "d073940fbb47ec270e2dc02567f5db1831679fe0c604b1926ef2e236d747aa47",
+    "bytes": 4283
+  },
+  "preserved_previous_draft_source": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\restart-v3-preparation-whitespace-v1\\review_restart_complete_v3.py",
+    "sha256": "bb51a626c047613d6069f649d7e18a26f922d6a97d37dc53d8467fd41991b987",
+    "bytes": 1283
+  },
+  "editorial_correction": "Removed trailing empty lines identified by staged whitespace check; no executable logic changed; prior source and checkpoint preserved privately."
+}
