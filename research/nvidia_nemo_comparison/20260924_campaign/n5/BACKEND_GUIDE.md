@@ -2,9 +2,15 @@
 
 Current checkpoint: 2026-09-27. N2 and N3 have accepted offline component
 handoffs. Independent numerical N4 reviews cover all 7,680 main and 1,536 modes
-cases. The timed application panel, continuity/restart confirmation, deployment
-tiers and N4 release selection remain open. No new N5 backend is accepted yet.
-Read the newest section of ../n4/N4_HANDOFF.md for the active run.
+cases. Actual application confirmation is PARTIAL: the latest panel has two
+collected cells pending acceptance, two failures and 236 unattempted. Further
+whole-panel rescues have ended for this campaign to preserve release work.
+Continuity/restart, deployment tiers and new release selection remain incomplete.
+No new N5 backend is accepted. See ../n4/N4_PARTIAL_REPORT_20260927.md.
+
+The separately admitted ARM64 A2/A3 component check under QEMU is active at
+N5_STATUS_20260927_V12.json. Its result cannot supply the missing N4 application
+or full ARM64 GUI acceptance. Check later verified receipts before claiming a pass.
 
 | Composition | Purpose | Available evidence and remaining release work |
 |---|---|---|

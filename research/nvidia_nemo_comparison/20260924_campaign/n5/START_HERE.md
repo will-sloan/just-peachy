@@ -1,17 +1,20 @@
-# N5 release preparation — campaign not complete
+# N5 release preparation - campaign not complete
 
-Latest checkpoint: `N5_STATUS_20260927_V11.json`. V9 stopped after one collected
-cell and a setup file-open failure. A reproduced lease-open race has a qualified
-repair: 45 supervised checks passed, and the fresh V10 panel is running.
-`APPLICATION_PANEL_SETUP_FAILURE_V1.json` and `APPLICATION_FAMILY_CHECK_V10.json`
-in n4 preserve the diagnosis and its tested scope. No N4 acceptance is inferred
-from a started or completed queue. Matching V10 reviews, continuity and restart
-remain pending. Earlier V8/V9 running-worker statements are historical.
-The ARM64 native harness now compiles, and eight malformed-WAV checks passed
-under QEMU. `NATIVE_STREAM_BUILD_CHECK_V1.json` and
-`README_NATIVE_STREAM_BUILD_V1.md` supersede the earlier compilation-pending
-notes. Actual model/saved-speech inference and full ARM64 GUI validation remain
-untested. The device has not been contacted or updated.
+Latest checkpoint: `N5_STATUS_20260927_V12.json`. N4 actual application
+confirmation is PARTIAL: V10 has two collected cells pending acceptance, two
+failures and 236 unattempted of 240. The D1 speaker lane exceeded its drain
+limit; the fourth cell also failed Controller closure. Exact process owners
+have exited and failed evidence is preserved. No further whole-panel rescue is
+scheduled during this campaign. Read `../n4/N4_PARTIAL_REPORT_20260927.md` and
+`../n4/APPLICATION_PANEL_CLOSURE_FAILURE_V10.json` for the reconciled evidence.
+No new release profile is accepted.
+
+The existing compiled ARM64 native harness passed eight malformed-WAV checks.
+A supervised, bounded A2/A3 saved-audio component test is now active under QEMU;
+`NATIVE_STREAM_MODELS_START_V1.json` and `README_NATIVE_STREAM_MODELS_V1.md`
+record its exact scope and limits. Seven model-free reader checks passed.
+Actual model results must be reviewed after exact process closure. This is not
+full ARM64 GUI validation, a CM5 performance test or installation on the device.
 
 The preserved baseline is usable on Windows. N2/N3 have accepted offline
 component handoffs. New N4-selected alternatives are not accepted yet: the

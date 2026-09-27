@@ -1,0 +1,58 @@
+{
+  "exact_process_observations": [
+    {
+      "role": "host",
+      "creation_utc": "2026-09-27T18:55:12.3922250Z",
+      "create_time": 1790535312.3922255,
+      "exact_identity_verified": true,
+      "pid": 37496
+    },
+    {
+      "role": "driver",
+      "creation_utc": "2026-09-27T18:55:12.5770270Z",
+      "create_time": 1790535312.577028,
+      "exact_identity_verified": true,
+      "pid": 48940
+    }
+  ],
+  "private_precheck": {
+    "bytes": 7461,
+    "sha256": "93ad9b99db13ae01f7f6b83bfef24e067e41c57accc569f7ed9cf1c95824844f",
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\native-stream-models-v1-precheck\\CHECK.json"
+  },
+  "scope": "A2/A3 native ASR only; no release/GUI/CM5 qualification",
+  "private_admission": {
+    "bytes": 8250,
+    "sha256": "711d147ecee9e996bccbdfdab69f254dbf12effafda145e2b4baf14e485a1dad",
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\native-stream-models-v1\\ADMISSION.json"
+  },
+  "N5_complete": false,
+  "N4_accepted": false,
+  "private_start": {
+    "bytes": 841,
+    "sha256": "fcf792c0371b893b9661879343399ad79f24d79eecb449967ab01277fcea1ae9",
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\native-stream-models-v1-precheck\\STARTED.json"
+  },
+  "worker": {
+    "status": "RUNNING",
+    "pid": 37496,
+    "create_time": 1790535312.3922255,
+    "run_id": "73707682971f430da22de2faa5c395f2",
+    "started_utc": "2026-09-27T18:55:12.404466+00:00",
+    "heartbeat_unix": 1790535462.6914508,
+    "resumed": false,
+    "argv_sha256": "8d239ff4a369a72cd2461d0b81b6b6259d8709a28fdd263a77611257f76fbc92",
+    "child_launch_pending": false,
+    "child_pid": 48940,
+    "child_create_time": 1790535312.577028
+  },
+  "reader_checks": {
+    "bytes": 1790,
+    "sha256": "18694638ce66c9748605839c4699672acf15dfde8f6b52cd53db79d6f61ecfc8",
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\native-stream-models-targeted-v1\\RESULT.json"
+  },
+  "status": "STARTED_EMULATED_NATIVE_ASR_COMPONENT_CHECKS",
+  "model_free_tests_passed": 7,
+  "utc": "2026-09-27T18:57:45.0396453Z",
+  "CM5_tested": false
+}

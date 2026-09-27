@@ -1,5 +1,52 @@
 # N5 partial release checkpoint
 
+## 2026-09-27 18:54 UTC - N4 partial; paced retries ended for this campaign
+
+APPLICATION_PANEL_CLOSURE_FAILURE_V10.json records the independently reconciled
+V10 population: 240 required, two collected pending review, two failed, and 236
+unattempted. Four source cells actually started. The runner's attempted=3 counts
+returned outcomes and excludes its fourth fatal cell; it is not the population
+count. All four Windows jobs closed normally without forced termination, and
+all recorded exact host/driver/application owners are now absent. All 337 bound
+code records were rehashed unchanged. Failed attempts and private evidence remain.
+
+The A0/D1/E0 third cell exceeded the unchanged 60-second speaker-lane drain and
+was retained as a verified failed cell. A0/D1/E1 then exceeded the same drain;
+its finalization receipt still reported a live edge-speaker and denied resident
+bundle reuse. Its later engine snapshot showed no live workers, but its actual
+Controller closure receipt remained false and the Controller thread was alive.
+The strict collector correctly stopped. Source delivery reached all 715,127
+frames. Eventual OS process exit does not repair application closure or timing.
+
+The Controller retains its owner while session workers remain alive, and this
+cell calls Close once. This is a plausible temporal explanation, not a captured
+exact Controller exception. No timeout widening, retry gate relaxation, source
+mutation or revised success claim is made. The lease-open repair got through
+all four setups; that does not resolve these application failures.
+
+Per the N4 specification's reserve rule, N4 actual application confirmation is
+PARTIAL and no further whole-panel rescue is scheduled within this campaign.
+There are zero accepted new release profiles. N2/N3 accepted offline component
+scope and 7,680/1,536 main/mode modeled-score receipts remain separate and valid.
+Matching V10 semantic/timing acceptance, full paced population, 20-minute
+continuity and 12 paired restarts are NOT_TESTED or incomplete, not waived.
+
+Remaining effort prioritizes bounded N5 ARM64 software checks and packaging
+already supported software. The new native ASR component controller and reader
+are described in n5/README_NATIVE_STREAM_MODELS_V1.md; seven model-free reader
+checks passed. Follow local/n5/native-stream-models-v1 and worker.json for any
+subsequently admitted run. These component checks cannot promote an N4 profile,
+validate the ARM64 GUI, or establish CM5 performance. Never start alongside an
+active owner. Preserve the 02:48:19 UTC September 28 packaging reserve and
+14:48:19 UTC deadline. The Pi stays off and live checks remain deferred.
+
+After the campaign, a resumed N4 investigation must use a fresh derivative,
+capture the actual Controller rejecting exception, reproduce delayed lane
+closure and preserve failure/owner-retention tests. Any common-source repair
+needs paired requalification and matching readers before a fresh full panel.
+Do not reuse a partial run as accepted timing evidence or combine its counts.
+Older active-run sections below are historical.
+
 ## 2026-09-27 18:08 UTC - V10 qualified and fresh application panel active
 
 APPLICATION_FAMILY_CHECK_V10.json records 45 passing supervised checks, nine

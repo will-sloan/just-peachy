@@ -1,0 +1,88 @@
+{
+  "status": "PARTIAL_N4_ACTUAL_APPLICATION_CONFIRMATION",
+  "utc": "2026-09-27T18:46:58.312502+00:00",
+  "private_audit": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\application-abort-v10-audit-v1\\RESULT.json",
+    "sha256": "8446e0265476c8b67797875a02885398b7b40f5b1622e6af4619c6a80b200e4d",
+    "bytes": 9009
+  },
+  "run": "local/n4/paced-application-v10",
+  "required": 240,
+  "collected_requires_review": 2,
+  "failed": 2,
+  "not_attempted": 236,
+  "actually_started": 4,
+  "reported_attempted": 3,
+  "reported_attempted_excludes_fatal_cell": true,
+  "verified_code_records": 337,
+  "all_exact_owners_closed": true,
+  "normal_job_closures": 4,
+  "rows": [
+    {
+      "cell_id": "panel_0_N2_S45_01_01_O0_A0_D0_E0",
+      "outcome": "collected_requires_review",
+      "owner": {
+        "pid": 41076,
+        "create_time": 1790532755.5745053
+      },
+      "exit_code": 0,
+      "controller_closed": true,
+      "controller_worker_exited": true,
+      "job_empty": true,
+      "forced": false
+    },
+    {
+      "cell_id": "panel_0_N2_S45_01_01_O0_A1_D0_E0",
+      "outcome": "collected_requires_review",
+      "owner": {
+        "pid": 51672,
+        "create_time": 1790532817.8850276
+      },
+      "exit_code": 0,
+      "controller_closed": true,
+      "controller_worker_exited": true,
+      "job_empty": true,
+      "forced": false
+    },
+    {
+      "cell_id": "panel_0_N2_S45_01_01_O0_A0_D1_E0",
+      "outcome": "failed_lane_timeout",
+      "owner": {
+        "pid": 53708,
+        "create_time": 1790532885.6489131
+      },
+      "exit_code": 1,
+      "controller_closed": true,
+      "controller_worker_exited": true,
+      "job_empty": true,
+      "forced": false
+    },
+    {
+      "cell_id": "panel_0_N2_S45_01_01_O0_A0_D1_E1",
+      "outcome": "fatal_controller_closure_failure",
+      "owner": {
+        "pid": 48164,
+        "create_time": 1790533008.1324422
+      },
+      "exit_code": 1,
+      "controller_closed": false,
+      "controller_worker_exited": false,
+      "job_empty": true,
+      "forced": false
+    }
+  ],
+  "primary_failure": "edge-speaker exceeded unchanged 60-second finalization drain",
+  "fatal_failure": "Controller closed=false and worker_exited=false after its Close command; strict collector correctly aborted",
+  "source_frames_delivered": 715127,
+  "live_lanes_at_finalization": [
+    "edge-speaker"
+  ],
+  "resident_bundle_reuse_allowed": false,
+  "root_cause_scope": "Later engine snapshot has no live lanes. Controller source retains ownership when a worker is still alive, and the cell calls Close once. This explains a plausible temporal path; exact Controller exception was not captured, so its specific rejecting check remains unverified.",
+  "continued_paced_retries": false,
+  "decision": "Preserve PARTIAL and use remaining campaign time for bounded ARM64 software checks and supported-release packaging; no failure gate relaxation.",
+  "N4_accepted": false,
+  "new_release_profiles_accepted": 0,
+  "N5_complete": false,
+  "CM5_tested": false
+}
