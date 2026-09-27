@@ -1,5 +1,34 @@
 # N4 and N5 execution order and acceptance gates
 
+## 2026-09-27 10:40 UTC - Independent score review and next adapters
+
+Modes scoring completed 1,536/1,536 with no missing metrics or failed/untested
+predictions; exact scorer, launcher, supervisor and metric helpers are closed.
+`MODES_SCORE_REVIEW_START_V1.json` records the independent review launch at
+10:33:17 UTC. Reviewer 39036/1790505197.867268, launcher
+48924/1790505197.835503 and supervisor 45564/1790505197.6749449 remain the
+active chain. Output: `local/n4/integrated-modes-score-review-guarded-v1`.
+Do not duplicate it. Its full successful result, source/resource validation and
+exact closure are required before score acceptance.
+
+Next, in order and after fresh resource admission each time:
+
+1. `panel-scoring-guarded-probe-v1-worker.json`: the existing reader diagnostic
+   with both actual closed main/modes reviews. Require real-pair PASS and closure.
+2. `panel-planner-guarded-probe-v1-worker.json`: the new pure planner adapter
+   diagnostic. It will run 10 tests and 1,240 fixture payload comparisons across
+   16 compositions, preserving the 13-field child allowlist and false execution
+   permission. The 217-file preparation is recorded in
+   `PANEL_PLANNER_GUARDED_PREPARATION_V1.json`; only three syntax checks have run.
+3. Qualify production plan reconstruction/resource provenance and matching
+   application, semantic, restart and continuity consumers before actual execution.
+   The controlled GUI/resource ownership blocker remains separate and unresolved.
+
+Both prepared diagnostics have 8-MiB/20-minute limits and require sole N4
+ownership. They do not establish candidate selection, application acceptance or
+N5 completion. Preserve their sources; use fresh derivatives after any failed
+attempt. Packaging reserve/deadline and live-CM5 deferral remain unchanged.
+
 ## 2026-09-27 09:35 UTC - Scoring is now the active stage
 
 `MODES_MODELED_METHOD_ACCEPTANCE_V1.json` records the complete independent

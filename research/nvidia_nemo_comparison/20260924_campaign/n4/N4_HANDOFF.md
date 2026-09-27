@@ -1,4 +1,47 @@
-# N4 checkpoint - modes methods reviewed; scoring running
+# N4 checkpoint - modes scoring complete; independent score review running
+
+## 2026-09-27 10:40 UTC - Scores complete; guarded planner adapter prepared
+
+The modes scoring terminal completed at 09:55:23 UTC: 1,536/1,536 scores,
+zero failed/untested predictions and zero unavailable metrics. All score receipt
+hashes, source/execution joins, report/evaluator bindings and resource receipts
+verified. Exact scorer, venv launcher, supervisor and all three metric-helper
+identities exited, with pipes closed after 1,536 requests. Scoring still requires
+its independent review; the completed terminal alone is not score acceptance.
+
+After a fresh complete resource census, the prepared independent score reviewer
+started at 10:33:17 UTC. Output is
+`local/n4/integrated-modes-score-review-guarded-v1`; exact reviewer is
+39036/1790505197.867268, venv launcher 48924/1790505197.835503 and supervisor
+45564/1790505197.6749449. All three were verified live on CPU14/BelowNormal with
+fresh heartbeat and 120 unchanged bound sources. Its 8-MiB/two-hour admission
+projected 46.462 GiB under the 50-GiB ceiling. `MODES_SCORE_REVIEW_START_V1.json`
+binds these facts. PID reuse is handled by exact creation identities; do not
+treat a matching numeric PID as a surviving old metric worker.
+
+Independent work added `paced_panel_plan_guarded_v1.py`, a pure adapter from
+the guarded score policy to the existing delivery-observed panel construction.
+It preserves pairing, counts, source lineage and the 13-field child allowlist,
+with execution permission false and a distinct schema/cache policy. It has no
+production reconstruction, plan admission or launch API. A new bounded probe
+will check 10 in-memory tests and compare 1,240 fixture payloads across all 16
+compositions against V4, using actual closed reviews and saved-panel hashes.
+Three Python syntax checks passed; runtime tests and payload comparisons have
+NOT_RUN status. `PANEL_PLANNER_GUARDED_PREPARATION_V1.json` records 217 source
+bindings and preserved source snapshots. Its README contains purpose, inputs,
+outputs and PowerShell/CMD/Anaconda commands. Do not relabel this as qualification.
+
+Two immutable private specs are prepared, not dispatched:
+`panel-scoring-guarded-probe-v1-worker.json` and
+`panel-planner-guarded-probe-v1-worker.json`. First complete and independently
+accept the active score review, with exact reviewer/launcher/supervisor closure.
+Then fresh census and the real-pair reader probe; require its passing actual-pair
+result and exact closure. Then fresh census and the planner adapter diagnostic.
+Each diagnostic has an 8-MiB/20-minute limit and sole N4 resource ownership.
+Qualified production reconstruction, compatible application/semantic/restart/
+continuity consumers and the controlled GUI/resource gate remain required.
+N4/N5 are not accepted, and the Pi remains off. Hourly continuation, packaging
+reserve and campaign deadline are unchanged.
 
 ## 2026-09-27 09:35 UTC - Modes method review accepted; scoring started
 

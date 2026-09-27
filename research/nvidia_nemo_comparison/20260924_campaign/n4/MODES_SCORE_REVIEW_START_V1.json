@@ -1,0 +1,265 @@
+{
+  "status": "COMPLETE_MODELED_SCORING_INDEPENDENT_REVIEW_STARTED",
+  "utc": "2026-09-27T10:39:14.773935+00:00",
+  "scoring_terminal": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\integrated-modes-scores-guarded-v1\\RESULT.json",
+    "sha256": "4101e1660adaf07068eb759380caf62e3f4b957824f717cbf8ec60cc5a15668f",
+    "bytes": 378495
+  },
+  "scoring_admission": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\integrated-modes-scores-guarded-v1\\ADMISSION.json",
+    "sha256": "77fc68f4bc03604822bdd56618a07e5746010bc343aa4047fdd627ab3b7cb7f0",
+    "bytes": 33758
+  },
+  "scoring_execution_plan": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\integrated-modes-scores-guarded-v1\\EXECUTION_PLAN.json",
+    "sha256": "02db84dc352f017a916a6b97f74314980b13e62016ab87e79755c52fbb867c26",
+    "bytes": 33331
+  },
+  "scoring_report": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\integrated-modes-scores-guarded-v1\\REPORT.json",
+    "sha256": "dc0c8e185bb787e3d667c6aef8220bb2b39bd3746f91af59a9c0be536a3b658b",
+    "bytes": 12970545
+  },
+  "evaluator": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\integrated-modes-scores-guarded-v1\\EVALUATOR.json",
+    "sha256": "7ce340685ef018d202864b30f4463d6bad9e40a8df8422e1ff0c4ecceb498c32",
+    "bytes": 971
+  },
+  "original_plan": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\integrated-modes-plan-v3.json",
+    "sha256": "ab3a6f79b13cbd200b24d72c7749814cf1f170f611b828eb603b86c9b2cfbfaf",
+    "bytes": 3825365
+  },
+  "required": 1536,
+  "prediction_completed": 1536,
+  "prediction_failed": 0,
+  "prediction_not_tested": 0,
+  "metrics_unavailable_for_complete_predictions": 0,
+  "score_bindings_reverified": 1536,
+  "guard_checks": [
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\integrated-modes-scores-guarded-v1\\GUARD_INITIAL.json",
+      "sha256": "478bfa3b429efca35aa2c67918fa2d6aca05ce7bcb37ee9642bf82563ed6a5ec",
+      "bytes": 272636
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\integrated-modes-scores-guarded-v1\\GUARD_00128.json",
+      "sha256": "66d34eb8f40ac636c60e4ee5d912f6c2f86d23317dd5e6d8a4f8c0663d99fbaa",
+      "bytes": 272808
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\integrated-modes-scores-guarded-v1\\GUARD_00256.json",
+      "sha256": "70c025c735820bb0913727cb37a95571e182d311acf8861e8a22fc00b7b1f931",
+      "bytes": 272810
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\integrated-modes-scores-guarded-v1\\GUARD_00384.json",
+      "sha256": "afe4032ff1161bd2e9fda41d76da8c2e9217e62ec0ae33be1587d1246c305735",
+      "bytes": 272810
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\integrated-modes-scores-guarded-v1\\GUARD_00512.json",
+      "sha256": "bf3bd54689b2d6b781d8684b8fc128edf283da985c73bf71374ef3e2261ab667",
+      "bytes": 272810
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\integrated-modes-scores-guarded-v1\\GUARD_00640.json",
+      "sha256": "2de54d1be216e8324908be80e246f5b75407aad3f49755435d05d62d31f8989e",
+      "bytes": 272810
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\integrated-modes-scores-guarded-v1\\GUARD_00768.json",
+      "sha256": "b55712a5a6648a232ba157d621365b5ce20781be06fe316337f5c8b18ce73d18",
+      "bytes": 272810
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\integrated-modes-scores-guarded-v1\\GUARD_00896.json",
+      "sha256": "a943bead6ae7c44fdd7b8b06cd2647b49b8bf1f62f4d2dc3d6509d1de43f222e",
+      "bytes": 272810
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\integrated-modes-scores-guarded-v1\\GUARD_01024.json",
+      "sha256": "fbc3160a0438599f0a49498a6cd50639b1f37605e39cf8491892b7139b31468e",
+      "bytes": 272810
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\integrated-modes-scores-guarded-v1\\GUARD_01152.json",
+      "sha256": "0e076608e9fe1b47213898f8d0ce1fa5cea83fcfae1f503347725d6861f94f2e",
+      "bytes": 272810
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\integrated-modes-scores-guarded-v1\\GUARD_01280.json",
+      "sha256": "c5ccf5c9eda25fd31f1593ded5393cea78593b8ba1d9fd548dbf013cc496c4e9",
+      "bytes": 272810
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\integrated-modes-scores-guarded-v1\\GUARD_01408.json",
+      "sha256": "f703f0f6fc5c93d109f7f1fe9e5de048b65360ffdcec5f7b3c7e8f85bbd8a3a0",
+      "bytes": 272810
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\integrated-modes-scores-guarded-v1\\GUARD_FINAL.json",
+      "sha256": "ef02e2479f86b5d3a2a925f007521d60875e7dd1711cd913dcafaa976bc2f3a8",
+      "bytes": 272642
+    }
+  ],
+  "closed_scoring_owners": [
+    {
+      "pid": 41328,
+      "create_time": 1790501612.164423
+    },
+    {
+      "pid": 49200,
+      "create_time": 1790501612.1276567
+    },
+    {
+      "pid": 33700,
+      "create_time": 1790501611.970641
+    }
+  ],
+  "closed_metric_workers": [
+    {
+      "owners": [
+        {
+          "pid": 51812,
+          "create_time": 1790501730.0932236
+        },
+        {
+          "pid": 41908,
+          "create_time": 1790501730.1104329
+        },
+        {
+          "pid": 48924,
+          "create_time": 1790501730.1306622
+        }
+      ],
+      "all_exact_owners_exited": true,
+      "pipe_threads_closed": true,
+      "requests": 1536,
+      "stderr_bytes": 0,
+      "stderr_retained_bytes": 0
+    }
+  ],
+  "dispatch_admission": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\integrated-modes-score-review-guarded-v1-dispatch\\ADMISSION.json",
+    "sha256": "b3b271c8485f503e6e40c63d344ae7569a28d08f895888a431e6c5f1293e3fa1",
+    "bytes": 305503
+  },
+  "dispatch_started": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\integrated-modes-score-review-guarded-v1-dispatch\\STARTED.json",
+    "sha256": "de0c7adbfbcec73387ac4237236d37552a4cff479148ec6e51dec14019251508",
+    "bytes": 938
+  },
+  "review_admission": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\integrated-modes-score-review-guarded-v1\\ADMISSION.json",
+    "sha256": "2282c85db7fdafa242a550f57585bb837e96ad2053731c19cb525f602a0e8bfb",
+    "bytes": 33501
+  },
+  "review_execution_plan": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\integrated-modes-score-review-guarded-v1\\EXECUTION_PLAN.json",
+    "sha256": "888c8a0fe625baa69a3b8d5cc989f243eecf412dfd51118285f3c7610b680086",
+    "bytes": 33333
+  },
+  "live_process_observations": [
+    {
+      "role": "supervisor",
+      "owner": {
+        "pid": 45564,
+        "create_time": 1790505197.6749449
+      },
+      "parent_pid": 44076,
+      "affinity": [
+        14
+      ],
+      "priority": 16384,
+      "command": [
+        "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\.edge-speech-env\\python.exe",
+        "-B",
+        "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\supervision\\supervisor.py",
+        "host",
+        "--root",
+        "G:\\Just_Peachy_N1\\20260924_campaign\\local\\supervision"
+      ]
+    },
+    {
+      "role": "launcher",
+      "owner": {
+        "pid": 48924,
+        "create_time": 1790505197.835503
+      },
+      "parent_pid": 45564,
+      "affinity": [
+        14
+      ],
+      "priority": 16384,
+      "command": [
+        "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\metrics\\env\\Scripts\\python.exe",
+        "-B",
+        "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\guarded_review_v1.py",
+        "--kind",
+        "score-review",
+        "--run",
+        "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\integrated-modes-scores-guarded-v1",
+        "--output",
+        "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\integrated-modes-score-review-guarded-v1",
+        "--max-seconds",
+        "7200"
+      ]
+    },
+    {
+      "role": "reviewer",
+      "owner": {
+        "pid": 39036,
+        "create_time": 1790505197.867268
+      },
+      "parent_pid": 48924,
+      "affinity": [
+        14
+      ],
+      "priority": 16384,
+      "command": [
+        "C:\\Users\\amiri\\anaconda3\\python.exe",
+        "-B",
+        "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\guarded_review_v1.py",
+        "--kind",
+        "score-review",
+        "--run",
+        "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\integrated-modes-scores-guarded-v1",
+        "--output",
+        "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\integrated-modes-score-review-guarded-v1",
+        "--max-seconds",
+        "7200"
+      ]
+    }
+  ],
+  "run_id": "90c126fb3ca1418281a7023afaea2845",
+  "source_files_reverified": 120,
+  "source_qualification": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\GUARDED_BANK_CHECK_V1.json",
+    "sha256": "12d040698032ea40dee420880c745f116466dbcf8b2db7a52ac2ee6727111e00",
+    "bytes": 40516
+  },
+  "allocation_bytes": 8388608,
+  "maximum_seconds": 7200,
+  "projection": {
+    "schema": "n4-reservation-calculation-v1",
+    "existing_bytes": 47194957695,
+    "active_remaining_bytes": 0,
+    "requested_bytes": 8388608,
+    "retained_pending_bytes": 2147483648,
+    "contingency_bytes": 536870912,
+    "expired_closed_reservations_bytes": 4294967296,
+    "projected_bytes": 49887700863,
+    "allowance_bytes": 53687091200,
+    "packaging_cutoff_utc": "2026-09-28T02:48:19+00:00",
+    "physical_bytes_removed_or_credited": 0,
+    "worker_execution_authorized": false
+  },
+  "independent_score_review_complete": false,
+  "scoring_accepted": false,
+  "integrated_N4_cells": 0,
+  "N4_accepted": false,
+  "N5_complete": false,
+  "Pi_contacted": false
+}
