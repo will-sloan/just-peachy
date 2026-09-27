@@ -1,6 +1,19 @@
 # N5 release preparation - campaign not complete
 
-Latest checkpoint: `N5_STATUS_20260927_V15.json`. N4 actual application
+Latest checkpoint: `N5_STATUS_20260927_V16.json`.
+
+For working Windows NeMo previews, use `Start-N5-NEMOTRON.cmd` (A2 captions)
+or `Start-N5-NEMOTRON-SPEAKERS.cmd` (A2 plus D1 anonymous speakers).
+Both open idle and use a separate campaign data store. Optional `--wav` accepts
+an already-prepared saved file; microphone/playback remain disabled. Read
+`README_NEMOTRON_WINDOWS_PREVIEW_V1.md` before launch. Both modes passed their
+own real Windows render/save/reopen/delete checks on one complete 44.7-second
+source. All four private GUI processes closed normally. A2's main-bank WER is
+13.34% versus baseline 14.92%, with increased omissions and a short-turn
+weakness. Read `NEMO_RESULTS_AND_INSIGHTS_20260927.md` for the full comparison.
+No visible application was launched by the campaign.
+
+N4 actual application
 confirmation is PARTIAL: V10 has two collected cells pending acceptance, two
 failures and 236 unattempted of 240. The D1 speaker lane exceeded its drain
 limit; the fourth cell also failed Controller closure. Exact process owners

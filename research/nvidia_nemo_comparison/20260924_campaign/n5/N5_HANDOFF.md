@@ -1,5 +1,44 @@
 # N5 partial release checkpoint
 
+## 2026-09-27 22:40 UTC - A2 Windows previews verified; comparative insights
+
+Current checkpoint: N5_STATUS_20260927_V16.json. Following the user's request,
+prioritize functioning Windows backends and repair work. The exact accepted N3
+source now passes two separately admitted A2 saved-file lifecycle checks:
+caption-only/fast and anonymous-conversation/balanced with D1. Each consumed
+all 715,127 samples, rendered 16 segments, saved four utterances, reopened them
+in a new process and deleted only that test session. The anonymous run consumed
+all identity samples, ended with zero speaker lag, observed two model slots and
+made 20 embedding calls. Four actual private Windows GUI processes closed
+normally, unforced, with their exact owners absent and input desktop unchanged.
+380 source files and 15 assets were rehashed. Six receipt refusal tests passed.
+The two NEMOTRON_WINDOWS_*_CHECK_V1.json receipts retain the exact evidence.
+
+Start-N5-NEMOTRON.cmd and Start-N5-NEMOTRON-SPEAKERS.cmd are user-invoked
+engineering-preview launchers. They use the qualified local source/models,
+saved-audio-only mode and a separate data store, and refuse an active campaign
+worker. Both read-only launch checks passed; no visible GUI was opened.
+README_NEMOTRON_WINDOWS_PREVIEW_V1.md provides run instructions. This is not
+a portable release or a substitute for N4 full-bank application acceptance.
+
+NEMO_RESULTS_AND_INSIGHTS_20260927.md reports primary WER A0 14.92%, A1 16.84%,
+A2 13.34%, A3 17.54%; A2 makes fewer substitutions/insertions but more omissions.
+It slightly regresses on short-turn scenes. D1 provides the largest modeled
+speaker-assignment gain; E1 does not improve the primary D1 totals. Personal
+names remain unverified. All new aggregates derive from the exact reviewed
+report, with unchanged denominators and no new alignments.
+
+Next repair lead: N4's failed A0/D1/E0 cell recorded 32.50 wall seconds inside
+the viewport observer (430 render and 424 timer observations), against a total
+cell duration of 111.26 seconds. Source-clock observation was only 0.115 seconds.
+This is not a CPU-cost measurement or proven cause; preemption is included.
+The actual N4 source differs from N3 in complete event retention and catalog,
+and its mode/gallery/instrumentation also differ. Use a bounded, newly bound
+diagnostic to isolate these differences; do not weaken the 60-second drain or
+closure gate, alter a running source, or relabel the new small checks as N4
+acceptance. Both newly tested Windows modes passed without changing models,
+inference code, existing timeouts or shared UI. N4/N5 remain partial. Pi off.
+
 ## 2026-09-27 22:09 UTC - paired C-API diagnostic closed; ARM64 blocker persists
 
 Current checkpoint: N5_STATUS_20260927_V15.json. V3 Windows C++ produced three

@@ -1,5 +1,14 @@
 # N5 packaging tools
 
+Windows A2 now has verified one-file lifecycle checks in caption-only and
+anonymous-speaker modes, with normal closure of all four private GUI processes.
+`README_NEMOTRON_WINDOWS_PREVIEW_V1.md` documents the two user-invoked launchers,
+inputs/outputs and PowerShell/CMD/Anaconda commands.
+`README_NEMOTRON_WINDOWS_LIFECYCLE_V1.md` documents the bounded test/admission
+code. `NEMO_RESULTS_AND_INSIGHTS_20260927.md` explains the accuracy, omission,
+short-turn, noise and resource tradeoffs. Latest checkpoint: V16. These are
+working engineering previews, not completed N4/N5 release qualification.
+
 Purpose: prepare verified offline baseline and native ARM64 artifacts while
 upstream comparisons run. N5 is PARTIAL, not release acceptance or campaign
 closure. START_HERE.md is the operating index. README_ARM64.md covers the build,

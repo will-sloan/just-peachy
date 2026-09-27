@@ -6,9 +6,14 @@ cases. Actual application confirmation is PARTIAL: the latest panel has two
 collected cells pending acceptance, two failures and 236 unattempted. Further
 whole-panel rescues have ended for this campaign to preserve release work.
 Continuity/restart, deployment tiers and new release selection remain incomplete.
-No new N5 backend is accepted. See ../n4/N4_PARTIAL_REPORT_20260927.md.
+No new N5 release backend is accepted. This does not mean NeMo is nonfunctional
+on Windows: A2 has three accepted N3 GUI cases and now two further saved-file
+lifecycle passes (caption-only and anonymous-speaker modes). User-invoked
+launchers and local setup are documented in README_NEMOTRON_WINDOWS_PREVIEW_V1.md.
+Detailed comparative results are in NEMO_RESULTS_AND_INSIGHTS_20260927.md.
+See ../n4/N4_PARTIAL_REPORT_20260927.md for the larger unresolved panel.
 
-N5_STATUS_20260927_V15.json records closed ARM64 failures. A2 completed a full
+N5_STATUS_20260927_V16.json also retains the closed ARM64 failures. A2 completed a full
 pass and timed out during the repeat; A3 was unattempted. Separately, the baseline
 Sherpa C-API probe consumed both full streams but returned empty text under
 QEMU while its Windows reference passed. Neither is a complete component pass.
@@ -23,7 +28,8 @@ cause but did not fix it; see BASELINE_C_API_DIAGNOSTIC_FINDINGS_V3.md.
 | A1/D0/E0 | Parakeet realtime EOU 120M ASR | Accepted N3 offline component scope and reviewed N4 numerical cases; proposed timed panel. Portable release and per-build checks remain pending. |
 | A0/D1/E0 | Nemotron diarization with baseline ASR/embedding | Accepted N2 offline component scope and reviewed N4 numerical cases; proposed timed panel. Application/resource and portable release checks remain pending. |
 | A0/D1/E1 | TitaNet embeddings in their own model namespace | Accepted N2 offline component scope and reviewed N4 numerical cases; proposed timed panel. Encoder-specific galleries and release checks remain required. |
-| A2/D1/E0 and A3/D1/E0 | Native stateful 600M ASR alternatives | Accepted N3 offline component scope and reviewed N4 numerical cases; proposed timed panel. ARM64 native binaries are built; model/GUI functional checks remain pending. |
+| A2/D1/E0 | Nemotron English 600M ASR and Nemotron diarization | Three N3 GUI passes; fresh one-file caption and anonymous-speaker save/reopen/delete lifecycle passes. Windows engineering preview available. N4 full application acceptance and ARM64 completion remain pending. |
+| A3/D1/E0 | Nemotron 3.5 600M ASR alternative | Three N3 GUI passes with two CPU cores; one-core failure and caption fragmentation retained. Main-bank WER is worse than baseline. ARM64 model run remains unattempted; no release qualification. |
 | Other matrix compositions | Comparators used to interpret the full numerical bank | Numerical coverage does not make a composition a selected or packaged release. |
 | X1 multitalker | Optional high-compute overlap comparison | Deferred; not a release. |
 

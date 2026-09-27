@@ -1,0 +1,133 @@
+{
+  "status": "PASS_NEMOTRON_WINDOWS_ANONYMOUS_LIFECYCLE_SMOKE",
+  "utc": "2026-09-27T22:42:01.450620+00:00",
+  "private_admission": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\nemotron-windows-anonymous-v1\\ADMISSION.json",
+    "sha256": "df906978b8e54e75ecc71935270c7ad3f74b148150d6d092cf5839bd6ac76731",
+    "bytes": 111158
+  },
+  "private_result": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\nemotron-windows-anonymous-v1\\RESULT.json",
+    "sha256": "71afd25e0a8479fabef970b6a3efe88bff9d79b92e39b5afff1f0279e894dae5",
+    "bytes": 1887
+  },
+  "backend_id": "sha256:377262016bfd68f234f1ee5fd18a478ac31917f4c55b9253c0ececf0f6e4b8e4",
+  "source_receipt": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\releases\\n3-common-a1controllerv2\\SOURCE_RECEIPT.json",
+    "sha256": "05d8d49b268101761de849a11cecea4ec879e954615a160aa5618458e1baab3e",
+    "bytes": 61403
+  },
+  "source_files_verified": 380,
+  "assets_verified": 15,
+  "expected_samples": 715127,
+  "asr_samples": 715127,
+  "identity_samples": 715127,
+  "final_speaker_lag_sec": 0.0,
+  "embedding_calls": 20,
+  "seen_slots": [
+    0,
+    1
+  ],
+  "source_seconds": 44.6954375,
+  "phases": [
+    {
+      "phase": "infer",
+      "rendered_rows": 16,
+      "stored_rows": 4,
+      "test_session_deleted": null,
+      "result": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\nemotron-windows-anonymous-v1\\infer\\RESULT.json",
+        "sha256": "685809061cb58e4a2e0d74073ac9bce4ae3054642b63b536a3cfad4687df6ced",
+        "bytes": 16489
+      },
+      "lifetime": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\nemotron-windows-anonymous-v1\\infer-lifetime\\LIFETIME.json",
+        "sha256": "d4ed6c79685b9160f587282dd97fef5a3395fbcecc436de8cb5294748de5c993",
+        "bytes": 2087
+      }
+    },
+    {
+      "phase": "reopen",
+      "rendered_rows": 16,
+      "stored_rows": 4,
+      "test_session_deleted": true,
+      "result": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\nemotron-windows-anonymous-v1\\reopen\\RESULT.json",
+        "sha256": "7eb473be37f3cd649cfcd6251456a7b6b7a0a488eb682d76bf43f026e6cb3d3e",
+        "bytes": 1891
+      },
+      "lifetime": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\nemotron-windows-anonymous-v1\\reopen-lifetime\\LIFETIME.json",
+        "sha256": "d356fc5ddcb43154cd28a2bcf06758bd14daaef4fef23218c128a5355df6ae20",
+        "bytes": 2087
+      }
+    }
+  ],
+  "exact_closed_owners": [
+    {
+      "pid": 47544,
+      "create_time": 1790548525.0801504
+    },
+    {
+      "pid": 55952,
+      "create_time": 1790548524.9192507
+    },
+    {
+      "pid": 55652,
+      "create_time": 1790548526.2115772
+    },
+    {
+      "pid": 44252,
+      "create_time": 1790548653.3052733
+    }
+  ],
+  "code": [
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n5\\nemotron_windows_lifecycle_v1.py",
+      "sha256": "63ea19c8fa6d3c4d16bcc8d43227c1be027f4c2c15b3073e32795c224fc53865",
+      "bytes": 17409
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n5\\test_nemotron_windows_lifecycle_v1.py",
+      "sha256": "43a4c4bd5f070052f42de4de00280f1cedf2348d1b0e4a1e7b3f02f5ece40827",
+      "bytes": 2900
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n5\\prepare_nemotron_windows_lifecycle_v1.py",
+      "sha256": "548c694b9a6a682e5f43b83686fde742ed78ba725436a81207155d3dfa987d47",
+      "bytes": 5283
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n5\\README_NEMOTRON_WINDOWS_LIFECYCLE_V1.md",
+      "sha256": "82c4f7d9ca8d04ddb4954b88fa5ee95321485c4410864b1d6e245357fc90e07f",
+      "bytes": 3949
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\private_application_process_v3.py",
+      "sha256": "1522e1b6882d319e3ce3f2905321fb2ac2fd752467d57502d70982fa5e76afa4",
+      "bytes": 16488
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\common.py",
+      "sha256": "a44e389d3c80c8c21e74ea3423d8270273e5b3132a84095218dee078c53f059e",
+      "bytes": 3267
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\metric_process.py",
+      "sha256": "1a1279c44ce906ce13733db1ba32ba86ffd7419cb1a4b767df3505d66d3e36f8",
+      "bytes": 10902
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\supervision\\supervisor.py",
+      "sha256": "49f6cb3ec50e008905feb562879aaf28f28827fd218bf1a3e2fd8f65fe1776ee",
+      "bytes": 17090
+    }
+  ],
+  "tests_passed": 6,
+  "scope": "A2/D1 anonymous-conversation/balanced saved-file lifecycle; no personal names or accuracy claim",
+  "microphone": false,
+  "playback": false,
+  "CM5_tested": false,
+  "N4_accepted": false,
+  "N5_complete": false
+}
