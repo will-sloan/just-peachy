@@ -1,0 +1,16 @@
+{
+  "status": "BOUND_PRESERVED_TEST_FIXTURE_INVENTORY",
+  "manifest": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\reservation-census-fixtures-v2\\RESULT.json",
+    "sha256": "9ae0cbff669c21c256bf73af818f50c05359c634d13c4f51b4fa90868e488623",
+    "bytes": 64282
+  },
+  "fixture_count": 32,
+  "parent_probes": 10,
+  "physical_bytes_retained": true,
+  "synthetic_pid_lookup": false,
+  "blanket_directory_exclusion": false,
+  "worker_execution_authorized": false,
+  "N4_accepted": false,
+  "N5_complete": false
+}

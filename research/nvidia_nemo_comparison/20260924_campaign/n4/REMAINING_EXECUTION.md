@@ -1,5 +1,57 @@
 # N4 and N5 execution order and acceptance gates
 
+## 2026-09-27 05:08 UTC - Complete recorded allocation census qualified
+
+RESERVATION_CENSUS_CHECK_V2.json seals the completed read-only census: 69 tests,
+103 unchanged source/receipt bindings, 178 discovered admissions, and exact probe
+owner 44000/1790485335.344004 exited. The scan found 140 closed direct/terminal
+owners, 32 preserved test fixtures, two live allocations (the main scorer and
+this probe), two delegated dispatch aliases, and two historical closed process
+handle waits. Historical launcher receipts do not acquire fabricated PID data.
+
+V1's 53 tests passed, but its live scan correctly refused a deliberately invalid
+PID in an old test admission. That failed probe and all source/log evidence remain
+unchanged. V2 individually joins each of the 32 fixtures to one of 10 closed
+parent probes, the original admitted producer/test source (using preserved older
+snapshots where necessary), exact parent exit, method and test log. Unknown or
+changed files are not silently excluded. All fixture bytes remain in storage.
+README_RESERVATION_CENSUS_V2.md covers purpose, inputs/outputs and complete
+PowerShell, CMD and Anaconda instructions; preserve V1 and V2 source bindings.
+
+The live scan reverified 2,880 closed ASR/D1 component results and their owners.
+Physical inventory plus live remaining allocations, a prospective 1.5-GiB modes
+request, 2 GiB retained future reservations and 0.5 GiB contingency projected
+47.294960 GiB against the unchanged 50-GiB ceiling. C: had 118.53 GiB free and
+G: 94.09 GiB. Only the reviewed closed ASR/D1 future reservations expire in this
+calculation. No files, private evidence or physical bytes were removed or credited.
+
+This qualifies discovery and arithmetic only. No production guard or shared ledger
+was changed and no modes worker started. The next implementation must serialize
+stage allocation admission without holding the supervisor writer lock across a
+long census, account for its own remaining commitment exactly once, recheck owners
+and budget during execution, and bind a fresh method/scorer/reviewer/application
+family with numerical parity and original plan/source provenance. The current
+main scorer keeps its immutable qualified V3 sources and legacy guard.
+
+At 05:06 UTC the fresh 120-second main score run had 4,352/7,680 SCORED receipts
+and no unavailable rows. Four formerly timed-out cases already passed in this
+full run; the fifth is later in the queue. Exact scorer 49484/1790480408.7788572,
+supervisor 7636/1790480408.590266, launcher 24252/1790480408.7480931 and metric
+owners remain healthy on CPU14/BelowNormal. Do not duplicate or interrupt them.
+After full closure, require all 7,680 scores, zero missing metrics and null stop
+reason, then use the fresh independent-review recipe in
+README_MAIN_SCORING_TIMEOUT120_V1.md. The original partial run stays preserved.
+
+N2/N3 remain accepted within their recorded offline component scope. N4 modes,
+actual selected GUI/resource/timing/naming/continuity/restart evaluation and
+acceptance, then N5 final Windows/ARM64 validation and selected release packaging,
+remain open. The 05:03 UTC read-only check still found inaccessible cmd.exe PID40092,
+created 2026-09-25 13:00:00.031140 UTC, parent5156; the existing ownership question
+remains unanswered and controlled GUI/resource measurements remain blocked.
+Pi reconnection and storage-aware backend/GUI installation requirements remain in
+n5/PI_RECONNECTION_REQUIREMENTS.md. The Pi is untouched and live CM5 checks are
+deferred. Packaging starts 2026-09-28 02:48:19 UTC; deadline 14:48:19 UTC, unchanged.
+
 ## 2026-09-27 03:44 UTC - Five timeout retests passed; fresh full scoring active
 
 The original main scoring attempt sealed 7,675 SCORED rows and five TIMEOUT
