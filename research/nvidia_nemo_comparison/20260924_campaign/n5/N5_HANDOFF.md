@@ -1,5 +1,18 @@
 # N5 partial release checkpoint
 
+## 2026-09-27 - reviewed compact checkpoint packaged and backed up
+
+HANDOFF_RECEIPT_20260927_V2.json records the fresh private 155,499-byte ZIP
+with 59 readable files. All 59 members were independently read back and all
+58 manifest hashes verified. Its exact selected source commit is
+efb79b58188ba308cb2e366faed561a611be04f0, verified on the authorized remote
+branch. The archive includes current status V14 and a generated root Git backup
+receipt; the post-build receipt is committed separately to avoid a hash cycle.
+Private path: local/n5/handoffs/
+NVIDIA_CAMPAIGN_CHATGPT_HANDOFF_20260924_campaign_20260927_v2.zip.
+This is a partial checkpoint, not final campaign acceptance. The powered-off
+Pi and all remaining failures/coverage gaps retain their stated scope.
+
 ## 2026-09-27 21:02 UTC - baseline ARM64 ASR failed; reviewed handoff prepared
 
 Current checkpoint: N5_STATUS_20260927_V14.json. The baseline C-API route built

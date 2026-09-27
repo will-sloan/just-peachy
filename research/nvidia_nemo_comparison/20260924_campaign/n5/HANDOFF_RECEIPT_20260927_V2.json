@@ -1,0 +1,53 @@
+{
+  "status": "PARTIAL_CAMPAIGN_CHECKPOINT_NOT_COMPLETED_N5",
+  "archive": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\handoffs\\NVIDIA_CAMPAIGN_CHATGPT_HANDOFF_20260924_campaign_20260927_v2.zip",
+  "sha256": "4fbb40e524101425b6c2ff4bfc1805e3de884c8ad75c03b989a25feb3f28cebf",
+  "bytes": 155499,
+  "files": 59,
+  "source_commit": "efb79b58188ba308cb2e366faed561a611be04f0",
+  "remote": "https://github.com/will-sloan/just-peachy.git",
+  "ref": "refs/heads/codex/n1-foundation-20260924",
+  "readback": "ALL_MEMBERS_MATCH",
+  "below_10_MiB_target": true,
+  "selection_sha256": "9c684b70a20e360772fdde2fe486d6c1ef0f843b35acdf2404cb626485cd19c7",
+  "status_sha256": "815ce38f99127e6b8e0d3ca490d47adafd58d569ee981aa410284a7b6f448eae",
+  "N5_complete": false,
+  "CM5_tested": false,
+  "checked_utc": "2026-09-27T21:15:51.617469+00:00",
+  "independent_readback": "59_UNIQUE_MEMBERS_AND_58_MANIFEST_HASHES_VERIFIED",
+  "backup_receipt": {
+    "status": "REMOTE_BRANCH_VERIFIED_FOR_ALL_SELECTED_BYTES",
+    "checked_utc": "2026-09-27T21:15:02.865788+00:00",
+    "remote": "https://github.com/will-sloan/just-peachy.git",
+    "ref": "refs/heads/codex/n1-foundation-20260924",
+    "commit": "efb79b58188ba308cb2e366faed561a611be04f0",
+    "remote_observation": "efb79b58188ba308cb2e366faed561a611be04f0\trefs/heads/codex/n1-foundation-20260924",
+    "selected_files": 57,
+    "exclusions": [
+      "Model weights",
+      "Audio",
+      "Voiceprints",
+      "Personal profiles",
+      "Raw private transcripts",
+      "Full raw run logs"
+    ],
+    "repository_visibility_changed": false,
+    "main_merged": false,
+    "force_push": false,
+    "CM5_tested": false
+  },
+  "packager_tests": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\reviewed-handoff-v2-check-v1\\RESULT.json",
+    "sha256": "07252a979e80ed8742f7842cc563f6a2fba98ebd20334b62a70bdb36d3b6e308",
+    "bytes": 1834
+  },
+  "scope": "Partial analysis handoff; baseline deployable archives remain separate; no new N4 composition or completed N5",
+  "exclusions": [
+    "Audio",
+    "Model weights",
+    "Personal galleries/profiles",
+    "Raw private transcript/event files",
+    "Runtime binary payloads"
+  ],
+  "source_commit_remotely_verified": true
+}
