@@ -1,8 +1,8 @@
 # N5 release preparation — campaign not complete
 
-Latest machine-readable checkpoint: `N5_STATUS_20260927_V8.json`. It preserves
+Latest machine-readable checkpoint: `N5_STATUS_20260927_V9.json`. It preserves
 the earlier status and records accepted N2/N3, reviewed numerical N4 coverage,
-the isolated V6 failure after two cells, preserved V7 probe failure and running V8 atomic-rename qualification. The 23 targeted checks passed; full qualification remains pending. The restart derivative and ARM64 native streaming harness are prepared but remain unvalidated.
+the preserved V6/V7 failures, passing 97-test V8 qualification and fresh 240-cell application run. Matching V8 review qualification, restart and continuity remain pending. The ARM64 native streaming harness is prepared but has not compiled or executed.
 
 The preserved baseline is usable on Windows. N2/N3 have accepted offline
 component handoffs. New N4-selected alternatives are not accepted yet: the

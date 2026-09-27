@@ -1,5 +1,40 @@
 # N4 checkpoint - revised application panel running
 
+## 2026-09-27 16:14 UTC - V8 qualified; fresh 240-cell collector active
+
+APPLICATION_FAMILY_CHECK_V8.json verifies all 97 tests, 320 unchanged bound
+sources, 18 source snapshots, the actual 240-cell plan, seven saved lifetimes,
+and both complete resource boundaries. The exact probe host/driver exited at
+16:09:52 UTC. This is application-family development qualification only.
+The Windows rename repair keeps the five-second lease and all existing ownership,
+CPU, disk, payload, timing and cleanup gates. Earlier V6/V7 failures remain intact.
+
+APPLICATION_PANEL_GUARDED_START_V8.json records the fresh actual run in
+local/n4/paced-application-v8, started 16:13:24 UTC. Supervisor
+44208/1790525604.8302045, driver 4168/1790525604.9918833, run ID
+72cc2e4085c041b5b12e475c3bf2c8c7. It has one 2-GiB/four-hour allocation,
+CPU14 coordinator and CPU4 owned application child, and process-local worktree
+PYTHONPATH. Follow its worker/ADMISSION/PROGRESS/RESULT receipts. It is starting
+resource checks and plan reconstruction; no completed cell is claimed here.
+Do not launch Python, WSL, QEMU, tests or another worker while it is active.
+Use relative shell metadata commands and avoid source edits to its bound plan.
+
+Matching semantic V8 sources have a verified 498-record candidate manifest but
+are NOT qualified yet. After the collector closes, run probe_semantic_family_v8
+with the same existing supervisor/fresh census procedure, retain its 66 tests
+plus two isolated import checks, publish only after exact closure, then run the
+complete transport/content/naming reviews. Deferring the review probe avoids
+competing with the timed collector; it does not waive any acceptance gate.
+A READY_FOR_REVIEW/finished queue alone remains insufficient for N4 acceptance.
+
+Restart V3 still needs a fresh derivative using the repaired child reader and
+full qualification before its 12 paired sessions. Continuity and integrated
+resource/GUI acceptance are also pending. The ARM64 native streaming harness
+is source preparation only, not compiled/executed; use its README and V2 plan.
+N5_STATUS_20260927_V9.json is the current checkpoint. Older active-process and
+probe paragraphs below are historical. Packaging reserve remains September 28
+02:48:19 UTC; final deadline 14:48:19 UTC. Keep the Pi off and live CM5 checks deferred.
+
 ## 2026-09-27 16:02 UTC - Corrected Windows rename primitive in full V8 qualification
 
 V7 qualification failed at the held-reader replacement test (18/19 child tests

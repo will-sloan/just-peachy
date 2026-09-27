@@ -1,0 +1,235 @@
+{
+  "stage": "N5",
+  "status": "PARTIAL_RELEASE_PREPARATION_PENDING_ACTUAL_N4_CONFIRMATION",
+  "checked_utc": "2026-09-27T16:14:56.3185089+00:00",
+  "completed": false,
+  "prior_status": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n5\\N5_STATUS_20260927_V8.json",
+    "sha256": "aab35ce74469b0fca714465567786b23755243b7a4f347432125233f007feaf3",
+    "bytes": 10736
+  },
+  "N1_offline_scope": "COMPLETE",
+  "N2_acceptance": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n2\\FINAL_REVIEW.json",
+    "sha256": "3648e2c548674a2efd0ce948a73c6a1acd16ce6866fe367d78e28747bdb95fab",
+    "bytes": 129309
+  },
+  "N3_acceptance": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n3\\N3_ACCEPTANCE.json",
+    "sha256": "070783f77f3aec030fb837859f719317d6ecdaab4585e31c5e92d8c5f0e66204",
+    "bytes": 5459
+  },
+  "N4": {
+    "main_modeled_scoring_acceptance": {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\MAIN_MODELED_SCORING_ACCEPTANCE_V1.json",
+      "sha256": "1972386aa05ade607ad2d45484b1db3fc49012c29edb4d13084ebbcd9e12a5c0",
+      "bytes": 12130
+    },
+    "main_required": 7680,
+    "main_reviewed": 7680,
+    "modes_modeled_scoring_acceptance": {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\MODES_MODELED_SCORING_ACCEPTANCE_V1.json",
+      "sha256": "51ed6a13d13a020c1ba85206fc76955154de873cc759387b8c398e99290b47b5",
+      "bytes": 42438
+    },
+    "modes_required": 1536,
+    "modes_reviewed": 1536,
+    "planned_actual_application_cells": 240,
+    "collected_actual_application_cells": 0,
+    "application_development_qualification": {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\APPLICATION_FAMILY_CHECK_V8.json",
+      "sha256": "2a1ecfbedf8f58eb01ab0a66b819e2e85882e20dc10b5ec6b525bf835000a638",
+      "bytes": 98340
+    },
+    "preserved_application_failure": {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\APPLICATION_PANEL_FAILURE_V5.json",
+      "sha256": "f56890619427a1ccdae6106461d0134c96d9e0379f0f2b2e7426d76ee572fee2",
+      "bytes": 2632
+    },
+    "accepted_new_release_profiles": 0,
+    "complete": false,
+    "semantic_development_qualification": null,
+    "import_path_repair": {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\APPLICATION_IMPORT_PATH_REPAIR_CHECK_V1.json",
+      "sha256": "c329e45b08ad3e9e343ea03ee439a3be9fd2be00b0eab7d5814b9e78cfef33db",
+      "bytes": 2015
+    },
+    "active_application_retry": {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\APPLICATION_PANEL_GUARDED_START_V8.json",
+      "sha256": "0e42ce5e1f1244437576eb2f4719e65861fba1b9e630a22404e272066be4d9bd",
+      "bytes": 1635
+    },
+    "active_run_state": "RUNNING_FRESH_V8_COLLECTOR; INITIAL_RESOURCE_GUARD_AND_PLAN_RECONSTRUCTION",
+    "application_or_stage_acceptance_inferred_from_start": false,
+    "collected_scope": "New 240-cell V8 run at launch; V6 partial cells remain preserved, not combined or accepted",
+    "preserved_lease_failure": {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\APPLICATION_PANEL_LEASE_FAILURE_V2.json",
+      "sha256": "e64812a7347fb38087a5bcb37e2079024cbafd10a5a3f15c7114fa8bf14aec89",
+      "bytes": 2886
+    },
+    "active_application_family_probe": null,
+    "import_path_actual_first_cell_closed": true,
+    "semantic_V6_draft_qualified": true,
+    "active_worker_at_checkpoint": {
+      "status": "RUNNING",
+      "pid": 44208,
+      "create_time": 1790525604.8302045,
+      "run_id": "72cc2e4085c041b5b12e475c3bf2c8c7",
+      "started_utc": "2026-09-27T16:13:24.839761+00:00",
+      "heartbeat_unix": 1790525695.3326585,
+      "resumed": false,
+      "argv_sha256": "563da7db70c61cc5e601896b7e3f3d1d895f8554df6263798021c4255f74740f",
+      "child_launch_pending": false,
+      "child_pid": 4168,
+      "child_create_time": 1790525604.9918833
+    },
+    "exact_process_observations": [
+      {
+        "parent_pid": 35384,
+        "observed_creation_utc": "2026-09-27T16:13:24.8302046Z",
+        "create_time": 1790525604.8302045,
+        "cpu_affinity": [
+          14
+        ],
+        "priority": "BelowNormal",
+        "pid": 44208
+      },
+      {
+        "parent_pid": 44208,
+        "observed_creation_utc": "2026-09-27T16:13:24.9918833Z",
+        "create_time": 1790525604.9918833,
+        "cpu_affinity": [
+          14
+        ],
+        "priority": "BelowNormal",
+        "pid": 4168
+      }
+    ],
+    "preserved_runtime_conflict": {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\APPLICATION_PANEL_RUNTIME_CONFLICT_V6.json",
+      "sha256": "e6bd7a2fcbfd60d509c05294a5eff6b6bbba4b70bcd20178a1f5981e797a7d93",
+      "bytes": 2777
+    },
+    "restart_implementation_preparation": {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\RESTART_FAMILY_V3_PREPARATION.json",
+      "sha256": "81ac1f45026e660c87523c3c2041324916e57aae81165c439cb2a751f2becc8c",
+      "bytes": 5023
+    },
+    "restart_V3_tests_executed": 0,
+    "periodic_os_probes_removed_for_exclusive_application": true,
+    "scheduled_probe_isolation": {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\scheduled-probe-isolation-v1\\RESULT.json",
+      "sha256": "b675b846308f4d8dd36c4ad372c297edb04c531d75f2db588e0ff9c48264188b",
+      "bytes": 596
+    },
+    "current_initial_guard": {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\paced-application-v6-isolated-v1\\GUARD_INITIAL.json",
+      "sha256": "4b49d746a2238054c7e57d8a77a778e9eb4b0f6595bd94b5056a3634dcba723a",
+      "bytes": 576459
+    },
+    "V7_qualification_passed": false,
+    "V7_semantics": "SOURCE_PREPARATION_ONLY",
+    "V7_probe_failure": {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\APPLICATION_FAMILY_FAILURE_V7.json",
+      "sha256": "baeb7a26f4e213046854be64dbdd7b2f7534a4d70ccde1b8a8b8769aaf39c8ad",
+      "bytes": 1542
+    },
+    "V8_targeted": {
+      "full_qualification": false,
+      "receipt": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\application-family-v8-targeted-v1\\RESULT.json",
+        "sha256": "9a642befc90d7c6a3b9ba8c5e8303fb552eab9b2477d45ed7dbca2ef5e002485",
+        "bytes": 5545
+      },
+      "tests_passed": 23
+    },
+    "V8_qualification_passed": true,
+    "V8_semantics": "498_SOURCE_RECORDS_PREPARED; 66_PLUS_2_CHECKS_REQUIRED_AFTER_COLLECTOR_EXITS",
+    "V8_full_tests_passed": 97,
+    "V8_bound_source_records": 320,
+    "preserved_isolated_V6_collected": 2,
+    "prior_semantic_development_qualification": {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\SEMANTIC_FAMILY_CHECK_V6.json",
+      "sha256": "a5df7a1905ce0ac537fa50cec9a88b8f9e5870f1eea013a90ede5208c03d5655",
+      "bytes": 147655
+    },
+    "semantic_tests_deferred_to_avoid_collector_competition": true,
+    "restart_V3_requires_repaired_child_reader": true,
+    "latest_backup_before_launch": {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\windows-lease-repair-preparation-backup-20260927-v1\\VERIFIED.json",
+      "sha256": "01ff0ab29c6ccb121b4b16473e4a8e2ecb0cee27fab6bc55701d42d220380a89",
+      "bytes": 525
+    }
+  },
+  "baseline_bundle": {
+    "archive": "just-peachy-baseline-cm5-offline-v1.zip",
+    "sha256": "913e0a082e2de5f28e62f30503097cfb12f9008ed6d26fd1a803a7a2e8d32bbf",
+    "bytes": 310867595,
+    "scope": "Existing immutable baseline only; member hashes previously verified",
+    "storage_preflight": {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n5\\PI_STORAGE_PREFLIGHT_CHECK_V1.json",
+      "sha256": "07a0c8d2468744c09ec74ec0aa620d52866ef5f24476613dff8aa0a201ec581c",
+      "bytes": 3253
+    },
+    "estimated_additional_free_bytes": 3009905316,
+    "installed_or_checked_on_CM5": false
+  },
+  "arm64": {
+    "elf_binaries_statically_audited": 151,
+    "native_artifacts_cross_built": 6,
+    "loader_smoke": "EMULATED_PASS",
+    "ARM64_FUNCTIONAL_SMOKE": false,
+    "CM5_HARDWARE_NOT_TESTED": true
+  },
+  "remaining": [
+    "N4 actual panel, semantic/resource review and continuity/restart confirmation",
+    "Per-supported-build Windows GUI, persistence, namespace and rollback validation",
+    "ARM64 imports and saved-audio model/state/flush functional smoke, emulation explicitly labelled",
+    "Accepted backend release manifests, launchers and offline packages",
+    "Final documentation, compact handoff ZIP and verified Git refs"
+  ],
+  "pi_reconnection_requirements": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n5\\PI_RECONNECTION_REQUIREMENTS.md",
+    "sha256": "9d191619a563af48427a164a610d4c8fe64ea8329d66ea0c9c0280ee857604e9",
+    "bytes": 5123
+  },
+  "desktop_input_and_focus_taken": false,
+  "pi_contacted": false,
+  "microphone_enumerated_or_opened": false,
+  "new_capture": false,
+  "new_training": false,
+  "human_enrollment": false,
+  "production_personal_data_modified": false,
+  "packaging_reserve_utc": "2026-09-28T02:48:19Z",
+  "deadline_utc": "2026-09-28T14:48:19Z",
+  "hourly_followup": "ACTIVE_UNTIL_OFFLINE_COMPLETION_OR_DEADLINE",
+  "compute_seconds": null,
+  "llm_tokens": null,
+  "usage_note": "Complete campaign totals are unavailable; not inferred",
+  "optional_asset_storage_estimate": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n5\\OPTIONAL_BACKEND_STORAGE_ESTIMATE_V2.json",
+    "sha256": "097de2c8f0fdad7dc25bbedcfc9bb5088a038a47f6d482ce9a883336e5f32ef8",
+    "bytes": 5912
+  },
+  "arm64_functional_validation_plan": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n5\\ARM64_FUNCTIONAL_VALIDATION_PLAN_V2.md",
+    "sha256": "ba3dc73ae013c7c5407aaaabf2790c73e5f721b92a0203a6180f77674bd4dd5b",
+    "bytes": 4518
+  },
+  "ARM64_native_stream_harness": {
+    "CM5_tested": false,
+    "code": {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n5\\native_stream_smoke_v1.cpp",
+      "sha256": "5245066d08261775cce61a7449a6bed7e51836578c25439e312ed1b98326cc58",
+      "bytes": 12693
+    },
+    "cases": 6,
+    "status": "SOURCE_PREPARATION_NOT_COMPILED_OR_EXECUTED",
+    "readme": {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n5\\README_NATIVE_STREAM_SMOKE_V1.md",
+      "sha256": "3a9741ad76b2c2ead620ff50710eebef666fb3bc018a1844d57afba36c00b0e5",
+      "bytes": 4932
+    },
+    "controller_admission_pending": true
+  }
+}
