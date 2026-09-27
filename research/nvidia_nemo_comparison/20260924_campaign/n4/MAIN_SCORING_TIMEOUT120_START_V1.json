@@ -1,0 +1,60 @@
+{
+  "status": "RUNNING_UNCHANGED_V3_SCORER_TIMEOUT120",
+  "utc": "2026-09-27T03:45:01.380479+00:00",
+  "private_start": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\integrated-main-scoring-timeout120-dispatch-v1\\VERIFIED_START.json",
+    "sha256": "d20b69946225fff13b070da398e64b4802295e7b67b0e8b1fa14d3555b6ea42b",
+    "bytes": 1945
+  },
+  "scoring_admission": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\integrated-main-scores-v3-timeout120-v1\\ADMISSION.json",
+    "sha256": "6aee46df3634310ea16cc2dfde86f51812b7b46c9db962f5194f6bbc712155d9",
+    "bytes": 10836
+  },
+  "worker_spec": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\integrated-main-scoring-timeout120-worker-v1.json",
+    "sha256": "d43c6e5dfb21882466dcfa41aff1bfa736f84bee5183496fc99f3d6abcd25cf1",
+    "bytes": 703
+  },
+  "qualification": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\SCORING_HISTORY_CHECK_V3.json",
+    "sha256": "eeb8a08f62a21139fa45c1e2e1ff67b417e7cee7ec9a5d9f956af4057dd975b8",
+    "bytes": 30982
+  },
+  "retest_receipt": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\METRIC_TIMEOUT_RETEST_CHECK_V1.json",
+    "sha256": "bd0ee508ce1cfd660773f4e8c5fd106c763e54e7d5d4be00bd762d58184afd94",
+    "bytes": 11876
+  },
+  "original_partial_receipt": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\MAIN_SCORING_PARTIAL_V3.json",
+    "sha256": "af0bec8a46f389aafae7414aed5aa23d69d32407be6610f8211b4304720ded18",
+    "bytes": 1780
+  },
+  "required": 7680,
+  "cell_timeout_seconds": 120,
+  "maximum_seconds": 14400,
+  "maximum_output_bytes": 536870912,
+  "owners": {
+    "supervisor": {
+      "pid": 7636,
+      "create_time": 1790480408.590266
+    },
+    "launcher": {
+      "pid": 24252,
+      "create_time": 1790480408.7480931
+    },
+    "driver": {
+      "pid": 49484,
+      "create_time": 1790480408.7788572
+    }
+  },
+  "run_id": "c994c33432a94dc8a3d4fd6a1885395a",
+  "CPU": 14,
+  "priority": "BelowNormal",
+  "model_inference_repeated": false,
+  "automatic_reviewer_active": false,
+  "independent_full_score_review_completed": false,
+  "N4_accepted": false,
+  "N5_complete": false
+}

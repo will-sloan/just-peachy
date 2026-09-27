@@ -1,0 +1,46 @@
+{
+  "status": "PARTIAL_MODELED_SCORING_NOT_ACCEPTED",
+  "utc": "2026-09-27T03:32:09.685835+00:00",
+  "scoring_result": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\integrated-main-scores-v3\\RESULT.json",
+    "sha256": "16035729d04f1da7e62e96e5a5cb099dcc1cc97dc11f5517f853664c61ff4533",
+    "bytes": 1800824
+  },
+  "scoring_admission": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\integrated-main-scores-v3\\ADMISSION.json",
+    "sha256": "9352d126f2b00c55adf0b7636c48e0369363b9d98b54f3e01c0091f7768ac5bf",
+    "bytes": 10835
+  },
+  "scoring_report": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\integrated-main-scores-v3\\REPORT.json",
+    "sha256": "b21f23b1e3c5222e50a862e1def5b59317354af546f8be587ee9ef16cacc4d77",
+    "bytes": 5528847
+  },
+  "supervision_terminal": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\main-metric-timeout-retest-dispatch-v1\\PREVIOUS_worker.json",
+    "sha256": "ef7b3181fac03ac24a30835eb564d771e690e7b4eff5dd9510849804f44d5246",
+    "bytes": 509
+  },
+  "failed_automatic_handoff": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\main-score-review-advance-v1\\FAILED.json",
+    "sha256": "5cb3d3fdb65dde0b8eb8947bf33cf383f31b8e0788801341a92ab4f13bd6f7a7",
+    "bytes": 254
+  },
+  "prediction_completed": 7680,
+  "scored": 7675,
+  "metric_timeouts": 5,
+  "timeout_indices": [
+    888,
+    889,
+    1417,
+    1424,
+    6568
+  ],
+  "metric_requests_closed": 7680,
+  "exact_original_driver_exited": true,
+  "all_original_metric_owners_and_pipes_closed": true,
+  "independent_full_score_review_completed": false,
+  "original_frozen_predictions_preserved": true,
+  "N4_accepted": false,
+  "N5_complete": false
+}

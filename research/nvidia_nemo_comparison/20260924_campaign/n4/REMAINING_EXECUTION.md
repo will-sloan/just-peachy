@@ -1,5 +1,51 @@
 # N4 and N5 execution order and acceptance gates
 
+## 2026-09-27 03:44 UTC - Five timeout retests passed; fresh full scoring active
+
+The original main scoring attempt sealed 7,675 SCORED rows and five TIMEOUT
+rows out of 7,680 complete predictions. Its exact supervisor, launcher,
+scoring driver and all metric owners exited. The old automatic handoff stopped
+without dispatching review because this was PARTIAL_MODELED_BANK_SCORING.
+MAIN_SCORING_PARTIAL_V3.json and README_MAIN_SCORING_PARTIAL_V3.md preserve
+that outcome and a provisional 16-composition table, checked against the
+original sealed totals. It is not a reviewed shortlist or acceptance report.
+
+All five missing cases subsequently passed with the qualified implementation's
+already-supported 120-second request limit. They took 64.860, 67.703, 76.265,
+67.610 and 65.421 seconds. METRIC_TIMEOUT_RETEST_CHECK_V1.json binds the actual
+saved-input retest and all five exact worker/pipe closures. Metric code,
+environment and predictions were unchanged. The original failures remain intact;
+the diagnostic alone does not repair or independently review the full bank.
+
+A fresh unchanged V3 scorer now runs in the private directory
+integrated-main-scores-v3-timeout120-v1. MAIN_SCORING_TIMEOUT120_START_V1.json
+binds its verified admission: supervisor 7636/1790480408.590266, venv launcher
+24252/1790480408.7480931, actual driver 49484/1790480408.7788572, run ID
+c994c33432a94dc8a3d4fd6a1885395a. All use CPU14/BelowNormal. The limit is
+120 seconds per metric request, four hours total and 512 MiB output. No model
+inference is repeated. Fresh unchanged shared-budget admission passed at
+49.279520 GiB against 50 GiB; this is metadata evaluation, not a controlled
+resource measurement. Preserve the healthy worker and its bound source.
+
+README_MAIN_SCORING_TIMEOUT120_V1.md contains inputs, outputs and complete
+PowerShell/CMD/Anaconda scoring and independent-review recipes. The old waiter
+watches only the old run and must not be reused. No new automatic reviewer is
+active. After this exact scorer and all children exit, require all 7,680 scores
+with zero unavailable rows and a null stop reason, then independently review
+into integrated-main-score-review-v3-timeout120-v1 using the qualified V3
+reviewer and fresh resource admission. Do not accept exit zero by itself.
+
+N2/N3 are accepted within their recorded offline component scope. Modes
+execution/scoring/review, production reservation-guard integration, actual
+selected GUI/resource/timing/naming/continuity/restart checks, N4 acceptance
+and final N5 Windows/ARM64 validation remain open. The inaccessible cmd.exe
+PID40092 (creation 2026-09-25 13:00:00.031140 UTC) still prevents controlled
+GUI/resource admission; the existing ownership clarification is unanswered.
+Easy Pi reconnection, storage-aware shared GUI/backend choices and rollback
+remain required by n5/PI_RECONNECTION_REQUIREMENTS.md. The Pi stays offline;
+no software is claimed newly installed or validated on it. Packaging reserve
+and deadline remain 2026-09-28 02:48:19 and 14:48:19 UTC.
+
 ### 2026-09-27 02:37 UTC - Reservation calculation qualified; production integration still open
 
 The fresh reservation_budget_v1 library and its admitted read-only probe passed
