@@ -26,7 +26,7 @@ The synthetic people sentinel survived; both processes and their jobs closed
 normally. Production Controller commands and GUI navigation methods were used;
 physical touch, new backend integration and full-bank timing are not claimed.
 All 240 payload files and eight assets were reverified. N5 remains partial;
-N5_STATUS_20260927_V14.json is the current checkpoint.
+N5_STATUS_20260927_V15.json is the current checkpoint.
 
 The separate baseline Sherpa paired ASR check passed its Windows reference but
 failed under QEMU: both full 715,127-frame streams consumed and closed normally
@@ -36,6 +36,15 @@ on Windows. The nonempty/parity gate rejected the result. Native elapsed time wa
 Eight malformed-WAV checks passed, all exact owners exited and 14 code records
 were unchanged. BASELINE_ARM64_ASR_CHECK_V1.json binds the independent failure
 audit. The cause remains unresolved; no complete ARM64 component/GUI pass.
+
+The V3 paired C++ diagnostic further reproduced empty ARM64 output with one
+fresh full stream and no preceding empty/short streams. Windows returned three
+finals matching its earlier Python reference. Decoded samples, effective config
+and Sherpa version/revision were identical across platforms. Both model jobs
+closed normally; 18 source bindings and exact owners were independently checked.
+BASELINE_C_API_DIAGNOSTIC_CHECK_V3.json records investigation evidence only.
+CPU-feature/runtime dispatch remains a hypothesis for bounded isolation, not a
+proven defect or repair. No component/release acceptance changed.
 
 CAMPAIGN_COVERAGE_20260927.md reconciles all 73 original summary-note entries
 with later component/application/target evidence. RELEASE_MAPPING_20260927.md

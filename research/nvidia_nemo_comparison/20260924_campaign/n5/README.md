@@ -12,6 +12,15 @@ emulated ARM64 full streams returned empty text and failed the strict gate.
 preserve the audit and narrow investigation boundary; no complete ARM64 pass
 is claimed. Bound V1 sources and failed private outputs remain unchanged.
 
+`baseline_asr_diagnostic_v2/README.md` documents the subsequent paired C-API
+investigation. V2 built on Windows but stopped before inference when CMake
+selected a different installed compiler location. The owned compiler helper
+was closed and all evidence retained. `README_BASELINE_ASR_DIAGNOSTIC_V3.md`
+documents a fresh derivative that verifies and reuses that completed build,
+then measures one full stream per platform. It records decoded sample identity
+and effective runtime configuration. Measurement completion alone is not an
+ASR parity pass or release acceptance; consult the newest stage receipt.
+
 `README_REVIEWED_HANDOFF_V2.md` covers the current compact handoff builder,
 its explicit selection, current status input and fresh private ZIP/receipt.
 It verifies every selected byte against the remotely backed-up Git commit and

@@ -1,5 +1,38 @@
 # N5 partial release checkpoint
 
+## 2026-09-27 22:09 UTC - paired C-API diagnostic closed; ARM64 blocker persists
+
+Current checkpoint: N5_STATUS_20260927_V15.json. V3 Windows C++ produced three
+finals/13 resets, exactly matching the earlier Python full case. ARM64 produced
+zero finals/17 resets after 231.334 seconds, normally and below its cap. Both
+decoded the same 715,127 samples; effective configuration and Sherpa 1.13.4
+revision 14280725 matched. A fresh recognizer without preceding streams still
+fails on ARM64. BASELINE_C_API_DIAGNOSTIC_CHECK_V3.json binds the independent
+audit in local/n5/baseline-asr-diagnostic-v3-audit-v2/RESULT.json. All exact owners
+and groups are absent, Windows job cleanup was unforced, and 18 source bindings
+are unchanged. No worker is active and no ASR/release acceptance is inferred.
+
+Preserve V2's successful build followed by compiler-location admission refusal,
+its forced compiler-helper cleanup, the first precheck schema error and the
+first incomplete independent audit. V3 verified the actual compiler/build and
+reused its executable. Source and run instructions are in
+README_BASELINE_ASR_DIAGNOSTIC_V3.md and baseline_asr_diagnostic_v2/README.md.
+
+Next bounded investigation: retained QEMU 10.2.1 lists cortex-a76. A fresh
+derivative with explicit CPU selection can isolate that environment variable
+while keeping model, input, executable and recognizer settings fixed. CPU-feature
+dispatch is an unproven hypothesis. A changed result requires the original
+complete repeat/state/nonempty checks before component acceptance. Do not
+retry unchanged, alter gain/precision or overwrite any prior receipt/source.
+Use a fresh full resource census through guarded_execution_v1.snapshot, exact
+owner closure and the existing supervisor. The old reservation_census_v2 reader
+cannot read all retained dispatch spellings; never edit those old receipts.
+
+N4 remains partial and has zero accepted new configurations. Baseline Windows
+lifecycle evidence remains scoped smoke; ARM64 Python/Tk, speaker/PnC, full
+application and CM5 checks remain incomplete. Pi reconnection instructions now
+reflect hourly follow-up and current stage state. Neither campaign limit changes.
+
 ## 2026-09-27 - reviewed compact checkpoint packaged and backed up
 
 HANDOFF_RECEIPT_20260927_V2.json records the fresh private 155,499-byte ZIP

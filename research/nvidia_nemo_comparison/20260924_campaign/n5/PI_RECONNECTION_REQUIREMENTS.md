@@ -60,12 +60,14 @@ artifacts are preparation evidence; they are not final N4-selected multi-backend
 releases, and QEMU loader checks are not a model/WAV smoke. Preserve them and
 produce fresh versioned derivatives instead of overwriting their hashes.
 
-As of this reminder, N2 and N3 have accepted offline component handoffs, N4 ASR
-full-bank component review has passed and D1 component evaluation is active.
-N4 integrated acceptance and final release selection remain outstanding. The
-old N5 handoff predates these upstream changes; use current N4 stage receipts
-and `../n4/REMAINING_EXECUTION.md` for execution ordering. The existing task's
-30-minute recurring continuation is active. N5 remains incomplete.
+The September 27 checkpoint supersedes the stage state at the original reminder.
+N2/N3 have accepted offline component handoffs. N4's 7,680 main and 1,536 mode
+numerical results are reviewed, but actual application confirmation remains
+partial: two cells collected pending acceptance, two failed and 236 unattempted.
+No new release composition is accepted. The Windows baseline lifecycle smoke
+passed its limited scope; ARM64 functional failures remain under investigation.
+Use START_HERE.md and the newest dated N5 status for current evidence. The
+existing task now checks once per hour, as the user requested. N5 is incomplete.
 
 Offline checks can establish package/build/software readiness. Only actual
 later device evidence can establish that files are installed on the Pi, GUI

@@ -1,6 +1,6 @@
 # N5 release preparation - campaign not complete
 
-Latest checkpoint: `N5_STATUS_20260927_V14.json`. N4 actual application
+Latest checkpoint: `N5_STATUS_20260927_V15.json`. N4 actual application
 confirmation is PARTIAL: V10 has two collected cells pending acceptance, two
 failures and 236 unattempted of 240. The D1 speaker lane exceeded its drain
 limit; the fourth cell also failed Controller closure. Exact process owners
@@ -22,6 +22,14 @@ consuming and closing the source. No paired parity or complete ARM64 component
 pass is claimed. All owners closed and the 14 bound sources were reverified.
 See `BASELINE_ARM64_ASR_CHECK_V1.json` and `BASELINE_ARM64_ASR_FINDINGS_V1.md`.
 The cause needs isolation; no unchanged retry or altered acceptance gate is used.
+
+The later paired C++ diagnostic reproduced the ARM64 empty output on a fresh
+recognizer while Windows produced three finals. Decoded samples, effective
+configuration and Sherpa version/revision matched. Both jobs closed normally;
+all source bindings and exact process closure were independently verified.
+Read `BASELINE_C_API_DIAGNOSTIC_FINDINGS_V3.md` and its CHECK receipt for the
+bounded runtime/emulation investigation. Diagnostic completion is not ASR
+acceptance. No worker remains active at this checkpoint.
 
 `BASELINE_WINDOWS_LIFECYCLE_CHECK_V1.json` adds a passing baseline smoke from
 two real Windows processes on private desktops: 480×800 Tk rendering of the

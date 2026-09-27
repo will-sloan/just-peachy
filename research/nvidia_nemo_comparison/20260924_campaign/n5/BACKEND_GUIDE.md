@@ -8,11 +8,14 @@ whole-panel rescues have ended for this campaign to preserve release work.
 Continuity/restart, deployment tiers and new release selection remain incomplete.
 No new N5 backend is accepted. See ../n4/N4_PARTIAL_REPORT_20260927.md.
 
-N5_STATUS_20260927_V14.json records closed ARM64 failures. A2 completed a full
+N5_STATUS_20260927_V15.json records closed ARM64 failures. A2 completed a full
 pass and timed out during the repeat; A3 was unattempted. Separately, the baseline
 Sherpa C-API probe consumed both full streams but returned empty text under
 QEMU while its Windows reference passed. Neither is a complete component pass.
 These results cannot supply missing N4 application or ARM64 GUI acceptance.
+The later C++ control works on Windows, while ARM64 again returns no text with
+matching samples, settings and Sherpa revision. The diagnostic narrowed the
+cause but did not fix it; see BASELINE_C_API_DIAGNOSTIC_FINDINGS_V3.md.
 
 | Composition | Purpose | Available evidence and remaining release work |
 |---|---|---|

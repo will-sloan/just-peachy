@@ -1,0 +1,51 @@
+{
+  "status": "DIAGNOSTIC_COMPLETE_ARM64_EMPTY_OUTPUT_REPRODUCED",
+  "checked_utc": "2026-09-27T22:12:21.348751+00:00",
+  "source_bindings_verified": 18,
+  "input_stats": {
+    "kind": "diagnostic_input",
+    "frames": 715127,
+    "nonzero": 208979,
+    "peak": 0.066741943359375,
+    "sum_squares": 5.648533998988569,
+    "f32_le_fnv1a64": "37da2f9943816e1b",
+    "sherpa_version": "1.13.4",
+    "sherpa_git": "14280725",
+    "sherpa_date": "Tue Jul 7 11:21:34 2026"
+  },
+  "effective_configuration_equal": true,
+  "normalized_configuration_sha256": "7394a32412634c7dc37fd9a7ebc07160f69f67f81f3a30daf756736dbefd44b2",
+  "windows_finals": 3,
+  "linux_finals": 0,
+  "windows_resets": 13,
+  "linux_resets": 17,
+  "windows_cpp_matches_prior_python_full_case": true,
+  "windows_seconds": 3.9689999999827705,
+  "linux_seconds": 231.334292409,
+  "fresh_recognizer_without_prior_streams": true,
+  "stream_parity_passed": false,
+  "complete_ARM64_component_pass": false,
+  "CM5_tested": false,
+  "GUI_validated": false,
+  "raw_text_published": false,
+  "private_audit": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\baseline-asr-diagnostic-v3-audit-v2\\RESULT.json",
+    "sha256": "2502981a845dba9e858e6f642ad39afd8f5b531fd59981543a94a72e189ef6cb",
+    "bytes": 4989
+  },
+  "prior_build_failure": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\baseline-asr-diagnostic-v2-audit-v1\\RESULT.json",
+    "sha256": "9d631ed175e8cf7c5a3f436206fd8f4526ec0c4c2db73a18befb8a91b88a6c76",
+    "bytes": 3758
+  },
+  "targeted_checks": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\baseline-asr-diagnostic-v3-targeted-v1\\RESULT.json",
+    "sha256": "1c172ab043f62c618689c2658d5a318d4f75290a80b4fc69da7f92c4207b5d4a",
+    "bytes": 1826
+  },
+  "all_exact_owners_absent": true,
+  "owned_linux_groups_empty": true,
+  "windows_model_job_unforced": true,
+  "input_desktop_unchanged": true,
+  "N5_complete": false
+}
