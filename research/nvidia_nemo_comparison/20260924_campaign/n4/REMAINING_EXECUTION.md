@@ -1,5 +1,50 @@
 # N4 and N5 execution order and acceptance gates
 
+## 2026-09-27 07:40 UTC - Modes progressing; next review reader prepared
+
+The guarded modes worker remains healthy under the same exact supervisor and
+source. At 07:39 UTC it had 648/1,536 modeled cells and complete resource checks
+through cell 640. All 120 running-source bindings and the original plan were
+reverified unchanged. N2/N3 acceptance and the accepted 7,680-case main modeled
+score review remain valid. Do not duplicate or modify the active worker.
+
+PANEL_SCORING_GUARDED_PREPARATION_V1.json records a new read-only score-chain
+adapter, its bounded diagnostic and 11 in-memory fixture tests, with 213 source/
+receipt bindings. Three Python syntax checks passed. Runtime tests have NOT_RUN
+status until an exclusive N4 slot is available; this is preparation, not reader
+qualification. It requires the exact accepted main review plus a complete guarded
+modes score review, resource/closure proofs, all 1,536 ordered cells and matching
+method/execution provenance. It reads no evaluator truth. The existing V4 planner
+and application consumers remain unchanged and are not compatible substitutes.
+README_PANEL_SCORING_GUARDED_V1.md explains purpose, inputs/outputs, PowerShell,
+CMD/Anaconda commands, sole-worker supervision and the 8-MiB/20-minute limit.
+
+Three immutable private worker specs are prepared (not dispatched):
+integrated-modes-method-review-guarded-v1-worker.json,
+integrated-modes-scores-guarded-v1-worker.json and
+integrated-modes-score-review-guarded-v1-worker.json. They use the previously
+qualified guarded family. Dispatch only after the preceding complete terminal,
+exact owner closure and a fresh allocation census, through supervisor.start.
+After all three pass, run the new reader probe with BOTH real reviews in a fresh
+output. Require its successful real-pair status and exact closure before building
+and qualifying a compatible application planner/runner family. Fixture-only
+status cannot authorize selection or GUI execution.
+
+Fresh CIM evidence links cmd.exe 40092 (created 2026-09-25 13:00:00.031140 UTC)
+to parent 5156, created 2026-09-24 14:33:18.103618 UTC, and the running
+Acronis Scheduler2 service (AcrSch2Svc, configured LocalSystem). Its observed
+children are conhost.exe 12952 and adp-rest-util.exe 44532. The command lines and
+direct account queries remain access-denied. This narrows the origin but does
+not qualify an exclusion from the existing controlled GUI/resource gate. No
+process, service, privilege, shared ledger or device was changed. Preserve the
+private CIM_OWNERSHIP.json receipt; do not terminate unrelated backup processes.
+
+N4 application/GUI, source-paced timing, naming, continuity/restart and final
+selection remain open, followed by N5 Windows/ARM64 functional validation and
+release packaging. The Pi reconnect requirements remain in force and live CM5
+checks are deferred. Packaging starts 2026-09-28 02:48:19 UTC; deadline
+14:48:19 UTC, unchanged. The hourly continuation remains in place.
+
 ## 2026-09-27 06:58 UTC - Main scores reviewed; guarded modes running
 
 MAIN_MODELED_SCORING_ACCEPTANCE_V1.json accepts the main modeled scoring only:
