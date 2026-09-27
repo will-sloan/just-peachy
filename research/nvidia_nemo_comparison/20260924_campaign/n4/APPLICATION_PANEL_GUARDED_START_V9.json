@@ -1,0 +1,30 @@
+{
+  "utc": "2026-09-27T17:07:08.730604+00:00",
+  "dispatch": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\paced-application-v9-dispatch\\ADMISSION.json",
+    "sha256": "c1f73e84364b39b0c35692f35c7bc31ee639cf3105351197aaa5208a95dc50cb",
+    "bytes": 91175
+  },
+  "started": {
+    "status": "STARTING",
+    "pid": 42952,
+    "create_time": 1790528828.709884,
+    "run_id": "9c571225ea9d49849582510bb80b1609",
+    "started_utc": "2026-09-27T17:07:08.719608+00:00",
+    "heartbeat_unix": 1790528828.7196088,
+    "resumed": false,
+    "argv_sha256": "3fffe0ea08b986b33b30765b1fceec3f6baa47c6e2ce1532667fd3877b967d2d"
+  },
+  "code_records": 327,
+  "qualification": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\APPLICATION_FAMILY_CHECK_V9.json",
+    "sha256": "163128b3bbfc29fb47cd8bf27c1f94e5f18248853a7986cf217a54eee0f01f7f",
+    "bytes": 94543
+  },
+  "required": 240,
+  "actual_application_cells_at_launch": 0,
+  "failed_cells_are_not_passes": true,
+  "partial_runs_not_combined": true,
+  "N4_accepted": false,
+  "N5_complete": false
+}

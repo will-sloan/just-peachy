@@ -1,8 +1,16 @@
 # N5 release preparation — campaign not complete
 
-Latest machine-readable checkpoint: `N5_STATUS_20260927_V9.json`. It preserves
-the earlier status and records accepted N2/N3, reviewed numerical N4 coverage,
-the preserved V6/V7 failures, passing 97-test V8 qualification and fresh 240-cell application run. Matching V8 review qualification, restart and continuity remain pending. The ARM64 native streaming harness is prepared but has not compiled or executed.
+Latest machine-readable checkpoint: `N5_STATUS_20260927_V10.json`. The V8 run
+preserved a D1 drain timeout after two collected cells. The qualified V9
+collector is running with separate attempted, collected and failed counts.
+No N4 acceptance is inferred from a completed queue. Matching V9 reviews,
+continuity and restart remain pending.
+
+The ARM64 native harness now compiles, and eight malformed-WAV checks passed
+under QEMU. `NATIVE_STREAM_BUILD_CHECK_V1.json` and
+`README_NATIVE_STREAM_BUILD_V1.md` supersede the earlier compilation-pending
+notes. Actual model/saved-speech inference and full ARM64 GUI validation remain
+untested. The device has not been contacted or updated.
 
 The preserved baseline is usable on Windows. N2/N3 have accepted offline
 component handoffs. New N4-selected alternatives are not accepted yet: the

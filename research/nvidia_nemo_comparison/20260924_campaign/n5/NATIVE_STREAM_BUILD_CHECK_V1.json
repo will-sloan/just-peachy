@@ -1,0 +1,46 @@
+{
+  "status": "PASS_ARM64_BUILD_AND_INVALID_WAV_ONLY",
+  "utc": "2026-09-27T17:05:10.322191+00:00",
+  "private_result": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\native-stream-build-v1\\RESULT.json",
+    "sha256": "0ffdd8ea7ab92f113aaad96919366c7e698523978a127e6b9c6d10ccbb4067be",
+    "bytes": 12949
+  },
+  "host_admission": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\native-stream-build-v1-host\\ADMISSION.json",
+    "sha256": "6f13b337e425b277c197ac1b2464ae3278f9ca4043c2091756a30f7c4f51671f",
+    "bytes": 3144
+  },
+  "host_closure": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\native-stream-build-v1-host\\RESULT.json",
+    "sha256": "e734ba4515c87c6a3d9a166964641a5f7d883d1ee0c432e36482ff9adeda3bfc",
+    "bytes": 648
+  },
+  "source": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n5\\native_stream_smoke_v1.cpp",
+    "sha256": "5245066d08261775cce61a7449a6bed7e51836578c25439e312ed1b98326cc58",
+    "bytes": 12693
+  },
+  "builder": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n5\\build_native_stream_smoke_v1.py",
+    "sha256": "3c12a708ef0bf965001f3b50e376fcc5a8f766e64f570ee17df1f5bb320bb9b9",
+    "bytes": 8662
+  },
+  "readme": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n5\\README_NATIVE_STREAM_BUILD_V1.md",
+    "sha256": "9848c26fbdc28e782e2f85c312aac19889f95d5007d26d6a0ccc2eb9a13530d0",
+    "bytes": 2573
+  },
+  "binary": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\native-stream-build-v1\\native_stream_smoke_v1",
+    "sha256": "efb2cc6d3d40d67674a1dfae7cdc2968a6ca6ac551d67b4860a135c71fdddc0f",
+    "bytes": 85976
+  },
+  "architecture": "ELF64_AARCH64_ARMV8_A",
+  "malformed_cases_passed": 8,
+  "commands_closed": 9,
+  "model_inference": false,
+  "ARM64_FUNCTIONAL_SMOKE": false,
+  "CM5_tested": false,
+  "N5_complete": false
+}

@@ -1,0 +1,80 @@
+{
+  "status": "FAILED_AFTER_TWO_CELLS_LANE_DRAIN_TIMEOUT",
+  "utc": "2026-09-27T16:52:34.737251+00:00",
+  "private_result": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\paced-application-v8\\RESULT.json",
+    "sha256": "0c4e4b98fb1d69daa6f16517a25aa676a793cf69de4930e435cafbee259aa534",
+    "bytes": 1705
+  },
+  "private_admission": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\paced-application-v8\\ADMISSION.json",
+    "sha256": "a4effb0c903b8cd348a6e6d018e1a653c9afe6005ec31607f54842b84c1ea218",
+    "bytes": 89444
+  },
+  "closures": [
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\paced-application-v8\\cells\\panel_0_N2_S45_01_01_O0_A0_D0_E0\\PARENT_CLOSURE.json",
+      "sha256": "fde699a22ba6bb1a58801219ae80f36a8d88bdab83dcc8470f1cc8431ac75945",
+      "bytes": 2698
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\paced-application-v8\\cells\\panel_0_N2_S45_01_01_O0_A0_D1_E0\\PARENT_CLOSURE.json",
+      "sha256": "29583a3e289218083d3409905a199cbf1ae4ea9e0f90e21ebef49ddc4f3136a2",
+      "bytes": 2742
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\paced-application-v8\\cells\\panel_0_N2_S45_01_01_O0_A1_D0_E0\\PARENT_CLOSURE.json",
+      "sha256": "47b0482847382f5a40a9e64303343db6d77e2537709e4ac64bc37ea87808b132",
+      "bytes": 2692
+    }
+  ],
+  "closed_supervisor": {
+    "status": "FAILED",
+    "pid": 44208,
+    "create_time": 1790525604.8302045,
+    "run_id": "72cc2e4085c041b5b12e475c3bf2c8c7",
+    "started_utc": "2026-09-27T16:13:24.839761+00:00",
+    "heartbeat_unix": 1790526181.7414885,
+    "resumed": false,
+    "argv_sha256": "563da7db70c61cc5e601896b7e3f3d1d895f8554df6263798021c4255f74740f",
+    "child_launch_pending": false,
+    "child_pid": 4168,
+    "child_create_time": 1790525604.9918833,
+    "exit_code": 1,
+    "ended_utc": "2026-09-27T16:23:01.741488+00:00",
+    "error": "Worker exited 1"
+  },
+  "exact_owners_closed": [
+    {
+      "pid": 4168,
+      "create_time": 1790525604.9918833
+    },
+    {
+      "pid": 44208,
+      "create_time": 1790525604.8302045
+    },
+    {
+      "pid": 51740,
+      "create_time": 1790525939.3528197
+    },
+    {
+      "pid": 51580,
+      "create_time": 1790526061.7007291
+    },
+    {
+      "pid": 28384,
+      "create_time": 1790525997.685881
+    }
+  ],
+  "verified_code_records": 320,
+  "completed": 2,
+  "required": 240,
+  "source_frames_delivered": 715127,
+  "source_duration_seconds": 44.6954375,
+  "failed_lane": "edge-speaker",
+  "drain_limit_seconds": 60,
+  "source_truncated": false,
+  "lease_failure": false,
+  "N4_accepted": false,
+  "N5_complete": false
+}

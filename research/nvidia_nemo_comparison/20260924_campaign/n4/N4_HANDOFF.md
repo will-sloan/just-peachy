@@ -1,5 +1,58 @@
 # N4 checkpoint - revised application panel running
 
+## 2026-09-27 17:08 UTC - Closed D1 timeout preserved; V9 outcome collector active
+
+V8 completed two collected cells and stopped on the first D1 cell at 16:22:59
+UTC. All 715,127 saved input samples were delivered, but edge-speaker exceeded
+the unchanged 60-second drain limit. This is a failed runtime outcome, not a
+lease failure or timing pass. APPLICATION_PANEL_DRAIN_FAILURE_V1.json binds
+all three closed child lifetimes, exact closed supervisor/driver and unchanged
+320-source lineage. No earlier evidence or immutable application was modified.
+
+APPLICATION_FAMILY_CHECK_V9.json verifies 16 focused checks, six source
+snapshots, the real failed-cell readback, actual 240-cell plan reconstruction
+and both resource boundaries. Its 327-file lineage includes unchanged V8 and
+its retained 97-test qualification; those 97 tests were not rerun. The V9 probe
+closed at 17:00:06 UTC. Only a fully verified, normally closed exit-1 lane timeout
+can be recorded as FAILED_CELL and allow later cells to run. Lease/resource,
+unknown application, ownership and cleanup failures still abort. Successful
+collection gates, source pacing, 60-second drainage and five-second lease are
+unchanged. Failure counts remain in the full planned denominator, with no
+success or acceptance credit and no silent combination of earlier partial runs.
+
+APPLICATION_PANEL_GUARDED_START_V9.json records the new run in
+local/n4/paced-application-v9, started 17:07:08 UTC. Supervisor
+42952/1790528828.709884, run 9c571225ea9d49849582510bb80b1609. Read the current
+worker for its exact driver identity. One 2-GiB/four-hour allocation uses CPU14
+for coordination and CPU4 for the owned private-desktop application. Follow
+progress/*.json (attempted/completed/failed), ADMISSION.json and RESULT.json.
+No Python/WSL/QEMU, tests or another worker may compete with this timed run.
+All bound V9 sources and their README are frozen. Use relative shell metadata.
+
+The new outcome queue is not a successful full panel. Matching V9 transport,
+cell, content/naming and complete outcome-population reviews still need fresh
+consumer derivatives and qualification: V8 readers bind the V8 runner and must
+not be presented as V9 acceptance. Review all failure classifications, preserve
+missing/failed counts and only promote configurations with verified complete
+acceptance evidence. Continuity, restart and resource/GUI acceptance remain
+pending. The four-hour limit is unchanged; a budget-limited run stays PARTIAL.
+The packaging reserve and final deadline must not be extended to chase a pass.
+
+N5_NATIVE: NATIVE_STREAM_BUILD_CHECK_V1.json in n5 records successful ARM64
+C++17/armv8-a compilation and eight malformed-WAV rejections under QEMU. All nine
+command groups and the exact Windows invocation closed. No model was loaded.
+The binary hash is efb2cc6d3d40d67674a1dfae7cdc2968a6ca6ac551d67b4860a135c71fdddc0f.
+Use README_NATIVE_STREAM_BUILD_V1.md for the tested companion; earlier frozen
+harness preparation documents are historical. Actual saved-speech/state/flush
+inference, complete ARM64 GUI/runtime validation and live CM5 checks remain
+pending. No Pi was contacted, and no new backend release is accepted.
+
+N5_STATUS_20260927_V10.json is the current checkpoint. N1 offline and N2/N3
+component acceptances remain as previously verified. Packaging reserve remains
+September 28 02:48:19 UTC; campaign deadline September 28 14:48:19 UTC. The Pi
+stays off; after reconnection use the storage preflight and staged installation
+instructions. Older active-run paragraphs below are historical.
+
 ## 2026-09-27 16:14 UTC - V8 qualified; fresh 240-cell collector active
 
 APPLICATION_FAMILY_CHECK_V8.json verifies all 97 tests, 320 unchanged bound
