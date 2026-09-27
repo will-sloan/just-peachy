@@ -1,0 +1,58 @@
+{
+  "status": "FAILED_FIRST_APPLICATION_CELL_PRESERVED",
+  "utc": "2026-09-27T13:33:50.494748+00:00",
+  "private_result": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\paced-application-v5\\RESULT.json",
+    "sha256": "6b88cfdc6bd7e6dcc6afef02a944068ec8976f60961477aff1a6380f42385148",
+    "bytes": 1169
+  },
+  "admission": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\paced-application-v5\\ADMISSION.json",
+    "sha256": "22a8288e20359b19ef0f893272f28441f02819c28a8eb73bda348d5d7c0b1637",
+    "bytes": 85001
+  },
+  "child_result": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\paced-application-v5\\cells\\panel_0_N2_S45_01_01_O0_A0_D0_E0\\transport\\CHILD_RESULT.json",
+    "sha256": "4ec2f916fc45835741074a1d1cae1fb215a926e92f0bf0ccd0091620ea1c79f5",
+    "bytes": 759
+  },
+  "parent_closure": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\paced-application-v5\\cells\\panel_0_N2_S45_01_01_O0_A0_D0_E0\\PARENT_CLOSURE.json",
+    "sha256": "0e4ca447de5126dccd453a7d95044527ffe56ff86d740b85cf9babb229b3a1bc",
+    "bytes": 2744
+  },
+  "application_result": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\paced-application-v5\\cells\\panel_0_N2_S45_01_01_O0_A0_D0_E0\\application\\RESULT.json",
+    "sha256": "1f14a737604ee274040e87931dfd5f93a3698856dc4ea527ca43bc76369a9e0a",
+    "bytes": 5846
+  },
+  "supervisor_terminal": {
+    "status": "FAILED",
+    "pid": 34704,
+    "create_time": 1790515318.2157984,
+    "run_id": "5db644d88865426d9d76d180d828df5d",
+    "started_utc": "2026-09-27T13:21:58.226675+00:00",
+    "heartbeat_unix": 1790515704.80167,
+    "resumed": false,
+    "argv_sha256": "55ccb05a7a873f990afe5f9efe6299a1507c352be1e090b7188950276337c1a2",
+    "child_launch_pending": false,
+    "child_pid": 18384,
+    "child_create_time": 1790515318.3704393,
+    "exit_code": 1,
+    "ended_utc": "2026-09-27T13:28:24.801670+00:00",
+    "error": "Worker exited 1"
+  },
+  "all_exact_owners_exited": true,
+  "child_not_forced": true,
+  "desktop_before": "Default",
+  "desktop_after": "Default",
+  "frozen_source_records_verified": 304,
+  "required": 240,
+  "completed": 0,
+  "source_samples_delivered": 715127,
+  "reason": "Application closure: ModuleNotFoundError(\"No module named 'research.nvidia_nemo_comparison.20260924_campaign.n3'\")",
+  "proposed_repair": "Explicit worktree PYTHONPATH inherited through the existing supervisor; unchanged qualified V5 application and plan; fresh output only",
+  "repair_tested": false,
+  "N4_accepted": false,
+  "N5_complete": false
+}

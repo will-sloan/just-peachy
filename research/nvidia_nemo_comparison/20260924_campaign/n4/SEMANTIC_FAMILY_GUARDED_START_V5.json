@@ -1,0 +1,40 @@
+{
+  "status": "GUARDED_SEMANTIC_AND_IMPORT_PATH_PROBE_RUNNING_NOT_QUALIFIED",
+  "utc": "2026-09-27T13:37:36.0842533Z",
+  "dispatch": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\semantic-family-v5-probe-v1-dispatch\\STARTED.json",
+    "sha256": "188cdd91a74641f8d7933ed5d524eac6ab20ed8490bf75d4cbd62b88370d03c0",
+    "bytes": 862
+  },
+  "preparation": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\semantic-family-v5-preparation\\PREPARATION.json",
+    "sha256": "6f49d7ceb90bae742a7c0cccb0516dbe764b1a1139cb33f7e008348d9c4cb0c5",
+    "bytes": 135885
+  },
+  "admission": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\semantic-family-v5-probe-v1\\ADMISSION.json",
+    "sha256": "d2be11b3cea0bfecf9132685f08b8d76f6ba9462a425f97abc26f7d78b8e6a9a",
+    "bytes": 133407
+  },
+  "execution_plan": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\semantic-family-v5-probe-v1\\EXECUTION_PLAN.json",
+    "sha256": "8a5e2ae055de989160c36af4d50e0fb7b60c674097d0b5c37421dab8e5b168c9",
+    "bytes": 133535
+  },
+  "supervisor_owner": {
+    "create_time": 1790516175.5630302,
+    "pid": 31248
+  },
+  "driver_owner": {
+    "pid": 53036,
+    "create_time": 1790516175.7166996
+  },
+  "run_id": "959f711a591d4a6a8a985ead94aac307",
+  "heartbeat_unix": 1790516255.989318,
+  "verified_source_records": 482,
+  "expected_regression_tests": 66,
+  "expected_import_checks": 2,
+  "actual_application_or_model_started": false,
+  "N4_accepted": false,
+  "N5_complete": false
+}

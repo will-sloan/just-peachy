@@ -1,5 +1,21 @@
 # N5 partial release checkpoint
 
+## 2026-09-27 13:35 UTC - Actual N4 attempt failed at archive import
+
+The V5 application development qualification passed all 84 checks. Its first
+actual baseline saved-audio cell then completed delivery but failed at closure
+because the private child could not resolve the campaign's N3 archive helper.
+The full attempt is preserved, zero actual cells are accepted, and all owned
+processes exited. A bounded process-local import-path repair and matching semantic
+reviewer tests are being prepared; follow the newest N4 receipts before execution.
+This is not an N4 release selection or N5 software acceptance.
+
+Keep the verified baseline archive and storage/reconnect tooling. The later wired
+install must make baseline and validated optional backend GUIs easy to select,
+share identical assets, check real free space first and preserve personal data.
+No connection, installation or live validation on the powered-off Pi has occurred.
+The original packaging reserve and deadline are unchanged.
+
 ## 2026-09-27 13:10 UTC - Actual N4 plan prepared, no accepted release yet
 
 N4 has a fully reconstructed, resource-checked 240-cell application plan for six

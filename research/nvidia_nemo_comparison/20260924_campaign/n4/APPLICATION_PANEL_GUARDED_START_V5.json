@@ -1,0 +1,46 @@
+{
+  "status": "SUPERVISED_V5_APPLICATION_RUN_STARTED_REQUIRES_COMPLETE_COLLECTION_AND_REVIEW",
+  "utc": "2026-09-27T13:28:01.7318106Z",
+  "qualification": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\APPLICATION_FAMILY_CHECK_V5.json",
+    "sha256": "acd6c0a7b95f44947b08c31ae9a10a5ec4cf9bf8cfd82394c440ee9f86b547f9",
+    "bytes": 93133
+  },
+  "dispatch": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\paced-application-v5-dispatch\\STARTED.json",
+    "sha256": "b2ec63b966a92104b6bb1db47e4178c22738d58845a19f986132691599571f3d",
+    "bytes": 847
+  },
+  "admission": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\paced-application-v5\\ADMISSION.json",
+    "sha256": "22a8288e20359b19ef0f893272f28441f02819c28a8eb73bda348d5d7c0b1637",
+    "bytes": 85001
+  },
+  "execution_plan": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\paced-application-v5\\EXECUTION_PLAN.json",
+    "sha256": "33f4b6a30ef53df2c96d33ecd2baffa6787ed4cfeeee388e35ab1c363f898c49",
+    "bytes": 84807
+  },
+  "initial_resource_check": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\paced-application-v5\\GUARD_INITIAL.json",
+    "sha256": "ea1082fceced9e0fd13e93bf95282e7ae8c8b9e283458f36dc581497fc47fa39",
+    "bytes": 402606
+  },
+  "supervisor_owner": {
+    "pid": 34704,
+    "create_time": 1790515318.2157984
+  },
+  "driver_owner": {
+    "pid": 18384,
+    "create_time": 1790515318.3704393
+  },
+  "run_id": "5db644d88865426d9d76d180d828df5d",
+  "verified_unchanged_source_records": 304,
+  "planned_cells": 240,
+  "allocation_bytes": 2147483648,
+  "maximum_seconds": 14400,
+  "completion_verified": false,
+  "N4_accepted": false,
+  "N5_complete": false,
+  "live_CM5_checks": "DEFERRED_UNTIL_USER_RECONNECTS"
+}

@@ -1,4 +1,59 @@
-# N4 checkpoint - actual plan qualified; matching application family under test
+# N4 checkpoint - first actual attempt failed; bounded launch-path repair
+
+### Supervised follow-up at 13:36 UTC
+
+The prepared semantic/import-path check is now running at
+`local/n4/semantic-family-v5-probe-v1`, run ID
+959f711a591d4a6a8a985ead94aac307, supervisor
+31248/1790516175.5630302. See `SEMANTIC_FAMILY_GUARDED_START_V5.json`
+for the exact admitted driver and verified 482 sources. Its 16-MiB/40-minute
+allocation was admitted after all failed-application owners closed and a new
+complete census (46.507 GiB projection). Do not duplicate it or edit its 12
+prepared source files. Full tests, import repair verification, resource checks
+and exact closure are still required. After positive verification, publish the
+semantic qualification and admit a fresh V5 application output with the recorded
+process-local PYTHONPATH. No actual application is currently running.
+
+## 2026-09-27 13:35 UTC - V5 qualified; first actual cell preserved as failed
+
+`APPLICATION_FAMILY_CHECK_V5.json` qualifies the closed 84-test application
+family, including the positive actual-plan reconstruction, all 304 bound source
+files, 17 exact snapshots, seven saved native lifetimes and both resource proofs.
+Probe supervisor 41360/1790514507.6941 and driver 52692/1790514507.8476112
+closed normally at 13:16:29 UTC. Qualification SHA-256 is
+acd6c0a7b95f44947b08c31ae9a10a5ec4cf9bf8cfd82394c440ee9f86b547f9.
+
+The first actual 240-cell attempt, `local/n4/paced-application-v5`, was admitted
+after a complete census with no competing allocation (48.471 GiB projection).
+Supervisor 34704/1790515318.2157984 and driver 18384/1790515318.3704393
+ran 13:21:58-13:28:24 UTC. The first baseline cell delivered all 715,127 saved
+samples, but closure could not import the worktree N3 archive helper. Zero cells
+were collected/accepted. `APPLICATION_PANEL_FAILURE_V5.json` preserves the
+result, exact child and parent closure, unchanged 304 sources and failed terminal.
+Child 47048/1790515646.110983 exited with code 1 without forced termination;
+its job was empty and the input desktop remained Default. All exact owners exited.
+
+The bounded proposed repair is a fresh launch configuration with process-local
+PYTHONPATH set to the exact campaign worktree before supervisor.start. The frozen
+application, existing V5 runner/child gate, plan and source assets remain unchanged.
+Do not edit or resume the failed directory. Require the new isolated negative/
+positive import regression, exact N3/helper hashes and nine saved archive checks
+before a fresh supervised retry. See README_APPLICATION_IMPORT_PATH_V1.md.
+
+The matching guarded V5 semantic/content/name family is prepared in 12 new files
+with complete 482-file ancestry, syntax/import checks and frozen preparation
+snapshots. Its 66 semantic regressions and two import-environment checks are NOT
+YET PASSED. It must use the full resource guard and actual plan reconstruction;
+no fixed shared-ledger estimate or manual ledger changes. Read its current worker
+receipt before dispatch. README_SEMANTIC_FAMILY_V5.md documents commands and scope.
+
+Remaining N4 work: successful complete timed collection and independent coverage/
+semantic/resource interpretation, matching restart/continuity execution, honest
+deployment tiers and release selection. Then N5 per-build Windows and ARM64
+functional software validation, packaging, docs and verified backup. Numerical
+7,680 main and 1,536 modes coverage remains accepted in its recorded modeled scope.
+No complete N4/N5 acceptance. Packaging reserve 2026-09-28 02:48:19 UTC and
+14:48:19 deadline remain fixed. Live CM5 checks wait for user reconnection.
 
 ## 2026-09-27 13:10 UTC - Actual plan qualified; matching application family running
 

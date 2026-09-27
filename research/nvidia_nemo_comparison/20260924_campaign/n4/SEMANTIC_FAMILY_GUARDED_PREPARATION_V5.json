@@ -1,0 +1,17 @@
+{
+  "status": "PREPARED_UNQUALIFIED_V5_SEMANTIC_AND_IMPORT_PATH_CHECKS",
+  "utc": "2026-09-27T13:37:36.0308895Z",
+  "preparation": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\semantic-family-v5-preparation\\PREPARATION.json",
+    "sha256": "6f49d7ceb90bae742a7c0cccb0516dbe764b1a1139cb33f7e008348d9c4cb0c5",
+    "bytes": 135885
+  },
+  "code_records": 482,
+  "source_snapshots": 12,
+  "syntax_and_import_checks_passed": true,
+  "expected_regression_tests": 66,
+  "expected_isolated_import_cases": 2,
+  "actual_application_or_model_started": false,
+  "N4_accepted": false,
+  "N5_complete": false
+}
