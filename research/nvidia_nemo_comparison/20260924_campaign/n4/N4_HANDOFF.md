@@ -1,5 +1,42 @@
 # N4 checkpoint — components reviewed; integrated method bank running
 
+### 2026-09-27 00:29 UTC - Main bank collected; full review active; modes plan prepared
+
+The main V3 bank completed all 7,680 cases with zero failed and untested rows.
+Its terminal owner 46448/1790444329.9990232 and supervisor
+31132/1790444329.8372655 have both exited; exit zero was recorded at
+2026-09-26 23:43:46 UTC. All 7,139 fixed backup bindings and 13 public files,
+including accepted N2/N3 and all 58 main source bindings, were reverified.
+The old RUNNING progress label is superseded by the terminal and exact exits.
+
+The existing supervision interface started full artifact/closure review at
+00:22:53 UTC: reviewer 36868/1790468573.2251587, supervisor
+41592/1790468573.094462. CPU14/BelowNormal, one math thread, GPU off. Fresh
+heartbeats and increasing CPU time/read bytes confirm continuing work; no
+review pass or N4 acceptance is claimed yet. Original supervision state/logs
+are preserved under integrated-main-review-dispatch-v3. Once review passes
+and exact owners exit, proceed to qualified V3 scoring and independent review.
+
+Independent metadata preparation produced the exact 1,536-case modes plan
+from the same accepted component source, gallery, audio and fixed 24-job panel;
+no prefix reuse or reference truth is included. Plan SHA-256 is
+`ab3a6f79b13cbd200b24d72c7749814cf1f170f611b828eb603b86c9b2cfbfaf`.
+Construction receipts are in integrated-modes-plan-preparation-v3. This is a
+prepared plan, not modes execution. Its 384 matching main cells occupy
+214,157,706 bytes. Four modes plus the 280-MiB peak imply a rough 1.071-GiB
+planning estimate; this is not a guarantee. A 1.25-GiB allocation does not fit
+current conservative reservation accounting (about 49.233 GiB already reserved
+including 6 GiB pending and 0.5 GiB contingency). Reconcile permitted stage
+admission before execution; no shared ledger or guard was modified.
+
+README_EXECUTION_20260927.md provides purpose, inputs/outputs, complete
+PowerShell/CMD/Anaconda recipes, ownership checks, storage forecast and next
+gates. Actual main/modes scoring, selected GUI/resource/naming/timing,
+continuity/restart, N4 acceptance and N5 release validation remain outstanding.
+PID 40092 remains unclassified and the earlier user clarification is pending;
+controlled GUI/resource admission remains blocked. The Pi stays offline.
+Packaging reserve and deadline remain 2026-09-28 02:48:19 and 14:48:19 UTC.
+
 ### 2026-09-26 23:35 UTC - V4 content and naming family qualified for development
 
 The main V3 method bank is healthy at 7,459/7,680, with exact worker
