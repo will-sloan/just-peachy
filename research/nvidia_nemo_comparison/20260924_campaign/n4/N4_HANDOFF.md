@@ -1,5 +1,37 @@
 # N4 checkpoint - main method review passed; scoring active
 
+### 2026-09-27 02:37 UTC - Reservation calculation qualified; production integration still open
+
+The fresh reservation_budget_v1 library and its admitted read-only probe passed
+26 boundary/failure tests. RESERVATION_BUDGET_CHECK_V1.json binds 94 source
+files and private reservation-budget-v1-probe-v1 evidence; exact probe owner
+44304/1790476363.121994 exited. The probe reverified all 2,880 ASR/D1 result
+bindings and their closed exact owners. It included current scorer, waiter and
+probe output remainders, all physical bytes, a proposed 1.5-GiB modes request,
+2 GiB retained future allowance and 0.5 GiB contingency: 47.256897 GiB against
+the unchanged 50-GiB ceiling. No evidence was removed or credited as free.
+
+This qualifies the calculation only. Its active allocation set is explicit and
+caller supplied; complete allocation-census qualification and integration into
+fresh method/scorer/reviewer/application guards remain required. No production
+guard was replaced and no modes worker was admitted. Do not treat this receipt
+as permission to bypass a frozen guard. README_RESERVATION_BUDGET_V1.md includes
+purpose, inputs/outputs and PowerShell/CMD/Anaconda recipes and next gates.
+
+At this observation, main scoring had 3968 receipts: 3964 SCORED and
+4 TIMEOUT. Private main-scoring-timeout-observation-v2/RESULT.json binds every
+unavailable row and its unchanged method input. The current scorer and guarded
+handoff retain their exact identities and CPU14/BelowNormal limits. Finish the
+active run before any targeted metric repair; the handoff requires zero missing
+metrics and will refuse a partial terminal. Do not overwrite failed receipts.
+
+N2/N3 accepted offline component evidence remains the upstream authority. Modes
+execution/scoring/review, selected actual GUI/resource/timing/naming/continuity/
+restart checks, N4 acceptance and N5 final validation remain incomplete. The
+inaccessible cmd.exe PID40092 ownership question remains pending; controlled
+GUI/resource admission is still blocked. The Pi remains offline. Packaging
+reserve is 2026-09-28 02:48:19 UTC; deadline 14:48:19 UTC that day, unchanged.
+
 ### 2026-09-27 01:54 UTC - Two metric timeouts; active run preserved
 
 A fresh per-cell inspection found two TIMEOUT / NOT_SCORED_TIMEOUT receipts
