@@ -1,0 +1,48 @@
+{
+  "status": "FAILED_EMULATED_BASELINE_ASR_PARITY_PRESERVED",
+  "ended_utc": "2026-09-27T21:02:35.254687+00:00",
+  "audit": {
+    "path": "G:/Just_Peachy_N1/20260924_campaign/local/n5/baseline-arm64-asr-v1-audit-v1/RESULT.json",
+    "sha256": "5a651222f19f09d3d48530272d7389d58d0911db0940b21cabe773ceaf40bfec",
+    "bytes": 7644
+  },
+  "execution": "WINDOWS_REFERENCE_VS_QEMU_AARCH64_C_API",
+  "models": "Same existing INT8 encoder/joiner, FP32 decoder and tokens; no conversion or changed gain",
+  "threads_each": 1,
+  "source_frames": 715127,
+  "push_frames": 1600,
+  "final_padding_frames": 10560,
+  "windows_reference": {
+    "cases_passed": 4,
+    "finals_each_full_pass": 3,
+    "endpoint_resets_each_full_pass": 13,
+    "fresh_stream_repeat_equal": true,
+    "normal_job_closure": true
+  },
+  "emulated_ARM64": {
+    "cross_build_passed": true,
+    "malformed_WAV_cases_passed": 8,
+    "cases_closed": 4,
+    "full_passes_consumed_and_closed": 2,
+    "finals_each_full_pass": 0,
+    "endpoint_resets_each_full_pass": 17,
+    "model_elapsed_seconds": 470.35841011,
+    "returncode": 1,
+    "timed_out": false,
+    "remaining_process_group_members": [],
+    "failure": "Fresh resident-stream final parity failed",
+    "interpretation": "Both full streams returned empty final lists; the required nonempty full-source output check failed. Equal empty results do not establish meaningful parity."
+  },
+  "all_four_exact_windows_owners_absent": true,
+  "bound_source_records_reverified_unchanged": 14,
+  "reader_tests_passed": 6,
+  "reader_rejected_native_result": true,
+  "root_cause": "UNRESOLVED: input/configuration, compiled runtime and emulator numerical behavior still need isolation; no arbitrary gain/precision/timeout change authorized by this result",
+  "unchanged_retry_scheduled": false,
+  "raw_transcripts_in_this_report": false,
+  "paired_parity_passed": false,
+  "complete_ARM64_component_pass": false,
+  "ARM64_GUI_validated": false,
+  "CM5_tested": false,
+  "N5_complete": false
+}

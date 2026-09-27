@@ -8,13 +8,15 @@ whole-panel rescues have ended for this campaign to preserve release work.
 Continuity/restart, deployment tiers and new release selection remain incomplete.
 No new N5 backend is accepted. See ../n4/N4_PARTIAL_REPORT_20260927.md.
 
-The separately admitted ARM64 A2/A3 component check under QEMU is active at
-N5_STATUS_20260927_V12.json. Its result cannot supply the missing N4 application
-or full ARM64 GUI acceptance. Check later verified receipts before claiming a pass.
+N5_STATUS_20260927_V14.json records closed ARM64 failures. A2 completed a full
+pass and timed out during the repeat; A3 was unattempted. Separately, the baseline
+Sherpa C-API probe consumed both full streams but returned empty text under
+QEMU while its Windows reference passed. Neither is a complete component pass.
+These results cannot supply missing N4 application or ARM64 GUI acceptance.
 
 | Composition | Purpose | Available evidence and remaining release work |
 |---|---|---|
-| A0/D0/E0 baseline | Sherpa Giga ASR, Pyannote diarization, ReDimNet embeddings and final-only punctuation | Preserved N1 Windows baseline and offline CM5 bundle; included in N4 numerical review and proposed timed panel. Actual ARM64 model/GUI and CM5 checks remain pending. |
+| A0/D0/E0 baseline | Sherpa Giga ASR, Pyannote diarization, ReDimNet embeddings and final-only punctuation | Preserved N1 Windows baseline and offline CM5 bundle; Windows lifecycle smoke passed. ARM64 ASR C-API check failed with empty text; Python/GUI and CM5 checks remain pending. |
 | A1/D0/E0 | Parakeet realtime EOU 120M ASR | Accepted N3 offline component scope and reviewed N4 numerical cases; proposed timed panel. Portable release and per-build checks remain pending. |
 | A0/D1/E0 | Nemotron diarization with baseline ASR/embedding | Accepted N2 offline component scope and reviewed N4 numerical cases; proposed timed panel. Application/resource and portable release checks remain pending. |
 | A0/D1/E1 | TitaNet embeddings in their own model namespace | Accepted N2 offline component scope and reviewed N4 numerical cases; proposed timed panel. Encoder-specific galleries and release checks remain required. |

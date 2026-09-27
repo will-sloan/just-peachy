@@ -5,6 +5,20 @@ upstream comparisons run. N5 is PARTIAL, not release acceptance or campaign
 closure. START_HERE.md is the operating index. README_ARM64.md covers the build,
 static ELF audit and no-model QEMU loader probes.
 
+The paired baseline C-API probe is documented in
+`README_BASELINE_ARM64_ASR_V1.md`. Its Windows reference passed, while both
+emulated ARM64 full streams returned empty text and failed the strict gate.
+`BASELINE_ARM64_ASR_CHECK_V1.json` and `BASELINE_ARM64_ASR_FINDINGS_V1.md`
+preserve the audit and narrow investigation boundary; no complete ARM64 pass
+is claimed. Bound V1 sources and failed private outputs remain unchanged.
+
+`README_REVIEWED_HANDOFF_V2.md` covers the current compact handoff builder,
+its explicit selection, current status input and fresh private ZIP/receipt.
+It verifies every selected byte against the remotely backed-up Git commit and
+reads back every ZIP member. `CAMPAIGN_COVERAGE_20260927.md` records scoped
+coverage, and `RELEASE_MAPPING_20260927.md` distinguishes immutable software
+from later validation evidence. These are partial checkpoint artifacts.
+
 `README_BASELINE_WINDOWS_LIFECYCLE_V1.md` documents the new saved-file Windows
 smoke, inputs/outputs, resource admission and PowerShell/CMD/Anaconda commands.
 `BASELINE_WINDOWS_LIFECYCLE_CHECK_V1.json` records two passing real GUI process
@@ -64,13 +78,8 @@ baseline and isolated manual-baseline data. Optional arguments are the existing
 Start-N1.ps1 parameters. The output is an idle GUI and external user-selected
 session data; do not run inference concurrently with admitted campaign jobs.
 
-`package_checkpoint.py` creates the small analysis-first handoff from explicitly
-listed small reports/scripts and writes ARTIFACT_INDEX/HANDOFF_RECEIPT. Inputs
-are the prepared release receipts and live read-only upstream status; outputs
-are N5_STATUS.json, dated coverage snapshot and a fresh ZIP. It never changes
-the shared campaign ledger, schedules, source bindings or worker ownership.
-Run from either shell with the same explicit Python above:
-`PYTHON research/nvidia_nemo_comparison/20260924_campaign/n5/package_checkpoint.py
---output G:/Just_Peachy_N1/20260924_campaign/local/n5/handoffs/NVIDIA_CAMPAIGN_CHATGPT_HANDOFF_20260924_campaign.zip`.
-Use a new output name if that archive exists. This filename is a checkpoint,
-not a claim that the final campaign handoff or full N5 acceptance is complete.
+`package_checkpoint.py` is historical and contains early stage counts. Do not
+rerun it for a current handoff. Its earlier archive and receipts remain preserved.
+Use `package_reviewed_handoff_v2.py` with the explicitly selected current status;
+the complete PowerShell/CMD/Anaconda commands, inputs and outputs are in
+`README_REVIEWED_HANDOFF_V2.md`. Neither builder establishes stage acceptance.

@@ -1,6 +1,6 @@
 # N5 release preparation - campaign not complete
 
-Latest checkpoint: `N5_STATUS_20260927_V13.json`. N4 actual application
+Latest checkpoint: `N5_STATUS_20260927_V14.json`. N4 actual application
 confirmation is PARTIAL: V10 has two collected cells pending acceptance, two
 failures and 236 unattempted of 240. The D1 speaker lane exceeded its drain
 limit; the fourth cell also failed Controller closure. Exact process owners
@@ -15,6 +15,13 @@ A3 was unattempted. A2 completed the first full source, but state parity and
 forced-endpoint checks remain unverified. Zero complete model passes are
 claimed. `NATIVE_STREAM_MODELS_PARTIAL_V1.md` records the preserved failure and
 verified process closure. ARM64 GUI and CM5 validation remain incomplete.
+
+The separate baseline ASR comparison also failed under QEMU: its Windows
+reference passed, but both ARM64 full saved streams returned empty text despite
+consuming and closing the source. No paired parity or complete ARM64 component
+pass is claimed. All owners closed and the 14 bound sources were reverified.
+See `BASELINE_ARM64_ASR_CHECK_V1.json` and `BASELINE_ARM64_ASR_FINDINGS_V1.md`.
+The cause needs isolation; no unchanged retry or altered acceptance gate is used.
 
 `BASELINE_WINDOWS_LIFECYCLE_CHECK_V1.json` adds a passing baseline smoke from
 two real Windows processes on private desktops: 480×800 Tk rendering of the
@@ -106,3 +113,12 @@ ran. N5 does not stop upstream workers or their scheduled probes before closure.
 For continuation, use N5_HANDOFF.md. Build/run commands, inputs and outputs are
 in README.md and README_ARM64.md; the current workbook proposal is
 WORKBOOK_UPDATE_20260927.md. The original WORKBOOK_UPDATE.md is historical.
+
+`CAMPAIGN_COVERAGE_20260927.md` reconciles note, numerical, application and target
+coverage. `RELEASE_MAPPING_20260927.md` maps the retained artifacts to their
+immutable source/preparation tags. `HANDOFF_SELECTION_V2.json` selects 55 small
+reports/tools plus this checkpoint's status; the reviewed packager adds the
+selection, hash manifest and current Git backup receipt for 59 readable files.
+Use `README_REVIEWED_HANDOFF_V2.md` to build a fresh private analysis archive
+after verifying the selected bytes are committed and backed up. This partial
+handoff is separate from the deployable software archives and does not close N5.

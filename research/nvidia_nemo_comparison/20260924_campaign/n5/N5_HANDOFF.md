@@ -1,5 +1,46 @@
 # N5 partial release checkpoint
 
+## 2026-09-27 21:02 UTC - baseline ARM64 ASR failed; reviewed handoff prepared
+
+Current checkpoint: N5_STATUS_20260927_V14.json. The baseline C-API route built
+and loaded under QEMU, passed eight malformed-WAV rejections and consumed all
+four streams. Both full 715,127-frame streams closed with zero text and 17
+endpoint resets each. Windows passed the same protocol with three finals and
+13 resets on each full stream. The nonempty/parity gate correctly rejected ARM64.
+It returned 1 after 470.358 seconds, below the unchanged 1,200-second model cap.
+The compiler/wheel/header/model/input bindings are preserved. No gain, precision,
+endpoint or timeout change was used. See BASELINE_ARM64_ASR_CHECK_V1.json and
+BASELINE_ARM64_ASR_FINDINGS_V1.md; root cause is not yet established.
+
+Exact supervisor 38920/1790542454.7357907, driver 34964/1790542454.8982224,
+WSL 51404/1790542462.2698836 and reference 55024/1790542455.216496 are absent.
+The native model owner was Linux PID456/start_ticks1665; its group was empty.
+Reference Windows job closure was normal and input desktop unchanged. All 14
+bound source records were rehashed unchanged. Private failure evidence is in
+local/n5/baseline-arm64-asr-v1; independent audit is in
+local/n5/baseline-arm64-asr-v1-audit-v1/RESULT.json. Preserve all V1 bytes.
+
+No unchanged retry is scheduled. A fresh diagnostic derivative should capture
+actual runtime versions/configuration, verify normalized decoded samples against
+the Windows reference and isolate feature/logit behavior before a proposed fix.
+The upstream source defaults checked so far do not explain the failure. Every
+execution still needs fresh resource census, prior-owner closure and bounded
+admission. Do not infer a complete component pass from loading or stream closure.
+A2's separate repeat timeout and unattempted A3 remain unchanged failures/gaps.
+
+CAMPAIGN_COVERAGE_20260927.md and RELEASE_MAPPING_20260927.md reconcile the
+current partial scope and retained software. HANDOFF_SELECTION_V2.json selects
+55 reviewed reports/tools; current status and generated receipts make 59 ZIP
+members. README_REVIEWED_HANDOFF_V2.md documents commands and privacy boundaries.
+The packager requires byte equality with the actual remotely backed-up commit.
+Historical package_checkpoint.py has stale counts and must not be rerun.
+
+N4 remains partial with zero new accepted configurations. Baseline Windows smoke
+passes only its stated scope; ARM64 Python/Tk, speaker/PnC and full application
+are still unverified. The Pi stays off; later storage/install/activation/rollback
+steps are ready as instructions, not device validation. Packaging reserve and
+deadline remain September 28 02:48:19 and 14:48:19 UTC. Hourly follow-up continues
+until offline completion or deadline. Older sections below retain their dates.
 ## 2026-09-27 19:55 UTC - baseline Windows lifecycle passed; ARM64 partial
 
 Current checkpoint: N5_STATUS_20260927_V13.json. The bounded native A2 run
