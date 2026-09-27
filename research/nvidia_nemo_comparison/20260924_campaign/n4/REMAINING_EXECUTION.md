@@ -1,5 +1,51 @@
 # N4 and N5 execution order and acceptance gates
 
+## 2026-09-27 13:10 UTC - Actual plan qualified; matching application family running
+
+`PANEL_PLANNER_GUARDED_CHECK_V2.json` closes the adapter diagnostic: 17 tests,
+all 16 comparisons/1,240 payloads, 221 source bindings and both exact owners
+verified closed. No application execution was credited to that diagnostic.
+
+`PACED_PANEL_PLAN_GUARDED_V2_CHECK.json` now qualifies actual plan preparation.
+The supervised preparer passed 12 regressions, hashed 24 actual model/runtime
+assets and the 24 saved panel WAVs, and built 240 paired cells for the six
+proposed configurations. Root independently reconstructed the identical plan
+from the complete accepted 7,680/1,536 review pair and qualified application
+source. All 227 producer files and resource boundaries were verified. Preparer
+6164/1790513391.1817043 and supervisor 38116/1790513391.0249736 exited normally.
+Private plan: `local/n4/paced-plan-guarded-v2/PLAN.json`. It remains execution
+permission false and does not select a release or complete any actual GUI cell.
+
+A matching V5 application/transport/cell/population family is implemented in
+fresh derivatives. It retains every dependency (304 records), expands the child
+manifest ceiling to 512 without changing the 256-KiB byte bound or five-second
+lease, and replaces the fixed 6-GiB estimate with one verified run allocation.
+Eight nested-allocation regressions and 15 syntax/import checks passed. The
+complete 84-test family qualification is now running, not accepted. See
+`APPLICATION_FAMILY_GUARDED_PREPARATION_V5.json`,
+`APPLICATION_FAMILY_GUARDED_START_V5.json` and `README_APPLICATION_FAMILY_V5.md`.
+
+The fresh 16-MiB/40-minute probe admission projected 46.479 GiB. Supervisor
+41360/1790514507.6941 started at 13:08:27 UTC, run
+4f957a4f825748b594016d96f3aac462, output `local/n4/application-family-v5-probe`.
+The start receipt binds its exact driver, CPU14/BelowNormal placement, heartbeat
+and all 304 sources. Do not duplicate it or edit those bound files. Require the
+actual positive plan gate, all 84 tests without skips, full initial/final resource
+proofs, complete source snapshots and exact driver/supervisor closure before
+publishing `APPLICATION_FAMILY_CHECK_V5.json` and admitting the actual runner.
+
+Then use the exact V5 run command from its README, fresh output, complete census
+and supervisor interface. Its 2-GiB/four-hour limit is a bound, not an ETA; any
+partial attempt stays unaccepted and preserved. The controlled slot checks all
+known runtime ownership; do not start diagnostic Python helpers beside a live
+application run. The paired source duration alone is 2.980 hours. Final naming,
+semantic/timing/resource interpretation, stop/restart, continuity and matching
+consumers still remain, followed by N5 per-build Windows/ARM64 software checks,
+release packaging and backup. No full N4/N5 acceptance or backend promotion.
+
+Hourly continuation remains active. Packaging reserve is 2026-09-28 02:48:19 UTC;
+deadline is 14:48:19 UTC. The Pi stays off and live CM5 integration is deferred.
+
 ## 2026-09-27 12:04 UTC - Reader accepted; planner V2 is the active worker
 
 The actual reader passed and closed. `PANEL_SCORING_GUARDED_CHECK_V2.json`

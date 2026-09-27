@@ -1,5 +1,21 @@
 # N5 partial release checkpoint
 
+## 2026-09-27 13:10 UTC - Actual N4 plan prepared, no accepted release yet
+
+N4 has a fully reconstructed, resource-checked 240-cell application plan for six
+candidate configurations. Its matching V5 application family is undergoing the
+84-test guarded qualification before timed collection. Read the latest N4
+handoff; this remains a planned evaluation, not an accepted N4 release selection.
+Windows/ARM64 functional release checks still depend on supported accepted
+configurations. No N5 software validation is implied by the plan qualification.
+
+The baseline ZIP, storage preflight and wired-reconnect instructions are unchanged.
+Keep backend GUI choices explicit, baseline available, optional assets conditional
+on verified space, and personal profiles separate. Actual Pi storage, installation
+and live CM5 integration stay deferred until the user reconnects it. Packaging
+reserve and deadline remain unchanged; never claim the device has been installed
+or validated while it is off.
+
 ## 2026-09-27 11:54 UTC - Both numerical comparison scopes reviewed
 
 N4 now has accepted independent numerical reviews for 7,680 main and 1,536 modes

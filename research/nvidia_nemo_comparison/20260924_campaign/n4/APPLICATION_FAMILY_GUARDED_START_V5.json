@@ -1,0 +1,66 @@
+{
+  "status": "RUNNING_GUARDED_APPLICATION_FAMILY_CHECK_NOT_QUALIFICATION",
+  "utc": "2026-09-27T13:09:44.655772+00:00",
+  "worker": {
+    "status": "RUNNING",
+    "pid": 41360,
+    "create_time": 1790514507.6941,
+    "run_id": "4f957a4f825748b594016d96f3aac462",
+    "started_utc": "2026-09-27T13:08:27.704106+00:00",
+    "heartbeat_unix": 1790514583.071249,
+    "resumed": false,
+    "argv_sha256": "cac713cbcd2269f9e28ba0382f766c0a34fdb8abc7a92f393106b335bf922b94",
+    "child_launch_pending": false,
+    "child_pid": 52692,
+    "child_create_time": 1790514507.8476112
+  },
+  "owners": [
+    {
+      "owner": {
+        "pid": 41360,
+        "create_time": 1790514507.6941
+      },
+      "live": true,
+      "affinity": [
+        14
+      ],
+      "priority": 16384
+    },
+    {
+      "owner": {
+        "pid": 52692,
+        "create_time": 1790514507.8476112
+      },
+      "live": true,
+      "affinity": [
+        14
+      ],
+      "priority": 16384
+    }
+  ],
+  "producer_sources_verified": 304,
+  "admission": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\application-family-v5-probe\\ADMISSION.json",
+    "sha256": "f34766dae6b7be87a484cc2771b2e788b8004cffe155bb183a35757eb4d33ce3",
+    "bytes": 84387
+  },
+  "execution_plan": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\application-family-v5-probe\\EXECUTION_PLAN.json",
+    "sha256": "cfdc2f43e0d952db171b1ce2af5000557de2ae7f73bcb8c9d7a9f2ca473b6819",
+    "bytes": 84545
+  },
+  "dispatch": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\application-family-v5-probe-dispatch\\STARTED.json",
+    "sha256": "f0c6c671c673fe9fc20853e5feb30d73dd77b0ddaa194c73c6feb51e17361ec2",
+    "bytes": 957
+  },
+  "actual_plan": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\paced-plan-guarded-v2\\PLAN.json",
+    "sha256": "6a288cdbd7be997d9bdda364a73dd501a3da01a3fd7228ed096d895751b4e210",
+    "bytes": 386795
+  },
+  "expected_tests": 84,
+  "actual_application_or_model_started": false,
+  "N4_accepted": false,
+  "N5_complete": false
+}
