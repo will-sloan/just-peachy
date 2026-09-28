@@ -1,0 +1,23 @@
+{
+  "schema": "extended-controls-derivative-v1",
+  "parents": {
+    "early_stop_lifecycle_v2.py": {
+      "sha256": "3f13b7375279bc8d1576392706fcbe7f79697b5380c2198df5c320daae7d5fad",
+      "bytes": 28000
+    },
+    "prepare_early_stop_v2.py": {
+      "sha256": "11e92c51bd7ef1b9f6caf7ceb042a8046e933e12fa050918c19c84382751f5f2",
+      "bytes": 5963
+    }
+  },
+  "outputs": {
+    "controls_harness_v1.py": {
+      "sha256": "eceabcf6481d729bf9a9d3bc93ee0e47d70a25445f7a2fc7ef430322e3bf0d3b",
+      "bytes": 8808
+    },
+    "prepare_controls_v1.py": {
+      "sha256": "6d8101353d65ea68d362557a137b76d7e876f8774932cb4966a343604b0d155b",
+      "bytes": 6072
+    }
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "status": "TWO_NARROW_WINDOWS_RESTART_CHECKS_REVIEWED",
+  "runs": [
+    {
+      "name": "a0-early-stop-v2",
+      "status": "PASS_STOP_NEW_TRANSCRIPT_FULL_RESTART_WINDOWS_ONLY",
+      "backend_key": "nemotron_hybrid",
+      "review": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\prepi-20260928\\a0-early-stop-v2-REVIEW.json",
+        "sha256": "4f290dbaeba1a3f9a09205ee8f424bee5f73cf7d6aafebef69b9ba906eecadf4",
+        "bytes": 16855
+      },
+      "stopped_samples": 128320,
+      "stop_to_drained_sec": 1.312999999965541,
+      "full_samples": 715127,
+      "activity_frames": 4470,
+      "embedding_calls": 20,
+      "model_cache": {
+        "asr_loads": 1,
+        "speaker_loads": 1,
+        "streams": 2
+      },
+      "exact_reference_parity": true,
+      "all_owners_exited": true
+    },
+    {
+      "name": "a2-early-stop-v2",
+      "status": "PASS_STOP_NEW_TRANSCRIPT_FULL_RESTART_WINDOWS_ONLY",
+      "backend_key": "nemotron_600m",
+      "review": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\prepi-20260928\\a2-early-stop-v2-REVIEW.json",
+        "sha256": "7fcf62d3499e469bfb6b13a73e8fcdd24b441446c558f5308688a7924d5a3dbd",
+        "bytes": 16861
+      },
+      "stopped_samples": 128000,
+      "stop_to_drained_sec": 1.3589999999967404,
+      "full_samples": 715127,
+      "activity_frames": 4470,
+      "embedding_calls": 20,
+      "model_cache": {
+        "asr_loads": 1,
+        "speaker_loads": 1,
+        "streams": 2
+      },
+      "exact_reference_parity": true,
+      "all_owners_exited": true
+    }
+  ],
+  "failed_v1_preserved": true,
+  "N4_accepted": false,
+  "N5_complete": false,
+  "CM5_tested": false,
+  "scope": "One stopped prefix then explicit New transcript and full 44.6954375-second source; not sustained-performance or all-mode validation"
+}
