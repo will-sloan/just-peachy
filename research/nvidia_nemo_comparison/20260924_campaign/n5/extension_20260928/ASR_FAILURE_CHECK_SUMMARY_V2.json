@@ -1,0 +1,39 @@
+{
+  "schema": "extended-windows-asr-failure-summary.v2",
+  "status": "PASS_WINDOWS_A2_ASR_FAILURE_RECOVERY_ONLY",
+  "run": "a2-asr-failure-v2",
+  "review": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\prepi-20260928\\a2-asr-failure-v2-REVIEW.json",
+    "sha256": "4ac89f028fd14f9a762b2e9a1e3075d36e8047e0e5f0f152dd0495c2fd4fbbcb",
+    "bytes": 4308
+  },
+  "backend": "A2 Nemotron English ASR + D1 Nemotron 3 diarization + E0 ReDimNet",
+  "application_source": "ui-error-v1, unchanged by this test",
+  "faults": ["missing_asr_model", "runtime_hash_mismatch"],
+  "both_faults": {
+    "gui_error_visible": true,
+    "selected_backend_retained": true,
+    "successful_model_and_stream_allocations": 0,
+    "source_samples": 0,
+    "identity_samples": 0,
+    "native_recognizer_retained": false,
+    "owned_workers_joined": true,
+    "finalization_handles_closed": true
+  },
+  "recovery": {
+    "source_samples": 129280,
+    "asr_samples": 129280,
+    "identity_samples": 129280,
+    "source_seconds": 8.08,
+    "embedding_calls": 6,
+    "caption_rows": 12,
+    "worker_drain_verified": true,
+    "explicit_baseline_rollback": true
+  },
+  "exact_owner_closure_reviewed": true,
+  "failed_attempt_preserved": "a2-asr-failure-v1: test incorrectly required a disk spool for MemoryJournal; second fault and recovery unattempted",
+  "accuracy_or_speed_benchmark": false,
+  "N4_accepted": false,
+  "N5_complete": false,
+  "CM5_tested": false
+}

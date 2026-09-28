@@ -34,3 +34,9 @@ set "RESEARCH_PY=C:\Users\amiri\Documents\GitHub\just-peachy\.edge-speech-env\py
 Use a fresh output filename for subsequent censuses. The checker creates no worker, contacts no device, enumerates no microphones and installs nothing. It pins its lightweight process to CPU14. Its result means admission prerequisites were observed, not exclusive reservation or stage acceptance; recheck immediately before any dispatch.
 
 Native Pi tests require a separate target inventory and admission after reconnection. Windows CPU IDs must not be copied to ARM64. Start with saved-audio checks; later acoustic comparisons need the user physically ready in the test setting. No training or new human enrollment is authorized by this research extension.
+
+## Additional verified checks and audit
+
+`ASR_FAILURE_CHECK_SUMMARY_V2.json` records the independently reviewed A2 missing-model/runtime-hash startup failures and recovery. Run instructions, inputs, outputs, preserved V1 failure and the corrected memory-journal evidence contract are in `README_ASR_FAILURE_V1.md` and `README_ASR_FAILURE_V2.md`. Application source and inference gates are unchanged. The pass covers these two faults and a short recovery prefix, not complete N4/N5 acceptance.
+
+`ARM_OPTIMIZATION_FINDINGS_V1.md` reports the existing model precision and generic ARM build baseline. `README_ARM_CANDIDATES_V1.md` gives PowerShell/CMD/Anaconda instructions for the read-only, pinned-source/GGUF-header audit. Its private JSON output binds the exact files and findings. It measures neither runtime RAM nor speed and launches no target or model. NEXT.md carries remaining untested work; prior passed checks are not scheduled for repetition without a new concern.

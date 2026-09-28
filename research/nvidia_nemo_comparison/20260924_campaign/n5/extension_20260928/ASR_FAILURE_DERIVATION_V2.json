@@ -1,0 +1,39 @@
+{
+  "schema": "extended-asr-failure-derivation-v2",
+  "parents": {
+    "asr_failure_child_v1.py": {
+      "sha256": "9b1b958021f02dfe8fe7d453e98d49d4e8e640ee1907355c237bb6fca72c88b0",
+      "bytes": 10122
+    },
+    "asr_failure_harness_v1.py": {
+      "sha256": "8611b1c39979a3a67b75b325db3339dc9d2691fe8052fbed97c0e2673d9d7e97",
+      "bytes": 8997
+    },
+    "prepare_asr_failure_v1.py": {
+      "sha256": "4f64c7539f7498af2b3eccd6c7d568bb9c55440d39e85158670eab7b8b23287c",
+      "bytes": 6535
+    },
+    "review_asr_failure_v1.py": {
+      "sha256": "bc0487b76781fb69e3dc388f0aaca67856e5508667518829d42ff50d4d6513c0",
+      "bytes": 5117
+    }
+  },
+  "outputs": {
+    "asr_failure_child_v2.py": {
+      "sha256": "a716fee5d7a55b92582154c54b88bced8a5468fb0c2ef4c34cf8a134b042bf98",
+      "bytes": 10990
+    },
+    "asr_failure_harness_v2.py": {
+      "sha256": "7de6316a94476b0a1276c33649bedfdae57d626f66ef87829588a2e7ef0798a0",
+      "bytes": 8997
+    },
+    "prepare_asr_failure_v2.py": {
+      "sha256": "2883ddc89c500aaaceeba9a0db3d76a1924734552f2a8b885b233e9ed8c0de2d",
+      "bytes": 6659
+    },
+    "review_asr_failure_v2.py": {
+      "sha256": "21c31c29d87a8637424fa1b4dfbed9b2666419d54f1535d96d62cc93c6137eb3",
+      "bytes": 5580
+    }
+  }
+}
