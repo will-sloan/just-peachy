@@ -1,0 +1,2551 @@
+{
+  "status": "OFFLINE_EMPTY_CONTROL_DIAGNOSTIC_ONLY",
+  "reviews": {
+    "ASR": {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-full-bank-review-v1\\REVIEW.json",
+      "sha256": "9aeec14010376135e760b0a1aa02925a062fda605d0bb512312512199bba9249",
+      "bytes": 1150812
+    },
+    "D0": {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\d0-bank-review-v1\\REVIEW.json",
+      "sha256": "0c2eb703ee2cf66d6cd328032fa36507fd3f1cd77281c8cca3668cdae3abc725",
+      "bytes": 867227
+    },
+    "D1": {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\d1-full-bank-review-v3\\REVIEW.json",
+      "sha256": "d349772e90e786735e61bbd59aac7e57677aa51af12243e1668c519da65671b4",
+      "bytes": 595027
+    }
+  },
+  "catalogue": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\data\\CORPUS_CATALOGUE_240.csv",
+    "sha256": "edab1792e21c5527a83e7e57535aaf7e11c5be01ebe364c40bc55653df5f4f8f",
+    "bytes": 170399
+  },
+  "selected_inputs": [
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\d1-full-bank-v1\\E0\\N2_S45_12_01_O0\\RESULT.json",
+      "sha256": "7a476e69ed2206187dc230e7b2d57dfd3270c3be482fa769003ed222cb12c3c8",
+      "bytes": 2660
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\d1-full-bank-v1\\E0\\N2_S45_12_01_O0\\D1_EVENTS.jsonl.gz",
+      "sha256": "7901d947d2564983b610c567125aadb93d1fa5b65fd9453f7d707b176e20dc58",
+      "bytes": 391793
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-full-bank-v1\\A0\\N2_S45_12_01_O0\\RESULT.json",
+      "sha256": "3091c09ac6b27ec7980693d0b317f70394b180d3e1423fe81d6fafb30c542fc7",
+      "bytes": 2032
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-full-bank-v1\\A0\\N2_S45_12_01_O0\\ASR_EVENTS.jsonl.gz",
+      "sha256": "29b8581aad2af16e4964a74a829795ff77c2d61bf3e96933d5b7e2d51470a0ef",
+      "bytes": 41916
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-full-bank-v1\\A2\\N2_S45_12_01_O0\\RESULT.json",
+      "sha256": "f601f71ae5c34c3eec3c28ab9d0f779adcbc539bb1a9adfc7126d220d675c857",
+      "bytes": 1975
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-full-bank-v1\\A2\\N2_S45_12_01_O0\\ASR_EVENTS.jsonl.gz",
+      "sha256": "fae161241984c5b797b2a83cdcb1ff69ac9e1b1ef3075bde9bb5f8a743312561",
+      "bytes": 24563
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\d1-full-bank-v1\\E0\\N2_S45_12_01_O1\\RESULT.json",
+      "sha256": "76d0ff1bef27c3cc4ad2595994d87d57dfb9ce41d5b8022f24da88f577d628ac",
+      "bytes": 2735
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\d1-full-bank-v1\\E0\\N2_S45_12_01_O1\\D1_EVENTS.jsonl.gz",
+      "sha256": "033568317e76fa9071af13d236764842dcc60dcc4ca60a42bb0b8cda26ebd986",
+      "bytes": 395888
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-full-bank-v1\\A0\\N2_S45_12_01_O1\\RESULT.json",
+      "sha256": "e95303d644751dd31d03ffbf22d6fb93798b9e16cc0979b514bbe802c673d136",
+      "bytes": 2032
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-full-bank-v1\\A0\\N2_S45_12_01_O1\\ASR_EVENTS.jsonl.gz",
+      "sha256": "210482586b6b0819a8a354116539fd295d6436e9ead229825b1f58254da3014c",
+      "bytes": 42278
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-full-bank-v1\\A2\\N2_S45_12_01_O1\\RESULT.json",
+      "sha256": "51a74b10e3cbe50ef0bc603420ac0a149c886a129a699ac7991c49edf9bf4f7e",
+      "bytes": 1976
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-full-bank-v1\\A2\\N2_S45_12_01_O1\\ASR_EVENTS.jsonl.gz",
+      "sha256": "c3cb49786b3063a2f170eb324fac01b134016f44b6e5608f6819015c3fc81252",
+      "bytes": 24715
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\d1-full-bank-v1\\E0\\N2_S45_12_03_O0\\RESULT.json",
+      "sha256": "6ac681833f822a013c5aa54b982a3f4c622d6f02ef41f428475252227498c6a8",
+      "bytes": 2660
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\d1-full-bank-v1\\E0\\N2_S45_12_03_O0\\D1_EVENTS.jsonl.gz",
+      "sha256": "b578250b773fe206361eff19f98d83b232e96560035d6435832c6e916371aa45",
+      "bytes": 397593
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-full-bank-v1\\A0\\N2_S45_12_03_O0\\RESULT.json",
+      "sha256": "a18a8bc8f34ccb2c4114ab4d38a643360cf4e9868c40efb88ae18aee176a1cf1",
+      "bytes": 2032
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-full-bank-v1\\A0\\N2_S45_12_03_O0\\ASR_EVENTS.jsonl.gz",
+      "sha256": "8a15a273458b9218b02e49abab395317b3f610765885dbacfc5163a99b467d7f",
+      "bytes": 42098
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-full-bank-v1\\A2\\N2_S45_12_03_O0\\RESULT.json",
+      "sha256": "1b517dad36de5e2ddee54b2830836fdccbdca034bb8c673fdece9bc86d51e476",
+      "bytes": 1975
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-full-bank-v1\\A2\\N2_S45_12_03_O0\\ASR_EVENTS.jsonl.gz",
+      "sha256": "ee52ca7e5f1655c7b004e9be3d00e334368b893ec589322eea76a96ceedace7d",
+      "bytes": 24625
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\d1-full-bank-v1\\E0\\N2_S45_12_03_O1\\RESULT.json",
+      "sha256": "dd0e720166bffc45727564d8c78226845ad054166ef245253ac54dbee17f0cca",
+      "bytes": 2735
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\d1-full-bank-v1\\E0\\N2_S45_12_03_O1\\D1_EVENTS.jsonl.gz",
+      "sha256": "490a50005f02e1ea15a861d598a53427f73be4390f7380dc5dea94d707b112a1",
+      "bytes": 403187
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-full-bank-v1\\A0\\N2_S45_12_03_O1\\RESULT.json",
+      "sha256": "87edf6a4d10035b0e434c9f27558cbf4f4877ab962682bf0263129c8d83567d7",
+      "bytes": 2034
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-full-bank-v1\\A0\\N2_S45_12_03_O1\\ASR_EVENTS.jsonl.gz",
+      "sha256": "2f1fbc05ce05cd6728c6cc3a2d4f8e8ecc2df221eb29819e027b82f10ffeb7c2",
+      "bytes": 41879
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-full-bank-v1\\A2\\N2_S45_12_03_O1\\RESULT.json",
+      "sha256": "b874cdec713679b07e876fff54d6d6d30f94eb9607fbe68b6dae5103798b412e",
+      "bytes": 1976
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-full-bank-v1\\A2\\N2_S45_12_03_O1\\ASR_EVENTS.jsonl.gz",
+      "sha256": "504cf66d0d061dbbf535858cc639cb2e37b9a93a28b8ec6c17c3e9dd051292c3",
+      "bytes": 24534
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\d1-full-bank-v1\\E0\\N2_S45_12_05_O0\\RESULT.json",
+      "sha256": "5124a2379db85f0a05c4740d6d9533c3716e77eecdc0334da0a088b41be9f31a",
+      "bytes": 2660
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\d1-full-bank-v1\\E0\\N2_S45_12_05_O0\\D1_EVENTS.jsonl.gz",
+      "sha256": "b18784b648cb78078d49c70972cc27fba2b6ca37e7ecb53db1d04c60718af1b5",
+      "bytes": 392038
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-full-bank-v1\\A0\\N2_S45_12_05_O0\\RESULT.json",
+      "sha256": "4db4f16bd81a482458e0d76cbf9d7b12638e4a101f4827f14a36c7e11b13aec4",
+      "bytes": 2034
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-full-bank-v1\\A0\\N2_S45_12_05_O0\\ASR_EVENTS.jsonl.gz",
+      "sha256": "e1204a78c789a58df0e1b1077543e206acf01ce34fe3af214c467053c401f333",
+      "bytes": 41867
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-full-bank-v1\\A2\\N2_S45_12_05_O0\\RESULT.json",
+      "sha256": "4e0ebd7e3c60ea41ccca546f23364a429a2d88b5a2d1fa3464567dabef725357",
+      "bytes": 1976
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-full-bank-v1\\A2\\N2_S45_12_05_O0\\ASR_EVENTS.jsonl.gz",
+      "sha256": "3fc12634aa67545cef0e00527d77344003c125bb14603c074847fdd561a1f3a9",
+      "bytes": 24658
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\d1-full-bank-v1\\E0\\N2_S45_12_05_O1\\RESULT.json",
+      "sha256": "1c0b77db6334347f12d7253edf4d933f54e092119ef022d81f231f3c7c022ead",
+      "bytes": 9450
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\d1-full-bank-v1\\E0\\N2_S45_12_05_O1\\D1_EVENTS.jsonl.gz",
+      "sha256": "6d6fba5ac70991ebc79801480b3a9504e53a768b11fd469b672b2a5f786c367c",
+      "bytes": 401080
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-full-bank-v1\\A0\\N2_S45_12_05_O1\\RESULT.json",
+      "sha256": "a44a355b3d0a608d00fcd3148b13b219f4d79d0717b7df149f32b50a0ad8abae",
+      "bytes": 2032
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-full-bank-v1\\A0\\N2_S45_12_05_O1\\ASR_EVENTS.jsonl.gz",
+      "sha256": "5cd74e086011169caaeb5261f487c1a1aa08b59c3054837b8bf34c430cde43c6",
+      "bytes": 41762
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-full-bank-v1\\A2\\N2_S45_12_05_O1\\RESULT.json",
+      "sha256": "86fddcb3f76fe4edc6cd6486d88387de6b9bb92770ad80ab13bb8c8a69e99366",
+      "bytes": 1976
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-full-bank-v1\\A2\\N2_S45_12_05_O1\\ASR_EVENTS.jsonl.gz",
+      "sha256": "78b8a84ccde03339e9b2ab33089c7a07919f0b3156442c99c57424f520f8c862",
+      "bytes": 24603
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\d1-full-bank-v1\\E0\\N2_S45_12_07_O0\\RESULT.json",
+      "sha256": "1414e905d7ff60a1cd7d89ba82c2d567ce0ce40f2d0b8c778e1c110c70e12d26",
+      "bytes": 2661
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\d1-full-bank-v1\\E0\\N2_S45_12_07_O0\\D1_EVENTS.jsonl.gz",
+      "sha256": "f83db107b668790584b0d11ade34a79e9b2e03cffa5bfad106f7476aa74d5623",
+      "bytes": 391903
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-full-bank-v1\\A0\\N2_S45_12_07_O0\\RESULT.json",
+      "sha256": "f5dc2b222426b49d11311597bc74b8d9b7f79cfb3f8e0342928b283fb0383ee2",
+      "bytes": 2034
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-full-bank-v1\\A0\\N2_S45_12_07_O0\\ASR_EVENTS.jsonl.gz",
+      "sha256": "83a3c3e879bb7e4354f6742d67d40b3f01a0e5fca7676ca511f193e92a74654a",
+      "bytes": 41953
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-full-bank-v1\\A2\\N2_S45_12_07_O0\\RESULT.json",
+      "sha256": "480696c1a7ed476d219f6f9ed0420ebc08247819cff2d3091bf15af7f2efb10d",
+      "bytes": 1976
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-full-bank-v1\\A2\\N2_S45_12_07_O0\\ASR_EVENTS.jsonl.gz",
+      "sha256": "d5621166086354ba4255bbb3b8742872949605375dde7eebee38aba40576171e",
+      "bytes": 24557
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\d1-full-bank-v1\\E0\\N2_S45_12_07_O1\\RESULT.json",
+      "sha256": "01df4c66eb5121329d5236d70772f530b197ce1594bbd5d3170998e157555daa",
+      "bytes": 2661
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\d1-full-bank-v1\\E0\\N2_S45_12_07_O1\\D1_EVENTS.jsonl.gz",
+      "sha256": "b2a1daee59314f9b7f4eda92a85773e97989bb67aef25c499bbce5a2e03fc218",
+      "bytes": 397702
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-full-bank-v1\\A0\\N2_S45_12_07_O1\\RESULT.json",
+      "sha256": "fbad1b6e2e6a7f5420c857b97bdf54415a47e0893169ee433f249956a0b29508",
+      "bytes": 2032
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-full-bank-v1\\A0\\N2_S45_12_07_O1\\ASR_EVENTS.jsonl.gz",
+      "sha256": "5c6bac01d32d893365fecb1efabe93895114664f9e7663b2b48a9dee5429cd69",
+      "bytes": 42062
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-full-bank-v1\\A2\\N2_S45_12_07_O1\\RESULT.json",
+      "sha256": "5b99e861041a6b085932c675c97b821ccc073c9aab1435dbd6c7fd9fd7de0aec",
+      "bytes": 1976
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-full-bank-v1\\A2\\N2_S45_12_07_O1\\ASR_EVENTS.jsonl.gz",
+      "sha256": "f7e08ca5999fea97dd3cc6872421a87ae4f4a73cb6439e7122f8a60df084b8e4",
+      "bytes": 24575
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\d1-full-bank-v1\\E0\\N2_S45_12_09_O0\\RESULT.json",
+      "sha256": "7ccc5e7162e5aa9b466c788d9789b8b266efb426511e1ac9668053f2df8de249",
+      "bytes": 2660
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\d1-full-bank-v1\\E0\\N2_S45_12_09_O0\\D1_EVENTS.jsonl.gz",
+      "sha256": "9a24dcc9ee024af85f34bffd28bb0bf1f4c40ae3279f071fde714b259cba5750",
+      "bytes": 392919
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-full-bank-v1\\A0\\N2_S45_12_09_O0\\RESULT.json",
+      "sha256": "7c77f2924235a09a9754b7d7352fad85ba8cb8b067d1b13c0502b7661793013e",
+      "bytes": 2033
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-full-bank-v1\\A0\\N2_S45_12_09_O0\\ASR_EVENTS.jsonl.gz",
+      "sha256": "765beb5dd33dfaa51789eab6d17fdc85307059aa4d379116c83bdb157e54cf25",
+      "bytes": 42145
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-full-bank-v1\\A2\\N2_S45_12_09_O0\\RESULT.json",
+      "sha256": "1f808f4ab82286b51781c79b903e814f330b49281b9e565e48763f943bdd12ab",
+      "bytes": 1976
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-full-bank-v1\\A2\\N2_S45_12_09_O0\\ASR_EVENTS.jsonl.gz",
+      "sha256": "f5b3d56d248385e9eb3e332b96a37ac829937adb4ebaf4d90a3fa74693733613",
+      "bytes": 24550
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\d1-full-bank-v1\\E0\\N2_S45_12_09_O1\\RESULT.json",
+      "sha256": "653544a9d6e774dab4087760954f3b3c244662ab23d11c75953684f032e2f194",
+      "bytes": 9459
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\d1-full-bank-v1\\E0\\N2_S45_12_09_O1\\D1_EVENTS.jsonl.gz",
+      "sha256": "24cbf4fed79954b2a75958d82e189158fd049e898f8751ae253ee90bbf9e057a",
+      "bytes": 403255
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-full-bank-v1\\A0\\N2_S45_12_09_O1\\RESULT.json",
+      "sha256": "5dc01241f897dfe8d1f3c493e5b1d9df23f9ddac6bd6ac355d3d9505683f17b0",
+      "bytes": 2033
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-full-bank-v1\\A0\\N2_S45_12_09_O1\\ASR_EVENTS.jsonl.gz",
+      "sha256": "47cbaaf70e1877f48370e4d840b2d88d9f4e5e372b413221382035cc4f9fa363",
+      "bytes": 42075
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-full-bank-v1\\A2\\N2_S45_12_09_O1\\RESULT.json",
+      "sha256": "af6397c9c90bdc520b786f5f80a561017e7d11331e949c251ec7f2426199a3fe",
+      "bytes": 1975
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-full-bank-v1\\A2\\N2_S45_12_09_O1\\ASR_EVENTS.jsonl.gz",
+      "sha256": "4b62ae53806dfbdd24e34c0f85ebdc1d66d699ed3b2eddad860e44f0a8391145",
+      "bytes": 24635
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\d1-full-bank-v1\\E0\\N2_S45_12_11_O0\\RESULT.json",
+      "sha256": "7ad8ea438753f11d6ace4d4787512942e515c1018793ed5aa4932117778a0173",
+      "bytes": 2661
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\d1-full-bank-v1\\E0\\N2_S45_12_11_O0\\D1_EVENTS.jsonl.gz",
+      "sha256": "7e30b7c87627d44aed8da9c55bdd0c3f368726edc2a2f8859976c89550e00551",
+      "bytes": 391440
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-full-bank-v1\\A0\\N2_S45_12_11_O0\\RESULT.json",
+      "sha256": "9136608be66e3e820ab027db3b2eb7fa242289d346f07f5e1aa41a9f696414e6",
+      "bytes": 2032
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-full-bank-v1\\A0\\N2_S45_12_11_O0\\ASR_EVENTS.jsonl.gz",
+      "sha256": "1a42ed169381170ce3c675bcb73459cabd08c56a9e5899e84d2188ee7bdbb81d",
+      "bytes": 41996
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-full-bank-v1\\A2\\N2_S45_12_11_O0\\RESULT.json",
+      "sha256": "dee1638e8c4fabae38c4057fd4ab9d69943858e2abe126e5d24890c58ee43eeb",
+      "bytes": 1975
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-full-bank-v1\\A2\\N2_S45_12_11_O0\\ASR_EVENTS.jsonl.gz",
+      "sha256": "97cfb51cbbcfb747d69ffd54e7c62b786f65ef515d2793086a6d6f8003212e29",
+      "bytes": 24607
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\d1-full-bank-v1\\E0\\N2_S45_12_11_O1\\RESULT.json",
+      "sha256": "6bbaafae5a0b4c18097496f46365a0d67627045fc1966db4d901a7d2790c2313",
+      "bytes": 2661
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\d1-full-bank-v1\\E0\\N2_S45_12_11_O1\\D1_EVENTS.jsonl.gz",
+      "sha256": "6e745d4c07dc0c9928cc904951563ca70220db3bcc61880d9fc53480445661ff",
+      "bytes": 401117
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-full-bank-v1\\A0\\N2_S45_12_11_O1\\RESULT.json",
+      "sha256": "7aba1cbc59dcc554a4d92bac459d8c4a9b064a4fa22e0ac91257d619c4139aae",
+      "bytes": 2032
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-full-bank-v1\\A0\\N2_S45_12_11_O1\\ASR_EVENTS.jsonl.gz",
+      "sha256": "93c43b04a851f0168277cceb9718a5aac3d91077049841068c72ae346849c22b",
+      "bytes": 41904
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-full-bank-v1\\A2\\N2_S45_12_11_O1\\RESULT.json",
+      "sha256": "7be149e7bf318a92e4d23ce5ea2786b68775bc2e1cfeb58762c9af3a8f3c0725",
+      "bytes": 1975
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-full-bank-v1\\A2\\N2_S45_12_11_O1\\ASR_EVENTS.jsonl.gz",
+      "sha256": "fc04794ae3a89f9bb041a2bb4aa10a1efe724d313b34500fdd261960e60b7bf0",
+      "bytes": 24689
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\d1-full-bank-v1\\E0\\N2_S45_12_13_O0\\RESULT.json",
+      "sha256": "2ac8b241517946fd063f7581667425ebdccd12c1acf5367b203391954b42ce2f",
+      "bytes": 2660
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\d1-full-bank-v1\\E0\\N2_S45_12_13_O0\\D1_EVENTS.jsonl.gz",
+      "sha256": "2077cdc402ff9ae53e79e685bc91ebd4757250c9c0e0c15d1e33f77c247e5a74",
+      "bytes": 391779
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-full-bank-v1\\A0\\N2_S45_12_13_O0\\RESULT.json",
+      "sha256": "a784427c1823168c89486967cf1717356b6b1a0522cec6f52924696aa6450416",
+      "bytes": 2032
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-full-bank-v1\\A0\\N2_S45_12_13_O0\\ASR_EVENTS.jsonl.gz",
+      "sha256": "96064da941c67a25c0c504189a2146bdedd2e41d19ef1b7e5ce79b00c35872ab",
+      "bytes": 42074
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-full-bank-v1\\A2\\N2_S45_12_13_O0\\RESULT.json",
+      "sha256": "a1e14e3b9c6fd7cd4cc2024f472e294c8abceb7dd3454dca58d2c3cec9b6c05f",
+      "bytes": 1976
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-full-bank-v1\\A2\\N2_S45_12_13_O0\\ASR_EVENTS.jsonl.gz",
+      "sha256": "6048b3befcd5c617928fbe11d6ffc701e5423ed82ce3ad418ede2d3c11a3ea00",
+      "bytes": 24640
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\d1-full-bank-v1\\E0\\N2_S45_12_13_O1\\RESULT.json",
+      "sha256": "ae3b4f17ea55294020a29c34d55560c668899b4f6f141c2c40cf79fa3d85be3f",
+      "bytes": 9454
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\d1-full-bank-v1\\E0\\N2_S45_12_13_O1\\D1_EVENTS.jsonl.gz",
+      "sha256": "749918f908f2683dcd2cc9c75cfa912b9a682fea7ed7d12fe8736d4664a1a951",
+      "bytes": 398441
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-full-bank-v1\\A0\\N2_S45_12_13_O1\\RESULT.json",
+      "sha256": "5b412cd4911c3fdc4caf45ac5151c741628a35ae0c4178572fbe550f3d4b0ccf",
+      "bytes": 2032
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-full-bank-v1\\A0\\N2_S45_12_13_O1\\ASR_EVENTS.jsonl.gz",
+      "sha256": "f5b14b2399d0d3f2861a4110750acf0c3f883f4f854c6332b5798eda0439fab0",
+      "bytes": 41966
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-full-bank-v1\\A2\\N2_S45_12_13_O1\\RESULT.json",
+      "sha256": "74ac2a80cd749ba27b53576cd53dc2b0592039a86266f3bd14476691de4be43a",
+      "bytes": 1975
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-full-bank-v1\\A2\\N2_S45_12_13_O1\\ASR_EVENTS.jsonl.gz",
+      "sha256": "dbdd04d90a3458389ad2945735b1469c7d8a8b3243242a43323d005703c70e54",
+      "bytes": 24445
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\d1-full-bank-v1\\E0\\N2_S45_12_15_O0\\RESULT.json",
+      "sha256": "3adc035d4bbf32f0872a48543a7168da04a848667f3004c10bcca1553b324ad3",
+      "bytes": 2661
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\d1-full-bank-v1\\E0\\N2_S45_12_15_O0\\D1_EVENTS.jsonl.gz",
+      "sha256": "1a489d7718256b908b1ab33fcf721a0512fb684eb8abaa6f02109162a827f1e5",
+      "bytes": 388428
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-full-bank-v1\\A0\\N2_S45_12_15_O0\\RESULT.json",
+      "sha256": "eb7eaa4bdf6326fc1428da490dfa5c7edab90a635bf69e5ba9ba94442571c4c8",
+      "bytes": 2033
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-full-bank-v1\\A0\\N2_S45_12_15_O0\\ASR_EVENTS.jsonl.gz",
+      "sha256": "5b79715be8e24be113916fde1f59c55c1169854a66fa451f71290f61abbbb10c",
+      "bytes": 41986
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-full-bank-v1\\A2\\N2_S45_12_15_O0\\RESULT.json",
+      "sha256": "e7726ed8d1c01c21e959e6a4b4e8112d2cdbb1d65c877506b56f74a3294fcab1",
+      "bytes": 1975
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-full-bank-v1\\A2\\N2_S45_12_15_O0\\ASR_EVENTS.jsonl.gz",
+      "sha256": "e049c6110b58f33c4c58a4fefd42abdc40af1e2127c6a3cc6eae2cf2b295a5a4",
+      "bytes": 24599
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\d1-full-bank-v1\\E0\\N2_S45_12_15_O1\\RESULT.json",
+      "sha256": "14b3aa3d7cd99faae53fb87bf390ab2e694fa719e183986269447ce196d3cafe",
+      "bytes": 2660
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\d1-full-bank-v1\\E0\\N2_S45_12_15_O1\\D1_EVENTS.jsonl.gz",
+      "sha256": "d5e9712111a84d2c1f6ed3f2845e42636eb2c7e4a40db017a61a0eab52adc59e",
+      "bytes": 389219
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-full-bank-v1\\A0\\N2_S45_12_15_O1\\RESULT.json",
+      "sha256": "8d4a03db4e5373e123a634a2fa196dba9f1fb6f30c5be7a786b59dfa3499b71e",
+      "bytes": 2033
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-full-bank-v1\\A0\\N2_S45_12_15_O1\\ASR_EVENTS.jsonl.gz",
+      "sha256": "70ae27a714667d440cc43db53095625e2371815d1658a9332cce9090880a1060",
+      "bytes": 41912
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-full-bank-v1\\A2\\N2_S45_12_15_O1\\RESULT.json",
+      "sha256": "a8ed224eacd04750ef426751b2eff43c81952ef922b50e64865d4ca889d72f81",
+      "bytes": 1976
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-full-bank-v1\\A2\\N2_S45_12_15_O1\\ASR_EVENTS.jsonl.gz",
+      "sha256": "b5fe8ebbe6c0db55af5d13fd9d04c0b93f1f237162778fd2d94f5ba7dec63368",
+      "bytes": 24611
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\d1-full-bank-v1\\E0\\N2_S45_12_16_O0\\RESULT.json",
+      "sha256": "be562f13d2b0a7d3aec723b11bacba797803e031d217ec124fdde4ad945349ad",
+      "bytes": 2660
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\d1-full-bank-v1\\E0\\N2_S45_12_16_O0\\D1_EVENTS.jsonl.gz",
+      "sha256": "331784d35833fa287be54558bcb02c54616b0df856e31f3e4f6f093a0273dd77",
+      "bytes": 398773
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-full-bank-v1\\A0\\N2_S45_12_16_O0\\RESULT.json",
+      "sha256": "70b7eb008ccd27cec7677700940262c90f66f8d5ae872f644ea85492a609fee1",
+      "bytes": 2032
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-full-bank-v1\\A0\\N2_S45_12_16_O0\\ASR_EVENTS.jsonl.gz",
+      "sha256": "22f3179963de4cb8748bd2f32afd55f74b51f5a6921d2ebff5acf5465fc0bef7",
+      "bytes": 42346
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-full-bank-v1\\A2\\N2_S45_12_16_O0\\RESULT.json",
+      "sha256": "6a70c536e311ca8edc95ae2a923118a11cbde0f4f672a0fbf69312510f0b3ec8",
+      "bytes": 1976
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-full-bank-v1\\A2\\N2_S45_12_16_O0\\ASR_EVENTS.jsonl.gz",
+      "sha256": "58a9d014ae32245215ce1e92438b1ed1158a70d5e6f614856c4ce7c880ca61e5",
+      "bytes": 24517
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\d1-full-bank-v1\\E0\\N2_S45_12_16_O1\\RESULT.json",
+      "sha256": "b11b92eb7c906306531c676f687edfe45840a98114767fb64edef334e117cf24",
+      "bytes": 9467
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\d1-full-bank-v1\\E0\\N2_S45_12_16_O1\\D1_EVENTS.jsonl.gz",
+      "sha256": "8c7f837456ce42b217645316624bcdbbea4a0ccab3bd0428f44f343c6da4f022",
+      "bytes": 398328
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-full-bank-v1\\A0\\N2_S45_12_16_O1\\RESULT.json",
+      "sha256": "a22a32874269bb5e15f17fb4c1277c1dc590b2cd636ee28194e7ebe50b77de4e",
+      "bytes": 2133
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-full-bank-v1\\A0\\N2_S45_12_16_O1\\ASR_EVENTS.jsonl.gz",
+      "sha256": "8742e475c8335c9dd37e9d9970cc794eec9abd1895ee68e5cdc8ef87c985fcdc",
+      "bytes": 42153
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-full-bank-v1\\A2\\N2_S45_12_16_O1\\RESULT.json",
+      "sha256": "f537203f3714f62cf14e58a10eb4a0b3d6fa992ebb1c85eae6df33e9b92e7eb3",
+      "bytes": 1975
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-full-bank-v1\\A2\\N2_S45_12_16_O1\\ASR_EVENTS.jsonl.gz",
+      "sha256": "69ff5581e05294f133a69a6985341f80eb600cb816e97d5cc05b2e3b52b62d23",
+      "bytes": 24559
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\d1-full-bank-v1\\E0\\N2_S45_12_18_O0\\RESULT.json",
+      "sha256": "ca216fc25c2aa5bb1aa38bb1095c5ad7e7d56ae2ea74f00d12b982337b87c4a7",
+      "bytes": 2661
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\d1-full-bank-v1\\E0\\N2_S45_12_18_O0\\D1_EVENTS.jsonl.gz",
+      "sha256": "7242157af7e5e5dc55a583254934fdccabde4fff4b17a2fef8a41e0374396c69",
+      "bytes": 397615
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-full-bank-v1\\A0\\N2_S45_12_18_O0\\RESULT.json",
+      "sha256": "65407e611cc67841b434676c7552a189c354346d0d08c19af7f34f870ab8afc9",
+      "bytes": 2032
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-full-bank-v1\\A0\\N2_S45_12_18_O0\\ASR_EVENTS.jsonl.gz",
+      "sha256": "f0f7a0831042e891f216ff6c09c9fdbcd695870f4bd983ff14977ca8cdcf3057",
+      "bytes": 42043
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-full-bank-v1\\A2\\N2_S45_12_18_O0\\RESULT.json",
+      "sha256": "dddcf858939fffcf029dffc340d3715424ac0b11e216cb5d56b8304686a61976",
+      "bytes": 1977
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-full-bank-v1\\A2\\N2_S45_12_18_O0\\ASR_EVENTS.jsonl.gz",
+      "sha256": "ac30b5da9b82886d65edada886e21728bfc9f0241cbb5e98ec574d2f6361ca90",
+      "bytes": 24688
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\d1-full-bank-v1\\E0\\N2_S45_12_18_O1\\RESULT.json",
+      "sha256": "381fb1f045b1957e768ea15d80f552a74b9c54cfdc984fd029045be9f3c38497",
+      "bytes": 22653
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\d1-full-bank-v1\\E0\\N2_S45_12_18_O1\\D1_EVENTS.jsonl.gz",
+      "sha256": "199138dd25d99e417f13515a54a1171f39a77b84857d0ab2e6db0b2b506da659",
+      "bytes": 409564
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-full-bank-v1\\A0\\N2_S45_12_18_O1\\RESULT.json",
+      "sha256": "10039740cd1e467e1e76bab00e22104473996484bebd15f2e417e5973b8cf589",
+      "bytes": 2034
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-full-bank-v1\\A0\\N2_S45_12_18_O1\\ASR_EVENTS.jsonl.gz",
+      "sha256": "5d19b26a3cea85f460567700adc83b2a6f940bc99df157ca701c48346ff8720f",
+      "bytes": 41989
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-full-bank-v1\\A2\\N2_S45_12_18_O1\\RESULT.json",
+      "sha256": "0826de1997ac6fab4d8bcc2e7f10ed2d935a467ab0b80fe485f68297314f7073",
+      "bytes": 1976
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-full-bank-v1\\A2\\N2_S45_12_18_O1\\ASR_EVENTS.jsonl.gz",
+      "sha256": "3d081a8b0e6941e05a57228a589f60a8ac21ae51494fdb51f72d2ed7e8daee6a",
+      "bytes": 24669
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\d1-full-bank-v1\\E0\\N2_S45_12_20_O0\\RESULT.json",
+      "sha256": "39ae2f7086c8e3f8286e1876c4ceba66f7a967998930f8b544400bcb68342f60",
+      "bytes": 2661
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\d1-full-bank-v1\\E0\\N2_S45_12_20_O0\\D1_EVENTS.jsonl.gz",
+      "sha256": "8542bfc3113be7222cb112f0ea5a0efc456e37fa24a1dc4967e60914965f92fa",
+      "bytes": 396319
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-full-bank-v1\\A0\\N2_S45_12_20_O0\\RESULT.json",
+      "sha256": "b2828908920f7ef13dfdef701bfbd8ec798c0d2233a8f890defbba070c59b1d6",
+      "bytes": 2134
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-full-bank-v1\\A0\\N2_S45_12_20_O0\\ASR_EVENTS.jsonl.gz",
+      "sha256": "cc1205e3f58c836befde9cc6506b49c0e962624ffd12d67ca04d68e0f1e7bb47",
+      "bytes": 42625
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-full-bank-v1\\A2\\N2_S45_12_20_O0\\RESULT.json",
+      "sha256": "27c2b3dd10805130ece59df568c5e79448c677525c1deeca8225f020c01e0c5f",
+      "bytes": 1976
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-full-bank-v1\\A2\\N2_S45_12_20_O0\\ASR_EVENTS.jsonl.gz",
+      "sha256": "70a498a31fda2317db92ef5b5f4d44e9c98a4b972fb51dcf21d0a96542f0924f",
+      "bytes": 24633
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\d1-full-bank-v1\\E0\\N2_S45_12_20_O1\\RESULT.json",
+      "sha256": "1dc076eb731480e7ed6b95520ba400335f0a42885f99cd22f4175773af404278",
+      "bytes": 207555
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\d1-full-bank-v1\\E0\\N2_S45_12_20_O1\\D1_EVENTS.jsonl.gz",
+      "sha256": "14f037694e50702f303ace171d8d6522f30f21f8c9fe1a6e2645df033836f466",
+      "bytes": 470416
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-full-bank-v1\\A0\\N2_S45_12_20_O1\\RESULT.json",
+      "sha256": "38e33e93fa8a544d3c1ca41c6a4404b36e03fed05efa04ca58bab6108a734115",
+      "bytes": 2134
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-full-bank-v1\\A0\\N2_S45_12_20_O1\\ASR_EVENTS.jsonl.gz",
+      "sha256": "a95d860727e8b07f0344aaa5c3a4d921cc76b4a403d3de1c69817c372372716e",
+      "bytes": 42692
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-full-bank-v1\\A2\\N2_S45_12_20_O1\\RESULT.json",
+      "sha256": "a20daf08d7f097c50ef9b83f6d17af3877cdfa68dd78f72b2560ab686b417cc1",
+      "bytes": 1976
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n4\\asr-full-bank-v1\\A2\\N2_S45_12_20_O1\\ASR_EVENTS.jsonl.gz",
+      "sha256": "1942a183ebfe46240d3290deee986e81e61d9ecc892e36baedf029ef2a0b1849",
+      "bytes": 24591
+    }
+  ],
+  "aggregates": [
+    {
+      "asr": "A0",
+      "padding_seconds": 0.0,
+      "files": 22,
+      "audio_seconds": 983.2996250000003,
+      "raw_false_speaker_seconds": 27.749999379739165,
+      "retained_false_speaker_seconds": 2.520000001788137,
+      "removed_percent": 90.91891870949719,
+      "files_with_nonempty_asr": 3
+    },
+    {
+      "asr": "A0",
+      "padding_seconds": 0.25,
+      "files": 22,
+      "audio_seconds": 983.2996250000003,
+      "raw_false_speaker_seconds": 27.749999379739165,
+      "retained_false_speaker_seconds": 3.020000001788137,
+      "removed_percent": 89.11711686742198,
+      "files_with_nonempty_asr": 3
+    },
+    {
+      "asr": "A0",
+      "padding_seconds": 0.5,
+      "files": 22,
+      "audio_seconds": 983.2996250000003,
+      "raw_false_speaker_seconds": 27.749999379739165,
+      "retained_false_speaker_seconds": 3.540000388026236,
+      "removed_percent": 87.24324155981472,
+      "files_with_nonempty_asr": 3
+    },
+    {
+      "asr": "A0",
+      "padding_seconds": 1.0,
+      "files": 22,
+      "audio_seconds": 983.2996250000003,
+      "raw_false_speaker_seconds": 27.749999379739165,
+      "retained_false_speaker_seconds": 4.9499992791563265,
+      "removed_percent": 82.16216436109032,
+      "files_with_nonempty_asr": 3
+    },
+    {
+      "asr": "A2",
+      "padding_seconds": 0.0,
+      "files": 22,
+      "audio_seconds": 983.2996250000003,
+      "raw_false_speaker_seconds": 27.749999379739165,
+      "retained_false_speaker_seconds": 0,
+      "removed_percent": 100.0,
+      "files_with_nonempty_asr": 0
+    },
+    {
+      "asr": "A2",
+      "padding_seconds": 0.25,
+      "files": 22,
+      "audio_seconds": 983.2996250000003,
+      "raw_false_speaker_seconds": 27.749999379739165,
+      "retained_false_speaker_seconds": 0,
+      "removed_percent": 100.0,
+      "files_with_nonempty_asr": 0
+    },
+    {
+      "asr": "A2",
+      "padding_seconds": 0.5,
+      "files": 22,
+      "audio_seconds": 983.2996250000003,
+      "raw_false_speaker_seconds": 27.749999379739165,
+      "retained_false_speaker_seconds": 0,
+      "removed_percent": 100.0,
+      "files_with_nonempty_asr": 0
+    },
+    {
+      "asr": "A2",
+      "padding_seconds": 1.0,
+      "files": 22,
+      "audio_seconds": 983.2996250000003,
+      "raw_false_speaker_seconds": 27.749999379739165,
+      "retained_false_speaker_seconds": 0,
+      "removed_percent": 100.0,
+      "files_with_nonempty_asr": 0
+    }
+  ],
+  "rows": [
+    {
+      "job_id": "N2_S45_12_01_O0",
+      "asr": "A0",
+      "padding_seconds": 0.0,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.0,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.0
+    },
+    {
+      "job_id": "N2_S45_12_01_O0",
+      "asr": "A0",
+      "padding_seconds": 0.25,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.0,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.0
+    },
+    {
+      "job_id": "N2_S45_12_01_O0",
+      "asr": "A0",
+      "padding_seconds": 0.5,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.0,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.0
+    },
+    {
+      "job_id": "N2_S45_12_01_O0",
+      "asr": "A0",
+      "padding_seconds": 1.0,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.0,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.0
+    },
+    {
+      "job_id": "N2_S45_12_01_O0",
+      "asr": "A2",
+      "padding_seconds": 0.0,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.0,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.0
+    },
+    {
+      "job_id": "N2_S45_12_01_O0",
+      "asr": "A2",
+      "padding_seconds": 0.25,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.0,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.0
+    },
+    {
+      "job_id": "N2_S45_12_01_O0",
+      "asr": "A2",
+      "padding_seconds": 0.5,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.0,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.0
+    },
+    {
+      "job_id": "N2_S45_12_01_O0",
+      "asr": "A2",
+      "padding_seconds": 1.0,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.0,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.0
+    },
+    {
+      "job_id": "N2_S45_12_01_O1",
+      "asr": "A0",
+      "padding_seconds": 0.0,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.25999999418854713,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.25999999418854713
+    },
+    {
+      "job_id": "N2_S45_12_01_O1",
+      "asr": "A0",
+      "padding_seconds": 0.25,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.25999999418854713,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.25999999418854713
+    },
+    {
+      "job_id": "N2_S45_12_01_O1",
+      "asr": "A0",
+      "padding_seconds": 0.5,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.25999999418854713,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.25999999418854713
+    },
+    {
+      "job_id": "N2_S45_12_01_O1",
+      "asr": "A0",
+      "padding_seconds": 1.0,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.25999999418854713,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.25999999418854713
+    },
+    {
+      "job_id": "N2_S45_12_01_O1",
+      "asr": "A2",
+      "padding_seconds": 0.0,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.25999999418854713,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.25999999418854713
+    },
+    {
+      "job_id": "N2_S45_12_01_O1",
+      "asr": "A2",
+      "padding_seconds": 0.25,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.25999999418854713,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.25999999418854713
+    },
+    {
+      "job_id": "N2_S45_12_01_O1",
+      "asr": "A2",
+      "padding_seconds": 0.5,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.25999999418854713,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.25999999418854713
+    },
+    {
+      "job_id": "N2_S45_12_01_O1",
+      "asr": "A2",
+      "padding_seconds": 1.0,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.25999999418854713,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.25999999418854713
+    },
+    {
+      "job_id": "N2_S45_12_03_O0",
+      "asr": "A0",
+      "padding_seconds": 0.0,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.0,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.0
+    },
+    {
+      "job_id": "N2_S45_12_03_O0",
+      "asr": "A0",
+      "padding_seconds": 0.25,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.0,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.0
+    },
+    {
+      "job_id": "N2_S45_12_03_O0",
+      "asr": "A0",
+      "padding_seconds": 0.5,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.0,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.0
+    },
+    {
+      "job_id": "N2_S45_12_03_O0",
+      "asr": "A0",
+      "padding_seconds": 1.0,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.0,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.0
+    },
+    {
+      "job_id": "N2_S45_12_03_O0",
+      "asr": "A2",
+      "padding_seconds": 0.0,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.0,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.0
+    },
+    {
+      "job_id": "N2_S45_12_03_O0",
+      "asr": "A2",
+      "padding_seconds": 0.25,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.0,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.0
+    },
+    {
+      "job_id": "N2_S45_12_03_O0",
+      "asr": "A2",
+      "padding_seconds": 0.5,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.0,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.0
+    },
+    {
+      "job_id": "N2_S45_12_03_O0",
+      "asr": "A2",
+      "padding_seconds": 1.0,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.0,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.0
+    },
+    {
+      "job_id": "N2_S45_12_03_O1",
+      "asr": "A0",
+      "padding_seconds": 0.0,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.25999999418854713,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.25999999418854713
+    },
+    {
+      "job_id": "N2_S45_12_03_O1",
+      "asr": "A0",
+      "padding_seconds": 0.25,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.25999999418854713,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.25999999418854713
+    },
+    {
+      "job_id": "N2_S45_12_03_O1",
+      "asr": "A0",
+      "padding_seconds": 0.5,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.25999999418854713,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.25999999418854713
+    },
+    {
+      "job_id": "N2_S45_12_03_O1",
+      "asr": "A0",
+      "padding_seconds": 1.0,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.25999999418854713,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.25999999418854713
+    },
+    {
+      "job_id": "N2_S45_12_03_O1",
+      "asr": "A2",
+      "padding_seconds": 0.0,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.25999999418854713,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.25999999418854713
+    },
+    {
+      "job_id": "N2_S45_12_03_O1",
+      "asr": "A2",
+      "padding_seconds": 0.25,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.25999999418854713,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.25999999418854713
+    },
+    {
+      "job_id": "N2_S45_12_03_O1",
+      "asr": "A2",
+      "padding_seconds": 0.5,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.25999999418854713,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.25999999418854713
+    },
+    {
+      "job_id": "N2_S45_12_03_O1",
+      "asr": "A2",
+      "padding_seconds": 1.0,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.25999999418854713,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.25999999418854713
+    },
+    {
+      "job_id": "N2_S45_12_05_O0",
+      "asr": "A0",
+      "padding_seconds": 0.0,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.0,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.0
+    },
+    {
+      "job_id": "N2_S45_12_05_O0",
+      "asr": "A0",
+      "padding_seconds": 0.25,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.0,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.0
+    },
+    {
+      "job_id": "N2_S45_12_05_O0",
+      "asr": "A0",
+      "padding_seconds": 0.5,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.0,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.0
+    },
+    {
+      "job_id": "N2_S45_12_05_O0",
+      "asr": "A0",
+      "padding_seconds": 1.0,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.0,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.0
+    },
+    {
+      "job_id": "N2_S45_12_05_O0",
+      "asr": "A2",
+      "padding_seconds": 0.0,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.0,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.0
+    },
+    {
+      "job_id": "N2_S45_12_05_O0",
+      "asr": "A2",
+      "padding_seconds": 0.25,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.0,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.0
+    },
+    {
+      "job_id": "N2_S45_12_05_O0",
+      "asr": "A2",
+      "padding_seconds": 0.5,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.0,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.0
+    },
+    {
+      "job_id": "N2_S45_12_05_O0",
+      "asr": "A2",
+      "padding_seconds": 1.0,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.0,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.0
+    },
+    {
+      "job_id": "N2_S45_12_05_O1",
+      "asr": "A0",
+      "padding_seconds": 0.0,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.5299999881535769,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.5299999881535769
+    },
+    {
+      "job_id": "N2_S45_12_05_O1",
+      "asr": "A0",
+      "padding_seconds": 0.25,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.5299999881535769,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.5299999881535769
+    },
+    {
+      "job_id": "N2_S45_12_05_O1",
+      "asr": "A0",
+      "padding_seconds": 0.5,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.5299999881535769,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.5299999881535769
+    },
+    {
+      "job_id": "N2_S45_12_05_O1",
+      "asr": "A0",
+      "padding_seconds": 1.0,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.5299999881535769,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.5299999881535769
+    },
+    {
+      "job_id": "N2_S45_12_05_O1",
+      "asr": "A2",
+      "padding_seconds": 0.0,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.5299999881535769,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.5299999881535769
+    },
+    {
+      "job_id": "N2_S45_12_05_O1",
+      "asr": "A2",
+      "padding_seconds": 0.25,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.5299999881535769,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.5299999881535769
+    },
+    {
+      "job_id": "N2_S45_12_05_O1",
+      "asr": "A2",
+      "padding_seconds": 0.5,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.5299999881535769,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.5299999881535769
+    },
+    {
+      "job_id": "N2_S45_12_05_O1",
+      "asr": "A2",
+      "padding_seconds": 1.0,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.5299999881535769,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.5299999881535769
+    },
+    {
+      "job_id": "N2_S45_12_07_O0",
+      "asr": "A0",
+      "padding_seconds": 0.0,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.0,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.0
+    },
+    {
+      "job_id": "N2_S45_12_07_O0",
+      "asr": "A0",
+      "padding_seconds": 0.25,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.0,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.0
+    },
+    {
+      "job_id": "N2_S45_12_07_O0",
+      "asr": "A0",
+      "padding_seconds": 0.5,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.0,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.0
+    },
+    {
+      "job_id": "N2_S45_12_07_O0",
+      "asr": "A0",
+      "padding_seconds": 1.0,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.0,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.0
+    },
+    {
+      "job_id": "N2_S45_12_07_O0",
+      "asr": "A2",
+      "padding_seconds": 0.0,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.0,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.0
+    },
+    {
+      "job_id": "N2_S45_12_07_O0",
+      "asr": "A2",
+      "padding_seconds": 0.25,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.0,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.0
+    },
+    {
+      "job_id": "N2_S45_12_07_O0",
+      "asr": "A2",
+      "padding_seconds": 0.5,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.0,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.0
+    },
+    {
+      "job_id": "N2_S45_12_07_O0",
+      "asr": "A2",
+      "padding_seconds": 1.0,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.0,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.0
+    },
+    {
+      "job_id": "N2_S45_12_07_O1",
+      "asr": "A0",
+      "padding_seconds": 0.0,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.0,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.0
+    },
+    {
+      "job_id": "N2_S45_12_07_O1",
+      "asr": "A0",
+      "padding_seconds": 0.25,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.0,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.0
+    },
+    {
+      "job_id": "N2_S45_12_07_O1",
+      "asr": "A0",
+      "padding_seconds": 0.5,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.0,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.0
+    },
+    {
+      "job_id": "N2_S45_12_07_O1",
+      "asr": "A0",
+      "padding_seconds": 1.0,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.0,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.0
+    },
+    {
+      "job_id": "N2_S45_12_07_O1",
+      "asr": "A2",
+      "padding_seconds": 0.0,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.0,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.0
+    },
+    {
+      "job_id": "N2_S45_12_07_O1",
+      "asr": "A2",
+      "padding_seconds": 0.25,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.0,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.0
+    },
+    {
+      "job_id": "N2_S45_12_07_O1",
+      "asr": "A2",
+      "padding_seconds": 0.5,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.0,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.0
+    },
+    {
+      "job_id": "N2_S45_12_07_O1",
+      "asr": "A2",
+      "padding_seconds": 1.0,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.0,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.0
+    },
+    {
+      "job_id": "N2_S45_12_09_O0",
+      "asr": "A0",
+      "padding_seconds": 0.0,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.0,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.0
+    },
+    {
+      "job_id": "N2_S45_12_09_O0",
+      "asr": "A0",
+      "padding_seconds": 0.25,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.0,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.0
+    },
+    {
+      "job_id": "N2_S45_12_09_O0",
+      "asr": "A0",
+      "padding_seconds": 0.5,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.0,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.0
+    },
+    {
+      "job_id": "N2_S45_12_09_O0",
+      "asr": "A0",
+      "padding_seconds": 1.0,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.0,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.0
+    },
+    {
+      "job_id": "N2_S45_12_09_O0",
+      "asr": "A2",
+      "padding_seconds": 0.0,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.0,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.0
+    },
+    {
+      "job_id": "N2_S45_12_09_O0",
+      "asr": "A2",
+      "padding_seconds": 0.25,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.0,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.0
+    },
+    {
+      "job_id": "N2_S45_12_09_O0",
+      "asr": "A2",
+      "padding_seconds": 0.5,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.0,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.0
+    },
+    {
+      "job_id": "N2_S45_12_09_O0",
+      "asr": "A2",
+      "padding_seconds": 1.0,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.0,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.0
+    },
+    {
+      "job_id": "N2_S45_12_09_O1",
+      "asr": "A0",
+      "padding_seconds": 0.0,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.5799999870359898,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.5799999870359898
+    },
+    {
+      "job_id": "N2_S45_12_09_O1",
+      "asr": "A0",
+      "padding_seconds": 0.25,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.5799999870359898,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.5799999870359898
+    },
+    {
+      "job_id": "N2_S45_12_09_O1",
+      "asr": "A0",
+      "padding_seconds": 0.5,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.5799999870359898,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.5799999870359898
+    },
+    {
+      "job_id": "N2_S45_12_09_O1",
+      "asr": "A0",
+      "padding_seconds": 1.0,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.5799999870359898,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.5799999870359898
+    },
+    {
+      "job_id": "N2_S45_12_09_O1",
+      "asr": "A2",
+      "padding_seconds": 0.0,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.5799999870359898,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.5799999870359898
+    },
+    {
+      "job_id": "N2_S45_12_09_O1",
+      "asr": "A2",
+      "padding_seconds": 0.25,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.5799999870359898,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.5799999870359898
+    },
+    {
+      "job_id": "N2_S45_12_09_O1",
+      "asr": "A2",
+      "padding_seconds": 0.5,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.5799999870359898,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.5799999870359898
+    },
+    {
+      "job_id": "N2_S45_12_09_O1",
+      "asr": "A2",
+      "padding_seconds": 1.0,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.5799999870359898,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.5799999870359898
+    },
+    {
+      "job_id": "N2_S45_12_11_O0",
+      "asr": "A0",
+      "padding_seconds": 0.0,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.0,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.0
+    },
+    {
+      "job_id": "N2_S45_12_11_O0",
+      "asr": "A0",
+      "padding_seconds": 0.25,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.0,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.0
+    },
+    {
+      "job_id": "N2_S45_12_11_O0",
+      "asr": "A0",
+      "padding_seconds": 0.5,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.0,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.0
+    },
+    {
+      "job_id": "N2_S45_12_11_O0",
+      "asr": "A0",
+      "padding_seconds": 1.0,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.0,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.0
+    },
+    {
+      "job_id": "N2_S45_12_11_O0",
+      "asr": "A2",
+      "padding_seconds": 0.0,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.0,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.0
+    },
+    {
+      "job_id": "N2_S45_12_11_O0",
+      "asr": "A2",
+      "padding_seconds": 0.25,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.0,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.0
+    },
+    {
+      "job_id": "N2_S45_12_11_O0",
+      "asr": "A2",
+      "padding_seconds": 0.5,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.0,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.0
+    },
+    {
+      "job_id": "N2_S45_12_11_O0",
+      "asr": "A2",
+      "padding_seconds": 1.0,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.0,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.0
+    },
+    {
+      "job_id": "N2_S45_12_11_O1",
+      "asr": "A0",
+      "padding_seconds": 0.0,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.0,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.0
+    },
+    {
+      "job_id": "N2_S45_12_11_O1",
+      "asr": "A0",
+      "padding_seconds": 0.25,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.0,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.0
+    },
+    {
+      "job_id": "N2_S45_12_11_O1",
+      "asr": "A0",
+      "padding_seconds": 0.5,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.0,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.0
+    },
+    {
+      "job_id": "N2_S45_12_11_O1",
+      "asr": "A0",
+      "padding_seconds": 1.0,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.0,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.0
+    },
+    {
+      "job_id": "N2_S45_12_11_O1",
+      "asr": "A2",
+      "padding_seconds": 0.0,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.0,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.0
+    },
+    {
+      "job_id": "N2_S45_12_11_O1",
+      "asr": "A2",
+      "padding_seconds": 0.25,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.0,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.0
+    },
+    {
+      "job_id": "N2_S45_12_11_O1",
+      "asr": "A2",
+      "padding_seconds": 0.5,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.0,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.0
+    },
+    {
+      "job_id": "N2_S45_12_11_O1",
+      "asr": "A2",
+      "padding_seconds": 1.0,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.0,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.0
+    },
+    {
+      "job_id": "N2_S45_12_13_O0",
+      "asr": "A0",
+      "padding_seconds": 0.0,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.0,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.0
+    },
+    {
+      "job_id": "N2_S45_12_13_O0",
+      "asr": "A0",
+      "padding_seconds": 0.25,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.0,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.0
+    },
+    {
+      "job_id": "N2_S45_12_13_O0",
+      "asr": "A0",
+      "padding_seconds": 0.5,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.0,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.0
+    },
+    {
+      "job_id": "N2_S45_12_13_O0",
+      "asr": "A0",
+      "padding_seconds": 1.0,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.0,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.0
+    },
+    {
+      "job_id": "N2_S45_12_13_O0",
+      "asr": "A2",
+      "padding_seconds": 0.0,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.0,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.0
+    },
+    {
+      "job_id": "N2_S45_12_13_O0",
+      "asr": "A2",
+      "padding_seconds": 0.25,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.0,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.0
+    },
+    {
+      "job_id": "N2_S45_12_13_O0",
+      "asr": "A2",
+      "padding_seconds": 0.5,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.0,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.0
+    },
+    {
+      "job_id": "N2_S45_12_13_O0",
+      "asr": "A2",
+      "padding_seconds": 1.0,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.0,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.0
+    },
+    {
+      "job_id": "N2_S45_12_13_O1",
+      "asr": "A0",
+      "padding_seconds": 0.0,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.5099999886006117,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.5099999886006117
+    },
+    {
+      "job_id": "N2_S45_12_13_O1",
+      "asr": "A0",
+      "padding_seconds": 0.25,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.5099999886006117,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.5099999886006117
+    },
+    {
+      "job_id": "N2_S45_12_13_O1",
+      "asr": "A0",
+      "padding_seconds": 0.5,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.5099999886006117,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.5099999886006117
+    },
+    {
+      "job_id": "N2_S45_12_13_O1",
+      "asr": "A0",
+      "padding_seconds": 1.0,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.5099999886006117,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.5099999886006117
+    },
+    {
+      "job_id": "N2_S45_12_13_O1",
+      "asr": "A2",
+      "padding_seconds": 0.0,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.5099999886006117,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.5099999886006117
+    },
+    {
+      "job_id": "N2_S45_12_13_O1",
+      "asr": "A2",
+      "padding_seconds": 0.25,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.5099999886006117,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.5099999886006117
+    },
+    {
+      "job_id": "N2_S45_12_13_O1",
+      "asr": "A2",
+      "padding_seconds": 0.5,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.5099999886006117,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.5099999886006117
+    },
+    {
+      "job_id": "N2_S45_12_13_O1",
+      "asr": "A2",
+      "padding_seconds": 1.0,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.5099999886006117,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.5099999886006117
+    },
+    {
+      "job_id": "N2_S45_12_15_O0",
+      "asr": "A0",
+      "padding_seconds": 0.0,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.0,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.0
+    },
+    {
+      "job_id": "N2_S45_12_15_O0",
+      "asr": "A0",
+      "padding_seconds": 0.25,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.0,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.0
+    },
+    {
+      "job_id": "N2_S45_12_15_O0",
+      "asr": "A0",
+      "padding_seconds": 0.5,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.0,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.0
+    },
+    {
+      "job_id": "N2_S45_12_15_O0",
+      "asr": "A0",
+      "padding_seconds": 1.0,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.0,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.0
+    },
+    {
+      "job_id": "N2_S45_12_15_O0",
+      "asr": "A2",
+      "padding_seconds": 0.0,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.0,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.0
+    },
+    {
+      "job_id": "N2_S45_12_15_O0",
+      "asr": "A2",
+      "padding_seconds": 0.25,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.0,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.0
+    },
+    {
+      "job_id": "N2_S45_12_15_O0",
+      "asr": "A2",
+      "padding_seconds": 0.5,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.0,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.0
+    },
+    {
+      "job_id": "N2_S45_12_15_O0",
+      "asr": "A2",
+      "padding_seconds": 1.0,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.0,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.0
+    },
+    {
+      "job_id": "N2_S45_12_15_O1",
+      "asr": "A0",
+      "padding_seconds": 0.0,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.0,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.0
+    },
+    {
+      "job_id": "N2_S45_12_15_O1",
+      "asr": "A0",
+      "padding_seconds": 0.25,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.0,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.0
+    },
+    {
+      "job_id": "N2_S45_12_15_O1",
+      "asr": "A0",
+      "padding_seconds": 0.5,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.0,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.0
+    },
+    {
+      "job_id": "N2_S45_12_15_O1",
+      "asr": "A0",
+      "padding_seconds": 1.0,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.0,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.0
+    },
+    {
+      "job_id": "N2_S45_12_15_O1",
+      "asr": "A2",
+      "padding_seconds": 0.0,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.0,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.0
+    },
+    {
+      "job_id": "N2_S45_12_15_O1",
+      "asr": "A2",
+      "padding_seconds": 0.25,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.0,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.0
+    },
+    {
+      "job_id": "N2_S45_12_15_O1",
+      "asr": "A2",
+      "padding_seconds": 0.5,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.0,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.0
+    },
+    {
+      "job_id": "N2_S45_12_15_O1",
+      "asr": "A2",
+      "padding_seconds": 1.0,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.0,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.0
+    },
+    {
+      "job_id": "N2_S45_12_16_O0",
+      "asr": "A0",
+      "padding_seconds": 0.0,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.0,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.0
+    },
+    {
+      "job_id": "N2_S45_12_16_O0",
+      "asr": "A0",
+      "padding_seconds": 0.25,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.0,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.0
+    },
+    {
+      "job_id": "N2_S45_12_16_O0",
+      "asr": "A0",
+      "padding_seconds": 0.5,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.0,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.0
+    },
+    {
+      "job_id": "N2_S45_12_16_O0",
+      "asr": "A0",
+      "padding_seconds": 1.0,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.0,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.0
+    },
+    {
+      "job_id": "N2_S45_12_16_O0",
+      "asr": "A2",
+      "padding_seconds": 0.0,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.0,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.0
+    },
+    {
+      "job_id": "N2_S45_12_16_O0",
+      "asr": "A2",
+      "padding_seconds": 0.25,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.0,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.0
+    },
+    {
+      "job_id": "N2_S45_12_16_O0",
+      "asr": "A2",
+      "padding_seconds": 0.5,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.0,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.0
+    },
+    {
+      "job_id": "N2_S45_12_16_O0",
+      "asr": "A2",
+      "padding_seconds": 1.0,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.0,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.0
+    },
+    {
+      "job_id": "N2_S45_12_16_O1",
+      "asr": "A0",
+      "padding_seconds": 0.0,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 1,
+      "raw_false_speaker_seconds": 3.919999912381172,
+      "supported_false_speaker_seconds": 0.42999999038875103,
+      "removed_false_speaker_seconds": 3.489999921992421
+    },
+    {
+      "job_id": "N2_S45_12_16_O1",
+      "asr": "A0",
+      "padding_seconds": 0.25,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 1,
+      "raw_false_speaker_seconds": 3.919999912381172,
+      "supported_false_speaker_seconds": 0.42999999038875103,
+      "removed_false_speaker_seconds": 3.489999921992421
+    },
+    {
+      "job_id": "N2_S45_12_16_O1",
+      "asr": "A0",
+      "padding_seconds": 0.5,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 1,
+      "raw_false_speaker_seconds": 3.919999912381172,
+      "supported_false_speaker_seconds": 0.4500003766268499,
+      "removed_false_speaker_seconds": 3.4699995357543223
+    },
+    {
+      "job_id": "N2_S45_12_16_O1",
+      "asr": "A0",
+      "padding_seconds": 1.0,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 1,
+      "raw_false_speaker_seconds": 3.919999912381172,
+      "supported_false_speaker_seconds": 0.8899999801069498,
+      "removed_false_speaker_seconds": 3.0299999322742224
+    },
+    {
+      "job_id": "N2_S45_12_16_O1",
+      "asr": "A2",
+      "padding_seconds": 0.0,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 3.919999912381172,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 3.919999912381172
+    },
+    {
+      "job_id": "N2_S45_12_16_O1",
+      "asr": "A2",
+      "padding_seconds": 0.25,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 3.919999912381172,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 3.919999912381172
+    },
+    {
+      "job_id": "N2_S45_12_16_O1",
+      "asr": "A2",
+      "padding_seconds": 0.5,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 3.919999912381172,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 3.919999912381172
+    },
+    {
+      "job_id": "N2_S45_12_16_O1",
+      "asr": "A2",
+      "padding_seconds": 1.0,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 3.919999912381172,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 3.919999912381172
+    },
+    {
+      "job_id": "N2_S45_12_18_O0",
+      "asr": "A0",
+      "padding_seconds": 0.0,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.0,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.0
+    },
+    {
+      "job_id": "N2_S45_12_18_O0",
+      "asr": "A0",
+      "padding_seconds": 0.25,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.0,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.0
+    },
+    {
+      "job_id": "N2_S45_12_18_O0",
+      "asr": "A0",
+      "padding_seconds": 0.5,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.0,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.0
+    },
+    {
+      "job_id": "N2_S45_12_18_O0",
+      "asr": "A0",
+      "padding_seconds": 1.0,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.0,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.0
+    },
+    {
+      "job_id": "N2_S45_12_18_O0",
+      "asr": "A2",
+      "padding_seconds": 0.0,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.0,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.0
+    },
+    {
+      "job_id": "N2_S45_12_18_O0",
+      "asr": "A2",
+      "padding_seconds": 0.25,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.0,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.0
+    },
+    {
+      "job_id": "N2_S45_12_18_O0",
+      "asr": "A2",
+      "padding_seconds": 0.5,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.0,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.0
+    },
+    {
+      "job_id": "N2_S45_12_18_O0",
+      "asr": "A2",
+      "padding_seconds": 1.0,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.0,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.0
+    },
+    {
+      "job_id": "N2_S45_12_18_O1",
+      "asr": "A0",
+      "padding_seconds": 0.0,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 2.5999999418854713,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 2.5999999418854713
+    },
+    {
+      "job_id": "N2_S45_12_18_O1",
+      "asr": "A0",
+      "padding_seconds": 0.25,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 2.5999999418854713,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 2.5999999418854713
+    },
+    {
+      "job_id": "N2_S45_12_18_O1",
+      "asr": "A0",
+      "padding_seconds": 0.5,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 2.5999999418854713,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 2.5999999418854713
+    },
+    {
+      "job_id": "N2_S45_12_18_O1",
+      "asr": "A0",
+      "padding_seconds": 1.0,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 2.5999999418854713,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 2.5999999418854713
+    },
+    {
+      "job_id": "N2_S45_12_18_O1",
+      "asr": "A2",
+      "padding_seconds": 0.0,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 2.5999999418854713,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 2.5999999418854713
+    },
+    {
+      "job_id": "N2_S45_12_18_O1",
+      "asr": "A2",
+      "padding_seconds": 0.25,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 2.5999999418854713,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 2.5999999418854713
+    },
+    {
+      "job_id": "N2_S45_12_18_O1",
+      "asr": "A2",
+      "padding_seconds": 0.5,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 2.5999999418854713,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 2.5999999418854713
+    },
+    {
+      "job_id": "N2_S45_12_18_O1",
+      "asr": "A2",
+      "padding_seconds": 1.0,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 2.5999999418854713,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 2.5999999418854713
+    },
+    {
+      "job_id": "N2_S45_12_20_O0",
+      "asr": "A0",
+      "padding_seconds": 0.0,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 1,
+      "raw_false_speaker_seconds": 0.0,
+      "supported_false_speaker_seconds": 0.0,
+      "removed_false_speaker_seconds": 0.0
+    },
+    {
+      "job_id": "N2_S45_12_20_O0",
+      "asr": "A0",
+      "padding_seconds": 0.25,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 1,
+      "raw_false_speaker_seconds": 0.0,
+      "supported_false_speaker_seconds": 0.0,
+      "removed_false_speaker_seconds": 0.0
+    },
+    {
+      "job_id": "N2_S45_12_20_O0",
+      "asr": "A0",
+      "padding_seconds": 0.5,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 1,
+      "raw_false_speaker_seconds": 0.0,
+      "supported_false_speaker_seconds": 0.0,
+      "removed_false_speaker_seconds": 0.0
+    },
+    {
+      "job_id": "N2_S45_12_20_O0",
+      "asr": "A0",
+      "padding_seconds": 1.0,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 1,
+      "raw_false_speaker_seconds": 0.0,
+      "supported_false_speaker_seconds": 0.0,
+      "removed_false_speaker_seconds": 0.0
+    },
+    {
+      "job_id": "N2_S45_12_20_O0",
+      "asr": "A2",
+      "padding_seconds": 0.0,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.0,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.0
+    },
+    {
+      "job_id": "N2_S45_12_20_O0",
+      "asr": "A2",
+      "padding_seconds": 0.25,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.0,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.0
+    },
+    {
+      "job_id": "N2_S45_12_20_O0",
+      "asr": "A2",
+      "padding_seconds": 0.5,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.0,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.0
+    },
+    {
+      "job_id": "N2_S45_12_20_O0",
+      "asr": "A2",
+      "padding_seconds": 1.0,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 0.0,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 0.0
+    },
+    {
+      "job_id": "N2_S45_12_20_O1",
+      "asr": "A0",
+      "padding_seconds": 0.0,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 1,
+      "raw_false_speaker_seconds": 19.08999957330525,
+      "supported_false_speaker_seconds": 2.090000011399386,
+      "removed_false_speaker_seconds": 16.999999561905863
+    },
+    {
+      "job_id": "N2_S45_12_20_O1",
+      "asr": "A0",
+      "padding_seconds": 0.25,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 1,
+      "raw_false_speaker_seconds": 19.08999957330525,
+      "supported_false_speaker_seconds": 2.590000011399386,
+      "removed_false_speaker_seconds": 16.499999561905863
+    },
+    {
+      "job_id": "N2_S45_12_20_O1",
+      "asr": "A0",
+      "padding_seconds": 0.5,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 1,
+      "raw_false_speaker_seconds": 19.08999957330525,
+      "supported_false_speaker_seconds": 3.090000011399386,
+      "removed_false_speaker_seconds": 15.999999561905863
+    },
+    {
+      "job_id": "N2_S45_12_20_O1",
+      "asr": "A0",
+      "padding_seconds": 1.0,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 1,
+      "raw_false_speaker_seconds": 19.08999957330525,
+      "supported_false_speaker_seconds": 4.059999299049377,
+      "removed_false_speaker_seconds": 15.030000274255872
+    },
+    {
+      "job_id": "N2_S45_12_20_O1",
+      "asr": "A2",
+      "padding_seconds": 0.0,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 19.08999957330525,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 19.08999957330525
+    },
+    {
+      "job_id": "N2_S45_12_20_O1",
+      "asr": "A2",
+      "padding_seconds": 0.25,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 19.08999957330525,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 19.08999957330525
+    },
+    {
+      "job_id": "N2_S45_12_20_O1",
+      "asr": "A2",
+      "padding_seconds": 0.5,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 19.08999957330525,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 19.08999957330525
+    },
+    {
+      "job_id": "N2_S45_12_20_O1",
+      "asr": "A2",
+      "padding_seconds": 1.0,
+      "audio_seconds": 44.6954375,
+      "nonempty_final_utterances": 0,
+      "raw_false_speaker_seconds": 19.08999957330525,
+      "supported_false_speaker_seconds": 0,
+      "removed_false_speaker_seconds": 19.08999957330525
+    }
+  ],
+  "method": "Intersect native >=0.5 activity with union of nonempty final ASR coarse utterance intervals plus fixed padding.",
+  "limitations": [
+    "Final ASR uses future information; not causal streaming validation.",
+    "Empty controls measure false activity only; no speech recall, net DER or live latency claim.",
+    "ASR intervals are coarse revision/utterance support, not exact word boundaries.",
+    "Filtering runs after native inference and saves no diarizer computation.",
+    "No threshold selected, deployed filter, model training or new inference."
+  ],
+  "code": [
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n5\\assess_asr_activity_support_v1.py",
+      "sha256": "79e828f2db5946dbebfb4afdf561666a432b19150050f9c2c919a561859cf3f2",
+      "bytes": 5305
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n5\\README_ASR_ACTIVITY_SUPPORT_V1.md",
+      "sha256": "5e7ba78dcef0dc0a0f55428602e28487d2a41746baf6f3c13c7760b3a662c178",
+      "bytes": 2523
+    }
+  ]
+}

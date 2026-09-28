@@ -1,5 +1,51 @@
 # N5 partial release checkpoint
 
+## 2026-09-27 - stable Windows pair; ASR guidance and fine-tuning assessment
+
+Current checkpoint: N5_STATUS_20260928_V17.json. The user's current priority is
+A0 Sherpa or A2 Nemotron English with D1 Nemotron 3 Diarization and E0 ReDimNet.
+Stop further TitaNet E1 candidate work; preserve prior comparison evidence/assets.
+English remains the target. No training or new scenes are authorized in this
+campaign; assess existing data only. Pi stays off until user reconnection.
+
+D1_ANONYMOUS_WINDOWS_CHECK_V1.json independently verifies a fresh Windows pair.
+The n3-stable-asr-chunks-v1 and d1-stable-asr-chunks-v1 derivatives gather the
+configured 100 ms ASR input quantum plus exact tail. This repairs schedule-
+dependent coarse timestamp differences without changing models or tolerances.
+Both actual A2/D1 anonymous-mode GUI arms consumed all 715,127 samples, retained
+4,470 identical activity frames, displayed identical captions and persisted
+identical words/timestamps. Each saved/reopened/deleted four utterances in two
+normally closed private-desktop processes. The E0 arm loaded the encoder once
+and made 20 calls; the bypass arm had zero loads/calls. Exact owners are absent.
+13 lifecycle/refusal tests and three fragmentation tests on each source pass.
+Earlier race/drain/timestamp failures remain in D1_ANONYMOUS_ATTEMPTS_V1.json.
+
+Start-N5-NEMOTRON-REDIMNET.cmd and Start-N5-NEMOTRON-ANONYMOUS.cmd use these
+qualified one-file sources, a separate private store each, CPUs 4/14, one thread
+per model and GPU off. Both --check-only validations pass. No visible GUI was
+opened. README_D1_ANONYMOUS_PREVIEW_V1.md gives PowerShell/CMD/Anaconda commands.
+They remain engineering previews, not named-speaker, full-bank, ARM64 or Pi
+acceptance. Existing preview sources/launchers remain intact. Session wall time
+was about 91-92 seconds for 44.7 seconds of audio; no real-time claim is made.
+
+ASR_GUIDED_DIARIZATION_AND_FINETUNING_20260927.md answers the latest questions.
+The read-only empty-control experiment found 27.75 raw D1 false speaker-seconds
+across 22 files. Final-ASR support removed 82-91% with A0 and all with A2, but
+uses future information and has no speech-recall/net-DER validation. No filter
+was deployed. The data audit verified 240 scenarios, 3.03 scenario-hours,
+43 speaker keys and approximate activity labels. Existing historical splits
+have no source/speaker/text crossings, but all have now been used for evaluation.
+Fine-tuning needs better activity labels and a genuinely unseen future test set.
+
+Next useful work: preserve these successful paths for packaging; continue the
+bounded ARM64 runtime/emulation investigation described below. Native Pi saved-
+file tests after reconnection remain essential. N4 still has two collected
+pending review, two failed and 236 unattempted actual cells. Zero new N4 release
+profiles are accepted, and N5 remains partial. Do not infer stage completion
+from this pair. A0/D1/E0 integrated repair remains a priority, but no unchanged
+whole-panel retry is justified. Positive-speech/overlap and causal ASR-support
+analysis is still exploratory. Keep the original packaging reserve/deadline.
+
 ## 2026-09-27 - Nemotron utilization and anonymous encoder bypass
 
 The user asked whether D1 can replace external embeddings and how names work.
@@ -182,7 +228,7 @@ ARM64 component/GUI pass.
 BASELINE_WINDOWS_LIFECYCLE_CHECK_V1.json independently verifies the unchanged N1
 baseline in two separate real Windows GUI processes. Saved-audio inference,
 text save, reopen after process restart, rendering and isolated session deletion
-passed. Both 480×800 clients rendered 31 segments from three stored utterances;
+passed. Both 480Ãƒâ€”800 clients rendered 31 segments from three stored utterances;
 the synthetic people sentinel survived. Normal unforced process/job closure,
 exact owner absence, 240 unchanged payload files and eight assets were checked.
 The GUI used private desktops with unchanged input desktop; production
@@ -809,7 +855,7 @@ was performed. Existing production data and immutable releases remain untouched.
    failed attempts; classify model reference/export/parity results honestly.
 2. Complete N4's runner/evidence compaction, D0 activity observability and D0/E1
    C-only association calibration, A1 integrated route or documented blocker,
-   full 240×2 coverage for retained combinations, cluster-aware metrics,
+   full 240Ãƒâ€”2 coverage for retained combinations, cluster-aware metrics,
    candidate-alone resources, actual paced GUI and continuity checks. N4's
    catalog wiring and evaluator tests are not release acceptance.
 3. Freeze exact retained compositions with runtime/precision/buffer/gain/text/
@@ -837,7 +883,7 @@ by approval policy; this stage uses separate receipts without retrying it.
 
 ## Resume this existing task
 
-> Complete the already-authorized N2–N5 campaign in
+> Complete the already-authorized N2Ã¢â‚¬â€œN5 campaign in
 > G:\Just_Peachy_N1\20260924_campaign\worktree. Inspect N2 numerical-v2
 > RESULT/CHAIN_RESULT and N3 numerical-v3 QUEUE_RESULT/RESULT, including exact
 > live PID creation identities, before starting anything. Respect admitted CPU

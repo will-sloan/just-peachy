@@ -64,3 +64,21 @@ No new candidate tag is warranted without N4 selection and per-build validation.
 N2/N3 accepted component tags retain research lineage, not release readiness.
 Any future derivative must preserve all failed attempts and execute matching
 resource, state, timing, GUI and restart checks before receiving a release label.
+
+## Additional stable-input Windows engineering previews
+
+D1_ANONYMOUS_WINDOWS_CHECK_V1.json binds both fresh derivative receipts, all
+source/model/runtime/audio hashes and paired normal process closure. E0 preview:
+local/releases/n3-stable-asr-chunks-v1; encoder-free anonymous preview:
+local/releases/d1-stable-asr-chunks-v1. Reproduce with
+prepare_stable_asr_chunks_v1.py and the README of the same stem; the anonymous
+parent is reproduced by prepare_d1_anonymous_v1.py. Both derive from accepted
+N3 source with documented delivery/bypass changes; earlier immutable trees and
+Git evidence are retained. No new N4 release profile is promoted.
+
+Start-N5-NEMOTRON-REDIMNET.cmd and Start-N5-NEMOTRON-ANONYMOUS.cmd require the
+verified pair and rehash its bound inputs. Both launch checks passed. They use
+separate saved-file stores and share the existing front end. Full-bank,
+automatic naming, ARM64 and CM5 remain unqualified. The public check and this
+mapping are backed up at the next verified campaign commit; no new Pi-ready
+package or tag is implied. Read README_D1_ANONYMOUS_PREVIEW_V1.md.

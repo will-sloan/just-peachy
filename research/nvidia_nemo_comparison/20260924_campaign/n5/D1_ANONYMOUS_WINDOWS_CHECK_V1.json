@@ -1,0 +1,249 @@
+{
+  "status": "PASS_D1_ANONYMOUS_WINDOWS_PAIRED_LIFECYCLE",
+  "utc": "2026-09-27T23:57:47.088419+00:00",
+  "arms": [
+    {
+      "arm": "parent",
+      "admission": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\d1-anonymous-lifecycle-parent-v4\\ADMISSION.json",
+        "sha256": "78204fab65e1307d138aac0983ed20d3646e240c8c2c80da644e567242428ca0",
+        "bytes": 115088
+      },
+      "result": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\d1-anonymous-lifecycle-parent-v4\\RESULT.json",
+        "sha256": "d7a7277e4c65799b1d7ffeb8fa54f4d1142beea73fa7d9e4fa5ba35df76f5875",
+        "bytes": 1901
+      },
+      "source_receipt": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\releases\\n3-stable-asr-chunks-v1\\DERIVATIVE.json",
+        "sha256": "3228b8f92f74926f164b46614f31996311ac155bb753187e5803e9912b26b164",
+        "bytes": 60287
+      },
+      "source_files_verified": 382,
+      "assets_verified": 15,
+      "application_cpus": [
+        4,
+        14
+      ],
+      "numerical_threads_per_model": 1,
+      "phases": [
+        {
+          "phase": "infer",
+          "result": {
+            "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\d1-anonymous-lifecycle-parent-v4\\infer\\RESULT.json",
+            "sha256": "6a952dabc41d50bb591f2516eedf312e3bcd61c2257a8aafa4d0dfa42f89d7b3",
+            "bytes": 16852
+          },
+          "lifetime": {
+            "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\d1-anonymous-lifecycle-parent-v4\\infer-lifetime\\LIFETIME.json",
+            "sha256": "02863470210f1ab6c83066377974598539b8b2be8c96f9ed2056e85280710d40",
+            "bytes": 2093
+          },
+          "rendered_rows": 16,
+          "stored_rows": 4,
+          "semantics": {
+            "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\d1-anonymous-lifecycle-parent-v4\\infer\\CAPTION_SEMANTICS.json",
+            "sha256": "9d2bfe14a5b68d62d7e00560c27082b53f66569b1bbf0508c7ef6b8cdc69107d",
+            "bytes": 162949
+          }
+        },
+        {
+          "phase": "reopen",
+          "result": {
+            "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\d1-anonymous-lifecycle-parent-v4\\reopen\\RESULT.json",
+            "sha256": "ee418f861749b319f82906ad219fe96177c1aff0e3d3d01ce96ff0270749756d",
+            "bytes": 2085
+          },
+          "lifetime": {
+            "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\d1-anonymous-lifecycle-parent-v4\\reopen-lifetime\\LIFETIME.json",
+            "sha256": "14fc41a48ad4042861fb5dc7cc3ea7281a52caae4b6b8977b5011fa408b249b4",
+            "bytes": 2096
+          },
+          "rendered_rows": 16,
+          "stored_rows": 4,
+          "semantics": {
+            "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\d1-anonymous-lifecycle-parent-v4\\reopen\\CAPTION_SEMANTICS.json",
+            "sha256": "83b334595986e90ee2e073bd184d30956952704c27b3db89f880db2323352370",
+            "bytes": 163015
+          }
+        }
+      ],
+      "model_cache": {
+        "asr_loads": 1,
+        "speaker_loads": 1,
+        "streams": 1
+      },
+      "embedding_calls": 20,
+      "seen_slots": [
+        0,
+        1
+      ],
+      "expected_samples": 715127,
+      "asr_samples": 715127,
+      "identity_samples": 715127,
+      "speaker_lag_sec": 0.0,
+      "activity_frame_count": 4470,
+      "activity_fingerprint": "d28144e701af482e5ea92d857afa30bbd5f21941ea8bbbda16ecc856af7ebb73",
+      "caption_fingerprint": "64a410baea1ef000573b9d00736c5b4091c5e87210da93484dfc6c3e96684303",
+      "stored_caption_fingerprint": "56139e9128ae0fec9f26ab7c8e3b8f0c2abb3359c48b0032ea934cbba16d330a",
+      "elapsed_wall_sec": 91.94653090002248
+    },
+    {
+      "arm": "candidate",
+      "admission": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\d1-anonymous-lifecycle-candidate-v4\\ADMISSION.json",
+        "sha256": "1b921a08f9d07df8da5429a2e27ab9de80dcbc3ff99c17716267c116f82489a3",
+        "bytes": 117058
+      },
+      "result": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\d1-anonymous-lifecycle-candidate-v4\\RESULT.json",
+        "sha256": "e54c7b8aeefec1f58b7fb7d468912924fbc07bd8199d2d023238fa9a610595b3",
+        "bytes": 1916
+      },
+      "source_receipt": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\releases\\d1-stable-asr-chunks-v1\\DERIVATIVE.json",
+        "sha256": "07bad1aac9c8a27deb0f63aa9b754a93fcbe376a3e8e34fbf4bc74825194d96d",
+        "bytes": 60424
+      },
+      "source_files_verified": 383,
+      "assets_verified": 15,
+      "application_cpus": [
+        4,
+        14
+      ],
+      "numerical_threads_per_model": 1,
+      "phases": [
+        {
+          "phase": "infer",
+          "result": {
+            "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\d1-anonymous-lifecycle-candidate-v4\\infer\\RESULT.json",
+            "sha256": "d488c36ca3b096df92be12a198ab46b6228fb51fdbf68e6e28bd7a09ee0ab9ce",
+            "bytes": 16900
+          },
+          "lifetime": {
+            "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\d1-anonymous-lifecycle-candidate-v4\\infer-lifetime\\LIFETIME.json",
+            "sha256": "5ce12bd00e0017afdec45e821b491b1d80face43bb9ec0dcb6e4a38b8cda59b1",
+            "bytes": 2095
+          },
+          "rendered_rows": 16,
+          "stored_rows": 4,
+          "semantics": {
+            "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\d1-anonymous-lifecycle-candidate-v4\\infer\\CAPTION_SEMANTICS.json",
+            "sha256": "fc0f7cf71b6b8cd535e34afea9b643c0e40e9978c829ecf6a737d29c8229fe34",
+            "bytes": 163660
+          }
+        },
+        {
+          "phase": "reopen",
+          "result": {
+            "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\d1-anonymous-lifecycle-candidate-v4\\reopen\\RESULT.json",
+            "sha256": "b54d7b7d92675c4c2ccf2a733de71b7298af279b79793867104d2693a1b5cd58",
+            "bytes": 2085
+          },
+          "lifetime": {
+            "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\d1-anonymous-lifecycle-candidate-v4\\reopen-lifetime\\LIFETIME.json",
+            "sha256": "81931bdb54330bbdf61f3a8fd59e7327124d71b7a628ac4f3a83daf11bf907e9",
+            "bytes": 2096
+          },
+          "rendered_rows": 16,
+          "stored_rows": 4,
+          "semantics": {
+            "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\d1-anonymous-lifecycle-candidate-v4\\reopen\\CAPTION_SEMANTICS.json",
+            "sha256": "d9b8a12f55b44018eb65100c558aa2a1aea59c9a118145f02269baceea2d997f",
+            "bytes": 163726
+          }
+        }
+      ],
+      "model_cache": {
+        "asr_loads": 1,
+        "speaker_loads": 0,
+        "streams": 1
+      },
+      "embedding_calls": 0,
+      "seen_slots": [
+        0,
+        1
+      ],
+      "expected_samples": 715127,
+      "asr_samples": 715127,
+      "identity_samples": 715127,
+      "speaker_lag_sec": 0.0,
+      "activity_frame_count": 4470,
+      "activity_fingerprint": "d28144e701af482e5ea92d857afa30bbd5f21941ea8bbbda16ecc856af7ebb73",
+      "caption_fingerprint": "64a410baea1ef000573b9d00736c5b4091c5e87210da93484dfc6c3e96684303",
+      "stored_caption_fingerprint": "56139e9128ae0fec9f26ab7c8e3b8f0c2abb3359c48b0032ea934cbba16d330a",
+      "elapsed_wall_sec": 91.03739529999439
+    }
+  ],
+  "private_admission": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\d1-anonymous-lifecycle-candidate-v4\\ADMISSION.json",
+    "sha256": "1b921a08f9d07df8da5429a2e27ab9de80dcbc3ff99c17716267c116f82489a3",
+    "bytes": 117058
+  },
+  "private_result": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\d1-anonymous-lifecycle-candidate-v4\\RESULT.json",
+    "sha256": "e54c7b8aeefec1f58b7fb7d468912924fbc07bd8199d2d023238fa9a610595b3",
+    "bytes": 1916
+  },
+  "backend_id": "sha256:377262016bfd68f234f1ee5fd18a478ac31917f4c55b9253c0ececf0f6e4b8e4",
+  "exact_closed_owners": [
+    {
+      "pid": 55288,
+      "create_time": 1790553079.776497
+    },
+    {
+      "pid": 55336,
+      "create_time": 1790553079.6181421
+    },
+    {
+      "pid": 6532,
+      "create_time": 1790553080.9261763
+    },
+    {
+      "pid": 17356,
+      "create_time": 1790553177.3055887
+    },
+    {
+      "pid": 53992,
+      "create_time": 1790553329.664654
+    },
+    {
+      "pid": 28484,
+      "create_time": 1790553329.5010395
+    },
+    {
+      "pid": 50372,
+      "create_time": 1790553331.0022926
+    },
+    {
+      "pid": 53432,
+      "create_time": 1790553426.3383572
+    }
+  ],
+  "candidate_encoder_loads": 0,
+  "candidate_embedding_calls": 0,
+  "paired_semantic_parity": true,
+  "scope": "One saved O0 file, A2/D1 anonymous mode; thresholded activity and caption parity, not raw posterior or accuracy/latency qualification",
+  "microphone": false,
+  "playback": false,
+  "CM5_tested": false,
+  "N4_accepted": false,
+  "N5_complete": false,
+  "reviewer_code": [
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n5\\review_d1_anonymous_lifecycle_v1.py",
+      "sha256": "50fa4a821617791500dc963d0e39aaee92a452ded7f790444ec1d0b16d7e62fd",
+      "bytes": 5475
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n5\\README_D1_ANONYMOUS_REVIEW_V1.md",
+      "sha256": "22d965496bb016758a027c24fc6b9f40f1571c7534436420c053acdad663f78a",
+      "bytes": 1939
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n5\\d1_anonymous_lifecycle_v4.py",
+      "sha256": "b35249479b5c05b469bc045e72f40bf875d3b0687dd8dbf90573657c6b2bdece",
+      "bytes": 20824
+    }
+  ]
+}

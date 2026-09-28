@@ -1,10 +1,25 @@
 # N5 packaging tools
 
+Latest checkpoint: V17. `ASR_GUIDED_DIARIZATION_AND_FINETUNING_20260927.md`
+reports ASR-assisted false-activity diagnostics, language support, current-bank
+fine-tuning suitability and practical CPU backlog. Reproduce the two read-only
+analyses using `README_ASR_ACTIVITY_SUPPORT_V1.md` and
+`README_FINETUNING_ASSESSMENT_V1.md`. Further TitaNet work is retired.
+
+`README_STABLE_ASR_CHUNKS_V1.md` documents the tested deterministic journal
+input repair. `README_D1_ANONYMOUS_LIFECYCLE_V4.md` and
+`README_D1_ANONYMOUS_REVIEW_V1.md` cover the successful actual Windows pair.
+`README_D1_ANONYMOUS_PREVIEW_V1.md` describes the ReDimNet and encoder-free
+launchers, both qualified for one saved-file anonymous-mode lifecycle only.
+V1-V3 attempts and their READMEs are retained historical evidence; latest V4
+passes all audio/activity/caption/coarse-timestamp and normal closure gates.
+N4/N5 and ARM64 qualification remain partial. The Pi has not been contacted.
+
 `NEMOTRON_UTILIZATION_AND_NAMING_20260927.md` audits native activity, optional
 embeddings, manual/automatic naming, offline modes, optimization and future
 fine-tuning. `README_D1_ANONYMOUS_V1.md` documents a fresh anonymous-mode
-derivative with 50 model-free tests (49 pass, one skip); actual neural/GUI
-qualification remains pending. Existing launchers still use their verified source.
+derivative with 50 model-free tests (49 pass, one skip); its original source was subsequently tested and its failed attempts retained.
+The fresh stable-input derivatives now pass paired qualification as documented above.
 
 `COMPONENT_PERFORMANCE_REPORT_20260927.md` gives the complete component and
 combination comparison, with detailed Nemotron diarization accuracy and CPU/CUDA
@@ -18,7 +33,7 @@ anonymous-speaker modes, with normal closure of all four private GUI processes.
 inputs/outputs and PowerShell/CMD/Anaconda commands.
 `README_NEMOTRON_WINDOWS_LIFECYCLE_V1.md` documents the bounded test/admission
 code. `NEMO_RESULTS_AND_INSIGHTS_20260927.md` explains the accuracy, omission,
-short-turn, noise and resource tradeoffs. Latest checkpoint: V16. These are
+short-turn, noise and resource tradeoffs. That earlier checkpoint was V16. These are
 working engineering previews, not completed N4/N5 release qualification.
 
 Purpose: prepare verified offline baseline and native ARM64 artifacts while

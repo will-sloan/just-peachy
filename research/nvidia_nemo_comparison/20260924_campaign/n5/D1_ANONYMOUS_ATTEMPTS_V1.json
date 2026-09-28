@@ -1,0 +1,368 @@
+{
+  "status": "PRESERVED_ATTEMPTS_NOT_CANDIDATE_QUALIFICATION",
+  "utc": "2026-09-27T23:54:41.308543+00:00",
+  "runs": [
+    {
+      "name": "parent-v1",
+      "admission": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\d1-anonymous-lifecycle-parent-v1\\ADMISSION.json",
+        "sha256": "5a91269a973e216b22d63000d948913db04ae2543dc2e89f5d5e0e68f1e13e47",
+        "bytes": 112017
+      },
+      "result": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\d1-anonymous-lifecycle-parent-v1\\RESULT.json",
+        "sha256": "9e198d8b2f72a6b645d4962444917c8fbb21819e49023d11f784f12ce3037bff",
+        "bytes": 1595
+      },
+      "status": "FAILED_PRESERVED",
+      "error": "FileNotFoundError: [WinError 2] The system cannot find the file specified: 'G:\\\\Just_Peachy_N1\\\\20260924_campaign\\\\local\\\\n5\\\\d1-anonymous-lifecycle-parent-v1\\\\data\\\\conversations\\\\6e6679f4fbf54af68f3c21dda9cb0579\\\\epochs\\\\72a7397d4cff46399e8ecb6d5db762c2\\\\captions.sqlite'",
+      "phases": [
+        {
+          "phase": "infer",
+          "lifetime": {
+            "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\d1-anonymous-lifecycle-parent-v1\\infer-lifetime\\LIFETIME.json",
+            "sha256": "5682fdecf4dc0e50ad546314a14054b16784d6f937aa74d432c805458a739238",
+            "bytes": 2083
+          },
+          "forced": false,
+          "job_empty_verified": true,
+          "observed_members_exited": true,
+          "root_exit_code": 0,
+          "input_desktop_unchanged": true,
+          "result": {
+            "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\d1-anonymous-lifecycle-parent-v1\\infer\\RESULT.json",
+            "sha256": "4efd00b0f4e10df70c831da16c8f9eed91f9efc308bd818d0edb549a5e2d0af1",
+            "bytes": 16855
+          },
+          "status": "PASS_NEMOTRON_PHASE",
+          "errors": [],
+          "expected_samples": 715127,
+          "asr_samples": 715127,
+          "identity_samples": 715127,
+          "activity_frame_count": 4470,
+          "activity_fingerprint": "d28144e701af482e5ea92d857afa30bbd5f21941ea8bbbda16ecc856af7ebb73",
+          "caption_fingerprint": "64a410baea1ef000573b9d00736c5b4091c5e87210da93484dfc6c3e96684303",
+          "stored_caption_fingerprint": "56139e9128ae0fec9f26ab7c8e3b8f0c2abb3359c48b0032ea934cbba16d330a",
+          "model_cache": {
+            "asr_loads": 1,
+            "speaker_loads": 1,
+            "streams": 1
+          },
+          "embedding_calls": 20,
+          "elapsed_wall_sec": 122.21237920003477
+        },
+        {
+          "phase": "reopen",
+          "lifetime": {
+            "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\d1-anonymous-lifecycle-parent-v1\\reopen-lifetime\\LIFETIME.json",
+            "sha256": "90932da9fa1aa7d46123d215e21a2b4f78217986a956711a7f6f7f051a566304",
+            "bytes": 2985
+          },
+          "forced": true,
+          "job_empty_verified": true,
+          "observed_members_exited": true,
+          "root_exit_code": 125,
+          "input_desktop_unchanged": true
+        }
+      ],
+      "exact_closed_owners": [
+        {
+          "pid": 54852,
+          "create_time": 1790551405.8352013
+        },
+        {
+          "pid": 50384,
+          "create_time": 1790551405.675458
+        },
+        {
+          "pid": 10308,
+          "create_time": 1790551406.9814153
+        },
+        {
+          "pid": 23444,
+          "create_time": 1790551533.0783608
+        },
+        {
+          "pid": 50532,
+          "create_time": 1790551533.1036084
+        }
+      ],
+      "source_files_verified": 380,
+      "code_bindings_verified": 10
+    },
+    {
+      "name": "parent-v2",
+      "admission": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\d1-anonymous-lifecycle-parent-v2\\ADMISSION.json",
+        "sha256": "fbfcabf9684593eaee43c1e65b8d48f9deef3b1454eec84dc08fae18d3f55764",
+        "bytes": 112010
+      },
+      "result": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\d1-anonymous-lifecycle-parent-v2\\RESULT.json",
+        "sha256": "b7e726d6c7c3cfb23fcc0b52f662a491b1fbf530f9dae7db2aee3954b13af571",
+        "bytes": 1901
+      },
+      "status": "PASS_NEMOTRON_WINDOWS_LIFECYCLE_SMOKE",
+      "error": null,
+      "phases": [
+        {
+          "phase": "infer",
+          "lifetime": {
+            "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\d1-anonymous-lifecycle-parent-v2\\infer-lifetime\\LIFETIME.json",
+            "sha256": "20ae76c3c93ed1e9419deba8501d22c2146a373129e14202f60935bf26766e5e",
+            "bytes": 2083
+          },
+          "forced": false,
+          "job_empty_verified": true,
+          "observed_members_exited": true,
+          "root_exit_code": 0,
+          "input_desktop_unchanged": true,
+          "result": {
+            "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\d1-anonymous-lifecycle-parent-v2\\infer\\RESULT.json",
+            "sha256": "133b4d9b24a26f94fb2e86b3b842000f58016dba265f95e8116cbdfbebe889a1",
+            "bytes": 16852
+          },
+          "status": "PASS_NEMOTRON_PHASE",
+          "errors": [],
+          "expected_samples": 715127,
+          "asr_samples": 715127,
+          "identity_samples": 715127,
+          "activity_frame_count": 4470,
+          "activity_fingerprint": "d28144e701af482e5ea92d857afa30bbd5f21941ea8bbbda16ecc856af7ebb73",
+          "caption_fingerprint": "64a410baea1ef000573b9d00736c5b4091c5e87210da93484dfc6c3e96684303",
+          "stored_caption_fingerprint": "4fba6696e646b0f16cb9366d155347fcbbda8708e248fff7bd0c158b7fde2ba2",
+          "model_cache": {
+            "asr_loads": 1,
+            "speaker_loads": 1,
+            "streams": 1
+          },
+          "embedding_calls": 20,
+          "elapsed_wall_sec": 122.88863260002108
+        },
+        {
+          "phase": "reopen",
+          "lifetime": {
+            "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\d1-anonymous-lifecycle-parent-v2\\reopen-lifetime\\LIFETIME.json",
+            "sha256": "e25a5a49eee52e604abc22957737a4c2dcce35d805adc33be5228f47c83ac788",
+            "bytes": 2083
+          },
+          "forced": false,
+          "job_empty_verified": true,
+          "observed_members_exited": true,
+          "root_exit_code": 0,
+          "input_desktop_unchanged": true,
+          "result": {
+            "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\d1-anonymous-lifecycle-parent-v2\\reopen\\RESULT.json",
+            "sha256": "628f2f92f045d691ef636e1b45b0eea84e49671c8745cd92982d339b1e599a48",
+            "bytes": 2086
+          },
+          "status": "PASS_NEMOTRON_PHASE",
+          "errors": [],
+          "expected_samples": null,
+          "asr_samples": null,
+          "identity_samples": null,
+          "activity_frame_count": null,
+          "activity_fingerprint": null,
+          "caption_fingerprint": "b03c6b0e23c52c096cd1c765b2f7320f3464c2b54754e1706d80c9838c00684a",
+          "stored_caption_fingerprint": "4fba6696e646b0f16cb9366d155347fcbbda8708e248fff7bd0c158b7fde2ba2",
+          "model_cache": null,
+          "embedding_calls": null,
+          "elapsed_wall_sec": null
+        }
+      ],
+      "exact_closed_owners": [
+        {
+          "pid": 7032,
+          "create_time": 1790551755.1800177
+        },
+        {
+          "pid": 7724,
+          "create_time": 1790551755.0184083
+        },
+        {
+          "pid": 54316,
+          "create_time": 1790551756.3301911
+        },
+        {
+          "pid": 50040,
+          "create_time": 1790551883.4345407
+        }
+      ],
+      "source_files_verified": 380,
+      "code_bindings_verified": 10
+    },
+    {
+      "name": "candidate-v2",
+      "admission": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\d1-anonymous-lifecycle-candidate-v2\\ADMISSION.json",
+        "sha256": "5a0b1fc56ef0d3c01facceaa337e8813435395ed5e6ffccf5c193b965d42f925",
+        "bytes": 111216
+      },
+      "result": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\d1-anonymous-lifecycle-candidate-v2\\RESULT.json",
+        "sha256": "9034da8bd2f20ad5f797d96cb406018640c8d13d82567d9f48104d61ca8a8312",
+        "bytes": 751
+      },
+      "status": "FAILED_PRESERVED",
+      "error": "ValueError: Phase incomplete",
+      "phases": [
+        {
+          "phase": "infer",
+          "lifetime": {
+            "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\d1-anonymous-lifecycle-candidate-v2\\infer-lifetime\\LIFETIME.json",
+            "sha256": "5779f0004b3aa8ebb265db47c9390488be36663107fb0846ad87b98a67c111ab",
+            "bytes": 2080
+          },
+          "forced": false,
+          "job_empty_verified": true,
+          "observed_members_exited": true,
+          "root_exit_code": 1,
+          "input_desktop_unchanged": true,
+          "result": {
+            "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\d1-anonymous-lifecycle-candidate-v2\\infer\\RESULT.json",
+            "sha256": "5fece9e1f8960a6d9a4b7ec6bb4bc58e07f629465b10931ea49e3eb5070cb399",
+            "bytes": 1316
+          },
+          "status": "FAILED_NEMOTRON_PHASE",
+          "errors": [
+            "ValueError: Controller reported error: session finalization failed: session lane edge-asr did not finish within 60 seconds"
+          ],
+          "expected_samples": null,
+          "asr_samples": null,
+          "identity_samples": null,
+          "activity_frame_count": null,
+          "activity_fingerprint": null,
+          "caption_fingerprint": null,
+          "stored_caption_fingerprint": null,
+          "model_cache": null,
+          "embedding_calls": null,
+          "elapsed_wall_sec": null
+        }
+      ],
+      "exact_closed_owners": [
+        {
+          "pid": 54348,
+          "create_time": 1790552045.9937363
+        },
+        {
+          "pid": 55764,
+          "create_time": 1790552045.831544
+        },
+        {
+          "pid": 53516,
+          "create_time": 1790552047.135965
+        }
+      ],
+      "source_files_verified": 381,
+      "code_bindings_verified": 10
+    },
+    {
+      "name": "candidate-v3",
+      "admission": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\d1-anonymous-lifecycle-candidate-v3\\ADMISSION.json",
+        "sha256": "5c1f7730bf6ba2ce20145a469428809230387c20c1d632435d6a48dca85bf351",
+        "bytes": 112139
+      },
+      "result": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\d1-anonymous-lifecycle-candidate-v3\\RESULT.json",
+        "sha256": "1e318d6d1ff7ce3fca519a63630d7814102a05f3d5f48b568689641922560641",
+        "bytes": 751
+      },
+      "status": "FAILED_PRESERVED",
+      "error": "ValueError: Phase incomplete",
+      "phases": [
+        {
+          "phase": "infer",
+          "lifetime": {
+            "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\d1-anonymous-lifecycle-candidate-v3\\infer-lifetime\\LIFETIME.json",
+            "sha256": "eac228489927a215086ae398bfe704080e3694bf5cbb8dd1bb7e3a6a48be7bf0",
+            "bytes": 2087
+          },
+          "forced": false,
+          "job_empty_verified": true,
+          "observed_members_exited": true,
+          "root_exit_code": 1,
+          "input_desktop_unchanged": true,
+          "result": {
+            "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\d1-anonymous-lifecycle-candidate-v3\\infer\\RESULT.json",
+            "sha256": "b52ec03723901cebd1e549149dc8c327ddfab7734aaba6239498153bd2b8283d",
+            "bytes": 16935
+          },
+          "status": "FAILED_NEMOTRON_PHASE",
+          "errors": [
+            "ValueError: Paired parity differs: stored_caption_fingerprint"
+          ],
+          "expected_samples": 715127,
+          "asr_samples": 715127,
+          "identity_samples": 715127,
+          "activity_frame_count": 4470,
+          "activity_fingerprint": "d28144e701af482e5ea92d857afa30bbd5f21941ea8bbbda16ecc856af7ebb73",
+          "caption_fingerprint": "64a410baea1ef000573b9d00736c5b4091c5e87210da93484dfc6c3e96684303",
+          "stored_caption_fingerprint": "5335a085eddf84e71a1cca751944879c43e5db228dfcbfef9383db45dd2edf2b",
+          "model_cache": {
+            "asr_loads": 1,
+            "speaker_loads": 0,
+            "streams": 1
+          },
+          "embedding_calls": 0,
+          "elapsed_wall_sec": 91.90114289999474
+        }
+      ],
+      "exact_closed_owners": [
+        {
+          "pid": 45936,
+          "create_time": 1790552476.9769473
+        },
+        {
+          "pid": 27256,
+          "create_time": 1790552476.808344
+        },
+        {
+          "pid": 53916,
+          "create_time": 1790552478.122626
+        }
+      ],
+      "source_files_verified": 381,
+      "code_bindings_verified": 13
+    }
+  ],
+  "coarse_timestamp_comparison": [
+    {
+      "row": 0,
+      "raw_and_display_text_equal": true,
+      "parent_start": 0.0,
+      "candidate_start": 0.0,
+      "parent_end": 9.54,
+      "candidate_end": 9.46
+    },
+    {
+      "row": 1,
+      "raw_and_display_text_equal": true,
+      "parent_start": 9.54,
+      "candidate_start": 9.46,
+      "parent_end": 22.44,
+      "candidate_end": 22.42
+    },
+    {
+      "row": 2,
+      "raw_and_display_text_equal": true,
+      "parent_start": 22.44,
+      "candidate_start": 22.42,
+      "parent_end": 23.54,
+      "candidate_end": 23.54
+    },
+    {
+      "row": 3,
+      "raw_and_display_text_equal": true,
+      "parent_start": 23.54,
+      "candidate_start": 23.54,
+      "parent_end": 25.84,
+      "candidate_end": 25.78
+    }
+  ],
+  "interpretation": "Parent V1 filesystem deletion race fixed only in fresh harness V2. Candidate V2 one-CPU drain failed. Candidate V3 two-CPU completed all audio, identical native activity/display/words and no external encoder, but strict coarse-timestamp parity failed. No gate relaxed.",
+  "next_step": "V4 applies fixed input quantum to both fresh source arms and repeats exact parity.",
+  "N4_accepted": false,
+  "N5_complete": false,
+  "CM5_tested": false
+}

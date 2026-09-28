@@ -1,8 +1,17 @@
 # N5 release preparation - campaign not complete
 
-Latest checkpoint: `N5_STATUS_20260927_V16.json`.
+Latest checkpoint: `N5_STATUS_20260928_V17.json`.
 
-For working Windows NeMo previews, use `Start-N5-NEMOTRON.cmd` (A2 captions)
+Latest additional choices: `Start-N5-NEMOTRON-REDIMNET.cmd` retains ReDimNet
+with A2/D1; `Start-N5-NEMOTRON-ANONYMOUS.cmd` skips the external encoder for
+anonymous labels. Both use the new stable-input source and two logical CPUs;
+they passed exact paired saved-file render/save/reopen/delete checks. Read
+`README_D1_ANONYMOUS_PREVIEW_V1.md`; run with `--check-only` first. They do not
+qualify automatic personal naming, continuous real time or CM5 operation.
+`ASR_GUIDED_DIARIZATION_AND_FINETUNING_20260927.md` gives the new ASR-support,
+language, fine-tuning and runtime assessment. TitaNet is out of further work.
+
+For the preserved earlier Windows NeMo previews, use `Start-N5-NEMOTRON.cmd` (A2 captions)
 or `Start-N5-NEMOTRON-SPEAKERS.cmd` (A2 plus D1 anonymous speakers).
 Both open idle and use a separate campaign data store. Optional `--wav` accepts
 an already-prepared saved file; microphone/playback remain disabled. Read
@@ -47,7 +56,7 @@ bounded runtime/emulation investigation. Diagnostic completion is not ASR
 acceptance. No worker remains active at this checkpoint.
 
 `BASELINE_WINDOWS_LIFECYCLE_CHECK_V1.json` adds a passing baseline smoke from
-two real Windows processes on private desktops: 480×800 Tk rendering of the
+two real Windows processes on private desktops: 480Ãƒâ€”800 Tk rendering of the
 same 31 segments, three persisted utterances across process restart, and
 save/open/delete of only the test session. The synthetic people sentinel was
 preserved; all owners closed normally and input desktop stayed unchanged.
@@ -123,7 +132,7 @@ Private release directory:
 bundle, research evidence, profiles or model weights to GitHub. Native runtime
 binaries stay outside Git as separately reproducible engineering artifacts.
 
-The common front end remains 480×800 with the same modes, text/Unknown rules,
+The common front end remains 480Ãƒâ€”800 with the same modes, text/Unknown rules,
 roster intent and rescue controls. See MODE_GUIDE.md and BACKEND_GUIDE.md.
 No backend has a measured CM5 memory tier: 2GB is the target, not a result.
 4GB/8GB alternatives may increase capacity but do not establish CPU speed.
