@@ -34,7 +34,20 @@ speech-loss, context/cache, returning-speaker, overlap and original-time checks.
 Later held-out and dense real-world comparisons are required; the sparse source
 used here has about 66% exact zeros and cannot predict conversational speed.
 
+The user requested listening examples and a later noisy-location capture comparison.
+Private listening examples are prepared at local/n5/listening-examples-v1/index.html;
+see ../listening_examples_v1/README.md. Three synthetic scenes have same-pass
+Auto ASR/postprocessed outputs; the real cafeteria example is only a 0.75-second
+pre-excitation excerpt from an unqualified measurement take. It cannot establish
+restaurant speech performance. No subjective listening rating is claimed.
+After reconnection, prepare a simultaneous microphone-reference/ASR/postprocessed
+recording comparison with restaurant babble, separate steady noise, transients,
+nearby desired speakers and natural pauses. Preserve full chronology, fixed
+settings and paired gains. Keep this held-out evidence separate from the sparse
+synthetic bank. The new request allows presenting existing audio for the user to
+play; the agent has not played it through the desktop or started new capture.
+
 The Pi remains untouched until the user supplies reconnection and authorization.
-No microphone/device enumeration, capture/playback, enrollment or training.
+No microphone/device enumeration, agent-initiated capture/playback, enrollment or training.
 At the checkpoint stop new dispatch and pause the follow-up without pretending
 the full N4/N5 gates are complete. Report actual new evidence and remaining work.
