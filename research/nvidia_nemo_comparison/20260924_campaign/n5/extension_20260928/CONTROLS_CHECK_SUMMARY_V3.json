@@ -1,0 +1,121 @@
+{
+  "status": "TWO_WINDOWS_CONTROLS_STARTUP_RECOVERY_CHECKS_REVIEWED",
+  "runs": [
+    {
+      "name": "a0-controls-v3",
+      "status": "PASS_WINDOWS_CONTROLS_STARTUP_RECOVERY_ONLY",
+      "backend_key": "nemotron_hybrid",
+      "review": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\prepi-20260928\\a0-controls-v3-REVIEW.json",
+        "sha256": "ae0802dfd6b5e7ae8050d416eab0b35eabf792548f0da624a8928e342fbf45b2",
+        "bytes": 3930
+      },
+      "source_receipt": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\derivatives\\ui-error-v1\\DERIVATIVE.json",
+        "sha256": "19b12da2b14229fd57e44e936592bac2daecae03826c1ebddc430dedd185bbf8",
+        "bytes": 62127
+      },
+      "controls": [
+        {
+          "control": "mode_caption_only",
+          "value": "caption_only"
+        },
+        {
+          "control": "mode_anonymous_conversation",
+          "value": "anonymous_conversation"
+        },
+        {
+          "control": "recipe_patient",
+          "value": "patient"
+        },
+        {
+          "control": "recipe_balanced",
+          "value": "balanced"
+        }
+      ],
+      "faults": [
+        {
+          "case": "invalid_runtime_selection",
+          "reported_state": "ERROR",
+          "actual_error_rendered": true
+        },
+        {
+          "case": "missing_d1_at_start",
+          "reported_state": "ERROR",
+          "actual_error_rendered": true
+        }
+      ],
+      "recovered_samples": 128320,
+      "embedding_calls": 6,
+      "caption_rows": 9,
+      "workers_drained": true,
+      "all_owners_exited": true
+    },
+    {
+      "name": "a2-controls-v3",
+      "status": "PASS_WINDOWS_CONTROLS_STARTUP_RECOVERY_ONLY",
+      "backend_key": "nemotron_600m",
+      "review": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\prepi-20260928\\a2-controls-v3-REVIEW.json",
+        "sha256": "95d08bb029c5d5c440dd3a11378a0aee6c1cf2bdcdf6a4506802690833a96b1a",
+        "bytes": 3929
+      },
+      "source_receipt": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\derivatives\\ui-error-v1\\DERIVATIVE.json",
+        "sha256": "19b12da2b14229fd57e44e936592bac2daecae03826c1ebddc430dedd185bbf8",
+        "bytes": 62127
+      },
+      "controls": [
+        {
+          "control": "mode_caption_only",
+          "value": "caption_only"
+        },
+        {
+          "control": "mode_anonymous_conversation",
+          "value": "anonymous_conversation"
+        },
+        {
+          "control": "recipe_patient",
+          "value": "patient"
+        },
+        {
+          "control": "recipe_balanced",
+          "value": "balanced"
+        }
+      ],
+      "faults": [
+        {
+          "case": "invalid_runtime_selection",
+          "reported_state": "ERROR",
+          "actual_error_rendered": true
+        },
+        {
+          "case": "missing_d1_at_start",
+          "reported_state": "ERROR",
+          "actual_error_rendered": true
+        }
+      ],
+      "recovered_samples": 128640,
+      "embedding_calls": 6,
+      "caption_rows": 12,
+      "workers_drained": true,
+      "all_owners_exited": true
+    }
+  ],
+  "preview_checks": {
+    "a0": {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\preview-v2-a0-check.log",
+      "sha256": "3c5cddbc5a8eeabff2fe4f2503c4751f9fcc41c8510c03903319a7cafd8bdca4",
+      "bytes": 108
+    },
+    "a2": {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\preview-v2-a2-check.log",
+      "sha256": "343f53d8d8122873e4e797c444d7f9b8ef6100d9525ec62b3f68f4f84c0f3f80",
+      "bytes": 108
+    }
+  },
+  "N4_accepted": false,
+  "N5_complete": false,
+  "CM5_tested": false,
+  "scope": "Two modes, two recipes, invalid runtime, missing D1, restored saved prefix and explicit baseline selection; not all modes, ASR-load faults or sustained performance"
+}

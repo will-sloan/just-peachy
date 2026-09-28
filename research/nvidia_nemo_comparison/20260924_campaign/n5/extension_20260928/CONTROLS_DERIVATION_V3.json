@@ -1,0 +1,39 @@
+{
+  "schema": "extended-controls-v3-derivation",
+  "parents": {
+    "controls_harness_v2.py": {
+      "sha256": "23d4b115f79a0844c589fc9005317dbf576cc9bfa30daab8d96d5c6bf0c3a4c8",
+      "bytes": 9013
+    },
+    "controls_child_v2.py": {
+      "sha256": "88d2945776b6314bc7708509f1840cd75b1e5d92dda49bf043f2fb80b0e0cda9",
+      "bytes": 9748
+    },
+    "prepare_controls_v2.py": {
+      "sha256": "24d8646ff09906780962dc824aa0209a63ab4a7ff1a1e65bacae3a58f2e9803f",
+      "bytes": 6272
+    },
+    "review_controls_v2.py": {
+      "sha256": "2a11c9a7a3f0637f9919ed0e55d098b6eb6225f2814e30a2367fce78d4c1ea7f",
+      "bytes": 3712
+    }
+  },
+  "outputs": {
+    "controls_harness_v3.py": {
+      "sha256": "da7e7b4a42f89fd6d44b73b367e8eb5301964fcfef414c937a0ddd0f177bf0be",
+      "bytes": 9013
+    },
+    "controls_child_v3.py": {
+      "sha256": "f51689a97e80b5e30ac08cba87114d2aea0d02da5d5b8c5e63212996b12a3cba",
+      "bytes": 9838
+    },
+    "prepare_controls_v3.py": {
+      "sha256": "1bf6f880f230149d5a445f2b2ba617e5fc37fc46ccaf870012a1d13787ad4875",
+      "bytes": 6387
+    },
+    "review_controls_v3.py": {
+      "sha256": "5ac4b4d59a8e6d665381de4fdd45a279583267df5eae0eb7ebcd5dd2cd26665e",
+      "bytes": 3712
+    }
+  }
+}

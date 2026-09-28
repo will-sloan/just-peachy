@@ -1,0 +1,20 @@
+{
+  "parent": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n5\\prepi_20260928\\start_preview_v1.py",
+    "sha256": "f55b288ef752802237cf0b3a1c0d7bfb5edd36b71b62f9f92eca9068f23005a9"
+  },
+  "outputs": {
+    "start_preview_v2.py": {
+      "sha256": "3ef441cfbe1d965526fa93c99d6d0de1756c6ffede92295e70ede24c4c0d74b2",
+      "bytes": 5968
+    },
+    "Start-SHERPA-NEMOTRON-REDIMNET.cmd": {
+      "sha256": "8008e1b70d4f8ec35f8b90c4518620e7e757a5eae2ff78c90c744c7def076515",
+      "bytes": 211
+    },
+    "Start-NEMOTRON-NEMOTRON-REDIMNET.cmd": {
+      "sha256": "890dcc9242c9b63b2353e535c8c049579aae4170d769c1d4f9e987652cab1da6",
+      "bytes": 211
+    }
+  }
+}
