@@ -1,5 +1,10 @@
 # Next preconnection work
 
+**Superseded timing:** the user's later September 28 instruction authorizes several
+days of research. For future dispatch read ../extension_20260928/WINDOW.json,
+README.md, NEXT.md and RESEARCH_PLAN.md. The old stop-at-22:20:48 instruction below
+is historical; old admissions and source-bound WINDOW.json remain unchanged.
+
 Read STATUS.md and WINDOW.json first. Check fresh supervisor/admission/results,
 exact PID creation identities and resource ownership. No new run may overlap a
 healthy application or admission process. The separate window ends at

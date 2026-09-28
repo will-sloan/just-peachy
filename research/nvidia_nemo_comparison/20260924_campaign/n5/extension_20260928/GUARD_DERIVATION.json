@@ -1,0 +1,13 @@
+{
+  "schema": "research-window-guard-derivation.v1",
+  "parent": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n5\\prepi_20260928\\window_guard.py",
+  "parent_sha256": "2beabf693104f0219ec1d0339afef36f90c25600acf200ab457091b090119862",
+  "child": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n5\\extension_20260928\\window_guard.py",
+  "child_sha256": "e553f7b320e2be9ab6f2a2f38e67ee93591e53350dfeb06f72078592d20b4c75",
+  "changes": [
+    "Use sibling extension WINDOW.json for explicit new time authorization",
+    "Count original preconnection output plus listening and extension output against the same 1-GiB cap",
+    "Change receipt scope and expiry message only; retain ownership, floors, reservations and payload ceiling"
+  ],
+  "old_file_unchanged": true
+}
