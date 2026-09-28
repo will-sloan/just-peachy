@@ -1,0 +1,87 @@
+{
+  "schema": "nemotron-extended-research-queue.v1",
+  "queue_is_not_execution_evidence": true,
+  "no_cartesian_sweep": true,
+  "rows": [
+    {
+      "id": "Q01",
+      "environment": "Windows",
+      "investigation": "Stop-New-Start A0",
+      "run_name": "a0-early-stop-v2",
+      "state_at_creation": "Submitted to fresh preflight; inspect live result",
+      "gate": "Original reference parity and exact owner closure"
+    },
+    {
+      "id": "Q02",
+      "environment": "Windows",
+      "investigation": "Stop-New-Start A2",
+      "run_name": "a2-early-stop-v2",
+      "state_at_creation": "Held until Q01 closes and review resolves",
+      "gate": "Same requirements; independent source/owner binding"
+    },
+    {
+      "id": "Q03",
+      "environment": "Windows",
+      "investigation": "Startup failure and per-build controls",
+      "run_name": null,
+      "state_at_creation": "Not implemented in this extension",
+      "gate": "No silent fallback; preservation; actual controls and cleanup"
+    },
+    {
+      "id": "Q04",
+      "environment": "Offline preparation",
+      "investigation": "ARM64 runtime and asset inventory",
+      "run_name": null,
+      "state_at_creation": "Pending; reuse preserved packages",
+      "gate": "Exact architecture/ABI/import requirements; actual later target storage"
+    },
+    {
+      "id": "Q05",
+      "environment": "Native CM5",
+      "investigation": "H01 read-only inventory",
+      "run_name": null,
+      "state_at_creation": "Held for user-confirmed connection",
+      "gate": "Identity/RAM/OS/ABI/storage/power/cooling; new target admission"
+    },
+    {
+      "id": "Q06",
+      "environment": "Native CM5",
+      "investigation": "B00/B01/B02 matched ungated baseline",
+      "run_name": null,
+      "state_at_creation": "Held for Q05 and prerequisites",
+      "gate": "Fixed saved bank, source pacing, total resources and full result metrics"
+    },
+    {
+      "id": "Q07",
+      "environment": "Native CM5 or admitted Windows research",
+      "investigation": "On-demand E0 and supported native chunk comparison",
+      "run_name": null,
+      "state_at_creation": "Specified; no new implementation credited",
+      "gate": "Single-change comparison; source/cache/timestamp and returning-speaker checks"
+    },
+    {
+      "id": "Q08",
+      "environment": "Native CM5 or admitted Windows research",
+      "investigation": "Process isolation and causal shadow cues",
+      "run_name": null,
+      "state_at_creation": "Specified beyond preserved existing shadow methods",
+      "gate": "Equal total resources; actual IPC/gate cost; speech-loss evidence before skips"
+    },
+    {
+      "id": "Q09",
+      "environment": "Native CM5",
+      "investigation": "30/60-minute endurance",
+      "run_name": null,
+      "state_at_creation": "Held for functioning shortlisted candidate",
+      "gate": "Backlog trend/drain, RSS, clocks/thermals and complete coverage"
+    },
+    {
+      "id": "Q10",
+      "environment": "Real location",
+      "investigation": "XVF reference/ASR/postprocessed held-out comparisons",
+      "run_name": null,
+      "state_at_creation": "Held for connection and user-ready recording setting",
+      "gate": "Frozen configuration; babble/steady noise/impacts; intelligibility and speech loss"
+    }
+  ]
+}
