@@ -1,0 +1,60 @@
+{
+  "status": "VERIFIED_REMOTE_SOURCE_AND_ENGINEERING_PROFILE_MAPPING",
+  "verified_utc": "2026-09-28T17:20:14.813763+00:00",
+  "repository": "https://github.com/will-sloan/just-peachy",
+  "commit": "fb653c260c0599b81fbdd926f50af2c81c71fd52",
+  "remote_refs": [
+    "refs/heads/codex/n1-foundation-20260924",
+    "refs/tags/codex/prepi-windows-20260928-v1"
+  ],
+  "profiles": [
+    {
+      "backend_key": "nemotron_hybrid",
+      "backend_id": "sha256:2cae7524dc49970f0492bd38d9fd8584609d07bbc83ea36bf0efd9355a154fe1",
+      "source_receipt": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\prepi-20260928\\derivatives\\e0-runtime-v1\\DERIVATIVE.json",
+        "sha256": "614ad7204b908e21c89f7b23e5cfedc89f06791b8b556c7743e26e8be2465977",
+        "bytes": 61305
+      },
+      "review": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\prepi-20260928\\a0-e0-runtime-v1-REVIEW.json",
+        "bytes": 6616,
+        "sha256": "220f206f0723c13518c6ae9ac54e21b34943c62feea8ae660d7042af8f683814"
+      },
+      "status": "PASS_PREPI_E0_RUNTIME_WINDOWS_SHADOW_ONLY",
+      "source_commit": "fb653c260c0599b81fbdd926f50af2c81c71fd52"
+    },
+    {
+      "backend_key": "nemotron_600m",
+      "backend_id": "sha256:377262016bfd68f234f1ee5fd18a478ac31917f4c55b9253c0ececf0f6e4b8e4",
+      "source_receipt": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\prepi-20260928\\derivatives\\e0-runtime-v1\\DERIVATIVE.json",
+        "sha256": "614ad7204b908e21c89f7b23e5cfedc89f06791b8b556c7743e26e8be2465977",
+        "bytes": 61305
+      },
+      "review": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\prepi-20260928\\a2-e0-runtime-v1-REVIEW.json",
+        "bytes": 6613,
+        "sha256": "0c5d21771195b7df2a6d1eb1908496b7b0c3586be9fd0008509fdb2a87a15d51"
+      },
+      "status": "PASS_PREPI_E0_RUNTIME_WINDOWS_SHADOW_ONLY",
+      "source_commit": "fb653c260c0599b81fbdd926f50af2c81c71fd52"
+    }
+  ],
+  "summary": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n5\\prepi_20260928\\CHECK_SUMMARY_V1.json",
+    "bytes": 15586,
+    "sha256": "23a29ce521c22162c99360ba46a765b9ca11b56b1b8836177d14d3e546b5d17f"
+  },
+  "excluded": [
+    "private audio and scene bank",
+    "raw transcripts and speaker traces",
+    "personal profiles and voiceprints",
+    "model weights and native binary payloads",
+    "private runtime configurations and raw logs"
+  ],
+  "N4_accepted": false,
+  "N5_complete": false,
+  "CM5_tested": false,
+  "note": "Tag identifies engineering source and narrow reviewed Windows checks, not release acceptance. This receipt is committed in a subsequent documentation commit."
+}
