@@ -1,0 +1,60 @@
+{
+  "status": "PASS_INDEPENDENT_EMULATED_BASELINE_ASR_PARITY_REVIEW",
+  "checked_utc": "2026-09-28T01:02:57.985057+00:00",
+  "parity": {
+    "status": "PASS_WINDOWS_VS_EMULATED_ARM64_ASR_COMPONENT_PARITY",
+    "cases": 4,
+    "frames": 715127,
+    "precision": "Existing INT8 encoder/joiner, FP32 decoder; no conversion",
+    "scope": "Final raw transcript, endpoint source positions, reset counts and fresh-stream repeat; no token timestamps/PnC/GUI claim",
+    "GUI_validated": false,
+    "CM5_tested": false,
+    "N5_complete": false
+  },
+  "malformed_cases_passed": 8,
+  "model_elapsed_seconds": 339.37153995799997,
+  "cases": [
+    {
+      "name": "empty",
+      "frames": 0,
+      "finals": 0,
+      "endpoint_resets": 0,
+      "stream_closed": true
+    },
+    {
+      "name": "short_tail",
+      "frames": 1281,
+      "finals": 0,
+      "endpoint_resets": 0,
+      "stream_closed": true
+    },
+    {
+      "name": "saved_source",
+      "frames": 715127,
+      "finals": 3,
+      "endpoint_resets": 13,
+      "stream_closed": true
+    },
+    {
+      "name": "saved_source_repeat",
+      "frames": 715127,
+      "finals": 3,
+      "endpoint_resets": 13,
+      "stream_closed": true
+    }
+  ],
+  "exact_binary_reused": true,
+  "source_bindings_verified": 32,
+  "GUI_validated": false,
+  "CM5_tested": false,
+  "N4_accepted": false,
+  "N5_complete": false,
+  "audit": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\baseline-arm64-cpu-v2-audit\\RESULT.json",
+    "sha256": "83744ef3a91c4058152cb10991c269f40496365a664c2ba3591f01e710486f1a",
+    "bytes": 3451
+  },
+  "cpu_model": "cortex-a76",
+  "exact_windows_and_linux_owners_closed": true,
+  "timing_scope": "Whole emulated model command including load, empty/tail and two full streams; not native CM5 speed"
+}

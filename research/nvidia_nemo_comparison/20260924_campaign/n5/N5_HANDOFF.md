@@ -1,5 +1,21 @@
 # N5 partial release checkpoint
 
+## 2026-09-28 - baseline ARM64 ASR parity passed under Cortex-A76 emulation
+
+Current checkpoint: `N5_STATUS_20260928_V18.json`. The unchanged baseline
+Sherpa C-API harness now passes the original empty, short-tail, full and
+fresh-repeat protocol, with exact Windows final-text/endpoint/reset parity.
+Eight malformed-WAV refusals also pass. The independent review verified 32
+source bindings and exact process closure. Only QEMU CPU selection changed;
+previous default-CPU failures remain preserved. Read
+`BASELINE_ASR_CPU_FINDINGS_V5.md` and `BASELINE_ARM64_CPU_RETEST_V2.json`.
+
+N4/N5 remain partial: A2's emulated repeat timeout, unattempted A3, ARM64
+Python/Tk/speaker/punctuation/full GUI and integrated resource qualification
+remain open. Native CM5 installation and performance await reconnection.
+No worker is active at this checkpoint. The V5 report archive preserves this
+scope and the latest full-bank workload analysis; it is not a Pi installer.
+
 ## 2026-09-28 - CM5 parallel-worker and gating feasibility
 
 The user requested exploration of ASR-first captions with asynchronous speaker

@@ -66,6 +66,10 @@ numerical results are reviewed, but actual application confirmation remains
 partial: two cells collected pending acceptance, two failed and 236 unattempted.
 No new release composition is accepted. The Windows baseline lifecycle smoke
 passed its limited scope; ARM64 functional failures remain under investigation.
+The September 28 V18 checkpoint adds a passing baseline Sherpa C-API
+four-case parity retest under explicit Cortex-A76 emulation. It does not
+verify Python/Tk, speaker/punctuation models, A2 repeat state, full GUI or
+actual Pi installation. The default-CPU failures are preserved as history.
 Use START_HERE.md and the newest dated N5 status for current evidence. The
 existing task now checks once per hour, as the user requested. N5 is incomplete.
 

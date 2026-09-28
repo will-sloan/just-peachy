@@ -1,7 +1,10 @@
 # Install later on the offline CM5
 
-Status: package preparation and static ARM64 verification only. Full target
-installation/model/GUI/hardware checks are NOT_TESTED. Do not run deployment
+Status: baseline package preparation, static ARM64 verification and passing
+emulated baseline Sherpa C-API ASR parity (four cases plus eight invalid WAVs).
+See `BASELINE_ARM64_CPU_RETEST_V2.json`; explicit Cortex-A76 emulation was
+required. Full target installation/Python/model-stack/GUI/hardware checks are
+NOT_TESTED. Do not run deployment
 during this campaign; the Pi is off. No OS/eMMC or XVF flashing is included.
 
 Target is Raspberry Pi OS 64-bit Bookworm, aarch64, glibc ≥2.36, CPython 3.11.

@@ -6,7 +6,9 @@ availability-aware replay. It specifies caption-first workers, one stateful D1
 stream and explicit overload handling. Modeled workload savings are not an
 optimized runtime or CM5 acceptance. Existing launchers remain unchanged.
 
-Latest checkpoint: `N5_STATUS_20260928_V17.json`.
+Latest checkpoint: `N5_STATUS_20260928_V18.json`. The baseline ARM64 C-API
+ASR comparison now passes under explicit Cortex-A76 emulation; full Pi
+application and native hardware validation remain pending.
 
 Latest additional choices: `Start-N5-NEMOTRON-REDIMNET.cmd` retains ReDimNet
 with A2/D1; `Start-N5-NEMOTRON-ANONYMOUS.cmd` skips the external encoder for
@@ -46,20 +48,16 @@ forced-endpoint checks remain unverified. Zero complete model passes are
 claimed. `NATIVE_STREAM_MODELS_PARTIAL_V1.md` records the preserved failure and
 verified process closure. ARM64 GUI and CM5 validation remain incomplete.
 
-The separate baseline ASR comparison also failed under QEMU: its Windows
-reference passed, but both ARM64 full saved streams returned empty text despite
-consuming and closing the source. No paired parity or complete ARM64 component
-pass is claimed. All owners closed and the 14 bound sources were reverified.
-See `BASELINE_ARM64_ASR_CHECK_V1.json` and `BASELINE_ARM64_ASR_FINDINGS_V1.md`.
-The cause needs isolation; no unchanged retry or altered acceptance gate is used.
-
-The later paired C++ diagnostic reproduced the ARM64 empty output on a fresh
-recognizer while Windows produced three finals. Decoded samples, effective
-configuration and Sherpa version/revision matched. Both jobs closed normally;
-all source bindings and exact process closure were independently verified.
-Read `BASELINE_C_API_DIAGNOSTIC_FINDINGS_V3.md` and its CHECK receipt for the
-bounded runtime/emulation investigation. Diagnostic completion is not ASR
-acceptance. No worker remains active at this checkpoint.
+The earlier default-CPU QEMU baseline ASR comparisons produced empty text.
+A controlled CPU-selection diagnostic and subsequent full-protocol retest
+resolved this under explicit Cortex-A76 emulation, with unchanged binary,
+models, audio and recognizer settings. Empty, short-tail, full and resident
+fresh-repeat cases match Windows; both full streams produce three finals and
+13 resets. Eight invalid-WAV checks also pass. All exact owners/groups closed.
+Read `BASELINE_ASR_CPU_FINDINGS_V5.md` and `BASELINE_ARM64_CPU_RETEST_V2.json`.
+Old failures remain preserved. This is baseline C-API component parity only;
+Python/Tk, speakers, punctuation, full GUI and native CM5 remain unverified.
+No worker remains active at this checkpoint.
 
 `BASELINE_WINDOWS_LIFECYCLE_CHECK_V1.json` adds a passing baseline smoke from
 two real Windows processes on private desktops: 480×800 Tk rendering of the

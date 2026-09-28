@@ -1,0 +1,34 @@
+{
+  "status": "REVIEWED_CPU_CONTRAST_NONEMPTY_REQUIRES_RETEST",
+  "audit": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\baseline-asr-cpu-v5-audit\\RESULT.json",
+    "sha256": "bdbd4a87e5f83b4c577566d4469bf29acb052120b5135ef22272ee7604834b44",
+    "bytes": 2867
+  },
+  "source_bindings_verified": 24,
+  "reference_windows": {
+    "finals": 3,
+    "endpoint_resets": 13
+  },
+  "original_emulated": {
+    "finals": 0,
+    "endpoint_resets": 17,
+    "elapsed_seconds": 231.334292409
+  },
+  "cortex_a76_emulated": {
+    "finals": 3,
+    "endpoint_resets": 13,
+    "elapsed_seconds": 170.95758264199998
+  },
+  "reference_finals_equal": true,
+  "decoded_input_and_sherpa_revision_identical": true,
+  "exact_owners_and_groups_closed": true,
+  "preserved_help_preflight": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\baseline-asr-cpu-v4\\RESULT.json",
+    "sha256": "8d210167abc72f1f3583c9840cc9918c09473c2336f0aea4c31852e0d6317529",
+    "bytes": 780
+  },
+  "required_full_protocol_retest": true,
+  "CM5_tested": false,
+  "N5_complete": false
+}

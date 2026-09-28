@@ -7,7 +7,16 @@ document inputs, outputs, PowerShell/CMD/Anaconda commands and nine passing
 checks. These reuse existing evidence; no optimized model or Pi runtime has
 been validated and no production audio gate was deployed.
 
-Latest checkpoint: V17. `ASR_GUIDED_DIARIZATION_AND_FINETUNING_20260927.md`
+Latest checkpoint: V18. Baseline Sherpa C-API ASR now passes the four-case
+Windows/ARM64 parity protocol under explicit Cortex-A76 emulation. See
+`BASELINE_ARM64_CPU_RETEST_V2.json` and `BASELINE_ASR_CPU_FINDINGS_V5.md`.
+Reproduction, inputs and outputs are documented in
+`README_BASELINE_ARM64_CPU_V2.md`, `README_BASELINE_ARM64_CPU_REVIEW_V2.md`,
+`README_BASELINE_ASR_CPU_V5.md` and `README_BASELINE_ASR_CPU_REVIEW_V5.md`.
+The V4 preflight attempt remains preserved with its own README.
+`README_CHECKPOINT_V5.md` packages the updated partial report.
+
+`ASR_GUIDED_DIARIZATION_AND_FINETUNING_20260927.md`
 reports ASR-assisted false-activity diagnostics, language support, current-bank
 fine-tuning suitability and practical CPU backlog. Reproduce the two read-only
 analyses using `README_ASR_ACTIVITY_SUPPORT_V1.md` and
