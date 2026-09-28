@@ -1,0 +1,322 @@
+{
+  "schema": "cumulative-component-cost-summary.v1",
+  "status": "VERIFIED_WINDOWS_CALL_ACCOUNTING_AND_FULL_FILE_PARITY_ONLY",
+  "utc": "2026-09-28T22:21:41.257325+00:00",
+  "source": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\derivatives\\component-costs-v1\\DERIVATIVE.json",
+    "sha256": "98c63f2d56d2c91e84b42dc72a4ed08bb04790fdb1a483272e0c12bbc07f9f02",
+    "bytes": 63223
+  },
+  "resources": {
+    "cpus": [
+      4,
+      14
+    ],
+    "native_threads_per_model": 1,
+    "GPU": "OFF"
+  },
+  "D1_profile": {
+    "name": "low_latency",
+    "chunk_frames": 9,
+    "right_context_frames": 4,
+    "input_buffer_seconds": 1.04
+  },
+  "rows": [
+    {
+      "run": "a0-costs-v2",
+      "composition": "B01: Sherpa ASR + D1 + ReDimNet",
+      "review": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\prepi-20260928\\a0-costs-v2-REVIEW.json",
+        "sha256": "5a280c64eaba8ba025c342bd9432595c6bfa0c83cc2ba3d2754567de2d178938",
+        "bytes": 11471
+      },
+      "cost_receipt": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\prepi-20260928\\a0-costs-v2\\infer\\COSTS.json",
+        "sha256": "a6baab31eedeb2b781c7ae540b728dfb23409664bbc6f425c4e307b682bcb29c",
+        "bytes": 3742
+      },
+      "component_summary": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\prepi-20260928\\a0-costs-v2\\data\\sessions\\edge_prototype_20260928T221325Z_f108daca\\session_summary.json",
+        "sha256": "4cf3cf7175933b66718929f6c43e0170310ace7be4d7729675032b1a8f822d32",
+        "bytes": 29847
+      },
+      "source_seconds": 44.6954375,
+      "source_samples": 715127,
+      "call_wall_seconds": {
+        "ASR": 3.0213269000523724,
+        "D1": 82.3931670995662,
+        "E0": 0.565627800009679
+      },
+      "call_wall_RTF": {
+        "ASR": 0.06759810551250052,
+        "D1": 1.8434357444105163,
+        "E0": 0.012655157475741884
+      },
+      "setup_wall_seconds": {
+        "combined_ASR_E0_and_stream": 1.9959444000269286,
+        "D1_load_or_reset": 0.14805560000240803
+      },
+      "session_elapsed_seconds": 91.70569149998482,
+      "counts": {
+        "model_setup": {
+          "started": 1,
+          "completed": 1,
+          "errors": 0,
+          "attempted_samples": 0,
+          "successful_samples": 0,
+          "wall_seconds": 1.9959444000269286,
+          "calling_thread_cpu_seconds": 1.96875,
+          "output_frames": 0,
+          "zero_output_calls": 0,
+          "in_flight": 0
+        },
+        "diarizer_setup": {
+          "started": 1,
+          "completed": 1,
+          "errors": 0,
+          "attempted_samples": 0,
+          "successful_samples": 0,
+          "wall_seconds": 0.14805560000240803,
+          "calling_thread_cpu_seconds": 0.140625,
+          "output_frames": 0,
+          "zero_output_calls": 0,
+          "in_flight": 0
+        },
+        "diarizer_push": {
+          "started": 701,
+          "completed": 701,
+          "errors": 0,
+          "attempted_samples": 715127,
+          "successful_samples": 715127,
+          "wall_seconds": 78.7875839995686,
+          "calling_thread_cpu_seconds": 77.421875,
+          "output_frames": 4392,
+          "zero_output_calls": 640,
+          "in_flight": 0
+        },
+        "diarizer_finish": {
+          "started": 1,
+          "completed": 1,
+          "errors": 0,
+          "attempted_samples": 0,
+          "successful_samples": 0,
+          "wall_seconds": 3.6055830999976024,
+          "calling_thread_cpu_seconds": 3.59375,
+          "output_frames": 78,
+          "zero_output_calls": 0,
+          "in_flight": 0
+        },
+        "embedding": {
+          "started": 20,
+          "completed": 20,
+          "errors": 0,
+          "attempted_samples": 408000,
+          "successful_samples": 408000,
+          "wall_seconds": 0.565627800009679,
+          "calling_thread_cpu_seconds": 0.578125,
+          "output_frames": 0,
+          "zero_output_calls": 0,
+          "in_flight": 0
+        },
+        "asr_accept": {
+          "started": 447,
+          "completed": 447,
+          "errors": 0,
+          "attempted_samples": 715127,
+          "successful_samples": 715127,
+          "wall_seconds": 2.9606344999629073,
+          "calling_thread_cpu_seconds": 2.59375,
+          "output_frames": 0,
+          "zero_output_calls": 0,
+          "in_flight": 0
+        },
+        "asr_reset": {
+          "started": 13,
+          "completed": 13,
+          "errors": 0,
+          "attempted_samples": 0,
+          "successful_samples": 0,
+          "wall_seconds": 0.011222800065297633,
+          "calling_thread_cpu_seconds": 0.0,
+          "output_frames": 0,
+          "zero_output_calls": 0,
+          "in_flight": 0
+        },
+        "asr_finish": {
+          "started": 1,
+          "completed": 1,
+          "errors": 0,
+          "attempted_samples": 0,
+          "successful_samples": 0,
+          "wall_seconds": 0.04946960002416745,
+          "calling_thread_cpu_seconds": 0.046875,
+          "output_frames": 0,
+          "zero_output_calls": 0,
+          "in_flight": 0
+        }
+      },
+      "activity_frames": 4470,
+      "activity_fingerprint": "d28144e701af482e5ea92d857afa30bbd5f21941ea8bbbda16ecc856af7ebb73",
+      "caption_fingerprint": "8feb87a9f342ec9d7880831d7d7376c0a61d5e183a79b839f161d48770c9b412",
+      "stored_caption_fingerprint": "a82e259cc1f9cb9a2b916de9e5bdfc2958929646788218a710de0c78d71908ed",
+      "matching_reference_parity": true,
+      "render_save_reopen_delete": true,
+      "exact_owners_closed": true
+    },
+    {
+      "run": "a2-costs-v2",
+      "composition": "B02: Nemotron English ASR + D1 + ReDimNet",
+      "review": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\prepi-20260928\\a2-costs-v2-REVIEW.json",
+        "sha256": "f33fecf7aad1a195da870a6e824336c02790259318e6bdf70fb4afcaf0f01f85",
+        "bytes": 11427
+      },
+      "cost_receipt": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\prepi-20260928\\a2-costs-v2\\infer\\COSTS.json",
+        "sha256": "dd3b48dc3a8993207d452ffe28f2333fe3a18dd181f52467114488ec9e9d5739",
+        "bytes": 3701
+      },
+      "component_summary": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\prepi-20260928\\a2-costs-v2\\data\\sessions\\edge_prototype_20260928T221800Z_cef41c19\\session_summary.json",
+        "sha256": "8586cce1005d0aecab7eb581edbbf5888f6e8c30521e48ec3d2a1152536748ec",
+        "bytes": 31434
+      },
+      "source_seconds": 44.6954375,
+      "source_samples": 715127,
+      "call_wall_seconds": {
+        "ASR": 27.221461598877795,
+        "D1": 84.92202020046534,
+        "E0": 0.6007798999780789
+      },
+      "call_wall_RTF": {
+        "ASR": 0.609043408488345,
+        "D1": 1.9000154143354195,
+        "E0": 0.013441638198039318
+      },
+      "setup_wall_seconds": {
+        "combined_ASR_E0_and_stream": 1.103540999989491,
+        "D1_load_or_reset": 0.13950490002753213
+      },
+      "session_elapsed_seconds": 92.54106809996301,
+      "counts": {
+        "model_setup": {
+          "started": 1,
+          "completed": 1,
+          "errors": 0,
+          "attempted_samples": 0,
+          "successful_samples": 0,
+          "wall_seconds": 1.103540999989491,
+          "calling_thread_cpu_seconds": 1.0,
+          "output_frames": 0,
+          "zero_output_calls": 0,
+          "in_flight": 0
+        },
+        "diarizer_setup": {
+          "started": 1,
+          "completed": 1,
+          "errors": 0,
+          "attempted_samples": 0,
+          "successful_samples": 0,
+          "wall_seconds": 0.13950490002753213,
+          "calling_thread_cpu_seconds": 0.125,
+          "output_frames": 0,
+          "zero_output_calls": 0,
+          "in_flight": 0
+        },
+        "diarizer_push": {
+          "started": 657,
+          "completed": 657,
+          "errors": 0,
+          "attempted_samples": 715127,
+          "successful_samples": 715127,
+          "wall_seconds": 81.31764890043996,
+          "calling_thread_cpu_seconds": 77.5625,
+          "output_frames": 4392,
+          "zero_output_calls": 596,
+          "in_flight": 0
+        },
+        "diarizer_finish": {
+          "started": 1,
+          "completed": 1,
+          "errors": 0,
+          "attempted_samples": 0,
+          "successful_samples": 0,
+          "wall_seconds": 3.6043713000253774,
+          "calling_thread_cpu_seconds": 3.59375,
+          "output_frames": 78,
+          "zero_output_calls": 0,
+          "in_flight": 0
+        },
+        "embedding": {
+          "started": 20,
+          "completed": 20,
+          "errors": 0,
+          "attempted_samples": 408000,
+          "successful_samples": 408000,
+          "wall_seconds": 0.6007798999780789,
+          "calling_thread_cpu_seconds": 0.578125,
+          "output_frames": 0,
+          "zero_output_calls": 0,
+          "in_flight": 0
+        },
+        "asr_accept": {
+          "started": 447,
+          "completed": 447,
+          "errors": 0,
+          "attempted_samples": 715127,
+          "successful_samples": 715127,
+          "wall_seconds": 27.039931598876137,
+          "calling_thread_cpu_seconds": 25.25,
+          "output_frames": 0,
+          "zero_output_calls": 0,
+          "in_flight": 0
+        },
+        "asr_reset": {
+          "started": 0,
+          "completed": 0,
+          "errors": 0,
+          "attempted_samples": 0,
+          "successful_samples": 0,
+          "wall_seconds": 0.0,
+          "calling_thread_cpu_seconds": 0.0,
+          "output_frames": 0,
+          "zero_output_calls": 0,
+          "in_flight": 0
+        },
+        "asr_finish": {
+          "started": 1,
+          "completed": 1,
+          "errors": 0,
+          "attempted_samples": 0,
+          "successful_samples": 0,
+          "wall_seconds": 0.18153000000165775,
+          "calling_thread_cpu_seconds": 0.171875,
+          "output_frames": 0,
+          "zero_output_calls": 0,
+          "in_flight": 0
+        }
+      },
+      "activity_frames": 4470,
+      "activity_fingerprint": "d28144e701af482e5ea92d857afa30bbd5f21941ea8bbbda16ecc856af7ebb73",
+      "caption_fingerprint": "64a410baea1ef000573b9d00736c5b4091c5e87210da93484dfc6c3e96684303",
+      "stored_caption_fingerprint": "56139e9128ae0fec9f26ab7c8e3b8f0c2abb3359c48b0032ea934cbba16d330a",
+      "matching_reference_parity": true,
+      "render_save_reopen_delete": true,
+      "exact_owners_closed": true
+    }
+  ],
+  "identical_native_activity_across_compositions": true,
+  "all_audio_retained": true,
+  "original_source_pacing": 1.0,
+  "fixed_counter_keys": 8,
+  "model_free_tests_passed": 3,
+  "scope": "One retained saved-file input per composition. Per-call wall cost includes adapter work and scheduler contention during calls; excludes pacing, publication and counter bookkeeping. Setup separate. Native worker CPU not summed.",
+  "full_pipeline_cost_measured": false,
+  "cold_disk_load_benchmark": false,
+  "new_accuracy_evaluation": false,
+  "optimized_speedup_measured": false,
+  "sustained_realtime_qualified": false,
+  "N4_accepted": false,
+  "N5_complete": false,
+  "CM5_tested": false
+}

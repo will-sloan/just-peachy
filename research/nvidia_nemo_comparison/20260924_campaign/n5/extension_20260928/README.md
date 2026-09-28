@@ -37,6 +37,8 @@ Native Pi tests require a separate target inventory and admission after reconnec
 
 ## Additional verified checks and audit
 
+`COMPONENT_COST_FINDINGS_V1.md` and `COST_CHECK_SUMMARY_V1.json` report the independently reviewed complete targeted call accounting for both full-file Windows combinations. The new private component-costs-v1 derivative persists bounded counters outside rotating logs; it preserves each reference's captions, source times and native activity. `README_COMPONENT_COSTS_V1.md` covers the source builder/tests and measurement definitions. `README_COST_RUN_V2.md` gives the corrected admission commands; `README_COST_RUN_V1.md` retains the unchanged numerical/review protocol and its earlier failed preflight. D1 remains the dominant measured cost. All shell instructions include purpose, inputs and outputs. These passes do not establish full N4/N5, sustained real-time or native Pi acceptance.
+
 `EMPTY_STORE_CHECK_SUMMARY_V1.json` binds both independently reviewed A0/A2 empty-store checks. `README_EMPTY_STORE_V1.md` documents the actual Tk mode/transfer protocol, Unknown-only naming proof, fresh launcher/reviewer and all shell commands. No personal profiles were created and no populated-gallery or spatial inference is claimed. The original application source and timing gates remain unchanged.
 
 `TIMING_COVERAGE_FINDINGS_V1.md` documents why rotated older journals cannot provide complete per-component compute totals. `README_RETAINED_COSTS_V1.md` gives inputs, outputs and PowerShell/CMD/Anaconda commands for the read-only audit. Partial retained times are not full-run RTF or Pi measurements. NEXT.md prioritizes cumulative accounting and integrated/panel work; neither is credited as implemented by this audit.

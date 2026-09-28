@@ -1,0 +1,31 @@
+{
+  "schema": "extended-cumulative-cost-run-derivation-v1",
+  "parents": {
+    "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n5\\prepi_20260928\\e0_lifecycle_v1.py": {
+      "sha256": "96a8ed353f283fd708faea4a1966de56d88154ab89f518b0f2dfdbe88b4ccb8d",
+      "bytes": 23005
+    },
+    "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n5\\prepi_20260928\\review_e0_lifecycle_v1.py": {
+      "sha256": "1472d43b922859d642e4cd972aba99f45580d1d4a0ce0d783652480009b279ad",
+      "bytes": 8627
+    },
+    "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n5\\extension_20260928\\prepare_controls_v3.py": {
+      "sha256": "1bf6f880f230149d5a445f2b2ba617e5fc37fc46ccaf870012a1d13787ad4875",
+      "bytes": 6387
+    }
+  },
+  "outputs": {
+    "cost_lifecycle_v1.py": {
+      "sha256": "5ac4eb31fdcbf5a6e5c0575e68c245913d53af44be2b154d4c8603b2544b2212",
+      "bytes": 23998
+    },
+    "review_cost_run_v1.py": {
+      "sha256": "eac46b2bae61051cdaf1888c0759aa53c99714628cfdf6503f1ba47cd5aec18f",
+      "bytes": 9047
+    },
+    "prepare_cost_run_v1.py": {
+      "sha256": "a33cda4b29258227607f5c92e934afcbc4f93a49180525c5b874259ff44286aa",
+      "bytes": 6650
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "schema": "cost-launcher-binding-repair.v2",
+  "parent": {
+    "sha256": "a33cda4b29258227607f5c92e934afcbc4f93a49180525c5b874259ff44286aa",
+    "bytes": 6650
+  },
+  "output": {
+    "path": "prepare_cost_run_v2.py",
+    "sha256": "db061d5b1a0cb6ebf9302b2c583837d22f47483d18d8613122566b3230f3a0d9",
+    "bytes": 6785
+  },
+  "application_changed": false,
+  "harness_and_reviewer_changed": false,
+  "reason": "V1 globally renamed a README inside the preserved LEGACY directory; restore the actual legacy README_E0_RUN.md binding."
+}

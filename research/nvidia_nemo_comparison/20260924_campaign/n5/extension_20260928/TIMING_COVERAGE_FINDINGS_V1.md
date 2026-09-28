@@ -1,5 +1,7 @@
 # Retained Windows component timing coverage
 
+Follow-up: the original logs below remain incomplete. A fresh derivative now has independently reviewed full-file cumulative accounting and parity for both compositions; see COMPONENT_COST_FINDINGS_V1.md and COST_CHECK_SUMMARY_V1.json. This later evidence does not fill or relabel the historical missing events.
+
 The two reviewed full-file Windows lifecycle runs cannot supply complete component-cost totals from their remaining event journals. Journal rotation removed the initial events. This audit reads existing evidence only; it does not repeat inference or change earlier correctness acceptance.
 
 | Observation | A0 Sherpa + D1 + E0 | A2 Nemotron ASR + D1 + E0 |
