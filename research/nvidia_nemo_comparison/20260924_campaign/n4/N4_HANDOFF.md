@@ -1,5 +1,20 @@
 # N4 partial - application failures preserved
 
+## September 28 extension — targeted collection now closes
+
+The user authorized further multiday work after the original deadline. Follow
+[the extension's NEXT.md](../n5/extension_20260928/NEXT.md), its window and fresh
+ownership/admission receipts. Two targeted A0/D1/E0 and A2/D1/E0 runs on the
+new panel-journal-v1 source passed source delivery, complete event retention,
+archive/Controller/worker closure and raw-caption-lineage review. See
+[PANEL_RETRY_FINDINGS_V3.md](../n5/extension_20260928/PANEL_RETRY_FINDINGS_V3.md).
+The 60-second drain gate was retained. The new derivative and two-CPU conditions
+differ from the old failed cell; no single-cause repair claim is established.
+Matching widget/semantic/timing/resource interpretation remains required.
+These separate retries do not alter the original 240-cell population, its
+preserved failures or zero accepted new profiles. Use retained evidence before
+repeating any passing numerical case. Native CM5 validation remains deferred.
+
 ## 2026-09-27 18:54 UTC - N4 partial; paced retries ended for this campaign
 
 APPLICATION_PANEL_CLOSURE_FAILURE_V10.json records the independently reconciled

@@ -1,5 +1,18 @@
 # N5 partial release checkpoint
 
+## Current authorized extension — September 28, 23:30 UTC
+
+The user's multiday extension supersedes the earlier stop windows for new work.
+Follow [extension_20260928/NEXT.md](extension_20260928/NEXT.md), WINDOW.json and
+fresh supervisor/admission receipts. The checkpoint is October 1 at 17:47:34 UTC.
+Two new full-file A0/D1/E0 and A2/D1/E0 application retries passed independent
+source/archive/worker closure and raw-caption-lineage reviews. See
+[PANEL_RETRY_FINDINGS_V3.md](extension_20260928/PANEL_RETRY_FINDINGS_V3.md).
+Complete source journals are retained on the fresh panel-journal-v1 derivative.
+Matching widget/accuracy/timing/resource review and full panel/release acceptance
+remain open. Original failures, packaging and counts below stay historical;
+no N4 profile or N5 release is promoted. Pi reconnection remains unconfirmed.
+
 ## User-authorized pre-Pi work resumed, September 28
 
 The user explicitly requested continued software work before connecting the Pi

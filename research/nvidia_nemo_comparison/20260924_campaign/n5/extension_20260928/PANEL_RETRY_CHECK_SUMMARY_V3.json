@@ -1,0 +1,140 @@
+{
+  "schema": "targeted-application-retry-summary.v3",
+  "status": "TWO_TARGETED_STRUCTURE_AND_RAW_CAPTION_PASSES_ONLY",
+  "runs": [
+    {
+      "run": "a0-panel-retry-v3",
+      "structure_review": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\a0-panel-retry-v3-REVIEW.json",
+        "sha256": "236b9d0ff9a43af8014e0938b2eb78366e5da4957fb7266301d6fcead6409991",
+        "bytes": 10056
+      },
+      "caption_review": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\a0-panel-retry-v3-CAPTION_REVIEW_V2.json",
+        "sha256": "ee22240824f7e35aa2f4d6a5a13c4f6c8badcc8bcd3c31011f1a49d7abc57925",
+        "bytes": 749062
+      },
+      "original_cell_id": "panel_0_N2_S45_01_01_O0_A0_D1_E0",
+      "source_samples": 715127,
+      "audio_seconds": 44.6954375,
+      "source_to_completion_publication_seconds": 90.00995959999273,
+      "last_append_to_completion_publication_seconds": 45.30880930001149,
+      "event_count": 2562,
+      "raw_revisions": 41,
+      "caption_publications": 162,
+      "unfinished_utterances": 0,
+      "component_call_wall_seconds": {
+        "ASR": 4.463015700341202,
+        "D1": 82.92173279990675,
+        "E0": 0.5812217999482527
+      },
+      "component_call_rtf": {
+        "ASR": 0.09985394371273808,
+        "D1": 1.855261687502371,
+        "E0": 0.013004052146223041
+      },
+      "E0_calls": 20,
+      "D1_frames": 4470,
+      "owners_closed": true
+    },
+    {
+      "run": "a2-panel-retry-v3",
+      "structure_review": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\a2-panel-retry-v3-REVIEW.json",
+        "sha256": "2e37a20a033a15f229667f04aee0ff9b56c6fabab873cb14ed9dc2f14a8c2f47",
+        "bytes": 9966
+      },
+      "caption_review": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\a2-panel-retry-v3-CAPTION_REVIEW_V2.json",
+        "sha256": "8288659e93dcfc7945eef8f4d85784c10f1d300672ae980962cf26571e715da0",
+        "bytes": 795391
+      },
+      "original_cell_id": "panel_0_N2_S45_01_01_O0_A2_D1_E0",
+      "source_samples": 715127,
+      "audio_seconds": 44.6954375,
+      "source_to_completion_publication_seconds": 94.52338090003468,
+      "last_append_to_completion_publication_seconds": 49.82601600000635,
+      "event_count": 2051,
+      "raw_revisions": 25,
+      "caption_publications": 136,
+      "unfinished_utterances": 0,
+      "component_call_wall_seconds": {
+        "ASR": 29.772830999980215,
+        "D1": 88.62731400021585,
+        "E0": 0.6540458999807015
+      },
+      "component_call_rtf": {
+        "ASR": 0.6661268501953967,
+        "D1": 1.9829163547222433,
+        "E0": 0.014633392949351967
+      },
+      "E0_calls": 20,
+      "D1_frames": 4470,
+      "owners_closed": true
+    }
+  ],
+  "source": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\derivatives\\panel-journal-v1\\DERIVATIVE.json",
+    "sha256": "f28b6f71a9103584605e8cb947643580fda50493ad5694cce690f7ddcda065bc",
+    "bytes": 63485
+  },
+  "catalog_check": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\CATALOG_REBIND_V2.json",
+    "sha256": "236c4c27c50c0bad18777be5ff051763526a04a25450580e76b1de1ec9325d4d",
+    "bytes": 3784
+  },
+  "harness_paths": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\HARNESS_PATHS_V3.json",
+    "sha256": "09ea31f8825855975a012e5e61dfcf1cebcb32aa7559cb92e156565b00a93fb0",
+    "bytes": 2745
+  },
+  "preserved_failures": [
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\A0_PANEL_RETRY_V1_PREFLIGHT_FAILURE.json",
+      "sha256": "35c6ea903c3920c48bfe0ee4e7bc49df0317ccc6ad2ff30f665be0b7600a7457",
+      "bytes": 949
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\a0-panel-retry-v2-REVIEW.json",
+      "sha256": "28aa0a6b1859cc754e0b0f32278fbea1acc9ea8a30e79bec330a75176d822b77",
+      "bytes": 1168
+    }
+  ],
+  "caption_serialization": {
+    "parent": {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n5\\extension_20260928\\review_panel_caption_v1.py",
+      "sha256": "29b0970e1afe29ec14fdff0329334b016cd5b49e0ff099ab608abab406dcf190",
+      "bytes": 2709
+    },
+    "child": {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n5\\extension_20260928\\review_panel_caption_v2.py",
+      "sha256": "63c67012ccb5f22cfda1fd7cad255ccce6bad850e69912ea145f95c7dcbf5bf4",
+      "bytes": 2965
+    },
+    "V1_actual_output_bytes": [
+      1254602,
+      1356025
+    ],
+    "V1_size_guarantee_failed": true,
+    "V2_exact_bytes_and_roundtrip_passed": true
+  },
+  "preserved_panel_population": {
+    "required": 240,
+    "collected_pending": 2,
+    "failed": 2,
+    "unattempted": 236,
+    "accepted_new_release_profiles": 0
+  },
+  "N4_accepted": false,
+  "N5_complete": false,
+  "CM5_tested": false,
+  "integrated_N4_cells": 0,
+  "limitations": [
+    "Single saved source under CPUs 4/14; no sustained or Pi performance claim.",
+    "Existing complete raw/caption readers; accuracy, actual widget content, source-to-widget timing, controlled resource and full population review remain.",
+    "Fresh derivative and two-CPU admission differ from failed historical cell; do not attribute closure improvement solely to a code fix.",
+    "Call wall times overlap across workers, exclude pacing/journal/publication costs, and must not be summed as elapsed time.",
+    "Fixed research gallery remains uncalibrated reject-all; no persistent naming accuracy is qualified.",
+    "Complete journals improve evidence retention, not acoustic speed."
+  ]
+}
