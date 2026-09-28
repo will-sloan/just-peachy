@@ -1,0 +1,58 @@
+{
+  "schema": "extended-windows-empty-store-summary.v1",
+  "status": "PASS_WINDOWS_EMPTY_STORE_AND_UNKNOWN_ONLY",
+  "application_source": "ui-error-v1; unchanged by these checks",
+  "runs": [
+    {
+      "run": "a0-empty-store-v1",
+      "backend": "A0 Sherpa ASR + D1 Nemotron 3 diarization + E0 ReDimNet",
+      "review": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\prepi-20260928\\a0-empty-store-v1-REVIEW.json",
+        "sha256": "8142e2e0346a644b842957a65920bab635be85afbec2e1b95e22e02edb07850f",
+        "bytes": 7351
+      },
+      "source_asr_identity_samples_each": 128640,
+      "source_seconds": 8.04,
+      "embedding_calls": 6,
+      "caption_rows": 9
+    },
+    {
+      "run": "a2-empty-store-v1",
+      "backend": "A2 Nemotron English ASR + D1 Nemotron 3 diarization + E0 ReDimNet",
+      "review": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\prepi-20260928\\a2-empty-store-v1-REVIEW.json",
+        "sha256": "9448a3c8ead574e4a80644ed22f04a1fea13494d60dade55f1e00bfc8fdb8c81",
+        "bytes": 7350
+      },
+      "source_asr_identity_samples_each": 129600,
+      "source_seconds": 8.10,
+      "embedding_calls": 6,
+      "caption_rows": 12
+    }
+  ],
+  "both_runs": {
+    "additional_mode_controls_exercised": 10,
+    "visible_boundary_errors": 4,
+    "empty_matching_roster_apply_disabled": true,
+    "cancel_preserves_prior_mode": true,
+    "spatial_unavailability_explained": true,
+    "profile_transfer_consent_and_cancel": true,
+    "empty_manifest_only_archive_round_trip": true,
+    "invalid_archive_rejected": true,
+    "new_personal_profiles_or_vectors": 0,
+    "empty_gallery_naming_decisions_unknown_without_personal_ids": true,
+    "accepted_audio_drained": true,
+    "explicit_baseline_rollback": true,
+    "exact_process_job_thread_lock_closure": true,
+    "original_sentinel_preserved": true
+  },
+  "limitations": [
+    "Short saved-file correctness checks, not accuracy or speed comparisons",
+    "Mode control and empty-roster behavior, not all modes with populated galleries or spatial inference",
+    "No personal enrollment, target access, capture or playback",
+    "Populated archive compatibility, simulated-source coverage, sustained workload and the actual N4 panel remain open"
+  ],
+  "N4_accepted": false,
+  "N5_complete": false,
+  "CM5_tested": false
+}

@@ -1,0 +1,39 @@
+{
+  "schema": "extended-empty-store-derivation-v1",
+  "parents": {
+    "controls_child_v3.py": {
+      "sha256": "f51689a97e80b5e30ac08cba87114d2aea0d02da5d5b8c5e63212996b12a3cba",
+      "bytes": 9838
+    },
+    "controls_harness_v3.py": {
+      "sha256": "da7e7b4a42f89fd6d44b73b367e8eb5301964fcfef414c937a0ddd0f177bf0be",
+      "bytes": 9013
+    },
+    "prepare_controls_v3.py": {
+      "sha256": "1bf6f880f230149d5a445f2b2ba617e5fc37fc46ccaf870012a1d13787ad4875",
+      "bytes": 6387
+    },
+    "review_controls_v3.py": {
+      "sha256": "5ac4b4d59a8e6d665381de4fdd45a279583267df5eae0eb7ebcd5dd2cd26665e",
+      "bytes": 3712
+    }
+  },
+  "outputs": {
+    "empty_store_child_v1.py": {
+      "sha256": "5cb48c1b25a9113074d8f835d300cf2c38e4c1d7288792b63c37692d6b18f994",
+      "bytes": 7760
+    },
+    "empty_store_harness_v1.py": {
+      "sha256": "9f46cea9b0749f12841306cc3ae601249d47657a0cfaae0c284ddbbde53f3b9c",
+      "bytes": 9018
+    },
+    "prepare_empty_store_v1.py": {
+      "sha256": "1cbcce307c90616971810e566cf332a06534a49aa20f19722d8d79745421c984",
+      "bytes": 6582
+    },
+    "review_empty_store_v1.py": {
+      "sha256": "3c7095bbbc5c46b2114ec84f0ad9da7bbb37a42029b7c3539be42c87defa22aa",
+      "bytes": 5498
+    }
+  }
+}

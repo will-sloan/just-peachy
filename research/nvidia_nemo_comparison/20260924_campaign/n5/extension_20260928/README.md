@@ -37,6 +37,10 @@ Native Pi tests require a separate target inventory and admission after reconnec
 
 ## Additional verified checks and audit
 
+`EMPTY_STORE_CHECK_SUMMARY_V1.json` binds both independently reviewed A0/A2 empty-store checks. `README_EMPTY_STORE_V1.md` documents the actual Tk mode/transfer protocol, Unknown-only naming proof, fresh launcher/reviewer and all shell commands. No personal profiles were created and no populated-gallery or spatial inference is claimed. The original application source and timing gates remain unchanged.
+
+`TIMING_COVERAGE_FINDINGS_V1.md` documents why rotated older journals cannot provide complete per-component compute totals. `README_RETAINED_COSTS_V1.md` gives inputs, outputs and PowerShell/CMD/Anaconda commands for the read-only audit. Partial retained times are not full-run RTF or Pi measurements. NEXT.md prioritizes cumulative accounting and integrated/panel work; neither is credited as implemented by this audit.
+
 `ASR_FAILURE_CHECK_SUMMARY_V2.json` records the independently reviewed A2 missing-model/runtime-hash startup failures and recovery. Run instructions, inputs, outputs, preserved V1 failure and the corrected memory-journal evidence contract are in `README_ASR_FAILURE_V1.md` and `README_ASR_FAILURE_V2.md`. Application source and inference gates are unchanged. The pass covers these two faults and a short recovery prefix, not complete N4/N5 acceptance.
 
 `ARM_OPTIMIZATION_FINDINGS_V1.md` reports the existing model precision and generic ARM build baseline. `README_ARM_CANDIDATES_V1.md` gives PowerShell/CMD/Anaconda instructions for the read-only, pinned-source/GGUF-header audit. Its private JSON output binds the exact files and findings. It measures neither runtime RAM nor speed and launches no target or model. NEXT.md carries remaining untested work; prior passed checks are not scheduled for repetition without a new concern.
