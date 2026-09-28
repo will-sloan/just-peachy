@@ -2,7 +2,13 @@
 
 ## 2026-09-27 - stable Windows pair; ASR guidance and fine-tuning assessment
 
-Current checkpoint: N5_STATUS_20260928_V17.json. The user's current priority is
+Current checkpoint: N5_STATUS_20260928_V17.json. The V3 private analysis archive
+is retained with its verified readback receipt HANDOFF_RECEIPT_20260928_V3.json
+(59 files, 58 member hashes; source commit a63ef9427ccd9f6fa1fca04ec30c2c5ae10a3fda).
+A fresh V4 archive uses the same status with historical multiplication/dash
+characters restored in this handoff and START_HERE; see README_CHECKPOINT_V4.md.
+These are partial checkpoints, not final releases.
+ The user's current priority is
 A0 Sherpa or A2 Nemotron English with D1 Nemotron 3 Diarization and E0 ReDimNet.
 Stop further TitaNet E1 candidate work; preserve prior comparison evidence/assets.
 English remains the target. No training or new scenes are authorized in this
@@ -228,7 +234,7 @@ ARM64 component/GUI pass.
 BASELINE_WINDOWS_LIFECYCLE_CHECK_V1.json independently verifies the unchanged N1
 baseline in two separate real Windows GUI processes. Saved-audio inference,
 text save, reopen after process restart, rendering and isolated session deletion
-passed. Both 480Ãƒâ€”800 clients rendered 31 segments from three stored utterances;
+passed. Both 480×800 clients rendered 31 segments from three stored utterances;
 the synthetic people sentinel survived. Normal unforced process/job closure,
 exact owner absence, 240 unchanged payload files and eight assets were checked.
 The GUI used private desktops with unchanged input desktop; production
@@ -855,7 +861,7 @@ was performed. Existing production data and immutable releases remain untouched.
    failed attempts; classify model reference/export/parity results honestly.
 2. Complete N4's runner/evidence compaction, D0 activity observability and D0/E1
    C-only association calibration, A1 integrated route or documented blocker,
-   full 240Ãƒâ€”2 coverage for retained combinations, cluster-aware metrics,
+   full 240×2 coverage for retained combinations, cluster-aware metrics,
    candidate-alone resources, actual paced GUI and continuity checks. N4's
    catalog wiring and evaluator tests are not release acceptance.
 3. Freeze exact retained compositions with runtime/precision/buffer/gain/text/
@@ -883,7 +889,7 @@ by approval policy; this stage uses separate receipts without retrying it.
 
 ## Resume this existing task
 
-> Complete the already-authorized N2Ã¢â‚¬â€œN5 campaign in
+> Complete the already-authorized N2–N5 campaign in
 > G:\Just_Peachy_N1\20260924_campaign\worktree. Inspect N2 numerical-v2
 > RESULT/CHAIN_RESULT and N3 numerical-v3 QUEUE_RESULT/RESULT, including exact
 > live PID creation identities, before starting anything. Respect admitted CPU
