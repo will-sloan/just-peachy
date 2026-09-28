@@ -1,5 +1,19 @@
 # N5 release preparation - campaign not complete
 
+## 2026-09-28 - verified small Pi reconnection companion
+
+`PI_RECONNECT_QUICKSTART_V1.md` now consolidates a two-archive transfer,
+trusted hash checks, actual-device storage/prerequisite checks, staging,
+activation and rollback. `RECONNECT_COMPANION_CHECK_V1.json` independently
+verifies the 22,797-byte, ten-file companion ZIP and binds its source backup.
+The unchanged baseline archive and all 31 declared members were rehashed.
+`README_RECONNECT_COMPANION_V1.md` documents the builder and exact commands.
+
+This packages the existing baseline workflow only; no Pi connection or install
+was performed. Full ARM64 application/GUI and new Nemotron release profiles
+remain unqualified. N4/N5 remain partial. Preserve V20, the V6 analysis ZIP,
+full-source failures and the independent real-world holdout requirements.
+
 Latest checkpoint: `N5_STATUS_20260928_V20.json`. The 16-second A2/A3 ARM64
 native protocol is independently verified, including repeat/forced endpoint
 and process closure. No numerical worker is active. Read

@@ -1,0 +1,79 @@
+{
+  "status": "VERIFIED_RECONNECTION_COMPANION_ONLY",
+  "utc": "2026-09-28T03:48:06.104758+00:00",
+  "source_commit": "747bc9e2763fc5cddde1ec758eea113fbada939c",
+  "remote": "https://github.com/will-sloan/just-peachy.git",
+  "ref": "refs/heads/codex/n1-foundation-20260924",
+  "archive": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\pi-reconnect-companion-v1\\just-peachy-pi-reconnect-companion-v1.zip",
+    "bytes": 22797,
+    "sha256": "983a5974d8d4f9f167ecf60d0e7a954de674b79f4ed121df34e55b0db6057ac7"
+  },
+  "member_count": 10,
+  "verification": "Outer SHA256, exact unique inventory, every manifest member and eight committed source files independently compared; baseline outer hash and all 31 declared members verified by unchanged qualified reader.",
+  "baseline": {
+    "archive": {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\releases\\just-peachy-baseline-cm5-offline-v1.zip",
+      "sha256": "913e0a082e2de5f28e62f30503097cfb12f9008ed6d26fd1a803a7a2e8d32bbf",
+      "bytes": 310867595
+    },
+    "package_status": "PREPARED_NOT_ARM64_FUNCTIONALLY_TESTED",
+    "application_version": "n1-common-20260924-v1",
+    "N4_selected": false,
+    "baseline_only": true,
+    "member_hashes_verified": 31,
+    "extracted_bundle_logical_bytes": 310861337,
+    "application_unpacked_logical_bytes": 3837206,
+    "unique_model_bytes": 219771544,
+    "unique_model_count": 8,
+    "wheel_unpacked_logical_bytes": 281682236,
+    "wheel_count": 13,
+    "wheel_member_count": 2957,
+    "archive_extracted": false,
+    "models_loaded": false,
+    "hardware_contacted": false
+  },
+  "required_available_bytes_with_reserve": 3009905316,
+  "builder_sources": [
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n5\\prepare_pi_reconnect_companion_v1.py",
+      "bytes": 5221,
+      "sha256": "65e6e6b5d19fc49497689dccda2f8dd5ee315031bea45f3524f6e212df83eca4"
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n5\\README_RECONNECT_COMPANION_V1.md",
+      "bytes": 3040,
+      "sha256": "47f744da1b4de53cf15a8ed0b76da0a2d7a6b6ccd585e5faef4a58188c39beff"
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n5\\PI_RECONNECT_QUICKSTART_V1.md",
+      "bytes": 8120,
+      "sha256": "ccbdaf763b0f2fe7e0da363fadc9a57ae7a35f68beafe56ab1a160165f176bca"
+    }
+  ],
+  "qualified_preflight": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n5\\PI_STORAGE_PREFLIGHT_CHECK_V1.json",
+    "bytes": 3253,
+    "sha256": "07a0c8d2468744c09ec74ec0aa620d52866ef5f24476613dff8aa0a201ec581c"
+  },
+  "private_result": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\pi-reconnect-companion-v1\\RESULT.json",
+    "bytes": 1514,
+    "sha256": "56ab6e6e8d30633cdab5b0721c880130b3040dc5ad07e5b000d74e08aca6bba9"
+  },
+  "source_backup": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\git-backup-reconnect-companion-v1\\SOURCE_VERIFIED.json",
+    "bytes": 962,
+    "sha256": "67ba5726af3b67028d9101b85ef74f5d2afab13b987251aa1801ae4a00052706"
+  },
+  "unchanged_qualified_preflight_tests_reused": 11,
+  "numerical_tests_started": 0,
+  "models_in_companion": false,
+  "baseline_copied_or_modified": false,
+  "actual_Pi_storage_observed": false,
+  "Pi_contacted": false,
+  "installation_performed": false,
+  "full_ARM64_application_validated": false,
+  "N4_accepted": false,
+  "N5_complete": false
+}
