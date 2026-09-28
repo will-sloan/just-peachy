@@ -1,0 +1,24 @@
+{
+  "status": "PARTIAL_CAMPAIGN_CHECKPOINT_NOT_COMPLETED_N5",
+  "archive": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\handoffs\\NVIDIA_CAMPAIGN_CHATGPT_HANDOFF_20260924_campaign_20260928_v7.zip",
+  "sha256": "43887860a863a87f56da18d2b413efc891470f754fb5339fc6ee8b9e8a029a5c",
+  "bytes": 179217,
+  "files": 59,
+  "source_commit": "668cecbd06b00e06578a02955ffedfdba85c9592",
+  "remote": "https://github.com/will-sloan/just-peachy.git",
+  "ref": "refs/heads/codex/n1-foundation-20260924",
+  "readback": "ALL_MEMBERS_MATCH",
+  "below_10_MiB_target": true,
+  "selection_sha256": "68ac6e15911ff3b745fc0c0c93aac3e1ecebbff91df33dd39980585f1972939d",
+  "status_sha256": "87153700020b340df949c7a7e5bae60c98f431834785c15e10f721a8bb245afe",
+  "N5_complete": false,
+  "CM5_tested": false,
+  "verified_utc": "2026-09-28T05:45:42.021620+00:00",
+  "private_receipt": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\handoffs\\HANDOFF_20260928_V7_RECEIPT.json",
+    "bytes": 785,
+    "sha256": "b4bdb4316b669a010b2f7bb144a467de3668aa7be9e93d887fd85067ac896626"
+  },
+  "independent_readback": "59 unique members; all manifest hashes and 57 source files match; partial scope and unexecuted runtime claims checked",
+  "scope_note": "Consolidated analysis handoff, not an installer or new stage acceptance. Baseline/companion archives and private evidence remain separate; earlier handoffs preserved."
+}
