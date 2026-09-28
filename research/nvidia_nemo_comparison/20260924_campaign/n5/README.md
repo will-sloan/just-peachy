@@ -1,5 +1,16 @@
 # N5 packaging tools
 
+## Final deadline closure — 2026-09-28 14:48:19 UTC
+
+The campaign window has ended and the hourly follow-up is paused. Read
+[CAMPAIGN_DEADLINE_20260928.md](CAMPAIGN_DEADLINE_20260928.md) and its JSON
+receipt for the final partial outcome and remaining blockers. N1–N3 retain
+their scoped acceptance; N4/N5 are incomplete. No new numerical work or Pi
+contact is authorized by this closure. V21 and the immutable V7 ZIP remain
+the preserved packaging checkpoint; this addendum does not rewrite them.
+The chronological entries below describe earlier states.
+
+
 ## September 28 consolidated handoff V7
 
 N5_STATUS_20260928_V21.json is the current packaging status; V20 remains the

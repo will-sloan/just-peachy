@@ -1,0 +1,75 @@
+{
+  "status": "DEADLINE_REACHED_PARTIAL",
+  "campaign_completed": false,
+  "recorded_utc": "2026-09-28T14:50:21.354081+00:00",
+  "deadline_utc": "2026-09-28T14:48:19Z",
+  "hourly_automation": "PAUSED",
+  "deadline_extended": false,
+  "last_packaging_checkpoint": {
+    "file": "N5_STATUS_20260928_V21.json",
+    "sha256": "87153700020b340df949c7a7e5bae60c98f431834785c15e10f721a8bb245afe"
+  },
+  "N1": "COMPLETE_AGREED_OFFLINE_SCOPE",
+  "N2": {
+    "status": "ACCEPTED_OFFLINE_WITH_DECLARED_LIMITATIONS",
+    "evaluations": 422,
+    "acceptance_sha256": "3648e2c548674a2efd0ce948a73c6a1acd16ce6866fe367d78e28747bdb95fab"
+  },
+  "N3": {
+    "status": "ACCEPTED_OFFLINE_COMPONENT_SCOPE",
+    "acceptance_sha256": "070783f77f3aec030fb837859f719317d6ecdaab4585e31c5e92d8c5f0e66204"
+  },
+  "N4": {
+    "status": "MODELED_COMPARISON_REVIEWED_APPLICATION_PARTIAL",
+    "main_reviewed": 7680,
+    "mode_reviewed": 1536,
+    "actual_required": 240,
+    "actual_collected_pending_acceptance": 2,
+    "actual_failed": 2,
+    "actual_unattempted": 236,
+    "actual_accepted": 0,
+    "accepted_new_release_profiles": 0
+  },
+  "N5": {
+    "status": "PARTIAL",
+    "windows_saved_file_preview": "A2+D1 with retained ReDimNet or anonymous encoder bypass; one-file paired lifecycle only",
+    "ARM64_baseline": "C-API component parity and malformed-WAV protocol passed under emulation",
+    "ARM64_A2_A3": "16-second six-case component protocol passed under emulation",
+    "preserved_failure": "Full-source A2 repeat timed out; long A3 unattempted; A3 short raw final word end is 160ms past EOF",
+    "full_ARM64_application_validated": false,
+    "native_CM5_validated": false
+  },
+  "realtime_methods": {
+    "specified": 34,
+    "implemented_clock_modes": 6,
+    "clock_tests_passed": 8,
+    "application_adapter_implemented": false,
+    "optimized_model_performance_measured": false,
+    "production_gate_enabled": false
+  },
+  "remaining": [
+    "N4 application drain/closure acceptance, 240-cell panel, continuity/restarts and integrated resources",
+    "Per-build controls, import/export, startup-failure and rollback qualification",
+    "Full ARM64 Python/Tk/speaker/punctuation/GUI execution and accepted portable alternatives",
+    "Long-source native ASR repeat/forced-endpoint protocol and source-aligned timing",
+    "Application-integrated pacing/worker/shadow-gate methods and independent held-out real-world validation",
+    "Actual Pi installation, storage/RAM/CPU/thermal/endurance and later authorized hardware checks"
+  ],
+  "handoff_archive": {
+    "filename": "NVIDIA_CAMPAIGN_CHATGPT_HANDOFF_20260924_campaign_20260928_v7.zip",
+    "bytes": 179217,
+    "sha256": "43887860a863a87f56da18d2b413efc891470f754fb5339fc6ee8b9e8a029a5c",
+    "scope": "Immutable analysis handoff; not a complete installer or accepted N4/N5 release"
+  },
+  "backup_before_closure": {
+    "local_and_remote_commit": "cbf0135c0b59e2ecd1e59e806564aba12fb50307",
+    "branch": "codex/n1-foundation-20260924",
+    "verified_utc": "2026-09-28T14:47:21.408060+00:00"
+  },
+  "private_closure_sha256": "3cbd84c79dec0c658a47cfb6b179aa3b4c92eff855b9fbc40c74819425561118",
+  "known_campaign_workers_closed": true,
+  "unrelated_WSL_service_untouched": true,
+  "new_experiments_after_deadline": false,
+  "Pi_contacted": false,
+  "further_campaign_work_requires_later_authorization": true
+}
