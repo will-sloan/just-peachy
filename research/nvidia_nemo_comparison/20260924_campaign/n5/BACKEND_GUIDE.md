@@ -1,66 +1,95 @@
 # Backend availability and interpretation
 
-Current checkpoint: 2026-09-27. N2 and N3 have accepted offline component
-handoffs. Independent numerical N4 reviews cover all 7,680 main and 1,536 modes
-cases. Actual application confirmation is PARTIAL: the latest panel has two
-collected cells pending acceptance, two failures and 236 unattempted. Further
-whole-panel rescues have ended for this campaign to preserve release work.
-Continuity/restart, deployment tiers and new release selection remain incomplete.
-No new N5 release backend is accepted. This does not mean NeMo is nonfunctional
-on Windows: A2 has three accepted N3 GUI cases and now two further saved-file
-lifecycle passes (caption-only and anonymous-speaker modes). User-invoked
-launchers and local setup are documented in README_NEMOTRON_WINDOWS_PREVIEW_V1.md.
-Detailed comparative results are in NEMO_RESULTS_AND_INSIGHTS_20260927.md.
-See ../n4/N4_PARTIAL_REPORT_20260927.md for the larger unresolved panel.
+Current review: September 28, 2026, packaging reserve. N1 is complete within its
+agreed offline scope. N2/N3 have accepted offline component handoffs. N4 has
+7,680 reviewed main and 1,536 reviewed mode comparisons from offline journals.
+Its actual 240-cell application panel has two collected pending acceptance, two
+failed and 236 unattempted. There are **zero accepted new release profiles**;
+N5 is partial. Component results do not establish integrated release acceptance.
 
-N5_STATUS_20260927_V16.json also retains the closed ARM64 failures. A2 completed a full
-pass and timed out during the repeat; A3 was unattempted. Separately, the baseline
-Sherpa C-API probe consumed both full streams but returned empty text under
-QEMU while its Windows reference passed. Neither is a complete component pass.
-These results cannot supply missing N4 application or ARM64 GUI acceptance.
-The later C++ control works on Windows, while ARM64 again returns no text with
-matching samples, settings and Sherpa revision. The diagnostic narrowed the
-cause but did not fix it; see BASELINE_C_API_DIAGNOSTIC_FINDINGS_V3.md.
+PACKAGING_GUIDE_CHECK_20260928_V1.json binds the receipts used here and fresh
+verification-only checks of both stable-input Windows preview routes. The latest
+checks opened no GUI and ran no inference; they verify previously qualified
+local files. No new performance or lifecycle pass is implied.
 
-| Composition | Purpose | Available evidence and remaining release work |
-|---|---|---|
-| A0/D0/E0 baseline | Sherpa Giga ASR, Pyannote diarization, ReDimNet embeddings and final-only punctuation | Preserved N1 Windows baseline and offline CM5 bundle; Windows lifecycle smoke passed. ARM64 ASR C-API check failed with empty text; Python/GUI and CM5 checks remain pending. |
-| A1/D0/E0 | Parakeet realtime EOU 120M ASR | Accepted N3 offline component scope and reviewed N4 numerical cases; proposed timed panel. Portable release and per-build checks remain pending. |
-| A0/D1/E0 | Nemotron diarization with baseline ASR/embedding | Accepted N2 offline component scope and reviewed N4 numerical cases; proposed timed panel. Application/resource and portable release checks remain pending. |
-| A0/D1/E1 | TitaNet embeddings in their own model namespace | Accepted N2 offline component scope and reviewed N4 numerical cases; proposed timed panel. Encoder-specific galleries and release checks remain required. |
-| A2/D1/E0 | Nemotron English 600M ASR and Nemotron diarization | Three N3 GUI passes; fresh one-file caption and anonymous-speaker save/reopen/delete lifecycle passes. Windows engineering preview available. N4 full application acceptance and ARM64 completion remain pending. |
-| A3/D1/E0 | Nemotron 3.5 600M ASR alternative | Three N3 GUI passes with two CPU cores; one-core failure and caption fragmentation retained. Main-bank WER is worse than baseline. ARM64 model run remains unattempted; no release qualification. |
-| Other matrix compositions | Comparators used to interpret the full numerical bank | Numerical coverage does not make a composition a selected or packaged release. |
-| X1 multitalker | Optional high-compute overlap comparison | Deferred; not a release. |
+| Composition | What is available | Remaining boundary |
+| --- | --- | --- |
+| A0/D0/E0: Sherpa Giga, Pyannote, ReDimNet, final-only punctuation | Preserved N1 Windows baseline, Start-N5-BASELINE.cmd, N5 saved-file Windows lifecycle smoke and private ARM64 baseline bundle. Sherpa C-API now passes four-case Windows/ARM64 parity and eight malformed-WAV checks under Cortex-A76 emulation. | Full ARM64 Python/Tk, speaker, punctuation, GUI, installation and native CM5 remain pending. Old empty-output failures are historical. |
+| A0/D1/E0: Sherpa ASR with Nemotron 3 diarization and ReDimNet | Accepted offline D1 evidence, reviewed modeled combinations and retained user priority. | Its actual N4 cell exceeded the speaker drain limit. The A2 preview does not qualify this route; no accepted dedicated release is established. |
+| A2/D1/E0: Nemotron English 600M ASR, Nemotron 3 diarization, ReDimNet | Start-N5-NEMOTRON-REDIMNET.cmd uses the stable-input derivative. Paired one-file anonymous-conversation render/save/reopen/delete lifecycle passed with actual ReDimNet execution. | Workstation-specific engineering preview. Automatic personal naming, full-bank application, continuity/resources and ARM64 full stack remain unqualified. Retaining embeddings alone does not qualify naming. |
+| A2/D1 with anonymous encoder bypass | Start-N5-NEMOTRON-ANONYMOUS.cmd uses the matching tested derivative. No external speaker-encoder load/calls occurred in this mode. | Anonymous slots only; no persistent personal-name recognition. Same release/target limits as the ReDimNet preview. Catalog-required model assets remain on disk. |
+| A1/D0/E0: Parakeet realtime EOU 120M | Accepted N3 component scope, modeled comparisons and one actual application cell collected pending acceptance. | N3 limitations remain scoped to their receipts. No accepted portable application release or full per-build qualification. |
+| A3/D1/E0: Nemotron 3.5 ASR alternative | Three N3 GUI cases with two CPU cores; one-core failure/fragmentation retained. Its separate 16-second emulated ARM64 native ASR protocol now passes. | Main-bank WER was worse than baseline; no selected release. Full-source ARM64 protocol, full stack and source-aligned word timing remain unverified. |
 
-The six proposed timed configurations are candidates. Numerical scores alone do
-not prove the application's visible latency, sustained operation, restart
-behavior or fit within the CM5's 2 GB RAM. None has a measured CM5 tier. Use
-MAIN_MODELED_SCORING_ACCEPTANCE_V1.json and MODES_MODELED_SCORING_ACCEPTANCE_V1.json
-in ../n4 for the exact reviewed scope; use ../n2/FINAL_REVIEW.json and
-../n3/N3_ACCEPTANCE.json for component limitations. A smooth UI or clean exit
-does not establish accuracy.
+Further TitaNet/E1 work is retired at the user's request; historical results,
+assets and model-specific namespaces remain. X1 multitalker and other matrix
+compositions are comparators or deferred work, not shipped alternatives.
+Never reinterpret a gallery vector in another encoder's space.
 
-## Later Pi installation and GUI choices
+## Native ASR checks and exact limits
 
-START_HERE.md describes the current baseline package and the later verification,
-staging, health check, activation and rollback sequence. The Pi remains powered
-off; no files have been installed or checked on it during this campaign.
+BASELINE_ARM64_CPU_RETEST_V2.json supersedes the baseline empty-text diagnosis.
+Explicit Cortex-A76 passes empty, short-tail, full source and resident repeat
+with unchanged binary/models/audio, matching Windows text and endpoint/reset
+behavior. This is emulated C-API ASR parity, not full Pi software or target speed.
 
-The intended delivery uses the shared GUI/backend picker and clearly named
-launchers for each validated, installed composition. Keep the baseline available.
-Install additional model assets only after their ARM64 software route and actual
-storage budget are verified. Shared content-addressed assets should be reused;
-loading one selected backend must not load all installed models into RAM.
+NATIVE_STREAM_SHORT_CHECK_V3.json independently verifies A2 and A3 on the exact
+first 16 seconds: empty, one-sample, short-tail, full prefix, repeat and forced
+endpoint. Both close normally and repeat final text/word objects. A3's raw final
+word ends 160 ms beyond the source; no clamping or truth-aligned timing pass is
+inferred. The 44.695-second A2 protocol still timed out during repetition; the
+corresponding long A3 run was unattempted. A shorter pass cannot clear those
+gaps. QEMU command duration includes several cases and loading, not native Pi RTF.
 
-Missing, unsupported and desktop-only choices must be labelled explicitly. A
-load failure must report the selected backend's error rather than silently choose
-a different backend. Personal data stays outside releases, and galleries from a
-different embedding model must be rejected as incompatible. The current baseline
-ZIP does not contain every alternative in this table.
+## Existing Windows preview commands
 
-The target has 32 GB nominal eMMC; actual free space is unknown. The existing
-baseline preflight estimates 2.80 GiB additional free space, including its reserve
-and unmeasured overhead budget. That estimate does not cover optional models or
-working RAM. See PI_RECONNECTION_REQUIREMENTS.md and
-README_PI_STORAGE_PREFLIGHT_V1.md for the exact storage and later device checks.
+Purpose: saved mono 16-kHz PCM16 preview with the shared 480x800 frontend.
+Inputs: qualified local derivatives, models/runtime and optional prepared O0 WAV
+with gain already applied. Outputs: captions/preferences in separate campaign
+preview stores. These are local-workstation tools, not portable installers.
+
+PowerShell, verification only:
+
+```powershell
+Set-Location G:\Just_Peachy_N1\20260924_campaign\worktree\research\nvidia_nemo_comparison\20260924_campaign\n5
+.\Start-N5-NEMOTRON-REDIMNET.cmd --check-only
+.\Start-N5-NEMOTRON-ANONYMOUS.cmd --check-only
+```
+
+CMD / Anaconda Prompt, no environment activation required:
+
+```bat
+cd /d G:\Just_Peachy_N1\20260924_campaign\worktree\research\nvidia_nemo_comparison\20260924_campaign\n5
+Start-N5-NEMOTRON-REDIMNET.cmd --check-only
+Start-N5-NEMOTRON-ANONYMOUS.cmd --check-only
+```
+
+When the user later chooses to open a preview, omit --check-only for **one**
+launcher and close it normally before starting the other. Both use two logical
+CPUs total, one native thread per model and GPU off. They open idle unless a
+prepared --wav is supplied. README_D1_ANONYMOUS_PREVIEW_V1.md gives exact stores,
+inputs and file invocation. Older caption/speaker previews remain available,
+with their own historical qualification, not replacements for this stable pair.
+
+## Later Pi installation and real-world validation
+
+PI_RECONNECT_QUICKSTART_V1.md gives the two-archive baseline transfer, trusted
+hashes, actual-device preflight, staging, activation and rollback. The Pi has
+not been contacted. Its 32-GB nominal eMMC is not measured free space; the baseline
+2.80-GiB additional-space estimate excludes optional backends and working RAM.
+No measured 2/4/8-GB deployment tier exists.
+
+Keep the shared GUI and explicit backend choice. Add models only after their
+software route and actual storage budget pass; reuse identical assets and load
+only the selected backend. Report errors without silent fallback. Personal data
+stays external; incompatible galleries must be refused.
+
+COMPONENT_PERFORMANCE_REPORT_20260927.md gives accuracy and processing metrics.
+CM5_PARALLEL_DIARIZATION_FEASIBILITY_20260928.md separates measured original
+workload from estimated savings. The 34-method catalogue holds proposals;
+six delivery-clock modes are implemented/tested as a model-free foundation,
+without application integration. Parallel diarizers and silence skipping are
+not qualified production optimizations. Preserve candidates for
+realtime_validation_v1/REAL_WORLD_HOLDOUT_V1.md: matched ungated controls,
+original pacing, dense/natural/quiet/short/overlap/noisy speech, actual costs and
+backlog. Sparse synthetic savings do not establish conversational or Pi throughput.

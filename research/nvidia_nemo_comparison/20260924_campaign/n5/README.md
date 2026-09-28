@@ -1,5 +1,15 @@
 # N5 packaging tools
 
+## 2026-09-28 - current backend guide reconciled
+
+BACKEND_GUIDE.md and WORKBOOK_UPDATE_20260928.md distinguish the resolved
+emulated baseline ASR issue, short A2/A3 native passes, preserved long-source
+failure and missing full ARM64 stack. TitaNet is historical-only. Both current
+Windows A2/D1 preview routes passed fresh --check-only verification; no new GUI
+or inference ran. PACKAGING_GUIDE_CHECK_20260928_V1.json binds the evidence.
+N4/N5 acceptance is unchanged. Keep the new docs for final consolidation;
+the immutable V6 report ZIP is preserved.
+
 ## 2026-09-28 - verified small Pi reconnection companion
 
 `PI_RECONNECT_QUICKSTART_V1.md` now consolidates a two-archive transfer,
@@ -112,8 +122,9 @@ The paired baseline C-API probe is documented in
 `README_BASELINE_ARM64_ASR_V1.md`. Its Windows reference passed, while both
 emulated ARM64 full streams returned empty text and failed the strict gate.
 `BASELINE_ARM64_ASR_CHECK_V1.json` and `BASELINE_ARM64_ASR_FINDINGS_V1.md`
-preserve the audit and narrow investigation boundary; no complete ARM64 pass
-is claimed. Bound V1 sources and failed private outputs remain unchanged.
+preserve that historical failure. The later Cortex-A76 full-protocol retest
+passes baseline C-API parity (BASELINE_ARM64_CPU_RETEST_V2.json); the full ARM64
+application remains unverified. Bound V1 sources and failures are unchanged.
 
 `baseline_asr_diagnostic_v2/README.md` documents the subsequent paired C-API
 investigation. V2 built on Windows but stopped before inference when CMake

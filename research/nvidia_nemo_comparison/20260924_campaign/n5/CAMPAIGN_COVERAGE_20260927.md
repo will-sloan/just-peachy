@@ -1,7 +1,9 @@
 # Campaign coverage at the September 27 packaging checkpoint
 
 This is a partial checkpoint. Use the current status selected in
-HANDOFF_SELECTION_V2.json and START_HERE.md for the newest receipts. N1 is
+HANDOFF_SELECTION_V6.json and START_HERE.md for the newest receipts.
+September 28 correction: WORKBOOK_UPDATE_20260928.md and BACKEND_GUIDE.md
+supersede older current-state descriptions; TitaNet is retired from further work. N1 is
 complete within agreed offline scope; N2/N3 have accepted offline component
 handoffs. N4 has no accepted new release configuration, so N5 retains only the
 baseline. Prepared or individually tested components do not form an accepted
@@ -29,7 +31,7 @@ the ledger rather than retroactively changing what an earlier test established.
 | Baseline Windows process lifecycle | TESTED, smoke only | Two real processes, caption-only/fast, one saved source, 31 rendered segments from three saved utterances; save/reopen/delete and isolated people sentinel passed. See BASELINE_WINDOWS_LIFECYCLE_CHECK_V1.json. |
 | Per-build import/export, all mode changes and live-source simulation | IMPLEMENTED or existing tests, incomplete N5 coverage | N1 test evidence is reusable only for its frozen baseline source. The new smoke does not establish these paths; optional builds have no per-build acceptance. |
 | Baseline packaging, activation/rollback helpers and failure guards | TESTED at helper scope | TEST_RECEIPT.json records 22 Windows and 22 local Linux helper checks, 31 bundle member hashes and wrong-target refusal. Local Linux is not ARM64 GUI execution; no Pi was contacted. |
-| Native ARM64 build/ABI and malformed-WAV checks | TESTED at build/emulator scope | Six native artifacts and static ELF audit; eight invalid-WAV checks. A2 timed out in repeat, A3 unattempted. Preserve NATIVE_STREAM_MODELS_PARTIAL_V1.md. |
+| Native ARM64 build/ABI and malformed-WAV checks | TESTED at build/emulator scope | Six native artifacts and static ELF audit; eight invalid-WAV checks. Long-source A2 timed out in repeat and long-source A3 was unattempted. The separate 16-second A2/A3 six-case protocol passes (NATIVE_STREAM_SHORT_CHECK_V3.json), with A3 raw word end 160 ms past EOF. No full-stack or target-speed claim. |
 | Baseline Sherpa C-API paired ASR probe | TESTED, emulated component parity only (Sept 28) | BASELINE_ARM64_CPU_RETEST_V2.json: explicit Cortex-A76, four cases with exact Windows finals/endpoints/resets, including resident fresh-repeat; eight malformed-WAV refusals. Default-CPU failures remain historical. Does not establish ARM64 Python/GUI, speaker, punctuation, install or full-bank paths. |
 | Baseline plus several portable backend releases | PARTIAL | Baseline archive prepared; zero accepted new alternatives. Optional model storage estimate is not a runtime or release acceptance. |
 | CM5 2-GB RAM, latency, storage, power, thermal and hardware integration | DEFERRED | Actual target is off. 32-GB nominal eMMC and 2-GB total RAM are targets, not measured fit. No 4/8-GB tier has measured CPU performance. |

@@ -1,5 +1,15 @@
 # N5 partial release checkpoint
 
+## 2026-09-28 - current backend guide reconciled
+
+BACKEND_GUIDE.md and WORKBOOK_UPDATE_20260928.md distinguish the resolved
+emulated baseline ASR issue, short A2/A3 native passes, preserved long-source
+failure and missing full ARM64 stack. TitaNet is historical-only. Both current
+Windows A2/D1 preview routes passed fresh --check-only verification; no new GUI
+or inference ran. PACKAGING_GUIDE_CHECK_20260928_V1.json binds the evidence.
+N4/N5 acceptance is unchanged. Keep the new docs for final consolidation;
+the immutable V6 report ZIP is preserved.
+
 ## 2026-09-28 - verified small Pi reconnection companion
 
 `PI_RECONNECT_QUICKSTART_V1.md` now consolidates a two-archive transfer,

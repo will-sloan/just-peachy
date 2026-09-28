@@ -84,12 +84,13 @@ scheduled during this campaign. Read `../n4/N4_PARTIAL_REPORT_20260927.md` and
 `../n4/APPLICATION_PANEL_CLOSURE_FAILURE_V10.json` for the reconciled evidence.
 No new release profile is accepted.
 
-The compiled ARM64 native harness passed eight malformed-WAV checks. Its
-saved-audio run ended at the unchanged A2 time limit during the repeat pass;
-A3 was unattempted. A2 completed the first full source, but state parity and
-forced-endpoint checks remain unverified. Zero complete model passes are
-claimed. `NATIVE_STREAM_MODELS_PARTIAL_V1.md` records the preserved failure and
-verified process closure. ARM64 GUI and CM5 validation remain incomplete.
+The native ARM64 harness passed eight malformed-WAV checks. The longer A2
+protocol remains incomplete after its repeat timeout, and long-source A3 was
+unattempted. Separately, both A2 and A3 passed the exact 16-second six-case
+protocol, including repeat and forced endpoint; see NATIVE_STREAM_SHORT_CHECK_V3.json.
+A3 raw word time extends 160 ms beyond EOF. This does not clear the long protocol,
+source-aligned timing or full ARM64 application/GUI gaps. The earlier failed
+attempts remain preserved; no CM5 hardware check has run.
 
 The earlier default-CPU QEMU baseline ASR comparisons produced empty text.
 A controlled CPU-selection diagnostic and subsequent full-protocol retest
@@ -191,11 +192,12 @@ ran. N5 does not stop upstream workers or their scheduled probes before closure.
 
 For continuation, use N5_HANDOFF.md. Build/run commands, inputs and outputs are
 in README.md and README_ARM64.md; the current workbook proposal is
-WORKBOOK_UPDATE_20260927.md. The original WORKBOOK_UPDATE.md is historical.
+WORKBOOK_UPDATE_20260928.md. Both earlier workbook proposals remain historical.
+BACKEND_GUIDE.md gives the reconciled current availability and exact limitations.
 
 `CAMPAIGN_COVERAGE_20260927.md` reconciles note, numerical, application and target
 coverage. `RELEASE_MAPPING_20260927.md` maps the retained artifacts to their
-immutable source/preparation tags. `HANDOFF_SELECTION_V2.json` selects 55 small
+immutable source/preparation tags. `HANDOFF_SELECTION_V6.json` selects 55 small
 reports/tools plus this checkpoint's status; the reviewed packager adds the
 selection, hash manifest and current Git backup receipt for 59 readable files.
 Use `README_REVIEWED_HANDOFF_V2.md` to build a fresh private analysis archive
