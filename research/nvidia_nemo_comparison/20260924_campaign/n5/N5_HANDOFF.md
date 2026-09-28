@@ -1,5 +1,26 @@
 # N5 partial release checkpoint
 
+## 2026-09-28 01:12 UTC - bounded Nemotron ARM64 CPU retest active
+
+After the accepted baseline Cortex-A76 result, a fresh derivative applies
+only explicit CPU selection to the unchanged A2/A3 native harness. Current
+run: `local/n5/native-stream-cpu-v2`; follow its `RESULT.json` and
+`linux/RESULT.json`, then independently review all source/model/runtime hashes,
+exact closed Windows/Linux owners, original six-case conformance and repeat
+text/word parity. Start evidence: `NATIVE_STREAM_CPU_START_V2.json`.
+
+A2 and A3 are sequential, each capped at the original 1,800 seconds. A timeout
+ends the run without crediting an incomplete model. The fresh allocation ends
+02:17:04 UTC, before the unchanged 02:48:19 reserve. Fourteen focused tests
+passed. Fresh census found no other active worker; exact Windows creation
+identities and Linux PID/start ticks/CPU affinity were verified. Do not start
+a duplicate or edit its 20 bound source files while active.
+
+This running test supersedes only V18's idle-worker observation, not its
+acceptance status. N4/N5 remain partial and the Pi remains uncontacted. The
+V5 report ZIP remains the verified checkpoint preceding this new test.
+`README_NATIVE_STREAM_CPU_V2.md` documents reproduction and limits.
+
 ## 2026-09-28 - baseline ARM64 ASR parity passed under Cortex-A76 emulation
 
 Current checkpoint: `N5_STATUS_20260928_V18.json`. The unchanged baseline

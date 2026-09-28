@@ -1,0 +1,29 @@
+{
+  "status": "RUNNING_BOUNDED_COMPONENT_RETEST_NOT_ACCEPTED",
+  "checked_utc": "2026-09-28T01:13:10.703614+00:00",
+  "scope": "EMULATED_NATIVE_ASR_CORTEX_A76_V2",
+  "admission": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\native-stream-cpu-v2\\ADMISSION.json",
+    "sha256": "ea6a3c3a34855580f3f74febe20ec14c2473e8e8effe46d35473881118754a39",
+    "bytes": 11016
+  },
+  "live_verification": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\native-stream-cpu-v2\\LIVE_VERIFICATION.json",
+    "sha256": "33e96d2a69b1f59cf2ebb5a01e8fd6bb2419d4ccb158d920052c892219edaf44",
+    "bytes": 850
+  },
+  "current_run": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\native-stream-cpu-v2",
+  "qemu_cpu": "cortex-a76",
+  "tests_passed": 14,
+  "per_model_seconds": 1800,
+  "expires_utc": "2026-09-28T02:17:04.602840+00:00",
+  "allocation_bytes": 134217728,
+  "models": [
+    "A2",
+    "A3"
+  ],
+  "no_parallel_numerical_worker": true,
+  "CM5_tested": false,
+  "N4_accepted": false,
+  "N5_complete": false
+}

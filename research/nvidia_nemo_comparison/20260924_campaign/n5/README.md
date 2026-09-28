@@ -1,5 +1,10 @@
 # N5 packaging tools
 
+New bounded follow-up: `README_NATIVE_STREAM_CPU_V2.md` and
+`NATIVE_STREAM_CPU_START_V2.json` cover the active Cortex-A76 A2/A3 native
+retest. It keeps the original harness, reader and per-model time limits.
+Follow N5_HANDOFF.md for the latest run; start evidence is not acceptance.
+
 `CM5_PARALLEL_DIARIZATION_FEASIBILITY_20260928.md` reports the user's
 caption-first/parallel-worker proposal and two new full-bank workload/support
 analyses. `README_D1_WORKLOAD_V1.md` and `README_D1_CAUSAL_SUPPORT_V1.md`
