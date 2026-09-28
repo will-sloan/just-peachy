@@ -1,0 +1,114 @@
+{
+  "status": "VERIFIED_CLOSED_PARTIAL_NATIVE_ATTEMPT",
+  "audit": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\native-stream-cpu-v2-audit\\RESULT.json",
+    "sha256": "25c06d342bf1420631dd4bb86e100351a913d047e6b6ea5dec3f452721e6a7b8",
+    "bytes": 4492
+  },
+  "models": [
+    {
+      "variant": "A2",
+      "passed": false,
+      "error": "ValueError: Command cancelled or process group not empty",
+      "cancelled": "model_timeout",
+      "elapsed_seconds": 1800.5966421179999,
+      "jsonl_rows": 186,
+      "closed_cases": [
+        {
+          "case": "empty",
+          "sent_frames": 0,
+          "events": 1,
+          "finals": 1,
+          "stream_closed": true
+        },
+        {
+          "case": "one_sample",
+          "sent_frames": 1,
+          "events": 1,
+          "finals": 1,
+          "stream_closed": true
+        },
+        {
+          "case": "short_tail",
+          "sent_frames": 1281,
+          "events": 1,
+          "finals": 1,
+          "stream_closed": true
+        },
+        {
+          "case": "saved_source",
+          "sent_frames": 715127,
+          "events": 87,
+          "finals": 5,
+          "stream_closed": true
+        }
+      ],
+      "last_event": {
+        "kind": "event",
+        "case": "saved_source_repeat",
+        "sent_frames": 413440
+      },
+      "completed_first_pass_matches_default_cpu": true,
+      "default_cpu_progress": {
+        "jsonl_rows": 175,
+        "closed_cases": [
+          {
+            "case": "empty",
+            "sent_frames": 0,
+            "events": 1,
+            "finals": 1,
+            "stream_closed": true
+          },
+          {
+            "case": "one_sample",
+            "sent_frames": 1,
+            "events": 1,
+            "finals": 1,
+            "stream_closed": true
+          },
+          {
+            "case": "short_tail",
+            "sent_frames": 1281,
+            "events": 1,
+            "finals": 1,
+            "stream_closed": true
+          },
+          {
+            "case": "saved_source",
+            "sent_frames": 715127,
+            "events": 87,
+            "finals": 5,
+            "stream_closed": true
+          }
+        ],
+        "last_event": {
+          "kind": "event",
+          "case": "saved_source_repeat",
+          "sent_frames": 377600
+        }
+      },
+      "strict_review": null
+    }
+  ],
+  "passed_models": 0,
+  "unattempted_models": 1,
+  "code_bindings_verified": 20,
+  "windows_exact_owners_absent": [
+    {
+      "pid": 46724,
+      "create_time": 1790557924.9323332
+    },
+    {
+      "pid": 53284,
+      "create_time": 1790557926.053721
+    },
+    {
+      "pid": 30284,
+      "create_time": 1790557924.7654293
+    }
+  ],
+  "full_source_conformance_pass": false,
+  "N4_accepted": false,
+  "N5_complete": false,
+  "CM5_tested": false
+}

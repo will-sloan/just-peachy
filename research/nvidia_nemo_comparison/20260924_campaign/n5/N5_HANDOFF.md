@@ -1,5 +1,51 @@
 # N5 partial release checkpoint
 
+## 2026-09-28 01:53 UTC - full-source timeout closed; short smoke running
+
+Latest checkpoint: `N5_STATUS_20260928_V19.json`. The full-source A2 retry
+with explicit Cortex-A76 timed out during repetition after 1,800.60 seconds.
+Its first complete pass matched the prior final text/word outputs, but
+repeat and forced-endpoint checks remain incomplete. A3 was unattempted.
+Independent review verified source/runtime bindings and exact Windows/Linux
+closure: `NATIVE_STREAM_CPU_CHECK_V2.json`, `NATIVE_STREAM_CPU_FINDINGS_V2.md`.
+
+Current supervised run is `local/n5/native-stream-short-v3`. Read its
+`RESULT.json`, `linux/RESULT.json`, `ADMISSION.json` and fresh supervision
+heartbeat before acting. `NATIVE_STREAM_SHORT_START_V3.json` binds verified
+Windows PID creation identities and Linux boot/start ticks. The 23 bound
+sources must remain unchanged while running. A2 then A3 use the exact first
+16 seconds of saved PCM with the unchanged six-case reader and 1,500-second
+per-model caps. Admission expires **02:45:07 UTC**, before the 02:48:19 reserve.
+No duplicate worker, new assets or Pi access. Resource census: 501 records,
+no competing active allocation, two logical CPUs total, GPU off.
+
+This is a narrower functional smoke permitted by N5, not a repair of the
+full-source failure. After closure, independently check the exact source
+prefix/model/runtime/code hashes, six-case reader, nonempty final speech,
+repeat text/word parity and forced endpoint, and exact Windows and boot-aware
+Linux owners/groups. Do not infer acceptance from terminal success. Preserve
+both failed full-source attempts regardless of the short-scope outcome.
+
+N4/N5 remain partial. The current 34-method catalogue and source-clock
+foundation must be included in the next/final report package. The verified
+V5 ZIP is an earlier checkpoint; code/report Git backup is updated separately.
+Packaging reserve and final deadline remain unchanged.
+
+## 2026-09-28 - causal replay clock foundation implemented
+
+`SOURCE_CLOCK_FOUNDATION_V1.json` records eight passing deterministic tests
+and six generated source-release plans for the same 715,127-sample duration.
+`realtime_validation_v1/source_clock_v1.py` implements absolute-deadline
+unpaced, 1x, half-rate, double-rate, jitter and burst delivery, preserving the
+final partial chunk and exposing slow-consumer lateness. Read
+`realtime_validation_v1/README_SOURCE_CLOCK_V1.md` for inputs/outputs and
+PowerShell/CMD/Anaconda commands.
+
+This is an implemented and unit-tested clock foundation, not an application
+adapter, model benchmark or measured real-time claim. No audio or model was
+loaded. Original catalogue entries remain immutable specification history;
+qualify each later integration against its own source/admission and evidence.
+
 ## 2026-09-28 - expanded methods retained and hourly scope refreshed
 
 The user's latest request is retained in `realtime_validation_v1/README.md`
@@ -15,11 +61,11 @@ user changes and the corrected N2/N3/baseline ARM64 state, while prioritizing
 bounded blocker repairs. Cadence, target task, quiet-notification intent,
 packaging reserve, campaign deadline and offline restrictions are preserved.
 
-The active native-stream-cpu-v2 test below remains the current owned numerical
-run. Inspect its fresh heartbeat/result and exact owners before doing more
-work. No active source was changed for this catalogue or schedule update.
+The native-stream-cpu-v2 start below is historical: the run timed out and
+closed at 01:42 UTC. NATIVE_STREAM_CPU_CHECK_V2.json records its independent
+review. Consult the newest addendum before selecting the current run.
 
-## 2026-09-28 01:12 UTC - bounded Nemotron ARM64 CPU retest active
+## Historical start: 2026-09-28 01:12 UTC - Nemotron ARM64 CPU retest
 
 After the accepted baseline Cortex-A76 result, a fresh derivative applies
 only explicit CPU selection to the unchanged A2/A3 native harness. Current

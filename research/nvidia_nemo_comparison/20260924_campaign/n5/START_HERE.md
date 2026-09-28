@@ -1,5 +1,12 @@
 # N5 release preparation - campaign not complete
 
+Current update: full-source Nemotron ARM64 repeat still times out under
+Cortex-A76; a separate 16-second functional smoke is running and is not
+accepted. See `NATIVE_STREAM_CPU_FINDINGS_V2.md` and `N5_HANDOFF.md`.
+Six replay timing modes are implemented as a tested source-clock foundation
+(`realtime_validation_v1/README_SOURCE_CLOCK_V1.md`); model/app integration
+and measured paced performance remain pending.
+
 Later real-world validation catalogue: `realtime_validation_v1/README.md`
 describes 34 retained simulation/worker/gating/chunk/overload methods. The
 hourly follow-up includes their implementation and validation priorities.
@@ -12,7 +19,7 @@ availability-aware replay. It specifies caption-first workers, one stateful D1
 stream and explicit overload handling. Modeled workload savings are not an
 optimized runtime or CM5 acceptance. Existing launchers remain unchanged.
 
-Latest checkpoint: `N5_STATUS_20260928_V18.json`. The baseline ARM64 C-API
+Latest checkpoint: `N5_STATUS_20260928_V19.json`. The baseline ARM64 C-API
 ASR comparison now passes under explicit Cortex-A76 emulation; full Pi
 application and native hardware validation remain pending.
 

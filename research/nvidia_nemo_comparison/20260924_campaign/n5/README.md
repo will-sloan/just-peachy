@@ -1,14 +1,26 @@
 # N5 packaging tools
 
+Current run: `NATIVE_STREAM_SHORT_START_V3.json`; narrower 16-second smoke,
+not accepted. Full-source V2 timeout is independently reviewed and preserved.
+See `N5_STATUS_20260928_V19.json` and `N5_HANDOFF.md` for current scope.
+
+`realtime_validation_v1/README_SOURCE_CLOCK_V1.md` documents the first
+implemented simulation foundation: source-preserving causal delivery clocks.
+Eight deterministic tests and six metadata plans are recorded in
+`SOURCE_CLOCK_FOUNDATION_V1.json`; application/model integration is pending.
+`README_NATIVE_STREAM_CPU_REVIEW_V2.md` covers independent review of the
+closed current native retest, including exact owners and runtime hashes.
+
 `realtime_validation_v1/README.md` and its JSON catalogue retain 34 proposed
 real-time simulation, parallel-worker, silence-saving and state/overload
 methods for later controlled and native CM5 validation. These are specified
 experiments, not implemented backends. The existing hourly follow-up now
 carries these and prior user changes; see `REALTIME_METHODS_AND_SCHEDULE_V1.json`.
 
-New bounded follow-up: `README_NATIVE_STREAM_CPU_V2.md` and
-`NATIVE_STREAM_CPU_START_V2.json` cover the active Cortex-A76 A2/A3 native
-retest. It keeps the original harness, reader and per-model time limits.
+`NATIVE_STREAM_CPU_CHECK_V2.json` and `NATIVE_STREAM_CPU_FINDINGS_V2.md`
+record the closed full-source Cortex-A76 timeout.
+`README_NATIVE_STREAM_SHORT_V3.md` documents the narrower 16-second smoke
+using the same harness/reader; it cannot clear that full-source failure.
 Follow N5_HANDOFF.md for the latest run; start evidence is not acceptance.
 
 `CM5_PARALLEL_DIARIZATION_FEASIBILITY_20260928.md` reports the user's
@@ -18,7 +30,7 @@ document inputs, outputs, PowerShell/CMD/Anaconda commands and nine passing
 checks. These reuse existing evidence; no optimized model or Pi runtime has
 been validated and no production audio gate was deployed.
 
-Latest checkpoint: V18. Baseline Sherpa C-API ASR now passes the four-case
+Latest checkpoint: V19. Baseline Sherpa C-API ASR now passes the four-case
 Windows/ARM64 parity protocol under explicit Cortex-A76 emulation. See
 `BASELINE_ARM64_CPU_RETEST_V2.json` and `BASELINE_ASR_CPU_FINDINGS_V5.md`.
 Reproduction, inputs and outputs are documented in

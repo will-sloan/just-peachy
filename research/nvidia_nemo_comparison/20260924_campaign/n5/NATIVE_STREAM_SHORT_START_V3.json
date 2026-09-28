@@ -1,0 +1,37 @@
+{
+  "status": "RUNNING_SHORT_FUNCTIONAL_SMOKE_NOT_ACCEPTED",
+  "checked_utc": "2026-09-28T01:53:13.505350+00:00",
+  "scope": "EMULATED_NATIVE_ASR_SHORT_CORTEX_A76_V3",
+  "admission": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\native-stream-short-v3\\ADMISSION.json",
+    "sha256": "c1e2b6dff9af1fc113c50ecba56d27d89be10a54195854f18308fa44b7ed331e",
+    "bytes": 13383
+  },
+  "live_verification": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\native-stream-short-v3\\LIVE_VERIFICATION.json",
+    "sha256": "76153beb8821d348d9f273235a6715b703eac33724a5b50742af53387bdbd3be",
+    "bytes": 1943
+  },
+  "current_run": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\native-stream-short-v3",
+  "qemu_cpu": "cortex-a76",
+  "frames": 256000,
+  "source_seconds": 16,
+  "source_is_exact_prefix": true,
+  "per_model_seconds": 1500,
+  "expires_utc": "2026-09-28T02:45:07.817927+00:00",
+  "allocation_bytes": 134217728,
+  "models": [
+    "A2",
+    "A3"
+  ],
+  "full_source_timeout_preserved": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n5\\NATIVE_STREAM_CPU_CHECK_V2.json",
+    "sha256": "ccbd2f179496744d1d3048bc1db99a1365db90a8e082a5558511cae13bac4131",
+    "bytes": 2921
+  },
+  "source_bindings": 23,
+  "no_parallel_numerical_worker": true,
+  "CM5_tested": false,
+  "N4_accepted": false,
+  "N5_complete": false
+}

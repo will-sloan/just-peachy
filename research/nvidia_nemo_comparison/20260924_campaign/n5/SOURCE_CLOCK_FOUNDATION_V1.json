@@ -1,0 +1,27 @@
+{
+  "status": "IMPLEMENTED_CLOCK_FOUNDATION_UNIT_TESTED_AND_PLANS_GENERATED",
+  "utc": "2026-09-28T01:41:44.825384+00:00",
+  "tests_passed": 8,
+  "source_frames": 715127,
+  "source_sample_rate": 16000,
+  "audio_read": false,
+  "model_inference": false,
+  "application_adapter_implemented": false,
+  "measured_realtime_performance": false,
+  "CM5_tested": false,
+  "N4_accepted": false,
+  "N5_complete": false,
+  "private_result": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\realtime-clock-v1\\RESULT.json",
+    "bytes": 3556,
+    "sha256": "e5e3229bc1c90c67209ebbd36a46c46e07fd4a89211758a8bb9accc70719c02a"
+  },
+  "plan_modes": [
+    "unpaced",
+    "paced",
+    "slow",
+    "overload",
+    "jitter",
+    "burst"
+  ]
+}
