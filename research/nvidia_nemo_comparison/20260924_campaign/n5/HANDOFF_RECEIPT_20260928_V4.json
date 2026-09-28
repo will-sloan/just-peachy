@@ -1,0 +1,26 @@
+{
+  "status": "VERIFIED_PARTIAL_CHECKPOINT",
+  "utc": "2026-09-28T00:06:11.396181+00:00",
+  "packager_receipt": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\handoffs\\HANDOFF_20260928_V4_RECEIPT.json",
+    "sha256": "b39ef60eba5c85854646074a278d1ee3f1de7baf23dc12e9a1421410bcedaad3",
+    "bytes": 785
+  },
+  "archive": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\handoffs\\NVIDIA_CAMPAIGN_CHATGPT_HANDOFF_20260924_campaign_20260928_v4.zip",
+    "sha256": "3ef9b4b1f7bed39ae0c897d68911abc8618b082a91aa016a376df0ede64674fe",
+    "bytes": 192871
+  },
+  "source_commit": "296ab8b717a746365cbd6a2cc71bd588e12093be",
+  "remote": "https://github.com/will-sloan/just-peachy.git",
+  "ref": "refs/heads/codex/n1-foundation-20260924",
+  "files_read_back": 59,
+  "manifest_hashes_verified": 58,
+  "zip_crc_pass": true,
+  "UTF8_operating_documents_checked": true,
+  "contains_private_audio": false,
+  "contains_models": false,
+  "contains_profiles": false,
+  "N5_complete": false,
+  "CM5_tested": false
+}
