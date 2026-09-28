@@ -1,12 +1,22 @@
 # N5 packaging tools
 
+Latest checkpoint: `N5_STATUS_20260928_V20.json`. The 16-second A2/A3 ARM64
+native protocol is independently verified, including repeat/forced endpoint
+and process closure. No numerical worker is active. Read
+`NATIVE_STREAM_SHORT_FINDINGS_V3.md`: A3 raw word time extends 160ms beyond
+EOF; source-aligned timing and full application acceptance remain unverified.
+The full-source timeout is preserved, and N4/N5 remain partial. Numerical
+work is closed for packaging; reserve/deadline and Pi-off restrictions remain.
+V6 selection retains the current results, 34-method catalogue, clock foundation
+and mandatory real-world holdout note. Earlier starts below are historical.
+
 `realtime_validation_v1/REAL_WORLD_HOLDOUT_V1.md` records the user's sparse-audio
 limitation and held-out real-world comparison requirements. Silence-heavy
 synthetic workload savings do not qualify actual conversation or Pi throughput.
 
-Current run: `NATIVE_STREAM_SHORT_START_V3.json`; narrower 16-second smoke,
-not accepted. Full-source V2 timeout is independently reviewed and preserved.
-See `N5_STATUS_20260928_V19.json` and `N5_HANDOFF.md` for current scope.
+`NATIVE_STREAM_SHORT_START_V3.json` is the historical start. Its closed
+16-second protocol is now independently reviewed; the full-source V2 timeout
+is preserved. See V20 and `N5_HANDOFF.md` for current scope.
 
 `realtime_validation_v1/README_SOURCE_CLOCK_V1.md` documents the first
 implemented simulation foundation: source-preserving causal delivery clocks.
@@ -34,7 +44,7 @@ document inputs, outputs, PowerShell/CMD/Anaconda commands and nine passing
 checks. These reuse existing evidence; no optimized model or Pi runtime has
 been validated and no production audio gate was deployed.
 
-Latest checkpoint: V19. Baseline Sherpa C-API ASR now passes the four-case
+Latest checkpoint: V20. Baseline Sherpa C-API ASR now passes the four-case
 Windows/ARM64 parity protocol under explicit Cortex-A76 emulation. See
 `BASELINE_ARM64_CPU_RETEST_V2.json` and `BASELINE_ASR_CPU_FINDINGS_V5.md`.
 Reproduction, inputs and outputs are documented in

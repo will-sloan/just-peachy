@@ -1,0 +1,304 @@
+{
+  "status": "VERIFIED_SHORT_EMULATED_NATIVE_PROTOCOL_ONLY",
+  "checked_utc": "2026-09-28T02:39:06.685943+00:00",
+  "audit": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\native-stream-short-v3-audit\\RESULT.json",
+    "sha256": "3b7e2fa07bc21678b09aefbc07d3c59c64839b6f85da0eb7067c065906a76dc6",
+    "bytes": 10299
+  },
+  "scope": "Six-case native C API protocol on the first 16 seconds only",
+  "source_frames": 256000,
+  "sample_rate": 16000,
+  "passed_models": 2,
+  "required_models": 2,
+  "models": [
+    {
+      "variant": "A2",
+      "passed": true,
+      "error": null,
+      "cancelled": null,
+      "elapsed_seconds": 1143.391401612,
+      "jsonl_rows": 180,
+      "closed_cases": [
+        {
+          "case": "empty",
+          "sent_frames": 0,
+          "events": 1,
+          "finals": 1,
+          "stream_closed": true
+        },
+        {
+          "case": "one_sample",
+          "sent_frames": 1,
+          "events": 1,
+          "finals": 1,
+          "stream_closed": true
+        },
+        {
+          "case": "short_tail",
+          "sent_frames": 1281,
+          "events": 1,
+          "finals": 1,
+          "stream_closed": true
+        },
+        {
+          "case": "saved_source",
+          "sent_frames": 256000,
+          "events": 54,
+          "finals": 2,
+          "stream_closed": true
+        },
+        {
+          "case": "saved_source_repeat",
+          "sent_frames": 256000,
+          "events": 54,
+          "finals": 2,
+          "stream_closed": true
+        },
+        {
+          "case": "saved_source_forced",
+          "sent_frames": 256000,
+          "events": 55,
+          "finals": 3,
+          "stream_closed": true
+        }
+      ],
+      "last_event": {
+        "kind": "result"
+      },
+      "strict_review": {
+        "status": "PASS_EMULATED_NATIVE_ASR_STREAM_ONLY",
+        "cases": [
+          {
+            "case": "empty",
+            "frames": 0,
+            "events": 1,
+            "finals": 1
+          },
+          {
+            "case": "one_sample",
+            "frames": 1,
+            "events": 1,
+            "finals": 1
+          },
+          {
+            "case": "short_tail",
+            "frames": 1281,
+            "events": 1,
+            "finals": 1
+          },
+          {
+            "case": "saved_source",
+            "frames": 256000,
+            "events": 54,
+            "finals": 2
+          },
+          {
+            "case": "saved_source_repeat",
+            "frames": 256000,
+            "events": 54,
+            "finals": 2
+          },
+          {
+            "case": "saved_source_forced",
+            "frames": 256000,
+            "events": 55,
+            "finals": 3
+          }
+        ],
+        "resident_state_parity": true,
+        "execution": "QEMU_AARCH64_EMULATED",
+        "GUI_validated": false,
+        "CM5_tested": false,
+        "N4_accepted": false,
+        "N5_complete": false
+      },
+      "raw_final_word_diagnostics": [
+        {
+          "case": "saved_source",
+          "final_word_objects": 13,
+          "source_duration_ms": 16000.0,
+          "min_raw_start_ms": 5120,
+          "max_raw_end_ms": 8640,
+          "raw_words_outside_source": 0
+        },
+        {
+          "case": "saved_source_repeat",
+          "final_word_objects": 13,
+          "source_duration_ms": 16000.0,
+          "min_raw_start_ms": 5120,
+          "max_raw_end_ms": 8640,
+          "raw_words_outside_source": 0
+        },
+        {
+          "case": "saved_source_forced",
+          "final_word_objects": 14,
+          "source_duration_ms": 16000.0,
+          "min_raw_start_ms": 5120,
+          "max_raw_end_ms": 8640,
+          "raw_words_outside_source": 0
+        }
+      ],
+      "raw_final_words_contained_in_source": true,
+      "word_timing_accuracy_against_truth_verified": false,
+      "scope": "Unchanged six-case native protocol only; raw offset containment is a separate diagnostic"
+    },
+    {
+      "variant": "A3",
+      "passed": true,
+      "error": null,
+      "cancelled": null,
+      "elapsed_seconds": 1167.4937851160003,
+      "jsonl_rows": 288,
+      "closed_cases": [
+        {
+          "case": "empty",
+          "sent_frames": 0,
+          "events": 1,
+          "finals": 1,
+          "stream_closed": true
+        },
+        {
+          "case": "one_sample",
+          "sent_frames": 1,
+          "events": 1,
+          "finals": 1,
+          "stream_closed": true
+        },
+        {
+          "case": "short_tail",
+          "sent_frames": 1281,
+          "events": 1,
+          "finals": 1,
+          "stream_closed": true
+        },
+        {
+          "case": "saved_source",
+          "sent_frames": 256000,
+          "events": 90,
+          "finals": 2,
+          "stream_closed": true
+        },
+        {
+          "case": "saved_source_repeat",
+          "sent_frames": 256000,
+          "events": 90,
+          "finals": 2,
+          "stream_closed": true
+        },
+        {
+          "case": "saved_source_forced",
+          "sent_frames": 256000,
+          "events": 91,
+          "finals": 3,
+          "stream_closed": true
+        }
+      ],
+      "last_event": {
+        "kind": "result"
+      },
+      "strict_review": {
+        "status": "PASS_EMULATED_NATIVE_ASR_STREAM_ONLY",
+        "cases": [
+          {
+            "case": "empty",
+            "frames": 0,
+            "events": 1,
+            "finals": 1
+          },
+          {
+            "case": "one_sample",
+            "frames": 1,
+            "events": 1,
+            "finals": 1
+          },
+          {
+            "case": "short_tail",
+            "frames": 1281,
+            "events": 1,
+            "finals": 1
+          },
+          {
+            "case": "saved_source",
+            "frames": 256000,
+            "events": 90,
+            "finals": 2
+          },
+          {
+            "case": "saved_source_repeat",
+            "frames": 256000,
+            "events": 90,
+            "finals": 2
+          },
+          {
+            "case": "saved_source_forced",
+            "frames": 256000,
+            "events": 91,
+            "finals": 3
+          }
+        ],
+        "resident_state_parity": true,
+        "execution": "QEMU_AARCH64_EMULATED",
+        "GUI_validated": false,
+        "CM5_tested": false,
+        "N4_accepted": false,
+        "N5_complete": false
+      },
+      "raw_final_word_diagnostics": [
+        {
+          "case": "saved_source",
+          "final_word_objects": 22,
+          "source_duration_ms": 16000.0,
+          "min_raw_start_ms": 5200,
+          "max_raw_end_ms": 16160,
+          "raw_words_outside_source": 1
+        },
+        {
+          "case": "saved_source_repeat",
+          "final_word_objects": 22,
+          "source_duration_ms": 16000.0,
+          "min_raw_start_ms": 5200,
+          "max_raw_end_ms": 16160,
+          "raw_words_outside_source": 1
+        },
+        {
+          "case": "saved_source_forced",
+          "final_word_objects": 23,
+          "source_duration_ms": 16000.0,
+          "min_raw_start_ms": 5200,
+          "max_raw_end_ms": 16160,
+          "raw_words_outside_source": 1
+        }
+      ],
+      "raw_final_words_contained_in_source": false,
+      "word_timing_accuracy_against_truth_verified": false,
+      "scope": "Unchanged six-case native protocol only; raw offset containment is a separate diagnostic"
+    }
+  ],
+  "code_bindings_verified": 23,
+  "exact_windows_owners_absent": [
+    {
+      "pid": 38116,
+      "create_time": 1790560358.199992
+    },
+    {
+      "pid": 41508,
+      "create_time": 1790560359.3269384
+    },
+    {
+      "pid": 28452,
+      "create_time": 1790560357.9720356
+    }
+  ],
+  "linux_closure": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\native-stream-short-v3-audit\\LINUX_CLOSURE.json",
+    "sha256": "3a6db4f17be93b2362f5d5c4b0155f1b91f17a9dfc157dfbd6a7a997c94cf553",
+    "bytes": 1216
+  },
+  "full_source_failure_resolved": false,
+  "word_timing_accuracy_against_truth_verified": false,
+  "ARM64_full_application_validated": false,
+  "CM5_tested": false,
+  "N4_accepted": false,
+  "N5_complete": false
+}

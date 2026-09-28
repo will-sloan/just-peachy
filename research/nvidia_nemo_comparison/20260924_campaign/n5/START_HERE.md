@@ -1,5 +1,15 @@
 # N5 release preparation - campaign not complete
 
+Latest checkpoint: `N5_STATUS_20260928_V20.json`. The 16-second A2/A3 ARM64
+native protocol is independently verified, including repeat/forced endpoint
+and process closure. No numerical worker is active. Read
+`NATIVE_STREAM_SHORT_FINDINGS_V3.md`: A3 raw word time extends 160ms beyond
+EOF; source-aligned timing and full application acceptance remain unverified.
+The full-source timeout is preserved, and N4/N5 remain partial. Numerical
+work is closed for packaging; reserve/deadline and Pi-off restrictions remain.
+V6 selection retains the current results, 34-method catalogue, clock foundation
+and mandatory real-world holdout note. Earlier starts below are historical.
+
 Real-world validation requirement: preserve the candidate combinations and
 methods for independent recordings; silence-heavy synthetic scenes may overstate
 the benefit of skipping audio. Read
@@ -7,8 +17,8 @@ the benefit of skipping audio. Read
 measured optimized conversation or CM5 throughput.
 
 Current update: full-source Nemotron ARM64 repeat still times out under
-Cortex-A76; a separate 16-second functional smoke is running and is not
-accepted. See `NATIVE_STREAM_CPU_FINDINGS_V2.md` and `N5_HANDOFF.md`.
+Cortex-A76; the separate 16-second native protocol passed independent review
+within its narrower scope. See `NATIVE_STREAM_CPU_FINDINGS_V2.md` and `N5_HANDOFF.md`.
 Six replay timing modes are implemented as a tested source-clock foundation
 (`realtime_validation_v1/README_SOURCE_CLOCK_V1.md`); model/app integration
 and measured paced performance remain pending.
@@ -25,7 +35,7 @@ availability-aware replay. It specifies caption-first workers, one stateful D1
 stream and explicit overload handling. Modeled workload savings are not an
 optimized runtime or CM5 acceptance. Existing launchers remain unchanged.
 
-Latest checkpoint: `N5_STATUS_20260928_V19.json`. The baseline ARM64 C-API
+Latest checkpoint: `N5_STATUS_20260928_V20.json`. The baseline ARM64 C-API
 ASR comparison now passes under explicit Cortex-A76 emulation; full Pi
 application and native hardware validation remain pending.
 

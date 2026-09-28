@@ -1,5 +1,15 @@
 # N5 partial release checkpoint
 
+Latest checkpoint: `N5_STATUS_20260928_V20.json`. The 16-second A2/A3 ARM64
+native protocol is independently verified, including repeat/forced endpoint
+and process closure. No numerical worker is active. Read
+`NATIVE_STREAM_SHORT_FINDINGS_V3.md`: A3 raw word time extends 160ms beyond
+EOF; source-aligned timing and full application acceptance remain unverified.
+The full-source timeout is preserved, and N4/N5 remain partial. Numerical
+work is closed for packaging; reserve/deadline and Pi-off restrictions remain.
+V6 selection retains the current results, 34-method catalogue, clock foundation
+and mandatory real-world holdout note. Earlier starts below are historical.
+
 ## 2026-09-28 - sparse synthetic audio is not real-world runtime evidence
 
 The user's latest clarification is mandatory for future comparisons: large
@@ -12,7 +22,7 @@ source timing, declared duty cycle, actual compute/overhead and backlog results.
 Synthetic savings must remain scoped estimates; no promotion to measured
 real-world or Pi performance. Preserve this addendum in the final package.
 
-## 2026-09-28 01:53 UTC - full-source timeout closed; short smoke running
+## Historical start: 2026-09-28 01:53 UTC - short smoke
 
 Latest checkpoint: `N5_STATUS_20260928_V19.json`. The full-source A2 retry
 with explicit Cortex-A76 timed out during repetition after 1,800.60 seconds.
