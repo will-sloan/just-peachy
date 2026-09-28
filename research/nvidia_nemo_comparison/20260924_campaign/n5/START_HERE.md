@@ -1,5 +1,11 @@
 # N5 release preparation - campaign not complete
 
+New exploration: `CM5_PARALLEL_DIARIZATION_FEASIBILITY_20260928.md` measures
+energy/ASR support against all 240 saved scenarios and tests bounded
+availability-aware replay. It specifies caption-first workers, one stateful D1
+stream and explicit overload handling. Modeled workload savings are not an
+optimized runtime or CM5 acceptance. Existing launchers remain unchanged.
+
 Latest checkpoint: `N5_STATUS_20260928_V17.json`.
 
 Latest additional choices: `Start-N5-NEMOTRON-REDIMNET.cmd` retains ReDimNet

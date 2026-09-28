@@ -1,5 +1,12 @@
 # N5 packaging tools
 
+`CM5_PARALLEL_DIARIZATION_FEASIBILITY_20260928.md` reports the user's
+caption-first/parallel-worker proposal and two new full-bank workload/support
+analyses. `README_D1_WORKLOAD_V1.md` and `README_D1_CAUSAL_SUPPORT_V1.md`
+document inputs, outputs, PowerShell/CMD/Anaconda commands and nine passing
+checks. These reuse existing evidence; no optimized model or Pi runtime has
+been validated and no production audio gate was deployed.
+
 Latest checkpoint: V17. `ASR_GUIDED_DIARIZATION_AND_FINETUNING_20260927.md`
 reports ASR-assisted false-activity diagnostics, language support, current-bank
 fine-tuning suitability and practical CPU backlog. Reproduce the two read-only

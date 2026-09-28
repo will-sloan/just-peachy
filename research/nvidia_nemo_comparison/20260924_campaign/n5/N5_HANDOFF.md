@@ -1,5 +1,31 @@
 # N5 partial release checkpoint
 
+## 2026-09-28 - CM5 parallel-worker and gating feasibility
+
+The user requested exploration of ASR-first captions with asynchronous speaker
+workers, cheap speech cues, larger chunks and bounded backlog on CM5.
+`CM5_PARALLEL_DIARIZATION_FEASIBILITY_20260928.md` records the architecture
+audit and two new bounded analyses: 480 saved files / 240 paired scenarios,
+960 existing A0/A2 traces, no new neural inference or hardware access. Nine
+arithmetic/causal-deadline tests pass. Public aggregate receipts are
+`D1_WORKLOAD_ASSESSMENT_V1.json` and `D1_CAUSAL_SUPPORT_V1.json`; private
+input hashes/rows are in local/n5/d1-workload-v1 and d1-causal-support-v1.
+
+At 220ms modeled decision delay, energy OR Sherpa support retains 35.35% of
+audio and excludes 0.229% of estimated complete-reference speech. Ideal linear
+desktop service RTF is 0.667, but 52/480 files still exceed 1 and worst modeled
+pending compute reaches 34.81s. This is not measured optimized throughput.
+Energy alone at -35dBFS loses 15.66% estimated speech and 15 short-turn
+occurrences. No production gate is selected or deployed. ASR-clock replay
+does not simulate CM5 contention or validate Nemotron state after skipped audio.
+
+Keep one ordered stateful D1 stream as the first optimization target; qualify
+native chunk/thread geometry, source-time mapping and shadow gates before
+actual skipping. ReDimNet remains useful for names, especially across any
+explicit stream discontinuity. XVF3800 telemetry must await actual reconnection.
+Preserve V17 status and all working/failed sources. This addendum does not
+change acceptance: N4/N5 remain partial; deadline/reserve unchanged.
+
 ## 2026-09-27 - stable Windows pair; ASR guidance and fine-tuning assessment
 
 Current checkpoint: N5_STATUS_20260928_V17.json. The V3 private analysis archive
