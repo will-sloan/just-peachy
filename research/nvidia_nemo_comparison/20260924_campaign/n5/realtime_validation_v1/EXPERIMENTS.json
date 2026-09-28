@@ -1,0 +1,907 @@
+{
+  "schema": "just-peachy.realtime-validation-catalog.v1",
+  "created_utc": "2026-09-28T01:18:23.941687+00:00",
+  "purpose": "Hold distinct simulation, worker and selective-diarization methods for staged offline and later native CM5 validation.",
+  "status": "RESEARCH_TEST_CATALOG_NOT_QUALIFIED_IMPLEMENTATION",
+  "stage_acceptance": false,
+  "Pi_contacted": false,
+  "production_gate_enabled": false,
+  "training_authorized": false,
+  "deadline_utc": "2026-09-28T14:48:19Z",
+  "packaging_reserve_utc": "2026-09-28T02:48:19Z",
+  "compositions": {
+    "A0_D1_E0": "Sherpa ASR + Nemotron 3 diarization + ReDimNet identity",
+    "A2_D1_E0": "Nemotron English ASR + Nemotron 3 diarization + ReDimNet identity"
+  },
+  "optional_control": "Anonymous E0 bypass; no persistent personal naming claim.",
+  "retired": "TitaNet E1: preserve prior evidence; no new work.",
+  "axes": {
+    "delivery": {
+      "unpaced": "Saved-file throughput only; never a live-latency result.",
+      "paced_1x": "Monotonic-clock delivery: sample n is available no earlier than n/sample_rate.",
+      "paced_05x": "Half input arrival rate; diagnose whether extra compute headroom clears the backlog.",
+      "paced_2x": "Twice input arrival rate; controlled overload, not a real-world speed claim.",
+      "jitter_1x": "1x source with deterministic extra arrival delay 0/20/80/200ms, seed recorded; never deliver before source time.",
+      "burst_1x": "Accumulate 2s source, release buffered frames in a burst, repeat; preserve source indices and measure added latency.",
+      "endurance_30m": "At least 30 minutes of causally delivered saved audio; declared joins/epochs and duty cycle.",
+      "endurance_60m": "60-minute finalist run, including dense continuous speech and silence; native target after admission."
+    },
+    "workers": {
+      "threads_ordered": "Existing separate ASR and one ordered stateful D1 lane; no guarantee of priority without timing evidence.",
+      "serial_control": "Serialized ASR/speaker control to quantify interaction and publication delay.",
+      "process_isolated": "Separate bounded ASR/D1 processes with shared immutable audio references; include IPC/copy/RSS cost.",
+      "embedding_on_demand": "ASR plus one ordered D1, E0 only for new/changed/uncertain identity on eligible clean speech windows.",
+      "two_overlapping_diarizers": "Two independent overlapping-window D1 workers; separate caches/epochs, explicit cross-window slot/identity reconciliation.",
+      "independent_sessions_pool": "Worker pool over unrelated saved sessions; measures total throughput only, never single-conversation acceleration."
+    },
+    "gate": {
+      "all_audio": "Ungated reference.",
+      "exact_digital_zero": "Only all-zero PCM runs with declared pre-roll/hangover; not equivalent to acoustic silence.",
+      "energy_minus55": "20ms RMS >= -55dBFS, 200ms pre-roll, 400ms hangover; prior model-free analysis exists.",
+      "energy_minus45": "20ms RMS >= -45dBFS, same padding; prior analysis lost more quiet speech.",
+      "adaptive_energy": "Causal rolling noise estimate with floor/ceiling and hysteresis, frozen before held-out evaluation; no future/global normalization.",
+      "lightweight_vad": "Existing locally available, hash-pinned speech VAD; include its measured CPU and wake-up cost.",
+      "vad_or_energy": "Positive VAD OR conservative energy support; uncertain/missing cue retains audio.",
+      "energy_or_asr_022": "Energy OR nonempty partial/final ASR support available by a 220ms decision deadline; current composition ASR only.",
+      "energy_or_asr_2": "Same positive-only support with 2s deadline; caption publication never waits for gate.",
+      "energy_vad_asr_union": "Union of causal positive cues; silence only when all present cues agree and hold duration is met.",
+      "asr_only_negative_control": "Diagnostic only: no recognized tokens does not establish silence; never deploy this alone.",
+      "xvf_positive_fallback": "Later measured XVF3800 speech energy/direction as positive support plus software cues; stale/missing hardware cue cannot veto speech."
+    },
+    "chunk": {
+      "nominal_104": "Existing supported native 1.04s streaming profile.",
+      "low_064": "Existing supported native 0.64s streaming profile.",
+      "ultralow_032": "Existing supported native 0.32s profile; prior evidence suggests greater compute cost.",
+      "offline_304": "Supported 30.4s offline-style buffer; throughput/accuracy contrast with explicit minimum buffering latency, not prompt streaming."
+    },
+    "queue": {
+      "bounded_fifo": "Bound source duration, outstanding compute, and oldest pending label separately; overflow is explicit Unknown/unanalyzed.",
+      "recent_first_epoch": "If overloaded, declare skipped intervals and a new track epoch; restart near present with measured context warm-up, do not reuse uncertain identity.",
+      "uncertain_revisit": "Keep ordered primary D1; separate bounded retrospective jobs only for uncertain spans, with explicit context and independent state. Never reorder pushes into one cache."
+    },
+    "state": {
+      "continuous": "All samples in source order, unchanged native state.",
+      "shadow": "Log proposed keep/skip decisions while feeding every sample. Measures cue errors; no compute saving claimed.",
+      "speech_islands_reset": "Apply gate only after shadow qualification; fresh state/epoch per admitted island and explicit identity reacquisition.",
+      "compacted_timeline": "Experimental applied skip with reversible source/model interval mapping and validated cache policy; model boundaries crossing a gap stay split/unknown."
+    }
+  },
+  "experiments": [
+    {
+      "id": "P01",
+      "title": "Unpaced throughput reference",
+      "priority": 1,
+      "configuration": {
+        "delivery": "unpaced",
+        "workers": "threads_ordered",
+        "gate": "all_audio",
+        "chunk": "nominal_104",
+        "queue": "bounded_fifo",
+        "state": "continuous"
+      },
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "implementation": "Verify existing path or implement in a fresh derivative before scheduling real inference.",
+      "prerequisites": [
+        "Per-source timestamps and delivery clock audited"
+      ],
+      "compositions": [
+        "A0_D1_E0",
+        "A2_D1_E0"
+      ],
+      "result": null
+    },
+    {
+      "id": "P02",
+      "title": "Real-time saved-file reference",
+      "priority": 1,
+      "configuration": {
+        "delivery": "paced_1x",
+        "workers": "threads_ordered",
+        "gate": "all_audio",
+        "chunk": "nominal_104",
+        "queue": "bounded_fifo",
+        "state": "continuous"
+      },
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "implementation": "Verify existing path or implement in a fresh derivative before scheduling real inference.",
+      "prerequisites": [
+        "Per-source timestamps and delivery clock audited"
+      ],
+      "compositions": [
+        "A0_D1_E0",
+        "A2_D1_E0"
+      ],
+      "result": null
+    },
+    {
+      "id": "P03",
+      "title": "Half-rate diagnostic",
+      "priority": 3,
+      "configuration": {
+        "delivery": "paced_05x",
+        "workers": "threads_ordered",
+        "gate": "all_audio",
+        "chunk": "nominal_104",
+        "queue": "bounded_fifo",
+        "state": "continuous"
+      },
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "implementation": "Verify existing path or implement in a fresh derivative before scheduling real inference.",
+      "prerequisites": [
+        "Per-source timestamps and delivery clock audited"
+      ],
+      "compositions": [
+        "A0_D1_E0",
+        "A2_D1_E0"
+      ],
+      "result": null
+    },
+    {
+      "id": "P04",
+      "title": "Accelerated overload",
+      "priority": 3,
+      "configuration": {
+        "delivery": "paced_2x",
+        "workers": "threads_ordered",
+        "gate": "all_audio",
+        "chunk": "nominal_104",
+        "queue": "bounded_fifo",
+        "state": "continuous"
+      },
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "implementation": "Verify existing path or implement in a fresh derivative before scheduling real inference.",
+      "prerequisites": [
+        "Per-source timestamps and delivery clock audited"
+      ],
+      "compositions": [
+        "A0_D1_E0",
+        "A2_D1_E0"
+      ],
+      "result": null
+    },
+    {
+      "id": "P05",
+      "title": "Jittered arrival",
+      "priority": 3,
+      "configuration": {
+        "delivery": "jitter_1x",
+        "workers": "threads_ordered",
+        "gate": "all_audio",
+        "chunk": "nominal_104",
+        "queue": "bounded_fifo",
+        "state": "continuous"
+      },
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "implementation": "Verify existing path or implement in a fresh derivative before scheduling real inference.",
+      "prerequisites": [
+        "Per-source timestamps and delivery clock audited"
+      ],
+      "compositions": [
+        "A0_D1_E0",
+        "A2_D1_E0"
+      ],
+      "result": null
+    },
+    {
+      "id": "P06",
+      "title": "Bursty arrival",
+      "priority": 3,
+      "configuration": {
+        "delivery": "burst_1x",
+        "workers": "threads_ordered",
+        "gate": "all_audio",
+        "chunk": "nominal_104",
+        "queue": "bounded_fifo",
+        "state": "continuous"
+      },
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "implementation": "Verify existing path or implement in a fresh derivative before scheduling real inference.",
+      "prerequisites": [
+        "Per-source timestamps and delivery clock audited"
+      ],
+      "compositions": [
+        "A0_D1_E0",
+        "A2_D1_E0"
+      ],
+      "result": null
+    },
+    {
+      "id": "P07",
+      "title": "Thirty-minute sustained conversation",
+      "priority": 3,
+      "configuration": {
+        "delivery": "endurance_30m",
+        "workers": "threads_ordered",
+        "gate": "all_audio",
+        "chunk": "nominal_104",
+        "queue": "bounded_fifo",
+        "state": "continuous"
+      },
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "implementation": "Verify existing path or implement in a fresh derivative before scheduling real inference.",
+      "prerequisites": [
+        "Per-source timestamps and delivery clock audited"
+      ],
+      "compositions": [
+        "A0_D1_E0",
+        "A2_D1_E0"
+      ],
+      "result": null
+    },
+    {
+      "id": "P08",
+      "title": "Sixty-minute finalist endurance",
+      "priority": 3,
+      "configuration": {
+        "delivery": "endurance_60m",
+        "workers": "threads_ordered",
+        "gate": "all_audio",
+        "chunk": "nominal_104",
+        "queue": "bounded_fifo",
+        "state": "continuous"
+      },
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "implementation": "Verify existing path or implement in a fresh derivative before scheduling real inference.",
+      "prerequisites": [
+        "Per-source timestamps and delivery clock audited"
+      ],
+      "compositions": [
+        "A0_D1_E0",
+        "A2_D1_E0"
+      ],
+      "result": null
+    },
+    {
+      "id": "W01",
+      "title": "Serial-stage control",
+      "priority": 2,
+      "configuration": {
+        "delivery": "paced_1x",
+        "workers": "serial_control",
+        "gate": "all_audio",
+        "chunk": "nominal_104",
+        "queue": "bounded_fifo",
+        "state": "continuous"
+      },
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "implementation": "Verify existing path or implement in a fresh derivative before scheduling real inference.",
+      "prerequisites": [
+        "Matched total CPU/RAM budget; native thread oversubscription refused"
+      ],
+      "compositions": [
+        "A0_D1_E0",
+        "A2_D1_E0"
+      ],
+      "result": null
+    },
+    {
+      "id": "W02",
+      "title": "ASR/speaker process isolation",
+      "priority": 2,
+      "configuration": {
+        "delivery": "paced_1x",
+        "workers": "process_isolated",
+        "gate": "all_audio",
+        "chunk": "nominal_104",
+        "queue": "bounded_fifo",
+        "state": "continuous"
+      },
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "implementation": "Verify existing path or implement in a fresh derivative before scheduling real inference.",
+      "prerequisites": [
+        "Matched total CPU/RAM budget; native thread oversubscription refused"
+      ],
+      "compositions": [
+        "A0_D1_E0",
+        "A2_D1_E0"
+      ],
+      "result": null
+    },
+    {
+      "id": "W03",
+      "title": "On-demand embedding worker",
+      "priority": 2,
+      "configuration": {
+        "delivery": "paced_1x",
+        "workers": "embedding_on_demand",
+        "gate": "all_audio",
+        "chunk": "nominal_104",
+        "queue": "bounded_fifo",
+        "state": "continuous"
+      },
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "implementation": "Verify existing path or implement in a fresh derivative before scheduling real inference.",
+      "prerequisites": [
+        "Matched total CPU/RAM budget; native thread oversubscription refused"
+      ],
+      "compositions": [
+        "A0_D1_E0",
+        "A2_D1_E0"
+      ],
+      "result": null
+    },
+    {
+      "id": "W04",
+      "title": "Two reconciled diarization workers",
+      "priority": 4,
+      "configuration": {
+        "delivery": "paced_1x",
+        "workers": "two_overlapping_diarizers",
+        "gate": "all_audio",
+        "chunk": "nominal_104",
+        "queue": "bounded_fifo",
+        "state": "continuous"
+      },
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "implementation": "Verify existing path or implement in a fresh derivative before scheduling real inference.",
+      "prerequisites": [
+        "Matched total CPU/RAM budget; native thread oversubscription refused"
+      ],
+      "compositions": [
+        "A0_D1_E0",
+        "A2_D1_E0"
+      ],
+      "result": null
+    },
+    {
+      "id": "W05",
+      "title": "Independent-session worker pool",
+      "priority": 4,
+      "configuration": {
+        "delivery": "paced_1x",
+        "workers": "independent_sessions_pool",
+        "gate": "all_audio",
+        "chunk": "nominal_104",
+        "queue": "bounded_fifo",
+        "state": "continuous"
+      },
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "implementation": "Verify existing path or implement in a fresh derivative before scheduling real inference.",
+      "prerequisites": [
+        "Matched total CPU/RAM budget; native thread oversubscription refused"
+      ],
+      "compositions": [
+        "A0_D1_E0",
+        "A2_D1_E0"
+      ],
+      "result": null
+    },
+    {
+      "id": "G01",
+      "title": "Exact-zero silence",
+      "priority": 1,
+      "configuration": {
+        "delivery": "paced_1x",
+        "workers": "threads_ordered",
+        "gate": "exact_digital_zero",
+        "chunk": "nominal_104",
+        "queue": "bounded_fifo",
+        "state": "shadow"
+      },
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "implementation": "Verify existing path or implement in a fresh derivative before scheduling real inference.",
+      "prerequisites": [
+        "Shadow before applying skips"
+      ],
+      "compositions": [
+        "A0_D1_E0",
+        "A2_D1_E0"
+      ],
+      "result": null
+    },
+    {
+      "id": "G02",
+      "title": "Conservative energy",
+      "priority": 1,
+      "configuration": {
+        "delivery": "paced_1x",
+        "workers": "threads_ordered",
+        "gate": "energy_minus55",
+        "chunk": "nominal_104",
+        "queue": "bounded_fifo",
+        "state": "shadow"
+      },
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "implementation": "Verify existing path or implement in a fresh derivative before scheduling real inference.",
+      "prerequisites": [
+        "Shadow before applying skips"
+      ],
+      "compositions": [
+        "A0_D1_E0",
+        "A2_D1_E0"
+      ],
+      "result": null
+    },
+    {
+      "id": "G03",
+      "title": "Moderate energy",
+      "priority": 3,
+      "configuration": {
+        "delivery": "paced_1x",
+        "workers": "threads_ordered",
+        "gate": "energy_minus45",
+        "chunk": "nominal_104",
+        "queue": "bounded_fifo",
+        "state": "shadow"
+      },
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "implementation": "Verify existing path or implement in a fresh derivative before scheduling real inference.",
+      "prerequisites": [
+        "Shadow before applying skips"
+      ],
+      "compositions": [
+        "A0_D1_E0",
+        "A2_D1_E0"
+      ],
+      "result": null
+    },
+    {
+      "id": "G04",
+      "title": "Adaptive energy and hysteresis",
+      "priority": 3,
+      "configuration": {
+        "delivery": "paced_1x",
+        "workers": "threads_ordered",
+        "gate": "adaptive_energy",
+        "chunk": "nominal_104",
+        "queue": "bounded_fifo",
+        "state": "shadow"
+      },
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "implementation": "Verify existing path or implement in a fresh derivative before scheduling real inference.",
+      "prerequisites": [
+        "Shadow before applying skips"
+      ],
+      "compositions": [
+        "A0_D1_E0",
+        "A2_D1_E0"
+      ],
+      "result": null
+    },
+    {
+      "id": "G05",
+      "title": "Lightweight speech VAD",
+      "priority": 1,
+      "configuration": {
+        "delivery": "paced_1x",
+        "workers": "threads_ordered",
+        "gate": "lightweight_vad",
+        "chunk": "nominal_104",
+        "queue": "bounded_fifo",
+        "state": "shadow"
+      },
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "implementation": "Verify existing path or implement in a fresh derivative before scheduling real inference.",
+      "prerequisites": [
+        "Shadow before applying skips"
+      ],
+      "compositions": [
+        "A0_D1_E0",
+        "A2_D1_E0"
+      ],
+      "result": null
+    },
+    {
+      "id": "G06",
+      "title": "VAD plus energy",
+      "priority": 1,
+      "configuration": {
+        "delivery": "paced_1x",
+        "workers": "threads_ordered",
+        "gate": "vad_or_energy",
+        "chunk": "nominal_104",
+        "queue": "bounded_fifo",
+        "state": "shadow"
+      },
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "implementation": "Verify existing path or implement in a fresh derivative before scheduling real inference.",
+      "prerequisites": [
+        "Shadow before applying skips"
+      ],
+      "compositions": [
+        "A0_D1_E0",
+        "A2_D1_E0"
+      ],
+      "result": null
+    },
+    {
+      "id": "G07",
+      "title": "Short-delay ASR-assisted gate",
+      "priority": 1,
+      "configuration": {
+        "delivery": "paced_1x",
+        "workers": "threads_ordered",
+        "gate": "energy_or_asr_022",
+        "chunk": "nominal_104",
+        "queue": "bounded_fifo",
+        "state": "shadow"
+      },
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "implementation": "Verify existing path or implement in a fresh derivative before scheduling real inference.",
+      "prerequisites": [
+        "Shadow before applying skips"
+      ],
+      "compositions": [
+        "A0_D1_E0",
+        "A2_D1_E0"
+      ],
+      "result": null
+    },
+    {
+      "id": "G08",
+      "title": "Longer-delay ASR-assisted gate",
+      "priority": 1,
+      "configuration": {
+        "delivery": "paced_1x",
+        "workers": "threads_ordered",
+        "gate": "energy_or_asr_2",
+        "chunk": "nominal_104",
+        "queue": "bounded_fifo",
+        "state": "shadow"
+      },
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "implementation": "Verify existing path or implement in a fresh derivative before scheduling real inference.",
+      "prerequisites": [
+        "Shadow before applying skips"
+      ],
+      "compositions": [
+        "A0_D1_E0",
+        "A2_D1_E0"
+      ],
+      "result": null
+    },
+    {
+      "id": "G09",
+      "title": "Combined software cues",
+      "priority": 3,
+      "configuration": {
+        "delivery": "paced_1x",
+        "workers": "threads_ordered",
+        "gate": "energy_vad_asr_union",
+        "chunk": "nominal_104",
+        "queue": "bounded_fifo",
+        "state": "shadow"
+      },
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "implementation": "Verify existing path or implement in a fresh derivative before scheduling real inference.",
+      "prerequisites": [
+        "Shadow before applying skips"
+      ],
+      "compositions": [
+        "A0_D1_E0",
+        "A2_D1_E0"
+      ],
+      "result": null
+    },
+    {
+      "id": "G10",
+      "title": "ASR-only negative control",
+      "priority": 3,
+      "configuration": {
+        "delivery": "paced_1x",
+        "workers": "threads_ordered",
+        "gate": "asr_only_negative_control",
+        "chunk": "nominal_104",
+        "queue": "bounded_fifo",
+        "state": "shadow"
+      },
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "implementation": "Verify existing path or implement in a fresh derivative before scheduling real inference.",
+      "prerequisites": [
+        "Shadow before applying skips"
+      ],
+      "compositions": [
+        "A0_D1_E0",
+        "A2_D1_E0"
+      ],
+      "result": null
+    },
+    {
+      "id": "G11",
+      "title": "Hardware-positive software-fallback gate",
+      "priority": 3,
+      "configuration": {
+        "delivery": "paced_1x",
+        "workers": "threads_ordered",
+        "gate": "xvf_positive_fallback",
+        "chunk": "nominal_104",
+        "queue": "bounded_fifo",
+        "state": "shadow"
+      },
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "implementation": "Verify existing path or implement in a fresh derivative before scheduling real inference.",
+      "prerequisites": [
+        "Shadow before applying skips",
+        "Actual timestamped XVF evidence and reconnection"
+      ],
+      "compositions": [
+        "A0_D1_E0",
+        "A2_D1_E0"
+      ],
+      "result": null
+    },
+    {
+      "id": "C01",
+      "title": "Nominal native chunk",
+      "priority": 2,
+      "configuration": {
+        "delivery": "paced_1x",
+        "workers": "threads_ordered",
+        "gate": "all_audio",
+        "chunk": "nominal_104",
+        "queue": "bounded_fifo",
+        "state": "continuous"
+      },
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "implementation": "Verify existing path or implement in a fresh derivative before scheduling real inference.",
+      "prerequisites": [
+        "Supported native geometry; host push batching alone does not establish changed inference work"
+      ],
+      "compositions": [
+        "A0_D1_E0",
+        "A2_D1_E0"
+      ],
+      "result": null
+    },
+    {
+      "id": "C02",
+      "title": "Low-latency native chunk",
+      "priority": 2,
+      "configuration": {
+        "delivery": "paced_1x",
+        "workers": "threads_ordered",
+        "gate": "all_audio",
+        "chunk": "low_064",
+        "queue": "bounded_fifo",
+        "state": "continuous"
+      },
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "implementation": "Verify existing path or implement in a fresh derivative before scheduling real inference.",
+      "prerequisites": [
+        "Supported native geometry; host push batching alone does not establish changed inference work"
+      ],
+      "compositions": [
+        "A0_D1_E0",
+        "A2_D1_E0"
+      ],
+      "result": null
+    },
+    {
+      "id": "C03",
+      "title": "Ultra-low native chunk",
+      "priority": 2,
+      "configuration": {
+        "delivery": "paced_1x",
+        "workers": "threads_ordered",
+        "gate": "all_audio",
+        "chunk": "ultralow_032",
+        "queue": "bounded_fifo",
+        "state": "continuous"
+      },
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "implementation": "Verify existing path or implement in a fresh derivative before scheduling real inference.",
+      "prerequisites": [
+        "Supported native geometry; host push batching alone does not establish changed inference work"
+      ],
+      "compositions": [
+        "A0_D1_E0",
+        "A2_D1_E0"
+      ],
+      "result": null
+    },
+    {
+      "id": "C04",
+      "title": "Offline-sized native chunk",
+      "priority": 2,
+      "configuration": {
+        "delivery": "paced_1x",
+        "workers": "threads_ordered",
+        "gate": "all_audio",
+        "chunk": "offline_304",
+        "queue": "bounded_fifo",
+        "state": "continuous"
+      },
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "implementation": "Verify existing path or implement in a fresh derivative before scheduling real inference.",
+      "prerequisites": [
+        "Supported native geometry; host push batching alone does not establish changed inference work"
+      ],
+      "compositions": [
+        "A0_D1_E0",
+        "A2_D1_E0"
+      ],
+      "result": null
+    },
+    {
+      "id": "O01",
+      "title": "Bounded FIFO and Unknown fallback",
+      "priority": 2,
+      "configuration": {
+        "delivery": "paced_1x",
+        "workers": "threads_ordered",
+        "gate": "all_audio",
+        "chunk": "nominal_104",
+        "queue": "bounded_fifo",
+        "state": "continuous"
+      },
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "implementation": "Verify existing path or implement in a fresh derivative before scheduling real inference.",
+      "prerequisites": [
+        "Monotonic captions and visible degraded intervals; exact ownership at cancellation"
+      ],
+      "compositions": [
+        "A0_D1_E0",
+        "A2_D1_E0"
+      ],
+      "result": null
+    },
+    {
+      "id": "O02",
+      "title": "Explicit recent-first restart",
+      "priority": 3,
+      "configuration": {
+        "delivery": "paced_1x",
+        "workers": "threads_ordered",
+        "gate": "all_audio",
+        "chunk": "nominal_104",
+        "queue": "recent_first_epoch",
+        "state": "continuous"
+      },
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "implementation": "Verify existing path or implement in a fresh derivative before scheduling real inference.",
+      "prerequisites": [
+        "Monotonic captions and visible degraded intervals; exact ownership at cancellation"
+      ],
+      "compositions": [
+        "A0_D1_E0",
+        "A2_D1_E0"
+      ],
+      "result": null
+    },
+    {
+      "id": "O03",
+      "title": "Selective uncertain-span refinement",
+      "priority": 3,
+      "configuration": {
+        "delivery": "paced_1x",
+        "workers": "threads_ordered",
+        "gate": "all_audio",
+        "chunk": "nominal_104",
+        "queue": "uncertain_revisit",
+        "state": "continuous"
+      },
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "implementation": "Verify existing path or implement in a fresh derivative before scheduling real inference.",
+      "prerequisites": [
+        "Monotonic captions and visible degraded intervals; exact ownership at cancellation"
+      ],
+      "compositions": [
+        "A0_D1_E0",
+        "A2_D1_E0"
+      ],
+      "result": null
+    },
+    {
+      "id": "S01",
+      "title": "Non-destructive shadow gate",
+      "priority": 1,
+      "configuration": {
+        "delivery": "paced_1x",
+        "workers": "threads_ordered",
+        "gate": "energy_minus55",
+        "chunk": "nominal_104",
+        "queue": "bounded_fifo",
+        "state": "shadow"
+      },
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "implementation": "Verify existing path or implement in a fresh derivative before scheduling real inference.",
+      "prerequisites": [
+        "Returning speakers, overlap, gaps, final flush and timestamps checked against ungated control"
+      ],
+      "compositions": [
+        "A0_D1_E0",
+        "A2_D1_E0"
+      ],
+      "result": null
+    },
+    {
+      "id": "S02",
+      "title": "Speech-island resets",
+      "priority": 4,
+      "configuration": {
+        "delivery": "paced_1x",
+        "workers": "threads_ordered",
+        "gate": "energy_minus55",
+        "chunk": "nominal_104",
+        "queue": "bounded_fifo",
+        "state": "speech_islands_reset"
+      },
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "implementation": "Verify existing path or implement in a fresh derivative before scheduling real inference.",
+      "prerequisites": [
+        "Returning speakers, overlap, gaps, final flush and timestamps checked against ungated control"
+      ],
+      "compositions": [
+        "A0_D1_E0",
+        "A2_D1_E0"
+      ],
+      "result": null
+    },
+    {
+      "id": "S03",
+      "title": "Mapped silence removal",
+      "priority": 4,
+      "configuration": {
+        "delivery": "paced_1x",
+        "workers": "threads_ordered",
+        "gate": "energy_minus55",
+        "chunk": "nominal_104",
+        "queue": "bounded_fifo",
+        "state": "compacted_timeline"
+      },
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "implementation": "Verify existing path or implement in a fresh derivative before scheduling real inference.",
+      "prerequisites": [
+        "Returning speakers, overlap, gaps, final flush and timestamps checked against ungated control"
+      ],
+      "compositions": [
+        "A0_D1_E0",
+        "A2_D1_E0"
+      ],
+      "result": null
+    }
+  ],
+  "execution_order": [
+    "Repair existing correctness/closure blockers",
+    "Freeze exact source/model/runtime/config and matched budgets",
+    "Short saved-source smoke and baseline",
+    "Shadow gating on all eligible existing scenarios, holding truth separate",
+    "Selected actual paced implementations with semantic/state checks",
+    "New held-out real-world validation after reconnection",
+    "30/60-minute native finalist endurance"
+  ],
+  "promotion_rule": "Only reviewed evidence promotes an entry; terminal success, modeled speed or this catalog never accept N4/N5. No automatic Cartesian sweep.",
+  "metrics": [
+    "WER and deletion rate",
+    "DER with explicit collar/overlap/reference policy",
+    "cpWER or speaker-attributed WER where references support it",
+    "False named assignment and Unknown/pending fraction",
+    "Quiet/short/overlap speech lost to gate",
+    "Caption first/final latency p50/p95/p99",
+    "Speaker first/committed latency p50/p95/p99",
+    "Label corrections and stale pending age",
+    "Inference calls, retained duration, gate/fusion/context CPU time",
+    "Service RTF and wall-time effective RTF including all costs",
+    "Backlog slope/max and tail drain",
+    "Peak per-process and total RSS, CPU, thread counts",
+    "Native target clocks, thermals and throttling",
+    "Skipped/degraded source intervals and identity epoch changes",
+    "Normal worker closure and source/hash parity"
+  ],
+  "scenario_groups": [
+    "continuous dense speech",
+    "long silence and returning speakers",
+    "quiet or distant speech",
+    "short replies",
+    "overlapping voices",
+    "noise/music/babble and false activity",
+    "irregular delivery",
+    "overload and recovery",
+    "repeated sessions and shutdown"
+  ],
+  "evidence_levels": [
+    "SPECIFIED",
+    "IMPLEMENTED",
+    "MODEL_FREE_REPLAY",
+    "SHADOW_OBSERVED",
+    "WINDOWS_PACED_VERIFIED",
+    "ARM64_EMULATED_COMPONENT",
+    "CM5_NATIVE_VERIFIED"
+  ],
+  "existing_aggregate_evidence": [
+    "../D1_WORKLOAD_ASSESSMENT_V1.json",
+    "../D1_CAUSAL_SUPPORT_V1.json",
+    "../CM5_PARALLEL_DIARIZATION_FEASIBILITY_20260928.md"
+  ],
+  "mandatory_scope": "Maintain two-logical-CPU Windows admission and GPU off; future CM5 allocations require actual admission. Unknown cues retain audio; no hardware, training or enrollment during offline campaign."
+}

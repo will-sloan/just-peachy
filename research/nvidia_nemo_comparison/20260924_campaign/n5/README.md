@@ -1,5 +1,11 @@
 # N5 packaging tools
 
+`realtime_validation_v1/README.md` and its JSON catalogue retain 34 proposed
+real-time simulation, parallel-worker, silence-saving and state/overload
+methods for later controlled and native CM5 validation. These are specified
+experiments, not implemented backends. The existing hourly follow-up now
+carries these and prior user changes; see `REALTIME_METHODS_AND_SCHEDULE_V1.json`.
+
 New bounded follow-up: `README_NATIVE_STREAM_CPU_V2.md` and
 `NATIVE_STREAM_CPU_START_V2.json` cover the active Cortex-A76 A2/A3 native
 retest. It keeps the original harness, reader and per-model time limits.

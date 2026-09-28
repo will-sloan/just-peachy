@@ -1,5 +1,11 @@
 # N5 release preparation - campaign not complete
 
+Later real-world validation catalogue: `realtime_validation_v1/README.md`
+describes 34 retained simulation/worker/gating/chunk/overload methods. The
+hourly follow-up includes their implementation and validation priorities.
+They remain specified experiments until individual evidence qualifies them;
+no silence gate or extra parallel model worker is enabled by this catalogue.
+
 New exploration: `CM5_PARALLEL_DIARIZATION_FEASIBILITY_20260928.md` measures
 energy/ASR support against all 240 saved scenarios and tests bounded
 availability-aware replay. It specifies caption-first workers, one stateful D1

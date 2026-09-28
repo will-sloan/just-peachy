@@ -1,5 +1,24 @@
 # N5 partial release checkpoint
 
+## 2026-09-28 - expanded methods retained and hourly scope refreshed
+
+The user's latest request is retained in `realtime_validation_v1/README.md`
+and `EXPERIMENTS.json`: 34 methods across arrival simulation, worker layouts,
+silence/activity cues, native chunks, bounded overload and state handling,
+each for A0/D1/E0 and A2/D1/E0. This is a held research catalogue, not new
+implementation or acceptance. Preserve it in the next/final handoff archive.
+Use short controls and shadow gates first; do not launch a Cartesian sweep.
+
+`REALTIME_METHODS_AND_SCHEDULE_V1.json` records a verified update to the
+existing hourly follow-up. Its prompt now includes these methods, all recent
+user changes and the corrected N2/N3/baseline ARM64 state, while prioritizing
+bounded blocker repairs. Cadence, target task, quiet-notification intent,
+packaging reserve, campaign deadline and offline restrictions are preserved.
+
+The active native-stream-cpu-v2 test below remains the current owned numerical
+run. Inspect its fresh heartbeat/result and exact owners before doing more
+work. No active source was changed for this catalogue or schedule update.
+
 ## 2026-09-28 01:12 UTC - bounded Nemotron ARM64 CPU retest active
 
 After the accepted baseline Cortex-A76 result, a fresh derivative applies
