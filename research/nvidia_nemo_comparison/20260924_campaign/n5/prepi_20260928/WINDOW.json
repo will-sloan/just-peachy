@@ -1,0 +1,21 @@
+{
+  "schema": "just-peachy.prepi-window.v1",
+  "authority": "User requested continued work before connecting the Pi within six hours.",
+  "started_utc": "2026-09-28T16:20:48Z",
+  "checkpoint_utc": "2026-09-28T22:20:48Z",
+  "prior_campaign_deadline_preserved": "2026-09-28T14:48:19Z",
+  "logical_cpus_total": 2,
+  "application_cpus": [4, 14],
+  "coordinator_cpu": 14,
+  "native_threads_per_model": 1,
+  "GPU": "OFF",
+  "minimum_free_gib": {"C:": 50, "G:": 75},
+  "new_downloads": false,
+  "maximum_new_output_bytes": 1073741824,
+  "prior_evidence_must_be_preserved": true,
+  "Pi_access": false,
+  "saved_audio_only": true,
+  "training_or_enrollment": false,
+  "desktop_focus_or_input": false,
+  "scope": "Fresh derivatives, bounded regression and saved-file checks, actual A0/D1/E0 and A2/D1/E0 qualification, preconnection packaging. Stop new dispatch at checkpoint and preserve honest partial results."
+}

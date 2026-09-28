@@ -1,0 +1,380 @@
+{
+  "schema": "just-peachy.prepi-check-summary.v1",
+  "utc": "2026-09-28T17:17:15.478126+00:00",
+  "status": "EIGHT_NARROW_WINDOWS_RUNS_INDEPENDENTLY_REVIEWED",
+  "window": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n5\\prepi_20260928\\WINDOW.json",
+    "sha256": "3447af8586795143d8e2e7d51b4a28e2af7f4a46c91d64a59f011e842feab033",
+    "bytes": 906
+  },
+  "runs": [
+    {
+      "name": "a0-d1-e0-v2",
+      "status": "PASS_PREPI_ONE_FILE_WINDOWS_LIFECYCLE_ONLY",
+      "backend_key": "nemotron_hybrid",
+      "review": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\prepi-20260928\\a0-d1-e0-v2-REVIEW.json",
+        "sha256": "2e4dab18ab4208f0b5a03498014bfd59f852cb5039dd0b39fcaf27da5d6f51b5",
+        "bytes": 3164
+      },
+      "source_receipt": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\releases\\prepi-shutdown-v1\\DERIVATIVE.json",
+        "sha256": "50b4579efda535fb1ba9bea4e25ae06b69e584bd071730d232f66e6a6dc6f2d9",
+        "bytes": 60999
+      },
+      "expected_samples": 715127,
+      "source_seconds": 44.6954375,
+      "embedding_calls": 20,
+      "model_cache": {
+        "asr_loads": 1,
+        "speaker_loads": 1,
+        "streams": 1
+      },
+      "activity_frames": 4470,
+      "inference_session_elapsed_wall_seconds": 92.51343900000211,
+      "scope": "One saved source, actual private-desktop Windows render/save/reopen/delete; not full bank or sustained realtime",
+      "source_files_verified": 385,
+      "all_audio_retained": true,
+      "all_owners_exited": true
+    },
+    {
+      "name": "a2-d1-e0-v1",
+      "status": "PASS_PREPI_ONE_FILE_WINDOWS_LIFECYCLE_ONLY",
+      "backend_key": "nemotron_600m",
+      "review": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\prepi-20260928\\a2-d1-e0-v1-REVIEW.json",
+        "sha256": "923a44cb760a572ba407bf7d41b2f2680dd8dc41a16fabe284acb018b1a6f887",
+        "bytes": 3163
+      },
+      "source_receipt": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\releases\\prepi-shutdown-v1\\DERIVATIVE.json",
+        "sha256": "50b4579efda535fb1ba9bea4e25ae06b69e584bd071730d232f66e6a6dc6f2d9",
+        "bytes": 60999
+      },
+      "expected_samples": 715127,
+      "source_seconds": 44.6954375,
+      "embedding_calls": 20,
+      "model_cache": {
+        "asr_loads": 1,
+        "speaker_loads": 1,
+        "streams": 1
+      },
+      "activity_frames": 4470,
+      "inference_session_elapsed_wall_seconds": 94.05029749998357,
+      "scope": "One saved source, actual private-desktop Windows render/save/reopen/delete; not full bank or sustained realtime",
+      "source_files_verified": 385,
+      "all_audio_retained": true,
+      "all_owners_exited": true
+    },
+    {
+      "name": "a0-restart-v1",
+      "status": "PASS_PREPI_TWO_CYCLE_WINDOWS_RESTART_ONLY",
+      "backend_key": "nemotron_hybrid",
+      "review": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\prepi-20260928\\a0-restart-v1-REVIEW.json",
+        "sha256": "3144b7c703b573134ffe67cbaec9c32a5a7dc7811d3503468d85afeac5c32e3a",
+        "bytes": 3952
+      },
+      "source_receipt": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\releases\\prepi-shutdown-v1\\DERIVATIVE.json",
+        "sha256": "50b4579efda535fb1ba9bea4e25ae06b69e584bd071730d232f66e6a6dc6f2d9",
+        "bytes": 60999
+      },
+      "expected_samples": 715127,
+      "source_seconds": 44.6954375,
+      "embedding_calls": 20,
+      "model_cache": {
+        "asr_loads": 1,
+        "speaker_loads": 1,
+        "streams": 2
+      },
+      "activity_frames": 4470,
+      "inference_session_elapsed_wall_seconds": 88.86816460004775,
+      "scope": "Two complete EOF/Stop/Start cycles of one saved source with cached models and exact activity/text/timestamp parity; not early cancellation, full bank or sustained realtime",
+      "source_files_verified": 385,
+      "all_audio_retained": true,
+      "all_owners_exited": true
+    },
+    {
+      "name": "a2-restart-v1",
+      "status": "PASS_PREPI_TWO_CYCLE_WINDOWS_RESTART_ONLY",
+      "backend_key": "nemotron_600m",
+      "review": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\prepi-20260928\\a2-restart-v1-REVIEW.json",
+        "sha256": "0e0290c663154629e9bbb1d58eded473ee2b08759b2db6888e7751e271e26d41",
+        "bytes": 3952
+      },
+      "source_receipt": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\releases\\prepi-shutdown-v1\\DERIVATIVE.json",
+        "sha256": "50b4579efda535fb1ba9bea4e25ae06b69e584bd071730d232f66e6a6dc6f2d9",
+        "bytes": 60999
+      },
+      "expected_samples": 715127,
+      "source_seconds": 44.6954375,
+      "embedding_calls": 20,
+      "model_cache": {
+        "asr_loads": 1,
+        "speaker_loads": 1,
+        "streams": 2
+      },
+      "activity_frames": 4470,
+      "inference_session_elapsed_wall_seconds": 90.31578860001173,
+      "scope": "Two complete EOF/Stop/Start cycles of one saved source with cached models and exact activity/text/timestamp parity; not early cancellation, full bank or sustained realtime",
+      "source_files_verified": 385,
+      "all_audio_retained": true,
+      "all_owners_exited": true
+    },
+    {
+      "name": "a0-shadow-v1",
+      "status": "PASS_PREPI_ONE_FILE_WINDOWS_SHADOW_ONLY",
+      "backend_key": "nemotron_hybrid",
+      "review": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\prepi-20260928\\a0-shadow-v1-REVIEW.json",
+        "sha256": "e0649abea61538a8f4aef8f55bc3471dcf313fe3961ba1d4db7596e658bddb10",
+        "bytes": 6568
+      },
+      "source_receipt": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\releases\\prepi-shutdown-v1\\DERIVATIVE.json",
+        "sha256": "50b4579efda535fb1ba9bea4e25ae06b69e584bd071730d232f66e6a6dc6f2d9",
+        "bytes": 60999
+      },
+      "expected_samples": 715127,
+      "source_seconds": 44.6954375,
+      "embedding_calls": 20,
+      "model_cache": {
+        "asr_loads": 1,
+        "speaker_loads": 1,
+        "streams": 1
+      },
+      "activity_frames": 4470,
+      "inference_session_elapsed_wall_seconds": 92.07809739996446,
+      "scope": "Paired one-file 1x saved-source Windows shadow proposals with unchanged PCM, captions/timestamps and native activity; no audio skipping or inference saving",
+      "source_files_verified": 385,
+      "all_audio_retained": true,
+      "all_owners_exited": true,
+      "shadow": {
+        "observer_wall_seconds": 0.22885590151418,
+        "exact_zero_fraction": 0.6590255996487338,
+        "actually_skipped_samples": 0,
+        "methods": {
+          "G01": {
+            "proposed_skip_fraction": 0.6089086274186264,
+            "proposed_skip_samples": 435447,
+            "energy_duty_cycle": 0.34097440035126625
+          },
+          "G02": {
+            "proposed_skip_fraction": 0.7171970852729656,
+            "proposed_skip_samples": 512887,
+            "energy_duty_cycle": 0.137374200666455
+          },
+          "G03": {
+            "proposed_skip_fraction": 0.7941624354834875,
+            "proposed_skip_samples": 567927,
+            "energy_duty_cycle": 0.05638159375887075
+          }
+        }
+      }
+    },
+    {
+      "name": "a2-shadow-v1",
+      "status": "PASS_PREPI_ONE_FILE_WINDOWS_SHADOW_ONLY",
+      "backend_key": "nemotron_600m",
+      "review": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\prepi-20260928\\a2-shadow-v1-REVIEW.json",
+        "sha256": "0fe8d3e5a3fd0744678d20f41d0f8fcf51fc64abe165e72ed2b6c1b21e92a595",
+        "bytes": 6567
+      },
+      "source_receipt": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\releases\\prepi-shutdown-v1\\DERIVATIVE.json",
+        "sha256": "50b4579efda535fb1ba9bea4e25ae06b69e584bd071730d232f66e6a6dc6f2d9",
+        "bytes": 60999
+      },
+      "expected_samples": 715127,
+      "source_seconds": 44.6954375,
+      "embedding_calls": 20,
+      "model_cache": {
+        "asr_loads": 1,
+        "speaker_loads": 1,
+        "streams": 1
+      },
+      "activity_frames": 4470,
+      "inference_session_elapsed_wall_seconds": 96.109179400024,
+      "scope": "Paired one-file 1x saved-source Windows shadow proposals with unchanged PCM, captions/timestamps and native activity; no audio skipping or inference saving",
+      "source_files_verified": 385,
+      "all_audio_retained": true,
+      "all_owners_exited": true,
+      "shadow": {
+        "observer_wall_seconds": 0.24766459868988022,
+        "exact_zero_fraction": 0.6590255996487338,
+        "actually_skipped_samples": 0,
+        "methods": {
+          "G01": {
+            "proposed_skip_fraction": 0.6089086274186264,
+            "proposed_skip_samples": 435447,
+            "energy_duty_cycle": 0.34097440035126625
+          },
+          "G02": {
+            "proposed_skip_fraction": 0.7171970852729656,
+            "proposed_skip_samples": 512887,
+            "energy_duty_cycle": 0.137374200666455
+          },
+          "G03": {
+            "proposed_skip_fraction": 0.7941624354834875,
+            "proposed_skip_samples": 567927,
+            "energy_duty_cycle": 0.05638159375887075
+          }
+        }
+      }
+    },
+    {
+      "name": "a0-e0-runtime-v1",
+      "status": "PASS_PREPI_E0_RUNTIME_WINDOWS_SHADOW_ONLY",
+      "backend_key": "nemotron_hybrid",
+      "review": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\prepi-20260928\\a0-e0-runtime-v1-REVIEW.json",
+        "sha256": "220f206f0723c13518c6ae9ac54e21b34943c62feea8ae660d7042af8f683814",
+        "bytes": 6616
+      },
+      "source_receipt": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\prepi-20260928\\derivatives\\e0-runtime-v1\\DERIVATIVE.json",
+        "sha256": "614ad7204b908e21c89f7b23e5cfedc89f06791b8b556c7743e26e8be2465977",
+        "bytes": 61305
+      },
+      "expected_samples": 715127,
+      "source_seconds": 44.6954375,
+      "embedding_calls": 20,
+      "model_cache": {
+        "asr_loads": 1,
+        "speaker_loads": 1,
+        "streams": 1
+      },
+      "activity_frames": 4470,
+      "inference_session_elapsed_wall_seconds": 92.43662839999888,
+      "scope": "Paired one-file 1x saved-source Windows shadow proposals with unchanged PCM, captions/timestamps and native activity; no audio skipping or inference saving",
+      "source_files_verified": 387,
+      "all_audio_retained": true,
+      "all_owners_exited": true,
+      "shadow": {
+        "observer_wall_seconds": 0.23615410109050572,
+        "exact_zero_fraction": 0.6590255996487338,
+        "actually_skipped_samples": 0,
+        "methods": {
+          "G01": {
+            "proposed_skip_fraction": 0.6089086274186264,
+            "proposed_skip_samples": 435447,
+            "energy_duty_cycle": 0.34097440035126625
+          },
+          "G02": {
+            "proposed_skip_fraction": 0.7171970852729656,
+            "proposed_skip_samples": 512887,
+            "energy_duty_cycle": 0.137374200666455
+          },
+          "G03": {
+            "proposed_skip_fraction": 0.7941624354834875,
+            "proposed_skip_samples": 567927,
+            "energy_duty_cycle": 0.05638159375887075
+          }
+        }
+      }
+    },
+    {
+      "name": "a2-e0-runtime-v1",
+      "status": "PASS_PREPI_E0_RUNTIME_WINDOWS_SHADOW_ONLY",
+      "backend_key": "nemotron_600m",
+      "review": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\prepi-20260928\\a2-e0-runtime-v1-REVIEW.json",
+        "sha256": "0c5d21771195b7df2a6d1eb1908496b7b0c3586be9fd0008509fdb2a87a15d51",
+        "bytes": 6613
+      },
+      "source_receipt": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\prepi-20260928\\derivatives\\e0-runtime-v1\\DERIVATIVE.json",
+        "sha256": "614ad7204b908e21c89f7b23e5cfedc89f06791b8b556c7743e26e8be2465977",
+        "bytes": 61305
+      },
+      "expected_samples": 715127,
+      "source_seconds": 44.6954375,
+      "embedding_calls": 20,
+      "model_cache": {
+        "asr_loads": 1,
+        "speaker_loads": 1,
+        "streams": 1
+      },
+      "activity_frames": 4470,
+      "inference_session_elapsed_wall_seconds": 93.02889279997908,
+      "scope": "Paired one-file 1x saved-source Windows shadow proposals with unchanged PCM, captions/timestamps and native activity; no audio skipping or inference saving",
+      "source_files_verified": 387,
+      "all_audio_retained": true,
+      "all_owners_exited": true,
+      "shadow": {
+        "observer_wall_seconds": 0.2377075008698739,
+        "exact_zero_fraction": 0.6590255996487338,
+        "actually_skipped_samples": 0,
+        "methods": {
+          "G01": {
+            "proposed_skip_fraction": 0.6089086274186264,
+            "proposed_skip_samples": 435447,
+            "energy_duty_cycle": 0.34097440035126625
+          },
+          "G02": {
+            "proposed_skip_fraction": 0.7171970852729656,
+            "proposed_skip_samples": 512887,
+            "energy_duty_cycle": 0.137374200666455
+          },
+          "G03": {
+            "proposed_skip_fraction": 0.7941624354834875,
+            "proposed_skip_samples": 567927,
+            "energy_duty_cycle": 0.05638159375887075
+          }
+        }
+      }
+    }
+  ],
+  "model_free_regression_logs": [
+    {
+      "log": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\prepi-20260928\\shutdown-tests-v1\\derivative-tests.txt",
+        "sha256": "e7a3364e25428b76d81bcd171784c0877cb8133588740368bad5132feec69417",
+        "bytes": 687
+      },
+      "tests": 4,
+      "status": "PASS_MODEL_FREE_ONLY"
+    },
+    {
+      "log": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\prepi-20260928\\shutdown-tests-v1\\existing-lifecycle.txt",
+        "sha256": "b303ec63f97ca5c143c36c35ff6d6d75227545fc4d2fd4c4739711e231cad627",
+        "bytes": 1621
+      },
+      "tests": 10,
+      "status": "PASS_MODEL_FREE_ONLY"
+    },
+    {
+      "log": {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\prepi-20260928\\e0-tests-v1\\tests.txt",
+        "sha256": "1a21cc49a177d049d765660f397e4a97b3d4e6bd4769665608283bfd43992313",
+        "bytes": 907
+      },
+      "tests": 6,
+      "status": "PASS_MODEL_FREE_ONLY"
+    }
+  ],
+  "unique_source_files": 1,
+  "source_is_saved_synthetic": true,
+  "N4_accepted": false,
+  "N5_complete": false,
+  "CM5_tested": false,
+  "independent_real_world_validation": false,
+  "applied_silence_gate_qualified": false,
+  "real_time_throughput_qualified": false,
+  "limitations": [
+    "Same saved source reused; run count is not independent scene coverage",
+    "Elapsed session wall time includes pacing/drain; it is not isolated inference service time",
+    "Zero/energy duty and proposed skips are conditional diagnostics, not speech accuracy or saved compute",
+    "Original partial N4 panel, full ARM64 stack and native held-out/endurance gates remain open"
+  ],
+  "generator": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n5\\prepi_20260928\\summarize_checks_v1.py",
+    "sha256": "f75b0a0fec1fce311b180d1ebba3cec0b63c05f2e7b6e6a952d5e40941866436",
+    "bytes": 4853
+  }
+}

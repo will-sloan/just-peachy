@@ -1,5 +1,12 @@
 # N5 packaging tools
 
+## User-authorized pre-Pi work resumed, September 28
+
+See [prepi_20260928/README.md](prepi_20260928/README.md) for the newly authorized
+six-hour preparation window, bounded shutdown derivative and saved-file checks.
+Its WINDOW.json and latest status govern new work, with checkpoint 22:20:48 UTC.
+The prior deadline closure is preserved; the Pi has not been contacted.
+
 ## Final deadline closure — 2026-09-28 14:48:19 UTC
 
 The campaign window has ended and the hourly follow-up is paused. Read

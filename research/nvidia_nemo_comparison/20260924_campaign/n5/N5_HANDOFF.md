@@ -1,5 +1,14 @@
 # N5 partial release checkpoint
 
+## User-authorized pre-Pi work resumed, September 28
+
+The user explicitly requested continued software work before connecting the Pi
+within six hours. Follow [prepi_20260928/README.md](prepi_20260928/README.md),
+WINDOW.json and its latest status. This separate window checkpoints at
+22:20:48 UTC; the earlier deadline closure below remains historical.
+The Pi remains untouched. Verify fresh supervisor, exact owners and admissions
+before acting. N4/N5 are still partial; do not reuse expired admissions.
+
 ## Final deadline closure — 2026-09-28 14:48:19 UTC
 
 The campaign window has ended and the hourly follow-up is paused. Read
