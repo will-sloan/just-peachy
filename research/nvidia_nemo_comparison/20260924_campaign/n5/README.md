@@ -1,5 +1,14 @@
 # N5 packaging tools
 
+## September 28 consolidated handoff V7
+
+N5_STATUS_20260928_V21.json is the current packaging status; V20 remains the
+last numerical checkpoint. HANDOFF_SELECTION_V7.json consolidates the corrected
+backend/workbook guides, verified Pi companion, artifact index, scoped results
+and held-out methods. Follow README_CHECKPOINT_V7.md and require the matching
+archive receipt before crediting packaging. Earlier ZIPs and evidence remain.
+N4/N5 acceptance is unchanged; no new numerical run or Pi contact is implied.
+
 ## 2026-09-28 - current backend guide reconciled
 
 BACKEND_GUIDE.md and WORKBOOK_UPDATE_20260928.md distinguish the resolved

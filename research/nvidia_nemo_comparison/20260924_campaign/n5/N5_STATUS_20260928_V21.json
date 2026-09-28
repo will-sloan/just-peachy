@@ -1,0 +1,202 @@
+{
+  "stage": "N5",
+  "status": "PARTIAL_N4_N5_PACKAGING_CONSOLIDATION",
+  "completed": false,
+  "checked_utc": "2026-09-28T05:42:46.520545+00:00",
+  "prior_status": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n5\\N5_STATUS_20260928_V20.json",
+    "bytes": 33230,
+    "sha256": "a00aca8400c9156573e66d6791621aced191d4e97f57af4d10c4eb3c8e233164"
+  },
+  "N1": {
+    "status": "COMPLETE_AGREED_OFFLINE_SCOPE",
+    "handoff": {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\N1_HANDOFF.md",
+      "bytes": 9588,
+      "sha256": "d2211913ff067450124418c770e9e99a73e58ea5beb0146fb97e1ef4fa0e66c5"
+    }
+  },
+  "N2": {
+    "status": "ACCEPTED_OFFLINE_WITH_DECLARED_LIMITATIONS",
+    "evaluations": 422,
+    "acceptance": {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n2\\FINAL_REVIEW.json",
+      "bytes": 129309,
+      "sha256": "3648e2c548674a2efd0ce948a73c6a1acd16ce6866fe367d78e28747bdb95fab"
+    }
+  },
+  "N3": {
+    "status": "ACCEPTED_OFFLINE_COMPONENT_SCOPE",
+    "acceptance": {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n3\\N3_ACCEPTANCE.json",
+      "bytes": 5459,
+      "sha256": "070783f77f3aec030fb837859f719317d6ecdaab4585e31c5e92d8c5f0e66204"
+    }
+  },
+  "N4": {
+    "status": "MODELED_COMPARISON_REVIEWED_APPLICATION_PARTIAL",
+    "main_reviewed": 7680,
+    "mode_reviewed": 1536,
+    "actual_required": 240,
+    "actual_collected_pending_acceptance": 2,
+    "actual_failed": 2,
+    "actual_unattempted": 236,
+    "actual_accepted": 0,
+    "accepted_new_release_profiles": 0,
+    "report": {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\N4_PARTIAL_REPORT_20260927.md",
+      "bytes": 5340,
+      "sha256": "00059ebf5a03218df285551e66daaca12b658d8645dc9af0755695e3423dcd83"
+    },
+    "main_acceptance": {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\MAIN_MODELED_SCORING_ACCEPTANCE_V1.json",
+      "bytes": 12130,
+      "sha256": "1972386aa05ade607ad2d45484b1db3fc49012c29edb4d13084ebbcd9e12a5c0"
+    },
+    "mode_acceptance": {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n4\\MODES_MODELED_SCORING_ACCEPTANCE_V1.json",
+      "bytes": 42438,
+      "sha256": "51ed6a13d13a020c1ba85206fc76955154de873cc759387b8c398e99290b47b5"
+    }
+  },
+  "N5": {
+    "status": "PARTIAL",
+    "Windows_stable_A2_D1_pair": {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n5\\D1_ANONYMOUS_WINDOWS_CHECK_V1.json",
+      "bytes": 10047,
+      "sha256": "d1f0fa37f4257f56a43e03c90e3233ed88defe9ac53163b106ed52b965cb26e7"
+    },
+    "baseline_ARM64_component_parity": {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n5\\BASELINE_ARM64_CPU_RETEST_V2.json",
+      "bytes": 1783,
+      "sha256": "b70ff8ad11e552c6c49b9d34bd36fc10146037b31b70ffcd53cb6b30041763d6"
+    },
+    "short_A2_A3_native_protocol": {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n5\\NATIVE_STREAM_SHORT_CHECK_V3.json",
+      "bytes": 8407,
+      "sha256": "a60b5220ff60627285996f7765c58ee0c29868309944b08fe467eeba9b070845"
+    },
+    "preserved_long_source_failure": {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n5\\NATIVE_STREAM_CPU_CHECK_V2.json",
+      "bytes": 2921,
+      "sha256": "ccbd2f179496744d1d3048bc1db99a1365db90a8e082a5558511cae13bac4131"
+    },
+    "full_ARM64_application_validated": false,
+    "CM5_tested": false,
+    "workstation_preview_scope": "One saved-file anonymous-conversation lifecycle with ReDimNet and external-encoder bypass; not calibrated personal naming, endurance or full-bank acceptance",
+    "short_native_scope": "First 16 seconds only, six cases; does not clear long-source A2 repeat timeout or unattempted long A3; A3 raw word end 160ms beyond EOF"
+  },
+  "packaging": {
+    "reconnect_companion": {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n5\\RECONNECT_COMPANION_CHECK_V1.json",
+      "bytes": 3628,
+      "sha256": "634651469349e1d22188d9081e7e53e49503617d58522de867fadf83631d7e21"
+    },
+    "current_guide_review": {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n5\\PACKAGING_GUIDE_CHECK_20260928_V1.json",
+      "bytes": 7293,
+      "sha256": "51daa9978a96d012b0e4560daf25249a15f14a7164baf8f204c2bd73fdf6fa60"
+    },
+    "workbook_proposal": {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n5\\WORKBOOK_UPDATE_20260928.md",
+      "bytes": 4714,
+      "sha256": "f9f2d7f36e52864b7d4cf8861092a71d910df2519225b9045573e21a9a0016b1"
+    },
+    "prior_analysis_archive": {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n5\\HANDOFF_RECEIPT_20260928_V6.json",
+      "bytes": 1228,
+      "sha256": "7116277ba4979cee9c9e5a829ccc46f9551568905bb1ca069f8c2d9fb065f055"
+    },
+    "fresh_archive_receipt_required": true
+  },
+  "realtime_methods": {
+    "specified": 34,
+    "implemented_clock_modes": 6,
+    "clock_tests_passed": 8,
+    "application_adapter_implemented": false,
+    "optimized_model_performance_measured": false,
+    "production_gate_enabled": false,
+    "clock_evidence": {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n5\\SOURCE_CLOCK_FOUNDATION_V1.json",
+      "bytes": 739,
+      "sha256": "24404d759ae623c6a01311e018c8cd61dbf0a1188e8ea3056790c21e5bca8227"
+    },
+    "catalogue": {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n5\\realtime_validation_v1\\EXPERIMENTS.json",
+      "bytes": 31303,
+      "sha256": "4e81d4b39a1ca3d6aadbd7f1fff8a72e76df744e642ff30516af52b6ffb92985"
+    },
+    "holdout_requirement": {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n5\\realtime_validation_v1\\REAL_WORLD_HOLDOUT_V1.md",
+      "bytes": 5060,
+      "sha256": "5256bc9e1115f1d91220ff7bf6dd0a13a05e805360c0b9c7ad0501d42112a2b9"
+    }
+  },
+  "user_priority": {
+    "retained": [
+      "A0 Sherpa + D1 Nemotron 3 + E0 ReDimNet",
+      "A2 Nemotron English + D1 Nemotron 3 + E0 ReDimNet"
+    ],
+    "optional": "Anonymous external-encoder bypass",
+    "TitaNet": "Retired from further work; evidence retained",
+    "training": "Assessment only",
+    "sparse_audio": "Synthetic silence savings are conditional estimates, not measured real-world or Pi speed"
+  },
+  "supervisor": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\supervision\\worker.json",
+    "bytes": 509,
+    "sha256": "917c6a73895c4ccb0a0876e1b85bba1c8bfb4501c2015da073d1d90a69b1d9f5"
+  },
+  "active_worker_at_checkpoint": null,
+  "exact_closed_worker_owners": [
+    {
+      "pid": 38116,
+      "create_time": 1790560358.199992,
+      "current_create_time": null,
+      "exact_owner_absent": true
+    },
+    {
+      "pid": 41508,
+      "create_time": 1790560359.3269384,
+      "current_create_time": null,
+      "exact_owner_absent": true
+    },
+    {
+      "pid": 28452,
+      "create_time": 1790560357.9720356,
+      "current_create_time": null,
+      "exact_owner_absent": true
+    }
+  ],
+  "free_gib": {
+    "C": 108.15093231201172,
+    "G": 92.34275436401367
+  },
+  "resource_limit": {
+    "logical_cpus_total": 2,
+    "GPU": "OFF",
+    "native_threads_per_model": 1
+  },
+  "remaining": [
+    "N4 application drain/closure acceptance, 240-cell panel, continuity/restarts and integrated resources",
+    "Per-build controls, import/export, startup-failure and rollback qualification",
+    "Full ARM64 Python/Tk/speaker/punctuation/GUI execution and accepted portable alternatives",
+    "Long-source native ASR repeat/forced-endpoint protocol and source-aligned timing",
+    "Application-integrated pacing/worker/shadow-gate methods and independent held-out real-world validation",
+    "Actual Pi installation, storage/RAM/CPU/thermal/endurance and later authorized hardware checks"
+  ],
+  "packaging_reserve_utc": "2026-09-28T02:48:19Z",
+  "deadline_utc": "2026-09-28T14:48:19Z",
+  "hourly_followup": "Continue existing hourly follow-up until verified offline completion or deadline; unchanged state stays quiet",
+  "new_numerical_work_started": false,
+  "Pi_contacted": false,
+  "microphone_enumerated_or_opened": false,
+  "new_capture": false,
+  "new_training": false,
+  "human_enrollment": false,
+  "desktop_input_or_focus_taken": false,
+  "production_personal_data_modified": false,
+  "compute_seconds": null,
+  "llm_tokens": null,
+  "usage_note": "Cumulative compute and LLM totals are not exposed; no invented totals."
+}

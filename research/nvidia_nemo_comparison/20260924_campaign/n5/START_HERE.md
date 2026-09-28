@@ -1,5 +1,10 @@
 # N5 release preparation - campaign not complete
 
+Current packaging status: N5_STATUS_20260928_V21.json; current selection:
+HANDOFF_SELECTION_V7.json. The numerical evidence remains at V20. The compact
+handoff consolidates the current guides and Pi companion; use its verified
+receipt. It does not complete N4/N5 or qualify target installation.
+
 ## 2026-09-28 - verified small Pi reconnection companion
 
 `PI_RECONNECT_QUICKSTART_V1.md` now consolidates a two-archive transfer,
@@ -197,7 +202,7 @@ BACKEND_GUIDE.md gives the reconciled current availability and exact limitations
 
 `CAMPAIGN_COVERAGE_20260927.md` reconciles note, numerical, application and target
 coverage. `RELEASE_MAPPING_20260927.md` maps the retained artifacts to their
-immutable source/preparation tags. `HANDOFF_SELECTION_V6.json` selects 55 small
+immutable source/preparation tags. `HANDOFF_SELECTION_V7.json` selects 55 small
 reports/tools plus this checkpoint's status; the reviewed packager adds the
 selection, hash manifest and current Git backup receipt for 59 readable files.
 Use `README_REVIEWED_HANDOFF_V2.md` to build a fresh private analysis archive
