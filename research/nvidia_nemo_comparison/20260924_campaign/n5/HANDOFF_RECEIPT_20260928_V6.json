@@ -1,0 +1,22 @@
+{
+  "status": "PARTIAL_CAMPAIGN_CHECKPOINT_NOT_COMPLETED_N5",
+  "archive": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\handoffs\\NVIDIA_CAMPAIGN_CHATGPT_HANDOFF_20260924_campaign_20260928_v6.zip",
+  "sha256": "549cde5abbc7ed8979da31bbecd39909917d9f2172c2953b85e0afffd0f75d97",
+  "bytes": 185284,
+  "files": 59,
+  "source_commit": "ffdf1e6dc9370595f4cdec787de6ba59bba7aabf",
+  "remote": "https://github.com/will-sloan/just-peachy.git",
+  "ref": "refs/heads/codex/n1-foundation-20260924",
+  "readback": "ALL_MEMBERS_MATCH",
+  "below_10_MiB_target": true,
+  "selection_sha256": "5494f6c88e8ec11ef6428e61bb4449b1eee002604c403f1c736693fec158e3f5",
+  "status_sha256": "a00aca8400c9156573e66d6791621aced191d4e97f57af4d10c4eb3c8e233164",
+  "N5_complete": false,
+  "CM5_tested": false,
+  "private_receipt": {
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\handoffs\\HANDOFF_20260928_V6_RECEIPT.json",
+    "sha256": "af9cc36b19ac1f48a40685ba0dc57d794fcaba8346b3984c6c704ce9ee31e46f",
+    "bytes": 785
+  },
+  "scope_note": "Reviewed partial campaign analysis archive; not a deployable model bundle or N5 acceptance. Includes sparse-audio holdout requirement and retained experiment methods."
+}
