@@ -1,5 +1,9 @@
 # N5 packaging tools
 
+`realtime_validation_v1/REAL_WORLD_HOLDOUT_V1.md` records the user's sparse-audio
+limitation and held-out real-world comparison requirements. Silence-heavy
+synthetic workload savings do not qualify actual conversation or Pi throughput.
+
 Current run: `NATIVE_STREAM_SHORT_START_V3.json`; narrower 16-second smoke,
 not accepted. Full-source V2 timeout is independently reviewed and preserved.
 See `N5_STATUS_20260928_V19.json` and `N5_HANDOFF.md` for current scope.

@@ -1,5 +1,17 @@
 # N5 partial release checkpoint
 
+## 2026-09-28 - sparse synthetic audio is not real-world runtime evidence
+
+The user's latest clarification is mandatory for future comparisons: large
+silence regions in simulated scenes can overstate the practical benefit of
+skipping diarization. Preserve candidate combinations and methods for separate
+held-out real-world validation. Read
+`realtime_validation_v1/REAL_WORLD_HOLDOUT_V1.md`: dense speech, natural pauses,
+quiet/short/overlap speech and noise need matched ungated controls, original
+source timing, declared duty cycle, actual compute/overhead and backlog results.
+Synthetic savings must remain scoped estimates; no promotion to measured
+real-world or Pi performance. Preserve this addendum in the final package.
+
 ## 2026-09-28 01:53 UTC - full-source timeout closed; short smoke running
 
 Latest checkpoint: `N5_STATUS_20260928_V19.json`. The full-source A2 retry

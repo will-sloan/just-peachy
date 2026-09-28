@@ -1,5 +1,11 @@
 # N5 release preparation - campaign not complete
 
+Real-world validation requirement: preserve the candidate combinations and
+methods for independent recordings; silence-heavy synthetic scenes may overstate
+the benefit of skipping audio. Read
+`realtime_validation_v1/REAL_WORLD_HOLDOUT_V1.md`. Existing estimates are not
+measured optimized conversation or CM5 throughput.
+
 Current update: full-source Nemotron ARM64 repeat still times out under
 Cortex-A76; a separate 16-second functional smoke is running and is not
 accepted. See `NATIVE_STREAM_CPU_FINDINGS_V2.md` and `N5_HANDOFF.md`.
