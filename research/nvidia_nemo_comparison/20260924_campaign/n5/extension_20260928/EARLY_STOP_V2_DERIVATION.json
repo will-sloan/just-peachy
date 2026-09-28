@@ -1,0 +1,14 @@
+{
+  "parent_hashes": {
+    "early_stop_lifecycle_v1.py": "06cc372c82561e66c9df0050f47cca48e711374071765b02a1b7d75d87ae4303",
+    "prepare_early_stop_v1.py": "b8f3adcc0e8305e957dd2c8add9649890b14f1aedc8a14965a01d48ac0b5ff96",
+    "review_early_stop_v1.py": "d39b77ad4022d63eacc7a37efefbe2d307f55f6f4aa6d6f01505daca5eda28e7"
+  },
+  "child_hashes": {
+    "early_stop_lifecycle_v2.py": "3f13b7375279bc8d1576392706fcbe7f79697b5380c2198df5c320daae7d5fad",
+    "prepare_early_stop_v2.py": "11e92c51bd7ef1b9f6caf7ceb042a8046e933e12fa050918c19c84382751f5f2",
+    "review_early_stop_v2.py": "c1a91ac901da1f2941a517970e2309d0213e340dc18102df4c933f7b58074d2e"
+  },
+  "application_changed": false,
+  "reason": "V1 omitted New transcript and correctly appended both epochs to one unpinned draft; V2 explicitly tests a separate conversation, retains earlier draft and unchanged full-output parity."
+}
