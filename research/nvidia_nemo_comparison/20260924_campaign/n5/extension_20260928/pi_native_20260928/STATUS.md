@@ -1,10 +1,20 @@
 # Connected CM5: native work is now the priority
 
-Updated September 29, 2026 06:01 UTC. Read later verified results before acting. The user confirmed connection and authorized Pi testing on September 28. This replaces the older no-Pi-contact condition; it does not rewrite old admissions. Multiday checkpoint remains October 1 at 17:47:34 UTC. Hourly continuation was updated successfully to Pi-first work.
+Updated September 29, 2026 07:05 UTC. Read later verified results before acting. The user confirmed connection and authorized Pi testing on September 28. This replaces the older no-Pi-contact condition; it does not rewrite old admissions. Multiday checkpoint remains October 1 at 17:47:34 UTC. Hourly continuation was updated successfully to Pi-first work.
 
 The user explicitly limits saved audio to functionality, text passage and real-time/CPU/RAM/resource observations, **not new ASR/WER accuracy metrics**. A quiet microphone route is permitted with nobody speaking; that does not establish speech accuracy. No new microphone capture/playback has been started. A read-only ALSA inventory shows an XMOSDevice I2S capture endpoint, currently closed; do not assume the expected USB route or claim a working live route from enumeration alone. Actual speech/noisy-location tests still require physical readiness. Preserve the current app/data, with new backend modes developed separately.
 
 ## Current work / next action
+
+**B05 anonymous early Stop/full-file restart now passes with a smaller executable graph cache; memory headroom remains narrow.** Read CHECK_SUMMARY_V8.json and STOP_RESTART_LRU1_FINDINGS_V1.md. The eight-entry-cache V1/V2 retries failed allocation on restart and are preserved. V2 removed harness retention but still failed; no cap was raised.
+
+A fresh delayed D1 runtime lowers executable-graph LRU8 to1 without changing weights or speaker/FIFO history. Library SHA7db8afef2e37b28c0f9d56690b4c0d5fcd8c85a50fa6034f8e6fb53674ceb45a passed independent build and original full/repeat/reset/EOF checks, exact generic/repeat arrays at1e-5. First/repeat18.092/18.074s,RTF0.405/0.404,172.969MiB RSS; no speed/RSS improvement claimed. Only the tested delayed geometry is qualified with metadata2/scheduler2048/LRU1, not A2 or other recipes.
+
+The isolated config-only shared-app-anonymous-lru1-v1 now passes early Stop at129280samples (1.720s drain), then full715127sample restart in the same process with4470x8 probabilities exactly matching the original delayed reference. Source offset and event/frame clocks reset, Sherpa loads once, E0 zero loads/calls, zero inference errors, natural process exit and all application/consumer/archive closure checks pass. New manifest sha256:1c265638ac1033dfbc3e10ef48817cbe4302d0c707dc41c59b8105a47cb7c7b5. Restart first text5.645s includes initial silence, D1 output25.462s, final drain11.565s. PeakRSS497.734MiB,virtual765.312MiB: only2.688MiB below unchanged768MiB cap.
+
+**Next:** investigate remaining memory headroom and actual anonymous caption-label/shared UI/control coverage before exposing a robust GUI mode. Retained-E0 B01 remains failed/unqualified and its pending1GiB-cap question is unanswered. Longer/native real-life validation, B02, N4/N5 release acceptance remain open. Do not rerun unchanged passes. All54 owned identities closed at07:05UTC; original rc5/app1013/start569 and1130/start607 unchanged. Combined output612532847bytes of1GiB,55.1C/throttle0x0,global swap48/27125 at16KiBpages. No capture/playback/accuracy scoring.
+
+## Previous anonymous passage closure (06:01 UTC; preserved)
 
 **Anonymous B05 now passes native short and full-file shared-controller passage; retained-E0 B01 remains blocked.** Read CHECK_SUMMARY_V7.json and ARENA_AND_ANONYMOUS_FINDINGS_V1.md. No new release profile, GUI mode or N4/N5 completion is accepted.
 

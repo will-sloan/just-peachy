@@ -1,0 +1,150 @@
+{
+  "updated_utc": "2026-09-29T07:05:59Z",
+  "previous_summary": "CHECK_SUMMARY_V7.json",
+  "scope": "Native functional/resource and lifecycle evidence only; no new accuracy scoring",
+  "stop_restart_failures": [
+    {
+      "run": "b05-stop-restart-v1",
+      "stopped_samples": 129280,
+      "restarted_samples": 677440,
+      "failure": "D1 native out of memory at 42.34s",
+      "handled_failure_closed": true
+    },
+    {
+      "run": "b05-stop-restart-v2",
+      "stopped_samples": 129280,
+      "restarted_samples": 678400,
+      "failure": "ASR std::bad_alloc at 42.4s despite releasing harness reference",
+      "handled_failure_closed": true
+    }
+  ],
+  "candidate_library_sha256": "7db8afef2e37b28c0f9d56690b4c0d5fcd8c85a50fa6034f8e6fb53674ceb45a",
+  "compute_graph_cache_entries": 1,
+  "metadata_arena_mib": 2,
+  "scheduler_capacity": 2048,
+  "scheduler_guard": 0.95,
+  "weights_and_speaker_history_unchanged": true,
+  "component_review": {
+    "status": "PASS_NATIVE_RECIPE_FUNCTIONAL_RESOURCE_ONLY",
+    "run_id": "d1-geometry-delayed-lru1-v1",
+    "profile": "native_v3_delayed",
+    "kernel": "a76",
+    "result_sha256": "47d403855370a7adb972cf74aa3d2afe585101399d93b6a7f1ae58f6134e5a8d",
+    "independent_repeat_max_abs": 0.0,
+    "independent_generic_max_abs": 0.0,
+    "tolerance": 1e-05,
+    "all_samples_and_frames_passed": true,
+    "owner_closed": true,
+    "model_closed": true,
+    "observed_c_abi_geometry": {
+      "chunk_frames": 264,
+      "right_context_frames": 1,
+      "left_context_frames": 1,
+      "fifo_frames": 0,
+      "spkcache_frames": 264,
+      "update_period_frames": 188,
+      "preset": "v3-offline",
+      "gpu": -1
+    },
+    "metrics": [
+      {
+        "case": "saved_full",
+        "samples": 715127,
+        "frames": 4470,
+        "audio_seconds": 44.6954375,
+        "elapsed_seconds": 18.092163942001207,
+        "call_sequence_rtf": 0.40478771333206454,
+        "cpu_seconds": 18.063129793,
+        "call_compute_seconds": 18.06444480398568,
+        "emitting_calls": 3,
+        "first_emission_source_seconds": 21.3,
+        "first_emission_elapsed_seconds": 4.3310615310001594,
+        "finish_compute_seconds": 4.628033109998796,
+        "temperature_millic": 56200
+      },
+      {
+        "case": "resident_repeat",
+        "samples": 715127,
+        "frames": 4470,
+        "audio_seconds": 44.6954375,
+        "elapsed_seconds": 18.074496977998933,
+        "call_sequence_rtf": 0.40439243889264836,
+        "cpu_seconds": 18.049607968,
+        "call_compute_seconds": 18.04721750596582,
+        "emitting_calls": 3,
+        "first_emission_source_seconds": 21.3,
+        "first_emission_elapsed_seconds": 4.32290304399794,
+        "finish_compute_seconds": 4.630105698000989,
+        "temperature_millic": 57300
+      }
+    ],
+    "peak_process_rss_bytes": 181370880,
+    "integrated_acceptance": false,
+    "accuracy_claim": false,
+    "real_world_validation": false,
+    "uncontended_benchmark": false
+  },
+  "application_review": {
+    "status": "PASS_B05_EARLY_STOP_AND_FULL_RESTART_ONLY",
+    "stop_request_to_controller_return_seconds": 1.7200702369991632,
+    "same_process": true,
+    "asr_model_loads": 1,
+    "encoder_loaded": false,
+    "source_offsets_reset": true,
+    "session_event_identity_and_probability_frame_origin_checked": true,
+    "reference_tolerance": 1e-05,
+    "peak_rss_bytes": 521912320,
+    "sampled_peak_virtual_bytes": 802488320,
+    "natural_process_exit": true,
+    "owner_closed": true,
+    "application_finalization": true,
+    "consumer_archive_drained": true,
+    "robust_memory_fit": false,
+    "UI_tested": false,
+    "stage_acceptance": false,
+    "persistent_naming": false,
+    "accuracy_scored": false
+  },
+  "application_sessions": [
+    {
+      "kind": "early_stop",
+      "samples": 129280,
+      "probability_frames": 809,
+      "probability_windows": 1,
+      "reference_max_abs": null,
+      "caption_rows": 9,
+      "first_text_seconds": 5.640331802002038,
+      "first_probability_seconds": 9.641458850001072,
+      "source_end_to_completed_seconds": 1.6807003020020783,
+      "terminal_punctuation_fallbacks": 1
+    },
+    {
+      "kind": "full_restart",
+      "samples": 715127,
+      "probability_frames": 4470,
+      "probability_windows": 3,
+      "reference_max_abs": 0.0,
+      "caption_rows": 40,
+      "first_text_seconds": 5.644898842001567,
+      "first_probability_seconds": 25.461682150998968,
+      "source_end_to_completed_seconds": 11.564870347001971,
+      "terminal_punctuation_fallbacks": 2
+    }
+  ],
+  "backend_manifest_id": "sha256:1c265638ac1033dfbc3e10ef48817cbe4302d0c707dc41c59b8105a47cb7c7b5",
+  "application_source_unchanged": true,
+  "config_only_derivative": "shared-app-anonymous-lru1-v1",
+  "all_owned_native_identities_closed": 54,
+  "combined_output_bytes": 612532847,
+  "output_limit_bytes": 1073741824,
+  "original_install_unchanged": true,
+  "remaining": [
+    "Robust virtual-memory headroom",
+    "Native caption/label/UI controls and lifecycle",
+    "Retained-E0 B01 simultaneous passage and drainage",
+    "B02 memory and native full protocol",
+    "Long sustained native performance",
+    "Independent user-ready real-life spoken/noisy audio",
+    "N4 full application panel and N5 release acceptance"
+  ]
+}
