@@ -1,0 +1,33 @@
+{
+  "updated_utc": "2026-09-29T16:29:52.479409+00:00",
+  "previous_summary": "CHECK_SUMMARY_V18.json",
+  "scope": "First physically authorized actual quiet-route attempt; clean failed-start closure; restart allowlist rejection preserved",
+  "quiet_run": "live-ready-user-20260929T161831Z",
+  "quiet_status": "PRESERVED_REAL_ROUTE_START_FAILURE_CLEANLY_CLOSED",
+  "failure": "LiveAudioError: AEC_MIC_ARRAY_TYPE failed: Resource could not respond to the AEC_MIC_ARRAY_TYPE read command.\nCheck the audio loop is active.\n",
+  "priming_frames": 54720,
+  "accepted_samples": 0,
+  "device_setters": 0,
+  "capture_closed": true,
+  "hardware_lease_free": true,
+  "original_app_config_install_unchanged": true,
+  "restart_attempt": "xvf-restart-v1",
+  "restart_review": "PRESERVED_RESTART_V1_NOT_SENT_ALLOWLIST_REJECTION",
+  "restart_sent": false,
+  "maintenance_v2": "SOURCE_PREPARED_NOT_EXECUTED_PENDING_EXPLICIT_APPROVAL",
+  "actual_hardware_route_qualified": false,
+  "live_B01_qualified": false,
+  "resources": {
+    "checked_utc": "2026-09-29T16:29:52.479409+00:00",
+    "host_window_bytes": 370099990,
+    "target_bytes": 567800648,
+    "combined_bytes": 937900638,
+    "cap_bytes": 1073741824,
+    "host_free_bytes": {
+      "C:": 112029700096,
+      "G:": 98767720448
+    },
+    "all_owned_native_identities_closed": 97,
+    "host_supervisor_closed": true
+  }
+}

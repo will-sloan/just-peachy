@@ -1,3 +1,7 @@
+## September29 16:29UTC — native causal buffer; real route blocked
+
+Read pi_native_20260928/CHECK_SUMMARY_V19.json and QUIET_ROUTE_FAILURE_V1.md. Actual user-ready quiet capture failed AEC_MIC_ARRAY_TYPE after priming; zero accepted samples/setters, closed. ResetV1 was blocked by live allowlist; no reset sent. MaintenanceV2 prepared pending explicit approval, then only user-ready quiet retry; never heartbeat capture/reset. ASR_CAUSAL_FINDINGS_V1.md/V18 records real bounded shadow buffer/progress and exact B01 parity/closure; no applied skip/speedup. All97ownersclosed; output937900638/1GiB.
+
 ## September29 16:03UTC — explicit quiet-route preparation
 
 Read pi_native_20260928/CHECK_SUMMARY_V17.json and LIVE_READY_FINDINGS_V1.md. Six native mock I2S guards pass; source-bound12s quiet user launcher prepared with --ready-now/fresh admission, no actual capture. Scheduled runs must not invoke user mode. Inspect any later live-ready-user-* owners/results alongside previews; review closed runs independently. Next user-ready actual route then bounded live B01; continue ASR watermark/buffer/context shadow separately. All91ownersclosed,originalapp/configunchanged,combined904354515/1GiB.

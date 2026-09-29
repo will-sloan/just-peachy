@@ -1,10 +1,10 @@
 # Master backend and mode guide — Raspberry Pi
 
-Updated September 29, 2026, 12:03 EDT / 16:03 UTC. This is the current conceptual and engineering overview. Older reports preserve history; use this guide and STATUS.md for current priorities. Latest converter evidence is linked below; qualified preview scope is unchanged.
+Updated September 29, 2026, 12:29 EDT / 16:29 UTC. This is the current conceptual and engineering overview. Older reports preserve history; use this guide and STATUS.md for current priorities. Latest converter evidence is linked below; qualified preview scope is unchanged.
 
 ## Where we are now
 
-No campaign numerical worker or preview is running. Fresh inspection found all 91 recorded research process identities closed, no active research systemd units, and no user preview runs. The original rc5 app is still running with its original process identities and install. The Pi is a Compute Module 5 with 2 GB RAM.
+No campaign numerical worker or preview is running. Fresh inspection found all 97 recorded research process identities closed, no active research systemd units, and no user preview runs. The original rc5 app is still running with its original process identities and install. The Pi is a Compute Module 5 with 2 GB RAM.
 
 Two new **bounded saved-file previews** have native evidence:
 
@@ -19,9 +19,11 @@ The objective is a small set of clearly labelled, ready-to-run Pi modes using th
 
 ## First actual microphone check
 
-A bounded **12-second quiet source-only check** is prepared for explicit user invocation. Native mocked consent, I2S channel/gain, conversion counts, restoration and failed-close ownership checks pass. It does not yet establish a working hardware route. It saves no audio, loads no models and plays nothing. Use [the quiet-route instructions](README_LIVE_READY_V1.md) only when physically ready; each run needs a fresh census/admission and later review. Automated follow-ups must leave capture off. After actual route closure is verified, the next step is a bounded B01 spoken/live pipeline session. See [current scope and limits](LIVE_READY_FINDINGS_V1.md).
+The first user-ready quiet test reached the real I2S device and received priming callbacks, but the XVF audio-processor query failed before any accepted sample or setting change. Capture and the hardware lease closed cleanly. The ordinary live adapter rejected a restart attempt; no reset was sent. A separate one-shot maintenance restart is prepared and awaiting explicit approval because it clears volatile DSP state. See [the hardware failure and next step](QUIET_ROUTE_FAILURE_V1.md). Live B01 speech remains unqualified; saved B01/B05 previews still work within their checked scope.
 
 ## User-prioritized ASR activity guidance
+
+The next implementation step now passes on the Pi: an actual192k audio shadow queue plus successful-ASR progress. Missing/failed health, late cues, buffer pressure and EOF have constructed checks; B01 full outputs stay exact and drain cleanly. Observation costs about1.09s on the44.7s diagnostic. All audio still runs; there is no demonstrated inference speedup. [Causal buffer findings](ASR_CAUSAL_FINDINGS_V1.md).
 
 ASR-assisted scheduling now has a native shadow check: actual ASR/energy cues were recorded online, then a causal±1second policy was replayed while all audio still ran. Fine-resolution proposals covered49.4%of this sparse clip, but current21.12second chunks left only a2.46second final partial candidate. No actual skip or speedup is qualified; EOF/context, cue-health and buffering gates remain. See [shadow findings](ASR_SHADOW_FINDINGS_V1.md) and the [investigation plan](ASR_GUIDED_D1_NATIVE_PLAN_V1.md).
 

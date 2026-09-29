@@ -1,0 +1,155 @@
+{
+  "updated_utc": "2026-09-29T16:18:19.546033+00:00",
+  "previous_summary": "CHECK_SUMMARY_V17.json",
+  "scope": "Native bounded online ASR completion/audio shadow buffer with unchanged B01 model paths",
+  "status": "PASS_NATIVE_CAUSAL_BUFFER_SHADOW_AND_FULL_MODEL_PARITY_ONLY",
+  "reference_tolerance": 1e-05,
+  "causal_cases": [
+    {
+      "name": "missing_health_keeps",
+      "pass_case": true
+    },
+    {
+      "name": "failed_health_keeps",
+      "pass_case": true
+    },
+    {
+      "name": "late_cue_visible_all_audio_retained",
+      "pass_case": true
+    },
+    {
+      "name": "one_second_padding_keeps",
+      "pass_case": true
+    },
+    {
+      "name": "dense_energy_fallback_keeps",
+      "pass_case": true
+    },
+    {
+      "name": "burst_bounded_fail_open_and_EOF",
+      "pass_case": true
+    },
+    {
+      "name": "discontinuity_rejected_fresh_session_resets",
+      "pass_case": true
+    }
+  ],
+  "sessions": [
+    {
+      "kind": "early_stop",
+      "samples": 131200,
+      "probability_frames": 821,
+      "probability_windows": 1,
+      "reference_max_abs": null,
+      "E0_calls": 7,
+      "E0_full_restart_max_abs": null,
+      "caption_rows": 9,
+      "first_text_seconds": 5.643093718994351,
+      "first_probability_seconds": 9.769888534996426,
+      "source_end_to_completed_seconds": 2.5359086619981106,
+      "terminal_punctuation_fallbacks": 1
+    },
+    {
+      "kind": "full_restart",
+      "samples": 715127,
+      "probability_frames": 4470,
+      "probability_windows": 3,
+      "reference_max_abs": 0.0,
+      "E0_calls": 20,
+      "E0_full_restart_max_abs": 0.0,
+      "caption_rows": 40,
+      "first_text_seconds": 5.646396869000455,
+      "first_probability_seconds": 25.529927055998996,
+      "source_end_to_completed_seconds": 12.592235201000705,
+      "terminal_punctuation_fallbacks": 3
+    }
+  ],
+  "causal_shadow": [
+    {
+      "status": "ONLINE_BOUNDED_SHADOW_ONLY",
+      "capacity_samples": 48000,
+      "capacity_audio_bytes": 192000,
+      "maximum_samples": 48000,
+      "pending_samples": 0,
+      "received_samples": 131200,
+      "completed_samples": 131200,
+      "asr_finished": true,
+      "health_failed": false,
+      "ingress_sha256": "b24b247d0f5bb33ee5c84e7ffa27b4a774a623857f987e4161b9ee3ca0d51fe3",
+      "egress_sha256": "b24b247d0f5bb33ee5c84e7ffa27b4a774a623857f987e4161b9ee3ca0d51fe3",
+      "delay_seconds": 3.0,
+      "asr_lookahead_seconds": 1.0,
+      "progress_is_completion_not_speech_truth": true,
+      "work_seconds": 0.06143938301829621,
+      "actual_skipped_samples": 0,
+      "late_positive_frames": 0,
+      "diagnostic_metadata_bounded_by_admitted_short_run": true,
+      "production_endurance_qualified": false,
+      "reason_seconds": {
+        "ASR_POSITIVE": 1.0200000000000005,
+        "EOF_KEEP": 2.880000000000002,
+        "QUIET_CANDIDATE_UNQUALIFIED": 4.299999999999996
+      }
+    },
+    {
+      "status": "ONLINE_BOUNDED_SHADOW_ONLY",
+      "capacity_samples": 48000,
+      "capacity_audio_bytes": 192000,
+      "maximum_samples": 48000,
+      "pending_samples": 0,
+      "received_samples": 715127,
+      "completed_samples": 715127,
+      "asr_finished": true,
+      "health_failed": false,
+      "ingress_sha256": "27ccb49e6fa8e39aabbf645c1eb95a5ec1392d27d191f4faddff6da760863415",
+      "egress_sha256": "27ccb49e6fa8e39aabbf645c1eb95a5ec1392d27d191f4faddff6da760863415",
+      "delay_seconds": 3.0,
+      "asr_lookahead_seconds": 1.0,
+      "progress_is_completion_not_speech_truth": true,
+      "work_seconds": 1.093922142405063,
+      "actual_skipped_samples": 0,
+      "late_positive_frames": 0,
+      "diagnostic_metadata_bounded_by_admitted_short_run": true,
+      "production_endurance_qualified": false,
+      "reason_seconds": {
+        "ASR_POSITIVE": 22.599999999999607,
+        "BUFFER_PRESSURE_KEEP": 0.02,
+        "EOF_KEEP": 2.915437500000002,
+        "QUIET_CANDIDATE_UNQUALIFIED": 19.15999999999968
+      }
+    }
+  ],
+  "peak_rss_bytes": 572178432,
+  "sampled_peak_virtual_bytes": 757596160,
+  "resources": {
+    "checked_utc": "2026-09-29T16:18:19.546033+00:00",
+    "host_window_bytes": 368774640,
+    "target_bytes": 567440483,
+    "combined_bytes": 936215123,
+    "cap_bytes": 1073741824,
+    "host_free_bytes": {
+      "C:": 112018096128,
+      "G:": 98769186816
+    },
+    "all_owned_native_identities_closed": 93,
+    "host_supervisor_closed": true,
+    "host_owner_checks": [
+      {
+        "pid": 55636,
+        "create_time": 1790637870.806714,
+        "observed": null,
+        "exact_alive": false
+      },
+      {
+        "pid": 55720,
+        "create_time": 1790637870.971314,
+        "observed": null,
+        "exact_alive": false
+      }
+    ],
+    "closure_sha256": "67846c77e5378a3dd070c05bc86cc2a8637dd060569affea857d1273bb93ea79"
+  },
+  "actual_skipping": false,
+  "accuracy_scored": false,
+  "stage_acceptance": false
+}
