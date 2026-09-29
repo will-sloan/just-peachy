@@ -1,10 +1,20 @@
 # Connected CM5: native work is now the priority
 
-Updated September 29, 2026 07:05 UTC. Read later verified results before acting. The user confirmed connection and authorized Pi testing on September 28. This replaces the older no-Pi-contact condition; it does not rewrite old admissions. Multiday checkpoint remains October 1 at 17:47:34 UTC. Hourly continuation was updated successfully to Pi-first work.
+Updated September 29, 2026 08:02 UTC. Read later verified results before acting. The user confirmed connection and authorized Pi testing on September 28. This replaces the older no-Pi-contact condition; it does not rewrite old admissions. Multiday checkpoint remains October 1 at 17:47:34 UTC. Hourly continuation was updated successfully to Pi-first work.
 
 The user explicitly limits saved audio to functionality, text passage and real-time/CPU/RAM/resource observations, **not new ASR/WER accuracy metrics**. A quiet microphone route is permitted with nobody speaking; that does not establish speech accuracy. No new microphone capture/playback has been started. A read-only ALSA inventory shows an XMOSDevice I2S capture endpoint, currently closed; do not assume the expected USB route or claim a working live route from enumeration alone. Actual speech/noisy-location tests still require physical readiness. Preserve the current app/data, with new backend modes developed separately.
 
 ## Current work / next action
+
+**The anonymous pipeline now has more virtual-memory headroom and independently checked stored caption-label lineage.** Read CHECK_SUMMARY_V9.json and NATIVE_STACK_LABEL_FINDINGS_V1.md. A fresh process-local 1MiB native startup-stack setting retained exact full-restart D1 outputs, complete source coverage, early Stop and all natural closure checks. Sampled virtual peak738.203MiB leaves29.797MiB under768MiB, versus2.688MiB before; RSS498.031MiB is about unchanged. This is scoped functional/resource evidence, not robust long-run qualification.
+
+The stored presentation review verifies revision/session-local labels and preserved raw text, including explicit Unknown and anonymous Speaker1/2 values. Full-restart first text5.643s includes silence; first label revision25.536s. The reader's V1 token-ID mistake and corrected V2 are both preserved. Actual Tk widgets and speaker-assignment quality have not been tested; Xvfb is absent and the visible desktop was not used.
+
+A fresh retained-E0 B01 trial with the same startup-stack setting still failed within768MiB: ASR std::bad_alloc followed by a2MiB native allocation abort,13text publications,zero probability frames, no RESULT/clean app finalization. Exact failed owner is closed. V1's pre-admission filename error is preserved; V2 is the executed failure. The pending1GiB trial remains unapproved; no cap increase occurred.
+
+**Next:** prepare/qualify an explicit anonymous experimental launch and actual native GUI/control/save/reopen/delete coverage without desktop takeover; address B01 simultaneous memory separately. Do not silently substitute B05 for B01 or repeat unchanged passes/failures. All56owned identities closed at08:02UTC; original rc5/app unchanged. Combined output641846584bytes of1GiB,53.45C/throttle0x0,global swap96/28743pages. Native B02, endurance, real-life speech and N4/N5 release acceptance remain open.
+
+## Previous LRU1 Stop/restart closure (07:05 UTC; preserved)
 
 **B05 anonymous early Stop/full-file restart now passes with a smaller executable graph cache; memory headroom remains narrow.** Read CHECK_SUMMARY_V8.json and STOP_RESTART_LRU1_FINDINGS_V1.md. The eight-entry-cache V1/V2 retries failed allocation on restart and are preserved. V2 removed harness retention but still failed; no cap was raised.
 

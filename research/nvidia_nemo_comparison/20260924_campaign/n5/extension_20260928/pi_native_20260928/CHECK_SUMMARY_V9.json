@@ -1,0 +1,142 @@
+{
+  "updated_utc": "2026-09-29T08:02:14.590008+00:00",
+  "previous_summary": "CHECK_SUMMARY_V8.json",
+  "scope": "Native functional/resource and stored-label provenance only; no accuracy scoring",
+  "application_review": {
+    "startup_stack_limit_bytes": 1048576,
+    "native_default_thread_stack_bytes": 1048576,
+    "status": "PASS_B05_NATIVE_STACK_STOP_RESTART_ONLY",
+    "stop_request_to_controller_return_seconds": 1.6982395739978529,
+    "same_process": true,
+    "asr_model_loads": 1,
+    "encoder_loaded": false,
+    "source_offsets_reset": true,
+    "session_event_identity_and_probability_frame_origin_checked": true,
+    "reference_tolerance": 1e-05,
+    "peak_rss_bytes": 522223616,
+    "sampled_peak_virtual_bytes": 774062080,
+    "natural_process_exit": true,
+    "owner_closed": true,
+    "application_finalization": true,
+    "consumer_archive_drained": true,
+    "robust_memory_fit": false,
+    "UI_tested": false,
+    "stage_acceptance": false,
+    "persistent_naming": false,
+    "accuracy_scored": false,
+    "sessions": [
+      {
+        "kind": "early_stop",
+        "samples": 128960,
+        "probability_frames": 807,
+        "probability_windows": 1,
+        "reference_max_abs": null,
+        "caption_rows": 9,
+        "first_text_seconds": 5.651105723998626,
+        "first_probability_seconds": 9.6031714799974,
+        "source_end_to_completed_seconds": 1.6649286170008413,
+        "terminal_punctuation_fallbacks": 1
+      },
+      {
+        "kind": "full_restart",
+        "samples": 715127,
+        "probability_frames": 4470,
+        "probability_windows": 3,
+        "reference_max_abs": 0.0,
+        "caption_rows": 40,
+        "first_text_seconds": 5.6434163480007555,
+        "first_probability_seconds": 25.48761283299973,
+        "source_end_to_completed_seconds": 11.608299980000567,
+        "terminal_punctuation_fallbacks": 2
+      }
+    ]
+  },
+  "label_review": {
+    "status": "PASS_NATIVE_ANONYMOUS_LABEL_PROVENANCE_ONLY",
+    "run_id": "b05-native-stack-v1",
+    "cumulative_draft_rows": 40,
+    "draft_row_labels": {
+      "Speaker 1": 29,
+      "Unknown": 6,
+      "Speaker 2": 5
+    },
+    "checked_native_label_history_entries": 51,
+    "raw_span_text_preserved": true,
+    "cross_session_revision_rejected_by_reader": true,
+    "no_personal_name_or_profile": true,
+    "presentation_span_ids_reconstructed_from_revision_text": true,
+    "presentation_snapshot_only": true,
+    "actual_widgets_tested": false,
+    "accuracy_scored": false,
+    "association_quality_validated": false,
+    "release_accepted": false,
+    "sessions": [
+      {
+        "text_publications": 9,
+        "label_revisions": 9,
+        "label_revision_counts": {
+          "Speaker 1": 9
+        },
+        "first_text_seconds": 5.651105723998626,
+        "first_label_revision_seconds": 9.629385536998598
+      },
+      {
+        "text_publications": 41,
+        "label_revisions": 31,
+        "label_revision_counts": {
+          "Speaker 1": 20,
+          "Unknown": 6,
+          "Speaker 2": 5
+        },
+        "first_text_seconds": 5.6434163480007555,
+        "first_label_revision_seconds": 25.535656817999552
+      }
+    ]
+  },
+  "b01_failure_review": {
+    "status": "FAILED_B01_NATIVE_STACK_ALLOCATION_PRESERVED",
+    "run_id": "b01-native-stack-v2",
+    "owner_closed": true,
+    "launch_log_sha256": "11bb49ca185f551ce0b16c38d9a3d1cfd2f6b7f580d0e4eb335d34e67375118b",
+    "launch_exit_code": 255,
+    "result_present": false,
+    "clean_application_finalization": false,
+    "terminal_native_allocation_mb": 2.0,
+    "hard_virtual_cap_bytes": 805306368,
+    "startup_stack_bytes": 1048576,
+    "sampled_memory_bytes": {
+      "VmSize": 805208064,
+      "VmRSS": 542769152,
+      "VmPeak": 805257216
+    },
+    "text_publications": 13,
+    "probability_frames": 0,
+    "retained_E0_mode_requested": true,
+    "combined_model_lifecycle_qualified": false,
+    "source_coverage_qualified": false,
+    "integrated_acceptance": false,
+    "journal_failure_reasons": [
+      "ASR lane failed: std::bad_alloc"
+    ]
+  },
+  "backend_manifest_id": "sha256:40bae2e659a9dca7d4369495b70189deb52d18121263ab7aa12ac4229dd1beb9",
+  "config_only_derivative": "shared-app-native-stack-v1",
+  "application_code_unchanged": true,
+  "sampled_virtual_headroom_bytes": 31244288,
+  "previous_sampled_virtual_headroom_bytes": 2818048,
+  "all_owned_native_identities_closed": 56,
+  "combined_output_bytes": 641846584,
+  "output_limit_bytes": 1073741824,
+  "original_install_unchanged": true,
+  "actual_widget_testing_available": false,
+  "headless_Xvfb_installed": false,
+  "pending_cap_increase_approved": false,
+  "remaining": [
+    "Native GUI/control/render/save/reopen/delete coverage without visible desktop takeover",
+    "Memory-qualified retained-E0 B01",
+    "B02 resource qualification and native full protocol",
+    "Long native workload and robust memory fit",
+    "Independent user-ready real-life speech/noisy-location validation",
+    "N4 full application panel and N5 release acceptance"
+  ]
+}
