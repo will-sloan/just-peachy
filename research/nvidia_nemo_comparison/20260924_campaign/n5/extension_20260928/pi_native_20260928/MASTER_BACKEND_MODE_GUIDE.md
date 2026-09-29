@@ -1,10 +1,10 @@
 # Master backend and mode guide — Raspberry Pi
 
-Updated September 29, 2026, 13:24 EDT / 17:24 UTC. This is the current conceptual and engineering overview. Older reports preserve history; use this guide and STATUS.md for current priorities. Latest converter evidence is linked below; qualified preview scope is unchanged.
+Updated September 29, 2026, 14:10 EDT / 18:10 UTC. This is the current conceptual and engineering overview. Older reports preserve history; use this guide and STATUS.md for current priorities. Latest converter evidence is linked below; qualified preview scope is unchanged.
 
 ## Where we are now
 
-No campaign numerical worker or preview is running. Fresh inspection found all 107 recorded research process identities closed, no active research systemd units, and no user preview runs. The original rc5 app is still running with its original process identities and install. The Pi is a Compute Module 5 with 2 GB RAM.
+No campaign numerical worker or preview is running. Fresh inspection found all 119 recorded research process identities closed, no active research systemd units, and no user preview runs. The original rc5 app is still running with its original process identities and install. The Pi is a Compute Module 5 with 2 GB RAM.
 
 Two new **bounded saved-file previews** have native evidence:
 
@@ -21,7 +21,7 @@ The objective is a small set of clearly labelled, ready-to-run Pi modes using th
 
 After one expressly authorized XVF-only restart, the new 12-second real I2S check passed: 48kHz input converted to16kHz with exact counts, no dropped frames, successful tested-route restoration and clean closure. No audio was saved and no models ran. The earlier failed check/reset rejection remains preserved. The restart cleared volatile state; restoration covers the post-restart test settings. [Recovery evidence and limits](QUIET_ROUTE_RECOVERY_V1.md).
 
-A separate saved-source fixture now passes the actual live-controller/timeline branch with native B01 models, Stop/restart and exact full D1 reference. The30s real B01 diagnostic launcher is prepared and its no-device source-bound tests passed. Actual spoken capture remains unrun. The user said "Not now; continue without capture." Wait for their readiness signal, then obtain current readiness and private diagnostic consent; do not repeat hourly capture prompts. [Live trial readiness](LIVE_CONTROLLER_READINESS_V1.md) and [run instructions](README_B01_LIVE_TRIAL_V1.md). Neither fixture nor quiet success proves live combined quality or sustained fit. Saved B01/B05 previews remain unchanged.
+Two user-ready live attempts are now preserved. The first hit the virtual cap; a process-local ALSA configuration reduced unnecessary import mappings and passed the saved-input regression. The retry handled26.25seconds and produced captions, diarizer probabilities and embeddings, but detected a10ms input gap and correctly failed. The microphone is closed, route restored and original app unchanged. There is no full live pass or listenable WAV qualification. Next investigate callback/buffer scheduling and bound diagnostic output; another32MiB trial exceeds the remaining29.23MiB allowance. [Latest live evidence](LIVE_B01_INPUT_GAP_FINDINGS_V1.md). Saved B01/B05 previews remain unchanged.
 
 ## User-prioritized ASR activity guidance
 
@@ -135,7 +135,7 @@ Credible next optimization work is targeted: actual live-route conversion cost, 
 |---|---|---|
 | Spoken/XVF and restaurant validation | You physically ready for a short agreed session and suitable consented speech | No; software preparation can continue |
 | Physical screen/touch review | User-visible preview and hands-on interaction | No |
-| Live B01 integration | User-ready30s trial and private diagnostic recording permission; prepared source-bound launcher has native model-free checks | Actual concurrent live capture/model behavior remains the next gate |
+| Live B01 integration | Diagnose input gap and bound diagnostic output; current readiness needed for any new capture | Two partial actual trials; no complete30s live pass. Diagnostic consent is recorded. |
 | Native A2 / B02 | Component load/state/resource checks, then integration | Blocks the all-Nemotron ASR alternative, not B01 |
 | 30/60-minute tests | Fresh bounded time/resource/output admission and an appropriate long input | Short runs cannot substitute |
 | Previous 1-GiB virtual-cap question | Still unanswered | **No longer blocks the working B01 saved-file route.** No increase has been used. |
@@ -145,7 +145,7 @@ At the latest closure, combined new outputs used about 970 MB of the 1 GiB allow
 
 ## Shortest path to real-world validation
 
-1. **Prepared live B01 diagnostic:** source-only real I2S and separate live-controller/model fixture checks pass. The bounded30s user launcher is prepared; actual combined capture is not yet executed. Review each run independently, including failure restoration.
+1. **Live B01 diagnostics:** actual capture now has partial evidence and verified failure cleanup. Resolve the input gap and output-budget issue before another user-ready trial; no automatic capture or reset.
 2. **User-ready spoken session:** use a short consented passage with the prepared B01 path; inspect actual captions, delayed speaker changes, Stop/drain and route restoration. The completed quiet check is not speech-quality evidence. Audio saving/listening needs an explicitly agreed recording session.
 3. **Native sustained run:** bounded original-paced 30 minutes, then 60 for a finalist. Track dense-speech backlog, caption/label delay, CPU/RAM, thermals/clocks/throttle, failures and drain. Repeated/constructed input remains a diagnostic, not independent accuracy evidence.
 4. **Real noisy comparisons:** freeze settings first; compare microphone reference, XVF Auto ASR and postprocessed outputs where actual firmware/routing supports them. Preserve simultaneous chronology and paired listening gains. Separate restaurant babble, steady fan/HVAC noise, impacts, quiet/brief speech, overlap and returning speakers. Use known consenting speakers; do not deliberately record unrelated conversations.

@@ -1,0 +1,59 @@
+{
+  "updated_utc": "2026-09-29T18:04:26.566141+00:00",
+  "previous_summary": "CHECK_SUMMARY_V22.json",
+  "actual_live_trial_status": "REVIEWED_LIVE_MEMORY_FAILURE_WITH_SOURCE_RESTORATION_ONLY",
+  "actual_live_source_seconds": 6.91,
+  "actual_live_caption_publications": 12,
+  "actual_live_D1_frames": 0,
+  "actual_live_finalization": false,
+  "actual_live_source_restoration_verified": true,
+  "actual_live_sampled_virtual_peak_bytes": 805306368,
+  "actual_live_sampled_RSS_bytes": 508395520,
+  "default_sounddevice_import_virtual_delta_bytes": 147406848,
+  "hardware_only_import_virtual_delta_bytes": 6373376,
+  "hardware_only_import_status": "PASS_NATIVE_HW_ONLY_IMPORT_AND_ENDPOINT_ONLY",
+  "configured_endpoint_preserved": true,
+  "saved_fixture_status": "PASS_NATIVE_B01_ALSA_IMPORT_SAVED_FIXTURE_ONLY",
+  "saved_fixture_peak_RSS_bytes": 579026944,
+  "saved_fixture_peak_virtual_bytes": 764887040,
+  "saved_fixture_D1_full_max_abs": 0.0,
+  "saved_fixture_E0_new_window_reference_qualified": false,
+  "v2_boundary_status": "PASS_NATIVE_HW_ONLY_LIVE_TRIAL_BOUNDARY_ONLY",
+  "v2_user_trial": "PREPARED_NOT_EXECUTED_AWAITING_CURRENT_READINESS",
+  "diagnostic_retention_consented": true,
+  "no_capture_or_model_accuracy_scoring": true,
+  "resources": {
+    "checked_utc": "2026-09-29T18:04:26.566141+00:00",
+    "host_window_bytes": 383034368,
+    "target_bytes": 624305612,
+    "combined_bytes": 1007339980,
+    "cap_bytes": 1073741824,
+    "host_free_bytes": {
+      "C:": 142528270336,
+      "G:": 98753957888
+    },
+    "all_owned_native_identities_closed": 117,
+    "host_supervisor_closed": true,
+    "host_owners": [
+      {
+        "pid": 55636,
+        "create_time": 1790637870.806714,
+        "observed_create_time": null,
+        "exact_alive": false
+      },
+      {
+        "pid": 55720,
+        "create_time": 1790637870.971314,
+        "observed_create_time": null,
+        "exact_alive": false
+      }
+    ]
+  },
+  "reviews": {
+    "b01-live-trial-user-20260929T175035Z": "3cbe1ea3a08baaff1f86b0243dfda31d8b49d817959a8779ab2734efbc1129f8",
+    "live-import-memory-v1": "46cc6b05131ab2875d58a7af51a8404aad4073c104246bd0fb383f53bd65f898",
+    "live-alsa-import-v1": "1b50dfc83fb67030d37b79dc14d7976b7787a40505760562c8b43417c5978a8c",
+    "b01-live-alsa-fixture-v1": "1a1fc890eef4f8ad442d23c6fdb837f9a5f34d51711aa4629b737a52853d3508",
+    "b01-live-trial-alsa-boundary-v2": "b7fa815a5e9bc2324ef970c04b9f40152974387876b29c6dc7c8fd97a835b995"
+  }
+}

@@ -1,0 +1,101 @@
+{
+  "updated_utc": "2026-09-29T18:10:02.117933+00:00",
+  "previous_summary": "CHECK_SUMMARY_V23.json",
+  "run": "b01-live-trial-alsa-user-20260929T180625Z",
+  "status": "REVIEWED_LIVE_INPUT_GAP_WITH_HANDLED_FAILURE_CLOSURE_ONLY",
+  "source_samples": 420000,
+  "source_seconds": 26.25,
+  "reported_dropped_native_frames": 480,
+  "nominal_dropped_seconds": 0.01,
+  "caption_publications": 62,
+  "D1_successful_input_samples": 339360,
+  "D1_probability_frames": 2112,
+  "E0_calls": 29,
+  "model_inference_errors": 0,
+  "partial_coverage_only": true,
+  "full_trial_passed": false,
+  "successful_application_finalization": false,
+  "handled_failure_workers_queues_handles_closed": true,
+  "route_readbacks_restored": true,
+  "capture_closed": true,
+  "sampled_virtual_peak_bytes": 761462784,
+  "peak_RSS_bytes": 572899328,
+  "original_app_config_install_unchanged": true,
+  "private_diagnostic_consent_received": true,
+  "one_retry_authorization_fulfilled": true,
+  "further_capture_requires_current_readiness": true,
+  "standalone_wav_produced": false,
+  "listenable_audio_retention_qualified": false,
+  "output_audit": {
+    "run": "b01-live-trial-alsa-user-20260929T180625Z",
+    "admitted_output_max_bytes": 33554432,
+    "logical_file_bytes": 35396397,
+    "directory_du_bytes": 35437357,
+    "largest": [
+      [
+        "data/sessions/edge_prototype_20260929T180632Z_efbf6ba0/events.jsonl",
+        19989354
+      ],
+      [
+        "data/conversations/2d9505d0eb504233b19993a2fa9cccd9/epochs/2f4a58c0d08d468890703a0e201474e5/events.jsonl",
+        14104757
+      ],
+      [
+        "data/last_application.json",
+        308155
+      ],
+      [
+        "data/sessions/edge_prototype_20260929T180632Z_efbf6ba0/gui_presentation.jsonl",
+        213911
+      ],
+      [
+        "data/sessions/edge_prototype_20260929T180632Z_efbf6ba0/s7_clocks.jsonl",
+        203676
+      ],
+      [
+        "data/conversations/2d9505d0eb504233b19993a2fa9cccd9/epochs/2f4a58c0d08d468890703a0e201474e5/resources.jsonl",
+        199184
+      ],
+      [
+        "ADMISSION.json",
+        152851
+      ],
+      [
+        "data/conversations/2d9505d0eb504233b19993a2fa9cccd9/epochs/2f4a58c0d08d468890703a0e201474e5/epoch.json",
+        35827
+      ]
+    ],
+    "audio_files": []
+  },
+  "output_run_allowance_exceeded": true,
+  "resources": {
+    "checked_utc": "2026-09-29T18:10:02.117933+00:00",
+    "host_window_bytes": 383347986,
+    "target_bytes": 659742969,
+    "combined_bytes": 1043090955,
+    "cap_bytes": 1073741824,
+    "host_free_bytes": {
+      "C:": 142542700544,
+      "G:": 98753613824
+    },
+    "all_owned_native_identities_closed": 119,
+    "host_supervisor_closed": true,
+    "host_owners": [
+      {
+        "pid": 55636,
+        "create_time": 1790637870.806714,
+        "observed_create_time": null,
+        "exact_alive": false
+      },
+      {
+        "pid": 55720,
+        "create_time": 1790637870.971314,
+        "observed_create_time": null,
+        "exact_alive": false
+      }
+    ]
+  },
+  "review_sha256": "70e660087a1d9806673dc0d6f77febcae90c0c5a8a56a6ad29cc849ead97c83d",
+  "accuracy_scored": false,
+  "stage_accepted": false
+}
