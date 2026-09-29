@@ -1,0 +1,93 @@
+{
+  "updated_utc": "2026-09-29T18:27:20.251105+00:00",
+  "previous_summary": "CHECK_SUMMARY_V24.json",
+  "status": "PASS_NATIVE_MODEL_FREE_CALLBACK_FAULT_DETAILS_ONLY",
+  "run": "callback-fault-v2",
+  "cases": [
+    "normal_samples_and_counters_unchanged",
+    "input_overflow",
+    "input_underflow",
+    "other_status_flags",
+    "raw_ring_overflow",
+    "oversized_callback",
+    "priming_behavior_unchanged",
+    "unrelated_exception_not_masked"
+  ],
+  "case_count": 8,
+  "peak_rss_bytes": 32505856,
+  "capture": false,
+  "models_loaded": false,
+  "integrated": false,
+  "gap_fix_qualified": false,
+  "historical_correction": {
+    "legacy_reported_dropped_frames": 480,
+    "meaning": "rejected callback block size; upstream lost frames and prior status flags unknown",
+    "measured_upstream_loss_seconds": null,
+    "prior_full_live_trial_passed": false
+  },
+  "journal_observation": {
+    "main_journal_bytes": 19989354,
+    "display_events": 150,
+    "display_event_bytes": 17457272,
+    "largest_display_event_bytes": 237318,
+    "gap_cause_established": false,
+    "output_enforcement_implemented": false
+  },
+  "resources": {
+    "checked_utc": "2026-09-29T18:27:20.251105+00:00",
+    "host_window_bytes": 384328856,
+    "target_bytes": 659929004,
+    "combined_bytes": 1044257860,
+    "cap_bytes": 1073741824,
+    "host_free_bytes": {
+      "C:": 142547439616,
+      "G:": 98752548864
+    },
+    "all_owned_native_identities_closed": 121,
+    "host_supervisor_closed": true,
+    "host_owners": [
+      {
+        "pid": 55636,
+        "create_time": 1790637870.806714,
+        "observed_create_time": null,
+        "exact_alive": false
+      },
+      {
+        "pid": 55720,
+        "create_time": 1790637870.971314,
+        "observed_create_time": null,
+        "exact_alive": false
+      }
+    ]
+  },
+  "bindings": {
+    "LIVE_GAP_SOURCE_INSPECTION_V1.json": "264bb20339e7bbee5167b36bb65c35897a5154540b18313b8656edf62123b63c",
+    "LIVE_DISPLAY_VOLUME_INSPECTION_V1.json": "503e68cbc86f113f186b2f8dee5048c680b6b8b8753c38b91a33b708d7567713",
+    "callback-fault-v1-evidence/PRE_STAGE_FAILURE_V1.json": "56bf869ead91a7e479869e15c04885d2d9edd891a10f99108fa5c6a6130e8c2c",
+    "callback-fault-v2-evidence/REVIEW.json": "d971784e4f45edab6f9cf09991c793c053fee6da3b1a032704b4fd501f47d45f",
+    "NATIVE_CLOSURE_V32.json": "7834dbd3e05a2e194b781630b8a3d3b746c14d4e9b745b305d19339fd957f8c3",
+    "NATIVE_RESOURCES_V32.json": "b8878db84757b9aad43696f51bedf58252185ac8b1257c60e7f5a4fc8ae102dc",
+    "callback-fault-v2-evidence/ADMISSION_AUDIT_V1.json": "55a9fbcfaa5ec31d42e0a50cc2e007bead4327d7c5dc4458d4edf3d11115f02e"
+  },
+  "accuracy_scored": false,
+  "stage_accepted": false,
+  "dispatch_admission_conformance": {
+    "status": "ADMISSION_FIELD_MISMATCH_NOT_DISPATCH_QUALIFICATION",
+    "functional_case_review_preserved": true,
+    "admitted_RLIMIT_AS_bytes": 799014912,
+    "source_RLIMIT_AS_bytes": 805306368,
+    "campaign_authorized_RLIMIT_AS_bytes": 805306368,
+    "admission_conformant": false,
+    "peak_RSS_is_not_virtual_space_proof": true,
+    "admitted_stop_timeout_seconds": 90,
+    "executed_source_stop_timeout_seconds": 10,
+    "executed_stop_timeout_is_stricter": true,
+    "source_bound_files_unchanged": true,
+    "next_action": "Correct admission generation and validate agreement before a future fresh dispatch; do not repeat unchanged functional cases merely for progress.",
+    "bindings": {
+      "dispatch_callback_fault_v2.py": "b13a712332f21d7eba7f61d3c884546ee9b8309f6f3cef1e4a080514741c7503",
+      "check_callback_fault_v1.py": "e42573a8141d56e0b5dd8c1acb1c7ff93c96793535890c75d3b583b98520f966",
+      "callback_fault_gate_v1.py": "1105ec45b63e80e4cb9e617bc5de844c8a84f8201535ef9f33556840206f4d87"
+    }
+  }
+}

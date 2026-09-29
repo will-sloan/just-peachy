@@ -1,10 +1,10 @@
 # Master backend and mode guide — Raspberry Pi
 
-Updated September 29, 2026, 14:10 EDT / 18:10 UTC. This is the current conceptual and engineering overview. Older reports preserve history; use this guide and STATUS.md for current priorities. Latest converter evidence is linked below; qualified preview scope is unchanged.
+Updated September 29, 2026, 14:27 EDT / 18:27 UTC. This is the current conceptual and engineering overview. Older reports preserve history; use this guide and STATUS.md for current priorities. Latest converter evidence is linked below; qualified preview scope is unchanged.
 
 ## Where we are now
 
-No campaign numerical worker or preview is running. Fresh inspection found all 119 recorded research process identities closed, no active research systemd units, and no user preview runs. The original rc5 app is still running with its original process identities and install. The Pi is a Compute Module 5 with 2 GB RAM.
+No campaign numerical worker or preview is running. Fresh inspection found all 121 recorded research process identities closed, no active research systemd units, and no user preview runs. The original rc5 app is still running with its original process identities and install. The Pi is a Compute Module 5 with 2 GB RAM.
 
 Two new **bounded saved-file previews** have native evidence:
 
@@ -21,7 +21,9 @@ The objective is a small set of clearly labelled, ready-to-run Pi modes using th
 
 After one expressly authorized XVF-only restart, the new 12-second real I2S check passed: 48kHz input converted to16kHz with exact counts, no dropped frames, successful tested-route restoration and clean closure. No audio was saved and no models ran. The earlier failed check/reset rejection remains preserved. The restart cleared volatile state; restoration covers the post-restart test settings. [Recovery evidence and limits](QUIET_ROUTE_RECOVERY_V1.md).
 
-Two user-ready live attempts are now preserved. The first hit the virtual cap; a process-local ALSA configuration reduced unnecessary import mappings and passed the saved-input regression. The retry handled26.25seconds and produced captions, diarizer probabilities and embeddings, but detected a10ms input gap and correctly failed. The microphone is closed, route restored and original app unchanged. There is no full live pass or listenable WAV qualification. Next investigate callback/buffer scheduling and bound diagnostic output; another32MiB trial exceeds the remaining29.23MiB allowance. [Latest live evidence](LIVE_B01_INPUT_GAP_FINDINGS_V1.md). Saved B01/B05 previews remain unchanged.
+Two user-ready live attempts are preserved. The first hit the virtual cap; a process-local ALSA configuration reduced unnecessary import mappings and passed saved-input checks. The retry retained 26.25 seconds and produced captions, diarizer probabilities and embeddings, but aborted on a PortAudio input-status indication. **The reported 480 frames count the rejected callback block; the total upstream loss and exact status flags are unknown.** The trial remains failed, with incomplete D1 coverage. The microphone is closed, routes restored and original app unchanged. No full live pass or listenable WAV is qualified.
+
+Eight native synthetic callback cases now qualify an unintegrated fault diagnostic helper, without opening a microphone or loading models. A supplemental admission-field mismatch still needs correction before reusing that dispatch; its eight functional results do not qualify the complete execution envelope. Read-only analysis found display histories make up 87.33% of the main session journal. Next bound diagnostic output and verify compact replay, then a bounded listenable PCM path and combined integration. This does not prove logging caused the interruption. About 28.12 MiB of the output allowance remains; another unchanged 32 MiB trial does not fit. [Current findings and limits](CALLBACK_AND_JOURNAL_FINDINGS_V1.md). Saved B01/B05 previews remain unchanged.
 
 ## User-prioritized ASR activity guidance
 
