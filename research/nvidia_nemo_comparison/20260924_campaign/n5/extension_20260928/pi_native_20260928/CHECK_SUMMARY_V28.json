@@ -1,0 +1,71 @@
+{
+  "updated_utc": "2026-09-29T19:35:38.805295+00:00",
+  "previous_summary": "CHECK_SUMMARY_V27.json",
+  "status": "A2_NATIVE_STREAM_ALLOCATION_FAILURES_INDEPENDENTLY_CLOSED",
+  "runs": [
+    {
+      "run": "a2-native-probe-v1",
+      "status": "REVIEWED_A2_STREAM_ALLOCATION_FAILURE_AND_CLEAN_CLOSURE_ONLY",
+      "address_space_max_bytes": 1073741824,
+      "minimum_available_ram_bytes": 1342177280,
+      "input_samples_processed": 0,
+      "model_buffer_request_bytes": 930624512,
+      "natural_exit_code": 1,
+      "recognizer_closed": true,
+      "exact_owners_closed": true,
+      "output_bytes": 8104267,
+      "output_bound_bytes": 33554432,
+      "kernel_ru_maxrss_kib": 85936,
+      "full_source_qualified": false,
+      "review_sha256": "f92ca60586f2ed04dd46a565943aa6a6ea36938f61f291a6952c97a381aaf9b7"
+    },
+    {
+      "run": "a2-native-probe-v2",
+      "status": "REVIEWED_A2_STREAM_ALLOCATION_FAILURE_AND_CLEAN_CLOSURE_ONLY",
+      "address_space_max_bytes": 1342177280,
+      "minimum_available_ram_bytes": 1476395008,
+      "input_samples_processed": 0,
+      "model_buffer_request_bytes": 930624512,
+      "natural_exit_code": 1,
+      "recognizer_closed": true,
+      "exact_owners_closed": true,
+      "output_bytes": 8105442,
+      "output_bound_bytes": 33554432,
+      "kernel_ru_maxrss_kib": 85936,
+      "full_source_qualified": false,
+      "review_sha256": "3b26f3f02bf5ca972e2f0fc95988799fc870b0696347770218475515db3d3b50"
+    }
+  ],
+  "capture": false,
+  "resources": {
+    "checked_utc": "2026-09-29T19:34:10.691839+00:00",
+    "host_window_bytes": 386011725,
+    "target_bytes": 1376046147,
+    "combined_bytes": 1762057872,
+    "cap_bytes": 3221225472,
+    "host_free_bytes": {
+      "C:": 141807255552,
+      "G:": 98750361600
+    },
+    "all_owned_native_identities_closed": 126,
+    "host_supervisor_closed": true,
+    "host_owners": [
+      {
+        "pid": 55636,
+        "create_time": 1790637870.806714,
+        "observed_create_time": null,
+        "exact_alive": false
+      },
+      {
+        "pid": 55720,
+        "create_time": 1790637870.971314,
+        "observed_create_time": null,
+        "exact_alive": false
+      }
+    ]
+  },
+  "baseline_unchanged": true,
+  "new_release_accepted": false,
+  "stage_accepted": false,
+  "next": "Inspect A2 metadata/weight/state reservations and build an A2-specific guarded derivative; no unchanged cap retries. Continue D1 ONNX driver and bounded quiet PCM/logging work."
+}

@@ -1,6 +1,6 @@
 # Master backend and mode guide — Raspberry Pi
 
-Updated September 29, 2026, 15:05 EDT / 19:05 UTC. This is the current conceptual and engineering overview. Older reports preserve history; use this guide and STATUS.md for current priorities. Latest converter evidence is linked below; qualified preview scope is unchanged.
+Updated September 29, 2026, 15:34 EDT / 19:34 UTC. This is the current conceptual and engineering overview. Older reports preserve history; use this guide and STATUS.md for current priorities. Latest converter evidence is linked below; qualified preview scope is unchanged.
 
 ## Next 36–48 hours
 
@@ -10,7 +10,9 @@ The user has prioritized implemented Nemotron diarizer modes, credible speed met
 
 ## Where we are now
 
-No campaign numerical worker or preview is running. Fresh inspection found all 122 recorded research process identities closed, no active research systemd units, and no user preview runs. The original rc5 app is still running with its original process identities and install. The Pi is a Compute Module 5 with 2 GB RAM.
+Nemotron ASR (A2) reaches native recognizer creation, but opening a stream failed at both1GiB and1.25GiB virtual caps on an887.51MiB CPU-buffer request. Both attempts closed cleanly; zero samples were processed. This is a memory blocker, not a working B02 mode or ASR timing result. Next isolate ASR-specific reservations without borrowing the diarizer's reduced bounds. [A2 findings](A2_NATIVE_MEMORY_FINDINGS_V1.md).
+
+No campaign numerical worker or preview is running. Fresh inspection found all 126 recorded research process identities closed, no active research systemd units, and no user preview runs. The original rc5 app is still running with its original process identities and install. The Pi is a Compute Module 5 with 2 GB RAM.
 
 Two new **bounded saved-file previews** have native evidence:
 
@@ -79,7 +81,7 @@ The original app's continued operation is not a new full B00 live/GUI qualificat
 |---|---|---|
 | B00 | Original complete Sherpa pipeline | Installed rollback/control. Preserve it. Separate Sherpa saved-file component passage passed. |
 | B01 | A0 + D1 + E0 | Bounded saved-file preview qualified. Captions first, delayed labels, empty research gallery. Main route toward live validation. |
-| B02 | A2 + D1 + E0 | Pinned A2 weights now staged and hash-verified on Pi. Native A2 load/inference and integration remain unqualified; explicit priority in the current delivery window. |
+| B02 | A2 + D1 + E0 | A2 ABI/recognizer creation reached; stream allocation failed at 1/1.25GiB virtual caps. Zero samples processed. Memory repair, full protocol and integration remain open. |
 | B03 | B01 with on-demand E0 | Candidate. Must measure actual calls saved and retain quiet/returning-speaker/overlap behavior. Existing E0 window selection is not acceptance of a new on-demand policy. |
 | B04 | B02 with on-demand E0 | Candidate; depends on B02 and on-demand evidence. |
 | B05 | A0 + D1, external encoder bypass | Separately qualified bounded anonymous saved-file preview. No persistent personal naming. |
