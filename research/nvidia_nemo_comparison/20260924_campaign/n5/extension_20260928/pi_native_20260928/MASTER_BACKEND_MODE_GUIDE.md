@@ -1,10 +1,10 @@
 # Master backend and mode guide — Raspberry Pi
 
-Updated September 29, 2026, 13:10 EDT / 17:10 UTC. This is the current conceptual and engineering overview. Older reports preserve history; use this guide and STATUS.md for current priorities. Latest converter evidence is linked below; qualified preview scope is unchanged.
+Updated September 29, 2026, 13:24 EDT / 17:24 UTC. This is the current conceptual and engineering overview. Older reports preserve history; use this guide and STATUS.md for current priorities. Latest converter evidence is linked below; qualified preview scope is unchanged.
 
 ## Where we are now
 
-No campaign numerical worker or preview is running. Fresh inspection found all 105 recorded research process identities closed, no active research systemd units, and no user preview runs. The original rc5 app is still running with its original process identities and install. The Pi is a Compute Module 5 with 2 GB RAM.
+No campaign numerical worker or preview is running. Fresh inspection found all 107 recorded research process identities closed, no active research systemd units, and no user preview runs. The original rc5 app is still running with its original process identities and install. The Pi is a Compute Module 5 with 2 GB RAM.
 
 Two new **bounded saved-file previews** have native evidence:
 
@@ -21,9 +21,11 @@ The objective is a small set of clearly labelled, ready-to-run Pi modes using th
 
 After one expressly authorized XVF-only restart, the new 12-second real I2S check passed: 48kHz input converted to16kHz with exact counts, no dropped frames, successful tested-route restoration and clean closure. No audio was saved and no models ran. The earlier failed check/reset rejection remains preserved. The restart cleared volatile state; restoration covers the post-restart test settings. [Recovery evidence and limits](QUIET_ROUTE_RECOVERY_V1.md).
 
-A separate saved-source fixture now passes the actual live-controller/timeline branch with native B01 models, Stop/restart and exact full D1 reference. The30s real B01 diagnostic launcher is prepared and its no-device source-bound tests passed. Actual spoken capture remains unrun and requires current readiness plus permission to retain private diagnostic audio/transcripts. [Live trial readiness](LIVE_CONTROLLER_READINESS_V1.md) and [run instructions](README_B01_LIVE_TRIAL_V1.md). Neither fixture nor quiet success proves live combined quality or sustained fit. Saved B01/B05 previews remain unchanged.
+A separate saved-source fixture now passes the actual live-controller/timeline branch with native B01 models, Stop/restart and exact full D1 reference. The30s real B01 diagnostic launcher is prepared and its no-device source-bound tests passed. Actual spoken capture remains unrun. The user said "Not now; continue without capture." Wait for their readiness signal, then obtain current readiness and private diagnostic consent; do not repeat hourly capture prompts. [Live trial readiness](LIVE_CONTROLLER_READINESS_V1.md) and [run instructions](README_B01_LIVE_TRIAL_V1.md). Neither fixture nor quiet success proves live combined quality or sustained fit. Saved B01/B05 previews remain unchanged.
 
 ## User-prioritized ASR activity guidance
+
+A separate candidate now bounds policy metadata as well as audio. Twelve native model-free checks passed, including a simulated hour of events in 5.661 seconds. It is not integrated into B01 and does not skip inference; this is no live endurance or speedup result. Overflow and uncertain late history retain audio. Next replay the retained actual cue chronology before integration. [Bounded metadata findings](ASR_BOUNDED_METADATA_FINDINGS_V2.md).
 
 The next implementation step now passes on the Pi: an actual192k audio shadow queue plus successful-ASR progress. Missing/failed health, late cues, buffer pressure and EOF have constructed checks; B01 full outputs stay exact and drain cleanly. Observation costs about1.09s on the44.7s diagnostic. All audio still runs; there is no demonstrated inference speedup. [Causal buffer findings](ASR_CAUSAL_FINDINGS_V1.md).
 

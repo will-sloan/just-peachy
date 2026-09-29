@@ -1,0 +1,69 @@
+{
+  "updated_utc": "2026-09-29T17:24:58.098894+00:00",
+  "previous_summary": "CHECK_SUMMARY_V21.json",
+  "scope": "Native model-free bounded ASR-shadow bookkeeping; no capture or models",
+  "run": "asr-bounded-shadow-v2",
+  "status": "PASS_NATIVE_MODEL_FREE_BOUNDED_METADATA_ONLY",
+  "cases_passed": 12,
+  "actual_execution_seconds": 6.044078892999096,
+  "logical_trace_seconds": 3600,
+  "logical_trace_execution_seconds": 5.661348435001855,
+  "peak_RSS_bytes": 31981568,
+  "long_trace_observed_bounds": {
+    "maximum_audio_samples": 48000,
+    "maximum_pending_entries": 150,
+    "maximum_cue_intervals": 1,
+    "maximum_energy_intervals": 1,
+    "retained_decisions": 512,
+    "retained_progress": 32
+  },
+  "declared_bounds": {
+    "audio_samples": 48000,
+    "pending_entries": 256,
+    "ASR_intervals": 128,
+    "energy_intervals": 128,
+    "recent_decisions": 512,
+    "recent_progress": 32
+  },
+  "all_audio_retained": true,
+  "actual_skipped_samples": 0,
+  "integrated_into_B01": false,
+  "models_loaded": false,
+  "capture": false,
+  "playback": false,
+  "accuracy_scored": false,
+  "real_time_or_endurance_qualified": false,
+  "user_live_trial_status": "PREPARED_NOT_EXECUTED_USER_DEFERRED_CAPTURE",
+  "user_instruction": "Not now; continue without capture",
+  "natural_process_closure": true,
+  "resources": {
+    "checked_utc": "2026-09-29T17:24:58.098894+00:00",
+    "host_window_bytes": 377127596,
+    "target_bytes": 594064732,
+    "combined_bytes": 971192328,
+    "cap_bytes": 1073741824,
+    "host_free_bytes": {
+      "C:": 111606411264,
+      "G:": 98760118272
+    },
+    "all_owned_native_identities_closed": 107,
+    "host_supervisor_closed": true,
+    "host_owners": [
+      {
+        "pid": 55636,
+        "create_time": 1790637870.806714,
+        "observed_create_time": null,
+        "exact_alive": false
+      },
+      {
+        "pid": 55720,
+        "create_time": 1790637870.971314,
+        "observed_create_time": null,
+        "exact_alive": false
+      }
+    ]
+  },
+  "review_sha256": {
+    "asr-bounded-shadow-v2": "fdd85ae8c51d65585f925febd3f6944f4c8b6ce9113cff1ce4efee7552e24a5a"
+  }
+}
