@@ -2,9 +2,9 @@
 
 **Device storage:** fixed32GB Raspberry Pi; current measured available space is~18.00GB(16.76GiB), including existing research usage. Host allowances do not enlarge it. All field models, app, recordings and rollback must fit with5GiB available reserve. See [storage budget](PI_STORAGE_BUDGET_V1.md).
 
-Current update September29 22:32UTC: waveform/EOF runtime is implemented but fails cached-embedding parity. Original-feature isolation reproduces it; probability values alone pass. No native waveform or new field release. See D1_WAVEFORM_FINDINGS_V1.md / CHECK_SUMMARY_V36.json.
+Current update September29 22:50UTC: bounded journal/PCM helpers now pass native exact reconstruction and quota checks; they remain unintegrated. No new mic capture or field release. Alternate D1 cached-state mismatch remains. See LIVE_ARTIFACT_FINDINGS_V1.md / CHECK_SUMMARY_V37.json.
 
-Updated September 29, 2026, 18:32 EDT / 22:32 UTC. This is the current conceptual and engineering overview. Older reports preserve history; use this guide and STATUS.md for current priorities. Latest converter evidence is linked below; qualified preview scope is unchanged.
+Updated September 29, 2026, 18:50 EDT / 22:50 UTC. This is the current conceptual and engineering overview. Older reports preserve history; use this guide and STATUS.md for current priorities. Latest converter evidence is linked below; qualified preview scope is unchanged.
 
 ## Next 36–48 hours
 
@@ -13,6 +13,8 @@ Unattended bounded quiet recording and necessary Pi/resource changes are now aut
 The user has prioritized implemented Nemotron diarizer modes, credible speed methods, native Nemotron ASR and alternate runtimes, all aligned with N5 GUI/field readiness. The existing October 1 checkpoint stays. See the [delivery plan and N5 mapping](N5_NATIVE_DELIVERY_48H_V1.md). Resource authority now permits measured adjustments; new WINDOW_V5 allows 5 GiB combined existing-plus-new file output and52GiB totalpayload with retained2.5GiB reservations, retaining old evidence and separate per-job limits.
 
 ## Where we are now
+
+**September29 22:50UTC:** CHECK_SUMMARY_V37 / LIVE_ARTIFACT_FINDINGS_V1: native bounded journal/PCM helpers pass independent model-free replay. Both original failed-live journals reconstruct all2628/2672events exactly;34,094,111bytes become7,276,651bytes (~78.7%smaller),not a live speedup. Original715127saved samples reopen as byte-exactPCM; no new mic recording. Byte/record/frame limits reject before rejected writes; five invalidPCM calls and normal/overflow callback-to-journal cases pass under actual768MiB/1MiBstack/CPU2/3/200%/300s/10s envelope. Peak39.656MiBRSS,naturalexit0. Source/archives unchanged,newhelpers UNINTEGRATED,oldcallbackfault NOTfixed. Exact private output backup verified. All149Pi/44host identities closed,baseline unchanged,captureclosed,leasesfree; closureV60combined4,146,445,841/5GiB. Next freshapp integration of bounded sinks plus compatible readers, then autonomousquiet trial; keep D1state mismatch and A2optimized/sequential work moving.
 
 **September29 22:32UTC:** CHECK_SUMMARY_V36 / D1_WAVEFORM_FINDINGS_V1: complete waveform candidate implemented but host tail final-cache parity fails1e-5 (1.639e-4 embedding error, probabilities8.568e-8). A separate original-feature graph/state diagnostic reproduces the failure: full4469probabilities error9.000e-6 passes, cache2.346e-4 fails; repeats exact. Frontend alone is not the cause; precise operator still unknown. No native waveform/GUI/speedup acceptance. Original reference uses actual learned silence,valid4469frames distinct from Q8 4470. Preserve initial64MiB extraction guard stop/partialweights; fresh256MiB reference trial closed naturally1 and diagnostic0 is observations only. All147Pi/44host identities closed,baseline unchanged,captureclosed,leasesfree. WINDOW_V5 now5GiBcombined/52GiBtotal/2.5GiBreserved,oldlimits preserved,fixed32GBPi unchanged. ClosureV57 combined4,127,737,930bytes,targetfree17,995,952,128bytes. Next isolate preencoder graph output on retained features; keep bounded quietPCM/journal and A2optimized/sequential work advancing.
 
@@ -28,7 +30,7 @@ Native A2 endpoint/tail checks now pass: empty input, one sample,1281-sample tai
 
 Nemotron ASR (A2) now passes the original44.7-second file twice on the Pi with exact repeat events and clean shutdown. It takes78.5/77.1seconds (about1.75times the recording duration) and peaks near966MiB RAM, under an isolated1536MiB virtual cap. This supports a future sequential/offline mode; it is not a real-time or integrated B02 release. Independent runtime parity and GUI integration remain. [A2 functional findings](A2_NATIVE_FUNCTIONAL_FINDINGS_V1.md). Follow-ups now run every10minutes.
 
-At closureV57 (22:32UTC), all147Pi and44isolated host research identities were closed; no research model or capture was active. The original rc5 app remained unchanged. The Pi is a Compute Module5 with2GB RAM and fixed32GB storage.
+At closureV60 (22:50UTC), all149Pi and44isolated host research identities were closed; no research model or capture was active. The original rc5 app remained unchanged. The Pi is a Compute Module5 with2GB RAM and fixed32GB storage.
 
 Two new **bounded saved-file previews** have native evidence:
 

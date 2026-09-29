@@ -1,0 +1,83 @@
+{
+  "updated_utc": "2026-09-29T22:50:31.554651+00:00",
+  "previous_summary": "CHECK_SUMMARY_V36.json",
+  "status": "PASS_NATIVE_COMPACT_REPLAY_PCM_BOUNDS_AND_FAULT_JOURNAL_ONLY",
+  "journals": [
+    {
+      "index": 0,
+      "events": 2628,
+      "source_bytes": 19989354,
+      "compact_bytes": 3546400,
+      "canonical_sha256": "4c57578a488d8472a5eeb1c74c76a253a8517e96b1f66a5e5a4e4c7948f067b3",
+      "all_event_fields_exact": true,
+      "patch_records": 144,
+      "seconds": 1.5118447649874724,
+      "serialization_ns": 799990571,
+      "write_ns": 11685622
+    },
+    {
+      "index": 1,
+      "events": 2672,
+      "source_bytes": 14104757,
+      "compact_bytes": 3730251,
+      "canonical_sha256": "55c7b99abef84dc10edde6ee90a6cc6a81c8375144cc8c41e2f03986509c4d42",
+      "all_event_fields_exact": true,
+      "patch_records": 115,
+      "seconds": 1.0445152030006284,
+      "serialization_ns": 548857177,
+      "write_ns": 10810502
+    }
+  ],
+  "source_journal_bytes": 34094111,
+  "compact_journal_bytes": 7276651,
+  "retained_byte_fraction": 0.21342838357040606,
+  "storage_reduction_not_speedup": true,
+  "pcm_saved_source_samples": 715127,
+  "pcm_bytes_exact": true,
+  "actual_microphone_recording": false,
+  "synthetic_callback_to_journal_cases": 2,
+  "original_failed_callback_flags_recovered": false,
+  "quota_boundaries": [
+    "journal byte limit",
+    "journal record limit",
+    "PCM frame limit"
+  ],
+  "invalid_pcm_cases": 5,
+  "peak_rss_mib": 39.65625,
+  "actual_virtual_mib": 768,
+  "startup_stack_mib": 1,
+  "cpu_affinity": [
+    2,
+    3
+  ],
+  "cpu_quota_percent": 200,
+  "runtime_seconds": 300,
+  "stop_timeout_seconds": 10,
+  "native_natural_exit_code": 0,
+  "all_owned_native_identities_closed": 149,
+  "isolated_host_identities_closed": 44,
+  "baseline_unchanged": true,
+  "capture_closed": true,
+  "leases_free": true,
+  "combined_output_bytes": 4146445841,
+  "combined_cap_bytes": 5368709120,
+  "target_free_bytes": 17987014656,
+  "target_available_ram_bytes": 1589690368,
+  "temperature_c": 53.45,
+  "throttle": "throttled=0x0",
+  "global_swap": {
+    "pswpin": 1097,
+    "pswpout": 33286
+  },
+  "application_integrated": false,
+  "callback_failure_repaired": false,
+  "speedup_qualified": false,
+  "quality_qualified": false,
+  "integrated_release": false,
+  "private_review_hashes": {
+    "live-artifact-replay-v1-evidence/REVIEW.json": "1247427c5af570eb5d33f31441c9a431cef48a3188692be8d2eee0f1b272c942",
+    "live-artifact-replay-v1-evidence/BACKUP.json": "4104815104d3bdd24dfbd997de96113b3f309ed1e7b0bdb24bd55e361a7a1500",
+    "NATIVE_CLOSURE_V60.json": "dddc291251356ea6b9c11a63ec97fb6108fbd1ad9803f059dd8cd7cef3004f21",
+    "NATIVE_RESOURCES_V60.json": "5b27024d65f0366c0b09ed8b7b53131a3a8aeff327bc04a17ca16cb061997689"
+  }
+}
