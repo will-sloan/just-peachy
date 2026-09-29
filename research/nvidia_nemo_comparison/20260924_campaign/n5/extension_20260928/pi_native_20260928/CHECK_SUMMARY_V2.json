@@ -1,0 +1,131 @@
+{
+  "schema": "native-cm5-kernel-and-startup-checks.v2",
+  "utc": "2026-09-29T01:23:57.784335+00:00",
+  "D1_V8": {
+    "status": "FAIL_GENERIC_PARITY_PRESERVED",
+    "scope": "Native short software comparison only; no speech accuracy scoring",
+    "max_abs_reference_error": 0.011495113372802734,
+    "mean_abs_reference_error": 4.008588439319283e-05,
+    "max_abs_v7_error": 0.0,
+    "repeat_bit_identical": true,
+    "tolerance": 1e-05,
+    "cases": [
+      {
+        "case": "saved_prefix",
+        "frames": 1201,
+        "audio_seconds": 12,
+        "endpoint_support_overhang_seconds": 0.009999731555581093,
+        "elapsed_seconds": 17.571341623999615,
+        "call_sequence_rtf": 1.4642784686666346,
+        "cpu_seconds": 17.547751701,
+        "temperature_millic": 55100
+      },
+      {
+        "case": "resident_repeat",
+        "frames": 1201,
+        "audio_seconds": 12,
+        "endpoint_support_overhang_seconds": 0.009999731555581093,
+        "elapsed_seconds": 17.577747409999574,
+        "call_sequence_rtf": 1.4648122841666311,
+        "cpu_seconds": 17.550315366000003,
+        "temperature_millic": 55100
+      }
+    ],
+    "peak_rss_bytes": 168542208,
+    "source_result_sha256": "6d17a1c635e5db01a66493ec0d69359016eb313bb05aca45274188387c6194a0",
+    "stage_accepted": false,
+    "full_source_qualified": false
+  },
+  "D1_V9": {
+    "status": "PASS_NATIVE_SHORT_GENERIC_PARITY_ONLY",
+    "scope": "Native short software comparison; no speech accuracy scoring",
+    "max_abs_reference_error": 0.0,
+    "repeat_bit_identical": true,
+    "tolerance": 1e-05,
+    "cases": [
+      {
+        "case": "saved_prefix",
+        "frames": 1201,
+        "audio_seconds": 12,
+        "endpoint_support_overhang_seconds": 0.009999731555581093,
+        "elapsed_seconds": 21.59853401500004,
+        "call_sequence_rtf": 1.7998778345833368,
+        "cpu_seconds": 21.566838852,
+        "temperature_millic": 56200
+      },
+      {
+        "case": "resident_repeat",
+        "frames": 1201,
+        "audio_seconds": 12,
+        "endpoint_support_overhang_seconds": 0.009999731555581093,
+        "elapsed_seconds": 21.60186106400033,
+        "call_sequence_rtf": 1.8001550886666944,
+        "cpu_seconds": 21.569418333,
+        "temperature_millic": 56750
+      }
+    ],
+    "peak_rss_bytes": 168525824,
+    "source_result_sha256": "bd719dc40a6bf0ff5dc49302675f0c9c698b982293aa85b4d109dddd32fd9167",
+    "stage_accepted": false,
+    "full_source_qualified": false
+  },
+  "D1_V10": {
+    "status": "PASS_NATIVE_FULL_SOURCE_REPEAT_GENERIC_PARITY_ONLY",
+    "scope": "Original full saved source, native software comparison; no speech accuracy scoring",
+    "max_abs_reference_error": 0.0,
+    "repeat_bit_identical": true,
+    "tolerance": 1e-05,
+    "cases": [
+      {
+        "case": "saved_full",
+        "frames": 4470,
+        "audio_seconds": 44.6954375,
+        "endpoint_support_overhang_seconds": 0.004561500877144908,
+        "elapsed_seconds": 269.7255616829998,
+        "call_sequence_rtf": 6.034744859204025,
+        "cpu_seconds": 269.48027425600003,
+        "temperature_millic": 60050
+      },
+      {
+        "case": "resident_repeat",
+        "frames": 4470,
+        "audio_seconds": 44.6954375,
+        "endpoint_support_overhang_seconds": 0.004561500877144908,
+        "elapsed_seconds": 270.0862286690008,
+        "call_sequence_rtf": 6.042814295508368,
+        "cpu_seconds": 269.79291280800004,
+        "temperature_millic": 63900
+      }
+    ],
+    "peak_rss_bytes": 244989952,
+    "source_result_sha256": "3b88191d3c075da6376526993f495db8d8c4274743db00cca14888a586356fb9",
+    "stage_accepted": false,
+    "full_source_component_protocol_passed": true,
+    "integrated_mode_qualified": false
+  },
+  "B01_failed_start": {
+    "status": "PASS_NATIVE_FAILED_START_CLEANUP_ONLY",
+    "integration_status": "FAILED_START_THREAD_ALLOCATION_PRESERVED",
+    "controller_closed": true,
+    "native_process_closed": true,
+    "all_handles_closed": true,
+    "source_samples": 0,
+    "identity_samples": 0,
+    "app_accepted": false,
+    "closure_sha256": "0f497a8c6b45458978fc193b3ca437226017e0c22a7e5116080c7ba56f765935",
+    "result_sha256": "5a18970b6729a5c71c63c5166690608ac2a66e9ea194fb114cfb4e07901fcae3",
+    "remaining_blocker": "Combined stack exceeds virtual-address headroom; no ready new Pi mode yet"
+  },
+  "current_install_preserved": true,
+  "all_owned_jobs_closed": true,
+  "stage_accepted": false,
+  "new_application_profiles_accepted": 0,
+  "no_new_capture": true,
+  "saved_audio_accuracy_scoring": false,
+  "native_cpu_library_sha256": "f12ac1b3912855a88bdc899fb468297d940c8730ee5942a991cc45ddf825a557",
+  "native_cpu_patch": {
+    "original_header_sha256": "e7008069e3e46f1db5e3d2eaafb4ddec3c7d0ece5c0454f99c5a8e33a50f20ba",
+    "new_header_sha256": "fd43e75781d247d4dd2154b30e416e7f715ce08c773f3a20d39fadba93ae6eac",
+    "lane_tests": 10016
+  }
+}

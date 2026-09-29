@@ -2,6 +2,10 @@
 
 **Latest: Pi connection confirmed; native testing is underway.** Follow [connected CM5 status](extension_20260928/pi_native_20260928/STATUS.md) and [mode plan](extension_20260928/pi_native_20260928/PI_MODE_PLAN.md). These supersede the disconnected-Pi ordering preserved below. Saved audio is functional/resource evidence only; no new ASR/WER scoring.
 
+## Native Pi checkpoint - September29,01:23UTC
+
+The repaired Cortex-A76 D1 kernel now passes the original full saved-source/repeat protocol with exact generic probabilities, completing44.695seconds in269.7/270.1seconds (RTF6.035/6.043). This clears the kernel-equivalence/full-repeat blocker but remains slower than real time. B01 shared-controller startup still exceeds the768MiB virtual-address headroom; a fresh controller repair now closes the resulting thread-allocation failure cleanly. No new integrated Pi release is accepted. Follow [latest native status](extension_20260928/pi_native_20260928/STATUS.md), CHECK_SUMMARY_V2.json and the native geometry findings. All owned jobs are closed and the installed rc5 app remains unchanged. Historical disconnected-Pi statements below are superseded.
+
 ## Current authorized extension — September 28, 23:30 UTC
 
 The user's multiday extension supersedes the earlier stop windows for new work.
