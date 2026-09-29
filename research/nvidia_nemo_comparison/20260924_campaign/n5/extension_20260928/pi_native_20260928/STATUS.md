@@ -1,10 +1,22 @@
 # Connected CM5: native work is now the priority
 
-Updated September 29, 2026 05:07 UTC. Read later verified results before acting. The user confirmed connection and authorized Pi testing on September 28. This replaces the older no-Pi-contact condition; it does not rewrite old admissions. Multiday checkpoint remains October 1 at 17:47:34 UTC. Hourly continuation was updated successfully to Pi-first work.
+Updated September 29, 2026 06:01 UTC. Read later verified results before acting. The user confirmed connection and authorized Pi testing on September 28. This replaces the older no-Pi-contact condition; it does not rewrite old admissions. Multiday checkpoint remains October 1 at 17:47:34 UTC. Hourly continuation was updated successfully to Pi-first work.
 
 The user explicitly limits saved audio to functionality, text passage and real-time/CPU/RAM/resource observations, **not new ASR/WER accuracy metrics**. A quiet microphone route is permitted with nobody speaking; that does not establish speech accuracy. No new microphone capture/playback has been started. A read-only ALSA inventory shows an XMOSDevice I2S capture endpoint, currently closed; do not assume the expected USB route or claim a working live route from enumeration alone. Actual speech/noisy-location tests still require physical readiness. Preserve the current app/data, with new backend modes developed separately.
 
 ## Current work / next action
+
+**Anonymous B05 now passes native short and full-file shared-controller passage; retained-E0 B01 remains blocked.** Read CHECK_SUMMARY_V7.json and ARENA_AND_ANONYMOUS_FINDINGS_V1.md. No new release profile, GUI mode or N4/N5 completion is accepted.
+
+The fresh shared-app-anonymous-v1/full-v1 source reapplies the preserved anonymous-mode patch to the latest pipeline (SHA6312c12f80b67183faf93b6ca83502b47f0e7bca62d124a170a58a6a51000491). B05 is explicitly Sherpa/PnC + delayed D1 without E0 personal naming. Named/research modes keep prior encoder behavior. Its new manifest is sha256:1684af7e6434c407a00aec7e7e24b4e3bdc140c7c1110aa1b24cf9f47c8989be; no silent fallback or install change.
+
+Original1x full44.6954375s retained all715127samples, produced4470x8 probabilities exactly equal to the standalone delayed reference, actual captions/learned punctuation, zero embedding calls and clean application/consumer/archive/natural process closure. First text5.644s includes initial source silence; first D1 output25.477s; EOF-to-completed11.612s. D1 call work18.877s and ASR accept/finish6.117s. PeakRSS499.453MiB, sampled peak virtual767.656MiB under768MiB cap: only0.344MiB headroom. This does not establish robust repeat/Stop/GUI/endurance or real-life quality. The earlier12-second check passed its narrower passage/closure scope too. Both reviews are private b05-anonymous[-full]-v1-evidence/REVIEW.json.
+
+ReDimNet with its CPU arena disabled retained exact six-vector/reference parity and clean exit, but peakRSS increased323.922→341.719MiB; no optimization win claimed. It released some allocations after inference. B01 with only this E0 allocator change still aborted on39.45MB native allocation, exact owner closed without clean application finalization. Preserve ort-e0-noarena-v1 and b01-e0-noarena-v1; do not rerun unchanged failures. Standalone outputs are not identity accuracy.
+
+**Next:** prioritize early Stop/drain followed by full-file restart on the working anonymous source and examine virtual reservations/headroom; use fresh derivative/admission and retain all existing gates. Do not expose it as a robust GUI release from one full file. Retained-E0 B01 still awaits the already pending short1GiB-cap approval; no reply or cap increase has occurred. All49 owned Pi identities closed at06:01UTC; original rc5 install/PID1013/start569 and1130/start607 unchanged. Combined543119776bytes of1GiB,54.55C/throttle0x0; global swap47/26194pages at16KiB is not per-job attribution. No capture/playback.
+
+## Previous metadata/ORT closure (05:07 UTC; preserved)
 
 **B01 still fails the current 768 MiB virtual-address cap; no integrated new Pi mode is accepted.** Read CHECK_SUMMARY_V6.json and NATIVE_MEMORY_AND_ORT_V2.md before further work. The short 1 GiB virtual-cap question remains unanswered; no higher-cap run was admitted. Do not repeat unchanged allocation failures or treat low RSS as authority to raise limits.
 
@@ -48,18 +60,18 @@ All owned jobs are closed at03:08UTC. Original rc5/current install and PID1013/s
 
 ## Verified native progress
 
-Target is an actual Compute Module 5 Rev1.0, four Cortex-A76 CPUs, 2GB RAM, aarch64 Bookworm, Python3.11.2 and glibc2.36. Existing runtime contains ONNX Runtime1.29.0 and sherpa-onnx1.13.4; its current rc5 app is running. Original install pointer/data/autostart remain unchanged. Authentication uses the retained matching SSH host key. Initial idle observations were 38.6°C, 2.4GHz and no throttle flags; these are not sustained thermal qualifications.
+Target is an actual Compute Module 5 Rev1.0, four Cortex-A76 CPUs, 2GB RAM, aarch64 Bookworm, Python3.11.2 and glibc2.36. Existing runtime contains ONNX Runtime1.29.0 and sherpa-onnx1.13.4; its current rc5 app is running. Original install pointer/data/autostart remain unchanged. Authentication uses the retained matching SSH host key. Initial idle observations were 38.6Â°C, 2.4GHz and no throttle flags; these are not sustained thermal qualifications.
 
 | Check | Actual outcome | Scope |
 |---|---|---|
 | Generic D1 V1 | Refused before model load: kernel lacks memory controller | No inference; systemd MemoryMax alone is unenforced on this kernel |
 | Generic D1 V2 | Native allocator aborted requesting1262.52MB scheduler metadata under768MiB virtual cap | Preserved failure; no completed inference |
-| Native scheduler rebuild | Recompiled session.cpp on Pi and relinked retained ARM64 objects; capacity 65536→8192, original 95% guard retained | Partial native rebuild, unchanged model/recipe, not a complete native build or speed result |
+| Native scheduler rebuild | Recompiled session.cpp on Pi and relinked retained ARM64 objects; capacity 65536â†’8192, original 95% guard retained | Partial native rebuild, unchanged model/recipe, not a complete native build or speed result |
 | D1 V3 | Native inference completed, then incorrect new harness expected1200 frames | Preserved harness failure; existing N2 convention is1201 due centered-STFT endpoint |
-| D1 V4,12s plus resident repeat | Independently reviewed1201×8 finite probabilities; exact repeat, EOF/reset/post-finish handling; owner closed | Short native component functionality only |
+| D1 V4,12s plus resident repeat | Independently reviewed1201Ã—8 finite probabilities; exact repeat, EOF/reset/post-finish handling; owner closed | Short native component functionality only |
 | Sherpa original-paced full44.695s file | Independently reviewed all715127 samples,51 caption events with actual nonempty text, endpoints/EOF; owner closed | ASR component passage/resource check, no accuracy scoring |
 
-V4 D1 observations:29.242s and29.214s per12s input (RTF2.437/2.434),160.78MiB peak process RSS,0.154s load, maximum870 graph nodes. Temperatures55.1/56.2°C. The capacity repair made this run fit the fixed virtual-address bound; **no before/after RSS or speed improvement is measured**, because the original run aborted. A short warm-up history is not steady-state cost.
+V4 D1 observations:29.242s and29.214s per12s input (RTF2.437/2.434),160.78MiB peak process RSS,0.154s load, maximum870 graph nodes. Temperatures55.1/56.2Â°C. The capacity repair made this run fit the fixed virtual-address bound; **no before/after RSS or speed improvement is measured**, because the original run aborted. A short warm-up history is not steady-state cost.
 
 Sherpa observations:5.964s total decode work (RTF0.133),44.781s paced elapsed,5.889process CPU seconds,334.89MiB peak RSS,2.399s load,0.085s EOF drain. Maximum57ms is per-input processing lag relative to the scheduled source chunk; it is **not** speech-to-caption algorithmic latency. The old app remains active in both checks, so these are conditional diagnostics, not matched uncontended capacity benchmarks. Kernel-wide swap counters began changing by the later closure snapshot (175pages out, zero in); do not claim this session is globally swap-free.
 
@@ -83,7 +95,7 @@ Private Windows evidence: `local/n5/research-extension-20260928/pi-native-202609
 
 Initial Pi limits: CPUs2/3, one model thread, CPUquota200%, tasks64, hard per-process RLIMIT_AS768MiB, GPUoff, no downloads,850MiB available before dispatch,5GiB disk floor; numerical/build wall600s (Sherpa180s). Kernel has no memory controller, so per-job no-swap cannot be enforced; global OS settings are unchanged. The host still uses its prior two-CPU/storage/output policy; original host WINDOW.json remains historical and is not a Pi admission. Fresh host census retained47,973,479,607bytes existing payload and262,573,884bytes extension-window output; C/G free118,984,769,536/98,872,995,840bytes. Final Pi research files occupy 179,531,823 bytes including hard-link reuse; target free space is 20,098,736,128 bytes. Native closure reports kernel-wide swap counters of 4 pages in / 2,127 pages out and no throttle flags. These global counts are not attributed solely to our worker. Conservatively adding that target payload to host-window output is still below the combined1GiB ceiling. Recheck actual usage before another stage; do not raise limits or delete evidence silently.
 
-N1–N3 retain their prior scoped offline acceptance. The N4 full application population and complete N5 releases remain incomplete; this Pi progress does not change those counts. Do not repeat passed Windows checks without a new reason. All new executable paths have a corresponding README with purpose, inputs/outputs and PowerShell/CMD/Anaconda commands. Git backup covers small reviewed source/reports only; see subsequent private backup receipt for the exact remote commit.
+N1â€“N3 retain their prior scoped offline acceptance. The N4 full application population and complete N5 releases remain incomplete; this Pi progress does not change those counts. Do not repeat passed Windows checks without a new reason. All new executable paths have a corresponding README with purpose, inputs/outputs and PowerShell/CMD/Anaconda commands. Git backup covers small reviewed source/reports only; see subsequent private backup receipt for the exact remote commit.
 
 Latest closure V2: all owned native jobs are closed; current install matches closure V1 and original app PID1130/start607 remains. Pi research files occupy192,350,953bytes; disk free20,084,916,224bytes. Kernel-wide swap counters are17pages in/12,329pages out, with no throttle flags. These counters are global and are not attributed solely to our worker; do not claim swap-free timing. Keep component and integrated address-space limits distinct from physical RSS. Prior resource figures above remain historical census observations; refresh before another dispatch.
 

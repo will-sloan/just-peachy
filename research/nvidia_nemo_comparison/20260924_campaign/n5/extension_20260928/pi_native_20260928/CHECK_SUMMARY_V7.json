@@ -1,0 +1,388 @@
+{
+  "schema": "native-CM5-check-summary.v7",
+  "updated_utc": "2026-09-29T06:01:35Z",
+  "scope": "E0 arena parity, failed B01 memory trial, anonymous B05 short/full application passage",
+  "accepted_new_release_profiles": 0,
+  "checks": [
+    {
+      "status": "PASS_NATIVE_E0_NOARENA_PARITY_AND_EXIT_ONLY",
+      "result_sha256": "bd22835bad8f3abfd9b71aa53164c5c38b3ec006dd3d97a8b9f62e2c968c402f",
+      "owner_closed": true,
+      "natural_launcher_exit": 0,
+      "all_six_vectors_pass": true,
+      "reference_comparisons": [
+        {
+          "seconds": 0.5,
+          "repeat": 0,
+          "max_abs": 0.0
+        },
+        {
+          "seconds": 0.5,
+          "repeat": 1,
+          "max_abs": 0.0
+        },
+        {
+          "seconds": 2.0,
+          "repeat": 0,
+          "max_abs": 0.0
+        },
+        {
+          "seconds": 2.0,
+          "repeat": 1,
+          "max_abs": 0.0
+        },
+        {
+          "seconds": 12.0,
+          "repeat": 0,
+          "max_abs": 0.0
+        },
+        {
+          "seconds": 12.0,
+          "repeat": 1,
+          "max_abs": 0.0
+        }
+      ],
+      "tolerance": 1e-05,
+      "peak_rss_bytes": 358318080,
+      "memory_snapshots": [
+        {
+          "stage": "before_load",
+          "VmPeak": 137789440,
+          "VmSize": 137723904,
+          "VmRSS": 49758208
+        },
+        {
+          "stage": "after_load",
+          "VmPeak": 166346752,
+          "VmSize": 166346752,
+          "VmRSS": 86179840
+        },
+        {
+          "stage": "after_0.5_0",
+          "VmPeak": 177225728,
+          "VmSize": 177225728,
+          "VmRSS": 98320384
+        },
+        {
+          "stage": "after_0.5_1",
+          "VmPeak": 177225728,
+          "VmSize": 177225728,
+          "VmRSS": 98516992
+        },
+        {
+          "stage": "after_2.0_0",
+          "VmPeak": 201572352,
+          "VmSize": 188006400,
+          "VmRSS": 109297664
+        },
+        {
+          "stage": "after_2.0_1",
+          "VmPeak": 209469440,
+          "VmSize": 188006400,
+          "VmRSS": 109297664
+        },
+        {
+          "stage": "after_12.0_0",
+          "VmPeak": 437485568,
+          "VmSize": 341016576,
+          "VmRSS": 262307840
+        },
+        {
+          "stage": "after_12.0_1",
+          "VmPeak": 437485568,
+          "VmSize": 174456832,
+          "VmRSS": 95879168
+        },
+        {
+          "stage": "after_release",
+          "VmPeak": 437485568,
+          "VmSize": 174456832,
+          "VmRSS": 95879168
+        }
+      ],
+      "accuracy": false,
+      "integrated_acceptance": false
+    },
+    {
+      "status": "PASS_B05_NATIVE_PASSAGE_AND_CLOSURE_ONLY",
+      "run_id": "b05-anonymous-v1",
+      "samples": 192000,
+      "probability_frames": 1201,
+      "probability_windows": 1,
+      "component_reference_max_abs": null,
+      "reference_tolerance": null,
+      "source_pacing": "original_1x",
+      "first_text_seconds": 5.646022590000939,
+      "first_probability_seconds": 14.339963090998936,
+      "source_eof_to_session_completed_seconds": 2.492792056000326,
+      "caption_rows": 10,
+      "model_call_costs": {
+        "model_setup": {
+          "started": 1,
+          "completed": 1,
+          "errors": 0,
+          "attempted_samples": 0,
+          "successful_samples": 0,
+          "wall_seconds": 2.58437053900343,
+          "calling_thread_cpu_seconds": 2.571701738,
+          "output_frames": 0,
+          "zero_output_calls": 0,
+          "in_flight": 0
+        },
+        "diarizer_setup": {
+          "started": 1,
+          "completed": 1,
+          "errors": 0,
+          "attempted_samples": 0,
+          "successful_samples": 0,
+          "wall_seconds": 0.17143947400109028,
+          "calling_thread_cpu_seconds": 0.164214571,
+          "output_frames": 0,
+          "zero_output_calls": 0,
+          "in_flight": 0
+        },
+        "diarizer_push": {
+          "started": 594,
+          "completed": 594,
+          "errors": 0,
+          "attempted_samples": 192000,
+          "successful_samples": 192000,
+          "wall_seconds": 0.23264079599903198,
+          "calling_thread_cpu_seconds": 0.16803374200000007,
+          "output_frames": 0,
+          "zero_output_calls": 594,
+          "in_flight": 0
+        },
+        "diarizer_finish": {
+          "started": 1,
+          "completed": 1,
+          "errors": 0,
+          "attempted_samples": 0,
+          "successful_samples": 0,
+          "wall_seconds": 2.3364025720002246,
+          "calling_thread_cpu_seconds": 2.322566321,
+          "output_frames": 1201,
+          "zero_output_calls": 0,
+          "in_flight": 0
+        },
+        "embedding": {
+          "started": 0,
+          "completed": 0,
+          "errors": 0,
+          "attempted_samples": 0,
+          "successful_samples": 0,
+          "wall_seconds": 0.0,
+          "calling_thread_cpu_seconds": 0.0,
+          "output_frames": 0,
+          "zero_output_calls": 0,
+          "in_flight": 0
+        },
+        "asr_accept": {
+          "started": 120,
+          "completed": 120,
+          "errors": 0,
+          "attempted_samples": 192000,
+          "successful_samples": 192000,
+          "wall_seconds": 1.5701233460240474,
+          "calling_thread_cpu_seconds": 1.5361426989999996,
+          "output_frames": 0,
+          "zero_output_calls": 0,
+          "in_flight": 0
+        },
+        "asr_reset": {
+          "started": 3,
+          "completed": 3,
+          "errors": 0,
+          "attempted_samples": 0,
+          "successful_samples": 0,
+          "wall_seconds": 0.0006482179996964987,
+          "calling_thread_cpu_seconds": 0.0001890200000000397,
+          "output_frames": 0,
+          "zero_output_calls": 0,
+          "in_flight": 0
+        },
+        "asr_finish": {
+          "started": 1,
+          "completed": 1,
+          "errors": 0,
+          "attempted_samples": 0,
+          "successful_samples": 0,
+          "wall_seconds": 0.08917024299807963,
+          "calling_thread_cpu_seconds": 0.08260568400000001,
+          "output_frames": 0,
+          "zero_output_calls": 0,
+          "in_flight": 0
+        }
+      },
+      "peak_rss_bytes": 499875840,
+      "sampled_peak_virtual_bytes": 783630336,
+      "embedding_calls": 0,
+      "encoder_loaded": false,
+      "punctuation_inference_failures": 0,
+      "terminal_punctuation_fallbacks": 1,
+      "all_input_samples_retained": true,
+      "natural_process_exit": true,
+      "owner_closed": true,
+      "application_finalization": true,
+      "consumer_archive_drained": true,
+      "UI_tested": false,
+      "stage_acceptance": false,
+      "persistent_naming": false,
+      "accuracy_scored": false,
+      "result_sha256": "629776768632f0f2517909ce6c0df9ab4e12138c26d5205031c2c8643617b9bb",
+      "admission_sha256": "af081994a2be6a7e8b2402d7b14504ce42e7b650482bb02bf02e97744a3c38fb"
+    },
+    {
+      "status": "PASS_B05_NATIVE_PASSAGE_AND_CLOSURE_ONLY",
+      "run_id": "b05-anonymous-full-v1",
+      "samples": 715127,
+      "probability_frames": 4470,
+      "probability_windows": 3,
+      "component_reference_max_abs": 0.0,
+      "reference_tolerance": 1e-05,
+      "source_pacing": "original_1x",
+      "first_text_seconds": 5.643817709998984,
+      "first_probability_seconds": 25.476541661999363,
+      "source_eof_to_session_completed_seconds": 11.612354398998406,
+      "caption_rows": 31,
+      "model_call_costs": {
+        "model_setup": {
+          "started": 1,
+          "completed": 1,
+          "errors": 0,
+          "attempted_samples": 0,
+          "successful_samples": 0,
+          "wall_seconds": 2.575158156996622,
+          "calling_thread_cpu_seconds": 2.5658307519999997,
+          "output_frames": 0,
+          "zero_output_calls": 0,
+          "in_flight": 0
+        },
+        "diarizer_setup": {
+          "started": 1,
+          "completed": 1,
+          "errors": 0,
+          "attempted_samples": 0,
+          "successful_samples": 0,
+          "wall_seconds": 0.162523336999584,
+          "calling_thread_cpu_seconds": 0.156299927,
+          "output_frames": 0,
+          "zero_output_calls": 0,
+          "in_flight": 0
+        },
+        "diarizer_push": {
+          "started": 1948,
+          "completed": 1948,
+          "errors": 0,
+          "attempted_samples": 715127,
+          "successful_samples": 715127,
+          "wall_seconds": 14.252439591080474,
+          "calling_thread_cpu_seconds": 13.831643340999992,
+          "output_frames": 4224,
+          "zero_output_calls": 1946,
+          "in_flight": 0
+        },
+        "diarizer_finish": {
+          "started": 1,
+          "completed": 1,
+          "errors": 0,
+          "attempted_samples": 0,
+          "successful_samples": 0,
+          "wall_seconds": 4.624146138998185,
+          "calling_thread_cpu_seconds": 4.6203894980000015,
+          "output_frames": 246,
+          "zero_output_calls": 0,
+          "in_flight": 0
+        },
+        "embedding": {
+          "started": 0,
+          "completed": 0,
+          "errors": 0,
+          "attempted_samples": 0,
+          "successful_samples": 0,
+          "wall_seconds": 0.0,
+          "calling_thread_cpu_seconds": 0.0,
+          "output_frames": 0,
+          "zero_output_calls": 0,
+          "in_flight": 0
+        },
+        "asr_accept": {
+          "started": 447,
+          "completed": 447,
+          "errors": 0,
+          "attempted_samples": 715127,
+          "successful_samples": 715127,
+          "wall_seconds": 6.028565281027113,
+          "calling_thread_cpu_seconds": 5.800618779000003,
+          "output_frames": 0,
+          "zero_output_calls": 0,
+          "in_flight": 0
+        },
+        "asr_reset": {
+          "started": 13,
+          "completed": 13,
+          "errors": 0,
+          "attempted_samples": 0,
+          "successful_samples": 0,
+          "wall_seconds": 0.002367083990975516,
+          "calling_thread_cpu_seconds": 0.0006746139999997958,
+          "output_frames": 0,
+          "zero_output_calls": 0,
+          "in_flight": 0
+        },
+        "asr_finish": {
+          "started": 1,
+          "completed": 1,
+          "errors": 0,
+          "attempted_samples": 0,
+          "successful_samples": 0,
+          "wall_seconds": 0.08863742900211946,
+          "calling_thread_cpu_seconds": 0.08675802399999988,
+          "output_frames": 0,
+          "zero_output_calls": 0,
+          "in_flight": 0
+        }
+      },
+      "peak_rss_bytes": 523714560,
+      "sampled_peak_virtual_bytes": 804945920,
+      "embedding_calls": 0,
+      "encoder_loaded": false,
+      "punctuation_inference_failures": 0,
+      "terminal_punctuation_fallbacks": 2,
+      "all_input_samples_retained": true,
+      "natural_process_exit": true,
+      "owner_closed": true,
+      "application_finalization": true,
+      "consumer_archive_drained": true,
+      "UI_tested": false,
+      "stage_acceptance": false,
+      "persistent_naming": false,
+      "accuracy_scored": false,
+      "result_sha256": "c77be990444cbf72f565d1c81d9f59db7f98f31cd5bbd79ef59301291850e4f4",
+      "admission_sha256": "e2929f73cb2a774e6ce1dc194fc7c5ef7c41220337dd3ee835129ae22dded197"
+    }
+  ],
+  "failures": [
+    {
+      "status": "FAILED_NATIVE_COMPUTE_ALLOCATION_PRESERVED",
+      "run_id": "b01-e0-noarena-v1",
+      "owner": {
+        "pid": 40260,
+        "start_ticks": 2191468,
+        "boot_id": "af9c6c63-3c54-42c5-8f79-6fbce3fe7d43",
+        "admission_sha256": "ecbb6ed8a06c3270f925167f5ab8f4a44ca17459fbfd9c0b7d87245137966c34"
+      },
+      "owner_closed": true,
+      "result_present": false,
+      "clean_application_finalization": false,
+      "allocation_mb": 39.45,
+      "hard_virtual_cap_bytes": 805306368,
+      "E0_enable_cpu_mem_arena": false,
+      "launch_log_sha256": "fabc9849f11c2df07beaf82bbf216cfa4c3070ec36de7040545e9585da49cc66",
+      "integrated_acceptance": false
+    }
+  ],
+  "all_owned_closed": true,
+  "higher_cap_approved": false,
+  "original_install_unchanged": true
+}
