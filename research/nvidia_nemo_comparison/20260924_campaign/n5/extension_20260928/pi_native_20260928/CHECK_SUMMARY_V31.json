@@ -1,0 +1,94 @@
+{
+  "updated_utc": "2026-09-29T20:47:00.231696+00:00",
+  "previous_summary": "CHECK_SUMMARY_V30.json",
+  "status": "D1_FP32_ONNX_FEATURE_CASE_EXPORT_SCOPED_PASS",
+  "host_only": true,
+  "graph_sha256": "b4e32f5581339a6542a298fc58724b5b0f659978c8d958c53ec378d14a8c79d2",
+  "graph_bytes": 400460515,
+  "cases": [
+    {
+      "case": "delayed_warm",
+      "ort_max_abs": [
+        4.758596361398304e-08,
+        6.67572021484375e-06,
+        0.0
+      ],
+      "adapter_max_abs": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "feature_frames": 2128,
+      "cache_frames": 264,
+      "fifo_frames": 0
+    },
+    {
+      "case": "cold_short",
+      "ort_max_abs": [
+        2.7194619178771973e-07,
+        3.814697265625e-06,
+        0.0
+      ],
+      "adapter_max_abs": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "feature_frames": 32,
+      "cache_frames": 0,
+      "fifo_frames": 0
+    },
+    {
+      "case": "dynamic_tail",
+      "ort_max_abs": [
+        1.087784767150879e-06,
+        4.76837158203125e-06,
+        0.0
+      ],
+      "adapter_max_abs": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "feature_frames": 17,
+      "cache_frames": 8,
+      "fifo_frames": 3
+    }
+  ],
+  "absolute_tolerance": 1e-05,
+  "high_resolution_output_preserved": false,
+  "portable_waveform_frontend": false,
+  "complete_streaming_driver": false,
+  "native_pi_qualified": false,
+  "speedup_qualified": false,
+  "stage_accepted": false,
+  "all_three_host_export_jobs_closed": true,
+  "resources": {
+    "checked_utc": "2026-09-29T20:45:42.037829+00:00",
+    "host_window_bytes": 1197746792,
+    "target_bytes": 1411985982,
+    "combined_bytes": 2609732774,
+    "cap_bytes": 3221225472,
+    "host_free_bytes": {
+      "C:": 141572780032,
+      "G:": 97937272832
+    },
+    "all_owned_native_identities_closed": 137,
+    "host_supervisor_closed": true,
+    "host_owners": [
+      {
+        "pid": 55636,
+        "create_time": 1790637870.806714,
+        "observed_create_time": null,
+        "exact_alive": false
+      },
+      {
+        "pid": 55720,
+        "create_time": 1790637870.971314,
+        "observed_create_time": null,
+        "exact_alive": false
+      }
+    ]
+  },
+  "next": "Native ORT operator/memory/case checks and graph extension preserving high-resolution predictions; implement/qualify portable frontend/cache/FIFO/EOF before a usable runtime. Keep bounded quiet PCM/journal work moving."
+}

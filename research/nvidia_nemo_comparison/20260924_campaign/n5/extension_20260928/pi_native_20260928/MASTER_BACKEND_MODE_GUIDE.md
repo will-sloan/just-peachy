@@ -10,6 +10,8 @@ The user has prioritized implemented Nemotron diarizer modes, credible speed met
 
 ## Where we are now
 
+An alternate D1 ONNX graph now passes three host FP32 feature/cache checks, including an odd-length tail. This is an exported component, not a Pi runtime: native operator/memory checks, retained high-resolution outputs and the complete audio/cache driver remain open. [Export findings and failures](D1_ONNX_EXPORT_FINDINGS_V1.md).
+
 Native A2 endpoint/tail checks now pass: empty input, one sample,1281-sample tail and full-source forced endpoint at12.34s, followed by continued transcription, EOF and clean shutdown. This extends component functionality; it does not make A2 real-time or an integrated GUI mode. [Endpoint findings](A2_NATIVE_EDGES_FINDINGS_V1.md).
 
 Nemotron ASR (A2) now passes the original44.7-second file twice on the Pi with exact repeat events and clean shutdown. It takes78.5/77.1seconds (about1.75times the recording duration) and peaks near966MiB RAM, under an isolated1536MiB virtual cap. This supports a future sequential/offline mode; it is not a real-time or integrated B02 release. Independent runtime parity and GUI integration remain. [A2 functional findings](A2_NATIVE_FUNCTIONAL_FINDINGS_V1.md). Follow-ups now run every10minutes.
