@@ -1,0 +1,264 @@
+{
+  "updated_utc": "2026-09-29T21:06:52.864301+00:00",
+  "previous_summary": "CHECK_SUMMARY_V31.json",
+  "status": "PASS_NATIVE_ORT_FP32_THREE_FEATURE_CASES_ONLY",
+  "graph_sha256": "b4e32f5581339a6542a298fc58724b5b0f659978c8d958c53ec378d14a8c79d2",
+  "cases": [
+    {
+      "case": "delayed_warm",
+      "max_abs": [
+        4.7340705577880726e-08,
+        6.67572021484375e-06,
+        0
+      ],
+      "shapes": [
+        [
+          1,
+          530,
+          8
+        ],
+        [
+          1,
+          266,
+          512
+        ],
+        [
+          1
+        ]
+      ],
+      "repeat_exact": true,
+      "seconds": [
+        5.3623335429874714,
+        5.375921652012039
+      ]
+    },
+    {
+      "case": "cold_short",
+      "max_abs": [
+        1.601874828338623e-07,
+        3.814697265625e-06,
+        0
+      ],
+      "shapes": [
+        [
+          1,
+          4,
+          8
+        ],
+        [
+          1,
+          4,
+          512
+        ],
+        [
+          1
+        ]
+      ],
+      "repeat_exact": true,
+      "seconds": [
+        0.05429251700115856,
+        0.045959458002471365
+      ]
+    },
+    {
+      "case": "dynamic_tail",
+      "max_abs": [
+        7.897615432739258e-07,
+        4.76837158203125e-06,
+        0
+      ],
+      "shapes": [
+        [
+          1,
+          14,
+          8
+        ],
+        [
+          1,
+          3,
+          512
+        ],
+        [
+          1
+        ]
+      ],
+      "repeat_exact": true,
+      "seconds": [
+        0.12005041200609412,
+        0.11651275999611244
+      ]
+    }
+  ],
+  "absolute_tolerance": 1e-05,
+  "kernel_peak_rss_mib": 508.953125,
+  "load_seconds": 3.0769945719948737,
+  "native_pi_graph_cases_qualified": true,
+  "high_resolution_qualified": false,
+  "complete_streaming_driver": false,
+  "full_source_qualified": false,
+  "speedup_qualified": false,
+  "stage_accepted": false,
+  "resources": {
+    "checked_utc": "2026-09-29T21:04:17.530644+00:00",
+    "host_window_bytes": 1198640844,
+    "target_bytes": 1816504510,
+    "combined_bytes": 3015145354,
+    "cap_bytes": 4294967296,
+    "host_free_bytes": {
+      "C:": 141539704832,
+      "G:": 97936240640
+    },
+    "all_owned_native_identities_closed": 140,
+    "host_supervisor_closed": true,
+    "host_owners": [
+      {
+        "pid": 55636,
+        "create_time": 1790637870.806714,
+        "observed_create_time": null,
+        "exact_alive": false
+      },
+      {
+        "pid": 55720,
+        "create_time": 1790637870.971314,
+        "observed_create_time": null,
+        "exact_alive": false
+      }
+    ],
+    "isolated_export_owners": [
+      {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\d1-onnx-export-v1\\supervision\\worker.json",
+        "owner": {
+          "pid": 36268,
+          "create_time": 1790714243.0741508
+        },
+        "observed_create_time": null,
+        "exact_alive": false
+      },
+      {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\d1-onnx-export-v1\\supervision\\worker.json",
+        "owner": {
+          "pid": 66192,
+          "create_time": 1790714243.2419276
+        },
+        "observed_create_time": null,
+        "exact_alive": false
+      },
+      {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\d1-onnx-export-v1\\supervision\\worker.json",
+        "owner": {
+          "pid": 37852,
+          "create_time": 1790714243.685588,
+          "affinity": [
+            4,
+            14
+          ]
+        },
+        "observed_create_time": null,
+        "exact_alive": false
+      },
+      {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\d1-onnx-export-v1\\supervision\\worker.json",
+        "owner": {
+          "pid": 46152,
+          "create_time": 1790714243.6287892
+        },
+        "observed_create_time": null,
+        "exact_alive": false
+      },
+      {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\d1-onnx-export-v2\\supervision\\worker.json",
+        "owner": {
+          "pid": 42228,
+          "create_time": 1790714469.384764
+        },
+        "observed_create_time": null,
+        "exact_alive": false
+      },
+      {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\d1-onnx-export-v2\\supervision\\worker.json",
+        "owner": {
+          "pid": 62192,
+          "create_time": 1790714469.5595467
+        },
+        "observed_create_time": null,
+        "exact_alive": false
+      },
+      {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\d1-onnx-export-v2\\supervision\\worker.json",
+        "owner": {
+          "pid": 57740,
+          "create_time": 1790714470.025628,
+          "affinity": [
+            4,
+            14
+          ]
+        },
+        "observed_create_time": null,
+        "exact_alive": false
+      },
+      {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\d1-onnx-export-v2\\supervision\\worker.json",
+        "owner": {
+          "pid": 44296,
+          "create_time": 1790714469.9711585
+        },
+        "observed_create_time": null,
+        "exact_alive": false
+      },
+      {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\d1-onnx-export-v3\\supervision\\worker.json",
+        "owner": {
+          "pid": 62988,
+          "create_time": 1790714641.073609
+        },
+        "observed_create_time": null,
+        "exact_alive": false
+      },
+      {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\d1-onnx-export-v3\\supervision\\worker.json",
+        "owner": {
+          "pid": 53552,
+          "create_time": 1790714641.2833364
+        },
+        "observed_create_time": null,
+        "exact_alive": false
+      },
+      {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\d1-onnx-export-v3\\supervision\\worker.json",
+        "owner": {
+          "pid": 41600,
+          "create_time": 1790714641.7226956,
+          "affinity": [
+            4,
+            14
+          ]
+        },
+        "observed_create_time": null,
+        "exact_alive": false
+      },
+      {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\d1-onnx-export-v3\\supervision\\worker.json",
+        "owner": {
+          "pid": 17620,
+          "create_time": 1790714641.6691127
+        },
+        "observed_create_time": null,
+        "exact_alive": false
+      }
+    ]
+  },
+  "next": "Preserve high-resolution predictions in a fresh graph; implement portable waveform frontend/cache/FIFO/EOF driver, then full-source native parity. Keep bounded quiet PCM/journaling and GUI readiness moving.",
+  "additional_payload_constraint": {
+    "checked_utc": "2026-09-29T21:08:22.592578+00:00",
+    "status": "NOT_ADMITTED_COMBINED_PAYLOAD_RESERVATIONS",
+    "reason": "Campaign payload allowance/reservations exceeded",
+    "host_payload_bytes": 48909612382,
+    "target_bytes": 1816504510,
+    "combined_payload_bytes": 50726116892,
+    "reservations_bytes": 2684354560,
+    "ceiling_bytes": 53687091200,
+    "new_payload_headroom_bytes": 276619748,
+    "requested_bytes": 536870912,
+    "dispatch_occurred": false
+  }
+}

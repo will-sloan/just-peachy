@@ -1,22 +1,24 @@
 # Master backend and mode guide — Raspberry Pi
 
-Updated September 29, 2026, 16:14 EDT / 20:14 UTC. This is the current conceptual and engineering overview. Older reports preserve history; use this guide and STATUS.md for current priorities. Latest converter evidence is linked below; qualified preview scope is unchanged.
+Updated September 29, 2026, 17:04 EDT / 21:04 UTC. This is the current conceptual and engineering overview. Older reports preserve history; use this guide and STATUS.md for current priorities. Latest converter evidence is linked below; qualified preview scope is unchanged.
 
 ## Next 36–48 hours
 
 Unattended bounded quiet recording and necessary Pi/resource changes are now authorized, with ongoing backups and no further questions. The user will not provide playback; quiet checks establish stream/recording/resource behavior only. [Current authorization and workflow](AUTONOMOUS_QUIET_WORK_V1.md).
 
-The user has prioritized implemented Nemotron diarizer modes, credible speed methods, native Nemotron ASR and alternate runtimes, all aligned with N5 GUI/field readiness. The existing October 1 checkpoint stays. See the [delivery plan and N5 mapping](N5_NATIVE_DELIVERY_48H_V1.md). Resource authority now permits measured adjustments; new WINDOW_V2 starts with a 3 GiB combined file allowance, retaining old evidence and separate per-job limits.
+The user has prioritized implemented Nemotron diarizer modes, credible speed methods, native Nemotron ASR and alternate runtimes, all aligned with N5 GUI/field readiness. The existing October 1 checkpoint stays. See the [delivery plan and N5 mapping](N5_NATIVE_DELIVERY_48H_V1.md). Resource authority now permits measured adjustments; new WINDOW_V3 allows 4 GiB combined existing-plus-new file output, retaining old evidence and separate per-job limits.
 
 ## Where we are now
 
-An alternate D1 ONNX graph now passes three host FP32 feature/cache checks, including an odd-length tail. This is an exported component, not a Pi runtime: native operator/memory checks, retained high-resolution outputs and the complete audio/cache driver remain open. [Export findings and failures](D1_ONNX_EXPORT_FINDINGS_V1.md).
+Current total-payload headroom is about264 MiB after target bytes and retained reservations. New large graph copies need a fresh measured payload admission; the4GiB window alone does not authorize them. Small driver/live-readiness work can continue.
+
+The alternate D1 ONNX graph now passes three actual Pi FP32 feature/cache checks and exact repeats against PyTorch references. Peak RAM was about 509 MiB. This verifies the graph on ONNX Runtime CPU; learned high-resolution output and the complete audio/cache/FIFO driver remain open before it becomes a usable alternate mode. No speedup is established. [Native findings](D1_ORT_NATIVE_FINDINGS_V1.md).
 
 Native A2 endpoint/tail checks now pass: empty input, one sample,1281-sample tail and full-source forced endpoint at12.34s, followed by continued transcription, EOF and clean shutdown. This extends component functionality; it does not make A2 real-time or an integrated GUI mode. [Endpoint findings](A2_NATIVE_EDGES_FINDINGS_V1.md).
 
 Nemotron ASR (A2) now passes the original44.7-second file twice on the Pi with exact repeat events and clean shutdown. It takes78.5/77.1seconds (about1.75times the recording duration) and peaks near966MiB RAM, under an isolated1536MiB virtual cap. This supports a future sequential/offline mode; it is not a real-time or integrated B02 release. Independent runtime parity and GUI integration remain. [A2 functional findings](A2_NATIVE_FUNCTIONAL_FINDINGS_V1.md). Follow-ups now run every10minutes.
 
-No campaign numerical worker or preview is running. Fresh inspection found all 135 recorded research process identities closed, no active research systemd units, and no user preview runs. The original rc5 app is still running with its original process identities and install. The Pi is a Compute Module 5 with 2 GB RAM.
+No campaign numerical worker or preview is running. Fresh inspection found all 140 recorded research process identities and all isolated host export owners closed, no active research systemd units, and no user preview runs. The original rc5 app is still running with its original process identities and install. The Pi is a Compute Module 5 with 2 GB RAM.
 
 Two new **bounded saved-file previews** have native evidence:
 
