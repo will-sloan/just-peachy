@@ -1,0 +1,15 @@
+{
+  "recorded_utc": "2026-09-29T22:09:55.898489+00:00",
+  "authority": "User: The only constraint is that the Raspberry Pi Compute is32gigabytes of storage.",
+  "nominal_device_capacity_gb": 32,
+  "measured_disk_bytes": 31268536320,
+  "root_filesystem_total_bytes": 30166274048,
+  "root_used_bytes": 10617393152,
+  "root_available_bytes": 17995952128,
+  "target_research_logical_bytes": 2276100907,
+  "root_available_gib": 16.76003646850586,
+  "minimum_available_reserve_bytes": 5368709120,
+  "research_units_active": false,
+  "original_owners_unchanged": true,
+  "scope": "Read-only lsblk/df-equivalent/du snapshot; field package must fit actual32GB device. Host campaign totalpayload is separate. No deletion or allowance reset."
+}

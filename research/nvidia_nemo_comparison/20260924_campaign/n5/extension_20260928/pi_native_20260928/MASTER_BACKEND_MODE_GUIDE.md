@@ -1,5 +1,7 @@
 # Master backend and mode guide — Raspberry Pi
 
+**Device storage:** fixed32GB Raspberry Pi; current measured available space is~18.00GB(16.76GiB), including existing research usage. Host allowances do not enlarge it. All field models, app, recordings and rollback must fit with5GiB available reserve. See [storage budget](PI_STORAGE_BUDGET_V1.md).
+
 Current update September29 22:02UTC: learned high-resolution D1 ONNX outputs now pass three native feature/cache cases and repeats (~509MiB peakRSS). Complete waveform/source-clock/EOF integration remains; no new GUI or field release. See D1_HIGHRES_FINDINGS_V1.md / CHECK_SUMMARY_V35.json.
 
 Updated September 29, 2026, 18:02 EDT / 22:02 UTC. This is the current conceptual and engineering overview. Older reports preserve history; use this guide and STATUS.md for current priorities. Latest converter evidence is linked below; qualified preview scope is unchanged.
