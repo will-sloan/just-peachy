@@ -1,0 +1,173 @@
+{
+  "schema": "native-CM5-check-summary.v6",
+  "updated_utc": "2026-09-29T05:07:53Z",
+  "scope": "D1 delayed metadata2 component, E0 standalone lifecycle, and two failed combined trials",
+  "accepted_new_integrated_profiles": 0,
+  "checks": [
+    {
+      "status": "PASS_NATIVE_RECIPE_FUNCTIONAL_RESOURCE_ONLY",
+      "run_id": "d1-geometry-delayed-metadata2-v1",
+      "profile": "native_v3_delayed",
+      "kernel": "a76",
+      "result_sha256": "5105aea0134f54a8c7f1fedd8bb6f9e99122f1487500791801081f6e0aba21cb",
+      "inputs_sha256": "aff8b9b8e45da601e62ce386ddac8f62c0cc28e560dc7ca31747c1f161ec2877",
+      "admission_sha256": "533798a698414aa7183f3da1902e3ac302e54672ef0e3d96d7099f8b5becc7c1",
+      "independent_repeat_max_abs": 0.0,
+      "independent_generic_max_abs": 0.0,
+      "tolerance": 1e-05,
+      "all_samples_and_frames_passed": true,
+      "owner_closed": true,
+      "model_closed": true,
+      "observed_c_abi_geometry": {
+        "chunk_frames": 264,
+        "right_context_frames": 1,
+        "left_context_frames": 1,
+        "fifo_frames": 0,
+        "spkcache_frames": 264,
+        "update_period_frames": 188,
+        "preset": "v3-offline",
+        "gpu": -1
+      },
+      "metrics": [
+        {
+          "case": "saved_full",
+          "samples": 715127,
+          "frames": 4470,
+          "audio_seconds": 44.6954375,
+          "elapsed_seconds": 18.08977256000071,
+          "call_sequence_rtf": 0.40473420939219384,
+          "cpu_seconds": 18.074187378,
+          "call_compute_seconds": 18.062850279991835,
+          "emitting_calls": 3,
+          "first_emission_source_seconds": 21.3,
+          "first_emission_elapsed_seconds": 4.318811000997812,
+          "finish_compute_seconds": 4.634918325002218,
+          "temperature_millic": 55650
+        },
+        {
+          "case": "resident_repeat",
+          "samples": 715127,
+          "frames": 4470,
+          "audio_seconds": 44.6954375,
+          "elapsed_seconds": 18.105410828997265,
+          "call_sequence_rtf": 0.40508409452300953,
+          "cpu_seconds": 18.089104653,
+          "call_compute_seconds": 18.07776379104689,
+          "emitting_calls": 3,
+          "first_emission_source_seconds": 21.3,
+          "first_emission_elapsed_seconds": 4.332715431999532,
+          "finish_compute_seconds": 4.635896993000642,
+          "temperature_millic": 56750
+        }
+      ],
+      "peak_process_rss_bytes": 179290112,
+      "integrated_acceptance": false,
+      "accuracy_claim": false,
+      "real_world_validation": false,
+      "uncontended_benchmark": false
+    },
+    {
+      "status": "PASS_NATIVE_E0_FUNCTIONAL_AND_PROCESS_EXIT_ONLY",
+      "result_sha256": "aa1a69bec512bf578b033354895d2c5a1bac2af4f847eb642dbd0da6a6b01295",
+      "owner_closed": true,
+      "natural_launcher_exit": 0,
+      "session_released": true,
+      "vector_dimensions": 192,
+      "finite_normalized_vectors": 6,
+      "repeat_max_abs": {
+        "0.5": 0.0,
+        "2.0": 0.0,
+        "12.0": 0.0
+      },
+      "cases": [
+        {
+          "seconds": 0.5,
+          "repeat": 0,
+          "elapsed_seconds": 0.03688079700077651,
+          "cpu_seconds": 0.03734929599999992
+        },
+        {
+          "seconds": 0.5,
+          "repeat": 1,
+          "elapsed_seconds": 0.0354944879982213,
+          "cpu_seconds": 0.03589631400000004
+        },
+        {
+          "seconds": 2.0,
+          "repeat": 0,
+          "elapsed_seconds": 0.153745149000315,
+          "cpu_seconds": 0.15404575799999998
+        },
+        {
+          "seconds": 2.0,
+          "repeat": 1,
+          "elapsed_seconds": 0.15383429700159468,
+          "cpu_seconds": 0.15410422199999985
+        },
+        {
+          "seconds": 12.0,
+          "repeat": 0,
+          "elapsed_seconds": 1.1602431409992278,
+          "cpu_seconds": 1.159684845
+        },
+        {
+          "seconds": 12.0,
+          "repeat": 1,
+          "elapsed_seconds": 1.1496642339989194,
+          "cpu_seconds": 1.148831934
+        }
+      ],
+      "load_seconds": 0.5044784450001316,
+      "peak_rss_bytes": 339656704,
+      "ort_version": "1.29.0",
+      "ORT_DISABLE_TELEMETRY": "1",
+      "accuracy_scored": false,
+      "enrollment": false,
+      "B01_exit_fix_qualified": false,
+      "integrated_acceptance": false
+    }
+  ],
+  "failures": [
+    {
+      "status": "FAILED_INFERENCE_PRESERVED_APPLICATION_QUEUES_CLOSED",
+      "run_id": "b01-delayed-metadata2-v1",
+      "owner_closed": true,
+      "process_required_external_stop": true,
+      "clean_natural_process_exit": false,
+      "controller_closed_claim": true,
+      "finalization_state": "FAILED",
+      "source_samples": 192000,
+      "identity_samples_received": 192000,
+      "identity_probability_windows": false,
+      "result_sha256": "d20c74dacdee2c0936d7ea6a8c7a92be8dd83d1669531e2eb26dba5a9bf3604a",
+      "finalization_sha256": "d0962d45459b66732848300d8fff865501be7d68af13cd5ff296920e9a3f6e0d",
+      "consumer_sha256": "3ecd73fa5c48fdbd9a58c70d670949a47273efd8951b741f084acf650d1623b3",
+      "error": "RuntimeError: N2 identity lane failed: native diarization error 2: out of memory",
+      "redim_encoder_loaded": true,
+      "backend_manifest_id": "sha256:5b23fb1ab02c849e2958b14b22fbd9d32bda82f2b1a6fa9c7a65cff7101c55f1",
+      "integrated_acceptance": false
+    },
+    {
+      "status": "FAILED_NATIVE_COMPUTE_ALLOCATION_PRESERVED",
+      "run_id": "b01-delayed-metadata2-v2",
+      "owner": {
+        "pid": 39916,
+        "start_ticks": 1894913,
+        "boot_id": "af9c6c63-3c54-42c5-8f79-6fbce3fe7d43",
+        "admission_sha256": "27d80697ec1920cceb27a183593d6f2901ffa658126a4bec94ed46e39f933f5a"
+      },
+      "owner_closed": true,
+      "clean_application_finalization": false,
+      "result_present": false,
+      "allocation_mb": 39.45,
+      "hard_virtual_cap_bytes": 805306368,
+      "ORT_DISABLE_TELEMETRY": "1",
+      "launch_log_sha256": "386390acbfb416a2d408217e4c151a8d8d78879a5d3737656a6c4462b6281ef1",
+      "integrated_acceptance": false
+    }
+  ],
+  "previous_evidence_preserved": true,
+  "higher_cap_approved": false,
+  "all_owned_closed": true,
+  "original_install_unchanged": true
+}
