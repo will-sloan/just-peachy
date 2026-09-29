@@ -1,0 +1,66 @@
+{
+  "schema": "just-peachy.user-authorized-native-window.v5",
+  "authority": "September 29 user requested another 36-48 hours of native modes/runtime work aligned with N5, then explicitly authorized changing allowances as needed for good Raspberry Pi operation.",
+  "started_utc": "2026-09-29T18:55:16.577690+00:00",
+  "checkpoint_utc": "2026-10-01T17:47:34Z",
+  "checkpoint_policy": "Keep October 1 17:47:34 UTC, within the requested 36-48 hour horizon; close work and report then.",
+  "supersedes_stop_instruction": "prepi_20260928/WINDOW.json checkpoint 2026-09-28T22:20:48Z, for future dispatch only",
+  "prior_campaign_deadline_preserved": "2026-09-28T14:48:19Z",
+  "prior_admissions_unchanged": true,
+  "Pi_connection_is_milestone_not_stop_deadline": true,
+  "logical_cpus_total": 2,
+  "application_cpus": [
+    4,
+    14
+  ],
+  "coordinator_cpu": 14,
+  "native_threads_per_model": 1,
+  "GPU": "OFF",
+  "minimum_free_gib": {
+    "C:": 50,
+    "G:": 75
+  },
+  "new_downloads": false,
+  "maximum_new_output_bytes": 5368709120,
+  "output_budget_scope": "5GiB combined existing-plus-new host/target output, no reset. Preserve partial198MB failed reference extraction; current4,118,524,219bytes leaves176MiB under4GiB, insufficient for a fresh256MiB extraction/reference admission plus bounded native evidence.52GiBtotalpayload/2.5GiBreservations, drivefloors and fixed32GBPi remain.",
+  "prior_evidence_must_be_preserved": true,
+  "Pi_access": true,
+  "Pi_access_policy": "Already confirmed; fresh exact-owner, resource and target-specific admissions required. Preserve original app/config/data.",
+  "saved_audio_only": false,
+  "training_or_enrollment": false,
+  "desktop_focus_or_input": false,
+  "scope": "N5-aligned native D1 modes/credible speed methods, A2 ASR and alternate runtime implementation, same GUI, bounded live recording, install/rollback and real-world field readiness.",
+  "live_capture_policy": "Latest September29 autonomous quiet authorization permits bounded quiet/background capture, no user prompts or playback; no speech-quality inference. See pi_native_20260928/AUTONOMOUS_QUIET_AUTHORIZATION_V1.json.",
+  "native_default_address_space_bytes": 805306368,
+  "native_component_candidate_address_space_bytes": 1073741824,
+  "native_candidate_minimum_available_bytes": 1342177280,
+  "native_memory_policy": "Fresh measured admission only; use the smallest justified cap with explicit fit/headroom checks. 1 GiB is an allowed candidate for isolated ASR, not evidence of fit or permission to overload 2 GiB system.",
+  "prior_window_sha256": "dcd9a918db3a9e0e2cd70eeaede2aa10964eb98283a35b82ee82f8074567c990",
+  "revision_recorded_utc": "2026-09-29T22:22:15.392024+00:00",
+  "maximum_total_payload_gib": 52,
+  "prior_total_payload_gib": 50,
+  "payload_decision": {
+    "reason": "New high-resolution host graph and native copy need about800MB; remaining old total-payload headroom is insufficient. Use existing explicit resource-adjustment authority, without deleting evidence, resetting usage or changing old policies.",
+    "measured_host_payload_bytes": 48947548847,
+    "measured_target_bytes": 1870298623,
+    "retained_reservations_bytes": 2684354560,
+    "prior_headroom_bytes": 184889170,
+    "new_headroom_bytes": 2332372818,
+    "host_free_bytes": {
+      "C:": 141576065024,
+      "G:": 97897406464
+    },
+    "census_sha256": "1f5a80d9ba87161b54cebdb379de4a14716097b895e3edbc3d378836c6f946af",
+    "native_resources_sha256": "ff8005eb338a27ca4e6150dbaba264e9a3037f3c39cc040dd4eba05c6a8983ed"
+  },
+  "output_revision_measurement": {
+    "combined_bytes": 4118524219,
+    "host_free_bytes": {
+      "C:": 141565386752,
+      "G:": 97291280384
+    },
+    "native_resources_sha256": "5bba68714648e223a35a55dad19b69e2977c26f3248ad4a6faa9608104bcb9a2",
+    "prior_64mib_failure_preserved": true,
+    "new_reference_output_reservation_bytes": 268435456
+  }
+}

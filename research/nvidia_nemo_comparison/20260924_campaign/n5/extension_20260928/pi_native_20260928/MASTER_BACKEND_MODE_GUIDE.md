@@ -2,23 +2,25 @@
 
 **Device storage:** fixed32GB Raspberry Pi; current measured available space is~18.00GB(16.76GiB), including existing research usage. Host allowances do not enlarge it. All field models, app, recordings and rollback must fit with5GiB available reserve. See [storage budget](PI_STORAGE_BUDGET_V1.md).
 
-Current update September29 22:02UTC: learned high-resolution D1 ONNX outputs now pass three native feature/cache cases and repeats (~509MiB peakRSS). Complete waveform/source-clock/EOF integration remains; no new GUI or field release. See D1_HIGHRES_FINDINGS_V1.md / CHECK_SUMMARY_V35.json.
+Current update September29 22:32UTC: waveform/EOF runtime is implemented but fails cached-embedding parity. Original-feature isolation reproduces it; probability values alone pass. No native waveform or new field release. See D1_WAVEFORM_FINDINGS_V1.md / CHECK_SUMMARY_V36.json.
 
-Updated September 29, 2026, 18:02 EDT / 22:02 UTC. This is the current conceptual and engineering overview. Older reports preserve history; use this guide and STATUS.md for current priorities. Latest converter evidence is linked below; qualified preview scope is unchanged.
+Updated September 29, 2026, 18:32 EDT / 22:32 UTC. This is the current conceptual and engineering overview. Older reports preserve history; use this guide and STATUS.md for current priorities. Latest converter evidence is linked below; qualified preview scope is unchanged.
 
 ## Next 36–48 hours
 
 Unattended bounded quiet recording and necessary Pi/resource changes are now authorized, with ongoing backups and no further questions. The user will not provide playback; quiet checks establish stream/recording/resource behavior only. [Current authorization and workflow](AUTONOMOUS_QUIET_WORK_V1.md).
 
-The user has prioritized implemented Nemotron diarizer modes, credible speed methods, native Nemotron ASR and alternate runtimes, all aligned with N5 GUI/field readiness. The existing October 1 checkpoint stays. See the [delivery plan and N5 mapping](N5_NATIVE_DELIVERY_48H_V1.md). Resource authority now permits measured adjustments; new WINDOW_V4 allows 4 GiB combined existing-plus-new file output and52GiB totalpayload with retained2.5GiB reservations, retaining old evidence and separate per-job limits.
+The user has prioritized implemented Nemotron diarizer modes, credible speed methods, native Nemotron ASR and alternate runtimes, all aligned with N5 GUI/field readiness. The existing October 1 checkpoint stays. See the [delivery plan and N5 mapping](N5_NATIVE_DELIVERY_48H_V1.md). Resource authority now permits measured adjustments; new WINDOW_V5 allows 5 GiB combined existing-plus-new file output and52GiB totalpayload with retained2.5GiB reservations, retaining old evidence and separate per-job limits.
 
 ## Where we are now
+
+**September29 22:32UTC:** CHECK_SUMMARY_V36 / D1_WAVEFORM_FINDINGS_V1: complete waveform candidate implemented but host tail final-cache parity fails1e-5 (1.639e-4 embedding error, probabilities8.568e-8). A separate original-feature graph/state diagnostic reproduces the failure: full4469probabilities error9.000e-6 passes, cache2.346e-4 fails; repeats exact. Frontend alone is not the cause; precise operator still unknown. No native waveform/GUI/speedup acceptance. Original reference uses actual learned silence,valid4469frames distinct from Q8 4470. Preserve initial64MiB extraction guard stop/partialweights; fresh256MiB reference trial closed naturally1 and diagnostic0 is observations only. All147Pi/44host identities closed,baseline unchanged,captureclosed,leasesfree. WINDOW_V5 now5GiBcombined/52GiBtotal/2.5GiBreserved,oldlimits preserved,fixed32GBPi unchanged. ClosureV57 combined4,127,737,930bytes,targetfree17,995,952,128bytes. Next isolate preencoder graph output on retained features; keep bounded quietPCM/journal and A2optimized/sequential work advancing.
 
 Ordered speaker-cache/FIFO handling now passes15 constructed native updates and exact repeats, including an overlap tie that stopped the first candidate. A small explicit ONNX compression helper preserves the observed NeMo selection. The frontend and state components are separately checked; the complete high-resolution audio/model stream remains open. [State findings and preserved failures](D1_STATE_FINDINGS_V1.md).
 
 The portable audio frontend now passes nine native Pi cases, including full saved audio, irregular blocks, EOF and reset, at about57MiB peak RAM. This closes the audio-to-feature component; the complete model/state/source-time integration remains. [Frontend findings](D1_FRONTEND_FINDINGS_V1.md).
 
-Current future-admission policy is WINDOW_V4:52GiB totalpayload with2.5GiBretained reservations and4GiBcombined output. ClosureV53 leaves about357.6MiB output headroom; refresh both budgets before further work. Prior50GiBrejections/receipts remain immutable.
+Current future-admission policy is WINDOW_V5:52GiB totalpayload with2.5GiBretained reservations and5GiBcombined output. ClosureV57 uses4,127,737,930bytes; refresh both budgets before dispatch. Old50GiB/4GiB policies, rejections and receipts remain immutable. Pi physical32GB capacity and5GiB free reserve remain separate.
 
 The alternate D1 ONNX graph now passes three actual Pi FP32 feature/cache checks and exact repeats against PyTorch references. Peak RAM was about 509 MiB. This verifies the graph on ONNX Runtime CPU; V4 now separately preserves learned high-resolution outputs, while the complete audio/cache/FIFO/EOF driver remains open before it becomes a usable alternate mode. No speedup is established. [Native findings](D1_ORT_NATIVE_FINDINGS_V1.md).
 
@@ -26,7 +28,7 @@ Native A2 endpoint/tail checks now pass: empty input, one sample,1281-sample tai
 
 Nemotron ASR (A2) now passes the original44.7-second file twice on the Pi with exact repeat events and clean shutdown. It takes78.5/77.1seconds (about1.75times the recording duration) and peaks near966MiB RAM, under an isolated1536MiB virtual cap. This supports a future sequential/offline mode; it is not a real-time or integrated B02 release. Independent runtime parity and GUI integration remain. [A2 functional findings](A2_NATIVE_FUNCTIONAL_FINDINGS_V1.md). Follow-ups now run every10minutes.
 
-No campaign numerical worker or preview is running. Fresh inspection found all 144 recorded research process identities and all isolated host preparation owners closed, no active research systemd units, and no user preview runs. The original rc5 app is still running with its original process identities and install. The Pi is a Compute Module 5 with 2 GB RAM.
+At closureV57 (22:32UTC), all147Pi and44isolated host research identities were closed; no research model or capture was active. The original rc5 app remained unchanged. The Pi is a Compute Module5 with2GB RAM and fixed32GB storage.
 
 Two new **bounded saved-file previews** have native evidence:
 

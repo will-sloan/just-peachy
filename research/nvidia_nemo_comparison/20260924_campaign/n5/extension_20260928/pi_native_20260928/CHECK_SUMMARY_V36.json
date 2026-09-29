@@ -1,0 +1,122 @@
+{
+  "updated_utc": "2026-09-29T22:34:24.818903+00:00",
+  "previous_summary": "CHECK_SUMMARY_V35.json",
+  "status": "REVIEWED_HOST_WAVEFORM_STATE_MISMATCH_ONLY",
+  "runtime_implemented": true,
+  "complete_waveform_qualified": false,
+  "native_waveform_dispatched": false,
+  "probability_and_state_absolute_tolerance": 1e-05,
+  "waveform_failure": [
+    {
+      "case": "tail",
+      "frames": 8,
+      "max_abs": 8.568167686462402e-08,
+      "final_state_max_abs": {
+        "cache": 0.00016391277313232422,
+        "cache_probs": 4.0978193283081055e-08,
+        "fifo": 0.0,
+        "fifo_probs": 0.0
+      },
+      "within_gate": false
+    }
+  ],
+  "exact_reference_feature_diagnostic": [
+    {
+      "case": "tail",
+      "repetition": 0,
+      "frames": 8,
+      "probability_max_abs": 8.568167686462402e-08,
+      "final_state_max_abs": {
+        "cache": 0.00016391277313232422,
+        "cache_probs": 4.0978193283081055e-08,
+        "fifo": 0.0,
+        "fifo_probs": 0.0
+      },
+      "within_unchanged_gate": false
+    },
+    {
+      "case": "tail",
+      "repetition": 1,
+      "frames": 8,
+      "probability_max_abs": 8.568167686462402e-08,
+      "final_state_max_abs": {
+        "cache": 0.00016391277313232422,
+        "cache_probs": 4.0978193283081055e-08,
+        "fifo": 0.0,
+        "fifo_probs": 0.0
+      },
+      "within_unchanged_gate": false
+    },
+    {
+      "case": "full",
+      "repetition": 0,
+      "frames": 4469,
+      "probability_max_abs": 9.000301361083984e-06,
+      "final_state_max_abs": {
+        "cache": 0.0002346038818359375,
+        "cache_probs": 1.4901161193847656e-06,
+        "fifo": 0.0,
+        "fifo_probs": 0.0
+      },
+      "within_unchanged_gate": false
+    },
+    {
+      "case": "full",
+      "repetition": 1,
+      "frames": 4469,
+      "probability_max_abs": 9.000301361083984e-06,
+      "final_state_max_abs": {
+        "cache": 0.0002346038818359375,
+        "cache_probs": 1.4901161193847656e-06,
+        "fifo": 0.0,
+        "fifo_probs": 0.0
+      },
+      "within_unchanged_gate": false
+    }
+  ],
+  "exact_reference_feature_repeats": true,
+  "frontend_alone_explains_mismatch": false,
+  "precise_operator_cause_established": false,
+  "reference_full_samples": 715127,
+  "reference_valid_probability_frames": 4469,
+  "old_q8_frames": 4470,
+  "frame_counts_are_not_interchangeable": true,
+  "initial_extraction_output_failure": {
+    "reservation_bytes": 67108864,
+    "retained_bytes": 197611454,
+    "no_model_result": true,
+    "partial_weights_reuse_rejected": true,
+    "hard_byte_enforcement_qualified": false
+  },
+  "new_reference_reservation_bytes": 268435456,
+  "all_owned_native_identities_closed": 147,
+  "isolated_host_identities_closed": 44,
+  "baseline_unchanged": true,
+  "capture_closed": true,
+  "leases_free": true,
+  "combined_output_bytes": 4127737930,
+  "combined_cap_bytes": 5368709120,
+  "total_payload_policy": "WINDOW_V5.json",
+  "total_payload_gib": 52,
+  "retained_reservations_gib": 2.5,
+  "estimated_total_payload_headroom_bytes": 1311576635,
+  "target_free_bytes": 17995952128,
+  "target_available_ram_bytes": 1593507840,
+  "temperature_c": 52.9,
+  "throttle": "throttled=0x0",
+  "global_swap": {
+    "pswpin": 1095,
+    "pswpout": 33286
+  },
+  "quality_qualified": false,
+  "speedup_qualified": false,
+  "integrated_release": false,
+  "private_review_hashes": {
+    "d1-onnx-waveform-v1/REVIEW.json": "7a21713185731c84812787ae417bc0dca270db83612f6198a0cfdaed8c400b5d",
+    "d1-onnx-waveform-v1/EXTRACTED_REFERENCE_REVIEW.json": "f09c1086fc30b7d0caf0a5d604a6dee9f6e6beaa85aaa80392d9d85d72c89fec",
+    "d1-onnx-waveform-v2/REVIEW.json": "54e1181c97390884abec1bd9df9415405ee423f3e67ad1224c29d6ec370e3124",
+    "d1-onnx-feature-isolation-v1/REVIEW.json": "f98858017b9067f514e5290cf39018d55551a624538cedcefb0f34167877f207",
+    "NATIVE_CLOSURE_V57.json": "126ce2d60b0b23b2fd8853e923a30c90fb64a5297408bd77fe1f0f41520ac581",
+    "NATIVE_RESOURCES_V57.json": "c34a1904878f9bd5e04110aede9d6a590e3d1b8e7ce417c9fc4de9cb2eaf404e"
+  }
+}
