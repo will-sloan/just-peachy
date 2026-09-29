@@ -1,0 +1,36 @@
+{
+  "version": 38,
+  "checked_utc": "2026-09-29T23:16:46.401698+00:00",
+  "status": "PASS_NATIVE_APP_ARTIFACT_WRITER_REOPEN_PCM_ONLY",
+  "run": "app-artifact-integration-v1",
+  "scope": "Actual engine writer factory, EpochArchive and SessionStore; no models/full controller/GUI/capture/live callback repair.",
+  "events": [
+    2628,
+    2672
+  ],
+  "compact_bytes": [
+    3546400,
+    3730251
+  ],
+  "reopened_rows": 3,
+  "all_event_and_row_fields_exact": true,
+  "saved_pcm_samples": 715127,
+  "exact_float_master": true,
+  "legacy_reader_equal": true,
+  "partial_and_async_failure_visible": true,
+  "peak_rss_mib": 51.96875,
+  "protocol_seconds": 10.565269241997157,
+  "natural_exit": 0,
+  "all_native_owners_closed": 151,
+  "isolated_host_owners_closed": 44,
+  "capture": false,
+  "baseline_unchanged": true,
+  "combined_bytes": 4183937133,
+  "combined_cap_bytes": 5368709120,
+  "target_free_bytes": 17968398336,
+  "available_ram_bytes": 1575518208,
+  "temperature_c": 53.45,
+  "throttle": "throttled=0x0",
+  "private_review_sha256": "99d1d28dfc2cda80d0f2894e760c2585dfd0e5b39a44b2787f2dea4c1f4e849f",
+  "next": "Fresh B01 combined-model saved-input Stop/restart with compact-aware review and callback detail binding, then autonomous quiet. Alternate D1 intermediate/state diagnosis and A2 optimized/sequential remain open."
+}
