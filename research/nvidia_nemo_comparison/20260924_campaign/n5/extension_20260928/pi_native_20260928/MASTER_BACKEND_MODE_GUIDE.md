@@ -4,6 +4,8 @@ Updated September 29, 2026, 15:05 EDT / 19:05 UTC. This is the current conceptua
 
 ## Next 36–48 hours
 
+Unattended bounded quiet recording and necessary Pi/resource changes are now authorized, with ongoing backups and no further questions. The user will not provide playback; quiet checks establish stream/recording/resource behavior only. [Current authorization and workflow](AUTONOMOUS_QUIET_WORK_V1.md).
+
 The user has prioritized implemented Nemotron diarizer modes, credible speed methods, native Nemotron ASR and alternate runtimes, all aligned with N5 GUI/field readiness. The existing October 1 checkpoint stays. See the [delivery plan and N5 mapping](N5_NATIVE_DELIVERY_48H_V1.md). Resource authority now permits measured adjustments; new WINDOW_V2 starts with a 3 GiB combined file allowance, retaining old evidence and separate per-job limits.
 
 ## Where we are now

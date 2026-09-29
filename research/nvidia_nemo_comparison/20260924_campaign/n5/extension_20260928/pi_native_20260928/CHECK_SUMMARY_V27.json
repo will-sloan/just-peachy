@@ -1,0 +1,38 @@
+{
+  "updated_utc": "2026-09-29T19:12:39.640506+00:00",
+  "previous_summary": "CHECK_SUMMARY_V26.json",
+  "status": "USER_AUTHORITY_UPDATED_NO_NEW_CAPTURE",
+  "authority_file": "AUTONOMOUS_QUIET_AUTHORIZATION_V1.json",
+  "authority_sha256": "428fd8a604a4ae8c7ff8d2b396ab2bd906e3d4aaceae54523643f73edeaf47bc",
+  "scheduled_quiet_capture_authorized": true,
+  "questions_requested": false,
+  "new_capture_this_update": false,
+  "resources": {
+    "checked_utc": "2026-09-29T19:12:39.640506+00:00",
+    "host_window_bytes": 385178504,
+    "target_bytes": 1359820054,
+    "combined_bytes": 1744998558,
+    "cap_bytes": 3221225472,
+    "host_free_bytes": {
+      "C:": 142540488704,
+      "G:": 98751569920
+    },
+    "all_owned_native_identities_closed": 122,
+    "host_supervisor_closed": true,
+    "host_owners": [
+      {
+        "pid": 55636,
+        "create_time": 1790637870.806714,
+        "observed_create_time": null,
+        "exact_alive": false
+      },
+      {
+        "pid": 55720,
+        "create_time": 1790637870.971314,
+        "observed_create_time": null,
+        "exact_alive": false
+      }
+    ]
+  },
+  "stage_accepted": false
+}

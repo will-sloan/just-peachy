@@ -1,0 +1,20 @@
+{
+  "schema": "just-peachy.autonomous-pi-quiet-authority.v1",
+  "recorded_utc": "2026-09-29T19:12:39.640506+00:00",
+  "user_instruction": "Do not ask questions. User will not play audio into the Pi. Quiet recording is authorized to verify the stream. Pi changes and allowance adjustments are authorized; back up as work progresses.",
+  "supersedes": "Earlier fresh-readiness requirements for quiet microphone checks, and earlier per-change approval assumptions for task-relevant Pi/resource work. Prior receipts and admissions remain unchanged.",
+  "questions_requested": false,
+  "scheduled_quiet_capture_authorized": true,
+  "quiet_audio_retention_authorized": true,
+  "quiet_capture_scope": "Bounded stream continuity, timestamps, rate/channel mapping, ring/input faults, PCM save/reopen, model passage and resource/lifecycle checks with quiet/background input. Quiet is expected, not guaranteed exact zero or labelled acoustic truth.",
+  "spoken_or_noisy_quality_validation": "Deferred; do not solicit speech or playback from the user, and do not infer speech/restaurant quality from quiet recordings.",
+  "speaker_playback_planned": false,
+  "pi_changes_authorized": true,
+  "allowance_adjustments_authorized": true,
+  "backup_requirement": "Versioned copies/hashes of affected code/config and model manifests, documented restore/activation path, preserved original baseline and personal data. Reviewed small code/docs backed up to verified Git refs; audio/transcripts/vectors/weights/credentials stay private.",
+  "resource_practice": "Keep concrete bounded runs and measured headroom. Initial 3 GiB file policy remains until a documented change is useful; no unlimited jobs. Record actual applied limits and live service properties before exit.",
+  "checkpoint_utc": "2026-10-01T17:47:34Z",
+  "execution_receipt": false,
+  "pi_gui_testing_authorized": true,
+  "pi_gui_scope": "Task-relevant on-device GUI testing may proceed; distinguish visible rendering, withdrawn widget tests and actual physical touch evidence. Do not take over Windows desktop/input."
+}
