@@ -1,3 +1,7 @@
+## September29 14:59UTC — native ASR cue shadow and configured I2S route
+
+Read pi_native_20260928/CHECK_SUMMARY_V16.json, ASR_SHADOW_FINDINGS_V1.md and LINUX_ROUTE_READINESS_V1.md. Nativeonlinecues/postsessioncausalshadow passes fullmodelparity/closure;fineproposals49.4%of sparseclip shrink to final2.46s at21.12schunks,noappliedskip/speedup. Originalconfig explicitlyI2S/I2C48k,captureclosed. Next bounded user-ready livepath plus separate cuewatermark/buffer/context gates; no unchanged reruns. All89ownersclosed,originalappunchanged,combined903113446/1GiB.
+
 ## September29 13:59UTC — converted-input B01 integration and model parity
 
 User priority September29: ASR-guided D1 activity with candidate1second pre/post padding. Read ASR_GUIDED_D1_NATIVE_PLAN_V1.md (in pi_native_20260928). First native shadow logging with all audio retained, positive energy/VAD fallback and causal buffer/context checks; no applied-skip/speedup claim. Keep basic live readiness moving alongside it.

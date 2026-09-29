@@ -1,10 +1,10 @@
 # Master backend and mode guide — Raspberry Pi
 
-Updated September 29, 2026, 09:59 EDT / 13:59 UTC. This is the current conceptual and engineering overview. Older reports preserve history; use this guide and STATUS.md for current priorities. Latest converter evidence is linked below; qualified preview scope is unchanged.
+Updated September 29, 2026, 10:59 EDT / 14:59 UTC. This is the current conceptual and engineering overview. Older reports preserve history; use this guide and STATUS.md for current priorities. Latest converter evidence is linked below; qualified preview scope is unchanged.
 
 ## Where we are now
 
-No campaign numerical worker or preview is running. Fresh inspection found all 87 recorded research process identities closed, no active research systemd units, and no user preview runs. The original rc5 app is still running with its original process identities and install. The Pi is a Compute Module 5 with 2 GB RAM.
+No campaign numerical worker or preview is running. Fresh inspection found all 89 recorded research process identities closed, no active research systemd units, and no user preview runs. The original rc5 app is still running with its original process identities and install. The Pi is a Compute Module 5 with 2 GB RAM.
 
 Two new **bounded saved-file previews** have native evidence:
 
@@ -19,7 +19,7 @@ The objective is a small set of clearly labelled, ready-to-run Pi modes using th
 
 ## User-prioritized ASR activity guidance
 
-ASR-assisted diarizer scheduling is a priority experiment. The first candidate protects detected speech plus roughly1second before/after, while energy/VAD fallback and uncertain cues retain audio. Start with native shadow logging; no silence is skipped yet. Measure late ASR cues, buffer/context costs and actual model work before claiming speedup. See [native ASR-guided plan](ASR_GUIDED_D1_NATIVE_PLAN_V1.md). The catalogue already contains G07/G08/G09; these are not yet native qualified implementations.
+ASR-assisted scheduling now has a native shadow check: actual ASR/energy cues were recorded online, then a causal±1second policy was replayed while all audio still ran. Fine-resolution proposals covered49.4%of this sparse clip, but current21.12second chunks left only a2.46second final partial candidate. No actual skip or speedup is qualified; EOF/context, cue-health and buffering gates remain. See [shadow findings](ASR_SHADOW_FINDINGS_V1.md) and the [investigation plan](ASR_GUIDED_D1_NATIVE_PLAN_V1.md).
 
 ## The pipeline in plain language
 
@@ -173,3 +173,5 @@ CMD / Anaconda Prompt: use `cd /d G:\Just_Peachy_N1\20260924_campaign\worktree`,
 - [Actual method coverage](NATIVE_METHOD_COVERAGE_V1.md), [composition research plan](../RESEARCH_PLAN.md), [held-out real-world requirements](../../realtime_validation_v1/REAL_WORLD_HOLDOUT_V1.md).
 - Private listening examples: `G:\Just_Peachy_N1\20260924_campaign\local\n5\listening-examples-v1\index.html`. Synthetic scenes through real hardware are not recordings of real conversations; the real cafeteria excerpt is only 0.75 seconds. These examples do not establish restaurant performance.
 - Exact source/model hashes and immutable admissions live in the versioned qualification/review receipts. Audio, transcripts, vectors, personal profiles and weights stay private; reviewed small code/docs go to the campaign Git branch.
+
+Live route update: read-only configuration confirms ALSA XMOS I2S with I2C control, not a USB audio path. Capture remains closed; actual stream/timing/restoration awaits a user-ready bounded session. See [route readiness](LINUX_ROUTE_READINESS_V1.md).
