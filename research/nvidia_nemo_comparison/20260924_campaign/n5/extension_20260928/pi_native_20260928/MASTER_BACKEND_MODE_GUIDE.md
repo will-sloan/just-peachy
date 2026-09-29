@@ -1,22 +1,24 @@
 # Master backend and mode guide — Raspberry Pi
 
-Updated September 29, 2026, 17:44 EDT / 21:44 UTC. This is the current conceptual and engineering overview. Older reports preserve history; use this guide and STATUS.md for current priorities. Latest converter evidence is linked below; qualified preview scope is unchanged.
+Current update September29 22:02UTC: learned high-resolution D1 ONNX outputs now pass three native feature/cache cases and repeats (~509MiB peakRSS). Complete waveform/source-clock/EOF integration remains; no new GUI or field release. See D1_HIGHRES_FINDINGS_V1.md / CHECK_SUMMARY_V35.json.
+
+Updated September 29, 2026, 18:02 EDT / 22:02 UTC. This is the current conceptual and engineering overview. Older reports preserve history; use this guide and STATUS.md for current priorities. Latest converter evidence is linked below; qualified preview scope is unchanged.
 
 ## Next 36–48 hours
 
 Unattended bounded quiet recording and necessary Pi/resource changes are now authorized, with ongoing backups and no further questions. The user will not provide playback; quiet checks establish stream/recording/resource behavior only. [Current authorization and workflow](AUTONOMOUS_QUIET_WORK_V1.md).
 
-The user has prioritized implemented Nemotron diarizer modes, credible speed methods, native Nemotron ASR and alternate runtimes, all aligned with N5 GUI/field readiness. The existing October 1 checkpoint stays. See the [delivery plan and N5 mapping](N5_NATIVE_DELIVERY_48H_V1.md). Resource authority now permits measured adjustments; new WINDOW_V3 allows 4 GiB combined existing-plus-new file output, retaining old evidence and separate per-job limits.
+The user has prioritized implemented Nemotron diarizer modes, credible speed methods, native Nemotron ASR and alternate runtimes, all aligned with N5 GUI/field readiness. The existing October 1 checkpoint stays. See the [delivery plan and N5 mapping](N5_NATIVE_DELIVERY_48H_V1.md). Resource authority now permits measured adjustments; new WINDOW_V4 allows 4 GiB combined existing-plus-new file output and52GiB totalpayload with retained2.5GiB reservations, retaining old evidence and separate per-job limits.
 
 ## Where we are now
 
 Ordered speaker-cache/FIFO handling now passes15 constructed native updates and exact repeats, including an overlap tie that stopped the first candidate. A small explicit ONNX compression helper preserves the observed NeMo selection. The frontend and state components are separately checked; the complete high-resolution audio/model stream remains open. [State findings and preserved failures](D1_STATE_FINDINGS_V1.md).
 
-The portable audio frontend now passes nine native Pi cases, including full saved audio, irregular blocks, EOF and reset, at about57MiB peak RAM. This closes the audio-to-feature component; learned high-resolution model output and speaker-cache/FIFO integration remain. [Frontend findings](D1_FRONTEND_FINDINGS_V1.md).
+The portable audio frontend now passes nine native Pi cases, including full saved audio, irregular blocks, EOF and reset, at about57MiB peak RAM. This closes the audio-to-feature component; the complete model/state/source-time integration remains. [Frontend findings](D1_FRONTEND_FINDINGS_V1.md).
 
-Current total-payload headroom is about176 MiB after target bytes and retained reservations. New large graph copies need a fresh measured payload admission; the4GiB window alone does not authorize them. Small driver/live-readiness work can continue.
+Current future-admission policy is WINDOW_V4:52GiB totalpayload with2.5GiBretained reservations and4GiBcombined output. ClosureV53 leaves about357.6MiB output headroom; refresh both budgets before further work. Prior50GiBrejections/receipts remain immutable.
 
-The alternate D1 ONNX graph now passes three actual Pi FP32 feature/cache checks and exact repeats against PyTorch references. Peak RAM was about 509 MiB. This verifies the graph on ONNX Runtime CPU; learned high-resolution output and the complete audio/cache/FIFO driver remain open before it becomes a usable alternate mode. No speedup is established. [Native findings](D1_ORT_NATIVE_FINDINGS_V1.md).
+The alternate D1 ONNX graph now passes three actual Pi FP32 feature/cache checks and exact repeats against PyTorch references. Peak RAM was about 509 MiB. This verifies the graph on ONNX Runtime CPU; V4 now separately preserves learned high-resolution outputs, while the complete audio/cache/FIFO/EOF driver remains open before it becomes a usable alternate mode. No speedup is established. [Native findings](D1_ORT_NATIVE_FINDINGS_V1.md).
 
 Native A2 endpoint/tail checks now pass: empty input, one sample,1281-sample tail and full-source forced endpoint at12.34s, followed by continued transcription, EOF and clean shutdown. This extends component functionality; it does not make A2 real-time or an integrated GUI mode. [Endpoint findings](A2_NATIVE_EDGES_FINDINGS_V1.md).
 

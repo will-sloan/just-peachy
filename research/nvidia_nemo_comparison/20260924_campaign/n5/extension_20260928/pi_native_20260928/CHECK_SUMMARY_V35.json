@@ -1,0 +1,141 @@
+{
+  "updated_utc": "2026-09-29T22:04:13.972346+00:00",
+  "previous_summary": "CHECK_SUMMARY_V34.json",
+  "status": "PASS_NATIVE_ORT_HIGH_RESOLUTION_THREE_FEATURE_CASES_ONLY",
+  "cases": [
+    {
+      "case": "delayed_warm",
+      "max_abs": [
+        4.7340705577880726e-08,
+        6.67572021484375e-06,
+        0,
+        1.3625433581410107e-07
+      ],
+      "shapes": [
+        [
+          1,
+          530,
+          8
+        ],
+        [
+          1,
+          266,
+          512
+        ],
+        [
+          1
+        ],
+        [
+          1,
+          4240,
+          8
+        ]
+      ],
+      "repeat_exact": true,
+      "seconds": [
+        5.513635178998811,
+        5.716878752995399
+      ]
+    },
+    {
+      "case": "cold_short",
+      "max_abs": [
+        1.601874828338623e-07,
+        3.814697265625e-06,
+        0,
+        2.60770320892334e-07
+      ],
+      "shapes": [
+        [
+          1,
+          4,
+          8
+        ],
+        [
+          1,
+          4,
+          512
+        ],
+        [
+          1
+        ],
+        [
+          1,
+          32,
+          8
+        ]
+      ],
+      "repeat_exact": true,
+      "seconds": [
+        0.04711829801090062,
+        0.04041198799677659
+      ]
+    },
+    {
+      "case": "dynamic_tail",
+      "max_abs": [
+        7.897615432739258e-07,
+        4.76837158203125e-06,
+        0,
+        1.2516975402832031e-06
+      ],
+      "shapes": [
+        [
+          1,
+          14,
+          8
+        ],
+        [
+          1,
+          3,
+          512
+        ],
+        [
+          1
+        ],
+        [
+          1,
+          112,
+          8
+        ]
+      ],
+      "repeat_exact": true,
+      "seconds": [
+        0.1195184319949476,
+        0.12579555799311493
+      ]
+    }
+  ],
+  "load_seconds": 3.5230250129970955,
+  "peak_rss_mib": 508.734375,
+  "graph_sha256": "dd3225f3f14c2e6436f643f2e985865075f8e6a5e48034640825c8d0e9b1445a",
+  "graph_bytes": 400460634,
+  "native_output_bytes": 5317288,
+  "host_output_bytes": 405914635,
+  "stage_output_bytes": 400476804,
+  "absolute_tolerance": 1e-05,
+  "high_resolution_outputs_preserved": true,
+  "complete_waveform_driver": false,
+  "full_source_parity": false,
+  "speedup_qualified": false,
+  "quality_qualified": false,
+  "integrated_release": false,
+  "all_owned_native_identities_closed": 147,
+  "isolated_host_identities_closed": 32,
+  "baseline_unchanged": true,
+  "capture_closed": true,
+  "leases_free": true,
+  "combined_output_bytes": 3920046920,
+  "combined_cap_bytes": 4294967296,
+  "total_payload_policy": "WINDOW_V4.json",
+  "total_payload_gib": 52,
+  "retained_reservations_gib": 2.5,
+  "estimated_total_payload_headroom_bytes": 1519267645,
+  "private_review_hashes": {
+    "d1-onnx-export-v4/REVIEW.json": "81404bc28e58e2e36036f658c30378fd1c73029fa276f279cb79b11811728a54",
+    "d1-onnx-stage-v2-evidence/REVIEW.json": "200d2b2ffbcd4deafeea29cb9853b41bc124ad1887ea23febbe91d335328fefb",
+    "d1-ort-native-v2-evidence/REVIEW.json": "99302228a277d9c66e68245b6a682fbf05c8695e5ed2b494156b76f060270d5c",
+    "NATIVE_CLOSURE_V53.json": "7df2758aab4d5b8d593faa597d2049a84c43d80f90719a58e9e3e5b487869ab5",
+    "NATIVE_RESOURCES_V53.json": "4b3371351c900330b80786b46d1d659d073c72b278b9f5704760302ab1445e9b"
+  }
+}
