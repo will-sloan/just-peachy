@@ -2,11 +2,14 @@
 
 User priority September29: ASR-guided D1 activity with candidate1second pre/post padding. Read ASR_GUIDED_D1_NATIVE_PLAN_V1.md (in pi_native_20260928). First native cue-shadow evidence now reviewed in ASR_SHADOW_FINDINGS_V1.md; applied skips remain unqualified. Keep basic live readiness moving alongside it.
 
-Updated September 29, 2026 14:59 UTC. Read later verified results before acting. The user confirmed connection and authorized Pi testing on September 28. This replaces the older no-Pi-contact condition; it does not rewrite old admissions. Multiday checkpoint remains October 1 at 17:47:34 UTC. Hourly continuation was updated successfully to Pi-first work.
+Updated September 29, 2026 16:03 UTC. Read later verified results before acting. The user confirmed connection and authorized Pi testing on September 28. This replaces the older no-Pi-contact condition; it does not rewrite old admissions. Multiday checkpoint remains October 1 at 17:47:34 UTC. Hourly continuation was updated successfully to Pi-first work.
 
 The user explicitly limits saved audio to functionality, text passage and real-time/CPU/RAM/resource observations, **not new ASR/WER accuracy metrics**. A quiet microphone route is permitted with nobody speaking; that does not establish speech accuracy. No new microphone capture/playback has been started. A read-only ALSA inventory shows an XMOSDevice I2S capture endpoint, currently closed; do not assume the expected USB route or claim a working live route from enumeration alone. Actual speech/noisy-location tests still require physical readiness. Preserve the current app/data, with new backend modes developed separately.
 
 ## Current work / next action
+
+**September29 16:03UTC:** Read CHECK_SUMMARY_V17.json and LIVE_READY_FINDINGS_V1.md first. Six native mocked I2S route/consent/restoration/failed-close checks independently pass; actual hardware remains unopened. A source-qualified, explicitly user-invoked12s quiet source-only launcher is prepared; README_LIVE_READY_V1.md documents fresh admission and --ready-now. Never invoke it on a scheduled wake. Actual capture, route readback/timing/restoration and live B01 remain unqualified. All91owners closed; original app/config/install unchanged; combined904354515bytes/1GiB. No passed models rerun. Continue ASR cue-watermark/buffer/context work separately.
+
 
 Read CHECK_SUMMARY_V16.json, ASR_SHADOW_FINDINGS_V1.md and LINUX_ROUTE_READINESS_V1.md. Native B01 observes actual ASR/energy cues online, then causally replays±1sASR/-55dBenergy proposals with2sdecisiondelay after each session. All audio retained; no applied gating, live buffer or speedup. Full44.695s:41ASRpublications,22.095s fine proposals(49.4%),but21.12s rounding leaves only final2.455s partialchunk(5.5%),zero fullchunks. EOF tail is not qualified for omission. Sparse input:13.6%frames aboveenergythreshold,19.895sfinalbelowthresholdrun; not speechtruth/quality or realconversation savings. Maxrevision-end cue lag72ms,observer0.129s,postsessionpolicy0.547s; no late positive rescue on this clip. ASRhealthwatermark missing=>uncertain wouldretain;2sbuffer lowerbound128000bytes is not implemented.
 

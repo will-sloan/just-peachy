@@ -1,10 +1,10 @@
 # Master backend and mode guide — Raspberry Pi
 
-Updated September 29, 2026, 10:59 EDT / 14:59 UTC. This is the current conceptual and engineering overview. Older reports preserve history; use this guide and STATUS.md for current priorities. Latest converter evidence is linked below; qualified preview scope is unchanged.
+Updated September 29, 2026, 12:03 EDT / 16:03 UTC. This is the current conceptual and engineering overview. Older reports preserve history; use this guide and STATUS.md for current priorities. Latest converter evidence is linked below; qualified preview scope is unchanged.
 
 ## Where we are now
 
-No campaign numerical worker or preview is running. Fresh inspection found all 89 recorded research process identities closed, no active research systemd units, and no user preview runs. The original rc5 app is still running with its original process identities and install. The Pi is a Compute Module 5 with 2 GB RAM.
+No campaign numerical worker or preview is running. Fresh inspection found all 91 recorded research process identities closed, no active research systemd units, and no user preview runs. The original rc5 app is still running with its original process identities and install. The Pi is a Compute Module 5 with 2 GB RAM.
 
 Two new **bounded saved-file previews** have native evidence:
 
@@ -16,6 +16,10 @@ Live-input preparation advanced: a fresh B01 derivative now passes constructed48
 Both currently use delayed speaker processing. They are experimental previews for one checked 44.695-second, 16 kHz file, not general live-microphone releases. A successful preview is not completion of the campaign. Physical screen/touch, sustained operation and real-world speech quality remain unvalidated.
 
 The objective is a small set of clearly labelled, ready-to-run Pi modes using the same interface, with predictable caption/label delay, bounded memory/backlog, working Stop/save/reopen/rollback, and measured real-world behavior. We are not trying to run every mathematical combination or make every candidate a winner.
+
+## First actual microphone check
+
+A bounded **12-second quiet source-only check** is prepared for explicit user invocation. Native mocked consent, I2S channel/gain, conversion counts, restoration and failed-close ownership checks pass. It does not yet establish a working hardware route. It saves no audio, loads no models and plays nothing. Use [the quiet-route instructions](README_LIVE_READY_V1.md) only when physically ready; each run needs a fresh census/admission and later review. Automated follow-ups must leave capture off. After actual route closure is verified, the next step is a bounded B01 spoken/live pipeline session. See [current scope and limits](LIVE_READY_FINDINGS_V1.md).
 
 ## User-prioritized ASR activity guidance
 

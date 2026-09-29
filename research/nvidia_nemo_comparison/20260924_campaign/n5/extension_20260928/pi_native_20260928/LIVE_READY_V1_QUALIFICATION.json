@@ -1,0 +1,19 @@
+{
+  "status": "QUALIFIED_FOR_EXPLICIT_USER_QUIET_ROUTE_ONLY",
+  "updated_utc": "2026-09-29T16:02:25.988230+00:00",
+  "source_sha256": {
+    "live_ready_app_v1.py": "2b574cda1e197204934b68753dd4fdc8cdb6579a07ff4c3ca977c568b9e5e943",
+    "live_route_probe_v1.py": "7c2974f81c35182e4e7a80473d45d9db895369cb67eae2ba09e2f5566a3467e0",
+    "live_ready_gate_v1.py": "557b60cf240d13beed0dd25eb94785d07db7c338cf1f5cef8c96f5fdcfb5bec1",
+    "launch_live_ready_v1.py": "4379c066aba410112f7be39b02a24ebecedd07cefedc43f922fc09d5c439ed2e",
+    "README_LIVE_READY_V1.md": "1fd3f7ede6060ee07637e33f200cd2b68ab8bcd912b1a7357bd1e2be60a5e134"
+  },
+  "review_sha256": "873453deb4de1a73dccdfe7fb7922d2328e3a5dae2b219a4e0c2cfd12fc8b214",
+  "mock_review_status": "PASS_NATIVE_MOCK_I2S_ROUTE_GUARDS_ONLY",
+  "static_review_sha256": "46806673d3871d07b065cf9f6d99eba79f34fd2de75f1b68e9e138cb009f6fbc",
+  "actual_capture_executed": false,
+  "hardware_route_qualified": false,
+  "live_models_qualified": false,
+  "requires_physical_readiness": true,
+  "requires_new_admission_and_review": true
+}

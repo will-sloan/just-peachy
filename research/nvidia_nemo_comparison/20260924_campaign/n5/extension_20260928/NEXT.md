@@ -1,3 +1,7 @@
+## September29 16:03UTC — explicit quiet-route preparation
+
+Read pi_native_20260928/CHECK_SUMMARY_V17.json and LIVE_READY_FINDINGS_V1.md. Six native mock I2S guards pass; source-bound12s quiet user launcher prepared with --ready-now/fresh admission, no actual capture. Scheduled runs must not invoke user mode. Inspect any later live-ready-user-* owners/results alongside previews; review closed runs independently. Next user-ready actual route then bounded live B01; continue ASR watermark/buffer/context shadow separately. All91ownersclosed,originalapp/configunchanged,combined904354515/1GiB.
+
 ## September29 14:59UTC — native ASR cue shadow and configured I2S route
 
 Read pi_native_20260928/CHECK_SUMMARY_V16.json, ASR_SHADOW_FINDINGS_V1.md and LINUX_ROUTE_READINESS_V1.md. Nativeonlinecues/postsessioncausalshadow passes fullmodelparity/closure;fineproposals49.4%of sparseclip shrink to final2.46s at21.12schunks,noappliedskip/speedup. Originalconfig explicitlyI2S/I2C48k,captureclosed. Next bounded user-ready livepath plus separate cuewatermark/buffer/context gates; no unchanged reruns. All89ownersclosed,originalappunchanged,combined903113446/1GiB.

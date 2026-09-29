@@ -1,0 +1,85 @@
+{
+  "updated_utc": "2026-09-29T16:03:14.912910+00:00",
+  "previous_summary": "CHECK_SUMMARY_V16.json",
+  "scope": "Native mock I2S route/restoration guards; bounded explicit-user quiet probe prepared and source-qualified; no actual capture",
+  "review_status": "PASS_NATIVE_MOCK_I2S_ROUTE_GUARDS_ONLY",
+  "review_sha256": "873453deb4de1a73dccdfe7fb7922d2328e3a5dae2b219a4e0c2cfd12fc8b214",
+  "mock_cases": [
+    {
+      "name": "consent_required_before_lease",
+      "scope": "source-bound contract assertion"
+    },
+    {
+      "name": "O0",
+      "samples": 480,
+      "native_frames": 1440,
+      "restoration_ok": true,
+      "lease_released": true
+    },
+    {
+      "name": "O1",
+      "samples": 480,
+      "native_frames": 1440,
+      "restoration_ok": true,
+      "lease_released": true
+    },
+    {
+      "name": "lost_reply",
+      "samples": 0,
+      "native_frames": 0,
+      "restoration_ok": true,
+      "lease_released": true
+    },
+    {
+      "name": "firmware",
+      "samples": 0,
+      "native_frames": 0,
+      "restoration_ok": true,
+      "lease_released": true
+    },
+    {
+      "name": "active_failed_close_retains_lease_until_retry",
+      "scope": "source-bound contract assertion"
+    }
+  ],
+  "peak_rss_bytes": 38273024,
+  "qualification": "LIVE_READY_V1_QUALIFICATION.json",
+  "actual_hardware_route_qualified": false,
+  "actual_capture": false,
+  "live_models_qualified": false,
+  "closed_owner_count": 91,
+  "resources": {
+    "checked_utc": "2026-09-29T16:03:14.912910+00:00",
+    "host_window_bytes": 361673830,
+    "target_bytes": 542680685,
+    "combined_bytes": 904354515,
+    "cap_bytes": 1073741824,
+    "host_free_bytes": {
+      "C:": 112024064000,
+      "G:": 98776399872
+    },
+    "all_owned_native_identities_closed": 91,
+    "host_supervisor_closed": true,
+    "host_owner_checks": [
+      {
+        "pid": 55636,
+        "create_time": 1790637870.806714,
+        "observed": null,
+        "exact_alive": false
+      },
+      {
+        "pid": 55720,
+        "create_time": 1790637870.971314,
+        "observed": null,
+        "exact_alive": false
+      }
+    ],
+    "closure_sha256": "304285e5cf65c17c2eac307e55aeb24ad7b70502bdbfbe23b104be3f585f7c0c"
+  },
+  "next": [
+    "Explicit physically-ready 12s quiet source-only check; independently review actual route, counts, loss, restoration and ownership",
+    "Then fresh bounded B01 spoken/live model passage; saved previews unchanged",
+    "Continue causal ASR watermark/buffer/context/EOF work with no applied skips"
+  ],
+  "N4_N5_complete": false
+}
