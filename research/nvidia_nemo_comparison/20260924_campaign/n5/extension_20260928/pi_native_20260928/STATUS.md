@@ -1,10 +1,18 @@
 # Connected CM5: native work is now the priority
 
-Updated September 29, 2026 08:02 UTC. Read later verified results before acting. The user confirmed connection and authorized Pi testing on September 28. This replaces the older no-Pi-contact condition; it does not rewrite old admissions. Multiday checkpoint remains October 1 at 17:47:34 UTC. Hourly continuation was updated successfully to Pi-first work.
+Updated September 29, 2026 09:03 UTC. Read later verified results before acting. The user confirmed connection and authorized Pi testing on September 28. This replaces the older no-Pi-contact condition; it does not rewrite old admissions. Multiday checkpoint remains October 1 at 17:47:34 UTC. Hourly continuation was updated successfully to Pi-first work.
 
 The user explicitly limits saved audio to functionality, text passage and real-time/CPU/RAM/resource observations, **not new ASR/WER accuracy metrics**. A quiet microphone route is permitted with nobody speaking; that does not establish speech accuracy. No new microphone capture/playback has been started. A read-only ALSA inventory shows an XMOSDevice I2S capture endpoint, currently closed; do not assume the expected USB route or claim a working live route from enumeration alone. Actual speech/noisy-location tests still require physical readiness. Preserve the current app/data, with new backend modes developed separately.
 
 ## Current work / next action
+
+**Actual native Tk archive controls and simultaneous Tk/model Stop/restart now pass scoped independent checks.** Read CHECK_SUMMARY_V10.json and NATIVE_UI_FINDINGS_V1.md. The test root stayed withdrawn throughout; no visible window or input takeover. Copied archive Save/Open/Delete cancel/confirm and baseline rollback preserve40rows' raw/formatted text, anonymous labels, spans and histories. Initial collecting labels settle via the existing real-time UI hysteresis. Earlier harness/reader failures remain preserved.
+
+The separate b05-native-gui-v1 ran actual Sherpa/PnC+delayedD1 with Tk: early130880sample Stop drained1.734s, then full715127sample restart produced4470x8 probabilities exactly equal to reference,40final widget rows and complete application/archive/Tk/natural process closure. PeakRSS508.547MiB,virtual747.344MiB,headroom20.656MiB under768MiB. First full-restart text5.639s includes silence; D1 output25.518s,EOFdrain11.695s. This is short saved-file functionality/resource evidence, not physical display/touch, long-run fit or quality.
+
+**Next:** build/qualify the explicit user-invoked anonymous saved-file preview and fresh guarded resource path, with original app untouched and capture disabled. Tk absence is no longer a blanket widget blocker; physical UI remains untested. Retained-E0 B01 still fails memory and its pending1GiB trial remains unanswered; no cap increase or unchanged retry. All61owners closed at09:03UTC; combined681662352bytes of1GiB,53.45C/throttle0x0,global swap120/28743pages. B02, long endurance, user-ready real-life speech and N4/N5 acceptance remain open.
+
+## Previous native stack/label closure (08:02 UTC; preserved)
 
 **The anonymous pipeline now has more virtual-memory headroom and independently checked stored caption-label lineage.** Read CHECK_SUMMARY_V9.json and NATIVE_STACK_LABEL_FINDINGS_V1.md. A fresh process-local 1MiB native startup-stack setting retained exact full-restart D1 outputs, complete source coverage, early Stop and all natural closure checks. Sampled virtual peak738.203MiB leaves29.797MiB under768MiB, versus2.688MiB before; RSS498.031MiB is about unchanged. This is scoped functional/resource evidence, not robust long-run qualification.
 
