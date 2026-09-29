@@ -1,10 +1,20 @@
 # Connected CM5: native work is now the priority
 
-Updated September 29, 2026 12:56 UTC. Read later verified results before acting. The user confirmed connection and authorized Pi testing on September 28. This replaces the older no-Pi-contact condition; it does not rewrite old admissions. Multiday checkpoint remains October 1 at 17:47:34 UTC. Hourly continuation was updated successfully to Pi-first work.
+User priority September29: ASR-guided D1 activity with candidate1second pre/post padding. Read ASR_GUIDED_D1_NATIVE_PLAN_V1.md (in pi_native_20260928). First native shadow logging with all audio retained, positive energy/VAD fallback and causal buffer/context checks; no applied-skip/speedup claim. Keep basic live readiness moving alongside it.
+
+Updated September 29, 2026 13:59 UTC. Read later verified results before acting. The user confirmed connection and authorized Pi testing on September 28. This replaces the older no-Pi-contact condition; it does not rewrite old admissions. Multiday checkpoint remains October 1 at 17:47:34 UTC. Hourly continuation was updated successfully to Pi-first work.
 
 The user explicitly limits saved audio to functionality, text passage and real-time/CPU/RAM/resource observations, **not new ASR/WER accuracy metrics**. A quiet microphone route is permitted with nobody speaking; that does not establish speech accuracy. No new microphone capture/playback has been started. A read-only ALSA inventory shows an XMOSDevice I2S capture endpoint, currently closed; do not assume the expected USB route or claim a working live route from enumeration alone. Actual speech/noisy-location tests still require physical readiness. Preserve the current app/data, with new backend modes developed separately.
 
 ## Current work / next action
+
+Read CHECK_SUMMARY_V15.json and B01_FIR_FINDINGS_V1.md first. Fresh shared-app-b01-fir-v1 replaces only the actual live StreamingDecimator plus bound helper; both existing previews remain unchanged. Constructed48k saved input through this class into B01 passes early Stop/full restart with actual withdrawn Tk, exact conversion-prefix hashes/counts, retained E0, no errors and natural queue/archive/controller/process closure. Full715127model samples/4470x8D1,20E0windows,40widgetrows; early130880samples,2.689sdrain. PeakRSS544.625MiB,virtual720.5MiB leaves47.5MiB under768MiB; noSciPyloaded. D1firstoutput25.468s,EOFdrain12.511s. Conditional short fit, not sustained/live evidence.
+
+Separate native reference job independently recomputes both D1sessions twice and all27E0windows twice: exact application/repeat equality at unchanged1e-5. It supplements the preserved REFERENCES_PENDING lifecycle review. Constructedinput is sample repetition, not real48k recording; no capture/playback/accuracy scoring. Original1msfilterdelay/no-appended-tail preserved; hardware/acoustic timing unqualified.
+
+Next read-only audit actual Linux endpoint/rate/channel/control compatibility, then prepare a bounded user-ready quiet/spoken path using this derivative. Actual I2S inventory is not verified USB/live routing. Preserve qualified B01/B05 previews. Capture callbacks/ring/timing/discontinuities,physicalUI,30/60minendurance,A2B02 andN4N5 remain open. All87owners closed13:59UTC,originalapp unchanged,nouserpreviews,combined873861058bytes/1GiB; about191MiB output left. Check fresh owners/resources before work.
+
+## Previous converter component closure (12:56 UTC; preserved)
 
 Read CHECK_SUMMARY_V14.json and LIVE_DECIMATOR_FINDINGS_V1.md first. Actual XVF StreamingDecimator imports SciPy and uses a stateful97-tap FIR, distinct from the generic vendor resample_poly path. Native original and NumPy candidate independently pass full constructed-source/irregular/repeat/impulse/quiet/empty checks with fixed1e-7 amplitude tolerance; maximum discrepancy~1.32e-23. Candidate imports noSciPy, peakRSS54.234 versus121.438MiB and construction virtual92.203 versus245.125MiB. Full conversion work0.136 versus0.241s is isolated conditional evidence, not integrated/live/sustained performance. The candidate is NOT integrated into the app and changes neither qualified preview.
 

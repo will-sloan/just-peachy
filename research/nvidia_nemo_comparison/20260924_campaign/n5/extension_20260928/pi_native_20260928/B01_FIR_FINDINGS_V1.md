@@ -1,0 +1,19 @@
+# B01 constructed48k FIR integration
+
+September29 13:59UTC. Independent native functional/resource/numerical evidence; no capture or live-route acceptance.
+
+A fresh `shared-app-b01-fir-v1/prototype` replaces only `app.live_audio.StreamingDecimator` and adds the bound97-tap NumPy helper. Every other application file is identical to the qualified deferred-SciPy parent. Both user previews and the original rc5 install remain unchanged. The derivative's diagnostic harness constructs48k blocks by repeating each original16k sample3times, converts using the actual app class, then feeds unchanged B01 journal/models at original1x pacing. It does not simulate or open an actual device callback. No speech-quality metric is calculated.
+
+Early Stop retained130880model samples (392640constructed native samples) and drained in2.689s. Same-process restart reset conversion/source state and retained2145381constructed48k samples ->715127model samples, with no drops, errors or skipped audio. Both converted-stream hashes match the independently qualified FIR reference prefixes exactly. Original1ms filter delay and no appended-tail behavior remain explicit; count mapping is tested, hardware/acoustic timestamp mapping is not.
+
+Full restart produced4470x8finite D1 probabilities,20retained-ReDimNet windows and40actual withdrawn Tk caption rows. One Sherpa load and one ReDimNet load, learned punctuation and empty research gallery. Three terminal punctuation heuristics on the full session remain explicit. All application/consumer/archive queues and handles drained, Tk destroyed, natural process exit0, exact owners closed. No personal identity or accuracy claim.
+
+PeakRSS544.625MiB and virtual720.500MiB fit the unchanged768MiBcap, leaving47.500MiB virtual headroom. This is a short conditional fit with rc5active, not sustained stability. Full firsttext5.644s includes source silence; D1firstoutput25.468s; EOFdrain12.511s. Conversion work0.596s is concurrent with ASR/D1/E0 and must not be added as independent total elapsed or compared as an uncontended speed result.
+
+The initial lifecycle review explicitly left model references pending because filtering changes the waveform. A separate fresh native job then recomputed both early/full D1 sessions twice and all27application E0 windows twice (54calls) using the exact filtered float32 input. Independent reader checks original events, source/plan hashes and output arrays: D1application/repeat and E0application/repeat maxabs0 under the unchanged1e-5 gate. This supplements the immutable pending review; it does not overwrite it or reuse old unfiltered model references. Reset/EOF/repeatedfinish/postfinish rejection and natural standalone closure pass.
+
+Read README_B01_FIR_INTEGRATION_V1.md and README_B01_FIR_REFERENCES_V1.md for commands, inputs, outputs and resource envelopes. Private b01-fir-integration-v1-evidence/REVIEW.json and b01-fir-references-v1-evidence/REVIEW.json bind the evidence. No raw audio, captions, arrays or vectors are committed.
+
+Next inspect actual Linux endpoint/rate/channel and control-route compatibility read-only, then prepare a bounded user-ready quiet/spoken session using the fresh converter source. Do not infer USB or live-route readiness from the existing XMOS I2S inventory. Capture timing, hardware ring/callback behavior, source discontinuities, user-visible physical controls and30/60minute endurance remain unqualified. Do not delay initial safe real-world validation for every research combination. A2/B02 and N4/N5 remain open.
+
+Closure: all87research identities closed; originalapp/install unchanged; no user-preview runs. Combined host/target output873861058bytes/1GiB leaves about191MiB. Budget later endurance output explicitly; do not increase the allowance. Global swap269in/28887out (16KiBpages) is contextual, not per-job evidence; temperature54.55C,throttle0x0.

@@ -1,21 +1,25 @@
 # Master backend and mode guide — Raspberry Pi
 
-Updated September 29, 2026, 08:56 EDT / 12:56 UTC. This is the current conceptual and engineering overview. Older reports preserve history; use this guide and STATUS.md for current priorities. Latest converter evidence is linked below; qualified preview scope is unchanged.
+Updated September 29, 2026, 09:59 EDT / 13:59 UTC. This is the current conceptual and engineering overview. Older reports preserve history; use this guide and STATUS.md for current priorities. Latest converter evidence is linked below; qualified preview scope is unchanged.
 
 ## Where we are now
 
-No campaign numerical worker or preview is running. Fresh inspection found all 83 recorded research process identities closed, no active research systemd units, and no user preview runs. The original rc5 app is still running with its original process identities and install. The Pi is a Compute Module 5 with 2 GB RAM.
+No campaign numerical worker or preview is running. Fresh inspection found all 87 recorded research process identities closed, no active research systemd units, and no user preview runs. The original rc5 app is still running with its original process identities and install. The Pi is a Compute Module 5 with 2 GB RAM.
 
 Two new **bounded saved-file previews** have native evidence:
 
 - **B01:** Sherpa transcription + Nemotron diarization + ReDimNet voice embeddings + punctuation.
 - **B05:** the same transcription/diarization path with the external embedding model explicitly bypassed. Anonymous speaker numbers only.
 
-Live-input preparation advanced: a native NumPy FIR candidate matches the existing XVF converter on constructed saved-input tests while avoiding its SciPy import (54 versus121 MiB peak component RSS). It is not yet integrated or microphone-qualified. See [converter findings](LIVE_DECIMATOR_FINDINGS_V1.md).
+Live-input preparation advanced: a fresh B01 derivative now passes constructed48k conversion into the full pipeline, Stop/restart, withdrawn Tk and independent exact D1/E0 references within768MiB. It uses the lower-memory NumPy FIR. This is saved-input integration, not actual device capture/timing or a newly exposed preview. See [integration findings](B01_FIR_FINDINGS_V1.md).
 
 Both currently use delayed speaker processing. They are experimental previews for one checked 44.695-second, 16 kHz file, not general live-microphone releases. A successful preview is not completion of the campaign. Physical screen/touch, sustained operation and real-world speech quality remain unvalidated.
 
 The objective is a small set of clearly labelled, ready-to-run Pi modes using the same interface, with predictable caption/label delay, bounded memory/backlog, working Stop/save/reopen/rollback, and measured real-world behavior. We are not trying to run every mathematical combination or make every candidate a winner.
+
+## User-prioritized ASR activity guidance
+
+ASR-assisted diarizer scheduling is a priority experiment. The first candidate protects detected speech plus roughly1second before/after, while energy/VAD fallback and uncertain cues retain audio. Start with native shadow logging; no silence is skipped yet. Measure late ASR cues, buffer/context costs and actual model work before claiming speedup. See [native ASR-guided plan](ASR_GUIDED_D1_NATIVE_PLAN_V1.md). The catalogue already contains G07/G08/G09; these are not yet native qualified implementations.
 
 ## The pipeline in plain language
 

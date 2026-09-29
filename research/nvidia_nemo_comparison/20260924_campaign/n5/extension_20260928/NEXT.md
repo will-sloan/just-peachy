@@ -1,3 +1,9 @@
+## September29 13:59UTC — converted-input B01 integration and model parity
+
+User priority September29: ASR-guided D1 activity with candidate1second pre/post padding. Read ASR_GUIDED_D1_NATIVE_PLAN_V1.md (in pi_native_20260928). First native shadow logging with all audio retained, positive energy/VAD fallback and causal buffer/context checks; no applied-skip/speedup claim. Keep basic live readiness moving alongside it.
+
+Read pi_native_20260928/CHECK_SUMMARY_V15.json and B01_FIR_FINDINGS_V1.md. FreshFIR derivative passes constructed48k Stop/fullrestart/withdrawnTk/closure under768MiB; bothsessionsD1 and27E0windows independently exact twice at1e-5. No actualcapture/time-route qualification or changedpreview. Next readonlyLinuxendpoint/control-route audit, then bounded user-ready livepath. All87ownersclosed,originalappunchanged,combined873861058/1GiB; budget ~191MiBremaining output.
+
 ## September29 12:56UTC — live converter component memory reduction
 
 Read pi_native_20260928/CHECK_SUMMARY_V14.json and LIVE_DECIMATOR_FINDINGS_V1.md. Actual XVF97-tap FIR and unintegrated NumPy candidate pass independent native constructed-input parity at1e-7; candidate avoidsSciPy. Next fresh app integration/mapping/memory/Stop/drain, then user-ready live route. No capture/playback, no unchanged reruns. B01/B05 previews unchanged; all83ownersclosed, originalapp unchanged.
