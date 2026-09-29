@@ -1,0 +1,95 @@
+{
+  "updated_utc": "2026-09-29T02:27:00Z",
+  "stage_accepted": false,
+  "integrated_new_profiles_accepted": 0,
+  "component_reviews": [
+    {
+      "review": "D1_SCHEDULER_REVIEW_V11.json",
+      "status": "PASS_NATIVE_D1_CAPACITY2048_FULL_REPEAT_REFERENCE_ONLY",
+      "result_sha256": "ea314221eab26d60091753142090472c484ddf209f295112968f7648e2099c1d",
+      "generic_max_abs": 0.0,
+      "repeat_max_abs": 0.0,
+      "cases": [
+        {
+          "case": "saved_full",
+          "frames": 4470,
+          "audio_seconds": 44.6954375,
+          "endpoint_support_overhang_seconds": 0.004561500877144908,
+          "elapsed_seconds": 269.71148338200055,
+          "call_sequence_rtf": 6.034429876248567,
+          "cpu_seconds": 269.534042103,
+          "temperature_millic": 61150
+        },
+        {
+          "case": "resident_repeat",
+          "frames": 4470,
+          "audio_seconds": 44.6954375,
+          "endpoint_support_overhang_seconds": 0.004561500877144908,
+          "elapsed_seconds": 270.11187361300017,
+          "call_sequence_rtf": 6.04338806646652,
+          "cpu_seconds": 270.00874075400003,
+          "temperature_millic": 63900
+        }
+      ],
+      "peak_process_rss_bytes": 237797376
+    },
+    {
+      "review": "D1_METADATA_REVIEW_V12.json",
+      "status": "PASS_NATIVE_D1_METADATA8_FULL_REPEAT_REFERENCE_ONLY",
+      "result_sha256": "db84e3fea26f5326a40a0a4958737244c7ece8f4da8d1d910fd40eb5a547218c",
+      "generic_max_abs": 0.0,
+      "repeat_max_abs": 0.0,
+      "cases": [
+        {
+          "case": "saved_full",
+          "frames": 4470,
+          "audio_seconds": 44.6954375,
+          "endpoint_support_overhang_seconds": 0.004561500877144908,
+          "elapsed_seconds": 269.6028936719995,
+          "call_sequence_rtf": 6.0320003282661565,
+          "cpu_seconds": 269.282975971,
+          "temperature_millic": 62800
+        },
+        {
+          "case": "resident_repeat",
+          "frames": 4470,
+          "audio_seconds": 44.6954375,
+          "endpoint_support_overhang_seconds": 0.004561500877144908,
+          "elapsed_seconds": 270.4398648990009,
+          "call_sequence_rtf": 6.050726428150544,
+          "cpu_seconds": 270.100887412,
+          "temperature_millic": 63350
+        }
+      ],
+      "peak_process_rss_bytes": 277823488
+    }
+  ],
+  "B01_V4_to_V9": "FAILED_PRESERVED; V4 handled cleanup only; V5-V9 native aborts without application finalization",
+  "metadata_runtime_scope": "D1 low_latency only; unchanged1e-5 gate",
+  "prepared_native_profiles": {
+    "status": "SOURCE_PREPARED_NOT_EXECUTED",
+    "adapter_sha256": "bf4bbe5746e9797ac72b04b6031ff41ee1c87331d67910d7ba1a9fc8f94c6845"
+  },
+  "higher_address_cap": {
+    "status": "AWAITING_USER_DECISION_NOT_ADMITTED",
+    "current_bytes": 805306368,
+    "proposed_bytes": 1073741824,
+    "proposed_available_floor_bytes": 1342177280
+  },
+  "all_owned_closed": true,
+  "original_install_preserved": true,
+  "saved_audio_accuracy_scoring": false,
+  "capture": false,
+  "resources": {
+    "host_window_bytes": 273635388,
+    "target_bytes": 203921999,
+    "combined_bytes": 477557387,
+    "free_bytes": {
+      "C:": 118978174976,
+      "G:": 98869346304
+    },
+    "all_owned_closed": true,
+    "original_install_preserved": true,
+    "utc": "2026-09-29T02:26:35.605051+00:00"
+  }
+}

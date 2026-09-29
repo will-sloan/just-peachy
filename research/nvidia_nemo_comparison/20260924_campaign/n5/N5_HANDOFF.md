@@ -1,5 +1,8 @@
 # N5 partial release checkpoint
 
+September29 02:27UTC native update: D1 V11/V12 full-source/repeat/reference/EOF match exactly after bounded scheduler/metadata changes, but B01 V4-V9 still fail the768MiB virtual-address cap. Native-abort attempts have no application finalization. All owned jobs are closed; current rc5 app/install unchanged. A short1GiB-cap trial with1.25GiB available-RAM floor awaits a user decision and is not admitted. Whole native streaming/delayed profiles are prepared only. No new integrated Pi profile is accepted. Read extension_20260928/pi_native_20260928/STATUS.md and CHECK_SUMMARY_V3.json before acting; older milestones below remain historical.
+
+
 **Latest: Pi connection confirmed; native testing is underway.** Follow [connected CM5 status](extension_20260928/pi_native_20260928/STATUS.md) and [mode plan](extension_20260928/pi_native_20260928/PI_MODE_PLAN.md). These supersede the disconnected-Pi ordering preserved below. Saved audio is functional/resource evidence only; no new ASR/WER scoring.
 
 ## Native Pi checkpoint - September29,01:23UTC
