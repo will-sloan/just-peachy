@@ -1,0 +1,178 @@
+{
+  "updated_utc": "2026-09-29T11:07:02.559304+00:00",
+  "previous_summary": "CHECK_SUMMARY_V11.json",
+  "scope": "Native retained-E0 B01 deferred-resampling-import short/full saved-file passage plus independent E0 parity; not release or real-life quality",
+  "reviews": {
+    "b01-lazy-e0-v1": {
+      "status": "FAILED_LAZY_E0_LOAD_WITH_HANDLED_DRAIN",
+      "owner_closed": true,
+      "natural_exit_code": 1,
+      "unit": {
+        "MainPID": "0",
+        "Result": "exit-code",
+        "ExecMainCode": "1",
+        "ExecMainStatus": "1",
+        "ActiveState": "failed"
+      },
+      "controller_and_application_failure_drain": true,
+      "complete_integrated_passage": false,
+      "integrated_acceptance": false,
+      "successful_E0_calls": 0,
+      "observed_D1_frames": 1201,
+      "sampled_memory_bytes": {
+        "VmSize": 783613952,
+        "VmPeak": 805289984,
+        "VmRSS": 514719744
+      },
+      "ru_maxrss_bytes": 534986752,
+      "e0_loaded_at_start": false,
+      "earlier_combined_exit_handler_failure_cleared": false,
+      "private_review_sha256": "f3420417f0c76839a8edcc84f0128843726923d527a6ec9f0843351826c4b378"
+    },
+    "b01-defer-scipy-v1": {
+      "status": "PASS_B01_SAVED_FILE_PASSAGE_DRAIN_E0_REFERENCE_PENDING",
+      "run_id": "b01-defer-scipy-v1",
+      "scope": "constructed_12s_prefix",
+      "owner_closed": true,
+      "natural_exit_code": 0,
+      "unit": {
+        "MainPID": "0",
+        "Result": "success",
+        "ExecMainStatus": "0",
+        "ActiveState": "inactive"
+      },
+      "source_samples": 192000,
+      "D1_frames": 1201,
+      "D1_reference_max_abs": 0.0,
+      "D1_reference_sha256": "9e51b238a88786685fda0094834777855218fabcced130f1b3c0b2522ef7187e",
+      "E0_calls": 7,
+      "E0_finite_normalized_and_exact_source_windows": true,
+      "E0_independent_array_parity": false,
+      "first_text_seconds": 5.639374049998878,
+      "first_D1_seconds": 14.364541533002921,
+      "EOF_drain_seconds": 3.39888979299576,
+      "sampled_memory_bytes": {
+        "VmSize": 725712896,
+        "VmRSS": 535838720,
+        "VmPeak": 725712896
+      },
+      "peak_rss_bytes": 534888448,
+      "scipy_loaded": false,
+      "retained_E0_loaded": true,
+      "empty_gallery_no_personal_names": true,
+      "application_archive_process_drained": true,
+      "GUI_validated": false,
+      "Stop_restart_validated": false,
+      "accuracy_scored": false,
+      "release_accepted": false,
+      "private_review_sha256": "971c3870c835ebd181b8d3de160163da0da09dcf29b7645282c21691cc4f94a6"
+    },
+    "b01-defer-scipy-full-v1": {
+      "status": "PASS_B01_SAVED_FILE_PASSAGE_DRAIN_E0_REFERENCE_PENDING",
+      "run_id": "b01-defer-scipy-full-v1",
+      "scope": "full_source",
+      "owner_closed": true,
+      "natural_exit_code": 0,
+      "unit": {
+        "MainPID": "0",
+        "Result": "success",
+        "ExecMainStatus": "0",
+        "ActiveState": "inactive"
+      },
+      "source_samples": 715127,
+      "D1_frames": 4470,
+      "D1_reference_max_abs": 0.0,
+      "D1_reference_sha256": "dc95ac06ca5681782aa4e66d95c891cd89fb065da21478f740172d8058193b57",
+      "E0_calls": 19,
+      "E0_finite_normalized_and_exact_source_windows": true,
+      "E0_independent_array_parity": false,
+      "first_text_seconds": 5.638936390001618,
+      "first_D1_seconds": 25.509287439002946,
+      "EOF_drain_seconds": 12.455934991005051,
+      "sampled_memory_bytes": {
+        "VmSize": 744046592,
+        "VmRSS": 559857664,
+        "VmPeak": 744587264
+      },
+      "peak_rss_bytes": 559841280,
+      "scipy_loaded": false,
+      "retained_E0_loaded": true,
+      "empty_gallery_no_personal_names": true,
+      "application_archive_process_drained": true,
+      "GUI_validated": false,
+      "Stop_restart_validated": false,
+      "accuracy_scored": false,
+      "release_accepted": false,
+      "private_review_sha256": "bea2e11dc21915a8a489dbedb95ea8d3348f27a4a33c30bb0512eb601b97a571"
+    },
+    "b01-e0-reference-v1": {
+      "status": "PASS_NATIVE_E0_APPLICATION_WINDOW_PARITY_ONLY",
+      "queries": 26,
+      "calls": 52,
+      "max_abs_application_reference": 0,
+      "max_abs_repeat": 0,
+      "owner_closed": true,
+      "natural_exit_code": 0,
+      "unit": {
+        "MainPID": "0",
+        "Result": "success",
+        "ExecMainStatus": "0"
+      },
+      "peak_rss_bytes": 143130624,
+      "accuracy_scored": false,
+      "enrollment": false,
+      "release_accepted": false,
+      "private_review_sha256": "f539b11da35e103fc300ae5aa4f9d5d9bcbe5f7b1b693b7a769a82b3c27c6d4c"
+    }
+  },
+  "resource_closure": {
+    "checked_utc": "2026-09-29T11:07:02.559304+00:00",
+    "host_window_bytes": 313076096,
+    "target_bytes": 431983880,
+    "combined_bytes": 745059976,
+    "cap_bytes": 1073741824,
+    "host_free_bytes": {
+      "C:": 112067657728,
+      "G:": 98826309632
+    },
+    "all_owned_native_identities_closed": 73,
+    "host_supervisor_closed": true,
+    "closure_sha256": "d2ddaacc766f362a431ff170049e7222668f806a53bac1423f568462531a0c20"
+  },
+  "all_original_app_identities_unchanged": true,
+  "costs": {
+    "b01-defer-scipy-v1": {
+      "D1_native_update_compute_seconds": 2.353166925997357,
+      "embedding_compute_seconds": 0.873868278991722,
+      "first_label_revision_seconds": 15.279370183998253,
+      "label_revision_count": 10,
+      "punctuation_statuses": [
+        "learned"
+      ],
+      "terminal_heuristics": [
+        "period"
+      ],
+      "source_n2models_sha256": "d00c24ad71d6f2c0cf193425e01b489aecceeb85d47006a52f63770fca9cba05"
+    },
+    "b01-defer-scipy-full-v1": {
+      "D1_native_update_compute_seconds": 17.999252563000482,
+      "embedding_compute_seconds": 2.064633973997843,
+      "first_label_revision_seconds": 26.76713008000661,
+      "label_revision_count": 31,
+      "punctuation_statuses": [
+        "learned",
+        "learned",
+        "learned"
+      ],
+      "terminal_heuristics": [
+        "period",
+        null,
+        "period"
+      ],
+      "source_n2models_sha256": "d00c24ad71d6f2c0cf193425e01b489aecceeb85d47006a52f63770fca9cba05"
+    }
+  },
+  "live_resampling_memory_unqualified": true,
+  "Stop_restart_and_B01_GUI_pending": true,
+  "accepted_new_release_profiles": 0
+}
