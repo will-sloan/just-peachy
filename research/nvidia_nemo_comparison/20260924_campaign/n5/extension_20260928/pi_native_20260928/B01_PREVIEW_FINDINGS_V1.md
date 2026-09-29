@@ -1,0 +1,30 @@
+# Native B01 retained-E0 preview findings V1
+
+B01 now has a separately qualified, bounded user-invoked saved-file preview. It keeps Sherpa ASR/learned punctuation, one ordered delayed Nemotron D1 stream and eager ReDimNet E0. The source, model windows/options and weights are unchanged from shared-app-b01-defer-scipy-v1. No silent anonymous substitution, higher virtual cap, download, capture or playback was used. The original rc5 app remains active and unchanged.
+
+Read CHECK_SUMMARY_V13.json, B01_PREVIEW_V1_QUALIFICATION.json and README_B01_PREVIEW_V1.md. Explicit host entry: `launch_b01_preview_v1.py --mode user`. This starts the actual Pi window only when the user invokes it. Do not invoke user mode on a scheduled wakeup. Every invocation creates a unique admission/data directory, fresh census and exact owner lease; later user runs need independent outcome/closure review. No user-visible invocation has occurred yet.
+
+## Actual native checks
+
+| Check | Result | Limit |
+|---|---|---|
+| Retained-E0 early Stop + same-process full restart with real withdrawn Tk | 130880 samples/819 frames at Stop,2.682s drain; restart715127 source/ASR/D1 samples and4470x8 exact reference,19 E0 windows/vectors exact to independently qualified reference,40 widget rows; natural application/consumer/archive/Tk/process close | One short constructed Stop and original44.6954375s full source; no sustained or physical-screen evidence |
+| Label/evidence lineage reader V2 | 26 embedding events/decisions,33 label-evidence links,40 label revisions and51 stored native history entries; stable caption revision/span/session/raw-word lineage | Personal identity remains Unknown in empty uncalibrated gallery; Speaker1/2 presentation is the anonymous channel, not verified naming |
+| Archive/mode controls | Real withdrawn Tk hybrid/open_with_names,Save/Open/Delete cancel/confirm and baseline rollback;40 reopened rows preserve raw/formatted text,labels,spans/history; original archive unchanged,only fresh copy deleted; zero models | Model-free replay of new native B01 evidence; no physical touch/layout |
+| Guarded B01 preview controls | Actual File/Start/Stop/restart/Close, no-selection/no-inference and rejected other routes;131200 early samples/821frames,2.714s Stop drain; full restart exact D1 and all19 E0 windows,40 actual widgets; natural exit0 | Controls run withdrawn; no visible user trial or new speech-quality metric |
+
+Restart+Tk peakRSS545.641MiB and virtual720.469MiB left47.531MiB under hard768MiB. Guarded preview peakRSS543.953MiB/virtual720.297MiB left47.703MiB. These are short, conditional observations with the existing app active, not improved speed/RSS or robust long-term fit. First full-preview text5.642s includes initial source silence; first D1 probability25.498s; EOF-to-completed12.564s. Early/full terminal punctuation heuristics1/2 remain explicit. Component costs overlap and are not summed as pipeline elapsed. All original audio was retained; no silence skips or new accuracy scoring.
+
+## Preview scope and evidence reuse
+
+The window starts idle, File selection does not start a model, and only the bound original16kHz sample is allowed. Original1x silent processing; two starts maximum with75seconds remaining per start,145second application and180second service bounds. Fixed retained-E0 B01 and fresh empty gallery; other modes/backends, personal profiles, capture, playback, enrollment and unadmitted files are blocked at the command boundary. B05 remains a separate anonymous preview with its existing immutable qualification.
+
+Source-bound qualification uses the new actual B01 controls and closure, archived B01 UI review and independent E0 reference. The entire idle-loop AST is unchanged from the already executed B05 145s idle test. The dispatch gate AST differs only in app/README path and explicit withdrawn-check allowance; lease/envelope evidence is reused from B05, and the actual B01 gate/service has its own closed-owner check. This is not a newly executed145s B01 idle/endurance or duplicate contender test. See README_B01_PREVIEW_QUALIFICATION_V3.md.
+
+Retained failures: label readerV1 incorrectly equated raw Unknown personal identity with the displayed anonymous channel. Source controller.py992-995 explicitly separates them; V2 verifies both against the same events. Qualification readerV1 misunderstood an archive semantic binding key; V2 then compared differently newline-serialized host/target review bytes. V3 verifies exact parsed-document equality plus both byte hashes, original target bindings and the original host qualification hashes. None changed application/model output or the1e-5 gate; no inference was repeated for reader corrections.
+
+## Remaining work
+
+First inspect new b01-preview-user-* and b05-preview-user-* admissions/owners/results and leave healthy runs untouched. Verify any closed user run independently. Next prepare bounded saved-input checks of the actual resampling/dependency route needed for live48kHz audio, then memory-qualified native A2/B02 and sequential refinement modes. Live48kHz conversion may import SciPy again; the current saved16kHz preview does not qualify that memory path. Do not initiate capture or playback on a heartbeat. Real speech/noisy-location, physical display/touch,30/60minute endurance and broader N4/N5 release gates remain open. The prior1GiB request remains unanswered and unused; continue under768MiB.
+
+At12:09UTC all79 owned Pi identities were closed, no user-preview runs existed, original boot/app/install identities unchanged. Combined host-window/target801031583bytes of1GiB; available targetRAM1625931776bytes/free19797487616bytes,51.8C/throttle0x0. Global swap266in/28771out at16KiBpages is contextual,not per-job attribution or swap-free proof. Private NATIVE_CLOSURE_V13/NATIVE_RESOURCES_V13 and HOST_CLOSURE_V13 preserve identities/census. New code has README commands; reviewed small source/report backup follows. N1-N3 scoped offline acceptance was reread; no new N4 release profile or N5 completion is claimed.

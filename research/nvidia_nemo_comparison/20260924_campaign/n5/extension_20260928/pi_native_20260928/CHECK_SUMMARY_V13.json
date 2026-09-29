@@ -1,0 +1,259 @@
+{
+  "updated_utc": "2026-09-29T12:09:50.308162+00:00",
+  "previous_summary": "CHECK_SUMMARY_V12.json",
+  "scope": "Native B01 Stop/restart, withdrawn Tk/archive, evidence lineage and guarded retained-E0 saved-file preview; no release/live/accuracy acceptance",
+  "reviews": {
+    "b01-restart-gui-v1": {
+      "startup_stack_limit_bytes": 1048576,
+      "native_default_thread_stack_bytes": 1048576,
+      "status": "PASS_B01_WITHDRAWN_TK_STOP_RESTART_ONLY",
+      "stop_request_to_controller_return_seconds": 2.6820228200012934,
+      "same_process": true,
+      "asr_model_loads": 1,
+      "encoder_loaded": true,
+      "encoder_model_loads": 1,
+      "empty_new_gallery": true,
+      "source_offsets_reset": true,
+      "session_event_identity_and_probability_frame_origin_checked": true,
+      "reference_tolerance": 1e-05,
+      "peak_rss_bytes": 572145664,
+      "sampled_peak_virtual_bytes": 755466240,
+      "natural_process_exit": true,
+      "owner_closed": true,
+      "application_finalization": true,
+      "consumer_archive_drained": true,
+      "robust_memory_fit": false,
+      "UI_tested": "native withdrawn widgets with model inference",
+      "widget_rows_checked": 40,
+      "physical_layout_qualified": false,
+      "Tk_destroyed": true,
+      "stage_acceptance": false,
+      "persistent_naming": false,
+      "accuracy_scored": false,
+      "sessions": [
+        {
+          "kind": "early_stop",
+          "samples": 130880,
+          "probability_frames": 819,
+          "probability_windows": 1,
+          "reference_max_abs": null,
+          "E0_calls": 7,
+          "E0_full_restart_max_abs": null,
+          "caption_rows": 9,
+          "first_text_seconds": 5.642416836999473,
+          "first_probability_seconds": 9.731332775998453,
+          "source_end_to_completed_seconds": 2.522693740000541,
+          "terminal_punctuation_fallbacks": 1
+        },
+        {
+          "kind": "full_restart",
+          "samples": 715127,
+          "probability_frames": 4470,
+          "probability_windows": 3,
+          "reference_max_abs": 0.0,
+          "E0_calls": 19,
+          "E0_full_restart_max_abs": 0.0,
+          "caption_rows": 40,
+          "first_text_seconds": 5.647102978997282,
+          "first_probability_seconds": 25.53844805600238,
+          "source_end_to_completed_seconds": 12.483610030997198,
+          "terminal_punctuation_fallbacks": 2
+        }
+      ],
+      "private_review_sha256": "9b0b1a7ff38497513e868ed811d773021d6556929ab2730148b629630f40cb12"
+    },
+    "b01-ui-archive-v1": {
+      "status": "PASS_B01_WITHDRAWN_WIDGETS_AND_ARCHIVE_ONLY",
+      "run_id": "b01-ui-archive-v1",
+      "observed_settling_seconds": 1.3810900120006409,
+      "initial_collecting_count": 0,
+      "checked_rows": 40,
+      "checked_fields": [
+        "id",
+        "raw_asr_text",
+        "provisional_display_text",
+        "final_punctuated_display_text",
+        "label",
+        "final",
+        "caption_key",
+        "span_ids",
+        "source_start_sec",
+        "source_end_sec",
+        "timing_kind",
+        "word_spans",
+        "speaker_revision",
+        "speaker_history",
+        "token_range",
+        "profile_id",
+        "display_profile_id"
+      ],
+      "controls": [
+        "backend_nemotron_hybrid",
+        "mode_open_with_names",
+        "session_pin",
+        "session_open",
+        "session_delete",
+        "cancel",
+        "session_delete",
+        "confirm",
+        "backend_baseline"
+      ],
+      "archive_raw_text_labels_spans_preserved": true,
+      "actual_Tk_text_widgets_checked": true,
+      "root_withdrawn": true,
+      "physical_layout_qualified": false,
+      "save_open_delete_cancel_confirm": true,
+      "baseline_rollback": true,
+      "model_inference_run": false,
+      "natural_process_exit": true,
+      "owner_closed": true,
+      "controller_and_Tk_closed": true,
+      "original_archive_unchanged": true,
+      "peak_rss_bytes": 59719680,
+      "accuracy_scored": false,
+      "live_UI_latency_qualified": false,
+      "release_accepted": false,
+      "private_review_sha256": "0245d7c0c3c705516c88a40be071fbadf5878c76f09bb83699dad64b9fd416f1"
+    },
+    "b01-preview-controls-v1": {
+      "startup_stack_limit_bytes": 1048576,
+      "native_default_thread_stack_bytes": 1048576,
+      "status": "PASS_B01_GUARDED_PREVIEW_CONTROLS_ONLY",
+      "stop_request_to_controller_return_seconds": 2.7142733770015184,
+      "same_process": true,
+      "asr_model_loads": 1,
+      "encoder_loaded": true,
+      "encoder_model_loads": 1,
+      "empty_new_gallery": true,
+      "source_offsets_reset": true,
+      "session_event_identity_and_probability_frame_origin_checked": true,
+      "reference_tolerance": 1e-05,
+      "peak_rss_bytes": 570376192,
+      "sampled_peak_virtual_bytes": 755286016,
+      "natural_process_exit": true,
+      "owner_closed": true,
+      "application_finalization": true,
+      "consumer_archive_drained": true,
+      "robust_memory_fit": false,
+      "UI_tested": "native withdrawn widgets with model inference",
+      "widget_rows_checked": 40,
+      "physical_layout_qualified": false,
+      "Tk_destroyed": true,
+      "stage_acceptance": false,
+      "persistent_naming": false,
+      "accuracy_scored": false,
+      "sessions": [
+        {
+          "kind": "early_stop",
+          "samples": 131200,
+          "probability_frames": 821,
+          "probability_windows": 1,
+          "reference_max_abs": null,
+          "E0_calls": 7,
+          "E0_full_restart_max_abs": null,
+          "caption_rows": 9,
+          "first_text_seconds": 5.639313537998532,
+          "first_probability_seconds": 9.761397352995118,
+          "source_end_to_completed_seconds": 2.563177392997023,
+          "terminal_punctuation_fallbacks": 1
+        },
+        {
+          "kind": "full_restart",
+          "samples": 715127,
+          "probability_frames": 4470,
+          "probability_windows": 3,
+          "reference_max_abs": 0.0,
+          "E0_calls": 19,
+          "E0_full_restart_max_abs": 0.0,
+          "caption_rows": 40,
+          "first_text_seconds": 5.641838563999045,
+          "first_probability_seconds": 25.498423540004296,
+          "source_end_to_completed_seconds": 12.564474974000888,
+          "terminal_punctuation_fallbacks": 2
+        }
+      ],
+      "preview_controls": {
+        "idle_without_models": true,
+        "start_without_selection_blocked": true,
+        "rejected": [
+          "other_mode",
+          "backend",
+          "capture",
+          "playback_command",
+          "enrollment",
+          "unadmitted_file"
+        ],
+        "selection_does_not_start": true,
+        "allowed_file_sha256": "0ee26e8aa6f815d8b202419aafb71ff5bc25093d193e95e972036f488c5040b8",
+        "third_start_blocked": true,
+        "actual_Start_Stop_restart_buttons": true,
+        "starts": 2,
+        "close_button": true
+      },
+      "private_review_sha256": "96b09c4508ff9ecc62c7fbad0dd0a139c73158d0d36f577f32bd7cacca97e821"
+    }
+  },
+  "label_lineage": {
+    "status": "PASS_NATIVE_RETAINED_E0_LABEL_PROVENANCE_ONLY",
+    "session_counts": [
+      {
+        "text_publications": 10,
+        "label_revisions": 9,
+        "label_revision_counts": {
+          "Unknown": 9
+        },
+        "E0_events": 7,
+        "identity_decisions": 7,
+        "checked_label_evidence_links": 9,
+        "first_text_seconds": 5.642416836999473,
+        "first_label_revision_seconds": 10.608654989002389
+      },
+      {
+        "text_publications": 41,
+        "label_revisions": 31,
+        "label_revision_counts": {
+          "Unknown": 31
+        },
+        "E0_events": 19,
+        "identity_decisions": 19,
+        "checked_label_evidence_links": 24,
+        "first_text_seconds": 5.647102978997282,
+        "first_label_revision_seconds": 26.85735847199976
+      }
+    ],
+    "cumulative_rows": 40,
+    "checked_native_label_history_entries": 51,
+    "personal_identity": "Unknown; empty uncalibrated gallery",
+    "display": "Anonymous session speaker channels or Unknown",
+    "review_sha256": "aa011aa5d27afda0c28f201cacd7c1852d8b8cd68ec7a0a2b9c00253c84c8a30"
+  },
+  "preview_qualification": "B01_PREVIEW_V1_QUALIFICATION.json",
+  "resource_closure": {
+    "checked_utc": "2026-09-29T12:09:50.308162+00:00",
+    "host_window_bytes": 324116708,
+    "target_bytes": 476914875,
+    "combined_bytes": 801031583,
+    "cap_bytes": 1073741824,
+    "host_free_bytes": {
+      "C:": 112043900928,
+      "G:": 98814914560
+    },
+    "all_owned_native_identities_closed": 79,
+    "host_supervisor_closed": true,
+    "host_owner_checks": [
+      {
+        "pid": 55636,
+        "create_time": 1790637870.806714,
+        "observed": null,
+        "exact_alive": false
+      }
+    ],
+    "closure_sha256": "a483801229e5faa02c3dc3b403ffa437683fc86d612af68ba7b3d4c97c848060"
+  },
+  "original_app_unchanged": true,
+  "accepted_new_release_profiles": 0,
+  "live_resampling_memory_unqualified": true,
+  "physical_display_touch_unqualified": true,
+  "endurance_unqualified": true,
+  "unanswered_1GiB_request_not_used": true
+}

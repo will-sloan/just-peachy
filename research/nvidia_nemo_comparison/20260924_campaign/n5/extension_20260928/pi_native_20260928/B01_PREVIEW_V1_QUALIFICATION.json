@@ -1,0 +1,60 @@
+{
+  "status": "QUALIFIED_BOUNDED_SAVED_FILE_PREVIEW",
+  "qualified_utc": "2026-09-29T12:08:59.687021+00:00",
+  "entry": "launch_b01_preview_v1.py --mode user",
+  "source_sha256": {
+    "b01_preview_v1.py": "f225e0421cf438facf2e598339ed4940090dd4b586c3062763ebd226738d1c13",
+    "b01_preview_app_v1.py": "9cfa3997a94b5039ff5b3d5c70c0af9de99597afa103678039145345b110773e",
+    "b01_preview_gate_v1.py": "ddfe02365fb12f256918b0420b021ac7e63abefcde1ab01a55ab1553e6f6fcfb",
+    "launch_b01_preview_v1.py": "67f51db85f2659a651c13269b58ce50467042a412b6cd9bfd8e66abfd157ec81",
+    "README_B01_PREVIEW_V1.md": "4ce0ff4910d03657d5a2bdbc53b4f60803fe2b6b6fb8e40a35573cfbf91d9cfc",
+    "review_b01_preview_v1.py": "e4c2b5dfefa4ac41ce2f02c2a131329f8ff841be2c48cb83e7d9062412e053f5",
+    "README_B01_PREVIEW_REVIEW_V1.md": "09435dd9bcee53d73d51cf6052e6a3e5c10a7718717ec38e0cda71977e978b55",
+    "qualify_b01_preview_v3.py": "682c3cd3dfe355697b2c17fbb55eaa46bc12d3cbd21d5741a0345aff0b7a8069",
+    "README_B01_PREVIEW_QUALIFICATION_V3.md": "0bcf98c33305289275c39751d0a985438e413772d062519f90bd80e0c9cea635",
+    "dispatch_b01_stack_v2.py": "0c37ccb9f2fe8b8486b71741f6226e9673ffdd5aec2238e382c51964d1c7845c",
+    "../window_guard.py": "e553f7b320e2be9ab6f2a2f38e67ee93591e53350dfeb06f72078592d20b4c75"
+  },
+  "reviews": {
+    "b01-preview-controls-v1": {
+      "status": "PASS_B01_GUARDED_PREVIEW_CONTROLS_ONLY",
+      "target_review_sha256": "f7cc90245942ff10aaab82bfa2c4087ab03604f2b7ea8fe2e8b71d7f7e64567a",
+      "host_review_sha256": "96b09c4508ff9ecc62c7fbad0dd0a139c73158d0d36f577f32bd7cacca97e821"
+    },
+    "b01-ui-archive-v1": {
+      "status": "PASS_B01_WITHDRAWN_WIDGETS_AND_ARCHIVE_ONLY",
+      "target_review_sha256": "7681b520693e8f1f752d22a9437986e2dfc7eace8bce1108560760d0bded3e16",
+      "host_review_sha256": "0245d7c0c3c705516c88a40be071fbadf5878c76f09bb83699dad64b9fd416f1"
+    },
+    "b01-e0-reference-v1": {
+      "status": "PASS_NATIVE_E0_APPLICATION_WINDOW_PARITY_ONLY",
+      "target_review_sha256": "6e3f45d859237540ccfc1a47302070000a43ee08db4bed64d0e63c0c470c5525",
+      "host_review_sha256": "f539b11da35e103fc300ae5aa4f9d5d9bcbe5f7b1b693b7a769a82b3c27c6d4c"
+    },
+    "b05-preview-idle-v1": {
+      "status": "PASS_B05_WITHDRAWN_IDLE_TIMER_ONLY",
+      "target_review_sha256": "e42ccc9ffe52e999f57b647b7f8a06735f4475205cbb04f2560c18f1ab1714d7",
+      "host_review_sha256": "ccb5f2f82d9d53ea4c6b76c06512a3ff53fd80ef40dad8449a80e607916ac0d7"
+    },
+    "b05-preview-guard-v1": {
+      "status": "PASS_PREVIEW_DISPATCH_LEASE_AND_ENVELOPE_ONLY",
+      "target_review_sha256": "ff59c31b84b4282fa2bfe51920e4ee217b5653f9c576f41dfb6b40a90e0798e8",
+      "host_review_sha256": "a310a2f257f2c61cc3c4d47413a9f809ae72f6410aa4c053b90f6b3a42b2c7c7"
+    }
+  },
+  "controls_admission_sha256": "991c9344799d452ff63f11f71932d354262b4ee73728cd37022d0b843a65c719",
+  "idle_loop_AST_sha256": "c2e9125498cb66e01774df86ebe8579d7430b2ef43a04130edaec204723d8a64",
+  "scope": "One original saved 16kHz file; retained E0, empty research gallery, Sherpa/PnC plus delayed D1; explicit user invocation",
+  "idle_timer_evidence": "B05 actual145s idle pass plus unchanged idle-loop AST; B01 controls verify initial idle/no selection/no inference",
+  "dispatch_envelope_evidence": "B05 exact envelope/contender pass; gate AST changed only README/app path and withdrawn-check allowance; actual B01 gate/service closure checked",
+  "physical_display_qualified": false,
+  "real_speech_accuracy_qualified": false,
+  "sustained_memory_fit": false,
+  "personal_naming_qualified": false,
+  "live_resampling_qualified": false,
+  "stage_release_acceptance": false,
+  "maximum_starts": 2,
+  "application_seconds": 145,
+  "service_seconds": 180,
+  "address_space_limit_bytes": 805306368
+}
