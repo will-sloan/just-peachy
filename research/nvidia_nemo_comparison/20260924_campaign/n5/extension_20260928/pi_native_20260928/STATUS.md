@@ -1,8 +1,22 @@
 # Connected CM5: native work is now the priority
 
-Updated September 29, 2026 02:27 UTC. Read later verified results before acting. The user confirmed connection and authorized Pi testing on September 28. This replaces the older no-Pi-contact condition; it does not rewrite old admissions. Multiday checkpoint remains October 1 at 17:47:34 UTC. Hourly continuation was updated successfully to Pi-first work.
+Updated September 29, 2026 03:08 UTC. Read later verified results before acting. The user confirmed connection and authorized Pi testing on September 28. This replaces the older no-Pi-contact condition; it does not rewrite old admissions. Multiday checkpoint remains October 1 at 17:47:34 UTC. Hourly continuation was updated successfully to Pi-first work.
 
 The user explicitly limits saved audio to functionality, text passage and real-time/CPU/RAM/resource observations, **not new ASR/WER accuracy metrics**. A quiet microphone route is permitted with nobody speaking; that does not establish speech accuracy. No new microphone capture/playback has been started. A read-only ALSA inventory shows an XMOSDevice I2S capture endpoint, currently closed; do not assume the expected USB route or claim a working live route from enumeration alone. Actual speech/noisy-location tests still require physical readiness. Preserve the current app/data, with new backend modes developed separately.
+
+## Current work / next action
+
+**The delayed native recipe now has verified on-Pi component and1x producer evidence.** Read GEOMETRY_FINDINGS_V1.md and CHECK_SUMMARY_V4.json. A fresh adapter fixes a real C-API preset issue: FIFO0 overrides are ignored by that ABI, so the delayed recipe explicitly selects v3-offline. Adapter native-profiles-v2 SHA2537162df8ac8ccdd89c45c3f26fa12ef48519867a0474bf4be39e4667d75e37 preserves prior profiles. It implements264/1/1/0/264/188 on80ms coarse frames.
+
+Generic full44.695s/repeat takes23.675/23.669seconds, RTF0.530,177.016MiB peak RSS. Lane-preserving A76 takes18.118/18.122seconds,RTF0.405,172.984MiB RSS. All4470x8 outputs match exactly between generic/A76 and resident repeats, at unchanged1e-5 gate; source/frame/EOF/reset/post-finish/closure checks pass. These are saved-input functional/resource observations with the old app active; no new accuracy or sustained real-life qualification.
+
+The separate1x source thread plus ordered A76 worker also passes both sessions, exact arrays and clean producer/model shutdown. First probabilities arrive25.539/25.507seconds after source start; max queue wait8.937/8.924seconds; queue peak42x100ms entries; final drain11.400/11.389seconds after source EOF. Peak173.359MiB RSS. All samples are retained, no silence skips. This supports investigating delayed labels with independent captions; it is not a delivered integrated mode or evidence of long-conversation stability.
+
+**Native streaming13/1/0/80/264/40 failed at EOF.** All715127samples entered, but an8MiB TensorContainer allocation aborted after4368/4470frames under768MiB virtual space. Preserve d1-geometry-stream-generic-v2 and its exact closed-owner failure review. Sortformer permits48 cached compute graphs; this run had42 before EOF. Next investigate a smaller compute-graph LRU in a fresh D1-only derivative, with the existing eviction/state guards and numerical/resource requalification. These executable graph caches are distinct from the speaker/FIFO history; do not shorten speaker memory to simulate the repair. No smaller LRU is implemented or qualified yet.
+
+B01 integrated V4-V9 remains blocked and its1GiB virtual-cap question remains unanswered. No higher cap was used. Do not repeat passed component checks or unchanged failures; inspect any subsequent reply before a higher-cap trial. Prioritize application memory/passage/drain, delayed-label integration and ready-to-run modes, then longer paced checks under fresh admissions. No integrated new Pi profile is accepted; N4/N5 gates remain open.
+
+All owned jobs are closed at03:08UTC. Original rc5/current install and PID1013/start569,PID1130/start607 are unchanged. Private NATIVE_CLOSURE_V4/NATIVE_RESOURCES_V4 show483,255,418bytes combined window/target usage of1GiB, Cfree118,963,478,528/Gfree98,865,025,024bytes, targetfree20,070,658,048bytes. Kernel-wide swap counts30pages in/22,288out at16KiBpages and throttle0x0 are contextual observations, not per-job or swap-free claims. Current reviews/readers and run instructions are versioned; Git backup receipt follows.
 
 ## Verified native progress
 
@@ -21,7 +35,7 @@ V4 D1 observations:29.242s and29.214s per12s input (RTF2.437/2.434),160.78MiB pe
 
 Sherpa observations:5.964s total decode work (RTF0.133),44.781s paced elapsed,5.889process CPU seconds,334.89MiB peak RSS,2.399s load,0.085s EOF drain. Maximum57ms is per-input processing lag relative to the scheduled source chunk; it is **not** speech-to-caption algorithmic latency. The old app remains active in both checks, so these are conditional diagnostics, not matched uncontended capacity benchmarks. Kernel-wide swap counters began changing by the later closure snapshot (175pages out, zero in); do not claim this session is globally swap-free.
 
-## Current work / next action
+## Earlier memory closure (02:27UTC; preserved)
 
 **The native component retains exact numerical equivalence, but B01 integration still fails the admitted address-space cap.** Earlier lane-preserving CPU V4/D1 V9-V10 passes remain valid. V11 reduces D1 scheduler capacity8192 to2048 with the original95% guard. V12 additionally bounds native TensorContainer metadata and graph probes to8MiB instead of64MiB. Both completed the original44.6954375-second source and resident repeat, with4470x8 probabilities exactly equal to the generic reference and to each other (unchanged1e-5 gate), plus reset/empty/EOF/post-finish/close. V12 library SHA is recorded in its bound INPUTS and metadata build receipt. These are D1-only qualifications, not permission to reuse smaller capacities for A2 ASR.
 
