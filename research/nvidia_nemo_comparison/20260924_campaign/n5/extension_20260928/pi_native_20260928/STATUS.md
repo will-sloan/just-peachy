@@ -1,10 +1,18 @@
 # Connected CM5: native work is now the priority
 
-Updated September 29, 2026 09:03 UTC. Read later verified results before acting. The user confirmed connection and authorized Pi testing on September 28. This replaces the older no-Pi-contact condition; it does not rewrite old admissions. Multiday checkpoint remains October 1 at 17:47:34 UTC. Hourly continuation was updated successfully to Pi-first work.
+Updated September 29, 2026 10:04 UTC. Read later verified results before acting. The user confirmed connection and authorized Pi testing on September 28. This replaces the older no-Pi-contact condition; it does not rewrite old admissions. Multiday checkpoint remains October 1 at 17:47:34 UTC. Hourly continuation was updated successfully to Pi-first work.
 
 The user explicitly limits saved audio to functionality, text passage and real-time/CPU/RAM/resource observations, **not new ASR/WER accuracy metrics**. A quiet microphone route is permitted with nobody speaking; that does not establish speech accuracy. No new microphone capture/playback has been started. A read-only ALSA inventory shows an XMOSDevice I2S capture endpoint, currently closed; do not assume the expected USB route or claim a working live route from enumeration alone. Actual speech/noisy-location tests still require physical readiness. Preserve the current app/data, with new backend modes developed separately.
 
 ## Current work / next action
+
+**B05 now has a guarded, explicitly user-invoked saved-file preview.** Read CHECK_SUMMARY_V11.json, B05_PREVIEW_FINDINGS_V1.md and README_B05_PREVIEW_V3.md. The V3 launcher creates a fresh resource admission, checks qualification hashes and serializes dispatch with an exact owner/lease. It starts the Pi window idle only when the user runs the command; no visible preview was launched on this wakeup. The original app stays unchanged.
+
+Actual File/Start/Stop/restart/Close controls and rejected capture/enrollment/named/backend/unadmitted-file routes pass native independent review. Full restart retains715127samples/4470x8 exact D1 outputs and40matching caption widgets, with natural application/consumer/archive/Tk/process closure. PeakRSS509.234MiB, virtual748.125MiB, headroom19.875MiB under768MiB. A separate real145second idle-loop/auto-close check and dispatch-lease/service-envelope check pass without model inference. V1/V2 ancestry and the inheritance-reader failure remain preserved; only the V3 user launcher is enabled by B05_PREVIEW_V3_QUALIFICATION.json.
+
+**Next:** inspect any user-preview run first and review its own results/owner closure; do not duplicate a healthy preview. Physical screen/touch, sustained resources and user-ready real speech remain unqualified. Continue justified B01 model/buffer-lifetime investigation or prepare bounded native workload admissions. Retained-E0 B01 still fails768MiB; the earlier1GiB request remains unanswered. B02, alternate D1 ONNX acquisition/driver and N4/N5 acceptance are open. All65owners closed at10:04UTC; combined708168341bytes of1GiB,52.9C/throttle0x0,global swap120/28743pages. No capture/playback/accuracy scoring.
+
+## Previous native UI closure (09:03 UTC; preserved)
 
 **Actual native Tk archive controls and simultaneous Tk/model Stop/restart now pass scoped independent checks.** Read CHECK_SUMMARY_V10.json and NATIVE_UI_FINDINGS_V1.md. The test root stayed withdrawn throughout; no visible window or input takeover. Copied archive Save/Open/Delete cancel/confirm and baseline rollback preserve40rows' raw/formatted text, anonymous labels, spans and histories. Initial collecting labels settle via the existing real-time UI hysteresis. Earlier harness/reader failures remain preserved.
 

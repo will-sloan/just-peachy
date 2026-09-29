@@ -1,0 +1,41 @@
+{
+  "status": "QUALIFIED_BOUNDED_SAVED_FILE_PREVIEW",
+  "qualified_utc": "2026-09-29T10:03:16.171290+00:00",
+  "entry": "launch_b05_preview_v3.py --mode user",
+  "source_sha256": {
+    "b05_preview_v1.py": "cf49a2e600ed9bab1c3ceba0882fb2b64faa2c25dc74ddb09f9a8c90e6d8cb68",
+    "b05_preview_app_v2.py": "a0489838dbbd099a329a6a89b42863b6d13cd8fb8f1b0b447352c3062ae70c71",
+    "b05_preview_gate_v1.py": "a142231d85bcc6686e85d78c4fb6458aa1dc329a82e5f77359226844649f05b1",
+    "launch_b05_preview_v3.py": "f78ae2c8320b8be1acbc18d8b968941d23b5ddcc31d717c41b03216dd07d7907",
+    "README_B05_PREVIEW_V1.md": "9e9462a657ddd3fb0603262400baaa32614af5110c85125ce31c05a90848703e",
+    "README_B05_PREVIEW_V2.md": "711704af7715e8cc44976bf72f6c41e7e2c197398e588280a85144782e53fe15",
+    "README_B05_PREVIEW_V3.md": "f39fefb4a536ff5add192af8eb40a4f8aace123301b45a8fb844dadf5699d52f",
+    "dispatch_b01_stack_v2.py": "0c37ccb9f2fe8b8486b71741f6226e9673ffdd5aec2238e382c51964d1c7845c",
+    "../window_guard.py": "e553f7b320e2be9ab6f2a2f38e67ee93591e53350dfeb06f72078592d20b4c75"
+  },
+  "reviews": {
+    "b05-preview-controls-v1": {
+      "status": "PASS_B05_GUARDED_PREVIEW_CONTROLS_ONLY",
+      "review_sha256": "dbb71c0cdc99ad56868ecc4b143902042c06dc0d1316fedbeb8d98f39a5b5668"
+    },
+    "b05-preview-idle-v1": {
+      "status": "PASS_B05_WITHDRAWN_IDLE_TIMER_ONLY",
+      "review_sha256": "ccb5f2f82d9d53ea4c6b76c06512a3ff53fd80ef40dad8449a80e607916ac0d7"
+    },
+    "b05-preview-guard-v1": {
+      "status": "PASS_PREVIEW_DISPATCH_LEASE_AND_ENVELOPE_ONLY",
+      "review_sha256": "a310a2f257f2c61cc3c4d47413a9f809ae72f6410aa4c053b90f6b3a42b2c7c7"
+    }
+  },
+  "model_protocol_AST_sha256": "b3259563f1985779724114c364e03297d360812459a61c530abd0955b93170b9",
+  "scope": "One checked saved file; anonymous B05; explicit user invocation; original app unchanged",
+  "physical_display_qualified": false,
+  "real_speech_accuracy_qualified": false,
+  "sustained_memory_fit": false,
+  "named_speaker_mode": false,
+  "stage_release_acceptance": false,
+  "maximum_starts": 2,
+  "application_seconds": 145,
+  "service_seconds": 180,
+  "address_space_limit_bytes": 805306368
+}

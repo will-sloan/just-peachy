@@ -1,0 +1,27 @@
+# Bounded anonymous saved-file preview
+
+September29 10:04UTC. Read CHECK_SUMMARY_V11.json and [launch instructions](README_B05_PREVIEW_V3.md). B05 now has an explicitly user-invoked, resource-guarded saved-file preview. The app/model source is unchanged from shared-app-native-gui-v1; a small external controller/UI wrapper restricts File/Start/Stop/Close and the fixed anonymous mode. The original rc5 app/install/autostart/data remain unchanged. No visible window, capture, playback or accuracy scoring occurred on this wakeup.
+
+## Reviewed controls and real inference
+
+b05-preview-controls-v1 independently passes PASS_B05_GUARDED_PREVIEW_CONTROLS_ONLY. Actual widgets start idle with no model inference. Start before selecting a file is blocked; selecting the admitted file remains idle. Named-mode, other-backend, capture, playback-command, enrollment and unadmitted-file requests are rejected. The File/Start/Stop/restart/Close buttons are exercised through the shared Tk UI, with the root withdrawn. A third start is rejected. No silent fallback is used.
+
+Early Stop retained130560samples and drained1.852seconds. Full same-process restart retained715127source/ASR/D1samples and4470x8 probabilities exactly equal to the original delayed reference at unchanged1e-5. Forty actual widget captions match final source rows without personal profile IDs. Sherpa loads once, E0 never loads/calls, learned punctuation and explicit terminal heuristics are retained. Application/consumer/archive queues and handles, controller, Tk and process close naturally. No word/speaker accuracy or phonetic-alignment claim follows.
+
+PeakRSS509.234375MiB and sampled virtual748.125MiB leave19.875MiB below the unchanged768MiB cap. The original app was active, so timings are conditional. This is one short functional/control test, not robust long-conversation fit. All source audio is retained, at original pacing. Read README_B05_PREVIEW_V1.md and README_B05_PREVIEW_REVIEW_V1.md for exact commands and scope.
+
+## Real idle timer and dispatch ownership
+
+b05-preview-idle-v1 independently passes PASS_B05_WITHDRAWN_IDLE_TIMER_ONLY. The V2 app's actual user main loop stays withdrawn and idle for145.025seconds, then closes naturally through the same automatic Close callback. There are289 idle probes, zero starts/session archives, zero model inference, no capture/visible window/callback errors and117.1875MiB peakRSS. V2's numerical/control branch is AST-identical to V1; its changes add the separate idle probe and conditional visibility. The initial ad-hoc inheritance reader compared the whole If including the deliberately changed else branch and failed; that failed receipt is preserved. The corrected check compares the unchanged numerical/control body exactly and separately binds the reviewed idle branch. No application or probability gate was relaxed.
+
+b05-preview-guard-v1 independently passes PASS_PREVIEW_DISPATCH_LEASE_AND_ENVELOPE_ONLY. The V3 host launcher adds a nonblocking target flock, a fresh exact dispatch-owner receipt and a second owner/unit/resource check while holding the lease through systemd completion. A concurrent contender is rejected before entering. A minimal actual service verifies CPUs2/3,total200%,hard768MiBaddress space and1MiBstack. Both dispatch and service owners close, the lock is released, and the original app remains unchanged. No model/GUI test is repeated for this envelope check.
+
+The reviewed source/README hashes and three receipt hashes are bound in B05_PREVIEW_V3_QUALIFICATION.json. Only the V3 user launcher is enabled. V1/V2 remain immutable ancestry. Read README_B05_PREVIEW_V2.md, README_B05_PREVIEW_IDLE_REVIEW_V1.md and README_B05_PREVIEW_GUARD_REVIEW_V1.md for those separate checks.
+
+## User scope and remaining work
+
+The user can explicitly invoke the [V3 host command](README_B05_PREVIEW_V3.md) to open the Pi preview. It computes a fresh census, uses a unique run/admission, and refuses changed inputs, busy owners, insufficient resources or the expired campaign checkpoint. The window starts idle; File selects only the checked44.7second source, Start processes it silently, Stop drains it and a subsequent Start restarts at zero. It permits at most two starts, each needing75seconds remaining, requests Close at145seconds and has a180second service bound. The original app is the rollback. This is not a broadly installed or autostart release.
+
+Physical screen/touch/scanout and an actual visible user invocation remain untested. Longer/dense/jittered workloads, native real-life speech and named-speaker behavior are unqualified. Retained-E0 B01 still fails memory under768MiB and its previous1GiB trial request remains unanswered; no cap increase or unchanged retry occurred. B02, alternate D1 ONNX assets/driver, the original N4 panel and N5 acceptance remain open. The next independent work should investigate justified B01 model/buffer lifetimes or prepare native workload admissions; do not repeat these passed preview tests unchanged.
+
+At10:04UTC all65owned native identities and the host supervisor are closed. Combined new output708168341bytes of1GiB; all storage floors pass. Target availableRAM1631797248bytes, free19877724160bytes,52.9C/throttle0x0. Global swap120in/28743out at16KiBpages is contextual, not per-job attribution or proof of swap-free timing. NATIVE_CLOSURE_V11/NATIVE_RESOURCES_V11 preserve the exact identities and counts. Private audio/transcripts/probabilities remain private.
