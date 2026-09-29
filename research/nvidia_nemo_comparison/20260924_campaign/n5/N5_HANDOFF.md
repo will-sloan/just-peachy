@@ -1,5 +1,7 @@
 # N5 partial release checkpoint
 
+**Latest: Pi connection confirmed; native testing is underway.** Follow [connected CM5 status](extension_20260928/pi_native_20260928/STATUS.md) and [mode plan](extension_20260928/pi_native_20260928/PI_MODE_PLAN.md). These supersede the disconnected-Pi ordering preserved below. Saved audio is functional/resource evidence only; no new ASR/WER scoring.
+
 ## Current authorized extension â€” September 28, 23:30 UTC
 
 The user's multiday extension supersedes the earlier stop windows for new work.
@@ -1122,3 +1124,8 @@ Automatic LLM continuation has not been registered or verified. Existing
 numerical jobs continue/checkpoint independently and emit a manual resume request.
 This handoff ZIP is explicitly a partial checkpoint even though it uses the
 requested campaign filename. Deployable archives are separate and private.
+
+
+## Confirmed Pi connection and native priority — September 28/29
+
+The user has connected the actual2GB CM5 and authorized native testing and modes over the extended campaign. Start with [current native status](extension_20260928/pi_native_20260928/STATUS.md) and [mode delivery/testing plan](extension_20260928/pi_native_20260928/PI_MODE_PLAN.md), which supersede the older disconnected-Pi instructions above. Short D1/reset/EOF and full original-paced Sherpa component passage now have scoped native evidence; integrated new backend modes and full N4/N5 acceptance remain open. Saved audio must not produce new ASR/WER accuracy claims. No new capture has been initiated. Hourly automation is ACTIVE with Pi-first instructions and the unchanged October1 17:47:34UTC checkpoint. Preserve original install/data and all old admissions.

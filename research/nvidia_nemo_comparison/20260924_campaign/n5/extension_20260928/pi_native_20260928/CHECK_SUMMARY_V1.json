@@ -1,0 +1,134 @@
+{
+  "schema": "native-cm5-first-checks.v1",
+  "hardware": {
+    "model": "Compute Module 5 Rev 1.0",
+    "ram_bytes": 2108473344,
+    "architecture": "aarch64",
+    "cores": 4
+  },
+  "D1_short": {
+    "status": "PASS_NATIVE_D1_SHORT_FUNCTIONAL_ONLY",
+    "scope": "12-second saved-audio component/reset/EOF; no real-world accuracy or integrated-mode acceptance",
+    "result_sha256": "3b968052c3d3d1b202258809fec43af186deb8dab745c46bc88ed55dcc631f34",
+    "owner": {
+      "pid": 28021,
+      "start_ticks": 173763,
+      "boot_id": "af9c6c63-3c54-42c5-8f79-6fbce3fe7d43",
+      "admission_sha256": "60d36fcdcc936ea575dbae9e70fd8c7c79b387b247df9b33882c7f4febbd5f9a"
+    },
+    "owner_absent_after_exit": true,
+    "service_exit_code": 0,
+    "frames": 1201,
+    "channels": 8,
+    "all_finite": true,
+    "range": [
+      2.9617641672530226e-11,
+      0.9977648258209229
+    ],
+    "repeat_max_abs": 0.0,
+    "maximum_observed_graph_nodes": 870,
+    "graph_capacity": 8192,
+    "peak_rss_mib": 160.78125,
+    "asr_or_wer_metric": false,
+    "stage_accepted": false,
+    "limitations": [
+      "Original scheduler run aborted; direct numerical comparison against it on this Pi unavailable",
+      "Existing app active; timing is a contention-affected short diagnostic",
+      "Full source, sustained memory/cache behavior and integrated modes remain unverified"
+    ]
+  },
+  "Sherpa_paced": {
+    "source_samples": 715127,
+    "source_seconds": 44.6954375,
+    "decode_seconds": 5.963847040996598,
+    "decode_rtf": 0.13343301631171187,
+    "paced_elapsed_seconds": 44.78091228899984,
+    "maximum_processing_lag_seconds": 0.05724233099999765,
+    "drain_seconds": 0.08500473399999464,
+    "cpu_seconds": 5.889277325999999,
+    "peak_process_rss_bytes": 351158272,
+    "endpoint_count": 13,
+    "status": "PASS_NATIVE_SHERPA_SAVED_PACED_FUNCTION_ONLY",
+    "result_sha256": "41f91d6ac4dd41881936c91baef2fab90c602d0b2345e41ee3fb6495991cc8ec",
+    "actual_nonempty_text": true,
+    "caption_event_count": 51,
+    "exact_owner_closed": true,
+    "accuracy_scored": false,
+    "stage_accepted": false,
+    "limitations": [
+      "ASR component only; punctuation/speakers/GUI not in this test",
+      "Existing app active; conditional short resource observation",
+      "Saved audio is not held-out real-world accuracy evidence"
+    ]
+  },
+  "full_D1_state": "FIRST_FULL_ARRAY_VALID_REPEAT_TIMED_OUT",
+  "full_D1_owner": {
+    "pid": 33869,
+    "start_ticks": 212321,
+    "boot_id": "af9c6c63-3c54-42c5-8f79-6fbce3fe7d43",
+    "admission_sha256": "3b666cff7b11299b199b1e63577cf560222e9804a0ffa1b9dd6ad6c5e7f7acff"
+  },
+  "full_D1_unit": "jp-d1-full-v5.service",
+  "new_application_profiles_accepted": 0,
+  "accuracy_scored": false,
+  "capture_initiated": false,
+  "checkpoint": "2026-10-01T17:47:34Z",
+  "full_D1_exact_owner_closed": true,
+  "full_D1_first_pass": {
+    "case": "saved_prefix",
+    "frames": 4470,
+    "audio_seconds": 44.6954375,
+    "endpoint_support_overhang_seconds": 0.004561500877144908,
+    "elapsed_seconds": 358.23213596100004,
+    "call_sequence_rtf": 8.014959825843523,
+    "cpu_seconds": 358.01023338799996,
+    "temperature_millic": 59500
+  },
+  "A76_V6": {
+    "status": "FAIL_DECLARED_GENERIC_PARITY_NATIVE_STATE_CHECKS_COLLECTED",
+    "result_sha256": "18f9284aa0c78e391bde2fe3c22083ba80327d84566b8c4acdf7f0f0052eae6f",
+    "max_abs_probability_error": 0.011486291885375977,
+    "mean_abs_probability_error": 4.0078994061332196e-05,
+    "tolerance": 1e-05,
+    "scope": "Native short software reproducibility comparison; not DER/WER",
+    "first_rtf": 1.4282832444166615,
+    "elapsed_seconds": 17.13939893299994,
+    "repeat_equal": true,
+    "owner_absent_after_exit": true,
+    "stage_accepted": false
+  },
+  "A76_V7": {
+    "status": "FAIL_GENERIC_PARITY_NO_FP16_VARIANT",
+    "result_sha256": "318527cc52132d82e2fb4c29b753c9d03ecac5841bd8eb0064819e96cda314c4",
+    "max_abs_vs_generic": 0.011495113372802734,
+    "max_abs_vs_a76_v1": 0.0001741349697113037,
+    "mean_abs_vs_generic": 4.008588439319283e-05,
+    "original_tolerance": 1e-05,
+    "first_case": {
+      "case": "saved_prefix",
+      "frames": 1201,
+      "audio_seconds": 12,
+      "endpoint_support_overhang_seconds": 0.009999731555581093,
+      "elapsed_seconds": 17.541587259000153,
+      "call_sequence_rtf": 1.4617989382500127,
+      "cpu_seconds": 17.528851897,
+      "temperature_millic": 56750
+    },
+    "repeat_case": {
+      "case": "resident_repeat",
+      "frames": 1201,
+      "audio_seconds": 12,
+      "endpoint_support_overhang_seconds": 0.009999731555581093,
+      "elapsed_seconds": 17.553666578000048,
+      "call_sequence_rtf": 1.4628055481666706,
+      "cpu_seconds": 17.535210242999998,
+      "temperature_millic": 57300
+    },
+    "exact_owners_closed": true,
+    "current_install_unchanged": true,
+    "stage_accepted": false,
+    "accuracy_scored": false
+  },
+  "all_native_campaign_owners_closed": true,
+  "capture_endpoint": "XMOSDevice I2S; enumerated and closed, not captured"
+}
