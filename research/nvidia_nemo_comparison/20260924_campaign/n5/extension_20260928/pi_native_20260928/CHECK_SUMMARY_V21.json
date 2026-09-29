@@ -1,0 +1,60 @@
+{
+  "updated_utc": "2026-09-29T17:10:16.944962+00:00",
+  "previous_summary": "CHECK_SUMMARY_V20.json",
+  "scope": "Actual native live-controller branch with saved-source fixture; user-only trial preparation",
+  "run": "b01-live-controller-v1",
+  "status": "PASS_NATIVE_LIVE_CONTROLLER_SAVED_FIXTURE_D1_AND_LIFECYCLE_ONLY",
+  "microphone_opened": false,
+  "full_samples": 715127,
+  "full_D1_frames": 4470,
+  "full_D1_reference_max_abs": 0.0,
+  "full_E0_calls": 20,
+  "E0_new_window_reference_qualified": false,
+  "early_stop_samples": 132000,
+  "stop_drain_seconds": 2.7096776500038686,
+  "first_full_text_seconds": 5.64558321966615,
+  "first_full_probability_seconds": 25.486680135662027,
+  "full_EOF_drain_seconds": 12.52977629166574,
+  "peak_RSS_bytes": 575733760,
+  "peak_virtual_bytes": 760610816,
+  "actual_controller_start_live": true,
+  "source_fixture_only": true,
+  "actual_hardware_callbacks_tested": false,
+  "widget_rows": 40,
+  "natural_process_closure": true,
+  "user_live_trial_status": "PREPARED_NOT_EXECUTED",
+  "boundary_run": "b01-live-trial-boundary-v1",
+  "boundary_status": "PASS_NATIVE_LIVE_TRIAL_BOUNDARY_ONLY",
+  "capture_requires_current_readiness_and_private_diagnostic_consent": true,
+  "resources": {
+    "checked_utc": "2026-09-29T17:10:16.944962+00:00",
+    "host_window_bytes": 375992653,
+    "target_bytes": 593688984,
+    "combined_bytes": 969681637,
+    "cap_bytes": 1073741824,
+    "host_free_bytes": {
+      "C:": 111608246272,
+      "G:": 98761355264
+    },
+    "all_owned_native_identities_closed": 105,
+    "host_supervisor_closed": true,
+    "host_owners": [
+      {
+        "pid": 55636,
+        "create_time": 1790637870.806714,
+        "observed_create_time": null,
+        "exact_alive": false
+      },
+      {
+        "pid": 55720,
+        "create_time": 1790637870.971314,
+        "observed_create_time": null,
+        "exact_alive": false
+      }
+    ]
+  },
+  "review_sha256": {
+    "b01-live-controller-v1": "f30d3cab0470f9f3d466902bfb4e7ead2f6777d016a285c9c2a8a977d20266c9",
+    "b01-live-trial-boundary-v1": "7937441455a6da1c02121296744161cfcb98ea4bafc0469c06f1d92926b18340"
+  }
+}
