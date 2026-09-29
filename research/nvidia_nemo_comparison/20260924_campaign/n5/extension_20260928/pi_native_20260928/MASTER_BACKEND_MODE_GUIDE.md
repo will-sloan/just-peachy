@@ -10,7 +10,9 @@ The user has prioritized implemented Nemotron diarizer modes, credible speed met
 
 ## Where we are now
 
-Nemotron ASR (A2) now passes the original44.7-second file twice on the Pi with exact repeat events and clean shutdown. It takes78.5/77.1seconds (about1.75times the recording duration) and peaks near966MiB RAM, under an isolated1536MiB virtual cap. This supports a future sequential/offline mode; it is not a real-time or integrated B02 release. Forced endpoints, independent runtime parity and GUI integration remain. [A2 functional findings](A2_NATIVE_FUNCTIONAL_FINDINGS_V1.md). Follow-ups now run every10minutes.
+Native A2 endpoint/tail checks now pass: empty input, one sample,1281-sample tail and full-source forced endpoint at12.34s, followed by continued transcription, EOF and clean shutdown. This extends component functionality; it does not make A2 real-time or an integrated GUI mode. [Endpoint findings](A2_NATIVE_EDGES_FINDINGS_V1.md).
+
+Nemotron ASR (A2) now passes the original44.7-second file twice on the Pi with exact repeat events and clean shutdown. It takes78.5/77.1seconds (about1.75times the recording duration) and peaks near966MiB RAM, under an isolated1536MiB virtual cap. This supports a future sequential/offline mode; it is not a real-time or integrated B02 release. Independent runtime parity and GUI integration remain. [A2 functional findings](A2_NATIVE_FUNCTIONAL_FINDINGS_V1.md). Follow-ups now run every10minutes.
 
 No campaign numerical worker or preview is running. Fresh inspection found all 135 recorded research process identities closed, no active research systemd units, and no user preview runs. The original rc5 app is still running with its original process identities and install. The Pi is a Compute Module 5 with 2 GB RAM.
 

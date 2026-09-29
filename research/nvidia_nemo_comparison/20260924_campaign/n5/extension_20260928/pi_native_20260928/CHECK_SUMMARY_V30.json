@@ -1,0 +1,71 @@
+{
+  "updated_utc": "2026-09-29T20:29:30.510700+00:00",
+  "previous_summary": "CHECK_SUMMARY_V29.json",
+  "status": "PASS_A2_EMPTY_TAIL_FORCED_ENDPOINT_LIFECYCLE_ONLY",
+  "cases": [
+    {
+      "case": "empty",
+      "input_samples": 0,
+      "events": 1,
+      "finals": 1,
+      "seconds": 0.0005035909998696297
+    },
+    {
+      "case": "one_sample",
+      "input_samples": 1,
+      "events": 1,
+      "finals": 1,
+      "seconds": 0.00030649799737147987
+    },
+    {
+      "case": "short_tail",
+      "input_samples": 1281,
+      "events": 1,
+      "finals": 1,
+      "seconds": 2.0204060019896133
+    },
+    {
+      "case": "saved_source_forced",
+      "input_samples": 715127,
+      "events": 88,
+      "finals": 6,
+      "seconds": 77.13777128299989
+    }
+  ],
+  "force_at_samples": 197440,
+  "forced_final_and_continued_passage": true,
+  "kernel_peak_rss_mib": 966.828125,
+  "hard_address_space_mib": 1536,
+  "review_sha256": "a2dd91bc1e33f3f8c48e8bc87f0f504f6e608fe69f563fa944724ffc5ea78cb0",
+  "resources": {
+    "checked_utc": "2026-09-29T20:28:40.941659+00:00",
+    "host_window_bytes": 387826217,
+    "target_bytes": 1411985982,
+    "combined_bytes": 1799812199,
+    "cap_bytes": 3221225472,
+    "host_free_bytes": {
+      "C:": 141580640256,
+      "G:": 98747682816
+    },
+    "all_owned_native_identities_closed": 137,
+    "host_supervisor_closed": true,
+    "host_owners": [
+      {
+        "pid": 55636,
+        "create_time": 1790637870.806714,
+        "observed_create_time": null,
+        "exact_alive": false
+      },
+      {
+        "pid": 55720,
+        "create_time": 1790637870.971314,
+        "observed_create_time": null,
+        "exact_alive": false
+      }
+    ]
+  },
+  "baseline_unchanged": true,
+  "capture": false,
+  "stage_accepted": false,
+  "next": "Prioritize concrete D1 ONNX graph/frontend/cache driver preparation and bounded live logging/PCM. A2 optimized CPU and sequential mode remain next component/integration steps; do not repeat unchanged edge/full tests."
+}
