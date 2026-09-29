@@ -1,6 +1,6 @@
 # Master backend and mode guide — Raspberry Pi
 
-Updated September 29, 2026, 17:22 EDT / 21:22 UTC. This is the current conceptual and engineering overview. Older reports preserve history; use this guide and STATUS.md for current priorities. Latest converter evidence is linked below; qualified preview scope is unchanged.
+Updated September 29, 2026, 17:44 EDT / 21:44 UTC. This is the current conceptual and engineering overview. Older reports preserve history; use this guide and STATUS.md for current priorities. Latest converter evidence is linked below; qualified preview scope is unchanged.
 
 ## Next 36–48 hours
 
@@ -10,9 +10,11 @@ The user has prioritized implemented Nemotron diarizer modes, credible speed met
 
 ## Where we are now
 
+Ordered speaker-cache/FIFO handling now passes15 constructed native updates and exact repeats, including an overlap tie that stopped the first candidate. A small explicit ONNX compression helper preserves the observed NeMo selection. The frontend and state components are separately checked; the complete high-resolution audio/model stream remains open. [State findings and preserved failures](D1_STATE_FINDINGS_V1.md).
+
 The portable audio frontend now passes nine native Pi cases, including full saved audio, irregular blocks, EOF and reset, at about57MiB peak RAM. This closes the audio-to-feature component; learned high-resolution model output and speaker-cache/FIFO integration remain. [Frontend findings](D1_FRONTEND_FINDINGS_V1.md).
 
-Current total-payload headroom is about232 MiB after target bytes and retained reservations. New large graph copies need a fresh measured payload admission; the4GiB window alone does not authorize them. Small driver/live-readiness work can continue.
+Current total-payload headroom is about176 MiB after target bytes and retained reservations. New large graph copies need a fresh measured payload admission; the4GiB window alone does not authorize them. Small driver/live-readiness work can continue.
 
 The alternate D1 ONNX graph now passes three actual Pi FP32 feature/cache checks and exact repeats against PyTorch references. Peak RAM was about 509 MiB. This verifies the graph on ONNX Runtime CPU; learned high-resolution output and the complete audio/cache/FIFO driver remain open before it becomes a usable alternate mode. No speedup is established. [Native findings](D1_ORT_NATIVE_FINDINGS_V1.md).
 
@@ -20,7 +22,7 @@ Native A2 endpoint/tail checks now pass: empty input, one sample,1281-sample tai
 
 Nemotron ASR (A2) now passes the original44.7-second file twice on the Pi with exact repeat events and clean shutdown. It takes78.5/77.1seconds (about1.75times the recording duration) and peaks near966MiB RAM, under an isolated1536MiB virtual cap. This supports a future sequential/offline mode; it is not a real-time or integrated B02 release. Independent runtime parity and GUI integration remain. [A2 functional findings](A2_NATIVE_FUNCTIONAL_FINDINGS_V1.md). Follow-ups now run every10minutes.
 
-No campaign numerical worker or preview is running. Fresh inspection found all 142 recorded research process identities and all isolated host preparation owners closed, no active research systemd units, and no user preview runs. The original rc5 app is still running with its original process identities and install. The Pi is a Compute Module 5 with 2 GB RAM.
+No campaign numerical worker or preview is running. Fresh inspection found all 144 recorded research process identities and all isolated host preparation owners closed, no active research systemd units, and no user preview runs. The original rc5 app is still running with its original process identities and install. The Pi is a Compute Module 5 with 2 GB RAM.
 
 Two new **bounded saved-file previews** have native evidence:
 

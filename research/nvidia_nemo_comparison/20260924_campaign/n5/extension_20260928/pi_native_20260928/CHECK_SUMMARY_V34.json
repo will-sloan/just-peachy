@@ -1,0 +1,567 @@
+{
+  "updated_utc": "2026-09-29T21:45:51.089476+00:00",
+  "previous_summary": "CHECK_SUMMARY_V33.json",
+  "status": "PASS_NATIVE_15_STATE_UPDATES_REPEAT_AND_OBSERVED_TIE_ONLY",
+  "cases": [
+    {
+      "case": "delayed-0",
+      "offset": 0,
+      "max_abs": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "repeat_exact": true,
+      "seconds": [
+        0.001312660999246873,
+        0.0012944220070494339
+      ]
+    },
+    {
+      "case": "delayed-1",
+      "offset": 264,
+      "max_abs": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "repeat_exact": true,
+      "seconds": [
+        0.004338077007560059,
+        0.0038023930101189762
+      ]
+    },
+    {
+      "case": "delayed-2",
+      "offset": 528,
+      "max_abs": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "repeat_exact": true,
+      "seconds": [
+        0.0029263969918247312,
+        0.0030588590016122907
+      ]
+    },
+    {
+      "case": "delayed-3",
+      "offset": 557,
+      "max_abs": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "repeat_exact": true,
+      "seconds": [
+        0.00036655399890150875,
+        0.0002574620011728257
+      ]
+    },
+    {
+      "case": "fifo-0",
+      "offset": 0,
+      "max_abs": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "repeat_exact": true,
+      "seconds": [
+        0.0004449430125532672,
+        0.0004544609982986003
+      ]
+    },
+    {
+      "case": "fifo-1",
+      "offset": 52,
+      "max_abs": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "repeat_exact": true,
+      "seconds": [
+        0.0004647939931601286,
+        0.00046740600373595953
+      ]
+    },
+    {
+      "case": "fifo-2",
+      "offset": 104,
+      "max_abs": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "repeat_exact": true,
+      "seconds": [
+        0.0005447950097732246,
+        0.0006471090018749237
+      ]
+    },
+    {
+      "case": "fifo-3",
+      "offset": 156,
+      "max_abs": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "repeat_exact": true,
+      "seconds": [
+        0.003216192009858787,
+        0.00434261400368996
+      ]
+    },
+    {
+      "case": "fifo-4",
+      "offset": 356,
+      "max_abs": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "repeat_exact": true,
+      "seconds": [
+        0.0027323039976181462,
+        0.0027096010016975924
+      ]
+    },
+    {
+      "case": "quiet-0",
+      "offset": 0,
+      "max_abs": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "repeat_exact": true,
+      "seconds": [
+        0.0014241980097722262,
+        0.0011963660072069615
+      ]
+    },
+    {
+      "case": "quiet-1",
+      "offset": 264,
+      "max_abs": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "repeat_exact": true,
+      "seconds": [
+        0.0050427590031176805,
+        0.0035550979955587536
+      ]
+    },
+    {
+      "case": "quiet-2",
+      "offset": 528,
+      "max_abs": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "repeat_exact": true,
+      "seconds": [
+        0.0033324510004604235,
+        0.0025659349921625108
+      ]
+    },
+    {
+      "case": "overlap-0",
+      "offset": 0,
+      "max_abs": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "repeat_exact": true,
+      "seconds": [
+        0.0015826059971004725,
+        0.0012645319948205724
+      ]
+    },
+    {
+      "case": "overlap-1",
+      "offset": 264,
+      "max_abs": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "repeat_exact": true,
+      "seconds": [
+        0.004404188002808951,
+        0.005284888000460342
+      ]
+    },
+    {
+      "case": "overlap-2",
+      "offset": 528,
+      "max_abs": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "repeat_exact": true,
+      "seconds": [
+        0.00316508200194221,
+        0.002765249999356456
+      ]
+    }
+  ],
+  "kernel_peak_rss_mib": 71.328125,
+  "absolute_tolerance": 1e-05,
+  "graph_sha256": "1cb14c34f9c8ed009f05425a74dab7334cde7ed29fe83481c27202d62ec3a323",
+  "graph_bytes": 39566,
+  "full_model_qualified": false,
+  "complete_driver": false,
+  "general_tie_equivalence": false,
+  "speedup_qualified": false,
+  "stage_accepted": false,
+  "resources": {
+    "checked_utc": "2026-09-29T21:44:07.814431+00:00",
+    "host_window_bytes": 1236477809,
+    "target_bytes": 1870298623,
+    "combined_bytes": 3106776432,
+    "cap_bytes": 4294967296,
+    "host_free_bytes": {
+      "C:": 141611556864,
+      "G:": 97897611264
+    },
+    "all_owned_native_identities_closed": 144,
+    "host_supervisor_closed": true,
+    "host_owners": [
+      {
+        "pid": 55636,
+        "create_time": 1790637870.806714,
+        "observed_create_time": null,
+        "exact_alive": false
+      },
+      {
+        "pid": 55720,
+        "create_time": 1790637870.971314,
+        "observed_create_time": null,
+        "exact_alive": false
+      }
+    ],
+    "isolated_export_owners": [
+      {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\d1-onnx-export-v1\\supervision\\worker.json",
+        "owner": {
+          "pid": 36268,
+          "create_time": 1790714243.0741508
+        },
+        "observed_create_time": null,
+        "exact_alive": false
+      },
+      {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\d1-onnx-export-v1\\supervision\\worker.json",
+        "owner": {
+          "pid": 66192,
+          "create_time": 1790714243.2419276
+        },
+        "observed_create_time": null,
+        "exact_alive": false
+      },
+      {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\d1-onnx-export-v1\\supervision\\worker.json",
+        "owner": {
+          "pid": 37852,
+          "create_time": 1790714243.685588,
+          "affinity": [
+            4,
+            14
+          ]
+        },
+        "observed_create_time": null,
+        "exact_alive": false
+      },
+      {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\d1-onnx-export-v1\\supervision\\worker.json",
+        "owner": {
+          "pid": 46152,
+          "create_time": 1790714243.6287892
+        },
+        "observed_create_time": null,
+        "exact_alive": false
+      },
+      {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\d1-onnx-export-v2\\supervision\\worker.json",
+        "owner": {
+          "pid": 42228,
+          "create_time": 1790714469.384764
+        },
+        "observed_create_time": null,
+        "exact_alive": false
+      },
+      {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\d1-onnx-export-v2\\supervision\\worker.json",
+        "owner": {
+          "pid": 62192,
+          "create_time": 1790714469.5595467
+        },
+        "observed_create_time": null,
+        "exact_alive": false
+      },
+      {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\d1-onnx-export-v2\\supervision\\worker.json",
+        "owner": {
+          "pid": 57740,
+          "create_time": 1790714470.025628,
+          "affinity": [
+            4,
+            14
+          ]
+        },
+        "observed_create_time": null,
+        "exact_alive": false
+      },
+      {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\d1-onnx-export-v2\\supervision\\worker.json",
+        "owner": {
+          "pid": 44296,
+          "create_time": 1790714469.9711585
+        },
+        "observed_create_time": null,
+        "exact_alive": false
+      },
+      {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\d1-onnx-export-v3\\supervision\\worker.json",
+        "owner": {
+          "pid": 62988,
+          "create_time": 1790714641.073609
+        },
+        "observed_create_time": null,
+        "exact_alive": false
+      },
+      {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\d1-onnx-export-v3\\supervision\\worker.json",
+        "owner": {
+          "pid": 53552,
+          "create_time": 1790714641.2833364
+        },
+        "observed_create_time": null,
+        "exact_alive": false
+      },
+      {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\d1-onnx-export-v3\\supervision\\worker.json",
+        "owner": {
+          "pid": 41600,
+          "create_time": 1790714641.7226956,
+          "affinity": [
+            4,
+            14
+          ]
+        },
+        "observed_create_time": null,
+        "exact_alive": false
+      },
+      {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\d1-onnx-export-v3\\supervision\\worker.json",
+        "owner": {
+          "pid": 17620,
+          "create_time": 1790714641.6691127
+        },
+        "observed_create_time": null,
+        "exact_alive": false
+      },
+      {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\d1-onnx-frontend-v1\\supervision\\worker.json",
+        "owner": {
+          "pid": 63080,
+          "create_time": 1790716686.900596
+        },
+        "observed_create_time": null,
+        "exact_alive": false
+      },
+      {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\d1-onnx-frontend-v1\\supervision\\worker.json",
+        "owner": {
+          "pid": 58412,
+          "create_time": 1790716687.0608015
+        },
+        "observed_create_time": null,
+        "exact_alive": false
+      },
+      {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\d1-onnx-frontend-v1\\supervision\\worker.json",
+        "owner": {
+          "pid": 59328,
+          "create_time": 1790716687.5375993,
+          "affinity": [
+            4,
+            14
+          ]
+        },
+        "observed_create_time": null,
+        "exact_alive": false
+      },
+      {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\d1-onnx-frontend-v1\\supervision\\worker.json",
+        "owner": {
+          "pid": 68388,
+          "create_time": 1790716687.483524
+        },
+        "observed_create_time": null,
+        "exact_alive": false
+      },
+      {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\d1-onnx-state-tie-v1\\supervision\\worker.json",
+        "owner": {
+          "pid": 28972,
+          "create_time": 1790717837.0709891
+        },
+        "observed_create_time": null,
+        "exact_alive": false
+      },
+      {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\d1-onnx-state-tie-v1\\supervision\\worker.json",
+        "owner": {
+          "pid": 67964,
+          "create_time": 1790717837.2572064
+        },
+        "observed_create_time": null,
+        "exact_alive": false
+      },
+      {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\d1-onnx-state-tie-v1\\supervision\\worker.json",
+        "owner": {
+          "pid": 52604,
+          "create_time": 1790717837.717785,
+          "affinity": [
+            4,
+            14
+          ]
+        },
+        "observed_create_time": null,
+        "exact_alive": false
+      },
+      {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\d1-onnx-state-tie-v1\\supervision\\worker.json",
+        "owner": {
+          "pid": 67712,
+          "create_time": 1790717837.6672332
+        },
+        "observed_create_time": null,
+        "exact_alive": false
+      },
+      {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\d1-onnx-state-tie-v2\\supervision\\worker.json",
+        "owner": {
+          "pid": 63916,
+          "create_time": 1790717925.7474496
+        },
+        "observed_create_time": null,
+        "exact_alive": false
+      },
+      {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\d1-onnx-state-tie-v2\\supervision\\worker.json",
+        "owner": {
+          "pid": 29424,
+          "create_time": 1790717925.907408
+        },
+        "observed_create_time": null,
+        "exact_alive": false
+      },
+      {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\d1-onnx-state-tie-v2\\supervision\\worker.json",
+        "owner": {
+          "pid": 58716,
+          "create_time": 1790717926.365641,
+          "affinity": [
+            4,
+            14
+          ]
+        },
+        "observed_create_time": null,
+        "exact_alive": false
+      },
+      {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\d1-onnx-state-tie-v2\\supervision\\worker.json",
+        "owner": {
+          "pid": 62312,
+          "create_time": 1790717926.315565
+        },
+        "observed_create_time": null,
+        "exact_alive": false
+      },
+      {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\d1-onnx-state-v1\\supervision\\worker.json",
+        "owner": {
+          "pid": 65276,
+          "create_time": 1790717569.4233668
+        },
+        "observed_create_time": null,
+        "exact_alive": false
+      },
+      {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\d1-onnx-state-v1\\supervision\\worker.json",
+        "owner": {
+          "pid": 63512,
+          "create_time": 1790717569.5818446
+        },
+        "observed_create_time": null,
+        "exact_alive": false
+      },
+      {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\d1-onnx-state-v1\\supervision\\worker.json",
+        "owner": {
+          "pid": 66524,
+          "create_time": 1790717570.0158825,
+          "affinity": [
+            4,
+            14
+          ]
+        },
+        "observed_create_time": null,
+        "exact_alive": false
+      },
+      {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\d1-onnx-state-v1\\supervision\\worker.json",
+        "owner": {
+          "pid": 56256,
+          "create_time": 1790717569.96724
+        },
+        "observed_create_time": null,
+        "exact_alive": false
+      }
+    ]
+  },
+  "total_payload_headroom_estimate_bytes": 185054485,
+  "next": "Fresh measured payload policy/admission for high-resolution main graph, integrate frontend/state then full-source probability/reset/EOF. Advance bounded quiet PCM/logging and GUI."
+}
