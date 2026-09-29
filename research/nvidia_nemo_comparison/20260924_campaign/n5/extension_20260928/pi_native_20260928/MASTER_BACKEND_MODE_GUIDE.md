@@ -1,10 +1,14 @@
 # Master backend and mode guide — Raspberry Pi
 
-Updated September 29, 2026, 14:27 EDT / 18:27 UTC. This is the current conceptual and engineering overview. Older reports preserve history; use this guide and STATUS.md for current priorities. Latest converter evidence is linked below; qualified preview scope is unchanged.
+Updated September 29, 2026, 15:05 EDT / 19:05 UTC. This is the current conceptual and engineering overview. Older reports preserve history; use this guide and STATUS.md for current priorities. Latest converter evidence is linked below; qualified preview scope is unchanged.
+
+## Next 36–48 hours
+
+The user has prioritized implemented Nemotron diarizer modes, credible speed methods, native Nemotron ASR and alternate runtimes, all aligned with N5 GUI/field readiness. The existing October 1 checkpoint stays. See the [delivery plan and N5 mapping](N5_NATIVE_DELIVERY_48H_V1.md). Resource authority now permits measured adjustments; new WINDOW_V2 starts with a 3 GiB combined file allowance, retaining old evidence and separate per-job limits.
 
 ## Where we are now
 
-No campaign numerical worker or preview is running. Fresh inspection found all 121 recorded research process identities closed, no active research systemd units, and no user preview runs. The original rc5 app is still running with its original process identities and install. The Pi is a Compute Module 5 with 2 GB RAM.
+No campaign numerical worker or preview is running. Fresh inspection found all 122 recorded research process identities closed, no active research systemd units, and no user preview runs. The original rc5 app is still running with its original process identities and install. The Pi is a Compute Module 5 with 2 GB RAM.
 
 Two new **bounded saved-file previews** have native evidence:
 
@@ -23,7 +27,7 @@ After one expressly authorized XVF-only restart, the new 12-second real I2S chec
 
 Two user-ready live attempts are preserved. The first hit the virtual cap; a process-local ALSA configuration reduced unnecessary import mappings and passed saved-input checks. The retry retained 26.25 seconds and produced captions, diarizer probabilities and embeddings, but aborted on a PortAudio input-status indication. **The reported 480 frames count the rejected callback block; the total upstream loss and exact status flags are unknown.** The trial remains failed, with incomplete D1 coverage. The microphone is closed, routes restored and original app unchanged. No full live pass or listenable WAV is qualified.
 
-Eight native synthetic callback cases now qualify an unintegrated fault diagnostic helper, without opening a microphone or loading models. A supplemental admission-field mismatch still needs correction before reusing that dispatch; its eight functional results do not qualify the complete execution envelope. Read-only analysis found display histories make up 87.33% of the main session journal. Next bound diagnostic output and verify compact replay, then a bounded listenable PCM path and combined integration. This does not prove logging caused the interruption. About 28.12 MiB of the output allowance remains; another unchanged 32 MiB trial does not fit. [Current findings and limits](CALLBACK_AND_JOURNAL_FINDINGS_V1.md). Saved B01/B05 previews remain unchanged.
+Eight native synthetic callback cases now qualify an unintegrated fault diagnostic helper, without opening a microphone or loading models. A supplemental admission-field mismatch still needs correction before reusing that dispatch; its eight functional results do not qualify the complete execution envelope. Read-only analysis found display histories make up 87.33% of the main session journal. Next bound diagnostic output and verify compact replay, then a bounded listenable PCM path and combined integration. This does not prove logging caused the interruption. The user has since authorized resource adjustments. After staging A2, about 1.37 GiB remains under the new 3 GiB file allowance. Logging still needs a real bound; extra storage does not fix the input interruption. [Current findings and limits](CALLBACK_AND_JOURNAL_FINDINGS_V1.md). Saved B01/B05 previews remain unchanged.
 
 ## User-prioritized ASR activity guidance
 
@@ -73,7 +77,7 @@ The original app's continued operation is not a new full B00 live/GUI qualificat
 |---|---|---|
 | B00 | Original complete Sherpa pipeline | Installed rollback/control. Preserve it. Separate Sherpa saved-file component passage passed. |
 | B01 | A0 + D1 + E0 | Bounded saved-file preview qualified. Captions first, delayed labels, empty research gallery. Main route toward live validation. |
-| B02 | A2 + D1 + E0 | Planned priority after resource-qualified native A2. No integrated Pi pass. |
+| B02 | A2 + D1 + E0 | Pinned A2 weights now staged and hash-verified on Pi. Native A2 load/inference and integration remain unqualified; explicit priority in the current delivery window. |
 | B03 | B01 with on-demand E0 | Candidate. Must measure actual calls saved and retain quiet/returning-speaker/overlap behavior. Existing E0 window selection is not acceptance of a new on-demand policy. |
 | B04 | B02 with on-demand E0 | Candidate; depends on B02 and on-demand evidence. |
 | B05 | A0 + D1, external encoder bypass | Separately qualified bounded anonymous saved-file preview. No persistent personal naming. |

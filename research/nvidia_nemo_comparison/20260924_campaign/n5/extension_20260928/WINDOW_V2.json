@@ -1,0 +1,39 @@
+{
+  "schema": "just-peachy.user-authorized-native-window.v2",
+  "authority": "September 29 user requested another 36-48 hours of native modes/runtime work aligned with N5, then explicitly authorized changing allowances as needed for good Raspberry Pi operation.",
+  "started_utc": "2026-09-29T18:55:16.577690+00:00",
+  "checkpoint_utc": "2026-10-01T17:47:34Z",
+  "checkpoint_policy": "Keep October 1 17:47:34 UTC, within the requested 36-48 hour horizon; close work and report then.",
+  "supersedes_stop_instruction": "prepi_20260928/WINDOW.json checkpoint 2026-09-28T22:20:48Z, for future dispatch only",
+  "prior_campaign_deadline_preserved": "2026-09-28T14:48:19Z",
+  "prior_admissions_unchanged": true,
+  "Pi_connection_is_milestone_not_stop_deadline": true,
+  "logical_cpus_total": 2,
+  "application_cpus": [
+    4,
+    14
+  ],
+  "coordinator_cpu": 14,
+  "native_threads_per_model": 1,
+  "GPU": "OFF",
+  "minimum_free_gib": {
+    "C:": 50,
+    "G:": 75
+  },
+  "new_downloads": false,
+  "maximum_new_output_bytes": 3221225472,
+  "output_budget_scope": "Combined existing prepi/shutdown/listening/extension host and target output, including preserved evidence. Raised from 1 GiB to 3 GiB by explicit user authorization; no allowance reset.",
+  "prior_evidence_must_be_preserved": true,
+  "Pi_access": true,
+  "Pi_access_policy": "Already confirmed; fresh exact-owner, resource and target-specific admissions required. Preserve original app/config/data.",
+  "saved_audio_only": false,
+  "training_or_enrollment": false,
+  "desktop_focus_or_input": false,
+  "scope": "N5-aligned native D1 modes/credible speed methods, A2 ASR and alternate runtime implementation, same GUI, bounded live recording, install/rollback and real-world field readiness.",
+  "live_capture_policy": "Only when user currently physically ready; earlier two trial readiness authorizations fulfilled. Private retention consent persists. No heartbeat capture/playback/reset.",
+  "native_default_address_space_bytes": 805306368,
+  "native_component_candidate_address_space_bytes": 1073741824,
+  "native_candidate_minimum_available_bytes": 1342177280,
+  "native_memory_policy": "Fresh measured admission only; use the smallest justified cap with explicit fit/headroom checks. 1 GiB is an allowed candidate for isolated ASR, not evidence of fit or permission to overload 2 GiB system.",
+  "prior_window_sha256": "485853990f27a1beee55a13f48b502809afd3f5eae31f23207cc888216718dcb"
+}

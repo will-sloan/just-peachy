@@ -1,0 +1,110 @@
+{
+  "updated_utc": "2026-09-29T19:05:50.885036+00:00",
+  "previous_summary": "CHECK_SUMMARY_V25.json",
+  "status": "N5_PRIORITIES_UPDATED_A2_ASSET_STAGED_ONLY",
+  "user_authorized_resource_adjustments": true,
+  "policy": "../WINDOW_V2.json",
+  "policy_sha256": "0c4f728efaa05cb776bc7955ef4b50f0ea05feb6501b67a6a50d0e2e95aa801a",
+  "checkpoint_utc": "2026-10-01T17:47:34Z",
+  "output_cap_bytes": 3221225472,
+  "resource_guard_boundary_tests_passed": 3,
+  "a2_asset_review": {
+    "status": "PASS_PINNED_A2_ASSET_AND_OWNER_CLOSURE_ONLY",
+    "unit_envelope_verified": false,
+    "unit_resource_receipt_missing": true,
+    "source_limit_assertions_completed": true,
+    "asset_bytes": 699872960,
+    "asset_sha256": "d9a01898d2a611c8764e23a1c2f45e70bbd5a425dc4de93692ac951dd603812d",
+    "logical_run_bytes": 699886954,
+    "output_max_bytes": 738197504,
+    "models_loaded": false,
+    "capture": false,
+    "original_app_unchanged": true,
+    "exact_owner_closed": true,
+    "leases_free": true,
+    "unit": {
+      "TimeoutStopUSec": "1min 30s",
+      "RuntimeMaxUSec": "infinity",
+      "MainPID": "0",
+      "Result": "success",
+      "ExecMainStatus": "0",
+      "CPUQuotaPerSecUSec": "infinity",
+      "TasksMax": "2309",
+      "LimitSTACK": "infinity",
+      "LimitAS": "infinity",
+      "LoadState": "not-found"
+    },
+    "bindings": {
+      "ADMISSION.json": "9648415a3730015b3165ccd44e78944124b72b3aae59983df2e3e995d5d5a3dc",
+      "RESULT.json": "24b8133a1ec7b145d713f9e351b278b359d2a6c9e64a3546f248b5e28f79f262",
+      "OWNER.json": "1ce793511583f3cb5e89201af3683e7e0568dc67015a4fbe2cb2cdec502c6d69"
+    }
+  },
+  "d1_onnx_contract": {
+    "status": "STATIC_STREAMING_EXPORT_CONTRACT_IDENTIFIED_NOT_EXECUTED",
+    "source_sha256": "bd6624df8a0ad2edb3659592b3f711b6a093a0d801b364599fc95bc7361bb877",
+    "module_sha256": "ead9804248b45153a1abfbe54ba67fab3c1d418da904f025ade5500168e7ee7c",
+    "inputs": [
+      "chunk",
+      "chunk_lengths",
+      "spkcache",
+      "spkcache_lengths",
+      "fifo",
+      "fifo_lengths"
+    ],
+    "outputs": [
+      "spkcache_fifo_chunk_preds",
+      "chunk_pre_encode_embs",
+      "chunk_pre_encode_lengths"
+    ],
+    "waveform_frontend_included": false,
+    "complete_cache_driver_included": false,
+    "graph_exported": false,
+    "native_ORT_inference_qualified": false,
+    "host_environment": "local/n2/nemo-py312/Scripts/python.exe",
+    "dependencies_available": [
+      "torch",
+      "onnx",
+      "onnxruntime",
+      "nemo"
+    ]
+  },
+  "resources": {
+    "checked_utc": "2026-09-29T19:05:50.885036+00:00",
+    "host_window_bytes": 385100108,
+    "target_bytes": 1359820054,
+    "combined_bytes": 1744920162,
+    "cap_bytes": 3221225472,
+    "host_free_bytes": {
+      "C:": 142547030016,
+      "G:": 98751668224
+    },
+    "all_owned_native_identities_closed": 122,
+    "host_supervisor_closed": true,
+    "host_owners": [
+      {
+        "pid": 55636,
+        "create_time": 1790637870.806714,
+        "observed_create_time": null,
+        "exact_alive": false
+      },
+      {
+        "pid": 55720,
+        "create_time": 1790637870.971314,
+        "observed_create_time": null,
+        "exact_alive": false
+      }
+    ]
+  },
+  "bindings": {
+    "a2-asset-stage-v1-evidence/REVIEW_V2.json": "03769d3e0813be2450017773ca9c30c301741c2cd2da4701dbf1c2bcb7e77d4c",
+    "a2-asset-stage-v1-evidence/READER_FAILURE_V1.json": "76e1b57ef9850160b60102a6a99770ddc7f116bf7d4ba4e9c3587aad853caabe",
+    "D1_ONNX_CONTRACT_INSPECTION_V1.json": "a98441a304ed8e59c61e49ef13916f7587b6f1b714d2f0a5da257505e275949d",
+    "NATIVE_CLOSURE_V33.json": "7a70398539c852b678fef60fa33fb8cd48785a581b8a75c2fc5b9bfa31cccec4",
+    "NATIVE_RESOURCES_V33.json": "e93f85cffd05ee9332aaeb1af3817f7ce0494b3b12b0280273bd22abf0e67969"
+  },
+  "native_A2_model_run": false,
+  "D1_ONNX_graph_exported": false,
+  "capture": false,
+  "stage_accepted": false
+}

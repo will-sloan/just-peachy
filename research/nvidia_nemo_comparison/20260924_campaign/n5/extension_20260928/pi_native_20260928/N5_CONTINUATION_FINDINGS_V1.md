@@ -1,0 +1,19 @@
+# N5 continuation: resource authority, A2 staging and runtime contract
+
+September 29, 2026, 19:05 UTC. Follow [the 36–48-hour delivery plan](N5_NATIVE_DELIVERY_48H_V1.md). The existing October 1 17:47:34 UTC checkpoint remains within the user's horizon; no extension is needed. Implementation work now explicitly covers D1 modes/speed strategies, native A2, alternate D1 runtime and same-GUI field readiness.
+
+The user expressly permitted resource adjustments for good Pi operation. Fresh WINDOW_V2.json and window_guard_v2.py set an initial 3 GiB combined file allowance without resetting usage or changing historical evidence. Three focused tests cover the new boundary, unchanged payload reservations and storage floors, and invalid requests. Old launchers keep their old bounds. New target admissions must include host and target bytes, bind actual limits and record further changes explicitly. No OS/boot/swap settings or original application were changed.
+
+## Completed this turn
+
+The already-local A2 mixed-Q8 asset (699,872,960 bytes, SHA256 d9a01898d2a611c8764e23a1c2f45e70bbd5a425dc4de93692ac951dd603812d) was copied into private target `a2-asset-stage-v1/A2.gguf`, under the shared research and hardware leases. A separate reader rehashed all bytes and verified source/admission bindings, original app/config/install, natural process closure, capture closed, leases free and output within its 704 MiB reservation. No ASR model was loaded. [Transfer instructions](README_STAGE_A2_ASSET_V1.md), [independent review](README_REVIEW_A2_ASSET_V2.md).
+
+The initial reader incorrectly tried to parse default resource fields after systemd had garbage-collected the transient unit. Its rejection is preserved. The corrected reader explicitly requires `LoadState=not-found` and reports **unit-envelope verification false**, not a pass from defaults. Receiver source assertions checked address space, stacks and CPU affinity while alive; the separate live unit-property receipt was not retained. Asset integrity and exact owner closure are qualified; complete unit-resource evidence is not. Future numerical launchers must retain live unit properties before collection. Do not repeat this unchanged copy solely to obtain them.
+
+Static inspection of the pinned NeMo Sortformer source confirms six streaming export inputs (feature chunk/lengths, speaker cache/lengths, FIFO/lengths), and three outputs (probabilities, new embeddings/lengths). Its input-example implementation uses features, not raw waveform. The installed host export environment contains torch, onnx, ORT and NeMo; the Pi application environment has ORT and Sherpa only. A separate waveform frontend and host cache/FIFO update driver remain necessary. No graph has been exported and no alternate native D1 runtime is yet working. The exact inspected source matches the preserved N2 reference source hash.
+
+## Next execution
+
+Qualify native A2 ABI/load and resource behavior using its own runtime bounds; do not apply reduced D1 scheduler/metadata constants to ASR. Use an isolated, measured 1 GiB virtual admission only if needed and available RAM supports it; that permission is not a prediction of B02 fit. In parallel preparation, build the explicit ONNX streaming frontend/cache contract and reference tests. Keep bounded logging/PCM and B01/B05 common-GUI live readiness progressing. No automated capture; both prior readiness authorizations are fulfilled.
+
+Closure V33: all 122 recorded research identities closed, capture closed, both leases free and original app/config/install unchanged. Combined output 1,744,920,162 / 3,221,225,472 bytes leaves 1,476,305,310 bytes (about 1.37 GiB). Check a fresh census before new work. Native A2 inference, D1 ONNX, full successful live B01, physical GUI, endurance and N4/N5 release acceptance remain open.
