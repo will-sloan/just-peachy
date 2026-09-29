@@ -1,0 +1,59 @@
+{
+  "updated_utc": "2026-09-29T20:16:21.451968+00:00",
+  "previous_summary": "CHECK_SUMMARY_V28.json",
+  "status": "A2_NATIVE_FULL_SOURCE_RESIDENT_REPEAT_SCOPED_PASS",
+  "schedule_minutes": 10,
+  "build_library_sha256": "6415fb2a77aa5483bbb91e5ecaf5d58c6c3f9edbfe92575f1ab2389d6064bc1b",
+  "metadata_mib": 16,
+  "scheduler_capacity": 8192,
+  "guard_fraction": 0.95,
+  "original_graph_cache": true,
+  "generic_cpu": true,
+  "source_seconds": 44.6954375,
+  "samples_per_session": 715127,
+  "session_seconds": [
+    78.54214876100013,
+    77.09574127499945
+  ],
+  "session_rtf": [
+    1.7572744144410744,
+    1.7249130020262013
+  ],
+  "events_per_session": 87,
+  "nonempty_text_events_per_session": 86,
+  "repeat_events_exact": true,
+  "kernel_peak_rss_mib": 966.046875,
+  "hard_address_space_mib": 1536,
+  "scope": "unpaced saved-file native component functionality/resources; no WER, quality, forced-endpoint or independent-runtime parity",
+  "resources": {
+    "checked_utc": "2026-09-29T20:14:30.799309+00:00",
+    "host_window_bytes": 386964316,
+    "target_bytes": 1403784732,
+    "combined_bytes": 1790749048,
+    "cap_bytes": 3221225472,
+    "host_free_bytes": {
+      "C:": 141594230784,
+      "G:": 98749186048
+    },
+    "all_owned_native_identities_closed": 135,
+    "host_supervisor_closed": true,
+    "host_owners": [
+      {
+        "pid": 55636,
+        "create_time": 1790637870.806714,
+        "observed_create_time": null,
+        "exact_alive": false
+      },
+      {
+        "pid": 55720,
+        "create_time": 1790637870.971314,
+        "observed_create_time": null,
+        "exact_alive": false
+      }
+    ]
+  },
+  "baseline_unchanged": true,
+  "capture": false,
+  "stage_accepted": false,
+  "next": "Forced-endpoint/tail/malformed/full conformance and qualified optimized CPU comparison; prepare sequential mode. Continue D1 ONNX driver and bounded quiet PCM/logging/GUI."
+}
