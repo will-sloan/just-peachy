@@ -1,15 +1,17 @@
 # Master backend and mode guide — Raspberry Pi
 
-Updated September 29, 2026, 08:39 EDT / 12:39 UTC. This is the current conceptual and engineering overview. Older reports preserve history; use this guide and STATUS.md for current priorities. No benchmark or model was rerun to write it.
+Updated September 29, 2026, 08:56 EDT / 12:56 UTC. This is the current conceptual and engineering overview. Older reports preserve history; use this guide and STATUS.md for current priorities. Latest converter evidence is linked below; qualified preview scope is unchanged.
 
 ## Where we are now
 
-No campaign numerical worker or preview is running. Fresh inspection found all 79 recorded research process identities closed, no active research systemd units, and no user preview runs. The original rc5 app is still running with its original process identities and install. The Pi is a Compute Module 5 with 2 GB RAM.
+No campaign numerical worker or preview is running. Fresh inspection found all 83 recorded research process identities closed, no active research systemd units, and no user preview runs. The original rc5 app is still running with its original process identities and install. The Pi is a Compute Module 5 with 2 GB RAM.
 
 Two new **bounded saved-file previews** have native evidence:
 
 - **B01:** Sherpa transcription + Nemotron diarization + ReDimNet voice embeddings + punctuation.
 - **B05:** the same transcription/diarization path with the external embedding model explicitly bypassed. Anonymous speaker numbers only.
+
+Live-input preparation advanced: a native NumPy FIR candidate matches the existing XVF converter on constructed saved-input tests while avoiding its SciPy import (54 versus121 MiB peak component RSS). It is not yet integrated or microphone-qualified. See [converter findings](LIVE_DECIMATOR_FINDINGS_V1.md).
 
 Both currently use delayed speaker processing. They are experimental previews for one checked 44.695-second, 16 kHz file, not general live-microphone releases. A successful preview is not completion of the campaign. Physical screen/touch, sustained operation and real-world speech quality remain unvalidated.
 

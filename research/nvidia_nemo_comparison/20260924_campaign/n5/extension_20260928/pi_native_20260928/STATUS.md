@@ -1,10 +1,16 @@
 # Connected CM5: native work is now the priority
 
-Updated September 29, 2026 12:09 UTC. Read later verified results before acting. The user confirmed connection and authorized Pi testing on September 28. This replaces the older no-Pi-contact condition; it does not rewrite old admissions. Multiday checkpoint remains October 1 at 17:47:34 UTC. Hourly continuation was updated successfully to Pi-first work.
+Updated September 29, 2026 12:56 UTC. Read later verified results before acting. The user confirmed connection and authorized Pi testing on September 28. This replaces the older no-Pi-contact condition; it does not rewrite old admissions. Multiday checkpoint remains October 1 at 17:47:34 UTC. Hourly continuation was updated successfully to Pi-first work.
 
 The user explicitly limits saved audio to functionality, text passage and real-time/CPU/RAM/resource observations, **not new ASR/WER accuracy metrics**. A quiet microphone route is permitted with nobody speaking; that does not establish speech accuracy. No new microphone capture/playback has been started. A read-only ALSA inventory shows an XMOSDevice I2S capture endpoint, currently closed; do not assume the expected USB route or claim a working live route from enumeration alone. Actual speech/noisy-location tests still require physical readiness. Preserve the current app/data, with new backend modes developed separately.
 
 ## Current work / next action
+
+Read CHECK_SUMMARY_V14.json and LIVE_DECIMATOR_FINDINGS_V1.md first. Actual XVF StreamingDecimator imports SciPy and uses a stateful97-tap FIR, distinct from the generic vendor resample_poly path. Native original and NumPy candidate independently pass full constructed-source/irregular/repeat/impulse/quiet/empty checks with fixed1e-7 amplitude tolerance; maximum discrepancy~1.32e-23. Candidate imports noSciPy, peakRSS54.234 versus121.438MiB and construction virtual92.203 versus245.125MiB. Full conversion work0.136 versus0.241s is isolated conditional evidence, not integrated/live/sustained performance. The candidate is NOT integrated into the app and changes neither qualified preview.
+
+Next use a fresh application derivative to validate actual conversion-boundary mapping, combined model passage/memory and Stop/drain before a user-ready live test. Keep original1msdelay/no-appended-tail semantics explicit. Input was constructed48k by repeating each saved16k sample3times, not real recording or accuracy data. No capture/playback. All83owners closed at12:56UTC, originalrc5 identities/install unchanged, no user previews, combined839922251bytes/1GiB. Check later owners/results before action. B01/B05 saved-file previews remain qualified within prior scope; physical UI/live speech/endurance/A2B02/N4N5 remain open.
+
+## Previous preview closure (12:09 UTC; preserved)
 
 **B01 retained-ReDimNet now has a qualified bounded saved-file preview, separate from anonymous B05.** Read CHECK_SUMMARY_V13.json, B01_PREVIEW_FINDINGS_V1.md, B01_PREVIEW_V1_QUALIFICATION.json and README_B01_PREVIEW_V1.md. The unchanged deferred-SciPy source passed early Stop/full same-process restart with actual withdrawn Tk, exact full D1 and19E0 reference windows, label/evidence lineage, copied-archive controls, then actual guarded File/Start/Stop/restart/Close. No visible preview was launched. Source bound user entry is launch_b01_preview_v1.py --mode user; never invoke user mode on an automated wakeup.
 

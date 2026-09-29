@@ -1,3 +1,7 @@
+## September29 12:56UTC — live converter component memory reduction
+
+Read pi_native_20260928/CHECK_SUMMARY_V14.json and LIVE_DECIMATOR_FINDINGS_V1.md. Actual XVF97-tap FIR and unintegrated NumPy candidate pass independent native constructed-input parity at1e-7; candidate avoidsSciPy. Next fresh app integration/mapping/memory/Stop/drain, then user-ready live route. No capture/playback, no unchanged reruns. B01/B05 previews unchanged; all83ownersclosed, originalapp unchanged.
+
 ## September29 11:07UTC — native retained-E0 B01 passage now fits the saved-file cap
 
 Current user overview: [Master backend and mode guide](pi_native_20260928/MASTER_BACKEND_MODE_GUIDE.md). Prioritize actual live-input readiness, then sustained native checks and native A2/B02. Conserve tokens: compact status first, detailed reads only for changed evidence/blockers, no repeated passed tests or Windows sweeps without a Pi-specific reason.

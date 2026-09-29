@@ -1,0 +1,202 @@
+{
+  "updated_utc": "2026-09-29T12:56:35.669358+00:00",
+  "previous_summary": "CHECK_SUMMARY_V13.json",
+  "scope": "Actual native XVF FIR component dependency/memory and unintegrated NumPy candidate; constructed saved inputs only",
+  "reviews": {
+    "live-decimator-reference-v1": {
+      "status": "PASS_NATIVE_ORIGINAL_FIR_COMPONENT_ONLY",
+      "cases": [
+        {
+          "name": "saved_full",
+          "independent_convolution_max_abs": 6.617444900424222e-24,
+          "native_samples": 2145381,
+          "model_samples": 715127
+        },
+        {
+          "name": "saved_irregular",
+          "independent_convolution_max_abs": 1.3234889800848443e-23,
+          "native_samples": 2145381,
+          "model_samples": 715127
+        },
+        {
+          "name": "saved_repeat",
+          "independent_convolution_max_abs": 6.617444900424222e-24,
+          "native_samples": 2145381,
+          "model_samples": 715127
+        },
+        {
+          "name": "impulse_tail",
+          "independent_convolution_max_abs": 0.0,
+          "native_samples": 4801,
+          "model_samples": 1601
+        },
+        {
+          "name": "quiet_short",
+          "independent_convolution_max_abs": 0.0,
+          "native_samples": 1001,
+          "model_samples": 334
+        },
+        {
+          "name": "empty_fresh",
+          "independent_convolution_max_abs": 0.0,
+          "native_samples": 0,
+          "model_samples": 0
+        }
+      ],
+      "tolerance": 1e-07,
+      "memory": {
+        "before_numpy": {
+          "VmPeak": 24412160,
+          "VmSize": 24117248,
+          "VmRSS": 15908864
+        },
+        "after_numpy": {
+          "VmPeak": 96714752,
+          "VmSize": 96714752,
+          "VmRSS": 29425664
+        },
+        "after_app_import": {
+          "VmPeak": 99778560,
+          "VmSize": 99631104,
+          "VmRSS": 32636928
+        },
+        "after_initialization": {
+          "VmPeak": 257097728,
+          "VmSize": 257032192,
+          "VmRSS": 100270080
+        },
+        "terminal": {
+          "VmPeak": 283967488,
+          "VmSize": 272498688,
+          "VmRSS": 116375552
+        }
+      },
+      "peak_rss_bytes": 127336448,
+      "initialization_seconds": 0.4984796099961386,
+      "work_seconds": {
+        "saved_full": 0.2414701248781057,
+        "saved_irregular": 0.43503848375257803,
+        "saved_repeat": 0.2359322451375192,
+        "impulse_tail": 0.0010863310017157346,
+        "quiet_short": 0.0003097950102528557,
+        "empty_fresh": 0.0
+      }
+    },
+    "live-decimator-numpy-v1": {
+      "status": "PASS_NATIVE_NUMPY_FIR_COMPONENT_ONLY",
+      "cases": [
+        {
+          "name": "saved_full",
+          "independent_convolution_max_abs": 0.0,
+          "native_samples": 2145381,
+          "model_samples": 715127,
+          "original_native_max_abs": 6.617444900424222e-24
+        },
+        {
+          "name": "saved_irregular",
+          "independent_convolution_max_abs": 0.0,
+          "native_samples": 2145381,
+          "model_samples": 715127,
+          "original_native_max_abs": 1.3234889800848443e-23
+        },
+        {
+          "name": "saved_repeat",
+          "independent_convolution_max_abs": 0.0,
+          "native_samples": 2145381,
+          "model_samples": 715127,
+          "original_native_max_abs": 6.617444900424222e-24
+        },
+        {
+          "name": "impulse_tail",
+          "independent_convolution_max_abs": 0.0,
+          "native_samples": 4801,
+          "model_samples": 1601,
+          "original_native_max_abs": 0.0
+        },
+        {
+          "name": "quiet_short",
+          "independent_convolution_max_abs": 0.0,
+          "native_samples": 1001,
+          "model_samples": 334,
+          "original_native_max_abs": 0.0
+        },
+        {
+          "name": "empty_fresh",
+          "independent_convolution_max_abs": 0.0,
+          "native_samples": 0,
+          "model_samples": 0,
+          "original_native_max_abs": 0.0
+        }
+      ],
+      "tolerance": 1e-07,
+      "memory": {
+        "before_numpy": {
+          "VmPeak": 24412160,
+          "VmSize": 24117248,
+          "VmRSS": 15925248
+        },
+        "after_numpy": {
+          "VmPeak": 96681984,
+          "VmSize": 96681984,
+          "VmRSS": 29442048
+        },
+        "after_initialization": {
+          "VmPeak": 96681984,
+          "VmSize": 96681984,
+          "VmRSS": 29655040
+        },
+        "terminal": {
+          "VmPeak": 123568128,
+          "VmSize": 112066560,
+          "VmRSS": 45793280
+        }
+      },
+      "peak_rss_bytes": 56868864,
+      "initialization_seconds": 4.255599924363196e-05,
+      "work_seconds": {
+        "saved_full": 0.13582090982527006,
+        "saved_irregular": 0.16277214146248298,
+        "saved_repeat": 0.13428962891339324,
+        "impulse_tail": 0.0003810570124187507,
+        "quiet_short": 9.407399920746684e-05,
+        "empty_fresh": 0.0
+      }
+    }
+  },
+  "closure": {
+    "owned_identities_closed": 83,
+    "original_app_unchanged": true,
+    "user_previews": [],
+    "resources": {
+      "checked_utc": "2026-09-29T12:56:35.669358+00:00",
+      "host_window_bytes": 345492908,
+      "target_bytes": 494429343,
+      "combined_bytes": 839922251,
+      "cap_bytes": 1073741824,
+      "host_free_bytes": {
+        "C:": 112034439168,
+        "G:": 98793054208
+      },
+      "all_owned_native_identities_closed": 83,
+      "host_supervisor_closed": true,
+      "host_owner_checks": [
+        {
+          "pid": 55636,
+          "create_time": 1790637870.806714,
+          "observed": null,
+          "exact_alive": false
+        },
+        {
+          "pid": 55720,
+          "create_time": 1790637870.971314,
+          "observed": null,
+          "exact_alive": false
+        }
+      ],
+      "closure_sha256": "9aec00896138821a1e2611f1473dc57c7b4859dd3d59d1f966badf468798a8b9"
+    }
+  },
+  "next": "Fresh application derivative and integrated conversion/memory/drain checks, then user-ready live route; no unattended capture",
+  "stage_accepted": false,
+  "live_route_qualified": false
+}
