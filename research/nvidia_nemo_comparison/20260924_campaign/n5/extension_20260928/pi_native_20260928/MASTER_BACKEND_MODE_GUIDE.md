@@ -1,10 +1,10 @@
 # Master backend and mode guide — Raspberry Pi
 
-Updated September 29, 2026, 12:29 EDT / 16:29 UTC. This is the current conceptual and engineering overview. Older reports preserve history; use this guide and STATUS.md for current priorities. Latest converter evidence is linked below; qualified preview scope is unchanged.
+Updated September 29, 2026, 12:50 EDT / 16:50 UTC. This is the current conceptual and engineering overview. Older reports preserve history; use this guide and STATUS.md for current priorities. Latest converter evidence is linked below; qualified preview scope is unchanged.
 
 ## Where we are now
 
-No campaign numerical worker or preview is running. Fresh inspection found all 97 recorded research process identities closed, no active research systemd units, and no user preview runs. The original rc5 app is still running with its original process identities and install. The Pi is a Compute Module 5 with 2 GB RAM.
+No campaign numerical worker or preview is running. Fresh inspection found all 101 recorded research process identities closed, no active research systemd units, and no user preview runs. The original rc5 app is still running with its original process identities and install. The Pi is a Compute Module 5 with 2 GB RAM.
 
 Two new **bounded saved-file previews** have native evidence:
 
@@ -17,9 +17,11 @@ Both currently use delayed speaker processing. They are experimental previews fo
 
 The objective is a small set of clearly labelled, ready-to-run Pi modes using the same interface, with predictable caption/label delay, bounded memory/backlog, working Stop/save/reopen/rollback, and measured real-world behavior. We are not trying to run every mathematical combination or make every candidate a winner.
 
-## First actual microphone check
+## Actual microphone path now passes the quiet check
 
-The first user-ready quiet test reached the real I2S device and received priming callbacks, but the XVF audio-processor query failed before any accepted sample or setting change. Capture and the hardware lease closed cleanly. The ordinary live adapter rejected a restart attempt; no reset was sent. A separate one-shot maintenance restart is prepared and awaiting explicit approval because it clears volatile DSP state. See [the hardware failure and next step](QUIET_ROUTE_FAILURE_V1.md). Live B01 speech remains unqualified; saved B01/B05 previews still work within their checked scope.
+After one expressly authorized XVF-only restart, the new 12-second real I2S check passed: 48kHz input converted to16kHz with exact counts, no dropped frames, successful tested-route restoration and clean closure. No audio was saved and no models ran. The earlier failed check/reset rejection remains preserved. The restart cleared volatile state; restoration covers the post-restart test settings. [Recovery evidence and limits](QUIET_ROUTE_RECOVERY_V1.md).
+
+Next is the actual live B01 pipeline with a physically ready speaker, checking caption flow, delayed labels, memory/backlog and Stop/restoration. Quiet source success does not prove live speech quality, simultaneous model operation or sustained fit. Saved B01/B05 previews remain available within their checked scope.
 
 ## User-prioritized ASR activity guidance
 
@@ -90,6 +92,7 @@ Other A1/A3/D0 combinations remain comparators, not priority releases. The 34-me
 | B01 and B05 native saved-file passage and Stop/restart | Source offsets/session identity reset, all full-file samples retained, models/queues/archive handles close naturally | Unbounded runs or live input |
 | Real withdrawn Tk widgets | Caption rendering and relevant controls work with native models without taking the visible desktop | Actual screen fit, touch, scanout or user interaction on the physical device |
 | Copied-archive Save/Open/Delete/cancel | Stored text, labels, spans and histories survive; only fresh copied data is deleted | Every product mode or data migration |
+| Actual quiet I2S route | 12s native input, conversion counts, control readbacks, route restoration and closed capture | Speech/noise quality, live combined B01, acoustic clock calibration or endurance |
 | Guarded previews | Idle startup, selected-file restrictions, actual Start/Stop/restart/Close, no unintended capture/playback, serialized dispatch | A later user's run outcome or general release acceptance |
 
 N1–N3 retain scoped offline acceptance; N2 has 422/422 evaluations. N4's original actual 240-cell application panel remains partial: two collected pending acceptance, two failed, 236 unattempted. Modeled comparisons are not application acceptance. N5 is incomplete and there are zero accepted new final release profiles.
@@ -130,18 +133,18 @@ Credible next optimization work is targeted: actual live-route conversion cost, 
 |---|---|---|
 | Spoken/XVF and restaurant validation | You physically ready for a short agreed session and suitable consented speech | No; software preparation can continue |
 | Physical screen/touch review | User-visible preview and hands-on interaction | No |
-| Live 48-kHz route | Engineering checks of actual route/format/resampling and combined memory | This is the next software gate before claiming live readiness |
+| Live B01 integration | Actual source-only 48kHz route passed; concurrent live models, memory, captions and drainage still need checking | This is the next gate before claiming live B01 readiness |
 | Native A2 / B02 | Component load/state/resource checks, then integration | Blocks the all-Nemotron ASR alternative, not B01 |
 | 30/60-minute tests | Fresh bounded time/resource/output admission and an appropriate long input | Short runs cannot substitute |
 | Previous 1-GiB virtual-cap question | Still unanswered | **No longer blocks the working B01 saved-file route.** No increase has been used. |
 | Alternative D1 ONNX assets | Concrete compatible export/driver and any required acquisition authorization | Not a reason to stop the existing native route |
 
-At the latest closure, combined new outputs used about 801 MB of the 1 GiB allowance, leaving about 260 MiB. Future long tests need bounded logging and a fresh census; do not delete evidence or increase limits silently. Device physical RAM is 2 GB, while the research job's virtual cap is 768 MiB: these are different quantities. The kernel has no memory cgroup controller, and global swap counters do not establish per-job swap-free behavior.
+At the latest closure, combined new outputs used about 940 MB of the 1 GiB allowance, leaving about 128 MiB. Future long tests need bounded logging and a fresh census; do not delete evidence or increase limits silently. Device physical RAM is 2 GB, while the research job's virtual cap is 768 MiB: these are different quantities. The kernel has no memory cgroup controller, and global swap counters do not establish per-job swap-free behavior.
 
 ## Shortest path to real-world validation
 
-1. **Finish the input route:** saved-input diagnostic of the actual sample-rate conversion/dependency path; verify sample counts, timestamps, model passage and memory. Do not assume the inventoried I2S XMOS endpoint is an established USB/live XVF route.
-2. **User-ready quiet-room session:** verify routing, then a short consented spoken passage with B01/B05; inspect real captions, speaker changes, Stop/drain and listening outputs. Silence-only capture checks routing, not speech quality.
+1. **Prepare live B01 integration:** source-only real I2S conversion now passes. Bind that route to the qualified saved-input model/controller path; bound capture, memory and drainage, with explicit failure restoration. Do not claim the combined live path already passed.
+2. **User-ready spoken session:** use a short consented passage with the prepared B01 path; inspect actual captions, delayed speaker changes, Stop/drain and route restoration. The completed quiet check is not speech-quality evidence. Audio saving/listening needs an explicitly agreed recording session.
 3. **Native sustained run:** bounded original-paced 30 minutes, then 60 for a finalist. Track dense-speech backlog, caption/label delay, CPU/RAM, thermals/clocks/throttle, failures and drain. Repeated/constructed input remains a diagnostic, not independent accuracy evidence.
 4. **Real noisy comparisons:** freeze settings first; compare microphone reference, XVF Auto ASR and postprocessed outputs where actual firmware/routing supports them. Preserve simultaneous chronology and paired listening gains. Separate restaurant babble, steady fan/HVAC noise, impacts, quiet/brief speech, overlap and returning speakers. Use known consenting speakers; do not deliberately record unrelated conversations.
 5. **Release:** choose useful modes from measurements, qualify install/update/rollback and physical UI, keep failure behavior explicit, complete remaining acceptance gates, and back up reviewed code/manifests.
@@ -180,4 +183,4 @@ CMD / Anaconda Prompt: use `cd /d G:\Just_Peachy_N1\20260924_campaign\worktree`,
 - Private listening examples: `G:\Just_Peachy_N1\20260924_campaign\local\n5\listening-examples-v1\index.html`. Synthetic scenes through real hardware are not recordings of real conversations; the real cafeteria excerpt is only 0.75 seconds. These examples do not establish restaurant performance.
 - Exact source/model hashes and immutable admissions live in the versioned qualification/review receipts. Audio, transcripts, vectors, personal profiles and weights stay private; reviewed small code/docs go to the campaign Git branch.
 
-Live route update: read-only configuration confirms ALSA XMOS I2S with I2C control, not a USB audio path. Capture remains closed; actual stream/timing/restoration awaits a user-ready bounded session. See [route readiness](LINUX_ROUTE_READINESS_V1.md).
+Live route update: the actual quiet I2S/I2C source, conversion and tested settings restoration passed after the authorized restart. Capture is now closed. Combined live B01, independent acoustic timing and speech/noise quality remain open. See [recovery findings](QUIET_ROUTE_RECOVERY_V1.md); the earlier [read-only route inventory](LINUX_ROUTE_READINESS_V1.md) is preserved.

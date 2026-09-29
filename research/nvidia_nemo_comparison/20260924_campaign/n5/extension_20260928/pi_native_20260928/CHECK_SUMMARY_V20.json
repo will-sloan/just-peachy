@@ -1,0 +1,58 @@
+{
+  "updated_utc": "2026-09-29T16:50:45.641237+00:00",
+  "previous_summary": "CHECK_SUMMARY_V19.json",
+  "scope": "User-authorized single XVF maintenance restart and real quiet I2S source-only retry",
+  "restart_run": "xvf-restart-v2",
+  "restart_status": "PASS_SINGLE_MAINTENANCE_SEND_FIRMWARE_READBACK_ONLY",
+  "quiet_run": "live-ready-user-20260929T164810Z",
+  "quiet_status": "PASS_REAL_QUIET_I2S_SOURCE_AND_RESTORATION_ONLY",
+  "samples": 192000,
+  "native_frames": 576000,
+  "blocks": 1200,
+  "native_rate": 48000,
+  "model_rate": 16000,
+  "filter_delay_seconds": 0.001,
+  "elapsed_seconds": 12.455864518000453,
+  "peak_rss_bytes": 58867712,
+  "capture_closed": true,
+  "hardware_lease_free": true,
+  "route_settings_restored_to_post_restart_snapshot": true,
+  "unreadable_pre_restart_DSP_state_restored": false,
+  "original_app_config_install_unchanged": true,
+  "audio_saved": false,
+  "models_loaded": false,
+  "accuracy_scored": false,
+  "live_B01_qualified": false,
+  "acoustic_clock_calibration": false,
+  "resources": {
+    "checked_utc": "2026-09-29T16:50:45.641237+00:00",
+    "host_window_bytes": 371497105,
+    "target_bytes": 568196096,
+    "combined_bytes": 939693201,
+    "cap_bytes": 1073741824,
+    "host_free_bytes": {
+      "C:": 112020115456,
+      "G:": 98766274560
+    },
+    "all_owned_native_identities_closed": 101,
+    "host_supervisor_closed": true,
+    "host_owners": [
+      {
+        "pid": 55636,
+        "create_time": 1790637870.806714,
+        "observed_create_time": null,
+        "exact_alive": false
+      },
+      {
+        "pid": 55720,
+        "create_time": 1790637870.971314,
+        "observed_create_time": null,
+        "exact_alive": false
+      }
+    ]
+  },
+  "review_sha256": {
+    "xvf-restart-v2": "9b472e366eee0f8e89cf3f96003c70d58caa4f19e8232b623d1188633adc2057",
+    "live-ready-user-20260929T164810Z": "74318fc4cf2791052a42c8c08a2ece5600342aa43a0c123524cc5b40c6078440"
+  }
+}
