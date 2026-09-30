@@ -1,0 +1,93 @@
+{
+  "version": 47,
+  "checked_utc": "2026-09-30T02:05:38.570865+00:00",
+  "scope": "Actual source startup plus parent Start/request-Stop/drain/finalize under native fake-device tests",
+  "status": "PASS_NATIVE_ACTUAL_STARTUP_AND_FACADE_FIVE_FAKE_DEVICE_CASES_ONLY",
+  "cases": [
+    {
+      "case": "stop_pending",
+      "samples": 15360,
+      "native_frames": 46080,
+      "priming_frames": 480,
+      "fault": null,
+      "independent_fir_maxabs": 0.0,
+      "pending_at_stop": 41,
+      "final_pending": 0,
+      "fake_cleanup_order_verified": true
+    },
+    {
+      "case": "empty_stop",
+      "samples": 0,
+      "native_frames": 0,
+      "priming_frames": 480,
+      "fault": null,
+      "independent_fir_maxabs": 0.0,
+      "pending_at_stop": 0,
+      "final_pending": 0,
+      "fake_cleanup_order_verified": true
+    },
+    {
+      "case": "callback_fault",
+      "samples": 960,
+      "native_frames": 2880,
+      "priming_frames": 480,
+      "fault": "LIVE_SOURCE_GAP",
+      "independent_fir_maxabs": 0.0,
+      "pending_at_stop": 0,
+      "final_pending": 0,
+      "fake_cleanup_order_verified": true
+    },
+    {
+      "case": "restore_failure",
+      "samples": 15360,
+      "native_frames": 46080,
+      "priming_frames": 480,
+      "fault": "SOURCE_CLOSE_FAILED",
+      "independent_fir_maxabs": 0.0,
+      "pending_at_stop": 89,
+      "final_pending": 0,
+      "fake_cleanup_order_verified": true
+    },
+    {
+      "case": "start_failure",
+      "samples": 0,
+      "fault": "LiveAudioError",
+      "fake_cleanup_order_verified": true
+    }
+  ],
+  "main_peak_rss_bytes": 34258944,
+  "maximum_child_peak_rss_bytes": 34258944,
+  "elapsed_seconds": 1.16334490099689,
+  "output_bytes": 462500,
+  "owners_closed": 7,
+  "capture": false,
+  "models_loaded": false,
+  "baseline_unchanged": true,
+  "leases_free": true,
+  "hardware_startup_qualified": false,
+  "physical_restoration_qualified": false,
+  "controller_integrated": false,
+  "live_B01_qualified": false,
+  "backup_verified": true,
+  "backup_files": 74,
+  "combined_with_backup_bytes": 1026554,
+  "native_owners_closed": 204,
+  "isolated_host_owners_closed": 48,
+  "combined_bytes": 4415554387,
+  "combined_cap_bytes": 5368709120,
+  "target_free_bytes": 17873047552,
+  "available_ram_bytes": 1585070080,
+  "temperature_c": 52.9,
+  "throttle": "throttled=0x0",
+  "global_swap_context_only": {
+    "pswpin": 3062,
+    "pswpout": 35519
+  },
+  "N4_N5_complete": false,
+  "field_release_accepted": false,
+  "next": [
+    "Fresh autonomous quiet source-child admission for actual PortAudio initialization/resources and hardware route restoration; fake128MiB child fit is not physical-source qualification",
+    "Actual production controller integration must keep consuming accepted audio after request_stop and finalize only after terminal; then changed combined B01 quiet trial",
+    "Sequential Sherpa/A2 actual GUI/controller revisions and archives; focused alternate D1 arithmetic repair retains1e-5 gates"
+  ]
+}

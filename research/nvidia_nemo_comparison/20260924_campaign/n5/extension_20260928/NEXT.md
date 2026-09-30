@@ -1,3 +1,13 @@
+## September30 02:05UTC - source startup/interface qualified with fake hardware
+
+Read CHECK_SUMMARY_V47 / SOURCE_STARTUP_FINDINGS_V1.md. The actual source.start method, original endpoint checks, priming, callbacks and cleanup now run through the isolated facade in five native fake-device cases. Stop with41pendingrawblocks retains all15,360samples and drains tozero. Restoration mismatch and startup failure remain explicit; no device opened or model ran. The parent API is Start/request_stop/read/finalize and refuses premature finalization. Production controller is not yet changed. Private74file backup verified.
+
+1. Bind fresh autonomous-quiet authority to an actual source-child factory and measured PortAudio envelope. The fake child128MiB/25s limit is not evidence of physical startup fit; do not blindly reuse it for capture. Keep hardware lease, pre-change snapshots/readbacks, restoration and exact owners. No playback or solicited speech.
+2. Integrate the facade into a fresh controller/application derivative so request_stop halts admission but continues reading accepted buffers to the terminal. Existing LivePipelineSource stop-event break would discard tails. Check model/source counts and timing before a specifically changed combined B01 quiet trial.
+3. Continue actual sequential Sherpa/A2 GUI/revision/archive/cancel behavior and one focused alternate D1 accumulation-order repair. ARM matches host ORT exactly but not original PyTorch; preserve both1e-5 gates and all failures. No repeated fixture passes or fullgraph exports for progress.
+
+ClosureV92:204Pi/48host owners closed,baseline unchanged,captureclosed,leasesfree. Combined4,415,554,387/5GiB, fixed32GBPi free17,873,047,552bytes. Refresh census/admission before dispatch. Checkpoint October1 17:47:34UTC unchanged.
+
 ## September30 01:49UTC - ARM projection mismatch independently confirmed
 
 Read CHECK_SUMMARY_V46 / D1_PROJECTION_NATIVE_FINDINGS_V1.md. All four natural-feature projections and repeats are exactly equal to host ORT, but differ from original PyTorch by0.000140-0.000235. All1e-5 state gates still fail. Compactgraphload0.0447s,protocol0.3178s,peakRSS68.578MiB; actual envelope and natural closure pass. No complete-runtime repair, waveform/GUI/speedup claim. Private23file target backup verified. No unchanged rerun or largegraph re-export needed.
