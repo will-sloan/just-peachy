@@ -1,0 +1,111 @@
+{
+  "version": 61,
+  "checked_utc": "2026-09-30T07:05:10.569706+00:00",
+  "status": "RETAINED_DEPENDENCY_PINS_AND_CANDIDATE_ROLLBACK_SCOPED_PASS_WITH_STATIC_PUBLICATION_GAP",
+  "compute_active": false,
+  "capture_active": false,
+  "models_loaded": false,
+  "GUI_opened": false,
+  "dependency_entries": 7890,
+  "unique_files": 7847,
+  "unique_logical_bytes": 791871486,
+  "ELF_roots": 228,
+  "mapped_ELFs": 59,
+  "dependency_lock_sha256": "fcbbfdbc281117eff4b7237240456d4a2a2d502fcc15a46aec2f922311903db1",
+  "new_import_probe": false,
+  "retained_probe_only": true,
+  "dependency_probe_scope": "V1 real imports/link without models/stream/Tk root; V2 reuses immutable observation and freshly verifies dependencies",
+  "rejections": 8,
+  "protocol_seconds": 11.864086822009995,
+  "peak_rss_bytes": 55558144,
+  "sampled_aggregate_peak_bytes": 63963136,
+  "storage": {
+    "device_bytes": 31268536320,
+    "free_bytes": 17567064064,
+    "minimum_free_bytes": 5368709120,
+    "pinned_unique_bytes": 791871486,
+    "category_totals": {
+      "dynamic_root": {
+        "files": 3,
+        "bytes": 3575816
+      },
+      "retained_native": {
+        "files": 6,
+        "bytes": 111490096
+      },
+      "runtime": {
+        "files": 6322,
+        "bytes": 357748506
+      },
+      "shared_model": {
+        "files": 8,
+        "bytes": 219771544
+      },
+      "stdlib": {
+        "files": 1455,
+        "bytes": 67698628
+      },
+      "system_elf": {
+        "files": 59,
+        "bytes": 91621478
+      }
+    },
+    "quota_reservation_bytes": 536870912,
+    "incremental_asset_bytes": 0,
+    "incremental_release_bytes": 0,
+    "code_versions_already_present_bytes": 8456594,
+    "remaining_after_private_quota_reservation": 17030193152,
+    "existing_research_already_in_free_space": true
+  },
+  "assets_copied": false,
+  "releases_copied": false,
+  "baseline_activated": false,
+  "baseline_unchanged": true,
+  "capture_closed": true,
+  "leases_free": true,
+  "all_native_identities_closed": 270,
+  "isolated_host_identities_closed": 48,
+  "closure_version": 142,
+  "combined_bytes": 5015212980,
+  "combined_cap_bytes": 5368709120,
+  "combined_headroom_bytes": 353496140,
+  "pi_free_bytes": 17567035392,
+  "pi_available_ram_bytes": 1498857472,
+  "pi_temperature_c": 51.8,
+  "pi_throttle": "throttled=0x0",
+  "backup": {
+    "V1_files": 38,
+    "V1_target_bytes": 22228190,
+    "V2_files": 38,
+    "V2_target_bytes": 148327,
+    "verified": true
+  },
+  "preserved_failure": {
+    "run": "field-dependency-v1",
+    "collector_exit": 0,
+    "worker_termination": "TERM",
+    "output_guard": true,
+    "natural_exit": false,
+    "RESULT_present": false,
+    "rollback_reached": false,
+    "observed_output_bytes": 22218382,
+    "admitted_target_bytes": 16777216,
+    "fresh_host_backup_admission_bytes": 25165824
+  },
+  "static_finding": {
+    "source": "field_dependencies_v2.py",
+    "source_sha256": "ef1880a690b95eabafc0efd4586a823591a50e46aa5afc57ee3aa65a95060dd6",
+    "finding": "activate writes previous/current pointers before bounded history write; history quota rejection can follow pointer mutation",
+    "observed_native_failure": false,
+    "activation_quota_atomicity_qualified": false,
+    "correction_requires_fresh_derivative": true
+  },
+  "limitations": [
+    "Candidate-only metadata, not consumed by original installer; no original rc5 activation or launcher startup",
+    "Retained paths mandatory; no relocation/self-contained installation/endurance/quality acceptance",
+    "Managed writer quota fixture is injected before mutation; it does not qualify activation/history failure semantics",
+    "Compact malformed locks isolate invalid rows; not otherwise complete valid catalogues",
+    "ELF scope is DT_NEEDED plus explicit PortAudio/Tk/Tcl, not every future plugin/resource",
+    "No capture/inference/GUI or rerun of retained import/collection in V2; alternate D1 both1e-5 gates unchanged"
+  ]
+}

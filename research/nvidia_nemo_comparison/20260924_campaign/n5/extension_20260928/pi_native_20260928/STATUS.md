@@ -8,6 +8,8 @@ The user explicitly limits saved audio to functionality, text passage and real-t
 
 ## Current work / next action
 
+**September30 07:05UTC:** CHECK_SUMMARY_V61 / FIELD_DEPENDENCY_FINDINGS_V1: native V2 verifies7,890 retained dependency entries/791,871,486unique bytes, candidate v5-to-v7-to-v5 rollback and8rejections without asset/runtime/release copies or new imports/models/capture/GUI. V1 output-guard TERM/noRESULT/rollback-not-reached preserved with separately admitted38-file backup; V2 compact fixtures/prewrite JSON gate pass,38-file backup verified. Post-run static review finds pointer writes precede history quota validation; transaction failure semantics must be fixed before launcher use. All270Pi/48hostclosed,baselineunchanged,leasesfree;combined5,015,212,980/5GiB. Next fresh prepublication quota correction, then exact-descriptor launcher/health/controller and versioned rollback; no unchanged catalogue/import/capture rerun.
+
 **September30 06:35UTC:** CHECK_SUMMARY_V60 / FIELD_POSTRUN_FINDINGS_V1: fresh offlineB01 v7 passes actual copied-recording GUI Open/Save/Open,448320samples/exact event/audio hashes/zero caption rows,12actions and5diagnostic rejections. Placeholder cache now repaints state changes; five480x800views readable, three explicitly no-capture fixtures. V1cache failure/releasev6 preserved; V59live postcheck remains failed. Native10.157s/RSS56.469MiB/aggregate72.562MiB,zero models/capture.640/656file backups verified. All265Pi/48hostclosed,baselineunchanged,leasesfree;combined4968287292/5GiB. Next shared dependency placement/pinning and versioned activation/rollback, then fresh admitted endurance; no unchanged capture/test rerun.
 
 
