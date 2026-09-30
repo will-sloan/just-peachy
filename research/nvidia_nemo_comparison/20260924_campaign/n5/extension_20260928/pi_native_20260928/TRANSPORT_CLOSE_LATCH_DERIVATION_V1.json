@@ -1,0 +1,26 @@
+{
+  "schema": "transport-close-latch.derivation.v1",
+  "retained_files": {
+    "/home/peachyprototype/JustPeachy/research/nemotron-20260928/field-transport-outputs-v1/isolated_source_transport_budget_v1.py": "caa4e985afa0b6c2002915acdd7198b17211d2cc7a81c4a685984313254883b3",
+    "/home/peachyprototype/JustPeachy/research/nemotron-20260928/field-transport-outputs-v1/field_transport_outputs_v1.py": "e1e8de502898970f36cad3279b5b6789b7857c87425dafa849b39f03157be594",
+    "/home/peachyprototype/JustPeachy/research/nemotron-20260928/field-transport-outputs-v1/field_child_deadline_v1.py": "3347ef59d70b4cf5a2926a179ef1f5f879a9522b72f2f7ac94cefb1094907443",
+    "/home/peachyprototype/JustPeachy/research/nemotron-20260928/field-transport-outputs-v1/field_sidecar_budget_v1.py": "75ff5210270cb4edaa540a1cdd2db12f9c54508d4757482e1b6164f5c69b283c",
+    "/home/peachyprototype/JustPeachy/research/nemotron-20260928/field-transport-outputs-v1/RESULT.json": "1cf9112ef9287f065028ee551e5239984bebb1004504ae6bcc57d59b0e0da881",
+    "/home/peachyprototype/JustPeachy/research/nemotron-20260928/field-transport-outputs-v1/owner-quota-CASE.json": "d7a0a21975197956ff8f021e67fb076f9a7c4d4b10cffaa14f623ee8bba4787d",
+    "/home/peachyprototype/JustPeachy/research/nemotron-20260928/field-transport-outputs-v1/fixtures/owner-quota/closure_reserve/TRANSPORT_CLOSURE.json": "3d1b7ad78068f59e62fff12191e69c8e628236c098c0b1a1efa34563e8a79892",
+    "/home/peachyprototype/JustPeachy/research/nemotron-20260928/field-transport-outputs-v1/ready-quota-CASE.json": "d399d9819d62032b596fc7cf10416a8f946a3f3c1ce0af8dea0aaac40ddce0fc",
+    "/home/peachyprototype/JustPeachy/research/nemotron-20260928/field-transport-outputs-v1/fixtures/ready-quota/closure_reserve/TRANSPORT_CLOSURE.json": "854205a107036bbf67441bf798938c6022d4c5afec47ad33aeddad69bfd2ac5b",
+    "/home/peachyprototype/JustPeachy/research/nemotron-20260928/field-transport-outputs-v1/result-quota-CASE.json": "12fba620e844965ad0577f38322952afc440b406cd2694dcbb0cd58d6cf5b8d1",
+    "/home/peachyprototype/JustPeachy/research/nemotron-20260928/field-transport-outputs-v1/fixtures/result-quota/closure_reserve/TRANSPORT_CLOSURE.json": "3520b1437672bfba588d2c8b2ad5a55bc8761085d4dd8c0e01edec05dd1cf515",
+    "/home/peachyprototype/JustPeachy/research/nemotron-20260928/field-transport-outputs-v1/parent-blocked-CASE.json": "2f7e9b117833ea5852d33fda61190e0585e7b1b8834d4a4c6cf465da72e51803"
+  },
+  "changes": [
+    "Thin subclass persists exact finite SourceFault code/detail after one physical close attempt",
+    "Serializes close callers; fresh exception details per call",
+    "Unexpected exceptions remain failures; first BaseException interruption propagates",
+    "Reject already closed object without recorded outcome",
+    "Dispatcher deduplicates boot/PID/startticks before sampled RSS sum"
+  ],
+  "scope": "Saved V76 failure replay and small detached failure fixtures only",
+  "unchanged": "Retained transport, source, timers, releases, baseline, admissions and policies"
+}
