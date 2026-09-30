@@ -1,0 +1,33 @@
+{
+  "mode": "delayed",
+  "retained_run": "d1-geometry-delayed-lru1-v1",
+  "prefix_samples": 352127,
+  "push_samples": 1600,
+  "pins": {
+    "saved_full.npy": {
+      "bytes": 143168,
+      "sha256": "e037ba0a3c9f9fedaad619c6a8f6637ce8166f2fded0c246bee9846aeae64658"
+    },
+    "saved_full_calls.jsonl": {
+      "bytes": 76596,
+      "sha256": "55a00bc93fb889e83d2546c7e2f01e332bbda3bdf60d480032bbcb776d48100a"
+    },
+    "INPUTS.json": {
+      "bytes": 6877,
+      "sha256": "dd3237653d408cf9afd0238906e1f115c683a89dfbd928280cb94b6d39c0869d"
+    },
+    "RESULT.json": {
+      "bytes": 4482,
+      "sha256": "47d403855370a7adb972cf74aa3d2afe585101399d93b6a7f1ae58f6134e5a8d"
+    },
+    "REVIEW.json": {
+      "bytes": 2078,
+      "sha256": "5c3dff836007f43b5554963ad65fc2aae71bfadf23b39ee9106780a9367def1c"
+    },
+    "source.wav": {
+      "bytes": 1430298,
+      "sha256": "0ee26e8aa6f815d8b202419aafb71ff5bc25093d193e95e972036f488c5040b8"
+    }
+  },
+  "tolerance": 1e-05
+}

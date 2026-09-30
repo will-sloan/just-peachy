@@ -1,0 +1,22 @@
+{
+  "scope": "NEW_DELAYED_FACTORY_ONLY",
+  "sources": {
+    "dispatch_d1_mode_native_v1.py": "afadc95c39d90696c9fcffe4efbaf57c512478c9381950cafb13d2b16504a1b4",
+    "d1_mode_native_v1.py": "455185e2804c169cec559c1d1f913b7b7478ea3e00486fc3ef84828bc0a68b6b",
+    "review_d1_mode_native_v1.py": "78e5adf395351111f41990d3677cf45bc188039b04440516bbe993b68d5dc0fb",
+    "backup_d1_mode_native_v1.py": "37bd6f344ddab05c0210f03bfba16068fdcba5e1a1478b72d063af52f554aea5",
+    "D1_MODE_NATIVE_INPUT_V1.json": "4e3149061dde14e905495bf19019ff2f1a38d41f233612740380b1745076c422",
+    "README_D1_MODE_NATIVE_V1.md": "f133cd8b95515e34cc69a0c3b3fffcd237e73c52e69eee57ea847487cd278c82"
+  },
+  "retained": {
+    "dispatch_field_metadata_budget_v1.py": "558f4be8a32dfb747c8c50916662c6f48bdcf81b2fd26f0d643c8f5dc55a4a9c",
+    "field_metadata_budget_v1.py": "b7a57f4da2191441659c38ce810673f1bfe5f90d23db4517fb9203d4221bc9d6",
+    "field_metadata_envelope_v1.py": "ab62f473587543ab1113449eca75953085eb37ab0bc71938dcd426fd3ea08e2c",
+    "field_outer_budget_v1.py": "a68ced6f30fd44a24720b4a0f467ec6b200a7323cf0455c10d98172d00a22b1c",
+    "field_sidecar_budget_v1.py": "75ff5210270cb4edaa540a1cdd2db12f9c54508d4757482e1b6164f5c69b283c",
+    "d1_modes_v1.py": "8b315f886c1a0707aea6173cef47f8a4459bdd718c88fd247684b8d4a0185616",
+    "D1_MODE_CATALOG_V1.json": "ff431b358c7140addcddd95c313f2ec82272289dce2a9815e8d63b60f6bde7c5"
+  },
+  "unchanged_components_not_retested": true,
+  "full_field_allocation_applied": false
+}
