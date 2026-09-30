@@ -1,9 +1,9 @@
 {
   "schema": "just-peachy.delivery-acceptance.v1",
-  "as_of_utc": "2026-09-30T19:32:31.997384+00:00",
+  "as_of_utc": "2026-09-30T19:44:09.439172+00:00",
   "hard_deadline_utc": "2026-10-01T17:42:44Z",
   "overall": "IN_PROGRESS",
-  "latest_verified_research_summary": "CHECK_SUMMARY_V99.json",
+  "latest_verified_research_summary": "CHECK_SUMMARY_V100.json",
   "gates": [
     {
       "id": "D1_COMPONENTS",
@@ -22,7 +22,7 @@
       "status": "SCOPED_FRESH_PROCESS_STREAMING_PASS_VISIBLE_GENERAL_OPEN",
       "required": true,
       "evidence": "V98 fresh child owner ACK, actual installed Streaming StartStop, five coherent generic/D1 phases, normal reaping/closure; V96 preowner recovery separate",
-      "remaining": "V99 visible return failed; fix negotiated mapping/geometry and stale labels. General repeated modes/failure/concurrency/live/offline remain open",
+      "remaining": "V100 visible inspection/return/close passes. General repeated modes/operator Start/failure-concurrency/live/offline remain open",
       "entry_preparation": "V97 binding used by actual V98 fresh Streaming child; separate V99 inspection child closed, whole visible trial failed"
     },
     {
@@ -33,10 +33,10 @@
     },
     {
       "id": "VISIBLE_GUI_AND_PHYSICAL_CONTROLS",
-      "status": "FAILED_VISIBLE_RETURN_GEOMETRY",
+      "status": "SCOPED_VISIBLE_INSPECTION_PASS_PHYSICAL_LIVE_OPEN",
       "required": true,
-      "evidence": "V99 two readable480x800 pages/actual child Return; returned-parent gate failed, final receipts missing, inherited backend/client labels stale; no touch",
-      "remaining": "Fresh geometry/label correction and whole lifecycle; live/physical controls open"
+      "evidence": "V1003readable480x800screens/exactstablegeometry/correctedheaders/actualchildReturn+parentClose; V99failurepreserved",
+      "remaining": "Positive visible model Start, integrated operator/live actions and physical touch remain unqualified"
     },
     {
       "id": "OFFLINE_STARTUP_AND_OPERATION",

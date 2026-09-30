@@ -1,0 +1,13 @@
+{
+  "status": "EXACT_DOCUMENTATION_BACKUP_VERIFIED",
+  "label": "visible-return-v6",
+  "archive": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\completion-20261001-backups\\visible-return-v6\\NVIDIA_CAMPAIGN_CHATGPT_HANDOFF_20260924_visible-return-v6.zip",
+  "bytes": 34304,
+  "sha256": "2c26d1ea1fa73b3ba7cb2275c46572e0d3ad63d20f575883c0b58135b2fe0af3",
+  "member_count": 15,
+  "cpu_affinity": [
+    14
+  ],
+  "delivery_status": "IN_PROGRESS",
+  "runtime_or_offline_acceptance": false
+}

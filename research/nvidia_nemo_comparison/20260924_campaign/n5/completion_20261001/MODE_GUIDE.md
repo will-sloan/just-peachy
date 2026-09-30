@@ -1,8 +1,8 @@
 # Mode guide: delivery snapshot
 
-Current V99: visible chooser and installed inspection child rendered480x800; actual child Return closed the application. Whole trial FAILED returned-parent mapping/geometry assertion; final launch/visual receipts absent. Two private images also reveal stale baseline backend/client header labels. No model/mic; all5new owners closed,68files297393B exact backup. V98 positive Streaming entry remains separate. Next fresh geometry/label correction, then live/storage integration. See D1_VISIBLE_ENTRY_FINDINGS_V1 and CHECK_SUMMARY_V99.
+Current V100: the changed visible480x800 chooser -> fresh installed inspection child -> Return -> chooser -> Close passed. Geometry now settles at0,0 with recorded states; backend/client labels are corrected. Model/microphone stayed off; all6new owners closed,75files352621B exact backup. V99 remains failed and V98 positive model entry is separate. General operator/live/storage/offline delivery remains open. See D1_VISIBLE_ENTRY_FINDINGS_V2 and CHECK_SUMMARY_V100.
 
-Product mode controls labels/roster; backend selects caption/diarizer/embedding models; D1 geometry controls buffering/context. Availability retains V95 model evidence and V96 pre-owner validation recovery. V98 qualifies one withdrawn Streaming fresh-child passage. V99 visible lifecycle failed after child closure; no general launcher acceptance. Final guide must match the frozen device launcher, not imply every possible combination was tested.
+Product mode controls labels/roster; backend selects caption/diarizer/embedding models; D1 geometry controls buffering/context. Availability retains V95 model evidence and V96 pre-owner validation recovery. V98 qualifies one withdrawn Streaming fresh-child passage. V100 corrected visible inspection lifecycle passed; no general operator/live launcher acceptance. Final guide must match the frozen device launcher, not imply every possible combination was tested.
 
 ## Nemotron-3 diarizer choices
 

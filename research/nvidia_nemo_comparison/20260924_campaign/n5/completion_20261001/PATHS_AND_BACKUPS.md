@@ -1,12 +1,12 @@
 # Consolidated paths, backups and simplification
 
-Current V99: visible chooser and installed inspection child rendered480x800; actual child Return closed the application. Whole trial FAILED returned-parent mapping/geometry assertion; final launch/visual receipts absent. Two private images also reveal stale baseline backend/client header labels. No model/mic; all5new owners closed,68files297393B exact backup. V98 positive Streaming entry remains separate. Next fresh geometry/label correction, then live/storage integration. See D1_VISIBLE_ENTRY_FINDINGS_V1 and CHECK_SUMMARY_V99.
+Current V100: the changed visible480x800 chooser -> fresh installed inspection child -> Return -> chooser -> Close passed. Geometry now settles at0,0 with recorded states; backend/client labels are corrected. Model/microphone stayed off; all6new owners closed,75files352621B exact backup. V99 remains failed and V98 positive model entry is separate. General operator/live/storage/offline delivery remains open. See D1_VISIBLE_ENTRY_FINDINGS_V2 and CHECK_SUMMARY_V100.
 
-Latest private evidence: `local/n5/research-extension-20260928/pi-native-20260928/d1-visible-entry-v1-evidence`; exact68file297393B backup,2privatePNG/rawfailure. Preparation, source/visual review and report-before backup in `d1-visible-entry-v1-preparation`.
+Latest private evidence: `local/n5/research-extension-20260928/pi-native-20260928/d1-visible-entry-v2-evidence`; exact75file352621B backup,3privatePNG/geometry and complete tested lifecycle receipts. Preparation/source/visual review in `d1-visible-entry-v2-preparation`; V1failure untouched.
 
 Previous positive model evidence: `local/n5/research-extension-20260928/pi-native-20260928/d1-process-launch-v1-evidence`; exact72file230842B target backup. Preparation/reader failures remain in `d1-process-launch-v1-preparation`. New launcher/readme and reviewV2 are under the native report directory.
 
-Snapshot updated through V99 visible lifecycle failure; prior recovery/mode passages retain their separate scopes. Resolve current manifests/receipts before execution; old PIDs and census numbers are not current authorization. This index consolidates navigation without moving or deleting evidence.
+Snapshot updated through V100 visible inspection lifecycle; prior recovery/mode passages retain their separate scopes. Resolve current manifests/receipts before execution; old PIDs and census numbers are not current authorization. This index consolidates navigation without moving or deleting evidence.
 
 | Purpose | Exact location |
 |---|---|

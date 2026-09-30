@@ -1,8 +1,8 @@
 # ChatGPT handoff: Just Peachy offline Pi
 
-Current V99: visible chooser and installed inspection child rendered480x800; actual child Return closed the application. Whole trial FAILED returned-parent mapping/geometry assertion; final launch/visual receipts absent. Two private images also reveal stale baseline backend/client header labels. No model/mic; all5new owners closed,68files297393B exact backup. V98 positive Streaming entry remains separate. Next fresh geometry/label correction, then live/storage integration. See D1_VISIBLE_ENTRY_FINDINGS_V1 and CHECK_SUMMARY_V99.
+Current V100: the changed visible480x800 chooser -> fresh installed inspection child -> Return -> chooser -> Close passed. Geometry now settles at0,0 with recorded states; backend/client labels are corrected. Model/microphone stayed off; all6new owners closed,75files352621B exact backup. V99 remains failed and V98 positive model entry is separate. General operator/live/storage/offline delivery remains open. See D1_VISIBLE_ENTRY_FINDINGS_V2 and CHECK_SUMMARY_V100.
 
-Snapshot September30 2026,19:32UTC. **IN_PROGRESS; offline field release not accepted yet.** Deadline October1 17:42:44UTC /13:42:44Toronto. Start with START_HERE and ACCEPTANCE, then the newest verified CHECK_SUMMARY and current STATUS. Branch `codex/n1-foundation-20260924`; exact published HEAD is verified in the latest private REMOTE_BACKUP receipt.
+Snapshot September30 2026,19:44UTC. **IN_PROGRESS; offline field release not accepted yet.** Deadline October1 17:42:44UTC /13:42:44Toronto. Start with START_HERE and ACCEPTANCE, then the newest verified CHECK_SUMMARY and current STATUS. Branch `codex/n1-foundation-20260924`; exact published HEAD is verified in the latest private REMOTE_BACKUP receipt.
 
 ## Objective and architecture
 

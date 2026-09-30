@@ -1,10 +1,10 @@
 # Offline Pi delivery and handoff
 
-Current V99: visible chooser and installed inspection child rendered480x800; actual child Return closed the application. Whole trial FAILED returned-parent mapping/geometry assertion; final launch/visual receipts absent. Two private images also reveal stale baseline backend/client header labels. No model/mic; all5new owners closed,68files297393B exact backup. V98 positive Streaming entry remains separate. Next fresh geometry/label correction, then live/storage integration. See D1_VISIBLE_ENTRY_FINDINGS_V1 and CHECK_SUMMARY_V99.
+Current V100: the changed visible480x800 chooser -> fresh installed inspection child -> Return -> chooser -> Close passed. Geometry now settles at0,0 with recorded states; backend/client labels are corrected. Model/microphone stayed off; all6new owners closed,75files352621B exact backup. V99 remains failed and V98 positive model entry is separate. General operator/live/storage/offline delivery remains open. See D1_VISIBLE_ENTRY_FINDINGS_V2 and CHECK_SUMMARY_V100.
 
 **Hard boundary: October 1, 2026, 13:42:44 Toronto / 17:42:44 UTC.** This is exactly 24 hours after the request was anchored at September30 17:42:44 UTC. It replaces the prospective17:47:34 UTC checkpoint; historical evidence remains unchanged.
 
-Status: **IN_PROGRESS, not offline-ready yet.** Latest attempted visible scope is CHECK_SUMMARY_V99 (failed); latest positive native model entry is V98. Streaming now passed the fresh-child launcher and coherent generic state path; other modes retain separate prior saved-app receipts. See PATHS_AND_BACKUPS and the current remote verification.
+Status: **IN_PROGRESS, not offline-ready yet.** Latest visible inspection scope is CHECK_SUMMARY_V100 (passed); latest positive native model entry is V98. Streaming now passed the fresh-child launcher and coherent generic state path; other modes retain separate prior saved-app receipts. See PATHS_AND_BACKUPS and the current remote verification.
 
 | Document | Purpose |
 |---|---|

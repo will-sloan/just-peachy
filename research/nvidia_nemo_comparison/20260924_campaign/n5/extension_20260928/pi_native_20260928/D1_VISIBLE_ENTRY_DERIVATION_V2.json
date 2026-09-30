@@ -1,0 +1,31 @@
+{
+  "schema": "d1-visible-entry-derivation.v2",
+  "base_status": "V99 FAILED preserved",
+  "sources": {
+    "d1_visible_controls_v1.py": "86c7746071b343af05c59db37ad4f107a69f2ac9c6d358269d863be53b0e27bd",
+    "d1_visible_application_v1.py": "1e71a3cbc45ef1209991e4149fbb55a2a60fb80042f4d0b76b526beae3572b01",
+    "d1_visible_launcher_v1.py": "9e4b2e9cf911376318db2f1ba436773241e5b5fa5754fd64e15ad052df681baa",
+    "dispatch_d1_visible_entry_v1.py": "a4db785916af018217c057df9f5ab38ff2f2afe91504a8a8afb9e071e8ba8baa",
+    "review_d1_visible_entry_v1.py": "7fa5cda04b5e6bd260b2f0d37234cf692ca02d0e8be3bff6644e355b79b170d3",
+    "backup_d1_visible_entry_v1.py": "af548431c5931f887660cc0923facf84686a4d6814dd198cd8c01c64a8d7da28"
+  },
+  "new_sources": {
+    "d1_visible_controls_v2.py": "ec0e70d8d4ddf52891c6790cea12064fdfbdc91ac40db57c3eff2b9b0063d194",
+    "d1_visible_application_v2.py": "958d8470686cce6e90bbb7b192ad7585ad53dc49e28a77231cdce37d54011fca",
+    "d1_visible_launcher_v2.py": "5a35593dd0e64820ecd8436ef43e5b6bea4acf2b31b95e9dc6db800a373eca83",
+    "dispatch_d1_visible_entry_v2.py": "4b8433770f43a9ea5dc1e78858eedb3e62f0d435ff12833ddb11d938576599c3",
+    "review_d1_visible_entry_v2.py": "31f6dc859d8618995644c5147c9f850081127e21cfbaccd7deb019a61258502f",
+    "backup_d1_visible_entry_v2.py": "59e274ef97834376150c363119ac12593237d9a15ddc387e498b031a8de49409"
+  },
+  "changed": [
+    "bounded stable geometry negotiation and diagnostics",
+    "accurate backend/client labels"
+  ],
+  "unchanged": [
+    "owner handshake and supervisor AST",
+    "gate/worker guard AST except module target",
+    "model disabled",
+    "original install/config/orientation"
+  ],
+  "host_fixture_cases": 4
+}

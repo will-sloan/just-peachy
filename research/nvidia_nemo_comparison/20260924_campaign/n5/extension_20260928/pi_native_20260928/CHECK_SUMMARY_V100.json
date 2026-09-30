@@ -1,0 +1,329 @@
+{
+  "schema": "pi-native-check-summary.v100",
+  "checked_utc": "2026-09-30T19:44:09.439172+00:00",
+  "status": "PASS_VISIBLE_D1_ENTRY_INSPECTION_AND_RETURN_ONLY",
+  "run": "d1-visible-entry-v2",
+  "scope": "Single visible480x800 inspection chooser/fresh installed child/Return/chooser/Close; model remains disabled",
+  "source_samples": 0,
+  "frames": 0,
+  "model_loaded": false,
+  "capture": false,
+  "visible_lifecycle": {
+    "actual_installed_constructors": true,
+    "exact_owner_ack_before_constructor": true,
+    "selected_profile_bound": true,
+    "actual_disabled_Start_no_worker": true,
+    "actual_child_Return": true,
+    "child_reaped_before_parent_return": true,
+    "actual_parent_Close": true,
+    "LAUNCH_CLOSURE": true,
+    "VISIBLE_LIFECYCLE": true,
+    "command_worker_joined": true,
+    "app_lease_released": true,
+    "Tk_destroyed": true,
+    "physical_touch": false
+  },
+  "headers": {
+    "backend": "Nemotron-3 Diarizer / Streaming / not loaded",
+    "client": "480 x 800",
+    "mode": "Nemotron D1 / Streaming"
+  },
+  "geometry": {
+    "chooser": {
+      "states": [
+        {
+          "phase": "before_show",
+          "state": "withdrawn",
+          "mapped": false,
+          "viewable": false,
+          "geometry": "1x1+0+0",
+          "x": 0,
+          "y": 0,
+          "width": 1,
+          "height": 1,
+          "fullscreen": false
+        },
+        {
+          "phase": "after_map_request",
+          "state": "normal",
+          "mapped": true,
+          "viewable": true,
+          "geometry": "480x800+0+62",
+          "x": 0,
+          "y": 62,
+          "width": 480,
+          "height": 800,
+          "fullscreen": false
+        },
+        {
+          "phase": "after_fullscreen_request",
+          "state": "normal",
+          "mapped": true,
+          "viewable": true,
+          "geometry": "480x800+0+0",
+          "x": 0,
+          "y": 0,
+          "width": 480,
+          "height": 800,
+          "fullscreen": true
+        },
+        {
+          "phase": "settle",
+          "state": "normal",
+          "mapped": true,
+          "viewable": true,
+          "geometry": "480x800+0+0",
+          "x": 0,
+          "y": 0,
+          "width": 480,
+          "height": 800,
+          "fullscreen": true
+        }
+      ],
+      "final": {
+        "state": "normal",
+        "mapped": true,
+        "viewable": true,
+        "geometry": "480x800+0+0",
+        "x": 0,
+        "y": 0,
+        "width": 480,
+        "height": 800,
+        "fullscreen": true
+      },
+      "observations": 10,
+      "stable_observations": 10,
+      "seconds": 0.18152063700836152,
+      "required_geometry": "480x800+0+0",
+      "success": true
+    },
+    "child": {
+      "states": [
+        {
+          "phase": "before_show",
+          "state": "withdrawn",
+          "mapped": false,
+          "viewable": false,
+          "geometry": "1x1+0+0",
+          "x": 0,
+          "y": 0,
+          "width": 1,
+          "height": 1,
+          "fullscreen": false
+        },
+        {
+          "phase": "after_map_request",
+          "state": "normal",
+          "mapped": true,
+          "viewable": true,
+          "geometry": "480x800+0+62",
+          "x": 0,
+          "y": 62,
+          "width": 480,
+          "height": 800,
+          "fullscreen": false
+        },
+        {
+          "phase": "after_fullscreen_request",
+          "state": "normal",
+          "mapped": true,
+          "viewable": true,
+          "geometry": "480x800+0+0",
+          "x": 0,
+          "y": 0,
+          "width": 480,
+          "height": 800,
+          "fullscreen": true
+        },
+        {
+          "phase": "settle",
+          "state": "normal",
+          "mapped": true,
+          "viewable": true,
+          "geometry": "480x800+0+0",
+          "x": 0,
+          "y": 0,
+          "width": 480,
+          "height": 800,
+          "fullscreen": true
+        }
+      ],
+      "final": {
+        "state": "normal",
+        "mapped": true,
+        "viewable": true,
+        "geometry": "480x800+0+0",
+        "x": 0,
+        "y": 0,
+        "width": 480,
+        "height": 800,
+        "fullscreen": true
+      },
+      "observations": 10,
+      "stable_observations": 10,
+      "seconds": 0.19114810301107354,
+      "required_geometry": "480x800+0+0",
+      "success": true
+    },
+    "returned": {
+      "states": [
+        {
+          "phase": "before_show",
+          "state": "withdrawn",
+          "mapped": false,
+          "viewable": false,
+          "geometry": "480x800+0+0",
+          "x": 0,
+          "y": 0,
+          "width": 480,
+          "height": 800,
+          "fullscreen": false
+        },
+        {
+          "phase": "after_map_request",
+          "state": "normal",
+          "mapped": true,
+          "viewable": true,
+          "geometry": "480x800+0+62",
+          "x": 0,
+          "y": 62,
+          "width": 480,
+          "height": 800,
+          "fullscreen": false
+        },
+        {
+          "phase": "after_fullscreen_request",
+          "state": "normal",
+          "mapped": true,
+          "viewable": true,
+          "geometry": "480x800+0+0",
+          "x": 0,
+          "y": 0,
+          "width": 480,
+          "height": 800,
+          "fullscreen": true
+        },
+        {
+          "phase": "settle",
+          "state": "normal",
+          "mapped": true,
+          "viewable": true,
+          "geometry": "480x800+0+0",
+          "x": 0,
+          "y": 0,
+          "width": 480,
+          "height": 800,
+          "fullscreen": true
+        }
+      ],
+      "final": {
+        "state": "normal",
+        "mapped": true,
+        "viewable": true,
+        "geometry": "480x800+0+0",
+        "x": 0,
+        "y": 0,
+        "width": 480,
+        "height": 800,
+        "fullscreen": true
+      },
+      "observations": 10,
+      "stable_observations": 10,
+      "seconds": 0.18150474797585048,
+      "required_geometry": "480x800+0+0",
+      "success": true
+    }
+  },
+  "child_supervision": {
+    "soft_ns": 158398446104107,
+    "hard_ns": 158400446104107,
+    "terminate_sent": false,
+    "kill_sent": false,
+    "abort": false,
+    "returncode": 0,
+    "reaped_ns": 158342102801574,
+    "pid": 58158
+  },
+  "visual_review": {
+    "status": "THREE_PRIVATE_PNGS_VISUALLY_REVIEWED",
+    "files": {
+      "chooser": "3ef2cf9daa7aab9525da4dc9cf6113af3728b25c88ca2218863259b05a2ae036",
+      "child": "b908b75fa289ccbdcb9b1cc16a174339ce8d0db4e86d7fd91681bbef6c721628",
+      "returned": "3c337e5973d2a8970bcdfcd69be911f0a29a38470d2589a05fb19b4f6ef4eb09"
+    },
+    "observations": [
+      "chooser three mode cards/selected Streaming/Open/Close readable",
+      "child mode/not-loaded backend/client480x800/disabledStart/Return readable",
+      "returned chooser completion state/disabled Open/Close readable",
+      "old Baseline/Giga/Pyannote and client-check-pending labels absent"
+    ],
+    "physical_touch": false,
+    "whole_field_release": false
+  },
+  "resources": {
+    "protocol_seconds": 3.4977680040174164,
+    "child_seconds": 1.5332004390074871,
+    "parent_peak_rss_bytes": 32309248,
+    "child_peak_rss_bytes": 55869440,
+    "sampled_unique_owner_peak_bytes": 108871680,
+    "resource_rows": 14,
+    "minimum_available_ram_bytes": 1342062592,
+    "temperature_range_c": [
+      52.9,
+      54.55
+    ],
+    "clock_khz_range": [
+      2400000,
+      2400000
+    ],
+    "throttle": [
+      "throttled=0x0"
+    ]
+  },
+  "backup": {
+    "files": 75,
+    "bytes": 352621,
+    "exact": true
+  },
+  "closure": {
+    "recorded_pi_closed": 390,
+    "prior_isolated_host_closed": 48,
+    "field_host_workers_closed": 2,
+    "console_helper_closed": 1,
+    "nonidentity_receipts": 3,
+    "baseline_unchanged": true,
+    "capture_closed": true,
+    "leases_free": true,
+    "research_active": false
+  },
+  "storage": {
+    "combined_output_bytes": 5312171469,
+    "output_headroom_bytes": 56537651,
+    "total_payload_including_reservations": 55707431752,
+    "payload_headroom_bytes": 127143096,
+    "measured_before_later_metadata": true
+  },
+  "pi": {
+    "target_free_bytes": 17430798336,
+    "available_ram_bytes": 1427292160,
+    "temperature_c": 54.55,
+    "throttle": "throttled=0x0"
+  },
+  "changed_host_checks": {
+    "count": 4,
+    "fixtures": "clock/root/writer stand-ins",
+    "native_geometry_credit": false
+  },
+  "preserved_failures": [
+    "V99 whole trial remains FAILED; missing old actual geometry prevents exact old root-cause claim"
+  ],
+  "unqualified": [
+    "General persistent/repeated operator launcher",
+    "Positive visible model Start/live source/model/storage integration",
+    "Physical touch/offline startup/field release",
+    "Timeout/GIL/descendant/output-rejection/native failure stress",
+    "New model accuracy/speed/quality"
+  ],
+  "next_step": "Integrate actual operator run capability with corrected live source/model/storage under one compact per-producer/layout contract; reuse V100 visible controls and V98 owner handshake, no healthy UI/model rerun for a version. Full148MiB V3 still unadmitted.",
+  "hard_deadline_utc": "2026-10-01T17:42:44Z"
+}
