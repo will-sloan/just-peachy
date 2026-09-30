@@ -1,3 +1,9 @@
+## September30 10:31UTC - installed archive overlay passes
+
+CHECK_SUMMARY_V71 / FIELD_ARCHIVE_OVERLAY_FINDINGS_V1: the thin retained-file overlay passes installed v12 health and actual Controller/FieldArchiveStore policy propagation, 16 rejections and an empty no-audio epoch. No engine, models, source or GUI ran; no full release or catalogue was copied. Private backup: 81 files/364581 bytes verified. All314 Pi/48 host identities are closed and the original baseline is unchanged. Capture, pipeline start and interchange are explicitly disabled in this qualification entry.
+
+Next adapt compact dependency binding, single-state publication and the guarded launcher to the exact overlay source/descriptor/config, current private data and n2_runtime. The old five-change binding is insufficient. Then assign/enforce complete source/TRACE/control/log/telemetry/failure-tail limits and refresh the whole target+host allocation. No policy increase or capture admission yet; do not repeat passed overlay, writer, constructor, model or capture cases.
+
 ## September30 10:14UTC - reserved shutdown metadata passes native boundaries
 
 **September30 10:14UTC:** CHECK_SUMMARY_V70 / FIELD_ARCHIVE_FINALIZATION_FINDINGS_V1: explicit32KiB initial/24KiB runtime reserve passes10nativecases, including32760-byte initial metadata with exact94500-byte late failure, bounded late-detail fallback and joined PARTIAL receipts. Over256KiB diagnostic explicitly fails retention/close; whole synthetic fixture preserved. No audio/models/GUI.63file/893802byte backup verified;all312Pi/48hostclosed,baseline unchanged. Next small installed policy/health/store overlay and dependency/launcher binding, then complete whole-run allocation. Component sumunchanged;80+80MiB remains unadmitted, no policy changed.
