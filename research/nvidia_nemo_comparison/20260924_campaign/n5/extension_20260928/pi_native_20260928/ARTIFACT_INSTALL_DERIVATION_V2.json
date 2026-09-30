@@ -1,0 +1,19 @@
+{
+  "repairs": {
+    "field_entry_artifact_v2.py": {
+      "source": "field_entry_artifact_v1.py",
+      "target": "field_entry_artifact_v2.py",
+      "prior_actual_sha256": "ea56f6857b0a00145cc1baaa8ed9f9cb52b0bff0bf9b9107d1ed08c4e65e941a",
+      "new_sha256": "17db224acfe41e7fc6ae1beaf2ac401e63529a019bdba6aa3aa7c45dab979a90",
+      "intended_utf8_sha256": "17db224acfe41e7fc6ae1beaf2ac401e63529a019bdba6aa3aa7c45dab979a90"
+    },
+    "controller_artifact_v2.py": {
+      "source": "controller_artifact_v1.py",
+      "target": "controller_artifact_v2.py",
+      "prior_actual_sha256": "40b12e5e6d83efbdc0668ba86fd41de647ea88fd96a1c70b6428237fe633a33c",
+      "new_sha256": "e2910982ab1afb764b7c84b6aab460f2f8f967b7aec1b6e6f00ace6fa016e1dd",
+      "intended_utf8_sha256": "e2910982ab1afb764b7c84b6aab460f2f8f967b7aec1b6e6f00ace6fa016e1dd"
+    }
+  },
+  "reason": "Explicit UTF-8 reconstruction exactly matching V1 intended Unicode source; V1 raw bytes preserved"
+}

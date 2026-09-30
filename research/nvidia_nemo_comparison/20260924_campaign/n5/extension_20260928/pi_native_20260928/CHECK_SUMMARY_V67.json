@@ -1,0 +1,79 @@
+{
+  "version": 67,
+  "checked_utc": "2026-09-30T09:27:05.399084+00:00",
+  "status": "PASS_INSTALLED_ARTIFACT_BINDING_AND_ACTUAL_NATIVE_FACTORY_ONLY",
+  "success": true,
+  "compute_active": false,
+  "capture_active": false,
+  "GUI_opened": false,
+  "baseline_activated": false,
+  "baseline_unchanged": true,
+  "capture_closed": true,
+  "leases_free": true,
+  "scope": "No live/source start, model, GUI, pointer activation or long-run acceptance",
+  "rejections": 8,
+  "installed_version": "b01-offline-20260930-v12",
+  "manifest_sha256": "274e6de279264f89642e3857c64bf164c699b600cd99e922429020b548bf55f0",
+  "package": {
+    "status": "BUILT",
+    "archive": "/home/peachyprototype/JustPeachy/research/nemotron-20260928/field-artifact-install-v2/archives/just-peachy-b01-offline-20260930-v12.zip",
+    "sha256": "bec1027cda192b111c02d9ac3462ebf335661e788bae381b693e85a84a90833a",
+    "bytes": 1239560,
+    "file_count": 305,
+    "version": "b01-offline-20260930-v12"
+  },
+  "artifact_limits": {
+    "schema": "just-peachy.artifact-limits.v1",
+    "native_journal_bytes": 16777216,
+    "conversation_journal_bytes": 16777216,
+    "pcm_max_frames": 2080000,
+    "sample_rate": 16000,
+    "interchange": "UNQUALIFIED_FOR_EXTENDED_ARCHIVES"
+  },
+  "artifact_limits_canonical_sha256": "6b066469dc6baca11450d3710928a282416eadb5a17dcaa557a6c797191d89fd",
+  "protocol_seconds": 1.4185364169970853,
+  "peak_rss_bytes": 43909120,
+  "sampled_aggregate_peak_bytes": 59146240,
+  "native_factory_executed": true,
+  "actual_N2Engine_constructor_executed": true,
+  "pipeline_start_called": false,
+  "source_boundaries_executed": false,
+  "empty_epoch_samples": 0,
+  "empty_wav_bytes": 44,
+  "model_loads": 0,
+  "closure_version": 159,
+  "all_native_identities_closed": 306,
+  "isolated_host_identities_closed": 48,
+  "nonidentity_closure_receipts": 2,
+  "combined_bytes": 5252321870,
+  "combined_cap_bytes": 5368709120,
+  "combined_headroom_bytes": 116387250,
+  "pi_free_bytes": 17444790272,
+  "pi_available_ram_bytes": 1449803776,
+  "pi_temperature_c": 52.35,
+  "pi_throttle": "throttled=0x0",
+  "backups": [
+    {
+      "run": "field-artifact-install-v1",
+      "files": 668,
+      "target_bytes": 10162243,
+      "verified": true
+    },
+    {
+      "run": "field-artifact-install-v2",
+      "files": 689,
+      "target_bytes": 10346152,
+      "verified": true
+    }
+  ],
+  "limitations": [
+    "V1 invalid CP1252 controller bytes remain a failed release; intended UTF8 derivation hashes did not equal actual V1 bytes",
+    "V2 dispatcher read-only owner wildcard rejection occurred before staging; fresh V3 dispatcher validates typed identity/closure schemas",
+    "Only actual constructor/factory/archive propagation passed; no begin/start_xvf/start_file/model/capture/GUI/endurance qualification",
+    "No candidate pointer or original baseline activation; old dependency pin document does not yet bind the new artifact contract",
+    "No unchanged large fixture copied; header-only WAV is not a recording",
+    "Legacy external interchange8MiBmember/32MiBunpacked remains unchanged",
+    "V65 capture/finalization failure is not retroactively passed",
+    "Remaining output headroom is below prior128MiB whole-allocation proposal; no later capture admission follows automatically"
+  ]
+}

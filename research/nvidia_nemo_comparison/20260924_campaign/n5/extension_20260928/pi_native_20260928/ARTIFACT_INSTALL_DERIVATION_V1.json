@@ -1,0 +1,14 @@
+{
+  "field_entry_artifact_v1.py": {
+    "source_sha256": "356a8de7859be4f023d985f4c82de7030133b1b7645df8d0fe3c5ff67f57ba05",
+    "derivative_sha256": "17db224acfe41e7fc6ae1beaf2ac401e63529a019bdba6aa3aa7c45dab979a90"
+  },
+  "field_archive_v3.py": {
+    "source_sha256": "3ba9c22dec648ea8bd6c880338f9e56fcb2c4fd085ac3289c0787f7c7243f09f",
+    "derivative_sha256": "b7fc04ad992554613783865449569bc6d88235aa5c6afbc175e97654ccc778ef"
+  },
+  "controller_artifact_v1.py": {
+    "source_sha256": "00fea2e26d5f704518dd1cbef58633bdd0b7335f59e898d8708d238b4568783f",
+    "derivative_sha256": "e2910982ab1afb764b7c84b6aab460f2f8f967b7aec1b6e6f00ace6fa016e1dd"
+  }
+}
