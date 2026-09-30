@@ -1,3 +1,9 @@
+## September30 16:00UTC - actual diarizer application Stop boundary
+
+**September30 16:00UTC:** CHECK_SUMMARY_V90 / D1_APPLICATION_SAVED_FINDINGS_V1: actual installed Controller/withdrawn UI selection/Start/Stop reached with Streaming, but two trials remain FAILED. V1 holder-Frame invocation fixed only in fresh V2. V2 processed19200samples/121frames,104 pre-EOF exactly match reference;17EOF frames unmatched. New ceil-count assertion expected120, so Stop success state failed; actual source/model/stream/bundle and worker closed. Both failures/raw evidence backed up (44files137677B +55files154653B), all364Pi/48priorhost+2fieldworkers/1helper closed; baseline unchanged. Next bind/fix exact endpoint count in fresh derivative; no new speedup/accuracy/live readiness. ASR secondary.
+
+Read the preserved exact endpoint failure and source derivation before any fresh app dispatch. All compute is closed. FullV3 fails both caps; use a small measured D1 admission, not a quota reset.
+
 ## September30 15:27UTC - three guarded factory paths checked
 
 **September30 15:27UTC:** CHECK_SUMMARY_V89 / D1_CHUNK52_BINDING_FINDINGS_V1: NEW chunk52 selected-model path passes70327 samples/440 frames;416 pre-EOF frames exactly match retained reference,24 EOF frames accounting-only. Actual CABI/all libraries/explicit session/native closure verified; no old boundary-case reruns.43file/139541B exact backup;all360Pi/48priorhost+2fieldworkers/1helper closed,baseline unchanged. All three guarded factories now have scoped native passages, but application Start remains unbound.1.715s startup prefix is not sustained speedup. Next actual application selection-to-Start/Stop integration; ASR secondary.

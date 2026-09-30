@@ -1,0 +1,73 @@
+{
+  "mode": "streaming",
+  "retained_run": "d1-geometry-stream-lru8-a76-v1",
+  "prefix_samples": 35127,
+  "push_samples": 1600,
+  "pins": {
+    "saved_full.npy": {
+      "bytes": 143168,
+      "sha256": "ac53d593638c416444c575826f608e85eda8561b2f76fb9cf5aa7925776f0c65"
+    },
+    "saved_full_calls.jsonl": {
+      "bytes": 77185,
+      "sha256": "757b0fdebeddd50cdcbb5db9cafd22a677ff88ae910f79e8aa1fe1a6d88500f6"
+    },
+    "INPUTS.json": {
+      "bytes": 6876,
+      "sha256": "8cf31558d2f7fefff929c2ffba0942c21ef137c502d037ac306a727952deff31"
+    },
+    "RESULT.json": {
+      "bytes": 4469,
+      "sha256": "464f534bb3b6c688d0ab5df23f3ea2715abe8cac60bd7a172c42b0236f778058"
+    },
+    "REVIEW.json": {
+      "bytes": 2085,
+      "sha256": "f1f59a46c08a756ecdd53686cc572af069497885b45600062f25cc60688035fc"
+    },
+    "source.wav": {
+      "bytes": 1430298,
+      "sha256": "0ee26e8aa6f815d8b202419aafb71ff5bc25093d193e95e972036f488c5040b8"
+    }
+  },
+  "tolerance": 1e-05,
+  "installed_n2_source": "/home/peachyprototype/JustPeachy/research/nemotron-20260928/field-artifact-install-v2/deployment/releases/b01-offline-20260930-v12/app/n2_models.py",
+  "installed_n2_sha256": "d00c24ad71d6f2c0cf193425e01b489aecceeb85d47006a52f63770fca9cba05",
+  "prototype": "/home/peachyprototype/JustPeachy/research/nemotron-20260928/field-artifact-install-v2/deployment/releases/b01-offline-20260930-v12",
+  "session_id": "d1-application-saved-v2",
+  "availability": {
+    "delayed": {
+      "receipt": "D1_SAVED_DELAYED_RECEIPT_V1.json",
+      "sha256": "5e135780843283068473d58a4a5456d33e9646935720201aebb7199248db1d5f",
+      "status": "PASS_NEW_DELAYED_FACTORY_PASSAGE_ONLY",
+      "scope": "native factory passage only"
+    },
+    "streaming": {
+      "receipt": "D1_SAVED_STREAMING_RECEIPT_V1.json",
+      "sha256": "ce473ee8525096fa2b5c6e557a9f1a7bc2789f1db3bd7c0749b5dc663c560b9d",
+      "status": "PASS_STREAMING_SELECTED_MODEL_BINDING_ONLY",
+      "scope": "native passage; selected model binding"
+    },
+    "chunk52": {
+      "receipt": "D1_SAVED_CHUNK52_RECEIPT_V1.json",
+      "sha256": "41558e598efc0fbb007618af08975ed20ef27425b09964248ef49fbe45f9412e",
+      "status": "PASS_CHUNK52_SELECTED_MODEL_BINDING_ONLY",
+      "scope": "native passage; selected model binding"
+    }
+  },
+  "installed_files": {
+    "app/controller.py": "e2910982ab1afb764b7c84b6aab460f2f8f967b7aec1b6e6f00ace6fa016e1dd",
+    "app/ui.py": "42b8095d9627af14f6c89b5aabb0f3152d7605805075574b4adc7631885d0d86",
+    "app/paths.py": "d15788389b14471914846634d4f76647f5578e6723e8d6373b00f1730de8bba3",
+    "app/n2_models.py": "d00c24ad71d6f2c0cf193425e01b489aecceeb85d47006a52f63770fca9cba05",
+    "app/pipeline.py": "0ff46fc53138f74dcc7da4c2841beaf185fad1b068633ef4fbfe6eca7e000ac7",
+    "app/people.py": "9005a8c987961100c45fdb63ddb23d2969a4e690b8f5e78141ed6571b5714ea5",
+    "app/sessions.py": "dfae2e6cd4ddda9adad586385232f1e864f675c7008fc46ad28274fd619052d5",
+    "app/session_controller.py": "971808c03a44bf036278b4760821839809ef3bef4e1a810f213625f3dba64c4a",
+    "release_tools/runtime_lock.py": "23b6b650a19f8c8d78af8dd1b842368f0f0ac315f2b3ce638b454db1e570134d",
+    "config/ui.json": "31c036ae30cf557e5489dad90a8d647bbba9deb5234285f81ef059c070b37b19",
+    "config/assets.json": "2cd9bccf7d89bc4ee3c142c89167f3217325934ba48800ec3e7f1769c6b4cda7",
+    "config/release_capabilities.json": "b80da82c6c0d85995574e9c31c3f075576b900332d0596636c6a610e93a83a05",
+    "native/field_artifact_limits_v1.py": "c4fdc7fa8e5cd83dcc20d2fa79e44d098298c2fb857813a1cf43d19849f3f9a8",
+    "RELEASE_MANIFEST.json": "274e6de279264f89642e3857c64bf164c699b600cd99e922429020b548bf55f0"
+  }
+}

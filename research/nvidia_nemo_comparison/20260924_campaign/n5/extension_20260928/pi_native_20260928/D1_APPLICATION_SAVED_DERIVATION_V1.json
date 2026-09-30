@@ -1,0 +1,21 @@
+{
+  "schema": "d1-application-saved-derivation.v1",
+  "parents": {
+    "dispatch_d1_chunk52_binding_v1.py": "43513bd0775c897b608cc0fe196af70cb9d584f781d6c4f80b8b6e6d0a146973",
+    "d1_model_binding_v1.py": "a15b2e489d5c0613bd90b78db977f6959e6d70ffe8b4b8c8075b51a9f38d5064",
+    "d1_modes_v1.py": "8b315f886c1a0707aea6173cef47f8a4459bdd718c88fd247684b8d4a0185616",
+    "field_sidecar_budget_v1.py": "75ff5210270cb4edaa540a1cdd2db12f9c54508d4757482e1b6164f5c69b283c"
+  },
+  "changes": [
+    "new full installed app saved-only extension",
+    "frozen selection/one acquisition; actual file reader and worker Stop/join",
+    "metadata close mapped to app_receipts; base DATA_SCHEMA prepared before constructor",
+    "new selection request from actual UI action; legacy nonlaunchable schema used only internally by unchanged binding adapter"
+  ],
+  "limitations": [
+    "no physical rendering/touch/live capture",
+    "old RuntimeLock retained, 4096 bytes reserved, no new I/O-failure qualification",
+    "constructor-failure cleanup remains unqualified; failed unknown cleanup retains ownership",
+    "full V3 unadmitted; this scope only"
+  ]
+}

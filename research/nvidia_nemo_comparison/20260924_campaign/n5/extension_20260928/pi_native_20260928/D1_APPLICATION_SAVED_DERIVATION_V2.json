@@ -1,0 +1,11 @@
+{
+  "schema": "d1-application-saved-derivation.v2",
+  "parents": {
+    "d1_application_saved_v1.py": "9cae671d7e608c7f66446f7f9c25e17d2583c0d829077ba41b973a48136279c8",
+    "d1_application_saved_protocol_v1.py": "94d9970df8297953087d162c6978dd7443cc1bf843d6601a04896bee58b44778",
+    "dispatch_d1_application_saved_v1.py": "e65b91e96a63557389ea8cc6d904d04eb532a525b8c394b71defea77880c90a4"
+  },
+  "fix": "Use actual PrototypeUI.button holder.button and key-based actions registration, not the holder Frame as a Button. Model/source/Stop implementation unchanged.",
+  "old_failure": "d1-application-saved-v1 preserved, exact 44file137677byte backup; no model start reached",
+  "new_scope": "fresh changed widget binding followed by actual selection-to-model/source Start/Stop, not a healthy constructor-only rerun"
+}
