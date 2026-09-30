@@ -1,0 +1,114 @@
+{
+  "version": 49,
+  "checked_utc": "2026-09-30T02:44:37.205715+00:00",
+  "scope": "Actual application source constructor and Controller Stop boundary with explicit model-free engine shell",
+  "status": "PASS_NATIVE_ISOLATED_PIPELINE_AND_CONTROLLER_STOP_BOUNDARIES_ONLY",
+  "cases": [
+    {
+      "case": "stop_tail",
+      "journal_samples": 15360,
+      "source_samples": 15360,
+      "independent_fir_maxabs": 0.0,
+      "pending_raw_at_stop": 40,
+      "failed_as_expected": false,
+      "child_exit": 0,
+      "controller_released_after_close": true
+    },
+    {
+      "case": "restart",
+      "journal_samples": 15360,
+      "source_samples": 15360,
+      "independent_fir_maxabs": 0.0,
+      "pending_raw_at_stop": 40,
+      "failed_as_expected": false,
+      "child_exit": 0,
+      "controller_released_after_close": true
+    },
+    {
+      "case": "empty_stop",
+      "journal_samples": 0,
+      "source_samples": 0,
+      "independent_fir_maxabs": 0.0,
+      "pending_raw_at_stop": 0,
+      "failed_as_expected": false,
+      "child_exit": 0,
+      "controller_released_after_close": true
+    },
+    {
+      "case": "callback_fault",
+      "journal_samples": 960,
+      "source_samples": 960,
+      "independent_fir_maxabs": 0.0,
+      "pending_raw_at_stop": 0,
+      "failed_as_expected": true,
+      "child_exit": 1,
+      "controller_released_after_close": true
+    },
+    {
+      "case": "restore_failure",
+      "journal_samples": 15360,
+      "source_samples": 15360,
+      "independent_fir_maxabs": 0.0,
+      "pending_raw_at_stop": 40,
+      "failed_as_expected": true,
+      "child_exit": 1,
+      "controller_released_after_close": true
+    },
+    {
+      "case": "start_failure",
+      "journal_samples": 0,
+      "source_samples": 0,
+      "independent_fir_maxabs": 0.0,
+      "pending_raw_at_stop": 0,
+      "failed_as_expected": true,
+      "child_exit": 1,
+      "controller_released_after_close": true
+    },
+    {
+      "case": "timing_failure",
+      "journal_samples": 0,
+      "source_samples": 15360,
+      "independent_fir_maxabs": 0.0,
+      "pending_raw_at_stop": 91,
+      "failed_as_expected": true,
+      "child_exit": 0,
+      "controller_released_after_close": true
+    }
+  ],
+  "elapsed_seconds": 6.082821493997471,
+  "main_peak_rss_bytes": 41320448,
+  "maximum_child_peak_rss_bytes": 41320448,
+  "sampled_aggregate_peak_bytes": 94928896,
+  "unready_child_owner_view_checked": true,
+  "output_bytes": 729786,
+  "owners_closed": 9,
+  "capture": false,
+  "models_loaded": false,
+  "whole_controller_startup_qualified": false,
+  "gui_qualified": false,
+  "live_B01_qualified": false,
+  "baseline_unchanged": true,
+  "leases_free": true,
+  "backup_verified": true,
+  "backup_files": 96,
+  "combined_with_backup_bytes": 1563914,
+  "native_owners_closed": 216,
+  "isolated_host_owners_closed": 48,
+  "combined_bytes": 4419432325,
+  "combined_cap_bytes": 5368709120,
+  "target_free_bytes": 17871757312,
+  "available_ram_bytes": 1584824320,
+  "temperature_c": 52.9,
+  "throttle": "throttled=0x0",
+  "global_swap_context_only": {
+    "pswpin": 3083,
+    "pswpout": 35601
+  },
+  "N4_N5_complete": false,
+  "field_release_accepted": false,
+  "next": [
+    "Full application configuration/source/combined model and GUI/archive integration; boundary shell does not qualify full Controller startup",
+    "Actual sequential Sherpa-primary/A2-refinement GUI/cancel/archive path; focused D1 projection experiment remains independent",
+    "V48 hardware readback remains unresolved; inspect evidence before separately admitted recovery, no unchanged capture or periodic reset"
+  ]
+}

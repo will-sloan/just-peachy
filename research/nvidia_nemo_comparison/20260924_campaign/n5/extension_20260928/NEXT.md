@@ -1,3 +1,13 @@
+## September30 02:44UTC - pipeline/controller Stop boundary passes
+
+Read CHECK_SUMMARY_V49 / SOURCE_PIPELINE_FINDINGS_V2.md. New adapter binds actual PrototypeEngine.start_xvf and Controller._stop_session methods with a model-free engine shell. Stop holds ownership at480samples,then drains40pendingrawblocks and all15,360samples through the real journal. Restart exact; injected callback/restoration/startup/timing failures remainexplicit. Timingfailure drains15,360transport samples but creditszerojournal; no hidden coverage pass. Native seven-case protocol/independent reader and96file privatebackup pass. V1 was unexecuted and superseded byV2 child-ownership correction.
+
+1. Integrate explicit isolated configuration with full application/controller/model lifecycles and archives/GUI. The boundary shell is not complete Controller.start_live, B01 model or GUI qualification. Do not repeat its passed fixtures.
+2. Advance actual sequential Sherpa-primary/A2-refinement controller/GUI cancellation, failure and archive controls; focused D1 projection arithmetic remains an independent branch.
+3. V48 realhardware AEC_MIC_ARRAY_TYPE startup failure remains. Inspect its receipts/priorrecovery before specifically justified fresh one-shot recovery; no unchanged capture or periodic reset. A separate source pass must precede combined B01.
+
+ClosureV98 all216Pi/48hostclosed,baseline unchanged,captureclosed,leasesfree. Combined4,419,432,325/5GiB; fixed32GBPi free17,871,757,312bytes. Refresh census; checkpoint October1 17:47:34UTC unchanged.
+
 ## September30 02:25UTC - actual isolated source stopped at DSP readback
 
 Read CHECK_SUMMARY_V48 / SOURCE_QUIET_FINDINGS_V1.md. AEC_MIC_ARRAY_TYPE failed while VERSION/build remained readable. Stream opened, but all priming/Stop frames were discarded; zero accepted audio,zero control setters,no model/GUI/playback. Child naturally exited1,collector0recorded failure,hardware closed,bothleasesfree. Full route snapshot/restoration and the planned12s/200ms pause were not reached. No evaluation-timeout or periodic-reset conclusion. Private28file backup verified; all207Pi/48host closed,baseline unchanged.

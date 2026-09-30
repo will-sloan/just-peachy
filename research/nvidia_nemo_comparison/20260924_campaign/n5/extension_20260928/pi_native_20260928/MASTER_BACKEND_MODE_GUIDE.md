@@ -1,6 +1,6 @@
 # Master backend and mode guide — Raspberry Pi
 
-**Current update September30 02:25UTC:** The new actual isolated microphone startup failed its microphone-array readback before accepting audio or changing DSP settings. Failure/closure and private backup are verified; the12s capture and paused-consumer test were not reached. No research compute or capture remains active, and the original app is unchanged. See [source quiet findings](SOURCE_QUIET_FINDINGS_V1.md). Controller/GUI integration and standalone field readiness remain open.
+**Current update September30 02:44UTC:** The new isolated pipeline adapter preserves accepted audio through Stop and keeps controller ownership until child closure. Seven native application-boundary tests pass, including queued-tail/restart and explicit failure handling, using a model-free engine shell. See [pipeline findings](SOURCE_PIPELINE_FINDINGS_V2.md). Full application/model/GUI integration and the separate DSP startup readback failure remain open. Research compute and capture are closed; original app unchanged.
 
 **Device storage:** fixed32GB Raspberry Pi; last measured available space is17.874GB(16.65GiB), including existing research usage. Host allowances do not enlarge it. All field models, app, recordings and rollback must fit with5GiB available reserve. See [storage budget](PI_STORAGE_BUDGET_V1.md).
 
