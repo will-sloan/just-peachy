@@ -1,6 +1,6 @@
 # Mode guide: delivery snapshot
 
-Current V102: shared producer sidecar limits and two actual archive-worker failure paths pass. Checkpoint failure requests a Stop-event fixture before diagnostics, preserves partial bytes and prevents publisher retry;70KiB late metadata retains joined PARTIAL evidence. Both process owners and archive workers closed;63files255050B exact backup. Actual controller/source Stop, remaining writer/layout integration and offline operation remain open. See FIELD_ARCHIVE_STOP_FINDINGS_V1 and CHECK_SUMMARY_V102.
+Current V103: actual installed Controller queued Start now stops at archive preparation failure, and an actual archive-worker fault reaches controller Stop. Stop/rejected restart preserve ERROR; Close retains the terminal error while both command workers and leases close. No source/model/GUI ran; the source-event branch and whole live layout remain open.64files168884B exact backup. See FIELD_CONTROLLER_STOP_FINDINGS_V1 and CHECK_SUMMARY_V103.
 
 Product mode controls labels/roster; backend selects caption/diarizer/embedding models; D1 geometry controls buffering/context. Availability retains V95 model evidence and V96 pre-owner validation recovery. V98 qualifies one withdrawn Streaming fresh-child passage. V100 corrected visible inspection lifecycle passed; no general operator/live launcher acceptance. Final guide must match the frozen device launcher, not imply every possible combination was tested.
 

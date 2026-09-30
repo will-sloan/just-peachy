@@ -1,0 +1,100 @@
+{
+  "version": 103,
+  "as_of_utc": "2026-09-30T20:47:19.589738+00:00",
+  "status": "PASS_INSTALLED_CONTROLLER_ARCHIVE_FAILURE_STOP_ONLY",
+  "native_run": "field-controller-stop-v1",
+  "native_run_count": 1,
+  "actual_scope": {
+    "installed_controller_constructors": 2,
+    "command_workers_joined": 2,
+    "actual_engine_constructors": 1,
+    "archive_workers_joined": 1,
+    "prepare_failure_before_source_start": true,
+    "archive_worker_callback_to_controller": true,
+    "mandatory_stop_processed": true,
+    "failed_restart_rejected": true,
+    "first_error_retained_through_stop_and_close": true,
+    "leases_released": true,
+    "source_started": false,
+    "models_loaded": false,
+    "GUI": false,
+    "capture": false,
+    "source_event_branch_tested": false,
+    "full_live_composition": false
+  },
+  "changed_source": {
+    "start_method": "Exact installed AST with archive OSError handler rethrow and archive-fault check before source start",
+    "command_worker": "New Stop flag polling and failure latch; only Stop/Close after failure",
+    "archive_close": "Release in-memory failed archive only after real worker joined/closed, no primary or conversation retry",
+    "source_origin_binding": "Installed controller/pipeline/runtime and all loaded app/vendor modules checked against release manifest; V102 sessions derivative explicitly substituted"
+  },
+  "metrics": {
+    "protocol_seconds": 0.6937498560000677,
+    "process_peak_rss_bytes": 48398336,
+    "resource_samples": 4,
+    "sampled_unique_owner_peak_bytes": 65699840,
+    "minimum_available_ram_bytes": 1374732288,
+    "temperature_c": [
+      52.9,
+      54.55
+    ],
+    "clock_khz": [
+      2400000
+    ],
+    "scope": "Controller/archive failure paths only; rc5 concurrent, no model speed/accuracy/endurance claim"
+  },
+  "closure": {
+    "version": 219,
+    "pi_identities_closed": 396,
+    "prior_isolated_host_identities_closed": 48,
+    "field_host_records_checked": 10,
+    "field_host_unique_workers": 2,
+    "field_console_helpers": 1,
+    "nonidentity_closures": 3,
+    "baseline_unchanged": true,
+    "capture_closed": true,
+    "leases_free": true,
+    "research_compute_active": false
+  },
+  "resource_accounting": {
+    "combined_output_bytes": 5319704808,
+    "output_cap_bytes": 5368709120,
+    "output_headroom_bytes": 49004312,
+    "payload_including_target_and_reservations_bytes": 55714965091,
+    "payload_cap_bytes": 55834574848,
+    "payload_headroom_bytes": 119609757,
+    "pi_free_bytes": 17429540864,
+    "pi_available_ram_bytes": 1422688256,
+    "pi_temperature_c": 54.0,
+    "pi_throttle": "throttled=0x0",
+    "before_later_metadata": true
+  },
+  "backup": {
+    "files": 64,
+    "bytes": 168884,
+    "review_sha256": "c899ccfb54cb7ca1915c0b196d96f5729acbae29b3d48386cca005b105066c21",
+    "backup_sha256": "b17ac1db54151563243946eb217f18a968198fcd7e4caef6342d131e46726c56"
+  },
+  "admission": {
+    "bytes": 16777216,
+    "target_bytes": 8388608,
+    "host_bytes": 8388608,
+    "shared_sidecar_roots": 2,
+    "reserved_per_shared_root": 1851392,
+    "case_receipts_bytes": 262144,
+    "whole_run_hard_quota": false
+  },
+  "remaining": [
+    "Actual source-event/hardware Stop branch",
+    "Complete source/config/TRACE/native/archive/host maxima and enforcement",
+    "Positive changed live source/model/Stop/save/reopen",
+    "General operator launcher and offline acceptance"
+  ],
+  "notes": [
+    "Two injected Python publisher short writes; no physical disk exhaustion/powerloss",
+    "Early archive attachment requires explicit queued Stop in protocol; not attachment-race/concurrency stress",
+    "No source Event or mock Controller stand-in; both observed source_present/source_event_signaled false",
+    "No repeat of V102 helper cases or healthy inference/UI",
+    "Read-only nonexistent audio_sources.py path search preserved; actual FileSource found in pipeline.py"
+  ]
+}

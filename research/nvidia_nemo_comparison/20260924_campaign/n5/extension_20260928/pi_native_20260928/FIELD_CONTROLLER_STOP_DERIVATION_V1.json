@@ -1,0 +1,15 @@
+{
+  "schema": "field-controller-stop-derivation.v1",
+  "installed_controller_sha256": "e2910982ab1afb764b7c84b6aab460f2f8f967b7aec1b6e6f00ace6fa016e1dd",
+  "parent_dispatcher_sha256": "de381d9c3c36e6fd674d8daa96f106764da8f1458c90738860eec41aad5373e3",
+  "changes": [
+    "Actual Controller subclass retains installed constructor; sessions uses retained V102 archive derivative",
+    "Exact installed _start_session AST except OSError handler rethrows and explicit archive-fault check before source-start try",
+    "New mandatory asynchronous Stop flag serviced by real command worker ahead of subsequent queued actions; failed-run latch permits Stop/Close only",
+    "ArchiveStopped allows application ownership release only after actual archive worker closed/joined; primary stays failed",
+    "No source or model started by two native cases; no source Event fixture substitution"
+  ],
+  "shared_roots": 2,
+  "shared_reserved_bytes_each": 1851392,
+  "full_live_composition": false
+}

@@ -1,6 +1,6 @@
 # Offline Pi delivery and handoff
 
-Current V102: shared producer sidecar limits and two actual archive-worker failure paths pass. Checkpoint failure requests a Stop-event fixture before diagnostics, preserves partial bytes and prevents publisher retry;70KiB late metadata retains joined PARTIAL evidence. Both process owners and archive workers closed;63files255050B exact backup. Actual controller/source Stop, remaining writer/layout integration and offline operation remain open. See FIELD_ARCHIVE_STOP_FINDINGS_V1 and CHECK_SUMMARY_V102.
+Current V103: actual installed Controller queued Start now stops at archive preparation failure, and an actual archive-worker fault reaches controller Stop. Stop/rejected restart preserve ERROR; Close retains the terminal error while both command workers and leases close. No source/model/GUI ran; the source-event branch and whole live layout remain open.64files168884B exact backup. See FIELD_CONTROLLER_STOP_FINDINGS_V1 and CHECK_SUMMARY_V103.
 
 **Hard boundary: October 1, 2026, 13:42:44 Toronto / 17:42:44 UTC.** This is exactly 24 hours after the request was anchored at September30 17:42:44 UTC. It replaces the prospective17:47:34 UTC checkpoint; historical evidence remains unchanged.
 

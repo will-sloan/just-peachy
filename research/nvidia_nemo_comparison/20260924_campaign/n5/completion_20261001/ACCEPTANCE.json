@@ -1,9 +1,9 @@
 {
   "schema": "just-peachy.delivery-acceptance.v1",
-  "as_of_utc": "2026-09-30T20:25:31.641968+00:00",
+  "as_of_utc": "2026-09-30T20:47:19.589738+00:00",
   "hard_deadline_utc": "2026-10-01T17:42:44Z",
   "overall": "IN_PROGRESS",
-  "latest_verified_research_summary": "CHECK_SUMMARY_V102.json",
+  "latest_verified_research_summary": "CHECK_SUMMARY_V103.json",
   "gates": [
     {
       "id": "D1_COMPONENTS",
@@ -27,9 +27,9 @@
     },
     {
       "id": "LIVE_SOURCE_MODEL_STORAGE_INTEGRATION",
-      "status": "OPEN_SHARED_SLOTS_ARCHIVE_STOP_BINDING_PASS",
+      "status": "OPEN_CONTROLLER_ARCHIVE_FAILURE_STOP_PASS",
       "required": true,
-      "evidence": "V102 shared sidecar caps and actual archive workers/Stop-event fixture pass; actual controller/source callback and remaining writers not bound; V65 remains failed"
+      "evidence": "V103 actual Controller/engine pre-source failure and archive-worker callback/Stop/Close pass; actual source branch and whole live layout remain open; V65 failed"
     },
     {
       "id": "VISIBLE_GUI_AND_PHYSICAL_CONTROLS",
