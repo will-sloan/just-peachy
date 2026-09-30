@@ -1,0 +1,14 @@
+{
+  "schema": "d1-application-saved-derivation.v3",
+  "parents": {
+    "d1_application_saved_v2.py": "87faed868fe4b7623d59ef4de7c1b7f4b2afccb528ddc724298046327ebf850e",
+    "d1_application_saved_protocol_v2.py": "db9845846e3d0140468be7105579cab7f44792caf7631796acf027b7c62061a3",
+    "dispatch_d1_application_saved_v2.py": "202e3cdb48b28752553b713ed54a900ca7c0959820b689262398faa59c7b021c",
+    "review_d1_application_saved_v2.py": "be028b5fc43f7d22935f96ee8a6f3786ddf8ae0c7f8110d7b771bf94652ee836",
+    "backup_d1_application_saved_v2.py": "2c4c70a125aa01d819102417c89df30be2995d4c4c12f44002bb5e447c35b6ee"
+  },
+  "fix": "Replace ceil(N/160) check with explicitly empty 0 / nonempty floor(N/160)+1 from pinned centered frontend and selected recorded build. Preserve every native frame. Bind before model acquisition; unchanged model/source/Stop/UI and 1e-5 pre-EOF gate.",
+  "old_failure": "V1 and V2 remain failed, immutable; no native truncation or retroactive pass.",
+  "endpoint_contract_sha256": "34f7971469307436ecb7ffbda3785ed6a4c79720abab777c95ad91fc30fc776c",
+  "new_scope": "Only corrected endpoint contract and previously unreached successful Stop/UI/close outcome; no old suites."
+}

@@ -1,3 +1,9 @@
+## September30 16:18UTC - streaming saved application Stop passes
+
+**September30 16:18UTC:** CHECK_SUMMARY_V91 / D1_APPLICATION_SAVED_FINDINGS_V2: corrected endpoint contract now bound to selected retained source/object/link and Q8 metadata. Fresh V3 actual installed Controller/withdrawn UI Streaming selection/Start/Stop passes19200samples/121frames;104pre-EOF exact0,17EOF-tail accounting only. Source/model pointers/bundle, worker, app lease and Tk close naturally; stopped UI/loaded-origin/directory receipts reached.59file171710B exact backup;all366Pi/48priorhost+2fieldworkers/1helper closed,baseline unchanged. V1/V2 remain failed. No new speedup/accuracy/live/physical-GUI credit. Next fresh chunk52 saved application path, then delayed binding; no Streaming rerun. ASR secondary.
+
+Use fresh mode-aware derivatives and measured small admissions for the remaining diarizer application paths. Preserve both old failures and this scoped success. FullV3 fails both caps; no quota reset/capture/repeat of healthy Streaming.
+
 ## September30 16:00UTC - actual diarizer application Stop boundary
 
 **September30 16:00UTC:** CHECK_SUMMARY_V90 / D1_APPLICATION_SAVED_FINDINGS_V1: actual installed Controller/withdrawn UI selection/Start/Stop reached with Streaming, but two trials remain FAILED. V1 holder-Frame invocation fixed only in fresh V2. V2 processed19200samples/121frames,104 pre-EOF exactly match reference;17EOF frames unmatched. New ceil-count assertion expected120, so Stop success state failed; actual source/model/stream/bundle and worker closed. Both failures/raw evidence backed up (44files137677B +55files154653B), all364Pi/48priorhost+2fieldworkers/1helper closed; baseline unchanged. Next bind/fix exact endpoint count in fresh derivative; no new speedup/accuracy/live readiness. ASR secondary.
