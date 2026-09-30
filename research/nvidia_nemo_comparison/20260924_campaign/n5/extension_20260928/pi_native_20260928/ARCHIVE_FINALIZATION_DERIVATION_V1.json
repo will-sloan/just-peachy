@@ -1,0 +1,7 @@
+{
+  "schema": "archive-finalization-derivation.v1",
+  "base_source_sha256": "7594e427e88503b8619197d4fac47907ceab865b46bd0305473551039b1a632f",
+  "derivative_sha256": "31f0630832453af5d937ca5db2a433f3f8bd2f40ea1fa4369ced5f1c5f713221",
+  "base_source": "field-archive-budget-v1/archive_budget_v1/app/sessions.py",
+  "helper_sha256": "3172119f1c7a2022a58519967dc8ad92d90fefe12f939f541f5c29f55afa3cd7"
+}

@@ -1,0 +1,11 @@
+{
+  "schema": "just-peachy.archive-budget.v2",
+  "metadata_input_bytes": 16777216,
+  "auxiliary_bytes": 2097152,
+  "control_file_bytes": 65536,
+  "compact_index": "none",
+  "initial_control_bytes": 32768,
+  "runtime_control_bytes": 24576,
+  "detail_file_bytes": 262144,
+  "detail_reserve_bytes": 1048576
+}
