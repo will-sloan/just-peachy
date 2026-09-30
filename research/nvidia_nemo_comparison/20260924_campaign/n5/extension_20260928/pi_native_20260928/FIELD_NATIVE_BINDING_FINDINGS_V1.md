@@ -1,0 +1,11 @@
+# Native output binding preparation V1
+
+V105 is PASS_ACTUAL_NATIVE_SOURCE_DERIVATION_ONLY. No Pi execution, source/model/capture or GUI job was started. V103 remains the last actual native run; V98 remains the last positive model passage.
+
+The production adapter now pins the actual installed pipeline/runtime/S7 sources, derives four selected writer methods and binds revised transcript, summary, finalization and consumer closure. It preserves the installed scheduler/punctuation payload, lane drainage, model release, handle cleanup and consumer full-drain conditions. Five exact-source region checks and two changed publication-shape rejections passed on CPU14. Compilation is not native execution or full composition evidence.
+
+Revised transcript uses the fixed2MiB nonrotating sink with64KiB write limit. Each native terminal control has64KiB primary plus64KiB pending capacity, one attempt per process. Publication failure requests the supplied nonblocking Stop callback before diagnostics; partials and replaced outcomes are preserved. A fresh native text V2 also handles close and initial trace-open failures. Those failure paths have not been exercised natively. The one-native-session guard reserves the attempt before session creation; entry must precreate an empty real session parent. Existing V1, layouts and all older receipts remain byte-identical.
+
+The complete live entry is still missing source/config/transport/TRACE, archive/cardinality/host-mirror composition and actual FieldController restriction binding. The revised transcript/control adapter is prepared, not installed into an active app. No new field, offline, benchmark or quality claim follows. Complete layout remains79,999,532B target plus84,193,836B host and is unadmitted. A fresh explicit measured allowance may be needed; WINDOW_V5 and all previous policies stay immutable.
+
+Private preparation: field-native-binding-v1-preparation with ADMISSION_REVIEW_V1, SOURCE_BINDING_REVIEW_V1, CODE_REVIEW_V1, FIELD_HOST_CLOSURE_V1 and SOURCE_BACKUP_V1. Four source/README files30,145B are exact-readback backed up. See README_FIELD_NATIVE_BINDING_V1 for purpose, interfaces, inputs/outputs and PowerShell/CMD/Anaconda commands. No test transcript/audio is in these files.

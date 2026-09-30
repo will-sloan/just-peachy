@@ -1,6 +1,6 @@
 # ChatGPT handoff: Just Peachy offline Pi
 
-Current V104: host-only installed writer audit found additional native transcript/clock/terminal outputs and deleting transcript rotation. A nonrotating native text/trace adapter is prepared;14 host checks plus3 changed strict-type checks passed. New selected live map reserves79,999,532B target +84,193,836B host, but full binding/admission remain open. No new Pi/model/source/GUI job; V103 actual controller Stop pass remains separate. See FIELD_LIVE_LAYOUT_FINDINGS_V1 and CHECK_SUMMARY_V104.
+Current V105: the actual installed native writer adapter now covers revised transcript and all three terminal controls, plus one native session per process. Five unchanged-source region checks and two changed publication-shape rejects passed on CPU14. This is prepared code, not native execution; no Pi/model/source/GUI job ran. Full source/archive/layout/host-mirror composition and offline acceptance remain open. See FIELD_NATIVE_BINDING_FINDINGS_V1 and CHECK_SUMMARY_V105.
 
 Snapshot September30 2026,19:44UTC. **IN_PROGRESS; offline field release not accepted yet.** Deadline October1 17:42:44UTC /13:42:44Toronto. Start with START_HERE and ACCEPTANCE, then the newest verified CHECK_SUMMARY and current STATUS. Branch `codex/n1-foundation-20260924`; exact published HEAD is verified in the latest private REMOTE_BACKUP receipt.
 

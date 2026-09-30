@@ -1,0 +1,13 @@
+{
+  "status": "EXACT_DOCUMENTATION_BACKUP_VERIFIED",
+  "label": "native-binding-v12",
+  "archive": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\completion-20261001-backups\\native-binding-v12\\NVIDIA_CAMPAIGN_CHATGPT_HANDOFF_20260924_native-binding-v12.zip",
+  "bytes": 33690,
+  "sha256": "235ee16faf970825070a875c9115ebe27ea4e6533352407ac74105fd2684f686",
+  "member_count": 15,
+  "cpu_affinity": [
+    14
+  ],
+  "delivery_status": "IN_PROGRESS",
+  "runtime_or_offline_acceptance": false
+}

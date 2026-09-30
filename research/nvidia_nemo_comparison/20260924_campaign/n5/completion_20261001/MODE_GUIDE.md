@@ -1,6 +1,6 @@
 # Mode guide: delivery snapshot
 
-Current V104: host-only installed writer audit found additional native transcript/clock/terminal outputs and deleting transcript rotation. A nonrotating native text/trace adapter is prepared;14 host checks plus3 changed strict-type checks passed. New selected live map reserves79,999,532B target +84,193,836B host, but full binding/admission remain open. No new Pi/model/source/GUI job; V103 actual controller Stop pass remains separate. See FIELD_LIVE_LAYOUT_FINDINGS_V1 and CHECK_SUMMARY_V104.
+Current V105: the actual installed native writer adapter now covers revised transcript and all three terminal controls, plus one native session per process. Five unchanged-source region checks and two changed publication-shape rejects passed on CPU14. This is prepared code, not native execution; no Pi/model/source/GUI job ran. Full source/archive/layout/host-mirror composition and offline acceptance remain open. See FIELD_NATIVE_BINDING_FINDINGS_V1 and CHECK_SUMMARY_V105.
 
 Product mode controls labels/roster; backend selects caption/diarizer/embedding models; D1 geometry controls buffering/context. Availability retains V95 model evidence and V96 pre-owner validation recovery. V98 qualifies one withdrawn Streaming fresh-child passage. V100 corrected visible inspection lifecycle passed; no general operator/live launcher acceptance. Final guide must match the frozen device launcher, not imply every possible combination was tested.
 

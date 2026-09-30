@@ -1,0 +1,87 @@
+{
+  "version": 105,
+  "as_of_utc": "2026-09-30T21:31:59.774018+00:00",
+  "status": "PASS_ACTUAL_NATIVE_SOURCE_DERIVATION_ONLY",
+  "native_run": null,
+  "native_run_count": 0,
+  "last_native_summary": 103,
+  "last_positive_model_summary": 98,
+  "actual_scope": {
+    "host_affinity": [
+      14
+    ],
+    "actual_installed_manifest_pins": 3,
+    "unchanged_source_region_checks": 5,
+    "changed_structure_rejects": 2,
+    "native_binding_prepared": true,
+    "native_binding_executed": false,
+    "real_source_stop_exercised": false,
+    "models_loaded": false,
+    "capture": false,
+    "GUI": false,
+    "policy_changed": false
+  },
+  "changed_evidence": {
+    "revised_transcript": "Fixed nonrotating 2MiB sink with64KiB write limit",
+    "native_controls": "Three exact64KiB primary+pending pairs, one attempt each",
+    "native_cardinality": "One native session attempt before session creation",
+    "cleanup_payloads": "Actual installed lane/model/handle cleanup, consumer gates and payload AST unchanged",
+    "fresh_text_v2": "Close and initial trace-open errors request Stop before diagnostics; unexecuted"
+  },
+  "proposal": {
+    "target_bytes": 79999532,
+    "host_bytes": 84193836,
+    "combined_bytes": 164193368,
+    "admitted": false,
+    "full_runtime_write_binding": false,
+    "output_shortfall_bytes": 119715357,
+    "payload_shortfall_bytes": 49109912
+  },
+  "closure": {
+    "version": 223,
+    "pi_identities_closed": 396,
+    "prior_isolated_host_identities_closed": 48,
+    "field_host_records_checked": 10,
+    "field_host_unique_workers": 2,
+    "field_console_helpers": 1,
+    "nonidentity_closures": 3,
+    "baseline_unchanged": true,
+    "capture_closed": true,
+    "leases_free": true,
+    "research_compute_active": false
+  },
+  "resource_accounting": {
+    "combined_output_bytes": 5324231109,
+    "output_cap_bytes": 5368709120,
+    "output_headroom_bytes": 44478011,
+    "payload_including_target_and_reservations_bytes": 55719491392,
+    "payload_cap_bytes": 55834574848,
+    "payload_headroom_bytes": 115083456,
+    "payload_basis": "HOST_CENSUS_V202 plus closure223 target and later host-window delta",
+    "pi_free_bytes": 17429540864,
+    "pi_available_ram_bytes": 1424490496,
+    "pi_temperature_c": 54.55,
+    "pi_throttle": "throttled=0x0",
+    "before_later_metadata": true
+  },
+  "backup": {
+    "source_files": 4,
+    "source_bytes": 30145,
+    "readback_exact": true,
+    "private_preparation": "field-native-binding-v1-preparation"
+  },
+  "remaining": [
+    "Apply native binding in actual complete live entry and verify real execution",
+    "Bind source/config/transport/TRACE and one-epoch/archive controls without unbounded writes",
+    "Preserve actual FieldController mode/backend/assets/artifact/reservation gates",
+    "Bounded streamed host mirror and transitive actual-path census",
+    "Fresh explicit measured admission; full164193368B remains unadmitted",
+    "Positive operator live Start/Stop/save/reopen/offline acceptance"
+  ],
+  "notes": [
+    "No target writes or native/model/source/GUI/capture job this wake",
+    "No old native/control/model/helper suite repeated",
+    "No per-control retry or partial deletion; process-local latch is not crash recovery",
+    "Five source-region checks plus two changed publication-shape rejections are static, not native failure tests"
+  ]
+}

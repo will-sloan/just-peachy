@@ -1,6 +1,6 @@
 # Final24hour completion plan
 
-Current V104: host-only installed writer audit found additional native transcript/clock/terminal outputs and deleting transcript rotation. A nonrotating native text/trace adapter is prepared;14 host checks plus3 changed strict-type checks passed. New selected live map reserves79,999,532B target +84,193,836B host, but full binding/admission remain open. No new Pi/model/source/GUI job; V103 actual controller Stop pass remains separate. See FIELD_LIVE_LAYOUT_FINDINGS_V1 and CHECK_SUMMARY_V104.
+Current V105: the actual installed native writer adapter now covers revised transcript and all three terminal controls, plus one native session per process. Five unchanged-source region checks and two changed publication-shape rejects passed on CPU14. This is prepared code, not native execution; no Pi/model/source/GUI job ran. Full source/archive/layout/host-mirror composition and offline acceptance remain open. See FIELD_NATIVE_BINDING_FINDINGS_V1 and CHECK_SUMMARY_V105.
 
 Start: September30 17:42:44 UTC. Hard end: October1 17:42:44 UTC /13:42:44 Toronto. [New user authority](DEADLINE_AUTHORITY_V1.json) takes precedence over the older prospective deadline. Existing policies, admissions and failed/successful receipts remain immutable. Every fresh run must allow cleanup before the new boundary.
 

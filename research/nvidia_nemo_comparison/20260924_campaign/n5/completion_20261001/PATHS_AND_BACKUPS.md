@@ -1,8 +1,8 @@
 # Consolidated paths, backups and simplification
 
-Current V104: host-only installed writer audit found additional native transcript/clock/terminal outputs and deleting transcript rotation. A nonrotating native text/trace adapter is prepared;14 host checks plus3 changed strict-type checks passed. New selected live map reserves79,999,532B target +84,193,836B host, but full binding/admission remain open. No new Pi/model/source/GUI job; V103 actual controller Stop pass remains separate. See FIELD_LIVE_LAYOUT_FINDINGS_V1 and CHECK_SUMMARY_V104.
+Current V105: the actual installed native writer adapter now covers revised transcript and all three terminal controls, plus one native session per process. Five unchanged-source region checks and two changed publication-shape rejects passed on CPU14. This is prepared code, not native execution; no Pi/model/source/GUI job ran. Full source/archive/layout/host-mirror composition and offline acceptance remain open. See FIELD_NATIVE_BINDING_FINDINGS_V1 and CHECK_SUMMARY_V105.
 
-Latest private preparation: `local/n5/research-extension-20260928/pi-native-20260928/field-live-layout-v1-preparation`; seven source/README/plan files65,244B exact backup,17 changed host cases, native writer execution pending. Last actual native run remains `field-controller-stop-v1-evidence` (V103); latest visible inspection remains `d1-visible-entry-v2-evidence` (V100).
+Latest private preparation: `local/n5/research-extension-20260928/pi-native-20260928/field-native-binding-v1-preparation`; four source/README files30,145B exact backup. Actual installed native-source AST checks pass; native execution pending. Last actual native remains V103; last positive model V98; visible inspection V100.
 
 Previous positive model evidence: `local/n5/research-extension-20260928/pi-native-20260928/d1-process-launch-v1-evidence`; exact72file230842B target backup. Preparation/reader failures remain in `d1-process-launch-v1-preparation`. New launcher/readme and reviewV2 are under the native report directory.
 
