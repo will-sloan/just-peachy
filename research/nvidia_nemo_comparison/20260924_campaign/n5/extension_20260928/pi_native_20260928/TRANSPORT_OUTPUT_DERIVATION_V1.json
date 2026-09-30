@@ -1,0 +1,7 @@
+{
+  "base_transport_sha256": "7259867b924012b07d6cf5131f98cdb8299a1887b70a9a5d2aff4f4643f3b7f8",
+  "base_trace_sha256": "d3e83850439413e065240fcaa67f166d1013dd0deba3af17b5ae4b276d24d39b",
+  "frame_loop_and_terminal_ack_text_unchanged": true,
+  "child_output_order": "socket close before reserved closure; parent rejects failed final publication",
+  "capture": false
+}
