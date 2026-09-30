@@ -1,0 +1,78 @@
+{
+  "version": 44,
+  "checked_utc": "2026-09-30T01:19:03.262479+00:00",
+  "scope": "Native sequential ASR saved-source candidate; Sherpa original pacing followed by generic Nemotron A2 in distinct processes",
+  "review_status": "PASS_NATIVE_SEQUENTIAL_SHERPA_A2_SAVED_SOURCE_ONLY",
+  "phases": [
+    {
+      "backend": "sherpa",
+      "source_samples": 715127,
+      "events": 51,
+      "canonical_reference_exact": true,
+      "load_seconds": 2.2842868869920494,
+      "source_elapsed_seconds": 44.78936101599538,
+      "drain_seconds": 0.09345280300476588,
+      "cpu_seconds": 8.078586155,
+      "peak_rss_bytes": 290144256,
+      "maximum_coordinator_delivery_seconds": 0.020283611,
+      "phase_process_seconds": 47.991895053
+    },
+    {
+      "backend": "a2",
+      "source_samples": 715127,
+      "events": 87,
+      "canonical_reference_exact": true,
+      "load_seconds": 0.5777965350134764,
+      "source_elapsed_seconds": 79.04880392699852,
+      "drain_seconds": 0.5468240749905817,
+      "cpu_seconds": 78.988800596,
+      "peak_rss_bytes": 1013235712,
+      "maximum_coordinator_delivery_seconds": 0.020245814,
+      "phase_process_seconds": 80.552885063
+    }
+  ],
+  "states": [
+    "TRANSCRIBING",
+    "PRIMARY_READY",
+    "REFINING",
+    "COMPLETE"
+  ],
+  "same_source_samples": 715127,
+  "separate_primary_refinement_artifacts": true,
+  "exact_canonical_references": true,
+  "model_process_lifetimes_disjoint": true,
+  "elapsed_seconds": 128.55340047299978,
+  "main_peak_rss_bytes": 19890176,
+  "sampled_aggregate_rss_bytes": 1020067840,
+  "new_capture": false,
+  "gui_integrated": false,
+  "diarizer_integrated": false,
+  "accuracy_scored": false,
+  "live_fault_repaired": false,
+  "native_owners_closed": 195,
+  "isolated_host_owners_closed": 44,
+  "baseline_unchanged": true,
+  "capture_closed": true,
+  "research_lease_free": true,
+  "hardware_lease_free": true,
+  "combined_bytes": 4341407476,
+  "combined_cap_bytes": 5368709120,
+  "target_free_bytes": 17893818368,
+  "available_ram_bytes": 1582514176,
+  "temperature_c": 55.1,
+  "throttle": "throttled=0x0",
+  "global_swap_context_only": {
+    "pswpin": 3049,
+    "pswpout": 35519
+  },
+  "backup_file_count": 22,
+  "backup_bytes": 226949,
+  "backup_verified": true,
+  "field_release_accepted": false,
+  "N4_N5_complete": false,
+  "next": [
+    "Bind sequential mode to actual controller/GUI with explicit primary/refined revisions and cancel/failure/source integrity controls; no simultaneous A2/D1 fit inferred",
+    "Fresh real source startup/controller facade around qualified isolation bridge before changed quiet B01",
+    "Focused alternate D1 preencoder/intermediate-output diagnosis, unchanged1e-5 probability/state gates"
+  ]
+}

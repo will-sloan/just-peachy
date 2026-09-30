@@ -1,3 +1,13 @@
+## September30 01:19UTC - sequential ASR handoff passed
+
+Read CHECK_SUMMARY_V44 / SEQUENTIAL_ASR_FINDINGS_V1.md. Sherpa original1x saved source then generic A2 refinement passed exact51/87canonical references/all715127samples with nonoverlapping process lifetimes and separate revisions. Whole128.553s; A279.049s remains slower than real time. Actual GUI/controller/D1 integration and live acceptance are not implied. All195Pi/44host owners closed,baseline unchanged,captureclosed,leasesfree; private backup verified.
+
+1. Advance actual source startup/parent controller facade around the qualified IPC bridge, with fresh child PortAudio/aggregate memory admission, lease/restoration/accepted-tail drainage before changed quiet B01.
+2. Wire sequential mode's explicit primary/refined artifacts and phase callback to the actual controller/GUI; qualify cancel/failure/source integrity/archive controls. Preserve generic A2, no A76 substitution or simultaneous A2/D1 fit claim.
+3. Focus alternate D1 preencoder/intermediate outputs on retained natural features; both1e-5 gates remain. This branch needs progress alongside field integration, not more unchanged passes.
+
+Fresh owners/census/admission before dispatch. ClosureV83 combined4341407476/5GiB; Pi free17893818368bytes on fixed32GB device. October1 17:47:34UTC checkpoint unchanged.
+
 ## September30 01:04UTC - real-source fake-callback bridge passed
 
 Read CHECK_SUMMARY_V43 / LIVE_SOURCE_BRIDGE_FINDINGS_V1.md. Nine native actual callback/read/FIR/Stop cases passed with fake stream/control/route objects, exact accepted audio/metadata and separate post-drain status. No device startup/model/GUI. All191Pi/44host owners closed; baseline unchanged/captureclosed/leasesfree. Private123file backup verified. ClosureV80 combined4,340,053,520/5GiB; fixed32GBPi free17,894,117,376bytes.

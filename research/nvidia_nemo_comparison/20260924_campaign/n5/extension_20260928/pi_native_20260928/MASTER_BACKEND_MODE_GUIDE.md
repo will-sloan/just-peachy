@@ -1,6 +1,6 @@
 # Master backend and mode guide — Raspberry Pi
 
-**Current update September30 01:04UTC:** The real source callback/read/Stop bridge now passes nine native fake-callback cases, including accepted queued-audio drainage and explicit restoration failure. No microphone or model ran, and all research compute is closed. Actual startup/controller integration and live overflow repair remain open. See [source bridge findings](LIVE_SOURCE_BRIDGE_FINDINGS_V1.md) and CHECK_SUMMARY_V43.json. Generic A2 sequential refinement and alternate-D1 state parity remain separate unfinished branches.
+**Current update September30 01:19UTC:** Sequential Sherpa-first/Nemotron-after-stop saved-source processing now passes native exact-reference and disjoint-process checks. Both transcripts remain separate; this is a coordinator/state contract awaiting actual GUI/controller integration. Sherpa44.789s paced, A279.049s refinement,128.553s total. No research compute remains active. See [sequential ASR findings](SEQUENTIAL_ASR_FINDINGS_V1.md) and CHECK_SUMMARY_V44.json. Live overflow repair and alternate-D1 state parity remain open.
 
 **Device storage:** fixed32GB Raspberry Pi; last measured available space is17.895GB(16.67GiB), including existing research usage. Host allowances do not enlarge it. All field models, app, recordings and rollback must fit with5GiB available reserve. See [storage budget](PI_STORAGE_BUDGET_V1.md).
 
@@ -36,7 +36,7 @@ The alternate D1 ONNX graph now passes three actual Pi FP32 feature/cache checks
 
 Native A2 endpoint/tail checks now pass: empty input, one sample,1281-sample tail and full-source forced endpoint at12.34s, followed by continued transcription, EOF and clean shutdown. This extends component functionality; it does not make A2 real-time or an integrated GUI mode. [Endpoint findings](A2_NATIVE_EDGES_FINDINGS_V1.md).
 
-Nemotron ASR (A2) now passes the original44.7-second file twice on the Pi with exact repeat events and clean shutdown. It takes78.5/77.1seconds (about1.75times the recording duration) and peaks near966MiB RAM, under an isolated1536MiB virtual cap. This supports a future sequential/offline mode; it is not a real-time or integrated B02 release. Independent runtime parity and GUI integration remain. [A2 functional findings](A2_NATIVE_FUNCTIONAL_FINDINGS_V1.md). Follow-ups now run every10minutes.
+Nemotron ASR (A2) passes full saved-source/repeat and scoped empty/tail/forced-endpoint checks on the Pi. Generic runtime takes about77-79seconds per44.7-second file and peaks near966MiB RSS. A sequential Sherpa-first/A2-later coordinator now passes independently; GUI/controller and combined B02 integration remain open. No real-time or accuracy claim. [Sequential findings](SEQUENTIAL_ASR_FINDINGS_V1.md). Follow-ups run every10minutes.
 
 At closureV60 (22:50UTC), all149Pi and44isolated host research identities were closed; no research model or capture was active. The original rc5 app remained unchanged. The Pi is a Compute Module5 with2GB RAM and fixed32GB storage.
 
@@ -107,14 +107,14 @@ The original app's continued operation is not a new full B00 live/GUI qualificat
 |---|---|---|
 | B00 | Original complete Sherpa pipeline | Installed rollback/control. Preserve it. Separate Sherpa saved-file component passage passed. |
 | B01 | A0 + D1 + E0 | Bounded saved-file preview qualified. Captions first, delayed labels, empty research gallery. Main route toward live validation. |
-| B02 | A2 + D1 + E0 | A2 full-file/repeat functional pass on Pi; RTF1.757/1.725, peak966MiB RSS. Forced endpoints/reference parity and combined/UI fit remain open. |
+| B02 | A2 + D1 + E0 | A2 component full/repeat/empty/tail/forced-endpoint passes on Pi; about1.75RTF and966MiB RSS. Independent-runtime parity and combined/UI fit remain open. |
 | B03 | B01 with on-demand E0 | Candidate. Must measure actual calls saved and retain quiet/returning-speaker/overlap behavior. Existing E0 window selection is not acceptance of a new on-demand policy. |
 | B04 | B02 with on-demand E0 | Candidate; depends on B02 and on-demand evidence. |
 | B05 | A0 + D1, external encoder bypass | Separately qualified bounded anonymous saved-file preview. No persistent personal naming. |
 | B06 | A2 + D1, external encoder bypass | Candidate; depends on native A2. |
 | B07 | B01 with deliberately delayed D1 | The currently tested B01 preview already uses this delayed strategy. It is an overlapping catalogue variant, not a third independently delivered mode. |
 | B08 | B02 with delayed D1 | Candidate; no native combined pass. |
-| B09 | Sherpa first, Nemotron ASR refinement later | Candidate for sequential loading on 2 GB RAM. Must preserve source time, transcript revisions and completion/drain. |
+| B09 | Sherpa first, Nemotron ASR refinement later | Native saved-source coordinator passes exact51/87reference events and separate model lifetimes; primary/refined revisions preserved. Actual GUI/controller/D1/live integration pending. [Evidence](SEQUENTIAL_ASR_FINDINGS_V1.md). |
 | B10 | Cheaper tracking between selective D1 refinements | Exploratory; no qualified native implementation. Must expose uncertain/unanalyzed spans. |
 | B11 | A2 with the existing speaker pipeline | ASR substitution control; not a qualified native application. |
 
