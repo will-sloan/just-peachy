@@ -4,4 +4,4 @@
 
 The current delivery entry point is [the completion pack](research/nvidia_nemo_comparison/20260924_campaign/n5/completion_20261001/START_HERE.md). It contains the plan, ChatGPT handoff, mode guide, field-validation framework, acceptance status, and consolidated paths.
 
-Status: **IN_PROGRESS**, through CHECK_SUMMARY_V107. Actual field-controller/source/native composition is prepared and source-reviewed, not executed together. Full output-path enforcement, general operator controls and offline acceptance remain open. The21:42 launcher milestone was missed; the final deadline is unchanged.
+Status: **IN_PROGRESS**, through CHECK_SUMMARY_V108. Local streamed backup passed and physical-path mapping is prepared. Actual live entry/source/model/storage integration, operator controls and offline acceptance remain open. The21:42 launcher milestone was missed; final deadline unchanged.

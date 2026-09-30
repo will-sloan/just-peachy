@@ -1,5 +1,11 @@
 # Connected CM5: native work is now the priority
 
+## Current check V108 - 2026-09-30T22:45:39.544409+00:00
+
+Current V108: a bounded local streamed mirror verified75retained native-evidence files without loading the payload as a batch. Physical-path projection now accounts for configuration replacements, native/archive controls, pending files and guards under the unchanged target maximum. These are local-copy and preparation results; no Pi source/model/GUI ran. Actual Pi-to-host streaming, full runtime writer census and live D1 endpoint binding remain open. The launcher milestone remains missed; deadline unchanged. See FIELD_STREAMED_MIRROR_FINDINGS_V1 and CHECK_SUMMARY_V108.
+
+Closure229:396Pi/48prior isolated-host identities closed;2fieldworkers/1consolehelper separately closed,3typed nonidentity closures distinct. Baseline unchanged/captureclosed/leasesfree. Output headroom38,422,504B; payload headroom109,027,949B before later metadata. No native job. Full164,406,360B proposal unadmitted. Next actual network mirror/runtime path census/live D1 endpoint binding and fresh measured admission for source/model/Stop/save/reopen. Preserve270 and harddeadline.
+
 ## Current check V107 - 2026-09-30T22:26:18.475660+00:00
 
 Current V107: the actual installed FieldController composition now preserves nine field-check methods, the installed archive-store body and physical Close/release logic while wiring the prepared source, native writers and failure-to-Stop controller. Fixed configuration replacements and one-run cardinality are prepared. Source review passed; no installed constructor/source/model/GUI ran. Full physical-path mapping, streamed host mirror, exact live D1 binding and native integration remain open. The21:42 launcher milestone was missed; final deadline unchanged. See FIELD_LIVE_CONTROLLER_FINDINGS_V1 and CHECK_SUMMARY_V107.

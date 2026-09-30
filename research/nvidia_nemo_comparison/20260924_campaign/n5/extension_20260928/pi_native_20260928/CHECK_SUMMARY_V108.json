@@ -1,0 +1,99 @@
+{
+  "version": 108,
+  "as_of_utc": "2026-09-30T22:45:39.544409+00:00",
+  "status": "PASS_LOCAL_STREAMED_MIRROR_PHYSICAL_PROJECTION_PREPARED_ONLY",
+  "native_run": null,
+  "native_run_count": 0,
+  "last_native_summary": 103,
+  "last_positive_model_summary": 98,
+  "actual_scope": {
+    "host_affinity": [
+      14
+    ],
+    "retained_native_evidence_local_mirror_files": 75,
+    "mirror_bytes": 352621,
+    "directories": 14,
+    "zero_byte_files": 14,
+    "chunk_bytes": 16384,
+    "largest_file_bytes": 45633,
+    "expected_data_chunks_from_sizes": 69,
+    "returned_data_chunk_counter_not_retained": true,
+    "positive_copy_rerun": false,
+    "native_modules_imported": false,
+    "constructors_executed": false,
+    "source_model_GUI_capture": false,
+    "target_writes": false,
+    "remote_transport_executed": false
+  },
+  "changed_evidence": {
+    "mirror": "Closed local native-evidence tree streamed and independently readback verified; existing partial/hidden names preserved; no payload batch in memory",
+    "failure": "Injected first copied-file fsync fault leaves empty guard and created directories; no completion receipt; re-entry rejects before writes. Not nonempty short-write proof",
+    "physical_projection": "Exact one-run IDs and code names project config replacements/native/archive/sidecar pending files and guards under unchanged80106028B target; runtime interception/census unqualified",
+    "changed_checks": "Four portable path rejects, three unassigned/oversized/primary-plus-pending slot rejects, one existing failed destination reject",
+    "d1_audit": "Retained installed B01 configuration selects native_v3_delayed264/1/1/0/264/188,CPU-1,LRU1 main7db8af/CPUf12ac/2MiBmetadata. No fresh actual asset or endpoint qualification"
+  },
+  "proposal": {
+    "target_bytes": 80106028,
+    "host_bytes": 84300332,
+    "combined_bytes": 164406360,
+    "admitted": false,
+    "full_runtime_write_binding": false,
+    "output_shortfall_bytes": 125983856,
+    "payload_shortfall_bytes": 55378411
+  },
+  "closure": {
+    "version": 229,
+    "pi_identities_closed": 396,
+    "prior_isolated_host_identities_closed": 48,
+    "field_host_records_checked": 10,
+    "field_host_unique_workers": 2,
+    "field_console_helpers": 1,
+    "nonidentity_closures": 3,
+    "baseline_unchanged": true,
+    "capture_closed": true,
+    "leases_free": true,
+    "research_compute_active": false
+  },
+  "resource_accounting": {
+    "combined_output_bytes": 5330286616,
+    "output_cap_bytes": 5368709120,
+    "output_headroom_bytes": 38422504,
+    "payload_including_target_and_reservations_bytes": 55725546899,
+    "payload_cap_bytes": 55834574848,
+    "payload_headroom_bytes": 109027949,
+    "payload_basis": "HOST_CENSUS_V205 plus closure229 target and later host-window delta",
+    "pi_free_bytes": 17429540864,
+    "pi_available_ram_bytes": 1419821056,
+    "pi_temperature_c": 54.55,
+    "pi_throttle": "throttled=0x0",
+    "before_later_metadata": true
+  },
+  "backup": {
+    "source_files": 4,
+    "source_bytes": 23724,
+    "readback_exact": true,
+    "separate_restore_copy_exact": true,
+    "private_preparation": "field-streamed-mirror-v1-preparation"
+  },
+  "milestone": {
+    "launcher_recovery_due_utc": "2026-09-30T21:42:44Z",
+    "status": "MISSED_STILL_OPEN",
+    "hard_deadline_unchanged": "2026-10-01T17:42:44Z"
+  },
+  "remaining": [
+    "Wire a bounded Pi-to-host streamed transfer; current new mirror copies a closed LOCAL tree only",
+    "Bind whole actual physical writer census to live entry/staging/outer guards; path projection is not a runtime interception layer",
+    "Bind real live D1 endpoint/method profile while preserving exact selected mode/assets",
+    "Fresh measured complete resource policy/admission and actual source/model/Stop/save/reopen passage",
+    "General operator launcher, required data actions, physical touch/offline acceptance"
+  ],
+  "notes": [
+    "No new native job or target mutation; original baseline/capture/leases unchanged",
+    "Positive mirror ran once. Initial review failed only after its completion receipt because chunks>file-count ignored14emptyfiles; freshV2review reads existing receipt/copy, no mirror rerun",
+    "69data chunks calculated from file sizes; returned measured counter was not retained after first assertion",
+    "Fsync fault exercised an empty first file, not nonempty partial writes or powerloss/concurrency",
+    "Source work/backups closed22:43:22UTC before22:43:55hostexpiry; later metadata only",
+    "Read-only guessed path failures preserved; no bound source edits",
+    "Source/native/all-writer integration and full164406360B reservation remain unadmitted; no policy enlargement"
+  ]
+}

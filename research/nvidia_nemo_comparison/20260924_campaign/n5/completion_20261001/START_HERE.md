@@ -1,6 +1,6 @@
 # Offline Pi delivery and handoff
 
-Current V107: the actual installed FieldController composition now preserves nine field-check methods, the installed archive-store body and physical Close/release logic while wiring the prepared source, native writers and failure-to-Stop controller. Fixed configuration replacements and one-run cardinality are prepared. Source review passed; no installed constructor/source/model/GUI ran. Full physical-path mapping, streamed host mirror, exact live D1 binding and native integration remain open. The21:42 launcher milestone was missed; final deadline unchanged. See FIELD_LIVE_CONTROLLER_FINDINGS_V1 and CHECK_SUMMARY_V107.
+Current V108: a bounded local streamed mirror verified75retained native-evidence files without loading the payload as a batch. Physical-path projection now accounts for configuration replacements, native/archive controls, pending files and guards under the unchanged target maximum. These are local-copy and preparation results; no Pi source/model/GUI ran. Actual Pi-to-host streaming, full runtime writer census and live D1 endpoint binding remain open. The launcher milestone remains missed; deadline unchanged. See FIELD_STREAMED_MIRROR_FINDINGS_V1 and CHECK_SUMMARY_V108.
 
 **Hard boundary: October 1, 2026, 13:42:44 Toronto / 17:42:44 UTC.** This is exactly 24 hours after the request was anchored at September30 17:42:44 UTC. It replaces the prospective17:47:34 UTC checkpoint; historical evidence remains unchanged.
 
