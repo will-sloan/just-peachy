@@ -1,3 +1,13 @@
+## September30 01:33UTC - D1 projection discrepancy isolated
+
+Read CHECK_SUMMARY_V45 / D1_PROJECTION_FINDINGS_V1.md. Original weights/stacking/lengths are exact; isolated ORT MatMul differs from original PyTorch by0.000140-0.000235 on four retained natural chunks. Tail ORT reproduces prior cache failure exactly; PyTorch first caches match original full model. BASIC versus disabled optimization is identical. All1e-5 state gates still fail. No complete-runtime repair or speedup accepted. Compact2,105,077byte graph is private d1-onnx-projection-v1/preencoder.onnx, with original feature/weight/intermediate arrays. No large re-export/extraction occurred.
+
+1. Fresh bounded native check of this compact projection on retained natural features before one justified kernel change. Preserve1e-5 probability/state gates; do not assume host arithmetic identifies ARM behavior or all downstream errors. Reuse current graph/fixtures, not a new400MB export.
+2. Continue actual source startup/parent controller facade around qualified IPC bridge, with PortAudio/aggregate memory, lease/readback restoration and accepted-tail drainage before changed quiet B01.
+3. Bind sequential Sherpa/A2 revisions to actual controller/GUI; qualify cancellation, failures, source integrity and archives. Generic A2 only; no simultaneous A2/D1 fit claim.
+
+All195Pi/48host owners closed; original app/config/install unchanged, capture closed and leases free. Private29file backup verified. ClosureV86 combined4372651061/5GiB, fixed32GBPi free17893818368bytes. Fresh census/admission before new dispatch. Checkpoint October1 17:47:34UTC unchanged.
+
 ## September30 01:19UTC - sequential ASR handoff passed
 
 Read CHECK_SUMMARY_V44 / SEQUENTIAL_ASR_FINDINGS_V1.md. Sherpa original1x saved source then generic A2 refinement passed exact51/87canonical references/all715127samples with nonoverlapping process lifetimes and separate revisions. Whole128.553s; A279.049s remains slower than real time. Actual GUI/controller/D1 integration and live acceptance are not implied. All195Pi/44host owners closed,baseline unchanged,captureclosed,leasesfree; private backup verified.
