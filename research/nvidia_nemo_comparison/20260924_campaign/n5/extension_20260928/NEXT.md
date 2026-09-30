@@ -1,3 +1,13 @@
+## September30 02:25UTC - actual isolated source stopped at DSP readback
+
+Read CHECK_SUMMARY_V48 / SOURCE_QUIET_FINDINGS_V1.md. AEC_MIC_ARRAY_TYPE failed while VERSION/build remained readable. Stream opened, but all priming/Stop frames were discarded; zero accepted audio,zero control setters,no model/GUI/playback. Child naturally exited1,collector0recorded failure,hardware closed,bothleasesfree. Full route snapshot/restoration and the planned12s/200ms pause were not reached. No evaluation-timeout or periodic-reset conclusion. Private28file backup verified; all207Pi/48host closed,baseline unchanged.
+
+1. Continue no-capture controller integration using explicit request_stop/read-until-terminal/finalize; preserve accepted source tails. Sequential Sherpa/A2 actual GUI revisions, cancel/failure and archive controls remain independent useful work.
+2. Inspect this retained failure and prior recovery receipts before preparing any specifically justified one-shot recovery under fresh authority/admission/backups. Do not repeat unchanged capture or implement a periodic reset. A separate post-recovery source check must precede combined B01.
+3. Focused alternate D1 projection accumulation-order experiment on retained arrays, unchanged1e-5state/probability gates. No redundant400MBexports or previously passed fixtures.
+
+ClosureV95: combined4,416,909,177/5GiB, fixed32GBPi free17,872,789,504bytes. Refresh actual census before dispatch; checkpoint October1 17:47:34UTC remains.
+
 ## September30 02:05UTC - source startup/interface qualified with fake hardware
 
 Read CHECK_SUMMARY_V47 / SOURCE_STARTUP_FINDINGS_V1.md. The actual source.start method, original endpoint checks, priming, callbacks and cleanup now run through the isolated facade in five native fake-device cases. Stop with41pendingrawblocks retains all15,360samples and drains tozero. Restoration mismatch and startup failure remain explicit; no device opened or model ran. The parent API is Start/request_stop/read/finalize and refuses premature finalization. Production controller is not yet changed. Private74file backup verified.

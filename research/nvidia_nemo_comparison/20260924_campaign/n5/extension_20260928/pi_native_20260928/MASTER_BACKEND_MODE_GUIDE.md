@@ -1,6 +1,6 @@
 # Master backend and mode guide — Raspberry Pi
 
-**Current update September30 02:05UTC:** The isolated source now has checked Start/request-Stop/drain/finalize controls. Five native fake-device cases exercise the actual startup method; queued accepted audio drains before finalization and faults remain explicit. Actual PortAudio/production-controller integration is next. See [startup findings](SOURCE_STARTUP_FINDINGS_V1.md). All research compute is closed; the alternate D1 projection mismatch and field release remain unresolved.
+**Current update September30 02:25UTC:** The new actual isolated microphone startup failed its microphone-array readback before accepting audio or changing DSP settings. Failure/closure and private backup are verified; the12s capture and paused-consumer test were not reached. No research compute or capture remains active, and the original app is unchanged. See [source quiet findings](SOURCE_QUIET_FINDINGS_V1.md). Controller/GUI integration and standalone field readiness remain open.
 
 **Device storage:** fixed32GB Raspberry Pi; last measured available space is17.874GB(16.65GiB), including existing research usage. Host allowances do not enlarge it. All field models, app, recordings and rollback must fit with5GiB available reserve. See [storage budget](PI_STORAGE_BUDGET_V1.md).
 
