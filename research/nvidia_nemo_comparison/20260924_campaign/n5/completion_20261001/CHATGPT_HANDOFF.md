@@ -1,6 +1,6 @@
 # ChatGPT handoff: Just Peachy offline Pi
 
-Current V109: actual Pi-to-host SSH streaming verified75files/352,621B and all20directories, including six empty directories absent from the earlier local copy. The successful exporter closed before BACKUP publication; three failed admissions remain preserved. V1 lacks recorded start ticks and retains that evidence gap. No source/model/GUI/capture ran. Full live D1 binding, runtime writer enforcement and source/model/Stop/save/reopen remain open. Launcher milestone missed; hard deadline unchanged. See FIELD_SSH_MIRROR_FINDINGS_V1 and CHECK_SUMMARY_V109.
+Current V110: actual installed live D1 binding is prepared, not executed. Fresh field controller V2 retains the V107 restrictions and binds delayed method/assets/C-ABI/endpoint checks with one acquisition/construction/session, 2,080,000 samples and 13,001 frames. Source review and eight new endpoint-boundary checks passed; no installed import, model/source/GUI/capture or target write. Full path/byte/cardinality enforcement and the integrated live entry remain open. Launcher milestone missed; hard deadline unchanged. See FIELD_LIVE_D1_FINDINGS_V1 and CHECK_SUMMARY_V110.
 
 Snapshot September30 2026,19:44UTC. **IN_PROGRESS; offline field release not accepted yet.** Deadline October1 17:42:44UTC /13:42:44Toronto. Start with START_HERE and ACCEPTANCE, then the newest verified CHECK_SUMMARY and current STATUS. Branch `codex/n1-foundation-20260924`; exact published HEAD is verified in the latest private REMOTE_BACKUP receipt.
 

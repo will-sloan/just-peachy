@@ -1,5 +1,7 @@
 # Master backend and mode guide — Raspberry Pi
 
+Current V110: actual installed live D1 binding is prepared, not executed. Fresh field controller V2 retains the V107 restrictions and binds delayed method/assets/C-ABI/endpoint checks with one acquisition/construction/session, 2,080,000 samples and 13,001 frames. Source review and eight new endpoint-boundary checks passed; no installed import, model/source/GUI/capture or target write. Full path/byte/cardinality enforcement and the integrated live entry remain open. Launcher milestone missed; hard deadline unchanged. See FIELD_LIVE_D1_FINDINGS_V1 and CHECK_SUMMARY_V110.
+
 ## Current verified V109 — 2026-09-30T23:18:44.286261+00:00
 
 Actual closed-tree SSH mirror passed75files/352621B/20dirs/69measured16KiBchunks;

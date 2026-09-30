@@ -1,0 +1,90 @@
+{
+  "version": 110,
+  "as_of_utc": "2026-09-30T23:39:51.851530+00:00",
+  "status": "PREPARED_INSTALLED_LIVE_D1_BINDING_ONLY",
+  "new_native_jobs": 0,
+  "last_native_application_summary": 103,
+  "last_positive_model_summary": 98,
+  "last_visible_inspection_summary": 100,
+  "actual_scope": {
+    "installed_source_origins_and_digest_reviewed": true,
+    "installed_imports_executed": false,
+    "native_binding_executed": false,
+    "source_started": false,
+    "model_constructed": false,
+    "gui_opened": false,
+    "target_writes": false,
+    "source_compile_pass": true,
+    "unchanged_controller_top_level_definitions": 9,
+    "endpoint_changed_boundary_cases": 8
+  },
+  "changed_evidence": {
+    "binding": "Actual installed resident acquisition delegates unchanged original call to checked installed subclass; one acquisition/construction/initial-reset latch; delayed method/origin/assets/C-ABI/mapped-library/endpoint checks prepared",
+    "controller": "Fresh V2 retains V1 field/source/archive/native restrictions; explicit admitted method/evidence binding before Controller construction",
+    "bounds": "New2080000sample/13001frame bound and source-derived EOF formula; old352127saved helper unchanged; no new native EOF or accuracy proof",
+    "failure": "Real controller nonblocking Stop callback before native diagnostics; process-local failure latch, no crash/concurrency qualification"
+  },
+  "closure": {
+    "version": 238,
+    "prior_pi_exact_identities_closed": 396,
+    "additional_exporter_exact_identities_closed": 3,
+    "total_recorded_exact_pi_identities_closed": 399,
+    "failed_v109_v1_start_ticks_missing": true,
+    "prior_isolated_host_identities_closed": 48,
+    "field_host_workers": 2,
+    "console_helpers": 1,
+    "previous_ssh_host_coordinators_closed": 4,
+    "typed_nonidentity_closures": 3,
+    "extra_owner_receipt": "field-live-d1-v1-preparation/EXTRA_OWNER_CLOSURE_V1.json",
+    "baseline_unchanged": true,
+    "capture_closed": true,
+    "leases_free": true,
+    "research_compute_active": false
+  },
+  "resource_accounting": {
+    "combined_output_bytes": 5336508356,
+    "output_cap_bytes": 5368709120,
+    "output_headroom_bytes": 32200764,
+    "payload_including_target_and_reservations_bytes": 55731768639,
+    "payload_cap_bytes": 55834574848,
+    "payload_headroom_bytes": 102806209,
+    "payload_basis": "HOST_CENSUS_V208 plus closure238 target and host-window delta",
+    "pi_free_bytes": 17429536768,
+    "pi_available_ram_bytes": 1369587712,
+    "pi_temperature_c": 53.45,
+    "pi_throttle": "throttled=0x0",
+    "before_later_metadata": true
+  },
+  "proposal": {
+    "target_bytes": 80106028,
+    "host_bytes": 84300332,
+    "combined_bytes": 164406360,
+    "admitted": false,
+    "full_runtime_write_binding": false,
+    "output_shortfall_bytes": 132205596,
+    "payload_shortfall_bytes": 61600151
+  },
+  "backup": {
+    "source_files": 3,
+    "source_bytes": 39087,
+    "readback_exact": true,
+    "separate_restore_copy_exact": true,
+    "private_preparation": "field-live-d1-v1-preparation"
+  },
+  "milestone": {
+    "launcher_recovery_due_utc": "2026-09-30T21:42:44Z",
+    "status": "MISSED_STILL_OPEN",
+    "hard_deadline_unchanged": "2026-10-01T17:42:44Z"
+  },
+  "remaining": [
+    "Complete actual transitive writer/path/byte/cardinality enforcement and concrete live entry",
+    "Fresh measured policy/admission for changed source-model-Stop-save-reopen and closed-tree streamed mirror",
+    "Execute new actual installed live D1 binding; saved modes remain separate evidence",
+    "General operator/data actions/gallery/physical touch/offline acceptance"
+  ],
+  "notes": [
+    "No old bound source/admission/receipt edited; no healthy model/source/UI/mirror suite rerun",
+    "Source work and exact backup/restore copies finished23:37:07UTC before23:42:17hostexpiry",
+    "Missing read-only paths and pre-admission census envelope/console encoding failures preserved; no native retry"
+  ]
+}

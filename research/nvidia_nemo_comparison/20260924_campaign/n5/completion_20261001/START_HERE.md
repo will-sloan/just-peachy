@@ -1,6 +1,6 @@
 # Offline Pi delivery and handoff
 
-Current V109: actual Pi-to-host SSH streaming verified75files/352,621B and all20directories, including six empty directories absent from the earlier local copy. The successful exporter closed before BACKUP publication; three failed admissions remain preserved. V1 lacks recorded start ticks and retains that evidence gap. No source/model/GUI/capture ran. Full live D1 binding, runtime writer enforcement and source/model/Stop/save/reopen remain open. Launcher milestone missed; hard deadline unchanged. See FIELD_SSH_MIRROR_FINDINGS_V1 and CHECK_SUMMARY_V109.
+Current V110: actual installed live D1 binding is prepared, not executed. Fresh field controller V2 retains the V107 restrictions and binds delayed method/assets/C-ABI/endpoint checks with one acquisition/construction/session, 2,080,000 samples and 13,001 frames. Source review and eight new endpoint-boundary checks passed; no installed import, model/source/GUI/capture or target write. Full path/byte/cardinality enforcement and the integrated live entry remain open. Launcher milestone missed; hard deadline unchanged. See FIELD_LIVE_D1_FINDINGS_V1 and CHECK_SUMMARY_V110.
 
 **Hard boundary: October 1, 2026, 13:42:44 Toronto / 17:42:44 UTC.** This is exactly 24 hours after the request was anchored at September30 17:42:44 UTC. It replaces the prospective17:47:34 UTC checkpoint; historical evidence remains unchanged.
 
