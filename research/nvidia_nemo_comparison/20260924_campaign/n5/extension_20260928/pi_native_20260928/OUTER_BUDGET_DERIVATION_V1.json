@@ -1,0 +1,12 @@
+{
+  "schema": "field-outer-budget.derivation.v1",
+  "base_dispatcher_sha256": "5fa0f73dcf9bf14c606d73e64d5d52e03304898338685e8b4fd6e9b23fd79c95",
+  "changes": [
+    "Actual service.log whole-block GroupWriter append replaces clipped log writes",
+    "Actual sampled resource rows append separately; no retained unbounded samples list in dispatch receipt",
+    "Actual worker RESULT and gate DISPATCH_RESULT use receipts group; per-role reserved closure latches failure",
+    "Final drain uses64KiB reads; rejection/tails request Stop once and use bounded separate failure stream",
+    "Counters/SHA report raw retention failure explicitly; no retry/delete"
+  ],
+  "scope": "No model/source/controller/capture;9 bounded changed failures plus ordinary real dispatcher output sites; host staging/envelope/ownership/harness output paths still separate"
+}
