@@ -1,0 +1,44 @@
+{
+  "schema": "source-receipts.v1",
+  "scope": "no-capture-qualification",
+  "plan_sha256": "88f046fbfd1e4a12fd8381720e8d745282ef6b8c6b8bee91f0813f870f0043ad",
+  "files": {
+    "field_source_receipt_routes_v1.py": "f6b6539cd83f816721c04da753ae3788e933152cda33276859120e145ff50593",
+    "field_live_stop_overlay_v1.py": "624da05dd86f7c62c443f775edd6a3a2d0a8a00374eaaef48aa66fc04505db3a",
+    "live_source_bridge_budget_v1.py": "12d3b54f76e538cf43f6f06bd0c1121dbf421c90707f29b7d9bd0ab72591250b",
+    "field_source_factory_overlay_v1.py": "5984edcca996e628e29d2aedb0888dfce7f12d7be808aeabc637d698600b1ece",
+    "field_sidecar_budget_v1.py": "75ff5210270cb4edaa540a1cdd2db12f9c54508d4757482e1b6164f5c69b283c"
+  },
+  "groups": {
+    "source": {
+      "maximum_bytes": 1048576,
+      "maximum_file_bytes": 65536,
+      "maximum_files": 16,
+      "maximum_write_bytes": 65536,
+      "minimum_free_bytes": 5368709120
+    },
+    "failure": {
+      "maximum_bytes": 2097152,
+      "maximum_file_bytes": 262144,
+      "maximum_files": 8,
+      "maximum_write_bytes": 262144,
+      "minimum_free_bytes": 5368709120
+    },
+    "closure_reserve": {
+      "maximum_bytes": 4035028,
+      "maximum_file_bytes": 1048576,
+      "maximum_files": 16,
+      "maximum_write_bytes": 1048576,
+      "minimum_free_bytes": 5368709120
+    }
+  },
+  "mapped_names": [
+    "BRIDGE_CLOSE.json",
+    "BRIDGE_STOP.json",
+    "POST_ROUTE_SNAPSHOT.json",
+    "PRE_ROUTE_SNAPSHOT.json",
+    "ROUTE_STOP.json",
+    "SOURCE_START.json",
+    "SOURCE_START_FAILURE.json"
+  ]
+}

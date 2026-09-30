@@ -1,0 +1,19 @@
+{
+  "base_live_audio_sha256": "f7733618778d6a21ea117bad72c645cb8b457a9a1a391dc4fa7e8969796c3cbd",
+  "base_manifest_sha256": "274e6de279264f89642e3857c64bf164c699b600cd99e922429020b548bf55f0",
+  "retained_sources": {
+    "source_quiet_factory_v1.py": "5e40a9270b64cd2e6eefb5335fdfe4981960fbdc71d58ac92091f65a1c698ec3",
+    "live_source_bridge_v2.py": "aac6479e66334a70549c1905f2daacd599268a76a6afd0f948c9d32bbed46436",
+    "isolated_source_transport_v3.py": "5080fead105a72e35751ccaf5de09b059b749f0c6a3d7a26a4ecf1911824d084"
+  },
+  "derived": {
+    "field_source_receipt_routes_v1.py": "f6b6539cd83f816721c04da753ae3788e933152cda33276859120e145ff50593",
+    "field_live_stop_overlay_v1.py": "624da05dd86f7c62c443f775edd6a3a2d0a8a00374eaaef48aa66fc04505db3a",
+    "live_source_bridge_budget_v1.py": "12d3b54f76e538cf43f6f06bd0c1121dbf421c90707f29b7d9bd0ab72591250b",
+    "field_source_factory_overlay_v1.py": "5984edcca996e628e29d2aedb0888dfce7f12d7be808aeabc637d698600b1ece",
+    "field_sidecar_budget_v1.py": "75ff5210270cb4edaa540a1cdd2db12f9c54508d4757482e1b6164f5c69b283c"
+  },
+  "stop_algorithm": "Exact retained _stop_owned except bounded receipt block and explicit base function references; source_class start is unavailable",
+  "factory_scope": "save and route class bodies only; no create/start function",
+  "capture_admitted": false
+}
