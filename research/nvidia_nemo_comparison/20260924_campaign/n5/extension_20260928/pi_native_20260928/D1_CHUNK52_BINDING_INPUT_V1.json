@@ -1,0 +1,58 @@
+{
+  "mode": "chunk52",
+  "retained_run": "d1-geometry-chunk52-a76-v1",
+  "prefix_samples": 70327,
+  "push_samples": 1600,
+  "pins": {
+    "saved_full.npy": {
+      "bytes": 143168,
+      "sha256": "99c291b1e0f8a89e4ce3d196012a3d31fade1e4b252c6a0ce9a9976c5f3ed388"
+    },
+    "saved_full_calls.jsonl": {
+      "bytes": 77227,
+      "sha256": "91f7ad7c874ad4b75b4f5780d12382149fa4d3e68a16cda54f6e701bc7948937"
+    },
+    "INPUTS.json": {
+      "bytes": 6874,
+      "sha256": "d3e94e00c0db2f0e42c2093b91acf2078d0c9880614828a2ee9b6b046354ff8d"
+    },
+    "RESULT.json": {
+      "bytes": 4452,
+      "sha256": "ba82de036f19063a8cda832796d06e4bf91c330c9b27bb11314244b43136e6d1"
+    },
+    "REVIEW.json": {
+      "bytes": 2083,
+      "sha256": "f3a4155223dcfbc43a71e13ac98527e4eba55732fc549ee19a4f0e95d4e17425"
+    },
+    "source.wav": {
+      "bytes": 1430298,
+      "sha256": "0ee26e8aa6f815d8b202419aafb71ff5bc25093d193e95e972036f488c5040b8"
+    }
+  },
+  "tolerance": 1e-05,
+  "installed_n2_source": "/home/peachyprototype/JustPeachy/research/nemotron-20260928/field-artifact-install-v2/deployment/releases/b01-offline-20260930-v12/app/n2_models.py",
+  "installed_n2_sha256": "d00c24ad71d6f2c0cf193425e01b489aecceeb85d47006a52f63770fca9cba05",
+  "application_request": {
+    "schema": "d1-application-selection.v1",
+    "selection": {
+      "id": "chunk52",
+      "catalog_sha256": "ff431b358c7140addcddd95c313f2ec82272289dce2a9815e8d63b60f6bde7c5",
+      "geometry": {
+        "chunk_frames": 52,
+        "right_context_frames": 1,
+        "left_context_frames": 0,
+        "fifo_frames": 80,
+        "spkcache_frames": 264,
+        "update_period_frames": 40,
+        "preset": "v3-streaming",
+        "gpu": -1
+      },
+      "retained_run": "d1-geometry-chunk52-a76-v1"
+    },
+    "requires_fresh_process": true,
+    "requires_independent_session": true,
+    "launchable": false,
+    "reason": "Application worker binding is not connected. No model starts from this control."
+  },
+  "application_request_scope": "Exact V87 control schema as a new chunk52 input fixture, not a new GUI execution or launch authorization"
+}

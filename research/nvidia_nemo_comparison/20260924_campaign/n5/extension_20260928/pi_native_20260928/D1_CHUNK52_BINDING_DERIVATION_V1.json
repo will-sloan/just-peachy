@@ -1,0 +1,62 @@
+{
+  "schema": "d1-chunk52-selected-binding-derivation.v1",
+  "inputs": {
+    "d1_model_binding_v1.py": {
+      "bytes": 4854,
+      "sha256": "a15b2e489d5c0613bd90b78db977f6959e6d70ffe8b4b8c8075b51a9f38d5064"
+    },
+    "d1_modes_v1.py": {
+      "bytes": 7571,
+      "sha256": "8b315f886c1a0707aea6173cef47f8a4459bdd718c88fd247684b8d4a0185616"
+    },
+    "D1_MODE_CATALOG_V1.json": {
+      "bytes": 13005,
+      "sha256": "ff431b358c7140addcddd95c313f2ec82272289dce2a9815e8d63b60f6bde7c5"
+    },
+    "d1_model_binding_protocol_v1.py": {
+      "bytes": 9716,
+      "sha256": "628e0fbe8e78ca032d41655c73214e4250e7b0ce41fbb90d918a563945c2755e"
+    },
+    "dispatch_d1_model_binding_v1.py": {
+      "bytes": 22394,
+      "sha256": "c609cfdf0c4490ae8862474d3eff632fcffe54d22082a8ac51a2d41e4c6671a2"
+    },
+    "review_d1_model_binding_v1.py": {
+      "bytes": 9280,
+      "sha256": "c579785b09cde0aafb44c3dd11671b9572eafefe4f5b9a244b12a42509f7c6d8"
+    },
+    "backup_d1_model_binding_v1.py": {
+      "bytes": 2796,
+      "sha256": "d3ffdd03caffc2f13a529c39c01c51ef8bf81134cbd4016e05a3a3ef9b11db6f"
+    }
+  },
+  "outputs": {
+    "d1_chunk52_binding_v1.py": {
+      "bytes": 7930,
+      "sha256": "d84b99b730fc83e0fe8f1f2a1c08e32761afe6da928ff8a7fedc27e5c729836b"
+    },
+    "dispatch_d1_chunk52_binding_v1.py": {
+      "bytes": 22392,
+      "sha256": "43513bd0775c897b608cc0fe196af70cb9d584f781d6c4f80b8b6e6d0a146973"
+    },
+    "review_d1_chunk52_binding_v1.py": {
+      "bytes": 9166,
+      "sha256": "29a725459738fc7ae939849bdd800aee5e48547ce8693ed064ca32b4ffe77ffc"
+    },
+    "backup_d1_chunk52_binding_v1.py": {
+      "bytes": 2798,
+      "sha256": "f84879d4848f8c64a58adfd31cebf7da4c7e767ed75be015b9b0fcda49c28a7a"
+    },
+    "D1_CHUNK52_BINDING_INPUT_V1.json": {
+      "bytes": 2121,
+      "sha256": "5a7d2a7d2ab75a5926007d975c7a0de08a877587fdfd12c32f00749a43749ad8"
+    },
+    "README_D1_CHUNK52_BINDING_V1.md": {
+      "bytes": 5109,
+      "sha256": "842a9d0202bd62444007269afec97b774b835ec71b31e1abcc4f8177ade7321b"
+    }
+  },
+  "delta": "Fresh mode/prefix/session/expected frames/reference pins; remove unchanged V88 rejection cases. Retain V88 model binding and V85 factory unchanged.",
+  "boundary_case_reruns": 0,
+  "old_evidence_modified": false
+}

@@ -1,3 +1,9 @@
+## September30 15:27UTC - three guarded factory paths checked
+
+**September30 15:27UTC:** CHECK_SUMMARY_V89 / D1_CHUNK52_BINDING_FINDINGS_V1: NEW chunk52 selected-model path passes70327 samples/440 frames;416 pre-EOF frames exactly match retained reference,24 EOF frames accounting-only. Actual CABI/all libraries/explicit session/native closure verified; no old boundary-case reruns.43file/139541B exact backup;all360Pi/48priorhost+2fieldworkers/1helper closed,baseline unchanged. All three guarded factories now have scoped native passages, but application Start remains unbound.1.715s startup prefix is not sustained speedup. Next actual application selection-to-Start/Stop integration; ASR secondary.
+
+Connect reviewed mode availability and the guarded model adapter to a fresh application selection/Start/Stop path. Use one short saved-input passage to exercise actual ownership, session and output binding; no healthy constructor-only/control/geometry rerun. Preserve V87 controls as bound evidence and keep old Start unavailable. Full V3 proposal remains over both caps; small diarizer integration needs fresh measured bounds.
+
 ## September30 15:18UTC - streaming selected model boundary passes
 
 **September30 15:18UTC:** CHECK_SUMMARY_V88 / D1_MODEL_BINDING_FINDINGS_V1: selected installed acquire/close boundary plus NEW streaming factory passes35127 samples/220 frames;208 pre-EOF frames exactly match retained reference,12 EOF frames accounting-only. Ten changed request/session/reacquisition rejects; explicit independent session before audio, actual native pointers/bundle field closed.1.055s startup-prefix timing is NOT sustained streaming speedup.43file/131380B exact backup;all358Pi/48priorhost+2fieldworkers/1helper closed,baseline unchanged. No full constructors/ASR/source/GUI/app Start. Next short chunk52 changed-path qualification, then application binding. ASR secondary.
