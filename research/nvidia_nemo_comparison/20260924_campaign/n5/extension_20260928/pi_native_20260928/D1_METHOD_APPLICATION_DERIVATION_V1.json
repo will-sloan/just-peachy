@@ -1,0 +1,20 @@
+{
+  "schema": "d1-method-application-derivation.v1",
+  "parents": {
+    "d1_application_saved_v4.py": "4ac346815e436644f7c08e611ad691c9f5a39e345328a42c3bbef8715da10baa",
+    "d1_application_saved_protocol_v4.py": "731859410201eb0e3e6291f3d2a700d29be06a4fd356d818fe55374def4ef999",
+    "dispatch_d1_application_saved_v4.py": "176e430dab59772accf33b398d7e38099e55fffc314dda1aca7b792b0cb98354",
+    "review_d1_application_saved_v4.py": "01d4a08f3f2ecda5e1d956cd4a8d7fc030c66dcb732fb5b3b470604500b60d57",
+    "backup_d1_application_saved_v4.py": "c1a249da102899edb0c5cc206ae4b94d506cc9a257ddadf99b89c4af2c728f92",
+    "d1_method_controls_v1.py": "a4f492942f4f53462417e6a30ee29c03acc28c3504821752257ffb498f0d0adc",
+    "D1_METHOD_CONTRACT_V1.json": "1ae32a068914370a4c237a5a0545c9452fd56c95346b8a8f9b091b39bdf2d629"
+  },
+  "changes": [
+    "Compose unchanged mode-aware saved app V4 and method controls V1 over actual installed v12 Controller/PrototypeUI.",
+    "BoundStartWriter enriches exact real START_REQUEST before source/model thread creation; failures preserve existing guards.",
+    "Method-error UI latch blocks Start until fresh successful selection; actual queued corrupted GPU profile rejection before model/source.",
+    "Actual details navigation/three views/Back and one positive method-bound chunk52 saved Start/Stop passage; no old suite/benchmark.",
+    "GUI receipt stores one full profile and verified canonical hashes in before/after snapshots to fit unchanged16KiB file limit."
+  ],
+  "bound_input_sha256": "7d2f62998fcb6a8372bc9d16d1ca67779992486e88354adde949dc90352f0e33"
+}

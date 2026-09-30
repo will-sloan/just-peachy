@@ -1,0 +1,134 @@
+{
+  "schema": "pi-native-check-summary.v95",
+  "checked_utc": "2026-09-30T17:36:04.862823+00:00",
+  "status": "PASS_INSTALLED_D1_METHOD_BOUND_SAVED_START_STOP_ONLY",
+  "run": "d1-method-application-v1",
+  "scope": "Actual installed Controller/withdrawn PrototypeUI method-bound saved Chunk52 Start/Stop; not unrestricted launcher or live release",
+  "changed_evidence": {
+    "actual_details_navigation_three_views_and_back": true,
+    "invalid_gpu_profile_rejected_before_source_model_thread": true,
+    "zero_samples_and_no_start_receipt_on_rejection": true,
+    "method_error_latched_until_explicit_successful_selection": true,
+    "accepted_profile_recorded_before_thread_ownership": true,
+    "profile_in_selection_and_before_after_canonical_hashes": true,
+    "host_writer_standin_cases": 4,
+    "pre_admission_size_failure_preserved": true,
+    "actual_gui_receipt_bytes": 10439,
+    "generic_controller_state_recovery": "Source inspection: selected successful path does not reset original Controller state/status after rejection; generic state was not separately recorded by protocol."
+  },
+  "passage": {
+    "source_samples": 68800,
+    "output_frames": 431,
+    "pre_eof_frames": 416,
+    "eof_frames": 15,
+    "endpoint_contract": {
+      "contract_sha256": "d6aea07355940995d36c81584cd82a0eabd7a95149a94a0eb456cc3269ab3f74",
+      "mode": "chunk52",
+      "source_object_link_verified": true,
+      "selected_library_sha256": "fa8ecbb66124b62fced485d45dd2ec6018634a35d39dbc143e221b9f7230b622",
+      "frontend_hop_samples": 160,
+      "output_subsampling_factor": 1,
+      "empty_frames": 0,
+      "nonempty_formula": "samples // 160 + 1",
+      "native_empty_input_tested": false,
+      "independent_rebuild": false
+    },
+    "expected_output_frames": 431,
+    "pre_eof_max_abs": 0.0,
+    "eof_tail_matched_reference": false,
+    "source_prefix_float32_sha256": "13875041c5cf48b5f7fb4cc9bbbf8f92c3278a1d5f56aa1dbcc938e39c435ef6",
+    "stop_requested": true,
+    "source_position": 68800,
+    "session_id": "d1-method-application-v1",
+    "native_checks": [
+      "actual_asset_bytes",
+      "actual_c_abi_before_create",
+      "actual_mapped_libraries",
+      "actual_mapped_libraries"
+    ],
+    "seconds": 6.332824001990957,
+    "cpu_seconds": 2.831008344
+  },
+  "resources": {
+    "protocol_seconds": 6.947746669990011,
+    "worker_seconds": 6.332824001990957,
+    "worker_cpu_seconds": 2.831008344,
+    "process_peak_rss_bytes": 174292992,
+    "unique_owner_sampled_peak_rss_bytes": 194609152,
+    "resource_rows": 28,
+    "minimum_available_ram_bytes": 1266302976,
+    "temperature_range_c": [
+      52.35,
+      55.65
+    ],
+    "clock_khz_range": [
+      1700000,
+      2400000
+    ],
+    "throttle_states": [
+      "throttled=0x0"
+    ],
+    "original_rc5_concurrent": true
+  },
+  "closure": {
+    "version": 203,
+    "all_recorded_pi_identities_closed": 374,
+    "prior_isolated_host_identities_closed": 48,
+    "additional_field_host_workers_closed": 2,
+    "additional_console_helper_closed": 1,
+    "nonidentity_closure_receipts": 3,
+    "baseline_unchanged": true,
+    "capture_closed": true,
+    "research_lease_free": true,
+    "hardware_lease_free": true,
+    "active_research_compute": false,
+    "original_rc5_gui_running": true
+  },
+  "backup": {
+    "file_count": 64,
+    "bytes": 230698,
+    "exact_verified": true,
+    "review_sha256": "7a116ba06aaea35059fa6adea6a108b718df794f90c3e8261f6221ad314cbb65",
+    "backup_sha256": "f897a5c22b836d7002a72e958df4ca3201c90b5b00f82cb01b8986439252a503"
+  },
+  "limits": {
+    "combined_output_bytes": 5300667191,
+    "combined_output_cap_bytes": 5368709120,
+    "output_headroom_bytes": 68041929,
+    "total_payload_including_retained_reservations_bytes": 55695927474,
+    "total_payload_cap_bytes": 55834574848,
+    "payload_headroom_bytes": 138647374,
+    "prepared_full_v3_bytes": 155189248,
+    "full_v3_output_shortfall_bytes": 87147319,
+    "full_v3_payload_shortfall_bytes": 16541874,
+    "measured_before_later_metadata": true
+  },
+  "pi": {
+    "fixed_device_bytes": 31268536320,
+    "free_bytes": 17432752128,
+    "available_ram_bytes": 1411088384,
+    "temperature_c": 54.0,
+    "throttle": "throttled=0x0"
+  },
+  "display": {
+    "saved_transform": 270,
+    "logical_size": [
+      480,
+      800
+    ],
+    "config_sha256": "c4e12bb19373d607a7ca1e52a0c007e082e17a18eb5af7b8a60384ca82aae23b",
+    "read_only_rechecked": true,
+    "physical_touch_tested": false,
+    "reboot_persistence_tested": false
+  },
+  "unqualified": [
+    "live capture and normal pipeline",
+    "visible D1 rendering and physical touch",
+    "arbitrary file picker or unrestricted multi-mode launcher",
+    "constructor/reset/close failure and concurrency stress",
+    "new sustained speedup or accuracy",
+    "full N4/N5 and baseline activation"
+  ],
+  "next_step": "Prepare a fresh mode-aware saved entry/launcher that pins each mode to its own qualified app/endpoint/method receipts, enforces a fresh process per run and explicit unavailable live Start. Address original Controller state/status remaining ERROR after the injected rejection while the dedicated D1 phase recovered, before claiming general application recovery. Then qualify changed visible D1 navigation with bounded restore/closure; no healthy inference or method-suite reruns. No new speed benchmark without a distinct supported same-geometry hypothesis.",
+  "checkpoint_utc": "2026-10-01T17:47:34Z"
+}
