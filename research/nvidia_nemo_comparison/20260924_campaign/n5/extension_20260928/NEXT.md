@@ -1,3 +1,9 @@
+## September30 16:46UTC - all three saved application modes scoped passed
+
+**September30 16:46UTC:** CHECK_SUMMARY_V93 / D1_APPLICATION_SAVED_FINDINGS_V4: Delayed actual installed Controller/withdrawn UI selection/Start/Stop passes340800samples/2131frames;2112pre-EOF exact0,19EOF-tail accounting only. Distinct LRU1 build/source/object/link and endpoint lineage verified;4new host boundaries pass. Actual source/model/worker/app lease/Tk close naturally;61file313638B exact backup. All370Pi/48priorhost+2fieldworkers/1helper closed,baseline unchanged. All three modes now have separate saved-app passes;live/visible/touch/full field remain unavailable. Next expose implemented speed/resource methods with matched same-geometry receipts;no healthy mode reruns or new speedup claim. ASR secondary.
+
+Fresh speed-method controls must state exact implemented kernel/resource profile and supported evidence. No applied skip/pools/whole-waveform ONNX or cross-geometry speedup. Fresh process per run; full live activation remains unavailable.
+
 ## September30 16:29UTC - chunk52 saved application Stop passes
 
 **September30 16:29UTC:** CHECK_SUMMARY_V92 / D1_APPLICATION_SAVED_FINDINGS_V3: fresh mode-aware saved page passes actual installed Controller/withdrawn UI Chunk52 selection/Start/Stop.68800samples/431frames;416pre-EOF exact0,15EOF-tail accounting only. Honest public saved-only selection; legacy adapter fields private. Nine changed host checks pass. Actual source/model/worker/app lease/Tk close naturally;60file199788B exact backup;all368Pi/48priorhost+2fieldworkers/1helper closed,baseline unchanged. StreamingV3 remains separately passed;V1/V2 remain failed. No sustained speedup/accuracy/live/physical-GUI claim. Next delayed selected application/model boundary,then implemented speed-method controls/evidence. ASR secondary.

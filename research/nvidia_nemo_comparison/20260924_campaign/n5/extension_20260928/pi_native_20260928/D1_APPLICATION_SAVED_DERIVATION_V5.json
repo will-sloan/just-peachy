@@ -1,0 +1,21 @@
+{
+  "schema": "d1-application-saved-derivation.v5",
+  "parents": {
+    "d1_application_saved_v4.py": "4ac346815e436644f7c08e611ad691c9f5a39e345328a42c3bbef8715da10baa",
+    "d1_application_saved_protocol_v4.py": "731859410201eb0e3e6291f3d2a700d29be06a4fd356d818fe55374def4ef999",
+    "dispatch_d1_application_saved_v4.py": "176e430dab59772accf33b398d7e38099e55fffc314dda1aca7b792b0cb98354",
+    "review_d1_application_saved_v4.py": "01d4a08f3f2ecda5e1d956cd4a8d7fc030c66dcb732fb5b3b470604500b60d57",
+    "backup_d1_application_saved_v4.py": "c1a249da102899edb0c5cc206ae4b94d506cc9a257ddadf99b89c4af2c728f92",
+    "d1_endpoint_contract_v2.py": "01d5d528225d8bef8a734d76945bb03b99bd819339694aa35c5af1b57a4580d5",
+    "D1_ENDPOINT_CONTRACT_V2.json": "d6aea07355940995d36c81584cd82a0eabd7a95149a94a0eb456cc3269ab3f74",
+    "D1_APPLICATION_SAVED_INPUT_V4.json": "404257abdbfb115fdf338fa08fd16d935515c87d162c362911b2a8e5fa8bec60"
+  },
+  "changes": [
+    "Mode-aware application body retained except endpoint helper; fresh delayed admission and actual UI selection/Start/Stop.",
+    "Bind exact LRU1 main, compile object, successful link, metadata runtime, parent LRU8 patch lineage and retained frontend objects/Q8 metadata before acquisition.",
+    "Extend count ceiling to352127; Stop after first observed340800 samples; preserve every frame and same-geometry pre-EOF match.",
+    "Bind prior Streaming and Chunk52 application receipts separately; no healthy path reruns."
+  ],
+  "endpoint_contract_sha256": "d6b4c142c21c32407f0f7bf7ace554d9f33fcfe0ffbf843ca40a85a85637aaea",
+  "full_live_start_available": false
+}
