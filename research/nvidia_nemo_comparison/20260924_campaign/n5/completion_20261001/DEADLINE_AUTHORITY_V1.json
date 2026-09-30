@@ -1,0 +1,15 @@
+{
+  "schema": "just-peachy.hard-completion-authority.v1",
+  "recorded_utc": "2026-09-30T17:42:44Z",
+  "hard_deadline_utc": "2026-10-01T17:42:44Z",
+  "hard_deadline_toronto": "2026-10-01T13:42:44-04:00",
+  "duration_seconds": 86400,
+  "supersedes_prospective_checkpoint": "2026-10-01T17:47:34Z",
+  "finalization_starts_utc": "2026-10-01T16:42:44Z",
+  "user_request": "Complete running offline Raspberry Pi software, documentation, ChatGPT handoff of exploration and results, mode guide, future noisy-environment validation framework, condensed consolidated paths and verified backups within24hours.",
+  "historical_admissions_unchanged": true,
+  "prior_resource_privacy_preservation_requirements_remain": true,
+  "no_automatic_extension": true,
+  "completion_requires_actual_evidence": true,
+  "at_deadline": "Close research workers, pause automation, deliver verified handoff. Leave qualified field app idle/captureoff if accepted; otherwise preserve recoverable baseline and explicitly report failed required gates."
+}

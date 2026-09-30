@@ -1,5 +1,7 @@
 # Connected CM5: native work is now the priority
 
+**New user completion boundary, September30:** hard finish is **October1 17:42:44UTC /13:42:44Toronto**, exactly24hours from the recorded request. This replaces the older prospective17:47:34UTC checkpoint; immutable historical evidence is unchanged. Read [the condensed completion pack](../../completion_20261001/START_HERE.md), its acceptance gates and timed plan before the next dispatch. Finalization reserve begins16:42:44UTC. Prioritize usable offline D1 integration, corrected live/storage/launcher/controls, then frozen release, ChatGPT handoff, mode guide, field-validation framework and verified backups. Planning/docs only in this update; latest actual compute remains V95, all owned research closed. Initial documentation ZIP31,700B/15members is verified; it is not offline acceptance.
+
 User priority September29: ASR-guided D1 activity with candidate1second pre/post padding. Read ASR_GUIDED_D1_NATIVE_PLAN_V1.md (in pi_native_20260928). First native cue-shadow evidence now reviewed in ASR_SHADOW_FINDINGS_V1.md; applied skips remain unqualified. Keep basic live readiness moving alongside it.
 
 Updated September 29, 2026 19:05 UTC. Read later verified results before acting. The user confirmed connection and authorized Pi testing on September 28. This replaces the older no-Pi-contact condition; it does not rewrite old admissions. Multiday checkpoint remains October 1 at 17:47:34 UTC. Hourly continuation was updated successfully to Pi-first work.

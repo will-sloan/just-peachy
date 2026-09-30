@@ -1,0 +1,16 @@
+{
+  "schema": "just-peachy.initial-documentation-backup.v1",
+  "status": "EXACT_DOCUMENTATION_BACKUP_VERIFIED",
+  "delivery_status": "IN_PROGRESS",
+  "label": "draft-v1",
+  "archive": "G:/Just_Peachy_N1/20260924_campaign/local/n5/research-extension-20260928/pi-native-20260928/completion-20261001-backups/draft-v1/NVIDIA_CAMPAIGN_CHATGPT_HANDOFF_20260924_draft-v1.zip",
+  "bytes": 31700,
+  "sha256": "e68d2f7f3caccdd994ba84dc1b315a4cbfb6b2a3448b46ed09bca3ac77c43438",
+  "member_count": 15,
+  "cpu_affinity": [14],
+  "all_members_readback_verified": true,
+  "runtime_or_offline_acceptance": false,
+  "private_media_models_or_credentials_included": false,
+  "implementation_reference": "2e64b792536bbf35309ff5e1497e6ec82ecae8ce",
+  "hard_deadline_utc": "2026-10-01T17:42:44Z"
+}
