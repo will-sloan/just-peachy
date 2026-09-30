@@ -1,3 +1,9 @@
+## September30 11:06UTC - absolute deadline fixtures pass
+
+**September30 11:06UTC:** CHECK_SUMMARY_V73 / FIELD_CHILD_DEADLINE_FINDINGS_V1: shared absolute deadline passes seven pre-spawn rejects, actual expired launcher rejection and three native no-capture fixtures (normal/cooperative expiry/forced SIGKILL). Exact dead-owner lock preserved and recovered through RuntimeLock; all327Pi/48host closed, baseline unchanged,69file/284824byte backup verified. Full healthy V2 controller protocol remains prepared, not executed; synchronous supervision is not arbitrary parent-stall coverage. Next complete/enforce whole-run bounds and measured admission before capturable120s work. No models/capture/GUI or policy change.
+
+Complete the live whole-run allocation next: assign/enforce source/TRACE/control/log/telemetry/receipts/failure-tail bounds, preserve52GiB total/all evidence, and measure any modest output revision before admission. Existing capturable path remains unadmitted. Carry the shared child budget into a concurrent parent supervisor for blocking work; current synchronous fixture does not prove arbitrary parent-stall or controller timeout cleanup. Do not rerun passed timer, healthy controller, writer, model or capture cases.
+
 ## September30 10:47UTC - guarded overlay deployment passes
 
 **September30 10:47UTC:** CHECK_SUMMARY_V72 / FIELD_OVERLAY_LAUNCHER_FINDINGS_V1: explicit compact-binding/overlay adapter passes seven prepublication and four launcher rejections, one guarded installed controller entry, three real blocked updates and isolated base-to-overlay-to-base rollback. No epoch/engine/models/capture/GUI or release/catalogue copy. Private80-file/305964-byte backup verified; all321Pi/48host closed, baseline unchanged. Next complete/enforce whole-run output bounds and measured admission before any capturable120s derivative.

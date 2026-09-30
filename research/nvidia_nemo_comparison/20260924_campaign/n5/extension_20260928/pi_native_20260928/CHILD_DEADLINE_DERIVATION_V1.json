@@ -1,0 +1,14 @@
+{
+  "schema": "just-peachy.absolute-deadline-derivation.v1",
+  "files": {
+    "field_overlay_launcher_v2.py": {
+      "base_sha256": "32fe9461a20cdb6c7748643c598970f2b49701e9bdc962c7e3727017b452ff01",
+      "derivative_sha256": "64b74389032938e144362fd499d00ad879675b425bed7f675d90968723db628d"
+    },
+    "field_overlay_launcher_protocol_v2.py": {
+      "base_sha256": "8aa7f8bc979b920c069e6ef43c240feae8766e1a6b8168440388a453a69c3c55",
+      "derivative_sha256": "486d1bdabe0453a300c06c7028f6e493c710efe05c654f5bb252cff7c2aade16"
+    }
+  },
+  "scope": "Launcher expired-spec path and shared deadline fixtures only; full healthy controller protocol v2 prepared, not executed"
+}

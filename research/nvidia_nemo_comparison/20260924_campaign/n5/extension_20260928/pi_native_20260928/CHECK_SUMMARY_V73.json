@@ -1,0 +1,74 @@
+{
+  "version": 73,
+  "checked_utc": "2026-09-30T11:06:38.313448+00:00",
+  "status": "PASS_ABSOLUTE_CHILD_DEADLINE_FIXTURES_ONLY",
+  "success": true,
+  "compute_active": false,
+  "capture_active": false,
+  "GUI_opened": false,
+  "baseline_activated": false,
+  "baseline_unchanged": true,
+  "capture_closed": true,
+  "leases_free": true,
+  "scope": "Shared absolute child deadline, expired real-launcher rejection and native no-capture process/lease timeout fixtures only",
+  "rejections": 7,
+  "expired_launcher_rejections": 1,
+  "fixture_children": 3,
+  "deadline_maximum_seconds": 60,
+  "grace_maximum_seconds": 2,
+  "fixture_lifetime_seconds": 1.2,
+  "fixture_grace_seconds": 0.25,
+  "fixture_results": [
+    {
+      "mode": "normal",
+      "returncode": 0,
+      "reaped_since_issue_seconds": 0.117935526,
+      "kill_lateness_ms": null,
+      "reap_lateness_ms": 0
+    },
+    {
+      "mode": "cooperative",
+      "returncode": 124,
+      "reaped_since_issue_seconds": 0.96539176,
+      "kill_lateness_ms": null,
+      "reap_lateness_ms": 0
+    },
+    {
+      "mode": "stubborn",
+      "returncode": -9,
+      "reaped_since_issue_seconds": 1.201191016,
+      "kill_lateness_ms": 0.092113,
+      "reap_lateness_ms": 1.191016
+    }
+  ],
+  "full_launcher_protocol_v2_executed": false,
+  "protocol_seconds": 2.4721752289915457,
+  "peak_rss_bytes": 19644416,
+  "sampled_aggregate_peak_bytes": 52215808,
+  "closure_version": 165,
+  "all_native_identities_closed": 327,
+  "isolated_host_identities_closed": 48,
+  "nonidentity_closure_receipts": 3,
+  "combined_bytes": 5262913240,
+  "combined_cap_bytes": 5368709120,
+  "combined_headroom_bytes": 105795880,
+  "total_payload_with_retained_reservations_bytes": 55658173523,
+  "total_payload_headroom_bytes": 176401325,
+  "pi_free_bytes": 17440948224,
+  "pi_available_ram_bytes": 1443708928,
+  "pi_temperature_c": 51.8,
+  "pi_throttle": "throttled=0x0",
+  "backup": {
+    "files": 69,
+    "target_bytes": 284824,
+    "verified": true
+  },
+  "limitations": [
+    "Fixtures exercise shortened 1.2s budgets under the admitted 60s maximum; no 60s wall-duration run.",
+    "Actual launcher v2 executes expired-spec rejection only; full healthy protocol v2 prepared/source-reviewed, not executed.",
+    "Synchronous supervisor requires a responsive parent; no arbitrary parent-stall or descendant-process guarantee. Existing 300s systemd whole-unit cap remains.",
+    "Forced child SIGKILL is physical process closure, not logical controller/archive finalization; stale lock is recovered through existing RuntimeLock only.",
+    "No controller/model/source/capture/GUI, candidate writes, baseline activation, audio or quality/endurance claim.",
+    "Whole-run live allocation and capture admission remain incomplete; no policy increase or evidence deletion."
+  ]
+}
