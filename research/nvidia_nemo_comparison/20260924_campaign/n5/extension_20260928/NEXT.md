@@ -1,3 +1,9 @@
+## September30 17:14UTC - method controls and display orientation
+
+**September30 17:14UTC:** CHECK_SUMMARY_V94 / D1_METHOD_CONTROLS_FINDINGS_V1: new receipt-bound method profiles and withdrawn Tk details/navigation pass30cases/18rejects. Retained same-geometry A76 kernel observations are separate from LRU/metadata/stack resource bounds; skip/pools/full-waveformONNX unavailable. Base Start/page are explicit fixtures; no new model/source/benchmark or production Start. Natural0/40file243483B backup;372Pi/48priorhost+2fieldworkers/1helper closed. User confirmed display ribbon recovery; requested orientation90->270 applied/persisted with verified backup,480x800 retained. Next actual installed saved-app method-contract/page binding;ASRsecondary.
+
+The native method test used declared Base fixtures; bind production saved-app Start/page next. Preserve requested transform270 in ~/.config/kanshi/config. All earlier evidence remains scoped and immutable.
+
 ## September30 16:46UTC - all three saved application modes scoped passed
 
 **September30 16:46UTC:** CHECK_SUMMARY_V93 / D1_APPLICATION_SAVED_FINDINGS_V4: Delayed actual installed Controller/withdrawn UI selection/Start/Stop passes340800samples/2131frames;2112pre-EOF exact0,19EOF-tail accounting only. Distinct LRU1 build/source/object/link and endpoint lineage verified;4new host boundaries pass. Actual source/model/worker/app lease/Tk close naturally;61file313638B exact backup. All370Pi/48priorhost+2fieldworkers/1helper closed,baseline unchanged. All three modes now have separate saved-app passes;live/visible/touch/full field remain unavailable. Next expose implemented speed/resource methods with matched same-geometry receipts;no healthy mode reruns or new speedup claim. ASR secondary.

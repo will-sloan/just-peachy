@@ -1,0 +1,63 @@
+{
+  "schema": "d1-method-contract.v1",
+  "catalog_sha256": "ff431b358c7140addcddd95c313f2ec82272289dce2a9815e8d63b60f6bde7c5",
+  "evidence_sha256": "b3a3a8322fdbd9c9bbbebb01dbe0acf835d8a98e31efaadf731d12cc666532d1",
+  "kernel_cpu_library_sha256": "f12ac1b3912855a88bdc899fb468297d940c8730ee5942a991cc45ddf825a557",
+  "modes": {
+    "delayed": {
+      "geometry": {
+        "chunk_frames": 264,
+        "right_context_frames": 1,
+        "left_context_frames": 1,
+        "fifo_frames": 0,
+        "spkcache_frames": 264,
+        "update_period_frames": 188,
+        "preset": "v3-offline",
+        "gpu": -1
+      },
+      "assets_sha256": "37b099d30eed8b2ae4d3c34d8cf57991550e6bf7cafd64ee75114b08615dad48",
+      "compute_graph_lru": 1,
+      "metadata_arena_mib": 2,
+      "retained_run": "d1-geometry-delayed-lru1-v1"
+    },
+    "streaming": {
+      "geometry": {
+        "chunk_frames": 13,
+        "right_context_frames": 1,
+        "left_context_frames": 0,
+        "fifo_frames": 80,
+        "spkcache_frames": 264,
+        "update_period_frames": 40,
+        "preset": "v3-streaming",
+        "gpu": -1
+      },
+      "assets_sha256": "47f4a656c354c785cfe4178d1fa545d6a7e6e08ce73a9999397059498b0d736e",
+      "compute_graph_lru": 8,
+      "metadata_arena_mib": null,
+      "retained_run": "d1-geometry-stream-lru8-a76-v1"
+    },
+    "chunk52": {
+      "geometry": {
+        "chunk_frames": 52,
+        "right_context_frames": 1,
+        "left_context_frames": 0,
+        "fifo_frames": 80,
+        "spkcache_frames": 264,
+        "update_period_frames": 40,
+        "preset": "v3-streaming",
+        "gpu": -1
+      },
+      "assets_sha256": "47285f403475552a4f8e1de401b67a37f3f973382091d88101818d0607a7566c",
+      "compute_graph_lru": 8,
+      "metadata_arena_mib": null,
+      "retained_run": "d1-geometry-chunk52-a76-v1"
+    }
+  },
+  "unavailable": [
+    "asr-applied-skip",
+    "vad-applied-skip",
+    "parallel-diarizer-pool",
+    "onnx-full-waveform"
+  ],
+  "scope": "Fixed qualified native profile per mode; retained same-geometry kernel observation, separate resource bounds, no new benchmark or live authorization"
+}

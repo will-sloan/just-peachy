@@ -1,0 +1,146 @@
+{
+  "version": 94,
+  "checked_utc": "2026-09-30T17:14:02.730486+00:00",
+  "status": "PASS_D1_METHOD_CONTRACT_AND_WITHDRAWN_CONTROLS_ONLY",
+  "run": "d1-method-controls-v1",
+  "result": {
+    "status": "PASS_D1_METHOD_CONTRACT_AND_WITHDRAWN_CONTROLS_ONLY",
+    "cases": 30,
+    "expected_rejections": 18,
+    "actual_Tk_views": 9,
+    "actual_new_navigation": true,
+    "installed_Base_fixture": true,
+    "production_start_executed": false,
+    "models": false,
+    "ASR": false,
+    "capture": false,
+    "source_samples": 0,
+    "visible_rendering": false,
+    "physical_touch": false,
+    "new_benchmark": false,
+    "old_model_passages_rerun": false,
+    "all_audio_policy_retained": true,
+    "elapsed_seconds": 0.1116679499973543,
+    "peak_rss_bytes": 31326208
+  },
+  "backup": {
+    "file_count": 40,
+    "target_bytes": 243483,
+    "status": "EXACT_PRIVATE_TARGET_BACKUP_VERIFIED"
+  },
+  "retained_kernel_observations": {
+    "delayed": {
+      "generic_run": "d1-geometry-delayed-generic-v1",
+      "a76_run": "d1-geometry-delayed-a76-v1",
+      "generic_seconds": 23.674945042999752,
+      "a76_seconds": 18.118291404000047,
+      "less_wall_percent": 23.47060839595362,
+      "source_seconds": 44.6954375,
+      "source_samples": 715127,
+      "max_abs": 0.0,
+      "tolerance": 1e-05,
+      "selected_main_equals_comparison_main": false,
+      "original_rc5_concurrent": true,
+      "measured_application_speedup": false,
+      "sustained_speedup": false,
+      "cross_geometry_speedup": false
+    },
+    "streaming": {
+      "generic_run": "d1-geometry-stream-lru8-generic-v1",
+      "a76_run": "d1-geometry-stream-lru8-a76-v1",
+      "generic_seconds": 215.07605679599874,
+      "a76_seconds": 162.4118565259996,
+      "less_wall_percent": 24.486314773732122,
+      "source_seconds": 44.6954375,
+      "source_samples": 715127,
+      "max_abs": 0.0,
+      "tolerance": 1e-05,
+      "selected_main_equals_comparison_main": true,
+      "original_rc5_concurrent": true,
+      "measured_application_speedup": false,
+      "sustained_speedup": false,
+      "cross_geometry_speedup": false
+    },
+    "chunk52": {
+      "generic_run": "d1-geometry-chunk52-generic-v1",
+      "a76_run": "d1-geometry-chunk52-a76-v1",
+      "generic_seconds": 64.09090084699892,
+      "a76_seconds": 48.500549172998944,
+      "less_wall_percent": 24.32537453517475,
+      "source_seconds": 44.6954375,
+      "source_samples": 715127,
+      "max_abs": 0.0,
+      "tolerance": 1e-05,
+      "selected_main_equals_comparison_main": true,
+      "original_rc5_concurrent": true,
+      "measured_application_speedup": false,
+      "sustained_speedup": false,
+      "cross_geometry_speedup": false
+    }
+  },
+  "new_model_inference": false,
+  "new_benchmark": false,
+  "physical_GUI_test": false,
+  "process_peak_rss_bytes": 31326208,
+  "sampled_rss": {
+    "rows": 1,
+    "gate_only": true,
+    "worker_sample_available": false,
+    "bytes": 19546112,
+    "not_worker_or_integrated_peak": true
+  },
+  "closure": {
+    "version": 201,
+    "recorded_pi_identities_closed": 372,
+    "prior_isolated_host_identities_closed": 48,
+    "additional_field_host_workers_closed": 2,
+    "additional_recorded_console_helpers_closed": 1,
+    "nonidentity_receipts_separate": 3,
+    "baseline_unchanged": true,
+    "capture_closed": true,
+    "leases_free": true,
+    "active_research_compute": false
+  },
+  "storage": {
+    "combined_output_bytes": 5298926776,
+    "output_cap_bytes": 5368709120,
+    "output_headroom_before_later_metadata_bytes": 69782344,
+    "total_payload_including_reservations_bytes": 55694187059,
+    "total_payload_cap_bytes": 55834574848,
+    "total_headroom_before_later_metadata_bytes": 140387789,
+    "target_free_bytes": 17433178112,
+    "full_V3_request_bytes": 155189248,
+    "full_V3_output_shortfall_bytes": 85406904,
+    "full_V3_payload_shortfall_bytes": 14801459
+  },
+  "pi_resources": {
+    "available_ram_bytes": 1447313408,
+    "temperature_c": 53.45,
+    "throttle": "throttled=0x0"
+  },
+  "display": {
+    "user_confirmed_reconnected_display_working": true,
+    "user_reported_shifted_ribbon": true,
+    "relative_rotation_applied_degrees": 180,
+    "old_transform": "90",
+    "new_transform": "270",
+    "logical_dimensions": [
+      480,
+      800
+    ],
+    "persistent_config_sha256": "c4e12bb19373d607a7ca1e52a0c007e082e17a18eb5af7b8a60384ca82aae23b",
+    "previous_config_backup_verified": true,
+    "reboot": false,
+    "physical_touch_not_tested": true
+  },
+  "preserved_host_failure": "ALLOCATION_READ_FAILURE_V1: KeyError in host metadata reader; independent dispatcher target-inclusive admission succeeded; no native retry.",
+  "limitations": [
+    "Actual new Tk controls use declared Base Start/page fixtures; production wrapper Start and installed full page not executed",
+    "Existing three saved-app mode passes remain separate; no live availability or arbitrary file picker",
+    "Retained kernel pair observation is conditional rc5-concurrent, not new app/sustained/cross-geometry speedup",
+    "No applied skip/pools/full-waveform ONNX",
+    "Display software transform verified; no new physical touch qualification"
+  ],
+  "next": "Bind new method contract to actual installed saved-application selection/Start boundary and page, preserving exact all-assets/geometry, unavailable methods, separate model-process lifetimes and honest scope. Do not rerun old inference merely to display measurements.",
+  "checkpoint_utc": "2026-10-01T17:47:34Z"
+}
