@@ -1,5 +1,11 @@
 ## September30 hard24hour completion authority
 
+## Current check V107 - 2026-09-30T22:26:18.475660+00:00
+
+Current V107: the actual installed FieldController composition now preserves nine field-check methods, the installed archive-store body and physical Close/release logic while wiring the prepared source, native writers and failure-to-Stop controller. Fixed configuration replacements and one-run cardinality are prepared. Source review passed; no installed constructor/source/model/GUI ran. Full physical-path mapping, streamed host mirror, exact live D1 binding and native integration remain open. The21:42 launcher milestone was missed; final deadline unchanged. See FIELD_LIVE_CONTROLLER_FINDINGS_V1 and CHECK_SUMMARY_V107.
+
+Closure227:396Pi/48prior isolated-host identities closed; two field workers/one console helper separately closed, three typed nonidentity closures distinct. Baseline unchanged/capture closed/leases free. No new native job. Output headroom40,617,522B; payload headroom111,222,967B before later metadata.164,406,360B live proposal remains unadmitted. Complete physical-path mapping, streamed mirror and actual live D1 contract before fresh measured admission; then real source/model/Stop/save/reopen. Preserve270, exact deadlines and all prior evidence.
+
 Current V106: the actual source/transport adapters now use a genuine quiet admission, fixed shared paths and separate parent/child diagnostic slots. Selected pipeline V5 corrects post-journal TRACE accounting and signals Stop before diagnostics. Four exact derivations and four unchanged cleanup methods were reviewed; nine files compile, but no installed module/source/model/GUI ran. The21:42 launcher milestone is missed and remains open. Complete field entry, writer/cardinality/host-mirror binding and offline acceptance remain open. See FIELD_LIVE_SOURCE_FINDINGS_V1 and CHECK_SUMMARY_V106.
 
 Current V105: the actual installed native writer adapter now covers revised transcript and all three terminal controls, plus one native session per process. Five unchanged-source region checks and two changed publication-shape rejects passed on CPU14. This is prepared code, not native execution; no Pi/model/source/GUI job ran. Full source/archive/layout/host-mirror composition and offline acceptance remain open. See FIELD_NATIVE_BINDING_FINDINGS_V1 and CHECK_SUMMARY_V105.

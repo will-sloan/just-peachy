@@ -1,0 +1,97 @@
+{
+  "version": 107,
+  "as_of_utc": "2026-09-30T22:26:18.475660+00:00",
+  "status": "PREPARED_ACTUAL_FIELD_CONTROLLER_COMPOSITION_REVIEWED_ONLY",
+  "native_run": null,
+  "native_run_count": 0,
+  "last_native_summary": 103,
+  "last_positive_model_summary": 98,
+  "actual_scope": {
+    "host_affinity": [
+      14
+    ],
+    "unchanged_installed_field_methods": 9,
+    "installed_store_class_body_reused_without_edits": true,
+    "close_cleanup_prefix_and_release_tail_exact": true,
+    "presentation_metadata_and_metrics_exact": true,
+    "installed_modules_imported": false,
+    "constructors_executed": false,
+    "real_source_stop_exercised": false,
+    "models_loaded": false,
+    "capture": false,
+    "GUI": false,
+    "policy_changed": false
+  },
+  "changed_evidence": {
+    "field_entry": "Fresh factory composes actual installed FieldController with RequiredArchiveController and prepared source/native bindings; nine installed field methods unchanged",
+    "archive": "Actual installed FieldArchiveStore body retained with bounded OneRunStore; one conversation/epoch/session attempt, failure-to-Stop and no failed publication retry",
+    "config": "Fixed settings/schema/last_application paths, 32768B primary plus 32768B deterministic pending; finite JSON and per-path attempt limits",
+    "command_scope": "First composition allows select/switch/one live Start/Stop/Close/Save/Open; other actions explicitly unqualified",
+    "cleanup": "Final config publication error cannot bypass unchanged physical cleanup prefix or unchanged model/application-lease release tail; actual close/failure paths unexecuted",
+    "origins": "Exact installed origins plus manifest/admission pins checked by future constructor, before/after substitutions; execution pending"
+  },
+  "proposal": {
+    "target_bytes": 80106028,
+    "host_bytes": 84300332,
+    "combined_bytes": 164406360,
+    "admitted": false,
+    "full_runtime_write_binding": false,
+    "output_shortfall_bytes": 123788838,
+    "payload_shortfall_bytes": 53183393
+  },
+  "closure": {
+    "version": 227,
+    "pi_identities_closed": 396,
+    "prior_isolated_host_identities_closed": 48,
+    "field_host_records_checked": 10,
+    "field_host_unique_workers": 2,
+    "field_console_helpers": 1,
+    "nonidentity_closures": 3,
+    "baseline_unchanged": true,
+    "capture_closed": true,
+    "leases_free": true,
+    "research_compute_active": false
+  },
+  "resource_accounting": {
+    "combined_output_bytes": 5328091598,
+    "output_cap_bytes": 5368709120,
+    "output_headroom_bytes": 40617522,
+    "payload_including_target_and_reservations_bytes": 55723351881,
+    "payload_cap_bytes": 55834574848,
+    "payload_headroom_bytes": 111222967,
+    "payload_basis": "HOST_CENSUS_V204 plus closure227 target and later host-window delta",
+    "pi_free_bytes": 17429540864,
+    "pi_available_ram_bytes": 1419034624,
+    "pi_temperature_c": 54.55,
+    "pi_throttle": "throttled=0x0",
+    "before_later_metadata": true
+  },
+  "backup": {
+    "source_files": 3,
+    "source_bytes": 32897,
+    "readback_exact": true,
+    "separate_restore_copy_exact": true,
+    "private_preparation": "field-live-controller-v1-preparation"
+  },
+  "milestone": {
+    "launcher_recovery_due_utc": "2026-09-30T21:42:44Z",
+    "status": "MISSED_STILL_OPEN",
+    "hard_deadline_unchanged": "2026-10-01T17:42:44Z"
+  },
+  "remaining": [
+    "Complete actual physical path/old+pending/cardinality census; abstract V3 config groups are not yet the new data-path map",
+    "Bounded streamed complete host mirror; retained HostStore accepts only1MiB/64files in memory",
+    "Verify actual live D1 runtime/profile/geometry/assets/endpoint; saved-mode receipts do not qualify the installed live wrapper",
+    "Fresh explicit measured resource policy/admission and actual guarded source/model/Stop/save/reopen passage",
+    "General operator launcher, required delete/import/export/gallery compatibility, visible live controls, physical touch and offline acceptance"
+  ],
+  "notes": [
+    "No target writes or native/model/source/GUI/capture job this wake",
+    "Source review and compilation only; no installed-module constructors, no mock source/control passage or healthy suite reruns",
+    "Source work and exact backup/restore copy closed22:17:45UTC before22:19:48 host-preparation expiry; subsequent work metadata only",
+    "Read-only guessed path failures and outer tool-script parse failure preserved; no source mutation retries or bound-source edits",
+    "Initial composition requires empty people/sessions/conversations; this is not personal-gallery compatibility proof",
+    "Process-local failure latches do not establish crash recovery, attachment-race handling or failure/concurrency stress",
+    "Original rc5 app and display270 preserved; general launcher milestone missed, hard deadline unchanged"
+  ]
+}

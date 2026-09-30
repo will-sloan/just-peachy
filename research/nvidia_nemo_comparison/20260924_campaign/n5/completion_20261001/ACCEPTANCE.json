@@ -1,9 +1,9 @@
 {
   "schema": "just-peachy.delivery-acceptance.v1",
-  "as_of_utc": "2026-09-30T21:58:56.816898+00:00",
+  "as_of_utc": "2026-09-30T22:26:18.475660+00:00",
   "hard_deadline_utc": "2026-10-01T17:42:44Z",
   "overall": "IN_PROGRESS",
-  "latest_verified_research_summary": "CHECK_SUMMARY_V106.json",
+  "latest_verified_research_summary": "CHECK_SUMMARY_V107.json",
   "gates": [
     {
       "id": "D1_COMPONENTS",
@@ -28,9 +28,9 @@
     },
     {
       "id": "LIVE_SOURCE_MODEL_STORAGE_INTEGRATION",
-      "status": "OPEN_ACTUAL_SOURCE_TRANSPORT_BINDING_PREPARED",
+      "status": "OPEN_ACTUAL_FIELD_CONTROLLER_COMPOSITION_PREPARED",
       "required": true,
-      "evidence": "V106 source-only derivation/compile review. Genuine-admission source factory/transport and selected pipelineV5 prepared, no native execution. V105 native writer binding prepared. Full FieldController/config/archive/host-mirror/source/model/Stop/save/reopen remain unqualified."
+      "evidence": "V107 actual installed FieldController/store/close/presentation source derivation review; nine field methods unchanged. Required failure controller, source/native adapters and bounded config/cardinality prepared, never executed. Full physical-path census, streamed host mirror, exact live D1 profile binding and actual source/model/Stop/save/reopen remain unqualified."
     },
     {
       "id": "VISIBLE_GUI_AND_PHYSICAL_CONTROLS",

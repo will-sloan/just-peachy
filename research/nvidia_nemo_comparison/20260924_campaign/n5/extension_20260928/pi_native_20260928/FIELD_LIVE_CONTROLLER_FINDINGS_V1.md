@@ -1,0 +1,19 @@
+# Actual field-controller composition: V107 preparation
+
+Status: PREPARED_ACTUAL_FIELD_CONTROLLER_COMPOSITION_REVIEWED_ONLY. No new Pi job or target write occurred. Last actual native passage remains V103; last positive model entry V98; visible inspection V100.
+
+field_live_controller_v1.create now prepares a production composition from actual installed v12 sources. The review compares nine unchanged FieldController methods, including backend/mode selection, artifact limits, storage reservation and session workflow. The actual FieldArchiveStore class body is retained with a bounded SessionStore base. RequiredArchiveController supplies the failure latch and mandatory Stop path; the selected V106 source and V105 native bindings are wired before future construction. These bindings have not executed on the Pi.
+
+Settings, schema and last-application publications have fixed paths, finite JSON,32KiB primary plus32KiB pending limits and explicit attempt counts. The close derivation preserves the physical cleanup prefix and model/lease-release tail exactly, allowing the final config-publication failure to be recorded without skipping release. Presentation metadata and metrics remain unchanged while file writes use the assigned telemetry slice. Real source signaling precedes diagnostics in the reused failure path; this wake did not exercise it.
+
+The first composed entry permits one live recording attempt, one conversation/epoch/native session, Stop/Close and Save/Open. Other actions are explicitly unavailable in this preparation; required delete/import/export and personal-gallery compatibility remain open. Initial empty private directories are an integration constraint, not a final product requirement or evidence of gallery compatibility.
+
+CPU14 source review and compilation passed. Exact backup and a separate restoration copy verify three source/README files,32,897B, completed at22:17:45UTC before the host preparation expiry. Read-only lookup failures and a metadata tool-script parse failure before any invocation/write are preserved. No native retry, previous bound-source edits or healthy model/UI/helper suites occurred.
+
+Closure227 records396Pi/48prior isolated-host identities closed; ten field-host records cover two workers and one console helper separately closed. Three typed nonidentity closure receipts remain distinct. Original rc5 identities/configuration are unchanged, capture is closed and both leases are free. Pi free17,429,540,864B, availableRAM1,419,034,624B,54.55C, throttle0. No research compute is active.
+
+At closure227, combined output5,328,091,598B leaves40,617,522B under5GiB. Payload55,723,351,881B includes target and2.5GiB reservations, leaving111,222,967B under52GiB. Basis: HOST_CENSUS_V204 plus later closure target/host-window delta. The164,406,360B proposal remains unadmitted and exceeds those headrooms by123,788,838B and53,183,393B respectively, before later metadata. No allowance was changed.
+
+Next complete the physical path/replacement/cardinality census and bounded streamed host mirror, verify the installed live D1 profile/assets/endpoint against the intended mode, then issue a fresh measured policy/admission for the actual guarded source/model/Stop/save/reopen passage. The abstract V3 config groups are not yet the new data-path mapping; source preparation alone cannot establish whole-run enforcement. Do not substitute saved-mode receipts or another generic no-source fixture layer for this live evidence.
+
+The21:42 launcher milestone is missed and remains open. Hard completion stays2026-10-01T17:42:44Z. Runtime/offline acceptance is false. See README_FIELD_LIVE_CONTROLLER_V1, CHECK_SUMMARY_V107 and private field-live-controller-v1-preparation COMPOSITION_SOURCE_REVIEW_V1, CODE_REVIEW_V1, SOURCE_BACKUP_V1 and FIELD_HOST_CLOSURE_V2.

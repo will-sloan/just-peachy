@@ -1,6 +1,6 @@
 # Offline Pi delivery and handoff
 
-Current V106: the actual source/transport adapters now use a genuine quiet admission, fixed shared paths and separate parent/child diagnostic slots. Selected pipeline V5 corrects post-journal TRACE accounting and signals Stop before diagnostics. Four exact derivations and four unchanged cleanup methods were reviewed; nine files compile, but no installed module/source/model/GUI ran. The21:42 launcher milestone is missed and remains open. Complete field entry, writer/cardinality/host-mirror binding and offline acceptance remain open. See FIELD_LIVE_SOURCE_FINDINGS_V1 and CHECK_SUMMARY_V106.
+Current V107: the actual installed FieldController composition now preserves nine field-check methods, the installed archive-store body and physical Close/release logic while wiring the prepared source, native writers and failure-to-Stop controller. Fixed configuration replacements and one-run cardinality are prepared. Source review passed; no installed constructor/source/model/GUI ran. Full physical-path mapping, streamed host mirror, exact live D1 binding and native integration remain open. The21:42 launcher milestone was missed; final deadline unchanged. See FIELD_LIVE_CONTROLLER_FINDINGS_V1 and CHECK_SUMMARY_V107.
 
 **Hard boundary: October 1, 2026, 13:42:44 Toronto / 17:42:44 UTC.** This is exactly 24 hours after the request was anchored at September30 17:42:44 UTC. It replaces the prospective17:47:34 UTC checkpoint; historical evidence remains unchanged.
 
