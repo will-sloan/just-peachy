@@ -1,0 +1,50 @@
+{
+  "schema": "HOST_BOUNDARY_DERIVATION_V1",
+  "retained": [
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n5\\extension_20260928\\pi_native_20260928\\field_host_budget_v1.py",
+      "bytes": 12043,
+      "sha256": "1757b034d8fe301e6b9c711031c5168ed360532bcebd4dd23d0d3cc06a4c8489"
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n5\\extension_20260928\\pi_native_20260928\\launch_field_host_budget_v1.py",
+      "bytes": 6894,
+      "sha256": "e5074347f5895999eb14ca0dc7a2ba879056ac1829904d2acaac8fb1b394188d"
+    }
+  ],
+  "new_sources": [
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n5\\extension_20260928\\pi_native_20260928\\field_host_finite_v1.py",
+      "bytes": 958,
+      "sha256": "d97613171d94ea82ac84b48e914444a0e20caa0a5c68058ca0daf32868539557"
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n5\\extension_20260928\\pi_native_20260928\\field_host_boundary_protocol_v1.py",
+      "bytes": 2974,
+      "sha256": "663b08b246f75995f3d41ecccfea2cedeacb43e5948c942d4f2c00046a3aa0c3"
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n5\\extension_20260928\\pi_native_20260928\\launch_field_host_boundary_v1.py",
+      "bytes": 7876,
+      "sha256": "10406b142f6f5880e7d96f54a0d954fa542b758161581c41afcc90a4f66dd4d7"
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n5\\extension_20260928\\pi_native_20260928\\review_field_host_boundary_v1.py",
+      "bytes": 2935,
+      "sha256": "251d77d51509e4c0502d62d0ce05b803d7bc3c1d833c1d05b4bc4cba71234797"
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n5\\extension_20260928\\pi_native_20260928\\README_FIELD_HOST_BOUNDARY_V1.md",
+      "bytes": 5117,
+      "sha256": "84721417190d64091227af6043d6caf9a398777b8174c6f24866f36e02bde944"
+    }
+  ],
+  "changes": [
+    "Only HostStore.preflight adds parse_float finite validation. All persistence methods inherited unchanged.",
+    "Fresh launcher changes to requested/actual CPU14 job mask and suspended-process readback before resume; samples affinity.",
+    "One tiny worker, four overflow rejections and one finite boundary, no19case rerun.",
+    "Read-only prior exact host owner scan adds host metadata owner paths."
+  ],
+  "whole_live_capsule": false,
+  "old_sources_immutable": true
+}

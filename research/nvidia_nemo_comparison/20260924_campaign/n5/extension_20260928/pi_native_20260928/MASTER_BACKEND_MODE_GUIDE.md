@@ -1,6 +1,6 @@
 # Master backend and mode guide — Raspberry Pi
 
-**Current update September30 13:40UTC:** Bounded host metadata and small exact backup pass19 file cases; the worker envelope fails requested CPU14 because actual affinity was4/14. Both the failure and verified private fixture backup are preserved. [Findings](FIELD_HOST_BUDGET_FINDINGS_V1.md). A raw JSON numeric-overflow gap also needs a fresh validator. No Pi/model/capture/GUI ran. All recorded compute is closed, the baseline is unchanged, and full live/capture admission remains open.
+**Current update September30 13:51UTC:** Fresh host job/worker CPU14 and five changed JSON-boundary checks pass. [Findings](FIELD_HOST_BOUNDARY_FINDINGS_V1.md). Python exited naturally; its remaining owned console helper required forced closure, now independently verified dead. The prior affinity failure remains preserved. Complete producer/directory reservations and installed live binding still precede capture admission. No Pi/source/model/capture/GUI ran; all recorded compute is closed and the baseline is unchanged.
 
 **Device storage:** fixed32GB Raspberry Pi; last available space is17436643328bytes (16.239GiB), including existing research usage. All field models, app, recordings and rollback must fit with5GiB available reserve. Host allowances do not enlarge it. See [storage budget](PI_STORAGE_BUDGET_V1.md).
 
