@@ -1,0 +1,88 @@
+{
+  "version": 84,
+  "checked_utc": "2026-09-30T14:13:17.228751+00:00",
+  "status": "STATIC_AUDIT_COMPLETE_LIVE_COMPOSITION_NOT_ACCEPTED",
+  "audit_completed": true,
+  "live_composition_accepted": false,
+  "scope": "Static retained producer, code and directory mapping; no new runtime qualification",
+  "sources_pinned": 24,
+  "selected_source_bytes": 321283,
+  "source_census_transitive": false,
+  "producer_families": 10,
+  "independent_reservations": {
+    "closure_reserve": {
+      "slots": 6,
+      "bytes_at_independent_file_ceilings": 6291456,
+      "shared_group_bytes": 2462164,
+      "shared_file_slots": 16,
+      "byte_shortfall": 3829292,
+      "slot_shortfall": 0
+    },
+    "failure": {
+      "slots": 10,
+      "bytes_at_independent_file_ceilings": 2621440,
+      "shared_group_bytes": 2097152,
+      "shared_file_slots": 8,
+      "byte_shortfall": 524288,
+      "slot_shortfall": 2
+    },
+    "telemetry": {
+      "slots": 2,
+      "bytes_at_independent_file_ceilings": 4194304,
+      "shared_group_bytes": 2097152,
+      "shared_file_slots": 8,
+      "byte_shortfall": 2097152,
+      "slot_shortfall": 0
+    }
+  },
+  "compute_active": false,
+  "new_worker_started": false,
+  "capture_active": false,
+  "GUI_opened": false,
+  "baseline_unchanged": true,
+  "capture_closed": true,
+  "leases_free": true,
+  "closure_version": 179,
+  "all_native_identities_closed": 352,
+  "prior_isolated_host_identities_closed": 48,
+  "additional_field_host_workers_closed": 2,
+  "additional_field_host_auxiliaries_closed": 1,
+  "nonidentity_closures": 3,
+  "combined_bytes": 5280273770,
+  "combined_cap_bytes": 5368709120,
+  "combined_headroom_bytes": 88435350,
+  "total_payload_with_retained_reservations_bytes": 55675534053,
+  "total_payload_headroom_bytes": 159040795,
+  "pi_free_bytes": 17436643328,
+  "pi_available_ram_bytes": 1428881408,
+  "pi_temperature_c": 52.9,
+  "pi_throttle": "throttled=0x0",
+  "backup": {
+    "files": 4,
+    "bytes": 19031,
+    "verified": true
+  },
+  "prepared_v3_bytes": 155189248,
+  "prepared_v3_output_shortfall_bytes": 66753898,
+  "prepared_v3_payload_remaining_bytes": 3851547,
+  "prepared_v3_applied": false,
+  "capture_admitted": false,
+  "policy_changed": false,
+  "old_cases_rerun": false,
+  "limitations": [
+    "Independent ceiling reservation arithmetic, not observed usage, simultaneous reachability, or a tested runtime failure. Safe phase sharing could reduce bounds only after proof/enforcement.",
+    "Source hashes/anchors/AST only; no imported application modules, source/model/GUI/audio or worker test.",
+    "Selected24writer/support files are not the transitive live capsule; no complete code-fit or directory-fit claim.",
+    "Earlier receipts/admissions/releases remain unchanged; no policy change/capture admission."
+  ],
+  "blockers": [
+    "Six independent closure file ceilings exceed one shared V3 closure reserve; no per-producer split or enforced phase sharing.",
+    "One independent first-failure set per entry/source/transport/presentation/worker/gate needs10files versus8; further source/transport serial failures not bounded per producer.",
+    "Presentation and outer resources each allow a full2MiB file against one shared2MiB telemetry group.",
+    "Entry and transport CONFIG.json have different contracts and roots; no merged namespace or explicit live configuration binding.",
+    "Component strict directory inventories reject one another; archive/native/host layout and bootstrap/failed-stage closures are not unified.",
+    "Archive publish finally unlinks failed temporary bytes; requires fresh fault-preserving derivative and changed IO boundary checks.",
+    "Target metadata raw JSON preflight uses parse_constant only; overflowing exponents remain unqualified there. Host finite subclass is a separate boundary.",
+    "Lower V3 code/receipt/closure bounds, transitive code census and full72MiB host backup are not integrated; current source/controller/entry adapters are not capturable."
+  ]
+}

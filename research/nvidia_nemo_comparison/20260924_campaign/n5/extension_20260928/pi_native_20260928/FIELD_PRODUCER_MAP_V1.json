@@ -1,0 +1,633 @@
+{
+  "schema": "field-producer-map.v1",
+  "status": "STATIC_SELECTED_PRODUCERS_NOT_A_LIVE_CAPSULE",
+  "allocation_sha256": "a859e1450b7f9d9f6bd0f4cb26e596ed255e8e7a4b51dc8ab45b657dbeb01090",
+  "sources": [
+    {
+      "root": "reports",
+      "path": "field_sidecar_budget_v1.py",
+      "bytes": 5232,
+      "sha256": "75ff5210270cb4edaa540a1cdd2db12f9c54508d4757482e1b6164f5c69b283c",
+      "anchors": [
+        "class GroupWriter"
+      ]
+    },
+    {
+      "root": "reports",
+      "path": "field_entry_config_budget_v1.py",
+      "bytes": 9615,
+      "sha256": "56709d07309e4f5882a06153ac7d1bf9704cedf87cad9e84094c429e8f94dfa3",
+      "anchors": [
+        "CONFIG_REJECTED.bin",
+        "CONFIG_CLOSURE.json"
+      ]
+    },
+    {
+      "root": "reports",
+      "path": "field_source_receipt_routes_v1.py",
+      "bytes": 4150,
+      "sha256": "f6b6539cd83f816721c04da753ae3788e933152cda33276859120e145ff50593",
+      "anchors": [
+        "self.serial+=1",
+        "SOURCE_CLOSURE.json"
+      ]
+    },
+    {
+      "root": "reports",
+      "path": "field_source_factory_overlay_v1.py",
+      "bytes": 1238,
+      "sha256": "5984edcca996e628e29d2aedb0888dfce7f12d7be808aeabc637d698600b1ece",
+      "anchors": [
+        "POST_ROUTE_SNAPSHOT.json"
+      ]
+    },
+    {
+      "root": "reports",
+      "path": "live_source_bridge_budget_v1.py",
+      "bytes": 3880,
+      "sha256": "12d3b54f76e538cf43f6f06bd0c1121dbf421c90707f29b7d9bd0ab72591250b",
+      "anchors": [
+        "BRIDGE_STOP.json",
+        "BRIDGE_CLOSE.json"
+      ]
+    },
+    {
+      "root": "reports",
+      "path": "field_transport_outputs_v1.py",
+      "bytes": 4235,
+      "sha256": "e1e8de502898970f36cad3279b5b6789b7857c87425dafa849b39f03157be594",
+      "anchors": [
+        "transport-failure-",
+        "TRACE.jsonl"
+      ]
+    },
+    {
+      "root": "reports",
+      "path": "isolated_source_transport_budget_v1.py",
+      "bytes": 14389,
+      "sha256": "caa4e985afa0b6c2002915acdd7198b17211d2cc7a81c4a685984313254883b3",
+      "anchors": [
+        "CHILD_RESULT.json",
+        "TRANSPORT_CLOSURE.json",
+        "REGISTERED_OWNER.json"
+      ]
+    },
+    {
+      "root": "reports",
+      "path": "field_transport_close_latch_v1.py",
+      "bytes": 2388,
+      "sha256": "a77834c4d9d644f3f854a49bcbb7871bcd4d18a0a3790384c1c785356da7981e",
+      "anchors": []
+    },
+    {
+      "root": "reports",
+      "path": "field_presentation_budget_v1.py",
+      "bytes": 9830,
+      "sha256": "f3ee63284b898f05ee2f2326e1b2dc299ee3f72b42b4b9d07c4e1679486cdc65",
+      "anchors": [
+        "gui_presentation.jsonl",
+        "PRESENTATION_CLOSURE.json"
+      ]
+    },
+    {
+      "root": "reports",
+      "path": "field_outer_budget_v1.py",
+      "bytes": 7607,
+      "sha256": "a68ced6f30fd44a24720b4a0f467ec6b200a7323cf0455c10d98172d00a22b1c",
+      "anchors": [
+        "-rejected.bin",
+        "-OUTPUT_CLOSURE.json"
+      ]
+    },
+    {
+      "root": "reports",
+      "path": "field_metadata_budget_v1.py",
+      "bytes": 4779,
+      "sha256": "b7a57f4da2191441659c38ce810673f1bfe5f90d23db4517fb9203d4221bc9d6",
+      "anchors": [
+        "CONTROL_NAMES",
+        "parse_constant",
+        "maximum_files=64"
+      ]
+    },
+    {
+      "root": "reports",
+      "path": "field_metadata_envelope_v1.py",
+      "bytes": 1626,
+      "sha256": "ab62f473587543ab1113449eca75953085eb37ab0bc71938dcd426fd3ea08e2c",
+      "anchors": [
+        "LIVE_ENVELOPE.json"
+      ]
+    },
+    {
+      "root": "reports",
+      "path": "dispatch_field_metadata_budget_v1.py",
+      "bytes": 20779,
+      "sha256": "558f4be8a32dfb747c8c50916662c6f48bdcf81b2fd26f0d643c8f5dc55a4a9c",
+      "anchors": [
+        "DISPATCH_OWNER.json",
+        "LIVE_CONFIG_BACKUP.json",
+        "OUTER_DESCRIPTOR.json"
+      ]
+    },
+    {
+      "root": "reports",
+      "path": "field_archive_budget_v2.py",
+      "bytes": 3481,
+      "sha256": "3172119f1c7a2022a58519967dc8ad92d90fefe12f939f541f5c29f55afa3cd7",
+      "anchors": [
+        "temporary.unlink(missing_ok=True)",
+        "def publish("
+      ]
+    },
+    {
+      "root": "reports",
+      "path": "archive_finalization_v1/app/sessions.py",
+      "bytes": 42510,
+      "sha256": "31f0630832453af5d937ca5db2a433f3f8bd2f40ea1fa4369ced5f1c5f713221",
+      "anchors": [
+        "checkpoint-detail.json",
+        "model_input.f32le",
+        "conversation.json"
+      ]
+    },
+    {
+      "root": "reports",
+      "path": "field_artifact_limits_v1.py",
+      "bytes": 2081,
+      "sha256": "c4fdc7fa8e5cd83dcc20d2fa79e44d098298c2fb857813a1cf43d19849f3f9a8",
+      "anchors": [
+        "native_journal_bytes",
+        "pcm_max_frames"
+      ]
+    },
+    {
+      "root": "reports",
+      "path": "field_host_budget_v1.py",
+      "bytes": 12043,
+      "sha256": "1757b034d8fe301e6b9c711031c5168ed360532bcebd4dd23d0d3cc06a4c8489",
+      "anchors": [
+        "class HostStore",
+        "def publish_backup"
+      ]
+    },
+    {
+      "root": "reports",
+      "path": "field_host_finite_v1.py",
+      "bytes": 958,
+      "sha256": "d97613171d94ea82ac84b48e914444a0e20caa0a5c68058ca0daf32868539557",
+      "anchors": [
+        "parse_float=finite_float"
+      ]
+    },
+    {
+      "root": "installed_v12",
+      "path": "native/field_entry_v5.py",
+      "bytes": 17314,
+      "sha256": "17db224acfe41e7fc6ae1beaf2ac401e63529a019bdba6aa3aa7c45dab979a90",
+      "anchors": [
+        "_live_config",
+        "CONFIG.json"
+      ]
+    },
+    {
+      "root": "installed_v12",
+      "path": "app/controller.py",
+      "bytes": 77942,
+      "sha256": "e2910982ab1afb764b7c84b6aab460f2f8f967b7aec1b6e6f00ace6fa016e1dd",
+      "anchors": [
+        "record_presentation",
+        "_commands",
+        "_do_stop"
+      ]
+    },
+    {
+      "root": "installed_v12",
+      "path": "app/pipeline.py",
+      "bytes": 23976,
+      "sha256": "0ff46fc53138f74dcc7da4c2841beaf185fad1b068633ef4fbfe6eca7e000ac7",
+      "anchors": [
+        "ArtifactAsyncText",
+        "events.jsonl"
+      ]
+    },
+    {
+      "root": "installed_v12",
+      "path": "app/app_bounded_artifacts_v1.py",
+      "bytes": 13121,
+      "sha256": "5a41a915e4cb5d08ac1daeef974a54fb519f721acc9a7b523c62514192cf77c6",
+      "anchors": [
+        "class ArtifactAsyncText",
+        "class CompactBinary"
+      ]
+    },
+    {
+      "root": "reports",
+      "path": "field_live_stop_overlay_v1.py",
+      "bytes": 3305,
+      "sha256": "624da05dd86f7c62c443f775edd6a3a2d0a8a00374eaaef48aa66fc04505db3a",
+      "anchors": [
+        "def source_class",
+        "def start"
+      ]
+    },
+    {
+      "root": "installed_v12",
+      "path": "app/live_audio.py",
+      "bytes": 34804,
+      "sha256": "f7733618778d6a21ea117bad72c645cb8b457a9a1a391dc4fa7e8969796c3cbd",
+      "anchors": [
+        "def stop"
+      ]
+    }
+  ],
+  "producers": [
+    {
+      "producer": "entry",
+      "mapped_outputs": {
+        "config": [
+          "CONFIG.json"
+        ],
+        "failure": [
+          "CONFIG_REJECTED.bin",
+          "CONFIG_FAILURE.json"
+        ],
+        "closure_reserve": [
+          "CONFIG_CLOSURE.json"
+        ]
+      },
+      "component_directories": [
+        ".",
+        "config",
+        "source",
+        "failure",
+        "closure_reserve"
+      ],
+      "source_paths": [
+        "field_entry_config_budget_v1.py",
+        "native/field_entry_v5.py"
+      ],
+      "independent_reservations": {
+        "failure": [
+          "CONFIG_REJECTED.bin",
+          "CONFIG_FAILURE.json"
+        ],
+        "closure_reserve": [
+          "CONFIG_CLOSURE.json"
+        ]
+      },
+      "scope_note": "Prepared receipt only, not IsolatedLiveConfig; reserves327680 directory bytes."
+    },
+    {
+      "producer": "source_factory_stop_bridge",
+      "mapped_outputs": {
+        "source": [
+          "PRE_ROUTE_SNAPSHOT.json",
+          "POST_ROUTE_SNAPSHOT.json",
+          "SOURCE_START.json",
+          "SOURCE_START_FAILURE.json",
+          "ROUTE_STOP.json",
+          "BRIDGE_STOP.json",
+          "BRIDGE_CLOSE.json"
+        ],
+        "failure": [
+          "failure-{serial}.bin",
+          "failure-{serial}.json"
+        ],
+        "closure_reserve": [
+          "SOURCE_CLOSURE.json"
+        ]
+      },
+      "component_directories": [
+        ".",
+        "source",
+        "failure",
+        "closure_reserve"
+      ],
+      "source_paths": [
+        "field_source_receipt_routes_v1.py",
+        "field_source_factory_overlay_v1.py",
+        "live_source_bridge_budget_v1.py",
+        "field_live_stop_overlay_v1.py",
+        "app/live_audio.py"
+      ],
+      "independent_reservations": {
+        "failure": [
+          "first-source.bin",
+          "first-source.json"
+        ],
+        "closure_reserve": [
+          "SOURCE_CLOSURE.json"
+        ]
+      },
+      "scope_note": "Only first diagnostic set counted; serial multiplicity not reserved. Source start disabled; factory has only receipt hooks."
+    },
+    {
+      "producer": "transport_trace",
+      "mapped_outputs": {
+        "config": [
+          "CONFIG.json"
+        ],
+        "source": [
+          "CHILD_OWNER.json",
+          "CHILD_READY.json",
+          "CHILD_RESULT.json"
+        ],
+        "control": [
+          "REGISTERED_OWNER.json"
+        ],
+        "trace": [
+          "TRACE.jsonl"
+        ],
+        "failure": [
+          "transport-failure-{pid}-{serial}.bin",
+          "transport-failure-{pid}-{serial}.json"
+        ],
+        "closure_reserve": [
+          "TRANSPORT_CLOSURE.json"
+        ]
+      },
+      "component_directories": [
+        ".",
+        "config",
+        "source",
+        "control",
+        "trace",
+        "failure",
+        "closure_reserve"
+      ],
+      "source_paths": [
+        "field_transport_outputs_v1.py",
+        "isolated_source_transport_budget_v1.py",
+        "field_transport_close_latch_v1.py"
+      ],
+      "independent_reservations": {
+        "failure": [
+          "first-transport.bin",
+          "first-transport.json"
+        ],
+        "closure_reserve": [
+          "TRANSPORT_CLOSURE.json"
+        ]
+      },
+      "scope_note": "Only first diagnostic set counted; repeated failures dynamic. Current config requires capture=false/empty or wait factory. CONFIG namespace conflicts with entry if simply merged."
+    },
+    {
+      "producer": "presentation",
+      "mapped_outputs": {
+        "telemetry": [
+          "gui_presentation.jsonl"
+        ],
+        "failure": [
+          "presentation.bin",
+          "presentation.json"
+        ],
+        "closure_reserve": [
+          "PRESENTATION_CLOSURE.json"
+        ]
+      },
+      "component_directories": [
+        ".",
+        "telemetry",
+        "failure",
+        "closure_reserve"
+      ],
+      "source_paths": [
+        "field_presentation_budget_v1.py",
+        "app/controller.py"
+      ],
+      "independent_reservations": {
+        "telemetry": [
+          "gui_presentation.jsonl"
+        ],
+        "failure": [
+          "presentation.bin",
+          "presentation.json"
+        ],
+        "closure_reserve": [
+          "PRESENTATION_CLOSURE.json"
+        ]
+      },
+      "scope_note": "Selected detached methods; constructor unavailable; fullqueue path needs explicit Stop."
+    },
+    {
+      "producer": "outer_worker",
+      "mapped_outputs": {
+        "receipts": [
+          "RESULT.json"
+        ],
+        "failure": [
+          "worker-rejected.bin"
+        ],
+        "closure_reserve": [
+          "worker-OUTPUT_CLOSURE.json"
+        ]
+      },
+      "component_directories": [
+        "outer",
+        "outer/logs",
+        "outer/telemetry",
+        "outer/receipts",
+        "outer/failure",
+        "outer/closure_reserve"
+      ],
+      "source_paths": [
+        "field_outer_budget_v1.py",
+        "dispatch_field_metadata_budget_v1.py"
+      ],
+      "independent_reservations": {
+        "failure": [
+          "worker-rejected.bin"
+        ],
+        "closure_reserve": [
+          "worker-OUTPUT_CLOSURE.json"
+        ]
+      },
+      "scope_note": "Shares actual outer layout with gate; do not add directories twice."
+    },
+    {
+      "producer": "outer_gate",
+      "mapped_outputs": {
+        "logs": [
+          "service.log"
+        ],
+        "telemetry": [
+          "resources.jsonl"
+        ],
+        "receipts": [
+          "DISPATCH_RESULT.json"
+        ],
+        "failure": [
+          "gate-rejected.bin"
+        ],
+        "closure_reserve": [
+          "gate-OUTPUT_CLOSURE.json"
+        ]
+      },
+      "component_directories": [
+        "outer",
+        "outer/logs",
+        "outer/telemetry",
+        "outer/receipts",
+        "outer/failure",
+        "outer/closure_reserve"
+      ],
+      "source_paths": [
+        "field_outer_budget_v1.py",
+        "dispatch_field_metadata_budget_v1.py"
+      ],
+      "independent_reservations": {
+        "telemetry": [
+          "resources.jsonl"
+        ],
+        "failure": [
+          "gate-rejected.bin"
+        ],
+        "closure_reserve": [
+          "gate-OUTPUT_CLOSURE.json"
+        ]
+      },
+      "scope_note": "Actual ordinary path only; synchronous Stop/pipe handling still has stated limits."
+    },
+    {
+      "producer": "staging_and_envelope",
+      "mapped_outputs": {
+        "code": [
+          "declared staged source names"
+        ],
+        "control": [
+          "ADMISSION.json",
+          "LIVE_CONFIG_BACKUP.json",
+          "INSTALL_BACKUP.json",
+          "OUTER_DESCRIPTOR.json",
+          "OWNER.json",
+          "DISPATCH_OWNER.json",
+          "LIVE_ENVELOPE.json"
+        ]
+      },
+      "component_directories": [
+        ".",
+        "code",
+        "control",
+        "outer",
+        "outer/logs",
+        "outer/telemetry",
+        "outer/receipts",
+        "outer/failure",
+        "outer/closure_reserve"
+      ],
+      "source_paths": [
+        "field_metadata_budget_v1.py",
+        "field_metadata_envelope_v1.py",
+        "dispatch_field_metadata_budget_v1.py"
+      ],
+      "independent_reservations": {},
+      "scope_note": "Nine dirs includes the six outer dirs; V81 actual stage used V2. Three runtime slots reserved. New lower V3 code cap not yet applied. StageFailure preserves partial but has no independently mapped failure/closure producer reserve."
+    },
+    {
+      "producer": "compact_archive",
+      "mapped_outputs": {
+        "compact_epoch": [
+          "epoch.json",
+          "events.jsonl",
+          "windows.jsonl",
+          "resources.jsonl",
+          "model_input.f32le",
+          "model_input.wav",
+          "failure.txt",
+          "checkpoint-detail.json",
+          ".control.{uuid}.tmp"
+        ],
+        "conversation_controls": [
+          "conversation.json"
+        ]
+      },
+      "component_directories": [
+        "conversation-root",
+        "conversation-id",
+        "epochs",
+        "epoch-id"
+      ],
+      "source_paths": [
+        "archive_finalization_v1/app/sessions.py",
+        "field_archive_budget_v2.py",
+        "app/app_bounded_artifacts_v1.py"
+      ],
+      "independent_reservations": {},
+      "scope_note": "Logical path roles, not a whole layout guarantee. Fixed one compact epoch; optional enhanced/SQLite/export/import/other sessions excluded. Existing component budget covers old+temporary controls; helper finally deletes failed temporary, violating future partial preservation requirement."
+    },
+    {
+      "producer": "native_journal",
+      "mapped_outputs": {
+        "native_journal": [
+          "events.jsonl at native runtime path"
+        ]
+      },
+      "component_directories": [
+        "native runtime path remains to be bound"
+      ],
+      "source_paths": [
+        "app/pipeline.py",
+        "app/app_bounded_artifacts_v1.py",
+        "field_artifact_limits_v1.py"
+      ],
+      "independent_reservations": {},
+      "scope_note": "16MiB component contract; this review does not resolve full transitive runtime path/writers or construct a native engine."
+    },
+    {
+      "producer": "host_metadata_backup",
+      "mapped_outputs": {
+        "metadata": [
+          "ADMISSION.json",
+          "CENSUS.json",
+          "PREFLIGHT.json",
+          "REGISTERED_OWNER.json",
+          "JOB_ENVELOPE.json",
+          "LAUNCH.json",
+          "RESULT.json",
+          "REVIEW.json",
+          "BACKUP.json"
+        ],
+        "failure": [
+          "{worker|coordinator|review}.raw",
+          "{worker|coordinator|review}-failure.json"
+        ],
+        "closure": [
+          "{worker|coordinator|review}-closure.json"
+        ],
+        "backup": [
+          "declared exact path map"
+        ]
+      },
+      "component_directories": [
+        "host",
+        "host/metadata",
+        "host/failure",
+        "host/closure",
+        "backup with declared <=8dirs"
+      ],
+      "source_paths": [
+        "field_host_budget_v1.py",
+        "field_host_finite_v1.py"
+      ],
+      "independent_reservations": {},
+      "scope_note": "Separate4MiB metadata allocation; backup only1MiB/64files/8dirs qualified, not72MiB streaming. External census/lifetime/harness still old admission scope; no target reservation arithmetic doublecount."
+    }
+  ],
+  "blockers": [
+    "Six independent closure file ceilings exceed one shared V3 closure reserve; no per-producer split or enforced phase sharing.",
+    "One independent first-failure set per entry/source/transport/presentation/worker/gate needs10files versus8; further source/transport serial failures not bounded per producer.",
+    "Presentation and outer resources each allow a full2MiB file against one shared2MiB telemetry group.",
+    "Entry and transport CONFIG.json have different contracts and roots; no merged namespace or explicit live configuration binding.",
+    "Component strict directory inventories reject one another; archive/native/host layout and bootstrap/failed-stage closures are not unified.",
+    "Archive publish finally unlinks failed temporary bytes; requires fresh fault-preserving derivative and changed IO boundary checks.",
+    "Target metadata raw JSON preflight uses parse_constant only; overflowing exponents remain unqualified there. Host finite subclass is a separate boundary.",
+    "Lower V3 code/receipt/closure bounds, transitive code census and full72MiB host backup are not integrated; current source/controller/entry adapters are not capturable."
+  ],
+  "limitations": [
+    "Independent ceiling reservation arithmetic, not observed usage, simultaneous reachability, or a tested runtime failure. Safe phase sharing could reduce bounds only after proof/enforcement.",
+    "Source hashes/anchors/AST only; no imported application modules, source/model/GUI/audio or worker test.",
+    "Selected24writer/support files are not the transitive live capsule; no complete code-fit or directory-fit claim.",
+    "Earlier receipts/admissions/releases remain unchanged; no policy change/capture admission."
+  ]
+}
