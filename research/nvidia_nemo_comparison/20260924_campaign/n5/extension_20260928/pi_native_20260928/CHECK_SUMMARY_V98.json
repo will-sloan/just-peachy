@@ -1,0 +1,177 @@
+{
+  "schema": "pi-native-check-summary.v98",
+  "checked_utc": "2026-09-30T19:06:11.141355+00:00",
+  "status": "PASS_FRESH_PROCESS_STREAMING_ENTRY_START_STOP_ONLY",
+  "run": "d1-process-launch-v1",
+  "scope": "Fresh native child Streaming method-bound saved UI StartStop and generic state coherence only",
+  "passage": {
+    "source_samples": 19200,
+    "output_frames": 121,
+    "pre_eof_frames": 104,
+    "eof_frames": 17,
+    "endpoint_contract": {
+      "contract_sha256": "34f7971469307436ecb7ffbda3785ed6a4c79720abab777c95ad91fc30fc776c",
+      "mode": "streaming",
+      "source_object_link_verified": true,
+      "selected_library_sha256": "fa8ecbb66124b62fced485d45dd2ec6018634a35d39dbc143e221b9f7230b622",
+      "frontend_hop_samples": 160,
+      "output_subsampling_factor": 1,
+      "empty_frames": 0,
+      "nonempty_formula": "samples // 160 + 1",
+      "native_empty_input_tested": false,
+      "independent_rebuild": false
+    },
+    "expected_output_frames": 121,
+    "pre_eof_max_abs": 0.0,
+    "eof_tail_matched_reference": false,
+    "source_prefix_float32_sha256": "e2cc2a1fa6131cf4d86faa3baf78851f35a36853e2467c257b3df9d89e85cce5",
+    "stop_requested": true,
+    "source_position": 19200,
+    "session_id": "d1-process-launch-v1",
+    "native_checks": [
+      "actual_asset_bytes",
+      "actual_c_abi_before_create",
+      "actual_mapped_libraries",
+      "actual_mapped_libraries"
+    ],
+    "seconds": 2.0087287400092464,
+    "cpu_seconds": 1.082045397
+  },
+  "generic_state_transitions": [
+    {
+      "phase": "STARTING",
+      "application_state": "STARTING",
+      "owned": true,
+      "samples": 0,
+      "frames": 0
+    },
+    {
+      "phase": "RUNNING",
+      "application_state": "RUNNING",
+      "owned": true,
+      "samples": 0,
+      "frames": 0
+    },
+    {
+      "phase": "STOPPING",
+      "application_state": "STOPPING",
+      "owned": true,
+      "samples": 19200,
+      "frames": 104
+    },
+    {
+      "phase": "AWAITING_JOIN",
+      "application_state": "AWAITING_JOIN",
+      "owned": true,
+      "samples": 19200,
+      "frames": 121
+    },
+    {
+      "phase": "STOPPED",
+      "application_state": "STOPPED",
+      "owned": false,
+      "samples": 19200,
+      "frames": 121
+    }
+  ],
+  "launcher": {
+    "parent": {
+      "pid": 57843,
+      "start_ticks": 15601937,
+      "boot_id": "af9c6c63-3c54-42c5-8f79-6fbce3fe7d43"
+    },
+    "child": {
+      "pid": 57846,
+      "start_ticks": 15601954,
+      "boot_id": "af9c6c63-3c54-42c5-8f79-6fbce3fe7d43"
+    },
+    "parent_ack_before_constructor": true,
+    "second_process_binding_rejected": true,
+    "parent_native_libraries_unmapped": true,
+    "child_reaped": true,
+    "pipe_closed": true,
+    "watcher_joined": true,
+    "supervision": {
+      "soft_ns": 156077541390676,
+      "hard_ns": 156079541390676,
+      "terminate_sent": false,
+      "kill_sent": false,
+      "abort": false,
+      "returncode": 0,
+      "reaped_ns": 156022264738038,
+      "pid": 57846
+    },
+    "normal_lifetime_seconds": 60,
+    "cleanup_grace_seconds": 2,
+    "parent_controls": "withdrawn native Tk selection/Open",
+    "child_controls": "actual installed v12 withdrawn Mode/Streaming/Start/Stop",
+    "unrestricted_launcher": false
+  },
+  "resources": {
+    "protocol_seconds": 2.820803291979246,
+    "child_seconds": 2.5958538749837317,
+    "parent_peak_rss_bytes": 31260672,
+    "child_peak_rss_bytes": 172326912,
+    "sampled_unique_owner_peak_rss_bytes": 224198656,
+    "samples": 12,
+    "minimum_available_ram_bytes": 1261830144,
+    "temperature_range_c": [
+      54.0,
+      55.65
+    ],
+    "clock_khz_range": [
+      2400000,
+      2400000
+    ],
+    "throttle": [
+      "throttled=0x0"
+    ],
+    "hard_address_space_bytes_per_process": 805306368,
+    "stack_bytes": 1048576,
+    "one_model_thread": true,
+    "shared_cpu_percent": 200,
+    "tasks": 64
+  },
+  "backup": {
+    "files": 72,
+    "bytes": 230842,
+    "exact": true
+  },
+  "closure": {
+    "recorded_pi_closed": 379,
+    "prior_isolated_host_closed": 48,
+    "field_host_workers_closed": 2,
+    "console_helper_closed": 1,
+    "nonidentity_receipts": 3,
+    "baseline_unchanged": true,
+    "capture_closed": true,
+    "leases_free": true,
+    "research_active": false
+  },
+  "storage": {
+    "combined_output_bytes": 5306291333,
+    "output_headroom_bytes": 62417787,
+    "total_payload_including_reservations": 55701551616,
+    "payload_headroom_bytes": 133023232,
+    "measured_before_later_metadata": true
+  },
+  "pi": {
+    "target_free_bytes": 17431932928,
+    "available_ram_bytes": 1438875648,
+    "temperature_c": 54.0,
+    "throttle": "throttled=0x0"
+  },
+  "preserved_failures": [
+    "Host preparation free-drive-key KeyError before review/admission publication",
+    "ReviewV1 stale Chunk52 maximum_samples70327; V2 binds actualStreaming35127 and removes unexecuted old method-fixture fields. Native run not repeated."
+  ],
+  "unqualified": [
+    "Other modes through this new child launcher",
+    "Unrestricted repeated interactive launcher or arbitrary files",
+    "Deadline/descendant/arbitrary-GIL/output-rejection/native constructor/close/concurrency failure stress",
+    "Native empty input or matched17frameEOFtail reference",
+    "Visible D1 rendering/physical touch/live source/storage/offline release"
+  ],
+  "next_step": "Fresh visible480x800 launcher controls with exact mode availability and return/close lifecycle, then corrected live source/model/storage composition. No repeat of successful model/helper/control suites.",
+  "hard_deadline_utc": "2026-10-01T17:42:44Z"
+}

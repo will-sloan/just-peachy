@@ -1,0 +1,15 @@
+{
+  "parents": {
+    "d1_saved_mode_entry_v1.py": "a815cc16ccf49105ce2453212f1c1ac01bc1306efb0c9590c17e9846b0d34e3a",
+    "d1_method_mode_entry_v1.py": "78b74eba87c573d728fcae410c24911e8978eee0c1fbddd6c5b2c716e02fafb2",
+    "d1_recovery_mode_entry_v1.py": "e7c5985dad1da42441fd2208fe2150eba3d670fd848a69138e3edc93f4450293",
+    "d1_mode_entry_v1.py": "287581c8b2d145ff9a5668603e705c57f5ab5df386fae49cc0ce39fe22b3ec05",
+    "d1_method_application_protocol_v1.py": "0b9199bd2c06c10b6b62979364e97b25729ec9447c9f2f7843c215b17e90605f"
+  },
+  "changes": [
+    "Explicit state transitions preserve D1 ownership until worker join and closure receipt.",
+    "Exact V97 registry with fresh recovery composition; endpoint/model/factory assets unchanged.",
+    "New parent launcher and fresh child handshake/deadline; one Streaming method-bound actual installed saved passage.",
+    "No old malformed-profile/details/recovery/control tests repeated."
+  ]
+}

@@ -1,8 +1,10 @@
 # Offline Pi delivery and handoff
 
+Current V98: fresh-process Streaming saved UI Start/Stop and generic state coherence passed; exact owner handshake, natural child exit and full tested closure verified. This is a withdrawn single-run launcher scope; visible/general/live/offline release remains open. See D1_PROCESS_LAUNCH_FINDINGS_V1 and CHECK_SUMMARY_V98.
+
 **Hard boundary: October 1, 2026, 13:42:44 Toronto / 17:42:44 UTC.** This is exactly 24 hours after the request was anchored at September30 17:42:44 UTC. It replaces the prospective17:47:34 UTC checkpoint; historical evidence remains unchanged.
 
-Initial status: **IN_PROGRESS, not offline-ready yet.** Latest verified preparation: CHECK_SUMMARY_V97, mode-entry contract and factory wiring. Latest actual native application check remains V96 recovery. Separate V95 method-bound positive Start/Stop is retained. See current Git remote verification and PATHS_AND_BACKUPS; the mode launcher/live/offline release remain open.
+Status: **IN_PROGRESS, not offline-ready yet.** Latest verified native entry is CHECK_SUMMARY_V98. Streaming now passed the fresh-child launcher and coherent generic state path; other modes retain separate prior saved-app receipts. See PATHS_AND_BACKUPS and the current remote verification.
 
 | Document | Purpose |
 |---|---|

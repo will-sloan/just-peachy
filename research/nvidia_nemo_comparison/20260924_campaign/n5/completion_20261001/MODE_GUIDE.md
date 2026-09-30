@@ -1,5 +1,7 @@
 # Mode guide: delivery snapshot
 
+Current V98: fresh-process Streaming saved UI Start/Stop and generic state coherence passed; exact owner handshake, natural child exit and full tested closure verified. This is a withdrawn single-run launcher scope; visible/general/live/offline release remains open. See D1_PROCESS_LAUNCH_FINDINGS_V1 and CHECK_SUMMARY_V98.
+
 Product mode controls labels/roster; backend selects caption/diarizer/embedding models; D1 geometry controls buffering/context. Availability retains V95 model evidence and V96 pre-owner validation recovery. V97 entry contracts/factories are prepared and host-checked, not a launched native mode selector. Final guide must match the frozen device launcher, not imply every possible combination was tested.
 
 ## Nemotron-3 diarizer choices

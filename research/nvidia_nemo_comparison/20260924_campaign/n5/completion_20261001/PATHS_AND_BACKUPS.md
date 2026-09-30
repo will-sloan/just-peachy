@@ -1,6 +1,10 @@
 # Consolidated paths, backups and simplification
 
-Snapshot updated through V97 entry preparation; V96 recovery and V95 model passage retained separately. Resolve current manifests/receipts before execution; old PIDs and census numbers are not current authorization. This index consolidates navigation without moving or deleting evidence.
+Current V98: fresh-process Streaming saved UI Start/Stop and generic state coherence passed; exact owner handshake, natural child exit and full tested closure verified. This is a withdrawn single-run launcher scope; visible/general/live/offline release remains open. See D1_PROCESS_LAUNCH_FINDINGS_V1 and CHECK_SUMMARY_V98.
+
+New private evidence: `local/n5/research-extension-20260928/pi-native-20260928/d1-process-launch-v1-evidence`; exact72file230842B target backup. Preparation/reader failures remain in `d1-process-launch-v1-preparation`. New launcher/readme and reviewV2 are under the native report directory.
+
+Snapshot updated through V98 Streaming process entry; prior recovery/mode passages retain their separate scopes. Resolve current manifests/receipts before execution; old PIDs and census numbers are not current authorization. This index consolidates navigation without moving or deleting evidence.
 
 | Purpose | Exact location |
 |---|---|

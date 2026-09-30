@@ -1,0 +1,13 @@
+{
+  "status": "EXACT_DOCUMENTATION_BACKUP_VERIFIED",
+  "label": "process-launch-v4",
+  "archive": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\completion-20261001-backups\\process-launch-v4\\NVIDIA_CAMPAIGN_CHATGPT_HANDOFF_20260924_process-launch-v4.zip",
+  "bytes": 33632,
+  "sha256": "d4c8ebfeec00ee7fcf08117ec1069f74b03ef0a7bc54990332bf56f7247714e2",
+  "member_count": 15,
+  "cpu_affinity": [
+    14
+  ],
+  "delivery_status": "IN_PROGRESS",
+  "runtime_or_offline_acceptance": false
+}

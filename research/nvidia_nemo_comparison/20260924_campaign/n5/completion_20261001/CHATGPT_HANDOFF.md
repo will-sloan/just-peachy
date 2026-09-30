@@ -1,6 +1,8 @@
 # ChatGPT handoff: Just Peachy offline Pi
 
-Snapshot September30 2026,17:42UTC. **IN_PROGRESS; offline field release not accepted yet.** Deadline October1 17:42:44UTC /13:42:44Toronto. Start with START_HERE and ACCEPTANCE, then the newest verified CHECK_SUMMARY and current STATUS. Current verified implementation commit `2e64b792536bbf35309ff5e1497e6ec82ecae8ce`, branch `codex/n1-foundation-20260924`.
+Current V98: fresh-process Streaming saved UI Start/Stop and generic state coherence passed; exact owner handshake, natural child exit and full tested closure verified. This is a withdrawn single-run launcher scope; visible/general/live/offline release remains open. See D1_PROCESS_LAUNCH_FINDINGS_V1 and CHECK_SUMMARY_V98.
+
+Snapshot September30 2026,19:06UTC. **IN_PROGRESS; offline field release not accepted yet.** Deadline October1 17:42:44UTC /13:42:44Toronto. Start with START_HERE and ACCEPTANCE, then the newest verified CHECK_SUMMARY and current STATUS. Branch `codex/n1-foundation-20260924`; exact published HEAD is verified in the latest private REMOTE_BACKUP receipt.
 
 ## Objective and architecture
 
@@ -16,6 +18,7 @@ D1 geometries: delayed264/1/1/0/264/188; streaming13/1/0/80/264/40; experimental
 | Saved application modes | StreamingV3, Chunk52V4 and DelayedV5 each passed actual installed Controller/withdrawn UI selection/Start/Stop and independent session/ownership closure. Separate admissions, not unrestricted launcher | V91-V93; D1_APPLICATION_SAVED_FINDINGS_V2/V3/V4 |
 | Endpoint failures | V1 invoked a Tk holder incorrectly; V2 expected120frames from19200samples but native emitted121. V3 bound source/object/build/link/header lineage to0empty or floor(N/160)+1nonempty. Earlier failures remain failed | V90-V91; endpoint contractsV1-V3 |
 | Method controls | V94 bound fixed A76/resource profiles and unavailable methods. V95 integrated actual app details/Back/Start, rejected GPU=true before worker creation, then ran68800samples/431frames and closed all owners | V94-V95; D1_METHOD_APPLICATION_FINDINGS_V1 |
+| Process entry and recovery | V96 pre-owner validation recovery, V97 host mode/endpoint wiring, V98 actual fresh Streaming child with owner ACK, method profile, five generic/D1 states and natural full closure. One withdrawn admitted run; visible/general launcher open | D1_PROCESS_LAUNCH_FINDINGS_V1 |
 | Native speed | Retained44.695s same-geometry generic->repairedA76 wall-work reductions:23.47%delayed,24.49%streaming,24.33%Chunk52, with exact reference agreement. One file, rc5 concurrent. Current delayedLRU1main differs from that earlier comparison main | D1_METHOD_CONTROLS_FINDINGS_V1; not new app/sustained speedup |
 | Resource methods | Executable graphLRU1delayed/8others; delayedmetadata2MiB;1MiBstacks; one native thread/GPUoff. Speaker/FIFO history unchanged. No separate measured speedup assigned to resource bounds | V85catalogue /V94methodcontract |
 | Live and storage | Short quiet/source/GUI trials provide scoped function evidence. V65planned120s failed60s archive/~115s journal limits. Later writer components passed; full corrected sustained composition remains open | FIELD_SUSTAINED_FINDINGS_V1; later component findings |
@@ -26,9 +29,9 @@ D1 geometries: delayed264/1/1/0/264/188; streaming13/1/0/80/264/40; experimental
 
 ## Current evidence and next action
 
-V97 prepares a mode-aware registry and factories with explicit StreamingV1/Chunk52V2/DelayedV3 endpoint injection.17new host checks/14rejects and18read-only Pi file hashes passed;27method bodies retained,8files47278B privately backed up. No constructor/model/process-launcher/GUI execution in V97. Build the guarded child supervisor and generic STARTING/RUNNING/STOPPED transitions next, then one changed selected-entry Streaming passage. Separate V96/V95 receipts retain their scopes.
+V98 completes one native method-bound Streaming fresh-child passage with actual installed Start/Stop, generic state coherence and closed ownership. Parent ACK precedes constructors; parent libraries stay unmapped; all104pre-EOF frames match exactly.17tail frames are accounting-only. Next visible controls, bounded return/close and corrected live source/model/storage integration. Do not rerun healthy mode/helper/control suites.
 
-V96 adds six actual installed Controller/withdrawn UI recovery observations: explicit valid selection resets generic IDLE/status/error and dedicated READY together; Stop keeps the validation error; invalid reselection stays failed; declared source-kind sentinel and unrelated error cannot use recovery. No model/source/audio was run.55files185301B exact backup; closure205 has376Pi/48priorhost identities closed plus2fieldworkers/1helper separately checked. Next: mode-aware fresh-process launcher and changed visible controls, then corrected live/storage integration. Prior V95 positive model evidence stays separate.
+V96 adds six actual installed Controller/withdrawn UI recovery observations: explicit valid selection resets generic IDLE/status/error and dedicated READY together; Stop keeps the validation error; invalid reselection stays failed; declared source-kind sentinel and unrelated error cannot use recovery. No model/source/audio was run.55files185301B exact backup; closure205 has376Pi/48priorhost identities closed plus2fieldworkers/1helper separately checked. Next: visible/general launcher and corrected live/storage integration; V98 is separately scoped. Prior V95 positive model evidence stays separate.
 
 V95 closure203:374recordedPi/48priorisolatedhost identities closed, plus2fieldworkers/1consolehelper separately verified; research/hardware leases free, capture closed, original rc5 unchanged.64files230698B exact private backup and remote Git verified. These readings are historical; recheck before dispatch.
 

@@ -1,27 +1,109 @@
 {
   "schema": "just-peachy.delivery-acceptance.v1",
-  "as_of_utc": "2026-09-30T18:43:58.694754+00:00",
+  "as_of_utc": "2026-09-30T19:06:11.141355+00:00",
   "hard_deadline_utc": "2026-10-01T17:42:44Z",
   "overall": "IN_PROGRESS",
-  "latest_verified_research_summary": "CHECK_SUMMARY_V97.json",
+  "latest_verified_research_summary": "CHECK_SUMMARY_V98.json",
   "gates": [
-    {"id": "D1_COMPONENTS", "status": "SCOPED_PASS", "evidence": "V86,V88,V89", "remaining": "No full live/field scope inferred"},
-    {"id": "D1_SAVED_APPLICATIONS", "status": "SCOPED_PASS", "evidence": "V91,V92,V93,V95", "remaining": "Separate single-process admissions; general launcher open; pre-owner validation recovery separately V96"},
-    {"id": "MODE_LAUNCHER_AND_ERROR_RECOVERY", "status": "PARTIAL_RECOVERY_PASS_LAUNCHER_OPEN", "required": true, "evidence": "V96 six installed pre-owner validation observations; no positive model rerun", "remaining": "Fresh-process mode launcher; source/model/cleanup/concurrency failures and full app remain unqualified", "entry_preparation": "V97 mode registry and endpoint-injected factories: host checks/read-only Pi pins pass; child launcher/native entry unexecuted"},
-    {"id": "LIVE_SOURCE_MODEL_STORAGE_INTEGRATION", "status": "OPEN", "required": true, "evidence": "V65 failure preserved; later component passes insufficient"},
-    {"id": "VISIBLE_GUI_AND_PHYSICAL_CONTROLS", "status": "OPEN", "required": true, "evidence": "Requested display270 saved; D1 controls withdrawn only"},
-    {"id": "OFFLINE_STARTUP_AND_OPERATION", "status": "OPEN", "required": true, "evidence": null},
-    {"id": "SUSTAINED_RESOURCE_AND_INTEGRITY", "status": "OPEN", "required": true, "evidence": null},
-    {"id": "SAVE_REOPEN_DELETE_IMPORT_EXPORT", "status": "OPEN_INTEGRATED_RELEASE", "required": true, "evidence": "Prior narrow components retained"},
-    {"id": "INSTALL_HEALTH_ACTIVATE_ROLLBACK", "status": "OPEN_INTEGRATED_RELEASE", "required": true, "evidence": "Versioned candidate components, no baseline activation"},
-    {"id": "PERSONAL_GALLERY_COMPATIBILITY", "status": "OPEN_FINAL_RELEASE_REVIEW", "required": true, "evidence": "Preserve compatible UUID/encoder/tap metadata; no automatic enrollment"},
-    {"id": "DOCUMENTATION_AND_CHATGPT_HANDOFF", "status": "DRAFT_CREATED", "required": true, "evidence": "completion_20261001"},
-    {"id": "FIELD_VALIDATION_FRAMEWORK", "status": "DRAFT_CREATED", "required": true, "evidence": "FIELD_VALIDATION.md and FIELD_RUN_TEMPLATE.json; actual human trials future"},
-    {"id": "FINAL_BACKUP_AND_RESTORE_VERIFICATION", "status": "OPEN", "required": true, "evidence": "V95 exact private backup and remote code verified; final candidate pending"},
-    {"id": "N1_N5_COVERAGE_RECONCILIATION", "status": "OPEN", "required": true, "evidence": "Preserve N1-N3 scoped receipts; full240cellN4/fullN5 incomplete"},
-    {"id": "DEADLINE_CLOSURE_AND_IDLE_DEVICE", "status": "OPEN", "required": true, "evidence": null}
+    {
+      "id": "D1_COMPONENTS",
+      "status": "SCOPED_PASS",
+      "evidence": "V86,V88,V89",
+      "remaining": "No full live/field scope inferred"
+    },
+    {
+      "id": "D1_SAVED_APPLICATIONS",
+      "status": "SCOPED_PASS",
+      "evidence": "V91,V92,V93,V95,V98 (new Streaming process/method entry)",
+      "remaining": "Separate single-process admissions; general launcher open; pre-owner validation recovery separately V96"
+    },
+    {
+      "id": "MODE_LAUNCHER_AND_ERROR_RECOVERY",
+      "status": "SCOPED_FRESH_PROCESS_STREAMING_PASS_VISIBLE_GENERAL_OPEN",
+      "required": true,
+      "evidence": "V98 fresh child owner ACK, actual installed Streaming StartStop, five coherent generic/D1 phases, normal reaping/closure; V96 preowner recovery separate",
+      "remaining": "Visible/general repeated mode launcher, other modes in new process entry, failure/concurrency/live/offline release remain unqualified",
+      "entry_preparation": "V97 mode registry and endpoint-injected factories: host checks/read-only Pi pins pass; child launcher/native entry unexecuted"
+    },
+    {
+      "id": "LIVE_SOURCE_MODEL_STORAGE_INTEGRATION",
+      "status": "OPEN",
+      "required": true,
+      "evidence": "V65 failure preserved; later component passes insufficient"
+    },
+    {
+      "id": "VISIBLE_GUI_AND_PHYSICAL_CONTROLS",
+      "status": "OPEN",
+      "required": true,
+      "evidence": "Requested display270 saved; D1 controls withdrawn only"
+    },
+    {
+      "id": "OFFLINE_STARTUP_AND_OPERATION",
+      "status": "OPEN",
+      "required": true,
+      "evidence": null
+    },
+    {
+      "id": "SUSTAINED_RESOURCE_AND_INTEGRITY",
+      "status": "OPEN",
+      "required": true,
+      "evidence": null
+    },
+    {
+      "id": "SAVE_REOPEN_DELETE_IMPORT_EXPORT",
+      "status": "OPEN_INTEGRATED_RELEASE",
+      "required": true,
+      "evidence": "Prior narrow components retained"
+    },
+    {
+      "id": "INSTALL_HEALTH_ACTIVATE_ROLLBACK",
+      "status": "OPEN_INTEGRATED_RELEASE",
+      "required": true,
+      "evidence": "Versioned candidate components, no baseline activation"
+    },
+    {
+      "id": "PERSONAL_GALLERY_COMPATIBILITY",
+      "status": "OPEN_FINAL_RELEASE_REVIEW",
+      "required": true,
+      "evidence": "Preserve compatible UUID/encoder/tap metadata; no automatic enrollment"
+    },
+    {
+      "id": "DOCUMENTATION_AND_CHATGPT_HANDOFF",
+      "status": "DRAFT_CREATED",
+      "required": true,
+      "evidence": "completion_20261001"
+    },
+    {
+      "id": "FIELD_VALIDATION_FRAMEWORK",
+      "status": "DRAFT_CREATED",
+      "required": true,
+      "evidence": "FIELD_VALIDATION.md and FIELD_RUN_TEMPLATE.json; actual human trials future"
+    },
+    {
+      "id": "FINAL_BACKUP_AND_RESTORE_VERIFICATION",
+      "status": "OPEN",
+      "required": true,
+      "evidence": "V95 exact private backup and remote code verified; final candidate pending"
+    },
+    {
+      "id": "N1_N5_COVERAGE_RECONCILIATION",
+      "status": "OPEN",
+      "required": true,
+      "evidence": "Preserve N1-N3 scoped receipts; full240cellN4/fullN5 incomplete"
+    },
+    {
+      "id": "DEADLINE_CLOSURE_AND_IDLE_DEVICE",
+      "status": "OPEN",
+      "required": true,
+      "evidence": null
+    }
   ],
-  "experimental_unavailable": ["applied_ASR_VAD_skip", "parallel_diarizer_pools", "whole_waveform_ONNX", "unqualified_A76_ASR_candidate"],
+  "experimental_unavailable": [
+    "applied_ASR_VAD_skip",
+    "parallel_diarizer_pools",
+    "whole_waveform_ONNX",
+    "unqualified_A76_ASR_candidate"
+  ],
   "quality_validation": "FUTURE_CONSENTED_FROZEN_MODE_HUMAN_TESTING_NOT_FABRICATED",
   "completion_rule": "Required open gates prevent a full-completion claim. Every new PASS needs actual dated release-bound evidence."
 }
