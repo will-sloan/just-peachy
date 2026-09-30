@@ -1,3 +1,13 @@
+## September30 01:04UTC - real-source fake-callback bridge passed
+
+Read CHECK_SUMMARY_V43 / LIVE_SOURCE_BRIDGE_FINDINGS_V1.md. Nine native actual callback/read/FIR/Stop cases passed with fake stream/control/route objects, exact accepted audio/metadata and separate post-drain status. No device startup/model/GUI. All191Pi/44host owners closed; baseline unchanged/captureclosed/leasesfree. Private123file backup verified. ClosureV80 combined4,340,053,520/5GiB; fixed32GBPi free17,894,117,376bytes.
+
+1. Build fresh actual source startup and parent controller facade around the qualified bridge/transport. Admit child PortAudio imports and aggregate memory explicitly; preserve hardware lease, route snapshot/readback restoration and accepted raw-tail drainage. Test lifecycle/source fault propagation before specifically changed autonomous quiet B01. The128MiB fake-source child is not proof real startup fits; no old ready flags or unchanged capture retry.
+2. Advance generic A2 as explicit Sherpa-first/after-stop Nemotron refinement with separate model lifetimes and GUI state. Preserve A76 exact-output failure; do not leave this branch indefinitely behind capture work.
+3. Focus alternate D1 preencoder/intermediate-output diagnosis on retained natural features. Keep both1e-5 probability/state gates; no large export or extraction without a concrete need.
+
+Fresh owners/census/admission before execution; checkpoint October1 17:47:34UTC unchanged. Bridge V1 and its executed README/source hashes are immutable.
+
 ## September30 00:43UTC - native IPC component passed; microphone adapter next
 
 Read CHECK_SUMMARY_V42 / ISOLATED_SOURCE_FINDINGS_V1.md. Thirteen native saved-fixture cases independently pass in V2; V1 connection-reset failure and partial receiver coverage remain. All180Pi/44host identities closed,baseline unchanged,captureclosed,leasesfree; private backups verified. No live repair or source integration yet.

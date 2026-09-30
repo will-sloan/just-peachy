@@ -1,5 +1,7 @@
 # Master backend and mode guide — Raspberry Pi
 
+**Current update September30 01:04UTC:** The real source callback/read/Stop bridge now passes nine native fake-callback cases, including accepted queued-audio drainage and explicit restoration failure. No microphone or model ran, and all research compute is closed. Actual startup/controller integration and live overflow repair remain open. See [source bridge findings](LIVE_SOURCE_BRIDGE_FINDINGS_V1.md) and CHECK_SUMMARY_V43.json. Generic A2 sequential refinement and alternate-D1 state parity remain separate unfinished branches.
+
 **Device storage:** fixed32GB Raspberry Pi; last measured available space is17.895GB(16.67GiB), including existing research usage. Host allowances do not enlarge it. All field models, app, recordings and rollback must fit with5GiB available reserve. See [storage budget](PI_STORAGE_BUDGET_V1.md).
 
 Current update September30 00:43UTC: separate-process source IPC now passes13 native fixture cases, including bounded buffering during a parent stall, exact audio bytes and explicit fault/Stop/closure handling. It is not yet a microphone adapter or live fix. Original app unchanged; no research compute remains active. See [isolation findings](ISOLATED_SOURCE_FINDINGS_V1.md) and CHECK_SUMMARY_V42.json. Generic A2 remains the qualified ASR component; its faster A76 candidate is unqualified. Alternate D1 state parity, full live/standalone field release and N4/N5 acceptance remain open.
