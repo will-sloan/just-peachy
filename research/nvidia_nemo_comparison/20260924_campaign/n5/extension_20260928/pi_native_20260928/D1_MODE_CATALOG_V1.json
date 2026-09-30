@@ -1,0 +1,370 @@
+{
+  "schema": "just-peachy.d1-mode-catalog.v1",
+  "scope": "Pinned retained D1-only component configurations; mode selector and guarded factory need separate integration qualification",
+  "modes": [
+    {
+      "id": "delayed",
+      "label": "Delayed speaker labels; A76/LRU1/2MiB metadata",
+      "retained_run": "d1-geometry-delayed-lru1-v1",
+      "profile": "native_v3_delayed",
+      "geometry": {
+        "chunk_frames": 264,
+        "right_context_frames": 1,
+        "left_context_frames": 1,
+        "fifo_frames": 0,
+        "spkcache_frames": 264,
+        "update_period_frames": 188,
+        "preset": "v3-offline",
+        "gpu": -1
+      },
+      "kernel": "a76",
+      "compute_graph_lru": 1,
+      "metadata_arena_mib": 2,
+      "assets": [
+        {
+          "name": "D1.gguf",
+          "bytes": 107012128,
+          "sha256": "08456d9e22cd9a323c0364d98375f3746d6e68507ebb705cd46438c534c7a3a1"
+        },
+        {
+          "name": "nemo-arm64/lib/libggml-base.so",
+          "bytes": 804528,
+          "sha256": "aab12d9b5aac8e4a23c54f9fc1c24cd95d20c62ad8f7db44e918170ea28bf48b"
+        },
+        {
+          "name": "nemo-arm64/lib/libggml-base.so.0",
+          "bytes": 804528,
+          "sha256": "aab12d9b5aac8e4a23c54f9fc1c24cd95d20c62ad8f7db44e918170ea28bf48b"
+        },
+        {
+          "name": "nemo-arm64/lib/libggml-base.so.0.12.0",
+          "bytes": 804528,
+          "sha256": "aab12d9b5aac8e4a23c54f9fc1c24cd95d20c62ad8f7db44e918170ea28bf48b"
+        },
+        {
+          "name": "nemo-arm64/lib/libggml-cpu.so",
+          "bytes": 857712,
+          "sha256": "f12ac1b3912855a88bdc899fb468297d940c8730ee5942a991cc45ddf825a557"
+        },
+        {
+          "name": "nemo-arm64/lib/libggml-cpu.so.0",
+          "bytes": 857712,
+          "sha256": "f12ac1b3912855a88bdc899fb468297d940c8730ee5942a991cc45ddf825a557"
+        },
+        {
+          "name": "nemo-arm64/lib/libggml-cpu.so.0.12.0",
+          "bytes": 857712,
+          "sha256": "f12ac1b3912855a88bdc899fb468297d940c8730ee5942a991cc45ddf825a557"
+        },
+        {
+          "name": "nemo-arm64/lib/libggml.so",
+          "bytes": 80344,
+          "sha256": "91e7e842bd2839bbd0b8a03ecdf9e8d9a3c4e278661915d8094b2a6cd81fc3bd"
+        },
+        {
+          "name": "nemo-arm64/lib/libggml.so.0",
+          "bytes": 80344,
+          "sha256": "91e7e842bd2839bbd0b8a03ecdf9e8d9a3c4e278661915d8094b2a6cd81fc3bd"
+        },
+        {
+          "name": "nemo-arm64/lib/libggml.so.0.12.0",
+          "bytes": 80344,
+          "sha256": "91e7e842bd2839bbd0b8a03ecdf9e8d9a3c4e278661915d8094b2a6cd81fc3bd"
+        },
+        {
+          "name": "nemo-arm64/lib/libnemo_speech_asr.so",
+          "bytes": 2651992,
+          "sha256": "7db8afef2e37b28c0f9d56690b4c0d5fcd8c85a50fa6034f8e6fb53674ceb45a"
+        },
+        {
+          "name": "nemo-arm64/lib/libnemo_speech_asr_c.so",
+          "bytes": 83392,
+          "sha256": "9600de4c486aa4ea8209b6f2d78ec33fb3148d74c8a4395bd23eeaf00137915f"
+        },
+        {
+          "name": "nemo-arm64/lib/libnemo_speech_asr_c.so.1",
+          "bytes": 83392,
+          "sha256": "9600de4c486aa4ea8209b6f2d78ec33fb3148d74c8a4395bd23eeaf00137915f"
+        },
+        {
+          "name": "nemotron_diarization.py",
+          "bytes": 15867,
+          "sha256": "2537162df8ac8ccdd89c45c3f26fa12ef48519867a0474bf4be39e4667d75e37"
+        }
+      ],
+      "evidence": {
+        "CONFIG.json": {
+          "bytes": 756,
+          "sha256": "a25630cba278bc03851602b3b96d88422ddd3bb87dd4fbd65811c871c9ab89e3"
+        },
+        "INPUTS.json": {
+          "bytes": 6877,
+          "sha256": "dd3237653d408cf9afd0238906e1f115c683a89dfbd928280cb94b6d39c0869d"
+        },
+        "RESULT.json": {
+          "bytes": 4482,
+          "sha256": "47d403855370a7adb972cf74aa3d2afe585101399d93b6a7f1ae58f6134e5a8d"
+        },
+        "REVIEW.json": {
+          "bytes": 2078,
+          "sha256": "5c3dff836007f43b5554963ad65fc2aae71bfadf23b39ee9106780a9367def1c"
+        }
+      },
+      "retained_functional_parity": true,
+      "integrated_mode_accepted": false,
+      "speaker_accuracy_qualified": false,
+      "retained_unpaced_rtf": 0.40478771333206454,
+      "retained_source_wait_seconds": 21.3,
+      "unpaced_first_wall_is_live_latency": false
+    },
+    {
+      "id": "streaming",
+      "label": "Streaming recipe; A76/LRU8; slower than real time in retained test",
+      "retained_run": "d1-geometry-stream-lru8-a76-v1",
+      "profile": "native_v3_streaming",
+      "geometry": {
+        "chunk_frames": 13,
+        "right_context_frames": 1,
+        "left_context_frames": 0,
+        "fifo_frames": 80,
+        "spkcache_frames": 264,
+        "update_period_frames": 40,
+        "preset": "v3-streaming",
+        "gpu": -1
+      },
+      "kernel": "a76",
+      "compute_graph_lru": 8,
+      "metadata_arena_mib": null,
+      "assets": [
+        {
+          "name": "D1.gguf",
+          "bytes": 107012128,
+          "sha256": "08456d9e22cd9a323c0364d98375f3746d6e68507ebb705cd46438c534c7a3a1"
+        },
+        {
+          "name": "nemo-arm64/lib/libggml-base.so",
+          "bytes": 804528,
+          "sha256": "aab12d9b5aac8e4a23c54f9fc1c24cd95d20c62ad8f7db44e918170ea28bf48b"
+        },
+        {
+          "name": "nemo-arm64/lib/libggml-base.so.0",
+          "bytes": 804528,
+          "sha256": "aab12d9b5aac8e4a23c54f9fc1c24cd95d20c62ad8f7db44e918170ea28bf48b"
+        },
+        {
+          "name": "nemo-arm64/lib/libggml-base.so.0.12.0",
+          "bytes": 804528,
+          "sha256": "aab12d9b5aac8e4a23c54f9fc1c24cd95d20c62ad8f7db44e918170ea28bf48b"
+        },
+        {
+          "name": "nemo-arm64/lib/libggml-cpu.so",
+          "bytes": 857712,
+          "sha256": "f12ac1b3912855a88bdc899fb468297d940c8730ee5942a991cc45ddf825a557"
+        },
+        {
+          "name": "nemo-arm64/lib/libggml-cpu.so.0",
+          "bytes": 857712,
+          "sha256": "f12ac1b3912855a88bdc899fb468297d940c8730ee5942a991cc45ddf825a557"
+        },
+        {
+          "name": "nemo-arm64/lib/libggml-cpu.so.0.12.0",
+          "bytes": 857712,
+          "sha256": "f12ac1b3912855a88bdc899fb468297d940c8730ee5942a991cc45ddf825a557"
+        },
+        {
+          "name": "nemo-arm64/lib/libggml.so",
+          "bytes": 80344,
+          "sha256": "91e7e842bd2839bbd0b8a03ecdf9e8d9a3c4e278661915d8094b2a6cd81fc3bd"
+        },
+        {
+          "name": "nemo-arm64/lib/libggml.so.0",
+          "bytes": 80344,
+          "sha256": "91e7e842bd2839bbd0b8a03ecdf9e8d9a3c4e278661915d8094b2a6cd81fc3bd"
+        },
+        {
+          "name": "nemo-arm64/lib/libggml.so.0.12.0",
+          "bytes": 80344,
+          "sha256": "91e7e842bd2839bbd0b8a03ecdf9e8d9a3c4e278661915d8094b2a6cd81fc3bd"
+        },
+        {
+          "name": "nemo-arm64/lib/libnemo_speech_asr.so",
+          "bytes": 2651992,
+          "sha256": "fa8ecbb66124b62fced485d45dd2ec6018634a35d39dbc143e221b9f7230b622"
+        },
+        {
+          "name": "nemo-arm64/lib/libnemo_speech_asr_c.so",
+          "bytes": 83392,
+          "sha256": "9600de4c486aa4ea8209b6f2d78ec33fb3148d74c8a4395bd23eeaf00137915f"
+        },
+        {
+          "name": "nemo-arm64/lib/libnemo_speech_asr_c.so.1",
+          "bytes": 83392,
+          "sha256": "9600de4c486aa4ea8209b6f2d78ec33fb3148d74c8a4395bd23eeaf00137915f"
+        },
+        {
+          "name": "nemotron_diarization.py",
+          "bytes": 15867,
+          "sha256": "2537162df8ac8ccdd89c45c3f26fa12ef48519867a0474bf4be39e4667d75e37"
+        }
+      ],
+      "evidence": {
+        "CONFIG.json": {
+          "bytes": 727,
+          "sha256": "5e8423eb8f31822d2a4c0b1613776aefe7a0f53896688f5adf0899ddbeefddd9"
+        },
+        "INPUTS.json": {
+          "bytes": 6876,
+          "sha256": "8cf31558d2f7fefff929c2ffba0942c21ef137c502d037ac306a727952deff31"
+        },
+        "RESULT.json": {
+          "bytes": 4469,
+          "sha256": "464f534bb3b6c688d0ab5df23f3ea2715abe8cac60bd7a172c42b0236f778058"
+        },
+        "REVIEW.json": {
+          "bytes": 2085,
+          "sha256": "f1f59a46c08a756ecdd53686cc572af069497885b45600062f25cc60688035fc"
+        }
+      },
+      "retained_functional_parity": true,
+      "integrated_mode_accepted": false,
+      "speaker_accuracy_qualified": false,
+      "retained_unpaced_rtf": 3.633745760425762,
+      "retained_source_wait_seconds": 1.2,
+      "unpaced_first_wall_is_live_latency": false
+    },
+    {
+      "id": "chunk52",
+      "label": "Experimental52-frame recipe; A76/LRU8",
+      "retained_run": "d1-geometry-chunk52-a76-v1",
+      "profile": "native_cm5_chunk52",
+      "geometry": {
+        "chunk_frames": 52,
+        "right_context_frames": 1,
+        "left_context_frames": 0,
+        "fifo_frames": 80,
+        "spkcache_frames": 264,
+        "update_period_frames": 40,
+        "preset": "v3-streaming",
+        "gpu": -1
+      },
+      "kernel": "a76",
+      "compute_graph_lru": 8,
+      "metadata_arena_mib": null,
+      "assets": [
+        {
+          "name": "D1.gguf",
+          "bytes": 107012128,
+          "sha256": "08456d9e22cd9a323c0364d98375f3746d6e68507ebb705cd46438c534c7a3a1"
+        },
+        {
+          "name": "nemo-arm64/lib/libggml-base.so",
+          "bytes": 804528,
+          "sha256": "aab12d9b5aac8e4a23c54f9fc1c24cd95d20c62ad8f7db44e918170ea28bf48b"
+        },
+        {
+          "name": "nemo-arm64/lib/libggml-base.so.0",
+          "bytes": 804528,
+          "sha256": "aab12d9b5aac8e4a23c54f9fc1c24cd95d20c62ad8f7db44e918170ea28bf48b"
+        },
+        {
+          "name": "nemo-arm64/lib/libggml-base.so.0.12.0",
+          "bytes": 804528,
+          "sha256": "aab12d9b5aac8e4a23c54f9fc1c24cd95d20c62ad8f7db44e918170ea28bf48b"
+        },
+        {
+          "name": "nemo-arm64/lib/libggml-cpu.so",
+          "bytes": 857712,
+          "sha256": "f12ac1b3912855a88bdc899fb468297d940c8730ee5942a991cc45ddf825a557"
+        },
+        {
+          "name": "nemo-arm64/lib/libggml-cpu.so.0",
+          "bytes": 857712,
+          "sha256": "f12ac1b3912855a88bdc899fb468297d940c8730ee5942a991cc45ddf825a557"
+        },
+        {
+          "name": "nemo-arm64/lib/libggml-cpu.so.0.12.0",
+          "bytes": 857712,
+          "sha256": "f12ac1b3912855a88bdc899fb468297d940c8730ee5942a991cc45ddf825a557"
+        },
+        {
+          "name": "nemo-arm64/lib/libggml.so",
+          "bytes": 80344,
+          "sha256": "91e7e842bd2839bbd0b8a03ecdf9e8d9a3c4e278661915d8094b2a6cd81fc3bd"
+        },
+        {
+          "name": "nemo-arm64/lib/libggml.so.0",
+          "bytes": 80344,
+          "sha256": "91e7e842bd2839bbd0b8a03ecdf9e8d9a3c4e278661915d8094b2a6cd81fc3bd"
+        },
+        {
+          "name": "nemo-arm64/lib/libggml.so.0.12.0",
+          "bytes": 80344,
+          "sha256": "91e7e842bd2839bbd0b8a03ecdf9e8d9a3c4e278661915d8094b2a6cd81fc3bd"
+        },
+        {
+          "name": "nemo-arm64/lib/libnemo_speech_asr.so",
+          "bytes": 2651992,
+          "sha256": "fa8ecbb66124b62fced485d45dd2ec6018634a35d39dbc143e221b9f7230b622"
+        },
+        {
+          "name": "nemo-arm64/lib/libnemo_speech_asr_c.so",
+          "bytes": 83392,
+          "sha256": "9600de4c486aa4ea8209b6f2d78ec33fb3148d74c8a4395bd23eeaf00137915f"
+        },
+        {
+          "name": "nemo-arm64/lib/libnemo_speech_asr_c.so.1",
+          "bytes": 83392,
+          "sha256": "9600de4c486aa4ea8209b6f2d78ec33fb3148d74c8a4395bd23eeaf00137915f"
+        },
+        {
+          "name": "nemotron_diarization.py",
+          "bytes": 16079,
+          "sha256": "6237997f05b45baf244c520e84d2a27a364906b24e0f02907e47cdcb31f435a5"
+        }
+      ],
+      "evidence": {
+        "CONFIG.json": {
+          "bytes": 726,
+          "sha256": "583d4082c2642cddf3d73c0532d3e2e3331128287859761119a3b2c1c6f2998c"
+        },
+        "INPUTS.json": {
+          "bytes": 6874,
+          "sha256": "d3e94e00c0db2f0e42c2093b91acf2078d0c9880614828a2ee9b6b046354ff8d"
+        },
+        "RESULT.json": {
+          "bytes": 4452,
+          "sha256": "ba82de036f19063a8cda832796d06e4bf91c330c9b27bb11314244b43136e6d1"
+        },
+        "REVIEW.json": {
+          "bytes": 2083,
+          "sha256": "f3a4155223dcfbc43a71e13ac98527e4eba55732fc549ee19a4f0e95d4e17425"
+        }
+      },
+      "retained_functional_parity": true,
+      "integrated_mode_accepted": false,
+      "speaker_accuracy_qualified": false,
+      "retained_unpaced_rtf": 1.0851342303786364,
+      "retained_source_wait_seconds": 4.3,
+      "unpaced_first_wall_is_live_latency": false
+    }
+  ],
+  "common": {
+    "sample_rate": 16000,
+    "channels": 1,
+    "speakers": 8,
+    "gpu": -1,
+    "native_threads": 1,
+    "all_audio_retained": true,
+    "same_geometry_tolerance": 1e-05,
+    "session_reset": "independent_scene_only",
+    "kernel_swap_allowed": false,
+    "mode_switch": "fresh_process_and_new_independent_session"
+  },
+  "unavailable": [
+    "onnx-full-waveform",
+    "asr-applied-skip",
+    "vad-applied-skip",
+    "parallel-diarizer-pool"
+  ],
+  "source": "Existing reviewed native receipts; no new model run"
+}

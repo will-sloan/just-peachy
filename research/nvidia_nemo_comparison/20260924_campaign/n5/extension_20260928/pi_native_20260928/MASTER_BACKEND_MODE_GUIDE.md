@@ -1,6 +1,6 @@
 # Master backend and mode guide — Raspberry Pi
 
-**Current update September30 14:11UTC:** A static24source/10producer review found unresolved shared failure/closure/telemetry reservations and directory/configuration binding. [Findings](FIELD_PRODUCER_MAP_FINDINGS_V1.md). Current adapters do not yet form an admitted live capsule. Fresh derivatives must also preserve archive temporary failure bytes and reject target raw-JSON overflow. No new worker/source/model/capture/GUI ran; all recorded compute is closed, baseline unchanged. V3 remains arithmetic-only and unadmitted.
+**Current update September30 14:27UTC:** The user prioritizes Nemotron diarizer modes and speed methods: correctness, implementation and testability. Nemotron ASR is secondary. [New selector and findings](D1_MODES_SPEED_FINDINGS_V1.md) bind delayed/streaming/chunk52 to exact geometry and full runtime identities.13 changed host checks pass; the new native factory is prepared, not yet exercised. Next is a short guarded D1-only factory passage, then application mode controls. No new model/source/capture/GUI ran; all recorded compute remains closed.
 
 **Device storage:** fixed32GB Raspberry Pi; last available space is17436643328bytes (16.239GiB), including existing research usage. All field models, app, recordings and rollback must fit with5GiB available reserve. Host allowances do not enlarge it. See [storage budget](PI_STORAGE_BUDGET_V1.md).
 
@@ -12,7 +12,7 @@ Current overview updated September 30, 2026, 01:33 UTC. Dated entries below reta
 
 Unattended bounded quiet recording and necessary Pi/resource changes are now authorized, with ongoing backups and no further questions. The user will not provide playback; quiet checks establish stream/recording/resource behavior only. [Current authorization and workflow](AUTONOMOUS_QUIET_WORK_V1.md).
 
-The user has prioritized implemented Nemotron diarizer modes, credible speed methods, native Nemotron ASR and alternate runtimes, all aligned with N5 GUI/field readiness. The existing October 1 checkpoint stays. See the [delivery plan and N5 mapping](N5_NATIVE_DELIVERY_48H_V1.md). Resource authority now permits measured adjustments; new WINDOW_V5 allows 5 GiB combined existing-plus-new file output and52GiB totalpayload with retained2.5GiB reservations, retaining old evidence and separate per-job limits.
+The September30 user instruction prioritizes correct, implemented and testable Nemotron diarizer modes and speed methods. Nemotron ASR is secondary. Alternate diarizer runtimes and N5 controls remain in scope; generic field packaging work should proceed only when it enables this priority. The existing October 1 checkpoint stays. See the [delivery plan and N5 mapping](N5_NATIVE_DELIVERY_48H_V1.md). Resource authority now permits measured adjustments; new WINDOW_V5 allows 5 GiB combined existing-plus-new file output and52GiB totalpayload with retained2.5GiB reservations, retaining old evidence and separate per-job limits.
 
 ## Where we are now
 
