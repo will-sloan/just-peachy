@@ -1,8 +1,8 @@
 # Master backend and mode guide — Raspberry Pi
 
-**Current update September30 01:33UTC:** The alternate D1 mismatch is now localized to FP32 preencoder projection arithmetic on retained natural features; identical weights/stacking still yield differences above the unchanged state limit. No repair or speedup is accepted. See [projection diagnosis](D1_PROJECTION_FINDINGS_V1.md). Sequential Sherpa/Nemotron saved-source processing remains qualified, awaiting actual GUI/controller integration; live source isolation also remains open. All research compute is closed.
+**Current update September30 01:49UTC:** The Pi reproduces the host ONNX projection exactly on four natural feature cases; all still fail the original PyTorch state limit. The mismatch is confirmed on ARM, not repaired. See [native projection findings](D1_PROJECTION_NATIVE_FINDINGS_V1.md). All research compute is closed. Actual isolated-source/controller startup and sequential-ASR GUI integration are next; field release remains incomplete.
 
-**Device storage:** fixed32GB Raspberry Pi; last measured available space is17.895GB(16.67GiB), including existing research usage. Host allowances do not enlarge it. All field models, app, recordings and rollback must fit with5GiB available reserve. See [storage budget](PI_STORAGE_BUDGET_V1.md).
+**Device storage:** fixed32GB Raspberry Pi; last measured available space is17.874GB(16.65GiB), including existing research usage. Host allowances do not enlarge it. All field models, app, recordings and rollback must fit with5GiB available reserve. See [storage budget](PI_STORAGE_BUDGET_V1.md).
 
 Earlier scoped update September30 00:43UTC: separate-process source IPC now passes13 native fixture cases, including bounded buffering during a parent stall, exact audio bytes and explicit fault/Stop/closure handling. It is not yet a microphone adapter or live fix. Original app unchanged; no research compute remains active. See [isolation findings](ISOLATED_SOURCE_FINDINGS_V1.md) and CHECK_SUMMARY_V42.json. Generic A2 remains the qualified ASR component; its faster A76 candidate is unqualified. Alternate D1 state parity, full live/standalone field release and N4/N5 acceptance remain open.
 
@@ -30,7 +30,7 @@ Ordered speaker-cache/FIFO handling now passes15 constructed native updates and 
 
 The portable audio frontend now passes nine native Pi cases, including full saved audio, irregular blocks, EOF and reset, at about57MiB peak RAM. This closes the audio-to-feature component; the complete model/state/source-time integration remains. [Frontend findings](D1_FRONTEND_FINDINGS_V1.md).
 
-Current future-admission policy is WINDOW_V5:52GiB totalpayload with2.5GiBretained reservations and5GiBcombined output. ClosureV86 uses4,372,651,061bytes; refresh both budgets before dispatch. Old50GiB/4GiB policies, rejections and receipts remain immutable. Pi physical32GB capacity and5GiB free reserve remain separate.
+Current future-admission policy is WINDOW_V5:52GiB totalpayload with2.5GiBretained reservations and5GiBcombined output. ClosureV89 uses4,413,577,640bytes; refresh both budgets before dispatch. Old50GiB/4GiB policies, rejections and receipts remain immutable. Pi physical32GB capacity and5GiB free reserve remain separate.
 
 The alternate D1 ONNX graph now passes three actual Pi FP32 feature/cache checks and exact repeats against PyTorch references. Peak RAM was about 509 MiB. This verifies the graph on ONNX Runtime CPU; V4 now separately preserves learned high-resolution outputs, while the complete audio/cache/FIFO/EOF driver remains open before it becomes a usable alternate mode. No speedup is established. [Native findings](D1_ORT_NATIVE_FINDINGS_V1.md).
 
@@ -156,7 +156,7 @@ Much of the elapsed campaign time has been engineering and verification: native 
 The working D1 route is a **Python application calling a native C++ CPU runtime**, using the already-staged mixed-Q8 model. “Native build” here means those compiled ARM64 components; no separate PyNative product/runtime has been qualified. ONNX Runtime is the likely intended “Onyx runtime.”
 
 - Pi environment: aarch64 Bookworm, Python 3.11.2, glibc 2.36, ONNX Runtime 1.29.0 and sherpa-onnx 1.13.4, as inventoried.
-- Sherpa, ReDimNet and punctuation use the existing portable runtime stack. D1 high-resolution ONNX graphs and a waveform/state driver are now implemented; separate component checks pass, but full-runtime state parity fails. The host projection diagnosis isolates a specific FP32 arithmetic mismatch. Native natural-feature checks and a qualified repair are still required; no acceleration is claimed.
+- Sherpa, ReDimNet and punctuation use the existing portable runtime stack. D1 high-resolution ONNX graphs and a waveform/state driver are now implemented; separate component checks pass, but full-runtime state parity fails. The host projection diagnosis isolates a specific FP32 arithmetic mismatch. Native natural-feature projection outputs now exactly match host ORT but still fail the PyTorch state gate; a qualified repair is required; no acceleration is claimed.
 - The successful Cortex-A76 change retains integer lane grouping before float accumulation while using dot-product instructions. Earlier faster mismatching kernels remain failed attempts; their tolerance was not loosened.
 - D1-only bounds: scheduler capacity 2048 with the original 95% guard, 2 MiB metadata reservations with assertions, executable graph LRU capacity 1. The speaker/FIFO history was not shortened. These bounds are qualified only for the tested delayed recipe, not A2 or arbitrary longer workloads.
 - Delayed C-ABI recipe: chunk/right/left/FIFO/cache/refresh = **264/1/1/0/264/188**, on an 80 ms coarse grid. Selecting the v3-offline preset is necessary to retain FIFO 0 because that API ignores a zero-valued override.
@@ -175,9 +175,9 @@ Credible next optimization work is targeted: actual live-route conversion cost, 
 | Native A2 / B02 | Actual controller/GUI integration of qualified sequential ASR; separate memory qualification for combined B02 | Generic A2 and sequential saved-source checks pass, but A2 is slower than real time |
 | 30/60-minute tests | Fresh bounded time/resource/output admission and an appropriate long input | Short runs cannot substitute |
 | Resource adjustments | Fresh measured admission under existing user authorization | No new question; isolated A2/ORT use1536MiB virtual caps, not proof of integrated fit |
-| Alternative D1 ONNX runtime | Natural-feature projection parity on ARM, then a justified repair and full waveform/state checks | Components pass; full runtime still fails the unchanged state gate |
+| Alternative D1 ONNX runtime | A justified projection-arithmetic repair, then full waveform/state checks | ARM reproduces the same mismatch; numerical gates are unchanged |
 
-At closureV86 combined outputs used4,372,651,061 of5,368,709,120bytes. The52GiB host/target payload policy, retained reservations and fixed32GB Pi capacity are separate checks. Future tests need fresh measured admissions and bounded logs. Device RAM is2GB; default768MiB and isolated1536MiB virtual caps are not RSS limits. The kernel has no memory cgroup controller, and global swap counters do not establish per-job swap-free behavior.
+At closureV89 combined outputs used4,413,577,640 of5,368,709,120bytes. The52GiB host/target payload policy, retained reservations and fixed32GB Pi capacity are separate checks. Future tests need fresh measured admissions and bounded logs. Device RAM is2GB; default768MiB and isolated1536MiB virtual caps are not RSS limits. The kernel has no memory cgroup controller, and global swap counters do not establish per-job swap-free behavior.
 
 ## Shortest path to real-world validation
 
@@ -215,7 +215,7 @@ CMD / Anaconda Prompt: use `cd /d G:\Just_Peachy_N1\20260924_campaign\worktree`,
 
 ## Evidence and practical links
 
-- [Current native status](STATUS.md), [latest small check summary](CHECK_SUMMARY_V45.json), [B01 findings](B01_PREVIEW_FINDINGS_V1.md).
+- [Current native status](STATUS.md), [latest small check summary](CHECK_SUMMARY_V46.json), [B01 findings](B01_PREVIEW_FINDINGS_V1.md).
 - [B01 launch instructions](README_B01_PREVIEW_V1.md), [B05 launch instructions](README_B05_PREVIEW_V3.md).
 - [Actual method coverage](NATIVE_METHOD_COVERAGE_V1.md), [composition research plan](../RESEARCH_PLAN.md), [held-out real-world requirements](../../realtime_validation_v1/REAL_WORLD_HOLDOUT_V1.md).
 - Private listening examples: `G:\Just_Peachy_N1\20260924_campaign\local\n5\listening-examples-v1\index.html`. Synthetic scenes through real hardware are not recordings of real conversations; the real cafeteria excerpt is only 0.75 seconds. These examples do not establish restaurant performance.

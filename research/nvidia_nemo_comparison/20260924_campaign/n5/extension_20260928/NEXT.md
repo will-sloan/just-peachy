@@ -1,3 +1,13 @@
+## September30 01:49UTC - ARM projection mismatch independently confirmed
+
+Read CHECK_SUMMARY_V46 / D1_PROJECTION_NATIVE_FINDINGS_V1.md. All four natural-feature projections and repeats are exactly equal to host ORT, but differ from original PyTorch by0.000140-0.000235. All1e-5 state gates still fail. Compactgraphload0.0447s,protocol0.3178s,peakRSS68.578MiB; actual envelope and natural closure pass. No complete-runtime repair, waveform/GUI/speedup claim. Private23file target backup verified. No unchanged rerun or largegraph re-export needed.
+
+1. Actual isolated source startup/controller facade: integrate the checked bridge and transport, qualify exact sample chronology/accepted-tail drain, PortAudio aggregate memory and route restoration before changed autonomous quiet B01.
+2. Actual sequential Sherpa/A2 controller/GUI integration: keep primary/refined revisions separate; cancellation/failure/source/archive checks. Generic A2 remains selected; faster A76 candidate remains unqualified.
+3. One justified projection accumulation-order experiment on retained arrays. Host and ARM ORT now agree exactly; the target platform alone is not a repair. Preserve original1e-5 probability ANDstate gates and all prior failures.
+
+ClosureV89:197Pi/48host owners closed,baseline unchanged,captureclosed,bothleasesfree. Combined4,413,577,640/5GiB; fixed32GBPi free17,873,743,872bytes. Fresh census/admission before dispatch. Checkpoint October1 17:47:34UTC unchanged.
+
 ## September30 01:33UTC - D1 projection discrepancy isolated
 
 Read CHECK_SUMMARY_V45 / D1_PROJECTION_FINDINGS_V1.md. Original weights/stacking/lengths are exact; isolated ORT MatMul differs from original PyTorch by0.000140-0.000235 on four retained natural chunks. Tail ORT reproduces prior cache failure exactly; PyTorch first caches match original full model. BASIC versus disabled optimization is identical. All1e-5 state gates still fail. No complete-runtime repair or speedup accepted. Compact2,105,077byte graph is private d1-onnx-projection-v1/preencoder.onnx, with original feature/weight/intermediate arrays. No large re-export/extraction occurred.

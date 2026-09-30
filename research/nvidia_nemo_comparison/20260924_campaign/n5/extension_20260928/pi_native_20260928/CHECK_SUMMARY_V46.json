@@ -1,0 +1,104 @@
+{
+  "version": 46,
+  "checked_utc": "2026-09-30T01:49:22.771161+00:00",
+  "scope": "Actual ARM native compact D1 projection on four retained natural-feature cases; no capture or full waveform",
+  "status": "REVIEWED_NATIVE_PROJECTION_MISMATCH_ONLY",
+  "cases": [
+    {
+      "case": "tail",
+      "feature_frames": 8,
+      "reference_maxabs": 0.00016391277313232422,
+      "host_ort_maxabs": 0.0,
+      "within_unchanged_gate": false,
+      "repeat_exact": true,
+      "stack_lengths_exact": true,
+      "seconds": [
+        0.0015146420046221465,
+        0.0003617210022639483
+      ]
+    },
+    {
+      "case": "full_first",
+      "feature_frames": 2120,
+      "reference_maxabs": 0.00023365020751953125,
+      "host_ort_maxabs": 0.0,
+      "within_unchanged_gate": false,
+      "repeat_exact": true,
+      "stack_lengths_exact": true,
+      "seconds": [
+        0.00971539098827634,
+        0.009362873999634758
+      ]
+    },
+    {
+      "case": "full_middle",
+      "feature_frames": 2128,
+      "reference_maxabs": 0.0002346038818359375,
+      "host_ort_maxabs": 0.0,
+      "within_unchanged_gate": false,
+      "repeat_exact": true,
+      "stack_lengths_exact": true,
+      "seconds": [
+        0.009957204005331732,
+        0.00918178200663533
+      ]
+    },
+    {
+      "case": "full_tail",
+      "feature_frames": 253,
+      "reference_maxabs": 0.0001398324966430664,
+      "host_ort_maxabs": 0.0,
+      "within_unchanged_gate": false,
+      "repeat_exact": true,
+      "stack_lengths_exact": true,
+      "seconds": [
+        0.001402772992150858,
+        0.0013644209975609556
+      ]
+    }
+  ],
+  "absolute_tolerance": 1e-05,
+  "gate_relaxed": false,
+  "load_seconds": 0.04473659599898383,
+  "protocol_seconds": 0.31782030599424616,
+  "kernel_peak_rss_kib": 70224,
+  "sampled_peaks": {
+    "VmSize": 127360,
+    "VmPeak": 127360,
+    "VmRSS": 43008,
+    "Threads": 1
+  },
+  "actual_live_envelope_verified": true,
+  "exact_owners_closed": true,
+  "natural_exit_code": 0,
+  "baseline_unchanged": true,
+  "capture_closed": true,
+  "leases_free": true,
+  "output_bytes": 20017999,
+  "output_bound_bytes": 33554432,
+  "full_waveform_qualified": false,
+  "speedup_qualified": false,
+  "stage_acceptance": false,
+  "backup_verified": true,
+  "backup_files": 23,
+  "combined_stage_backup_bytes": 40040479,
+  "native_owners_closed": 197,
+  "isolated_host_owners_closed": 48,
+  "combined_bytes": 4413577640,
+  "combined_cap_bytes": 5368709120,
+  "target_free_bytes": 17873743872,
+  "available_ram_bytes": 1590132736,
+  "temperature_c": 52.9,
+  "throttle": "throttled=0x0",
+  "global_swap_context_only": {
+    "pswpin": 3062,
+    "pswpout": 35519
+  },
+  "N4_N5_complete": false,
+  "field_release_accepted": false,
+  "next": [
+    "Actual isolated-source startup/controller facade with exact accepted-tail drain, aggregate PortAudio resources and restoration before changed quiet B01",
+    "Actual sequential Sherpa/A2 controller/GUI, separate revision archives and cancellation/failure controls",
+    "One justified projection accumulation experiment against retained PyTorch arrays; unchanged1e-5 probability and state gates; no redundant full export"
+  ]
+}
