@@ -1,0 +1,95 @@
+{
+  "version": 41,
+  "checked_utc": "2026-09-30T00:20:37.618204+00:00",
+  "scope": "No-capture native scheduling replay and A2 A76 full/repeat exact-output comparison",
+  "serialization_review": "PASS_NATIVE_RETAINED_PACKET_EXACT_TIMING_DIAGNOSTIC_ONLY",
+  "serialization_thread_max_ms": {
+    "idle_control": 1.076088,
+    "original": 41.254308,
+    "iterencode_candidate": 30.464534
+  },
+  "serialization_peer_max_ms": {
+    "idle_control": 1.640308,
+    "original": 6.336513,
+    "iterencode_candidate": 6.719197
+  },
+  "serialization_live_fix_qualified": false,
+  "a2_review": "REVIEWED_A2_A76_GENERIC_EVENT_MISMATCH_ONLY",
+  "a2_session_seconds": [
+    63.09571625899116,
+    61.59429269999964
+  ],
+  "a2_rtf": [
+    1.4116813658886584,
+    1.3780890432049053
+  ],
+  "a2_repeat_exact": true,
+  "a2_generic_exact": false,
+  "a2_final_event_exact": true,
+  "a2_event_differences": [
+    {
+      "index": 22,
+      "keys": [
+        "raw_text"
+      ]
+    },
+    {
+      "index": 23,
+      "keys": [
+        "raw_text"
+      ]
+    },
+    {
+      "index": 52,
+      "keys": [
+        "words"
+      ]
+    }
+  ],
+  "a2_word_differences": [
+    {
+      "event": 52,
+      "word": 8,
+      "keys": [
+        "end_ms",
+        "start_ms"
+      ]
+    }
+  ],
+  "a2_candidate_accepted": false,
+  "a2_natural_exit": 1,
+  "a2_ru_maxrss_kib": 989600,
+  "new_capture": false,
+  "new_accuracy_scoring": false,
+  "baseline_unchanged": true,
+  "native_owners_closed": 162,
+  "isolated_host_owners_closed": 44,
+  "capture_closed": true,
+  "research_lease_free": true,
+  "hardware_lease_free": true,
+  "combined_bytes": 4325648605,
+  "combined_cap_bytes": 5368709120,
+  "target_free_bytes": 17901101056,
+  "available_ram_bytes": 1576779776,
+  "temperature_c": 55.1,
+  "throttle": "throttled=0x0",
+  "global_swap_context_only": {
+    "pswpin": 2577,
+    "pswpout": 34495
+  },
+  "private_backups_verified": {
+    "serialization-probe-v1": 4893658,
+    "a2-a76-full-v1": 8235638
+  },
+  "findings": [
+    "SERIALIZATION_SCHEDULING_FINDINGS_V1.md",
+    "A2_A76_FINDINGS_V1.md"
+  ],
+  "next": [
+    "Separate-process capture/source-buffer candidate with exact offsets, bounded IPC and no-capture failure/drain tests before changed quiet retry",
+    "Generic A2 sequential Sherpa-first/refinement mode; A76 candidate remains unqualified",
+    "Focused D1 preencoder/intermediate-output diagnosis on retained natural features; unchanged1e-5 probability/state gates"
+  ],
+  "field_release_accepted": false,
+  "N4_N5_complete": false
+}

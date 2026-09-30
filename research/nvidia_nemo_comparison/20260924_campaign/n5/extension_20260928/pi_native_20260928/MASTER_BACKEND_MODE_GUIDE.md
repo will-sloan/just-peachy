@@ -1,8 +1,8 @@
 # Master backend and mode guide — Raspberry Pi
 
-**Device storage:** fixed32GB Raspberry Pi; current measured available space is~18.00GB(16.76GiB), including existing research usage. Host allowances do not enlarge it. All field models, app, recordings and rollback must fit with5GiB available reserve. See [storage budget](PI_STORAGE_BUDGET_V1.md).
+**Device storage:** fixed32GB Raspberry Pi; last measured available space is17.90GB(16.67GiB), including existing research usage. Host allowances do not enlarge it. All field models, app, recordings and rollback must fit with5GiB available reserve. See [storage budget](PI_STORAGE_BUDGET_V1.md).
 
-Current update September29 23:54UTC: actual quiet B01 retained a verified microphone WAV but failed input overflow at25.56seconds. All accepted audio drained; original app unchanged. Full live success remains open. See B01_QUIET_ARTIFACT_FINDINGS_V1.md / CHECK_SUMMARY_V40.json.
+Current update September30 00:20UTC: A2 A76 runs faster in the saved-file comparison, but fails exact intermediate-event matching and remains unqualified. The generic A2 component remains the validated choice for sequential refinement work. No-capture writer timing suggests testing capture-process isolation; it does not repair the prior25.56s live overflow. No research job remains active; original app unchanged. See [A2 findings](A2_A76_FINDINGS_V1.md), [scheduling findings](SERIALIZATION_SCHEDULING_FINDINGS_V1.md) and CHECK_SUMMARY_V41.json. Full live, standalone field release and N4/N5 acceptance remain open.
 
 Updated September 29, 2026, 18:50 EDT / 22:50 UTC. This is the current conceptual and engineering overview. Older reports preserve history; use this guide and STATUS.md for current priorities. Latest converter evidence is linked below; qualified preview scope is unchanged.
 

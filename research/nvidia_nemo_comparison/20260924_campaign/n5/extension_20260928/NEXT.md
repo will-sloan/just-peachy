@@ -1,3 +1,13 @@
+## September30 00:20UTC - isolate capture; preserve A2 exact-output failure
+
+Current verified state: CHECK_SUMMARY_V41 / NATIVE_CLOSURE_V74. Both new native jobs closed, no capture, baseline unchanged and private backups verified. See SERIALIZATION_SCHEDULING_FINDINGS_V1.md and A2_A76_FINDINGS_V1.md in pi_native_20260928. Generic A2 remains qualified; A76 candidate is faster but failed unchanged canonical equality. No unchanged rerun or silent substitution.
+
+1. Build a fresh separate-process capture/source-buffer candidate. Predeclare exact sample offsets, bounded queue/bytes, fault/backpressure reporting, Stop/drain/EOF, child identities, hardware lease and restoration. Run no-capture retained-input/fault tests first, then a specifically changed autonomous quiet B01 trial under fresh target admission. The41ms same-process timing gap is not direct GIL attribution or proof of the original overflow cause.
+2. Prepare generic A2 as explicit after-stop Nemotron refinement with Sherpa first, separate model lifetimes and GUI states. Do not claim combined B02 fit from isolated A2; preserve A76 failure, final-event equality and original full/repeat observations.
+3. Resume focused alternate D1 preencoder/intermediate output diagnosis on retained natural features. Keep probability AND state1e-5, no new400MB export/checkpoint extraction without concrete need/admission.
+
+Refresh current owners, both leases, target RAM/disk, host census and combined/total budget before dispatch. Fixed32GB Pi still has17,901,101,056bytes free with5GiB floor; latest combined4,325,648,605/5GiB. Checkpoint remains October1 17:47:34UTC.
+
 ## September29 23:54UTC - exact input overflow and retained microphone PCM
 
 **September29 23:54UTC:** CHECK_SUMMARY_V40 / B01_QUIET_ARTIFACT_FINDINGS_V1: actual autonomous quiet B01 failed at25.56s with exact PortAudio input_overflow flag2.480frames is rejected callback size; upstream loss unknown. All408960accepted samples reached ASR/D1;2557finite D1frames including445failure-drain frames,zero model errors,zero text/E0window calls. Private microphone float/PCM408960samples independently exact/reopenable,compact archive2.35MB,zero clips; all queues/controller/Tk naturalexit1,route readbacks restored,captureclosed/leasesfree. FirstD1output25.532s; fault0.118s after publication is correlation,not proven cause. PeakRSS483.969MiB/VmPeak653.469MiB; no allocation/output guard. Source/app unchanged; private12.38MB backup verified. ClosureV70all157Pi/44hostclosed,combined4298110702/5GiB,targetfree17912446976bytes. Next no-capture serialization/GIL/throttle diagnosis before any changed quiet retry; advance A2optimized/sequential and alternateD1 in parallel priorities. Not full live/quality/endurance/release.
