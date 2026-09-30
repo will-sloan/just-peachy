@@ -1,0 +1,82 @@
+{
+  "version": 55,
+  "checked_utc": "2026-09-30T04:27:48.947314+00:00",
+  "status": "PASS_NATIVE_OFFLINE_PACKAGE_HEALTH_CONTROLLER_AND_ISOLATED_POINTER_ROLLBACK_ONLY",
+  "scope": "Native offline code package, installed health/idle controller and isolated same-code candidate pointer rollback",
+  "package_review": {
+    "versions": [
+      "b01-offline-20260930-v1a",
+      "b01-offline-20260930-v1b"
+    ],
+    "unique_asset_files": 14,
+    "unique_asset_bytes": 331261640,
+    "shared_runtime_bytes": 351131610,
+    "unpacked_release_bytes": 4057776,
+    "two_release_code_bytes": 8115552,
+    "proposed_private_quota_bytes": 536870912,
+    "actual_device_bytes": 31268536320,
+    "free_bytes": 17766998016,
+    "max_pcm_plus_float_bytes_per_30s": 2880044,
+    "research_asset_paths_retained": true,
+    "asset_relocation_qualified": false,
+    "rollback_scope": "two same-code candidate versions in isolated installation; original active baseline never changed",
+    "seconds": 3.5228957159997663,
+    "status": "PASS_NATIVE_OFFLINE_PACKAGE_HEALTH_CONTROLLER_AND_ISOLATED_POINTER_ROLLBACK_ONLY",
+    "archives": [
+      {
+        "version": "b01-offline-20260930-v1a",
+        "files": 282,
+        "bytes": 1172887,
+        "unpacked_bytes": 4057776,
+        "sha256": "e4dce46540bfd5ff4fcaa9597111c0b8dfad592372451a8160230452b6557d16"
+      },
+      {
+        "version": "b01-offline-20260930-v1b",
+        "files": 282,
+        "bytes": 1172888,
+        "unpacked_bytes": 4057776,
+        "sha256": "eb06578303b5ec889100d092d79296c1e69e44528939310e3a2e424d234ffd0a"
+      }
+    ],
+    "owners_closed": 4,
+    "peak_rss_bytes": 25329664,
+    "sampled_aggregate_peak_bytes": 81920000,
+    "target_bytes": 19819655,
+    "baseline_unchanged": true,
+    "capture_closed": true,
+    "leases_free": true,
+    "field_release_accepted": false,
+    "visible_gui": false,
+    "model_inference": false,
+    "private_backup_verified": true,
+    "backup_files": 1303,
+    "backup_links": 1,
+    "combined_bytes": 39746697
+  },
+  "prior_failure_preserved": "REVIEWED_PACKAGE_V1_INSTALLED_ENTRYPOINT_WRAPPER_FAILURE_ONLY",
+  "native_owners_closed": 244,
+  "isolated_host_owners_closed": 48,
+  "baseline_unchanged": true,
+  "capture_closed": true,
+  "leases_free": true,
+  "combined_bytes": 4622503384,
+  "combined_cap_bytes": 5368709120,
+  "target_free_bytes": 17766977536,
+  "available_ram_bytes": 1592557568,
+  "temperature_c": 52.35,
+  "throttle": "throttled=0x0",
+  "global_swap_context_only": {
+    "pswpin": 3740,
+    "pswpout": 36595
+  },
+  "installed_GUI_or_live_qualified": false,
+  "baseline_activation_tested": false,
+  "shared_asset_relocation_qualified": false,
+  "N4_N5_complete": false,
+  "field_release_accepted": false,
+  "next": [
+    "Fresh admitted launch of installed candidate with visible480x800 GUI and original control semantics, no model/capture rerun unless needed for changed installed entrypoint boundary",
+    "Qualify fixed-duration Start/Stop, mode-unavailable messages and copied archive/import/export/delete controls; separate primary/refinement package integration remains unavailable",
+    "Resolve dependency retention/shared-asset placement before baseline activation; test rollback with backup, then fresh bounded endurance"
+  ]
+}
