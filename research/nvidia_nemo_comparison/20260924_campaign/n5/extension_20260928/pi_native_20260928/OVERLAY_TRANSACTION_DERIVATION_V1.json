@@ -1,0 +1,11 @@
+{
+  "schema": "just-peachy.overlay-transaction-derivation.v1",
+  "base_source_sha256": "b3c8bcf5996518d595ffa19478d05ff9e08fa4d803de92ae688ab14c5df13616",
+  "derivative_sha256": "e941d9846900ab5b646ec69f293ef0429591e731dcfbea846c9c67cd5d2ec086",
+  "changes": [
+    "README reference",
+    "Add explicit field_overlay_deployment_v1 import",
+    "Use adapter.check_descriptor only"
+  ],
+  "commit_algorithm_unchanged": true
+}

@@ -1,3 +1,9 @@
+## September30 10:47UTC - guarded overlay deployment passes
+
+**September30 10:47UTC:** CHECK_SUMMARY_V72 / FIELD_OVERLAY_LAUNCHER_FINDINGS_V1: explicit compact-binding/overlay adapter passes seven prepublication and four launcher rejections, one guarded installed controller entry, three real blocked updates and isolated base-to-overlay-to-base rollback. No epoch/engine/models/capture/GUI or release/catalogue copy. Private80-file/305964-byte backup verified; all321Pi/48host closed, baseline unchanged. Next complete/enforce whole-run output bounds and measured admission before any capturable120s derivative.
+
+Static follow-up: inherited60s child deadline lacks an absolute guard (all observed children below60s). Qualify a fresh deadline/forced-close fixture before extended reuse. Next assign and enforce source/TRACE/control/log/telemetry/receipt/failure-tail bounds to complete the target+host live allocation. Keep52GiB total and all preserved usage; a modest output revision requires fresh measured policy/admission. Reuse retained overlay/adapter/dependencies, no full release/catalogue copies. Current launcher remains no-capture; a capturable derivative needs explicit source/child/facade/sample/wall caps and accepted-tail/route closure. No unchanged idle/health/archive/model/capture reruns.
+
 ## September30 10:31UTC - installed archive overlay passes
 
 CHECK_SUMMARY_V71 / FIELD_ARCHIVE_OVERLAY_FINDINGS_V1: the thin retained-file overlay passes installed v12 health and actual Controller/FieldArchiveStore policy propagation, 16 rejections and an empty no-audio epoch. No engine, models, source or GUI ran; no full release or catalogue was copied. Private backup: 81 files/364581 bytes verified. All314 Pi/48 host identities are closed and the original baseline is unchanged. Capture, pipeline start and interchange are explicitly disabled in this qualification entry.
