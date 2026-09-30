@@ -1,6 +1,6 @@
 # Master backend and mode guide — Raspberry Pi
 
-**Current update September30 07:46UTC:** Exact-state guarded launcher now passes installed v7 health/idle controller and v5 health after candidate rollback, retaining private-data ownership and rejecting six concurrent updates. V1 namespace-package failure remains preserved; V2 reuses four early rejection receipts. [Launcher findings](FIELD_LAUNCHER_FINDINGS_V1.md). All research compute/capture closed, baseline unchanged. Next guarded GUI lifetime and fresh endurance admission; original rc5 activation/full field release remain open.
+**Current update September30 07:59UTC:** Actual installed v7 GUI now retains launcher data ownership through its mapped480x800 mainloop and normal UI/controller close, rejecting three concurrent updates. This was an instrumented idle-only run with no capture/models or visual/touch claim. [GUI ownership findings](FIELD_GUI_LEASE_FINDINGS_V1.md). All research compute/capture closed, baseline unchanged. Next a fresh measured120s quiet sustained-run admission with expanded child/sample/file bounds and live resource traces; original rc5 activation/full field release remain open.
 
 **Device storage:** fixed32GB Raspberry Pi; last available space is17.566GB(16.359GiB), including existing research usage. All field models, app, recordings and rollback must fit with5GiB available reserve. Host allowances do not enlarge it. See [storage budget](PI_STORAGE_BUDGET_V1.md).
 
