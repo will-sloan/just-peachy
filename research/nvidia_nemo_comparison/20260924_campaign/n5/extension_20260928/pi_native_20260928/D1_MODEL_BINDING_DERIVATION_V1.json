@@ -1,0 +1,67 @@
+{
+  "schema": "d1-selected-model-binding-derivation.v1",
+  "inputs": {
+    "d1_modes_v1.py": {
+      "bytes": 7571,
+      "sha256": "8b315f886c1a0707aea6173cef47f8a4459bdd718c88fd247684b8d4a0185616"
+    },
+    "D1_MODE_CATALOG_V1.json": {
+      "bytes": 13005,
+      "sha256": "ff431b358c7140addcddd95c313f2ec82272289dce2a9815e8d63b60f6bde7c5"
+    },
+    "d1_application_controls_v1.py": {
+      "bytes": 7922,
+      "sha256": "5a81d1295a614caae59f6d9f89d8745870d6ae8ddced888550b4c10692dc26ed"
+    },
+    "d1_mode_native_v1.py": {
+      "bytes": 7408,
+      "sha256": "455185e2804c169cec559c1d1f913b7b7478ea3e00486fc3ef84828bc0a68b6b"
+    },
+    "dispatch_d1_mode_native_v1.py": {
+      "bytes": 22292,
+      "sha256": "afadc95c39d90696c9fcffe4efbaf57c512478c9381950cafb13d2b16504a1b4"
+    },
+    "review_d1_mode_native_v1.py": {
+      "bytes": 8866,
+      "sha256": "78e5adf395351111f41990d3677cf45bc188039b04440516bbe993b68d5dc0fb"
+    },
+    "backup_d1_mode_native_v1.py": {
+      "bytes": 2787,
+      "sha256": "37bd6f344ddab05c0210f03bfba16068fdcba5e1a1478b72d063af52f554aea5"
+    }
+  },
+  "outputs": {
+    "d1_model_binding_v1.py": {
+      "bytes": 4854,
+      "sha256": "a15b2e489d5c0613bd90b78db977f6959e6d70ffe8b4b8c8075b51a9f38d5064"
+    },
+    "d1_model_binding_protocol_v1.py": {
+      "bytes": 9716,
+      "sha256": "628e0fbe8e78ca032d41655c73214e4250e7b0ce41fbb90d918a563945c2755e"
+    },
+    "dispatch_d1_model_binding_v1.py": {
+      "bytes": 22394,
+      "sha256": "c609cfdf0c4490ae8862474d3eff632fcffe54d22082a8ac51a2d41e4c6671a2"
+    },
+    "review_d1_model_binding_v1.py": {
+      "bytes": 9280,
+      "sha256": "c579785b09cde0aafb44c3dd11671b9572eafefe4f5b9a244b12a42509f7c6d8"
+    },
+    "backup_d1_model_binding_v1.py": {
+      "bytes": 2796,
+      "sha256": "d3ffdd03caffc2f13a529c39c01c51ef8bf81134cbd4016e05a3a3ef9b11db6f"
+    },
+    "D1_MODEL_BINDING_INPUT_V1.json": {
+      "bytes": 2135,
+      "sha256": "54fd59547bbec66f49319a48bf4a28e564f4e4da054f4f3b7b13e37a3f97dfa9"
+    },
+    "README_D1_MODEL_BINDING_V1.md": {
+      "bytes": 5604,
+      "sha256": "692841c01738629e49fa797fb7ec34edbfcfd765f69caf7569b3dcd9c0e4f3ac"
+    }
+  },
+  "scope": "Only changed application selection-to-model boundary and short streaming path; old factory/guards unchanged; no full application or live Start",
+  "selected_acquire_delta": "Exact installed source SHA in adapter/input; replace only import and constructor expression. Outer one-acquisition latch prevents old resident reset; exact selected close unchanged.",
+  "control_request_fixture": true,
+  "prior_evidence_modified": false
+}

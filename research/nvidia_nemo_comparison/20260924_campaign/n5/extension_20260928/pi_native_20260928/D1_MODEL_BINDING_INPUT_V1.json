@@ -1,0 +1,58 @@
+{
+  "mode": "streaming",
+  "retained_run": "d1-geometry-stream-lru8-a76-v1",
+  "prefix_samples": 35127,
+  "push_samples": 1600,
+  "pins": {
+    "saved_full.npy": {
+      "bytes": 143168,
+      "sha256": "ac53d593638c416444c575826f608e85eda8561b2f76fb9cf5aa7925776f0c65"
+    },
+    "saved_full_calls.jsonl": {
+      "bytes": 77185,
+      "sha256": "757b0fdebeddd50cdcbb5db9cafd22a677ff88ae910f79e8aa1fe1a6d88500f6"
+    },
+    "INPUTS.json": {
+      "bytes": 6876,
+      "sha256": "8cf31558d2f7fefff929c2ffba0942c21ef137c502d037ac306a727952deff31"
+    },
+    "RESULT.json": {
+      "bytes": 4469,
+      "sha256": "464f534bb3b6c688d0ab5df23f3ea2715abe8cac60bd7a172c42b0236f778058"
+    },
+    "REVIEW.json": {
+      "bytes": 2085,
+      "sha256": "f1f59a46c08a756ecdd53686cc572af069497885b45600062f25cc60688035fc"
+    },
+    "source.wav": {
+      "bytes": 1430298,
+      "sha256": "0ee26e8aa6f815d8b202419aafb71ff5bc25093d193e95e972036f488c5040b8"
+    }
+  },
+  "tolerance": 1e-05,
+  "installed_n2_source": "/home/peachyprototype/JustPeachy/research/nemotron-20260928/field-artifact-install-v2/deployment/releases/b01-offline-20260930-v12/app/n2_models.py",
+  "installed_n2_sha256": "d00c24ad71d6f2c0cf193425e01b489aecceeb85d47006a52f63770fca9cba05",
+  "application_request": {
+    "schema": "d1-application-selection.v1",
+    "selection": {
+      "id": "streaming",
+      "catalog_sha256": "ff431b358c7140addcddd95c313f2ec82272289dce2a9815e8d63b60f6bde7c5",
+      "geometry": {
+        "chunk_frames": 13,
+        "right_context_frames": 1,
+        "left_context_frames": 0,
+        "fifo_frames": 80,
+        "spkcache_frames": 264,
+        "update_period_frames": 40,
+        "preset": "v3-streaming",
+        "gpu": -1
+      },
+      "retained_run": "d1-geometry-stream-lru8-a76-v1"
+    },
+    "requires_fresh_process": true,
+    "requires_independent_session": true,
+    "launchable": false,
+    "reason": "Application worker binding is not connected. No model starts from this control."
+  },
+  "application_request_scope": "Exact V87 control schema as a new streaming input fixture, not a new GUI execution or launch authorization"
+}
