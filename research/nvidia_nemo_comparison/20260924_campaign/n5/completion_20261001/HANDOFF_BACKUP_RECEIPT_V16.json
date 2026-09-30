@@ -1,0 +1,13 @@
+{
+  "status": "EXACT_DOCUMENTATION_BACKUP_VERIFIED",
+  "label": "ssh-mirror-v16",
+  "archive": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\completion-20261001-backups\\ssh-mirror-v16\\NVIDIA_CAMPAIGN_CHATGPT_HANDOFF_20260924_ssh-mirror-v16.zip",
+  "bytes": 34958,
+  "sha256": "14c43359441a56c5f6f5e76b0be0b7a84c638a731af20991575920eee937fe37",
+  "member_count": 15,
+  "cpu_affinity": [
+    14
+  ],
+  "delivery_status": "IN_PROGRESS",
+  "runtime_or_offline_acceptance": false
+}

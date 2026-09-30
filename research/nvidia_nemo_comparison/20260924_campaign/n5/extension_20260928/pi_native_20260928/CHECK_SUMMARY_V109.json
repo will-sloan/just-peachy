@@ -1,0 +1,111 @@
+{
+  "version": 109,
+  "as_of_utc": "2026-09-30T23:18:44.286261+00:00",
+  "status": "PASS_SSH_CLOSED_TREE_MIRROR_ONLY",
+  "pi_utility_runs": 4,
+  "positive_copy_runs": 1,
+  "last_native_application_summary": 103,
+  "last_positive_model_summary": 98,
+  "last_visible_inspection_summary": 100,
+  "actual_scope": {
+    "status": "PASS_ACTUAL_SSH_MIRROR_V4_ONLY",
+    "files": 75,
+    "bytes": 352621,
+    "directories": 20,
+    "empty_files": 14,
+    "measured_data_chunks": 69,
+    "chunk_bytes": 16384,
+    "elapsed_seconds": 1.5940000000409782,
+    "source_reserved_bytes": 1663341,
+    "mirror_ceiling_bytes": 1700000,
+    "extra_empty_directories_over_local_copy": 6,
+    "source_files": 13,
+    "source_bytes": 71247,
+    "source_bound_bytes_unchanged": true,
+    "exact_export_owners_closed": 3,
+    "failed_v1_start_ticks_missing": true,
+    "host_coordinators_closed": 4,
+    "native_model_source_capture": false,
+    "full_live_mirror_qualified": false,
+    "checked_utc": "2026-09-30T23:16:12.379945+00:00"
+  },
+  "changed_evidence": {
+    "transport": "Actual strict SSH Pi-to-host16KiB framing/readback; all75files and20directories including6extraemptydirectories preserved;69measuredchunks; source tree identity/membership unchanged; exact exporter closure before BACKUP",
+    "failed_v1": "Unit-list assertion before READY; actual values and exporter start ticks unrecorded; systemd exit1/MainPID0 and later PID absence only",
+    "failed_v2": "Recorded full listing shows multiline default Python command description; failed exact unit assertion before source plan; owner exact closed",
+    "failed_v3": "Fixed service description passes, actual tree20dirs requires1663341B above1600000B; failed plan before payload; owner exact closed",
+    "positive_v4": "Fresh measured1700000B mirror slice under same4MiBcumulativehostcap;75files352621B20dirs exact; natural0;1.594s; old admissions/code unchanged"
+  },
+  "closure": {
+    "version": 236,
+    "prior_pi_exact_identities_closed": 396,
+    "new_exporter_exact_identities_closed": 3,
+    "total_recorded_exact_pi_identities_closed": 399,
+    "failed_v1_start_ticks_missing": true,
+    "failed_v1_unit_and_pid_closed_without_exact_identity_claim": true,
+    "prior_isolated_host_identities_closed": 48,
+    "prior_field_host_unique_workers": 2,
+    "prior_console_helpers": 1,
+    "new_host_coordinators_closed": 4,
+    "typed_nonidentity_closures": 3,
+    "baseline_unchanged": true,
+    "capture_closed": true,
+    "leases_free": true,
+    "research_compute_active": false,
+    "extra_owner_receipt": "field-ssh-mirror-v1-preparation/SSH_EXPORT_OWNER_CLOSURE_V1.json"
+  },
+  "resource_accounting": {
+    "combined_output_bytes": 5334911483,
+    "output_cap_bytes": 5368709120,
+    "output_headroom_bytes": 33797637,
+    "payload_including_target_and_reservations_bytes": 55730171766,
+    "payload_cap_bytes": 55834574848,
+    "payload_headroom_bytes": 104403082,
+    "payload_basis": "HOST_CENSUS_V207 plus closure236 target and host-window delta",
+    "pi_free_bytes": 17429536768,
+    "pi_available_ram_bytes": 1371635712,
+    "pi_temperature_c": 54.0,
+    "pi_throttle": "throttled=0x0",
+    "before_later_metadata": true
+  },
+  "proposal": {
+    "target_bytes": 80106028,
+    "host_bytes": 84300332,
+    "combined_bytes": 164406360,
+    "admitted": false,
+    "full_runtime_write_binding": false,
+    "output_shortfall_bytes": 130608723,
+    "payload_shortfall_bytes": 60003278
+  },
+  "backup": {
+    "source_files": 13,
+    "source_bytes": 71247,
+    "readback_exact": true,
+    "separate_restore_copy_exact": true,
+    "mirror_files": 75,
+    "mirror_bytes": 352621,
+    "mirror_directories": 20,
+    "private_preparation": "field-ssh-mirror-v1-preparation"
+  },
+  "milestone": {
+    "launcher_recovery_due_utc": "2026-09-30T21:42:44Z",
+    "status": "MISSED_STILL_OPEN",
+    "hard_deadline_unchanged": "2026-10-01T17:42:44Z"
+  },
+  "remaining": [
+    "Bind actual live D1 mode/method/assets/C-ABI/endpoint with exact installed origins; saved endpoint count helper is limited to352127samples",
+    "Complete actual transitive writer interception/physical census/cardinality, including empty directories and runtime lock temporary names",
+    "Fresh measured resource policy/admission and actual source/model/Stop/save/reopen passage with existing prepared FieldController/source/native adapters",
+    "General operator/required data actions/physical touch/offline acceptance"
+  ],
+  "notes": [
+    "No model/source/GUI/capture or target payload writes; read-only Pi export utility executed",
+    "No source byte or closed admission was edited; all three failures remain failed",
+    "V1 missing exact /proc start ticks is not reconstructed from systemd timestamps",
+    "V4 is small closed-tree transport only; not full80MiB mirror, interruption/crash/powerloss/concurrency or live-read qualification",
+    "3changed host protocol cases passed before native dispatch: truncated input rejects, short writes complete, oversized frame rejects",
+    "Fresh207census followed expired206 beforeV3admission; absent-admission CLI failed before SSH; raw failures preserved",
+    "Installed retained D1 source confirms delayed v3-offline preset matches method contract; no live binding or asset load executed",
+    "Source/backups/exactclosure completed23:16:12 beforefreshcontinuation expiry; subsequentworkmetadataonly"
+  ]
+}

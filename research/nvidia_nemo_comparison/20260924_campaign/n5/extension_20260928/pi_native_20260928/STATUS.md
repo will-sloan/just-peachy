@@ -1,5 +1,23 @@
 # Connected CM5: native work is now the priority
 
+## Current verified V109 — 2026-09-30T23:18:44.286261+00:00
+
+Actual closed-tree SSH mirror passed75files/352621B/20dirs/69measured16KiBchunks;
+no model/source/GUI/capture. V1/V2 unit-gate failures and V3 measured-directory
+allocation failure remain preserved; only V4 copy passed. All4host coordinators
+closed;3new exact Pi exporters closed, plus V1 unit/PID termination with missing
+start ticks explicitly unqualified. Prior396Pi/48isolatedhost identities and prior
+field hosts separately closed. See CHECK_SUMMARY_V109 and FIELD_SSH_MIRROR_FINDINGS_V1.
+
+Closure236 output5,334,911,483B/headroom33,797,637B; payload55,730,171,766B/
+headroom104,403,082B incltarget+reservations before later metadata. All live/runtime/offline
+gates remain open. Next bind actual live D1 endpoint/method and complete transitive
+writer enforcement, then fresh measured admission/source-model-Stop-save-reopen.
+Do not repeat healthy V100 copy. Preserve270 and the hard deadline. Future preflight
+must inspect the host-stored Pi owners under field-ssh-mirror-v1-preparation as well
+as collect_native_closure_v5; its prior396 count does not include these3new owners.
+
+
 ## Current check V108 - 2026-09-30T22:45:39.544409+00:00
 
 Current V108: a bounded local streamed mirror verified75retained native-evidence files without loading the payload as a batch. Physical-path projection now accounts for configuration replacements, native/archive controls, pending files and guards under the unchanged target maximum. These are local-copy and preparation results; no Pi source/model/GUI ran. Actual Pi-to-host streaming, full runtime writer census and live D1 endpoint binding remain open. The launcher milestone remains missed; deadline unchanged. See FIELD_STREAMED_MIRROR_FINDINGS_V1 and CHECK_SUMMARY_V108.
