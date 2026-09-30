@@ -1,8 +1,8 @@
 # Master backend and mode guide — Raspberry Pi
 
-**Device storage:** fixed32GB Raspberry Pi; last measured available space is17.90GB(16.67GiB), including existing research usage. Host allowances do not enlarge it. All field models, app, recordings and rollback must fit with5GiB available reserve. See [storage budget](PI_STORAGE_BUDGET_V1.md).
+**Device storage:** fixed32GB Raspberry Pi; last measured available space is17.895GB(16.67GiB), including existing research usage. Host allowances do not enlarge it. All field models, app, recordings and rollback must fit with5GiB available reserve. See [storage budget](PI_STORAGE_BUDGET_V1.md).
 
-Current update September30 00:20UTC: A2 A76 runs faster in the saved-file comparison, but fails exact intermediate-event matching and remains unqualified. The generic A2 component remains the validated choice for sequential refinement work. No-capture writer timing suggests testing capture-process isolation; it does not repair the prior25.56s live overflow. No research job remains active; original app unchanged. See [A2 findings](A2_A76_FINDINGS_V1.md), [scheduling findings](SERIALIZATION_SCHEDULING_FINDINGS_V1.md) and CHECK_SUMMARY_V41.json. Full live, standalone field release and N4/N5 acceptance remain open.
+Current update September30 00:43UTC: separate-process source IPC now passes13 native fixture cases, including bounded buffering during a parent stall, exact audio bytes and explicit fault/Stop/closure handling. It is not yet a microphone adapter or live fix. Original app unchanged; no research compute remains active. See [isolation findings](ISOLATED_SOURCE_FINDINGS_V1.md) and CHECK_SUMMARY_V42.json. Generic A2 remains the qualified ASR component; its faster A76 candidate is unqualified. Alternate D1 state parity, full live/standalone field release and N4/N5 acceptance remain open.
 
 Updated September 29, 2026, 18:50 EDT / 22:50 UTC. This is the current conceptual and engineering overview. Older reports preserve history; use this guide and STATUS.md for current priorities. Latest converter evidence is linked below; qualified preview scope is unchanged.
 

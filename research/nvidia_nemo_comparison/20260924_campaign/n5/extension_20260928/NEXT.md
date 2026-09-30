@@ -1,3 +1,13 @@
+## September30 00:43UTC - native IPC component passed; microphone adapter next
+
+Read CHECK_SUMMARY_V42 / ISOLATED_SOURCE_FINDINGS_V1.md. Thirteen native saved-fixture cases independently pass in V2; V1 connection-reset failure and partial receiver coverage remain. All180Pi/44host identities closed,baseline unchanged,captureclosed,leasesfree; private backups verified. No live repair or source integration yet.
+
+1. Bind a fresh adapter to the actual Linux source and its raw ring, exact LiveBlock/native/model clocks, source fault details, hardware lease and restoration. Test accepted raw-ring Stop/drain with fake callbacks and bounded IPC before a changed autonomous quiet B01 trial. The saved-file fixture's unread samples were never captured: do not infer real raw-ring drainage or resource fit.
+2. Build explicit generic A2 after-stop refinement with Sherpa first and bounded separate model lifetimes/GUI state; preserve the unqualified A76 candidate.
+3. Resume focused alternate D1 preencoder/intermediate-output diagnosis on retained natural features; keep both probability/state1e-5. Avoid spending every wake on live retries.
+
+Refresh owners/census before dispatch. Current combined4,338,051,331/5GiB; Pi free17,894,985,728bytes on fixed32GBdevice,5GiB reserve. Current WINDOW_V5 total52GiB includes target/2.5GiB reservations. Checkpoint unchanged October1 17:47:34UTC.
+
 ## September30 00:20UTC - isolate capture; preserve A2 exact-output failure
 
 Current verified state: CHECK_SUMMARY_V41 / NATIVE_CLOSURE_V74. Both new native jobs closed, no capture, baseline unchanged and private backups verified. See SERIALIZATION_SCHEDULING_FINDINGS_V1.md and A2_A76_FINDINGS_V1.md in pi_native_20260928. Generic A2 remains qualified; A76 candidate is faster but failed unchanged canonical equality. No unchanged rerun or silent substitution.
