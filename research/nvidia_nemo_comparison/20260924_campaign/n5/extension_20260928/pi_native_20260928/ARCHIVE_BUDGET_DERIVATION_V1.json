@@ -1,0 +1,7 @@
+{
+  "schema": "archive-budget-source-derivation.v1",
+  "source_release": "field-artifact-install-v2/deployment/releases/b01-offline-20260930-v12",
+  "source_sha256": "dfae2e6cd4ddda9adad586385232f1e864f675c7008fc46ad28274fd619052d5",
+  "derivative_sha256": "7594e427e88503b8619197d4fac47907ceab865b46bd0305473551039b1a632f",
+  "scope": "Explicit raw metadata, auxiliary aggregate and atomic control caps; compact-only no SQLite; legacy path unchanged"
+}
