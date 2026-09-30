@@ -1,0 +1,104 @@
+{
+  "schema": "d1-chunk52-endpoint-source-binding.v2",
+  "mode": "chunk52",
+  "retained_run": "d1-geometry-chunk52-a76-v1",
+  "pins": {
+    "scheduler-native-v1/inputs/source/src/asr/diar/diar_pipeline.cpp": {
+      "bytes": 18761,
+      "sha256": "343b04ea976d3a8a108bf4d0ffc3210c0bb764e7b31725609d58ab1fe2da2cbe"
+    },
+    "scheduler-native-v1/inputs/source/src/asr/diar/diarizer.cpp": {
+      "bytes": 6763,
+      "sha256": "1536bc044bc17fcc4c7913f983c5314ebef6fd2df14649cef4024832424f2b82"
+    },
+    "scheduler-native-v1/inputs/source/src/asr/features/fe.cpp": {
+      "bytes": 32323,
+      "sha256": "f18dfcd3f1da1c068b62510126d937aca71de9afa5b15590f188215313c8a64d"
+    },
+    "scheduler-native-v1/inputs/objects/features/fe.cpp.o": {
+      "bytes": 151896,
+      "sha256": "257435da47e3f3ba0951a74e4e5d3166bd231cba0b1088a4b8ff9910de21b954"
+    },
+    "scheduler-native-v1/inputs/objects/diar/diar_pipeline.cpp.o": {
+      "bytes": 43560,
+      "sha256": "393c1400f1a8b61cde296dc0754bf456c80dbe52d46755d2c7308da2e2628c17"
+    },
+    "d1-lru-build-v1/output/libnemo_speech_asr.so": {
+      "bytes": 2651992,
+      "sha256": "fa8ecbb66124b62fced485d45dd2ec6018634a35d39dbc143e221b9f7230b622"
+    },
+    "d1-lru-build-v1/build_d1_lru_v1.py": {
+      "bytes": 5748,
+      "sha256": "e28c106435e838b0557b7c4163add418a3b2c4f198148f80cacc51df7d955dcf"
+    },
+    "d1-lru-build-v1/BUILD_ADMISSION.json": {
+      "bytes": 12470,
+      "sha256": "43311af7471c46e6b8087b92df41e9bb1a0092026ac8c8aa96d8e6c8975e8815"
+    },
+    "scheduler-native-v1/inputs/source/src/asr/features/fe.h": {
+      "bytes": 7454,
+      "sha256": "374d6978770d8367e271954d36269704534097500127a3e9af2e7cf95f315151"
+    },
+    "d1-lru-build-v1/sortformer_model.cpp": {
+      "bytes": 25856,
+      "sha256": "3bd6f10bc8017cd840609a35f2dae45f980c25fde880a32a4bbe24cd24eb2c86"
+    },
+    "d1-lru-build-v1/BUILD_RESULT.json": {
+      "sha256": "73e00ca861540f90c5db77d791a238090538072a4619652e90e88e2773e5dafd"
+    },
+    "scheduler-native-v1/bundle.tar.json": {
+      "sha256": "c1fab2b4a3041412add0a1243919600b442785e4a76be9e65aa9b5397f090066"
+    },
+    "scheduler-native-v1/BUILD_RESULT.json": {
+      "sha256": "af456b49c488df2fb9293d60793c4999e81e2aa9618f592d5b751484b29204aa"
+    },
+    "d1-geometry-chunk52-a76-v1/nemotron_diarization.py": {
+      "bytes": 16079,
+      "sha256": "6237997f05b45baf244c520e84d2a27a364906b24e0f02907e47cdcb31f435a5"
+    }
+  },
+  "model_sha256": "08456d9e22cd9a323c0364d98375f3746d6e68507ebb705cd46438c534c7a3a1",
+  "model_metadata": {
+    "sortformer.version": {
+      "value": "v3",
+      "offset": 163,
+      "hex": "02000000000000007633",
+      "gguf_type": 8
+    },
+    "sortformer.high_resolution": {
+      "value": true,
+      "offset": 1549,
+      "hex": "01",
+      "gguf_type": 7
+    },
+    "sortformer.output_subsampling_factor": {
+      "value": 1,
+      "offset": 1598,
+      "hex": "01000000",
+      "gguf_type": 4
+    },
+    "sortformer.preprocessor.sample_rate": {
+      "value": 16000,
+      "offset": 1732,
+      "hex": "803e0000",
+      "gguf_type": 4
+    },
+    "sortformer.preprocessor.window_stride": {
+      "value": 0.009999999776482582,
+      "offset": 1836,
+      "hex": "0ad7233c",
+      "gguf_type": 6
+    },
+    "sortformer.preprocessor.n_fft": {
+      "value": 512,
+      "offset": 1881,
+      "hex": "00020000",
+      "gguf_type": 4
+    }
+  },
+  "hop_samples": 160,
+  "output_subsampling_factor": 1,
+  "empty_frames": 0,
+  "nonempty_formula": "samples // 160 + 1",
+  "scope": "Retained source/object bundle provenance and successful recorded link; not a new reproducible build or independent compiler proof."
+}

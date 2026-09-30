@@ -1,0 +1,20 @@
+{
+  "schema": "d1-application-saved-derivation.v4",
+  "parents": {
+    "d1_application_saved_v3.py": "85a8881ef397e86b17df39e2da509ab54a54ff7d04a12126447bea232c707ad4",
+    "d1_application_saved_protocol_v3.py": "11cc3f54cba99f79b5644542c0acfdb53fbd62a97a3109ce5ae69f9da9198815",
+    "dispatch_d1_application_saved_v3.py": "1e06c9106b59f7d8800e0656589258fc7c6c05b73767ae6ef6951a9258a9d257",
+    "review_d1_application_saved_v3.py": "31ff9a61b21d27b4cee325c20076b7c59f32693580811dd75393a28ceeb2e4b0",
+    "backup_d1_application_saved_v3.py": "d66e24d9674846ba2f3d3184019548ac1b8f0b329d2cab08195e0501fa32a737",
+    "d1_endpoint_contract_v1.py": "74a46898b7c99f920821d763cad29e9fb037cdaa01b6eb4e092d70661a1b4b7d",
+    "D1_ENDPOINT_CONTRACT_V1.json": "34f7971469307436ecb7ffbda3785ed6a4c79720abab777c95ad91fc30fc776c"
+  },
+  "changes": [
+    "Public saved-only mode selection schema with strict translation into unchanged legacy adapter; expose admitted mode and actual availability without stale reason.",
+    "Parameterize actual UI selection/Stop source threshold and displayed admitted label; this admission enables chunk52 only.",
+    "Bind exact same retained frontend/objects/LRU8 main library/model metadata, with chunk52 adapter identity; extend pure count ceiling to70327.",
+    "New one short actual chunk52 application passage, no Streaming/delayed/old suite reruns."
+  ],
+  "endpoint_contract_sha256": "d6aea07355940995d36c81584cd82a0eabd7a95149a94a0eb456cc3269ab3f74",
+  "full_live_start_available": false
+}
