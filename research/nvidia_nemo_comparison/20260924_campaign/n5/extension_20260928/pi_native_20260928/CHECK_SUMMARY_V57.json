@@ -1,0 +1,72 @@
+{
+  "version": 57,
+  "checked_utc": "2026-09-30T05:23:44.329527+00:00",
+  "status": "SCOPED_INSTALLED_ARCHIVE_IMPORT_EXPORT_QUOTA_AND_VISIBLE_UI_PASS",
+  "scope": "Fresh installed offlineB01 conversation import/export and512MiB private-root quota; no capture/models/physicaltouch/live/endurance",
+  "release_version": "b01-offline-20260930-v3",
+  "release_archive_sha256": "8ff77e87eccdeb631a8007859b93aaa264c56fa89ddb7ef211220b2839e45fcb",
+  "release_manifest_sha256": "8fbc01d40e272e1dbe775a4fa3bb346a6ae723f49f30fd97fb63986c402e196e",
+  "release_files": 287,
+  "release_archive_bytes": 1191173,
+  "native_seconds": 16.775441338002565,
+  "native_peak_rss_bytes": 73809920,
+  "sampled_aggregate_peak_bytes": 81739776,
+  "actual_installed_gui_entry": true,
+  "actions": 10,
+  "negative_checks": 16,
+  "raw_utterances": 4,
+  "display_rows": 40,
+  "source_archive_bytes": 12794610,
+  "source_epochs": 2,
+  "source_samples": 846807,
+  "archive_members_unchanged": true,
+  "quota_bytes": 536870912,
+  "minimum_free_bytes": 5368709120,
+  "session_reservation_bytes": 33554432,
+  "automatic_cleanup": false,
+  "visible_geometry": [
+    480,
+    800
+  ],
+  "visual_review_sha256": "91af336dcd266a1b2fe2ede6492015633b76350040bc2a0d9b257ba433d4ead8",
+  "private_backup": {
+    "files": 663,
+    "target_bytes": 41403595,
+    "combined_bytes": 82947579,
+    "verified": true
+  },
+  "baseline_unchanged": true,
+  "capture_closed": true,
+  "leases_free": true,
+  "compute_active": false,
+  "physical_touch": false,
+  "field_release_accepted": false,
+  "closure_version": 128,
+  "resources": {
+    "checked_utc": "2026-09-30T05:23:44.329527+00:00",
+    "host_window_bytes": 2215186711,
+    "target_bytes": 2575580920,
+    "combined_bytes": 4790767631,
+    "cap_bytes": 5368709120,
+    "host_free_bytes": {
+      "C:": 142996115456,
+      "G:": 96889819136
+    },
+    "all_owned_native_identities_closed": 254,
+    "host_supervisor_closed": true
+  },
+  "isolated_host_identities_closed": 48,
+  "pi_free_bytes": 17681743872,
+  "pi_available_ram_bytes": 1508540416,
+  "pi_temperature_c": 52.9,
+  "pi_throttle": "throttled=0x0",
+  "gaps": [
+    "A newly crafted manifest-valid archive with omitted history fields may publish before history refresh rejects it. Existing target is never overwritten; copied valid archive is exact. Arbitrary external-format acceptance remains incomplete.",
+    "Legacy/text-only/partial/enhanced imports explicitly unsupported; new format completed archives only",
+    "512MiB is candidate-data-root quota; externally chosen export paths have independent5GiBfree guard",
+    "Quota/freefloor/busy controls were explicitly injected; no disk exhaustion experiment",
+    "Mode notice repeated cosmetically; old recipe pixel-stability failure unchanged",
+    "Installed GUI liveStartStop, physical touch, endurance, B05/sequential packaging, shared dependency placement and original baseline activation/rollback remain open"
+  ],
+  "next_priority": "Fresh derivative validates every history/controller-required metadata type before rename; retain malformed fixtures and demonstrate no publication, then qualify changed installed import path. Preserve V1 admission/code/evidence; no repeated unchanged model/capture passes."
+}

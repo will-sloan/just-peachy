@@ -1,3 +1,9 @@
+## September30 05:23UTC - installed archive import and storage
+
+**September30 05:23UTC:** CHECK_SUMMARY_V57 / FIELD_ARCHIVE_FINDINGS_V1: fresh offlineB01 v3 passes installed private Import/fullExport roundtrip, exact2epochs/846807samples/allfilehashes/40displayrows,16rejections and10GUIactions. Store/Start/display now512MiBprivate-root quota with5GiBreserve; no automatic deletion. Visible480x800 readable; duplicatedmode notice cosmetic. No capture/models/touch/live/endurance. Private663files/41.4MB backedup. All254Pi/48hostclosed,baselineunchanged,leasesfree;combined4790767631/5GiB. Next fix statically found missing history-metadata validation before publication in a fresh derivative, then installedGUIlive/dependency/rollback/endurance; no unchangedpasses.
+
+Use field-archive-v1/deployment/releases/b01-offline-20260930-v3 and README_FIELD_ARCHIVE_V1. Current no-model archive/UI run is closed. Preserve V56recipe stability failure, earlier source failures and all old releases. New GUI liveStart/Stop is the next boundary; no old user-only launch or unchanged30s replay.
+
 ## September30 04:55UTC - visible installed candidate
 
 **September30 04:55UTC:** CHECK_SUMMARY_V56 / FIELD_VISIBLE_FINDINGS_V1: fresh offline B01 v2 renders480x800 and passes15installed GUI/archive actions, exact40display rows, disabled unavailable controls and natural close. Start consent cancelled; no capture/models/physicaltouch/live acceptance. Entry duplicateclose fixed; two failed harnesses/black or premature screenshots/cache additions preserved. Settled consent pixels exact; recipe pair differs2575pixels despite readable frames, stability gate remains failed. Import and2048vs512MiBquota/stale UIwording remain. All252Pi/48hostclosed,baselineunchanged,leasesfree;combined4705768826/5GiB. Next fresh UI/quota/import derivative, then installedlive/dependency/rollback/endurance; no unchanged passes.
