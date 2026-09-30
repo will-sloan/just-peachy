@@ -1,6 +1,6 @@
 # Consolidated paths, backups and simplification
 
-Current V100: the changed visible480x800 chooser -> fresh installed inspection child -> Return -> chooser -> Close passed. Geometry now settles at0,0 with recorded states; backend/client labels are corrected. Model/microphone stayed off; all6new owners closed,75files352621B exact backup. V99 remains failed and V98 positive model entry is separate. General operator/live/storage/offline delivery remains open. See D1_VISIBLE_ENTRY_FINDINGS_V2 and CHECK_SUMMARY_V100.
+Current V101: two native storage repairs passed eleven changed cases. Failed archive controls retain partial bytes and distinguish post-replacement failure; target JSON overflow rejects before staging. Both new owners closed;50files85315B exact backup. Installed archive/Stop binding and unified producer limits remain open, so this is not a live recording or offline pass. V100 visible inspection and V98 saved model entry remain separate. See FIELD_STORAGE_REPAIR_FINDINGS_V1 and CHECK_SUMMARY_V101.
 
 Latest private evidence: `local/n5/research-extension-20260928/pi-native-20260928/d1-visible-entry-v2-evidence`; exact75file352621B backup,3privatePNG/geometry and complete tested lifecycle receipts. Preparation/source/visual review in `d1-visible-entry-v2-preparation`; V1failure untouched.
 

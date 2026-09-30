@@ -1,6 +1,6 @@
 # Mode guide: delivery snapshot
 
-Current V100: the changed visible480x800 chooser -> fresh installed inspection child -> Return -> chooser -> Close passed. Geometry now settles at0,0 with recorded states; backend/client labels are corrected. Model/microphone stayed off; all6new owners closed,75files352621B exact backup. V99 remains failed and V98 positive model entry is separate. General operator/live/storage/offline delivery remains open. See D1_VISIBLE_ENTRY_FINDINGS_V2 and CHECK_SUMMARY_V100.
+Current V101: two native storage repairs passed eleven changed cases. Failed archive controls retain partial bytes and distinguish post-replacement failure; target JSON overflow rejects before staging. Both new owners closed;50files85315B exact backup. Installed archive/Stop binding and unified producer limits remain open, so this is not a live recording or offline pass. V100 visible inspection and V98 saved model entry remain separate. See FIELD_STORAGE_REPAIR_FINDINGS_V1 and CHECK_SUMMARY_V101.
 
 Product mode controls labels/roster; backend selects caption/diarizer/embedding models; D1 geometry controls buffering/context. Availability retains V95 model evidence and V96 pre-owner validation recovery. V98 qualifies one withdrawn Streaming fresh-child passage. V100 corrected visible inspection lifecycle passed; no general operator/live launcher acceptance. Final guide must match the frozen device launcher, not imply every possible combination was tested.
 

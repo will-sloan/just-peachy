@@ -1,0 +1,17 @@
+{
+  "schema": "field-storage-repair-derivation.v1",
+  "parents": {
+    "field_archive_budget_v2.py": "3172119f1c7a2022a58519967dc8ad92d90fefe12f939f541f5c29f55afa3cd7",
+    "field_metadata_budget_v1.py": "b7a57f4da2191441659c38ce810673f1bfe5f90d23db4517fb9203d4221bc9d6",
+    "dispatch_d1_visible_entry_v2.py": "4b8433770f43a9ea5dc1e78858eedb3e62f0d435ff12833ddb11d938576599c3",
+    "backup_d1_visible_entry_v2.py": "59e274ef97834376150c363119ac12593237d9a15ddc387e498b031a8de49409",
+    "field_metadata_envelope_v1.py": "ab62f473587543ab1113449eca75953085eb37ab0bc71938dcd426fd3ea08e2c"
+  },
+  "changes": [
+    "Fresh archive v3 keeps unchanged budget/encoder/detail bodies; replaces only publish, adds outcome exception and narrow write seam. Deterministic pending slot retained on failure, old control bounded, no auto retry.",
+    "Fresh target metadata v2 parses every float token and rejects overflow before layout; old publish/control bodies retained.",
+    "Fresh dispatcher changes run, payload, selected protocol, scope/fixture allocation and staging import to finite v2; identity/resource/outer guards retained.",
+    "Installed archive/controller/source/model not rebound; no full composition claim.",
+    "Fresh envelope v2 changes only control_write import to finite metadata v2; live queries unchanged."
+  ]
+}

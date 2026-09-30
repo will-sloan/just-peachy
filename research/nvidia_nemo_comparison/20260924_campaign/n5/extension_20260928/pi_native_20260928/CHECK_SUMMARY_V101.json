@@ -1,0 +1,86 @@
+{
+  "schema": "pi-native-check-summary.v101",
+  "checked_utc": "2026-09-30T20:04:37.833787+00:00",
+  "status": "PASS_NATIVE_STORAGE_REPAIR_COMPONENTS_ONLY",
+  "run": "field-storage-repair-v1",
+  "scope": "Two changed target storage components; not installed live composition",
+  "cases": {
+    "status": "PASS_NATIVE_STORAGE_REPAIR_COMPONENTS_ONLY",
+    "cases": 11,
+    "archive_cases": 7,
+    "injected_io_failures": 4,
+    "prewrite_slot_rejections": 2,
+    "overflow_rejections": 3,
+    "exact_finite_staging": true,
+    "fixture_files": 16,
+    "fixture_bytes": 452,
+    "fixture_directories": 12,
+    "models": false,
+    "capture": false,
+    "GUI": false,
+    "child_processes": 0,
+    "source_audio_samples": 0,
+    "whole_run_integrated": false,
+    "elapsed_seconds": 0.04455216199858114,
+    "peak_rss_bytes": 18595840
+  },
+  "archive": {
+    "partial_preserved": true,
+    "deterministic_pending_slot": true,
+    "old_plus_pending_per_control_bytes": 131072,
+    "post_replace_failure_reported": true,
+    "durable_cross_process_failure_latch": false,
+    "single_writer_only": true,
+    "installed_archive_rebound": false
+  },
+  "metadata": {
+    "finite_float_tokens": true,
+    "duplicate_hidden_overflow_rejected": true,
+    "actual_new_dispatch_stage_used_v2": true,
+    "finite_raw_bytes_exact": true,
+    "underflow_numerical_exactness": false
+  },
+  "backup": {
+    "files": 50,
+    "bytes": 85315,
+    "receipt_sha256": "f1574d6fd86ad59567f7176c601296eca48c1f4c12807a02b6adbd7ea3c6c5fd"
+  },
+  "closure": {
+    "version": 215,
+    "recorded_pi_identities_closed": 392,
+    "prior_isolated_host_identities_closed": 48,
+    "field_host_identities_checked": 10,
+    "nonidentity_closures": 3,
+    "research_active": false,
+    "baseline_unchanged": true,
+    "capture_closed": true,
+    "leases_free": true
+  },
+  "budget": {
+    "combined_bytes": 5314326601,
+    "cap_bytes": 5368709120,
+    "headroom_bytes": 54382519,
+    "total_payload_with_reservations": 55709586884,
+    "total_payload_cap": 55834574848,
+    "payload_headroom_bytes": 124987964,
+    "before_later_metadata": true
+  },
+  "resource": {
+    "protocol_seconds": 0.04455216199858114,
+    "process_peak_rss_bytes": 18595840,
+    "gate_only_sample_rss_bytes": 19513344,
+    "worker_rss_sample_available": false,
+    "available_ram_bytes": 1424228352,
+    "target_free_bytes": 17430487040,
+    "temperature_c": 54.0,
+    "throttle": "throttled=0x0"
+  },
+  "limitations": [
+    "No source/model/audio/GUI/capture/integrated installed archive",
+    "No physical exhaustion/power-loss/concurrency failure stress",
+    "Existing stage/outer bounds are scoped; full unified writer maxima/layout still open",
+    "No new speed/accuracy/endurance"
+  ],
+  "next": "Bind per-producer slots and retained archive/source/transport to one small live layout; propagate v3 PublicationFailure to actual Stop latch before capture; fresh measured admission required",
+  "hard_deadline_utc": "2026-10-01T17:42:44Z"
+}
