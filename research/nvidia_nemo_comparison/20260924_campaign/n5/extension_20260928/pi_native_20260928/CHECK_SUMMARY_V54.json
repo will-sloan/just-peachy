@@ -1,0 +1,67 @@
+{
+  "version": 54,
+  "checked_utc": "2026-09-30T04:10:00.134419+00:00",
+  "status": "PASS_B01_ISOLATED_QUIET_30S_FUNCTIONAL_PCM_DRAIN_ONLY",
+  "scope": "Actual isolated microphone plus complete B01 controller/models, 30s quiet functional PCM/drain/Save/Open",
+  "source_samples": 480000,
+  "native_frames": 1440000,
+  "blocks": 3000,
+  "D1_probability_frames": 3001,
+  "D1_EOF_frames": 889,
+  "first_D1_seconds": 25.52052844867285,
+  "D1_finish_seconds": 6.038009746000171,
+  "stop_return_seconds": 6.490121643000748,
+  "protocol_seconds": 42.86787989399454,
+  "sampled_aggregate_peak_bytes": 558596096,
+  "sampled_process_peaks": {
+    "49461": {
+      "rss_kib": 18896,
+      "vmpeak_kib": 28192,
+      "threads": 1
+    },
+    "49465": {
+      "rss_kib": 488592,
+      "vmpeak_kib": 657568,
+      "threads": 20
+    },
+    "49483": {
+      "rss_kib": 41872,
+      "vmpeak_kib": 112128,
+      "threads": 3
+    }
+  },
+  "maximum_observed_IPC_seconds": 0.127604161,
+  "source_faults": 0,
+  "raw_pending_at_stop": 0,
+  "text_publications": 0,
+  "E0_window_calls": 0,
+  "private_backup_files": 461,
+  "private_backup_bytes": 16930837,
+  "private_backup_verified": true,
+  "native_owners_closed": 237,
+  "isolated_host_owners_closed": 48,
+  "baseline_unchanged": true,
+  "capture_closed": true,
+  "leases_free": true,
+  "combined_bytes": 4549223448,
+  "combined_cap_bytes": 5368709120,
+  "target_free_bytes": 17808023552,
+  "available_ram_bytes": 1612775424,
+  "temperature_c": 52.9,
+  "throttle": "throttled=0x0",
+  "global_swap_context_only": {
+    "pswpin": 3684,
+    "pswpout": 36595
+  },
+  "new_audio_numerical_reference_qualified": false,
+  "quality_scored": false,
+  "visible_GUI_qualified": false,
+  "endurance_qualified": false,
+  "field_release_accepted": false,
+  "N4_N5_complete": false,
+  "next": [
+    "Versioned standalone B01 field candidate with explicit modes/unavailable controls and fixed32GB install/shared-assets/recording/rollback budget",
+    "Visible Pi GUI controls and archive operations with backup/activation/rollback evidence",
+    "Fresh bounded endurance admission with live CPU/throttle/thermal/clock/owner sampling; no repeat of this unchanged30s run"
+  ]
+}
