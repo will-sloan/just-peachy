@@ -1,0 +1,9 @@
+{
+  "schema": "d1-application-controls-binding.v1",
+  "controller_sha256": "e2910982ab1afb764b7c84b6aab460f2f8f967b7aec1b6e6f00ace6fa016e1dd",
+  "ui_sha256": "42b8095d9627af14f6c89b5aabb0f3152d7605805075574b4adc7631885d0d86",
+  "models_sha256": "d00c24ad71d6f2c0cf193425e01b489aecceeb85d47006a52f63770fca9cba05",
+  "installed_relative_root": "field-artifact-install-v2/deployment/releases/b01-offline-20260930-v12",
+  "catalog_sha256": "ff431b358c7140addcddd95c313f2ec82272289dce2a9815e8d63b60f6bde7c5",
+  "selector_sha256": "8b315f886c1a0707aea6173cef47f8a4459bdd718c88fd247684b8d4a0185616"
+}

@@ -1,3 +1,9 @@
+## September30 15:03UTC - diarizer control component passes
+
+**September30 15:03UTC:** CHECK_SUMMARY_V87 / D1_APPLICATION_CONTROLS_FINDINGS_V1:18 changed native control cases pass/12rejects. Actual withdrawn Tk navigation/buttons plus exact installed Controller queue/UI-call methods on detached objects; pending selection is not optimistic, stale queued changes preserve selection/error, busy/owned/runtime/full-queue paths reject. Three real command threads joined/zero pending; Start explicitly blocked before old loader. No constructor/model/source/visible rendering/touch/full-app credit.41file/115345B exact backup;all356Pi/48priorhost+2fieldworkers/1helper closed,baseline unchanged. Next bind selected request to actual N2ResidentModels/new factory with a short streaming passage. ASR secondary.
+
+Connect the selected request to the installed N2ResidentModels.acquire_diarizer boundary in a fresh adapter; use a short streaming passage to test this new path. No full-file/delayed/control reruns. Enforce one selected mode per process and independent sessions; explicitly replace/restart the process before changing native runtime. Keep live Start unavailable until actual launcher/Stop/ownership and necessary output bindings exist.
+
 ## September30 14:27UTC - diarizer modes and speed methods first
 
 ## September30 14:45UTC - delayed factory native passage passes

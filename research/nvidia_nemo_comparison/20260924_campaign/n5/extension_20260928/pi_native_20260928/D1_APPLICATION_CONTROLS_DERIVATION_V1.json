@@ -1,0 +1,15 @@
+{
+  "schema": "d1-controls-derivation.v1",
+  "sources": {
+    "d1_application_controls_v1.py": "5a81d1295a614caae59f6d9f89d8745870d6ae8ddced888550b4c10692dc26ed",
+    "d1_application_controls_protocol_v1.py": "1c88a9a75e0f347e545b2b38ae9cf2a67e113187660fb84ff38257fdf023a1f3",
+    "dispatch_d1_application_controls_v1.py": "746c32f2853c94cb0036eea0494de8c54dcecbc4282f0496ff939d27d6c97c21",
+    "review_d1_application_controls_v1.py": "6c41a11929c24032685b75dc03096d8cda9366cf0083bfccd280c2370238f4b7",
+    "backup_d1_application_controls_v1.py": "a19e30180e29d6cd130cbdb8db02b2a86e024f217915edec8c40e3b29422008c",
+    "D1_APPLICATION_CONTROLS_BINDING_V1.json": "7fbee8b9bd9479d671e2af9432b846849cf0795cc6ee24cd4e745a3364894188",
+    "README_D1_APPLICATION_CONTROLS_V1.md": "d678af7e7dd99fe914c0f9c2cf5387e358cde04299e04128c81cb95437760725"
+  },
+  "parent_dispatcher": "afadc95c39d90696c9fcffe4efbaf57c512478c9381950cafb13d2b16504a1b4",
+  "new_inference": false,
+  "live_application_bound": false
+}
