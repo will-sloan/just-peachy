@@ -1,0 +1,88 @@
+{
+  "schema": "just-peachy.whole-run-allocation.v1",
+  "target_maximum_bytes": 79691776,
+  "host_target_copy_maximum_bytes": 79691776,
+  "host_metadata_maximum_bytes": 4194304,
+  "host_maximum_bytes": 83886080,
+  "combined_request_bytes": 163577856,
+  "retained_component_maxima": {
+    "compact_epoch": 31485484,
+    "native_journal": 16777216,
+    "conversation_controls": 131072
+  },
+  "sidecar_groups": {
+    "trace": {
+      "maximum_bytes": 12582912,
+      "maximum_file_bytes": 12582912,
+      "maximum_files": 1,
+      "maximum_write_bytes": 8192,
+      "minimum_free_bytes": 5368709120
+    },
+    "source": {
+      "maximum_bytes": 1048576,
+      "maximum_file_bytes": 65536,
+      "maximum_files": 16,
+      "maximum_write_bytes": 65536,
+      "minimum_free_bytes": 5368709120
+    },
+    "config": {
+      "maximum_bytes": 1048576,
+      "maximum_file_bytes": 65536,
+      "maximum_files": 16,
+      "maximum_write_bytes": 65536,
+      "minimum_free_bytes": 5368709120
+    },
+    "telemetry": {
+      "maximum_bytes": 2097152,
+      "maximum_file_bytes": 2097152,
+      "maximum_files": 8,
+      "maximum_write_bytes": 65536,
+      "minimum_free_bytes": 5368709120
+    },
+    "logs": {
+      "maximum_bytes": 2097152,
+      "maximum_file_bytes": 2097152,
+      "maximum_files": 8,
+      "maximum_write_bytes": 65536,
+      "minimum_free_bytes": 5368709120
+    },
+    "code": {
+      "maximum_bytes": 2097152,
+      "maximum_file_bytes": 524288,
+      "maximum_files": 64,
+      "maximum_write_bytes": 524288,
+      "minimum_free_bytes": 5368709120
+    },
+    "control": {
+      "maximum_bytes": 1048576,
+      "maximum_file_bytes": 65536,
+      "maximum_files": 16,
+      "maximum_write_bytes": 65536,
+      "minimum_free_bytes": 5368709120
+    },
+    "receipts": {
+      "maximum_bytes": 2097152,
+      "maximum_file_bytes": 65536,
+      "maximum_files": 32,
+      "maximum_write_bytes": 65536,
+      "minimum_free_bytes": 5368709120
+    },
+    "failure": {
+      "maximum_bytes": 2097152,
+      "maximum_file_bytes": 262144,
+      "maximum_files": 8,
+      "maximum_write_bytes": 262144,
+      "minimum_free_bytes": 5368709120
+    },
+    "closure_reserve": {
+      "maximum_bytes": 5083604,
+      "maximum_file_bytes": 1048576,
+      "maximum_files": 16,
+      "maximum_write_bytes": 1048576,
+      "minimum_free_bytes": 5368709120
+    }
+  },
+  "whole_run_integrated": false,
+  "capture_admitted": false,
+  "policy_changed": false
+}

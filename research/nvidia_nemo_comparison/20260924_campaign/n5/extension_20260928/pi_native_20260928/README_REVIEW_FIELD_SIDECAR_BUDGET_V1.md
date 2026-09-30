@@ -1,0 +1,11 @@
+# Allocation and integration review addendum V1
+
+The bound sidecar V1 run, source, README and allocation V1 are immutable. Twenty small cases passed; the full plan was not a live admission or installed writer integration.
+
+V1 sums file ceilings. Existing campaign accounting uses `du -sb`, which also includes directory sizes. Prepared `FIELD_WHOLE_RUN_ALLOCATION_V2.json` explicitly partitions1MiB out of the closure reserve for filesystem directory metadata and proposes a128-directory limit. Closure file reserve becomes4,035,028bytes. Total target76MiB and host80MiB (76MiB exact copy+4MiB metadata) stay unchanged. Static arithmetic is exact; enforcement of the directory limit/reserve and all live write-site mappings is still pending. V2 is a JSON data proposal, not a new executed writer or admission. The original V1 fixture did not run with V2.
+
+No new command or rerun is required for this static review. Existing PowerShell/CMD/Anaconda commands and inputs/outputs for the executed helper are in README_FIELD_SIDECAR_BUDGET_V1.md. Review JSON from any prompt with `python -m json.tool FIELD_WHOLE_RUN_ALLOCATION_V2.json`; it does not dispatch capture. Preserve V1 and derive a separately admitted integration root.
+
+Required integration sites include source factory PRE/POST/start receipts, transport owner/ready/result, bridge Stop/close, installed live_audio route receipt, entry CONFIG, TRACE, controller GUI-presentation journal, snapshots/RESULT, service logging/telemetry and host backup/verification metadata. TRACE's old first-write path only checks its ceiling if the file already exists; the new helper checks every complete write. Use bounded primary failure fields and reserved diagnostics; do not swallow budget failures as a successful recording. A failure in one sidecar directory must still permit source Stop/route restoration and closure reporting in its separate reserved group. Old writes and old releases remain unchanged.
+
+Neither helper tests nor arithmetic prove these live paths are integrated. No capture until the complete mapping, directory census, host metadata cap, concurrent deadline supervision, fresh policy/admission and closure fit are verified. Do not repeat passed generic helper tests or old healthy controller/model/capture cases.
