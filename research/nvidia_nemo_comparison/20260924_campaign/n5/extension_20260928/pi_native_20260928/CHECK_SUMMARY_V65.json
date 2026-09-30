@@ -1,0 +1,104 @@
+{
+  "version": 65,
+  "checked_utc": "2026-09-30T08:34:18.553750+00:00",
+  "status": "REVIEWED_INSTALLED_SUSTAINED_QUIET_FAILURE_ONLY",
+  "success": false,
+  "compute_active": false,
+  "capture_active": false,
+  "GUI_opened": true,
+  "GUI_closed": true,
+  "baseline_activated": false,
+  "baseline_unchanged": true,
+  "capture_closed": true,
+  "leases_free": true,
+  "installed_candidate": "b01-offline-20260930-v10",
+  "installed_manifest_sha256": "1b7a3ac9e4868f8d089aec31a8252b9e26f270e16664ed2f5552b88e96f2d277",
+  "planned_capture_seconds": 120,
+  "transport_samples": 1843200,
+  "journal_samples": 1842720,
+  "timeline_samples": 1842880,
+  "uncredited_transport_samples": 480,
+  "saved_audio_samples": 960000,
+  "saved_prefix_exact": true,
+  "archive_state": "PARTIAL",
+  "archive_failure": "FRAME_LIMIT at960000",
+  "native_failure": "BYTE_LIMIT at8MiB design envelope",
+  "D1_samples": 1708640,
+  "D1_retained_frames": 8448,
+  "D1_model_output_frames": 10560,
+  "D1_EOF_calls": 0,
+  "ASR_samples": 1842720,
+  "planned_GUI_Stop_reached": false,
+  "Save_Open_reached": false,
+  "continuous_data_ownership": true,
+  "logical_event_handles_clean": false,
+  "protocol_seconds": 122.04474965699774,
+  "peak_rss_bytes": 516030464,
+  "sampled_aggregate_peak_bytes": 579665920,
+  "live_resources": {
+    "samples": 119,
+    "temperature_min": 51.8,
+    "temperature_max": 57.3,
+    "throttle_values": [
+      "throttled=0x0"
+    ],
+    "cpu_stat_delta": {
+      "usage_usec": 93251888,
+      "nr_periods": 1281,
+      "nr_throttled": 0,
+      "throttled_usec": 0
+    },
+    "clock_hz_min": 1800000000,
+    "clock_hz_max": 2400000000,
+    "available_ram_min_bytes": 959037440,
+    "maximum_sampled_output_bytes": 42152876
+  },
+  "maximum_ipc_seconds": 0.126028096,
+  "source_high_blocks": 14,
+  "source_high_bytes": 15022,
+  "raw_pending_at_Stop": 0,
+  "closure_version": 155,
+  "all_native_identities_closed": 298,
+  "isolated_host_identities_closed": 48,
+  "combined_bytes": 5163170897,
+  "combined_cap_bytes": 5368709120,
+  "combined_headroom_bytes": 205538223,
+  "pi_free_bytes": 17491312640,
+  "pi_available_ram_bytes": 1456095232,
+  "pi_temperature_c": 52.9,
+  "pi_throttle": "throttled=0x0",
+  "backups": [
+    {
+      "run": "field-sustained-v1",
+      "files": 30,
+      "target_bytes": 343681,
+      "verified": true
+    },
+    {
+      "run": "field-sustained-v2",
+      "files": 639,
+      "target_bytes": 10070124,
+      "verified": true
+    },
+    {
+      "run": "field-sustained-v3",
+      "files": 644,
+      "target_bytes": 15618453,
+      "verified": true
+    },
+    {
+      "run": "field-sustained-v4",
+      "files": 673,
+      "target_bytes": 42967449,
+      "verified": true
+    }
+  ],
+  "limitations": [
+    "Only60s saved PCM/float prefix; no complete115s recording",
+    "Source transport115.2s is not complete journal/model/archive coverage or120s acceptance",
+    "Journal writer and archive accepted/completed counters differ; process closure is not clean logical finalization",
+    "No new numerical reference, acoustic quality, true-silence, full endurance, physical touch or field release",
+    "Original baseline unchanged; retained research dependencies remain required",
+    "Source startup/contract/borrower failures preserved; no unchanged capture repeated"
+  ]
+}

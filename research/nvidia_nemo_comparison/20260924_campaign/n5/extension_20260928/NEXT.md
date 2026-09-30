@@ -1,3 +1,7 @@
+## September30 08:34UTC - sustained-run artifact limits block completion
+
+**September30 08:34UTC:** CHECK_SUMMARY_V65 / FIELD_SUSTAINED_FINDINGS_V1: planned120s installed B01 trial FAILED at internal8MiB journal cap near115s; audio archive had already hit960000frames/60s. Exact60s private PCM prefix verified; transport1843200/journal1842720/timeline1842880 with480 uncredited samples, incompleteD1/zeroEOF. Controller/Tk/source/outerlease and all298Pi/48host owners closed; baseline unchanged. Four failure-aware backups verified; combined5163170897/5GiB (~196MiB headroom). Next coherent bounded journal/PCM contract and no-capture limit/finalization checks before any changed long capture; no unchanged replay.
+
 ## September30 07:59UTC - installed GUI ownership closes naturally
 
 **September30 07:59UTC:** CHECK_SUMMARY_V64 / FIELD_GUI_LEASE_FINDINGS_V1: actual installed v7 GUI mainloop passes continuous private-data ownership, three blocked updates before/during/after entry, mapped480x800 and normal UI/controller/worker closure. One native child, zero capture attempts/models; explicit process-local idle observer, no visual/touch claim. Native8.642s/RSS39.766MiB/aggregate99.750MiB,50file/200607byte private backup verified. All289Pi/48hostclosed,baselineunchanged,leasesfree;combined5,020,962,189/5GiB. Next fresh120s quiet sustained-run admission/derivatives with measured journal limits and live traces, not unchanged idle/capture repeats.
