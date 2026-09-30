@@ -1,0 +1,82 @@
+{
+  "version": 59,
+  "checked_utc": "2026-09-30T06:12:39.172167+00:00",
+  "status": "INSTALLED_GUI_CAPTURE_STOP_SCOPED_PASS_WITH_PRESERVED_POSTCHECK_FAILURE",
+  "whole_trial_passed": false,
+  "compute_active": false,
+  "release_version": "b01-offline-20260930-v5",
+  "release_archive_sha256": "8938d24e9d355fc208d5c045d8736ca29965607d6964648054eb2fdbb689b9ab",
+  "release_manifest_sha256": "2d49168fc7075f198b59713bc95349fde839285aa4fe76aea15f7d83d279657b",
+  "source_samples": 448320,
+  "native_frames": 1344960,
+  "source_blocks": 2802,
+  "D1_probability_rows": 2803,
+  "D1_EOF_rows": 691,
+  "first_D1_seconds": 25.680742972661392,
+  "D1_EOF_seconds": 5.686536965004052,
+  "source_faults": 0,
+  "upstream_loss_observed": false,
+  "raw_pending_at_Stop": 0,
+  "model_errors": 0,
+  "text_publications": 0,
+  "E0_window_calls": 0,
+  "PCM_exact": true,
+  "clipped_samples": 0,
+  "route_readbacks_restored": true,
+  "native_exit": 1,
+  "protocol_seconds": 40.60219832099392,
+  "peak_rss_bytes": 499204096,
+  "sampled_aggregate_peak_bytes": 559513600,
+  "live_resources": {
+    "samples": 39,
+    "temperature_min": 51.25,
+    "temperature_max": 55.65,
+    "throttle_values": [
+      "throttled=0x0"
+    ],
+    "cpu_stat_delta": {
+      "usage_usec": 26489727,
+      "nr_periods": 411,
+      "nr_throttled": 0,
+      "throttled_usec": 0
+    },
+    "clock_hz_min": 2400000000,
+    "clock_hz_max": 2400000000
+  },
+  "postcheck_error": "RuntimeError: AttributeError: 'N2ResidentModels' object has no attribute 'punctuation_loads'",
+  "post_Stop_Save_Open_reached": false,
+  "stopped_image_reached": false,
+  "early_session_pointer": "None; resolved independently from sole durable epoch",
+  "baseline_unchanged": true,
+  "capture_closed": true,
+  "leases_free": true,
+  "all_native_identities_closed": 261,
+  "isolated_host_identities_closed": 48,
+  "closure_version": 134,
+  "combined_bytes": 4901974183,
+  "combined_cap_bytes": 5368709120,
+  "pi_free_bytes": 17624764416,
+  "pi_available_ram_bytes": 1577058304,
+  "pi_temperature_c": 52.35,
+  "pi_throttle": "throttled=0x0",
+  "backup": {
+    "V1_files": 27,
+    "V1_bytes": 313561,
+    "V2_files": 663,
+    "V2_target_bytes": 20429226,
+    "V2_combined_bytes": 41134763,
+    "verified": true
+  },
+  "visual": {
+    "readable_idle_consent_running": true,
+    "physical_touch": false,
+    "stale_running_placeholder": true
+  },
+  "limitations": [
+    "Whole native trial still exit1; absent optional punctuation_loads counter caused postcheck failure after capture/GUI Stop",
+    "Early harness session pointer None caused V3 reader rejection; durable exact epoch locator used in V4 without changing source/audio gates",
+    "No new capture numerical model references, quality, stopped image, actual physical touch, endurance or field release",
+    "Raw pending at Stop zero does not newly qualify nonempty hardware Stop backlog",
+    "Prior V1 ALSA omission failure, V3 rejection and all earlier evidence remain immutable"
+  ]
+}

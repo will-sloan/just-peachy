@@ -1,3 +1,9 @@
+## September30 06:12UTC - installed GUI capture with preserved postcheck failure
+
+**September30 06:12UTC:** CHECK_SUMMARY_V59 / FIELD_LIVE_GUI_FINDINGS_V1: fresh offlineB01 v5 fixes omitted ALSA config and executes actual visible GUI Start/Stop,448320samples,2803D1rows/691EOF,exactPCM/route/closure. Native exit1 remains a postcheck failure(absent optional punctuation_loads); Save/Open/stopped image not reached. Early None session pointer caused preserved V3 reader rejection; V4 verifies sole durable epoch and all source/model gates.39resource samples show zero throttling,55.65Cmax. Both27/663file backups verified. All261Pi/48hostclosed,baselineunchanged,leasesfree;combined4901974183/5GiB. Next no-capture copied-archive post-run/controller/UI wording boundary; no unchanged capture.
+
+Use field-live-gui-v2/deployment/releases/b01-offline-20260930-v5 and current immutable READMEs. Review status remains failure-aware; no capture rerun for absent optional diagnostic or early None pointer. The next boundary is actual installed Save/Open/stopped rendering on a private copied archive, plus correct empty-running wording. Then dependency placement/activation/rollback/endurance under fresh admission.
+
 ## September30 05:43UTC - prepublication metadata gap closed
 
 **September30 05:43UTC:** CHECK_SUMMARY_V58 / FIELD_ARCHIVE_FINDINGS_V2: fresh offlineB01 v4 fixes required import metadata and checks actual detached history/controller projection before publication.21new negatives/fourGUIactions pass; real missing-metadata and duplicate-caption archives never enter history. Valid import preserves exactfiles/40rows. Native9.810s/RSS59.156MiB;677file privatebackup verified. No capture/models/touch/live/endurance. All256Pi/48hostclosed,baselineunchanged,leasesfree;combined4857833340/5GiB. Next actual installedGUIlive Start/Stop with independent caps/route/owner guards, then dependency/rollback/endurance. V57finding/code and all failures preserved.
