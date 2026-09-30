@@ -1,9 +1,9 @@
 {
   "schema": "just-peachy.delivery-acceptance.v1",
-  "as_of_utc": "2026-09-30T21:31:59.774018+00:00",
+  "as_of_utc": "2026-09-30T21:58:56.816898+00:00",
   "hard_deadline_utc": "2026-10-01T17:42:44Z",
   "overall": "IN_PROGRESS",
-  "latest_verified_research_summary": "CHECK_SUMMARY_V105.json",
+  "latest_verified_research_summary": "CHECK_SUMMARY_V106.json",
   "gates": [
     {
       "id": "D1_COMPONENTS",
@@ -23,13 +23,14 @@
       "required": true,
       "evidence": "V98 fresh child owner ACK, actual installed Streaming StartStop, five coherent generic/D1 phases, normal reaping/closure; V96 preowner recovery separate",
       "remaining": "V100 visible inspection/return/close passes. General repeated modes/operator Start/failure-concurrency/live/offline remain open",
-      "entry_preparation": "V97 binding used by actual V98 fresh Streaming child; separate V99 inspection child closed, whole visible trial failed"
+      "entry_preparation": "V97 binding used by actual V98 fresh Streaming child; separate V99 inspection child closed, whole visible trial failed",
+      "milestone": "September30 21:42:44UTC missed; still open, final deadline unchanged"
     },
     {
       "id": "LIVE_SOURCE_MODEL_STORAGE_INTEGRATION",
-      "status": "OPEN_NATIVE_TRANSCRIPT_CONTROL_BINDING_PREPARED",
+      "status": "OPEN_ACTUAL_SOURCE_TRANSPORT_BINDING_PREPARED",
       "required": true,
-      "evidence": "V105 exact installed-source derivation checks pass; native transcript/control/session binding prepared, not executed. V103 actual no-source Controller failure Stop retained. Full source/model/storage/save/reopen unqualified."
+      "evidence": "V106 source-only derivation/compile review. Genuine-admission source factory/transport and selected pipelineV5 prepared, no native execution. V105 native writer binding prepared. Full FieldController/config/archive/host-mirror/source/model/Stop/save/reopen remain unqualified."
     },
     {
       "id": "VISIBLE_GUI_AND_PHYSICAL_CONTROLS",

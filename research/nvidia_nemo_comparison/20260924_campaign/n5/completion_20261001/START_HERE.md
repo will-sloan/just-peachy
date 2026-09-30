@@ -1,6 +1,6 @@
 # Offline Pi delivery and handoff
 
-Current V105: the actual installed native writer adapter now covers revised transcript and all three terminal controls, plus one native session per process. Five unchanged-source region checks and two changed publication-shape rejects passed on CPU14. This is prepared code, not native execution; no Pi/model/source/GUI job ran. Full source/archive/layout/host-mirror composition and offline acceptance remain open. See FIELD_NATIVE_BINDING_FINDINGS_V1 and CHECK_SUMMARY_V105.
+Current V106: the actual source/transport adapters now use a genuine quiet admission, fixed shared paths and separate parent/child diagnostic slots. Selected pipeline V5 corrects post-journal TRACE accounting and signals Stop before diagnostics. Four exact derivations and four unchanged cleanup methods were reviewed; nine files compile, but no installed module/source/model/GUI ran. The21:42 launcher milestone is missed and remains open. Complete field entry, writer/cardinality/host-mirror binding and offline acceptance remain open. See FIELD_LIVE_SOURCE_FINDINGS_V1 and CHECK_SUMMARY_V106.
 
 **Hard boundary: October 1, 2026, 13:42:44 Toronto / 17:42:44 UTC.** This is exactly 24 hours after the request was anchored at September30 17:42:44 UTC. It replaces the prospective17:47:34 UTC checkpoint; historical evidence remains unchanged.
 

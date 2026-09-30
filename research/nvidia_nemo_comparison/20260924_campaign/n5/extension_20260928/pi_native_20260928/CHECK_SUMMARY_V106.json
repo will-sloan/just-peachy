@@ -1,0 +1,96 @@
+{
+  "version": 106,
+  "as_of_utc": "2026-09-30T21:58:17.658792+00:00",
+  "status": "PREPARED_ACTUAL_SOURCE_TRANSPORT_BINDING_REVIEWED_ONLY",
+  "native_run": null,
+  "native_run_count": 0,
+  "last_native_summary": 103,
+  "last_positive_model_summary": 98,
+  "actual_scope": {
+    "host_affinity": [
+      14
+    ],
+    "exact_full_file_derivations": 4,
+    "compiled_production_files": 9,
+    "unchanged_source_cleanup_methods": 4,
+    "installed_live_source_manifest_pin": true,
+    "installed_modules_imported": false,
+    "real_source_stop_exercised": false,
+    "models_loaded": false,
+    "capture": false,
+    "GUI": false,
+    "policy_changed": false
+  },
+  "changed_evidence": {
+    "source_factory": "Fresh actual installed Start delegation after genuine source admission; old qualification launchers unchanged",
+    "transport": "Retained owner ACK, packet/terminal, deadline and Close logic; new fixed shared output routing",
+    "selected_pipeline": "isolated_pipeline_source_v5: 2080000 accepted-frame ceiling, 120s Stop, post-journal TRACE accounting and Event-before-diagnostics",
+    "producer_slots": "Separate parent transport and child transport failure/closure slots",
+    "deadline": "Child hard lifetime plus60s cleanup must fit admission expiry and earlier hard completion boundary"
+  },
+  "proposal": {
+    "target_bytes": 80106028,
+    "host_bytes": 84300332,
+    "combined_bytes": 164406360,
+    "admitted": false,
+    "full_runtime_write_binding": false,
+    "output_shortfall_bytes": 121828486,
+    "payload_shortfall_bytes": 51223041
+  },
+  "closure": {
+    "version": 225,
+    "pi_identities_closed": 396,
+    "prior_isolated_host_identities_closed": 48,
+    "field_host_records_checked": 10,
+    "field_host_unique_workers": 2,
+    "field_console_helpers": 1,
+    "nonidentity_closures": 3,
+    "baseline_unchanged": true,
+    "capture_closed": true,
+    "leases_free": true,
+    "research_compute_active": false
+  },
+  "resource_accounting": {
+    "combined_output_bytes": 5326131246,
+    "output_cap_bytes": 5368709120,
+    "output_headroom_bytes": 42577874,
+    "payload_including_target_and_reservations_bytes": 55721391529,
+    "payload_cap_bytes": 55834574848,
+    "payload_headroom_bytes": 113183319,
+    "payload_basis": "HOST_CENSUS_V203 plus closure225 target and later host-window delta",
+    "pi_free_bytes": 17429540864,
+    "pi_available_ram_bytes": 1423163392,
+    "pi_temperature_c": 54.55,
+    "pi_throttle": "throttled=0x0",
+    "before_later_metadata": true
+  },
+  "backup": {
+    "source_files": 11,
+    "source_bytes": 78482,
+    "readback_exact": true,
+    "restore_copy_receipt": "SOURCE_RESTORE_COPY_V1.json",
+    "private_preparation": "field-live-source-v1-preparation"
+  },
+  "milestone": {
+    "launcher_recovery_due_utc": "2026-09-30T21:42:44Z",
+    "status": "MISSED_STILL_OPEN",
+    "hard_deadline_unchanged": "2026-10-01T17:42:44Z"
+  },
+  "remaining": [
+    "Compose actual FieldController without bypassing backend/mode/assets/artifact/reservation checks",
+    "Bind config paths and old+pending replacement/cardinality, archive/native writers and full path census",
+    "Bounded streamed complete host mirror; current helper only accepts1MiB/64file in-memory backups",
+    "Fresh explicit measured resource allowance/admission; selected164406360B proposal remains unadmitted",
+    "Actual authorized source/model/Stop/save/reopen with exact owner/worker/lease closure",
+    "General operator launcher, visible live controls, physical touch and offline acceptance"
+  ],
+  "notes": [
+    "No target writes or native/model/source/GUI/capture job this wake",
+    "V3/V4 source preparations retained; selectedV5 only; no native equivalence inferred",
+    "Source review is not a mocked source/native passage or a failure/concurrency test",
+    "First host preparation expired; fresh bounded continuation reused same cumulative2MiB host allocation, no new native reservation",
+    "CRLF derivation assertion failure beforeV4 publication preserved; universal-text continuation only",
+    "Initial source-backup receipt prematurely named restore-copy verification; separate later SOURCE_RESTORE_COPY_V1 actually verifies the copy",
+    "Oversized raw diagnostic beyond reserved64KiB is explicitly unretained; full failure envelope and live integration still require review"
+  ]
+}

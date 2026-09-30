@@ -1,8 +1,8 @@
 # Consolidated paths, backups and simplification
 
-Current V105: the actual installed native writer adapter now covers revised transcript and all three terminal controls, plus one native session per process. Five unchanged-source region checks and two changed publication-shape rejects passed on CPU14. This is prepared code, not native execution; no Pi/model/source/GUI job ran. Full source/archive/layout/host-mirror composition and offline acceptance remain open. See FIELD_NATIVE_BINDING_FINDINGS_V1 and CHECK_SUMMARY_V105.
+Current V106: the actual source/transport adapters now use a genuine quiet admission, fixed shared paths and separate parent/child diagnostic slots. Selected pipeline V5 corrects post-journal TRACE accounting and signals Stop before diagnostics. Four exact derivations and four unchanged cleanup methods were reviewed; nine files compile, but no installed module/source/model/GUI ran. The21:42 launcher milestone is missed and remains open. Complete field entry, writer/cardinality/host-mirror binding and offline acceptance remain open. See FIELD_LIVE_SOURCE_FINDINGS_V1 and CHECK_SUMMARY_V106.
 
-Latest private preparation: `local/n5/research-extension-20260928/pi-native-20260928/field-native-binding-v1-preparation`; four source/README files30,145B exact backup. Actual installed native-source AST checks pass; native execution pending. Last actual native remains V103; last positive model V98; visible inspection V100.
+Latest private preparation: `local/n5/research-extension-20260928/pi-native-20260928/field-live-source-v1-preparation`; eleven source/README files78,482B exact backup and separate restore copy. Source/transport production binding is prepared, never executed. Last actual native V103; positive model V98; visible inspection V100.
 
 Previous positive model evidence: `local/n5/research-extension-20260928/pi-native-20260928/d1-process-launch-v1-evidence`; exact72file230842B target backup. Preparation/reader failures remain in `d1-process-launch-v1-preparation`. New launcher/readme and reviewV2 are under the native report directory.
 

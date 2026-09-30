@@ -1,6 +1,6 @@
 # Mode guide: delivery snapshot
 
-Current V105: the actual installed native writer adapter now covers revised transcript and all three terminal controls, plus one native session per process. Five unchanged-source region checks and two changed publication-shape rejects passed on CPU14. This is prepared code, not native execution; no Pi/model/source/GUI job ran. Full source/archive/layout/host-mirror composition and offline acceptance remain open. See FIELD_NATIVE_BINDING_FINDINGS_V1 and CHECK_SUMMARY_V105.
+Current V106: the actual source/transport adapters now use a genuine quiet admission, fixed shared paths and separate parent/child diagnostic slots. Selected pipeline V5 corrects post-journal TRACE accounting and signals Stop before diagnostics. Four exact derivations and four unchanged cleanup methods were reviewed; nine files compile, but no installed module/source/model/GUI ran. The21:42 launcher milestone is missed and remains open. Complete field entry, writer/cardinality/host-mirror binding and offline acceptance remain open. See FIELD_LIVE_SOURCE_FINDINGS_V1 and CHECK_SUMMARY_V106.
 
 Product mode controls labels/roster; backend selects caption/diarizer/embedding models; D1 geometry controls buffering/context. Availability retains V95 model evidence and V96 pre-owner validation recovery. V98 qualifies one withdrawn Streaming fresh-child passage. V100 corrected visible inspection lifecycle passed; no general operator/live launcher acceptance. Final guide must match the frozen device launcher, not imply every possible combination was tested.
 

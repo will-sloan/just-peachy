@@ -1,6 +1,6 @@
 # ChatGPT handoff: Just Peachy offline Pi
 
-Current V105: the actual installed native writer adapter now covers revised transcript and all three terminal controls, plus one native session per process. Five unchanged-source region checks and two changed publication-shape rejects passed on CPU14. This is prepared code, not native execution; no Pi/model/source/GUI job ran. Full source/archive/layout/host-mirror composition and offline acceptance remain open. See FIELD_NATIVE_BINDING_FINDINGS_V1 and CHECK_SUMMARY_V105.
+Current V106: the actual source/transport adapters now use a genuine quiet admission, fixed shared paths and separate parent/child diagnostic slots. Selected pipeline V5 corrects post-journal TRACE accounting and signals Stop before diagnostics. Four exact derivations and four unchanged cleanup methods were reviewed; nine files compile, but no installed module/source/model/GUI ran. The21:42 launcher milestone is missed and remains open. Complete field entry, writer/cardinality/host-mirror binding and offline acceptance remain open. See FIELD_LIVE_SOURCE_FINDINGS_V1 and CHECK_SUMMARY_V106.
 
 Snapshot September30 2026,19:44UTC. **IN_PROGRESS; offline field release not accepted yet.** Deadline October1 17:42:44UTC /13:42:44Toronto. Start with START_HERE and ACCEPTANCE, then the newest verified CHECK_SUMMARY and current STATUS. Branch `codex/n1-foundation-20260924`; exact published HEAD is verified in the latest private REMOTE_BACKUP receipt.
 
