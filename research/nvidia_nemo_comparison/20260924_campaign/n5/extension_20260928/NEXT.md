@@ -1,3 +1,9 @@
+## September30 06:35UTC - copied-recording post-run and UI state passage
+
+**September30 06:35UTC:** CHECK_SUMMARY_V60 / FIELD_POSTRUN_FINDINGS_V1: fresh offlineB01 v7 passes actual copied-recording GUI Open/Save/Open,448320samples/exact event/audio hashes/zero caption rows,12actions and5diagnostic rejections. Placeholder cache now repaints state changes; five480x800views readable, three explicitly no-capture fixtures. V1cache failure/releasev6 preserved; V59live postcheck remains failed. Native10.157s/RSS56.469MiB/aggregate72.562MiB,zero models/capture.640/656file backups verified. All265Pi/48hostclosed,baselineunchanged,leasesfree;combined4968287292/5GiB. Next shared dependency placement/pinning and versioned activation/rollback, then fresh admitted endurance; no unchanged capture/test rerun.
+
+Use field-postrun-v2/deployment/releases/b01-offline-20260930-v7 and current READMEs. Dependency pinning/placement and versioned rollback remain unqualified for original rc5 activation; do useful new boundary work under fresh admission. This wake did not capture or load models. The prior28s recording remains failure-aware V59 evidence.
+
 ## September30 06:12UTC - installed GUI capture with preserved postcheck failure
 
 **September30 06:12UTC:** CHECK_SUMMARY_V59 / FIELD_LIVE_GUI_FINDINGS_V1: fresh offlineB01 v5 fixes omitted ALSA config and executes actual visible GUI Start/Stop,448320samples,2803D1rows/691EOF,exactPCM/route/closure. Native exit1 remains a postcheck failure(absent optional punctuation_loads); Save/Open/stopped image not reached. Early None session pointer caused preserved V3 reader rejection; V4 verifies sole durable epoch and all source/model gates.39resource samples show zero throttling,55.65Cmax. Both27/663file backups verified. All261Pi/48hostclosed,baselineunchanged,leasesfree;combined4901974183/5GiB. Next no-capture copied-archive post-run/controller/UI wording boundary; no unchanged capture.

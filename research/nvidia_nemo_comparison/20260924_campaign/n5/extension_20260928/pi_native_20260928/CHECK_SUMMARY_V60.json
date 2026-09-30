@@ -1,0 +1,68 @@
+{
+  "version": 60,
+  "checked_utc": "2026-09-30T06:35:13.936171+00:00",
+  "status": "INSTALLED_COPIED_RECORDING_SAVE_OPEN_AND_STATE_PLACEHOLDER_PASS",
+  "compute_active": false,
+  "capture_active": false,
+  "models_loaded": false,
+  "release_version": "b01-offline-20260930-v7",
+  "release_archive_sha256": "cb93444306c4eb71b1feec9c81e2306169fafa9031abce94865422e923d5ea6d",
+  "release_manifest_sha256": "b823918b2d8939a9bdb3105109ae6e4b7063461f234a22df37c04fd941aee6c4",
+  "saved_samples": 448320,
+  "new_capture_samples": 0,
+  "display_rows": 0,
+  "actions": 12,
+  "diagnostic_rejections": 5,
+  "protocol_seconds": 10.157133108004928,
+  "peak_rss_bytes": 59211776,
+  "sampled_aggregate_peak_bytes": 76087296,
+  "source_unchanged": true,
+  "prior_release_unchanged": true,
+  "optional_counters": {
+    "asr_loads": {
+      "available": true,
+      "value": 0
+    },
+    "speaker_loads": {
+      "available": true,
+      "value": 0
+    },
+    "punctuation_loads": {
+      "available": false,
+      "value": null
+    }
+  },
+  "baseline_unchanged": true,
+  "capture_closed": true,
+  "leases_free": true,
+  "all_native_identities_closed": 265,
+  "isolated_host_identities_closed": 48,
+  "closure_version": 137,
+  "combined_bytes": 4968287292,
+  "combined_cap_bytes": 5368709120,
+  "pi_free_bytes": 17589661696,
+  "pi_available_ram_bytes": 1532133376,
+  "pi_temperature_c": 51.8,
+  "pi_throttle": "throttled=0x0",
+  "backup": {
+    "V1_files": 640,
+    "V1_target_bytes": 15796132,
+    "V2_files": 656,
+    "V2_target_bytes": 16075265,
+    "verified": true
+  },
+  "visual": {
+    "readable_480x800_views": 5,
+    "actual_stopped_views": 2,
+    "explicit_no_capture_state_fixtures": 3,
+    "physical_touch": false,
+    "pixel_stability_test": false
+  },
+  "limitations": [
+    "V1 real GUI opened but failed first stopped text assertion before PNG; its reader GUI_opened=false means no PNG, clarified separately",
+    "V59 live trial remains exit1; corrected reporting helper tested without live rerun, not a retroactive whole-trial pass",
+    "No new capture/inference/numerical reference/quality/endurance or original baseline activation",
+    "Empty caption reopen only for this 448320-sample recording; prior40-row tests retain their own scope",
+    "Research dependencies still retained; sequential/B05 unavailable in this field package; alternate D1 both1e-5 gates unchanged"
+  ]
+}
