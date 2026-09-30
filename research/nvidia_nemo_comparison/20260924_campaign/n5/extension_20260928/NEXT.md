@@ -1,3 +1,13 @@
+## September30 02:58UTC - full B01 isolated saved integration passes
+
+Read CHECK_SUMMARY_V50 / B01_ISOLATED_FINDINGS_V1.md. Actual Controller.start_live, B01 models, separate source child, earlyStop/fullrestart, exact sample/D1/FIR/PCM and archive Save/Open/40withdrawnwidgets pass. No physical microphone or PortAudio memory qualification. Do not repeat passed fixtures.
+
+1. Wire actual sequential Sherpa-primary/A2-refinement controller/GUI cancellation, failure and archive controls.
+2. Advance one justified D1 projection accumulation-order experiment on retained arrays; no400MBreexport or gate relaxation.
+3. Inspect V48DSPreadbackfailure/priorrecovery before specifically justified one-shot recovery and changed source/combinedB01 tests; no unchanged capture or periodic reset.
+
+ClosureV101: all220Pi/48hostclosed,baselineunchanged,captureclosed,leasesfree;combined4,480,505,343/5GiB,actual32GBPi free17,842,401,280bytes. Private476file backup verified. Fresh census before dispatch. Checkpoint unchanged.
+
 ## September30 02:44UTC - pipeline/controller Stop boundary passes
 
 Read CHECK_SUMMARY_V49 / SOURCE_PIPELINE_FINDINGS_V2.md. New adapter binds actual PrototypeEngine.start_xvf and Controller._stop_session methods with a model-free engine shell. Stop holds ownership at480samples,then drains40pendingrawblocks and all15,360samples through the real journal. Restart exact; injected callback/restoration/startup/timing failures remainexplicit. Timingfailure drains15,360transport samples but creditszerojournal; no hidden coverage pass. Native seven-case protocol/independent reader and96file privatebackup pass. V1 was unexecuted and superseded byV2 child-ownership correction.
