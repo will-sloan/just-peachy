@@ -1,0 +1,68 @@
+{
+  "version": 82,
+  "checked_utc": "2026-09-30T13:40:19.298880+00:00",
+  "status": "FILE_CASES_PASS_WITH_ADMISSION_AFFINITY_FAILURE",
+  "success": false,
+  "file_cases_passed": 19,
+  "compute_active": false,
+  "capture_active": false,
+  "GUI_opened": false,
+  "baseline_activated": false,
+  "baseline_unchanged": true,
+  "capture_closed": true,
+  "leases_free": true,
+  "scope": "Actual Windows bounded metadata and small exact backup; worker envelope mismatch preserved",
+  "worker_affinity_expected": [
+    14
+  ],
+  "worker_affinity_observed": [
+    4,
+    14
+  ],
+  "coordinator_cpu14_set": true,
+  "new_host_worker_closed": true,
+  "new_host_worker_natural_exit": 0,
+  "protocol_seconds": 0.10899999999674037,
+  "process_rss_bytes": 30244864,
+  "sampled_worker_peak_rss_bytes": 30257152,
+  "actual_job_commit_limit_bytes": 536870912,
+  "actual_job_process_limit": 1,
+  "actual_job_affinity": [
+    4,
+    14
+  ],
+  "source_audio_samples": 0,
+  "closure_version": 175,
+  "all_native_identities_closed": 352,
+  "isolated_host_identities_closed": 48,
+  "additional_host_fixture_identities_closed": 1,
+  "nonidentity_closure_receipts": 3,
+  "combined_bytes": 5277360495,
+  "combined_cap_bytes": 5368709120,
+  "combined_headroom_bytes": 91348625,
+  "total_payload_with_retained_reservations_bytes": 55672620778,
+  "total_payload_headroom_bytes": 161954070,
+  "pi_free_bytes": 17436643328,
+  "pi_available_ram_bytes": 1429356544,
+  "pi_temperature_c": 51.25,
+  "pi_throttle": "throttled=0x0",
+  "backup": {
+    "fixture_files": 12,
+    "fixture_bytes": 1873,
+    "verified": true,
+    "scope": "All non-lock fixture files, partial evidence renamed in backup mapping; not full run/capture backup"
+  },
+  "prepared_v3_proposed_bytes": 155189248,
+  "prepared_v3_output_shortfall_bytes": 63840623,
+  "prepared_v3_payload_remaining_bytes": 6764822,
+  "prepared_v3_applied": false,
+  "whole_run_integrated": false,
+  "capture_admitted": false,
+  "policy_changed": false,
+  "limitations": [
+    "Admission worker [14], actual result [4,14]; V1 review asserted before any publication. Job readback permits [4,14], no CPU outside permitted campaign pair observed. Root naturally0/closed. Cause of narrower process call not persisting unproven.",
+    "Source review: HostStore.preflight uses json.loads(parse_constant=reject), which rejects NaN/Infinity literals but does not reject a numeric exponent overflowing float, e.g.1e400. Existing writes encoded by allow_nan=False or retained finite receipts; no observed run corruption. Not a new executed fixture.",
+    "Small in-memory batch <=1MiB/64files/8dirs; no streamed target archive or full72MiB host backup qualification.",
+    "Existing external census/collector, fixture harness/lifetime and postrun research bookkeeping still admission-scoped; no complete host directory/per-producer/live capsule qualification."
+  ]
+}
