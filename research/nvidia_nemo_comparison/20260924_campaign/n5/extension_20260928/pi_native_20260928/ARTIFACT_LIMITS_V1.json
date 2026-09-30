@@ -1,0 +1,8 @@
+{
+  "schema": "just-peachy.artifact-limits.v1",
+  "native_journal_bytes": 16777216,
+  "conversation_journal_bytes": 16777216,
+  "pcm_max_frames": 2080000,
+  "sample_rate": 16000,
+  "interchange": "UNQUALIFIED_FOR_EXTENDED_ARCHIVES"
+}

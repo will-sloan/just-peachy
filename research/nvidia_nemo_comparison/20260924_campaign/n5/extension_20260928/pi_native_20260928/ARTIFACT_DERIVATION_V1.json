@@ -1,0 +1,33 @@
+{
+  "schema": "artifact-source-derivation.v1",
+  "source_release_manifest_sha256": "1b7a3ac9e4868f8d089aec31a8252b9e26f270e16664ed2f5552b88e96f2d277",
+  "files": {
+    "bounded_live_artifacts_v1.py": {
+      "source_sha256": "f81b62cf3f813ff5bc22e86470f1a37f499de2948869329e2c5d750e493db4ca",
+      "source_bytes": 8498,
+      "derivative_sha256": "2cf0c2a545fd309b20d067e4b5b92ad3f037c882685abb92771ba298951a6da9",
+      "derivative_bytes": 8809
+    },
+    "app_bounded_artifacts_v1.py": {
+      "source_sha256": "48bddff7090469a38b5200f7c9ea2c58211875147a839b9facfd3952fdd600de",
+      "source_bytes": 10897,
+      "derivative_sha256": "5a41a915e4cb5d08ac1daeef974a54fb519f721acc9a7b523c62514192cf77c6",
+      "derivative_bytes": 13121
+    },
+    "sessions.py": {
+      "source_sha256": "1422f4b79fd543db4394c61c58ed130cc9eefc576419efa0c60144f6d566f254",
+      "source_bytes": 37492,
+      "derivative_sha256": "dfae2e6cd4ddda9adad586385232f1e864f675c7008fc46ad28274fd619052d5",
+      "derivative_bytes": 37983
+    },
+    "pipeline.py": {
+      "source_sha256": "24ba4d6c65a3fc428e98f685f8039b7271884529daeb678bbb9da79916b9cf96",
+      "source_bytes": 23572,
+      "derivative_sha256": "0ff46fc53138f74dcc7da4c2841beaf185fad1b068633ef4fbfe6eca7e000ac7",
+      "derivative_bytes": 23976
+    }
+  },
+  "artifact_limits_sha256": "6b066469dc6baca11450d3710928a282416eadb5a17dcaa557a6c797191d89fd",
+  "planned_artifact_maximum_bytes": 46034476,
+  "scope": "Native writer and actual archive no-capture boundary; pipeline wiring prepared only; no installed entry/GUI/capture acceptance"
+}
