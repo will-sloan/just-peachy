@@ -1,0 +1,690 @@
+{
+  "schema": "just-peachy.live-layout.v1",
+  "groups": {
+    "source": {
+      "PRE_ROUTE_SNAPSHOT.json": {
+        "producer": "source",
+        "maximum_bytes": 65536,
+        "maximum_write_bytes": 65536,
+        "mode": "once",
+        "maximum_files": 1
+      },
+      "POST_ROUTE_SNAPSHOT.json": {
+        "producer": "source",
+        "maximum_bytes": 65536,
+        "maximum_write_bytes": 65536,
+        "mode": "once",
+        "maximum_files": 1
+      },
+      "SOURCE_START.json": {
+        "producer": "source",
+        "maximum_bytes": 65536,
+        "maximum_write_bytes": 65536,
+        "mode": "once",
+        "maximum_files": 1
+      },
+      "SOURCE_START_FAILURE.json": {
+        "producer": "source",
+        "maximum_bytes": 65536,
+        "maximum_write_bytes": 65536,
+        "mode": "once",
+        "maximum_files": 1
+      },
+      "ROUTE_STOP.json": {
+        "producer": "source",
+        "maximum_bytes": 65536,
+        "maximum_write_bytes": 65536,
+        "mode": "once",
+        "maximum_files": 1
+      },
+      "BRIDGE_STOP.json": {
+        "producer": "source",
+        "maximum_bytes": 65536,
+        "maximum_write_bytes": 65536,
+        "mode": "once",
+        "maximum_files": 1
+      },
+      "BRIDGE_CLOSE.json": {
+        "producer": "source",
+        "maximum_bytes": 65536,
+        "maximum_write_bytes": 65536,
+        "mode": "once",
+        "maximum_files": 1
+      },
+      "CHILD_OWNER.json": {
+        "producer": "transport",
+        "maximum_bytes": 65536,
+        "maximum_write_bytes": 65536,
+        "mode": "once",
+        "maximum_files": 1
+      },
+      "CHILD_READY.json": {
+        "producer": "transport",
+        "maximum_bytes": 65536,
+        "maximum_write_bytes": 65536,
+        "mode": "once",
+        "maximum_files": 1
+      },
+      "CHILD_RESULT.json": {
+        "producer": "transport",
+        "maximum_bytes": 65536,
+        "maximum_write_bytes": 65536,
+        "mode": "once",
+        "maximum_files": 1
+      }
+    },
+    "config": {
+      "CONFIG.json": {
+        "producer": "entry",
+        "maximum_bytes": 65536,
+        "maximum_write_bytes": 65536,
+        "mode": "once",
+        "maximum_files": 1
+      },
+      "live_config.json": {
+        "producer": "entry",
+        "maximum_bytes": 65536,
+        "maximum_write_bytes": 65536,
+        "mode": "once",
+        "maximum_files": 1
+      },
+      "settings.json": {
+        "producer": "entry",
+        "maximum_bytes": 65536,
+        "maximum_write_bytes": 65536,
+        "mode": "once",
+        "maximum_files": 1
+      },
+      "DATA_SCHEMA.json": {
+        "producer": "entry",
+        "maximum_bytes": 65536,
+        "maximum_write_bytes": 65536,
+        "mode": "once",
+        "maximum_files": 1
+      },
+      "last_application.json": {
+        "producer": "entry",
+        "maximum_bytes": 65536,
+        "maximum_write_bytes": 65536,
+        "mode": "once",
+        "maximum_files": 1
+      },
+      "field_contract.json": {
+        "producer": "entry",
+        "maximum_bytes": 65536,
+        "maximum_write_bytes": 65536,
+        "mode": "once",
+        "maximum_files": 1
+      },
+      "archive_policy.json": {
+        "producer": "entry",
+        "maximum_bytes": 65536,
+        "maximum_write_bytes": 65536,
+        "mode": "once",
+        "maximum_files": 1
+      },
+      "n2_runtime.json": {
+        "producer": "entry",
+        "maximum_bytes": 65536,
+        "maximum_write_bytes": 65536,
+        "mode": "once",
+        "maximum_files": 1
+      }
+    },
+    "control": {
+      "ADMISSION.json": {
+        "producer": "stage",
+        "maximum_bytes": 65536,
+        "maximum_write_bytes": 65536,
+        "mode": "once",
+        "maximum_files": 1
+      },
+      "OWNER.json": {
+        "producer": "launcher",
+        "maximum_bytes": 65536,
+        "maximum_write_bytes": 65536,
+        "mode": "once",
+        "maximum_files": 1
+      },
+      "DISPATCH_OWNER.json": {
+        "producer": "launcher",
+        "maximum_bytes": 65536,
+        "maximum_write_bytes": 65536,
+        "mode": "once",
+        "maximum_files": 1
+      },
+      "LIVE_ENVELOPE.json": {
+        "producer": "launcher",
+        "maximum_bytes": 65536,
+        "maximum_write_bytes": 65536,
+        "mode": "once",
+        "maximum_files": 1
+      },
+      "REGISTERED_OWNER.json": {
+        "producer": "launcher",
+        "maximum_bytes": 65536,
+        "maximum_write_bytes": 65536,
+        "mode": "once",
+        "maximum_files": 1
+      },
+      "REQUEST.json": {
+        "producer": "launcher",
+        "maximum_bytes": 65536,
+        "maximum_write_bytes": 65536,
+        "mode": "once",
+        "maximum_files": 1
+      },
+      "ACK.json": {
+        "producer": "launcher",
+        "maximum_bytes": 65536,
+        "maximum_write_bytes": 65536,
+        "mode": "once",
+        "maximum_files": 1
+      },
+      "MANIFEST.json": {
+        "producer": "stage",
+        "maximum_bytes": 65536,
+        "maximum_write_bytes": 65536,
+        "mode": "once",
+        "maximum_files": 1
+      },
+      "LAYOUT.json": {
+        "producer": "stage",
+        "maximum_bytes": 65536,
+        "maximum_write_bytes": 65536,
+        "mode": "once",
+        "maximum_files": 1
+      }
+    },
+    "receipts": {
+      "RESULT.json": {
+        "producer": "worker",
+        "maximum_bytes": 65536,
+        "maximum_write_bytes": 65536,
+        "mode": "once",
+        "maximum_files": 1
+      },
+      "DISPATCH_RESULT.json": {
+        "producer": "worker",
+        "maximum_bytes": 65536,
+        "maximum_write_bytes": 65536,
+        "mode": "once",
+        "maximum_files": 1
+      },
+      "APPLICATION_CLOSURE.json": {
+        "producer": "worker",
+        "maximum_bytes": 65536,
+        "maximum_write_bytes": 65536,
+        "mode": "once",
+        "maximum_files": 1
+      },
+      "START_REQUEST.json": {
+        "producer": "worker",
+        "maximum_bytes": 65536,
+        "maximum_write_bytes": 65536,
+        "mode": "once",
+        "maximum_files": 1
+      },
+      "MODEL_CLOSURE.json": {
+        "producer": "worker",
+        "maximum_bytes": 65536,
+        "maximum_write_bytes": 65536,
+        "mode": "once",
+        "maximum_files": 1
+      },
+      "GUI_STOP.json": {
+        "producer": "worker",
+        "maximum_bytes": 65536,
+        "maximum_write_bytes": 65536,
+        "mode": "once",
+        "maximum_files": 1
+      },
+      "SAVE_REOPEN.json": {
+        "producer": "worker",
+        "maximum_bytes": 65536,
+        "maximum_write_bytes": 65536,
+        "mode": "once",
+        "maximum_files": 1
+      },
+      "DEPENDENCY_BINDING.json": {
+        "producer": "worker",
+        "maximum_bytes": 65536,
+        "maximum_write_bytes": 65536,
+        "mode": "once",
+        "maximum_files": 1
+      }
+    },
+    "trace": {
+      "TRACE.jsonl": {
+        "producer": "transport",
+        "maximum_bytes": 12582912,
+        "maximum_write_bytes": 8192,
+        "mode": "append",
+        "maximum_files": 1
+      }
+    },
+    "telemetry": {
+      "presentation.jsonl": {
+        "producer": "presentation",
+        "maximum_bytes": 262144,
+        "maximum_write_bytes": 8192,
+        "mode": "append",
+        "maximum_files": 1
+      },
+      "gate.jsonl": {
+        "producer": "gate",
+        "maximum_bytes": 262144,
+        "maximum_write_bytes": 8192,
+        "mode": "append",
+        "maximum_files": 1
+      }
+    },
+    "logs": {
+      "service.log": {
+        "producer": "gate",
+        "maximum_bytes": 1048576,
+        "maximum_write_bytes": 16384,
+        "mode": "append",
+        "maximum_files": 1
+      },
+      "child.log": {
+        "producer": "launcher",
+        "maximum_bytes": 131072,
+        "maximum_write_bytes": 16384,
+        "mode": "append",
+        "maximum_files": 1
+      }
+    },
+    "failure": {
+      "entry.bin": {
+        "producer": "entry",
+        "maximum_bytes": 65536,
+        "maximum_write_bytes": 65536,
+        "mode": "once",
+        "maximum_files": 1
+      },
+      "entry.json": {
+        "producer": "entry",
+        "maximum_bytes": 8192,
+        "maximum_write_bytes": 8192,
+        "mode": "once",
+        "maximum_files": 1
+      },
+      "source.bin": {
+        "producer": "source",
+        "maximum_bytes": 65536,
+        "maximum_write_bytes": 65536,
+        "mode": "once",
+        "maximum_files": 1
+      },
+      "source.json": {
+        "producer": "source",
+        "maximum_bytes": 8192,
+        "maximum_write_bytes": 8192,
+        "mode": "once",
+        "maximum_files": 1
+      },
+      "transport.bin": {
+        "producer": "transport",
+        "maximum_bytes": 65536,
+        "maximum_write_bytes": 65536,
+        "mode": "once",
+        "maximum_files": 1
+      },
+      "transport.json": {
+        "producer": "transport",
+        "maximum_bytes": 8192,
+        "maximum_write_bytes": 8192,
+        "mode": "once",
+        "maximum_files": 1
+      },
+      "presentation.bin": {
+        "producer": "presentation",
+        "maximum_bytes": 65536,
+        "maximum_write_bytes": 65536,
+        "mode": "once",
+        "maximum_files": 1
+      },
+      "presentation.json": {
+        "producer": "presentation",
+        "maximum_bytes": 8192,
+        "maximum_write_bytes": 8192,
+        "mode": "once",
+        "maximum_files": 1
+      },
+      "worker.bin": {
+        "producer": "worker",
+        "maximum_bytes": 65536,
+        "maximum_write_bytes": 65536,
+        "mode": "once",
+        "maximum_files": 1
+      },
+      "worker.json": {
+        "producer": "worker",
+        "maximum_bytes": 8192,
+        "maximum_write_bytes": 8192,
+        "mode": "once",
+        "maximum_files": 1
+      },
+      "gate.bin": {
+        "producer": "gate",
+        "maximum_bytes": 65536,
+        "maximum_write_bytes": 65536,
+        "mode": "once",
+        "maximum_files": 1
+      },
+      "gate.json": {
+        "producer": "gate",
+        "maximum_bytes": 8192,
+        "maximum_write_bytes": 8192,
+        "mode": "once",
+        "maximum_files": 1
+      },
+      "stage.bin": {
+        "producer": "stage",
+        "maximum_bytes": 65536,
+        "maximum_write_bytes": 65536,
+        "mode": "once",
+        "maximum_files": 1
+      },
+      "stage.json": {
+        "producer": "stage",
+        "maximum_bytes": 8192,
+        "maximum_write_bytes": 8192,
+        "mode": "once",
+        "maximum_files": 1
+      },
+      "archive.bin": {
+        "producer": "archive",
+        "maximum_bytes": 65536,
+        "maximum_write_bytes": 65536,
+        "mode": "once",
+        "maximum_files": 1
+      },
+      "archive.json": {
+        "producer": "archive",
+        "maximum_bytes": 8192,
+        "maximum_write_bytes": 8192,
+        "mode": "once",
+        "maximum_files": 1
+      },
+      "native.bin": {
+        "producer": "native",
+        "maximum_bytes": 65536,
+        "maximum_write_bytes": 65536,
+        "mode": "once",
+        "maximum_files": 1
+      },
+      "native.json": {
+        "producer": "native",
+        "maximum_bytes": 8192,
+        "maximum_write_bytes": 8192,
+        "mode": "once",
+        "maximum_files": 1
+      },
+      "launcher.bin": {
+        "producer": "launcher",
+        "maximum_bytes": 65536,
+        "maximum_write_bytes": 65536,
+        "mode": "once",
+        "maximum_files": 1
+      },
+      "launcher.json": {
+        "producer": "launcher",
+        "maximum_bytes": 8192,
+        "maximum_write_bytes": 8192,
+        "mode": "once",
+        "maximum_files": 1
+      }
+    },
+    "closure": {
+      "entry.json": {
+        "producer": "entry",
+        "maximum_bytes": 32768,
+        "maximum_write_bytes": 32768,
+        "mode": "once",
+        "maximum_files": 1
+      },
+      "source.json": {
+        "producer": "source",
+        "maximum_bytes": 32768,
+        "maximum_write_bytes": 32768,
+        "mode": "once",
+        "maximum_files": 1
+      },
+      "transport.json": {
+        "producer": "transport",
+        "maximum_bytes": 32768,
+        "maximum_write_bytes": 32768,
+        "mode": "once",
+        "maximum_files": 1
+      },
+      "presentation.json": {
+        "producer": "presentation",
+        "maximum_bytes": 32768,
+        "maximum_write_bytes": 32768,
+        "mode": "once",
+        "maximum_files": 1
+      },
+      "worker.json": {
+        "producer": "worker",
+        "maximum_bytes": 32768,
+        "maximum_write_bytes": 32768,
+        "mode": "once",
+        "maximum_files": 1
+      },
+      "gate.json": {
+        "producer": "gate",
+        "maximum_bytes": 32768,
+        "maximum_write_bytes": 32768,
+        "mode": "once",
+        "maximum_files": 1
+      },
+      "stage.json": {
+        "producer": "stage",
+        "maximum_bytes": 32768,
+        "maximum_write_bytes": 32768,
+        "mode": "once",
+        "maximum_files": 1
+      },
+      "archive.json": {
+        "producer": "archive",
+        "maximum_bytes": 32768,
+        "maximum_write_bytes": 32768,
+        "mode": "once",
+        "maximum_files": 1
+      },
+      "native.json": {
+        "producer": "native",
+        "maximum_bytes": 32768,
+        "maximum_write_bytes": 32768,
+        "mode": "once",
+        "maximum_files": 1
+      },
+      "launcher.json": {
+        "producer": "launcher",
+        "maximum_bytes": 32768,
+        "maximum_write_bytes": 32768,
+        "mode": "once",
+        "maximum_files": 1
+      }
+    },
+    "code": {
+      "<manifest-code>": {
+        "producer": "stage",
+        "maximum_bytes": 2097152,
+        "maximum_write_bytes": 131072,
+        "mode": "manifest",
+        "maximum_files": 64
+      }
+    }
+  },
+  "artifacts": {
+    "native_events": {
+      "path": "data/sessions/<session>/events.jsonl",
+      "producer": "native",
+      "maximum_bytes": 16777216,
+      "maximum_write_bytes": 1048576,
+      "mode": "native",
+      "maximum_files": 1
+    },
+    "labelled_transcript": {
+      "path": "data/sessions/<session>/labelled_transcript.jsonl",
+      "producer": "native",
+      "maximum_bytes": 2097152,
+      "maximum_write_bytes": 65536,
+      "mode": "append",
+      "maximum_files": 1
+    },
+    "readable_transcript": {
+      "path": "data/sessions/<session>/transcript.md",
+      "producer": "native",
+      "maximum_bytes": 2097152,
+      "maximum_write_bytes": 65536,
+      "mode": "append",
+      "maximum_files": 1
+    },
+    "latest_transcript": {
+      "path": "data/sessions/<session>/latest_labelled_transcript.jsonl",
+      "producer": "native",
+      "maximum_bytes": 2097152,
+      "maximum_write_bytes": 65536,
+      "mode": "append",
+      "maximum_files": 1
+    },
+    "native_clock_trace": {
+      "path": "data/sessions/<session>/s7_clocks.jsonl",
+      "producer": "native",
+      "maximum_bytes": 4194304,
+      "maximum_write_bytes": 65536,
+      "mode": "append",
+      "maximum_files": 1
+    },
+    "conversation_events": {
+      "path": "data/conversations/<conversation>/epochs/<epoch>/events.jsonl",
+      "producer": "archive",
+      "maximum_bytes": 16777216,
+      "maximum_write_bytes": 1048576,
+      "mode": "native",
+      "maximum_files": 1
+    },
+    "float_audio": {
+      "path": "data/conversations/<conversation>/epochs/<epoch>/model_input.f32le",
+      "producer": "archive",
+      "maximum_bytes": 8320000,
+      "maximum_write_bytes": 131072,
+      "mode": "native",
+      "maximum_files": 1
+    },
+    "pcm_audio": {
+      "path": "data/conversations/<conversation>/epochs/<epoch>/model_input.wav",
+      "producer": "archive",
+      "maximum_bytes": 4160044,
+      "maximum_write_bytes": 65536,
+      "mode": "native",
+      "maximum_files": 1
+    },
+    "archive_auxiliary": {
+      "paths": [
+        "windows.jsonl",
+        "resources.jsonl"
+      ],
+      "producer": "archive",
+      "maximum_bytes": 1048576,
+      "maximum_write_bytes": 1048576,
+      "mode": "aggregate",
+      "maximum_files": 2
+    },
+    "epoch_control": {
+      "path": "epoch.json",
+      "producer": "archive",
+      "maximum_bytes": 131072,
+      "maximum_write_bytes": 65536,
+      "mode": "replace",
+      "maximum_files": 2
+    },
+    "conversation_control": {
+      "path": "conversation.json",
+      "producer": "archive",
+      "maximum_bytes": 131072,
+      "maximum_write_bytes": 65536,
+      "mode": "replace",
+      "maximum_files": 2
+    },
+    "checkpoint_detail": {
+      "path": "checkpoint-detail.json",
+      "producer": "archive",
+      "maximum_bytes": 524288,
+      "maximum_write_bytes": 262144,
+      "mode": "replace",
+      "maximum_files": 2
+    },
+    "archive_failure": {
+      "path": "failure.txt",
+      "producer": "archive",
+      "maximum_bytes": 262144,
+      "maximum_write_bytes": 262144,
+      "mode": "once",
+      "maximum_files": 1
+    },
+    "native_controls": {
+      "paths": [
+        "session_summary.json",
+        "session_finalization_v3.json",
+        "s6d_consumer_closure.json"
+      ],
+      "producer": "native",
+      "maximum_bytes": 393216,
+      "maximum_write_bytes": 65536,
+      "mode": "replace",
+      "maximum_files": 6
+    },
+    "application_lock": {
+      "path": "data/runtime.lock",
+      "producer": "entry",
+      "maximum_bytes": 1024,
+      "maximum_write_bytes": 1024,
+      "mode": "once",
+      "maximum_files": 1
+    }
+  },
+  "directories": [
+    "",
+    "source",
+    "config",
+    "control",
+    "receipts",
+    "trace",
+    "telemetry",
+    "logs",
+    "failure",
+    "closure",
+    "code",
+    "data",
+    "data/people",
+    "data/sessions",
+    "data/sessions/<session>",
+    "data/conversations",
+    "data/conversations/<conversation>",
+    "data/conversations/<conversation>/epochs",
+    "data/conversations/<conversation>/epochs/<epoch>"
+  ],
+  "directory_reserve_bytes": 1245184,
+  "sidecar_maximum_bytes": 19742720,
+  "artifact_maximum_bytes": 59011628,
+  "target_maximum_bytes": 79999532,
+  "host_target_copy_maximum_bytes": 79999532,
+  "host_metadata_maximum_bytes": 4194304,
+  "host_maximum_bytes": 84193836,
+  "combined_request_bytes": 164193368,
+  "frame_limit": 2080000,
+  "planned_stop_samples": 1920000,
+  "minimum_pi_free_bytes": 5368709120,
+  "maximum_runs_per_process": 1,
+  "maximum_epochs": 1,
+  "maximum_sessions": 1,
+  "maximum_conversations": 1,
+  "status": "SELECTED_LIVE_OUTPUT_MAP_PREPARED_BINDING_GATES_OPEN",
+  "capture_admitted": false,
+  "runtime_accepted": false
+}

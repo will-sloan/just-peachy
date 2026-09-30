@@ -1,6 +1,6 @@
 # Mode guide: delivery snapshot
 
-Current V103: actual installed Controller queued Start now stops at archive preparation failure, and an actual archive-worker fault reaches controller Stop. Stop/rejected restart preserve ERROR; Close retains the terminal error while both command workers and leases close. No source/model/GUI ran; the source-event branch and whole live layout remain open.64files168884B exact backup. See FIELD_CONTROLLER_STOP_FINDINGS_V1 and CHECK_SUMMARY_V103.
+Current V104: host-only installed writer audit found additional native transcript/clock/terminal outputs and deleting transcript rotation. A nonrotating native text/trace adapter is prepared;14 host checks plus3 changed strict-type checks passed. New selected live map reserves79,999,532B target +84,193,836B host, but full binding/admission remain open. No new Pi/model/source/GUI job; V103 actual controller Stop pass remains separate. See FIELD_LIVE_LAYOUT_FINDINGS_V1 and CHECK_SUMMARY_V104.
 
 Product mode controls labels/roster; backend selects caption/diarizer/embedding models; D1 geometry controls buffering/context. Availability retains V95 model evidence and V96 pre-owner validation recovery. V98 qualifies one withdrawn Streaming fresh-child passage. V100 corrected visible inspection lifecycle passed; no general operator/live launcher acceptance. Final guide must match the frozen device launcher, not imply every possible combination was tested.
 

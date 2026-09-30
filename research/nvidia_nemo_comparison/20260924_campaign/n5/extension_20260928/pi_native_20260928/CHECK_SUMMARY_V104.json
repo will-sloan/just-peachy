@@ -1,0 +1,95 @@
+{
+  "version": 104,
+  "as_of_utc": "2026-09-30T21:11:35.514651+00:00",
+  "status": "PASS_HOST_LAYOUT_WRITER_AUDIT_PREPARED_NATIVE_BINDING_ONLY",
+  "native_run": null,
+  "native_run_count": 0,
+  "last_native_summary": 103,
+  "last_positive_model_summary": 98,
+  "actual_scope": {
+    "host_affinity": [
+      14
+    ],
+    "host_layout_cases": 14,
+    "expected_rejections": 10,
+    "additional_strict_type_cases": 3,
+    "actual_installed_source_audit": true,
+    "native_text_binding_prepared": true,
+    "native_text_binding_executed": false,
+    "real_source_stop_exercised": false,
+    "models_loaded": false,
+    "capture": false,
+    "GUI": false,
+    "policy_changed": false
+  },
+  "changed_evidence": {
+    "newly_accounted_native_outputs": [
+      "labelled_transcript.jsonl",
+      "transcript.md",
+      "latest_labelled_transcript.jsonl",
+      "s7_clocks.jsonl",
+      "session_summary.json",
+      "session_finalization_v3.json",
+      "s6d_consumer_closure.json"
+    ],
+    "old_transcript_rotation_deletes_files": true,
+    "prepared_new_sink": "Fixed named byte bounds/no rotation/Stop before diagnostics/failed outcome retained",
+    "strict_type_fix": "Fresh V2 canonical equality; V1 files/checks retained"
+  },
+  "proposal": {
+    "target_bytes": 79999532,
+    "host_bytes": 84193836,
+    "combined_bytes": 164193368,
+    "admitted": false,
+    "full_runtime_write_binding": false,
+    "output_shortfall_bytes": 117733092,
+    "payload_shortfall_bytes": 47127647
+  },
+  "closure": {
+    "version": 221,
+    "pi_identities_closed": 396,
+    "prior_isolated_host_identities_closed": 48,
+    "field_host_records_checked": 10,
+    "field_host_unique_workers": 2,
+    "field_console_helpers": 1,
+    "nonidentity_closures": 3,
+    "baseline_unchanged": true,
+    "capture_closed": true,
+    "leases_free": true,
+    "research_compute_active": false
+  },
+  "resource_accounting": {
+    "combined_output_bytes": 5322248844,
+    "output_cap_bytes": 5368709120,
+    "output_headroom_bytes": 46460276,
+    "payload_including_target_and_reservations_bytes": 55717509127,
+    "payload_cap_bytes": 55834574848,
+    "payload_headroom_bytes": 117065721,
+    "payload_basis": "HOST_CENSUS_V201 plus closure221 target and later host-window delta",
+    "pi_free_bytes": 17429540864,
+    "pi_available_ram_bytes": 1422639104,
+    "pi_temperature_c": 54.0,
+    "pi_throttle": "throttled=0x0",
+    "before_later_metadata": true
+  },
+  "backup": {
+    "source_files": 7,
+    "source_bytes": 65244,
+    "readback_exact": true,
+    "private_preparation": "field-live-layout-v1-preparation"
+  },
+  "remaining": [
+    "All production writer adapters in one live entry including revised transcript/native controls",
+    "Native text/trace execution and real source Stop callback",
+    "Preserved actual FieldController backend/mode/assets/artifact/reservation gates",
+    "Full path census/one-run cardinality and streamed bounded host mirror",
+    "Fresh explicit measured output/payload policy if full composition requires it",
+    "Positive live Start/Stop/save/reopen and offline/operator acceptance"
+  ],
+  "notes": [
+    "No Pi/native/model/source/UI job this wake; no healthy suites repeated",
+    "Small2MiB host-only preparation admission; full164193368B proposal is unadmitted",
+    "Read-only lookup errors and failed README patch anchor preserved",
+    "Post-check strict-type draft preserved; originalV1 bytes restored and freshV2 tested only on3changed cases"
+  ]
+}

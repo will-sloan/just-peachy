@@ -1,6 +1,6 @@
 # ChatGPT handoff: Just Peachy offline Pi
 
-Current V103: actual installed Controller queued Start now stops at archive preparation failure, and an actual archive-worker fault reaches controller Stop. Stop/rejected restart preserve ERROR; Close retains the terminal error while both command workers and leases close. No source/model/GUI ran; the source-event branch and whole live layout remain open.64files168884B exact backup. See FIELD_CONTROLLER_STOP_FINDINGS_V1 and CHECK_SUMMARY_V103.
+Current V104: host-only installed writer audit found additional native transcript/clock/terminal outputs and deleting transcript rotation. A nonrotating native text/trace adapter is prepared;14 host checks plus3 changed strict-type checks passed. New selected live map reserves79,999,532B target +84,193,836B host, but full binding/admission remain open. No new Pi/model/source/GUI job; V103 actual controller Stop pass remains separate. See FIELD_LIVE_LAYOUT_FINDINGS_V1 and CHECK_SUMMARY_V104.
 
 Snapshot September30 2026,19:44UTC. **IN_PROGRESS; offline field release not accepted yet.** Deadline October1 17:42:44UTC /13:42:44Toronto. Start with START_HERE and ACCEPTANCE, then the newest verified CHECK_SUMMARY and current STATUS. Branch `codex/n1-foundation-20260924`; exact published HEAD is verified in the latest private REMOTE_BACKUP receipt.
 

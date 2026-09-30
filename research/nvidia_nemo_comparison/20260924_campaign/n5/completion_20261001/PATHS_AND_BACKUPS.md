@@ -1,8 +1,8 @@
 # Consolidated paths, backups and simplification
 
-Current V103: actual installed Controller queued Start now stops at archive preparation failure, and an actual archive-worker fault reaches controller Stop. Stop/rejected restart preserve ERROR; Close retains the terminal error while both command workers and leases close. No source/model/GUI ran; the source-event branch and whole live layout remain open.64files168884B exact backup. See FIELD_CONTROLLER_STOP_FINDINGS_V1 and CHECK_SUMMARY_V103.
+Current V104: host-only installed writer audit found additional native transcript/clock/terminal outputs and deleting transcript rotation. A nonrotating native text/trace adapter is prepared;14 host checks plus3 changed strict-type checks passed. New selected live map reserves79,999,532B target +84,193,836B host, but full binding/admission remain open. No new Pi/model/source/GUI job; V103 actual controller Stop pass remains separate. See FIELD_LIVE_LAYOUT_FINDINGS_V1 and CHECK_SUMMARY_V104.
 
-Latest private evidence: `local/n5/research-extension-20260928/pi-native-20260928/d1-visible-entry-v2-evidence`; exact75file352621B backup,3privatePNG/geometry and complete tested lifecycle receipts. Preparation/source/visual review in `d1-visible-entry-v2-preparation`; V1failure untouched.
+Latest private preparation: `local/n5/research-extension-20260928/pi-native-20260928/field-live-layout-v1-preparation`; seven source/README/plan files65,244B exact backup,17 changed host cases, native writer execution pending. Last actual native run remains `field-controller-stop-v1-evidence` (V103); latest visible inspection remains `d1-visible-entry-v2-evidence` (V100).
 
 Previous positive model evidence: `local/n5/research-extension-20260928/pi-native-20260928/d1-process-launch-v1-evidence`; exact72file230842B target backup. Preparation/reader failures remain in `d1-process-launch-v1-preparation`. New launcher/readme and reviewV2 are under the native report directory.
 
