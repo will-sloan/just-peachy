@@ -1,3 +1,11 @@
+## September30 03:34UTC - actual sequential controller/GUI passage
+
+Read CHECK_SUMMARY_V52 / SEQUENTIAL_GUI_FINDINGS_V1. Actual saved Sherpa-primary/A2-refinement controls now pass cancellation with ownership retained until natural child exit, explicit retry, immutable primary, Save/Open and withdrawn GUI text. Full51/87events exact; cancelled3-event prefix exact; no capture/D1/physical GUI/field release. Preserve V1 widget failure and both verified backups; do not rerun passed integration.
+
+Next move the real-input branch: V48 fails the same AEC_MIC_ARRAY_TYPE readback seen before the earlier one-shot recovery. Read QUIET_ROUTE_RECOVERY_V1 and current failure evidence. Prepare a fresh authority-bound, measured one-shot recovery only after current identity/closed-source checks and a current readback confirm the blocker. Later user authority permits task-relevant recovery without questions; old user-only launchers/flags remain immutable. Back up tool/config/manifests, retain a single command intent/result, never retry an uncertain send or reset on a timer. Unreadable pre-restart volatile DSP state is not restorable. Independently review recovery, then the changed isolated quiet source/PortAudio aggregate-resource check; combined quiet B01 comes after source passage. Continue packaging/source/history controls after this live-readiness step. Both alternate D1 gates stay1e-5; no speculative unchanged kernel reruns.
+
+All229Pi/48hostclosed atclosureV107; combined4502476432/5GiB, fixed32GBPi free17832202240bytes. Refresh owners/census before any dispatch. Checkpoint unchanged.
+
 ## September30 03:09UTC - targeted alternate kernel rejected
 
 Read CHECK_SUMMARY_V51 / D1_PROJECTION_NUMPY_FINDINGS_V1.md. Existing NumPy FP32 projection with exactweights/stacks repeats exactly but fails original PyTorch1e-5 on allfour natural chunks. Preserve candidate, do not substitute/sweep/repeat unchanged. Both full-runtime probability/state gates remain.
