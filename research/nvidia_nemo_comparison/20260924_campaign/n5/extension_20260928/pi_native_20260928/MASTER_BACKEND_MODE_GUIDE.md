@@ -1,8 +1,8 @@
 # Master backend and mode guide — Raspberry Pi
 
-**Current update September30 12:18UTC:** Repeated transport close now preserves saved failures across all later calls in nine scoped native cases. [Findings](FIELD_TRANSPORT_CLOSE_LATCH_FINDINGS_V1.md). No new child, capture, models or GUI ran. Remaining GUI presentation failures must persist through command reset/Stop; entry/outer/host bounds and fresh measured whole-run allocation still precede changed120s admission. All research compute is closed; the original app is unchanged.
+**Current update September30 12:33UTC:** Selected presentation writes now use bounded groups and preserve failures through command reset and Stop in13 scoped native cases. [Findings](FIELD_PRESENTATION_BUDGET_FINDINGS_V1.md). No full controller, model, capture or GUI ran. Entry/config and outer/host limits plus fresh complete allocation still precede live integration. All research compute is closed; the original app is unchanged.
 
-**Device storage:** fixed32GB Raspberry Pi; last available space is17438244864bytes (16.241GiB), including existing research usage. All field models, app, recordings and rollback must fit with5GiB available reserve. Host allowances do not enlarge it. See [storage budget](PI_STORAGE_BUDGET_V1.md).
+**Device storage:** fixed32GB Raspberry Pi; last available space is17437843456bytes (16.240GiB), including existing research usage. All field models, app, recordings and rollback must fit with5GiB available reserve. Host allowances do not enlarge it. See [storage budget](PI_STORAGE_BUDGET_V1.md).
 
 Earlier scoped update September30 00:43UTC: separate-process source IPC now passes13 native fixture cases, including bounded buffering during a parent stall, exact audio bytes and explicit fault/Stop/closure handling. It is not yet a microphone adapter or live fix. Original app unchanged; no research compute remains active. See [isolation findings](ISOLATED_SOURCE_FINDINGS_V1.md) and CHECK_SUMMARY_V42.json. Generic A2 remains the qualified ASR component; its faster A76 candidate is unqualified. Alternate D1 state parity, full live/standalone field release and N4/N5 acceptance remain open.
 

@@ -1,0 +1,15 @@
+{
+  "schema": "presentation-budget.derivation.v1",
+  "retained_files": {
+    "/home/peachyprototype/JustPeachy/research/nemotron-20260928/field-artifact-install-v2/deployment/releases/b01-offline-20260930-v12/app/controller.py": "e2910982ab1afb764b7c84b6aab460f2f8f967b7aec1b6e6f00ace6fa016e1dd",
+    "/home/peachyprototype/JustPeachy/research/nemotron-20260928/field-transport-outputs-v1/isolated_pipeline_source_v2.py": "637ab934b8361ba36bc9ab51c90567de72e419b5719f14be3c18c3d8513aa4d2"
+  },
+  "changes": [
+    "Exact selected installed record_presentation has only persistence try block replaced",
+    "Exact selected _commands replaces self.error reset with retained presentation error and reasserts it before task_done",
+    "Unchanged selected _enqueue/stop/_do_stop; wrapper emits bounded closure after original cleanup returns or throws",
+    "Exact selected isolated source _error body exercised on RuntimeError with detached source; timing branch excluded"
+  ],
+  "scope": "No controller construction or actual hardware cleanup/model/capture/GUI; detached selected methods only",
+  "maximum_cases": 13
+}
