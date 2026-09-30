@@ -1,0 +1,15 @@
+{
+  "schema": "d1-mode-entry-derivation.v1",
+  "parents": {
+    "d1_application_saved_v4.py": "4ac346815e436644f7c08e611ad691c9f5a39e345328a42c3bbef8715da10baa",
+    "d1_method_application_v1.py": "e4e65e3b060904368c7b113fdcb08192572be813484590720b01a02015b6ba87",
+    "d1_method_recovery_v1.py": "ffddb7fc0346a697d723bada20f6051808019b93e0b700d461f9322a83cb9e5b"
+  },
+  "manifest_sha256": "35911765d993ef2befa06de7172a3b65e54f772150bd26f0e02099f5834e7f1e",
+  "changes": [
+    "Saved V4 global endpoint import removed; endpoint functions are explicit factory closure arguments.",
+    "Method and recovery factories forward the same selected endpoint; method/worker/Stop/recovery bodies unchanged.",
+    "Registry binds all three separate app sources/inputs/reviews and endpoint contracts; no alternate runtime or geometry inferred.",
+    "Process latch and exact-origin endpoint loader prepared; child supervisor/launcher and native composition not executed."
+  ]
+}

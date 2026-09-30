@@ -26,6 +26,8 @@ D1 geometries: delayed264/1/1/0/264/188; streaming13/1/0/80/264/40; experimental
 
 ## Current evidence and next action
 
+V97 prepares a mode-aware registry and factories with explicit StreamingV1/Chunk52V2/DelayedV3 endpoint injection.17new host checks/14rejects and18read-only Pi file hashes passed;27method bodies retained,8files47278B privately backed up. No constructor/model/process-launcher/GUI execution in V97. Build the guarded child supervisor and generic STARTING/RUNNING/STOPPED transitions next, then one changed selected-entry Streaming passage. Separate V96/V95 receipts retain their scopes.
+
 V96 adds six actual installed Controller/withdrawn UI recovery observations: explicit valid selection resets generic IDLE/status/error and dedicated READY together; Stop keeps the validation error; invalid reselection stays failed; declared source-kind sentinel and unrelated error cannot use recovery. No model/source/audio was run.55files185301B exact backup; closure205 has376Pi/48priorhost identities closed plus2fieldworkers/1helper separately checked. Next: mode-aware fresh-process launcher and changed visible controls, then corrected live/storage integration. Prior V95 positive model evidence stays separate.
 
 V95 closure203:374recordedPi/48priorisolatedhost identities closed, plus2fieldworkers/1consolehelper separately verified; research/hardware leases free, capture closed, original rc5 unchanged.64files230698B exact private backup and remote Git verified. These readings are historical; recheck before dispatch.

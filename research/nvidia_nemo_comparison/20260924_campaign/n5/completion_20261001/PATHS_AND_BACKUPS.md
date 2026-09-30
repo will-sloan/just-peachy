@@ -1,6 +1,6 @@
 # Consolidated paths, backups and simplification
 
-Snapshot updated through V96; separate V95 model passage retained. Resolve current manifests/receipts before execution; old PIDs and census numbers are not current authorization. This index consolidates navigation without moving or deleting evidence.
+Snapshot updated through V97 entry preparation; V96 recovery and V95 model passage retained separately. Resolve current manifests/receipts before execution; old PIDs and census numbers are not current authorization. This index consolidates navigation without moving or deleting evidence.
 
 | Purpose | Exact location |
 |---|---|
@@ -21,6 +21,7 @@ Snapshot updated through V96; separate V95 model passage retained. Resolve curre
 | Pi personal/config store | `/home/peachyprototype/JustPeachy/data` (private; preserve) |
 | Installed research v12 | `/home/peachyprototype/JustPeachy/research/nemotron-20260928/field-artifact-install-v2/deployment/releases/b01-offline-20260930-v12` |
 | Display preference | `/home/peachyprototype/.config/kanshi/config`: transform270,480x800; backup under research `display-orientation-20260930-v1` |
+| Prepared mode entry | `D1_MODE_ENTRY_MANIFEST_V1.json`, `d1_mode_entry_v1.py` and fresh saved/method/recovery factories; private `d1-mode-entry-v1-preparation` checks/pins/source backup; no native launcher acceptance |
 | Current validation recovery | Private Pi evidence `d1-method-recovery-v1-evidence/REVIEW.json`, `BACKUP.json`, `target/`; findings `D1_METHOD_RECOVERY_FINDINGS_V1.md`, summaryV96 |
 | Current method integration evidence | Private Pi evidence `d1-method-application-v1-evidence/REVIEW.json`, `BACKUP.json`, `target/`; V95 scope only |
 

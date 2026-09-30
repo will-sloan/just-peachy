@@ -1,0 +1,13 @@
+{
+  "status": "EXACT_DOCUMENTATION_BACKUP_VERIFIED",
+  "label": "mode-entry-v3",
+  "archive": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\completion-20261001-backups\\mode-entry-v3\\NVIDIA_CAMPAIGN_CHATGPT_HANDOFF_20260924_mode-entry-v3.zip",
+  "bytes": 31919,
+  "sha256": "afea4b12e4889cc3d5cd15aa4552a170c38ba021ede7397e718c5c5d003fb8e8",
+  "member_count": 15,
+  "cpu_affinity": [
+    14
+  ],
+  "delivery_status": "IN_PROGRESS",
+  "runtime_or_offline_acceptance": false
+}

@@ -1,6 +1,6 @@
 # Mode guide: delivery snapshot
 
-Product mode controls labels/roster; backend selects caption/diarizer/embedding models; D1 geometry controls buffering/context. Availability below retains V95 model evidence; V96 adds pre-owner validation recovery only. Final guide must match the frozen device launcher, not imply every possible combination was tested.
+Product mode controls labels/roster; backend selects caption/diarizer/embedding models; D1 geometry controls buffering/context. Availability retains V95 model evidence and V96 pre-owner validation recovery. V97 entry contracts/factories are prepared and host-checked, not a launched native mode selector. Final guide must match the frozen device launcher, not imply every possible combination was tested.
 
 ## Nemotron-3 diarizer choices
 

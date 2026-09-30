@@ -1,0 +1,146 @@
+{
+  "schema": "pi-native-check-summary.v97",
+  "checked_utc": "2026-09-30T18:43:58.694754+00:00",
+  "status": "PASS_HOST_MODE_ENTRY_CONTRACT_AND_FACTORY_WIRING_ONLY",
+  "scope": "Host mode-entry contract/factory wiring plus read-only Pi file pins; no native launcher qualification",
+  "run": "d1-mode-entry-v1-preparation",
+  "host_checks": {
+    "status": "PASS_HOST_MODE_ENTRY_CONTRACT_AND_FACTORY_WIRING_ONLY",
+    "cases": [
+      {
+        "case": "selected_endpoint_factory_closure_streaming",
+        "passed": true
+      },
+      {
+        "case": "mutated_geometry_streaming",
+        "rejected": true
+      },
+      {
+        "case": "selected_endpoint_factory_closure_chunk52",
+        "passed": true
+      },
+      {
+        "case": "mutated_geometry_chunk52",
+        "rejected": true
+      },
+      {
+        "case": "selected_endpoint_factory_closure_delayed",
+        "passed": true
+      },
+      {
+        "case": "mutated_geometry_delayed",
+        "rejected": true
+      },
+      {
+        "case": "mutated_request_live",
+        "rejected": true
+      },
+      {
+        "case": "mutated_request_endpoint",
+        "rejected": true
+      },
+      {
+        "case": "mutated_request_extra",
+        "rejected": true
+      },
+      {
+        "case": "mutated_request_mode",
+        "rejected": true
+      },
+      {
+        "case": "old_session",
+        "rejected": true
+      },
+      {
+        "case": "no_session",
+        "rejected": true
+      },
+      {
+        "case": "unknown_mode",
+        "rejected": true
+      },
+      {
+        "case": "unbound_manifest_bytes",
+        "rejected": true
+      },
+      {
+        "case": "cross_mode_endpoint_receipt",
+        "rejected": true
+      },
+      {
+        "case": "outside_campaign_pin",
+        "rejected": true
+      },
+      {
+        "case": "changed_bound_file",
+        "rejected": true
+      }
+    ],
+    "case_count": 17,
+    "rejected_cases": 14,
+    "manifest_sha256": "35911765d993ef2befa06de7172a3b65e54f772150bd26f0e02099f5834e7f1e",
+    "bound_metadata_files": 18,
+    "cpu_affinity": [
+      14
+    ],
+    "actual_constructor": false,
+    "native_endpoint_lineage_run": false,
+    "native_model_run": false,
+    "process_claim_executed": false,
+    "subprocess_launcher_executed": false,
+    "GUI": false,
+    "capture": false,
+    "old_sources_unchanged": true,
+    "method_and_recovery_body_scope": "prepared derivative, no new native qualification"
+  },
+  "read_only_pi_pin_count": 18,
+  "class_method_ast_bodies_unchanged": 27,
+  "source_backup": {
+    "files": 8,
+    "bytes": 47278,
+    "target_installed": false
+  },
+  "new_native_jobs": 0,
+  "new_model_jobs": 0,
+  "new_capture_jobs": 0,
+  "last_actual_native_application_summary": "CHECK_SUMMARY_V96.json",
+  "last_positive_method_model_summary": "CHECK_SUMMARY_V95.json",
+  "closure": {
+    "native_identities_closed": 376,
+    "isolated_host_identities_closed": 48,
+    "field_host_workers_closed": 2,
+    "recorded_console_helper_closed": 1,
+    "nonidentity_closure_receipts": 3,
+    "baseline_unchanged": true,
+    "capture_closed": true,
+    "research_lease_free": true,
+    "hardware_lease_free": true
+  },
+  "storage": {
+    "combined_output_bytes": 5304333520,
+    "combined_output_cap_bytes": 5368709120,
+    "output_headroom_bytes": 64375600,
+    "total_payload_including_retained_reservations_bytes": 55699431868,
+    "total_payload_cap_bytes": 55834574848,
+    "payload_headroom_bytes": 135142980,
+    "full_v3_output_shortfall_bytes": 90813648,
+    "full_v3_payload_shortfall_bytes": 20046268,
+    "measured_before_later_metadata": true
+  },
+  "pi": {
+    "fixed_device_bytes": 31268536320,
+    "free_bytes": 17432391680,
+    "available_ram_bytes": 1406697472,
+    "temperature_c": 54.0,
+    "throttle": "throttled=0x0"
+  },
+  "unqualified": [
+    "process claim/latch and mapped-library rejection runtime execution",
+    "exact-origin native endpoint loader and model passage through new factory",
+    "child supervisor/owner handshake/deadline/Stop/reap",
+    "generic controller state through model STARTING/RUNNING/STOPPED",
+    "visible GUI/physical touch/live/offline/full field release"
+  ],
+  "next_step": "Implement guarded fresh-child launcher and explicit generic state transitions in a fresh derivative; qualify one changed selected Streaming method-bound saved UI Start/Stop passage, not old healthy mode/control suites.",
+  "hard_deadline_utc": "2026-10-01T17:42:44Z"
+}

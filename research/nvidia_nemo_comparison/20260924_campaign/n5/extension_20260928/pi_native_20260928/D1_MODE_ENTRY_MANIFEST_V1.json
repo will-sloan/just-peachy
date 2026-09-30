@@ -1,0 +1,140 @@
+{
+  "schema": "d1-mode-entry.v1",
+  "catalog_sha256": "ff431b358c7140addcddd95c313f2ec82272289dce2a9815e8d63b60f6bde7c5",
+  "method_binding": {
+    "contract": {
+      "path": "/home/peachyprototype/JustPeachy/research/nemotron-20260928/d1-method-controls-v1/code/D1_METHOD_CONTRACT_V1.json",
+      "bytes": 2134,
+      "sha256": "1ae32a068914370a4c237a5a0545c9452fd56c95346b8a8f9b091b39bdf2d629"
+    },
+    "evidence": {
+      "path": "/home/peachyprototype/JustPeachy/research/nemotron-20260928/d1-method-controls-v1/code/METHOD_EVIDENCE_V1.json",
+      "bytes": 126091,
+      "sha256": "b3a3a8322fdbd9c9bbbebb01dbe0acf835d8a98e31efaadf731d12cc666532d1"
+    },
+    "native_result": {
+      "path": "/home/peachyprototype/JustPeachy/research/nemotron-20260928/d1-method-controls-v1/outer/receipts/RESULT.json",
+      "bytes": 475,
+      "sha256": "b5c3873733d7816cf38befcd6bf42ff0c7f9942df622a99d381af54ccac9e1a7"
+    }
+  },
+  "modes": {
+    "streaming": {
+      "label": "Streaming",
+      "geometry": {
+        "chunk_frames": 13,
+        "right_context_frames": 1,
+        "left_context_frames": 0,
+        "fifo_frames": 80,
+        "spkcache_frames": 264,
+        "update_period_frames": 40,
+        "preset": "v3-streaming",
+        "gpu": -1
+      },
+      "assets_sha256": "47f4a656c354c785cfe4178d1fa545d6a7e6e08ce73a9999397059498b0d736e",
+      "app_source": {
+        "path": "/home/peachyprototype/JustPeachy/research/nemotron-20260928/d1-application-saved-v3/code/d1_application_saved_v3.py",
+        "bytes": 14302,
+        "sha256": "85a8881ef397e86b17df39e2da509ab54a54ff7d04a12126447bea232c707ad4"
+      },
+      "input": {
+        "path": "/home/peachyprototype/JustPeachy/research/nemotron-20260928/d1-application-saved-v3/code/D1_APPLICATION_SAVED_INPUT_V3.json",
+        "bytes": 3745,
+        "sha256": "f62277c16e32de334666dbbe0a813d3fa641bb654ecb87257d151bc60e3daaa3"
+      },
+      "review": {
+        "path": "/home/peachyprototype/JustPeachy/research/nemotron-20260928/d1-method-application-v1/code/D1_SAVED_STREAMING_APP_RECEIPT_V3.json",
+        "bytes": 3820,
+        "sha256": "ee1c873ac828e636431f5abb81a1a6d68181ab15a93ad807dcc9f34193bde9b9"
+      },
+      "endpoint_module": {
+        "path": "/home/peachyprototype/JustPeachy/research/nemotron-20260928/d1-application-saved-v3/code/d1_endpoint_contract_v1.py",
+        "bytes": 3490,
+        "sha256": "74a46898b7c99f920821d763cad29e9fb037cdaa01b6eb4e092d70661a1b4b7d"
+      },
+      "endpoint_contract": {
+        "path": "/home/peachyprototype/JustPeachy/research/nemotron-20260928/d1-application-saved-v3/code/D1_ENDPOINT_CONTRACT_V1.json",
+        "bytes": 3659,
+        "sha256": "34f7971469307436ecb7ffbda3785ed6a4c79720abab777c95ad91fc30fc776c"
+      }
+    },
+    "chunk52": {
+      "label": "Chunk52 (experimental)",
+      "geometry": {
+        "chunk_frames": 52,
+        "right_context_frames": 1,
+        "left_context_frames": 0,
+        "fifo_frames": 80,
+        "spkcache_frames": 264,
+        "update_period_frames": 40,
+        "preset": "v3-streaming",
+        "gpu": -1
+      },
+      "assets_sha256": "47285f403475552a4f8e1de401b67a37f3f973382091d88101818d0607a7566c",
+      "app_source": {
+        "path": "/home/peachyprototype/JustPeachy/research/nemotron-20260928/d1-application-saved-v4/code/d1_application_saved_v4.py",
+        "bytes": 15317,
+        "sha256": "4ac346815e436644f7c08e611ad691c9f5a39e345328a42c3bbef8715da10baa"
+      },
+      "input": {
+        "path": "/home/peachyprototype/JustPeachy/research/nemotron-20260928/d1-application-saved-v4/code/D1_APPLICATION_SAVED_INPUT_V4.json",
+        "bytes": 4185,
+        "sha256": "404257abdbfb115fdf338fa08fd16d935515c87d162c362911b2a8e5fa8bec60"
+      },
+      "review": {
+        "path": "/home/peachyprototype/JustPeachy/research/nemotron-20260928/d1-method-application-v1/code/D1_SAVED_CHUNK52_APP_RECEIPT_V4.json",
+        "bytes": 3826,
+        "sha256": "9f69692e36cfe49ce8d65ffd4d786174116821a634500da3de51d4f6304877b3"
+      },
+      "endpoint_module": {
+        "path": "/home/peachyprototype/JustPeachy/research/nemotron-20260928/d1-application-saved-v4/code/d1_endpoint_contract_v2.py",
+        "bytes": 3484,
+        "sha256": "01d5d528225d8bef8a734d76945bb03b99bd819339694aa35c5af1b57a4580d5"
+      },
+      "endpoint_contract": {
+        "path": "/home/peachyprototype/JustPeachy/research/nemotron-20260928/d1-application-saved-v4/code/D1_ENDPOINT_CONTRACT_V2.json",
+        "bytes": 3647,
+        "sha256": "d6aea07355940995d36c81584cd82a0eabd7a95149a94a0eb456cc3269ab3f74"
+      }
+    },
+    "delayed": {
+      "label": "Delayed",
+      "geometry": {
+        "chunk_frames": 264,
+        "right_context_frames": 1,
+        "left_context_frames": 1,
+        "fifo_frames": 0,
+        "spkcache_frames": 264,
+        "update_period_frames": 188,
+        "preset": "v3-offline",
+        "gpu": -1
+      },
+      "assets_sha256": "37b099d30eed8b2ae4d3c34d8cf57991550e6bf7cafd64ee75114b08615dad48",
+      "app_source": {
+        "path": "/home/peachyprototype/JustPeachy/research/nemotron-20260928/d1-application-saved-v5/code/d1_application_saved_v5.py",
+        "bytes": 15317,
+        "sha256": "b6db12a91348ca45568c0254bddbd71b7b672b59fe83b0dbd8d88f244d939479"
+      },
+      "input": {
+        "path": "/home/peachyprototype/JustPeachy/research/nemotron-20260928/d1-application-saved-v5/code/D1_APPLICATION_SAVED_INPUT_V5.json",
+        "bytes": 4503,
+        "sha256": "3c301d44998302b51073a30db9efd2670e2fa4b47d5d5aa58ca0859a97df8f1a"
+      },
+      "review": {
+        "path": "/home/peachyprototype/JustPeachy/research/nemotron-20260928/d1-method-application-v1/code/D1_SAVED_DELAYED_APP_RECEIPT_V5.json",
+        "bytes": 3829,
+        "sha256": "3f9f73a2e904c5fdee16fa6c8d2c93cf69c2a6252b9c0919cf452bad0fc426a7"
+      },
+      "endpoint_module": {
+        "path": "/home/peachyprototype/JustPeachy/research/nemotron-20260928/d1-application-saved-v5/code/d1_endpoint_contract_v3.py",
+        "bytes": 4450,
+        "sha256": "f7c44e2653b22ed05a9273ab6759d8d51846fd4d146ecc462d32468c5fa3315e"
+      },
+      "endpoint_contract": {
+        "path": "/home/peachyprototype/JustPeachy/research/nemotron-20260928/d1-application-saved-v5/code/D1_ENDPOINT_CONTRACT_V3.json",
+        "bytes": 4965,
+        "sha256": "d6b4c142c21c32407f0f7bf7ace554d9f33fcfe0ffbf843ca40a85a85637aaea"
+      }
+    }
+  }
+}

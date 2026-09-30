@@ -4,6 +4,12 @@ The user requires completion, running offline Pi, condensed documentation/ChatGP
 
 Initial twelve-file completion pack and bounded builder are created; draft documentation ZIP31,700B/15members is exact-readback verified. No new Pi compute was dispatched for planning. Next actual work remains coherent controller recovery and a receipt-bound mode-aware launcher, then corrected source/model/storage integration, visible controls and offline acceptance. No healthy inference reruns, ASR detour or optional research displacement. Close research and pause the automation before the hard boundary; accepted field app should remain idle/captureoff, otherwise explicitly report failed required gates with recoverable baseline.
 
+## September30 18:44UTC - mode entry preparation
+
+**September30 18:44UTC:** CHECK_SUMMARY_V97 / D1_MODE_ENTRY_FINDINGS_V1: new mode-entry registry and endpoint-injected factories pass17CPU14host checks/14rejects. All18retained file pins verified read-only onPi;27class/methodASTbodies retained. Eightfiles47278B exact private source backup. No new native/model/source/GUI/capture job; originalrc5 unchanged,376Pi/48priorhost plus2fieldworkers/1helper closed. Entry/fresh-process launcher remains PREPARED, not native-qualified. Next actual child supervisor and coherent generic D1 state transitions, then one changed selected-entry passage;no healthy suite rerun. Hard finishOctober1 17:42:44UTC.
+
+Reuse the new registry/factories with a fresh guarded child entry. Bind exact mode/session/request and process ownership before construction; concurrent deadline watch and bounded logs/Stop/reap are required. Update generic state during actual D1 ownership in a new derivative, then test one changed Streaming entry passage with its own endpoint/reference. This wake did no model passage.
+
 ## September30 18:22UTC - installed validation recovery
 
 **September30 18:22UTC:** CHECK_SUMMARY_V96 / D1_METHOD_RECOVERY_FINDINGS_V1: actual installed Controller/withdrawn UI passes six changed pre-owner validation recovery observations. Explicit valid selection restores generic IDLE/status/error and dedicated READY together; Stop retains the validation error; declared source-kind sentinel/unrelated error cannot clear it. No model/source worker, samples, capture or healthy inference rerun. Natural0/command worker/app lease/Tk closed;55files185301B exact backup;376Pi/48priorhost plus2fieldworkers/1helper closed. Fresh mode-aware launcher and live/visible/offline release remain open. Hard finishOctober1 17:42:44UTC.
