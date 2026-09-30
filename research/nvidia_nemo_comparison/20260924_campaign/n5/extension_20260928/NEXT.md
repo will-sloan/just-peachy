@@ -1,3 +1,9 @@
+## September30 05:43UTC - prepublication metadata gap closed
+
+**September30 05:43UTC:** CHECK_SUMMARY_V58 / FIELD_ARCHIVE_FINDINGS_V2: fresh offlineB01 v4 fixes required import metadata and checks actual detached history/controller projection before publication.21new negatives/fourGUIactions pass; real missing-metadata and duplicate-caption archives never enter history. Valid import preserves exactfiles/40rows. Native9.810s/RSS59.156MiB;677file privatebackup verified. No capture/models/touch/live/endurance. All256Pi/48hostclosed,baselineunchanged,leasesfree;combined4857833340/5GiB. Next actual installedGUIlive Start/Stop with independent caps/route/owner guards, then dependency/rollback/endurance. V57finding/code and all failures preserved.
+
+Use exact field-archive-v2/deployment/releases/b01-offline-20260930-v4; README_FIELD_ARCHIVE_V2 and review addendum clarify saved-audio copies. No researchcompute/capture active. Next inspect source-facade sample/child/wall caps for a fresh installed GUI liveStart/Stop admission; previous30s combinedquiet pass is a different entrypoint. No old user-only launch or unchangedpass repetition.
+
 ## September30 05:23UTC - installed archive import and storage
 
 **September30 05:23UTC:** CHECK_SUMMARY_V57 / FIELD_ARCHIVE_FINDINGS_V1: fresh offlineB01 v3 passes installed private Import/fullExport roundtrip, exact2epochs/846807samples/allfilehashes/40displayrows,16rejections and10GUIactions. Store/Start/display now512MiBprivate-root quota with5GiBreserve; no automatic deletion. Visible480x800 readable; duplicatedmode notice cosmetic. No capture/models/touch/live/endurance. Private663files/41.4MB backedup. All254Pi/48hostclosed,baselineunchanged,leasesfree;combined4790767631/5GiB. Next fix statically found missing history-metadata validation before publication in a fresh derivative, then installedGUIlive/dependency/rollback/endurance; no unchangedpasses.

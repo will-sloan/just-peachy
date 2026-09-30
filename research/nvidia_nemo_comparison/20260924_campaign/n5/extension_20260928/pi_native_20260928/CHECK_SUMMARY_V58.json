@@ -1,0 +1,69 @@
+{
+  "version": 58,
+  "checked_utc": "2026-09-30T05:43:36.704829+00:00",
+  "status": "SCOPED_PREPUBLICATION_METADATA_AND_ACTUAL_CONSUMER_VALIDATION_PASS",
+  "release_version": "b01-offline-20260930-v4",
+  "release_archive_sha256": "fe33ba81f07485c52b1a687351e25112cbaae5b8a16113e6cb62a57ebdba4aff",
+  "release_manifest_sha256": "783987f8c4c81b580d0915ae7f3b0f15cb4c9f21a4345951a690663752550651",
+  "release_files": 291,
+  "release_archive_bytes": 1206317,
+  "native_seconds": 9.810354088011081,
+  "native_peak_rss_bytes": 62029824,
+  "sampled_aggregate_peak_bytes": 81231872,
+  "new_negative_checks": 21,
+  "gui_actions": 4,
+  "raw_utterances": 4,
+  "display_rows": 40,
+  "consumer_validation": {
+    "display_rows": 40,
+    "unique_ids": 40,
+    "raw_rows": 4,
+    "history_rows": 1,
+    "consumer": "Actual SessionStore.list/rows,Controller._refresh_sessions/snapshot on detached view"
+  },
+  "actual_gui_metadata_rejection_before_publication": true,
+  "actual_gui_duplicate_projection_rejection_before_publication": true,
+  "original_archive_unchanged": true,
+  "previous_release_unchanged": true,
+  "baseline_unchanged": true,
+  "capture_closed": true,
+  "leases_free": true,
+  "compute_active": false,
+  "physical_touch": false,
+  "field_release_accepted": false,
+  "private_backup": {
+    "files": 677,
+    "target_bytes": 32786483,
+    "combined_bytes": 65714362,
+    "verified": true
+  },
+  "quota_bytes": 536870912,
+  "minimum_free_bytes": 5368709120,
+  "visual_review_sha256": "1892e4f58243b2292008cd1562da6dcce80b6a950d7ddae09845be206a7db563",
+  "closure_version": 131,
+  "resources": {
+    "checked_utc": "2026-09-30T05:43:36.704829+00:00",
+    "host_window_bytes": 2249195601,
+    "target_bytes": 2608637739,
+    "combined_bytes": 4857833340,
+    "cap_bytes": 5368709120,
+    "host_free_bytes": {
+      "C:": 142993592320,
+      "G:": 96853417984
+    },
+    "all_owned_native_identities_closed": 256,
+    "host_supervisor_closed": true
+  },
+  "isolated_host_identities_closed": 48,
+  "pi_free_bytes": 17647247360,
+  "pi_available_ram_bytes": 1506852864,
+  "pi_temperature_c": 52.9,
+  "pi_throttle": "throttled=0x0",
+  "limitations": [
+    "Twelve tiny malformed metadata ZIPs isolate the new pre-extraction gate; they are not otherwise complete valid audio archives",
+    "Five row-type and nonfinite cases are constructed; actual duplicate-ID full ZIP keeps original audio and changes one event journal",
+    "No authentication of imported labels, arbitrary format compatibility, liveStartStop, capture/models, endurance, physicaltouch or fieldrelease",
+    "Prior V56recipepixel failure and V57finding/code/admissions remain immutable",
+    "Bound README phrase No waveform/model recopy is clarified by README_REVIEW_FIELD_ARCHIVE_V2: retained savedaudio is copied inside archive fixtures/imports and counted; no model asset transfer/newcapture"
+  ]
+}
