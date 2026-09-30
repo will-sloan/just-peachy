@@ -1,8 +1,8 @@
 # Master backend and mode guide — Raspberry Pi
 
-**Current update September30 13:05UTC:** Actual outer dispatcher logs, resource rows and result receipts now use mapped bounds; nine native failure fixtures pass. [Findings](FIELD_OUTER_BUDGET_FINDINGS_V1.md). No source/controller/model/audio/GUI ran. Staging/host metadata, complete directory limits, live binding and a smaller complete allocation remain before capture. All research compute is closed; the original app is unchanged.
+**Current update September30 13:19UTC:** Target staging and actual ownership/envelope receipts now use preflighted bounds; nine native cases pass. [Findings](FIELD_METADATA_BUDGET_FINDINGS_V1.md). A smaller148MiB target-plus-backup allocation is prepared but unapplied. Host metadata, full directory/live binding and measured admission remain before capture. All research compute is closed; the original app is unchanged.
 
-**Device storage:** fixed32GB Raspberry Pi; last available space is17436958720bytes (16.240GiB), including existing research usage. All field models, app, recordings and rollback must fit with5GiB available reserve. Host allowances do not enlarge it. See [storage budget](PI_STORAGE_BUDGET_V1.md).
+**Device storage:** fixed32GB Raspberry Pi; last available space is17436643328bytes (16.239GiB), including existing research usage. All field models, app, recordings and rollback must fit with5GiB available reserve. Host allowances do not enlarge it. See [storage budget](PI_STORAGE_BUDGET_V1.md).
 
 Earlier scoped update September30 00:43UTC: separate-process source IPC now passes13 native fixture cases, including bounded buffering during a parent stall, exact audio bytes and explicit fault/Stop/closure handling. It is not yet a microphone adapter or live fix. Original app unchanged; no research compute remains active. See [isolation findings](ISOLATED_SOURCE_FINDINGS_V1.md) and CHECK_SUMMARY_V42.json. Generic A2 remains the qualified ASR component; its faster A76 candidate is unqualified. Alternate D1 state parity, full live/standalone field release and N4/N5 acceptance remain open.
 

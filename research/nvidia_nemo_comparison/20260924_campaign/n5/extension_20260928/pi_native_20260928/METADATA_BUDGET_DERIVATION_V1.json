@@ -1,0 +1,12 @@
+{
+  "schema": "field-metadata-budget.derivation.v1",
+  "base_dispatcher_sha256": "65abe1546e0cec57f6503544383a4d75c24661bcd0b6ce3913e842ec5d39cfb8",
+  "base_envelope_sha256": "6e8ca816daac53683c83c22ef35ba299e580d1a5c50c2cda7c1c0cf8e530767f",
+  "changes": [
+    "Preflight entire staged code/control batch and three runtime control file/byte slots before target directory creation",
+    "Stage code/control through retained exact GroupWriter, publish ADMISSION last",
+    "Actual OWNER/DISPATCH_OWNER/LIVE_ENVELOPE use shared bounded control group",
+    "Fresh code/control paths explicit; unchanged outer sink reused with new descriptor paths"
+  ],
+  "scope": "Native staging/runtime controls only; host metadata/whole directory/live binding still incomplete"
+}
