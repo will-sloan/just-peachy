@@ -1,6 +1,6 @@
 # Final24hour completion plan
 
-Current V98: fresh-process Streaming saved UI Start/Stop and generic state coherence passed; exact owner handshake, natural child exit and full tested closure verified. This is a withdrawn single-run launcher scope; visible/general/live/offline release remains open. See D1_PROCESS_LAUNCH_FINDINGS_V1 and CHECK_SUMMARY_V98.
+Current V99: visible chooser and installed inspection child rendered480x800; actual child Return closed the application. Whole trial FAILED returned-parent mapping/geometry assertion; final launch/visual receipts absent. Two private images also reveal stale baseline backend/client header labels. No model/mic; all5new owners closed,68files297393B exact backup. V98 positive Streaming entry remains separate. Next fresh geometry/label correction, then live/storage integration. See D1_VISIBLE_ENTRY_FINDINGS_V1 and CHECK_SUMMARY_V99.
 
 Start: September30 17:42:44 UTC. Hard end: October1 17:42:44 UTC /13:42:44 Toronto. [New user authority](DEADLINE_AUTHORITY_V1.json) takes precedence over the older prospective deadline. Existing policies, admissions and failed/successful receipts remain immutable. Every fresh run must allow cleanup before the new boundary.
 

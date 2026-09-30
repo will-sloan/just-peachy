@@ -1,0 +1,114 @@
+{
+  "schema": "pi-native-check-summary.v99",
+  "checked_utc": "2026-09-30T19:32:31.997384+00:00",
+  "status": "FAILED_VISIBLE_RETURN_GEOMETRY_PRESERVED",
+  "run": "d1-visible-entry-v1",
+  "scope": "Visible chooser/actual installed inspection child; child Return closed; whole trial failed returned-parent viewable/geometry assertion",
+  "source_samples": 0,
+  "frames": 0,
+  "model_loaded": false,
+  "capture": false,
+  "child_scope": {
+    "actual_constructors": true,
+    "selected_streaming_method_profile": true,
+    "owner_ack_before_constructor": true,
+    "visible480x800": true,
+    "disabled_Start_invoke_no_worker": true,
+    "actual_Return_button": true,
+    "command_worker_joined": true,
+    "lease_released": true,
+    "Tk_destroyed": true
+  },
+  "failed_parent": {
+    "error": "AssertionError: ",
+    "failed_assertion": "root.winfo_viewable() and root.winfo_geometry()==480x800+0+0",
+    "actual_values_recorded": false,
+    "returned_png": false,
+    "LAUNCH_CLOSURE": false,
+    "VISIBLE_LIFECYCLE": false,
+    "parent_Close_button_reached": false,
+    "outer_exit_code": 1,
+    "both_outer_logical_success": false,
+    "both_outer_work_complete": true
+  },
+  "visual_review": {
+    "status": "TWO_PRIVATE_PNGS_REVIEWED_NOT_WHOLE_GUI_ACCEPTANCE",
+    "files": {
+      "chooser.png": "d771e7985e67ff9a4f17942e28a13c25ef9551b599a9dd34c128c1a2ace89c06",
+      "child.png": "aa52598b818f3a68a7407a6dc287438f75bc4f1dc89ada2425a9e603815bdc34"
+    },
+    "observations": [
+      "chooser three mode cards/selected status/Open/Close readable in480x800",
+      "child Streaming/inspection notice/disabled Start/Return readable in480x800",
+      "child retained disabled backend header says Baseline/Giga/Pyannote/ReDimNet, inconsistent with selected D1",
+      "client check pending inherited text remains",
+      "return chooser failed combined viewable and exact geometry assertion; actual failed values not recorded; no returned PNG"
+    ],
+    "physical_touch": false,
+    "whole_preview_pass": false,
+    "baseline_screenshot_published": false
+  },
+  "resources": {
+    "protocol_seconds": 2.9239691580005456,
+    "child_seconds": 1.328539879003074,
+    "parent_peak_rss_bytes": 32309248,
+    "child_peak_rss_bytes": 55197696,
+    "unique_owner_sampled_peak_bytes": 108756992,
+    "resource_rows": 12,
+    "minimum_available_ram_bytes": 1351761920,
+    "temperature_range_c": [
+      53.45,
+      55.1
+    ],
+    "clock_khz_range": [
+      2400000,
+      2400000
+    ],
+    "throttle": [
+      "throttled=0x0"
+    ]
+  },
+  "backup": {
+    "files": 68,
+    "bytes": 297393,
+    "exact": true
+  },
+  "closure": {
+    "recorded_pi_closed": 384,
+    "prior_isolated_host_closed": 48,
+    "field_host_workers_closed": 2,
+    "console_helper_closed": 1,
+    "nonidentity_receipts": 3,
+    "baseline_unchanged": true,
+    "capture_closed": true,
+    "leases_free": true,
+    "research_active": false
+  },
+  "storage": {
+    "combined_output_bytes": 5309368802,
+    "output_headroom_bytes": 59340318,
+    "total_payload_including_reservations": 55704629085,
+    "payload_headroom_bytes": 129945763,
+    "measured_before_later_metadata": true
+  },
+  "pi": {
+    "target_free_bytes": 17431408640,
+    "available_ram_bytes": 1426997248,
+    "temperature_c": 54.55,
+    "throttle": "throttled=0x0"
+  },
+  "preserved_failures": [
+    "Pre-admission missing closing parenthesis AST SyntaxError",
+    "Read-only wlr-randr --json unsupported; plain read used, no mutation",
+    "Native returned-parent combined mapping/geometry assertion; no retry"
+  ],
+  "unqualified": [
+    "Whole visible lifecycle/readiness",
+    "Physical touch",
+    "General repeated launcher",
+    "Live source/model/storage/offline release",
+    "No new inference/accuracy/speed result"
+  ],
+  "next_step": "Fresh derivative: record negotiated mapping/geometry and await stable480x800 on deiconify without weakening gate; correct inherited backend/client labels; one changed visible lifecycle test, then corrected live/storage composition.",
+  "hard_deadline_utc": "2026-10-01T17:42:44Z"
+}

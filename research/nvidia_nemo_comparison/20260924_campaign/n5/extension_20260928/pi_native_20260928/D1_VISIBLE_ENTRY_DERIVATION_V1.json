@@ -1,0 +1,27 @@
+{
+  "schema": "d1-visible-entry-derivation.v1",
+  "sources": {
+    "d1_process_launcher_v1.py": "e87139c06e3625dd8682d678571f01aa65f4517e0772ff55745f822536a23759",
+    "dispatch_d1_process_launch_v1.py": "8c4bcd279ce858094f03dfabf70023cf5aed8a61d38dba47c29a9357778e830d",
+    "d1_process_application_v1.py": "d3178a67657c09aaa17bbd5288118de8aba01a978375cd0e7b5cd47d48f3f0dc",
+    "d1_process_entry_v1.py": "530acb7b1d653fadf72caee8bb22ed1b020cd647ff3338c00cfa69f02f5c3bd1"
+  },
+  "new_sources": {
+    "d1_visible_controls_v1.py": "86c7746071b343af05c59db37ad4f107a69f2ac9c6d358269d863be53b0e27bd",
+    "d1_visible_application_v1.py": "1e71a3cbc45ef1209991e4149fbb55a2a60fb80042f4d0b76b526beae3572b01",
+    "d1_visible_launcher_v1.py": "9e4b2e9cf911376318db2f1ba436773241e5b5fa5754fd64e15ad052df681baa",
+    "dispatch_d1_visible_entry_v1.py": "a4db785916af018217c057df9f5ab38ff2f2afe91504a8a8afb9e071e8ba8baa",
+    "backup_d1_visible_entry_v1.py": "af548431c5931f887660cc0923facf84686a4d6814dd198cd8c01c64a8d7da28"
+  },
+  "changed": [
+    "visible callbacks",
+    "inspection-only actual installed child",
+    "actual Return/Close",
+    "bounded screenshot owners"
+  ],
+  "unchanged": [
+    "model assets/registry/endpoint/methods",
+    "original app/config/orientation"
+  ],
+  "no_native_equivalence_claim": true
+}

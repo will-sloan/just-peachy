@@ -1,10 +1,10 @@
 # Offline Pi delivery and handoff
 
-Current V98: fresh-process Streaming saved UI Start/Stop and generic state coherence passed; exact owner handshake, natural child exit and full tested closure verified. This is a withdrawn single-run launcher scope; visible/general/live/offline release remains open. See D1_PROCESS_LAUNCH_FINDINGS_V1 and CHECK_SUMMARY_V98.
+Current V99: visible chooser and installed inspection child rendered480x800; actual child Return closed the application. Whole trial FAILED returned-parent mapping/geometry assertion; final launch/visual receipts absent. Two private images also reveal stale baseline backend/client header labels. No model/mic; all5new owners closed,68files297393B exact backup. V98 positive Streaming entry remains separate. Next fresh geometry/label correction, then live/storage integration. See D1_VISIBLE_ENTRY_FINDINGS_V1 and CHECK_SUMMARY_V99.
 
 **Hard boundary: October 1, 2026, 13:42:44 Toronto / 17:42:44 UTC.** This is exactly 24 hours after the request was anchored at September30 17:42:44 UTC. It replaces the prospective17:47:34 UTC checkpoint; historical evidence remains unchanged.
 
-Status: **IN_PROGRESS, not offline-ready yet.** Latest verified native entry is CHECK_SUMMARY_V98. Streaming now passed the fresh-child launcher and coherent generic state path; other modes retain separate prior saved-app receipts. See PATHS_AND_BACKUPS and the current remote verification.
+Status: **IN_PROGRESS, not offline-ready yet.** Latest attempted visible scope is CHECK_SUMMARY_V99 (failed); latest positive native model entry is V98. Streaming now passed the fresh-child launcher and coherent generic state path; other modes retain separate prior saved-app receipts. See PATHS_AND_BACKUPS and the current remote verification.
 
 | Document | Purpose |
 |---|---|
