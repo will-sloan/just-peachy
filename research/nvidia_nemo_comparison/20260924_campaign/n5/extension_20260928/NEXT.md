@@ -1,3 +1,11 @@
+## September30 03:09UTC - targeted alternate kernel rejected
+
+Read CHECK_SUMMARY_V51 / D1_PROJECTION_NUMPY_FINDINGS_V1.md. Existing NumPy FP32 projection with exactweights/stacks repeats exactly but fails original PyTorch1e-5 on allfour natural chunks. Preserve candidate, do not substitute/sweep/repeat unchanged. Both full-runtime probability/state gates remain.
+
+Next priority: actual sequential Sherpa-primary/A2-refinement controller/GUI cancellation, failure and archive controls. V50 already qualifies complete B01 isolated saved-input/model/archive/withdrawnGUI; do not rebuild/retest that passed boundary. V48physicalDSPreadback remains a separate blocker: inspect exact retained failure and prior recovery before a justified new source recovery/admission.
+
+ClosureV104: all222Pi/48hostclosed,baselineunchanged,captureclosed,leasesfree; combined4,499,578,146/5GiB,Pi free17,833,279,488bytes. New21file privatebackup verified. Refresh census before dispatch.
+
 ## September30 02:58UTC - full B01 isolated saved integration passes
 
 Read CHECK_SUMMARY_V50 / B01_ISOLATED_FINDINGS_V1.md. Actual Controller.start_live, B01 models, separate source child, earlyStop/fullrestart, exact sample/D1/FIR/PCM and archive Save/Open/40withdrawnwidgets pass. No physical microphone or PortAudio memory qualification. Do not repeat passed fixtures.

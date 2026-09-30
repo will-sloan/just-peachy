@@ -1,0 +1,112 @@
+{
+  "version": 51,
+  "checked_utc": "2026-09-30T03:09:29.040551+00:00",
+  "scope": "Single native FP32 NumPy projection kernel alternative on retained natural arrays",
+  "status": "REVIEWED_NATIVE_NUMPY_PROJECTION_MISMATCH_ONLY",
+  "cases": [
+    {
+      "case": "tail",
+      "feature_frames": 8,
+      "reference_maxabs": 7.62939453125e-05,
+      "host_ort_maxabs": 0.00014793872833251953,
+      "within_unchanged_gate": false,
+      "float64_diagnostic_maxabs": 3.59772034244088e-05,
+      "repeat_exact": true,
+      "stack_lengths_exact": true,
+      "seconds": [
+        0.0007139980007195845,
+        0.0002124070015270263
+      ]
+    },
+    {
+      "case": "full_first",
+      "feature_frames": 2120,
+      "reference_maxabs": 0.00023651123046875,
+      "host_ort_maxabs": 0.000213623046875,
+      "within_unchanged_gate": false,
+      "float64_diagnostic_maxabs": 0.0001902691325312844,
+      "repeat_exact": true,
+      "stack_lengths_exact": true,
+      "seconds": [
+        0.01136926599428989,
+        0.00895558699266985
+      ]
+    },
+    {
+      "case": "full_middle",
+      "feature_frames": 2128,
+      "reference_maxabs": 0.00019884109497070312,
+      "host_ort_maxabs": 0.0001983642578125,
+      "within_unchanged_gate": false,
+      "float64_diagnostic_maxabs": 0.00012660823981036629,
+      "repeat_exact": true,
+      "stack_lengths_exact": true,
+      "seconds": [
+        0.008941826992668211,
+        0.009887694992357865
+      ]
+    },
+    {
+      "case": "full_tail",
+      "feature_frames": 253,
+      "reference_maxabs": 0.0001468658447265625,
+      "host_ort_maxabs": 9.953975677490234e-05,
+      "within_unchanged_gate": false,
+      "float64_diagnostic_maxabs": 0.0001045928438543342,
+      "repeat_exact": true,
+      "stack_lengths_exact": true,
+      "seconds": [
+        0.001847105988417752,
+        0.001700439999694936
+      ]
+    }
+  ],
+  "absolute_tolerance": 1e-05,
+  "gate_relaxed": false,
+  "numpy_version": "2.2.6",
+  "kernel": "numpy_float32_matmul_original_weight_transpose",
+  "kernel_protocol_seconds": 0.11439720699854661,
+  "protocol_seconds": 0.18701908199000172,
+  "kernel_peak_rss_kib": 41488,
+  "sampled_peaks": {
+    "VmSize": 137872,
+    "VmPeak": 140016,
+    "VmRSS": 40112,
+    "Threads": 1
+  },
+  "actual_live_envelope_verified": true,
+  "exact_owners_closed": true,
+  "natural_exit_code": 0,
+  "baseline_unchanged": true,
+  "capture_closed": true,
+  "leases_free": true,
+  "output_bytes": 9070909,
+  "output_bound_bytes": 16777216,
+  "full_waveform_qualified": false,
+  "speedup_qualified": false,
+  "stage_acceptance": false,
+  "backup_verified": true,
+  "backup_files": 21,
+  "combined_stage_backup_bytes": 18146615,
+  "native_owners_closed": 222,
+  "isolated_host_owners_closed": 48,
+  "combined_bytes": 4499578146,
+  "combined_cap_bytes": 5368709120,
+  "N4_N5_complete": false,
+  "field_release_accepted": false,
+  "previous_B01_saved_integration_preserved": true,
+  "actual_capture": false,
+  "next": [
+    "Actual sequential Sherpa-primary/A2-refinement controller/GUI cancel/failure/archive integration",
+    "No unchanged projection rerun or kernel sweep; alternate D1 remains gated",
+    "Inspect V48 device-readback/prior recovery before a specifically justified recovery/source trial"
+  ],
+  "target_free_bytes": 17833279488,
+  "available_ram_bytes": 1553317888,
+  "temperature_c": 52.35,
+  "throttle": "throttled=0x0",
+  "global_swap_context_only": {
+    "pswpin": 3090,
+    "pswpout": 35675
+  }
+}
