@@ -26,9 +26,11 @@ D1 geometries: delayed264/1/1/0/264/188; streaming13/1/0/80/264/40; experimental
 
 ## Current evidence and next action
 
+V96 adds six actual installed Controller/withdrawn UI recovery observations: explicit valid selection resets generic IDLE/status/error and dedicated READY together; Stop keeps the validation error; invalid reselection stays failed; declared source-kind sentinel and unrelated error cannot use recovery. No model/source/audio was run.55files185301B exact backup; closure205 has376Pi/48priorhost identities closed plus2fieldworkers/1helper separately checked. Next: mode-aware fresh-process launcher and changed visible controls, then corrected live/storage integration. Prior V95 positive model evidence stays separate.
+
 V95 closure203:374recordedPi/48priorisolatedhost identities closed, plus2fieldworkers/1consolehelper separately verified; research/hardware leases free, capture closed, original rc5 unchanged.64files230698B exact private backup and remote Git verified. These readings are historical; recheck before dispatch.
 
-V95 Chunk52 retained416pre-EOFframes with maxabs0<=1e-5 and15unmatchedEOFframes.6.947747s total includes UI/pacing/startup/cleanup, not a speed benchmark. Dedicated D1 recovery was observed. Source inspection finds generic Controller state/status remains unset by the recovery path after ERROR; that generic field was not independently recorded. Fix it before claiming whole-app recovery.
+V95 Chunk52 retained416pre-EOFframes with maxabs0<=1e-5 and15unmatchedEOFframes.6.947747s total includes UI/pacing/startup/cleanup, not a speed benchmark. V95 observed only dedicated-page recovery; V96 separately fixes and verifies matching pre-owner validation recovery in both views. Neither result qualifies recovery from source/model/cleanup failures.
 
 Follow COMPLETION_PLAN: coherent mode launcher/recovery, corrected full source/model/storage composition, visible controls, offline acceptance, release freeze, final documentation/backup. Do not rerun healthy suites for activity. Keep unavailable methods unavailable. No new download/training/enrollment/playback or requested speech; quiet/background checks establish function/resources only.
 

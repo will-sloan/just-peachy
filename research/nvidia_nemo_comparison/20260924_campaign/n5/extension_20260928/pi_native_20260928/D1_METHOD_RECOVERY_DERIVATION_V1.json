@@ -1,0 +1,18 @@
+{
+  "schema": "d1-method-recovery-derivation.v1",
+  "parents": {
+    "d1_method_application_v1.py": "e4e65e3b060904368c7b113fdcb08192572be813484590720b01a02015b6ba87",
+    "dispatch_d1_method_application_v1.py": "95f5532d5a564250163951f4f875b058cf32525c3a750407d17c2cf5931c47bf",
+    "d1_method_application_protocol_v1.py": "0b9199bd2c06c10b6b62979364e97b25729ec9447c9f2f7843c215b17e90605f",
+    "review_d1_method_application_v1.py": "42d19eb496670d6b5d31b7c3e27a239e702d9505531930f153b1048f2ca33298",
+    "backup_d1_method_application_v1.py": "b05fd8c79c37d1e3023ac50989a2e2767a27c61ee64037912981572d1ad6342d",
+    "d1_application_saved_v4.py": "4ac346815e436644f7c08e611ad691c9f5a39e345328a42c3bbef8715da10baa",
+    "d1_method_controls_v1.py": "a4f492942f4f53462417e6a30ee29c03acc28c3504821752257ffb498f0d0adc"
+  },
+  "changes": [
+    "Fresh narrow pre-owner validation latch; installed generic state/status recovery on explicit selection only.",
+    "Actual installed constructors/queue/withdrawn UI; six changed observations; no positive model/source passage.",
+    "Earlier hard deadline enforced in fresh dispatcher without changing old policy."
+  ],
+  "bound_input_sha256": "1fc8e964d0076cb9f9e15c82d463676225937771bb69d1787330bd432ebe3fe9"
+}

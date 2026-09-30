@@ -1,6 +1,6 @@
 # Mode guide: delivery snapshot
 
-Product mode controls labels/roster; backend selects caption/diarizer/embedding models; D1 geometry controls buffering/context. Availability below is V95 evidence. Final guide must match the frozen device launcher, not imply every possible combination was tested.
+Product mode controls labels/roster; backend selects caption/diarizer/embedding models; D1 geometry controls buffering/context. Availability below retains V95 model evidence; V96 adds pre-owner validation recovery only. Final guide must match the frozen device launcher, not imply every possible combination was tested.
 
 ## Nemotron-3 diarizer choices
 
@@ -13,6 +13,8 @@ Product mode controls labels/roster; backend selects caption/diarizer/embedding 
 Delayed old44.7s component cost~0.405RTF uses different geometry. Cross-mode costs describe a latency/compute tradeoff, not accuracy or a same-geometry speedup. V94's separate matched kernel pairs showed23-24%less wall work with repairedA76 on one retained file; current delayed main includes a laterLRU1change. No new application/sustained/field-quality claim.
 
 Implementation and measurements must show exact model/runtime/geometry, fixed kernel, cache/thread/stack/GPU bounds and supporting receipt. These profiles are not independent kernel toggles. Applied ASR/VAD skipping, parallel pools and whole-waveformONNX stay unavailable. All audio is retained; no recognized words is not silence. Runtime/run changes require Stop/drain and a fresh model process.
+
+V96 explicitly reselecting a valid mode clears a matching pre-owner method validation error in both the controller and saved page. Stop alone does not clear it. Existing operations and unrelated failures require their own closure/recovery; this is not a generic reset or a new model passage.
 
 ## Backends
 

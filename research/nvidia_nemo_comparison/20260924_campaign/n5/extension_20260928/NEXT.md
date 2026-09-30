@@ -4,6 +4,12 @@ The user requires completion, running offline Pi, condensed documentation/ChatGP
 
 Initial twelve-file completion pack and bounded builder are created; draft documentation ZIP31,700B/15members is exact-readback verified. No new Pi compute was dispatched for planning. Next actual work remains coherent controller recovery and a receipt-bound mode-aware launcher, then corrected source/model/storage integration, visible controls and offline acceptance. No healthy inference reruns, ASR detour or optional research displacement. Close research and pause the automation before the hard boundary; accepted field app should remain idle/captureoff, otherwise explicitly report failed required gates with recoverable baseline.
 
+## September30 18:22UTC - installed validation recovery
+
+**September30 18:22UTC:** CHECK_SUMMARY_V96 / D1_METHOD_RECOVERY_FINDINGS_V1: actual installed Controller/withdrawn UI passes six changed pre-owner validation recovery observations. Explicit valid selection restores generic IDLE/status/error and dedicated READY together; Stop retains the validation error; declared source-kind sentinel/unrelated error cannot clear it. No model/source worker, samples, capture or healthy inference rerun. Natural0/command worker/app lease/Tk closed;55files185301B exact backup;376Pi/48priorhost plus2fieldworkers/1helper closed. Fresh mode-aware launcher and live/visible/offline release remain open. Hard finishOctober1 17:42:44UTC.
+
+Next: mode-aware fresh-process launcher with exact per-mode app/endpoint/method bindings. Preserve the separate positive Start receipts; this wake tested no model/source. Then changed visible controls and corrected live/storage composition.
+
 ## September30 17:36UTC - installed method-bound saved application
 
 **September30 17:36UTC:** CHECK_SUMMARY_V95 / D1_METHOD_APPLICATION_FINDINGS_V1: actual installed Controller/withdrawn UI method details/Back and method-bound saved Chunk52 Start/Stop pass. New GPU-profile rejection blocks before source/model; explicit selection recovers the dedicated D1 page. Accepted profile recorded before thread ownership;68800samples/431frames,416pre-EOF exact0+15unmatched EOF. Natural0/all workers/leases/Tk closed;64file230698B exact backup,374Pi/48priorhost+2fieldworkers/1helper closed. Source review finds generic Controller state recovery absent: broader recovery/launcher remains open. Display270 preserved. Next fresh mode-aware entry/recovery/visible controls;no healthy inference reruns or new speedup claim;ASRsecondary.

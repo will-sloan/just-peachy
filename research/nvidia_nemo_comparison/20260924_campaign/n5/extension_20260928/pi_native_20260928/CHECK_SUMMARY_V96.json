@@ -1,0 +1,96 @@
+{
+  "schema": "pi-native-check-summary.v96",
+  "checked_utc": "2026-09-30T18:22:33.600070+00:00",
+  "status": "PASS_INSTALLED_D1_PREOWNER_VALIDATION_RECOVERY_ONLY",
+  "run": "d1-method-recovery-v1",
+  "scope": "Actual installed controller/withdrawn UI pre-owner validation recovery only",
+  "changed_evidence": {
+    "status": "PASS_INSTALLED_D1_PREOWNER_VALIDATION_RECOVERY_ONLY",
+    "changed_cases": 6,
+    "actual_controller_constructor": true,
+    "actual_ui_constructor": true,
+    "actual_command_queue": true,
+    "generic_state_status_error_checked": true,
+    "method_failure_recovers": true,
+    "unknown_failure_not_cleared": true,
+    "model_worker_created": false,
+    "source_samples": 0,
+    "output_frames": 0,
+    "successful_start_tested": false,
+    "live_start_available": false,
+    "capture": false,
+    "ASR": false,
+    "visible_rendering": false,
+    "physical_touch": false,
+    "native_failure_stress": false,
+    "new_speedup_claim": false,
+    "accuracy_claim": false,
+    "original_rc5_concurrent": true,
+    "controller_closed": true,
+    "command_worker_joined": true,
+    "application_lease_released": true,
+    "Tk_destroyed": true,
+    "elapsed_seconds": 0.6057601959910244,
+    "peak_rss_bytes": 55656448
+  },
+  "resources": {
+    "aggregate_sampled_rss_bytes": 73859072,
+    "resource_rows": 3,
+    "temperature_range_c": [
+      53.45,
+      54.55
+    ],
+    "throttle_states": [
+      "throttled=0x0"
+    ],
+    "minimum_available_ram_bytes": 1364262912
+  },
+  "backup": {
+    "files": 55,
+    "bytes": 185301,
+    "review_sha256": "27fbc4da23358a648ef784ac13d023cb5ab4f074be644fe2ca5b9bf1694a6e64"
+  },
+  "closure": {
+    "native_identities_closed": 376,
+    "isolated_host_identities_closed": 48,
+    "field_host_workers_closed": 2,
+    "recorded_console_helper_closed": 1,
+    "nonidentity_closure_receipts": 3,
+    "baseline_unchanged": true,
+    "capture_closed": true,
+    "research_lease_free": true,
+    "hardware_lease_free": true
+  },
+  "storage": {
+    "combined_output_bytes": 5302898524,
+    "combined_output_cap_bytes": 5368709120,
+    "output_headroom_bytes": 65810596,
+    "total_payload_including_retained_reservations_bytes": 55698158807,
+    "total_payload_cap_bytes": 55834574848,
+    "payload_headroom_bytes": 136416041,
+    "prepared_full_v3_bytes": 155189248,
+    "full_v3_output_shortfall_bytes": 89378652,
+    "full_v3_payload_shortfall_bytes": 18773207,
+    "measured_before_later_metadata": true
+  },
+  "pi": {
+    "fixed_device_bytes": 31268536320,
+    "free_bytes": 17432391680,
+    "available_ram_bytes": 1407483904,
+    "temperature_c": 53.45,
+    "throttle": "throttled=0x0"
+  },
+  "display": {
+    "saved_transform": 270,
+    "preference_preserved": true,
+    "new_physical_or_reboot_test": false
+  },
+  "unqualified": [
+    "fresh derivative positive Start/model passage",
+    "source/model/writer/constructor/cleanup failure and concurrency recovery",
+    "mode-aware unrestricted launcher",
+    "live pipeline/visible D1 GUI/physical touch/offline acceptance/full N5"
+  ],
+  "next_step": "Bind each separately qualified mode/app/endpoint/method to a fresh-process launcher; qualify changed visible controls, then corrected live source/model/storage composition. No healthy inference rerun.",
+  "hard_deadline_utc": "2026-10-01T17:42:44Z"
+}

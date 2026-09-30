@@ -2,7 +2,7 @@
 
 **Hard boundary: October 1, 2026, 13:42:44 Toronto / 17:42:44 UTC.** This is exactly 24 hours after the request was anchored at September30 17:42:44 UTC. It replaces the prospective17:47:34 UTC checkpoint; historical evidence remains unchanged.
 
-Initial status: **IN_PROGRESS, not offline-ready yet.** Latest verified implementation: CHECK_SUMMARY_V95, code commit `2e64b792536bbf35309ff5e1497e6ec82ecae8ce` on `codex/n1-foundation-20260924`.
+Initial status: **IN_PROGRESS, not offline-ready yet.** Latest verified implementation: CHECK_SUMMARY_V96, installed pre-owner validation recovery. Separate V95 method-bound positive Start/Stop is retained. See current Git remote verification and PATHS_AND_BACKUPS; the mode launcher/live/offline release remain open.
 
 | Document | Purpose |
 |---|---|

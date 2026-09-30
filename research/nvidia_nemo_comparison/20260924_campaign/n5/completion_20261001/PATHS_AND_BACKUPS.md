@@ -1,6 +1,6 @@
 # Consolidated paths, backups and simplification
 
-Snapshot based on V95. Resolve current manifests/receipts before execution; old PIDs and census numbers are not current authorization. This index consolidates navigation without moving or deleting evidence.
+Snapshot updated through V96; separate V95 model passage retained. Resolve current manifests/receipts before execution; old PIDs and census numbers are not current authorization. This index consolidates navigation without moving or deleting evidence.
 
 | Purpose | Exact location |
 |---|---|
@@ -21,6 +21,7 @@ Snapshot based on V95. Resolve current manifests/receipts before execution; old 
 | Pi personal/config store | `/home/peachyprototype/JustPeachy/data` (private; preserve) |
 | Installed research v12 | `/home/peachyprototype/JustPeachy/research/nemotron-20260928/field-artifact-install-v2/deployment/releases/b01-offline-20260930-v12` |
 | Display preference | `/home/peachyprototype/.config/kanshi/config`: transform270,480x800; backup under research `display-orientation-20260930-v1` |
+| Current validation recovery | Private Pi evidence `d1-method-recovery-v1-evidence/REVIEW.json`, `BACKUP.json`, `target/`; findings `D1_METHOD_RECOVERY_FINDINGS_V1.md`, summaryV96 |
 | Current method integration evidence | Private Pi evidence `d1-method-application-v1-evidence/REVIEW.json`, `BACKUP.json`, `target/`; V95 scope only |
 
 SSH endpoint is `peachyprototype@raspberrypi.local`, mandatory strict host checking and HostKeyAlias `192.168.2.57`. Use the existing authorized key; key contents and credentials never enter a handoff archive. Network-disabled testing must have a verified local recovery route before disconnecting management.

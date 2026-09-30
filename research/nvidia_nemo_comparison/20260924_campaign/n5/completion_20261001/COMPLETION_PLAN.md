@@ -23,10 +23,10 @@ Advance early when a phase is finished. Start finalization at16:42:44Z. Schedule
 
 ## Current blockers, in execution order
 
-1. V95 dedicated saved D1 page works, but source inspection finds generic Controller state/status is not reset after a rejected method Start. Fix and verify the changed recovery path.
+1. V96 fixes and verifies generic Controller state/status recovery for pre-owner method validation only (six actual installed observations). Complete the mode-aware fresh-process launcher; source/model/cleanup failure recovery remains separately unqualified.
 2. StreamingV3, Chunk52V4 and DelayedV5 are separate admitted runs. Bind each to its own actual endpoint/build/method/app receipts through a mode-aware entry point. Libraries remain mapped: use one fresh process per runtime/run.
 3. V65 sustained trial failed at the60s archive and~115s journal limits. Later contract/writer components do not retroactively qualify it or a complete corrected live composition. Integrate bounded producer allocation and verify full accepted audio/sample closure and reopening.
-4. The full148MiB V3 proposal exceeds both current caps. At V95 output headroom was68,041,929B and payload headroom138,647,374B, before later metadata. Reuse pinned assets and retain a small audited composition. Fresh measured admission is mandatory; no evidence deletion, counter reset or silent cap increase.
+4. The full148MiB V3 proposal exceeds both current caps. At V96 output headroom was65,810,596B and payload headroom136,416,041B, before later metadata. Reuse pinned assets and retain a small audited composition. Fresh measured admission is mandatory; no evidence deletion, counter reset or silent cap increase.
 5. General launcher, visible D1 controls, offline startup, sustained combined operation and physical touch are not fully accepted. Withdrawn widgets and original-baseline display proof do not satisfy them.
 6. Required install/activation/health/rollback, save/reopen/delete/import/export and gallery compatibility need exact receipts. Camera/IMU/GPIO stay unavailable without actual evidence. N4full240cell coverage remains explicit; it must not displace delivery-critical D1 integration.
 
