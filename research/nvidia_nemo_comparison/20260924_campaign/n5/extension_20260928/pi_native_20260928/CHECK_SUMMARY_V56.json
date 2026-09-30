@@ -1,0 +1,634 @@
+{
+  "version": 56,
+  "checked_utc": "2026-09-30T04:55:39.681986+00:00",
+  "status": "SCOPED_VISIBLE_INSTALLED_GUI_ARCHIVE_AND_AVAILABILITY_FIX_WITH_OPEN_GAPS",
+  "scope": "Versioned offlineB01 actual installed GUI entry with15actions and independent40display-row preservation; no capture/model/physicaltouch/endurance",
+  "release_version": "b01-offline-20260930-v2",
+  "release_archive_sha256": "50a251d08647bdd7ebd5ddc66daf909b667383dce1e014b814b6a4ff5e575afc",
+  "release_manifest_sha256": "a8c472bc362aee4698a2757315482e67965f254b23a6695dde71e8ec5de3b2b7",
+  "release_files": 284,
+  "release_archive_bytes": 1178944,
+  "native_seconds": 11.825620560004609,
+  "native_peak_rss_bytes": 63815680,
+  "sampled_aggregate_peak_bytes": 82116608,
+  "native_actions": 15,
+  "display_rows": 40,
+  "raw_utterances": 4,
+  "visible_geometry": [
+    480,
+    800
+  ],
+  "actual_installed_gui_entry": true,
+  "Start_test": "Consent then Cancel only; no source opened",
+  "archive_actions": [
+    "Open",
+    "Rename",
+    "Save/pin",
+    "text Export",
+    "Delete private copy after fullZIPbackup"
+  ],
+  "original_archive_unchanged": true,
+  "baseline_unchanged": true,
+  "capture_closed": true,
+  "leases_free": true,
+  "compute_active": false,
+  "physical_touch": false,
+  "field_release_accepted": false,
+  "visual_review_sha256": "e59001c39dbc704f759771ffc2c6b0fb49ea7c243a0247c5bc3a3c5f8471c3d8",
+  "pixel_observations": [
+    {
+      "page": "consent",
+      "dimensions": [
+        480,
+        800
+      ],
+      "png_equal": true,
+      "decoded_rgb_equal": true,
+      "decoded_sha256": [
+        "852a565bb8c7a72d29974306bb9fa14b8545cef53e670fd825adf59ccd624e1c",
+        "852a565bb8c7a72d29974306bb9fa14b8545cef53e670fd825adf59ccd624e1c"
+      ],
+      "different_pixels": 0,
+      "bbox": null
+    },
+    {
+      "page": "recipes",
+      "dimensions": [
+        480,
+        800
+      ],
+      "png_equal": false,
+      "decoded_rgb_equal": false,
+      "decoded_sha256": [
+        "1557fdcc7adee4724a207b2deddff6ceb120ddaa9c33a94c29262a8810644485",
+        "1240e5fc294302bc1ea5953fd54b0588b6800bad07baff96777d521d114e397f"
+      ],
+      "different_pixels": 2575,
+      "bbox": [
+        15,
+        158,
+        464,
+        776
+      ]
+    }
+  ],
+  "gaps": [
+    "Conversation import unavailable",
+    "Session page reports2048MiB but field Start contract512MiB; reconcile before field release",
+    "Mode legend still says experimental modes selectable although controls disabled",
+    "Debug pixel-check header and verbose backend implementation text need product wording",
+    "Recipe exact-pixel pair stability failed; cause not established",
+    "Installed live Start/Stop, physical touch, endurance, B05/sequential packaging and research dependency relocation still open"
+  ],
+  "run_backups": {
+    "field-visible-v1": {
+      "status": "REVIEWED_VISIBLE_V1_RAW_VS_DISPLAY_COUNT_HARNESS_FAILURE",
+      "target_bytes": 13067834,
+      "combined_bytes": 26402040,
+      "backup_files": 38,
+      "private_backup_verified": true
+    },
+    "field-visible-v2": {
+      "status": "REVIEWED_VISIBLE_V2_ARCHIVE_ASSERTION_AND_DUPLICATE_CLOSE_FAILURE",
+      "target_bytes": 13101287,
+      "combined_bytes": 26342811,
+      "backup_files": 48,
+      "private_backup_verified": true
+    },
+    "field-visible-v3": {
+      "status": "REVIEWED_INSTALLED_GUI_ARCHIVE_AND_AVAILABILITY_FIX_PENDING_IMAGE_INSPECTION",
+      "target_bytes": 13361729,
+      "combined_bytes": 26864143,
+      "backup_files": 623,
+      "private_backup_verified": true
+    },
+    "field-visible-v4": {
+      "status": "REVIEWED_CONSENT_STABLE_RECIPE_PAIR_MISMATCH_RENDER_OBSERVATIONS_ONLY",
+      "target_bytes": 543536,
+      "combined_bytes": 1226999,
+      "backup_files": 30,
+      "private_backup_verified": true
+    }
+  },
+  "closure_version": 124,
+  "resources": {
+    "checked_utc": "2026-09-30T04:55:39.681986+00:00",
+    "host_window_bytes": 2171878221,
+    "target_bytes": 2533890605,
+    "combined_bytes": 4705768826,
+    "cap_bytes": 5368709120,
+    "host_free_bytes": {
+      "C:": 143004389376,
+      "G:": 96936124416
+    },
+    "all_owned_native_identities_closed": 252,
+    "host_supervisor_closed": true,
+    "host_owners": [
+      {
+        "pid": 55636,
+        "create_time": 1790637870.806714,
+        "observed_create_time": null,
+        "exact_alive": false
+      },
+      {
+        "pid": 55720,
+        "create_time": 1790637870.971314,
+        "observed_create_time": null,
+        "exact_alive": false
+      }
+    ],
+    "isolated_export_owners": [
+      {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\d1-onnx-export-v1\\supervision\\worker.json",
+        "owner": {
+          "pid": 36268,
+          "create_time": 1790714243.0741508
+        },
+        "observed_create_time": null,
+        "exact_alive": false
+      },
+      {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\d1-onnx-export-v1\\supervision\\worker.json",
+        "owner": {
+          "pid": 66192,
+          "create_time": 1790714243.2419276
+        },
+        "observed_create_time": null,
+        "exact_alive": false
+      },
+      {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\d1-onnx-export-v1\\supervision\\worker.json",
+        "owner": {
+          "pid": 37852,
+          "create_time": 1790714243.685588,
+          "affinity": [
+            4,
+            14
+          ]
+        },
+        "observed_create_time": null,
+        "exact_alive": false
+      },
+      {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\d1-onnx-export-v1\\supervision\\worker.json",
+        "owner": {
+          "pid": 46152,
+          "create_time": 1790714243.6287892
+        },
+        "observed_create_time": null,
+        "exact_alive": false
+      },
+      {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\d1-onnx-export-v2\\supervision\\worker.json",
+        "owner": {
+          "pid": 42228,
+          "create_time": 1790714469.384764
+        },
+        "observed_create_time": null,
+        "exact_alive": false
+      },
+      {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\d1-onnx-export-v2\\supervision\\worker.json",
+        "owner": {
+          "pid": 62192,
+          "create_time": 1790714469.5595467
+        },
+        "observed_create_time": null,
+        "exact_alive": false
+      },
+      {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\d1-onnx-export-v2\\supervision\\worker.json",
+        "owner": {
+          "pid": 57740,
+          "create_time": 1790714470.025628,
+          "affinity": [
+            4,
+            14
+          ]
+        },
+        "observed_create_time": null,
+        "exact_alive": false
+      },
+      {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\d1-onnx-export-v2\\supervision\\worker.json",
+        "owner": {
+          "pid": 44296,
+          "create_time": 1790714469.9711585
+        },
+        "observed_create_time": null,
+        "exact_alive": false
+      },
+      {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\d1-onnx-export-v3\\supervision\\worker.json",
+        "owner": {
+          "pid": 62988,
+          "create_time": 1790714641.073609
+        },
+        "observed_create_time": null,
+        "exact_alive": false
+      },
+      {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\d1-onnx-export-v3\\supervision\\worker.json",
+        "owner": {
+          "pid": 53552,
+          "create_time": 1790714641.2833364
+        },
+        "observed_create_time": null,
+        "exact_alive": false
+      },
+      {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\d1-onnx-export-v3\\supervision\\worker.json",
+        "owner": {
+          "pid": 41600,
+          "create_time": 1790714641.7226956,
+          "affinity": [
+            4,
+            14
+          ]
+        },
+        "observed_create_time": null,
+        "exact_alive": false
+      },
+      {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\d1-onnx-export-v3\\supervision\\worker.json",
+        "owner": {
+          "pid": 17620,
+          "create_time": 1790714641.6691127
+        },
+        "observed_create_time": null,
+        "exact_alive": false
+      },
+      {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\d1-onnx-export-v4\\supervision\\worker.json",
+        "owner": {
+          "pid": 58712,
+          "create_time": 1790718974.0732849
+        },
+        "observed_create_time": null,
+        "exact_alive": false
+      },
+      {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\d1-onnx-export-v4\\supervision\\worker.json",
+        "owner": {
+          "pid": 10400,
+          "create_time": 1790718974.2337894
+        },
+        "observed_create_time": null,
+        "exact_alive": false
+      },
+      {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\d1-onnx-export-v4\\supervision\\worker.json",
+        "owner": {
+          "pid": 29176,
+          "create_time": 1790718974.6692708,
+          "affinity": [
+            4,
+            14
+          ]
+        },
+        "observed_create_time": null,
+        "exact_alive": false
+      },
+      {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\d1-onnx-export-v4\\supervision\\worker.json",
+        "owner": {
+          "pid": 71172,
+          "create_time": 1790718974.613809
+        },
+        "observed_create_time": null,
+        "exact_alive": false
+      },
+      {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\d1-onnx-feature-isolation-v1\\supervision\\worker.json",
+        "owner": {
+          "pid": 51444,
+          "create_time": 1790720763.2953265
+        },
+        "observed_create_time": null,
+        "exact_alive": false
+      },
+      {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\d1-onnx-feature-isolation-v1\\supervision\\worker.json",
+        "owner": {
+          "pid": 50624,
+          "create_time": 1790720763.4763677
+        },
+        "observed_create_time": null,
+        "exact_alive": false
+      },
+      {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\d1-onnx-feature-isolation-v1\\supervision\\worker.json",
+        "owner": {
+          "pid": 38236,
+          "create_time": 1790720764.1894643,
+          "affinity": [
+            4,
+            14
+          ]
+        },
+        "observed_create_time": null,
+        "exact_alive": false
+      },
+      {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\d1-onnx-feature-isolation-v1\\supervision\\worker.json",
+        "owner": {
+          "pid": 52428,
+          "create_time": 1790720764.1421204
+        },
+        "observed_create_time": null,
+        "exact_alive": false
+      },
+      {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\d1-onnx-frontend-v1\\supervision\\worker.json",
+        "owner": {
+          "pid": 63080,
+          "create_time": 1790716686.900596
+        },
+        "observed_create_time": null,
+        "exact_alive": false
+      },
+      {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\d1-onnx-frontend-v1\\supervision\\worker.json",
+        "owner": {
+          "pid": 58412,
+          "create_time": 1790716687.0608015
+        },
+        "observed_create_time": null,
+        "exact_alive": false
+      },
+      {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\d1-onnx-frontend-v1\\supervision\\worker.json",
+        "owner": {
+          "pid": 59328,
+          "create_time": 1790716687.5375993,
+          "affinity": [
+            4,
+            14
+          ]
+        },
+        "observed_create_time": null,
+        "exact_alive": false
+      },
+      {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\d1-onnx-frontend-v1\\supervision\\worker.json",
+        "owner": {
+          "pid": 68388,
+          "create_time": 1790716687.483524
+        },
+        "observed_create_time": null,
+        "exact_alive": false
+      },
+      {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\d1-onnx-projection-v1\\supervision\\worker.json",
+        "owner": {
+          "pid": 50256,
+          "create_time": 1790731758.6761754
+        },
+        "observed_create_time": null,
+        "exact_alive": false
+      },
+      {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\d1-onnx-projection-v1\\supervision\\worker.json",
+        "owner": {
+          "pid": 64308,
+          "create_time": 1790731758.8421216
+        },
+        "observed_create_time": null,
+        "exact_alive": false
+      },
+      {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\d1-onnx-projection-v1\\supervision\\worker.json",
+        "owner": {
+          "pid": 25224,
+          "create_time": 1790731759.5643182,
+          "affinity": [
+            4,
+            14
+          ]
+        },
+        "observed_create_time": null,
+        "exact_alive": false
+      },
+      {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\d1-onnx-projection-v1\\supervision\\worker.json",
+        "owner": {
+          "pid": 50856,
+          "create_time": 1790731759.5125582
+        },
+        "observed_create_time": null,
+        "exact_alive": false
+      },
+      {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\d1-onnx-state-tie-v1\\supervision\\worker.json",
+        "owner": {
+          "pid": 28972,
+          "create_time": 1790717837.0709891
+        },
+        "observed_create_time": null,
+        "exact_alive": false
+      },
+      {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\d1-onnx-state-tie-v1\\supervision\\worker.json",
+        "owner": {
+          "pid": 67964,
+          "create_time": 1790717837.2572064
+        },
+        "observed_create_time": null,
+        "exact_alive": false
+      },
+      {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\d1-onnx-state-tie-v1\\supervision\\worker.json",
+        "owner": {
+          "pid": 52604,
+          "create_time": 1790717837.717785,
+          "affinity": [
+            4,
+            14
+          ]
+        },
+        "observed_create_time": null,
+        "exact_alive": false
+      },
+      {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\d1-onnx-state-tie-v1\\supervision\\worker.json",
+        "owner": {
+          "pid": 67712,
+          "create_time": 1790717837.6672332
+        },
+        "observed_create_time": null,
+        "exact_alive": false
+      },
+      {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\d1-onnx-state-tie-v2\\supervision\\worker.json",
+        "owner": {
+          "pid": 63916,
+          "create_time": 1790717925.7474496
+        },
+        "observed_create_time": null,
+        "exact_alive": false
+      },
+      {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\d1-onnx-state-tie-v2\\supervision\\worker.json",
+        "owner": {
+          "pid": 29424,
+          "create_time": 1790717925.907408
+        },
+        "observed_create_time": null,
+        "exact_alive": false
+      },
+      {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\d1-onnx-state-tie-v2\\supervision\\worker.json",
+        "owner": {
+          "pid": 58716,
+          "create_time": 1790717926.365641,
+          "affinity": [
+            4,
+            14
+          ]
+        },
+        "observed_create_time": null,
+        "exact_alive": false
+      },
+      {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\d1-onnx-state-tie-v2\\supervision\\worker.json",
+        "owner": {
+          "pid": 62312,
+          "create_time": 1790717926.315565
+        },
+        "observed_create_time": null,
+        "exact_alive": false
+      },
+      {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\d1-onnx-state-v1\\supervision\\worker.json",
+        "owner": {
+          "pid": 65276,
+          "create_time": 1790717569.4233668
+        },
+        "observed_create_time": null,
+        "exact_alive": false
+      },
+      {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\d1-onnx-state-v1\\supervision\\worker.json",
+        "owner": {
+          "pid": 63512,
+          "create_time": 1790717569.5818446
+        },
+        "observed_create_time": null,
+        "exact_alive": false
+      },
+      {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\d1-onnx-state-v1\\supervision\\worker.json",
+        "owner": {
+          "pid": 66524,
+          "create_time": 1790717570.0158825,
+          "affinity": [
+            4,
+            14
+          ]
+        },
+        "observed_create_time": null,
+        "exact_alive": false
+      },
+      {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\d1-onnx-state-v1\\supervision\\worker.json",
+        "owner": {
+          "pid": 56256,
+          "create_time": 1790717569.96724
+        },
+        "observed_create_time": null,
+        "exact_alive": false
+      },
+      {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\d1-onnx-waveform-v1\\supervision\\worker.json",
+        "owner": {
+          "pid": 17180,
+          "create_time": 1790720297.8993485
+        },
+        "observed_create_time": null,
+        "exact_alive": false
+      },
+      {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\d1-onnx-waveform-v1\\supervision\\worker.json",
+        "owner": {
+          "pid": 55632,
+          "create_time": 1790720298.0600312
+        },
+        "observed_create_time": null,
+        "exact_alive": false
+      },
+      {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\d1-onnx-waveform-v1\\supervision\\worker.json",
+        "owner": {
+          "pid": 70840,
+          "create_time": 1790720298.757609,
+          "affinity": [
+            4,
+            14
+          ]
+        },
+        "observed_create_time": null,
+        "exact_alive": false
+      },
+      {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\d1-onnx-waveform-v1\\supervision\\worker.json",
+        "owner": {
+          "pid": 66456,
+          "create_time": 1790720298.7062929
+        },
+        "observed_create_time": null,
+        "exact_alive": false
+      },
+      {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\d1-onnx-waveform-v2\\supervision\\worker.json",
+        "owner": {
+          "pid": 64196,
+          "create_time": 1790720537.6483588
+        },
+        "observed_create_time": null,
+        "exact_alive": false
+      },
+      {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\d1-onnx-waveform-v2\\supervision\\worker.json",
+        "owner": {
+          "pid": 41508,
+          "create_time": 1790720537.8101313
+        },
+        "observed_create_time": null,
+        "exact_alive": false
+      },
+      {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\d1-onnx-waveform-v2\\supervision\\worker.json",
+        "owner": {
+          "pid": 69044,
+          "create_time": 1790720538.5158217,
+          "affinity": [
+            4,
+            14
+          ]
+        },
+        "observed_create_time": null,
+        "exact_alive": false
+      },
+      {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\d1-onnx-waveform-v2\\supervision\\worker.json",
+        "owner": {
+          "pid": 70876,
+          "create_time": 1790720538.4624927
+        },
+        "observed_create_time": null,
+        "exact_alive": false
+      }
+    ]
+  },
+  "pi_free_bytes": 17724854272,
+  "pi_available_ram_bytes": 1511079936,
+  "pi_temperature_c": 52.9,
+  "pi_throttle": "throttled=0x0",
+  "preserved_failures": [
+    "V1 rawutterance-vs-display assertion beforeGUI",
+    "V2 wrongcaptionlink comparison and production duplicateclose error",
+    "V1 reader sixCPythoncache additions separately backed up; originalcode unchanged",
+    "V2 blackscrot and V3 prematurepaint images",
+    "V4 exactrecipePNG/pixelpair mismatch; no gate relaxation"
+  ]
+}

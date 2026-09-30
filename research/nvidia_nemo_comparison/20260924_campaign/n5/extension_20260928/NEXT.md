@@ -1,3 +1,9 @@
+## September30 04:55UTC - visible installed candidate
+
+**September30 04:55UTC:** CHECK_SUMMARY_V56 / FIELD_VISIBLE_FINDINGS_V1: fresh offline B01 v2 renders480x800 and passes15installed GUI/archive actions, exact40display rows, disabled unavailable controls and natural close. Start consent cancelled; no capture/models/physicaltouch/live acceptance. Entry duplicateclose fixed; two failed harnesses/black or premature screenshots/cache additions preserved. Settled consent pixels exact; recipe pair differs2575pixels despite readable frames, stability gate remains failed. Import and2048vs512MiBquota/stale UIwording remain. All252Pi/48hostclosed,baselineunchanged,leasesfree;combined4705768826/5GiB. Next fresh UI/quota/import derivative, then installedlive/dependency/rollback/endurance; no unchanged passes.
+
+Use field-visible-v3/deployment/releases/b01-offline-20260930-v2 and README_FIELD_VISIBLE_V3/V4 plus the V5 review addendum. Original package versions remain preserved. No current research compute or capture.
+
 ## September30 04:27UTC - offline package boundary
 
 **September30 04:27UTC:** CHECK_SUMMARY_V55 / FIELD_PACKAGE_FINDINGS_V1: native offline package V2 passes installed health/idle B01 controller, two-version isolated candidate activation/rollback, preserved private canary/config, bad-hash/busy-data/damaged-code rejection. V1 wrapper import-path failure retained; V2 exactly one wrapper-path line, packaged app unchanged. No capture/inference/GUI/baseline activation. Assets331261640bytes/runtime351131610/two code versions8115552; D1 research asset paths remain required. Both1014/1303file backups plus symlink metadata verified. All244Pi/48hostclosed,baselineunchanged,captureclosed,leasesfree;combined4622503384/5GiB. Next installed visibleGUI/control/archive boundary, explicit B05/sequential integration/dependency placement, then fresh bounded endurance.
