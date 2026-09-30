@@ -1,6 +1,6 @@
 # Mode guide: delivery snapshot
 
-Current V101: two native storage repairs passed eleven changed cases. Failed archive controls retain partial bytes and distinguish post-replacement failure; target JSON overflow rejects before staging. Both new owners closed;50files85315B exact backup. Installed archive/Stop binding and unified producer limits remain open, so this is not a live recording or offline pass. V100 visible inspection and V98 saved model entry remain separate. See FIELD_STORAGE_REPAIR_FINDINGS_V1 and CHECK_SUMMARY_V101.
+Current V102: shared producer sidecar limits and two actual archive-worker failure paths pass. Checkpoint failure requests a Stop-event fixture before diagnostics, preserves partial bytes and prevents publisher retry;70KiB late metadata retains joined PARTIAL evidence. Both process owners and archive workers closed;63files255050B exact backup. Actual controller/source Stop, remaining writer/layout integration and offline operation remain open. See FIELD_ARCHIVE_STOP_FINDINGS_V1 and CHECK_SUMMARY_V102.
 
 Product mode controls labels/roster; backend selects caption/diarizer/embedding models; D1 geometry controls buffering/context. Availability retains V95 model evidence and V96 pre-owner validation recovery. V98 qualifies one withdrawn Streaming fresh-child passage. V100 corrected visible inspection lifecycle passed; no general operator/live launcher acceptance. Final guide must match the frozen device launcher, not imply every possible combination was tested.
 

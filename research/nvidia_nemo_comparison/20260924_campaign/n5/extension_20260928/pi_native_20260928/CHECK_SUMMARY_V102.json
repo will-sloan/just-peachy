@@ -1,0 +1,116 @@
+{
+  "schema": "pi-native-check-summary.v102",
+  "checked_utc": "2026-09-30T20:25:31.641968+00:00",
+  "status": "PASS_SHARED_SLOTS_AND_NATIVE_ARCHIVE_STOP_BINDING_ONLY",
+  "run": "field-archive-stop-v1",
+  "scope": "Shared sidecars and actual retained archive worker; external source Stop Event fixture only",
+  "result": {
+    "status": "PASS_SHARED_SLOTS_AND_NATIVE_ARCHIVE_STOP_BINDING_ONLY",
+    "archive_cases": 2,
+    "slot_rejections": 4,
+    "live_source_stop_fixture": true,
+    "actual_controller": false,
+    "source_samples": 0,
+    "models": false,
+    "capture": false,
+    "GUI": false,
+    "archive_workers_joined": true,
+    "partial_preserved": true,
+    "failed_publication_not_retried": true,
+    "shared_sidecar_reserved_bytes": 1851392,
+    "whole_run_integrated": false,
+    "elapsed_seconds": 0.4940211819775868,
+    "peak_rss_bytes": 35667968
+  },
+  "sidecars": {
+    "producers": 10,
+    "groups": [
+      "failure",
+      "closure",
+      "telemetry"
+    ],
+    "per_producer_raw_bytes": 65536,
+    "per_producer_failure_json_bytes": 8192,
+    "per_producer_closure_bytes": 32768,
+    "telemetry_each_bytes": 262144,
+    "telemetry_write_bytes": 8192,
+    "reserved_per_root_bytes": 1851392,
+    "test_roots": 3,
+    "all_producers_rebound": false,
+    "pending_failure_fences_group": true
+  },
+  "archive": {
+    "retained_sessions_methods_exact": true,
+    "publisher_limit_bytes": 262144,
+    "control_caller_limit": 65536,
+    "detail_caller_limit": 262144,
+    "old_plus_pending_detail_bytes": 524288,
+    "publication_failure_write_calls": 2,
+    "preserved_pending_bytes": 3,
+    "old_primary_state": "OPEN",
+    "independent_closure_failed_and_worker_joined": true,
+    "late_detail_characters": 70000,
+    "source_callback": "threading.Event fixture; not Controller/microphone source",
+    "publication_retry": false
+  },
+  "closures": {
+    "native_version": 217,
+    "recorded_pi_closed": 394,
+    "prior_isolated_host_closed": 48,
+    "field_host_records_checked": 10,
+    "nonidentity_closures": 3,
+    "baseline_unchanged": true,
+    "capture_closed": true,
+    "leases_free": true,
+    "research_active": false
+  },
+  "backup": {
+    "files": 63,
+    "bytes": 255050,
+    "sha256": "47a840eac7e66420bf54ad1f786021d2dbe47e1509819bd759611faed1a228d2"
+  },
+  "budget": {
+    "combined_bytes": 5317194020,
+    "combined_cap_bytes": 5368709120,
+    "output_headroom_bytes": 51515100,
+    "total_payload_with_reservations": 55712454303,
+    "total_payload_cap_bytes": 55834574848,
+    "payload_headroom_bytes": 122120545,
+    "before_later_metadata": true
+  },
+  "resources": {
+    "protocol_seconds": 0.4940211819775868,
+    "process_peak_rss_bytes": 35667968,
+    "sample_count": 3,
+    "unique_owner_sample_peak": 55787520,
+    "minimum_available_ram_bytes": 1395343360,
+    "temperature_range_c": [
+      54.0,
+      54.55
+    ],
+    "clock_range_khz": [
+      2400000,
+      2400000
+    ],
+    "throttle_values": [
+      "throttled=0x0"
+    ],
+    "pi_free_bytes": 17429987328,
+    "closed_available_ram_bytes": 1422721024
+  },
+  "preparation": {
+    "rejected_draft_guard_AST": true,
+    "unpublished_numeric_replacement_error_preserved": true,
+    "actual_guard_retained": true,
+    "native_runs": 1
+  },
+  "limitations": [
+    "No actual Controller, source, model, capture or GUI",
+    "No all-writer/live-layout or host-backup composition proof",
+    "No constructor/queue/closure-callback failure stress",
+    "No durable crossprocess failure latch or physical exhaustion/powerloss/concurrency",
+    "No new speed/accuracy/endurance"
+  ],
+  "next": "Bind real Controller and isolated source Stop callback plus source/config/TRACE/native/archive limits into one admitted live run; avoid further generic helper suites",
+  "hard_deadline_utc": "2026-10-01T17:42:44Z"
+}

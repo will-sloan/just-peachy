@@ -1,0 +1,23 @@
+{
+  "schema": "field-archive-stop-derivation.v1",
+  "parents": {
+    "field_archive_budget_v3.py": "477fc37b9daa98bcae4e1297077afd58fcff1db7e554dcdf4d0ef9daa58c6813",
+    "archive_finalization_v1/app/sessions.py": "31f0630832453af5d937ca5db2a433f3f8bd2f40ea1fa4369ced5f1c5f713221",
+    "dispatch_field_storage_repair_v1.py": "2ec1ce845ae9da034a994dce01078abfb231afd149af3fa002bd4f8854246d6b"
+  },
+  "changes": [
+    "Publisher V4 permits explicit262144 detail slot; control callers retain65536. V3 remains unchanged and is not whole archive-compatible by itself.",
+    "Fresh sessions copy changes only helper import/docstring; all archive bodies unchanged and wrapped by explicit stop/latch subclass.",
+    "New common failure/closure/telemetry slot map has independent per-producer caps enforced while holding GroupWriter lock; actual source/config/audio producer rebinding still required.",
+    "Actual native retained archive threads use shared Stop/closure wrappers; external source stop is an Event fixture, not a live source or Controller.",
+    "Fresh dispatcher uses16MiB request8MiB each side; unchanged guards/envelope/finite staging."
+  ],
+  "installed_pins": {
+    "/home/peachyprototype/JustPeachy/research/nemotron-20260928/field-artifact-install-v2/deployment/releases/b01-offline-20260930-v12/app/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "/home/peachyprototype/JustPeachy/research/nemotron-20260928/field-artifact-install-v2/deployment/releases/b01-offline-20260930-v12/app/paths.py": "d15788389b14471914846634d4f76647f5578e6723e8d6373b00f1730de8bba3",
+    "/home/peachyprototype/JustPeachy/research/nemotron-20260928/field-artifact-install-v2/deployment/releases/b01-offline-20260930-v12/app/app_bounded_artifacts_v1.py": "5a41a915e4cb5d08ac1daeef974a54fb519f721acc9a7b523c62514192cf77c6",
+    "/home/peachyprototype/JustPeachy/research/nemotron-20260928/field-artifact-install-v2/deployment/releases/b01-offline-20260930-v12/native/field_artifact_limits_v1.py": "c4fdc7fa8e5cd83dcc20d2fa79e44d098298c2fb857813a1cf43d19849f3f9a8",
+    "/home/peachyprototype/JustPeachy/research/nemotron-20260928/field-artifact-install-v2/deployment/releases/b01-offline-20260930-v12/config/artifact_limits.json": "c99d7fbac178ee7a53646626c14791bc43ef154d3aa65fbca787ef4b590500fc",
+    "/home/peachyprototype/JustPeachy/research/nemotron-20260928/field-artifact-install-v2/deployment/releases/b01-offline-20260930-v12/RELEASE_MANIFEST.json": "274e6de279264f89642e3857c64bf164c699b600cd99e922429020b548bf55f0"
+  }
+}

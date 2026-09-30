@@ -1,6 +1,6 @@
 # Consolidated paths, backups and simplification
 
-Current V101: two native storage repairs passed eleven changed cases. Failed archive controls retain partial bytes and distinguish post-replacement failure; target JSON overflow rejects before staging. Both new owners closed;50files85315B exact backup. Installed archive/Stop binding and unified producer limits remain open, so this is not a live recording or offline pass. V100 visible inspection and V98 saved model entry remain separate. See FIELD_STORAGE_REPAIR_FINDINGS_V1 and CHECK_SUMMARY_V101.
+Current V102: shared producer sidecar limits and two actual archive-worker failure paths pass. Checkpoint failure requests a Stop-event fixture before diagnostics, preserves partial bytes and prevents publisher retry;70KiB late metadata retains joined PARTIAL evidence. Both process owners and archive workers closed;63files255050B exact backup. Actual controller/source Stop, remaining writer/layout integration and offline operation remain open. See FIELD_ARCHIVE_STOP_FINDINGS_V1 and CHECK_SUMMARY_V102.
 
 Latest private evidence: `local/n5/research-extension-20260928/pi-native-20260928/d1-visible-entry-v2-evidence`; exact75file352621B backup,3privatePNG/geometry and complete tested lifecycle receipts. Preparation/source/visual review in `d1-visible-entry-v2-preparation`; V1failure untouched.
 

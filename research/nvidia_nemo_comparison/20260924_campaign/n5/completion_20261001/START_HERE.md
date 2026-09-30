@@ -1,6 +1,6 @@
 # Offline Pi delivery and handoff
 
-Current V101: two native storage repairs passed eleven changed cases. Failed archive controls retain partial bytes and distinguish post-replacement failure; target JSON overflow rejects before staging. Both new owners closed;50files85315B exact backup. Installed archive/Stop binding and unified producer limits remain open, so this is not a live recording or offline pass. V100 visible inspection and V98 saved model entry remain separate. See FIELD_STORAGE_REPAIR_FINDINGS_V1 and CHECK_SUMMARY_V101.
+Current V102: shared producer sidecar limits and two actual archive-worker failure paths pass. Checkpoint failure requests a Stop-event fixture before diagnostics, preserves partial bytes and prevents publisher retry;70KiB late metadata retains joined PARTIAL evidence. Both process owners and archive workers closed;63files255050B exact backup. Actual controller/source Stop, remaining writer/layout integration and offline operation remain open. See FIELD_ARCHIVE_STOP_FINDINGS_V1 and CHECK_SUMMARY_V102.
 
 **Hard boundary: October 1, 2026, 13:42:44 Toronto / 17:42:44 UTC.** This is exactly 24 hours after the request was anchored at September30 17:42:44 UTC. It replaces the prospective17:47:34 UTC checkpoint; historical evidence remains unchanged.
 
