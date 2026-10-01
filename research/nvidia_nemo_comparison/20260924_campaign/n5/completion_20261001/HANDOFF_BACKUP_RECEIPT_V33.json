@@ -1,0 +1,13 @@
+{
+  "status": "EXACT_DOCUMENTATION_BACKUP_VERIFIED",
+  "label": "operator-broker-v33",
+  "archive": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\completion-20261001-backups\\operator-broker-v33\\NVIDIA_CAMPAIGN_CHATGPT_HANDOFF_20260924_operator-broker-v33.zip",
+  "bytes": 37548,
+  "sha256": "d42d9334c109da810e87cd37c6afa68383454c3bdf5025370db9537eb3c8881b",
+  "member_count": 15,
+  "cpu_affinity": [
+    14
+  ],
+  "delivery_status": "IN_PROGRESS",
+  "runtime_or_offline_acceptance": false
+}

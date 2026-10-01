@@ -1,0 +1,205 @@
+{
+  "version": 125,
+  "as_of_utc": "2026-10-01T06:23:37.957257+00:00",
+  "status": "PASS_TWO_RECORDING_HISTORY_CONSUMER_BROKER_PREPARED_NATIVE_OPEN",
+  "native_attempts": 0,
+  "actual_capture": false,
+  "model_loads": 0,
+  "gui_attempts": 0,
+  "active_research_compute": false,
+  "host_history_contract": {
+    "status": "PASS_TWO_RETAINED_RECORDING_HISTORY_READS_HOST_ONLY",
+    "rejects": [
+      "descriptor-shape",
+      "identifier-traversal",
+      "stale-metadata-pin",
+      "wrong-release-pin",
+      "audit-write",
+      "audit-mkdir",
+      "audit-launch"
+    ],
+    "native_execution": false,
+    "gui_execution": false,
+    "capture_or_model_started": false,
+    "store_constructor_called": false,
+    "nonempty_caption_proof": false,
+    "seconds": 3.719000000040978,
+    "ended_utc": "2026-10-01T06:19:25.653073+00:00",
+    "sources": [
+      {
+        "slot": "slot-01",
+        "members": 7,
+        "bytes": 23566754,
+        "caption_rows": 0,
+        "actual_installed_consumer": true,
+        "all_hashes_unchanged": true
+      },
+      {
+        "slot": "slot-02",
+        "members": 7,
+        "bytes": 5212492,
+        "caption_rows": 0,
+        "actual_installed_consumer": true,
+        "all_hashes_unchanged": true
+      }
+    ]
+  },
+  "selected": {
+    "broker": "field_operator_broker_v1.py",
+    "chooser": "field_operator_chooser_v1.py",
+    "history": "field_operator_history_v1.py",
+    "files": "field_operator_broker_files_v1.py",
+    "layout": "field_operator_broker_layout_v1.py",
+    "plan": "field_operator_session_plan_v2.py",
+    "ledger": "field_operator_session_ledger_v3.py",
+    "parent": "field_operator_parent_v8.py",
+    "entry": "field_operator_entry_v7.py",
+    "check": "check_field_operator_history_v2.py",
+    "readme": "README_FIELD_OPERATOR_BROKER_V2.md"
+  },
+  "proposed_allocations": {
+    "2": {
+      "schema": "just-peachy.operator-broker-allocation.v1",
+      "count": 2,
+      "slot_names": [
+        "slot-01",
+        "slot-02"
+      ],
+      "target_per_session": 146919980,
+      "host_per_session": 151114284,
+      "metadata_maximum_bytes": 4358144,
+      "target_maximum_bytes": 298198104,
+      "host_maximum_bytes": 306586712,
+      "combined_request_bytes": 604784816,
+      "slot_file_bytes": 16384,
+      "slot_write_bytes": 16384,
+      "maximum_slot_files": 12,
+      "maximum_release_bytes": 65536,
+      "maximum_session_files": 256,
+      "maximum_session_directories": 64,
+      "reuse_deleted_or_failed_reservation": false,
+      "broker": {
+        "once": {
+          "OWNER.json": 16384,
+          "ACK.json": 16384,
+          "ENVELOPE.json": 32768,
+          "CONFIG.json": 65536,
+          "MANIFEST.json": 131072,
+          "TEMPLATE.json": 131072,
+          "RESULT.json": 65536,
+          "FAILURE.json": 16384
+        },
+        "append": {
+          "service.log": 131072,
+          "telemetry.jsonl": 262144
+        },
+        "code_maximum_bytes": 2097152,
+        "code_maximum_files": 64,
+        "code_member_maximum_bytes": 131072,
+        "directory_names": [
+          "broker",
+          "code"
+        ],
+        "maximum_write_bytes": 16384,
+        "extra_per_side_bytes": 3571712
+      }
+    },
+    "4": {
+      "schema": "just-peachy.operator-broker-allocation.v1",
+      "count": 4,
+      "slot_names": [
+        "slot-01",
+        "slot-02",
+        "slot-03",
+        "slot-04"
+      ],
+      "target_per_session": 146919980,
+      "host_per_session": 151114284,
+      "metadata_maximum_bytes": 4882432,
+      "target_maximum_bytes": 592562352,
+      "host_maximum_bytes": 609339568,
+      "combined_request_bytes": 1201901920,
+      "slot_file_bytes": 16384,
+      "slot_write_bytes": 16384,
+      "maximum_slot_files": 12,
+      "maximum_release_bytes": 65536,
+      "maximum_session_files": 256,
+      "maximum_session_directories": 64,
+      "reuse_deleted_or_failed_reservation": false,
+      "broker": {
+        "once": {
+          "OWNER.json": 16384,
+          "ACK.json": 16384,
+          "ENVELOPE.json": 32768,
+          "CONFIG.json": 65536,
+          "MANIFEST.json": 131072,
+          "TEMPLATE.json": 131072,
+          "RESULT.json": 65536,
+          "FAILURE.json": 16384
+        },
+        "append": {
+          "service.log": 131072,
+          "telemetry.jsonl": 262144
+        },
+        "code_maximum_bytes": 2097152,
+        "code_maximum_files": 64,
+        "code_member_maximum_bytes": 131072,
+        "directory_names": [
+          "broker",
+          "code"
+        ],
+        "maximum_write_bytes": 16384,
+        "extra_per_side_bytes": 3571712
+      }
+    }
+  },
+  "new_resource_policy_issued": false,
+  "source_backup": {
+    "files": 12,
+    "bytes": 77671,
+    "independent_restore_exact": true
+  },
+  "owners": {
+    "collector_records": 441,
+    "collector_unique": 430,
+    "additional_unique": 123,
+    "total_exact_closed_records": 564,
+    "unique_pi": 553,
+    "duplicate_records": 11,
+    "host_closed": 327,
+    "typed_nonidentity_closures": 3,
+    "later_metadata_owners_separate": true
+  },
+  "resources": {
+    "census": 229,
+    "closure": 285,
+    "combined_output_bytes": 5800362503,
+    "payload_with_target_and_reservations_bytes": 56195622786,
+    "target_bytes": 3011078510,
+    "host_window_bytes": 2789283993,
+    "old_output_excess": 431653383,
+    "old_payload_excess": 361047938,
+    "stale_before_future_dispatch": true,
+    "readonly_policy": "TRANSFER_RESOURCE_POLICY_V2"
+  },
+  "runtime_accepted": false,
+  "offline_accepted": false,
+  "physical_touch": false,
+  "latest_actual_scoped_pass": "CHECK_SUMMARY_V123.json",
+  "next_action": "Finish the native broker stager and outer gate using the reserved-root/accept_staged boundary, exact broker lifetime lease and shared CPU200%/Tasks64/AS/stack controls. Review full broker and each-child capsule/pins, modeRegistry18 dependencies and separate liveD1 binding; bind metadata, stdout, telemetry and full mirror allocations. Implement actual staging callback, entry CLI, failure Stop/physical closure, broker owner ACK and whole-tree exporter/mirror. Then refresh ALL owners/lifetimes/census/target and admit a measured changed two-session composition. Qualify independent parents/children/archives, previous-history UI access and capture-off closure before next session. No healthy history/live/owner/allocation reruns for version. Then versioned health/install/local automatic recovery/activation/rollback/offline; no firmware maintenance absent a new fault, no ASR detour/questions/extension.",
+  "unexecuted": [
+    "native broker/chooser/ledgerV3/parentV8 and repeated composition",
+    "native historical UI",
+    "all new native writer/fault/crash/concurrency behavior"
+  ],
+  "unresolved_execution_boundaries": [
+    "actual native staging callback",
+    "outer resource gate and entry CLI",
+    "complete capsule and mode/D1 pins",
+    "whole-tree exporter/mirror/recovery"
+  ],
+  "failures_preserved": [
+    "Read-only Windows rg literal glob and wrong module path lookups",
+    "Outer orchestration index-versus-indexOf error before host execution; corrected fresh metadata command"
+  ]
+}
