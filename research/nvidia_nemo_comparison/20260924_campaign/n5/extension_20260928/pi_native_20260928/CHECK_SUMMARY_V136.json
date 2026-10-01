@@ -1,0 +1,148 @@
+{
+  "version": 136,
+  "as_of_utc": "2026-10-01T11:30:02.566558+00:00",
+  "status": "PASS_CHANGED_HOST_JOINT_BINDING_NATIVE_INITIALIZER_PREPARED",
+  "native_app_attempts": 0,
+  "native_manager_attempts": 0,
+  "native_local_backup_attempts": 0,
+  "actual_capture": false,
+  "model_sessions": 0,
+  "active_research_compute": false,
+  "capture_off_at_readonly_review": true,
+  "observed_native_closure": 311,
+  "selected": {
+    "contract": "field_local_joint_contract_v3.py",
+    "initializer": "field_local_manager_initialize_v3.py",
+    "check": "check_field_local_joint_binding_v2.py",
+    "readme": "README_FIELD_LOCAL_JOINT_V4.md",
+    "plan": "field_local_release_plan_v2.py",
+    "journal": "field_local_release_files_v6.py",
+    "supervisor": "field_local_supervisor_v3.py",
+    "gate": "field_operator_broker_gate_v12.py",
+    "copier": "field_local_broker_backup_v2.py",
+    "collector": "collect_native_closure_v16.py"
+  },
+  "source_backup": {
+    "files": 12,
+    "bytes": 73403,
+    "independent_restore_exact": true,
+    "all_closed_before_scope_expiry": false,
+    "first_draft_late_seconds": 6.386739,
+    "fresh_derivatives_closed_within_scope2": true
+  },
+  "owners": {
+    "collector_records": 480,
+    "collector_unique": 456,
+    "additional_unique": 200,
+    "total_exact_closed_records": 680,
+    "unique_pi": 656,
+    "duplicate_records": 24,
+    "host_closed": 609,
+    "typed_nonidentity_closures": 3,
+    "later_metadata_owners_separate": true
+  },
+  "resources": {
+    "census": 250,
+    "closure": 311,
+    "combined_output_bytes": 5894422388,
+    "payload_with_target_and_reservations_bytes": 56289682671,
+    "target_bytes": 3027013451,
+    "host_window_bytes": 2867408937,
+    "old_output_excess": 525713268,
+    "old_payload_excess": 455107823,
+    "stale_before_future_dispatch": true,
+    "readonly_policy": "TRANSFER_RESOURCE_POLICY_V2"
+  },
+  "host_binding_check": {
+    "status": "PASS_CHANGED_JOINT_BINDING",
+    "positive_groups": 1,
+    "rejected": [
+      "boolean-recording-count",
+      "two-session-driver",
+      "stale-manager-digest",
+      "already-bound-capsule",
+      "installed-manifest-drift",
+      "extra-qualification-field",
+      "duplicate-control-key",
+      "foreign-root",
+      "output-one-byte-short",
+      "payload-one-byte-short",
+      "manager-policy-digest",
+      "registry-drift",
+      "missing-prior-identities",
+      "boolean-owner-pid",
+      "operation-exceeds-600",
+      "manager-case-alias",
+      "boolean-manifest-size",
+      "oversized-base64-before-decode",
+      "traversal-member"
+    ],
+    "actual_prepared_capsules": true,
+    "synthetic_release_operation_owners": true,
+    "source_pins": {
+      "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\operator-local-capsule-v1-preparation\\capsules-v3\\BUNDLE.json": "fc182d9dc059621fd80f10bf794195fd75b35112fd3ada8beee3ee995ebcb770",
+      "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\operator-local-capsule-v1-preparation\\capsules-v3\\MANAGER_BUNDLE.json": "c9eb94e4ccc428a5db1b7d78b34fb9837851b60ba575fabf82867686949a10be",
+      "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\field-local-release-v1-admission\\RELEASE.json": "d8600a564dc41641ab799b1f64dc977a9ef719c8c3a45847d00cd6a5023dd454"
+    },
+    "output_manifest_sha256": "6a9ca57a8b4dfb6c9734e7138511c9c4c9212221738a113ea5521df0a448e32c",
+    "native_execution": false,
+    "journal_constructor": false,
+    "admission_issued": false,
+    "source_unchanged": true
+  },
+  "closed_check_owners": [
+    {
+      "root": "joint-binding-v1",
+      "owner": {
+        "pid": 70156,
+        "create_time": 1790853912.8543658,
+        "affinity": [
+          14
+        ]
+      },
+      "observed_create_time": null,
+      "exact_alive": false
+    },
+    {
+      "root": "joint-binding-v2",
+      "owner": {
+        "pid": 76028,
+        "create_time": 1790853972.2505548,
+        "affinity": [
+          14
+        ]
+      },
+      "observed_create_time": null,
+      "exact_alive": false
+    }
+  ],
+  "native_initializer_executed": false,
+  "journal_backup_consumer_native_qualified": false,
+  "native_policy_issued": false,
+  "production_policy_issued": false,
+  "production_admission_implemented": false,
+  "failed_source_backup_implemented": false,
+  "automatic_recovery_qualified": false,
+  "qualification_maximum_seconds": 600,
+  "proposed_joint_request_bytes": 617760944,
+  "proposal_admitted": false,
+  "proposed_idle_seconds": 86400,
+  "proposed_idle_lifetime_admitted": false,
+  "new_native_identity_gap": false,
+  "prior_identity_gaps_preserved": true,
+  "runtime_accepted": false,
+  "offline_accepted": false,
+  "physical_touch": false,
+  "accuracy": false,
+  "selected_asr": "Sherpa ONNX",
+  "desktop_backend_shortcuts": "OPEN",
+  "optional_raw_processed_recording_pc_offload": "OPEN",
+  "next_action": "Implement the fresh joint manager/broker issuer and dispatcher around binder3 and initializer3, plus a bounded finish/reopen phase wrapper, complete success/failure manager-tree host mirror and strict exact new nested journal-owner collector bindings BEFORE a native attempt. Bind Supervisor3 install-reserve before broker staging, actual current gate/broker owners and Journal6 STARTED before ACK; require natural gate reap/exact death, fresh-process CLOSED and complete independent Pi-local backup, fresh read-only reopen and full independent host copies of broker and local mirror. One-recording/three-launch617760944B proposal remains unadmitted; no old consumed policy/root reuse. Failed-source recovery, production lifetime and activation/rollback remain open. Keep Sherpa ONNX ASR; desktop profile shortcuts must open one versioned frontend idle/capture off, and true raw taps must be independently qualified before offering paired raw/processed recording and verified copy-to-PC. Each operation plus cleanup/backup must fit600seconds before17:42:44Z; finalization begins16:42:44Z. Verify local automatic recovery before network isolation. Preserve old failures/pending/consumed roots, modes/assets/display270, manual controls and captureoff. No unchanged healthy reruns, ASR replacement, firmware reset, questions or automatic extension.",
+  "claim_limits": "One changed host positive group/19rejects uses actual prepared capsule bytes but synthetic release/time/accounting/identities. No Journal constructor/native filesystem/current identity/service/recording/copy/GUI or performance/accuracy qualification. Binder does not issue admission. Initializer and joint integration remain unexecuted. Python cooperative guards are not a sandbox/kernel quota.",
+  "preserved_failures": [
+    "Tool-script JavaScript parse failure before any process/file creation.",
+    "First host binding rejected actual five retained broker JSON members before native work. Fresh binder3 allows exactly these existing names under unchanged64member/2MiB bounds; manager remains Python-only. Failed source/root/owner retained.",
+    "Readonly lookup of nonexistent field_operator_broker_streamed_mirror_v2.py; no process/native mutation.",
+    "First draft source/README backup closed11:19:26.277482 after scope1 expiry11:19:19.890743,6.386739seconds late. Exact backups/restores preserved, no native use; scope2 fresh derivatives closed on time in same cumulative2MiB allocation."
+  ]
+}
