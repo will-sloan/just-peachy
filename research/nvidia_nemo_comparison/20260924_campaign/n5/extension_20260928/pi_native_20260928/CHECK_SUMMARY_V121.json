@@ -1,0 +1,116 @@
+{
+  "version": 121,
+  "as_of_utc": "2026-10-01T04:40:59.456726+00:00",
+  "status": "PASS_OPERATOR_HOST_CONTRACT_INTERACTIVE_CHILD_PREPARED_NATIVE_OPEN",
+  "host_review": {
+    "status": "PASS_CHANGED_OPERATOR_HOST_CONTRACT_ONLY",
+    "checks": [
+      "actual-class-MRO-and-method-routing-without-constructor",
+      "owned-save-open-export-preconditions",
+      "actual-UI-New-args-Save-current-and-first-Start-boundary"
+    ],
+    "rejects": [
+      "foreign-id",
+      "foreign-export-path",
+      "missing-export-consent",
+      "delete-before-readback",
+      "import-before-delete",
+      "unavailable-play",
+      "active-engine",
+      "unclosed-archive",
+      "open-cardinality",
+      "latched-writer-failure",
+      "Start-before-audio-New",
+      "same-process-second-Start"
+    ],
+    "seconds": 0.2029999999795109,
+    "native_constructors": false,
+    "capture": false,
+    "models": false,
+    "gui": false,
+    "archive_payload_mutations": false,
+    "returncode": 0
+  },
+  "prepared": {
+    "controller": "field_operator_controller_v2.py",
+    "ui": "field_operator_ui_v1.py",
+    "entry": "field_operator_entry_v1.py",
+    "actions": "field_operator_actions_v2.py",
+    "layout": "field_operator_layout_v1.py",
+    "physical": "field_operator_files_v1.py",
+    "source_graph": [
+      "isolated_pipeline_source_v10.py",
+      "isolated_live_facade_v8.py",
+      "isolated_live_transport_v5.py",
+      "field_live_source_factory_v5.py",
+      "field_live_source_bridge_v5.py",
+      "field_live_source_outputs_v5.py"
+    ],
+    "runtime_executed": false,
+    "parent_operator_launcher": false,
+    "auto_start": false,
+    "full_target_reservation": 146756140,
+    "full_host_reservation": 150950444,
+    "combined_reservation": 297706584,
+    "new_resource_policy_issued": false
+  },
+  "source_backup": {
+    "files": 17,
+    "bytes": 149621,
+    "separate_restore_exact": true
+  },
+  "owners": {
+    "collector_records": 425,
+    "collector_unique": 416,
+    "additional_unique": 85,
+    "total_exact_closed_records": 510,
+    "unique_pi": 501,
+    "duplicate_records": 9,
+    "host_closed": 243,
+    "typed_nonidentity_closures": 3,
+    "later_metadata_owners_separate": true
+  },
+  "resources": {
+    "census": 222,
+    "closure": 274,
+    "combined_output_bytes": 5733482436,
+    "payload_with_target_and_reservations_bytes": 56128742719,
+    "target_bytes": 2985745712,
+    "host_window_bytes": 2747736724,
+    "closed_readonly_policy": "TRANSFER_RESOURCE_POLICY_V2",
+    "policy_sha256": "097f0ee8d0cd7459376b793e7c949ed4be046392d0c6a91d8cae8ff1f8b1f9f7",
+    "old_output_headroom": -364773316,
+    "old_payload_headroom": -294167871,
+    "closed_policy_output_headroom": 203554876,
+    "closed_policy_payload_headroom": 203905729,
+    "stale_before_future_dispatch": true,
+    "before_source_and_later_metadata": true
+  },
+  "preflight_lifetime_files": 30,
+  "failures": [
+    {
+      "scope": "readonly host metadata selector",
+      "before_ssh": true,
+      "record": "operator-entry-v1-preparation/READ_ONLY_PREFLIGHT_FAILURE_V1.json"
+    }
+  ],
+  "missing_identity_gaps": [
+    "V109 failed exporter58929 startticks missing",
+    "V111 host check PID/create_time missing",
+    "V113 inline issuer/read-only utilities unregistered",
+    "V114 first host pre-SSH failed coordinator PID/create_time unrecorded; issuing wrapper was registered",
+    "V118 v2 early gate PID/start_ticks unrecorded; natural SSH1 only; V3 registers gate before preflight"
+  ],
+  "runtime_offline_accepted": false,
+  "baseline_unchanged": true,
+  "capture_closed": true,
+  "leases_free": true,
+  "research_compute_active": false,
+  "last_positive_saved_model_summary": 98,
+  "last_live_source_model_summary": 117,
+  "last_saved_actions_summary": 118,
+  "last_transfer_actions_summary": 120,
+  "hard_deadline_utc": "2026-10-01T17:42:44Z",
+  "launcher_milestone": "MISSED_STILL_OPEN",
+  "next_action": "Finish parent fresh-process operator lifecycle and native stager/gate/dispatcher/exporter/mirror for the prepared interactive child. Resolve admission near64KiB with a planned exact owner binding; issue a fresh measured policy from current census/ALL owners/lifetimes. Qualify changed live+data composition through actual visible controls; no healthy120s/source/model/transfer rerun solely for version. Then versioned health/install/local automatic recovery/activation/rollback/offline. General repeated modes/history, nonempty captions/gallery, physical touch/noisy human gates remain open."
+}
