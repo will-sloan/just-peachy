@@ -1,7 +1,7 @@
-# Just Peachy — final delivery status
-**The requested offline field release is incomplete.** Implementation stopped at the required October 1, 2026 15:14:58 UTC finalization reserve. The hard boundary is 16:14:58 UTC (12:14:58 Toronto). No extension or new campaign is started.
+# Just Peachy â€” final delivery status
+**Implementation has resumed by direct user request; the deployable offline runtime is still incomplete.** The earlier deadline closed as incomplete and its receipts remain immutable. The resumed goal has no new hard deadline. Follow [current runtime progress](CURRENT_RUNTIME_PROGRESS.md) and the26-item checklist.
 
-The Pi retains the original rc5 app. At the last native closure, capture was closed, the research and hardware leases were free, and no research units were active. The display remains 480×800 at transform270. Automatic listening was disabled through the normal Settings control after a verified backup; persistence through a final-release restart has not been tested.
+The Pi retains the original rc5 app. At the last native closure, capture was closed, the research and hardware leases were free, and no research units were active. The display remains 480Ã—800 at transform270. Automatic listening was disabled through the normal Settings control after a verified backup; persistence through a final-release restart has not been tested.
 
 There is **no accepted new offline Nemotron desktop launcher**. Do not run a consumed research dispatcher as a daily recording app. The timed qualification policies and their output directories are closed evidence, not renewable user permissions.
 
@@ -14,14 +14,14 @@ There is **no accepted new offline Nemotron desktop launcher**. Do not run a con
 These establish bounded integration, not persistent manual operation, nonempty captions, offline startup, raw microphone recording or field accuracy.
 
 ## What remains before this is usable as requested
-[FINISH_CHECKLIST.md](FINISH_CHECKLIST.md) is the complete26-item list. The critical blockers are the persistent manual manager, finite production recording/lifetime policy, failed-session recovery, final backend/profile shortcuts, optional recording controls, activation/rollback, nonempty-caption/gallery checks and offline acceptance. Raw MIC0–MIC3 plus processed recording remains unqualified. These are required gaps.
+[FINISH_CHECKLIST.md](FINISH_CHECKLIST.md) is the complete26-item list. The critical blockers are the persistent manual manager, finite production recording/lifetime policy, failed-session recovery, final backend/profile shortcuts, optional recording controls, activation/rollback, nonempty-caption/gallery checks and offline acceptance. Raw MIC0â€“MIC3 plus processed recording remains unqualified. These are required gaps.
 
 Keep **Sherpa ONNX ASR**, Nemotron-3 diarization and compatible ReDimNet. Nemotron ASR is deferred by direct user choice. An explicit anonymous option is retained in the design; personal names require compatible evidence.
 
 ## Where to go
 - [CHATGPT_HANDOFF.md](CHATGPT_HANDOFF.md): concise architecture, results, failures and exact continuation boundary.
 - [MODE_GUIDE.md](MODE_GUIDE.md): modes, latency and availability.
-- [FINAL_COVERAGE.md](FINAL_COVERAGE.md): N1–N5 requirements and all34 retained methods.
+- [FINAL_COVERAGE.md](FINAL_COVERAGE.md): N1â€“N5 requirements and all34 retained methods.
 - [HARDWARE_CAPABILITIES.json](HARDWARE_CAPABILITIES.json): observed audio/display properties and unverified hardware.
 - [FIELD_VALIDATION.md](FIELD_VALIDATION.md) and [FIELD_RUN_TEMPLATE.json](FIELD_RUN_TEMPLATE.json): future consented field-testing protocol. The kit does not certify the app.
 - [PATHS_AND_BACKUPS.md](PATHS_AND_BACKUPS.md): private recording copies, code and immutable packages.

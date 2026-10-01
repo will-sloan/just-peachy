@@ -1,0 +1,25 @@
+# Current deployable-runtime work
+
+Implementation resumed by direct user request after the previous incomplete deadline. The same26-item checklist and requirements remain in force. No new hard deadline was specified. The6–10hour estimate is an estimate, not a guarantee or resource admission.
+
+The runtime is **not yet deployable**. Current priority is F04/F05, then the remaining supported profiles, shortcuts, recovery, recording/offload and offline activation acceptance.
+
+Completed host work in the resumed implementation:
+- Finite production policy: three positive fixture groups and25rejects. Five explicit profile identifiers, four recording slots and16launches; full independent2453742272B reservation is a proposal, not a device admission. Verified local backup is required before another recording; independent PC copies may wait until the PC is connected.
+- Production broker policy binding: five profile mappings and22rejects passed on synthetic policies/owners. No engine availability or native execution is implied by those names.
+- Prepared Delayed manual broker capsule V2:64code members481563B;54child code plus4data members. Exact old source derivation, new current-manager/shared-slice binding, durable STARTED before ACK, finite current operation in place of obsolete research expiry. Original child/audio/resource/storage bounds remain.
+- Prepared manager/journal/copier capsule:16modules170861B; opens idle, registers current ownership before project imports, coordinates stage/gate/copy, waits for process/pipe closure and verifies the full local backup. It currently dispatches only Delayed. Other modes, fresh offline boot activation and failed-source recovery still require implementation and qualification.
+- Both broker drafts and the manager capsule have exact private packed backups and complete independent expanded restores. No Pi deployment, capture, model run, native process closure or new offline acceptance occurred during this resumed host work.
+
+A changed startup check observed four positive fixture cases/eight rejects for actual extracted source functions, including the active service before OWNER publication and EOF consumption after child exit. Its prerequisite backup failed on an expired host scope, but the dependent test was mistakenly still run. This ordering violation is preserved; its source was subsequently backed/restored, and the healthy test was not rerun. It is not native acceptance. Separate unbacked draft gaps at scope2/3 expiry are also retained. No scope was retroactively extended.
+
+Selected source READMEs: README_FIELD_RUNTIME_V1, POLICY_V2, JOURNAL_V2, CAPSULE_V2, MANAGER_V1 and STARTUP_CHECK_V1 in the native report directory. Private evidence: deployable-runtime-resume-v1 under the existing private Pi evidence root. All original final-incomplete-v50 files and native V141 receipts remain immutable.
+
+Next concrete work:
+1. Finish the reviewed production installer, fresh boot/activation binding and strict new runtime-owner collection. Resolve any integration defects before using the manager on the Pi.
+2. Obtain a fresh all-owner/current-Pi resource census and issue a measured bounded development admission with complete independent reservations.
+3. Qualify the actual new manual runtime composition, then integrate the remaining profiles and required recovery/recording/offload/shortcuts.
+4. Complete offline restart/rollback and final device acceptance, then package the actual runtime and handoff and notify the user.
+
+Last native evidence remains closure315 at15:09:50Z on boot892ed9fa-e39c-48af-8653-eae5e123daad: original rc5 launcher1008/start476 and app1124/start514, capture off, display270. It is stale before any resumed dispatch. Sherpa ONNX ASR remains selected; no Nemotron ASR replacement, download or new research campaign.
+

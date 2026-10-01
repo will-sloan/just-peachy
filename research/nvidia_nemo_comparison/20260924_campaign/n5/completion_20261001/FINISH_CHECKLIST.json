@@ -1,7 +1,7 @@
 {
-  "as_of_utc": "2026-10-01T16:11:37.933850+00:00",
-  "deadline_utc": "2026-10-01T16:14:58Z",
-  "current_item": "CLOSED_INCOMPLETE_DELIVERY",
+  "as_of_utc": "2026-10-01T18:01:08.865913+00:00",
+  "deadline_utc": null,
+  "current_item": "F04_PERSISTENT_RUNTIME_INTEGRATION",
   "items": [
     {
       "id": "F01",
@@ -26,17 +26,17 @@
     },
     {
       "id": "F04",
-      "status": "PARTIAL_NATIVE_INTEGRATION_PASS_MANUAL_ENTRY_OPEN",
+      "status": "PARTIAL_NATIVE_HISTORY_NEW_MANUAL_MANAGER_PREPARED",
       "title": "Finish the persistent local manager",
-      "done_means": "Wire the prepared initializer, broker, finish/reopen, census/export receiver and exact owner closure into one local manual entry. Bind current boot/PID identities, preserve full617760944-byte qualification reservation, and require complete local/PC copies before another slot. No consumed research launcher or expired policy as a user entry.",
-      "evidence": "CHECK_SUMMARY_V141; native reserve/run/finish/localbackup/reopen plus separate full PC copies. Persistent manual entry remains missing."
+      "done_means": "One persistent manual entry with current native ownership, complete local backup before another slot, independently reserved PC copies and reusable verified offload. New production policy; no consumed research launcher or expired policy as user entry.",
+      "evidence": "V141 bounded native integration retained. New runtime manager/journal/copier and complete16-module170861B manager capsule are prepared and backed; no resumed native execution."
     },
     {
       "id": "F05",
-      "status": "OPEN",
+      "status": "HOST_POLICY_BINDING_PASS_NATIVE_ENFORCEMENT_OPEN",
       "title": "Issue and enforce the production recording/lifetime policy",
       "done_means": "Measure current target+PC usage; allocate finite recording count/duration, launch/recovery slots and independent backups. Show limits and exhaustion in the app. Keep CPU/RAM/disk floors, first-fault latch, capture-off startup and explicit Start; no silent cap removal or replenishment.",
-      "evidence": ""
+      "evidence": "Production policy3positivegroups/25rejects and five-profile broker binding/22rejects passed on host synthetic fixtures. Four-recording16-launch2453742272B full independent reservation is proposed, not admitted. PC copies may wait while offline; verified local copy is mandatory before another slot."
     },
     {
       "id": "F06",
@@ -188,5 +188,7 @@
   ],
   "feature_freeze_utc": "2026-10-01T15:14:58Z",
   "delivery_status": "INCOMPLETE",
-  "automation_paused": true
+  "automation_paused": true,
+  "previous_deadline_utc": "2026-10-01T16:14:58Z",
+  "authority": "RESUMPTION_AUTHORITY_V1.json"
 }

@@ -1,0 +1,22 @@
+{
+  "schema": "just-peachy.delivery-resumption.v1",
+  "recorded_utc": "2026-10-01T16:26:04Z",
+  "user_instructions": [
+    "Okay, I want you to finish all this quickly. How long do you think it will take? Please run it. And hurry.",
+    "Okay, please work towards this goal. Please tell me when it is complete. I want to have a deployable runtime for all the different modes that I can test out in real world validation."
+  ],
+  "scope": "Continue existing FINISH_CHECKLIST to a deployable offline runtime; no new campaign.",
+  "prior_deadline_outcome": "INCOMPLETE; old deadline and all closed policies remain historical and immutable.",
+  "resumed_after_prior_deadline": true,
+  "new_hard_deadline_utc": null,
+  "estimate_hours": [
+    6,
+    10
+  ],
+  "estimate_is_guarantee": false,
+  "development_operation_maximum_seconds": 600,
+  "production_lifetime_requires_distinct_finite_policy": true,
+  "old_policy_or_root_reuse_authorized": false,
+  "retain_resource_and_privacy_guards": true,
+  "notify_on_completion": true
+}
