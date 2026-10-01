@@ -1,8 +1,8 @@
 # Deployable runtime finish checklist
 
-The same26 items remain the delivery denominator. Hard deadline: October2,2026 at10:14:20 Toronto (14:14:20Z); finalization09:14:20. See DEADLINE_AUTHORITY_V3.json. Reuse existing implementation; focused functional checks only.
+The same26 items remain the delivery denominator. Hard deadline: October2,2026 at10:14:20 Toronto (14:14:20Z); finalization09:14:20. See DEADLINE_AUTHORITY_V3.json. Focused functional checks only.
 
-Current priority: F04/F17/F18 controlled runtime installation and rollback, then native profile execution. Prepared sources/previews are not native acceptance.
+Current priority: actual profile recording/closure, manager placement and accessible profile selection. Candidate2 is installed and idle; final readiness remains incomplete.
 
 ## F01 — Verify the returned Pi
 
@@ -22,43 +22,43 @@ Evidence: final-delivery-normal-stop-v1/RESULT.json; final-delivery-stop-complet
 
 ## F03 — Disable automatic listening
 
-Status: **ORIGINAL_APP_NEWBOOT_IDLE_FINAL_RUNTIME_OPEN**
+Status: **CANDIDATE_FIRST_START_IDLE_RESTART_OPEN**
 
 Settings backup and independent restore verified; normal UI changed only auto_start_listening to false; saved hash verified. Final-release restart/boot persistence is F19.
 
-Evidence: final-delivery-idle-start-v2/RESULT.json Read-only install inspection4 observed boot cae570ae-9f68-4e09-9c1c-b6dbd4b03e97, original rc5 launcher1002/start484 and app1111/start522, capture closed and actual display270. Current settings216B hash9c1182bbe52a829b5e13ef1f8b91dbb00bfe3e41de8ee2c595976da667eae4b2 retain auto_start_listening=false; other personal settings were not changed. This is original-app boot evidence, not final-runtime/offline/physical-coldboot acceptance.
+Evidence: Candidate2 first startup is capture off with unchanged personal settings; final restart/boot persistence remains F19.
 
 ## F04 — Finish the persistent local manager
 
-Status: **PARTIAL_NATIVE_HISTORY_NEW_MANUAL_MANAGER_PREPARED**
+Status: **NATIVE_MANUAL_MANAGER_INSTALLED_IDLE_RECORDING_OPEN**
 
 One persistent manual entry with current native ownership, complete local backup before another slot, independently reserved PC copies and reusable verified offload. New production policy; no consumed research launcher or expired policy as user entry.
 
-Evidence: V141 bounded native integration retained. New runtime manager/journal/copier and complete16-module170861B manager capsule are prepared and backed; no resumed native execution. Changed runtime preservation check passed once: two actual small Windows copy/graph groups and four rejects, with synthetic policy/native identities/closure. Complete17-module138134B exporter graph checked. New native census/export SSH wrapper is backed and compiled, but unexecuted. Nine source/README files75849B have exact backups and independent restores. Actual Pi export, issuer/current owner integration and deployment remain OPEN. F04/F06/F12 shared live-profile integration, October1: actual installed controller selectors and separate read-only ReDimNet/TitaNet gallery constructors passed a changed HOST fixture (three selected routes/four rejects). One common broker capsule now binds six microphone profiles: baseline, baseline-titanet, d1-delayed, d1-delayed-titanet, d1-anonymous and baseline-anonymous. Actual extracted manager dispatch passed all six selections and three rejects with synthetic policy/activation/gallery facts and memory read adapter. No native/model execution or filesystem staging is implied. Common broker64code/512768B and manager16modules/176012B are fully hash-checked, backed and independently expanded/restored. Manager2 now selects pinned descriptors and a shared capsule; D0 model release requires independently observed process death, D1 retains actual EOF/closure. Four saved Streaming/Chunk52 profiles, deployment, real gallery snapshots, recovery and offline acceptance remain OPEN. Manager3 adds actual local startup/current-boot checks without rewriting immutable activation or old launch records. Only bootstrap_manager and bundle_for_operation differ from manager2, plus current_activation. Complete16-module180937B manager, six microphone descriptors, separate E0/E1 gallery manifests and six idle shortcut/slice/autostart previews are prepared/backed/restored in boot-launch-inputs-v1. Preview policy SHA is deliberately zero and not dispatchable. Manager bundle f1df34cf1bf93b5b583a0df3d8d6339580f6633494a16d66cdc702312f8107a4; manifest390d93da469292566731897538829531e3fa317a831dc678c41bd51f791ea499. Four saved Streaming/Chunk52 routes, actual installation/activation/rollback and all native profile qualification remain OPEN.
+Evidence: Actual release field-runtime-v2 installed and opened idle on October1 at23:43Z. Original rc5 launcher1002/start484 and app1111/start522 closed through normal Tk Close after exact Pi backups/independent restores and two independently read-back PC copies. Installer33283/start2115053 and closure helper33323/start2116340 are checked dead. Twenty-six files89681044B, including all three TitaNet assets88696429B, have complete native hash/readback. Six microphone profile shortcuts, separate E0/E1 gallery snapshots, manager4 and pinned startup/rollback services are installed. Current manager 33309/start2116267 on boot cae570ae-9f68-4e09-9c1c-b6dbd4b03e97 is active and visible; capture is closed, leases free, display270 retained. Available RAM1512456192B and free disk16840372224B were observed. The reported manager geometry480x800+0+62 exposes a placement defect to fix before final UI acceptance. No new model/capture/recording has run; local rollback, saved Streaming/Chunk52 routes, recording/offload and offline restart remain OPEN.
 
 ## F05 — Issue and enforce the production recording/lifetime policy
 
-Status: **HOST_POLICY_BINDING_PASS_NATIVE_ENFORCEMENT_OPEN**
+Status: **NATIVE_POLICY_INSTALLED_RECORDING_ENFORCEMENT_OPEN**
 
 Measure current target+PC usage; allocate finite recording count/duration, launch/recovery slots and independent backups. Show limits and exhaustion in the app. Keep CPU/RAM/disk floors, first-fault latch, capture-off startup and explicit Start; no silent cap removal or replenishment.
 
-Evidence: Production policy3positivegroups/25rejects and five-profile broker binding/22rejects passed on host synthetic fixtures. Four-recording16-launch2453742272B full independent reservation is proposed, not admitted. PC copies may wait while offline; verified local copy is mandatory before another slot.
+Evidence: Actual finite policy 2e53352f4ba43981e1de283540e139c71b2358ef91272502573476ca36ad7b9d installed/validated. Four recording slots and16launches retain the original2453742272B independent runtime reservation. Full install allocation2773308935B includes models/profile/gallery/activation/PC reserves; measured output cap8909750272B and payload59305361408B. Old WINDOW unchanged; recording enforcement remains to execute.
 
 ## F06 — Install backend compositions with ReDimNet and TitaNet
 
-Status: **HOST_PROFILE_BINDINGS_PREPARED_NATIVE_INTEGRATION_OPEN**
+Status: **SIX_MICROPHONE_PROFILE_ASSETS_INSTALLED_NATIVE_MODEL_RUN_OPEN**
 
 Reuse the existing ReDimNet and NeMo TitaNet implementations and local assets. Expose baseline diarization and Nemotron-3 D1 with either embedding model, plus explicit anonymous operation where supported, while retaining Sherpa ONNX ASR/PnC. Pin actual encoder/runtime/frontend/mode/tap/gain manifests. Keep live Delayed and saved Streaming/Chunk52 distinct; verify each supported combination loads and runs without silent fallback. New native availability remains to be established.
 
-Evidence: F06/F07 preparation: previous TitaNet adapter and installed D0/E1+D1/E1 routes located unchanged. Existing three TitaNet assets88696429B fully hash-verified. New field_runtime_profiles_v1 binds ten explicit profile routes, exact D1 mode libraries, ReDimNet/TitaNet namespaces and prepared desktop content; four changed-binding rejects passed. No neural model was imported, no shortcut installed, no Pi contacted. Policy V3 only expands explicit profile keys and engine mapping; other function ASTs remain exact. New sources are backed and independently restored. Actual controller/gallery/storage/capsule integration remains OPEN. F04/F06/F12 shared live-profile integration, October1: actual installed controller selectors and separate read-only ReDimNet/TitaNet gallery constructors passed a changed HOST fixture (three selected routes/four rejects). One common broker capsule now binds six microphone profiles: baseline, baseline-titanet, d1-delayed, d1-delayed-titanet, d1-anonymous and baseline-anonymous. Actual extracted manager dispatch passed all six selections and three rejects with synthetic policy/activation/gallery facts and memory read adapter. No native/model execution or filesystem staging is implied. Common broker64code/512768B and manager16modules/176012B are fully hash-checked, backed and independently expanded/restored. Manager2 now selects pinned descriptors and a shared capsule; D0 model release requires independently observed process death, D1 retains actual EOF/closure. Four saved Streaming/Chunk52 profiles, deployment, real gallery snapshots, recovery and offline acceptance remain OPEN. TitaNet three-file export88696429B has two exact independent PC copies in runtime-titanet-v1-install. The one native installation attempt rejected initial available RAM below850MiB before target mkdir/model transfer. Actual installer33033/start1564750 on the current boot is independently checked dead by inspection4; target bytes3033748123 unchanged. No TitaNet asset, app/config/startup/recording mutation occurred. Full owner preread2 includes prefixed event/member names,182lifetime/event paths; V1's161-path subset is preserved as incomplete coverage. The prospective measured asset allowance271332167B is consumed by this failed attempt; old WINDOW/closed policies unchanged and both177392858B PC copies remain counted.
+Evidence: Existing TitaNet export copied to runtime-titanet-v3 with all hashes exact; common pinned broker and six microphone descriptors installed. No new model execution. Four saved Streaming/Chunk52 combinations remain unavailable pending integration.
 
 ## F07 — Create real desktop profile shortcuts
 
-Status: **DESKTOP_CONTENT_PREPARED_INSTALL_LAUNCH_OPEN**
+Status: **SIX_PROFILE_SHORTCUTS_INSTALLED_DEFAULT_IDLE_OBSERVED**
 
 Create one clearly named desktop shortcut per supported ASR/diarizer/embedding/mode combination, all selecting immutable profiles through the same versioned frontend. Each opens idle/capture off, excludes duplicate ownership and shows its actual model choices. Verify shortcut dispatch and keep baseline/rollback access.
 
-Evidence: Versioned desktop-entry generator prepared; none installed. Each profile must be pinned and natively qualified before available. Manager3 adds actual local startup/current-boot checks without rewriting immutable activation or old launch records. Only bootstrap_manager and bundle_for_operation differ from manager2, plus current_activation. Complete16-module180937B manager, six microphone descriptors, separate E0/E1 gallery manifests and six idle shortcut/slice/autostart previews are prepared/backed/restored in boot-launch-inputs-v1. Preview policy SHA is deliberately zero and not dispatchable. Manager bundle f1df34cf1bf93b5b583a0df3d8d6339580f6633494a16d66cdc702312f8107a4; manifest390d93da469292566731897538829531e3fa317a831dc678c41bd51f791ea499. Four saved Streaming/Chunk52 routes, actual installation/activation/rollback and all native profile qualification remain OPEN.
+Evidence: Six composite profile shortcuts and one rollback shortcut installed. The common default Delayed launcher actually opened manager33309 idle. Individual shortcut/profile recording dispatch and final geometry remain OPEN.
 
 ## F08 — Complete manual Start/Stop/Return and repeated sessions
 
@@ -78,11 +78,11 @@ Evidence: Open.
 
 ## F10 — Finish the480x800 UI and nonempty captions
 
-Status: **OPEN**
+Status: **OPEN_MANAGER_GEOMETRY_DEFECT_NONEMPTY_CAPTIONS_OPEN**
 
 All required controls reachable with270orientation; correct backend/mode, recording state and unavailable reasons visible. Use an existing authorized saved speech input for actual nonempty captions/audio links, Pending/Unknown and independent caption timing. No audible playback or solicited speech.
 
-Evidence: Open.
+Evidence: Actual visible manager480x800+0+62; inspect/reapply fullscreen after mapping and add accessible scrolling/selection for all profiles in the next reviewed source. Nonempty final-release captions remain OPEN.
 
 ## F11 — Verify saved history and data actions in the final release
 
@@ -94,11 +94,11 @@ Evidence: Open.
 
 ## F12 — Verify personal gallery compatibility
 
-Status: **OPEN**
+Status: **NATIVE_GALLERY_SNAPSHOTS_INSTALLED_CONSUMER_OPEN**
 
 Read-only review of UUID/encoder/revision/tap/gain namespaces, including separate ReDimNet and TitaNet galleries. Reuse existing TitaNet namespace support; never compare or relabel vectors across models, silently enroll, migrate or overwrite personal data. Compatible references load; incompatible/empty galleries remain Unknown with a clear explanation. Preserve schema rollback.
 
-Evidence: Existing n2_people.titanet_store and N2Gallery isolate the encoder namespace. Physical gallery path allocation and final shared-profile read-only binding remain OPEN. F04/F06/F12 shared live-profile integration, October1: actual installed controller selectors and separate read-only ReDimNet/TitaNet gallery constructors passed a changed HOST fixture (three selected routes/four rejects). One common broker capsule now binds six microphone profiles: baseline, baseline-titanet, d1-delayed, d1-delayed-titanet, d1-anonymous and baseline-anonymous. Actual extracted manager dispatch passed all six selections and three rejects with synthetic policy/activation/gallery facts and memory read adapter. No native/model execution or filesystem staging is implied. Common broker64code/512768B and manager16modules/176012B are fully hash-checked, backed and independently expanded/restored. Manager2 now selects pinned descriptors and a shared capsule; D0 model release requires independently observed process death, D1 retains actual EOF/closure. Four saved Streaming/Chunk52 profiles, deployment, real gallery snapshots, recovery and offline acceptance remain OPEN. Native inventory contains one existing E0 gallery, two files13508B; no existing TitaNet gallery. New separate manifests are prepared; no gallery conversion or native snapshot copy.
+Evidence: Exact source E0 gallery2files13508B copied and reverified without changing originals; separate E1 empty namespace installed. Cross-model reuse is prohibited. Actual native gallery/model consumer remains to run.
 
 ## F13 — Add optional processed recording controls
 
@@ -134,27 +134,27 @@ Evidence: V141 complete private broker and independent manager copies passed; re
 
 ## F17 — Finish deterministic install and health checks
 
-Status: **OPEN**
+Status: **NATIVE_INSTALL_AND_IDLE_HEALTH_PASS_MODEL_ACCEPTANCE_OPEN**
 
 Versioned code/config/runtime manifests; all pinned assets already local; native aarch64/runtime/dependency identity verified. Health reports missing assets, incompatible gallery, disk limits or unavailable hardware explicitly and never downloads on first use.
 
-Evidence:  TitaNet three-file export88696429B has two exact independent PC copies in runtime-titanet-v1-install. The one native installation attempt rejected initial available RAM below850MiB before target mkdir/model transfer. Actual installer33033/start1564750 on the current boot is independently checked dead by inspection4; target bytes3033748123 unchanged. No TitaNet asset, app/config/startup/recording mutation occurred. Full owner preread2 includes prefixed event/member names,182lifetime/event paths; V1's161-path subset is preserved as incomplete coverage. The prospective measured asset allowance271332167B is consumed by this failed attempt; old WINDOW/closed policies unchanged and both177392858B PC copies remain counted.
+Evidence: Actual release field-runtime-v2 installed and opened idle on October1 at23:43Z. Original rc5 launcher1002/start484 and app1111/start522 closed through normal Tk Close after exact Pi backups/independent restores and two independently read-back PC copies. Installer33283/start2115053 and closure helper33323/start2116340 are checked dead. Twenty-six files89681044B, including all three TitaNet assets88696429B, have complete native hash/readback. Six microphone profile shortcuts, separate E0/E1 gallery snapshots, manager4 and pinned startup/rollback services are installed. Current manager 33309/start2116267 on boot cae570ae-9f68-4e09-9c1c-b6dbd4b03e97 is active and visible; capture is closed, leases free, display270 retained. Available RAM1512456192B and free disk16840372224B were observed. The reported manager geometry480x800+0+62 exposes a placement defect to fix before final UI acceptance. No new model/capture/recording has run; local rollback, saved Streaming/Chunk52 routes, recording/offload and offline restart remain OPEN.
 
 ## F18 — Verify activation, rollback and local recovery
 
-Status: **OPEN**
+Status: **NATIVE_BACKED_ACTIVATION_PASS_LOCAL_ROLLBACK_UNEXERCISED**
 
 Back up active code/config/desktop/autostart manifests with independent restore readback. Activate final candidate, exercise rollback and restore candidate. Prove recovery works locally before denying its network access; preserve baseline and personal data.
 
-Evidence: Open.
+Evidence: Original active files have exact Pi backups and independent restores plus two PC copies before normal Close. Native activation succeeded. OnFailure local rollback and explicit shortcut are installed but have not been exercised; no offline recovery claim.
 
 ## F19 — Verify final startup and offline operation
 
-Status: **OPEN**
+Status: **FIRST_CANDIDATE_START_IDLE_OFFLINE_RESTART_OPEN**
 
 Final shortcut and one final-release restart/coldboot open idle with270orientation and no automatic listening. Exercise its supported operation with external network unavailable after local recovery is proven. Distinguish software network denial from physically unplugged testing.
 
-Evidence:  Manager3 adds actual local startup/current-boot checks without rewriting immutable activation or old launch records. Only bootstrap_manager and bundle_for_operation differ from manager2, plus current_activation. Complete16-module180937B manager, six microphone descriptors, separate E0/E1 gallery manifests and six idle shortcut/slice/autostart previews are prepared/backed/restored in boot-launch-inputs-v1. Preview policy SHA is deliberately zero and not dispatchable. Manager bundle f1df34cf1bf93b5b583a0df3d8d6339580f6633494a16d66cdc702312f8107a4; manifest390d93da469292566731897538829531e3fa317a831dc678c41bd51f791ea499. Four saved Streaming/Chunk52 routes, actual installation/activation/rollback and all native profile qualification remain OPEN.
+Evidence: First installed candidate startup is visible/capture off on the current boot. Autostart now points to the pinned idle launcher. Final candidate restart/coldboot and network-denied operation remain untested.
 
 ## F20 — Run one bounded final recording/resource acceptance
 

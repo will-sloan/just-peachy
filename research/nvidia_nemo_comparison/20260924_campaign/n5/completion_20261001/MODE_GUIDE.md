@@ -2,9 +2,9 @@
 
 Latest user authority (October1,18:14:20Z): restore NeMo TitaNet alongside ReDimNet using the previous implementation, expose each supported backend/embedding/mode combination through an idle desktop shortcut, and finish the existing delivery by October2,14:14:20Z (10:14:20 Toronto). Keep Sherpa ONNX ASR and Nemotron-3 diarizer. Earlier TitaNet retirement statements are historical; new integration remains OPEN until executed. Separate embedding/gallery namespaces are mandatory. See FINISH_CHECKLIST F06/F07/F12/F23 and DEADLINE_AUTHORITY_V3.json.
 
-The final offline user release is incomplete. There are no accepted new Pi profile shortcuts. This guide separates scoped evidence from installed user availability.
+The final offline user release is incomplete. Six Pi microphone-profile shortcuts are installed; only the default manager idle launch has been observed. Native recording qualification remains open. This guide separates scoped evidence from installed user availability.
 
-**Selected delivery composition:** Sherpa ONNX ASR/PnC, Nemotron-3 D1 and compatible ReDimNet. Keep explicit anonymous operation separate. Nemotron ASR is deferred by the user's October1 decision; TitaNet is restored to delivery scope by the latest user authority; native integration is pending. No silent fallback.
+**Selected delivery composition:** Sherpa ONNX ASR/PnC, Nemotron-3 D1 and compatible ReDimNet. Keep explicit anonymous operation separate. Nemotron ASR is deferred by the user's October1 decision; TitaNet is restored to delivery scope by the latest user authority; native assets/descriptors are installed; actual model execution remains pending. No silent fallback.
 
 | D1 choice | Buffering and retained cost | Actual evidence |
 |---|---|---|
@@ -13,6 +13,22 @@ The final offline user release is incomplete. There are no accepted new Pi profi
 | Experimental Chunk52=52/1/0/80/264/40 | About4.3s source buffering; retained cost about1.085RTF | Separate saved app and V95 method-bound Start/Stop. No general live shortcut. |
 
 Cross-mode costs use different geometries. They do not establish a speedup, quality ranking or realtime delivery. Same-geometry A76 kernel pairs separately showed23–24% less wall work on one file; the current Delayed main later changed to LRU1. Delayed uses1MiB stacks, one model thread, GPU off and2MiB metadata; other modes retain their exact bound profiles. Libraries stay mapped after closure, so changing runtime/mode needs a fresh process.
+
+
+## Installed testing candidate
+
+| Shortcut profile | Composition | Current scope |
+|---|---|---|
+| baseline | Sherpa / baseline diarizer / ReDimNet | Installed; new recording pending |
+| baseline-titanet | Sherpa / baseline diarizer / TitaNet | Installed; new model/recording pending |
+| d1-delayed | Sherpa / Nemotron-3 Delayed / ReDimNet | Default manager opens idle; recording pending |
+| d1-delayed-titanet | Sherpa / Nemotron-3 Delayed / TitaNet | Installed; new model/recording pending |
+| d1-anonymous | Sherpa / Nemotron-3 Delayed / anonymous identity | Installed; recording pending |
+| baseline-anonymous | Sherpa / baseline diarizer / anonymous identity | Installed; recording pending |
+
+The common Pi entry is /home/peachyprototype/JustPeachy/research/nemotron-20260928/field-runtime-v2-profiles/bin/launch-profile --profile PROFILE. Close the current idle manager before switching; duplicate ownership is rejected. Desktop names spell out the model combination. Saved Streaming/Chunk52 with each encoder remain unavailable; no silent substitution.
+
+Candidate limits: four120s recordings and16total manager/helper launches, explicit Start, complete local backup before another slot and separately reserved PC copies. No automatic replenishment. Empty TitaNet gallery remains Unknown; no enrollment or cross-model vector conversion occurred. Manager placement480x800+0+62 and profile-list accessibility remain to fix.
 
 ## Product mode is different from backend
 - Just Transcription: keep words under a neutral label.

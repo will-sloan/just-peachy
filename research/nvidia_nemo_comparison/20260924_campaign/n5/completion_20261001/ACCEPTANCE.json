@@ -1,6 +1,6 @@
 {
   "schema": "just-peachy.delivery-acceptance.v1",
-  "as_of_utc": "2026-10-01T18:55:06.022533+00:00",
+  "as_of_utc": "2026-10-01T23:48:12.097811+00:00",
   "hard_deadline_utc": "2026-10-02T14:14:20Z",
   "overall": "INCOMPLETE",
   "latest_verified_research_summary": "CHECK_SUMMARY_V141.json",
@@ -156,5 +156,15 @@
   "native_last_observation": "NATIVE_CLOSURE_V315 at 15:09:50Z; no later Pi action",
   "offline_release_ready": false,
   "deadline_authority": "DEADLINE_AUTHORITY_V3.json",
-  "selected_embedding_user_decision": "October1 user restored NeMo TitaNet alongside ReDimNet; reuse prior implementation and local assets; focused native functional verification and per-combination shortcuts required"
+  "selected_embedding_user_decision": "October1 user restored NeMo TitaNet alongside ReDimNet; reuse prior implementation and local assets; focused native functional verification and per-combination shortcuts required",
+  "runtime_candidate": {
+    "release": "field-runtime-v2",
+    "policy_sha256": "2e53352f4ba43981e1de283540e139c71b2358ef91272502573476ca36ad7b9d",
+    "installed": true,
+    "idle_visible": true,
+    "recording_accepted": false,
+    "offline_accepted": false,
+    "geometry": "480x800+0+62",
+    "remaining": "FINISH_CHECKLIST F04-F20/F23/F25/F26"
+  }
 }
