@@ -1,0 +1,13 @@
+{
+  "status": "EXACT_DOCUMENTATION_BACKUP_VERIFIED",
+  "label": "recovered-live-partial-v24",
+  "archive": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\completion-20261001-backups\\recovered-live-partial-v24\\NVIDIA_CAMPAIGN_CHATGPT_HANDOFF_20260924_recovered-live-partial-v24.zip",
+  "bytes": 36292,
+  "sha256": "56b74976662d9ea294edef8de4ea507d68dfdbda890ad9515adb7c3798650de7",
+  "member_count": 15,
+  "cpu_affinity": [
+    14
+  ],
+  "delivery_status": "IN_PROGRESS",
+  "runtime_or_offline_acceptance": false
+}
