@@ -1,0 +1,149 @@
+{
+  "version": 126,
+  "as_of_utc": "2026-10-01T06:53:45.272474+00:00",
+  "status": "PASS_WHOLE_TREE_PARTITION_CONTRACT_NATIVE_LAUNCH_ENVELOPE_PREPARED",
+  "native_attempts": 0,
+  "actual_capture": false,
+  "model_loads": 0,
+  "gui_attempts": 0,
+  "active_research_compute": false,
+  "host_contract": {
+    "status": "PASS_PURE_WHOLE_TREE_PARTITION_CONTRACT",
+    "positive_groups": 2,
+    "rejects": [
+      "foreign_recording",
+      "unknown_broker_writer",
+      "gate_receipt_overflow",
+      "unallocated_outer_directory",
+      "recording_file_count",
+      "recording_directory_count",
+      "recording_aggregate",
+      "code_count",
+      "ledger_member"
+    ],
+    "elapsed_seconds": 0.01600000006146729,
+    "allocation": {
+      "schema": "just-peachy.operator-broker-allocation.v1",
+      "count": 2,
+      "slot_names": [
+        "slot-01",
+        "slot-02"
+      ],
+      "target_per_session": 146919980,
+      "host_per_session": 151114284,
+      "metadata_maximum_bytes": 4456448,
+      "target_maximum_bytes": 298296408,
+      "host_maximum_bytes": 306685016,
+      "combined_request_bytes": 604981424,
+      "slot_file_bytes": 16384,
+      "slot_write_bytes": 16384,
+      "maximum_slot_files": 12,
+      "maximum_release_bytes": 65536,
+      "maximum_session_files": 256,
+      "maximum_session_directories": 64,
+      "reuse_deleted_or_failed_reservation": false,
+      "broker": {
+        "once": {
+          "OWNER.json": 16384,
+          "ACK.json": 16384,
+          "ENVELOPE.json": 32768,
+          "CONFIG.json": 65536,
+          "MANIFEST.json": 131072,
+          "TEMPLATE.json": 131072,
+          "RESULT.json": 65536,
+          "FAILURE.json": 16384,
+          "STAGE_OWNER.json": 16384,
+          "GATE_OWNER.json": 16384,
+          "GATE_RESULT.json": 16384
+        },
+        "append": {
+          "service.log": 131072,
+          "telemetry.jsonl": 262144
+        },
+        "code_maximum_bytes": 2097152,
+        "code_maximum_files": 64,
+        "code_member_maximum_bytes": 131072,
+        "directory_names": [
+          "broker",
+          "code"
+        ],
+        "maximum_write_bytes": 16384,
+        "extra_per_side_bytes": 3670016
+      }
+    },
+    "synthetic_inventory": true,
+    "native_filesystem": false,
+    "copy_or_transfer": false,
+    "capture_or_models": false
+  },
+  "selected": {
+    "broker": "field_operator_broker_v2.py",
+    "chooser": "field_operator_chooser_v2.py",
+    "history": "field_operator_history_v2.py",
+    "files": "field_operator_broker_files_v2.py",
+    "layout": "field_operator_broker_layout_v2.py",
+    "plan": "field_operator_session_plan_v3.py",
+    "ledger": "field_operator_session_ledger_v4.py",
+    "parent": "field_operator_parent_v8.py",
+    "entry": "field_operator_entry_v7.py",
+    "broker_entry": "field_operator_broker_entry_v1.py",
+    "gate": "field_operator_broker_gate_v2.py",
+    "initializer": "field_operator_broker_initialize_v1.py",
+    "stager": "field_operator_broker_stage_v1.py",
+    "exporter": "field_operator_broker_export_v1.py",
+    "check": "check_field_operator_broker_mirror_v1.py",
+    "readme": "README_FIELD_OPERATOR_BROKER_NATIVE_V3.md"
+  },
+  "new_resource_policy_issued": false,
+  "source_backup": {
+    "files": 20,
+    "bytes": 142707,
+    "independent_restore_exact": true
+  },
+  "owners": {
+    "collector_records": 441,
+    "collector_unique": 430,
+    "additional_unique": 125,
+    "total_exact_closed_records": 566,
+    "unique_pi": 555,
+    "duplicate_records": 11,
+    "host_closed": 345,
+    "typed_nonidentity_closures": 3,
+    "later_metadata_owners_separate": true
+  },
+  "resources": {
+    "census": 230,
+    "closure": 286,
+    "combined_output_bytes": 5802629597,
+    "payload_with_target_and_reservations_bytes": 56197889880,
+    "target_bytes": 3011078510,
+    "host_window_bytes": 2791551087,
+    "old_output_excess": 433920477,
+    "old_payload_excess": 363315032,
+    "stale_before_future_dispatch": true,
+    "readonly_policy": "TRANSFER_RESOURCE_POLICY_V2"
+  },
+  "runtime_accepted": false,
+  "offline_accepted": false,
+  "physical_touch": false,
+  "latest_actual_scoped_pass": "CHECK_SUMMARY_V123.json",
+  "next_action": "Finish the host initializer/gate dispatcher and full-tree receiver with exact early owner registration, full capsule/Registry18/liveD1 pins, per-producer logs and bounded cleanup/export. Select gateV2, entryV1, local stageV1, initializerV1, exporterV1 and README_NATIVE_V3; gateV1 remains an unexecuted draft. Review actual staged template54files versus outer62code files, input bootstrap/mirror module pins and full allocation. Refresh ALL owners/lifetimes/census/target, issue a fresh measured604981424B policy, then qualify a changed TWOSESSION composition with actual independent parent/child/source processes, saved archives, previous history UI and captureoff closure before next. New native writer/ledger/flock/fault/closure paths still need actual evidence. No healthy owner/history/live/allocation reruns for version. Then versioned health/install/local automatic recovery/activation/rollback/offline; no firmware maintenance absent a new fault, no ASR detour/questions/extension.",
+  "unexecuted": [
+    "all new native initializer/stager/CLI/gate/writer/ledger/exporter paths",
+    "native repeated sessions/history GUI",
+    "native concurrency/crash/powerloss behavior"
+  ],
+  "unresolved_execution_boundaries": [
+    "host dispatcher/receiver glue",
+    "final full capsule, template and pins",
+    "actual fresh measured policy/admission",
+    "changed two-session qualification",
+    "local recovery/install/activation/rollback/offline"
+  ],
+  "source_scope_note": "Scope1 source generation ended06:37:11 before06:37:59 expiry, but backup not completed then. Exact interim frozen at06:42:26 before fresh scope2 edits. Final source backups/independent restores closed06:48:54,06:50:08,06:51:25 inside06:42:26..06:52:26. No native dispatch.",
+  "failures_preserved": [
+    "Initial read-only DEADLINE_AUTHORITY .md lookup failed; correct .json read",
+    "Census file V230 stdout mislabeled229; actual saved filename V230 retained",
+    "Scope1 expired before backup; original intermediate bytes preserved before fresh continuation"
+  ]
+}

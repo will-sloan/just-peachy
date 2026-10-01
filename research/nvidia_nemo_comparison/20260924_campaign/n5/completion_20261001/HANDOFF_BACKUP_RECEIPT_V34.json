@@ -1,0 +1,13 @@
+{
+  "status": "EXACT_DOCUMENTATION_BACKUP_VERIFIED",
+  "label": "operator-native-v34",
+  "archive": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\completion-20261001-backups\\operator-native-v34\\NVIDIA_CAMPAIGN_CHATGPT_HANDOFF_20260924_operator-native-v34.zip",
+  "bytes": 37793,
+  "sha256": "f0a5e0f1e9449ffadfff77d104ad87075f43084c0cfab6ae275aa66aa8f956a8",
+  "member_count": 15,
+  "cpu_affinity": [
+    14
+  ],
+  "delivery_status": "IN_PROGRESS",
+  "runtime_or_offline_acceptance": false
+}
