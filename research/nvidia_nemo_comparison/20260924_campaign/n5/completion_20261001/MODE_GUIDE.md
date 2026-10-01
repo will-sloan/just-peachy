@@ -31,3 +31,21 @@ The admitted live tests preserved processed model-input audio and complete nativ
 Applied ASR/VAD skipping, parallel diarizer pools and whole-waveform ONNX remain unavailable. Keep all audio and original clocks; no captions is not evidence of silence. There is no new noisy-human/physical-touch or source-reference parity claim.
 
 Current complete profile map and deployment status: completion_20261001/BACKEND_COMBINATIONS.md (beside MODE_GUIDE.md in the completion pack).
+
+
+## Prepared common frontend combinations
+
+The following six microphone launch descriptors and shortcut previews are now assembled. They are not installed shortcuts or native qualification. All keep Sherpa ONNX ASR/PnC.
+
+| Profile | Diarizer | Speaker embedding | Input |
+|---|---|---|---|
+| baseline | Existing baseline | ReDimNet | Microphone |
+| baseline-titanet | Existing baseline | TitaNet | Microphone |
+| d1-delayed | Nemotron-3 Delayed | ReDimNet | Microphone |
+| d1-delayed-titanet | Nemotron-3 Delayed | TitaNet | Microphone |
+| d1-anonymous | Nemotron-3 Delayed | Anonymous identity handling | Microphone |
+| baseline-anonymous | Existing baseline | Anonymous identity handling | Microphone |
+
+Saved Streaming/Chunk52 with each embedding remain four separate required integration routes. They are explicitly unavailable in this prepared candidate. Existing saved component passes do not make them live profiles.
+
+TitaNet uses its own model/preprocessing gallery namespace. The Pi currently has no TitaNet gallery; it must show Unknown without enrollment. The existing ReDimNet gallery is preserved. Switching encoders is for real-world comparison; no new embedding-quality result or promised improvement is claimed. The TitaNet asset copy stopped on the850MiB initial-RAM guard before target writes; it remains to be completed during controlled activation.
