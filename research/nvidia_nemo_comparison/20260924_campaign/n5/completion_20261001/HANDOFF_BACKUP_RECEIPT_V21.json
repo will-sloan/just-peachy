@@ -1,0 +1,13 @@
+{
+  "status": "EXACT_DOCUMENTATION_BACKUP_VERIFIED",
+  "label": "live-source-failure-v21",
+  "archive": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\completion-20261001-backups\\live-source-failure-v21\\NVIDIA_CAMPAIGN_CHATGPT_HANDOFF_20260924_live-source-failure-v21.zip",
+  "bytes": 34266,
+  "sha256": "a7395e15721895b0f432bcc45b155501cad1416b6ede8c875778b357b326caaf",
+  "member_count": 15,
+  "cpu_affinity": [
+    14
+  ],
+  "delivery_status": "IN_PROGRESS",
+  "runtime_or_offline_acceptance": false
+}
