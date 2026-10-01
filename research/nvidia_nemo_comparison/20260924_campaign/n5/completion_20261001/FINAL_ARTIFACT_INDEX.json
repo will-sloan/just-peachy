@@ -1,0 +1,285 @@
+{
+  "schema": "just-peachy.final-artifact-index.v1",
+  "utc": "2026-10-01T15:35:14.279053+00:00",
+  "delivery_status": "INCOMPLETE",
+  "new_production_release": null,
+  "remote": "https://github.com/will-sloan/just-peachy",
+  "branch": "codex/n1-foundation-20260924",
+  "source_publication": "FINAL_GIT_BACKUP.json",
+  "retained_remote_tags_verified_20261001": {
+    "n1-common-ui-20260924-v1": "2a8a2183c0050b6abf76ef27bbd803adad632a87",
+    "n2-integration-20260924-rc2": "9924e687af76e218b17124ffa4ce04ddcfdec293",
+    "n3-accepted-20260925-v1": "5bd5cc09291613419aaf8850a16e8a316feb0c0d",
+    "n5-preparation-20260924-rc1": "0817be1c0459d8e1f0bb4cd4c0df57b1960335f4"
+  },
+  "windows_baseline": {
+    "source_commit": "2a8a2183c0050b6abf76ef27bbd803adad632a87",
+    "tag": "n1-common-ui-20260924-v1",
+    "runtime_sha256": "c704856684409dbb1d5d1a708009623f03f45de40967d6f8c881307d8f87611b",
+    "ui_sha256": "54c0283b8058978eca87dc9b0461a15addf804200856e41d2c83b55bff590456",
+    "scope": "ACCEPTED_N1_OFFLINE_WINDOWS_AND_N5_SCOPED_LIFECYCLE"
+  },
+  "n2_research": {
+    "source_commit": "9924e687af76e218b17124ffa4ce04ddcfdec293",
+    "config_sha256": "b4627f1139bad8ac2425e751c6b9bb702ba76a518952d9ca78ecc98235f6d8c4",
+    "backends": [
+      {
+        "key": "nemotron_hybrid",
+        "manifest_id": "sha256:2cae7524dc49970f0492bd38d9fd8584609d07bbc83ea36bf0efd9355a154fe1",
+        "tag": "n2-d1-e0-low-latency-20260924-rc2",
+        "commit": "9924e687af76e218b17124ffa4ce04ddcfdec293"
+      },
+      {
+        "key": "titanet",
+        "manifest_id": "sha256:2d1bb8c33a075294877cc92af1e78bcc01a3e9164c1c69c2417e038eadc28c4e",
+        "tag": "n2-d0-e1-20260924-rc2",
+        "commit": "9924e687af76e218b17124ffa4ce04ddcfdec293"
+      },
+      {
+        "key": "nemotron_titanet",
+        "manifest_id": "sha256:8ae4679a5f922ef5aa84a632f8de20868227cdb73aaaadc515955940813a0ff9",
+        "tag": "n2-d1-e1-low-latency-20260924-rc2",
+        "commit": "9924e687af76e218b17124ffa4ce04ddcfdec293"
+      }
+    ],
+    "scope": "OFFLINE_COMPONENT_COMPARISON_NOT_FINAL_PI_RELEASE"
+  },
+  "n3_research": {
+    "source_commit": "5bd5cc09291613419aaf8850a16e8a316feb0c0d",
+    "tag": "n3-accepted-20260925-v1",
+    "scope": "ACCEPTED_COMPONENTS_NOT_FULL_N4_OR_PI_RELEASE"
+  },
+  "historical_separate_archives": [
+    {
+      "name": "just-peachy-baseline-cm5-offline-v1.zip",
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\releases\\just-peachy-baseline-cm5-offline-v1.zip",
+      "bytes": 310867595,
+      "sha256": "913e0a082e2de5f28e62f30503097cfb12f9008ed6d26fd1a803a7a2e8d32bbf",
+      "status": "PREPARED_NOT_SELECTED_N4_RELEASE",
+      "public_upload": false,
+      "rollback": "External data and immutable releases retained; see UPDATE_ROLLBACK.md",
+      "final_readback_utc": "2026-10-01T15:35:14.272056+00:00",
+      "new_production_release": false
+    },
+    {
+      "name": "nemo-speech-arm64-engineering-v1.tar.gz",
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\releases\\nemo-speech-arm64-engineering-v1.tar.gz",
+      "bytes": 1874637,
+      "sha256": "fabee1be06a4f833baf04b466ee8ff48b4947c71940a89771e125599f5927631",
+      "status": "PREPARED_NOT_SELECTED_N4_RELEASE",
+      "public_upload": false,
+      "rollback": "External data and immutable releases retained; see UPDATE_ROLLBACK.md",
+      "final_readback_utc": "2026-10-01T15:35:14.279053+00:00",
+      "new_production_release": false
+    }
+  ],
+  "final_native_source_files": [
+    {
+      "name": "field_local_postboot_capsule_v1.py",
+      "bytes": 3477,
+      "sha256": "0b4610b88dcdd9a32b466058dd62c0f4c050b05f2b2aef3f48c88a1d05776daa",
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n5\\extension_20260928\\pi_native_20260928\\field_local_postboot_capsule_v1.py"
+    },
+    {
+      "name": "field_local_manager_initialize_v4.py",
+      "bytes": 11069,
+      "sha256": "6c991bf34da36b229d5afdb6831981bc05f02ac94239b92e3b91eb61c58a30b2",
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n5\\extension_20260928\\pi_native_20260928\\field_local_manager_initialize_v4.py"
+    },
+    {
+      "name": "field_local_manager_phase_v2.py",
+      "bytes": 11265,
+      "sha256": "0c23d0d1558a14e6ce2e4eea90f6c774cfdcd82159b1c3e9dc4c42da69989bd1",
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n5\\extension_20260928\\pi_native_20260928\\field_local_manager_phase_v2.py"
+    },
+    {
+      "name": "field_local_manager_receiver_v1.py",
+      "bytes": 10557,
+      "sha256": "d7b79fe2f5027ab1139f691b2d3d56875d63d36dcc662b1f06a18c1c3f91d43c",
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n5\\extension_20260928\\pi_native_20260928\\field_local_manager_receiver_v1.py"
+    },
+    {
+      "name": "collect_native_closure_v17.py",
+      "bytes": 10431,
+      "sha256": "6645c5d53b18b62ffd291cbac25fa2c85fcea956ef3f97a25e21f4973c16934b",
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n5\\extension_20260928\\pi_native_20260928\\collect_native_closure_v17.py"
+    },
+    {
+      "name": "README_FINAL_MANAGER_INTEGRATION_V1.md",
+      "bytes": 4727,
+      "sha256": "71fae01201894548ec4c169dbabefcd6356d2c9a39ce1531d21d2e9a64d19f81",
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n5\\extension_20260928\\pi_native_20260928\\README_FINAL_MANAGER_INTEGRATION_V1.md"
+    },
+    {
+      "name": "field_operator_broker_census_v3.py",
+      "bytes": 6270,
+      "sha256": "457bb57ba72dfbc744698c2c2a32aa54d13fc5cbe88a633897da37b3542cab48",
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n5\\extension_20260928\\pi_native_20260928\\field_operator_broker_census_v3.py"
+    },
+    {
+      "name": "field_operator_broker_export_v3.py",
+      "bytes": 7578,
+      "sha256": "5c0f8b0e4af8bd8d87e2cd5267cafbd43d6c4d1d4fc8904f45ebdbdc48f82062",
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n5\\extension_20260928\\pi_native_20260928\\field_operator_broker_export_v3.py"
+    },
+    {
+      "name": "mirror_field_operator_broker_v3.py",
+      "bytes": 10644,
+      "sha256": "74faff9916c87d8b5e08e1317e1c150b6dee0970bdc59dca9484c1ab53001a21",
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n5\\extension_20260928\\pi_native_20260928\\mirror_field_operator_broker_v3.py"
+    },
+    {
+      "name": "README_FINAL_MANAGER_INTEGRATION_V2.md",
+      "bytes": 1999,
+      "sha256": "ba79fe5dd5a95aa0bcc7cf8904733c1192d78fcee0991be99e3482ce323811cf",
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n5\\extension_20260928\\pi_native_20260928\\README_FINAL_MANAGER_INTEGRATION_V2.md"
+    },
+    {
+      "name": "dispatch_field_local_joint_v1.py",
+      "bytes": 22246,
+      "sha256": "92ec6844e602d0a3a27a60036cd3b4b1fa507ec0eacde714bd5c697a2b2d0b9a",
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n5\\extension_20260928\\pi_native_20260928\\dispatch_field_local_joint_v1.py"
+    },
+    {
+      "name": "README_FINAL_MANAGER_DISPATCH_V1.md",
+      "bytes": 3512,
+      "sha256": "e405900b823b1f481726a484b48eac42fe1294b290fa8894662e319556584c22",
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n5\\extension_20260928\\pi_native_20260928\\README_FINAL_MANAGER_DISPATCH_V1.md"
+    },
+    {
+      "name": "dispatch_field_local_joint_v2.py",
+      "bytes": 22997,
+      "sha256": "97ce3c856da53c9d258189e11f3e43268d13789f87dea1060c43f47f4872fe1e",
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n5\\extension_20260928\\pi_native_20260928\\dispatch_field_local_joint_v2.py"
+    },
+    {
+      "name": "README_FINAL_MANAGER_DISPATCH_V2.md",
+      "bytes": 1597,
+      "sha256": "8ddd1713769775ad463485ad80cb0ad5f43248983cd2dd5b3be8beed79066d74",
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n5\\extension_20260928\\pi_native_20260928\\README_FINAL_MANAGER_DISPATCH_V2.md"
+    },
+    {
+      "name": "field_local_manager_ssh_mirror_v2.py",
+      "bytes": 8429,
+      "sha256": "75e9b9394516b50e16fb13d36dba861d6a83942d5729d3630e1fda86d8303e0d",
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n5\\extension_20260928\\pi_native_20260928\\field_local_manager_ssh_mirror_v2.py"
+    },
+    {
+      "name": "field_local_manager_receiver_v2.py",
+      "bytes": 10550,
+      "sha256": "97f456186164246306158e47ac693243ef8c26734fb27a18aeac98d973322f5d",
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n5\\extension_20260928\\pi_native_20260928\\field_local_manager_receiver_v2.py"
+    },
+    {
+      "name": "copy_field_local_manager_v2.py",
+      "bytes": 7464,
+      "sha256": "e6c458fac606f1d09504a72f0bf6111db1da77cfb2c57db8ac4e2620b7153251",
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n5\\extension_20260928\\pi_native_20260928\\copy_field_local_manager_v2.py"
+    },
+    {
+      "name": "README_FINAL_MANAGER_COPY_V1.md",
+      "bytes": 3048,
+      "sha256": "93d636c27d112d60fb821a5c4fe5a56aaff6db95f9cc8a19ca446df68fdafe8f",
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n5\\extension_20260928\\pi_native_20260928\\README_FINAL_MANAGER_COPY_V1.md"
+    },
+    {
+      "name": "README_FINAL_MANAGER_COPY_V2.md",
+      "bytes": 1145,
+      "sha256": "a02c966acec844f6201df09531071a430e15e74293a7c02f6b4f718b6409fd06",
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n5\\extension_20260928\\pi_native_20260928\\README_FINAL_MANAGER_COPY_V2.md"
+    },
+    {
+      "name": "copy_field_local_manager_v1.py",
+      "bytes": 7462,
+      "sha256": "54ae1664c5df0df178afd28382d99f00475f3bc1c40d5b8e68bca4047ab8e8d3",
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n5\\extension_20260928\\pi_native_20260928\\copy_field_local_manager_v1.py"
+    },
+    {
+      "name": "collect_native_closure_v18.py",
+      "bytes": 12322,
+      "sha256": "1829aa56eb30e809e356b0be3906780da3806be297283900b2a14fb0a87aedd6",
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n5\\extension_20260928\\pi_native_20260928\\collect_native_closure_v18.py"
+    },
+    {
+      "name": "README_FINAL_MANAGER_CLOSURE_V1.md",
+      "bytes": 2525,
+      "sha256": "f69acd3a678c32c8984e3093d4590d6a67a9be52e6fa2d9977b3b0c5c7161a8f",
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n5\\extension_20260928\\pi_native_20260928\\README_FINAL_MANAGER_CLOSURE_V1.md"
+    },
+    {
+      "name": "collect_native_closure_v19.py",
+      "bytes": 12326,
+      "sha256": "af60d9bccb4d635e3439cebff09282d24cfcacd96644804794d9d5a1e484c515",
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n5\\extension_20260928\\pi_native_20260928\\collect_native_closure_v19.py"
+    },
+    {
+      "name": "README_FINAL_MANAGER_CLOSURE_V2.md",
+      "bytes": 2798,
+      "sha256": "29e62292bda11d26b7e1592b943cbb699bef426e97f1aa24fcedd472d9b021f1",
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n5\\extension_20260928\\pi_native_20260928\\README_FINAL_MANAGER_CLOSURE_V2.md"
+    }
+  ],
+  "exact_runtime_manifests": [
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n5\\extension_20260928\\pi_native_20260928\\D1_MODE_CATALOG_V1.json",
+      "bytes": 13005,
+      "sha256": "ff431b358c7140addcddd95c313f2ec82272289dce2a9815e8d63b60f6bde7c5"
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n5\\extension_20260928\\pi_native_20260928\\D1_METHOD_CONTRACT_V1.json",
+      "bytes": 2134,
+      "sha256": "1ae32a068914370a4c237a5a0545c9452fd56c95346b8a8f9b091b39bdf2d629"
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n5\\extension_20260928\\pi_native_20260928\\D1_MODE_ENTRY_MANIFEST_V1.json",
+      "bytes": 6388,
+      "sha256": "35911765d993ef2befa06de7172a3b65e54f772150bd26f0e02099f5834e7f1e"
+    }
+  ],
+  "private_evidence_receipts": [
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\final-manager-joint-v2\\admission\\RELEASE.json",
+      "bytes": 2964,
+      "sha256": "f39a8b7dbedbebed1492687d42d5648ac033dbba0d02a4a46537175e1fa40d9c"
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\final-manager-joint-v2\\broker-copy\\metadata\\BACKUP.json",
+      "bytes": 28321,
+      "sha256": "10b29556e8a963740d5c933e73ce9a79cfd2cef19c3047c912983f57bcdf093a"
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\final-manager-pc-copy-v2\\manager-copy\\metadata\\BACKUP.json",
+      "bytes": 36571,
+      "sha256": "b4c1765df43972b8bed2f96990136e0e182645ceeb0bde1b8e95005c67e4417c"
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\final-manager-pc-copy-v2\\RESULT.json",
+      "bytes": 2935,
+      "sha256": "3318b7ede452e5d4982a50e2f3371d0eef1bf330de1c508339844b1694797175"
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\NATIVE_CLOSURE_V315.json",
+      "bytes": 345352,
+      "sha256": "0138c0945bcd6cb95fafbc7def4450f3de7b79ee6ba93bad31d1da04a51eca29"
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\NATIVE_RESOURCES_V315.json",
+      "bytes": 17893,
+      "sha256": "03c201d155475bfac54f623217cf220de1f9466b731f8e569e675c54a5ad2ed3"
+    },
+    {
+      "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\HOST_CENSUS_V356.json",
+      "bytes": 677912,
+      "sha256": "181df383d5dc061af111e7b3b37d486f863c6d8feff0b9760479cf7e67b81814"
+    }
+  ],
+  "personal_payloads_in_git": false,
+  "analysis_zip_deployable": false,
+  "excluded": [
+    "private audio",
+    "full transcripts",
+    "profiles/photos/voiceprints/vectors",
+    "credentials",
+    "model weights"
+  ]
+}

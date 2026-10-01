@@ -1,48 +1,50 @@
-# ChatGPT handoff: Just Peachy offline Pi
+# Just Peachy final technical handoff
+## Outcome
+**Incomplete offline field delivery.** User selected Sherpa ONNX ASR, Nemotron-3 diarization and compatible ReDimNet, and required desktop backend shortcuts plus optional true raw/processed recording and verified PC offload. The implementation freeze began2026-10-01T15:14:58Z; hard deadline16:14:58Z. The original rc5 baseline is preserved idle. There is no accepted persistent manual Nemotron release.
 
-October 1 user decision: retain **Sherpa ONNX ASR** with Nemotron-3 diarization and compatible ReDimNet. Nemotron ASR remains deferred research, not a delivery prerequisite. See [RAM/model and price report](PI_RAM_MODEL_REPORT_V1.md). Desktop backend shortcuts and optional true raw/processed recording with verified PC offload are now explicit required **OPEN** gates; see [requirements](OPERATOR_SHORTCUTS_AUDIO_REQUIREMENTS_V1.md). No new native test or readiness claim; At report publication CHECK_SUMMARY_V135 was the latest verified research result.
+Use FINISH_CHECKLIST.md/.json for all26 criteria, ACCEPTANCE.json for gate status, FINAL_COVERAGE.md for the original N1–N5 denominator, and PATHS_AND_BACKUPS.md for artifacts. Earlier CHECK_SUMMARY files and old packages are immutable historical scopes.
 
-Current V140: new Pi boot verified after the user reported reconnection. Original rc5 auto-started capture; one normal Stop returned the app to Start/captureoff with hardware lease free. Normal Settings control then disabled only auto_start_listening after exact private backup/restore. App remains running, display270 and original install/live/display pins unchanged. Final-release reboot persistence/offline readiness are still open. Changed PC transport passed2positive/9reject cases with synthetic remote identities/closure callback; native manager/exporter remains unexecuted. Follow FINISH_CHECKLIST.md:26concrete items, F01/F02 done, F03 saved pending restart proof, F04 next. New user deadline16:14:58Z (12:14:58Toronto), finalization15:14:58Z; no new campaigns.
+## Architecture and selected components
+One480×800 frontend, separate product mode/backend/tap, local assets and personal data outside replaceable code. B01 is Sherpa/PnC + native Nemotron-3 D1 + compatible ReDimNet. B05 is the explicit anonymous path. D1 has eight anonymous activity slots; it is not an enrollment encoder. Do not compare embeddings across encoders or infer names from an empty gallery. TitaNet and Nemotron ASR are deferred from the selected delivery.
 
-Snapshot September30 2026,19:44UTC. **IN_PROGRESS; offline field release not accepted yet.** Deadline October1 17:42:44UTC /13:42:44Toronto. Start with START_HERE and ACCEPTANCE, then the newest verified CHECK_SUMMARY and current STATUS. Branch `codex/n1-foundation-20260924`; exact published HEAD is verified in the latest private REMOTE_BACKUP receipt.
+The prepared/local manager uses Plan2, Journal6, Supervisor3, copier2 and Gate12. V141 added a fresh postboot capsule derivative, initializer4/phase2, actual host dispatcher2, receiver2 and strict closure collector19. The auxiliary loader/bootstrap/exporter prepared in V139 now executed natively in read-only census/export. All sources, backups and failures remain versioned.
 
-## Objective and architecture
+The full one-recording/three-launch reservation is617,760,944bytes:306,783,320target plus310,977,624host, including independent copies. It is a finite qualification policy, not production lifetime authority. The manager-tree copy reserves155,669,036bytes independently. No deleted/failed/small-output credits, cap removal or old root reuse.
 
-Touch-first480x800 offline CM5/2GB/32GB-eMMC prototype: local microphone or saved source -> ordered source-clock stream -> independent captions and diarizer -> provisional anonymous/identity evidence -> bounded history/audio store -> GUI. Original rc5 is the recoverable running baseline; the installed v12 research candidate is separate. B01 combines Sherpa/PnC captions, native D1 and retained compatible ReDimNet; B05 is explicit anonymous operation. Nemotron-3-Diarization is D1, an eight-slot activity model, not an enrollment encoder. TitaNet is retired from the first field candidate. No personal-name claim from an empty gallery; no silent fallback.
+## Latest actual result — V141
+On boot892ed9fa-e39c-48af-8653-eae5e123daad, managerfield-local-release-v2 and brokerfield-operator-sessions-v8 completed:
+1. Manager install/reserve before broker staging.
+2. Actual gate/broker identity binding and Journal STARTED before ACK.
+3. Visible programmatic New/consent/Start/Stop/Save/Return/history;80,640samples (5.04s), zero captions.
+4. Natural process closure; fresh finish recorded CLOSED and made a complete independent Pi-local broker copy.
+5. Fresh process verified manager reopen.
+6. PC broker copy196files3,149,456bytes, fully rehashed during finalization.
+7. Separately admitted repaired manager PC copy223files3,323,072bytes/350measured16KiBchunks, with exporter/helper closure before certification.
 
-D1 geometries: delayed264/1/1/0/264/188; streaming13/1/0/80/264/40; experimentalChunk52=52/1/0/80/264/40. Exact libraries, adapter, weights, catalogue and CABI are pinned. Libraries remain mapped after model close: one run/mode per fresh process. Set an independent session on an empty stream before samples. Stop or ERROR does not release ownership until workers join and model/source closure is verified.
+The first manager PC copy failed BEFORE the first file because JSON key insertion order differed from native sorted framing. The original joint RESULT remainsFAILED. Receiver2 canonicalizes comparison without changing field/value/size/path checks. The later standalone copy is separate success, not retroactive whole-trial success.
 
-## Exploration and outcomes
+Native closure315 checked497 tree owner records plus706 registered-owner records (706 unique identities across those sets), three separate typed nonidentity closures, empty active research-unit list, capture closed, free leases and exact living baseline launcher1008/476 + app1124/514. Its own helper5226/778262 was absent after SSH. Old-boot identity gaps are still historical gaps, not repaired by the new boot. Read-only accounting uses the exact closed joint policy; it authorizes no new dispatch.
 
-| Area | What happened and what the evidence means | Entry point |
-|---|---|---|
-| Native D1 mode factory/binding | All three actual modes passed scoped saved passages. Matched pre-EOF reference outputs were exact; new EOF tails have accounting, not matched-reference accuracy credit | V85-V89; D1_MODE_CATALOG_V1 and findings |
-| Saved application modes | StreamingV3, Chunk52V4 and DelayedV5 each passed actual installed Controller/withdrawn UI selection/Start/Stop and independent session/ownership closure. Separate admissions, not unrestricted launcher | V91-V93; D1_APPLICATION_SAVED_FINDINGS_V2/V3/V4 |
-| Endpoint failures | V1 invoked a Tk holder incorrectly; V2 expected120frames from19200samples but native emitted121. V3 bound source/object/build/link/header lineage to0empty or floor(N/160)+1nonempty. Earlier failures remain failed | V90-V91; endpoint contractsV1-V3 |
-| Method controls | V94 bound fixed A76/resource profiles and unavailable methods. V95 integrated actual app details/Back/Start, rejected GPU=true before worker creation, then ran68800samples/431frames and closed all owners | V94-V95; D1_METHOD_APPLICATION_FINDINGS_V1 |
-| Process entry and recovery | V96 pre-owner validation recovery, V97 host mode/endpoint wiring, V98 actual fresh Streaming child with owner ACK, method profile, five generic/D1 states and natural full closure. One withdrawn admitted run; visible/general launcher open | D1_PROCESS_LAUNCH_FINDINGS_V1 |
-| Native speed | Retained44.695s same-geometry generic->repairedA76 wall-work reductions:23.47%delayed,24.49%streaming,24.33%Chunk52, with exact reference agreement. One file, rc5 concurrent. Current delayedLRU1main differs from that earlier comparison main | D1_METHOD_CONTROLS_FINDINGS_V1; not new app/sustained speedup |
-| Resource methods | Executable graphLRU1delayed/8others; delayedmetadata2MiB;1MiBstacks; one native thread/GPUoff. Speaker/FIFO history unchanged. No separate measured speedup assigned to resource bounds | V85catalogue /V94methodcontract |
-| Live and storage | Short quiet/source/GUI trials provide scoped function evidence. V65planned120s failed60s archive/~115s journal limits. Later writer components passed; full corrected sustained composition remains open | FIELD_SUSTAINED_FINDINGS_V1; later component findings |
-| Alternate ONNX D1 | Whole-waveform cache parity fails unchanged1e-5 gate (~2.346e-4 original). Projection localization and one OpenBLAS alternative did not fix it. Frontend/ordered-state scoped passes are not full runtime acceptance | V45/V46/V51 and later STATUS |
-| Nemotron ASR | Qualified generic A2 component and sequential saved UI pass; faster A76candidate fails exact revision/timing gates. Field integration unavailable and secondary | V52 /sequential findings |
-| Display | User confirmed ribbon shift fixed blank display. Requested90->270 rotation applied/persisted with exact backup/restore-copy;480x800 retained. No physical-touch/reboot-persistence claim | README_DISPLAY_ORIENTATION_V1 and private receipts |
-| Campaign coverage | N1-N3 have separate scoped handoffs. Original closure preserved; N4full240cell panel and fullN5 incomplete. Specified/model-free/Windows/native/held-out evidence stays distinct | Stage handoffs,34methodcatalogue, latest summaries |
+## Retained evidence to reuse
+- V98: saved Streaming fresh-process application passage,104matched pre-EOF frames and17unmatched tail frames.
+- V95: saved Chunk52 application/method controls;416matched pre-EOF frames plus15accounted tails.
+- V91–V93: distinct saved Delayed/Streaming/Chunk52 app passes; no general launcher claim.
+- V117:120seconds/all1,920,000samples archived; original whole trial FAILED its validator. Later read-only interpretation never rewrites it.
+- V123:24.03seconds live plus visible Save/export/delete/import/reopen on the owned recording; all original payload fields retained.
+- V128: two independent5-second sessions, exact closure before next reserve, saved history preserved.
+- V131/V132: metadata reopen/pending fence and separate complete local copy; V141 connects their later derivatives.
+- Native repaired A76 same-geometry pairs reduced wall work23–24% on one retained file. Cross-mode costs~0.405Delayed/~1.085Chunk52/~3.634Streaming are different geometries, not a general speedup or field benchmark.
 
-## Current evidence and next action
+Source buffering is material: Delayed needs about21.3seconds of source before first output; short recordings can produce diarizer output at EOF. Streaming early output does not establish sustained realtime operation. No new WER/DER/identity quality, matched source-reference1e-5/E0, noisy-human or physical-touch result was obtained.
 
-V98 completes one native method-bound Streaming fresh-child passage with actual installed Start/Stop, generic state coherence and closed ownership. Parent ACK precedes constructors; parent libraries stay unmapped; all104pre-EOF frames match exactly.17tail frames are accounting-only. Next visible controls, bounded return/close and corrected live source/model/storage integration. Do not rerun healthy mode/helper/control suites.
+## Failures and constraints preserved
+V141: scope2 source-backup expiry gap; dispatcher1 strict future-clock rejection before admission/mutation; bounded host-clock catch-up in dispatcher2 preserving native timestamps; invalid copy1 indentation before execution/SSH; collector18 nonexistent API caught statically and left unexecuted; collector314 requested a nonexistent census filename before SSH. Actual fresh census was saved asHOST_CENSUS_V356 despite stdout saying257; collector315 used the real file. All failed roots and raw outputs remain.
 
-V96 adds six actual installed Controller/withdrawn UI recovery observations: explicit valid selection resets generic IDLE/status/error and dedicated READY together; Stop keeps the validation error; invalid reselection stays failed; declared source-kind sentinel and unrelated error cannot use recovery. No model/source/audio was run.55files185301B exact backup; closure205 has376Pi/48priorhost identities closed plus2fieldworkers/1helper separately checked. Next: visible/general launcher and corrected live/storage integration; V98 is separately scoped. Prior V95 positive model evidence stays separate.
+V140 exceeded its2MiB host preparation allowance through repeated full preread receipts; bytes and violation remain. V141 reads all owners but writes compact count/digests. Earlier V300 and V137 shutdown postexit uncertainties remain. No firmware reset, new model download, training, enrollment or audible playback occurred in the final stretch.
 
-V95 closure203:374recordedPi/48priorisolatedhost identities closed, plus2fieldworkers/1consolehelper separately verified; research/hardware leases free, capture closed, original rc5 unchanged.64files230698B exact private backup and remote Git verified. These readings are historical; recheck before dispatch.
+## Exact continuation boundary
+F04/F05 are still the blocking dependency: local manual admission, finite production lifetime/storage, failed-source recovery and restart fencing. Never rename the600s research dispatcher as a user launcher. Journal activation/rollback remains unwired. Then F06–F20 must be finished against the actual installed composition, with one combined final recording and explicit unsupported features.
 
-V95 Chunk52 retained416pre-EOFframes with maxabs0<=1e-5 and15unmatchedEOFframes.6.947747s total includes UI/pacing/startup/cleanup, not a speed benchmark. V95 observed only dedicated-page recovery; V96 separately fixes and verifies matching pre-owner validation recovery in both views. Neither result qualifies recovery from source/model/cleanup failures.
+No final backend shortcuts, production optional recording selector, simultaneous rawMIC0–MIC3 qualification, local automatic recovery, activation/rollback or final offline startup pass exists. ExistingO0/O1 and model-inputWAV/float are processed taps, not proof of raw microphones. Final gallery compatibility and nonempty captions remain open. The field kit is ready as a protocol, but the new app is not ready to use that protocol unsupervised.
 
-Follow COMPLETION_PLAN: coherent mode launcher/recovery, corrected full source/model/storage composition, visible controls, offline acceptance, release freeze, final documentation/backup. Do not rerun healthy suites for activity. Keep unavailable methods unavailable. No new download/training/enrollment/playback or requested speech; quiet/background checks establish function/resources only.
-
-## Preservation and final handoff
-
-PATHS_AND_BACKUPS lists exact locations. Keep failed attempts/raw evidence and immutable sources/admissions/policies/releases. Never manually alter closed ledgers or reset storage accounting. All host Python coordinators setCPU14 before reading. Use strict SSH checking and the existing key; no secrets in this pack. Before active app changes, verify backup/restore and exact boot/PID/start identities. Preserve display270 and personal data.
-
-At deadline close research and pause automation. Desired final state is a verified field app idle with capture off. If required gates fail, leave a recoverable baseline and explicitly report incomplete delivery. Final version must replace this snapshot with actual active release, exact launcher/health/rollback commands, offline evidence, coverage gaps, final manifests/backups and a concise resume instruction.
+No continuation beyond the deadline is automatic. A future continuation requires explicit user authority and fresh boot/identity/resource admissions. Preserve display270, personal data, exact baseline, old policies and failed records.

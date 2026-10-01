@@ -1,8 +1,6 @@
 # Concrete final delivery checklist
 
-User authority: October1 final stretch, no new campaigns; finish within3hours. Effective deadline **2026-10-01T16:14:58Z /12:14:58 Toronto**; finalization reserve begins15:14:58Z. This earlier deadline does not waive required gates. Sources: original Codex_N5_Windows_CM5_Releases_and_GitHub.md, current ACCEPTANCE.json and October1 operator additions. This list replaces generic next-work narratives as the active execution order.
-
-Current position: F01/F02 done; F03 saved and awaiting F19 restart proof; F04 is next. No full delivery/offline-readiness claim yet.
+Delivery is **INCOMPLETE**. Hard deadline2026-10-01T16:14:58Z; feature freeze15:14:58Z. F01/F02 completed; F04 gained scoped native integration but its persistent manual entry is missing. F22-F26 finalization does not waive required runtime gates.
 
 ## F01 — Verify the returned Pi
 
@@ -10,7 +8,7 @@ Status: **DONE**.
 
 Done means: New boot, exact launcher/app identities, unchanged install/live/display pins, XMOS device and actual display270 recorded.
 
-Evidence (private native evidence root): user-reconnect-20261001-v4/RESULT.json
+Evidence/scope: user-reconnect-20261001-v4/RESULT.json
 
 ## F02 — Return the existing app to safe idle
 
@@ -18,7 +16,7 @@ Status: **DONE**.
 
 Done means: One normal Stop; capture closed, hardware lease free, UI returned to Start; app and recordings preserved. ALSA1284 is a thread of app1124, not a separate source process.
 
-Evidence (private native evidence root): final-delivery-normal-stop-v1/RESULT.json; final-delivery-stop-completion-v1/RESULT.json
+Evidence/scope: final-delivery-normal-stop-v1/RESULT.json; final-delivery-stop-completion-v1/RESULT.json
 
 ## F03 — Disable automatic listening
 
@@ -26,13 +24,15 @@ Status: **SAVED_NOT_REBOOT_TESTED**.
 
 Done means: Settings backup and independent restore verified; normal UI changed only auto_start_listening to false; saved hash verified. Final-release restart/boot persistence is F19.
 
-Evidence (private native evidence root): final-delivery-idle-start-v2/RESULT.json
+Evidence/scope: final-delivery-idle-start-v2/RESULT.json
 
 ## F04 — Finish the persistent local manager
 
-Status: **NEXT**.
+Status: **PARTIAL_NATIVE_INTEGRATION_PASS_MANUAL_ENTRY_OPEN**.
 
 Done means: Wire the prepared initializer, broker, finish/reopen, census/export receiver and exact owner closure into one local manual entry. Bind current boot/PID identities, preserve full617760944-byte qualification reservation, and require complete local/PC copies before another slot. No consumed research launcher or expired policy as a user entry.
+
+Evidence/scope: CHECK_SUMMARY_V141; native reserve/run/finish/localbackup/reopen plus separate full PC copies. Persistent manual entry remains missing.
 
 ## F05 — Issue and enforce the production recording/lifetime policy
 
@@ -94,6 +94,8 @@ Status: **OPEN_CONDITIONAL_HARDWARE_CAPABILITY**.
 
 Done means: Check actual firmware/routing for simultaneous physical MIC0-MIC3 and processed taps. If supported, qualify one bounded paired recording with synchronized clocks, sample counts and route restoration. If unsupported, visibly disable Raw+processed with the exact reason; never relabel O0/O1 or float/WAV as raw microphones.
 
+Evidence/scope: V141 actual firmware3.2.1/4reported mics/8channel endpoint/O0processed route; simultaneous rawMIC0-MIC3 NOT_QUALIFIED, unsupported hardware not proven.
+
 ## F15 — Close recording integrity and storage accounting
 
 Status: **OPEN**.
@@ -105,6 +107,8 @@ Done means: Bound every writer and count raw/processed/events/metadata plus inde
 Status: **OPEN**.
 
 Done means: A reusable documented export command/control copies a stopped recording into a fresh private PC destination. Verify membership, sizes, SHA256 and full readback; retain receipt and path. Preserve interrupted transfers and Pi originals; no automatic deletion.
+
+Evidence/scope: V141 complete private broker and independent manager copies passed; reusable production operator offload flow remains OPEN.
 
 ## F17 — Finish deterministic install and health checks
 
@@ -132,52 +136,50 @@ Done means: Use the final installed composition for its supported bounded record
 
 ## F21 — Declare camera, IMU and physical-control capabilities
 
-Status: **OPEN**.
+Status: **DONE_CAPABILITY_DECLARATION_PHYSICAL_TESTS_OPEN**.
 
 Done means: Retain one actual hardware profile and exact known routes/pins; keep unknown GPIO disabled. Show optional/on-demand camera and IMU availability honestly, with axes/clock/motion limits. No invented pin mapping or unmeasured physical-touch/button pass.
 
+Evidence/scope: HARDWARE_CAPABILITIES.json; actual audio/display, explicit unqualified camera/IMU/buttons/raw.
+
 ## F22 — Freeze versioned artifacts and reconcile all original requirements
 
-Status: **OPEN**.
+Status: **DONE_RECONCILED_WITH_GAPS**.
 
 Done means: Map every retained Windows/Pi composition to its actual source/config/runtime/model hashes and Git ref. Reconcile N1-N5, all34methods and full240-cell N4 denominator with existing receipts. Mark unrun/failed/deferred entries explicitly; no new campaign or benchmark sweep to fill them.
 
+Evidence/scope: FINAL_COVERAGE.md; original N5,73notes,240scene/panel denominators and all34methods retained; FINAL_ARTIFACT_INDEX.json.
+
 ## F23 — Finish the operator documentation
 
-Status: **OPEN**.
+Status: **FINALIZING_CURRENT_STATE_DOCUMENTATION**.
 
 Done means: Exact Start Here, named shortcuts, shared Mode/Backend guides, recording/offload instructions, Enrollment Compatibility, Install/Health, Update/Rollback, Licence Ledger, hardware template, paths/backups and troubleshooting. Include PowerShell/CMD/Anaconda commands for every new code path and supported limits/latency.
 
+Evidence/scope: START_HERE,FINAL_OPERATOR_GUIDE,MODE_GUIDE,PATHS; missing runtime workflows explicitly unavailable.
+
 ## F24 — Finish the noisy-environment testing kit
 
-Status: **OPEN**.
+Status: **DONE_PROTOCOL_ONLY**.
 
 Done means: Consent/privacy instructions, test scenes, reference/ground-truth method, timing/sample/route metadata, expected controls, naming/Unknown/overlap checks, failure rubric and run/results template. Actual noisy-human quality and physical-touch observations remain future measurements until performed.
 
+Evidence/scope: FIELD_VALIDATION.md/FIELD_RUN_TEMPLATE.json; no human/physical/noise-quality result.
+
 ## F25 — Create and verify the final private and Git backups
 
-Status: **OPEN**.
+Status: **PARTIAL_RESEARCH_BACKUPS_VERIFIED_FINAL_PUBLICATION_PENDING**.
 
 Done means: Final deployable release/config and private recordings have complete independent copies/hash/readback and a demonstrated restore path. Push only reviewed small source/manifests/redacted reports; verify remote branch/profile refs. Never publish audio, profiles, vectors, credentials or model weights.
 
+Evidence/scope: 24newsource files196438B exactbackups+independentrestores; both PCtrees exactreadback; no finalproductionrelease torestore.
+
 ## F26 — Build the final handoff and leave a safe device
 
-Status: **OPEN**.
+Status: **FINALIZING_INCOMPLETE_DELIVERY**.
 
 Done means: Condensed ChatGPT ZIP<=20MiB(target<=10), WORKBOOK_UPDATE and artifact/hash index; deployable assets separately. Update ACCEPTANCE with actual evidence and all remaining blockers; close owned research, pause automation by deadline and leave accepted app idle/captureoff or recoverable baseline if required gates fail.
 
-## Execution rules
+## Execution rule
 
-- Every action or check must name one or more F-items and the specific missing evidence it addresses. If it cannot, do not run it.
-- Follow F04-F09 as the launcher critical path, then use a single final composed recording for overlapping functional gates; F14 capability review and F21-F25 documentation/evidence work may proceed when a prerequisite is waiting.
-- Do not rerun unchanged healthy source/model/kernel/UI/copy checks. Preserve their original scope and receipts. Fixes get only the relevant changed-path check.
-- Complete code/config/manifest backup and independent restoration checks before active changes. Use fresh identities/admissions where required; preserve old roots, failed slots and bound bytes.
-- Reuse local assets. Keep Sherpa ONNX ASR; do not replace it with Nemotron ASR. No downloads, training, enrollment, audible playback, solicited speech, agents or new research campaigns.
-- Each PASS needs a timestamp, exact release/hash and receipt. Preparation, synthetic host callbacks, process exit, physical operation and field accuracy are different evidence.
-- At15:14:58Z stop new feature/model work and finalize the actual outcome. Do not declare full completion while a required functional item remains open.
-
-## Explicit remaining research/physical limits
-
-The full240-cell N4 study, missing matched source-reference1e-5/E0 and held-out WER/DER/identity metrics remain incomplete unless already supported by retained receipts. F22 must name each gap; it does not manufacture a pass or launch another campaign. Applied ASR/VAD skipping, parallel diarizer pools, whole-waveform ONNX and the failed A76 ASR candidate remain unavailable. Nemotron ASR is deferred by direct user choice.
-
-Actual noisy-human quality, physical touchscreen/buttons and physically unplugged operation require real observations. F24 delivers the test framework; these observations stay NOT_TESTED until performed. Software network denial and a new Linux boot ID are not substitutes for those claims.
+Each action must close a named missing criterion. Reuse unchanged healthy evidence; no generic sweeps, new campaigns, deadline extension or consumed root/policy reuse. Feature/model work is frozen. Missing required functionality stays OPEN. Future continuation requires new explicit authority.

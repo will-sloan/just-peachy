@@ -1,9 +1,9 @@
 {
   "schema": "just-peachy.delivery-acceptance.v1",
-  "as_of_utc": "2026-10-01T13:30:04.004332+00:00",
+  "as_of_utc": "2026-10-01T15:30:09.415683+00:00",
   "hard_deadline_utc": "2026-10-01T16:14:58Z",
-  "overall": "IN_PROGRESS",
-  "latest_verified_research_summary": "CHECK_SUMMARY_V140.json",
+  "overall": "INCOMPLETE_FINALIZING",
+  "latest_verified_research_summary": "CHECK_SUMMARY_V141.json",
   "gates": [
     {
       "id": "D1_COMPONENTS",
@@ -19,11 +19,11 @@
     },
     {
       "id": "MODE_LAUNCHER_AND_ERROR_RECOVERY",
-      "status": "SCOPED_TWO_SESSION_DELAYED_BROKER_PASS_PERSISTENT_RELEASE_OPEN",
+      "status": "SCOPED_NATIVE_MANAGER_PASS_PERSISTENT_MANUAL_OPEN",
       "required": true,
-      "evidence": "V128 actual two independent delayed sessions and previous-history UI, captureoff and exact parent/child/source closure before next. V98/V100/V123 remain separate scopes. V129 removes automatic qualification drivers in backed manual derivatives; native unexecuted. Read-only native health separately recognizes closed history and preserves failed-tree fencing.",
+      "evidence": "CHECK_SUMMARY_V141; V128 repeated sessions retained.",
       "remaining": "Persistent manual user launcher, mode switching beyond admitted delayed sessions, local failure recovery and offline release remain open.",
-      "entry_preparation": "Manual builder6/gate8/entry6/broker7/stage5/parent13/child11 prepared only; controller6/source11 retained. README manual2. Existing dispatcher6 pins old gate7. V130 finite local release plan1 passed three host fixture groups/17rejects; native metadata journal2 was then prepared and unexecuted. No production lifetime/admission implemented. V131 actual native journal2 create/reopen and injected pending write-fault fencing passed across four fresh processes, with full host metadata backup. Production manager/automatic recovery remain open; V300 scanner identity gap preserved. V132 actual complete local recording backup passed with source owner/unit/gate/model/archive closure checks and complete host backup. Journal consumer/next-slot integration, failed-source recovery and production manager remain open; historical identity gaps preserved. V133 prepares Journal3 actual closure/local backup/next-slot methods with direct supplied-fact publications fenced. Changed host binding two positive groups/20rejects passed; all new native lifecycle methods remain unexecuted. Failed-source backup/recovery and production supervisor are open. V134 corrects prepared Journal4 MainPID to actual broker role and prepares Supervisor1/Gate10 registration before ACK. One historical host positive group/10rejects passed; ActiveState fixture. All new native paths unexecuted; one-session driver/entry/builder/dispatch, subsequent-slot supervision and recovery remain open. V135 assembles actual host one-session64member/15module manager capsules, adds later-slot reserve API and full independent host-copy allocation. Three synthetic positive groups/10rejects passed. All new native paths unexecuted; joint admission/dispatcher/initializer/mirror/owner accounting and recovery remain open. V136 changed host joint binding1positive/19rejects passed; initializer3 prepared only. Native joint dispatcher/mirror/phase wrapper/nested-owner accounting still missing. No new native manager/capture or recovery. V137 host manager-tree mirror passed two real local copy/readbacks and14rejects with synthetic policy/closure. Native finish/reopen wrapper prepared only. User-requested poweroff requires new boot/baseline identity verification before native work. V138 host owner/current-boot contract2positive25rejects passed using synthetic manager/lifecycle values; native manager census/exporter prepared only. No SSH/manager attempt. Old fixed-baseline chain still requires fresh postboot derivatives. V139 complete15module auxiliary graph and changed binary framing passed host checks; early native bootstrap prepared only. Host wrapper/closure and joint dispatcher/collector remain missing. No Pi contact; old fixed-baseline chain still requires postboot derivatives.",
+      "entry_preparation": "V141 actual postboot reserve/run/finish/localbackup/reopen and both independent PC copies. Original joint overall result failed first manager copy; separate repaired copy passed. Persistent manual policy/recovery remains missing.",
       "milestone": "September30 21:42:44UTC missed; still open, final deadline unchanged"
     },
     {
@@ -65,7 +65,7 @@
       "status": "SCOPED_NATIVE_READ_ONLY_HEALTH_PASS_LOCAL_RECOVERY_ACTIVATION_OPEN",
       "required": true,
       "evidence": "V129 native health inspected actual successful sessions-v6 and failed sessions-v2 under expired policies without writes or capture. Both owners/leases/capture verified quiescent; V2 missing parent stays fenced.",
-      "remaining": "F04/F05/F17/F18/F19: complete local manager/admission, activation/rollback/recovery and final-release offline startup. New boot verified V140; old rc5 recovered and automatic listening disabled. Prepared native manager remains unexecuted."
+      "remaining": "F04/F05/F17-F19 manual production admission, activation/rollback/local recovery and final offline startup remain OPEN. Manager native reopen V141 is not automatic recovery."
     },
     {
       "id": "PERSONAL_GALLERY_COMPATIBILITY",
@@ -75,33 +75,33 @@
     },
     {
       "id": "DOCUMENTATION_AND_CHATGPT_HANDOFF",
-      "status": "DRAFT_CREATED",
+      "status": "FINALIZING",
       "required": true,
       "evidence": "completion_20261001"
     },
     {
       "id": "FIELD_VALIDATION_FRAMEWORK",
-      "status": "DRAFT_CREATED",
+      "status": "DONE_PROTOCOL_ONLY",
       "required": true,
-      "evidence": "FIELD_VALIDATION.md and FIELD_RUN_TEMPLATE.json; actual human trials future"
+      "evidence": "FIELD_VALIDATION.md/FIELD_RUN_TEMPLATE.json; actual field trials NOT_RUN."
     },
     {
       "id": "FINAL_BACKUP_AND_RESTORE_VERIFICATION",
-      "status": "OPEN",
+      "status": "SCOPED_RESEARCH_BACKUPS_PASS_PRODUCTION_RESTORE_OPEN",
       "required": true,
-      "evidence": "V139 seven source/README36196B exact private backups and independent restores within scope. V137715B configuration backup and older scoped native backup receipts retained. Final deployable release backup/coldboot remain open."
+      "evidence": "V14124source/README196438B exact backup/independentrestore,196filebroker and223filemanager fullPCreadbacks; no complete finalrelease restore."
     },
     {
       "id": "N1_N5_COVERAGE_RECONCILIATION",
-      "status": "OPEN",
+      "status": "DONE_WITH_EXPLICIT_GAPS",
       "required": true,
-      "evidence": "Preserve N1-N3 scoped receipts; full240cellN4/fullN5 incomplete"
+      "evidence": "FINAL_COVERAGE.md; all original denominators preserved; no new accepted N4/N5 release."
     },
     {
       "id": "DEADLINE_CLOSURE_AND_IDLE_DEVICE",
       "status": "OPEN",
       "required": true,
-      "evidence": null
+      "evidence": "Closure315 captureclosed/researchunitsabsent/baselinealive; automation pause/finalreceipt pending."
     },
     {
       "id": "DESKTOP_BACKEND_SHORTCUTS",
@@ -140,7 +140,9 @@
     "boot_id": "892ed9fa-e39c-48af-8653-eae5e123daad"
   },
   "active_execution_list": "FINISH_CHECKLIST.md",
-  "active_execution_item": "F04",
-  "latest_observation": "New boot verified; actual normal Stop; auto-start disabled through UI; no final-release/offline acceptance.",
-  "concrete_finish_list": "FINISH_CHECKLIST.md"
+  "active_execution_item": "F22-F26_FINALIZATION",
+  "latest_observation": "PASS_NATIVE_MANAGER_QUALIFICATION_SEPARATE_PC_COPY_DELIVERY_INCOMPLETE",
+  "concrete_finish_list": "FINISH_CHECKLIST.md",
+  "feature_work_frozen": true,
+  "required_product_gates_still_open": true
 }

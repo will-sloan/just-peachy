@@ -1,104 +1,36 @@
-# Consolidated paths, backups and simplification
+# Artifact and backup paths
+Paths below are exact. Preserve all old packs, failed roots, personal data and source bytes. No consolidation moved or deleted evidence.
 
-October 1 user decision: retain **Sherpa ONNX ASR** with Nemotron-3 diarization and compatible ReDimNet. Nemotron ASR remains deferred research, not a delivery prerequisite. See [RAM/model and price report](PI_RAM_MODEL_REPORT_V1.md). Desktop backend shortcuts and optional true raw/processed recording with verified PC offload are now explicit required **OPEN** gates; see [requirements](OPERATOR_SHORTCUTS_AUDIO_REQUIREMENTS_V1.md). No new native test or readiness claim; At report publication CHECK_SUMMARY_V135 was the latest verified research result.
-
-Current V140: new Pi boot verified after the user reported reconnection. Original rc5 auto-started capture; one normal Stop returned the app to Start/captureoff with hardware lease free. Normal Settings control then disabled only auto_start_listening after exact private backup/restore. App remains running, display270 and original install/live/display pins unchanged. Final-release reboot persistence/offline readiness are still open. Changed PC transport passed2positive/9reject cases with synthetic remote identities/closure callback; native manager/exporter remains unexecuted. Follow FINISH_CHECKLIST.md:26concrete items, F01/F02 done, F03 saved pending restart proof, F04 next. New user deadline16:14:58Z (12:14:58Toronto), finalization15:14:58Z; no new campaigns.
-
-Latest private preparation: local/n5/research-extension-20260928/pi-native-20260928/field-streamed-mirror-v1-preparation; four source/README files23,724B exact backup plus separate restore copy. The positive local mirror holds75files352,621B from retained V100 evidence. First review failure and separate empty-file fsync failure are preserved. No new native run; actual entry V107 remains prepared.
-
-Previous positive model evidence: `local/n5/research-extension-20260928/pi-native-20260928/d1-process-launch-v1-evidence`; exact72file230842B target backup. Preparation/reader failures remain in `d1-process-launch-v1-preparation`. New launcher/readme and reviewV2 are under the native report directory.
-
-Snapshot updated through V100 visible inspection lifecycle; prior recovery/mode passages retain their separate scopes. Resolve current manifests/receipts before execution; old PIDs and census numbers are not current authorization. This index consolidates navigation without moving or deleting evidence.
-
-| Purpose | Exact location |
+| Purpose | Location |
 |---|---|
-| Delivery entry | `G:\Just_Peachy_N1\20260924_campaign\worktree\DELIVERY_START_HERE.md` |
-| Completion pack | `G:\Just_Peachy_N1\20260924_campaign\worktree\research\nvidia_nemo_comparison\20260924_campaign\n5\completion_20261001` |
-| Working Git checkout | `G:\Just_Peachy_N1\20260924_campaign\worktree` |
-| Main private evidence root | `G:\Just_Peachy_N1\20260924_campaign\local` |
-| Private Pi evidence | `G:\Just_Peachy_N1\20260924_campaign\local\n5\research-extension-20260928\pi-native-20260928` |
-| Current reports/helpers | `G:\Just_Peachy_N1\20260924_campaign\worktree\research\nvidia_nemo_comparison\20260924_campaign\n5\extension_20260928\pi_native_20260928` |
-| Window policy and next action | Parent of current reports: `extension_20260928\WINDOW_V5.json`, `window_guard_v5.py`, `NEXT.md` |
-| Original repository | `C:\Users\amiri\Documents\GitHub\just-peachy` |
-| Existing host runtime | `C:\Users\amiri\Documents\GitHub\just-peachy\.edge-speech-env\python.exe` |
-| Authorized remote/ref | `https://github.com/will-sloan/just-peachy` / `codex/n1-foundation-20260924` |
-| Pi research root | `/home/peachyprototype/JustPeachy/research/nemotron-20260928` |
-| Pi active-install pointer | `/home/peachyprototype/JustPeachy/install/current.json` |
-| Pi original runtime | `/home/peachyprototype/JustPeachy/install/runtimes/proto1-cm5-20260923-rc5/bin/python` |
-| Pi shared models | `/home/peachyprototype/JustPeachy/install/models` |
-| Pi personal/config store | `/home/peachyprototype/JustPeachy/data` (private; preserve) |
-| Installed research v12 | `/home/peachyprototype/JustPeachy/research/nemotron-20260928/field-artifact-install-v2/deployment/releases/b01-offline-20260930-v12` |
-| Display preference | `/home/peachyprototype/.config/kanshi/config`: transform270,480x800; backup under research `display-orientation-20260930-v1` |
-| Prepared mode entry | `D1_MODE_ENTRY_MANIFEST_V1.json`, `d1_mode_entry_v1.py` and fresh saved/method/recovery factories; private `d1-mode-entry-v1-preparation` checks/pins/source backup; no native launcher acceptance |
-| Current validation recovery | Private Pi evidence `d1-method-recovery-v1-evidence/REVIEW.json`, `BACKUP.json`, `target/`; findings `D1_METHOD_RECOVERY_FINDINGS_V1.md`, summaryV96 |
-| Current method integration evidence | Private Pi evidence `d1-method-application-v1-evidence/REVIEW.json`, `BACKUP.json`, `target/`; V95 scope only |
+| Entry | G:/Just_Peachy_N1/20260924_campaign/worktree/DELIVERY_START_HERE.md |
+| Git worktree | G:/Just_Peachy_N1/20260924_campaign/worktree |
+| Completion documents | research/nvidia_nemo_comparison/20260924_campaign/n5/completion_20261001 under that worktree |
+| Current source/reports | research/nvidia_nemo_comparison/20260924_campaign/n5/extension_20260928/pi_native_20260928 |
+| Private root B | G:/Just_Peachy_N1/20260924_campaign/local/n5/research-extension-20260928/pi-native-20260928 |
+| Runtime for host tools | C:/Users/amiri/Documents/GitHub/just-peachy/.edge-speech-env/python.exe |
+| Authorized Git remote/ref | https://github.com/will-sloan/just-peachy / codex/n1-foundation-20260924 |
+| Pi baseline pointer | /home/peachyprototype/JustPeachy/install/current.json |
+| Pi private config/data | /home/peachyprototype/JustPeachy/data |
+| Pi shared models | /home/peachyprototype/JustPeachy/install/models |
+| Pi original runtime | /home/peachyprototype/JustPeachy/install/runtimes/proto1-cm5-20260923-rc5/bin/python |
+| Pi research root R | /home/peachyprototype/JustPeachy/research/nemotron-20260928 |
+| Existing research install | R/field-artifact-install-v2/deployment/releases/b01-offline-20260930-v12 |
+| Display config | /home/peachyprototype/.config/kanshi/config,270degrees; preserve current85-byte hash |
+| Final manager/source qualification | R/field-local-release-v2 and R/field-operator-sessions-v8; closed finite research roots |
+| Complete broker PC copy | B/final-manager-joint-v2/broker-copy-mirror;196files3,149,456bytes |
+| Independent manager/local-copy PC copy | B/final-manager-pc-copy-v2/manager-copy-mirror;223files3,323,072bytes |
+| New source backups/restores | B/final-manager-integration-v1/source-backup-v1,v2,v3,v4,v6,v7,v8 and matching source-restore folders |
+| Final raw native evidence | B/final-manager-joint-v1 (clock preflight failure), final-manager-joint-v2 (native pass/first copy failure), final-manager-pc-copy-v2 (separate copy pass) |
+| Final source/readback review | B/final-manager-integration-v1/FINAL_ACTUAL_REVIEW_V1.json |
+| Final whole closure/accounting | B/NATIVE_CLOSURE_V315.json and NATIVE_RESOURCES_V315.json |
+| Actual host census filename | B/HOST_CENSUS_V356.json; its stdout incorrectly said257, preserved |
+| Final publication/backups | B/final-delivery-publication-v1 |
+| Immutable documentation packs | B/completion-20261001-backups; final selection is recorded in FINAL_HANDOFF_RECEIPT.json |
+| Historical separate deployable archives | G:/Just_Peachy_N1/20260924_campaign/local/n5/releases; see FINAL_ARTIFACT_INDEX.json for exact hashes and readiness |
 
-SSH endpoint is `peachyprototype@raspberrypi.local`, mandatory strict host checking and HostKeyAlias `192.168.2.57`. Use the existing authorized key; key contents and credentials never enter a handoff archive. Network-disabled testing must have a verified local recovery route before disconnecting management.
+The final analysis ZIP is not deployable. There is no newly accepted production runtime archive. Historical baseline310,867,595-byte ZIP and1,874,637-byte native engineering TAR retain their prepared/build scope; do not relabel them from later component tests.
 
-## Evidence navigation
+The current85-byte display configuration SHA256 is c4e12bb19373d607a7ca1e52a0c007e082e17a18eb5af7b8a60384ca82aae23b. The saved214-byte idle-start settings SHA256 is d94face8f202cc0aceac059bf32500721ab5da5b8e18446291642e9464ef0b57. Original config backups and independent restores are in B/user-poweroff-20261001-v1 and B/final-delivery-idle-start-v2. A whole personal-store disaster restore was not performed.
 
-In current reports read newest CHECK_SUMMARY, then current STATUS and MASTER_BACKEND_MODE_GUIDE. D1_MODE_CATALOG_V1 pins assets/geometries. D1_METHOD_CONTRACT_V1 pins fixed method evidence. D1_APPLICATION_SAVED_FINDINGS_V2/V3/V4 cover Streaming/Chunk52/Delayed respectively. D1_METHOD_APPLICATION_FINDINGS_V1 covers V95 changed integration. Read only a referenced immutable README/source when that path is needed.
-
-Earlier stage handoffs are under campaign `N1_HANDOFF.md`, `n2/N2_HANDOFF.md`, `n3/N3_HANDOFF.md`, `n4/N4_HANDOFF.md`, `n5/N5_HANDOFF.md`. Preserve original acceptance scopes. The34method catalogue is `n5/REALTIME_METHODS_AND_SCHEDULE_V1.json`; native coverage is separately tracked in current reports. Do not treat historical coverage prose as newer than a verified receipt.
-
-## Backup and final packaging
-
-Reviewed small code/docs/manifests go to the existing Git branch, with localHEAD equal to the remote ref. Personal recordings/transcripts/profiles/vectors, model weights and credentials remain in private storage. A remote code push is not a private-data backup. Existing evidence roots already contain exact target backup receipts; final index must list them without copying gigabytes unnecessarily.
-
-Create a small self-contained documentation ZIP with relative links and SHA256 manifest, separate from deployable software and private payloads. Initial pack is a draft/current-state handoff. Final pack must contain the actual release/launch/health/rollback commands, enabled-mode table, acceptance/coverage status, exploration outcomes, field kit, licenses/model provenance references and exact backup locations. Target<=10MiB; hard limit20MiB from originalN5. Verify every extracted member's size/hash and reject absolute/traversing/duplicate paths. Keep failed/partial package attempts rather than overwrite them.
-
-Before code/config/active-pointer changes, save exact old bytes, verify readback and restoration into a separate copy, record original identity and document rollback. At final handoff verify a fresh remote ref and a private manifest, not merely a ZIP's existence. Build successive versioned packs; never overwrite a closed handoff snapshot.
-
-## Simplification plan
-
-Maintain one front end, one source/ownership lifecycle, one mode catalogue and per-backend immutable manifests. Keep the tested native runtime/model assets shared in place. Put experimental unavailable methods behind explicit status, outside the normal operator path. Consolidate the working implementation into a new reviewed release after evidence gates; retain the research tree as read-only provenance. Do not delete old files or copy every research helper into the production launcher to appear consolidated.
-
-The final START_HERE must expose one exact operator launch route, one health route and one rollback route. They are **not finalized yet**; the old run-specific `dispatch_*` scripts must not be advertised as everyday launchers.
-
-V117 private full120s recording and exact mirror: field-live-entry-v8-evidence/host-backup-mirror;104files40,693,951B. Preparation: field-live-record-v1-preparation. Final review/publication: field-live-record-v1-publication. Preserve original immutable source recording; use a fresh exact copy for next data actions.
-
-V118: field-saved-actions-v3-evidence/host-backup-mirror is the saved copied archive (78files24,010,545B); original field-live-entry-v8 remains unchanged. Failed V1 stage-failure-backup and V2 failed-stage-backup-mirror are retained. Preparations field-saved-actions-v1/v2/v3-preparation; publication field-saved-actions-v1-publication. Handoff saved-actions-v26 is separate from runtime assets.
-
-V119: field-transfer-v1-preparation holds immutable V1 failure, changed read-only-review-v2, source-backup-v1 and separate source-restore-v1 (13files69,052B). No native transfer root exists. Publication field-transfer-v1-publication; handoff transfer-contract-v27 remains documentation only.
-
-V120: private field-transfer-ui-v1/v2-preparation contain source/policy backup, independent restore, capsules, admissions and owner closure; v2 ACTUAL_TRANSFER_REVIEW_V1 binds the actual actions. Both evidence/host-backup-mirror roots retain exact files (v1 failed24,039,882B; v2 passed47,619,292B including private audio/ZIP). NeverGit/display those media. Publication field-transfer-ui-v1-publication; documentation-only handoff transfer-actions-v28. V119 historical no-native-root statement applies to its earlier wake only.
-
-V121: private operator-entry-v1-preparation contains two host scopes, source-backup-v1/v2 plus independent source-restore-v1/v2, prereview V2 draft, changed host-contract-v1 and closure/lifetime reviews.17 source/README files149,621B; no new native production root or media. Publication operator-entry-v1-publication; documentation-only handoff operator-child-v29. Current README_FIELD_OPERATOR_V3. All earlier archives/ZIPs/failed roots remain private and unchanged.
-
-V122: private operator-native-v1-preparation contains census223/closure275/extra owner checks, two600s host scopes, owner-contract-v1, source-backup-v1/v2 plus independent source-restore-v1/v2, static review and capsule projection.30 source/README files241,842B; no native root or policy created. Publication operator-native-v1-publication; documentation handoff operator-parent-v30. Current README_FIELD_OPERATOR_PARENT_V1. All original data and prior failed roots remain unchanged.
-
-V123: private operator-qualification-v1/v2/v3/v4-preparation and corresponding field-operator-qualification-v1/v2/v3/v4-evidence preserve all fresh admissions, source backups/independent restores, failures and exact SSH mirrors. Selected positive root is v4; originals/failed v1-v3 immutable. Publication operator-qualification-v1-publication; current README_FIELD_OPERATOR_QUALIFICATION_V6; documentation handoff operator-composition-v31.47source/README/policy files419156B backed up. No media in Git.
-
-V124: private operator-session-v1-preparation contains scope1/2, source-backup-v1/v2 and independent source-restore-v1/v2, single host-contract-v1, closure284/extra-owner review and preserved collector283 selector failure. Publication operator-session-v1-publication records changed historical-policy and derivative reviews. Eight source/README files76512B exact. No native repeated-session root exists or is admitted. Documentation handoff session-lifecycle-v32; current README_FIELD_OPERATOR_SESSIONS_V2.md.
-
-V125: operator-broker-v1-preparation contains source-backup/restore-v1/v2, history-contract-v1 and exact host closure, census229/read-only closure285/extra review. Twelve source/README files77671B exact. Publication operator-broker-v1-publication contains review/docs/private/index/remote receipts. Native staging/gate/CLI/mirror open; no native root/admission. Handoff operator-broker-v33; README_FIELD_OPERATOR_BROKER_V2.md.
-
-V126: operator-broker-native-v1-preparation contains20source/README142707B exact backup/independent restores1..3, preserved interim scope1, mirror-contract-v1 and closed host owners; census230/closure286/extra. Publication operator-broker-native-v1-publication contains reviewed capsule projection and source/private/index/remote receipts. No native root/admission; host dispatcher/receiver and actual qualification open. Handoff operator-native-v34; README_FIELD_OPERATOR_BROKER_NATIVE_V3.md.
-
-V127: operator-broker-dispatch-v1-preparation contains9source/README48653B exact backup/independent restores1..3, transport-contract-v1 and closed host owners; census231/closure287/extra. Publication operator-broker-dispatch-v1-publication contains source/private/index/remote receipts. No native root/admission; partial-initializer exporter/capsule/driver/actual qualification open. Handoff operator-dispatch-v35; README_FIELD_OPERATOR_BROKER_DISPATCH_V2.md.
-
-V128: operator-broker-qualification-v1..v7-preparation holds55source/README492308B exact backups and independent restores, partial-contract-v1, source closures and interim scope1 gap. Native field-operator-sessions-v1/v2/v3/v4/v6-admission each has full host-backup-mirror; v5 is preserved host pre-policy failure only. Publication operator-broker-qualification-v1-publication contains ACTUAL_COMPOSITION_REVIEW1/source/private/index/remote receipts. Census238/closure294+prep7EXTRA2; handoff operator-qualification-v36; README_FIELD_OPERATOR_BROKER_QUALIFICATION_V7.md.
-
-V129: operator-manual-release-v1-preparation holds11source/README81085B exact backup/independent restore, manual-bundle-v1 and HEALTH_ADMISSION/PHASE/RESULT/NATIVE_CLOSURE_V1. Final readonly census240/closure296 and EXTRA_OWNER_CLOSURE_V1 are in operator-manual-release-v2-preparation. Publication operator-manual-release-v1-publication holds ACTUAL_HEALTH_REVIEW_V2/PREPARATION_BACKUP_REVIEW_V1/private-index/remote receipts. Handoff manual-health-v37; current README_FIELD_OPERATOR_MANUAL_V2.md. No new native application root.
-
-V130: operator-local-release-v1-preparation holds six source/README42769B exact backup and independent restore, host-contract-v1, scope/source closures, census241/closure297 lifetime and extra ownership review. Publication operator-local-release-v1-publication holds source/static/private-index/remote receipts. Handoff local-lifecycle-v38; current README_FIELD_LOCAL_RELEASE_V2.md. No native release policy/root was created.
-
-V131: field-local-release-v1-admission contains the full16file70631B metadata mirror and actual phase/owner/unit closure. operator-local-journal-v1/v2-preparation contain11sourceREADME67711B exact backups and independent restores; publication operator-local-journal-v1-publication has source review3/actualjournalreview1/private-index/remote receipts. Handoff native-journal-v39. Runtime/local recording backup remain open.
-
-V132: field-local-backup-v2-admission contains the full330file5927246B native-copy tree backup and actual copy/owner/unit closure. field-local-backup-v1-admission preserves the host-only pre-SSH failure. operator-local-backup-v1-preparation contains9sourceREADME67718B exact backups and independent restores; publication operator-local-backup-v1-publication has source review2/actualcopyreview1/private-index/remote receipts. Handoff local-backup-v40. Journal consumer, persistent runtime and offline remain open.
-
-V133: operator-local-manager-v1-preparation contains five source/README42877B exact backups and independent restores, changed host-binding-v1, static15module135940B projection, census246/247, closure306/307 and EXTRA1/2. Publication operator-local-manager-v1-publication retains source/host review, private-index, remote and automation receipts. Handoff local-manager-v41. New Journal3 remains native unexecuted; no new target tree.
-
-V134: operator-local-supervisor-v1-preparation contains seven source/README75807B exact backups and independent restores, start-binding-v1, static16module144779B projection, preserved Gate9 preparation correction, census248/closure308/EXTRA1. Publication operator-local-supervisor-v1-publication retains source/host review, private/index/remote/automation receipts. Handoff local-supervisor-v42. All new native manager/gate paths unexecuted; no new target app tree.
-
-V135: operator-local-capsule-v1-preparation holds18source/README165797B exact backups and independent restores1..4; consumed allocation-v1/capsules-v1/v2/v3, full compressed capsule backup276098B/4members with independent decompression readback, census249/closure310/prepEXTRA1. Final EXTRA1 is in operator-local-capsule-v1-publication alongside review/index/remote/automation receipts. Handoff local-capsules-v43. No new native manager/app tree or admission.
-
-Report addendum: private ram-model-report-v1-preparation stores the four new document/tool sources and independent restore copies. ram-model-report-v1-publication stores original guide backups, publication and owner receipts. The expanded handoff first produced ram-model-report-v44 (53,550 bytes, 19 members; SHA256 d347ee92c50c6c932fdfb1fed3851fec60146ae881dcc23848c1e761c9c8f3b6). That pack is preserved before canonical LF normalization of ACCEPTANCE.json. The selected successor is ram-report-lf-v45, still summary135; its actual receipt establishes final backup completion. No runtime assets are in the handoff.
-
-V136: operator-local-joint-v1-preparation retains12source/README73403B exact backup/independent restore1..4, first draft scope overrun6.386739s, scope2 on-time fresh derivatives, failed joint-binding-v1 and passed v2, static review, census250/closure311/EXTRA1. Publication holds backup/check/documentation/index/remote/automation receipts. Handoff joint-binding-v46 includes the RAM/model report and new required operator gates. No new native manager/app tree or admission.
-
-V137: operator-local-mirror-v1-preparation contains sixsource40062B backup/restore1..2 and host mirror result. user-poweroff-20261001-v1/v2 contain fouradditional sourceREADME20301B, failure/raw ACK, config backup/independent restore715B, census251/closure312/EXTRA1 and offline observations. operator-local-mirror-v1-publication retains review/documentation/index/remote/automation. Handoff mirror-poweroff-v47. No accepted persistent runtime.
-
-V138: operator-local-export-v1-preparation contains five source/README29663B independent backup/restore1..2, owner-binding-v1 result with synthetic authority/clock and seven real historical owner pins, exact host closure, static review and HOST_CENSUS_V252. Publication retains review/documentation/index/remote/automation. Expanded handoff manager-export-v48. No new Pi snapshot or action during disconnect hold.
-
-V139: operator-local-bootstrap-v1-preparation source backup/independent restore1..2 contains7files36196B, failedcheck1 and passedcheck2, exact host closures, full15module graph pins, source review, precheck1/2failure and3pass, HOST_CENSUS253. Publication holds exact reviewed code/docs/index/remote and verified handoff manager-bootstrap-v49. No Pi action.
+V141 source backups and independent restore copies were rehashed exactly. Both PC recording trees were fully read back. Native manager reopen is separate from a power-loss/whole-app restoration trial. Final Git/private backup receipts provide the published source commit; no personal data is in Git. Retain the old manager-bootstrap-v49 pack and every earlier pack unchanged.

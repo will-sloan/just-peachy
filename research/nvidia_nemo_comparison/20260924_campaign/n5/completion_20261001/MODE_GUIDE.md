@@ -1,49 +1,28 @@
-# Mode guide: delivery snapshot
+# Modes and backend availability
+The final offline user release is incomplete. There are no accepted new Pi profile shortcuts. This guide separates scoped evidence from installed user availability.
 
-October 1 user decision: retain **Sherpa ONNX ASR** with Nemotron-3 diarization and compatible ReDimNet. Nemotron ASR remains deferred research, not a delivery prerequisite. See [RAM/model and price report](PI_RAM_MODEL_REPORT_V1.md). Desktop backend shortcuts and optional true raw/processed recording with verified PC offload are now explicit required **OPEN** gates; see [requirements](OPERATOR_SHORTCUTS_AUDIO_REQUIREMENTS_V1.md). No new native test or readiness claim; At report publication CHECK_SUMMARY_V135 was the latest verified research result.
+**Selected delivery composition:** Sherpa ONNX ASR/PnC, Nemotron-3 D1 and compatible ReDimNet. Keep explicit anonymous operation separate. Nemotron ASR is deferred by the user's October1 decision; TitaNet is historical research. No silent fallback.
 
-Current V140: new Pi boot verified after the user reported reconnection. Original rc5 auto-started capture; one normal Stop returned the app to Start/captureoff with hardware lease free. Normal Settings control then disabled only auto_start_listening after exact private backup/restore. App remains running, display270 and original install/live/display pins unchanged. Final-release reboot persistence/offline readiness are still open. Changed PC transport passed2positive/9reject cases with synthetic remote identities/closure callback; native manager/exporter remains unexecuted. Follow FINISH_CHECKLIST.md:26concrete items, F01/F02 done, F03 saved pending restart proof, F04 next. New user deadline16:14:58Z (12:14:58Toronto), finalization15:14:58Z; no new campaigns.
-
-Product mode controls labels/roster; backend selects caption/diarizer/embedding models; D1 geometry controls buffering/context. Availability retains V95 model evidence and V96 pre-owner validation recovery. V98 qualifies one withdrawn Streaming fresh-child passage. V100 corrected visible inspection lifecycle passed; no general operator/live launcher acceptance. Final guide must match the frozen device launcher, not imply every possible combination was tested.
-
-## Nemotron-3 diarizer choices
-
-| Choice | Retained tradeoff | Actual availability |
+| D1 choice | Buffering and retained cost | Actual evidence |
 |---|---|---|
-| Delayed |264/1/1/0/264/188. About21.3s source before first output; related paced observation~25.5s. Lower retained whole-file work | Native and separate saved-appV5 pass; A76/LRU1/2MiBmetadata. V117120s source/D1/archive scoped pass; general live launcher and Save/Open pending |
-| Streaming |13/1/0/80/264/40. Short passage first output~1.2s source, but heavy longer-context compute | Native and saved-appV3 pass; A76/LRU8. Old44.7s component cost~3.634RTF; early output is not sustained realtime proof |
-| Chunk52 (experimental) |52/1/0/80/264/40. About4.3s source to first output, intermediate buffering/cost | Native, saved-appV4 and method-boundV95 pass; A76/LRU8. Old44.7s cost~1.085RTF; experimental geometry, not an official named preset |
+| Delayed264/1/1/0/264/188 | About21.3s source buffering; about0.405RTF on the retained44.7s component input | Separate saved application pass; V123/V128/V141 bounded live/source/archive/visible operations. General persistent/offline release OPEN. |
+| Streaming13/1/0/80/264/40 | Short passage first output about1.2s source; retained longer-input cost about3.634RTF | Separate saved app/fresh-child passages, including V98. Sustained live availability unqualified. |
+| Experimental Chunk52=52/1/0/80/264/40 | About4.3s source buffering; retained cost about1.085RTF | Separate saved app and V95 method-bound Start/Stop. No general live shortcut. |
 
-Delayed old44.7s component cost~0.405RTF uses different geometry. Cross-mode costs describe a latency/compute tradeoff, not accuracy or a same-geometry speedup. V94's separate matched kernel pairs showed23-24%less wall work with repairedA76 on one retained file; current delayed main includes a laterLRU1change. No new application/sustained/field-quality claim.
+Cross-mode costs use different geometries. They do not establish a speedup, quality ranking or realtime delivery. Same-geometry A76 kernel pairs separately showed23–24% less wall work on one file; the current Delayed main later changed to LRU1. Delayed uses1MiB stacks, one model thread, GPU off and2MiB metadata; other modes retain their exact bound profiles. Libraries stay mapped after closure, so changing runtime/mode needs a fresh process.
 
-Implementation and measurements must show exact model/runtime/geometry, fixed kernel, cache/thread/stack/GPU bounds and supporting receipt. These profiles are not independent kernel toggles. Applied ASR/VAD skipping, parallel pools and whole-waveformONNX stay unavailable. All audio is retained; no recognized words is not silence. Runtime/run changes require Stop/drain and a fresh model process.
+## Product mode is different from backend
+- Just Transcription: keep words under a neutral label.
+- All Enrolled or Selected Enrolled: compatible voice evidence may produce names; insufficient evidence remains Unknown.
+- Closed Selected Group: an explicit roster assumption, not verified recognition.
+- Numbered Unknowns: anonymous continuity; numbers may split/merge and are not people.
+- Names plus Numbered Unknowns: cautious compatible names with anonymous continuity.
+- Spatial/strong spatial choices: require actual fresh direction/IMU cues. Missing cues must remain unavailable; linear-array front/rear ambiguity remains.
+- Full-caption rescue/display filters: restore visible words; filtering does not delete sound or change the matching roster.
 
-V96 explicitly reselecting a valid mode clears a matching pre-owner method validation error in both the controller and saved page. Stop alone does not clear it. Existing operations and unrelated failures require their own closure/recovery; this is not a generic reset or a new model passage.
+No name may be inferred from an empty gallery. UUID alone and matching vector dimension do not establish encoder compatibility. Refer to ../ENROLLMENT_COMPATIBILITY.md; final Pi gallery review remains OPEN.
 
-## Backends
+## Recording status
+The admitted live tests preserved processed model-input audio and complete native events. The final Off/Processed/Raw+processed selector, visible remaining limits and reusable operator offload flow are unfinished. An ALSA channel count orO0/O1 is not proof of raw MIC0–MIC3. Do not offer simultaneous raw recording until exact routing/clock/closure checks pass.
 
-| Backend | Intended content | V95 status |
-|---|---|---|
-| Original baseline | Existing rc5/models/settings | Recoverable baseline; its old ARCHIVE_QUOTA display is not a new D1 failure |
-| B01 | Sherpa/PnC +nativeD1 +compatible retained ReDimNet identity | First field candidate; corrected sustained live/storage/offline release still pending |
-| B05 | Captions +nativeD1, explicit anonymous labels | Saved preview evidence; field packaging/activation pending |
-| Sequential Nemotron ASR | Sherpa-first then separately owned genericA2 refinement | Saved sequential UI/component proof; field integration unavailable; deferred by October 1 user decision |
-
-## Product modes and labels
-
-Existing shared semantics come from prototype/MODE_GUIDE.md; they confer no new D1 field qualification.
-
-| Intent | Meaning and test caution |
-|---|---|
-| Just Transcription | All words under a neutral label; optional speaker inference off. Caption/control reference condition |
-| ALL Enrolled /Constant Unknown | Query compatible gallery; unmatched evidence stays Unknown. Empty gallery cannot yield verified personal names |
-| SELECTED /Constant Unknown | Restrict actual matching roster to chosenUUIDs; separate from display filtering |
-| SELECTED /Closed group | Valid evidence may choose an explicitly assumed selected identity. Outsiders may be misnamed; assumed labels are not verified recognition |
-| Spatial-assisted ALL/SELECTED | Direction supports voice association only with actual fresh cues; front/rear ambiguity and reflections remain limits |
-| Strongly Spatial-assisted ALL/SELECTED | Greater position influence; experimental, inspect wrong-seat and returning-speaker behavior |
-| Numbered Unknowns | Anonymous continuity; slots can split/merge and numbers are not verified people |
-| Names +Numbered Unknowns | Cautious compatible names plus anonymous continuity; only test an actually enabled composition |
-
-Pending/Unknown/delayed are valid states. Wait for the measured label delay and Stop/drain before comparing stored output. Show all restores hidden captions; display filtering does not remove sound or change the matching roster. Keep O0/O1 tap, exact gain, preprocessing, recipe, gallery and runtime fixed when comparing one mode change.
-
-Human/noisy speech validation is future work in FIELD_VALIDATION. The final release guide must include verified menu/launcher steps and the reason for each unavailable combination. No live enrollment is performed by this document.
+Applied ASR/VAD skipping, parallel diarizer pools and whole-waveform ONNX remain unavailable. Keep all audio and original clocks; no captions is not evidence of silence. There is no new noisy-human/physical-touch or source-reference parity claim.

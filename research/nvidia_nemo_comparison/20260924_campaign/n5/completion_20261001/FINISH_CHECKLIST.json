@@ -1,7 +1,7 @@
 {
-  "as_of_utc": "2026-10-01T13:30:04.004332+00:00",
+  "as_of_utc": "2026-10-01T15:30:09.415683+00:00",
   "deadline_utc": "2026-10-01T16:14:58Z",
-  "current_item": "F04",
+  "current_item": "F22-F26_FINALIZATION",
   "items": [
     {
       "id": "F01",
@@ -26,10 +26,10 @@
     },
     {
       "id": "F04",
-      "status": "NEXT",
+      "status": "PARTIAL_NATIVE_INTEGRATION_PASS_MANUAL_ENTRY_OPEN",
       "title": "Finish the persistent local manager",
       "done_means": "Wire the prepared initializer, broker, finish/reopen, census/export receiver and exact owner closure into one local manual entry. Bind current boot/PID identities, preserve full617760944-byte qualification reservation, and require complete local/PC copies before another slot. No consumed research launcher or expired policy as a user entry.",
-      "evidence": ""
+      "evidence": "CHECK_SUMMARY_V141; native reserve/run/finish/localbackup/reopen plus separate full PC copies. Persistent manual entry remains missing."
     },
     {
       "id": "F05",
@@ -99,7 +99,7 @@
       "status": "OPEN_CONDITIONAL_HARDWARE_CAPABILITY",
       "title": "Resolve true raw microphone support",
       "done_means": "Check actual firmware/routing for simultaneous physical MIC0-MIC3 and processed taps. If supported, qualify one bounded paired recording with synchronized clocks, sample counts and route restoration. If unsupported, visibly disable Raw+processed with the exact reason; never relabel O0/O1 or float/WAV as raw microphones.",
-      "evidence": ""
+      "evidence": "V141 actual firmware3.2.1/4reported mics/8channel endpoint/O0processed route; simultaneous rawMIC0-MIC3 NOT_QUALIFIED, unsupported hardware not proven."
     },
     {
       "id": "F15",
@@ -113,7 +113,7 @@
       "status": "OPEN",
       "title": "Deliver verified copy-to-PC offload",
       "done_means": "A reusable documented export command/control copies a stopped recording into a fresh private PC destination. Verify membership, sizes, SHA256 and full readback; retain receipt and path. Preserve interrupted transfers and Pi originals; no automatic deletion.",
-      "evidence": ""
+      "evidence": "V141 complete private broker and independent manager copies passed; reusable production operator offload flow remains OPEN."
     },
     {
       "id": "F17",
@@ -145,45 +145,47 @@
     },
     {
       "id": "F21",
-      "status": "OPEN",
+      "status": "DONE_CAPABILITY_DECLARATION_PHYSICAL_TESTS_OPEN",
       "title": "Declare camera, IMU and physical-control capabilities",
       "done_means": "Retain one actual hardware profile and exact known routes/pins; keep unknown GPIO disabled. Show optional/on-demand camera and IMU availability honestly, with axes/clock/motion limits. No invented pin mapping or unmeasured physical-touch/button pass.",
-      "evidence": ""
+      "evidence": "HARDWARE_CAPABILITIES.json; actual audio/display, explicit unqualified camera/IMU/buttons/raw."
     },
     {
       "id": "F22",
-      "status": "OPEN",
+      "status": "DONE_RECONCILED_WITH_GAPS",
       "title": "Freeze versioned artifacts and reconcile all original requirements",
       "done_means": "Map every retained Windows/Pi composition to its actual source/config/runtime/model hashes and Git ref. Reconcile N1-N5, all34methods and full240-cell N4 denominator with existing receipts. Mark unrun/failed/deferred entries explicitly; no new campaign or benchmark sweep to fill them.",
-      "evidence": ""
+      "evidence": "FINAL_COVERAGE.md; original N5,73notes,240scene/panel denominators and all34methods retained; FINAL_ARTIFACT_INDEX.json."
     },
     {
       "id": "F23",
-      "status": "OPEN",
+      "status": "FINALIZING_CURRENT_STATE_DOCUMENTATION",
       "title": "Finish the operator documentation",
       "done_means": "Exact Start Here, named shortcuts, shared Mode/Backend guides, recording/offload instructions, Enrollment Compatibility, Install/Health, Update/Rollback, Licence Ledger, hardware template, paths/backups and troubleshooting. Include PowerShell/CMD/Anaconda commands for every new code path and supported limits/latency.",
-      "evidence": ""
+      "evidence": "START_HERE,FINAL_OPERATOR_GUIDE,MODE_GUIDE,PATHS; missing runtime workflows explicitly unavailable."
     },
     {
       "id": "F24",
-      "status": "OPEN",
+      "status": "DONE_PROTOCOL_ONLY",
       "title": "Finish the noisy-environment testing kit",
       "done_means": "Consent/privacy instructions, test scenes, reference/ground-truth method, timing/sample/route metadata, expected controls, naming/Unknown/overlap checks, failure rubric and run/results template. Actual noisy-human quality and physical-touch observations remain future measurements until performed.",
-      "evidence": ""
+      "evidence": "FIELD_VALIDATION.md/FIELD_RUN_TEMPLATE.json; no human/physical/noise-quality result."
     },
     {
       "id": "F25",
-      "status": "OPEN",
+      "status": "PARTIAL_RESEARCH_BACKUPS_VERIFIED_FINAL_PUBLICATION_PENDING",
       "title": "Create and verify the final private and Git backups",
       "done_means": "Final deployable release/config and private recordings have complete independent copies/hash/readback and a demonstrated restore path. Push only reviewed small source/manifests/redacted reports; verify remote branch/profile refs. Never publish audio, profiles, vectors, credentials or model weights.",
-      "evidence": ""
+      "evidence": "24newsource files196438B exactbackups+independentrestores; both PCtrees exactreadback; no finalproductionrelease torestore."
     },
     {
       "id": "F26",
-      "status": "OPEN",
+      "status": "FINALIZING_INCOMPLETE_DELIVERY",
       "title": "Build the final handoff and leave a safe device",
       "done_means": "Condensed ChatGPT ZIP<=20MiB(target<=10), WORKBOOK_UPDATE and artifact/hash index; deployable assets separately. Update ACCEPTANCE with actual evidence and all remaining blockers; close owned research, pause automation by deadline and leave accepted app idle/captureoff or recoverable baseline if required gates fail.",
       "evidence": ""
     }
-  ]
+  ],
+  "feature_freeze_utc": "2026-10-01T15:14:58Z",
+  "delivery_status": "INCOMPLETE"
 }

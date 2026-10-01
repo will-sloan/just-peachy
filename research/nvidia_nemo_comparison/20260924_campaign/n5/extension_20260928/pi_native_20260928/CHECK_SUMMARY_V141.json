@@ -1,0 +1,80 @@
+{
+  "version": 141,
+  "as_of_utc": "2026-10-01T15:30:09.415683+00:00",
+  "status": "PASS_NATIVE_MANAGER_QUALIFICATION_SEPARATE_PC_COPY_DELIVERY_INCOMPLETE",
+  "effective_deadline_utc": "2026-10-01T16:14:58Z",
+  "finalization_reserve_utc": "2026-10-01T15:14:58Z",
+  "feature_work_frozen": true,
+  "persistent_manual_entry": false,
+  "production_policy": false,
+  "offline_ready": false,
+  "accepted_field_runtime": false,
+  "selected_asr": "SHERPA_ONNX",
+  "nemotron_asr": "DEFERRED_BY_USER",
+  "manager_root": "field-local-release-v2",
+  "broker_root": "field-operator-sessions-v8",
+  "reservation_bytes": 617760944,
+  "policy_sha256": "f39a8b7dbedbebed1492687d42d5648ac033dbba0d02a4a46537175e1fa40d9c",
+  "native_status": "RESERVE_STARTED_BEFORE_ACK_CLOSED_LOCAL_BACKUP_REOPEN_PASSED",
+  "samples": 80640,
+  "seconds_audio": 5.04,
+  "caption_rows": 0,
+  "original_joint_overall_result": "FAILED_MANAGER_PC_FRAME_COMPARISON_BEFORE_FIRST_FILE",
+  "separate_manager_copy": "PASS_EXACT_COPY_WITH_CHANGED_CANONICAL_COMPARISON",
+  "source_backup": {
+    "files": 24,
+    "bytes": 196438,
+    "independent_restore": true,
+    "scope2_gap_preserved": true
+  },
+  "broker_pc_copy": {
+    "files": 196,
+    "bytes": 3149456,
+    "whole_readback": true
+  },
+  "manager_pc_copy": {
+    "bytes": 3323072,
+    "chunk_bytes": 16384,
+    "data_chunks": 350,
+    "files": 223,
+    "process_closed_before_completion": true
+  },
+  "closure": {
+    "version": 315,
+    "tree_records": 497,
+    "additional_registered_records": 706,
+    "unique_identities": 706,
+    "typed_nonidentities": 3,
+    "utility_owner": {
+      "pid": 5226,
+      "start_ticks": 778262,
+      "boot_id": "892ed9fa-e39c-48af-8653-eae5e123daad"
+    },
+    "utility_absent_after_ssh": true
+  },
+  "census_file": "HOST_CENSUS_V356.json",
+  "incorrect_census_stdout_label": 257,
+  "capture": "closed",
+  "research_units": [],
+  "baseline_app_left_running": true,
+  "baseline_boot": "892ed9fa-e39c-48af-8653-eae5e123daad",
+  "display_transform": 270,
+  "failures_preserved": [
+    "scope2 source backup expiry gap",
+    "dispatcher1 clock preflight",
+    "joint2 first manager PC transfer",
+    "copy1 preexecution indentation",
+    "collector18 static API error unexecuted",
+    "collector314 missing census before SSH",
+    "all prior failures and identity gaps"
+  ],
+  "runtime_gates_open": [
+    "F04 persistent manual entry",
+    "F05 production policy",
+    "F06-F20 final release functionality/recording/offline"
+  ],
+  "native_accuracy_tested": false,
+  "physical_touch_tested": false,
+  "physical_network_unplug_proven": false,
+  "new_raw_mic_qualification": false
+}

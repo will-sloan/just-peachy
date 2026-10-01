@@ -18,16 +18,97 @@
   "participant_aliases": [],
   "consent_record_private_path": null,
   "placement_distance_power": null,
-  "network_observation": {"ethernet_physically_disconnected": null, "device_network_unavailable": null, "cold_boot_offline_observed": null},
-  "controls": {"touch_orientation_correct": null, "start": null, "stop_and_drain": null, "save_reopen": null, "fresh_process_on_mode_change": null},
+  "network_observation": {
+    "ethernet_physically_disconnected": null,
+    "device_network_unavailable": null,
+    "cold_boot_offline_observed": null
+  },
+  "controls": {
+    "touch_orientation_correct": null,
+    "start": null,
+    "stop_and_drain": null,
+    "save_reopen": null,
+    "fresh_process_on_mode_change": null
+  },
   "events": [],
-  "latency_seconds": {"first_caption": null, "first_provisional_label": null, "first_stable_label": null, "stop_drain": null},
-  "integrity": {"accepted_samples": null, "archived_samples": null, "drop_or_gap_count": null, "source_fault": null, "worker_joined": null, "capture_closed": null},
-  "resources": {"cpu_seconds": null, "wall_seconds": null, "sampled_peak_rss_bytes": null, "minimum_available_ram_bytes": null, "temperature_range_c": null, "clock_range_khz": null, "throttle_states": [], "maximum_backlog_seconds": null},
-  "observations": {"missed_words": null, "wrong_names": null, "unknown_labels": null, "assumed_labels": null, "anonymous_splits_merges": null, "returning_speaker_recovery": null, "overlap": null},
-  "reference_and_scoring": {"independent_reference_available": false, "policy_version": null, "private_reference_path": null, "wer": null, "der": null, "development_or_heldout": null},
+  "latency_seconds": {
+    "first_caption": null,
+    "first_provisional_label": null,
+    "first_stable_label": null,
+    "stop_drain": null
+  },
+  "integrity": {
+    "accepted_samples": null,
+    "archived_samples": null,
+    "drop_or_gap_count": null,
+    "source_fault": null,
+    "worker_joined": null,
+    "capture_closed": null,
+    "raw_samples_per_channel": null,
+    "processed_samples": null,
+    "events_complete": null,
+    "manifest_sha256": null,
+    "source_child_exit": null,
+    "forced_termination": null
+  },
+  "resources": {
+    "cpu_seconds": null,
+    "wall_seconds": null,
+    "sampled_peak_rss_bytes": null,
+    "minimum_available_ram_bytes": null,
+    "temperature_range_c": null,
+    "clock_range_khz": null,
+    "throttle_states": [],
+    "maximum_backlog_seconds": null
+  },
+  "observations": {
+    "missed_words": null,
+    "wrong_names": null,
+    "unknown_labels": null,
+    "assumed_labels": null,
+    "anonymous_splits_merges": null,
+    "returning_speaker_recovery": null,
+    "overlap": null
+  },
+  "reference_and_scoring": {
+    "independent_reference_available": false,
+    "policy_version": null,
+    "private_reference_path": null,
+    "wer": null,
+    "der": null,
+    "development_or_heldout": null
+  },
   "private_artifact_directory": null,
   "backup_manifest_path_sha256": null,
   "outcome": "NOT_RUN",
-  "failure_or_limitation": null
+  "failure_or_limitation": null,
+  "readiness_gate": {
+    "final_release_accepted": false,
+    "required_checklist_closed": false,
+    "release_policy_path_sha256": null,
+    "admitted_duration_seconds": null,
+    "admitted_remaining_bytes": null
+  },
+  "recording_selection": {
+    "mode": null,
+    "raw_mic0_mic3_route_qualified": false,
+    "physical_channel_map": null,
+    "native_rate_hz": null,
+    "processed_rate_hz": null,
+    "format": null,
+    "gain_applied_once": null,
+    "route_before_after_receipts": null,
+    "synchronization_uncertainty_ns": null,
+    "clock_domains": null
+  },
+  "copy_to_pc": {
+    "source_preserved": true,
+    "destination": null,
+    "files": null,
+    "bytes": null,
+    "sha256_readback": false,
+    "interruption_preserved": null,
+    "receipt_path": null
+  },
+  "failure_class": null
 }

@@ -1,0 +1,70 @@
+{
+  "schema": "just-peachy.observed-hardware-capabilities.v1",
+  "as_of_utc": "2026-10-01T15:27:56.706346+00:00",
+  "status": "ACTUAL_AUDIO_DISPLAY_DECLARATION_OTHER_CAPABILITIES_UNQUALIFIED",
+  "device": {
+    "model": "Compute Module5",
+    "ram_tier_gib": 2,
+    "device_bytes": 31268536320,
+    "architecture": "aarch64"
+  },
+  "display": {
+    "width": 480,
+    "height": 800,
+    "transform": 270,
+    "current_boot_observed": true,
+    "physical_touch_tested": false
+  },
+  "audio": {
+    "firmware": [
+      3,
+      2,
+      1
+    ],
+    "build": "BLD_MSG intdev-lr48-lin-i2c",
+    "reported_microphones": 4,
+    "endpoint": {
+      "default_high_input_latency": 0.034829931972789115,
+      "default_high_output_latency": -1.0,
+      "default_low_input_latency": 0.005804988662131519,
+      "default_low_output_latency": -1.0,
+      "default_samplerate": 44100.0,
+      "hostapi": 0,
+      "hostapi_name": "ALSA",
+      "index": 1,
+      "max_input_channels": 8,
+      "max_output_channels": 0,
+      "name": "XMOSDevice: 1f000a0000.i2s-dir-hifi dir-hifi-1 (hw:2,1)"
+    },
+    "actual_stream_rate": 48000.0,
+    "control_protocol": "i2c",
+    "actual_tap": "O0",
+    "actual_channel": 0,
+    "model_rate": 16000,
+    "host_gain_db": 3.0,
+    "device_mic_gain": [
+      10
+    ],
+    "simultaneous_raw_mic0_mic3": "NOT_QUALIFIED",
+    "raw_route_physically_unsupported_proven": false,
+    "clock_calibrated_to_acoustic_arrival": false
+  },
+  "camera": {
+    "status": "OPTIONAL_UNQUALIFIED_IN_FINAL_RELEASE",
+    "new_probe": false
+  },
+  "imu": {
+    "status": "FINAL_AXIS_CLOCK_MOTION_VALIDATION_OPEN",
+    "drift_free_position_or_absolute_yaw": false
+  },
+  "buttons": {
+    "status": "NO_VERIFIED_PIN_ASSIGNMENTS",
+    "gpio_assignments": null,
+    "enable_unknown_gpio": false
+  },
+  "evidence": [
+    "final-manager-joint-v2/broker-copy-mirror/recordings/slot-01/source/SOURCE_START.json",
+    "final-manager-joint-v2/broker-copy-mirror/recordings/slot-01/source/PRE_ROUTE_SNAPSHOT.json",
+    "user-reconnect-20261001-v4/RESULT.json"
+  ]
+}

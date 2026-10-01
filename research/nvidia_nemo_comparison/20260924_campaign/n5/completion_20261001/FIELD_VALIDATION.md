@@ -1,3 +1,7 @@
+# Current readiness gate
+
+**Protocol delivered; field app not accepted. Do not begin unsupervised field recording from the new Nemotron release yet.** F04-F20 functional blockers in FINISH_CHECKLIST must be resolved first. This document plans future consented testing; no human trial was run during finalization. Its30/60minute or1-2minute examples never override the actual release duration/storage admission.
+
 # In-person noisy-environment validation framework
 
 Purpose: compare the frozen, accepted offline modes in real settings after delivery. This is a future operator protocol, not a claim that new speech/noise accuracy has been measured. Use only actually enabled combinations from the final mode guide. Keep recordings and speaker/profile information private; use consenting test participants and anonymous run aliases.
@@ -46,3 +50,12 @@ Reserve held-out conversations/locations for a final frozen-mode check. If setti
 ## Operator deliverables after a visit
 
 One private folder per run, completed template, retained media/journals/telemetry/faults, reference annotations when available, and an exact backup manifest. Shared summary contains anonymous run IDs, release/mode, observed outcomes and explicit limitations. Never upload private audio, transcripts, profiles or vectors to the code repository.
+
+## Fixed failure rubric
+
+- Integrity failure: any missing accepted audio/event, unreported drop, broken clock/manifest, incomplete Stop/closure or unverified copy. Preserve the failed run; do not score it as complete.
+- Functional failure: wrong backend, silent fallback, unavailable control, frozen UI, unknown owner or unrecoverable startup. Keep the original error and exact attempted action.
+- Quality observation: missed/inserted words, wrong name, excessive Unknown, anonymous split/merge, overlap error. Requires independent reference before a numerical score; it is not an integrity pass/fail substitute.
+- Resource failure: admitted duration/storage/available-memory/queue limit breached, sustained backlog or forced termination. Report actual sampled values and missing intervals.
+
+Record actual firmware/interface/channel map. Processed O0/O1 is not raw MIC0-MIC3. Raw+processed may be tested only after simultaneous routing is qualified; retain synchronization uncertainty, sample counts and full independent copy allocation. Four48kHz PCM16 raw channels plus16kHz processed mono are1,497,600,000bytes/hour before metadata/backups. No playback/enrollment/firmware reset is implicitly authorized by this kit.

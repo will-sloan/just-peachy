@@ -1,3 +1,9 @@
+# Current finalization V141
+
+**Offline field delivery incomplete; feature work frozen.** Native manager qualification and separate complete PC copies passed in their scoped evidence. Persistent manual entry, production policy/recovery, shortcuts/recording controls, activation/rollback and offline acceptance remain OPEN. No new model/feature work after15:14:58Z; hard deadline16:14:58Z.
+
+Use [current delivery status](../../completion_20261001/START_HERE.md) and [complete26-item list](../../completion_20261001/FINISH_CHECKLIST.md). Earlier next-action narratives below are historical and cannot extend the deadline or authorize old dispatchers.
+
 # Master backend and mode guide — Raspberry Pi
 
 ## Current V140

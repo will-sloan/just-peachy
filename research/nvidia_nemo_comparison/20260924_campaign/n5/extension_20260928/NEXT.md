@@ -1,3 +1,9 @@
+# Finalization - October1
+
+Current V141: native manager reserve/STARTED-before-ACK/live5.04s/finish/localbackup/reopen completed; first manager PC transfer failed, separate repaired copy passed. Persistent manual release, production policy, shortcuts/recording controls and offline acceptance remain OPEN. Feature work frozen15:14:58Z; deadline16:14:58Z. Follow completion_20261001/FINISH_CHECKLIST and final handoff; no new feature/model work or campaign.
+
+Previous entries below are historical; their next-action instructions do not extend the current deadline.
+
 ## September30 hard24hour completion authority
 
 ## Current V140
