@@ -1,0 +1,86 @@
+{
+  "version": 112,
+  "as_of_utc": "2026-10-01T00:33:54.667138+00:00",
+  "status": "PREPARED_ACTUAL_LIVE_ENTRY_SUPERVISOR_AND_MIRROR_ONLY",
+  "new_native_jobs": 0,
+  "target_writes": false,
+  "model_source_gui_capture_executed": false,
+  "last_native_application_summary": 103,
+  "last_positive_model_summary": 98,
+  "last_visible_inspection_summary": 100,
+  "closure": {
+    "version": 243,
+    "prior_pi_exact_identities_closed": 396,
+    "additional_exporter_exact_identities_closed": 3,
+    "total_recorded_exact_pi_identities_closed": 399,
+    "prior_isolated_host_identities_closed": 48,
+    "field_host_workers": 2,
+    "console_helpers": 1,
+    "previous_ssh_host_coordinators_closed": 4,
+    "typed_nonidentity_closures": 3,
+    "registered_host_preparation_identities_closed": 2,
+    "baseline_unchanged": true,
+    "capture_closed": true,
+    "leases_free": true,
+    "research_compute_active": false,
+    "failed_v109_v1_start_ticks_missing": true,
+    "v111_host_test_identity_missing": true
+  },
+  "resource_accounting": {
+    "combined_output_bytes": 5341121498,
+    "output_cap_bytes": 5368709120,
+    "output_headroom_bytes": 27587622,
+    "payload_including_target_and_reservations_bytes": 55736381781,
+    "payload_cap_bytes": 55834574848,
+    "payload_headroom_bytes": 98193067,
+    "payload_basis": "HOST_CENSUS_V210 plus closure243 target and host-window delta",
+    "pi_free_bytes": 17429536768,
+    "pi_available_ram_bytes": 1365065728,
+    "pi_temperature_c": 54.55,
+    "pi_throttle": "throttled=0x0",
+    "before_later_metadata": true
+  },
+  "actual_scope": {
+    "source_derivations_and_compilation": true,
+    "actual_installed_imports": false,
+    "native_runtime_executed": false,
+    "host_guard_suite_rerun": false,
+    "source_backup_files": 17,
+    "source_backup_bytes": 167792,
+    "separate_restore_copy_exact": true
+  },
+  "proposal": {
+    "target_bytes": 80106028,
+    "host_bytes": 84300332,
+    "combined_bytes": 164406360,
+    "admitted": false,
+    "policy_changed": false,
+    "output_shortfall_bytes": 136818738,
+    "payload_shortfall_bytes": 66213293
+  },
+  "changed_evidence": [
+    "Actual live worker composes installed Controller/UI, owner ACK,120s source/D1,Stop/count/PCM Save/Open/closure checks; prepared",
+    "ControllerV4 adds one exact consented audio New action; automatic old New was text-only",
+    "Fresh PhysicalFilesV2 permits first REGISTERED_OWNER pending publication after source spawn/before socket ACK; other code/control immutable; bounded failure map",
+    "SourceV7/facadeV5/transportV3/factoryV3/bridgeV3/outputsV3 prepared; all old bound sources retained",
+    "Host staging/coordinator/gateV2/actual closed-live SSH mirror prepared; no target application or payload writes"
+  ],
+  "remaining": [
+    "Resolve gate own hard-time and1MiB stack envelope through a fresh derivative before admission",
+    "Finish actual plan/source/config/policy pins and full transitive/native-write review; no new policy issued",
+    "Fresh measured whole-run policy/admission then actual source/model/visible Stop/Save/Open and closed-tree mirror",
+    "Operator/data actions/gallery/physical touch/offline acceptance remains open"
+  ],
+  "notes": [
+    "First backup closed00:23:30 before00:24:49 expiry; continuation same2MiB allowance closed00:31:21 before00:34:55",
+    "V1 gate retained; V2 adds actual target du. Host PLAN and native execution remain absent",
+    "CAPSULE_REVIEW_V1 is an earlier33module source-import projection, not a final staged manifest or complete C-library writer proof",
+    "Readonly missing deadline.md and app/session_workflows.py lookups preserved; actual JSON/session_controller read",
+    "No healthy model/UI/source/host guard/mirror suites repeated; no native retries or allowance changes"
+  ],
+  "milestone": {
+    "status": "MISSED_STILL_OPEN",
+    "launcher_due": "2026-09-30T21:42:44Z",
+    "hard_deadline": "2026-10-01T17:42:44Z"
+  }
+}

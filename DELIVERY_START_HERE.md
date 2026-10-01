@@ -4,4 +4,4 @@
 
 The current delivery entry point is [the completion pack](research/nvidia_nemo_comparison/20260924_campaign/n5/completion_20261001/START_HERE.md). It contains the plan, ChatGPT handoff, mode guide, field-validation framework, acceptance status, and consolidated paths.
 
-Status: **IN_PROGRESS**, through CHECK_SUMMARY_V111. Host physical writer interception passed; actual live wiring is prepared. Pi source/model/storage/operator/offline integration remains open. The21:42 launcher milestone was missed; final deadline unchanged.
+Status: **IN_PROGRESS**, through CHECK_SUMMARY_V112. Actual live entry/supervisor/mirror prepared; no native execution. Required live/operator/offline gates remain open. The21:42 launcher milestone was missed; final deadline unchanged.

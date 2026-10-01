@@ -1,9 +1,9 @@
 {
   "schema": "just-peachy.delivery-acceptance.v1",
-  "as_of_utc": "2026-10-01T00:01:37.114371+00:00",
+  "as_of_utc": "2026-10-01T00:33:54.667138+00:00",
   "hard_deadline_utc": "2026-10-01T17:42:44Z",
   "overall": "IN_PROGRESS",
-  "latest_verified_research_summary": "CHECK_SUMMARY_V111.json",
+  "latest_verified_research_summary": "CHECK_SUMMARY_V112.json",
   "gates": [
     {
       "id": "D1_COMPONENTS",
@@ -28,9 +28,9 @@
     },
     {
       "id": "LIVE_SOURCE_MODEL_STORAGE_INTEGRATION",
-      "status": "OPEN_HOST_WRITER_INTERCEPTION_PASS_LIVE_ENTRY_PENDING",
+      "status": "OPEN_ACTUAL_LIVE_ENTRY_SUPERVISOR_MIRROR_PREPARED",
       "required": true,
-      "evidence": "V11112actual host Python file/mutation checks pass; fresh ControllerV3/source chain attaches guard, native execution untested. Full actual source/model/Stop/save/reopen and closed-tree coverage pending; no kernel/native-library quota claim."
+      "evidence": "V112 actual-entry composition and source review/compile only; no installed constructors/source/model/GUI/capture. Full measured admission and execution pending."
     },
     {
       "id": "VISIBLE_GUI_AND_PHYSICAL_CONTROLS",
