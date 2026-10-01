@@ -1,9 +1,9 @@
 {
   "schema": "just-peachy.delivery-acceptance.v1",
-  "as_of_utc": "2026-10-01T00:33:54.667138+00:00",
+  "as_of_utc": "2026-10-01T01:03:29.470136+00:00",
   "hard_deadline_utc": "2026-10-01T17:42:44Z",
   "overall": "IN_PROGRESS",
-  "latest_verified_research_summary": "CHECK_SUMMARY_V112.json",
+  "latest_verified_research_summary": "CHECK_SUMMARY_V113.json",
   "gates": [
     {
       "id": "D1_COMPONENTS",
@@ -28,9 +28,9 @@
     },
     {
       "id": "LIVE_SOURCE_MODEL_STORAGE_INTEGRATION",
-      "status": "OPEN_ACTUAL_LIVE_ENTRY_SUPERVISOR_MIRROR_PREPARED",
+      "status": "FAILED_ARCHIVE_PARENT_GUARD_BEFORE_SOURCE_MODEL",
       "required": true,
-      "evidence": "V112 actual-entry composition and source review/compile only; no installed constructors/source/model/GUI/capture. Full measured admission and execution pending."
+      "evidence": "V113 actual Field/UI audio New/Start confirmation failed before source/model due to physical mkdir latch; exact closure and failed-tree SSH backup. Fresh changed integration required."
     },
     {
       "id": "VISIBLE_GUI_AND_PHYSICAL_CONTROLS",

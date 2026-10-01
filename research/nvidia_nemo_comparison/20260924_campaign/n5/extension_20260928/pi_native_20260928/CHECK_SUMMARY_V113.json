@@ -1,0 +1,134 @@
+{
+  "version": 113,
+  "as_of_utc": "2026-10-01T01:03:29.470136+00:00",
+  "status": "FAILED_LIVE_ENTRY_ARCHIVE_PARENT_GUARD_BEFORE_SOURCE_MODEL",
+  "native_application_trials": 1,
+  "read_only_export_trials": 1,
+  "target_payload_writes": true,
+  "source_started": false,
+  "model_acquired": false,
+  "last_positive_model_summary": 98,
+  "last_complete_visible_return_summary": 100,
+  "actual_scope": {
+    "installed_field_controller": true,
+    "installed_ui": true,
+    "owner_ack_before_constructors": true,
+    "visible_geometry": {
+      "states": [
+        {
+          "state": "normal",
+          "mapped": true,
+          "viewable": true,
+          "geometry": "480x800+0+0",
+          "x": 0,
+          "y": 0,
+          "width": 480,
+          "height": 800,
+          "fullscreen": true
+        }
+      ],
+      "stable_observations": 10,
+      "start_button": {
+        "x": 1,
+        "y": 740,
+        "width": 118,
+        "height": 60
+      }
+    },
+    "audio_new": true,
+    "ui_start_confirmation": true,
+    "archive_partial_created": true,
+    "native_session_attempted": false,
+    "save_open": false,
+    "source_stop_event": false,
+    "offline": false,
+    "physical_touch": false
+  },
+  "failure": {
+    "reason": "Physical guard latched pathlib mkdir missing-parent intermediate FileNotFoundError",
+    "path_category": "one conversation/epochs/epoch",
+    "preserved": true,
+    "controller_error": "ARCHIVE_REQUIRED: PHYSICAL_OUTPUT",
+    "retry_performed": false
+  },
+  "closure": {
+    "version": 246,
+    "target_stored_owner_records": 398,
+    "additional_owner_records": 5,
+    "total_exact_closed_owner_records": 403,
+    "unique_recorded_pi_identities": 398,
+    "prior_isolated_host_records": 48,
+    "prior_field_workers": 2,
+    "prior_console_helpers": 1,
+    "prior_ssh_coordinators": 4,
+    "new_host_coordinators": 2,
+    "typed_nonidentity_closures": 3,
+    "controller_closed": true,
+    "command_worker_joined": true,
+    "archive_worker_closed": true,
+    "writable_descriptors": 0,
+    "capture_closed": true,
+    "baseline_unchanged": true,
+    "leases_free": true,
+    "research_compute_active": false,
+    "missing_identity_gaps": [
+      "V109 V1 exporter58929 missing startticks",
+      "V111 host guard test missing PID/create_time",
+      "V113 inline issuing wrapper and read-only closure utilities not registered; natural termination only"
+    ]
+  },
+  "resources": {
+    "census_version": 211,
+    "combined_output_bytes": 5345167632,
+    "old_output_cap_bytes": 5368709120,
+    "old_output_headroom_bytes": 23541488,
+    "admitted_policy_output_cap_bytes": 5512364032,
+    "admitted_policy_output_headroom_bytes": 167196400,
+    "payload_including_target_and_reservations_bytes": 55740427915,
+    "old_payload_cap_bytes": 55834574848,
+    "old_payload_headroom_bytes": 94146933,
+    "admitted_policy_payload_cap_bytes": 55907975168,
+    "admitted_policy_payload_headroom_bytes": 167547253,
+    "pi_free_bytes": 17428811776,
+    "pi_available_ram_bytes": 1363738624,
+    "pi_temperature_c": 54.55,
+    "pi_throttle": "throttled=0x0",
+    "before_later_metadata": true,
+    "stale_before_next_dispatch": true
+  },
+  "policy": {
+    "file": "LIVE_RESOURCE_POLICY_V1.json",
+    "authority": "AUTONOMOUS_QUIET_AUTHORIZATION_V1",
+    "old_window_v5_unchanged": true,
+    "measured_full_request_bytes": 164406360,
+    "scope": "One field-live-entry-v1 attempt, now closed; fresh measured admission required for changed run"
+  },
+  "backup": {
+    "files": 80,
+    "bytes": 459611,
+    "directories": 18,
+    "empty_files": 9,
+    "measured_chunks": 80,
+    "chunk_limit": 16384,
+    "exact_all_member_readback": true,
+    "process_closed_before_backup": true
+  },
+  "timing": {
+    "native_worker_seconds": 1.4627276450046338,
+    "sampled_worker_peak_rss_bytes": 62160896,
+    "resource_samples": 4,
+    "minimum_sampled_available_ram_bytes": 1304264704,
+    "benchmark": false
+  },
+  "source_backups": {
+    "files": 7,
+    "bytes": 60985,
+    "six_source_readme_separate_restore_before_dispatch": true,
+    "policy_exact_capsule_before_dispatch": true,
+    "policy_additional_restore_copy_after_dispatch": true
+  },
+  "next_action": "Fresh Field composition explicitly creates the single mapped epochs parent before EpochArchive; preserve guard latch and bounds. New root, full pins/admission and actual source/model/Stop/Save/Open. Never reuse failed root or admission.",
+  "runtime_offline_accepted": false,
+  "launcher_milestone": "MISSED_STILL_OPEN",
+  "hard_deadline_utc": "2026-10-01T17:42:44Z"
+}
