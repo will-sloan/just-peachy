@@ -1,0 +1,212 @@
+{
+  "version": 123,
+  "as_of_utc": "2026-10-01T05:36:01.731443+00:00",
+  "status": "PASS_BOUNDED_VISIBLE_PARENT_LIVE_DATA_COMPOSITION",
+  "actual": {
+    "root": "field-operator-qualification-v4",
+    "samples": 384480,
+    "source_seconds": 24.03,
+    "frames": 2404,
+    "pushes": 2148,
+    "native_events": 2,
+    "visible_child_buttons": 14,
+    "parent_open_close": true,
+    "visible_geometry": "480x800+0+0",
+    "parent_and_child_stable_observations": 10,
+    "all_original_native_payload_fields_exact": true,
+    "archive_additions": [
+      "consumer_monotonic_sec",
+      "consumer_queue_age_sec"
+    ],
+    "source_model_archive_closed": true,
+    "source_child_exit": 0,
+    "source_forced_close": false,
+    "application_child_exit": 0,
+    "parent_exit": 0,
+    "transfer_files": 7,
+    "transfer_payload_bytes": 5212492,
+    "zip_bytes": 5215115,
+    "zip_members": 8,
+    "zip_sha256": "737f248b6235fdbed4c5ad13f91a370e6c9412951d500cd2def8554d966de116",
+    "raw_caption_rows": 0,
+    "nonempty_captions_qualified": false,
+    "actions": [
+      "audio New",
+      "Start",
+      "Stop",
+      "Save",
+      "full Export",
+      "Delete",
+      "Import",
+      "Reopen",
+      "Return",
+      "parent Close"
+    ],
+    "actual_button_driver_automated": true,
+    "application_auto_start_disabled": true,
+    "accepted_field_runtime": false,
+    "seconds": 39.21911599201849,
+    "child_ru_maxrss_bytes": 497631232,
+    "parent_sampled_rss_bytes": 33619968,
+    "minimum_available_ram_bytes": 871628800,
+    "resource_samples": 79,
+    "rss_scope": "Parent samples and child ru_maxrss separate; no aggregate hard-RSS/benchmark claim"
+  },
+  "selected": {
+    "parent": "field_operator_parent_v6.py",
+    "entry": "field_operator_entry_v6.py",
+    "controller": "field_operator_controller_v4.py",
+    "actions": "field_operator_actions_v3.py",
+    "driver": "field_operator_qualification_v2.py",
+    "gate": "field_operator_gate_v7.py",
+    "stager": "stage_field_operator_v7.py",
+    "dispatcher": "dispatch_field_operator_v7.py",
+    "exporter": "field_operator_export_v7.py",
+    "mirror": "mirror_field_operator_v7.py",
+    "readme": "README_FIELD_OPERATOR_QUALIFICATION_V5.md"
+  },
+  "preserved_attempts": [
+    {
+      "root": "field-operator-qualification-v1",
+      "status": "FAILED_BEFORE_CAPTURE_PARENT_ACK_GUARD",
+      "constructors": false
+    },
+    {
+      "root": "field-operator-qualification-v2",
+      "status": "FAILED_AFTER_LIVE_STOP_AT_SAVE_GUARD",
+      "samples": 384480,
+      "original_payloads_exact": true,
+      "save_completed": false
+    },
+    {
+      "root": "field-operator-qualification-v3",
+      "status": "FAILED_BEFORE_CAPTURE_PARENT_ACK_GUARD",
+      "constructors": false
+    }
+  ],
+  "backup_reviews": [
+    {
+      "version": 1,
+      "files": 81,
+      "bytes": 451795,
+      "directories": 18,
+      "all_hashes_exact": true,
+      "mirror_result": {
+        "status": "PASS_SSH_CLOSED_TREE_MIRROR_ONLY",
+        "error": null,
+        "files": 81,
+        "bytes": 451795,
+        "data_chunks": 80,
+        "elapsed_seconds": 1.3290000000270084,
+        "ssh_returncode": 0
+      }
+    },
+    {
+      "version": 2,
+      "files": 126,
+      "bytes": 9433273,
+      "directories": 22,
+      "all_hashes_exact": true,
+      "mirror_result": {
+        "status": "PASS_SSH_CLOSED_TREE_MIRROR_ONLY",
+        "error": null,
+        "files": 126,
+        "bytes": 9433273,
+        "data_chunks": 656,
+        "elapsed_seconds": 1.890999999945052,
+        "ssh_returncode": 0
+      }
+    },
+    {
+      "version": 3,
+      "files": 81,
+      "bytes": 452483,
+      "directories": 18,
+      "all_hashes_exact": true,
+      "mirror_result": {
+        "status": "PASS_SSH_CLOSED_TREE_MIRROR_ONLY",
+        "error": null,
+        "files": 81,
+        "bytes": 452483,
+        "data_chunks": 80,
+        "elapsed_seconds": 2.905999999959022,
+        "ssh_returncode": 0
+      }
+    },
+    {
+      "version": 4,
+      "files": 126,
+      "bytes": 14659375,
+      "directories": 24,
+      "all_hashes_exact": true,
+      "mirror_result": {
+        "status": "PASS_SSH_CLOSED_TREE_MIRROR_ONLY",
+        "error": null,
+        "files": 126,
+        "bytes": 14659375,
+        "data_chunks": 975,
+        "elapsed_seconds": 1.922000000020489,
+        "ssh_returncode": 0
+      }
+    }
+  ],
+  "source_backup": {
+    "files": 47,
+    "bytes": 419156,
+    "separate_restore_exact": true
+  },
+  "owners": {
+    "collector_records": 441,
+    "collector_unique": 430,
+    "additional_unique": 119,
+    "total_exact_closed_records": 560,
+    "unique_pi": 549,
+    "duplicate_records": 11,
+    "host_closed": 304,
+    "typed_nonidentity_closures": 3,
+    "later_metadata_owners_separate": true
+  },
+  "resources": {
+    "census": 227,
+    "closure": 282,
+    "combined_output_bytes": 5795706747,
+    "payload_with_target_and_reservations_bytes": 56190967030,
+    "target_bytes": 3011078510,
+    "host_window_bytes": 2784628237,
+    "readonly_collector_policy": "TRANSFER_RESOURCE_POLICY_V2",
+    "readonly_policy_sha256": "097f0ee8d0cd7459376b793e7c949ed4be046392d0c6a91d8cae8ff1f8b1f9f7",
+    "old_output_headroom": -426997627,
+    "old_payload_headroom": -356392182,
+    "latest_closed_policy": "OPERATOR_RESOURCE_POLICY_V4",
+    "latest_closed_policy_sha256": "dd4bda32bcb35f2f6e28c93e0a321058e1871f9c1b06a4a57c0470676901f0c3",
+    "latest_closed_policy_output_headroom": 272402565,
+    "latest_closed_policy_payload_headroom": 272753418,
+    "reservation": {
+      "target": 146919980,
+      "host": 151114284,
+      "combined": 298034264
+    },
+    "stale_before_future_dispatch": true
+  },
+  "all_four_policies_closed": true,
+  "missing_identity_gaps": [
+    "V109 failed exporter58929 startticks missing",
+    "V111 host check PID/create_time missing",
+    "V113 inline issuer/read-only utilities unregistered",
+    "V114 first host pre-SSH failed coordinator PID/create_time unrecorded; issuing wrapper was registered",
+    "V118 v2 early gate PID/start_ticks unrecorded; natural SSH1 only; V3 registers gate before preflight"
+  ],
+  "runtime_offline_accepted": false,
+  "baseline_unchanged": true,
+  "display_config_sha256": "c4e12bb19373d607a7ca1e52a0c007e082e17a18eb5af7b8a60384ca82aae23b",
+  "capture_closed": true,
+  "leases_free": true,
+  "research_compute_active": false,
+  "last_positive_saved_model_summary": 98,
+  "last_live_source_model_summary": 123,
+  "last_saved_actions_summary": 123,
+  "last_transfer_actions_summary": 123,
+  "hard_deadline_utc": "2026-10-01T17:42:44Z",
+  "launcher_milestone": "MISSED_STILL_OPEN",
+  "next_action": "Build the usable repeated-session operator entry from the now-qualified parent/child composition: fresh process and independent per-recording allocation, historical saved-data access, explicit unavailable modes, capture-off return and first-fault recovery. Replace hardcoded one-shot research roots with reviewed bounded release admission, lifecycle and local resource controls; preserve current method manifests and all native payload fields. Then versioned health/install/local automatic recovery/activation/rollback and offline rehearsal. Do not repeat healthy24s/120s/live/data/owner tests solely for version. Nonempty captions, private-gallery compatibility, physical touch and noisy-human evidence remain open. Hard deadline17:42:44Z; no extension."
+}
