@@ -1,0 +1,186 @@
+{
+  "version": 131,
+  "as_of_utc": "2026-10-01T09:16:09.625978+00:00",
+  "status": "PASS_NATIVE_METADATA_REOPEN_AND_PENDING_FENCE",
+  "native_app_attempts": 0,
+  "native_metadata_attempts": 1,
+  "actual_capture": false,
+  "model_sessions": 0,
+  "active_research_compute": false,
+  "capture_currently_off": true,
+  "selected": {
+    "journal": "field_local_release_files_v2.py",
+    "check": "field_local_journal_check_v1.py",
+    "native": "field_local_journal_native_v2.py",
+    "dispatcher": "dispatch_field_local_journal_v1.py",
+    "collector": "collect_native_closure_v16.py",
+    "readme": "README_FIELD_LOCAL_JOURNAL_V3.md"
+  },
+  "source_backup": {
+    "files": 11,
+    "bytes": 67711,
+    "independent_restore_exact": true,
+    "all_closed_before_scope_expiry": true
+  },
+  "owners": {
+    "collector_records": 469,
+    "collector_unique": 456,
+    "additional_unique": 179,
+    "total_exact_closed_records": 648,
+    "unique_pi": 635,
+    "duplicate_records": 13,
+    "host_closed": 509,
+    "typed_nonidentity_closures": 3,
+    "later_metadata_owners_separate": true
+  },
+  "resources": {
+    "census": 243,
+    "closure": 301,
+    "combined_output_bytes": 5860517026,
+    "payload_with_target_and_reservations_bytes": 56255777309,
+    "target_bytes": 3020869117,
+    "host_window_bytes": 2839647909,
+    "old_output_excess": 491807906,
+    "old_payload_excess": 421202461,
+    "stale_before_future_dispatch": true,
+    "readonly_policy": "TRANSFER_RESOURCE_POLICY_V2"
+  },
+  "actual_journal": {
+    "status": "PASS_NATIVE_METADATA_REOPEN_AND_PENDING_FENCE",
+    "full_tree_files": 16,
+    "full_tree_directories": 9,
+    "full_tree_bytes": 70631,
+    "measured_chunks": 16,
+    "all_recorded_native_owners_closed": 7,
+    "coordinator_natural_exit": 0,
+    "child_natural_exits": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "injected_failure": true,
+    "pending_bytes": 3,
+    "pending_preserved": true,
+    "unchanged_closed_metadata": true,
+    "journal_v2_constructor_executed": true,
+    "host_dispatch_owner": {
+      "pid": 35720,
+      "create_time": 1790845695.1062531,
+      "affinity": [
+        14
+      ]
+    },
+    "host_exact_alive": false,
+    "capture": false,
+    "model": false,
+    "gui": false,
+    "recording_or_local_backup": false,
+    "activation": false,
+    "physical_powerloss": false,
+    "concurrent_lock_contention": false,
+    "automatic_recovery": false,
+    "original_baseline_unchanged": true,
+    "display270": true,
+    "operation": {
+      "issued_utc": "2026-10-01T09:08:15.226649+00:00",
+      "expires_utc": "2026-10-01T09:18:15.226649+00:00",
+      "purpose": "LOCAL_RELEASE_QUALIFICATION"
+    },
+    "backup_before_expiry": true
+  },
+  "native_journal_executed": true,
+  "production_policy_issued": false,
+  "production_admission_implemented": false,
+  "measured_qualification_policy": {
+    "sha256": "d8600a564dc41641ab799b1f64dc977a9ef719c8c3a45847d00cd6a5023dd454",
+    "allocation": {
+      "automatic_replenishment": false,
+      "broker_allocation": {
+        "broker": {
+          "append": {
+            "service.log": 131072,
+            "telemetry.jsonl": 262144
+          },
+          "code_maximum_bytes": 2097152,
+          "code_maximum_files": 64,
+          "code_member_maximum_bytes": 131072,
+          "directory_names": [
+            "broker",
+            "code"
+          ],
+          "extra_per_side_bytes": 3670016,
+          "maximum_write_bytes": 16384,
+          "once": {
+            "ACK.json": 16384,
+            "CONFIG.json": 65536,
+            "ENVELOPE.json": 32768,
+            "FAILURE.json": 16384,
+            "GATE_OWNER.json": 16384,
+            "GATE_RESULT.json": 16384,
+            "MANIFEST.json": 131072,
+            "OWNER.json": 16384,
+            "RESULT.json": 65536,
+            "STAGE_OWNER.json": 16384,
+            "TEMPLATE.json": 131072
+          }
+        },
+        "combined_request_bytes": 306422872,
+        "count": 1,
+        "host_maximum_bytes": 155308588,
+        "host_per_session": 151114284,
+        "maximum_release_bytes": 65536,
+        "maximum_session_directories": 64,
+        "maximum_session_files": 256,
+        "maximum_slot_files": 12,
+        "metadata_maximum_bytes": 4194304,
+        "reuse_deleted_or_failed_reservation": false,
+        "schema": "just-peachy.operator-broker-allocation.v1",
+        "slot_file_bytes": 16384,
+        "slot_names": [
+          "slot-01"
+        ],
+        "slot_write_bytes": 16384,
+        "target_maximum_bytes": 151114284,
+        "target_per_session": 146919980
+      },
+      "code_bytes": 2097152,
+      "code_files": 16,
+      "code_member_bytes": 131072,
+      "combined_request_bytes": 466646660,
+      "failed_deleted_unused_credit": false,
+      "host_maximum_bytes": 159863340,
+      "launch_slots": [
+        "launch-01",
+        "launch-02",
+        "launch-03"
+      ],
+      "launches": 3,
+      "local_backup_per_recording": 151114284,
+      "metadata_directories": 10,
+      "metadata_maximum_bytes": 4554752,
+      "recording_slots": [
+        "recording-01"
+      ],
+      "recordings": 1,
+      "schema": "just-peachy.local-release-allocation.v1",
+      "target_maximum_bytes": 306783320,
+      "write_bytes": 16384
+    },
+    "combined_output_cap_bytes": 6333399040,
+    "total_payload_cap_bytes": 56729010176,
+    "closed": true
+  },
+  "proposed_idle_seconds": 86400,
+  "proposed_idle_lifetime_admitted": false,
+  "qualification_maximum_seconds": 600,
+  "new_identity_gap": "V300 read-only collector failed KeyError pid before returning its native PID/start_ticks; natural SSH return only. No fabrication or retroactive pass.",
+  "prior_identity_gaps_preserved": true,
+  "runtime_accepted": false,
+  "offline_accepted": false,
+  "physical_touch": false,
+  "accuracy": false,
+  "next_action": "Wire the local manager to a complete bounded local recording mirror with independent readback and actual session-gate closure verification before the next slot. Journal2 is now native-qualified only for metadata reopen and a preserved injected write fault; its backup consumer remains unwired and it cannot substantiate arbitrary supplied closure/backup facts. Add production admission and activation/rollback identity binding through new reviewed versions. Existing research operations remain at most600seconds including cleanup/backup before17:42:44Z; proposed24-hour manual idle lifetime remains unadmitted. Verify actual local automatic recovery before network isolation. Preserve pending/failed/consumed roots, source/mode/asset pins, manual controls, display270 and captureoff. Do not rerun healthy journal/hostcontract/two-session/live/history/health checks merely for version. Nonempty captions/gallery/physical touch/noisy human remain open.",
+  "claim_limits": "Actual native metadata filesystem and injected Python write-error evidence only. No physical exhaustion, powerloss, concurrent lock-contention, arbitrary crash recovery, full local recording mirror, app/source/model/GUI/data action, production activation or offline proof.",
+  "source_scope_note": "Eleven source/README67711B exact backups and independent restores, all closed inside respective600s preparation scopes. Native coordinator1 and collector15 remain unexecuted drafts. Bound sources unchanged."
+}
