@@ -1,0 +1,13 @@
+{
+  "status": "EXACT_DOCUMENTATION_BACKUP_VERIFIED",
+  "label": "manager-bootstrap-v49",
+  "archive": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\completion-20261001-backups\\manager-bootstrap-v49\\NVIDIA_CAMPAIGN_CHATGPT_HANDOFF_20260924_manager-bootstrap-v49.zip",
+  "bytes": 53542,
+  "sha256": "a374bb9bc34cb2e300077e7d6b4f1263fe0511bfb30a1d4c7ca7b701e9c70b4e",
+  "member_count": 19,
+  "cpu_affinity": [
+    14
+  ],
+  "delivery_status": "IN_PROGRESS",
+  "runtime_or_offline_acceptance": false
+}

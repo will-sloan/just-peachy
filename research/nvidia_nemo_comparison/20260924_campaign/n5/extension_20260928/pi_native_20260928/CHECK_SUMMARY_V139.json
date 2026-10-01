@@ -1,0 +1,198 @@
+{
+  "version": 139,
+  "as_of_utc": "2026-10-01T12:27:39.557530+00:00",
+  "status": "PASS_CHANGED_HOST_AUXILIARY_GRAPH_BINARY_FRAMING_BOOTSTRAP_PREPARED",
+  "native_app_attempts": 0,
+  "native_manager_attempts": 0,
+  "native_ssh_attempts": 0,
+  "model_sessions": 0,
+  "actual_capture": false,
+  "active_research_compute": false,
+  "pi_contact_held_until_utc": "2026-10-01T12:52:00Z",
+  "last_native_state": "V137 shutdown ACK/TCP timeout; no physical halt/newboot verification",
+  "host_check": {
+    "status": "PASS_CHANGED_HOST_AUXILIARY_GRAPH_AND_BINARY_FRAMING",
+    "positive_groups": 3,
+    "actual_graph": {
+      "entry": "field_local_manager_export_v2",
+      "modules": 15,
+      "bytes": 109074,
+      "order": [
+        "field_host_budget_v1",
+        "field_live_layout_v2",
+        "field_live_layout_v3",
+        "field_local_manager_export_v2",
+        "field_local_manager_owners_v1",
+        "field_operator_session_plan_v1",
+        "field_operator_broker_layout_v2",
+        "field_operator_broker_streamed_mirror_v1",
+        "field_local_manager_ssh_mirror_v1",
+        "field_local_release_plan_v2",
+        "field_operator_session_plan_v3",
+        "field_local_manager_tree_v1",
+        "field_operator_broker_partial_v1",
+        "field_operator_broker_ssh_mirror_v2",
+        "field_owner_binding_v1"
+      ],
+      "dependencies": {
+        "field_local_manager_export_v2": [
+          "field_host_budget_v1",
+          "field_local_manager_owners_v1",
+          "field_local_manager_ssh_mirror_v1",
+          "field_local_manager_tree_v1",
+          "field_operator_broker_streamed_mirror_v1",
+          "field_owner_binding_v1"
+        ],
+        "field_local_manager_owners_v1": [],
+        "field_local_manager_tree_v1": [
+          "field_local_release_plan_v2",
+          "field_operator_broker_layout_v2",
+          "field_operator_broker_ssh_mirror_v2",
+          "field_operator_broker_streamed_mirror_v1",
+          "field_operator_session_plan_v3"
+        ],
+        "field_local_release_plan_v2": [
+          "field_operator_broker_layout_v2"
+        ],
+        "field_operator_broker_layout_v2": [
+          "field_operator_session_plan_v1"
+        ],
+        "field_operator_session_plan_v1": [],
+        "field_operator_session_plan_v3": [
+          "field_operator_broker_layout_v2"
+        ],
+        "field_operator_broker_streamed_mirror_v1": [
+          "field_host_budget_v1",
+          "field_live_layout_v3",
+          "field_operator_broker_layout_v2",
+          "field_operator_session_plan_v3"
+        ],
+        "field_host_budget_v1": [],
+        "field_live_layout_v3": [
+          "field_live_layout_v2"
+        ],
+        "field_live_layout_v2": [],
+        "field_operator_broker_ssh_mirror_v2": [
+          "field_host_budget_v1",
+          "field_operator_broker_partial_v1",
+          "field_operator_broker_streamed_mirror_v1"
+        ],
+        "field_operator_broker_partial_v1": [
+          "field_host_budget_v1",
+          "field_operator_broker_streamed_mirror_v1"
+        ],
+        "field_local_manager_ssh_mirror_v1": [
+          "field_host_budget_v1",
+          "field_local_manager_tree_v1",
+          "field_operator_broker_streamed_mirror_v1"
+        ],
+        "field_owner_binding_v1": []
+      }
+    },
+    "module_sha256": {
+      "field_local_manager_export_v2": "c81faf244903cd5a1c4876a5d72102d70858a1990693065dce9681a070c5562a",
+      "field_local_manager_owners_v1": "4d527aac21f939c3a976b401c79d49ecec3998c8f50b4b9cf4b2f113d74e6a60",
+      "field_local_manager_tree_v1": "f79f75910e0191d18fcfea87175442601622e20810715f2683ebc128403eada4",
+      "field_local_release_plan_v2": "090a479ec43e34446d6a368279bba393f8150cbddc6456cc55aa17ac763b1407",
+      "field_operator_broker_layout_v2": "95d901fdb9f8e959a43c2d46af3175f19cd6f9363e388da2861f7fc5c6341afa",
+      "field_operator_session_plan_v1": "c3618244e76a8d6ec43ca6f02d548cca916078085d266ca0c0c9eb37ab6d12a5",
+      "field_operator_session_plan_v3": "d939a7c3cb06b8493b4c1c8f56a4871cf0a18bc2a179b092450e472c889750e3",
+      "field_operator_broker_streamed_mirror_v1": "8c2cb490bf2c05009eb18eaa72513acbdeaa09174b2ae0890a7a5e077dd955f7",
+      "field_host_budget_v1": "1757b034d8fe301e6b9c711031c5168ed360532bcebd4dd23d0d3cc06a4c8489",
+      "field_live_layout_v3": "52b58bf10fe1190be8dd9208231e02840661d6f1651ad8db80c0fd7d7611bab1",
+      "field_live_layout_v2": "4d58494543c641ed0929c01b055f4fba03328b549b8e7777849aeb64b4791416",
+      "field_operator_broker_ssh_mirror_v2": "b867220cc7a507fc07ff9026fc9031ef757931a3e3f0f4a2a8fe101f28445c31",
+      "field_operator_broker_partial_v1": "763aa8dad5c746dea9aa5714811e5ea639c82c93a7d9152d11fc57fcdd8a0f9c",
+      "field_local_manager_ssh_mirror_v1": "f8ebd54fccd97115f4a6858639cb20c4b529beaf96131a414cab9e04948ab981",
+      "field_owner_binding_v1": "726d69c67652934bb2c03fc4e19045de9f5ded4aef65cbe11d3f2fc8c6cdabae"
+    },
+    "synthetic_install": true,
+    "actual_nested_frame_receiver": true,
+    "rejected": [
+      "preloaded-collision",
+      "missing-transitive",
+      "missing-late-transitive",
+      "relative-import",
+      "dynamic-import",
+      "dynamic-exec",
+      "stdlib-shadow",
+      "case-alias",
+      "source-pin-drift",
+      "unused-member",
+      "top-level-cycle",
+      "oversized-source",
+      "nontext-source",
+      "duplicate-json",
+      "oversized-payload",
+      "old-ascii-frame",
+      "new-frame-overflow"
+    ],
+    "native_bootstrap_executed": false,
+    "ssh_attempts": 0,
+    "native_or_app_success": false,
+    "owner": {
+      "pid": 69704,
+      "create_time": 1790857531.8369987,
+      "affinity": [
+        14
+      ]
+    }
+  },
+  "host_check_closure": {
+    "utc": "2026-10-01T12:26:27.369437+00:00",
+    "owners": [
+      {
+        "label": "bootstrap-check-v1",
+        "owner": {
+          "pid": 71916,
+          "create_time": 1790857486.3153763,
+          "affinity": [
+            14
+          ]
+        },
+        "observed_create_time": null,
+        "exact_alive": false
+      },
+      {
+        "label": "bootstrap-check-v2",
+        "owner": {
+          "pid": 69704,
+          "create_time": 1790857531.8369987,
+          "affinity": [
+            14
+          ]
+        },
+        "observed_create_time": null,
+        "exact_alive": false
+      }
+    ]
+  },
+  "source_backup": {
+    "files": 7,
+    "bytes": 36196,
+    "independent_restore_exact": true,
+    "source_closed_within_scope": true
+  },
+  "selected": {
+    "auxiliary": "field_local_auxiliary_v1.py",
+    "bootstrap": "field_local_manager_bootstrap_v1.py",
+    "exporter": "field_local_manager_export_v2.py",
+    "check": "check_field_local_bootstrap_v2.py",
+    "readme": "README_FIELD_LOCAL_BOOTSTRAP_V2.md"
+  },
+  "host_census": 253,
+  "native_census_stale": 312,
+  "host_precheck": {
+    "owner_paths": 1338,
+    "hosts_closed": 665,
+    "lifetime_files": 170,
+    "native_probe": false
+  },
+  "runtime_or_offline_acceptance": false,
+  "field_readiness": "INCOMPLETE",
+  "claim_limits": "Actual host parse/pin/compile of complete15module109074B graph, synthetic pure two-module installation, actual extracted serialization helper against existing receiver. Full native bootstrap/exporter, systemd/resources/Journal/SSH/copy/source/model/GUI remain unexecuted. No current native-state claim. All prior failures and missing identities including V137 poweroff postcheck retained.",
+  "preserved_failures": [
+    "Two host prereads rejected still-running census253 coordinator51516/create1790857200.6982913; fresh third after census completion passed before any dispatch.",
+    "Hostcheck1 failed before RESULT because expected old-frame HostBudgetError was not caught by draft harness. New check2 adds exact expected type/import; native exporter unchanged."
+  ]
+}
