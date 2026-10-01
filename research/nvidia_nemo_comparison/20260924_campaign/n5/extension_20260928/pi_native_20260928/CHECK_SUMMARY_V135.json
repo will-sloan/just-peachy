@@ -1,0 +1,218 @@
+{
+  "version": 135,
+  "as_of_utc": "2026-10-01T10:43:37.338111+00:00",
+  "status": "PASS_CHANGED_HOST_BACKUP_ALLOCATION_ONE_SESSION_CAPSULES_PREPARED",
+  "native_app_attempts": 0,
+  "native_manager_attempts": 0,
+  "native_local_backup_attempts": 0,
+  "actual_capture": false,
+  "model_sessions": 0,
+  "active_research_compute": false,
+  "capture_currently_off": true,
+  "selected": {
+    "plan": "field_local_release_plan_v2.py",
+    "contract": "field_local_backup_contract_v2.py",
+    "journal": "field_local_release_files_v6.py",
+    "supervisor": "field_local_supervisor_v3.py",
+    "copier": "field_local_broker_backup_v2.py",
+    "gate": "field_operator_broker_gate_v12.py",
+    "entry": "field_operator_broker_entry_v7.py",
+    "driver": "field_operator_broker_qualification_v2.py",
+    "builder": "build_field_operator_broker_bundle_v8.py",
+    "check": "check_field_local_backup_allocation_v1.py",
+    "collector": "collect_native_closure_v16.py",
+    "readme": "README_FIELD_LOCAL_CAPSULE_V4.md"
+  },
+  "source_backup": {
+    "files": 18,
+    "bytes": 165797,
+    "independent_restore_exact": true,
+    "all_closed_before_scope_expiry": true
+  },
+  "owners": {
+    "collector_records": 480,
+    "collector_unique": 456,
+    "additional_unique": 198,
+    "total_exact_closed_records": 678,
+    "unique_pi": 654,
+    "duplicate_records": 24,
+    "host_closed": 587,
+    "typed_nonidentity_closures": 3,
+    "later_metadata_owners_separate": true
+  },
+  "resources": {
+    "census": 249,
+    "closure": 310,
+    "combined_output_bytes": 5888327458,
+    "payload_with_target_and_reservations_bytes": 56283587741,
+    "target_bytes": 3027013451,
+    "host_window_bytes": 2861314007,
+    "old_output_excess": 519618338,
+    "old_payload_excess": 449012893,
+    "stale_before_future_dispatch": true,
+    "readonly_policy": "TRANSFER_RESOURCE_POLICY_V2"
+  },
+  "host_allocation_check": {
+    "status": "PASS_CHANGED_DUAL_HOST_BACKUP_ALLOCATION",
+    "positive_groups": 3,
+    "rejected": [
+      "1-old-host-allocation",
+      "1-one-byte-output-short",
+      "1-one-byte-payload-short",
+      "2-old-host-allocation",
+      "2-one-byte-output-short",
+      "2-one-byte-payload-short",
+      "4-old-host-allocation",
+      "4-one-byte-output-short",
+      "4-one-byte-payload-short",
+      "old-policy-schema"
+    ],
+    "cases": [
+      {
+        "recordings": 1,
+        "launches": 3,
+        "target": 306783320,
+        "host": 310977624,
+        "combined": 617760944,
+        "extra_host": 151114284
+      },
+      {
+        "recordings": 2,
+        "launches": 6,
+        "target": 610420912,
+        "host": 618809520,
+        "combined": 1229230432,
+        "extra_host": 302228568
+      },
+      {
+        "recordings": 4,
+        "launches": 16,
+        "target": 1218482528,
+        "host": 1235259744,
+        "combined": 2453742272,
+        "extra_host": 604457136
+      }
+    ],
+    "synthetic_caps": true,
+    "policy_issued": false,
+    "native_execution": false
+  },
+  "prepared_capsules": {
+    "status": "PREPARED_ONE_SESSION_AND_MANAGER_CAPSULES_NOT_ADMITTED",
+    "manager_files": 15,
+    "manager_bytes": 133840,
+    "manager_manifest_sha256": "6aef2fbdac2c39d04b4097ddff5e63c81545d2c8254edff578ade2f90f87bf4d",
+    "manager_bundle_sha256": "c9eb94e4ccc428a5db1b7d78b34fb9837851b60ba575fabf82867686949a10be",
+    "local_manager_binding_present": false,
+    "outer_files": 64,
+    "outer_bytes": 465844,
+    "child_code_files": 51,
+    "child_data_files": 4,
+    "template_bytes": 37058,
+    "config_bytes": 12125,
+    "manifest_sha256": "ed607281b73dfa342dcd21d486105aed042de8da6872d797fd6f67fe93347006",
+    "bundle_sha256": "fc182d9dc059621fd80f10bf794195fd75b35112fd3ada8beee3ee995ebcb770",
+    "owner_count": 653,
+    "external_imports": {
+      "code/archive_stop_sessions_v1.py": [
+        "app_bounded_artifacts_v1.py"
+      ],
+      "code/field_operator_controller_v6.py": [
+        "field_archive_v3.py"
+      ],
+      "code/d1_process_entry_v1.py": [
+        "d1_recovery_process_v1.py"
+      ]
+    },
+    "native_executed": false,
+    "policy_issued": false,
+    "requires_fresh_owners_and_census_before_dispatch": true
+  },
+  "capsule_backup": {
+    "bytes": 276098,
+    "sha256": "455ae8967fd6653c47565e7dc31c3bd4b26cec9f2c69325aa539303aceb2a897",
+    "members": [
+      "BUNDLE.json",
+      "MANAGER_BUNDLE.json",
+      "REVIEW.json",
+      "REGISTERED_OWNER.json"
+    ],
+    "independent_decompression_readback": true,
+    "expanded_restore_copy": false
+  },
+  "closed_check_owners": [
+    {
+      "folder": "allocation-v1",
+      "owner": {
+        "pid": 75916,
+        "create_time": 1790850647.7043743,
+        "affinity": [
+          14
+        ]
+      },
+      "exact_alive": false,
+      "observed_create_time": null
+    },
+    {
+      "folder": "capsules-v1",
+      "owner": {
+        "pid": 58744,
+        "create_time": 1790850647.7045383,
+        "affinity": [
+          14
+        ]
+      },
+      "exact_alive": false,
+      "observed_create_time": null
+    },
+    {
+      "folder": "capsules-v2",
+      "owner": {
+        "pid": 74892,
+        "create_time": 1790850727.3778455,
+        "affinity": [
+          14
+        ]
+      },
+      "exact_alive": false,
+      "observed_create_time": null
+    },
+    {
+      "folder": "capsules-v3",
+      "owner": {
+        "pid": 61968,
+        "create_time": 1790850825.5225832,
+        "affinity": [
+          14
+        ]
+      },
+      "exact_alive": false,
+      "observed_create_time": null
+    }
+  ],
+  "native_supervisor_executed": false,
+  "journal_backup_consumer_native_qualified": false,
+  "native_policy_issued": false,
+  "production_policy_issued": false,
+  "production_admission_implemented": false,
+  "failed_source_backup_implemented": false,
+  "automatic_recovery_qualified": false,
+  "proposed_idle_seconds": 86400,
+  "proposed_idle_lifetime_admitted": false,
+  "qualification_maximum_seconds": 600,
+  "new_native_identity_gap": false,
+  "prior_identity_gaps_preserved": true,
+  "runtime_accepted": false,
+  "offline_accepted": false,
+  "physical_touch": false,
+  "accuracy": false,
+  "next_action": "Implement the fresh joint manager/broker issuer, dispatcher, native initializer, complete success/failure tree host mirror and strict exact new nested journal-owner collector bindings. Use the prepared one-session capsule and Supervisor3 install-reserve before broker staging; require actual current gate/broker identities and Journal6 STARTED before ACK. After natural gate reap/exact death, use a fresh finish process for CLOSED and complete independently verified Pi-local backup, then fresh read-only reopen and complete independent host backups of both broker and local mirror. Plan2's one-recording/three-launch617760944B proposal is unadmitted; no old consumed policy or two-slot source reuse. Later-slot reserve is now prepared but native unqualified. Failed-source backup/recovery, production lifetime and activation/rollback remain open; proposed24hour idle is unadmitted. Each operation plus cleanup/backup must fit600seconds and finish before17:42:44Z. Verify local automatic recovery before network isolation. Preserve consumed/pending/failed roots, modes/assets, display270, manual controls and captureoff. No unchanged healthy check/live/copy reruns. Nonempty captions/gallery/physical touch/noisy human remain open.",
+  "claim_limits": "Three synthetic allocation positive groups and10rejects; actual host capsule assembly and byte verification only. No native Journal constructor, gate, reservation/copy/reopen, activation or recovery. V132 copier1 remains a separate native component pass; new copier2 changes only dependency imports and has not run natively. Compressed capsule backup independently decompressed/read back, not an expanded filesystem restore; source files have separate actual filesystem restore copies.",
+  "source_scope_note": "Eighteen source/README165797B exact backups and independent restores, SOURCE_CLOSED1/2 at10:30:22.866636/10:32:07.027863 inside scope1 10:24:30.933513..10:34:30.933513; SOURCE_CLOSED3/4 at10:33:45.167037/10:37:39.119842 inside scope2 10:32:35.832882..10:42:35.832882. Same2MiB cumulative preparation allocation; no reset/source backup gap.",
+  "preserved_failures": [
+    "Read-only collector309 requested still-pending census249 and failed before SSH; fresh310 succeeded after completion.",
+    "Builder7 capsules-v1 used wrong historical projection shape and failed KeyError sha256 before capsule/native creation.",
+    "Builder7 capsules-v2 reached17manager modules and unchanged16cap rejected. Copier1 imported oldJournal2/Plan1; fresh copier2 dependency links remove that duplicate graph, selected builder8 yields15.",
+    "Read-only capsule review1 looked for WINDOW_V5 in the wrong source directory; review2 resolves actual pinned source paths. No source modification/native retry."
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "status": "EXACT_DOCUMENTATION_BACKUP_VERIFIED",
+  "label": "local-capsules-v43",
+  "archive": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\completion-20261001-backups\\local-capsules-v43\\NVIDIA_CAMPAIGN_CHATGPT_HANDOFF_20260924_local-capsules-v43.zip",
+  "bytes": 40954,
+  "sha256": "86d881f5e2e7c2cc9054f6bb7374aac41b6ad7f7a399ec920a99ec2edf1cdbd8",
+  "member_count": 15,
+  "cpu_affinity": [
+    14
+  ],
+  "delivery_status": "IN_PROGRESS",
+  "runtime_or_offline_acceptance": false
+}
