@@ -1,0 +1,13 @@
+{
+  "status": "EXACT_DOCUMENTATION_BACKUP_VERIFIED",
+  "label": "operator-qualification-v36",
+  "archive": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\completion-20261001-backups\\operator-qualification-v36\\NVIDIA_CAMPAIGN_CHATGPT_HANDOFF_20260924_operator-qualification-v36.zip",
+  "bytes": 40741,
+  "sha256": "9e9deb0cbcc274c164edc34571c107872c5938bc3225d7f726c0fb3b466e6371",
+  "member_count": 15,
+  "cpu_affinity": [
+    14
+  ],
+  "delivery_status": "IN_PROGRESS",
+  "runtime_or_offline_acceptance": false
+}

@@ -1,0 +1,635 @@
+{
+  "version": 128,
+  "as_of_utc": "2026-10-01T08:14:15.527207+00:00",
+  "status": "PASS_BOUNDED_TWO_SESSION_NATIVE_BROKER_AND_HISTORY",
+  "native_attempts": 5,
+  "native_failures": 4,
+  "host_pre_policy_failures": 1,
+  "actual_capture": true,
+  "model_sessions": 2,
+  "active_research_compute": false,
+  "capture_currently_off": true,
+  "selected": {
+    "builder": "build_field_operator_broker_bundle_v5.py",
+    "issuer": "admit_field_operator_broker_v4.py",
+    "dispatcher": "dispatch_field_operator_broker_v6.py",
+    "receiver": "mirror_field_operator_broker_v2.py",
+    "host_helper": "field_operator_broker_host_v2.py",
+    "census": "field_operator_broker_census_v2.py",
+    "initializer": "field_operator_broker_initialize_v1.py",
+    "gate": "field_operator_broker_gate_v7.py",
+    "entry": "field_operator_broker_entry_v5.py",
+    "broker": "field_operator_broker_v6.py",
+    "stager": "field_operator_broker_stage_v4.py",
+    "parent": "field_operator_parent_v12.py",
+    "child": "field_operator_entry_v10.py",
+    "controller": "field_operator_controller_v6.py",
+    "chooser": "field_operator_chooser_v3.py",
+    "outer_driver": "field_operator_broker_qualification_v1.py",
+    "child_driver": "field_operator_qualification_v3.py",
+    "exporter": "field_operator_broker_export_v2.py",
+    "readme": "README_FIELD_OPERATOR_BROKER_QUALIFICATION_V7.md"
+  },
+  "host_contract": {
+    "status": "PASS_HOST_PARTIAL_INITIALIZER_TREE_TRANSPORT",
+    "positive": [
+      {
+        "case": "empty",
+        "files": 0,
+        "bytes": 0,
+        "data_chunks": 0,
+        "chunk_bytes": 16384,
+        "process_closed_before_completion": true
+      },
+      {
+        "case": "truncated",
+        "files": 3,
+        "bytes": 30017,
+        "data_chunks": 4,
+        "chunk_bytes": 16384,
+        "process_closed_before_completion": true
+      }
+    ],
+    "rejected": [
+      "unknown_writer",
+      "oversize_member",
+      "runtime_directory",
+      "traversal",
+      "wrong_root",
+      "boolean_ceiling",
+      "extra_binding"
+    ],
+    "elapsed_seconds": 0.1720000000204891,
+    "owner": {
+      "pid": 57972,
+      "create_time": 1790840200.81515,
+      "affinity": [
+        14
+      ]
+    },
+    "fixture_identity_only": true,
+    "process_closure_callback_fixture": true,
+    "native_ssh": false,
+    "native_filesystem": false,
+    "gui_capture_models": false,
+    "malformed_source_bytes_unchanged": true,
+    "rejected_before_destination_creation": true
+  },
+  "source_backup": {
+    "files": 55,
+    "bytes": 492308,
+    "independent_restore_exact": true
+  },
+  "owners": {
+    "collector_records": 467,
+    "collector_unique": 454,
+    "additional_unique": 161,
+    "total_exact_closed_records": 628,
+    "unique_pi": 615,
+    "duplicate_records": 13,
+    "host_closed": 456,
+    "typed_nonidentity_closures": 3,
+    "later_metadata_owners_separate": true
+  },
+  "resources": {
+    "census": 238,
+    "closure": 294,
+    "combined_output_bytes": 5848720021,
+    "payload_with_target_and_reservations_bytes": 56243980304,
+    "target_bytes": 3020757526,
+    "host_window_bytes": 2827962495,
+    "old_output_excess": 480010901,
+    "old_payload_excess": 409405456,
+    "stale_before_future_dispatch": true,
+    "readonly_policy": "TRANSFER_RESOURCE_POLICY_V2"
+  },
+  "native_qualification": {
+    "root": "/home/peachyprototype/JustPeachy/research/nemotron-20260928/field-operator-sessions-v6",
+    "sessions": [
+      {
+        "slot": "slot-01",
+        "samples": 80640,
+        "seconds_audio": 5.04,
+        "frames": 505,
+        "pushes": 504,
+        "native_events": 1,
+        "original_payload_sha256": [
+          "47662265840a865695ff798952fdf97cea789730a6b56e7ebcf81ee8e55823b4"
+        ],
+        "child_seconds": 13.068769778998103,
+        "child_ru_peak_rss_bytes": 484786176,
+        "ledger_closed_utc": "2026-10-01T08:08:46.136293+00:00"
+      },
+      {
+        "slot": "slot-02",
+        "samples": 80160,
+        "seconds_audio": 5.01,
+        "frames": 502,
+        "pushes": 500,
+        "native_events": 1,
+        "original_payload_sha256": [
+          "3a47c57eb0c14f90299e367a57401d7144c91aaaed538255cecdd9565c2550d0"
+        ],
+        "child_seconds": 12.843849285971373,
+        "child_ru_peak_rss_bytes": 484769792,
+        "ledger_closed_utc": "2026-10-01T08:09:00.442199+00:00"
+      }
+    ],
+    "outer_buttons": 6,
+    "child_buttons_each": 7,
+    "history_opens": 3,
+    "caption_rows_each": 0,
+    "all_original_payload_fields_exact": true,
+    "only_archive_extras": [
+      "consumer_monotonic_sec",
+      "consumer_queue_age_sec"
+    ],
+    "capture_off_before_next_slot": true,
+    "gate": {
+      "aggregate_rss_qualified": false,
+      "capture_closed": true,
+      "failure": null,
+      "gate_owner": {
+        "boot_id": "af9c6c63-3c54-42c5-8f79-6fbce3fe7d43",
+        "pid": 63670,
+        "start_ticks": 20307449
+      },
+      "logical_success": true,
+      "minimum_sampled_available_ram_bytes": 931381248,
+      "owner_ack": true,
+      "peak_sampled_broker_rss_bytes": 49856512,
+      "pipe_closed": true,
+      "recording_owners": [
+        {
+          "exact_dead": true,
+          "kind": "control/OWNER.json",
+          "owner": {
+            "boot_id": "af9c6c63-3c54-42c5-8f79-6fbce3fe7d43",
+            "pid": 63680,
+            "start_ticks": 20307542
+          },
+          "slot": "slot-01"
+        },
+        {
+          "exact_dead": true,
+          "kind": "parent_control/OWNER.json",
+          "owner": {
+            "boot_id": "af9c6c63-3c54-42c5-8f79-6fbce3fe7d43",
+            "pid": 63683,
+            "start_ticks": 20307581
+          },
+          "slot": "slot-01"
+        },
+        {
+          "exact_dead": true,
+          "kind": "source/CHILD_OWNER.json",
+          "owner": {
+            "boot_id": "af9c6c63-3c54-42c5-8f79-6fbce3fe7d43",
+            "pid": 63701,
+            "start_ticks": 20308133
+          },
+          "slot": "slot-01"
+        },
+        {
+          "exact_dead": true,
+          "kind": "control/OWNER.json",
+          "owner": {
+            "boot_id": "af9c6c63-3c54-42c5-8f79-6fbce3fe7d43",
+            "pid": 63769,
+            "start_ticks": 20308997
+          },
+          "slot": "slot-02"
+        },
+        {
+          "exact_dead": true,
+          "kind": "parent_control/OWNER.json",
+          "owner": {
+            "boot_id": "af9c6c63-3c54-42c5-8f79-6fbce3fe7d43",
+            "pid": 63772,
+            "start_ticks": 20309037
+          },
+          "slot": "slot-02"
+        },
+        {
+          "exact_dead": true,
+          "kind": "source/CHILD_OWNER.json",
+          "owner": {
+            "boot_id": "af9c6c63-3c54-42c5-8f79-6fbce3fe7d43",
+            "pid": 63790,
+            "start_ticks": 20309570
+          },
+          "slot": "slot-02"
+        }
+      ],
+      "returncode": 0,
+      "samples": 59,
+      "tree": {
+        "bytes": 9043828,
+        "directories": 50,
+        "files": 313
+      },
+      "worker_exact_dead": true,
+      "worker_owner": {
+        "boot_id": "af9c6c63-3c54-42c5-8f79-6fbce3fe7d43",
+        "pid": 63675,
+        "start_ticks": 20307467
+      }
+    }
+  },
+  "backups": [
+    {
+      "version": 1,
+      "files": 70,
+      "bytes": 518072,
+      "directories": 3,
+      "chunks": 76,
+      "elapsed_seconds": 1.452999999979511,
+      "exporter": {
+        "pid": 63138,
+        "start_ticks": 20163579,
+        "boot_id": "af9c6c63-3c54-42c5-8f79-6fbce3fe7d43"
+      },
+      "closure_utility": {
+        "pid": 63148,
+        "start_ticks": 20163671,
+        "boot_id": "af9c6c63-3c54-42c5-8f79-6fbce3fe7d43"
+      },
+      "host_owners": [
+        {
+          "owner": {
+            "pid": 36040,
+            "create_time": 1790840666.4504597,
+            "affinity": [
+              14
+            ]
+          },
+          "exact_alive": false
+        },
+        {
+          "owner": {
+            "pid": 7648,
+            "create_time": 1790840667.0820785,
+            "affinity": [
+              14
+            ]
+          },
+          "exact_alive": false
+        },
+        {
+          "owner": {
+            "pid": 7648,
+            "create_time": 1790840667.0820785,
+            "affinity": [
+              14
+            ]
+          },
+          "exact_alive": false
+        },
+        {
+          "owner": {
+            "pid": 69156,
+            "create_time": 1790840670.3567429,
+            "affinity": [
+              14
+            ]
+          },
+          "exact_alive": false
+        }
+      ]
+    },
+    {
+      "version": 2,
+      "files": 145,
+      "bytes": 956760,
+      "directories": 24,
+      "chunks": 152,
+      "elapsed_seconds": 2.281000000075437,
+      "exporter": {
+        "pid": 63276,
+        "start_ticks": 20188451,
+        "boot_id": "af9c6c63-3c54-42c5-8f79-6fbce3fe7d43"
+      },
+      "closure_utility": {
+        "pid": 63286,
+        "start_ticks": 20188623,
+        "boot_id": "af9c6c63-3c54-42c5-8f79-6fbce3fe7d43"
+      },
+      "host_owners": [
+        {
+          "owner": {
+            "pid": 42172,
+            "create_time": 1790840914.3196316,
+            "affinity": [
+              14
+            ]
+          },
+          "exact_alive": false
+        },
+        {
+          "owner": {
+            "pid": 71240,
+            "create_time": 1790840914.9083893,
+            "affinity": [
+              14
+            ]
+          },
+          "exact_alive": false
+        },
+        {
+          "owner": {
+            "pid": 71240,
+            "create_time": 1790840914.9083893,
+            "affinity": [
+              14
+            ]
+          },
+          "exact_alive": false
+        },
+        {
+          "owner": {
+            "pid": 66416,
+            "create_time": 1790840919.0750935,
+            "affinity": [
+              14
+            ]
+          },
+          "exact_alive": false
+        }
+      ]
+    },
+    {
+      "version": 3,
+      "files": 158,
+      "bytes": 960963,
+      "directories": 24,
+      "chunks": 163,
+      "elapsed_seconds": 1.875,
+      "exporter": {
+        "pid": 63415,
+        "start_ticks": 20216102,
+        "boot_id": "af9c6c63-3c54-42c5-8f79-6fbce3fe7d43"
+      },
+      "closure_utility": {
+        "pid": 63425,
+        "start_ticks": 20216236,
+        "boot_id": "af9c6c63-3c54-42c5-8f79-6fbce3fe7d43"
+      },
+      "host_owners": [
+        {
+          "owner": {
+            "pid": 25184,
+            "create_time": 1790841189.4716372,
+            "affinity": [
+              14
+            ]
+          },
+          "exact_alive": false
+        },
+        {
+          "owner": {
+            "pid": 72888,
+            "create_time": 1790841190.0453975,
+            "affinity": [
+              14
+            ]
+          },
+          "exact_alive": false
+        },
+        {
+          "owner": {
+            "pid": 72888,
+            "create_time": 1790841190.0453975,
+            "affinity": [
+              14
+            ]
+          },
+          "exact_alive": false
+        },
+        {
+          "owner": {
+            "pid": 31644,
+            "create_time": 1790841195.5895176,
+            "affinity": [
+              14
+            ]
+          },
+          "exact_alive": false
+        }
+      ]
+    },
+    {
+      "version": 4,
+      "files": 158,
+      "bytes": 962669,
+      "directories": 24,
+      "chunks": 163,
+      "elapsed_seconds": 2.405999999959022,
+      "exporter": {
+        "pid": 63556,
+        "start_ticks": 20251107,
+        "boot_id": "af9c6c63-3c54-42c5-8f79-6fbce3fe7d43"
+      },
+      "closure_utility": {
+        "pid": 63566,
+        "start_ticks": 20251290,
+        "boot_id": "af9c6c63-3c54-42c5-8f79-6fbce3fe7d43"
+      },
+      "host_owners": [
+        {
+          "owner": {
+            "pid": 66040,
+            "create_time": 1790841540.3389957,
+            "affinity": [
+              14
+            ]
+          },
+          "exact_alive": false
+        },
+        {
+          "owner": {
+            "pid": 19940,
+            "create_time": 1790841541.063738,
+            "affinity": [
+              14
+            ]
+          },
+          "exact_alive": false
+        },
+        {
+          "owner": {
+            "pid": 19940,
+            "create_time": 1790841541.063738,
+            "affinity": [
+              14
+            ]
+          },
+          "exact_alive": false
+        },
+        {
+          "owner": {
+            "pid": 65556,
+            "create_time": 1790841545.644396,
+            "affinity": [
+              14
+            ]
+          },
+          "exact_alive": false
+        }
+      ]
+    },
+    {
+      "version": 6,
+      "files": 314,
+      "bytes": 5768552,
+      "directories": 50,
+      "chunks": 555,
+      "elapsed_seconds": 3.375,
+      "exporter": {
+        "pid": 63887,
+        "start_ticks": 20310644,
+        "boot_id": "af9c6c63-3c54-42c5-8f79-6fbce3fe7d43"
+      },
+      "closure_utility": {
+        "pid": 63897,
+        "start_ticks": 20310916,
+        "boot_id": "af9c6c63-3c54-42c5-8f79-6fbce3fe7d43"
+      },
+      "host_owners": [
+        {
+          "owner": {
+            "pid": 5900,
+            "create_time": 1790842107.3597605,
+            "affinity": [
+              14
+            ]
+          },
+          "exact_alive": false
+        },
+        {
+          "owner": {
+            "pid": 52116,
+            "create_time": 1790842107.6187012,
+            "affinity": [
+              14
+            ]
+          },
+          "exact_alive": false
+        },
+        {
+          "owner": {
+            "pid": 52116,
+            "create_time": 1790842107.6187012,
+            "affinity": [
+              14
+            ]
+          },
+          "exact_alive": false
+        },
+        {
+          "owner": {
+            "pid": 71988,
+            "create_time": 1790842140.9874504,
+            "affinity": [
+              14
+            ]
+          },
+          "exact_alive": false
+        }
+      ]
+    }
+  ],
+  "admission": {
+    "accuracy": false,
+    "capsule_files": 64,
+    "expires_utc": "2026-10-01T08:18:27.491970+00:00",
+    "explicit_preparation_and_margin_bytes": 8388608,
+    "failed_or_unused_slot_credit": false,
+    "fresh_policy_sha256": "552ba323b7304309a3dc5c404e908efbce747397dfdc19324f544eb26cbd7518",
+    "full_allocation": {
+      "broker": {
+        "append": {
+          "service.log": 131072,
+          "telemetry.jsonl": 262144
+        },
+        "code_maximum_bytes": 2097152,
+        "code_maximum_files": 64,
+        "code_member_maximum_bytes": 131072,
+        "directory_names": [
+          "broker",
+          "code"
+        ],
+        "extra_per_side_bytes": 3670016,
+        "maximum_write_bytes": 16384,
+        "once": {
+          "ACK.json": 16384,
+          "CONFIG.json": 65536,
+          "ENVELOPE.json": 32768,
+          "FAILURE.json": 16384,
+          "GATE_OWNER.json": 16384,
+          "GATE_RESULT.json": 16384,
+          "MANIFEST.json": 131072,
+          "OWNER.json": 16384,
+          "RESULT.json": 65536,
+          "STAGE_OWNER.json": 16384,
+          "TEMPLATE.json": 131072
+        }
+      },
+      "combined_request_bytes": 604981424,
+      "count": 2,
+      "host_maximum_bytes": 306685016,
+      "host_per_session": 151114284,
+      "maximum_release_bytes": 65536,
+      "maximum_session_directories": 64,
+      "maximum_session_files": 256,
+      "maximum_slot_files": 12,
+      "metadata_maximum_bytes": 4456448,
+      "reuse_deleted_or_failed_reservation": false,
+      "schema": "just-peachy.operator-broker-allocation.v1",
+      "slot_file_bytes": 16384,
+      "slot_names": [
+        "slot-01",
+        "slot-02"
+      ],
+      "slot_write_bytes": 16384,
+      "target_maximum_bytes": 298296408,
+      "target_per_session": 146919980
+    },
+    "independent_source_readback_restore": true,
+    "issued_utc": "2026-10-01T08:08:27.491970+00:00",
+    "measured_output": 5833432289,
+    "measured_payload": 56228692572,
+    "new_native_attempt": false,
+    "old_window_unchanged": true,
+    "physical_touch": false,
+    "prior_host_owners": 448,
+    "prior_pi_owners": 600,
+    "quiet_function_only": true,
+    "status": "ADMITTED_SINGLE_CHANGED_TWO_SESSION_ATTEMPT"
+  },
+  "policy_caps": {
+    "output": 6447693824,
+    "payload": 56842256384
+  },
+  "runtime_accepted": false,
+  "offline_accepted": false,
+  "physical_touch": false,
+  "accuracy": false,
+  "independent_1e_5": false,
+  "E0": false,
+  "nonempty_captions": false,
+  "next_action": "Turn the qualified bounded composition into a manually operated, versioned local release: remove only qualification-driver invocation through fresh reviewed derivatives; retain real New/Start/consent/Save/Return, fresh process per session, source/model/archive closure before next slot, immutable mode/asset manifests and explicit unavailable live Streaming/Chunk52. Specify and enforce a release lifetime/recording-storage policy with local health, restart/fault recovery and exact baseline activation/rollback backups; expiring research admissions are not a user launcher. Prove local automatic recovery before network isolation; preserve display270 and captureoff. Native partial-initializer failure export remains prepared only; no general crash/SSH-loss/kernel-quota proof. Do not rerun healthy two-session/live/data/history/transport checks merely for version. Nonempty captions/gallery/physical touch/noisy human remain open. No firmware maintenance without a new fault, no ASR detour/questions/extension.",
+  "failures_preserved": [
+    "NativeV1 gate KeyError alsa_config; missing python also corrected in fresh builder2; no broker constructor",
+    "NativeV2 Registry request rejected7char slot-01 before parent OWNER; missing parent PID/startticks remains an identity gap",
+    "NativeV3 nested root failed original campaign-parent binding before DeliveryController/model/source",
+    "NativeV4 stale controller_v4 literal self-pin before constructors; controller6 and builder5 correct new sources only",
+    "Host admissionV5 wrong TARGET_RESOURCE filename failed before policy/SSH; registered owner closed; correct freshV6 uses NATIVE_RESOURCES"
+  ],
+  "source_scope_note": "55source/README492308B exact backups plus independent restores. First15intermediate120055B generated in07:22:40..07:32:40 scope but backup not completed before expiry; exact interim bytes preserved before fresh07:33:20 scope. Later source backups1..3/preparations2..5 closed within fresh600s scopes. Bound sources unchanged after backup.",
+  "unexecuted": [
+    "native partial-initializer failure exporter despite host fixture pass",
+    "persistent manual release lifecycle and native local failure/SSH-loss/crash/powerloss recovery",
+    "offline startup/physical unplug/coldboot/touch/noisy human"
+  ],
+  "claim_limits": "Two short quiet captures establish function, native integration, resource observations and exact archive transport only. No accuracy, E0/reference1e-5, performance speedup, sustained aggregate RSS, concurrency, crash/powerloss or kernel-quota proof. Installed endpoint method receipt keeps its historical live_start_available=false; fresh admitted live gate supplies the actual live evidence without rewriting that receipt."
+}
