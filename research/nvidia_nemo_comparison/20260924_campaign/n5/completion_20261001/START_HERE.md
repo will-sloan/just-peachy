@@ -1,10 +1,10 @@
 # Offline Pi delivery and handoff
 
-Current V129: native read-only health passed on the preserved successful sessions-v6 tree and failed sessions-v2 tree. It reported CLOSED_HISTORY_AVAILABLE for the two complete saved sessions and FENCED_PRESERVED for the earlier missing-parent-identity failure, with both expired policies remaining inspection-only. No failure was cleared, ledger resumed, GUI/capture/model started or new native application tree created. Manual entry derivatives remove the two qualification drivers while retaining safety Stop/expiry Return/idle Close and all resource/ownership guards; their62-file capsule is prepared/backed but native unexecuted. V128 two-session and V123 full data-action passes remain separate. Persistent local release, activation/rollback and offline startup remain open. Hard deadline2026-10-01T17:42:44Z unchanged.
+Current V130: the new finite local-release contract passed three host fixture groups and seventeen rejects. It reserves complete independent recording, local-mirror and host-mirror capacity, blocks the next recording until closure and backup, and preserves failed/consumed slots across launch decisions. A bounded native metadata journal is prepared and backed up but has not run on the Pi. No production policy, lifetime extension, native application, capture, model or GUI was started this wake. V129 native read-only health and V128 two-session passes remain separate. Persistent local supervisor, actual local backup, activation/rollback and offline startup remain open. Hard deadline2026-10-01T17:42:44Z unchanged.
 
 **Hard boundary: October 1, 2026, 13:42:44 Toronto / 17:42:44 UTC.** This is exactly 24 hours after the request was anchored at September30 17:42:44 UTC. It replaces the prospective17:47:34 UTC checkpoint; historical evidence remains unchanged.
 
-Status: **IN_PROGRESS, not offline-ready yet.** V128 passed bounded repeated native delayed sessions/history. V129 passed native read-only health and prepared manual derivatives. Persistent local launch/recovery/activation/rollback remain open. V123 full data actions and V98 positive saved Streaming entry retain their separate scopes.
+Status: **IN_PROGRESS, not offline-ready yet.** V130 passed host finite-release contract checks and prepared the native journal. V129 read-only native health, V128 repeated sessions/history, V123 data actions and V98 positive saved Streaming remain separate. Persistent local operation and offline proof are still open.
 
 | Document | Purpose |
 |---|---|

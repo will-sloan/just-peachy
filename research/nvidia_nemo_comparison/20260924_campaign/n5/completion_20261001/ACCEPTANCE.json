@@ -1,9 +1,9 @@
 {
   "schema": "just-peachy.delivery-acceptance.v1",
-  "as_of_utc": "2026-10-01T08:36:47.629350+00:00",
+  "as_of_utc": "2026-10-01T08:52:22.601695+00:00",
   "hard_deadline_utc": "2026-10-01T17:42:44Z",
   "overall": "IN_PROGRESS",
-  "latest_verified_research_summary": "CHECK_SUMMARY_V129.json",
+  "latest_verified_research_summary": "CHECK_SUMMARY_V130.json",
   "gates": [
     {
       "id": "D1_COMPONENTS",
@@ -23,7 +23,7 @@
       "required": true,
       "evidence": "V128 actual two independent delayed sessions and previous-history UI, captureoff and exact parent/child/source closure before next. V98/V100/V123 remain separate scopes. V129 removes automatic qualification drivers in backed manual derivatives; native unexecuted. Read-only native health separately recognizes closed history and preserves failed-tree fencing.",
       "remaining": "Persistent manual user launcher, mode switching beyond admitted delayed sessions, local failure recovery and offline release remain open.",
-      "entry_preparation": "Manual builder6/gate8/entry6/broker7/stage5/parent13/child11 prepared only; controller6/source11 retained. README manual2. Existing dispatcher6 pins old gate7.",
+      "entry_preparation": "Manual builder6/gate8/entry6/broker7/stage5/parent13/child11 prepared only; controller6/source11 retained. README manual2. Existing dispatcher6 pins old gate7. V130 finite local release plan1 passed three host fixture groups/17rejects; native metadata journal2 remains unexecuted. No production lifetime/admission implemented.",
       "milestone": "September30 21:42:44UTC missed; still open, final deadline unchanged"
     },
     {
@@ -65,7 +65,7 @@
       "status": "SCOPED_NATIVE_READ_ONLY_HEALTH_PASS_LOCAL_RECOVERY_ACTIVATION_OPEN",
       "required": true,
       "evidence": "V129 native health inspected actual successful sessions-v6 and failed sessions-v2 under expired policies without writes or capture. Both owners/leases/capture verified quiescent; V2 missing parent stays fenced.",
-      "remaining": "Persistent launcher, local automatic recovery, versioned install/activation/rollback and offline/coldboot proof remain open."
+      "remaining": "V130 finite release allocation/state contract is host-tested; native journal, actual local mirror, supervisor, production admission, activation/rollback and offline/coldboot remain open."
     },
     {
       "id": "PERSONAL_GALLERY_COMPATIBILITY",
@@ -89,7 +89,7 @@
       "id": "FINAL_BACKUP_AND_RESTORE_VERIFICATION",
       "status": "OPEN",
       "required": true,
-      "evidence": "V12911source/README81085B exact private backup/independent restores, bounded native-health receipts. V128 five exact full native-tree mirrors retained. Latest draft handoff versioned; final release backup pending."
+      "evidence": "V130 six source/README42769B exact private backups and independent restores. V129 health and V128 five exact full native-tree mirrors retained. Proposed local mirror reservation is not an executed backup; final release pending."
     },
     {
       "id": "N1_N5_COVERAGE_RECONCILIATION",

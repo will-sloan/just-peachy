@@ -1,0 +1,162 @@
+{
+  "version": 130,
+  "as_of_utc": "2026-10-01T08:52:22.601695+00:00",
+  "status": "PASS_FINITE_LOCAL_RELEASE_CONTRACT_NATIVE_JOURNAL_PREPARED",
+  "native_app_attempts": 0,
+  "actual_capture": false,
+  "model_sessions": 0,
+  "active_research_compute": false,
+  "capture_currently_off": true,
+  "selected": {
+    "plan": "field_local_release_plan_v1.py",
+    "journal": "field_local_release_files_v2.py",
+    "check": "check_field_local_release_v1.py",
+    "readme": "README_FIELD_LOCAL_RELEASE_V2.md"
+  },
+  "source_backup": {
+    "files": 6,
+    "bytes": 42769,
+    "independent_restore_exact": true,
+    "all_closed_before_scope_expiry": true
+  },
+  "owners": {
+    "collector_records": 467,
+    "collector_unique": 454,
+    "additional_unique": 169,
+    "total_exact_closed_records": 636,
+    "unique_pi": 623,
+    "duplicate_records": 13,
+    "host_closed": 484,
+    "typed_nonidentity_closures": 3,
+    "later_metadata_owners_separate": true
+  },
+  "resources": {
+    "census": 241,
+    "closure": 297,
+    "combined_output_bytes": 5855729009,
+    "payload_with_target_and_reservations_bytes": 56250989292,
+    "target_bytes": 3020757526,
+    "host_window_bytes": 2834971483,
+    "old_output_excess": 487019889,
+    "old_payload_excess": 416414444,
+    "stale_before_future_dispatch": true,
+    "readonly_policy": "TRANSFER_RESOURCE_POLICY_V2"
+  },
+  "host_contract": {
+    "status": "PASS_FINITE_RELEASE_CONTRACT_ONLY",
+    "positive_groups": 3,
+    "rejects": [
+      "closed without independent backup",
+      "failed live slot",
+      "failed closed without backup",
+      "failed slot never reusable",
+      "backup before physical closure",
+      "unclean launch blocks reopen",
+      "output missing one reserved byte",
+      "payload missing one reserved byte",
+      "duplicate recording roots",
+      "nested broker root",
+      "bool recordings",
+      "launch allocation exhaustion",
+      "automatic restart silently enabled",
+      "capture ceiling increased",
+      "expired research operation",
+      "idle lifetime not research extension",
+      "no production admission implementation"
+    ],
+    "fixture_receipts_and_census": true,
+    "native_filesystem": false,
+    "constructors": false,
+    "capture": false,
+    "production_policy_issued": false,
+    "persistent_runtime_accepted": false,
+    "allocation": {
+      "schema": "just-peachy.local-release-allocation.v1",
+      "recordings": 2,
+      "launches": 3,
+      "recording_slots": [
+        "recording-01",
+        "recording-02"
+      ],
+      "launch_slots": [
+        "launch-01",
+        "launch-02",
+        "launch-03"
+      ],
+      "broker_allocation": {
+        "schema": "just-peachy.operator-broker-allocation.v1",
+        "count": 1,
+        "slot_names": [
+          "slot-01"
+        ],
+        "target_per_session": 146919980,
+        "host_per_session": 151114284,
+        "metadata_maximum_bytes": 4194304,
+        "target_maximum_bytes": 151114284,
+        "host_maximum_bytes": 155308588,
+        "combined_request_bytes": 306422872,
+        "slot_file_bytes": 16384,
+        "slot_write_bytes": 16384,
+        "maximum_slot_files": 12,
+        "maximum_release_bytes": 65536,
+        "maximum_session_files": 256,
+        "maximum_session_directories": 64,
+        "reuse_deleted_or_failed_reservation": false,
+        "broker": {
+          "once": {
+            "OWNER.json": 16384,
+            "ACK.json": 16384,
+            "ENVELOPE.json": 32768,
+            "CONFIG.json": 65536,
+            "MANIFEST.json": 131072,
+            "TEMPLATE.json": 131072,
+            "RESULT.json": 65536,
+            "FAILURE.json": 16384,
+            "STAGE_OWNER.json": 16384,
+            "GATE_OWNER.json": 16384,
+            "GATE_RESULT.json": 16384
+          },
+          "append": {
+            "service.log": 131072,
+            "telemetry.jsonl": 262144
+          },
+          "code_maximum_bytes": 2097152,
+          "code_maximum_files": 64,
+          "code_member_maximum_bytes": 131072,
+          "directory_names": [
+            "broker",
+            "code"
+          ],
+          "maximum_write_bytes": 16384,
+          "extra_per_side_bytes": 3670016
+        }
+      },
+      "local_backup_per_recording": 151114284,
+      "metadata_maximum_bytes": 5373952,
+      "target_maximum_bytes": 609831088,
+      "host_maximum_bytes": 315991128,
+      "combined_request_bytes": 925822216,
+      "metadata_directories": 11,
+      "code_files": 16,
+      "code_bytes": 2097152,
+      "code_member_bytes": 131072,
+      "write_bytes": 16384,
+      "failed_deleted_unused_credit": false,
+      "automatic_replenishment": false
+    },
+    "elapsed_seconds": 0.0
+  },
+  "native_journal_executed": false,
+  "production_policy_issued": false,
+  "production_admission_implemented": false,
+  "proposed_idle_seconds": 86400,
+  "proposed_idle_lifetime_admitted": false,
+  "qualification_maximum_seconds": 600,
+  "runtime_accepted": false,
+  "offline_accepted": false,
+  "physical_touch": false,
+  "accuracy": false,
+  "next_action": "Wire the local release manager to actual bounded session gates and real complete local backup/readback. The new journal is only a prepared metadata primitive: validate actual owner/unit/capture/lease/closure receipts before publishing results, preserve pending/failure records, and never reuse a consumed root. Add production admission and current activation/rollback identity binding through new reviewed versions; existing research operations remain at most600s and must finish before17:42:44Z. The proposed24-hour manual idle lifetime is not admitted or applied. Verify actual native journal/reopen/fault behavior and local automatic recovery before network isolation; retain manual New/Start/consent/Save/Return, fresh processes, mode/asset pins, display270 and captureoff. No healthy contract/two-session/live/history/health reruns merely for version. Nonempty captions/gallery/physical touch/noisy human remain open.",
+  "claim_limits": "Host pure allocation/state tests only, with synthetic hashes/census and recovery facts. No native filesystem, Journal constructor, backup copy, source/model/controller/GUI, concurrent/crash/powerloss/recovery or production activation evidence. A pure recovery classifier does not establish observed recovery.",
+  "source_scope_note": "Six source/README42769B exact backups and independent restores; both closures within08:40:42.418215..08:50:42.418215UTC. Native journal1 remains an unexecuted draft; selected2 adds full local capsule pins and actual128MiBAS/1MiBstack/32MiBFSIZE prerequisites. No bound source modified."
+}
