@@ -1,5 +1,5 @@
 {
-  "as_of_utc": "2026-10-01T18:55:06.023532+00:00",
+  "as_of_utc": "2026-10-01T19:35:57.171663+00:00",
   "deadline_utc": "2026-10-02T14:14:20Z",
   "current_item": "F04_PERSISTENT_RUNTIME_INTEGRATION",
   "items": [
@@ -29,7 +29,7 @@
       "status": "PARTIAL_NATIVE_HISTORY_NEW_MANUAL_MANAGER_PREPARED",
       "title": "Finish the persistent local manager",
       "done_means": "One persistent manual entry with current native ownership, complete local backup before another slot, independently reserved PC copies and reusable verified offload. New production policy; no consumed research launcher or expired policy as user entry.",
-      "evidence": "V141 bounded native integration retained. New runtime manager/journal/copier and complete16-module170861B manager capsule are prepared and backed; no resumed native execution."
+      "evidence": "V141 bounded native integration retained. New runtime manager/journal/copier and complete16-module170861B manager capsule are prepared and backed; no resumed native execution. Changed runtime preservation check passed once: two actual small Windows copy/graph groups and four rejects, with synthetic policy/native identities/closure. Complete17-module138134B exporter graph checked. New native census/export SSH wrapper is backed and compiled, but unexecuted. Nine source/README files75849B have exact backups and independent restores. Actual Pi export, issuer/current owner integration and deployment remain OPEN."
     },
     {
       "id": "F05",
@@ -113,7 +113,7 @@
       "status": "OPEN",
       "title": "Deliver verified copy-to-PC offload",
       "done_means": "A reusable documented export command/control copies a stopped recording into a fresh private PC destination. Verify membership, sizes, SHA256 and full readback; retain receipt and path. Preserve interrupted transfers and Pi originals; no automatic deletion.",
-      "evidence": "V141 complete private broker and independent manager copies passed; reusable production operator offload flow remains OPEN."
+      "evidence": "V141 complete private broker and independent manager copies passed; reusable production operator offload flow remains OPEN. Changed runtime preservation check passed once: two actual small Windows copy/graph groups and four rejects, with synthetic policy/native identities/closure. Complete17-module138134B exporter graph checked. New native census/export SSH wrapper is backed and compiled, but unexecuted. Nine source/README files75849B have exact backups and independent restores. Actual Pi export, issuer/current owner integration and deployment remain OPEN."
     },
     {
       "id": "F17",

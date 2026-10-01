@@ -4,7 +4,7 @@ The same26 items remain the delivery denominator. Latest direct authority restor
 
 Current priority: F04/F05, then F06/F07 model combinations and shortcuts. Prepared source is not native acceptance.
 
-## F01 — Verify the returned Pi
+## F01 â€” Verify the returned Pi
 
 Status: **DONE**
 
@@ -12,7 +12,7 @@ New boot, exact launcher/app identities, unchanged install/live/display pins, XM
 
 Evidence: user-reconnect-20261001-v4/RESULT.json
 
-## F02 — Return the existing app to safe idle
+## F02 â€” Return the existing app to safe idle
 
 Status: **DONE**
 
@@ -20,7 +20,7 @@ One normal Stop; capture closed, hardware lease free, UI returned to Start; app 
 
 Evidence: final-delivery-normal-stop-v1/RESULT.json; final-delivery-stop-completion-v1/RESULT.json
 
-## F03 — Disable automatic listening
+## F03 â€” Disable automatic listening
 
 Status: **SAVED_NOT_REBOOT_TESTED**
 
@@ -28,15 +28,15 @@ Settings backup and independent restore verified; normal UI changed only auto_st
 
 Evidence: final-delivery-idle-start-v2/RESULT.json
 
-## F04 — Finish the persistent local manager
+## F04 â€” Finish the persistent local manager
 
 Status: **PARTIAL_NATIVE_HISTORY_NEW_MANUAL_MANAGER_PREPARED**
 
 One persistent manual entry with current native ownership, complete local backup before another slot, independently reserved PC copies and reusable verified offload. New production policy; no consumed research launcher or expired policy as user entry.
 
-Evidence: V141 bounded native integration retained. New runtime manager/journal/copier and complete16-module170861B manager capsule are prepared and backed; no resumed native execution.
+Evidence: V141 bounded native integration retained. New runtime manager/journal/copier and complete16-module170861B manager capsule are prepared and backed; no resumed native execution. Changed runtime preservation check passed once: two actual small Windows copy/graph groups and four rejects, with synthetic policy/native identities/closure. Complete17-module138134B exporter graph checked. New native census/export SSH wrapper is backed and compiled, but unexecuted. Nine source/README files75849B have exact backups and independent restores. Actual Pi export, issuer/current owner integration and deployment remain OPEN.
 
-## F05 — Issue and enforce the production recording/lifetime policy
+## F05 â€” Issue and enforce the production recording/lifetime policy
 
 Status: **HOST_POLICY_BINDING_PASS_NATIVE_ENFORCEMENT_OPEN**
 
@@ -44,7 +44,7 @@ Measure current target+PC usage; allocate finite recording count/duration, launc
 
 Evidence: Production policy3positivegroups/25rejects and five-profile broker binding/22rejects passed on host synthetic fixtures. Four-recording16-launch2453742272B full independent reservation is proposed, not admitted. PC copies may wait while offline; verified local copy is mandatory before another slot.
 
-## F06 — Install backend compositions with ReDimNet and TitaNet
+## F06 â€” Install backend compositions with ReDimNet and TitaNet
 
 Status: **HOST_PROFILE_BINDINGS_PREPARED_NATIVE_INTEGRATION_OPEN**
 
@@ -52,7 +52,7 @@ Reuse the existing ReDimNet and NeMo TitaNet implementations and local assets. E
 
 Evidence: F06/F07 preparation: previous TitaNet adapter and installed D0/E1+D1/E1 routes located unchanged. Existing three TitaNet assets88696429B fully hash-verified. New field_runtime_profiles_v1 binds ten explicit profile routes, exact D1 mode libraries, ReDimNet/TitaNet namespaces and prepared desktop content; four changed-binding rejects passed. No neural model was imported, no shortcut installed, no Pi contacted. Policy V3 only expands explicit profile keys and engine mapping; other function ASTs remain exact. New sources are backed and independently restored. Actual controller/gallery/storage/capsule integration remains OPEN.
 
-## F07 — Create real desktop profile shortcuts
+## F07 â€” Create real desktop profile shortcuts
 
 Status: **DESKTOP_CONTENT_PREPARED_INSTALL_LAUNCH_OPEN**
 
@@ -60,7 +60,7 @@ Create one clearly named desktop shortcut per supported ASR/diarizer/embedding/m
 
 Evidence: Versioned desktop-entry generator prepared; none installed. Each profile must be pinned and natively qualified before available.
 
-## F08 — Complete manual Start/Stop/Return and repeated sessions
+## F08 â€” Complete manual Start/Stop/Return and repeated sessions
 
 Status: **OPEN**
 
@@ -68,7 +68,7 @@ From the final user entry, verify New, consent, Start, Stop/drain, Save and Retu
 
 Evidence: Pending.
 
-## F09 — Finish failure recovery
+## F09 â€” Finish failure recovery
 
 Status: **OPEN**
 
@@ -76,7 +76,7 @@ Verify missing/corrupt backend asset, startup failure and one interrupted/failed
 
 Evidence: Pending.
 
-## F10 — Finish the480x800 UI and nonempty captions
+## F10 â€” Finish the480x800 UI and nonempty captions
 
 Status: **OPEN**
 
@@ -84,7 +84,7 @@ All required controls reachable with270orientation; correct backend/mode, record
 
 Evidence: Pending.
 
-## F11 — Verify saved history and data actions in the final release
+## F11 â€” Verify saved history and data actions in the final release
 
 Status: **OPEN**
 
@@ -92,7 +92,7 @@ Save/reopen two recordings, select earlier history, export/import and delete onl
 
 Evidence: Pending.
 
-## F12 — Verify personal gallery compatibility
+## F12 â€” Verify personal gallery compatibility
 
 Status: **OPEN**
 
@@ -100,7 +100,7 @@ Read-only review of UUID/encoder/revision/tap/gain namespaces, including separat
 
 Evidence: Existing n2_people.titanet_store and N2Gallery isolate the encoder namespace. Physical gallery path allocation and final shared-profile read-only binding remain OPEN.
 
-## F13 — Add optional processed recording controls
+## F13 â€” Add optional processed recording controls
 
 Status: **OPEN**
 
@@ -108,7 +108,7 @@ Provide Off/Processed selection before Start, recording indicator, elapsed time,
 
 Evidence: Pending.
 
-## F14 — Resolve true raw microphone support
+## F14 â€” Resolve true raw microphone support
 
 Status: **OPEN_CONDITIONAL_HARDWARE_CAPABILITY**
 
@@ -116,7 +116,7 @@ Check actual firmware/routing for simultaneous physical MIC0-MIC3 and processed 
 
 Evidence: V141 actual firmware3.2.1/4reported mics/8channel endpoint/O0processed route; simultaneous rawMIC0-MIC3 NOT_QUALIFIED, unsupported hardware not proven.
 
-## F15 — Close recording integrity and storage accounting
+## F15 â€” Close recording integrity and storage accounting
 
 Status: **OPEN**
 
@@ -124,15 +124,15 @@ Bound every writer and count raw/processed/events/metadata plus independent loca
 
 Evidence: Pending.
 
-## F16 — Deliver verified copy-to-PC offload
+## F16 â€” Deliver verified copy-to-PC offload
 
 Status: **OPEN**
 
 A reusable documented export command/control copies a stopped recording into a fresh private PC destination. Verify membership, sizes, SHA256 and full readback; retain receipt and path. Preserve interrupted transfers and Pi originals; no automatic deletion.
 
-Evidence: V141 complete private broker and independent manager copies passed; reusable production operator offload flow remains OPEN.
+Evidence: V141 complete private broker and independent manager copies passed; reusable production operator offload flow remains OPEN. Changed runtime preservation check passed once: two actual small Windows copy/graph groups and four rejects, with synthetic policy/native identities/closure. Complete17-module138134B exporter graph checked. New native census/export SSH wrapper is backed and compiled, but unexecuted. Nine source/README files75849B have exact backups and independent restores. Actual Pi export, issuer/current owner integration and deployment remain OPEN.
 
-## F17 — Finish deterministic install and health checks
+## F17 â€” Finish deterministic install and health checks
 
 Status: **OPEN**
 
@@ -140,7 +140,7 @@ Versioned code/config/runtime manifests; all pinned assets already local; native
 
 Evidence: Pending.
 
-## F18 — Verify activation, rollback and local recovery
+## F18 â€” Verify activation, rollback and local recovery
 
 Status: **OPEN**
 
@@ -148,7 +148,7 @@ Back up active code/config/desktop/autostart manifests with independent restore 
 
 Evidence: Pending.
 
-## F19 — Verify final startup and offline operation
+## F19 â€” Verify final startup and offline operation
 
 Status: **OPEN**
 
@@ -156,7 +156,7 @@ Final shortcut and one final-release restart/coldboot open idle with270orientati
 
 Evidence: Pending.
 
-## F20 — Run one bounded final recording/resource acceptance
+## F20 â€” Run one bounded final recording/resource acceptance
 
 Status: **OPEN**
 
@@ -164,7 +164,7 @@ Use the final installed composition for its supported bounded recording duration
 
 Evidence: Pending.
 
-## F21 — Declare camera, IMU and physical-control capabilities
+## F21 â€” Declare camera, IMU and physical-control capabilities
 
 Status: **DONE_CAPABILITY_DECLARATION_PHYSICAL_TESTS_OPEN**
 
@@ -172,7 +172,7 @@ Retain one actual hardware profile and exact known routes/pins; keep unknown GPI
 
 Evidence: HARDWARE_CAPABILITIES.json; actual audio/display, explicit unqualified camera/IMU/buttons/raw.
 
-## F22 — Freeze versioned artifacts and reconcile all original requirements
+## F22 â€” Freeze versioned artifacts and reconcile all original requirements
 
 Status: **DONE_RECONCILED_WITH_GAPS**
 
@@ -180,7 +180,7 @@ Map every retained Windows/Pi composition to its actual source/config/runtime/mo
 
 Evidence: FINAL_COVERAGE.md; original N5,73notes,240scene/panel denominators and all34methods retained; FINAL_ARTIFACT_INDEX.json.
 
-## F23 — Finish the operator documentation
+## F23 â€” Finish the operator documentation
 
 Status: **OPEN_UPDATED_EMBEDDING_COMBINATION_GUIDES**
 
@@ -188,7 +188,7 @@ Exact Start Here, named shortcuts, shared Mode/Backend guides, recording/offload
 
 Evidence: Final operator guide, coverage, capabilities, artifact index and current guides; required functional gaps explicit.
 
-## F24 — Finish the noisy-environment testing kit
+## F24 â€” Finish the noisy-environment testing kit
 
 Status: **DONE_PROTOCOL_ONLY**
 
@@ -196,7 +196,7 @@ Consent/privacy instructions, test scenes, reference/ground-truth method, timing
 
 Evidence: FIELD_VALIDATION.md/FIELD_RUN_TEMPLATE.json; no human/physical/noise-quality result.
 
-## F25 — Create and verify the final private and Git backups
+## F25 â€” Create and verify the final private and Git backups
 
 Status: **SCOPED_BACKUPS_DONE_PRODUCTION_RESTORE_OPEN**
 
@@ -204,7 +204,7 @@ Final deployable release/config and private recordings have complete independent
 
 Evidence: Native full local/PC copies and source/private/index/remote publication verified; production activation/restore remains open.
 
-## F26 — Build the final handoff and leave a safe device
+## F26 â€” Build the final handoff and leave a safe device
 
 Status: **PRIOR_INCOMPLETE_HANDOFF_PRESERVED_FINAL_RUNTIME_PENDING**
 
