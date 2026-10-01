@@ -1,0 +1,197 @@
+{
+  "version": 120,
+  "as_of_utc": "2026-10-01T04:16:40.631406+00:00",
+  "status": "PASS_ACTUAL_VISIBLE_EXPORT_DELETE_IMPORT_OPEN_COPY",
+  "actual": {
+    "fresh_saved_copy_files": 7,
+    "copy_bytes": 23566754,
+    "source_samples": 1920000,
+    "caption_rows": 0,
+    "zip_bytes": 23569379,
+    "zip_sha256": "aed91b2b138ceb940872bc669fefb87c141eca524a3c8b5ce45c972550a8be03",
+    "zip_stored_members": 8,
+    "actions": [
+      {
+        "action": "export",
+        "complete": true
+      },
+      {
+        "action": "delete",
+        "complete": true
+      },
+      {
+        "action": "import",
+        "complete": true
+      },
+      {
+        "action": "open",
+        "complete": true
+      }
+    ],
+    "physical_mutations": [
+      {
+        "action": "delete",
+        "files": 7,
+        "exact_copy": true,
+        "complete": true
+      },
+      {
+        "action": "publish_import",
+        "files": 7,
+        "exact": true
+      }
+    ],
+    "consumer_validation": {
+      "consumer": "Actual SessionStore.list/rows,Controller._refresh_sessions/snapshot on detached view",
+      "display_rows": 0,
+      "history_rows": 1,
+      "raw_rows": 0,
+      "unique_ids": 0
+    },
+    "geometry": {
+      "states": [
+        {
+          "state": "normal",
+          "mapped": true,
+          "viewable": true,
+          "geometry": "480x800+0+0",
+          "x": 0,
+          "y": 0,
+          "width": 480,
+          "height": 800,
+          "fullscreen": true
+        }
+      ],
+      "stable_observations": 10
+    },
+    "visible_button_observations": 9,
+    "original_and_import_hashes_exact": true,
+    "owner_ack_before_constructors": true,
+    "capture": false,
+    "models": false,
+    "physical_touch": false,
+    "seconds": 7.625553775986191,
+    "process_ru_maxrss_bytes": 62373888,
+    "gate_peak_sampled_worker_rss_bytes": 62357504,
+    "gate_min_available_ram_bytes": 1333231616,
+    "gate_samples": 16,
+    "worker_natural_returncode": 0,
+    "controller_closed": true,
+    "command_worker_joined": true,
+    "pending_commands": 0,
+    "runtime_lock_removed": true,
+    "physical_failed_paths": {},
+    "writable_descriptors": 0
+  },
+  "failures": [
+    {
+      "root": "field-transfer-ui-v1",
+      "error": "AttributeError: 'Frame' object has no attribute 'invoke'",
+      "before_export": true,
+      "controller_and_worker_closed": true,
+      "capture": false,
+      "models": false,
+      "worker_returncode": 1,
+      "seconds": 1.1020408470067196
+    }
+  ],
+  "mirrors": [
+    {
+      "version": 1,
+      "files": 83,
+      "bytes": 24039882,
+      "directories": 20,
+      "chunks": 1519,
+      "seconds": 1.7810000000754371,
+      "exporter": {
+        "pid": 61555,
+        "start_ticks": 18872195,
+        "boot_id": "af9c6c63-3c54-42c5-8f79-6fbce3fe7d43"
+      },
+      "exporter_closed_before_backup": true,
+      "exact_readback": true
+    },
+    {
+      "version": 2,
+      "files": 85,
+      "bytes": 47619292,
+      "directories": 22,
+      "chunks": 2960,
+      "seconds": 2.375,
+      "exporter": {
+        "pid": 61681,
+        "start_ticks": 18892214,
+        "boot_id": "af9c6c63-3c54-42c5-8f79-6fbce3fe7d43"
+      },
+      "exporter_closed_before_backup": true,
+      "exact_readback": true
+    }
+  ],
+  "owners": {
+    "collector_records": 425,
+    "collector_unique": 416,
+    "additional_unique": 83,
+    "total_exact_closed_records": 508,
+    "unique_pi": 499,
+    "duplicate_records": 9,
+    "host_closed": 234,
+    "typed_nonidentity_closures": 3,
+    "later_metadata_owners_separate": true
+  },
+  "source_backup": {
+    "files": 21,
+    "bytes": 171300,
+    "separate_restore_exact": true
+  },
+  "selected": {
+    "worker": "field_transfer_actions_v2.py",
+    "controller": "field_transfer_controller_v1.py",
+    "transfer": "field_transfer_v2.py",
+    "physical": "field_transfer_files_v2.py",
+    "paths": "field_transfer_paths_v2.py",
+    "layout": "field_transfer_layout_v1.py",
+    "gate": "field_transfer_gate_v2.py",
+    "stage": "stage_field_transfer_v2.py",
+    "dispatcher": "dispatch_field_transfer_v2.py",
+    "exporter": "field_transfer_export_v2.py",
+    "mirror": "mirror_field_transfer_v2.py",
+    "collector": "collect_native_closure_v14.py"
+  },
+  "resources": {
+    "census": 221,
+    "closure": 273,
+    "combined_output_bytes": 5731370834,
+    "payload_with_target_and_reservations_bytes": 56126438485,
+    "target_bytes": 2985745712,
+    "host_window_bytes": 2745625122,
+    "closed_policy": "TRANSFER_RESOURCE_POLICY_V2",
+    "policy_sha256": "097f0ee8d0cd7459376b793e7c949ed4be046392d0c6a91d8cae8ff1f8b1f9f7",
+    "target_reservation": 146756140,
+    "host_reservation": 150950444,
+    "combined_reservation": 297706584,
+    "old_output_headroom": -362661714,
+    "old_payload_headroom": -291863637,
+    "admitted_output_headroom": 205666478,
+    "admitted_payload_headroom": 206209963,
+    "stale_before_future_dispatch": true,
+    "before_later_metadata": true
+  },
+  "missing_identity_gaps": [
+    "V109 failed exporter58929 startticks missing",
+    "V111 host check PID/create_time missing",
+    "V113 inline issuer/read-only utilities unregistered",
+    "V114 first host pre-SSH failed coordinator PID/create_time unrecorded; issuing wrapper was registered",
+    "V118 v2 early gate PID/start_ticks unrecorded; natural SSH1 only; V3 registers gate before preflight"
+  ],
+  "runtime_offline_accepted": false,
+  "baseline_unchanged": true,
+  "capture_closed": true,
+  "leases_free": true,
+  "research_compute_active": false,
+  "last_positive_saved_model_summary": 98,
+  "last_live_source_model_summary": 117,
+  "last_saved_actions_summary": 118,
+  "hard_deadline_utc": "2026-10-01T17:42:44Z",
+  "launcher_milestone": "MISSED_STILL_OPEN",
+  "next_action": "Finish one actual operator entry integrating the qualified D1 live/source/archive, saved actions, transfer and fresh-process mode lifecycle with explicit unavailable choices. Prepare versioned install/health/local recovery/activation/rollback and offline rehearsal. Preserve separate V117/V118/V120 scoped receipts; no healthy recapture or transfer rerun solely for a version. Nonempty captions/gallery/repeated operation/physical touch/noisy human validation remain open."
+}
