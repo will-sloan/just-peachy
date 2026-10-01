@@ -1,0 +1,9 @@
+# Manager exporter current preparation V2
+
+README_FIELD_LOCAL_EXPORT_V1.md is the purpose, inputs, outputs, API and PowerShell/CMD/Anaconda command reference for the four selected sources. No native command is available until the reviewed bootstrap, dispatcher, fresh postboot receipt and admission are complete.
+
+The changed host owner/lifecycle check passed once: two positive groups, ten decoded process-owner records, six distinct historical identities and one separate typed nonidentity closure;25negative cases rejected. Seven actual historical owner files were read unchanged from the closed sessions-v6 PC mirror. Three nested launch envelopes, the policy hash, lifecycle receipt and clock were explicit fixtures. No process probe, native filesystem, Journal constructor, SSH, model, audio or GUI ran. No death or postboot freshness was demonstrated by this host test. Output owner-binding-v1 is consumed.
+
+The manager exporter source compiled and static review places HELLO before its project imports and confirms the two old fixed baseline PID checks are absent. It remains PREPARED/UNEXECUTED. It requires current observed boot/process/config binding, exact module bytes/origins, actual unit/resource guards, captureoff/leases, complete tree census, exact nested owners and independently pinned streaming. Pending metadata bytes remain preserved; a pending OWNER is never decoded as a completed identity. All early actual phase owners still require independent closure. This is not an activated launcher, recovery system or offline acceptance.
+
+The Pi remains in the user-authorized disconnect hold. Do not contact it before12:52Z unless the user reports earlier return. Read CHECK_SUMMARY_V138 for this host-only scope and V137 for the actual shutdown ACK, postexit-check limitation and known-IP timeout. Keep the17:42:44Z hard deadline and16:42:44Z finalization reserve.

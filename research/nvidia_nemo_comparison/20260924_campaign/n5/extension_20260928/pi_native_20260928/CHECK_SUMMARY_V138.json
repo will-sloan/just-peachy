@@ -1,0 +1,118 @@
+{
+  "version": 138,
+  "as_of_utc": "2026-10-01T12:11:27.876432+00:00",
+  "status": "PASS_CHANGED_HOST_MANAGER_OWNER_BOOT_BINDING_EXPORTER_PREPARED",
+  "native_app_attempts": 0,
+  "native_manager_attempts": 0,
+  "native_ssh_attempts": 0,
+  "model_sessions": 0,
+  "actual_capture": false,
+  "active_research_compute": false,
+  "pi_contact_held_until_utc": "2026-10-01T12:52:00Z",
+  "last_native_state": "V137 user shutdown ACK and TCP22 timeout; actual physical halt and new boot unverified",
+  "host_owner_check": {
+    "status": "PASS_CHANGED_HOST_MANAGER_OWNER_AND_BOOT_BINDING",
+    "positive_groups": 2,
+    "decoded_owner_records": 10,
+    "typed_nonidentity_closures": 1,
+    "unique_identities": 6,
+    "rejected": [
+      "boolean-pid",
+      "zero-ticks",
+      "malformed-boot",
+      "extra-owner-field",
+      "wrong-slot",
+      "wrong-policy",
+      "wrong-role",
+      "extra-envelope",
+      "missing-owner",
+      "naive-owner-clock",
+      "unknown-path",
+      "duplicate-key",
+      "oversized-owner",
+      "floating-owner",
+      "pending-not-owner",
+      "typed-bool-count",
+      "typed-bool-pending",
+      "typed-extra",
+      "wrong-lifecycle-digest",
+      "stale-lifecycle",
+      "future-lifecycle",
+      "mixed-boot",
+      "duplicate-baseline",
+      "display-drift",
+      "extra-lifecycle"
+    ],
+    "historical_direct_owner_files": 7,
+    "synthetic_nested_launch_and_lifecycle": true,
+    "fixture_clock": true,
+    "native_probe": false,
+    "process_closure_proven": false,
+    "source_unchanged": true,
+    "source_pins": {
+      "broker/STAGE_OWNER.json": {
+        "bytes": 85,
+        "sha256": "70775f8a30d8c76f2c3f769417edd3f2f6cdc9a4ba5e376e5a4439be970f5631"
+      },
+      "broker/GATE_OWNER.json": {
+        "bytes": 85,
+        "sha256": "9c85e26a01ef35568743cf1da23bdbc0375ea7a0ee900ae232adf3c150ea2193"
+      },
+      "broker/OWNER.json": {
+        "bytes": 85,
+        "sha256": "b8ad2dec8a19888ae370d61f72d14bc4d06169366237f2ed97fb509a6faf2f5d"
+      },
+      "recordings/slot-01/control/OWNER.json": {
+        "bytes": 85,
+        "sha256": "e2e6bb1f2709a18cfa414645ce1d300ffefc04152ff9a4630b571bcd2b075f45"
+      },
+      "recordings/slot-01/control/REGISTERED_OWNER.json": {
+        "bytes": 85,
+        "sha256": "5afe8d3a212b6d3308e486486cf999c2146f4983b2bbb751d5fab560605cd037"
+      },
+      "recordings/slot-01/parent_control/OWNER.json": {
+        "bytes": 85,
+        "sha256": "4396ccd7fc3f2822042ceaf5aab9dca173253def714a6bbeb3330ee30f680453"
+      },
+      "recordings/slot-01/source/CHILD_OWNER.json": {
+        "bytes": 85,
+        "sha256": "05bc6cafa79beebe6a7fe7c58a76b6eb972e03ed4028b3f86bd2dc02ba3660f9"
+      }
+    }
+  },
+  "check_owner_closure": {
+    "utc": "2026-10-01T12:09:49.917858+00:00",
+    "owner": {
+      "pid": 72884,
+      "create_time": 1790856512.8597698,
+      "affinity": [
+        14
+      ]
+    },
+    "observed_create_time": null,
+    "exact_alive": false
+  },
+  "source_backup": {
+    "files": 5,
+    "bytes": 29663,
+    "independent_restore_exact": true,
+    "source_closed_within_scope": true
+  },
+  "selected": {
+    "owners": "field_local_manager_owners_v1.py",
+    "exporter": "field_local_manager_export_v1.py",
+    "check": "check_field_local_manager_owners_v1.py",
+    "readme": "README_FIELD_LOCAL_EXPORT_V2.md"
+  },
+  "host_census": 252,
+  "native_census_stale": 312,
+  "host_precheck": {
+    "owner_paths": 1325,
+    "hosts_closed": 652,
+    "lifetime_files": 170,
+    "native_probe": false
+  },
+  "runtime_or_offline_acceptance": false,
+  "field_readiness": "INCOMPLETE",
+  "claim_limits": "Actual host decoding of seven immutable historical direct-owner files; synthetic nested launch envelopes/lifecycle/current clock. No actual process probe, native Journal/census/export/mirror/phase, service, SSH, copy, capture/model/GUI or accuracy proof. Prepared exporter has current-boot binding; old initializers/gates still require fresh postboot derivatives. All V137 shutdown uncertainty and older identity/failure gaps remain."
+}
