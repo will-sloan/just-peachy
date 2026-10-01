@@ -1,0 +1,329 @@
+{
+  "version": 129,
+  "as_of_utc": "2026-10-01T08:36:47.629350+00:00",
+  "status": "PASS_NATIVE_READ_ONLY_HEALTH_MANUAL_CAPSULE_PREPARED",
+  "native_app_attempts": 0,
+  "actual_capture": false,
+  "model_sessions": 0,
+  "active_research_compute": false,
+  "capture_currently_off": true,
+  "selected": {
+    "builder": "build_field_operator_broker_bundle_v6.py",
+    "gate": "field_operator_broker_gate_v8.py",
+    "entry": "field_operator_broker_entry_v6.py",
+    "broker": "field_operator_broker_v7.py",
+    "stager": "field_operator_broker_stage_v5.py",
+    "parent": "field_operator_parent_v13.py",
+    "child": "field_operator_entry_v11.py",
+    "retained_controller": "field_operator_controller_v6.py",
+    "health": "field_operator_health_v1.py",
+    "readme": "README_FIELD_OPERATOR_MANUAL_V2.md"
+  },
+  "manual_native_executed": false,
+  "manual_native_admitted": false,
+  "source_backup": {
+    "files": 11,
+    "bytes": 81085,
+    "independent_restore_exact": true,
+    "all_closed_before_scope_expiry": true
+  },
+  "owners": {
+    "collector_records": 467,
+    "collector_unique": 454,
+    "additional_unique": 167,
+    "total_exact_closed_records": 634,
+    "unique_pi": 621,
+    "duplicate_records": 13,
+    "host_closed": 475,
+    "typed_nonidentity_closures": 3,
+    "later_metadata_owners_separate": true
+  },
+  "resources": {
+    "census": 240,
+    "closure": 296,
+    "combined_output_bytes": 5853431889,
+    "payload_with_target_and_reservations_bytes": 56248692172,
+    "target_bytes": 3020757526,
+    "host_window_bytes": 2832674363,
+    "old_output_excess": 484722769,
+    "old_payload_excess": 414117324,
+    "stale_before_future_dispatch": true,
+    "readonly_policy": "TRANSFER_RESOURCE_POLICY_V2"
+  },
+  "capsule": {
+    "outer_files": 62,
+    "outer_bytes": 453765,
+    "child_code_files": 50,
+    "child_data_files": 4,
+    "template_bytes": 36409,
+    "config_bytes": 11305,
+    "manifest_sha256": "210f5d40649bf2592189534a5a5746fae824faa32f1173599b066245a21e72ad",
+    "bundle_sha256": "b9d2a1444b6fb7bd1b9c427b1905d6756d81bc11e0e0ac4af85d7665cf93d2c7",
+    "owner_count": 617,
+    "external_imports": {
+      "code/archive_stop_sessions_v1.py": [
+        "app_bounded_artifacts_v1.py"
+      ],
+      "code/field_operator_controller_v6.py": [
+        "field_archive_v3.py"
+      ],
+      "code/d1_process_entry_v1.py": [
+        "d1_recovery_process_v1.py"
+      ]
+    }
+  },
+  "native_health": {
+    "status": "PASS_RECORDED_NATIVE_READ_ONLY_HEALTH",
+    "results": [
+      {
+        "schema": "just-peachy.closed-broker-health.v1",
+        "status": "CLOSED_HISTORY_AVAILABLE",
+        "root": "/home/peachyprototype/JustPeachy/research/nemotron-20260928/field-operator-sessions-v6",
+        "policy_sha256": "552ba323b7304309a3dc5c404e908efbce747397dfdc19324f544eb26cbd7518",
+        "checked_utc": "2026-10-01T08:26:55.586145+00:00",
+        "current_boot": "af9c6c63-3c54-42c5-8f79-6fbce3fe7d43",
+        "owners": [
+          {
+            "path": "broker/STAGE_OWNER.json",
+            "owner": {
+              "boot_id": "af9c6c63-3c54-42c5-8f79-6fbce3fe7d43",
+              "pid": 63644,
+              "start_ticks": 20307309
+            },
+            "exact_alive": false
+          },
+          {
+            "path": "broker/GATE_OWNER.json",
+            "owner": {
+              "boot_id": "af9c6c63-3c54-42c5-8f79-6fbce3fe7d43",
+              "pid": 63670,
+              "start_ticks": 20307449
+            },
+            "exact_alive": false
+          },
+          {
+            "path": "broker/OWNER.json",
+            "owner": {
+              "boot_id": "af9c6c63-3c54-42c5-8f79-6fbce3fe7d43",
+              "pid": 63675,
+              "start_ticks": 20307467
+            },
+            "exact_alive": false
+          },
+          {
+            "path": "recordings/slot-01/control/OWNER.json",
+            "owner": {
+              "pid": 63680,
+              "start_ticks": 20307542,
+              "boot_id": "af9c6c63-3c54-42c5-8f79-6fbce3fe7d43"
+            },
+            "exact_alive": false
+          },
+          {
+            "path": "recordings/slot-01/parent_control/OWNER.json",
+            "owner": {
+              "pid": 63683,
+              "start_ticks": 20307581,
+              "boot_id": "af9c6c63-3c54-42c5-8f79-6fbce3fe7d43"
+            },
+            "exact_alive": false
+          },
+          {
+            "path": "recordings/slot-01/source/CHILD_OWNER.json",
+            "owner": {
+              "boot_id": "af9c6c63-3c54-42c5-8f79-6fbce3fe7d43",
+              "pid": 63701,
+              "start_ticks": 20308133
+            },
+            "exact_alive": false
+          },
+          {
+            "path": "recordings/slot-02/control/OWNER.json",
+            "owner": {
+              "pid": 63769,
+              "start_ticks": 20308997,
+              "boot_id": "af9c6c63-3c54-42c5-8f79-6fbce3fe7d43"
+            },
+            "exact_alive": false
+          },
+          {
+            "path": "recordings/slot-02/parent_control/OWNER.json",
+            "owner": {
+              "pid": 63772,
+              "start_ticks": 20309037,
+              "boot_id": "af9c6c63-3c54-42c5-8f79-6fbce3fe7d43"
+            },
+            "exact_alive": false
+          },
+          {
+            "path": "recordings/slot-02/source/CHILD_OWNER.json",
+            "owner": {
+              "boot_id": "af9c6c63-3c54-42c5-8f79-6fbce3fe7d43",
+              "pid": 63790,
+              "start_ticks": 20309570
+            },
+            "exact_alive": false
+          }
+        ],
+        "identity_gaps": [],
+        "slots": [
+          {
+            "slot": "slot-01",
+            "state": "CLOSED",
+            "source_samples": 80640,
+            "saved": true,
+            "metadata_pin": {
+              "bytes": 1792,
+              "sha256": "f63aaa1e83a335c69f385b7c9d2f19473fb74a09e584b84b800f0d9bc0b37897"
+            }
+          },
+          {
+            "slot": "slot-02",
+            "state": "CLOSED",
+            "source_samples": 80160,
+            "saved": true,
+            "metadata_pin": {
+              "bytes": 1790,
+              "sha256": "8f2618f677421ab464047d6b8d0933486f4888b90a55305c35d55567918deee9"
+            }
+          }
+        ],
+        "capture_closed": true,
+        "leases": [
+          {
+            "path": "/home/peachyprototype/JustPeachy/research/nemotron-20260928/B05_PREVIEW_DISPATCH.lock",
+            "free": true
+          },
+          {
+            "path": "/home/peachyprototype/JustPeachy/data/xvf-hardware.lock",
+            "free": true
+          }
+        ],
+        "quiescent": true,
+        "minimum_free_floor_met": true,
+        "policy_expired": true,
+        "original_ledger_write_authorized": false,
+        "failure_cleared": false,
+        "new_capture_authorized": false,
+        "physical_touch_tested": false,
+        "offline_boot_tested": false
+      },
+      {
+        "schema": "just-peachy.closed-broker-health.v1",
+        "status": "FENCED_PRESERVED",
+        "root": "/home/peachyprototype/JustPeachy/research/nemotron-20260928/field-operator-sessions-v2",
+        "policy_sha256": "4032aaa724c94a0d53feedbb7b01a5a858313cb0a0b04f7be8d93d2ff737b6e8",
+        "checked_utc": "2026-10-01T08:26:55.592860+00:00",
+        "current_boot": "af9c6c63-3c54-42c5-8f79-6fbce3fe7d43",
+        "owners": [
+          {
+            "path": "broker/STAGE_OWNER.json",
+            "owner": {
+              "boot_id": "af9c6c63-3c54-42c5-8f79-6fbce3fe7d43",
+              "pid": 63204,
+              "start_ticks": 20188107
+            },
+            "exact_alive": false
+          },
+          {
+            "path": "broker/GATE_OWNER.json",
+            "owner": {
+              "boot_id": "af9c6c63-3c54-42c5-8f79-6fbce3fe7d43",
+              "pid": 63231,
+              "start_ticks": 20188213
+            },
+            "exact_alive": false
+          },
+          {
+            "path": "broker/OWNER.json",
+            "owner": {
+              "boot_id": "af9c6c63-3c54-42c5-8f79-6fbce3fe7d43",
+              "pid": 63236,
+              "start_ticks": 20188231
+            },
+            "exact_alive": false
+          }
+        ],
+        "identity_gaps": [
+          "recordings/slot-01/control/OWNER.json: missing identity"
+        ],
+        "slots": [
+          {
+            "slot": "slot-01",
+            "state": "ACTIVE",
+            "source_samples": null,
+            "saved": false
+          },
+          {
+            "slot": "slot-02",
+            "state": "UNUSED",
+            "source_samples": null,
+            "saved": false
+          }
+        ],
+        "capture_closed": true,
+        "leases": [
+          {
+            "path": "/home/peachyprototype/JustPeachy/research/nemotron-20260928/B05_PREVIEW_DISPATCH.lock",
+            "free": true
+          },
+          {
+            "path": "/home/peachyprototype/JustPeachy/data/xvf-hardware.lock",
+            "free": true
+          }
+        ],
+        "quiescent": true,
+        "minimum_free_floor_met": true,
+        "policy_expired": true,
+        "original_ledger_write_authorized": false,
+        "failure_cleared": false,
+        "new_capture_authorized": false,
+        "physical_touch_tested": false,
+        "offline_boot_tested": false
+      }
+    ],
+    "utility_owner": {
+      "pid": 64026,
+      "start_ticks": 20417882,
+      "boot_id": "af9c6c63-3c54-42c5-8f79-6fbce3fe7d43"
+    },
+    "closure": {
+      "owners": [
+        {
+          "owner": {
+            "pid": 64026,
+            "start_ticks": 20417882,
+            "boot_id": "af9c6c63-3c54-42c5-8f79-6fbce3fe7d43"
+          },
+          "observed_start_ticks": null,
+          "exact_alive": false
+        }
+      ],
+      "utility_owner": {
+        "pid": 64034,
+        "start_ticks": 20417913,
+        "boot_id": "af9c6c63-3c54-42c5-8f79-6fbce3fe7d43"
+      },
+      "utility_pid_absent_after_ssh": true
+    },
+    "manual_native_executed": false,
+    "manual_capsule_native_admitted": false,
+    "retained_expiry_closure": true,
+    "persistent_release_ready": false,
+    "runtime_offline_ready": false
+  },
+  "runtime_accepted": false,
+  "offline_accepted": false,
+  "physical_touch": false,
+  "accuracy": false,
+  "independent_1e_5": false,
+  "E0": false,
+  "nonempty_captions": false,
+  "next_action": "Implement the persistent local manual release lifecycle: finite recording/storage and launch/recovery allocations, fresh process per session, exact closure before each new slot, local health and verified local backup, versioned activation/rollback with current baseline identities. The prepared manual sources still use600s research policies and fixed baseline identities; do not dispatch them as a persistent user launcher or remove time/storage guards. Preserve failed/consumed slots and all immutable mode/asset/Registry/liveD1 bindings. Verify local automatic recovery before network isolation; leave capture off and display270. No unchanged two-session/live/data/history/transport/health reruns, firmware maintenance without a new fault, ASR detour, questions or deadline extension. Nonempty captions/gallery/physical touch/noisy human remain open.",
+  "claim_limits": "Native health is read-only inspection of two existing expired admissions, not automatic recovery, ledger resumption, persistent launch, new GUI/capture/model, crash/SSH-loss/coldboot/network-isolation proof. No new policy/output allowance or native application root. Original V128 failure and missing identity remain fenced.",
+  "preparation_notes": [
+    "Manual V1 README broader no-auto-Return/Close statement corrected by selected V2; actual safety paths retained throughout.",
+    "Read-only publication static assertion expected dict-literal spelling, but source used correct dict keyword. V2 AST review passed with no code change or native retry.",
+    "Final census stdout mislabeled239; actual saved file is HOST_CENSUS_V240. No resource data substituted."
+  ]
+}
