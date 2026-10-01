@@ -1,9 +1,9 @@
 {
   "schema": "just-peachy.delivery-acceptance.v1",
-  "as_of_utc": "2026-10-01T11:30:02.566558+00:00",
+  "as_of_utc": "2026-10-01T11:55:16.175255+00:00",
   "hard_deadline_utc": "2026-10-01T17:42:44Z",
   "overall": "IN_PROGRESS",
-  "latest_verified_research_summary": "CHECK_SUMMARY_V136.json",
+  "latest_verified_research_summary": "CHECK_SUMMARY_V137.json",
   "gates": [
     {
       "id": "D1_COMPONENTS",
@@ -23,7 +23,7 @@
       "required": true,
       "evidence": "V128 actual two independent delayed sessions and previous-history UI, captureoff and exact parent/child/source closure before next. V98/V100/V123 remain separate scopes. V129 removes automatic qualification drivers in backed manual derivatives; native unexecuted. Read-only native health separately recognizes closed history and preserves failed-tree fencing.",
       "remaining": "Persistent manual user launcher, mode switching beyond admitted delayed sessions, local failure recovery and offline release remain open.",
-      "entry_preparation": "Manual builder6/gate8/entry6/broker7/stage5/parent13/child11 prepared only; controller6/source11 retained. README manual2. Existing dispatcher6 pins old gate7. V130 finite local release plan1 passed three host fixture groups/17rejects; native metadata journal2 was then prepared and unexecuted. No production lifetime/admission implemented. V131 actual native journal2 create/reopen and injected pending write-fault fencing passed across four fresh processes, with full host metadata backup. Production manager/automatic recovery remain open; V300 scanner identity gap preserved. V132 actual complete local recording backup passed with source owner/unit/gate/model/archive closure checks and complete host backup. Journal consumer/next-slot integration, failed-source recovery and production manager remain open; historical identity gaps preserved. V133 prepares Journal3 actual closure/local backup/next-slot methods with direct supplied-fact publications fenced. Changed host binding two positive groups/20rejects passed; all new native lifecycle methods remain unexecuted. Failed-source backup/recovery and production supervisor are open. V134 corrects prepared Journal4 MainPID to actual broker role and prepares Supervisor1/Gate10 registration before ACK. One historical host positive group/10rejects passed; ActiveState fixture. All new native paths unexecuted; one-session driver/entry/builder/dispatch, subsequent-slot supervision and recovery remain open. V135 assembles actual host one-session64member/15module manager capsules, adds later-slot reserve API and full independent host-copy allocation. Three synthetic positive groups/10rejects passed. All new native paths unexecuted; joint admission/dispatcher/initializer/mirror/owner accounting and recovery remain open. V136 changed host joint binding1positive/19rejects passed; initializer3 prepared only. Native joint dispatcher/mirror/phase wrapper/nested-owner accounting still missing. No new native manager/capture or recovery.",
+      "entry_preparation": "Manual builder6/gate8/entry6/broker7/stage5/parent13/child11 prepared only; controller6/source11 retained. README manual2. Existing dispatcher6 pins old gate7. V130 finite local release plan1 passed three host fixture groups/17rejects; native metadata journal2 was then prepared and unexecuted. No production lifetime/admission implemented. V131 actual native journal2 create/reopen and injected pending write-fault fencing passed across four fresh processes, with full host metadata backup. Production manager/automatic recovery remain open; V300 scanner identity gap preserved. V132 actual complete local recording backup passed with source owner/unit/gate/model/archive closure checks and complete host backup. Journal consumer/next-slot integration, failed-source recovery and production manager remain open; historical identity gaps preserved. V133 prepares Journal3 actual closure/local backup/next-slot methods with direct supplied-fact publications fenced. Changed host binding two positive groups/20rejects passed; all new native lifecycle methods remain unexecuted. Failed-source backup/recovery and production supervisor are open. V134 corrects prepared Journal4 MainPID to actual broker role and prepares Supervisor1/Gate10 registration before ACK. One historical host positive group/10rejects passed; ActiveState fixture. All new native paths unexecuted; one-session driver/entry/builder/dispatch, subsequent-slot supervision and recovery remain open. V135 assembles actual host one-session64member/15module manager capsules, adds later-slot reserve API and full independent host-copy allocation. Three synthetic positive groups/10rejects passed. All new native paths unexecuted; joint admission/dispatcher/initializer/mirror/owner accounting and recovery remain open. V136 changed host joint binding1positive/19rejects passed; initializer3 prepared only. Native joint dispatcher/mirror/phase wrapper/nested-owner accounting still missing. No new native manager/capture or recovery. V137 host manager-tree mirror passed two real local copy/readbacks and14rejects with synthetic policy/closure. Native finish/reopen wrapper prepared only. User-requested poweroff requires new boot/baseline identity verification before native work.",
       "milestone": "September30 21:42:44UTC missed; still open, final deadline unchanged"
     },
     {
@@ -65,7 +65,7 @@
       "status": "SCOPED_NATIVE_READ_ONLY_HEALTH_PASS_LOCAL_RECOVERY_ACTIVATION_OPEN",
       "required": true,
       "evidence": "V129 native health inspected actual successful sessions-v6 and failed sessions-v2 under expired policies without writes or capture. Both owners/leases/capture verified quiescent; V2 missing parent stays fenced.",
-      "remaining": "V136 binder3 host-qualified with synthetic authority values; initializer3 prepared native-unexecuted. Fresh joint issuer/dispatcher, finish/reopen wrapper, complete success/failure manager-tree host mirror and strict nested-owner accounting remain missing. Actual native composition, recovery, production lifetime, activation/rollback and offline/coldboot remain open."
+      "remaining": "Fresh joint issuer/dispatcher, native manager exporter, strict nested-owner accounting, integrated native qualification and production lifetime/activation/recovery remain open. V137 host mirror and prepared native phase do not qualify them. User clean shutdown acknowledged; coldboot/offline continuity unverified."
     },
     {
       "id": "PERSONAL_GALLERY_COMPATIBILITY",
@@ -89,7 +89,7 @@
       "id": "FINAL_BACKUP_AND_RESTORE_VERIFICATION",
       "status": "OPEN",
       "required": true,
-      "evidence": "V13612source/README73403B exact private backups and independent restores. First draft backup late6.386739s after scope1; preserved gap/no native use. Fresh derivatives closed within scope2; no bound source changes. Prior native backup evidence remains separately scoped; final release/manager still open."
+      "evidence": "V137 ten source/README60363B exact private backups plus independent restores, and three config files715B backed/restored before shutdown. Final deployable release backup and coldboot remain open. Prior scoped native backup receipts retained."
     },
     {
       "id": "N1_N5_COVERAGE_RECONCILIATION",
@@ -127,5 +127,13 @@
   "quality_validation": "FUTURE_CONSENTED_FROZEN_MODE_HUMAN_TESTING_NOT_FABRICATED",
   "completion_rule": "Required open gates prevent a full-completion claim. Every new PASS needs actual dated release-bound evidence.",
   "selected_asr_user_decision": "Sherpa ONNX retained; Nemotron ASR deferred research by explicit October 1 user follow-up",
-  "decision_report": "PI_RAM_MODEL_REPORT_V1.md; researched price/model/licence comparison, no larger-Pi benchmark"
+  "decision_report": "PI_RAM_MODEL_REPORT_V1.md; researched price/model/licence comparison, no larger-Pi benchmark",
+  "user_requested_shutdown": {
+    "acknowledged": true,
+    "scheduled_utc": "2026-10-01T11:51:57Z",
+    "network_unreachable_observed": true,
+    "physical_halt_observed": false,
+    "coldboot_verified": false,
+    "expected_reconnect_utc": "2026-10-01T12:52:00Z"
+  }
 }

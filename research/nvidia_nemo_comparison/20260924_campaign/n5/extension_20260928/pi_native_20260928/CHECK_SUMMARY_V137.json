@@ -1,0 +1,114 @@
+{
+  "version": 137,
+  "as_of_utc": "2026-10-01T11:55:16.175255+00:00",
+  "status": "PASS_CHANGED_HOST_MANAGER_MIRROR_USER_SHUTDOWN_ACKNOWLEDGED_OFFLINE_OBSERVED",
+  "native_app_attempts": 0,
+  "native_manager_attempts": 0,
+  "model_sessions": 0,
+  "actual_capture": false,
+  "active_research_compute": false,
+  "observed_native_closure": 312,
+  "host_mirror_check": {
+    "status": "PASS_CHANGED_HOST_MANAGER_TREE_MIRROR",
+    "positive": [
+      {
+        "case": "empty",
+        "files": 0,
+        "bytes": 0,
+        "data_chunks": 0,
+        "chunk_bytes": 16384,
+        "process_closed_before_completion": true
+      },
+      {
+        "case": "partial",
+        "files": 6,
+        "bytes": 30031,
+        "data_chunks": 7,
+        "chunk_bytes": 16384,
+        "process_closed_before_completion": true
+      }
+    ],
+    "rejected": [
+      "unknown-control",
+      "pending-overflow",
+      "unallocated-launch",
+      "unallocated-backup",
+      "unknown-manager-code",
+      "manager-code-grew",
+      "traversal",
+      "boolean-size",
+      "missing-parent",
+      "case-alias",
+      "local-child-slot",
+      "local-broker-log-overflow",
+      "extra-binding",
+      "receiver-reject-before-mkdir"
+    ],
+    "full_manager_tree_reserved_bytes": 155669036,
+    "synthetic_policy_manifest": true,
+    "process_closure_callback_fixture": true,
+    "native_ssh": false,
+    "native_filesystem": false,
+    "journal_constructor": false,
+    "gui_capture_models": false,
+    "partial_bytes_preserved": true,
+    "real_local_copy_and_readback": true,
+    "source_unchanged": true
+  },
+  "source_backup": {
+    "files": 10,
+    "bytes": 60363,
+    "independent_restore_exact": true,
+    "source_closed_within_respective_scopes": true
+  },
+  "selected": {
+    "tree": "field_local_manager_tree_v1.py",
+    "mirror": "field_local_manager_ssh_mirror_v1.py",
+    "phase": "field_local_manager_phase_v1.py",
+    "readme": "README_FIELD_LOCAL_MIRROR_V2.md",
+    "poweroff": "prepare_user_poweroff_v2.py"
+  },
+  "shutdown": {
+    "utc": "2026-10-01T11:52:14.083715+00:00",
+    "status": "CLEAN_OS_SHUTDOWN_ACKNOWLEDGED_WAITING_HALT",
+    "scheduled_utc": "2026-10-01T11:51:57Z",
+    "expected_user_reconnect_not_before_utc": "2026-10-01T12:52:00Z",
+    "shutdown_returncode": 0,
+    "natural_ssh_returncode": 0,
+    "utility_owner": {
+      "pid": 64926,
+      "start_ticks": 21642064,
+      "boot_id": "af9c6c63-3c54-42c5-8f79-6fbce3fe7d43"
+    },
+    "exact_postexit_identity_check_passed": false,
+    "postexit_probe": "Returned nonzero; its stdout/stderr were not retained by V2. Do not infer cause or exact physical closure.",
+    "old_baseline_lifecycle": "User-authorized clean OS poweroff requested. Postboot identities unknown.",
+    "configuration_backup_files": 3,
+    "configuration_backup_bytes": 715,
+    "physical_halt_observed": false,
+    "readiness": "INCOMPLETE",
+    "no_retry_shutdown": true
+  },
+  "offline_observation": {
+    "utc": "2026-10-01T11:52:48.451582+00:00",
+    "host": "192.168.2.57",
+    "port": 22,
+    "tcp_reachable": false,
+    "detail": "TimeoutError: timed out",
+    "shutdown_command_previously_acknowledged": true,
+    "physical_power_led_observed": false,
+    "physical_unplug_observed": false,
+    "new_boot_verified": false
+  },
+  "resources": {
+    "census": 251,
+    "closure": 312,
+    "combined_output_bytes": 5897674127,
+    "payload_with_target_and_reservations_bytes": 56292934410,
+    "target_bytes": 3027013451,
+    "stale_before_future_dispatch": true
+  },
+  "runtime_or_offline_acceptance": false,
+  "field_readiness": "INCOMPLETE",
+  "claim_limits": "Host mirror used actual Windows copy/readback with synthetic policy/manifest and closure callbacks; no native manager/mirror/phase qualification. Clean OS shutdown acknowledged and TCP22 timeout do not prove physical halt, cable removal, coldboot, logical app closure or physical touch. The post-command exact PID probe failed without retained stderr; natural SSH0 is retained, exact utility death not separately certified. No new accuracy/noisy-human evidence. All older failure and identity gaps remain."
+}
