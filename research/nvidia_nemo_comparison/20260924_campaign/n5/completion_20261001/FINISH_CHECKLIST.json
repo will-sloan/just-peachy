@@ -1,6 +1,6 @@
 {
-  "as_of_utc": "2026-10-01T18:01:08.865913+00:00",
-  "deadline_utc": null,
+  "as_of_utc": "2026-10-01T18:55:06.023532+00:00",
+  "deadline_utc": "2026-10-02T14:14:20Z",
   "current_item": "F04_PERSISTENT_RUNTIME_INTEGRATION",
   "items": [
     {
@@ -40,17 +40,17 @@
     },
     {
       "id": "F06",
-      "status": "OPEN",
-      "title": "Install the selected backend compositions",
-      "done_means": "One frontend with baseline, Sherpa ONNX/PnC+Nemotron-3 D1+compatible ReDimNet, and an explicit anonymous choice where supported. Pin actual executed model/runtime/buffer/gain/tap manifests. Keep live Delayed and saved Streaming/Chunk52 availability distinct; unavailable choices explain why and never silently fall back.",
-      "evidence": ""
+      "status": "HOST_PROFILE_BINDINGS_PREPARED_NATIVE_INTEGRATION_OPEN",
+      "title": "Install backend compositions with ReDimNet and TitaNet",
+      "done_means": "Reuse the existing ReDimNet and NeMo TitaNet implementations and local assets. Expose baseline diarization and Nemotron-3 D1 with either embedding model, plus explicit anonymous operation where supported, while retaining Sherpa ONNX ASR/PnC. Pin actual encoder/runtime/frontend/mode/tap/gain manifests. Keep live Delayed and saved Streaming/Chunk52 distinct; verify each supported combination loads and runs without silent fallback. New native availability remains to be established.",
+      "evidence": "F06/F07 preparation: previous TitaNet adapter and installed D0/E1+D1/E1 routes located unchanged. Existing three TitaNet assets88696429B fully hash-verified. New field_runtime_profiles_v1 binds ten explicit profile routes, exact D1 mode libraries, ReDimNet/TitaNet namespaces and prepared desktop content; four changed-binding rejects passed. No neural model was imported, no shortcut installed, no Pi contacted. Policy V3 only expands explicit profile keys and engine mapping; other function ASTs remain exact. New sources are backed and independently restored. Actual controller/gallery/storage/capsule integration remains OPEN."
     },
     {
       "id": "F07",
-      "status": "OPEN",
+      "status": "DESKTOP_CONTENT_PREPARED_INSTALL_LAUNCH_OPEN",
       "title": "Create real desktop profile shortcuts",
-      "done_means": "Named Pi desktop entries select those manifests through the same versioned manager, start idle and exclude duplicate app/microphone/model owners. Verify each retained shortcut's actual launch; retain baseline/rollback entry.",
-      "evidence": ""
+      "done_means": "Create one clearly named desktop shortcut per supported ASR/diarizer/embedding/mode combination, all selecting immutable profiles through the same versioned frontend. Each opens idle/capture off, excludes duplicate ownership and shows its actual model choices. Verify shortcut dispatch and keep baseline/rollback access.",
+      "evidence": "Versioned desktop-entry generator prepared; none installed. Each profile must be pinned and natively qualified before available."
     },
     {
       "id": "F08",
@@ -84,8 +84,8 @@
       "id": "F12",
       "status": "OPEN",
       "title": "Verify personal gallery compatibility",
-      "done_means": "Read-only review of UUID/encoder/revision/tap/gain namespaces and schema migration/rollback compatibility. Compatible references load; incompatible/empty galleries clearly stay Unknown. Preserve profiles/photos/vectors; no enrollment or reinterpretation of old vectors.",
-      "evidence": ""
+      "done_means": "Read-only review of UUID/encoder/revision/tap/gain namespaces, including separate ReDimNet and TitaNet galleries. Reuse existing TitaNet namespace support; never compare or relabel vectors across models, silently enroll, migrate or overwrite personal data. Compatible references load; incompatible/empty galleries remain Unknown with a clear explanation. Preserve schema rollback.",
+      "evidence": "Existing n2_people.titanet_store and N2Gallery isolate the encoder namespace. Physical gallery path allocation and final shared-profile read-only binding remain OPEN."
     },
     {
       "id": "F13",
@@ -140,7 +140,7 @@
       "id": "F20",
       "status": "OPEN",
       "title": "Run one bounded final recording/resource acceptance",
-      "done_means": "Use the final installed composition for its supported bounded recording duration, then Stop/Save/PCcopy. Record combined resource/CPU/available-memory/disk observations, complete samples/events and actual cleanup. Reuse this same run for F08,F13,F15,F16 where it supplies evidence; no independent duplicate healthy runs.",
+      "done_means": "Use the final installed composition for its supported bounded recording duration, then Stop/Save/PCcopy. Record combined resource/CPU/available-memory/disk observations, complete samples/events and actual cleanup. Reuse this same run for F08,F13,F15,F16 where it supplies evidence; no independent duplicate healthy runs. Use only focused functional checks for the newly added TitaNet routes, reusing prior healthy evidence; do not add an embedding-quality benchmark campaign.",
       "evidence": ""
     },
     {
@@ -159,9 +159,9 @@
     },
     {
       "id": "F23",
-      "status": "DONE_CURRENT_STATE_DOCUMENTATION",
+      "status": "OPEN_UPDATED_EMBEDDING_COMBINATION_GUIDES",
       "title": "Finish the operator documentation",
-      "done_means": "Exact Start Here, named shortcuts, shared Mode/Backend guides, recording/offload instructions, Enrollment Compatibility, Install/Health, Update/Rollback, Licence Ledger, hardware template, paths/backups and troubleshooting. Include PowerShell/CMD/Anaconda commands for every new code path and supported limits/latency.",
+      "done_means": "Exact Start Here, named shortcuts, shared Mode/Backend guides, recording/offload instructions, Enrollment Compatibility, Install/Health, Update/Rollback, Licence Ledger, hardware template, paths/backups and troubleshooting. Include PowerShell/CMD/Anaconda commands for every new code path and supported limits/latency. Include a complete supported-combination table for ReDimNet versus TitaNet, exact shortcut names and commands, input modes, model/gallery compatibility, limits and unavailable reasons.",
       "evidence": "Final operator guide, coverage, capabilities, artifact index and current guides; required functional gaps explicit."
     },
     {
@@ -180,15 +180,15 @@
     },
     {
       "id": "F26",
-      "status": "DONE_HANDOFF_INCOMPLETE_DELIVERY",
+      "status": "PRIOR_INCOMPLETE_HANDOFF_PRESERVED_FINAL_RUNTIME_PENDING",
       "title": "Build the final handoff and leave a safe device",
       "done_means": "Condensed ChatGPT ZIP<=20MiB(target<=10), WORKBOOK_UPDATE and artifact/hash index; deployable assets separately. Update ACCEPTANCE with actual evidence and all remaining blockers; close owned research, pause automation by deadline and leave accepted app idle/captureoff or recoverable baseline if required gates fail.",
       "evidence": "FINAL_HANDOFF_RECEIPT.json: 35-member ZIP verified by full independent manifest readback; runtime/offline acceptance remains false."
     }
   ],
-  "feature_freeze_utc": "2026-10-01T15:14:58Z",
+  "feature_freeze_utc": "2026-10-02T13:14:20Z",
   "delivery_status": "INCOMPLETE",
-  "automation_paused": true,
+  "automation_paused": false,
   "previous_deadline_utc": "2026-10-01T16:14:58Z",
-  "authority": "RESUMPTION_AUTHORITY_V1.json"
+  "authority": "DEADLINE_AUTHORITY_V3.json"
 }

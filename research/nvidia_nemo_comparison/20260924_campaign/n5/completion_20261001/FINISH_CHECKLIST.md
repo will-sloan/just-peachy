@@ -1,8 +1,8 @@
 # Deployable runtime finish checklist
 
-Implementation resumed by direct user request after the previous incomplete deadline. No new hard deadline was specified. The same26 items remain the delivery denominator; the active goal and heartbeat continue. See RESUMPTION_AUTHORITY_V1.json and CURRENT_RUNTIME_PROGRESS.md.
+The same26 items remain the delivery denominator. Latest direct authority restores TitaNet alongside ReDimNet and sets the hard deadline to **October2,2026 at10:14:20 Toronto (14:14:20Z)**. Finalization begins09:14:20 Toronto. See DEADLINE_AUTHORITY_V3.json. Reuse existing implementations and focused functional checks; no new campaign.
 
-Current priority: F04/F05. New source preparation is not a deployed runtime or native acceptance.
+Current priority: F04/F05, then F06/F07 model combinations and shortcuts. Prepared source is not native acceptance.
 
 ## F01 — Verify the returned Pi
 
@@ -44,21 +44,21 @@ Measure current target+PC usage; allocate finite recording count/duration, launc
 
 Evidence: Production policy3positivegroups/25rejects and five-profile broker binding/22rejects passed on host synthetic fixtures. Four-recording16-launch2453742272B full independent reservation is proposed, not admitted. PC copies may wait while offline; verified local copy is mandatory before another slot.
 
-## F06 — Install the selected backend compositions
+## F06 — Install backend compositions with ReDimNet and TitaNet
 
-Status: **OPEN**
+Status: **HOST_PROFILE_BINDINGS_PREPARED_NATIVE_INTEGRATION_OPEN**
 
-One frontend with baseline, Sherpa ONNX/PnC+Nemotron-3 D1+compatible ReDimNet, and an explicit anonymous choice where supported. Pin actual executed model/runtime/buffer/gain/tap manifests. Keep live Delayed and saved Streaming/Chunk52 availability distinct; unavailable choices explain why and never silently fall back.
+Reuse the existing ReDimNet and NeMo TitaNet implementations and local assets. Expose baseline diarization and Nemotron-3 D1 with either embedding model, plus explicit anonymous operation where supported, while retaining Sherpa ONNX ASR/PnC. Pin actual encoder/runtime/frontend/mode/tap/gain manifests. Keep live Delayed and saved Streaming/Chunk52 distinct; verify each supported combination loads and runs without silent fallback. New native availability remains to be established.
 
-Evidence: Not yet established.
+Evidence: F06/F07 preparation: previous TitaNet adapter and installed D0/E1+D1/E1 routes located unchanged. Existing three TitaNet assets88696429B fully hash-verified. New field_runtime_profiles_v1 binds ten explicit profile routes, exact D1 mode libraries, ReDimNet/TitaNet namespaces and prepared desktop content; four changed-binding rejects passed. No neural model was imported, no shortcut installed, no Pi contacted. Policy V3 only expands explicit profile keys and engine mapping; other function ASTs remain exact. New sources are backed and independently restored. Actual controller/gallery/storage/capsule integration remains OPEN.
 
 ## F07 — Create real desktop profile shortcuts
 
-Status: **OPEN**
+Status: **DESKTOP_CONTENT_PREPARED_INSTALL_LAUNCH_OPEN**
 
-Named Pi desktop entries select those manifests through the same versioned manager, start idle and exclude duplicate app/microphone/model owners. Verify each retained shortcut's actual launch; retain baseline/rollback entry.
+Create one clearly named desktop shortcut per supported ASR/diarizer/embedding/mode combination, all selecting immutable profiles through the same versioned frontend. Each opens idle/capture off, excludes duplicate ownership and shows its actual model choices. Verify shortcut dispatch and keep baseline/rollback access.
 
-Evidence: Not yet established.
+Evidence: Versioned desktop-entry generator prepared; none installed. Each profile must be pinned and natively qualified before available.
 
 ## F08 — Complete manual Start/Stop/Return and repeated sessions
 
@@ -66,7 +66,7 @@ Status: **OPEN**
 
 From the final user entry, verify New, consent, Start, Stop/drain, Save and Return; a subsequent recording gets fresh process ownership and preserves the first. Reuse old scoped component evidence; test the changed final composition once.
 
-Evidence: Not yet established.
+Evidence: Pending.
 
 ## F09 — Finish failure recovery
 
@@ -74,7 +74,7 @@ Status: **OPEN**
 
 Verify missing/corrupt backend asset, startup failure and one interrupted/failed session in the final manager. Stop before diagnostics, release actual source/model/writers, preserve partial data, fence unresolved owners and provide a usable recovery/rollback path without resetting old failed ledgers.
 
-Evidence: Not yet established.
+Evidence: Pending.
 
 ## F10 — Finish the480x800 UI and nonempty captions
 
@@ -82,7 +82,7 @@ Status: **OPEN**
 
 All required controls reachable with270orientation; correct backend/mode, recording state and unavailable reasons visible. Use an existing authorized saved speech input for actual nonempty captions/audio links, Pending/Unknown and independent caption timing. No audible playback or solicited speech.
 
-Evidence: Not yet established.
+Evidence: Pending.
 
 ## F11 — Verify saved history and data actions in the final release
 
@@ -90,15 +90,15 @@ Status: **OPEN**
 
 Save/reopen two recordings, select earlier history, export/import and delete only a verified disposable copy after backup. Preserve complete audio/events/probabilities/timestamps. Existing V123/V128 passes are reused; rerun only final-entry integration or changed nonempty-content gaps.
 
-Evidence: Not yet established.
+Evidence: Pending.
 
 ## F12 — Verify personal gallery compatibility
 
 Status: **OPEN**
 
-Read-only review of UUID/encoder/revision/tap/gain namespaces and schema migration/rollback compatibility. Compatible references load; incompatible/empty galleries clearly stay Unknown. Preserve profiles/photos/vectors; no enrollment or reinterpretation of old vectors.
+Read-only review of UUID/encoder/revision/tap/gain namespaces, including separate ReDimNet and TitaNet galleries. Reuse existing TitaNet namespace support; never compare or relabel vectors across models, silently enroll, migrate or overwrite personal data. Compatible references load; incompatible/empty galleries remain Unknown with a clear explanation. Preserve schema rollback.
 
-Evidence: Not yet established.
+Evidence: Existing n2_people.titanet_store and N2Gallery isolate the encoder namespace. Physical gallery path allocation and final shared-profile read-only binding remain OPEN.
 
 ## F13 — Add optional processed recording controls
 
@@ -106,7 +106,7 @@ Status: **OPEN**
 
 Provide Off/Processed selection before Start, recording indicator, elapsed time, admitted remaining duration/storage and Stop. Save exact model-input audio losslessly with its rate, channels, tap, gain and resampling metadata.
 
-Evidence: Not yet established.
+Evidence: Pending.
 
 ## F14 — Resolve true raw microphone support
 
@@ -122,7 +122,7 @@ Status: **OPEN**
 
 Bound every writer and count raw/processed/events/metadata plus independent local and PC copies. Enforce at least5GiB Pi/C50GiB/G75GiB free floors, finite duration, no drop/overflow masquerading as success, complete Stop/closed files and final manifest hashes. Preserve partial failures and originals.
 
-Evidence: Not yet established.
+Evidence: Pending.
 
 ## F16 — Deliver verified copy-to-PC offload
 
@@ -138,7 +138,7 @@ Status: **OPEN**
 
 Versioned code/config/runtime manifests; all pinned assets already local; native aarch64/runtime/dependency identity verified. Health reports missing assets, incompatible gallery, disk limits or unavailable hardware explicitly and never downloads on first use.
 
-Evidence: Not yet established.
+Evidence: Pending.
 
 ## F18 — Verify activation, rollback and local recovery
 
@@ -146,7 +146,7 @@ Status: **OPEN**
 
 Back up active code/config/desktop/autostart manifests with independent restore readback. Activate final candidate, exercise rollback and restore candidate. Prove recovery works locally before denying its network access; preserve baseline and personal data.
 
-Evidence: Not yet established.
+Evidence: Pending.
 
 ## F19 — Verify final startup and offline operation
 
@@ -154,15 +154,15 @@ Status: **OPEN**
 
 Final shortcut and one final-release restart/coldboot open idle with270orientation and no automatic listening. Exercise its supported operation with external network unavailable after local recovery is proven. Distinguish software network denial from physically unplugged testing.
 
-Evidence: Not yet established.
+Evidence: Pending.
 
 ## F20 — Run one bounded final recording/resource acceptance
 
 Status: **OPEN**
 
-Use the final installed composition for its supported bounded recording duration, then Stop/Save/PCcopy. Record combined resource/CPU/available-memory/disk observations, complete samples/events and actual cleanup. Reuse this same run for F08,F13,F15,F16 where it supplies evidence; no independent duplicate healthy runs.
+Use the final installed composition for its supported bounded recording duration, then Stop/Save/PCcopy. Record combined resource/CPU/available-memory/disk observations, complete samples/events and actual cleanup. Reuse this same run for F08,F13,F15,F16 where it supplies evidence; no independent duplicate healthy runs. Use only focused functional checks for the newly added TitaNet routes, reusing prior healthy evidence; do not add an embedding-quality benchmark campaign.
 
-Evidence: Not yet established.
+Evidence: Pending.
 
 ## F21 — Declare camera, IMU and physical-control capabilities
 
@@ -182,9 +182,9 @@ Evidence: FINAL_COVERAGE.md; original N5,73notes,240scene/panel denominators and
 
 ## F23 — Finish the operator documentation
 
-Status: **DONE_CURRENT_STATE_DOCUMENTATION**
+Status: **OPEN_UPDATED_EMBEDDING_COMBINATION_GUIDES**
 
-Exact Start Here, named shortcuts, shared Mode/Backend guides, recording/offload instructions, Enrollment Compatibility, Install/Health, Update/Rollback, Licence Ledger, hardware template, paths/backups and troubleshooting. Include PowerShell/CMD/Anaconda commands for every new code path and supported limits/latency.
+Exact Start Here, named shortcuts, shared Mode/Backend guides, recording/offload instructions, Enrollment Compatibility, Install/Health, Update/Rollback, Licence Ledger, hardware template, paths/backups and troubleshooting. Include PowerShell/CMD/Anaconda commands for every new code path and supported limits/latency. Include a complete supported-combination table for ReDimNet versus TitaNet, exact shortcut names and commands, input modes, model/gallery compatibility, limits and unavailable reasons.
 
 Evidence: Final operator guide, coverage, capabilities, artifact index and current guides; required functional gaps explicit.
 
@@ -206,7 +206,7 @@ Evidence: Native full local/PC copies and source/private/index/remote publicatio
 
 ## F26 — Build the final handoff and leave a safe device
 
-Status: **DONE_HANDOFF_INCOMPLETE_DELIVERY**
+Status: **PRIOR_INCOMPLETE_HANDOFF_PRESERVED_FINAL_RUNTIME_PENDING**
 
 Condensed ChatGPT ZIP<=20MiB(target<=10), WORKBOOK_UPDATE and artifact/hash index; deployable assets separately. Update ACCEPTANCE with actual evidence and all remaining blockers; close owned research, pause automation by deadline and leave accepted app idle/captureoff or recoverable baseline if required gates fail.
 

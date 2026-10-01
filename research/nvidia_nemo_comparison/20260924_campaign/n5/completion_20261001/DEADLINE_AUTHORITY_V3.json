@@ -1,0 +1,18 @@
+{
+  "schema": "just-peachy.deadline-authority.v3",
+  "recorded_utc": "2026-10-01T18:14:20Z",
+  "deadline_utc": "2026-10-02T14:14:20Z",
+  "finalization_reserve_utc": "2026-10-02T13:14:20Z",
+  "timezone": "America/Toronto",
+  "deadline_local": "2026-10-02T10:14:20-04:00",
+  "authority": "Direct user scope change and explicit 20-hour completion deadline",
+  "quote": "This implementation, along with the entire completion, should be done by 20 hours from now.",
+  "scope_addition": "Restore previous NeMo TitaNet speaker embedding alongside ReDimNet; selectable supported backend/model combinations, one shortcut per combination, mode/backend/run guides. Reuse prior implementation and assets. Focus on functional launch/model-load/recording/Stop checks; no new quality campaign.",
+  "previous_authorities_preserved": [
+    "DEADLINE_AUTHORITY_V1.json",
+    "DEADLINE_AUTHORITY_V2.json",
+    "RESUMPTION_AUTHORITY_V1.json"
+  ],
+  "automatic_extension": false,
+  "existing_goal_and_campaign": true
+}

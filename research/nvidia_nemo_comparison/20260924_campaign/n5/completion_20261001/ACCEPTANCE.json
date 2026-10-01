@@ -1,7 +1,7 @@
 {
   "schema": "just-peachy.delivery-acceptance.v1",
-  "as_of_utc": "2026-10-01T16:10:39.956523+00:00",
-  "hard_deadline_utc": "2026-10-01T16:14:58Z",
+  "as_of_utc": "2026-10-01T18:55:06.022533+00:00",
+  "hard_deadline_utc": "2026-10-02T14:14:20Z",
   "overall": "INCOMPLETE",
   "latest_verified_research_summary": "CHECK_SUMMARY_V141.json",
   "gates": [
@@ -116,6 +116,13 @@
       "required": true,
       "evidence": null,
       "remaining": "Optional exact raw microphone and processed taps if supported, finite storage/duration, synchronized metadata, closed files, complete PC copy/hash/readback. Existing processed float/WAV archives are not raw-microphone proof."
+    },
+    {
+      "id": "SELECTABLE_TITANET_REDIMNET_COMBINATIONS",
+      "status": "HOST_BINDINGS_PREPARED_NATIVE_OPEN",
+      "required": true,
+      "evidence": "deployable-runtime-resume-v1/embedding-profiles-v1/RESULT.json: existing88696429B TitaNet artifacts hash-verified; ten configuration routes and four rejects; no model execution or installed shortcuts.",
+      "remaining": "Wire selected backend/runtime/namespace into admitted final capsules, allocate galleries/assets, execute focused Pi functionality and install idle profile shortcuts."
     }
   ],
   "experimental_unavailable": [
@@ -140,12 +147,14 @@
     "boot_id": "892ed9fa-e39c-48af-8653-eae5e123daad"
   },
   "active_execution_list": "FINISH_CHECKLIST.md",
-  "active_execution_item": "F22-F26_FINALIZATION",
-  "latest_observation": "PASS_NATIVE_MANAGER_QUALIFICATION_SEPARATE_PC_COPY_DELIVERY_INCOMPLETE",
+  "active_execution_item": "F04-F07_RUNTIME_AND_EMBEDDING_PROFILES",
+  "latest_observation": "HOST_PREPARATION_ONLY_RUNTIME_NOT_DEPLOYABLE",
   "concrete_finish_list": "FINISH_CHECKLIST.md",
-  "feature_work_frozen": true,
+  "feature_work_frozen": false,
   "required_product_gates_still_open": true,
-  "automation_paused": true,
+  "automation_paused": false,
   "native_last_observation": "NATIVE_CLOSURE_V315 at 15:09:50Z; no later Pi action",
-  "offline_release_ready": false
+  "offline_release_ready": false,
+  "deadline_authority": "DEADLINE_AUTHORITY_V3.json",
+  "selected_embedding_user_decision": "October1 user restored NeMo TitaNet alongside ReDimNet; reuse prior implementation and local assets; focused native functional verification and per-combination shortcuts required"
 }

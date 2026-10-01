@@ -1,7 +1,10 @@
 # Modes and backend availability
+
+Latest user authority (October1,18:14:20Z): restore NeMo TitaNet alongside ReDimNet using the previous implementation, expose each supported backend/embedding/mode combination through an idle desktop shortcut, and finish the existing delivery by October2,14:14:20Z (10:14:20 Toronto). Keep Sherpa ONNX ASR and Nemotron-3 diarizer. Earlier TitaNet retirement statements are historical; new integration remains OPEN until executed. Separate embedding/gallery namespaces are mandatory. See FINISH_CHECKLIST F06/F07/F12/F23 and DEADLINE_AUTHORITY_V3.json.
+
 The final offline user release is incomplete. There are no accepted new Pi profile shortcuts. This guide separates scoped evidence from installed user availability.
 
-**Selected delivery composition:** Sherpa ONNX ASR/PnC, Nemotron-3 D1 and compatible ReDimNet. Keep explicit anonymous operation separate. Nemotron ASR is deferred by the user's October1 decision; TitaNet is historical research. No silent fallback.
+**Selected delivery composition:** Sherpa ONNX ASR/PnC, Nemotron-3 D1 and compatible ReDimNet. Keep explicit anonymous operation separate. Nemotron ASR is deferred by the user's October1 decision; TitaNet is restored to delivery scope by the latest user authority; native integration is pending. No silent fallback.
 
 | D1 choice | Buffering and retained cost | Actual evidence |
 |---|---|---|
@@ -26,3 +29,5 @@ No name may be inferred from an empty gallery. UUID alone and matching vector di
 The admitted live tests preserved processed model-input audio and complete native events. The final Off/Processed/Raw+processed selector, visible remaining limits and reusable operator offload flow are unfinished. An ALSA channel count orO0/O1 is not proof of raw MIC0–MIC3. Do not offer simultaneous raw recording until exact routing/clock/closure checks pass.
 
 Applied ASR/VAD skipping, parallel diarizer pools and whole-waveform ONNX remain unavailable. Keep all audio and original clocks; no captions is not evidence of silence. There is no new noisy-human/physical-touch or source-reference parity claim.
+
+Current complete profile map and deployment status: completion_20261001/BACKEND_COMBINATIONS.md (beside MODE_GUIDE.md in the completion pack).

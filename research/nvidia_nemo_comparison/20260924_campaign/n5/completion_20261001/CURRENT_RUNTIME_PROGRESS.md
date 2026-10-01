@@ -1,6 +1,6 @@
 # Current deployable-runtime work
 
-Implementation resumed by direct user request after the previous incomplete deadline. The same26-item checklist and requirements remain in force. No new hard deadline was specified. The6–10hour estimate is an estimate, not a guarantee or resource admission.
+Implementation resumed by direct user request after the previous incomplete deadline. The same26-item checklist and requirements remain in force. Latest user authority (October1,18:14:20Z): restore NeMo TitaNet alongside ReDimNet using the previous implementation, expose each supported backend/embedding/mode combination through an idle desktop shortcut, and finish the existing delivery by October2,14:14:20Z (10:14:20 Toronto). Keep Sherpa ONNX ASR and Nemotron-3 diarizer. Earlier TitaNet retirement statements are historical; new integration remains OPEN until executed. Separate embedding/gallery namespaces are mandatory. See FINISH_CHECKLIST F06/F07/F12/F23 and DEADLINE_AUTHORITY_V3.json.
 
 The runtime is **not yet deployable**. Current priority is F04/F05, then the remaining supported profiles, shortcuts, recovery, recording/offload and offline activation acceptance.
 
@@ -23,3 +23,4 @@ Next concrete work:
 
 Last native evidence remains closure315 at15:09:50Z on boot892ed9fa-e39c-48af-8653-eae5e123daad: original rc5 launcher1008/start476 and app1124/start514, capture off, display270. It is stale before any resumed dispatch. Sherpa ONNX ASR remains selected; no Nemotron ASR replacement, download or new research campaign.
 
+F06/F07 preparation: previous TitaNet adapter and installed D0/E1+D1/E1 routes located unchanged. Existing three TitaNet assets88696429B fully hash-verified. New field_runtime_profiles_v1 binds ten explicit profile routes, exact D1 mode libraries, ReDimNet/TitaNet namespaces and prepared desktop content; four changed-binding rejects passed. No neural model was imported, no shortcut installed, no Pi contacted. Policy V3 only expands explicit profile keys and engine mapping; other function ASTs remain exact. New sources are backed and independently restored. Actual controller/gallery/storage/capsule integration remains OPEN.

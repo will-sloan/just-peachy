@@ -1,4 +1,7 @@
 # Just Peachy â€” final delivery status
+
+Latest user authority (October1,18:14:20Z): restore NeMo TitaNet alongside ReDimNet using the previous implementation, expose each supported backend/embedding/mode combination through an idle desktop shortcut, and finish the existing delivery by October2,14:14:20Z (10:14:20 Toronto). Keep Sherpa ONNX ASR and Nemotron-3 diarizer. Earlier TitaNet retirement statements are historical; new integration remains OPEN until executed. Separate embedding/gallery namespaces are mandatory. See FINISH_CHECKLIST F06/F07/F12/F23 and DEADLINE_AUTHORITY_V3.json.
+
 **Implementation has resumed by direct user request; the deployable offline runtime is still incomplete.** The earlier deadline closed as incomplete and its receipts remain immutable. The resumed goal has no new hard deadline. Follow [current runtime progress](CURRENT_RUNTIME_PROGRESS.md) and the26-item checklist.
 
 The Pi retains the original rc5 app. At the last native closure, capture was closed, the research and hardware leases were free, and no research units were active. The display remains 480Ã—800 at transform270. Automatic listening was disabled through the normal Settings control after a verified backup; persistence through a final-release restart has not been tested.

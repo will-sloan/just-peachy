@@ -1,5 +1,7 @@
 # Current finalization V141
 
+Latest user authority (October1,18:14:20Z): restore NeMo TitaNet alongside ReDimNet using the previous implementation, expose each supported backend/embedding/mode combination through an idle desktop shortcut, and finish the existing delivery by October2,14:14:20Z (10:14:20 Toronto). Keep Sherpa ONNX ASR and Nemotron-3 diarizer. Earlier TitaNet retirement statements are historical; new integration remains OPEN until executed. Separate embedding/gallery namespaces are mandatory. See FINISH_CHECKLIST F06/F07/F12/F23 and DEADLINE_AUTHORITY_V3.json.
+
 **Offline field delivery incomplete; feature work frozen.** Native manager qualification and separate complete PC copies passed in their scoped evidence. Persistent manual entry, production policy/recovery, shortcuts/recording controls, activation/rollback and offline acceptance remain OPEN. No new model/feature work after15:14:58Z; hard deadline16:14:58Z.
 
 Use [current delivery status](../../completion_20261001/START_HERE.md) and [complete26-item list](../../completion_20261001/FINISH_CHECKLIST.md). Earlier next-action narratives below are historical and cannot extend the deadline or authorize old dispatchers.
@@ -314,7 +316,7 @@ A displayed “Speaker 1” is a session channel, not a persistent personal name
 | D0 | Existing Pyannote diarization path | Historical baseline speaker pipeline; preserve the installed app as control |
 | D1 | Nemotron 3 diarization | Current native delayed speaker lane |
 | E0 | ReDimNet | Retained voice-identity encoder; 192-dimensional normalized vectors in this artifact |
-| E1 | TitaNet | Retired from further work; historical evidence preserved |
+| E1 | TitaNet | Restored to delivery scope October1; reuse prior implementation, native deployment pending |
 
 The original app's continued operation is not a new full B00 live/GUI qualification. Detailed historical offline results remain in the N2/N3 reports; saved-file native tests are not new WER or speaker-accuracy scores.
 
@@ -439,3 +441,5 @@ CMD / Anaconda Prompt: use `cd /d G:\Just_Peachy_N1\20260924_campaign\worktree`,
 - Exact source/model hashes and immutable admissions live in the versioned qualification/review receipts. Audio, transcripts, vectors, personal profiles and weights stay private; reviewed small code/docs go to the campaign Git branch.
 
 Live route update: the actual quiet I2S/I2C source, conversion and tested settings restoration passed after the authorized restart. Capture is now closed. Combined live B01, independent acoustic timing and speech/noise quality remain open. See [recovery findings](QUIET_ROUTE_RECOVERY_V1.md); the earlier [read-only route inventory](LINUX_ROUTE_READINESS_V1.md) is preserved.
+
+Current complete profile map and deployment status: completion_20261001/BACKEND_COMBINATIONS.md (beside MODE_GUIDE.md in the completion pack).

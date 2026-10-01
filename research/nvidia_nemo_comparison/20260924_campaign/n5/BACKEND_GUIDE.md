@@ -1,5 +1,7 @@
 # Backend availability and interpretation
 
+Latest user authority (October1,18:14:20Z): restore NeMo TitaNet alongside ReDimNet using the previous implementation, expose each supported backend/embedding/mode combination through an idle desktop shortcut, and finish the existing delivery by October2,14:14:20Z (10:14:20 Toronto). Keep Sherpa ONNX ASR and Nemotron-3 diarizer. Earlier TitaNet retirement statements are historical; new integration remains OPEN until executed. Separate embedding/gallery namespaces are mandatory. See FINISH_CHECKLIST F06/F07/F12/F23 and DEADLINE_AUTHORITY_V3.json.
+
 Current review: September 28, 2026, packaging reserve. N1 is complete within its
 agreed offline scope. N2/N3 have accepted offline component handoffs. N4 has
 7,680 reviewed main and 1,536 reviewed mode comparisons from offline journals.
@@ -93,3 +95,5 @@ not qualified production optimizations. Preserve candidates for
 realtime_validation_v1/REAL_WORLD_HOLDOUT_V1.md: matched ungated controls,
 original pacing, dense/natural/quiet/short/overlap/noisy speech, actual costs and
 backlog. Sparse synthetic savings do not establish conversational or Pi throughput.
+
+Current complete profile map and deployment status: completion_20261001/BACKEND_COMBINATIONS.md (beside MODE_GUIDE.md in the completion pack).
