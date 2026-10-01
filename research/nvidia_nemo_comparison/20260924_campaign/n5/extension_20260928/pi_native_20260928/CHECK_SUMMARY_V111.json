@@ -1,0 +1,96 @@
+{
+  "version": 111,
+  "as_of_utc": "2026-10-01T00:01:37.114371+00:00",
+  "status": "PASS_HOST_PHYSICAL_WRITER_INTERCEPTION_ONLY",
+  "new_native_jobs": 0,
+  "last_native_application_summary": 103,
+  "last_positive_model_summary": 98,
+  "last_visible_inspection_summary": 100,
+  "closure": {
+    "version": 240,
+    "prior_pi_exact_identities_closed": 396,
+    "additional_exporter_exact_identities_closed": 3,
+    "total_recorded_exact_pi_identities_closed": 399,
+    "failed_v109_v1_start_ticks_missing": true,
+    "prior_isolated_host_identities_closed": 48,
+    "field_host_workers": 2,
+    "console_helpers": 1,
+    "previous_ssh_host_coordinators_closed": 4,
+    "typed_nonidentity_closures": 3,
+    "extra_owner_receipt": "field-live-files-v1-preparation/EXTRA_OWNER_CLOSURE_V1.json",
+    "baseline_unchanged": true,
+    "capture_closed": true,
+    "leases_free": true,
+    "research_compute_active": false,
+    "new_host_test_termination": "Natural exit0; exact PID/create_time not recorded"
+  },
+  "milestone": {
+    "launcher_recovery_due_utc": "2026-09-30T21:42:44Z",
+    "status": "MISSED_STILL_OPEN",
+    "hard_deadline_unchanged": "2026-10-01T17:42:44Z"
+  },
+  "actual_scope": {
+    "host_runs": 1,
+    "host_cases": 12,
+    "expected_rejections": 10,
+    "fixture_and_receipt_bytes": 53754,
+    "host_exit_code": 0,
+    "host_pid_create_time_not_recorded": true,
+    "native_execution": false,
+    "source_capture": false,
+    "installed_controller_executed": false,
+    "python_writer_hook_executed": true,
+    "kernel_filesystem_quota": false,
+    "native_library_writes_intercepted": false
+  },
+  "changed_evidence": {
+    "physical_guard": "Pre-open path and dynamic-identity limits; pre-write file and aggregate caps; cached mutation audit; assigned publication and owned runtime lock cleanup only",
+    "changed_checks": "Runtime lock link/cleanup and pending publication; file overflow, actual-end append, memoryview bytes, unknown file/directory, code overwrite, second conversation/session, retained deletion and cached-open bypass",
+    "production_wiring": "ControllerV3/sourceV6/facadeV4/transportV2/factoryV2/bridgeV2/outputsV2 attach in actual parent/child load; prepared only",
+    "hardware_lease": "Read-only Pi inspection found existing one-byte lease; guard requires same existing inode/size, denies content writes; no hardware change"
+  },
+  "resource_accounting": {
+    "combined_output_bytes": 5338570752,
+    "output_cap_bytes": 5368709120,
+    "output_headroom_bytes": 30138368,
+    "payload_including_target_and_reservations_bytes": 55733831035,
+    "payload_cap_bytes": 55834574848,
+    "payload_headroom_bytes": 100743813,
+    "payload_basis": "HOST_CENSUS_V209 plus closure240 target and host-window delta",
+    "pi_free_bytes": 17429536768,
+    "pi_available_ram_bytes": 1368408064,
+    "pi_temperature_c": 54.55,
+    "pi_throttle": "throttled=0x0",
+    "before_later_metadata": true
+  },
+  "proposal": {
+    "target_bytes": 80106028,
+    "host_bytes": 84300332,
+    "combined_bytes": 164406360,
+    "admitted": false,
+    "python_writer_interception_prepared": true,
+    "full_live_binding_executed": false,
+    "output_shortfall_bytes": 134267992,
+    "payload_shortfall_bytes": 63662547
+  },
+  "backup": {
+    "source_files": 10,
+    "source_bytes": 97894,
+    "readback_exact": true,
+    "separate_restore_copy_exact": true,
+    "private_preparation": "field-live-files-v1-preparation"
+  },
+  "remaining": [
+    "Assemble actual live entry with owner ACK before construction and guard installation",
+    "Fresh measured policy/admission, full source/model/Stop/save/reopen and closed-tree physical census/mirror",
+    "Verify native transitive writer coverage and closure; guard is Python interception, not kernel/native-library quota",
+    "General operator/data actions/gallery/physical touch/offline acceptance"
+  ],
+  "notes": [
+    "One changed host file-guard run; no unchanged model/source/UI/mirror suite repeated",
+    "Host test has natural exit0 and zero open writable descriptors but no PID/create-time receipt; no exact host identity claim added",
+    "All old sources and admissions unchanged; source/README backup and restore copies closed23:57:20UTC before23:59:06expiry",
+    "Native utilities only read closure/lease state; no target writes or capture",
+    "Read-only missing app/runtime_lock.py lookup preserved; actual release_tools/runtime_lock.py read"
+  ]
+}

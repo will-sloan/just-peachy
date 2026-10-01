@@ -1,5 +1,7 @@
 # Connected CM5: native work is now the priority
 
+Current V111: physical Python writer interception passed12 host cases (10 expected rejects), including byte/append/memoryview limits, path/cardinality checks, cached-open rejection, pending publication and runtime-lock cleanup. The actual source/controller chain now attaches the guard in each process, but native execution remains untested. No Pi model/source/GUI/capture or target write. Next assemble and admit the full live entry for source/model/Stop/Save/Open and closed-tree backup. Launcher milestone missed; deadline unchanged. See FIELD_LIVE_FILES_FINDINGS_V1 and CHECK_SUMMARY_V111.
+
 Current V110: actual installed live D1 binding is prepared, not executed. Fresh field controller V2 retains the V107 restrictions and binds delayed method/assets/C-ABI/endpoint checks with one acquisition/construction/session, 2,080,000 samples and 13,001 frames. Source review and eight new endpoint-boundary checks passed; no installed import, model/source/GUI/capture or target write. Full path/byte/cardinality enforcement and the integrated live entry remain open. Launcher milestone missed; hard deadline unchanged. See FIELD_LIVE_D1_FINDINGS_V1 and CHECK_SUMMARY_V110.
 
 ## Current verified V109 — 2026-09-30T23:18:44.286261+00:00
