@@ -1,5 +1,7 @@
 # Mode guide: delivery snapshot
 
+October 1 user decision: retain **Sherpa ONNX ASR** with Nemotron-3 diarization and compatible ReDimNet. Nemotron ASR remains deferred research, not a delivery prerequisite. See [RAM/model and price report](PI_RAM_MODEL_REPORT_V1.md). Desktop backend shortcuts and optional true raw/processed recording with verified PC offload are now explicit required **OPEN** gates; see [requirements](OPERATOR_SHORTCUTS_AUDIO_REQUIREMENTS_V1.md). No new native test or readiness claim; CHECK_SUMMARY_V135 remains the latest verified research result.
+
 Current V135: the one-session broker and separate local manager capsules assemble on the host within unchanged64broker/16manager code limits:64members465844B and15modules133840B. Changed backup-allocation checks passed3positive groups/10rejects. Plan2 explicitly reserves a second host copy of the independent Pi-local mirror; one recording/three launches now proposes617760944B combined, unadmitted. Supervisor3 separates fresh install-reserve from later reserve; Journal6/Gate12 preserve actual registration-before-ACK and closure/local-backup guards. Eighteen source/README165797B have exact backups and independent restores. All new native paths remain unexecuted; no app/capture/model/GUI/data action this wake. Joint admission/dispatcher/initializer, complete manager-tree host mirror, strict nested-owner accounting, recovery/activation/offline remain open. Hard deadline2026-10-01T17:42:44Z unchanged.
 
 Product mode controls labels/roster; backend selects caption/diarizer/embedding models; D1 geometry controls buffering/context. Availability retains V95 model evidence and V96 pre-owner validation recovery. V98 qualifies one withdrawn Streaming fresh-child passage. V100 corrected visible inspection lifecycle passed; no general operator/live launcher acceptance. Final guide must match the frozen device launcher, not imply every possible combination was tested.
@@ -25,7 +27,7 @@ V96 explicitly reselecting a valid mode clears a matching pre-owner method valid
 | Original baseline | Existing rc5/models/settings | Recoverable baseline; its old ARCHIVE_QUOTA display is not a new D1 failure |
 | B01 | Sherpa/PnC +nativeD1 +compatible retained ReDimNet identity | First field candidate; corrected sustained live/storage/offline release still pending |
 | B05 | Captions +nativeD1, explicit anonymous labels | Saved preview evidence; field packaging/activation pending |
-| Sequential Nemotron ASR | Sherpa-first then separately owned genericA2 refinement | Saved sequential UI/component proof; field integration unavailable and secondary |
+| Sequential Nemotron ASR | Sherpa-first then separately owned genericA2 refinement | Saved sequential UI/component proof; field integration unavailable; deferred by October 1 user decision |
 
 ## Product modes and labels
 

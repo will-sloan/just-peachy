@@ -1,6 +1,6 @@
 {
   "schema": "just-peachy.delivery-acceptance.v1",
-  "as_of_utc": "2026-10-01T10:43:37.338111+00:00",
+  "as_of_utc": "2026-10-01T11:02:01.561124+00:00",
   "hard_deadline_utc": "2026-10-01T17:42:44Z",
   "overall": "IN_PROGRESS",
   "latest_verified_research_summary": "CHECK_SUMMARY_V135.json",
@@ -102,6 +102,20 @@
       "status": "OPEN",
       "required": true,
       "evidence": null
+    },
+    {
+      "id": "DESKTOP_BACKEND_SHORTCUTS",
+      "status": "OPEN",
+      "required": true,
+      "evidence": null,
+      "remaining": "One versioned local frontend with backend-specific desktop entries, idle/captureoff launch, exact profile pins, duplicate-owner exclusion, health/recovery and rollback. No icons pointing to expired research launchers."
+    },
+    {
+      "id": "OPTIONAL_RAW_PROCESSED_RECORDING_PC_OFFLOAD",
+      "status": "OPEN",
+      "required": true,
+      "evidence": null,
+      "remaining": "Optional exact raw microphone and processed taps if supported, finite storage/duration, synchronized metadata, closed files, complete PC copy/hash/readback. Existing processed float/WAV archives are not raw-microphone proof."
     }
   ],
   "experimental_unavailable": [
@@ -111,5 +125,7 @@
     "unqualified_A76_ASR_candidate"
   ],
   "quality_validation": "FUTURE_CONSENTED_FROZEN_MODE_HUMAN_TESTING_NOT_FABRICATED",
-  "completion_rule": "Required open gates prevent a full-completion claim. Every new PASS needs actual dated release-bound evidence."
+  "completion_rule": "Required open gates prevent a full-completion claim. Every new PASS needs actual dated release-bound evidence.",
+  "selected_asr_user_decision": "Sherpa ONNX retained; Nemotron ASR deferred research by explicit October 1 user follow-up",
+  "decision_report": "PI_RAM_MODEL_REPORT_V1.md; researched price/model/licence comparison, no larger-Pi benchmark"
 }

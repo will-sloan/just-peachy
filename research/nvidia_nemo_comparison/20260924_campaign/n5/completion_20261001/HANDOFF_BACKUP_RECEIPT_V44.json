@@ -1,0 +1,13 @@
+{
+  "status": "EXACT_DOCUMENTATION_BACKUP_VERIFIED",
+  "label": "ram-model-report-v44",
+  "archive": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\completion-20261001-backups\\ram-model-report-v44\\NVIDIA_CAMPAIGN_CHATGPT_HANDOFF_20260924_ram-model-report-v44.zip",
+  "bytes": 53550,
+  "sha256": "d347ee92c50c6c932fdfb1fed3851fec60146ae881dcc23848c1e761c9c8f3b6",
+  "member_count": 19,
+  "cpu_affinity": [
+    14
+  ],
+  "delivery_status": "IN_PROGRESS",
+  "runtime_or_offline_acceptance": false
+}

@@ -1,5 +1,7 @@
 # Final24hour completion plan
 
+October 1 user decision: retain **Sherpa ONNX ASR** with Nemotron-3 diarization and compatible ReDimNet. Nemotron ASR remains deferred research, not a delivery prerequisite. See [RAM/model and price report](PI_RAM_MODEL_REPORT_V1.md). Desktop backend shortcuts and optional true raw/processed recording with verified PC offload are now explicit required **OPEN** gates; see [requirements](OPERATOR_SHORTCUTS_AUDIO_REQUIREMENTS_V1.md). No new native test or readiness claim; CHECK_SUMMARY_V135 remains the latest verified research result.
+
 Current V135: the one-session broker and separate local manager capsules assemble on the host within unchanged64broker/16manager code limits:64members465844B and15modules133840B. Changed backup-allocation checks passed3positive groups/10rejects. Plan2 explicitly reserves a second host copy of the independent Pi-local mirror; one recording/three launches now proposes617760944B combined, unadmitted. Supervisor3 separates fresh install-reserve from later reserve; Journal6/Gate12 preserve actual registration-before-ACK and closure/local-backup guards. Eighteen source/README165797B have exact backups and independent restores. All new native paths remain unexecuted; no app/capture/model/GUI/data action this wake. Joint admission/dispatcher/initializer, complete manager-tree host mirror, strict nested-owner accounting, recovery/activation/offline remain open. Hard deadline2026-10-01T17:42:44Z unchanged.
 
 Start: September30 17:42:44 UTC. Hard end: October1 17:42:44 UTC /13:42:44 Toronto. [New user authority](DEADLINE_AUTHORITY_V1.json) takes precedence over the older prospective deadline. Existing policies, admissions and failed/successful receipts remain immutable. Every fresh run must allow cleanup before the new boundary.
@@ -34,7 +36,7 @@ The first21:42 launcher milestone was missed and remains open at V135. Complete 
 
 ## Scope and evidence discipline
 
-Nemotron diarization and offline usability come first. Nemotron ASR remains secondary. Whole-waveformONNX, applied ASR/VAD skipping and parallel diarizer pools remain unavailable. No new benchmark without a distinct supported hypothesis and matched same-geometry reference. No Cartesian sweeps, agents, unchanged passed reruns, downloads, training, enrollment, playback or solicited speech.
+Nemotron diarization and offline usability come first. Sherpa ONNX remains the selected ASR; Nemotron ASR is deferred research by the October 1 user decision. Whole-waveformONNX, applied ASR/VAD skipping and parallel diarizer pools remain unavailable. No new benchmark without a distinct supported hypothesis and matched same-geometry reference. No Cartesian sweeps, agents, unchanged passed reruns, downloads, training, enrollment, playback or solicited speech.
 
 Use current guards/leases, fresh boot/PID/start identities and target-inclusive census. Keep CPU/RAM/disk/time/output bounds and verified restoration before changing the active app. Preserve display270 and private data. Quiet/background tests support functionality/resources, not true-silence, WER/DER or field quality. Future human/noisy-environment validation is planned, not fabricated as completed by this deadline.
 
