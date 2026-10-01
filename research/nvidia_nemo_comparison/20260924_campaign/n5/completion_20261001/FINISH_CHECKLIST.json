@@ -1,7 +1,7 @@
 {
-  "as_of_utc": "2026-10-01T15:30:09.415683+00:00",
+  "as_of_utc": "2026-10-01T16:11:37.933850+00:00",
   "deadline_utc": "2026-10-01T16:14:58Z",
-  "current_item": "F22-F26_FINALIZATION",
+  "current_item": "CLOSED_INCOMPLETE_DELIVERY",
   "items": [
     {
       "id": "F01",
@@ -159,10 +159,10 @@
     },
     {
       "id": "F23",
-      "status": "FINALIZING_CURRENT_STATE_DOCUMENTATION",
+      "status": "DONE_CURRENT_STATE_DOCUMENTATION",
       "title": "Finish the operator documentation",
       "done_means": "Exact Start Here, named shortcuts, shared Mode/Backend guides, recording/offload instructions, Enrollment Compatibility, Install/Health, Update/Rollback, Licence Ledger, hardware template, paths/backups and troubleshooting. Include PowerShell/CMD/Anaconda commands for every new code path and supported limits/latency.",
-      "evidence": "START_HERE,FINAL_OPERATOR_GUIDE,MODE_GUIDE,PATHS; missing runtime workflows explicitly unavailable."
+      "evidence": "Final operator guide, coverage, capabilities, artifact index and current guides; required functional gaps explicit."
     },
     {
       "id": "F24",
@@ -173,19 +173,20 @@
     },
     {
       "id": "F25",
-      "status": "PARTIAL_RESEARCH_BACKUPS_VERIFIED_FINAL_PUBLICATION_PENDING",
+      "status": "SCOPED_BACKUPS_DONE_PRODUCTION_RESTORE_OPEN",
       "title": "Create and verify the final private and Git backups",
       "done_means": "Final deployable release/config and private recordings have complete independent copies/hash/readback and a demonstrated restore path. Push only reviewed small source/manifests/redacted reports; verify remote branch/profile refs. Never publish audio, profiles, vectors, credentials or model weights.",
-      "evidence": "24newsource files196438B exactbackups+independentrestores; both PCtrees exactreadback; no finalproductionrelease torestore."
+      "evidence": "Native full local/PC copies and source/private/index/remote publication verified; production activation/restore remains open."
     },
     {
       "id": "F26",
-      "status": "FINALIZING_INCOMPLETE_DELIVERY",
+      "status": "DONE_HANDOFF_INCOMPLETE_DELIVERY",
       "title": "Build the final handoff and leave a safe device",
       "done_means": "Condensed ChatGPT ZIP<=20MiB(target<=10), WORKBOOK_UPDATE and artifact/hash index; deployable assets separately. Update ACCEPTANCE with actual evidence and all remaining blockers; close owned research, pause automation by deadline and leave accepted app idle/captureoff or recoverable baseline if required gates fail.",
-      "evidence": ""
+      "evidence": "FINAL_HANDOFF_RECEIPT.json: 35-member ZIP verified by full independent manifest readback; runtime/offline acceptance remains false."
     }
   ],
   "feature_freeze_utc": "2026-10-01T15:14:58Z",
-  "delivery_status": "INCOMPLETE"
+  "delivery_status": "INCOMPLETE",
+  "automation_paused": true
 }

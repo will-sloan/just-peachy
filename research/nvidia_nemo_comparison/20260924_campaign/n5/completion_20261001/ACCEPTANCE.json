@@ -1,8 +1,8 @@
 {
   "schema": "just-peachy.delivery-acceptance.v1",
-  "as_of_utc": "2026-10-01T15:30:09.415683+00:00",
+  "as_of_utc": "2026-10-01T16:10:39.956523+00:00",
   "hard_deadline_utc": "2026-10-01T16:14:58Z",
-  "overall": "INCOMPLETE_FINALIZING",
+  "overall": "INCOMPLETE",
   "latest_verified_research_summary": "CHECK_SUMMARY_V141.json",
   "gates": [
     {
@@ -144,5 +144,8 @@
   "latest_observation": "PASS_NATIVE_MANAGER_QUALIFICATION_SEPARATE_PC_COPY_DELIVERY_INCOMPLETE",
   "concrete_finish_list": "FINISH_CHECKLIST.md",
   "feature_work_frozen": true,
-  "required_product_gates_still_open": true
+  "required_product_gates_still_open": true,
+  "automation_paused": true,
+  "native_last_observation": "NATIVE_CLOSURE_V315 at 15:09:50Z; no later Pi action",
+  "offline_release_ready": false
 }

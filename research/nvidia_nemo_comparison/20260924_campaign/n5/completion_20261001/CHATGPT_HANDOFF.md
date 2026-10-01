@@ -48,3 +48,5 @@ F04/F05 are still the blocking dependency: local manual admission, finite produc
 No final backend shortcuts, production optional recording selector, simultaneous rawMIC0–MIC3 qualification, local automatic recovery, activation/rollback or final offline startup pass exists. ExistingO0/O1 and model-inputWAV/float are processed taps, not proof of raw microphones. Final gallery compatibility and nonempty captions remain open. The field kit is ready as a protocol, but the new app is not ready to use that protocol unsupervised.
 
 No continuation beyond the deadline is automatic. A future continuation requires explicit user authority and fresh boot/identity/resource admissions. Preserve display270, personal data, exact baseline, old policies and failed records.
+
+Final publication accounting: the retained whitespace audit produced a 15,903-byte overrun above its 2 MiB host metadata scope. All bytes and the violation are preserved. A separately recorded prospective 1 MiB finalization allowance covers remaining receipts; no native allowance or old cap was changed. Automation was paused before the hard deadline. The offline release remains INCOMPLETE.
