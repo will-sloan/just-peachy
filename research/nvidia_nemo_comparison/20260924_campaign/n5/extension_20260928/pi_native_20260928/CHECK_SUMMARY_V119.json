@@ -1,0 +1,118 @@
+{
+  "version": 119,
+  "as_of_utc": "2026-10-01T03:52:15.379518+00:00",
+  "status": "PASS_READ_ONLY_COMPACT_TRANSFER_CONTRACT_PREPARED_NATIVE_ACTIONS_OPEN",
+  "actual": {
+    "scope": "registered CPU14 Windows read-only retained archive validation",
+    "archive": {
+      "identifier": "0554ef941c234f2ab77f47685ccaa5e9",
+      "epochs": {
+        "664a332b058f4134b4714e611ea7ba4b": 1920000
+      },
+      "raw_rows": 0,
+      "bytes": 23566754
+    },
+    "six_negative_cases": [
+      "old-source-pin",
+      "changed-shape",
+      "sqlite-member",
+      "parent-traversal",
+      "overflow-json",
+      "duplicate-json"
+    ],
+    "original_files_preserved": true,
+    "seconds": 1.172000000020489,
+    "native_workers": 0,
+    "capture": 0,
+    "models": 0,
+    "GUI": 0,
+    "transfer": 0,
+    "delete": 0,
+    "first_failure": "V1 installed validator decoder used default8MiB rather than explicit epoch16MiB contract; raw retained",
+    "changed_review": "V2 binds verified explicit epoch artifact-limit digest and maximum16MiB to original strict decoder",
+    "complete_archive_not_missing_sqlite": true
+  },
+  "prepared": {
+    "selected": [
+      "field_transfer_v2.py",
+      "field_transfer_paths_v2.py",
+      "field_transfer_files_v2.py",
+      "field_transfer_controller_v1.py",
+      "run_field_transfer_review_v1.py"
+    ],
+    "installed_source_changes": 18,
+    "member_caps": {
+      "conversation.json": 65536,
+      "epoch.json": 65536,
+      "events.jsonl": 16777216,
+      "resources.jsonl": 2097152,
+      "windows.jsonl": 2097152,
+      "model_input.f32le": 8388608,
+      "model_input.wav": 4194304,
+      "TRANSFER_MANIFEST.json": 65536
+    },
+    "zip_max": 33554432,
+    "total_max": 32505856,
+    "epochs": 1,
+    "files": 7,
+    "physical_projection": {
+      "import_token": "33333333333333333333333333333333",
+      "extra_bytes": 66650112,
+      "target_maximum_bytes": 146756140,
+      "host_maximum_bytes": 150950444,
+      "combined_request_bytes": 297706584
+    },
+    "resource_policy_issued": false,
+    "native_admitted": false,
+    "guards_and_controller_executed": false
+  },
+  "owners": {
+    "collector_records": 421,
+    "collector_unique": 412,
+    "additional_unique": 66,
+    "total_exact_closed_records": 487,
+    "unique_pi": 478,
+    "duplicate_records": 9,
+    "host_closed": 210,
+    "typed_nonidentity_closures": 3,
+    "later_metadata_owners_separate": true
+  },
+  "source_backup": {
+    "files": 13,
+    "bytes": 69052,
+    "separate_restore_exact": true
+  },
+  "resources": {
+    "census": 219,
+    "closure": 269,
+    "combined_output_bytes": 5582831629,
+    "payload_with_target_and_reservations_bytes": 55978091912,
+    "target_bytes": 2913914506,
+    "host_window_bytes": 2668917123,
+    "read_only_existing_policy": "SAVED_RESOURCE_POLICY_V3",
+    "old_output_headroom": -214122509,
+    "old_payload_headroom": -143517064,
+    "existing_policy_output_headroom": 118276083,
+    "existing_policy_payload_headroom": 117578360,
+    "before_later_metadata": true,
+    "stale_before_dispatch": true
+  },
+  "missing_identity_gaps": [
+    "V109 failed exporter58929 startticks missing",
+    "V111 host check PID/create_time missing",
+    "V113 inline issuer/read-only utilities unregistered",
+    "V114 first host pre-SSH failed coordinator PID/create_time unrecorded; issuing wrapper was registered",
+    "V118 v2 early gate PID/start_ticks unrecorded; natural SSH1 only; V3 registers gate before preflight"
+  ],
+  "runtime_offline_accepted": false,
+  "baseline_unchanged": true,
+  "capture_closed": true,
+  "leases_free": true,
+  "research_compute_active": false,
+  "last_positive_saved_model_summary": 98,
+  "last_live_source_model_summary": 117,
+  "last_saved_actions_summary": 118,
+  "hard_deadline_utc": "2026-10-01T17:42:44Z",
+  "launcher_milestone": "MISSED_STILL_OPEN",
+  "next_action": "Review prepared physical mutation/controller bindings, integrate actual installed UI export/delete/import/open in fresh worker plus stager/gate/mirror with independent297706584B reservation and fresh measured policy/admission. No new capture/model/maintenance needed; preserve all original/saved/failed roots."
+}
