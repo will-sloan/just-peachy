@@ -1,0 +1,13 @@
+{
+  "status": "EXACT_DOCUMENTATION_BACKUP_VERIFIED",
+  "label": "saved-actions-v26",
+  "archive": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\completion-20261001-backups\\saved-actions-v26\\NVIDIA_CAMPAIGN_CHATGPT_HANDOFF_20260924_saved-actions-v26.zip",
+  "bytes": 37014,
+  "sha256": "b31a68d1644dac30826758d254b68c70050f48c5de632fe3325ab60e268f64a7",
+  "member_count": 15,
+  "cpu_affinity": [
+    14
+  ],
+  "delivery_status": "IN_PROGRESS",
+  "runtime_or_offline_acceptance": false
+}

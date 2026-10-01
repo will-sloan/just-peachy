@@ -1,0 +1,217 @@
+{
+  "version": 118,
+  "as_of_utc": "2026-10-01T03:30:15.307250+00:00",
+  "status": "PASS_ACTUAL_VISIBLE_SAVE_OPEN_ON_VERIFIED_120S_COPY",
+  "actual": {
+    "result": {
+      "status": "PASS_ACTUAL_VISIBLE_SAVE_OPEN_COPIED_ARCHIVE",
+      "owner": {
+        "pid": 61311,
+        "start_ticks": 18615224,
+        "boot_id": "af9c6c63-3c54-42c5-8f79-6fbce3fe7d43"
+      },
+      "capture_opened": false,
+      "models_loaded": false,
+      "physical_touch_tested": false,
+      "owner_ack_before_constructor": true,
+      "cleanup_errors": [],
+      "seconds": 1.7550596770015545,
+      "peak_rss_bytes": 60325888
+    },
+    "save_reopen": {
+      "status": "PASS_ACTUAL_VISIBLE_SAVE_OPEN_COPIED_ARCHIVE",
+      "conversation": "0554ef941c234f2ab77f47685ccaa5e9",
+      "source_root": "/home/peachyprototype/JustPeachy/research/nemotron-20260928/field-live-entry-v8",
+      "copied_files_verified": 7,
+      "save_button": {
+        "x": 12,
+        "y": 387,
+        "width": 408,
+        "height": 48
+      },
+      "open_button": {
+        "x": 12,
+        "y": 225,
+        "width": 408,
+        "height": 48
+      },
+      "state": "SAVED",
+      "pinned": true,
+      "changed_metadata_fields": [
+        "pinned",
+        "state",
+        "updated_utc"
+      ],
+      "opened_id": "0554ef941c234f2ab77f47685ccaa5e9",
+      "caption_rows": 0,
+      "caption_links": 0,
+      "source_samples": 1920000,
+      "audio_duration_seconds": 120,
+      "original_preserved": true,
+      "capture_closed": true,
+      "model_loads": 0,
+      "geometry": {
+        "states": [
+          {
+            "state": "normal",
+            "mapped": true,
+            "viewable": true,
+            "geometry": "480x800+0+0",
+            "x": 0,
+            "y": 0,
+            "width": 480,
+            "height": 800,
+            "fullscreen": true
+          }
+        ],
+        "stable_observations": 10
+      }
+    },
+    "application": {
+      "controller_closed": true,
+      "worker_joined": true,
+      "pending_commands": 0,
+      "capture_closed": true,
+      "configuration_attempts": {
+        "last_application.json": 1
+      }
+    },
+    "physical": {
+      "ids": {
+        "conversation": "0554ef941c234f2ab77f47685ccaa5e9",
+        "epoch": "664a332b058f4134b4714e611ea7ba4b",
+        "runtime_token": "22345775ed0f4e4e95c8c4c87de15caa"
+      },
+      "file_bytes": 24004901,
+      "writes": 20,
+      "open_writable_descriptors": 0,
+      "failures": {},
+      "kernel_filesystem_quota": false,
+      "native_library_writes_intercepted": false
+    },
+    "dispatch": {
+      "gate_owner": {
+        "pid": 61306,
+        "start_ticks": 18615206,
+        "boot_id": "af9c6c63-3c54-42c5-8f79-6fbce3fe7d43"
+      },
+      "worker_owner": {
+        "pid": 61311,
+        "start_ticks": 18615224,
+        "boot_id": "af9c6c63-3c54-42c5-8f79-6fbce3fe7d43"
+      },
+      "worker_exact_dead": true,
+      "source_exact_dead": null,
+      "owner_ack": true,
+      "returncode": 0,
+      "pipe_closed": true,
+      "failure": null,
+      "peak_sampled_worker_rss_bytes": 60014592,
+      "minimum_sampled_available_ram_bytes": 1347420160,
+      "resource_samples": 4,
+      "capture_closed": true,
+      "tree": {
+        "bytes": 25189139,
+        "files": 76,
+        "directories": 18
+      },
+      "logical_success": true
+    },
+    "backup": {
+      "status": "PASS_SSH_CLOSED_TREE_MIRROR_ONLY",
+      "files": 78,
+      "bytes": 24010545,
+      "data_chunks": 1515,
+      "elapsed_seconds": 1.75,
+      "remote_owner": {
+        "pid": 61332,
+        "start_ticks": 18615542,
+        "boot_id": "af9c6c63-3c54-42c5-8f79-6fbce3fe7d43"
+      },
+      "remote_closure": {
+        "owner": {
+          "pid": 61332,
+          "start_ticks": 18615542,
+          "boot_id": "af9c6c63-3c54-42c5-8f79-6fbce3fe7d43"
+        },
+        "observed_start_ticks": null,
+        "exact_alive": false,
+        "utility_owner": {
+          "pid": 61342,
+          "start_ticks": 18615667,
+          "boot_id": "af9c6c63-3c54-42c5-8f79-6fbce3fe7d43"
+        },
+        "utility_pid_absent_after_ssh": true
+      }
+    },
+    "staged_copy_files": 7,
+    "staged_copy_bytes": 23566755,
+    "original_v117_result_unchanged": "e1f5bab51c4d6ac0482980668c43a64fc98f85619125ef7e962ae363c16e2a0f",
+    "known_new_identity_gap": "V2 early gate failed before gate registration; SSH natural1 only, PID/start_ticks unavailable",
+    "read_only_consumer_source": "Installed N2ResidentModels.__init__ is lazy; acquire/acquire_diarizer require Start, which this controller blocked",
+    "no_new_capture_or_accuracy": true,
+    "field_runtime_accepted": false
+  },
+  "owners": {
+    "collector_records": 421,
+    "collector_unique": 412,
+    "additional_unique": 64,
+    "total_exact_closed_records": 485,
+    "unique_pi": 476,
+    "duplicate_records": 9,
+    "host_closed": 194,
+    "typed_nonidentity_closures": 3,
+    "later_metadata_owners_separate": true
+  },
+  "source_backup": {
+    "files": 28,
+    "bytes": 221853,
+    "separate_restore_exact": true
+  },
+  "resources": {
+    "census": 218,
+    "closure": 268,
+    "combined_output_bytes": 5580614422,
+    "payload_with_target_and_reservations_bytes": 55975874705,
+    "original_output_headroom_bytes": -211905302,
+    "original_payload_headroom_bytes": -141299857,
+    "admitted_output_cap": 5701107712,
+    "admitted_payload_cap": 56095670272,
+    "admitted_output_headroom": 120493290,
+    "admitted_payload_headroom": 119795567,
+    "before_later_metadata": true,
+    "stale_before_dispatch": true
+  },
+  "failed_attempts": [
+    {
+      "root": "field-saved-actions-v1",
+      "reason": "STAGER_BYTECODE_DIRECTORY_REJECTED_BEFORE_COPY",
+      "backup_files": null,
+      "backup_bytes": 476418
+    },
+    {
+      "root": "field-saved-actions-v2",
+      "reason": "GATE_DOUBLE_COUNTED_STAGED_COPY_BEFORE_APP_WORKER",
+      "backup_files": 59,
+      "backup_bytes": 24000202,
+      "measured_chunks": 1502
+    }
+  ],
+  "runtime_offline_accepted": false,
+  "baseline_unchanged": true,
+  "capture_closed": true,
+  "leases_free": true,
+  "research_compute_active": false,
+  "last_positive_saved_model_summary": 98,
+  "last_live_source_model_summary": 117,
+  "hard_deadline_utc": "2026-10-01T17:42:44Z",
+  "launcher_milestone": "MISSED_STILL_OPEN",
+  "missing_identity_gaps": [
+    "V109 failed exporter58929 startticks missing",
+    "V111 host check PID/create_time missing",
+    "V113 inline issuer/read-only utilities unregistered",
+    "V114 first host pre-SSH failed coordinator PID/create_time unrecorded; issuing wrapper was registered",
+    "V118 v2 early gate PID/start_ticks unrecorded; natural SSH1 only; V3 registers gate before preflight"
+  ],
+  "next_action": "Repair installed full export/import compact archive member and per-file limits using measured actual23.6MB tree; new copy/paths/cardinality for export/import/delete with backups. Nonempty saved transcript, general mode launcher/offline/rollback/gallery/physical touch remain open. No healthy120s recapture or firmware maintenance absent new fault."
+}
