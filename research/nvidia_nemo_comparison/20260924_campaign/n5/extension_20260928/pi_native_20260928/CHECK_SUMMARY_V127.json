@@ -1,0 +1,142 @@
+{
+  "version": 127,
+  "as_of_utc": "2026-10-01T07:18:08.333542+00:00",
+  "status": "PASS_CHANGED_HOST_TRANSPORT_NATIVE_DISPATCH_RECEIVER_PREPARED",
+  "native_attempts": 0,
+  "actual_capture": false,
+  "model_loads": 0,
+  "gui_attempts": 0,
+  "active_research_compute": false,
+  "host_contract": {
+    "status": "PASS_CHANGED_HOST_TRANSPORT_ONLY",
+    "cases": [
+      {
+        "case": "echo",
+        "owner": {
+          "pid": 27360,
+          "create_time": 1790838939.181562,
+          "affinity": [
+            14
+          ]
+        },
+        "exact_dead": true,
+        "returncode": 0,
+        "fault": null,
+        "overflow": false,
+        "writer_error": [],
+        "reader_error": [],
+        "readers_joined": true,
+        "ssh_reaped": true,
+        "stdout_bytes": 20480,
+        "stderr_bytes": 7
+      },
+      {
+        "case": "overflow",
+        "owner": {
+          "pid": 75892,
+          "create_time": 1790838939.2953243,
+          "affinity": [
+            14
+          ]
+        },
+        "exact_dead": true,
+        "returncode": 0,
+        "fault": "Late I/O completion failure",
+        "overflow": true,
+        "writer_error": [],
+        "reader_error": [],
+        "readers_joined": true,
+        "ssh_reaped": true,
+        "stdout_bytes": 128,
+        "stderr_bytes": 0
+      },
+      {
+        "case": "deadline",
+        "owner": {
+          "pid": 71276,
+          "create_time": 1790838939.4198313,
+          "affinity": [
+            14
+          ]
+        },
+        "exact_dead": true,
+        "returncode": 0,
+        "fault": "TimeoutError: SSH phase deadline",
+        "overflow": false,
+        "writer_error": [],
+        "reader_error": [],
+        "readers_joined": true,
+        "ssh_reaped": true,
+        "stdout_bytes": 0,
+        "stderr_bytes": 0
+      }
+    ],
+    "positive": 1,
+    "rejections": 2,
+    "native_execution": false,
+    "model_or_capture": false,
+    "kernel_quota": false,
+    "completed_utc": "2026-10-01T07:15:40.024660+00:00"
+  },
+  "selected": {
+    "dispatcher": "dispatch_field_operator_broker_v1.py",
+    "receiver": "mirror_field_operator_broker_v1.py",
+    "host_helper": "field_operator_broker_host_v2.py",
+    "census": "field_operator_broker_census_v1.py",
+    "check": "check_field_operator_broker_transport_v1.py",
+    "readme": "README_FIELD_OPERATOR_BROKER_DISPATCH_V2.md",
+    "native_initializer": "field_operator_broker_initialize_v1.py",
+    "native_gate": "field_operator_broker_gate_v2.py",
+    "native_entry": "field_operator_broker_entry_v1.py",
+    "native_exporter": "field_operator_broker_export_v1.py"
+  },
+  "new_resource_policy_issued": false,
+  "source_backup": {
+    "files": 9,
+    "bytes": 48653,
+    "independent_restore_exact": true
+  },
+  "owners": {
+    "collector_records": 441,
+    "collector_unique": 430,
+    "additional_unique": 127,
+    "total_exact_closed_records": 568,
+    "unique_pi": 557,
+    "duplicate_records": 11,
+    "host_closed": 369,
+    "typed_nonidentity_closures": 3,
+    "later_metadata_owners_separate": true
+  },
+  "resources": {
+    "census": 231,
+    "closure": 287,
+    "combined_output_bytes": 5805228834,
+    "payload_with_target_and_reservations_bytes": 56200489117,
+    "target_bytes": 3011078510,
+    "host_window_bytes": 2794150324,
+    "old_output_excess": 436519714,
+    "old_payload_excess": 365914269,
+    "stale_before_future_dispatch": true,
+    "readonly_policy": "TRANSFER_RESOURCE_POLICY_V2"
+  },
+  "runtime_accepted": false,
+  "offline_accepted": false,
+  "physical_touch": false,
+  "latest_actual_scoped_pass": "CHECK_SUMMARY_V123.json",
+  "next_action": "Complete bounded backup of partial initializer failures without modifying failed roots; review the actual capsule/template with all18modeRegistry and separate liveD1 pins; add a changed two-session driver using actual New/consent/Start/Stop/Save/Return and previous history UI, with separate fresh parent/child/source/archive identities and captureoff before next slot. Select host dispatcher1/receiver1/helper2/census1 with README_DISPATCH_V2; helper1 stays a backed draft. Refresh ALL owners/lifetimes/census/target before a fresh measured604981424B policy and actual native attempt. Native Stop/SSH-loss/writer/ledger/fault/fullmirror paths still need evidence. No healthy history/live/owner/transport reruns merely for version. Then versioned health/install/local recovery/activation/rollback/offline; no firmware maintenance absent a new fault, no ASR detour/questions/extension.",
+  "unexecuted": [
+    "all new native initializer/stager/CLI/gate/writer/ledger/exporter paths",
+    "native repeated sessions/history GUI",
+    "host SSH dispatch/census/receiver glue",
+    "native Stop/SSH loss/full backup/concurrency/crash/powerloss"
+  ],
+  "unresolved_execution_boundaries": [
+    "bounded partial-initializer-failure exporter",
+    "actual full capsule/template bindings",
+    "changed two-session driver",
+    "fresh measured policy/admission",
+    "local recovery/install/activation/rollback/offline"
+  ],
+  "source_scope_note": "All9source/README48653B backups and independent restores closed within their fresh600s host scopes; later metadata only. V1helper is retained backed draft; V2 helper selected.",
+  "actual_host_check_scope": "Three real host fixture subprocesses:20480-byte exact echo,128-byte retention cap against4096-byte output,50ms phase deadline. CPU14 owners registered and exact dead; all readers joined. Not native SSH Stop or performance."
+}
