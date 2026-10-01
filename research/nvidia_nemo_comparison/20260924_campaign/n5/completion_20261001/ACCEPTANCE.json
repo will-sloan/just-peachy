@@ -1,9 +1,9 @@
 {
   "schema": "just-peachy.delivery-acceptance.v1",
-  "as_of_utc": "2026-10-01T05:36:01.731443+00:00",
+  "as_of_utc": "2026-10-01T05:59:10.296952+00:00",
   "hard_deadline_utc": "2026-10-01T17:42:44Z",
   "overall": "IN_PROGRESS",
-  "latest_verified_research_summary": "CHECK_SUMMARY_V123.json",
+  "latest_verified_research_summary": "CHECK_SUMMARY_V124.json",
   "gates": [
     {
       "id": "D1_COMPONENTS",
@@ -19,27 +19,27 @@
     },
     {
       "id": "MODE_LAUNCHER_AND_ERROR_RECOVERY",
-      "status": "SCOPED_FRESH_PROCESS_STREAMING_PASS_VISIBLE_GENERAL_OPEN",
+      "status": "SCOPED_VISIBLE_DELAYED_COMPOSITION_PASS_REPEATED_RELEASE_OPEN",
       "required": true,
-      "evidence": "V98 fresh child owner ACK, actual installed Streaming StartStop, five coherent generic/D1 phases, normal reaping/closure; V96 preowner recovery separate",
-      "remaining": "V100 visible inspection/return/close passes. General repeated modes/operator Start/failure-concurrency/live/offline remain open",
-      "entry_preparation": "V123 actual bounded visible delayed parent/child Open -> live/data actions -> Return/reap/chooser/Close passed. Repeated sessions/modes, historical allocation and deployed user entry remain open.",
+      "evidence": "V98 saved Streaming process, V100 visible inspection and V123 actual delayed visible parent/live/data/Return/reap pass. Separate scopes, not a general deployed launcher.",
+      "remaining": "Repeated user sessions/mode/history access, native local recovery and release/offline remain open.",
+      "entry_preparation": "V124 independent session allocation/ledgerV2 and interactive parentV7/entryV7 prepared; pure23 rejects+2 historical-policy checks only. No native repeated attempt.",
       "milestone": "September30 21:42:44UTC missed; still open, final deadline unchanged"
     },
     {
       "id": "LIVE_SOURCE_MODEL_STORAGE_INTEGRATION",
-      "status": "SCOPED_120S_LIVE_STOP_AND_SEPARATE_SAVED_COPY_ACTIONS_PASS",
+      "status": "SCOPED_JOINED_LIVE_D1_SOURCE_ARCHIVE_DATA_PASS",
       "required": true,
-      "evidence": "V117 complete1920000sample/12001frame live source/D1/archive/Stop; old whole validator failed. V118 separate exact-copy visible Save/Open passed; no retroactive whole-live pass.",
-      "remaining": "V123 one joined24.03s live D1/source/archive/GUI/data composition passed; unrestricted repeated operator runtime and accuracy/reference gates remain open.",
+      "evidence": "V123 joined384480sample/2404frame live D1/source/archive/visible Stop and all data actions passed. V117 separate120s source/archive scope and its whole validator failure retained.",
+      "remaining": "Repeated operator runtime, source-reference1e-5/E0 and sustained integrity gates remain open.",
       "latest_scoped_receipt": "CHECK_SUMMARY_V123.json"
     },
     {
       "id": "VISIBLE_GUI_AND_PHYSICAL_CONTROLS",
-      "status": "SCOPED_VISIBLE_INSPECTION_PASS_PHYSICAL_LIVE_OPEN",
+      "status": "SCOPED_VISIBLE_LIVE_AND_DATA_CONTROLS_PASS_PHYSICAL_OPEN",
       "required": true,
-      "evidence": "V1003readable480x800screens/exactstablegeometry/correctedheaders/actualchildReturn+parentClose; V99failurepreserved",
-      "remaining": "V118 Save/Open and V120 nine visible transfer/delete/import/open controls passed with480x800 geometry. No new screenshot/readability or physical touch, general operator mode controls remain open."
+      "evidence": "V123 fourteen actual child buttons plus parent Open/Close and10stable480x800 observations; V100/V118/V120 earlier scopes retained.",
+      "remaining": "Programmatic button execution, not physical touch. Native repeated V7 UI and nonempty captions remain open."
     },
     {
       "id": "OFFLINE_STARTUP_AND_OPERATION",
@@ -55,10 +55,10 @@
     },
     {
       "id": "SAVE_REOPEN_DELETE_IMPORT_EXPORT",
-      "status": "SCOPED_SAVED_COPY_DATA_ACTIONS_PASS_GENERAL_NONEMPTY_OPEN",
+      "status": "SCOPED_JOINED_LIVE_DATA_ACTIONS_PASS_GENERAL_NONEMPTY_OPEN",
       "required": true,
-      "evidence": "V118 visible copied Save/Open; V120 fresh SAVED copy actual installed Field/UI export/delete/import/open, seven original/imported files exact, stored23569379B ZIP, detached actual consumer. Separate admissions, zero caption rows.",
-      "remaining": "V123 actual same-process live -> Save/fullExport/Delete/Import/Reopen passed with exact7files;0captions. General repeated history and nonempty captions/links remain open."
+      "evidence": "V123 actual same-process live -> Save/fullExport/Delete/Import/Reopen, seven files5212492B exact and5215115B ZIP. V118/V120 separate copied-data/detached-consumer scopes retained.",
+      "remaining": "General repeated historical UI and nonempty captions/audio links remain open; V123 rows0."
     },
     {
       "id": "INSTALL_HEALTH_ACTIVATE_ROLLBACK",
@@ -88,7 +88,7 @@
       "id": "FINAL_BACKUP_AND_RESTORE_VERIFICATION",
       "status": "OPEN",
       "required": true,
-      "evidence": "V95 exact private backup and remote code verified; final candidate pending"
+      "evidence": "V123 source/private run mirrors verified; V1248source76512B exact private backup+independent restore. Latest draft handoff versioned; final candidate remains pending."
     },
     {
       "id": "N1_N5_COVERAGE_RECONCILIATION",

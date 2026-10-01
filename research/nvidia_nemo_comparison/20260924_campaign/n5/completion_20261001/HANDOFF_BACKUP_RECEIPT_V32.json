@@ -1,0 +1,13 @@
+{
+  "status": "EXACT_DOCUMENTATION_BACKUP_VERIFIED",
+  "label": "session-lifecycle-v32",
+  "archive": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\completion-20261001-backups\\session-lifecycle-v32\\NVIDIA_CAMPAIGN_CHATGPT_HANDOFF_20260924_session-lifecycle-v32.zip",
+  "bytes": 36778,
+  "sha256": "fc29ae60e74bd44f82f20d22bea484e323bd9d48065db6b8f7bd40bf7787ee8e",
+  "member_count": 15,
+  "cpu_affinity": [
+    14
+  ],
+  "delivery_status": "IN_PROGRESS",
+  "runtime_or_offline_acceptance": false
+}

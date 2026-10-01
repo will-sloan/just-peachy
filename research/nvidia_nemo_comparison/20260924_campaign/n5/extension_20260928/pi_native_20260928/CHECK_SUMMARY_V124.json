@@ -1,0 +1,108 @@
+{
+  "version": 124,
+  "as_of_utc": "2026-10-01T05:59:10.296952+00:00",
+  "status": "PASS_SESSION_ALLOCATION_CONTRACT_NATIVE_LEDGER_PREPARED",
+  "native_attempts": 0,
+  "actual_capture": false,
+  "model_loads": 0,
+  "gui_attempts": 0,
+  "active_research_compute": false,
+  "host_contract": {
+    "positive_groups": [
+      "four-independent-slots",
+      "failure-consumes-reservation",
+      "closed-session-next-slot",
+      "measured-policy",
+      "root-value-only-rebase"
+    ],
+    "rejections": 23,
+    "native_constructor": false,
+    "elapsed_resolution_note": "Windows monotonic observation0.0s; not benchmark"
+  },
+  "changed_history_policy_checks": 2,
+  "selected": {
+    "plan": "field_operator_session_plan_v1.py",
+    "ledger": "field_operator_session_ledger_v2.py",
+    "parent": "field_operator_parent_v7.py",
+    "entry": "field_operator_entry_v7.py",
+    "check": "check_field_operator_sessions_v1.py",
+    "readme": "README_FIELD_OPERATOR_SESSIONS_V2.md"
+  },
+  "prepared_scope": [
+    "independent full per-recording reservations",
+    "immutable native ledger with lifetime flock and pending record preservation",
+    "exact staged-parent identity and native closure checks",
+    "read-only SAVED history descriptors",
+    "expired policy permits inspection only",
+    "interactive actual Field UI without automated qualification driver"
+  ],
+  "unexecuted": [
+    "native ledger constructor and publication",
+    "native repeated session broker",
+    "native interactive V7 GUI",
+    "historical UI reopen",
+    "crash/concurrency/power-loss behavior"
+  ],
+  "preserved_draft": "LedgerV1 prepared but unexecuted; historical expiry and exact-parent binding corrected in separate V2 bytes",
+  "proposed_allocation": {
+    "schema": "just-peachy.operator-session-allocation.v1",
+    "count": 4,
+    "slot_names": [
+      "slot-01",
+      "slot-02",
+      "slot-03",
+      "slot-04"
+    ],
+    "target_per_session": 146919980,
+    "host_per_session": 151114284,
+    "metadata_maximum_bytes": 1310720,
+    "target_maximum_bytes": 588990640,
+    "host_maximum_bytes": 605767856,
+    "combined_request_bytes": 1194758496,
+    "slot_file_bytes": 16384,
+    "slot_write_bytes": 16384,
+    "maximum_slot_files": 12,
+    "maximum_release_bytes": 65536,
+    "maximum_session_files": 256,
+    "maximum_session_directories": 64,
+    "reuse_deleted_or_failed_reservation": false
+  },
+  "new_resource_policy_issued": false,
+  "source_backup": {
+    "files": 8,
+    "bytes": 76512,
+    "independent_restore_exact": true
+  },
+  "owners": {
+    "collector_records": 441,
+    "collector_unique": 430,
+    "additional_unique": 121,
+    "total_exact_closed_records": 562,
+    "unique_pi": 551,
+    "duplicate_records": 11,
+    "host_closed": 315,
+    "typed_nonidentity_closures": 3,
+    "later_metadata_owners_separate": true
+  },
+  "resources": {
+    "census": 228,
+    "closure": 284,
+    "combined_output_bytes": 5798133543,
+    "payload_with_target_and_reservations_bytes": 56193393826,
+    "target_bytes": 3011078510,
+    "host_window_bytes": 2787055033,
+    "old_output_excess": 429424423,
+    "old_payload_excess": 358818978,
+    "stale_before_future_dispatch": true,
+    "readonly_policy": "TRANSFER_RESOURCE_POLICY_V2"
+  },
+  "failures_preserved": [
+    "Collector283 wrong V1 policy selector with V2 digest rejected before SSH; fresh284 used correct unchanged V2",
+    "Windows command length rejection before host creation; apply_patch plus registered bounded writer subsequently produced source"
+  ],
+  "runtime_accepted": false,
+  "offline_accepted": false,
+  "physical_touch": false,
+  "latest_actual_scoped_pass": "CHECK_SUMMARY_V123.json",
+  "next_action": "Wire a real local repeated-session broker and visible history chooser to the prepared independent ledger and interactive parent/child. Derive fresh native stager/gate/admission/export/backup paths; bind each exact release capsule, mode registry and live D1 assets. Admit a measured bounded changed two-session composition only after current ALL-owner/lifetime/census checks. Qualify independent roots, fresh parent/child processes, previous-history access and capture-off closure before the next session; no unchanged live/owner/allocation test reruns merely for a version. The prepared ledger still needs native filesystem/failure/closure validation and cannot itself launch or recover a release. Then versioned install/health/local automatic recovery/activation/rollback/offline. Keep first fault latched, no firmware maintenance without a new qualifying fault, no ASR detour or extension."
+}
