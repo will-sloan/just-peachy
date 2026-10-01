@@ -1,0 +1,17 @@
+# Native local backup: executed index V4
+
+Current result: PASS_NATIVE_COMPLETE_LOCAL_BROKER_BACKUP. One actual native attempt used field_local_broker_backup_v1.py, field_local_backup_native_v2.py and dispatch_field_local_backup_v2.py. All source bytes and independent restoration copies were verified before execution. Read [V3](README_FIELD_LOCAL_BACKUP_V3.md) for purpose, inputs/outputs and PowerShell, Command Prompt and Anaconda commands; [V1](README_FIELD_LOCAL_BACKUP_V1.md) describes the API and [V2](README_FIELD_LOCAL_BACKUP_V2.md) preserves the initial draft.
+
+The V2 dispatcher is now CLOSED and root-bound to consumed field-local-backup-v2/jp-local-backup-v2. Its commands are historical; do not rerun or reuse its admission. V1 failed on the host before SSH because the requested output buffer exceeded the existing262144byte transport guard. V2 reduced the required transfer while preserving that guard. No V1 native root was created. All V1 source/policy/failure bytes remain intact.
+
+Actual local copy:314files5768552bytes,50directories,555measured chunks of at most16KiB, every file read back twice, complete source/copy identity and membership rechecked. Nine recorded source owners were actually dead; actual source gate/model/archive/controller closure and inactive source service were checked. Shared source lock and research/hardware leases were held through copying. File and directory fsync were invoked. Capture remained off.
+
+Complete new native tree:330files5927246bytes,53directories. New COPY_RESULT used3SSH metadata chunks. The independent host backup rebuilt copied payload with555local16KiB chunks from existing exact host bytes, then matched every new native file hash, byte count and directory. Code/policy/manifest were reconstructed from matching independently backed source bytes. This is full new-tree backup, not a claim of retransmitting audio through SSH.
+
+Native copy coordinator64430/start20815295, physical-closure helper64442/start20815529 and its verifier64451/start20815557, all bootaf9c6c63-3c54-42c5-8f79-6fbce3fe7d43, were exactly dead before BACKUP. Host7056/create1790847187.0566776 closed. Actual unit CPU2-3/shared200%/Tasks64/128MiBAS/1MiBstack/32MiBFSIZE/180sRuntime15sStop; no benchmark/RSS claim.
+
+Admission V2 issued09:33:07.181643 through09:43:07.181643UTC, full600787120byte reservation (300393560target+300393560host), including full298296408byte two-slot local copy and2MiB metadata per side, plus8MiB explicit accounting/preparation margin. PolicySHA02c04aa54ec473938f87f00c3858287fb99b0182e6087dafe85f2ba1f79796e5. Work and verified complete backup closed before expiry. No production lifetime was admitted.
+
+Private evidence: field-local-backup-v1-admission holds the pre-SSH failure; field-local-backup-v2-admission holds actual policy/request/primarybackuprestore/raw/phase/owners/closure/fullmirror/BACKUP/RESULT/OPERATION_CLOSED. operator-local-backup-v1-preparation and publication retain source backup/restoration, static review and actual read-only backup review.
+
+The manager's journal backup consumer, next-slot integration, failed-source local mirror, production admission, activation/rollback and automatic recovery remain open. No new capture/model/GUI/data action was run. No injected local-copy fault, physical disk exhaustion, power loss, concurrent writer, physical touch, nonempty captions, gallery, noisy human validation or offline boot proof is claimed. The old failed roots and pending journal remain preserved.

@@ -1,9 +1,9 @@
 {
   "schema": "just-peachy.delivery-acceptance.v1",
-  "as_of_utc": "2026-10-01T09:16:09.625978+00:00",
+  "as_of_utc": "2026-10-01T09:38:42.642438+00:00",
   "hard_deadline_utc": "2026-10-01T17:42:44Z",
   "overall": "IN_PROGRESS",
-  "latest_verified_research_summary": "CHECK_SUMMARY_V131.json",
+  "latest_verified_research_summary": "CHECK_SUMMARY_V132.json",
   "gates": [
     {
       "id": "D1_COMPONENTS",
@@ -23,7 +23,7 @@
       "required": true,
       "evidence": "V128 actual two independent delayed sessions and previous-history UI, captureoff and exact parent/child/source closure before next. V98/V100/V123 remain separate scopes. V129 removes automatic qualification drivers in backed manual derivatives; native unexecuted. Read-only native health separately recognizes closed history and preserves failed-tree fencing.",
       "remaining": "Persistent manual user launcher, mode switching beyond admitted delayed sessions, local failure recovery and offline release remain open.",
-      "entry_preparation": "Manual builder6/gate8/entry6/broker7/stage5/parent13/child11 prepared only; controller6/source11 retained. README manual2. Existing dispatcher6 pins old gate7. V130 finite local release plan1 passed three host fixture groups/17rejects; native metadata journal2 remains unexecuted. No production lifetime/admission implemented. V131 actual native journal2 create/reopen and injected pending write-fault fencing passed across four fresh processes, with full host metadata backup. Production manager/automatic recovery remain open; V300 scanner identity gap preserved.",
+      "entry_preparation": "Manual builder6/gate8/entry6/broker7/stage5/parent13/child11 prepared only; controller6/source11 retained. README manual2. Existing dispatcher6 pins old gate7. V130 finite local release plan1 passed three host fixture groups/17rejects; native metadata journal2 remains unexecuted. No production lifetime/admission implemented. V131 actual native journal2 create/reopen and injected pending write-fault fencing passed across four fresh processes, with full host metadata backup. Production manager/automatic recovery remain open; V300 scanner identity gap preserved. V132 actual complete local recording backup passed with source owner/unit/gate/model/archive closure checks and complete host backup. Journal consumer/next-slot integration, failed-source recovery and production manager remain open; historical identity gaps preserved.",
       "milestone": "September30 21:42:44UTC missed; still open, final deadline unchanged"
     },
     {
@@ -65,7 +65,7 @@
       "status": "SCOPED_NATIVE_READ_ONLY_HEALTH_PASS_LOCAL_RECOVERY_ACTIVATION_OPEN",
       "required": true,
       "evidence": "V129 native health inspected actual successful sessions-v6 and failed sessions-v2 under expired policies without writes or capture. Both owners/leases/capture verified quiescent; V2 missing parent stays fenced.",
-      "remaining": "V131 native metadata journal checks passed. Actual local recording mirror, supervisor, production admission, activation/rollback and offline/coldboot remain open."
+      "remaining": "V132 complete local recording mirror passed. Journal consumer/next-slot integration, failed-source recovery, supervisor, production admission, activation/rollback and offline/coldboot remain open."
     },
     {
       "id": "PERSONAL_GALLERY_COMPATIBILITY",
@@ -89,7 +89,7 @@
       "id": "FINAL_BACKUP_AND_RESTORE_VERIFICATION",
       "status": "OPEN",
       "required": true,
-      "evidence": "V131 eleven source/README67711B exact backups and independent restores; actual16file70631B native metadata tree fully mirrored/read back. Local recording mirror and final release remain open; earlier mirrors retained."
+      "evidence": "V132 nine source/README67718B exact backups and independent restores; actual330file5927246B complete local-copy tree backed and read back. Original314file5768552B recording tree unchanged. Final release/manager remain open; earlier mirrors retained."
     },
     {
       "id": "N1_N5_COVERAGE_RECONCILIATION",

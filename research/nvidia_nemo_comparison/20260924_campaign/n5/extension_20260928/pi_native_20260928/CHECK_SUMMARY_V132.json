@@ -1,0 +1,140 @@
+{
+  "version": 132,
+  "as_of_utc": "2026-10-01T09:38:42.642438+00:00",
+  "status": "PASS_NATIVE_COMPLETE_LOCAL_BROKER_BACKUP",
+  "native_app_attempts": 0,
+  "native_local_backup_attempts": 1,
+  "host_dispatch_pre_ssh_failures": 1,
+  "actual_capture": false,
+  "model_sessions": 0,
+  "active_research_compute": false,
+  "capture_currently_off": true,
+  "selected": {
+    "copy": "field_local_broker_backup_v1.py",
+    "native": "field_local_backup_native_v2.py",
+    "dispatcher": "dispatch_field_local_backup_v2.py",
+    "collector": "collect_native_closure_v16.py",
+    "readme": "README_FIELD_LOCAL_BACKUP_V4.md"
+  },
+  "source_backup": {
+    "files": 9,
+    "bytes": 67718,
+    "independent_restore_exact": true,
+    "all_closed_before_scope_expiry": true
+  },
+  "owners": {
+    "collector_records": 480,
+    "collector_unique": 456,
+    "additional_unique": 189,
+    "total_exact_closed_records": 669,
+    "unique_pi": 645,
+    "duplicate_records": 24,
+    "host_closed": 533,
+    "typed_nonidentity_closures": 3,
+    "later_metadata_owners_separate": true
+  },
+  "resources": {
+    "census": 245,
+    "closure": 305,
+    "combined_output_bytes": 5879467723,
+    "payload_with_target_and_reservations_bytes": 56274728006,
+    "target_bytes": 3027013451,
+    "host_window_bytes": 2852454272,
+    "old_output_excess": 510758603,
+    "old_payload_excess": 440153158,
+    "stale_before_future_dispatch": true,
+    "readonly_policy": "TRANSFER_RESOURCE_POLICY_V2"
+  },
+  "actual_local_backup": {
+    "status": "PASS_NATIVE_COMPLETE_LOCAL_BROKER_BACKUP",
+    "source_files": 314,
+    "source_bytes": 5768552,
+    "source_directories": 50,
+    "native_copy_chunks": 555,
+    "complete_tree_files": 330,
+    "complete_tree_directories": 53,
+    "complete_tree_bytes": 5927246,
+    "native_metadata_chunks": 3,
+    "host_reconstruction_chunks": 555,
+    "original_source_and_actual_native_copy_pins_exact": true,
+    "independent_host_readback": true,
+    "all_three_native_owners_closed": true,
+    "host_owner": {
+      "pid": 7056,
+      "create_time": 1790847187.0566776,
+      "affinity": [
+        14
+      ]
+    },
+    "physical_closure": {
+      "event": "RESULT",
+      "owner": {
+        "pid": 64442,
+        "start_ticks": 20815529,
+        "boot_id": "af9c6c63-3c54-42c5-8f79-6fbce3fe7d43"
+      },
+      "capture_closed": true,
+      "leases_free": true,
+      "baseline_unchanged": true,
+      "properties": {
+        "MainPID": "0",
+        "LoadState": "not-found",
+        "ActiveState": "inactive",
+        "SubState": "dead"
+      }
+    },
+    "actual_unit": {
+      "TimeoutStopUSec": "15s",
+      "RuntimeMaxUSec": "3min",
+      "CPUQuotaPerSecUSec": "2s",
+      "AllowedCPUs": "2-3",
+      "TasksMax": "64",
+      "LimitFSIZE": "33554432",
+      "LimitSTACK": "1048576",
+      "LimitSTACKSoft": "1048576",
+      "LimitAS": "134217728",
+      "LimitASSoft": "134217728"
+    },
+    "no_capture_app_model_gui": true,
+    "manager_journal_consumer_wired": false,
+    "production_activation": false
+  },
+  "native_local_backup_executed": true,
+  "journal_backup_consumer_implemented": false,
+  "production_policy_issued": false,
+  "production_admission_implemented": false,
+  "measured_qualification_policy": {
+    "sha256": "02c04aa54ec473938f87f00c3858287fb99b0182e6087dafe85f2ba1f79796e5",
+    "allocation": {
+      "combined_request_bytes": 600787120,
+      "host_maximum_bytes": 300393560,
+      "local_copy_bytes": 298296408,
+      "metadata_bytes": 2097152,
+      "target_maximum_bytes": 300393560
+    },
+    "operation": {
+      "issued_utc": "2026-10-01T09:33:07.181643+00:00",
+      "expires_utc": "2026-10-01T09:43:07.181643+00:00",
+      "purpose": "LOCAL_RELEASE_QUALIFICATION"
+    },
+    "combined_output_cap_bytes": 6472859648,
+    "total_payload_cap_bytes": 56868470784,
+    "closed": true
+  },
+  "proposed_idle_seconds": 86400,
+  "proposed_idle_lifetime_admitted": false,
+  "qualification_maximum_seconds": 600,
+  "new_native_identity_gap": false,
+  "host_failures": [
+    "V1 dispatcher rejected1048576byte output cap before SSH subprocess; source/admission preserved.",
+    "Read-only collector304 requested pending census245 and failed before SSH; fresh305 after census completion."
+  ],
+  "prior_identity_gaps_preserved": true,
+  "runtime_accepted": false,
+  "offline_accepted": false,
+  "physical_touch": false,
+  "accuracy": false,
+  "next_action": "Wire the verified local backup API into the finite release journal and manager so only actual session-gate closure plus complete verified local backup permits the next recording. Journal2 still rejects a nonempty backups directory and cannot substantiate arbitrary supplied closure/backup facts. Add failed-source backup and recovery fencing, production admission and activation/rollback with current identities through new reviewed versions. The V132 two-slot preserved-tree copy does not expand the manager's independently reserved one-slot allocation. Existing research operations remain at most600seconds including cleanup/backup before17:42:44Z; proposed24-hour manual idle lifetime remains unadmitted. Prove local automatic recovery before network isolation. Preserve pending/failed/consumed roots, manual controls, immutable mode/asset pins, display270 and captureoff. No unchanged healthy copy/journal/live/two-session/history/health reruns. Nonempty captions/gallery/physical touch/noisy human remain open.",
+  "claim_limits": "One actual complete local copy of a previously closed successful two-session broker, with independent native readback and host reconstruction from exact matching existing bytes. No second SSH audio transfer, injected copy fault, failed-source backup, physical exhaustion, powerloss, concurrent writer, automatic recovery, journal consumer, app/source/model/GUI/data action, production activation or offline proof.",
+  "source_scope_note": "Nine source/README67718B exact backups and independent restores, all closed within600s preparation scopes; no source backup gap. First native coordinator/dispatcher are historical unexecuted-native drafts. Bound sources unchanged."
+}
