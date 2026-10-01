@@ -1,9 +1,9 @@
 {
   "schema": "just-peachy.delivery-acceptance.v1",
-  "as_of_utc": "2026-10-01T02:26:37.980475+00:00",
+  "as_of_utc": "2026-10-01T02:56:54.889747+00:00",
   "hard_deadline_utc": "2026-10-01T17:42:44Z",
   "overall": "IN_PROGRESS",
-  "latest_verified_research_summary": "CHECK_SUMMARY_V116.json",
+  "latest_verified_research_summary": "CHECK_SUMMARY_V117.json",
   "gates": [
     {
       "id": "D1_COMPONENTS",
@@ -28,16 +28,16 @@
     },
     {
       "id": "LIVE_SOURCE_MODEL_STORAGE_INTEGRATION",
-      "status": "PARTIAL_LIVE_SOURCE_D1_PASS_ARCHIVE_RECORD_FAILED",
+      "status": "SCOPED_120S_SOURCE_D1_ARCHIVE_STOP_PASS_VALIDATOR_SAVE_OPEN_PENDING",
       "required": true,
-      "evidence": "V116 conditional recovery then actual415200sample live D1 passage/2596frames; archive399670B event exceeds64KiB and loses2720audio samples. Source route restoration/physical cleanup pass, full120s/Stop/Save/Open fail. Exact105file9263899B mirror."
+      "evidence": "V1171920000samples/12001frames/all audio and six original native payloads retained exactly; real Stop/physical closure. Whole trial FAILED validator comparing two intentional archive consumer clocks; Save/Open not reached. Exact104file40693951B mirror."
     },
     {
       "id": "VISIBLE_GUI_AND_PHYSICAL_CONTROLS",
       "status": "SCOPED_VISIBLE_INSPECTION_PASS_PHYSICAL_LIVE_OPEN",
       "required": true,
       "evidence": "V1003readable480x800screens/exactstablegeometry/correctedheaders/actualchildReturn+parentClose; V99failurepreserved",
-      "remaining": "V116 visible Start/consent and partial real D1 pass; full GUI Stop/Save/Open and physical touch remain unqualified."
+      "remaining": "V117 actual visible Start/confirmation/Stop ran; no GUI_STOP receipt due later validator. Save/Open and physical touch remain open."
     },
     {
       "id": "OFFLINE_STARTUP_AND_OPERATION",
@@ -55,7 +55,7 @@
       "id": "SAVE_REOPEN_DELETE_IMPORT_EXPORT",
       "status": "OPEN_INTEGRATED_RELEASE",
       "required": true,
-      "evidence": "Prior narrow components retained"
+      "evidence": "V117 complete closed120s recording available; actual Save/Open not reached. Fresh exact-copy actions needed."
     },
     {
       "id": "INSTALL_HEALTH_ACTIVATE_ROLLBACK",

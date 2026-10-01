@@ -1,0 +1,145 @@
+{
+  "version": 117,
+  "as_of_utc": "2026-10-01T02:56:54.875861+00:00",
+  "status": "PASS_120S_SOURCE_D1_ARCHIVE_STOP_ONLY_WHOLE_TRIAL_FAILED_VALIDATOR",
+  "actual": {
+    "whole_trial_success": false,
+    "worker_status": "FAILED_PRESERVED",
+    "worker_returncode": 1,
+    "source_model_archive_samples": 1920000,
+    "source_seconds": 120,
+    "model_frames": 12001,
+    "model_pushes": 8185,
+    "native_frame_events": 6,
+    "original_native_payload_fields_exact": true,
+    "archive_additional_consumer_fields": [
+      "consumer_monotonic_sec",
+      "consumer_queue_age_sec"
+    ],
+    "independent_model_reference_or_accuracy_tested": false,
+    "archive_audio_complete": true,
+    "archive_error": null,
+    "archive_event_pieces": {
+      "logical_maximum": 1047552,
+      "piece_maximum": 65536,
+      "accepted_groups": 6,
+      "reassembled_groups": 6,
+      "largest_logical_record": 400949,
+      "largest_piece": 65536,
+      "assembling_bytes": 0,
+      "maximum_queue_and_assembly": 421181,
+      "persisted_format_unchanged": true
+    },
+    "wav": {
+      "frames": 1920000,
+      "rate": 16000,
+      "channels": 1,
+      "width": 2
+    },
+    "float_bytes": 7680000,
+    "actual_ui_start_confirmation_and_stop_invoked": true,
+    "gui_stop_receipt_published": false,
+    "save_open": false,
+    "visible_geometry": {
+      "states": [
+        {
+          "state": "normal",
+          "mapped": true,
+          "viewable": true,
+          "geometry": "480x800+0+0",
+          "x": 0,
+          "y": 0,
+          "width": 480,
+          "height": 800,
+          "fullscreen": true
+        }
+      ],
+      "stable_observations": 10,
+      "start_button": {
+        "x": 1,
+        "y": 740,
+        "width": 118,
+        "height": 60
+      }
+    },
+    "physical_touch": false,
+    "offline": false,
+    "source_fault": null,
+    "route_restored": true,
+    "controller_closed": true,
+    "command_worker_joined": true,
+    "model_closed": true,
+    "archive_closed": true,
+    "archive_worker_joined": true,
+    "zero_writable_descriptors": true,
+    "guard_failures": {},
+    "capture_closed": true,
+    "source_child_raw_wait_returncode_recorded": false,
+    "source_child_wait_guard_passed_before_later_assertion": true,
+    "worker_seconds": 134.5518549119879,
+    "peak_sampled_worker_rss_bytes": 516866048,
+    "minimum_sampled_available_ram_bytes": 925155328,
+    "resource_samples": 264,
+    "source_child_elapsed_ns": 120707325034,
+    "source_child_ru_maxrss_bytes": 361693184,
+    "mirror_files": 104,
+    "mirror_bytes": 40693951,
+    "mirror_directories": 19,
+    "mirror_measured_chunks": 2550,
+    "mirror_seconds": 2.030999999959022,
+    "no_new_firmware_maintenance": true,
+    "owners": {
+      "collector_records": 419,
+      "collector_unique": 410,
+      "additional_unique": 43,
+      "total_exact_closed_records": 462,
+      "unique_pi": 453,
+      "duplicate_records": 9,
+      "host_closed": 160,
+      "all_extra_exact_dead": true,
+      "extra_utility_closed": true
+    }
+  },
+  "resources": {
+    "census": 216,
+    "closure": 263,
+    "combined_output_bytes": 5477523309,
+    "payload_with_target_and_reservations_bytes": 55872783592,
+    "original_output_headroom_bytes": -108814189,
+    "original_payload_headroom_bytes": -38208744,
+    "admitted_output_cap": 5563744256,
+    "admitted_payload_cap": 55959355392,
+    "admitted_output_headroom": 86220947,
+    "admitted_payload_headroom": 86571800,
+    "before_later_metadata": true,
+    "stale_before_dispatch": true
+  },
+  "source_backup": {
+    "files": 13,
+    "bytes": 118820,
+    "separate_restore_exact": true
+  },
+  "host_test": {
+    "v1": "FAILED_WINDOWS_O_DIRECTORY_BEFORE_WORKER",
+    "v2": "PASS_TWO_RETAINED_EVENTS_EXACT_ARCHIVE_ROUNDTRIP",
+    "linux_durability_tested": false,
+    "expected_rejects": 3,
+    "maximum_physical_write": 65536
+  },
+  "runtime_offline_accepted": false,
+  "baseline_unchanged": true,
+  "capture_closed": true,
+  "leases_free": true,
+  "research_compute_active": false,
+  "last_positive_saved_model_summary": 98,
+  "hard_deadline_utc": "2026-10-01T17:42:44Z",
+  "launcher_milestone": "MISSED_STILL_OPEN",
+  "missing_identity_gaps": [
+    "V109 failed exporter58929 startticks missing",
+    "V111 host check PID/create_time missing",
+    "V113 inline issuer/read-only utilities unregistered",
+    "V114 first host pre-SSH failed coordinator PID/create_time unrecorded; issuing wrapper was registered"
+  ],
+  "additional_identity_scope": "Reused live inline stage-closure and closed-tree helpers have natural termination only, no self-owner receipts; collectorV9 and external review utilities recorded exact identities.",
+  "next_action": "Fresh copy of the immutable full120s archive for actual Save/Open and required data actions; correct original-payload versus consumer-clock validation. Do not rerun healthy capture solely for validator. General modes/offline/rollback/gallery/physical-touch/human-noise remain open."
+}
