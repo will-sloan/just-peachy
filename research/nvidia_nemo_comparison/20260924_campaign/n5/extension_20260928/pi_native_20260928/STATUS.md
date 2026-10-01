@@ -1,5 +1,10 @@
 # Connected CM5: native work is now the priority
 
+## Current V140
+
+Current V140: new Pi boot verified after the user reported reconnection. Original rc5 auto-started capture; one normal Stop returned the app to Start/captureoff with hardware lease free. Normal Settings control then disabled only auto_start_listening after exact private backup/restore. App remains running, display270 and original install/live/display pins unchanged. Final-release reboot persistence/offline readiness are still open. Changed PC transport passed2positive/9reject cases with synthetic remote identities/closure callback; native manager/exporter remains unexecuted. Follow FINISH_CHECKLIST.md:26concrete items, F01/F02 done, F03 saved pending restart proof, F04 next. New user deadline16:14:58Z (12:14:58Toronto), finalization15:14:58Z; no new campaigns.
+
+
 ## Current V139 - auxiliary graph/framing passed, bootstrap prepared
 
 Current V139: host auxiliary graph and binary framing passed three positive groups and17rejects. All15actual transitive modules109074B were parsed/pinned/compiled; only a synthetic pure module pair and the actual extracted frame helper ran on the host. Exporter2 corrects prepared exporter1 ASCII/binary-header mismatch. Early native bootstrap and pinned graph loader are prepared, unexecuted. Seven source/README36196B have exact backups and independent restores within scope. No Pi contact during the disconnect hold until12:52Z. Native manager/host wrapper/joint dispatcher, persistent launcher/recovery/offline, desktop shortcuts and true raw/processed offload remain OPEN. Sherpa ONNX retained; harddeadline17:42:44Z unchanged.

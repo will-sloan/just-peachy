@@ -1,9 +1,9 @@
 {
   "schema": "just-peachy.delivery-acceptance.v1",
-  "as_of_utc": "2026-10-01T12:27:39.557530+00:00",
-  "hard_deadline_utc": "2026-10-01T17:42:44Z",
+  "as_of_utc": "2026-10-01T13:30:04.004332+00:00",
+  "hard_deadline_utc": "2026-10-01T16:14:58Z",
   "overall": "IN_PROGRESS",
-  "latest_verified_research_summary": "CHECK_SUMMARY_V139.json",
+  "latest_verified_research_summary": "CHECK_SUMMARY_V140.json",
   "gates": [
     {
       "id": "D1_COMPONENTS",
@@ -45,7 +45,7 @@
       "id": "OFFLINE_STARTUP_AND_OPERATION",
       "status": "OPEN",
       "required": true,
-      "evidence": null
+      "evidence": "V140 new boot/display270/config/XMOS observed; rc5 auto-capture stopped and auto-start disabled. Final candidate offline startup remains OPEN (F19)."
     },
     {
       "id": "SUSTAINED_RESOURCE_AND_INTEGRITY",
@@ -65,7 +65,7 @@
       "status": "SCOPED_NATIVE_READ_ONLY_HEALTH_PASS_LOCAL_RECOVERY_ACTIVATION_OPEN",
       "required": true,
       "evidence": "V129 native health inspected actual successful sessions-v6 and failed sessions-v2 under expired policies without writes or capture. Both owners/leases/capture verified quiescent; V2 missing parent stays fenced.",
-      "remaining": "Native bootstrap is prepared but unexecuted. Complete host manager census/export/closure wrapper, joint issuer/dispatcher and collector integration. New native manager composition, production lifetime/activation/recovery remain unqualified. V138 owner/boot contract is host-only. User shutdown still requires actual new boot/config/display/microphone verification; no coldboot/offline acceptance."
+      "remaining": "F04/F05/F17/F18/F19: complete local manager/admission, activation/rollback/recovery and final-release offline startup. New boot verified V140; old rc5 recovered and automatic listening disabled. Prepared native manager remains unexecuted."
     },
     {
       "id": "PERSONAL_GALLERY_COMPATIBILITY",
@@ -134,6 +134,13 @@
     "network_unreachable_observed": true,
     "physical_halt_observed": false,
     "coldboot_verified": false,
-    "expected_reconnect_utc": "2026-10-01T12:52:00Z"
-  }
+    "expected_reconnect_utc": "2026-10-01T12:52:00Z",
+    "new_boot_verified": true,
+    "reconnected_user_report": true,
+    "boot_id": "892ed9fa-e39c-48af-8653-eae5e123daad"
+  },
+  "active_execution_list": "FINISH_CHECKLIST.md",
+  "active_execution_item": "F04",
+  "latest_observation": "New boot verified; actual normal Stop; auto-start disabled through UI; no final-release/offline acceptance.",
+  "concrete_finish_list": "FINISH_CHECKLIST.md"
 }

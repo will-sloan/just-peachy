@@ -1,0 +1,76 @@
+{
+  "version": 140,
+  "as_of_utc": "2026-10-01T13:31:52.613304+00:00",
+  "status": "PASS_POSTBOOT_NORMAL_STOP_IDLE_SETTING_AND_CHANGED_HOST_TRANSPORT",
+  "effective_deadline_utc": "2026-10-01T16:14:58Z",
+  "finalization_reserve_utc": "2026-10-01T15:14:58Z",
+  "execution_list": "FINISH_CHECKLIST.md",
+  "current_item": "F04",
+  "host_transport": {
+    "positive_groups": 2,
+    "rejects": 9,
+    "actual_pc_subprocesses": 11,
+    "remote_owners_synthetic": true,
+    "closure_callback_synthetic": true,
+    "native_exporter_executed": false
+  },
+  "new_boot": "892ed9fa-e39c-48af-8653-eae5e123daad",
+  "baseline": [
+    {
+      "pid": 1008,
+      "start_ticks": 476
+    },
+    {
+      "pid": 1124,
+      "start_ticks": 514
+    }
+  ],
+  "new_boot_observed": true,
+  "physical_coldboot_unplug_proven": false,
+  "actual_display_transform": 270,
+  "original_three_config_pins_unchanged": true,
+  "startup_capture_observed": true,
+  "one_normal_stop": true,
+  "capture_after": "closed",
+  "hardware_lease_free": true,
+  "app_left_running": true,
+  "alsa_owner_1284_is_thread_of_app_1124": true,
+  "auto_start_setting": false,
+  "settings_only_changed_field": "auto_start_listening",
+  "settings_before_sha256": "23ffcb5b0e79c0d32617f06e46b685e18cd6446fb29c86b3845741f20917be5b",
+  "settings_after_sha256": "d94face8f202cc0aceac059bf32500721ab5da5b8e18446291642e9464ef0b57",
+  "settings_backup_independent_restore_verified": true,
+  "final_release_restart_persistence": false,
+  "source_backup": {
+    "files": 7,
+    "bytes": 35717,
+    "independent_restores": true,
+    "gaps": [
+      "scope1 transport source backup not closed before expiry",
+      "scope2 reconnect source backup assertion rejected after expiry; following host CLI failed before registration/SSH because output parent absent"
+    ]
+  },
+  "preserved_failures": [
+    "reconnect inspector1 busy hardware lease before census output; later inspector2 exact prior dead",
+    "idle-start1 exact Settings text lookup failed before any button invoke; actual current page already Settings; changed v2 selected actual On button once"
+  ],
+  "native_manager_executed": false,
+  "new_model_or_recording_started": false,
+  "final_release_ready": false,
+  "offline_acceptance": false,
+  "required_remaining": "F04-F26 plus F03 restart evidence; no new campaigns or generic healthy reruns",
+  "private_evidence": [
+    "operator-local-receiver-v1-preparation",
+    "user-reconnect-20261001-v1",
+    "user-reconnect-20261001-v3",
+    "user-reconnect-20261001-v4",
+    "final-delivery-ui-inspect-v1",
+    "final-delivery-tk-inspect-v1",
+    "final-delivery-normal-stop-v1",
+    "final-delivery-stop-completion-v1",
+    "final-delivery-idle-start-v1",
+    "final-delivery-settings-inspect-v1",
+    "final-delivery-idle-start-v2",
+    "final-delivery-checklist-v1"
+  ]
+}
