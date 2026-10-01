@@ -1,0 +1,126 @@
+{
+  "version": 122,
+  "as_of_utc": "2026-10-01T05:04:52.012012+00:00",
+  "status": "PASS_LOSSLESS_OWNER_BINDING_PARENT_NATIVE_ENVELOPE_PREPARED",
+  "host_review": {
+    "status": "PASS_HOST_LOSSLESS_OWNER_BINDING_ONLY",
+    "native_executed": false,
+    "pins": [
+      {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\NATIVE_CLOSURE_V275.json",
+        "sha256": "460073b8e56d1a4f9fb6137a179625fe3ca9739f518af8bffe3ab3a602ff7b3d",
+        "bytes": 161488
+      },
+      {
+        "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\operator-native-v1-preparation\\EXTRA_OWNER_CLOSURE_V1.json",
+        "sha256": "47dc70f6a666501e1569c4e709653d13c12aa9270e979deb16b500315c53c26f",
+        "bytes": 109062
+      }
+    ],
+    "unique_owners": 503,
+    "full_bytes": 43008,
+    "compact_bytes": 8506,
+    "count": 503,
+    "digest": "271cb6ce750bba48bf9fdda77430453b319e3805ec34517acf477088b18c9d5f",
+    "rejected": [
+      "duplicate-input",
+      "boolean-count",
+      "boolean-pid",
+      "zero-tick",
+      "wrong-digest",
+      "changed-order",
+      "duplicate-pair",
+      "wrong-count",
+      "extra-field"
+    ],
+    "seconds": 0.02419150003697723
+  },
+  "prepared": {
+    "parent": "field_operator_parent_v1.py",
+    "entry": "field_operator_entry_v2.py",
+    "controller": "field_operator_controller_v3.py",
+    "layout": "field_operator_layout_v2.py",
+    "paths": "field_operator_paths_v1.py",
+    "physical": "field_operator_files_v2.py",
+    "source_graph": [
+      "isolated_pipeline_source_v11.py",
+      "isolated_live_facade_v9.py",
+      "isolated_live_transport_v6.py",
+      "field_live_source_factory_v6.py",
+      "field_live_source_bridge_v6.py",
+      "field_live_source_outputs_v6.py"
+    ],
+    "dispatcher": "dispatch_field_operator_v2.py",
+    "stager": "stage_field_operator_v2.py",
+    "gate": "field_operator_gate_v2.py",
+    "exporter": "field_operator_export_v2.py",
+    "mirror": "mirror_field_operator_v2.py",
+    "runtime_executed": false,
+    "new_resource_policy_issued": false,
+    "parent_extra_target_and_mirror_each": 163840,
+    "target_reservation": 146919980,
+    "host_reservation": 151114284,
+    "combined_reservation": 298034264,
+    "capsule_projection": 56,
+    "actual_staged_capsule": false,
+    "automatic_ui_actions": false,
+    "repeated_mode_launcher_qualified": false
+  },
+  "source_backup": {
+    "files": 30,
+    "bytes": 241842,
+    "separate_restore_exact": true
+  },
+  "owners": {
+    "collector_records": 425,
+    "collector_unique": 416,
+    "additional_unique": 87,
+    "total_exact_closed_records": 512,
+    "unique_pi": 503,
+    "duplicate_records": 9,
+    "host_closed": 257,
+    "typed_nonidentity_closures": 3,
+    "later_metadata_owners_separate": true
+  },
+  "resources": {
+    "census": 223,
+    "closure": 275,
+    "combined_output_bytes": 5735925518,
+    "payload_with_target_and_reservations_bytes": 56131185801,
+    "target_bytes": 2985745712,
+    "host_window_bytes": 2750179806,
+    "closed_readonly_policy": "TRANSFER_RESOURCE_POLICY_V2",
+    "policy_sha256": "097f0ee8d0cd7459376b793e7c949ed4be046392d0c6a91d8cae8ff1f8b1f9f7",
+    "old_output_headroom": -367216398,
+    "old_payload_headroom": -296610953,
+    "closed_policy_output_headroom": 201111794,
+    "closed_policy_payload_headroom": 201462647,
+    "stale_before_future_dispatch": true,
+    "before_source_and_later_metadata": true
+  },
+  "preflight_lifetime_files": 30,
+  "failures": [
+    "Outer JS Markdown-fence parse failure before host execution",
+    "Exact gate source replacement expected o; actual owner; two generated modules reused only after exact byte check",
+    "First parent static AST comparison omitted README-reference changes; separately corrected review, source unchanged"
+  ],
+  "missing_identity_gaps": [
+    "V109 failed exporter58929 startticks missing",
+    "V111 host check PID/create_time missing",
+    "V113 inline issuer/read-only utilities unregistered",
+    "V114 first host pre-SSH failed coordinator PID/create_time unrecorded; issuing wrapper was registered",
+    "V118 v2 early gate PID/start_ticks unrecorded; natural SSH1 only; V3 registers gate before preflight"
+  ],
+  "runtime_offline_accepted": false,
+  "baseline_unchanged": true,
+  "capture_closed": true,
+  "leases_free": true,
+  "research_compute_active": false,
+  "last_positive_saved_model_summary": 98,
+  "last_live_source_model_summary": 117,
+  "last_saved_actions_summary": 118,
+  "last_transfer_actions_summary": 120,
+  "hard_deadline_utc": "2026-10-01T17:42:44Z",
+  "launcher_milestone": "MISSED_STILL_OPEN",
+  "next_action": "Review/finish a bounded real-button qualification driver for prepared parentV1/childentryV2, then assemble/pin complete capsule, existing mode manifest and18 Registry dependencies plus actual live D1 binding. Refresh ALL owners/lifetimes/census/target and issue NEW explicit298034264B measured allowance. Qualify changed parent Open -> actual audio New/Start/Stop/Save/export/delete/import/open -> Return/reap/chooser/Close, with source/native/archive closure and exact native payload fields plus only2 documented consumer-clock extras. No healthy120s/model/source/transfer rerun solely for version. Then repeated-mode/history allocation, versioned health/install/local automatic recovery/activation/rollback/offline. Nonempty captions/gallery/physicaltouch/noisyhuman remain open."
+}

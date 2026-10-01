@@ -1,9 +1,9 @@
 {
   "schema": "just-peachy.delivery-acceptance.v1",
-  "as_of_utc": "2026-10-01T04:40:59.456726+00:00",
+  "as_of_utc": "2026-10-01T05:04:52.012012+00:00",
   "hard_deadline_utc": "2026-10-01T17:42:44Z",
   "overall": "IN_PROGRESS",
-  "latest_verified_research_summary": "CHECK_SUMMARY_V121.json",
+  "latest_verified_research_summary": "CHECK_SUMMARY_V122.json",
   "gates": [
     {
       "id": "D1_COMPONENTS",
@@ -23,7 +23,7 @@
       "required": true,
       "evidence": "V98 fresh child owner ACK, actual installed Streaming StartStop, five coherent generic/D1 phases, normal reaping/closure; V96 preowner recovery separate",
       "remaining": "V100 visible inspection/return/close passes. General repeated modes/operator Start/failure-concurrency/live/offline remain open",
-      "entry_preparation": "V121 interactive child joins live/data actions, host MRO/UI-boundary tests pass; native composition and parent repeated-process lifecycle UNEXECUTED. Existing V98/V100 scoped launcher results unchanged.",
+      "entry_preparation": "V122 parent/child ACK/reap/chooser and native envelope prepared; actual native composition and general repeated modes UNEXECUTED. Owner vector503 exact roundtrip/nine rejects. V98/V100 scoped results unchanged.",
       "milestone": "September30 21:42:44UTC missed; still open, final deadline unchanged"
     },
     {
@@ -31,7 +31,7 @@
       "status": "SCOPED_120S_LIVE_STOP_AND_SEPARATE_SAVED_COPY_ACTIONS_PASS",
       "required": true,
       "evidence": "V117 complete1920000sample/12001frame live source/D1/archive/Stop; old whole validator failed. V118 separate exact-copy visible Save/Open passed; no retroactive whole-live pass.",
-      "remaining": "V121 combined interactive child prepared only; actual native live+data composition/general operation still required."
+      "remaining": "V122 changed parent-child live/data composition prepared only; actual native qualification still required."
     },
     {
       "id": "VISIBLE_GUI_AND_PHYSICAL_CONTROLS",
@@ -57,7 +57,7 @@
       "status": "SCOPED_SAVED_COPY_DATA_ACTIONS_PASS_GENERAL_NONEMPTY_OPEN",
       "required": true,
       "evidence": "V118 visible copied Save/Open; V120 fresh SAVED copy actual installed Field/UI export/delete/import/open, seven original/imported files exact, stored23569379B ZIP, detached actual consumer. Separate admissions, zero caption rows.",
-      "remaining": "V121 combines bounded actions with live controller in prepared sources only. General integrated operator/repeated actions and nonempty caption/link reconstruction remain open."
+      "remaining": "V122 parent and joined interactive child prepared only. General integrated operator/repeated actions and nonempty captions/links remain open."
     },
     {
       "id": "INSTALL_HEALTH_ACTIVATE_ROLLBACK",

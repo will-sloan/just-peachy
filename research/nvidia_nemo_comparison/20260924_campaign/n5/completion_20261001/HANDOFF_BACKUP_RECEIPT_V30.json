@@ -1,0 +1,13 @@
+{
+  "status": "EXACT_DOCUMENTATION_BACKUP_VERIFIED",
+  "label": "operator-parent-v30",
+  "archive": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\completion-20261001-backups\\operator-parent-v30\\NVIDIA_CAMPAIGN_CHATGPT_HANDOFF_20260924_operator-parent-v30.zip",
+  "bytes": 37064,
+  "sha256": "8963bc5617c72ed6c7dfd2f93bc5c577d4db4b8c3988b489f83e0deffa7fb2df",
+  "member_count": 15,
+  "cpu_affinity": [
+    14
+  ],
+  "delivery_status": "IN_PROGRESS",
+  "runtime_or_offline_acceptance": false
+}
