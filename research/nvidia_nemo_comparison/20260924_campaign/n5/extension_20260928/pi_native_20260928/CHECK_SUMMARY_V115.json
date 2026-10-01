@@ -1,0 +1,135 @@
+{
+  "version": 115,
+  "as_of_utc": "2026-10-01T01:46:00.219375+00:00",
+  "status": "PASS_ACTUAL_SOURCE_FAILURE_PHYSICAL_RELEASE_ONLY",
+  "actual": {
+    "status": "PASS_ACTUAL_SOURCE_FAILURE_PHYSICAL_RELEASE_ONLY",
+    "whole_trial_success": false,
+    "native_trials": 2,
+    "first_native_trial": "FAILED_SOURCE_IDENTITY_PIN_BEFORE_INSTALLED_CONSTRUCTORS_CAPTURE",
+    "source_stream_opened": true,
+    "source_accepted": false,
+    "source_samples": 0,
+    "model_samples": 0,
+    "route_snapshot_and_restoration_failed": true,
+    "source_integrity": {
+      "child_closed": true,
+      "discarded_after_failure_samples": 0,
+      "journal_samples": 0,
+      "ok": false,
+      "original_error": "ISOLATED_LIVE_FAILURE: LiveAudioError",
+      "physical_closure": {
+        "child_reaped": true,
+        "exact_identity_dead": true,
+        "observed_start_ticks": null,
+        "owner": {
+          "boot_id": "af9c6c63-3c54-42c5-8f79-6fbce3fe7d43",
+          "pid": 59850,
+          "start_ticks": 17996174
+        },
+        "returncode": 1,
+        "transport_closed": true,
+        "watch_error": null,
+        "watch_result": {
+          "abort": false,
+          "hard_ns": 180256212809637,
+          "kill_sent": false,
+          "pid": 59850,
+          "reaped_ns": 179964521484141,
+          "returncode": 1,
+          "soft_ns": 180226212809637,
+          "terminate_sent": false
+        },
+        "watcher_joined": true,
+        "wire_closed": true
+      },
+      "reasons": [
+        "SOURCE_FINALIZATION_FAILED"
+      ],
+      "source_samples": 0
+    },
+    "source_secondary_errors": [
+      "CHILD_OUTPUT_OR_FINALIZATION_FAILED"
+    ],
+    "controller_closed": true,
+    "command_worker_joined": true,
+    "model_closed": true,
+    "archive_closed": true,
+    "archive_worker_joined": true,
+    "open_writable_descriptors": 0,
+    "guard_failures": {},
+    "runtime_lock_removed": true,
+    "capture_closed": true,
+    "priming_frames_discarded": 56160,
+    "restoration_frames_discarded": 57600,
+    "setters_observed": 0,
+    "firmware_changed": false,
+    "positive_live": false,
+    "save_open": false,
+    "actual_worker_seconds": 7.733440526004415,
+    "peak_sampled_worker_rss_bytes": 477757440,
+    "minimum_sampled_available_ram_bytes": 967819264,
+    "resource_samples": 16,
+    "actual_mirror_files": 95,
+    "actual_mirror_bytes": 600162,
+    "actual_mirror_dirs": 19,
+    "measured_chunks": 97,
+    "first_mirror": {
+      "files": 63,
+      "bytes": 408043,
+      "chunks": 65
+    },
+    "closure_version": 254,
+    "collector_records": 408,
+    "additional_records": 16,
+    "total_records": 424,
+    "unique_pi_identities": 417,
+    "host_closed": 97,
+    "source_backup_files": 27,
+    "source_backup_bytes": 250677,
+    "separate_restore_verified": true,
+    "recovery_precedent": {
+      "summary": 53,
+      "maintenance": "xvf-recovery-v3",
+      "actual_source": "source-quiet-v2",
+      "samples": 192000,
+      "route_restored": true,
+      "not_periodic_reset_authority": true
+    },
+    "closed_utc": "2026-10-01T01:46:00.219375+00:00"
+  },
+  "resources": {
+    "census": 213,
+    "closure": 254,
+    "combined_output_bytes": 5357277426,
+    "payload_with_target_and_reservations_bytes": 55752537709,
+    "old_output_headroom_bytes": 11431694,
+    "old_payload_headroom_bytes": 82037139,
+    "admitted_policy_output_cap_bytes": 5523898368,
+    "admitted_policy_payload_cap_bytes": 55919509504,
+    "admitted_policy_output_headroom_bytes": 166620942,
+    "admitted_policy_payload_headroom_bytes": 166971795,
+    "before_later_metadata": true,
+    "stale_before_next_dispatch": true
+  },
+  "source_backup": {
+    "files": 27,
+    "bytes": 250677,
+    "separate_restore_exact": true
+  },
+  "runtime_offline_accepted": false,
+  "baseline_unchanged": true,
+  "capture_closed": true,
+  "leases_free": true,
+  "research_compute_active": false,
+  "last_positive_saved_model_summary": 98,
+  "hard_deadline_utc": "2026-10-01T17:42:44Z",
+  "launcher_milestone": "MISSED_STILL_OPEN",
+  "missing_identity_gaps": [
+    "V109 failed exporter58929 startticks missing",
+    "V111 host check PID/create_time missing",
+    "V113 inline issuer/read-only utilities unregistered",
+    "V114 first host pre-SSH failed coordinator PID/create_time unrecorded; issuing wrapper was registered"
+  ],
+  "next_action": "Use V53 verified one-shot recovery precedent through fresh bounded derivative with current failure bound, exact tool/config/install backups and fresh measured admission; no periodic reset. Then fresh combined source+D1/visible Stop/Save/Open. Keep failed V4/V5 and all older roots immutable."
+}
