@@ -1,0 +1,187 @@
+{
+  "version": 134,
+  "as_of_utc": "2026-10-01T10:21:04.897259+00:00",
+  "status": "PASS_CHANGED_START_ROLE_BINDING_SUPERVISOR_PREPARED",
+  "native_app_attempts": 0,
+  "native_manager_attempts": 0,
+  "native_local_backup_attempts": 0,
+  "actual_capture": false,
+  "model_sessions": 0,
+  "active_research_compute": false,
+  "capture_currently_off": true,
+  "selected": {
+    "journal": "field_local_release_files_v4.py",
+    "supervisor": "field_local_supervisor_v1.py",
+    "gate": "field_operator_broker_gate_v10.py",
+    "check": "check_field_local_start_binding_v1.py",
+    "collector": "collect_native_closure_v16.py",
+    "readme": "README_FIELD_LOCAL_SUPERVISOR_V2.md"
+  },
+  "source_backup": {
+    "files": 7,
+    "bytes": 75807,
+    "independent_restore_exact": true,
+    "all_closed_before_scope_expiry": true
+  },
+  "owners": {
+    "collector_records": 480,
+    "collector_unique": 456,
+    "additional_unique": 195,
+    "total_exact_closed_records": 675,
+    "unique_pi": 651,
+    "duplicate_records": 24,
+    "host_closed": 565,
+    "typed_nonidentity_closures": 3,
+    "later_metadata_owners_separate": true
+  },
+  "resources": {
+    "census": 248,
+    "closure": 308,
+    "combined_output_bytes": 5885773239,
+    "payload_with_target_and_reservations_bytes": 56281033522,
+    "target_bytes": 3027013451,
+    "host_window_bytes": 2858759788,
+    "old_output_excess": 517064119,
+    "old_payload_excess": 446458674,
+    "stale_before_future_dispatch": true,
+    "readonly_policy": "TRANSFER_RESOURCE_POLICY_V2"
+  },
+  "host_binding": {
+    "result": {
+      "status": "PASS_CHANGED_HISTORICAL_ROLE_BINDING",
+      "positive_groups": 1,
+      "rejected": [
+        "gate-is-not-service-mainpid",
+        "inactive-unit",
+        "extra-service-field",
+        "integer-mainpid",
+        "foreign-boot",
+        "shared-pid",
+        "bool-pid",
+        "zero-start-tick",
+        "extra-owner-field",
+        "missing-owner-field"
+      ],
+      "historical_broker": {
+        "boot_id": "af9c6c63-3c54-42c5-8f79-6fbce3fe7d43",
+        "pid": 63675,
+        "start_ticks": 20307467
+      },
+      "historical_gate": {
+        "boot_id": "af9c6c63-3c54-42c5-8f79-6fbce3fe7d43",
+        "pid": 63670,
+        "start_ticks": 20307449
+      },
+      "historical_pins": {
+        "broker/ENVELOPE.json": {
+          "bytes": 802,
+          "sha256": "18e9f3af0f0609d31bb1fed4a209a1f61b6f27952cd1e9b0356fd970ef55e522"
+        },
+        "broker/OWNER.json": {
+          "bytes": 85,
+          "sha256": "b8ad2dec8a19888ae370d61f72d14bc4d06169366237f2ed97fb509a6faf2f5d"
+        },
+        "broker/GATE_OWNER.json": {
+          "bytes": 85,
+          "sha256": "9c85e26a01ef35568743cf1da23bdbc0375ea7a0ee900ae232adf3c150ea2193"
+        }
+      },
+      "active_state_fixture": true,
+      "current_native_identity_checked": false,
+      "native_execution": false,
+      "journal_constructor": false,
+      "source_bytes_unchanged": true
+    },
+    "owner": {
+      "pid": 25172,
+      "create_time": 1790849813.1693864,
+      "affinity": [
+        14
+      ]
+    },
+    "actual_native_execution": false,
+    "source_projection": {
+      "status": "PASS_STATIC_SUPERVISOR_AND_HISTORICAL_ROLE_BINDING",
+      "manager_capsule_files": [
+        "field_host_budget_v1.py",
+        "field_live_layout_v2.py",
+        "field_live_layout_v3.py",
+        "field_local_backup_contract_v1.py",
+        "field_local_broker_backup_v1.py",
+        "field_local_release_files_v2.py",
+        "field_local_release_files_v4.py",
+        "field_local_release_plan_v1.py",
+        "field_local_supervisor_v1.py",
+        "field_operator_broker_files_v2.py",
+        "field_operator_broker_layout_v2.py",
+        "field_operator_broker_streamed_mirror_v1.py",
+        "field_operator_health_v1.py",
+        "field_operator_session_ledger_v4.py",
+        "field_operator_session_plan_v1.py",
+        "field_operator_session_plan_v3.py"
+      ],
+      "manager_capsule_bytes": 144779,
+      "source_files": [
+        {
+          "path": "field_local_supervisor_v1.py",
+          "bytes": 7654,
+          "sha256": "213093f693286de39f0cc155fab8955c3c1071e4e271c3ef9f6f4abca352bcfd"
+        },
+        {
+          "path": "check_field_local_start_binding_v1.py",
+          "bytes": 2855,
+          "sha256": "80882892cf11edb89ee23e94628c96402137cff58d76e734333a6f0dc35dbe0e"
+        },
+        {
+          "path": "README_FIELD_LOCAL_SUPERVISOR_V1.md",
+          "bytes": 6668,
+          "sha256": "421de39d6abc620049c9264f710efa119a248d3f4aea561d2803e1a88371513c"
+        },
+        {
+          "path": "field_local_release_files_v4.py",
+          "bytes": 23473,
+          "sha256": "ae8e7c11cdf7a9f94ca091c9f792f65f2f2a3846c5ce3c8cc1a96b5af3ce91ad"
+        },
+        {
+          "path": "field_operator_broker_gate_v9.py",
+          "bytes": 16641,
+          "sha256": "39505a86b1d5f843024270b4dc3f1d3e06f3f0f808200b63e6e28e675bb3e315"
+        },
+        {
+          "path": "field_operator_broker_gate_v10.py",
+          "bytes": 16636,
+          "sha256": "07d2a1dacc2ce99360d7e8607339d0be09d21ec0364a3b71fd0621f2be976fc6"
+        },
+        {
+          "path": "README_FIELD_LOCAL_SUPERVISOR_V2.md",
+          "bytes": 1880,
+          "sha256": "c7061ead6fa3615339927f5aca93673d0ceca9791fa25fa860f7f7578a458737"
+        }
+      ],
+      "all_other_journal_methods_exact": true,
+      "gate_tree_methods_exact": true,
+      "registration_before_ack": true,
+      "native_execution": false,
+      "one_session_entry_builder_dispatcher_missing": true
+    }
+  },
+  "native_supervisor_executed": false,
+  "journal_backup_consumer_native_qualified": false,
+  "production_policy_issued": false,
+  "production_admission_implemented": false,
+  "failed_source_backup_implemented": false,
+  "automatic_recovery_qualified": false,
+  "proposed_idle_seconds": 86400,
+  "proposed_idle_lifetime_admitted": false,
+  "qualification_maximum_seconds": 600,
+  "new_native_identity_gap": false,
+  "preparation_correction": "Gate9 used the manager recordings allocation key; source inspection showed broker key count. Fresh Gate10 corrects only that key and README reference. Gate9 remains independently backed, native unexecuted.",
+  "prior_identity_gaps_preserved": true,
+  "runtime_accepted": false,
+  "offline_accepted": false,
+  "physical_touch": false,
+  "accuracy": false,
+  "next_action": "Complete the one-session broker driver/entry/builder and fresh joint manager/broker issuer/dispatcher, preserving64broker and16manager code limits. Bind reserve-before-stage, actual current gate/broker owners and Journal4 STARTED before ACK, natural gate reap/exact death, then fresh-process CLOSED plus complete independent local backup and fresh read-only reopen. Register all early native owners and add strict exact new nested journal-owner collector bindings before census. The prepared supervisor reserve phase creates the initial fresh manager only; subsequent-slot supervisor entry remains to be wired through the existing journal API. Never use the V132 two-slot source or old consumed policies as a one-slot admission. Failed-source backups/recovery, production lifetime and activation/rollback remain open; proposed24hour idle is unadmitted. Keep each research operation plus cleanup/host backup within600seconds and before17:42:44Z. Verify local automatic recovery before network isolation. Preserve consumed/pending/failed roots, display270, manual controls and captureoff. No unchanged healthy check/live/copy reruns. Nonempty captions/gallery/physical touch/noisy human remain open.",
+  "claim_limits": "One positive historical role-binding group and10rejections only; ActiveState is synthetic. No actual current service/process identity, Journal constructor, GateLink, native reservation/copy/reopen, activation or recovery qualification. All prepared supervisor/native gate paths unexecuted. V133 fixture binding/V132 actual local copy/V131 Journal2 metadata remain separate.",
+  "source_scope_note": "Seven source/README75807B exact backups and independent restores closed within fresh600s HOST_SCOPE_V2,10:11:27.399959..10:21:27.399959UTC. Scope1 census only; no source backup gap. Static manager projection16modules144779B fits unchanged code limits, not a staged capsule."
+}

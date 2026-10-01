@@ -1,9 +1,9 @@
 {
   "schema": "just-peachy.delivery-acceptance.v1",
-  "as_of_utc": "2026-10-01T10:00:08.902232+00:00",
+  "as_of_utc": "2026-10-01T10:21:04.897259+00:00",
   "hard_deadline_utc": "2026-10-01T17:42:44Z",
   "overall": "IN_PROGRESS",
-  "latest_verified_research_summary": "CHECK_SUMMARY_V133.json",
+  "latest_verified_research_summary": "CHECK_SUMMARY_V134.json",
   "gates": [
     {
       "id": "D1_COMPONENTS",
@@ -23,7 +23,7 @@
       "required": true,
       "evidence": "V128 actual two independent delayed sessions and previous-history UI, captureoff and exact parent/child/source closure before next. V98/V100/V123 remain separate scopes. V129 removes automatic qualification drivers in backed manual derivatives; native unexecuted. Read-only native health separately recognizes closed history and preserves failed-tree fencing.",
       "remaining": "Persistent manual user launcher, mode switching beyond admitted delayed sessions, local failure recovery and offline release remain open.",
-      "entry_preparation": "Manual builder6/gate8/entry6/broker7/stage5/parent13/child11 prepared only; controller6/source11 retained. README manual2. Existing dispatcher6 pins old gate7. V130 finite local release plan1 passed three host fixture groups/17rejects; native metadata journal2 was then prepared and unexecuted. No production lifetime/admission implemented. V131 actual native journal2 create/reopen and injected pending write-fault fencing passed across four fresh processes, with full host metadata backup. Production manager/automatic recovery remain open; V300 scanner identity gap preserved. V132 actual complete local recording backup passed with source owner/unit/gate/model/archive closure checks and complete host backup. Journal consumer/next-slot integration, failed-source recovery and production manager remain open; historical identity gaps preserved. V133 prepares Journal3 actual closure/local backup/next-slot methods with direct supplied-fact publications fenced. Changed host binding two positive groups/20rejects passed; all new native lifecycle methods remain unexecuted. Failed-source backup/recovery and production supervisor are open.",
+      "entry_preparation": "Manual builder6/gate8/entry6/broker7/stage5/parent13/child11 prepared only; controller6/source11 retained. README manual2. Existing dispatcher6 pins old gate7. V130 finite local release plan1 passed three host fixture groups/17rejects; native metadata journal2 was then prepared and unexecuted. No production lifetime/admission implemented. V131 actual native journal2 create/reopen and injected pending write-fault fencing passed across four fresh processes, with full host metadata backup. Production manager/automatic recovery remain open; V300 scanner identity gap preserved. V132 actual complete local recording backup passed with source owner/unit/gate/model/archive closure checks and complete host backup. Journal consumer/next-slot integration, failed-source recovery and production manager remain open; historical identity gaps preserved. V133 prepares Journal3 actual closure/local backup/next-slot methods with direct supplied-fact publications fenced. Changed host binding two positive groups/20rejects passed; all new native lifecycle methods remain unexecuted. Failed-source backup/recovery and production supervisor are open. V134 corrects prepared Journal4 MainPID to actual broker role and prepares Supervisor1/Gate10 registration before ACK. One historical host positive group/10rejects passed; ActiveState fixture. All new native paths unexecuted; one-session driver/entry/builder/dispatch, subsequent-slot supervision and recovery remain open.",
       "milestone": "September30 21:42:44UTC missed; still open, final deadline unchanged"
     },
     {
@@ -65,7 +65,7 @@
       "status": "SCOPED_NATIVE_READ_ONLY_HEALTH_PASS_LOCAL_RECOVERY_ACTIVATION_OPEN",
       "required": true,
       "evidence": "V129 native health inspected actual successful sessions-v6 and failed sessions-v2 under expired policies without writes or capture. Both owners/leases/capture verified quiescent; V2 missing parent stays fenced.",
-      "remaining": "V133 prepares the successful-source journal/local-backup consumer. Actual native composition, failed-source backup/recovery, supervisor, production admission, activation/rollback and offline/coldboot remain open. No24hour idle lifetime admitted."
+      "remaining": "V134 local supervisor/gate integration is prepared only. One-session capsule/joint admission/dispatcher and complete manager-tree host backup are missing. Actual native manager composition, subsequent-slot supervision, failed-source recovery, production admission, activation/rollback and offline/coldboot remain open. No24hour idle lifetime admitted."
     },
     {
       "id": "PERSONAL_GALLERY_COMPATIBILITY",
@@ -89,7 +89,7 @@
       "id": "FINAL_BACKUP_AND_RESTORE_VERIFICATION",
       "status": "OPEN",
       "required": true,
-      "evidence": "V133 five source/README42877B exact private backups and independent restores, all source work closed within scope. V132 actual complete330file5927246B local-copy tree backup remains verified; no new native tree this wake. Final release/manager remain open."
+      "evidence": "V134 seven source/README75807B exact private backups and independent restores, source closures inside scope. V132 complete330file5927246B local-copy backup remains verified. No new native app tree. Final release/manager remain open."
     },
     {
       "id": "N1_N5_COVERAGE_RECONCILIATION",
