@@ -1,0 +1,13 @@
+# Local manager binding: current index V2
+
+Current result: PASS_CHANGED_BACKUP_BINDING_MANAGER_PREPARED. New Journal3 lifecycle and complete local-backup consumer are prepared and independently backed; they have not run on the Pi. The changed host contract passed two positive fixture groups and20rejections once. Its output host-binding-v1 is consumed. Journal2's native metadata qualification and V132's complete native two-session copy remain separate historical results.
+
+Read [V1](README_FIELD_LOCAL_MANAGER_V1.md) for purpose, inputs, outputs, PowerShell, Command Prompt, Anaconda and bounded native API sequence. No command in V1 installs, admits or activates a production manager. The proposed24hour idle lifetime is not admitted.
+
+Selected sources: field_local_backup_contract_v1.py and field_local_release_files_v3.py; checker check_field_local_manager_v1.py. The native import projection is15existing/new modules135940bytes, within the original16file/2MiB code allocation. This is static dependency coverage, not a staged manifest or native import/constructor proof. The original Journal2 publisher body is unchanged after two new entry guards; close, live guard, slot caps and capsule verification have identical ASTs.
+
+The new lifecycle rejects caller-supplied recording facts and unavailable activation/rollback. It observes actual broker/gate identities before STARTED, actual successful closure before CLOSED, and uses the V132 copier plus complete independent source/backup readback before BACKUP. A next recording requires a fresh root and fresh actual closure checks for prior certified copies. Uncertified partial backups, pending metadata and failed sources remain preserved and fenced. No failed-source recovery or mutation retry is implemented.
+
+The host test uses synthetic policy, identity, unit and copy observations. It checks the one-slot allocation distinction, source/destination/policy/unit bindings, byte/directory accounting, canonical member names, active owners/services and missing readback. It does not construct Journal, launch a manager, copy recordings, access native filesystem or establish actual recovery.
+
+No native app, capture, model, GUI or data action was attempted for this result. Read-only owner/resource checks remain separate. Production supervisor/activation/rollback, failed-source local backup, automatic recovery and offline qualification remain open. Every future native composition needs a fresh reviewed admission, actual current baseline identities, exact capsule/module pins, complete independent host backup and closure within600seconds and before2026-10-01T17:42:44Z.

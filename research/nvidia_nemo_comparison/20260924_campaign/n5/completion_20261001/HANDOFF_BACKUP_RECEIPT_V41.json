@@ -1,0 +1,13 @@
+{
+  "status": "EXACT_DOCUMENTATION_BACKUP_VERIFIED",
+  "label": "local-manager-v41",
+  "archive": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\completion-20261001-backups\\local-manager-v41\\NVIDIA_CAMPAIGN_CHATGPT_HANDOFF_20260924_local-manager-v41.zip",
+  "bytes": 39157,
+  "sha256": "53c668011e0cd854267c45b68bf8a426e1274bc445d6e1bde768de2e1b805a06",
+  "member_count": 15,
+  "cpu_affinity": [
+    14
+  ],
+  "delivery_status": "IN_PROGRESS",
+  "runtime_or_offline_acceptance": false
+}

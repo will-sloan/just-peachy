@@ -1,0 +1,146 @@
+{
+  "version": 133,
+  "as_of_utc": "2026-10-01T10:00:08.902232+00:00",
+  "status": "PASS_CHANGED_BACKUP_BINDING_MANAGER_PREPARED",
+  "native_app_attempts": 0,
+  "native_manager_attempts": 0,
+  "native_local_backup_attempts": 0,
+  "actual_capture": false,
+  "model_sessions": 0,
+  "active_research_compute": false,
+  "capture_currently_off": true,
+  "selected": {
+    "contract": "field_local_backup_contract_v1.py",
+    "journal": "field_local_release_files_v3.py",
+    "check": "check_field_local_manager_v1.py",
+    "copy": "field_local_broker_backup_v1.py",
+    "collector": "collect_native_closure_v16.py",
+    "readme": "README_FIELD_LOCAL_MANAGER_V2.md"
+  },
+  "source_backup": {
+    "files": 5,
+    "bytes": 42877,
+    "independent_restore_exact": true,
+    "all_closed_before_scope_expiry": true
+  },
+  "owners": {
+    "collector_records": 480,
+    "collector_unique": 456,
+    "additional_unique": 193,
+    "total_exact_closed_records": 673,
+    "unique_pi": 649,
+    "duplicate_records": 24,
+    "host_closed": 552,
+    "typed_nonidentity_closures": 3,
+    "later_metadata_owners_separate": true
+  },
+  "resources": {
+    "census": 247,
+    "closure": 307,
+    "combined_output_bytes": 5883212213,
+    "payload_with_target_and_reservations_bytes": 56278472496,
+    "target_bytes": 3027013451,
+    "host_window_bytes": 2856198762,
+    "old_output_excess": 514503093,
+    "old_payload_excess": 443897648,
+    "stale_before_future_dispatch": true,
+    "readonly_policy": "TRANSFER_RESOURCE_POLICY_V2"
+  },
+  "host_binding": {
+    "result": {
+      "status": "PASS_CHANGED_BACKUP_BINDING_FIXTURES_ONLY",
+      "positive_groups": 2,
+      "rejects": [
+        "two-slot source exceeds one-slot release binding",
+        "foreign source root",
+        "bad source policy digest",
+        "wrong destination",
+        "wrong source unit",
+        "one byte reservation short",
+        "bool reservation",
+        "missing independent readback",
+        "missing directory accounting",
+        "missing file byte accounting",
+        "missing parent directory",
+        "duplicate directory",
+        "case alias",
+        "traversal",
+        "bool file size",
+        "empty file name",
+        "active service",
+        "active owner",
+        "missing owner",
+        "unknown receipt field"
+      ],
+      "template_path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\field-local-release-v1-admission\\RELEASE.json",
+      "fixture_policy_and_identity_and_copy": true,
+      "journal_constructor": false,
+      "native_filesystem": false,
+      "copy_executed": false,
+      "manager_launched": false,
+      "capture": false,
+      "production_policy_issued": false
+    },
+    "owner": {
+      "pid": 66484,
+      "create_time": 1790848539.6295445,
+      "affinity": [
+        14
+      ]
+    },
+    "actual_native_execution": false,
+    "source_projection": {
+      "status": "PASS_STATIC_MANAGER_SOURCE_AND_CAPSULE",
+      "files": [
+        "field_host_budget_v1.py",
+        "field_live_layout_v2.py",
+        "field_live_layout_v3.py",
+        "field_local_backup_contract_v1.py",
+        "field_local_broker_backup_v1.py",
+        "field_local_release_files_v2.py",
+        "field_local_release_files_v3.py",
+        "field_local_release_plan_v1.py",
+        "field_operator_broker_files_v2.py",
+        "field_operator_broker_layout_v2.py",
+        "field_operator_broker_streamed_mirror_v1.py",
+        "field_operator_health_v1.py",
+        "field_operator_session_ledger_v4.py",
+        "field_operator_session_plan_v1.py",
+        "field_operator_session_plan_v3.py"
+      ],
+      "code_bytes": 135940,
+      "all_project_imports_in_capsule": true,
+      "unchanged_methods": [
+        "close",
+        "_live",
+        "_slot_caps",
+        "_capsule"
+      ],
+      "original_publisher_after_new_guards_exact": true,
+      "native_execution": false,
+      "source_backup_exact": true
+    }
+  },
+  "native_local_backup_executed": false,
+  "journal_backup_consumer_implemented": true,
+  "journal_backup_consumer_native_qualified": false,
+  "production_policy_issued": false,
+  "production_admission_implemented": false,
+  "failed_source_backup_implemented": false,
+  "automatic_recovery_qualified": false,
+  "proposed_idle_seconds": 86400,
+  "proposed_idle_lifetime_admitted": false,
+  "qualification_maximum_seconds": 600,
+  "new_native_identity_gap": false,
+  "host_failures": [
+    "Initial source-writer command exceeded Windows CreateProcess command length before process creation. Files were generated via apply_patch then compiled and backed within the same fresh scope. No native dispatch or mutation retry."
+  ],
+  "prior_identity_gaps_preserved": true,
+  "runtime_accepted": false,
+  "offline_accepted": false,
+  "physical_touch": false,
+  "accuracy": false,
+  "next_action": "Qualify the changed Journal3 recording lifecycle with an actual fresh one-slot broker, exact current gate/broker identities, successful session closure and complete local backup before any next recording. Use a fresh reviewed supervisor/activation adapter and admission; the prepared API itself does not launch, activate or authorize capture. Do not reuse the V132 two-slot source as a one-slot allocation or relabel fixture facts as native evidence. Failed sources and uncertified copies remain fenced; implement their complete backup/recovery separately while preserving consumed roots. Add production admission and activation/rollback using current baseline identities. Research operations remain at most600seconds including cleanup/host backup before17:42:44Z; proposed24-hour idle remains unadmitted. Verify local automatic recovery before network isolation. Preserve manual controls, immutable modes/assets, display270 and captureoff. No unchanged healthy binding/copy/journal/live/two-session/history reruns. Nonempty captions/gallery/physical touch/noisy human remain open.",
+  "claim_limits": "Two positive pure host fixture groups and20changed rejection cases only. Journal3 constructor, native session-gate observation, complete copy consumer, next-slot release, failed-source recovery, activation/rollback and production supervision remain native unexecuted. Existing V132 copy and V131 Journal2 metadata results are separate. No native app/capture/model/GUI/data action or new accuracy/benchmark.",
+  "source_scope_note": "Five source/README42877B exact backups and independent restores closed within fresh600s preparation scope2. Scope1 performed census only; no source backup gap. Fifteen-module135940B static dependency projection fits original code limits; no native capsule staged."
+}
