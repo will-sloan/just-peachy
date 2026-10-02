@@ -1,0 +1,64 @@
+{
+  "items": [
+    {
+      "evidence": "mount-save-v1; integrated-v27-v1 geometry",
+      "id": "M01",
+      "status": "DONE",
+      "task": "Confirm mounted axes and actual microphone-array center"
+    },
+    {
+      "evidence": "physical-v1; mount-save-v1",
+      "id": "M02",
+      "status": "DONE_FUNCTIONAL_NOT_ACCURACY",
+      "task": "Save fixed mount and exercise approximate90degree physical turn"
+    },
+    {
+      "evidence": "runtime-capsule-v3; delivery-review-v1",
+      "id": "M03",
+      "status": "DONE",
+      "task": "Share efficient causal pose/beam path across all10profile pins"
+    },
+    {
+      "evidence": "changed-check-v1; actualstartupgapandrecovery",
+      "id": "M04",
+      "status": "DONE",
+      "task": "Correct existing location/display frames and invalidate unreliable motion"
+    },
+    {
+      "evidence": "integrated-v26-v1; samefinalcommoncode",
+      "id": "M05",
+      "status": "DONE",
+      "task": "Optional hidden-by-default graphic with visual-onlyzero"
+    },
+    {
+      "evidence": "integrated-v27-v1; offload-v27-original/local",
+      "id": "M06",
+      "status": "DONE",
+      "task": "One changed live recording, Stop/Save/closure and two independentPCcopies"
+    },
+    {
+      "evidence": "1.21%onecore50.29Hz; excludesbeamgettersandbattery",
+      "id": "M07",
+      "status": "DONE_SCOPED",
+      "task": "Measure workerCPU, retain bounded queues and sampling"
+    },
+    {
+      "evidence": "shortcuts-v27-v2; publication-v2",
+      "id": "M08",
+      "status": "DONE",
+      "task": "Currentshortcuts, guides, sourcebackup and updatedhandoff"
+    },
+    {
+      "id": "V01",
+      "status": "REAL_WORLD_VALIDATION_OPEN",
+      "task": "Physicaltouch, noisyspeakercomparison, longdrift, battery and coldboot"
+    },
+    {
+      "id": "L01",
+      "reason": "Noexternalheading/position/range; no synchronizedsidecarreplay",
+      "status": "NOT_IMPLEMENTED_OR_OBSERVABLE",
+      "task": "Absoluteheading, reliableroomtranslation and plainWAVmotionreplay"
+    }
+  ],
+  "schema": "just-peachy.mounted-motion-checklist.v1"
+}

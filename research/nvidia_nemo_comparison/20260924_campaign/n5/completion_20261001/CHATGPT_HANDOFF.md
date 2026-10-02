@@ -1,4 +1,10 @@
-# ChatGPT handoff — prepared CM5 runtime
+# ChatGPT handoff — current mounted-motion runtime
+
+Read START_HERE, MODE_GUIDE and MOTION_GUIDE first. Current release is v27; the following v23 completion account is retained history. The new shared mounted motion path was deployed, checked with one5.25s live recording and two independent complete PC copies, and left idle with three slots remaining. All ten profile pins share the same common code. IMU thread cost was1.21% of one core at50.29samples/s; not total pipeline or battery cost.
+
+Use microphone-array-centered geometry and distinguish raw device-relative beam arrows from trusted relative-anchor location logic. BMI270 has no absolute heading/position reference: yaw can drift; detected translation/gaps suspend location assumptions. Current live pose is excluded from plain saved WAVs. Source in mounted-source/runtime is exact deployed code for reading, not a bare standalone launcher. The prior prepared-device kit and refresh wrapper omit this addition. See the new motion renewal command and MOTION_* receipts. No noisy-world accuracy, battery or physical-touch claim is added.
+
+## Earlier runtime/model completion (v23 history)
 
 The user requested a working offline runtime for real-world testing, then restored NeMo TitaNet alongside ReDimNet with one shortcut for each supported combination. Reused the prior ONNX model/frontend and native runtime work; no new research campaign, download, training, enrollment, solicited speech or playback.
 

@@ -1,0 +1,187 @@
+{
+  "fixed_mount_sha256": "e17ea820ca7a960d71a6c82b649b7901293574e7771d49fc82c90bb3a3a5eaab",
+  "historical_kit": "runtime-delivery-v23; excludes mounted motion",
+  "host_code": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\Resumes\\imu_integration_20261002",
+  "native_root": "/home/peachyprototype/JustPeachy/research/nemotron-20260928/field-runtime-v27",
+  "observed_utc": "2026-10-02T20:27:50.357190+00:00",
+  "private_evidence": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\imu-integration-20261002",
+  "renewal": "renew_motion_runtime.py; combined wrapper prepared/compiled/planned only",
+  "repository_source": "G:\\Just_Peachy_N1\\20260924_campaign\\worktree\\research\\nvidia_nemo_comparison\\20260924_campaign\\n5\\extension_20260928\\pi_native_20260928\\mounted_imu_20261002",
+  "result": {
+    "all_model_profiles_rerun": false,
+    "array_center_m": [
+      0,
+      0,
+      0
+    ],
+    "audio_seconds": 5.25,
+    "automatic_stationary_recovery_observed": true,
+    "beam_drops": 0,
+    "beam_samples": 79,
+    "blocks": 525,
+    "capture_off": true,
+    "common_sha256": "3383fa869e7357cfa7f9ef410be6dcb40972feb40cea7aebee9d71dd526e4d80",
+    "copy": {
+      "bytes": 3641161,
+      "data_chunks": 348,
+      "directories": 27,
+      "files": 201,
+      "manifest_sha256": "92cc5105498b7997fbcddf4e42ae807f63c1fe6f9d6bd6744aa7178bce4ac598"
+    },
+    "current_manager": {
+      "boot_id": "fddfa8ec-8af2-4e41-ae56-f2ac5dcc73d4",
+      "pid": 2626,
+      "start_ticks": 362288
+    },
+    "debug_graphic": {
+      "tap_visual_zero": true,
+      "visible": true,
+      "width": 80
+    },
+    "imu_thread_measurement": {
+      "battery_energy_measured": false,
+      "cpu_seconds": 0.06230841900000002,
+      "elapsed_seconds": 5.150374873000146,
+      "external_beam_getter_CPU_measured": false,
+      "includes_GUI_or_models": false,
+      "one_core_percent": 1.2097841523466566,
+      "samples_per_second": 50.28760165745563
+    },
+    "independent_pc_copies": 2,
+    "initial_sensor_gap_invalidated": true,
+    "limitations": [
+      "Relative yaw may drift; no magnetometer/absolute heading",
+      "Linear array retains front/back ambiguity",
+      "No reliable inertial room-position/range estimate; acceleration invalidates location priors",
+      "Initial model loading caused one sensor gap; affected spatial trust was withheld until automatic stationary recovery",
+      "No new noisy-human recognition or battery-endurance result"
+    ],
+    "maximum_causal_pose_age_sec": 0.03145803999996133,
+    "model_accuracy_tested": false,
+    "mounted_sensor_from_center_m": [
+      -0.045,
+      -0.16,
+      -0.015
+    ],
+    "physical_array_geometry_m": [
+      -0.04995,
+      0.0,
+      0.0,
+      -0.01665,
+      0.0,
+      0.0,
+      0.01665,
+      0.0,
+      0.0,
+      0.04995,
+      0.0,
+      0.0
+    ],
+    "physical_rotation_evidence": "physical-v1; approximate 90-degree clockwise and return, not accuracy calibration",
+    "pose_records": 44,
+    "profiles": {
+      "baseline": {
+        "backend_key": "baseline",
+        "diarization": "D0",
+        "embedding": "E0",
+        "engine_mode": "baseline",
+        "input_kind": "microphone",
+        "profile": "baseline",
+        "ui_mode": "open_with_names"
+      },
+      "baseline-anonymous": {
+        "backend_key": "baseline",
+        "diarization": "D0",
+        "embedding": "E0",
+        "engine_mode": "baseline",
+        "input_kind": "microphone",
+        "profile": "baseline-anonymous",
+        "ui_mode": "anonymous_conversation"
+      },
+      "baseline-titanet": {
+        "backend_key": "titanet",
+        "diarization": "D0",
+        "embedding": "E1",
+        "engine_mode": "baseline",
+        "input_kind": "microphone",
+        "profile": "baseline-titanet",
+        "ui_mode": "open_with_names"
+      },
+      "d1-anonymous": {
+        "backend_key": "nemotron_hybrid",
+        "diarization": "D1",
+        "embedding": "E0",
+        "engine_mode": "delayed",
+        "input_kind": "microphone",
+        "profile": "d1-anonymous",
+        "ui_mode": "anonymous_conversation"
+      },
+      "d1-chunk52-saved": {
+        "backend_key": "nemotron_hybrid",
+        "diarization": "D1",
+        "embedding": "E0",
+        "engine_mode": "chunk52",
+        "input_kind": "saved",
+        "profile": "d1-chunk52-saved",
+        "ui_mode": "open_with_names"
+      },
+      "d1-chunk52-titanet-saved": {
+        "backend_key": "nemotron_titanet",
+        "diarization": "D1",
+        "embedding": "E1",
+        "engine_mode": "chunk52",
+        "input_kind": "saved",
+        "profile": "d1-chunk52-titanet-saved",
+        "ui_mode": "open_with_names"
+      },
+      "d1-delayed": {
+        "backend_key": "nemotron_hybrid",
+        "diarization": "D1",
+        "embedding": "E0",
+        "engine_mode": "delayed",
+        "input_kind": "microphone",
+        "profile": "d1-delayed",
+        "ui_mode": "open_with_names"
+      },
+      "d1-delayed-titanet": {
+        "backend_key": "nemotron_titanet",
+        "diarization": "D1",
+        "embedding": "E1",
+        "engine_mode": "delayed",
+        "input_kind": "microphone",
+        "profile": "d1-delayed-titanet",
+        "ui_mode": "open_with_names"
+      },
+      "d1-streaming-saved": {
+        "backend_key": "nemotron_hybrid",
+        "diarization": "D1",
+        "embedding": "E0",
+        "engine_mode": "streaming",
+        "input_kind": "saved",
+        "profile": "d1-streaming-saved",
+        "ui_mode": "open_with_names"
+      },
+      "d1-streaming-titanet-saved": {
+        "backend_key": "nemotron_titanet",
+        "diarization": "D1",
+        "embedding": "E1",
+        "engine_mode": "streaming",
+        "input_kind": "saved",
+        "profile": "d1-streaming-titanet-saved",
+        "ui_mode": "open_with_names"
+      }
+    },
+    "release": "field-runtime-v27",
+    "remaining_recording_slots": 3,
+    "retained_shortcuts": 11,
+    "samples": 84000,
+    "status": "PASS_MOUNTED_MOTION_SHARED_RUNTIME_RECORDING_AND_PRIVATE_COPIES",
+    "valid_pose_records": 36,
+    "whole_frontend_idle": {
+      "cpu_seconds": 0.64,
+      "elapsed_seconds": 8.034760401000312,
+      "scope": "complete frontend; upper bound for IMU, includes GUI"
+    }
+  },
+  "schema": "just-peachy.mounted-motion-release.v1"
+}

@@ -1,7 +1,12 @@
 # Operator entry
 
-Start with [MODE_GUIDE.md](MODE_GUIDE.md) for every supported backend/embedding combination, exact version23 shortcut names, microphone/saved-WAV limits, Audio off/Processed/Raw+processed and verified PC offload.
+The current field-runtime-v27 has mounted motion and three recording slots left.
+It opens idle/capture off. Read MODE_GUIDE.md for all ten combinations, controls,
+duration limits, recording formats and PC offload. Read MOTION_GUIDE.md for the
+automatic reference, optional graphic and inertial-position limitations.
 
-Use [INSTALL_HEALTH_AND_RECOVERY.md](INSTALL_HEALTH_AND_RECOVERY.md) for prepared-device dependencies, fresh batch provisioning, storage/ownership guards and rollback. Use [FIELD_VALIDATION.md](FIELD_VALIDATION.md) and FIELD_RUN_TEMPLATE.json for consented real-world comparison. Keep TitaNet and ReDimNet galleries separate.
-
-The deployed runtime is for this prepared CM5 and its existing local environment. It starts idle. Four recording slots are freshly allocated; no recording begins merely by launching it. The final ChatGPT ZIP is documentation; the separate private prepared-device kit contains runtime/operator code and TitaNet assets.
+INSTALL_HEALTH_AND_RECOVERY.md contains the current motion-preserving renewal
+path. Old Refresh-JustPeachy and the v23 kit omit motion. The new handoff has
+guides and readable source, not models/private data or a fresh-device OS image.
+Use FIELD_VALIDATION.md/FIELD_RUN_TEMPLATE.json for real-world comparison; keep
+TitaNet/ReDimNet galleries separate and retain every recording/failure receipt.

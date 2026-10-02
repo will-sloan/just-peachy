@@ -1,5 +1,11 @@
 # Just Peachy delivery
 
-The prepared CM5 has the ten-profile offline runtime installed for bounded real-world validation, including NeMo TitaNet and ReDimNet choices and optional raw+processed recording. It is idle with four unused recording slots.
+The prepared CM5 runs **field-runtime-v27**, including all ten backend profiles
+and the mounted BMI270 integration. It was left idle, capture off, with **three
+recording slots remaining**. Start with [the operator entry](research/nvidia_nemo_comparison/20260924_campaign/n5/completion_20261001/START_HERE.md),
+then the mode and motion guides linked there. The current motion handoff receipt
+is MOTION_HANDOFF_RECEIPT.json; older FINAL_* receipts and the v23 kit are history.
 
-Start with [the operator entry](research/nvidia_nemo_comparison/20260924_campaign/n5/completion_20261001/START_HERE.md), then [the mode guide](research/nvidia_nemo_comparison/20260924_campaign/n5/completion_20261001/MODE_GUIDE.md). Exact kit/source/handoff hashes and remaining physical/quality-validation scope are in that directory.
+Relative rotation/tilt are integrated; reliable absolute room translation is not
+available from this six-axis sensor. Real-world recognition, battery and physical
+interaction validation remain separate from the completed functional check.

@@ -1,13 +1,36 @@
 # Just Peachy: start here
 
-**The prepared CM5 runtime is deployed for bounded real-world testing.** Current release: field-runtime-v23. It is visible idle, capture off, with four fresh recording slots and ten profile shortcuts plus rollback.
+**The prepared CM5 now runs field-runtime-v27 with mounted BMI270 integration.**
+It was left idle, capture off, display 270, with **three recording slots remaining**
+and ten backend shortcuts plus rollback. No recording starts by opening a profile.
 
-Read [MODE_GUIDE.md](MODE_GUIDE.md) for every backend/embedding combination and exact commands. Both NeMo TitaNet and ReDimNet are selectable; Sherpa ONNX ASR/PnC stays in place. Six profiles use the microphone; four Nemotron Streaming/Chunk52 profiles use saved WAVs. Limits are120s microphone/Chunk52 and30s saved Streaming. Optional recording supports Off, Processed, and qualified four-microphone16kHz raw+processed.
+Read [MODE_GUIDE.md](MODE_GUIDE.md) for the ten diarizer/embedding combinations,
+recording controls and PC commands. Read [MOTION_GUIDE.md](MOTION_GUIDE.md) for
+automatic calibration, array-centered geometry, the optional orientation graphic,
+and what the six-axis sensor can and cannot infer. Sherpa ASR, ReDimNet/TitaNet
+and the existing Pyannote/Nemotron choices are retained.
 
-[INSTALL_HEALTH_AND_RECOVERY.md](INSTALL_HEALTH_AND_RECOVERY.md) covers existing dependencies, pinned activation/rollback, health and one-command PC batch renewal. [PATHS_AND_BACKUPS.md](PATHS_AND_BACKUPS.md) gives all runtime, private recording, kit and restore locations. The91,554,957-byte prepared-device kit is separate from the small documentation handoff; it is not an arbitrary-device OS image.
+The changed shared integration passed one native 5.25-second processed recording,
+normal Stop/Save/Return/closure, local backup and two complete independent PC
+copies. It measured about 1.21% of one core for the IMU thread at 50.29 samples/s.
+All ten profiles bind the same code; the unchanged model combinations were not
+all rerun. Earlier all-profile and raw-recording evidence remains separately scoped.
 
-All ten routes have functional execution evidence. Raw/processed Stop, complete local backup and two independent PC copies passed; full batch preservation and fresh22→23 provisioning passed. Current manager40612/start5055076 is idle on bootcae570ae-9f68-4e09-9c1c-b6dbd4b03e97, with270orientation and480×800 geometry.
+The sensor handles relative rotation and tilt, with the microphone-array center
+as origin. Detected translation suspends location assumptions; reliable absolute
+room position is unavailable. Relative yaw can drift. Live beam arrows stay
+device-relative, and plain saved WAVs never borrow current tablet motion.
 
-Physical touch, cable-disconnected coldboot, battery endurance and noisy-world recognition accuracy remain the operator's validation phase. Use [FIELD_VALIDATION.md](FIELD_VALIDATION.md) and FIELD_RUN_TEMPLATE.json. No quality improvement, new enrollment or complete240-cell N4 comparison is claimed.
+[INSTALL_HEALTH_AND_RECOVERY.md](INSTALL_HEALTH_AND_RECOVERY.md) and
+[PATHS_AND_BACKUPS.md](PATHS_AND_BACKUPS.md) cover renewal, rollback and storage.
+Use the new motion renewal command; the historical Refresh-JustPeachy wrapper
+and 91,554,957-byte v23 kit omit the new integration. The current code is installed
+and independently backed up. The new small handoff includes guides and readable
+motion source, not models, recordings or a standalone OS image.
 
-Final source/kit/handoff hashes are recorded in FINAL_ARTIFACT_INDEX.json, FINAL_GIT_BACKUP.json and FINAL_HANDOFF_RECEIPT.json. FINISH_CHECKLIST tracks all26 requirements, with original N1–N5/34-method gaps retained in FINAL_COVERAGE.md.
+Current receipts: MOTION_RELEASE_INDEX.json, MOTION_CHECKLIST.json and
+MOTION_HANDOFF_RECEIPT.json. Older FINAL_* receipts remain immutable v23 history.
+Physical touch, cable-disconnected coldboot, battery endurance, long-term drift
+and noisy-world recognition remain real-world validation, not completed claims.
+Use FIELD_VALIDATION.md/FIELD_RUN_TEMPLATE.json. FINAL_COVERAGE retains the
+N1-N5/34-method denominator and incomplete full 240-cell N4 comparison.
