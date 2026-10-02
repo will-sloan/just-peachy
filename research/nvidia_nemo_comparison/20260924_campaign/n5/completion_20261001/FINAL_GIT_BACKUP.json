@@ -1,14 +1,16 @@
 {
-  "schema": "just-peachy.final-git-backup.v1",
-  "created_utc": "2026-10-01T16:10:39.956523+00:00",
-  "source_commit": "a38f8bc1105b60ee5756ecb8d8eb39c24a3d1df1",
+  "schema": "just-peachy.final-source-git-backup.v2",
+  "utc": "2026-10-02T08:23:12.027230+00:00",
+  "source_commit": "d4fa475acf0c01d33f156b39de39855de667de97",
+  "remote_commit": "d4fa475acf0c01d33f156b39de39855de667de97",
   "branch": "codex/n1-foundation-20260924",
-  "remote": "https://github.com/will-sloan/just-peachy.git",
-  "remote_source_commit_verified": true,
-  "reviewed_files": 48,
-  "reviewed_bytes": 740098,
-  "private_backup_and_independent_restore": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\final-delivery-publication-v1\\PUBLICATION_REVIEW_V1.json",
-  "media_credentials_models_in_git": false,
-  "delivery_status": "INCOMPLETE",
-  "final_receipts_may_follow_source_commit": true
+  "remote_verified": true,
+  "reviewed_files": 271,
+  "reviewed_bytes": 4303782,
+  "private_backup": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\runtime-v23-publication\\publication",
+  "independent_restore": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\runtime-v23-publication\\independent-publication-restore",
+  "all_index_bytes_exact": true,
+  "only21final_blank_line_exceptions_reviewed": true,
+  "private_payloads_published": false,
+  "closing_receipts_follow_separately": true
 }

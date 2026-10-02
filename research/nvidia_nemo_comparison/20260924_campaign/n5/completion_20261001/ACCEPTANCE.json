@@ -1,6 +1,6 @@
 {
   "schema": "just-peachy.delivery-acceptance.v1",
-  "as_of_utc": "2026-10-02T08:18:23.120423+00:00",
+  "as_of_utc": "2026-10-02T08:26:44.418658+00:00",
   "hard_deadline_utc": "2026-10-02T14:14:20Z",
   "overall": "RUNTIME_READY_FOR_BOUNDED_REAL_WORLD_VALIDATION",
   "latest_verified_research_summary": "CHECK_SUMMARY_V142.json",
@@ -78,10 +78,10 @@
     },
     {
       "id": "DOCUMENTATION_AND_CHATGPT_HANDOFF",
-      "status": "GUIDES_COMPLETE_HANDOFF_BUILD_PENDING",
+      "status": "DONE_EXACT_FINAL_DOCUMENTATION_ZIP_AND_INDEPENDENT_RESTORE",
       "required": true,
-      "evidence": "Current version23 mode/backend/install/offline/field guides; final receipt governs ZIP",
-      "remaining": "One final package"
+      "evidence": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\completion-20261001-backups\\runtime-complete-v52\\NVIDIA_CAMPAIGN_CHATGPT_HANDOFF_20260924_runtime-complete-v52.zip; a5f3d1a837f1dd927a5d14b2ab2d1bce3907eebd476136db7c27ffae7bd4da6a",
+      "remaining": "None"
     },
     {
       "id": "FIELD_VALIDATION_FRAMEWORK",
@@ -94,7 +94,7 @@
       "status": "PREPARED_RUNTIME_KIT_AND_INDEPENDENT_RESTORE_PASS",
       "required": true,
       "evidence": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\runtime-delivery-v23\\JustPeachy-prepared-CM5-runtime.zip; 684abe51500f47a6c444c1905783d8acb043d46887b9cd0a8a50388b83b27533",
-      "remaining": "Reviewed Git/handoff publication"
+      "remaining": "None for the prepared-device kit/source scope"
     },
     {
       "id": "N1_N5_COVERAGE_RECONCILIATION",
@@ -104,10 +104,10 @@
     },
     {
       "id": "DEADLINE_CLOSURE_AND_IDLE_DEVICE",
-      "status": "CURRENT_MANAGER_IDLE_RESEARCH_CLOSED_PUBLICATION_FINALIZING",
+      "status": "DONE_IDLE_DEVICE_RESEARCH_CLOSED_AUTOMATION_PAUSED",
       "required": true,
-      "evidence": "candidate23-shortcut-retirement-v1",
-      "remaining": "Pause automation after publication"
+      "evidence": "FINALIZATION_RECEIPT.json",
+      "remaining": "Future operator physical/noisy validation"
     },
     {
       "id": "DESKTOP_BACKEND_SHORTCUTS",
@@ -153,12 +153,12 @@
     "boot_id": "892ed9fa-e39c-48af-8653-eae5e123daad"
   },
   "active_execution_list": "FINISH_CHECKLIST.md",
-  "active_execution_item": "F17/F25/F26",
+  "active_execution_item": "COMPLETE_FOR_BOUNDED_REAL_WORLD_VALIDATION",
   "latest_observation": "CANDIDATE23_IDLE_FOUR_UNUSED_SLOTS",
   "concrete_finish_list": "FINISH_CHECKLIST.md",
   "feature_work_frozen": true,
   "required_product_gates_still_open": false,
-  "automation_paused": false,
+  "automation_paused": true,
   "native_last_observation": "candidate23-shortcut-retirement-v1: visible480x800 manager40612/start5055076, captureoff, four unused slots",
   "offline_release_ready": true,
   "deadline_authority": "DEADLINE_AUTHORITY_V3.json",
@@ -176,6 +176,8 @@
   "latest_runtime_evidence": "candidate23-shortcut-retirement-v1; field-runtime-v22-batch-preservation-v1; field-runtime-v23-install",
   "physical_offline_validation_complete": false,
   "full_N4_N5_research_complete": false,
-  "artifact_publication_pending": true,
-  "physical_and_quality_validation_pending": true
+  "artifact_publication_pending": false,
+  "physical_and_quality_validation_pending": true,
+  "source_commit": "d4fa475acf0c01d33f156b39de39855de667de97",
+  "closing_receipt": "FINALIZATION_RECEIPT.json"
 }

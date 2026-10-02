@@ -1,6 +1,6 @@
 # Concrete finish checklist
 
-Updated 2026-10-02T08:18:23.120423+00:00. Current runtime is ready for bounded validation. Original requirements and scoped limits remain below.
+Completed prepared-CM5 implementation and handoff 2026-10-02T08:26:44.418658+00:00. Physical/quality validation and historicalresearchgaps remain explicitly scoped below.
 
 ## F01 — Verify the returned Pi
 
@@ -196,17 +196,16 @@ Evidence: FIELD_VALIDATION.md/FIELD_RUN_TEMPLATE.json; no human/physical/noise-q
 
 ## F25 — Create and verify the final private and Git backups
 
-Status: **PRIVATE_CODE_DATA_KIT_RESTORE_PASS_GIT_PUBLICATION_PENDING**
+Status: **DONE_PRIVATE_KIT_RESTORE_AND_REMOTE_SOURCE_BACKUP**
 
 Exit criterion: Final deployable release/config and private recordings have complete independent copies/hash/readback and a demonstrated restore path. Push only reviewed small source/manifests/redacted reports; verify remote branch/profile refs. Never publish audio, profiles, vectors, credentials or model weights.
 
-Evidence: Current source/active configuration independent restores, complete raw and whole batch copies, full prepared-device kit restore
+Evidence: 91554957B runtimekit/2586members independentlyrestored; all271source/document files4303782B private/indexexact andremotecommit d4fa475acf0c01d33f156b39de39855de667de97
 
 ## F26 — Build the final handoff and leave a safe device
 
-Status: **DOCUMENTS_FROZEN_FINAL_EXTERNAL_RECEIPTS_PENDING**
+Status: **DONE_HANDOFF_AND_SAFE_IDLE**
 
 Exit criterion: Condensed ChatGPT ZIP<=20MiB(target<=10), WORKBOOK_UPDATE and artifact/hash index; deployable assets separately. Update ACCEPTANCE with actual evidence and all remaining blockers; close owned research, pause automation by deadline and leave accepted app idle/captureoff or recoverable baseline if required gates fail.
 
-Evidence: Final package/Git/automation outcome is recorded by FINAL_HANDOFF_RECEIPT.json and FINALIZATION_RECEIPT.json after the immutable documentation ZIP is built
-
+Evidence: 38member101985B handoff SHAa5f3d1a837f1dd927a5d14b2ab2d1bce3907eebd476136db7c27ffae7bd4da6a; fullreadback plusindependentZIP/expandedrestore; automationPAUSED; acceptedmanagerleftidle. Physical/noisyvalidationisfuture.

@@ -1,7 +1,7 @@
 {
-  "as_of_utc": "2026-10-02T08:18:23.120423+00:00",
+  "as_of_utc": "2026-10-02T08:26:44.418658+00:00",
   "deadline_utc": "2026-10-02T14:14:20Z",
-  "current_item": "F25/F26",
+  "current_item": "COMPLETE_FOR_BOUNDED_REAL_WORLD_VALIDATION",
   "items": [
     {
       "id": "F01",
@@ -173,17 +173,17 @@
     },
     {
       "id": "F25",
-      "status": "PRIVATE_CODE_DATA_KIT_RESTORE_PASS_GIT_PUBLICATION_PENDING",
+      "status": "DONE_PRIVATE_KIT_RESTORE_AND_REMOTE_SOURCE_BACKUP",
       "title": "Create and verify the final private and Git backups",
       "done_means": "Final deployable release/config and private recordings have complete independent copies/hash/readback and a demonstrated restore path. Push only reviewed small source/manifests/redacted reports; verify remote branch/profile refs. Never publish audio, profiles, vectors, credentials or model weights.",
-      "evidence": "Current source/active configuration independent restores, complete raw and whole batch copies, full prepared-device kit restore"
+      "evidence": "91554957B runtimekit/2586members independentlyrestored; all271source/document files4303782B private/indexexact andremotecommit d4fa475acf0c01d33f156b39de39855de667de97"
     },
     {
       "id": "F26",
-      "status": "DOCUMENTS_FROZEN_FINAL_EXTERNAL_RECEIPTS_PENDING",
+      "status": "DONE_HANDOFF_AND_SAFE_IDLE",
       "title": "Build the final handoff and leave a safe device",
       "done_means": "Condensed ChatGPT ZIP<=20MiB(target<=10), WORKBOOK_UPDATE and artifact/hash index; deployable assets separately. Update ACCEPTANCE with actual evidence and all remaining blockers; close owned research, pause automation by deadline and leave accepted app idle/captureoff or recoverable baseline if required gates fail.",
-      "evidence": "Final package/Git/automation outcome is recorded by FINAL_HANDOFF_RECEIPT.json and FINALIZATION_RECEIPT.json after the immutable documentation ZIP is built"
+      "evidence": "38member101985B handoff SHAa5f3d1a837f1dd927a5d14b2ab2d1bce3907eebd476136db7c27ffae7bd4da6a; fullreadback plusindependentZIP/expandedrestore; automationPAUSED; acceptedmanagerleftidle. Physical/noisyvalidationisfuture."
     }
   ],
   "feature_freeze_utc": "2026-10-02T13:14:20Z",

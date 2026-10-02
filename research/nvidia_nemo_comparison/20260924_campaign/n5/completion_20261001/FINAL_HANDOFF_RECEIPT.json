@@ -1,19 +1,18 @@
 {
   "status": "EXACT_DOCUMENTATION_BACKUP_VERIFIED",
-  "label": "final-incomplete-v50",
-  "archive": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\completion-20261001-backups\\final-incomplete-v50\\NVIDIA_CAMPAIGN_CHATGPT_HANDOFF_20260924_final-incomplete-v50.zip",
-  "bytes": 92040,
-  "sha256": "663331b84e038da7715a851098695f13e9a6a9cf88821586027a1cbf43d49c6f",
-  "member_count": 35,
+  "label": "runtime-complete-v52",
+  "archive": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\completion-20261001-backups\\runtime-complete-v52\\NVIDIA_CAMPAIGN_CHATGPT_HANDOFF_20260924_runtime-complete-v52.zip",
+  "bytes": 101985,
+  "sha256": "a5f3d1a837f1dd927a5d14b2ab2d1bce3907eebd476136db7c27ffae7bd4da6a",
+  "member_count": 38,
   "cpu_affinity": [
     14
   ],
-  "delivery_status": "INCOMPLETE",
-  "runtime_or_offline_acceptance": false,
-  "certified_utc": "2026-10-01T16:11:37.933850+00:00",
-  "independent_manifest_readback": true,
-  "automation_status": "PAUSED",
-  "source_commit": "a38f8bc1105b60ee5756ecb8d8eb39c24a3d1df1",
-  "archive_is_documentation_not_deployable_runtime": true,
-  "packed_F26_status": "Captured before this external ZIP certificate; archive remains immutable."
+  "delivery_status": "RUNTIME_READY_FOR_BOUNDED_REAL_WORLD_VALIDATION",
+  "runtime_or_offline_acceptance": true,
+  "physical_validation_complete": false,
+  "independent_zip_copy": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\runtime-v23-publication\\FINAL_HANDOFF_INDEPENDENT.zip",
+  "independent_expanded_restore": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\runtime-v23-publication\\handoff-independent-restore",
+  "source_commit": "d4fa475acf0c01d33f156b39de39855de667de97",
+  "documentation_snapshot_before_external_closing_receipt": true
 }
