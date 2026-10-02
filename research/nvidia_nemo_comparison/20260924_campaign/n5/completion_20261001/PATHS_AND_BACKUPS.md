@@ -1,3 +1,11 @@
+# Current runtime update — October2,02:14Z
+
+Five microphone combinations have completed short native recordings with normal Stop, Save, Return, broker Close, independent Pi-local backup and two independently verified PC copies: Nemotron Delayed/ReDimNet, Nemotron Delayed/TitaNet, baseline diarization/ReDimNet, baseline diarization/TitaNet, and Nemotron anonymous. Candidate8 (field-runtime-v8) completed four successive slots with prior recordings and copies unchanged. Its manager35273 is idle with capture off and all four recording slots consumed. It is not the final all-mode/offline release. Baseline anonymous and four saved Streaming/Chunk52 routes, optional recording controls/raw decision, final startup/offline operation and handoff remain open. No embedding-quality, nonempty-caption, physical-touch or noisy-world claim is made.
+
+See completion_20261001/MODE_GUIDE.md and FINISH_CHECKLIST for current commands and required remaining work. The older entries below retain their original historical scope and are superseded only where this dated update says so.
+
+Private base: G:/Just_Peachy_N1/20260924_campaign/local/n5/research-extension-20260928/pi-native-20260928. Complete successful offloads: field-runtime-v7-offload-v1 and field-runtime-v8-offload-v1/v3/v4/v5. Each contains the original broker tree and independent local copy, both copied and read back independently. field-runtime-v8-offload-v2 is a preserved pre-SSH host-reserve rejection, not a backup. field-runtime-v7-preservation-v1 retains its successful first recording, failed second and whole manager. Private ACTUAL_MODE_REVIEW_V2.json is under deployable-runtime-resume-v1. Final ZIP is not yet built.
+
 # Artifact and backup paths
 Paths below are exact. Preserve all old packs, failed roots, personal data and source bytes. No consolidation moved or deleted evidence.
 

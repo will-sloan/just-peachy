@@ -1,6 +1,6 @@
 {
   "schema": "just-peachy.delivery-acceptance.v1",
-  "as_of_utc": "2026-10-01T23:48:12.097811+00:00",
+  "as_of_utc": "2026-10-02T02:16:55.655384+00:00",
   "hard_deadline_utc": "2026-10-02T14:14:20Z",
   "overall": "INCOMPLETE",
   "latest_verified_research_summary": "CHECK_SUMMARY_V141.json",
@@ -19,10 +19,10 @@
     },
     {
       "id": "MODE_LAUNCHER_AND_ERROR_RECOVERY",
-      "status": "SCOPED_NATIVE_MANAGER_PASS_PERSISTENT_MANUAL_OPEN",
+      "status": "NATIVE_PERSISTENT_MANAGER_FOUR_RECORDINGS_AND_BACKUPS_PASS",
       "required": true,
-      "evidence": "CHECK_SUMMARY_V141; V128 repeated sessions retained.",
-      "remaining": "Persistent manual user launcher, mode switching beyond admitted delayed sessions, local failure recovery and offline release remain open.",
+      "evidence": "Five microphone combinations have completed short native recordings with normal Stop, Save, Return, broker Close, independent Pi-local backup and two independently verified PC copies: Nemotron Delayed/ReDimNet, Nemotron Delayed/TitaNet, baseline diarization/ReDimNet, baseline diarization/TitaNet, and Nemotron anonymous. Candidate8 (field-runtime-v8) completed four successive slots with prior recordings and copies unchanged. Its manager35273 is idle with capture off and all four recording slots consumed. It is not the final all-mode/offline release. Baseline anonymous and four saved Streaming/Chunk52 routes, optional recording controls/raw decision, final startup/offline operation and handoff remain open. No embedding-quality, nonempty-caption, physical-touch or noisy-world claim is made.",
+      "remaining": "See concrete finish checklist; final all-mode/offline release remains incomplete.",
       "entry_preparation": "V141 actual postboot reserve/run/finish/localbackup/reopen and both independent PC copies. Original joint overall result failed first manager copy; separate repaired copy passed. Persistent manual policy/recovery remains missing.",
       "milestone": "September30 21:42:44UTC missed; still open, final deadline unchanged"
     },
@@ -62,16 +62,17 @@
     },
     {
       "id": "INSTALL_HEALTH_ACTIVATE_ROLLBACK",
-      "status": "SCOPED_NATIVE_READ_ONLY_HEALTH_PASS_LOCAL_RECOVERY_ACTIVATION_OPEN",
+      "status": "ACTIVATION_AND_SCOPED_NORMAL_ROLLBACK_PASS_FINAL_RESTART_OPEN",
       "required": true,
-      "evidence": "V129 native health inspected actual successful sessions-v6 and failed sessions-v2 under expired policies without writes or capture. Both owners/leases/capture verified quiescent; V2 missing parent stays fenced.",
-      "remaining": "F04/F05/F17-F19 manual production admission, activation/rollback/local recovery and final offline startup remain OPEN. Manager native reopen V141 is not automatic recovery."
+      "evidence": "Candidates3..7 normal Stop/complete preservation/pinned local rollback succeeded; candidate8 remains idle. Final candidate restart and offline proof remain open.",
+      "remaining": "See concrete finish checklist; final all-mode/offline release remains incomplete."
     },
     {
       "id": "PERSONAL_GALLERY_COMPATIBILITY",
-      "status": "OPEN_FINAL_RELEASE_REVIEW",
+      "status": "SEPARATE_NATIVE_GALLERY_CONSUMERS_LOAD_QUERY_QUALITY_OPEN",
       "required": true,
-      "evidence": "Preserve compatible UUID/encoder/tap metadata; no automatic enrollment"
+      "evidence": "Existing E0 gallery and separate empty TitaNet namespace reached their actual selected model/controller paths. E0 full reference provenance caused the corrected metadata-size issue. Original gallery files remained unchanged; no conversion/enrollment. Quiet runs do not establish speaker matching performance.",
+      "remaining": "See concrete finish checklist; final all-mode/offline release remains incomplete."
     },
     {
       "id": "DOCUMENTATION_AND_CHATGPT_HANDOFF",
@@ -105,24 +106,24 @@
     },
     {
       "id": "DESKTOP_BACKEND_SHORTCUTS",
-      "status": "OPEN",
+      "status": "SIX_SHORTCUTS_INSTALLED_FINAL_SELECTION_AND_RETIREMENT_OPEN",
       "required": true,
-      "evidence": null,
-      "remaining": "One versioned local frontend with backend-specific desktop entries, idle/captureoff launch, exact profile pins, duplicate-owner exclusion, health/recovery and rollback. No icons pointing to expired research launchers."
+      "evidence": "Candidate8 six microphone shortcuts share one pinned idle frontend. Old shortcut versions need backed retirement. Final unconsumed release and saved routes remain.",
+      "remaining": "See concrete finish checklist; final all-mode/offline release remains incomplete."
     },
     {
       "id": "OPTIONAL_RAW_PROCESSED_RECORDING_PC_OFFLOAD",
-      "status": "OPEN",
+      "status": "PAIRED_PROCESSED_PC_OFFLOAD_PASS_OPTIONAL_RAW_CONTROLS_OPEN",
       "required": true,
-      "evidence": null,
-      "remaining": "Optional exact raw microphone and processed taps if supported, finite storage/duration, synchronized metadata, closed files, complete PC copy/hash/readback. Existing processed float/WAV archives are not raw-microphone proof."
+      "evidence": "export_runtime_recording_v2 copies both original and independent local backup, retains Pi originals and certifies only after native exact closure and PC readback. Candidate8 slots1..4 each199files, respectively3413381/3220373/3314669/3382897bytes per copy. Operator guide points to selected command; final release path still pending.",
+      "remaining": "Off/Processed controls and true raw routing decision remain open."
     },
     {
       "id": "SELECTABLE_TITANET_REDIMNET_COMBINATIONS",
-      "status": "HOST_BINDINGS_PREPARED_NATIVE_OPEN",
+      "status": "FIVE_MICROPHONE_COMBINATIONS_PASS_SAVED_AND_BASELINE_ANONYMOUS_OPEN",
       "required": true,
-      "evidence": "deployable-runtime-resume-v1/embedding-profiles-v1/RESULT.json: existing88696429B TitaNet artifacts hash-verified; ten configuration routes and four rejects; no model execution or installed shortcuts.",
-      "remaining": "Wire selected backend/runtime/namespace into admitted final capsules, allocate galleries/assets, execute focused Pi functionality and install idle profile shortcuts."
+      "evidence": "Actual complete runs: d1-delayed-titanet 5.46s, d1-delayed 5.34s, baseline-titanet 5.31s, baseline 5.49s, d1-anonymous 5.46s. This proves selected model loading/recording/closure, not speech accuracy or embedding query quality. Four saved routes and baseline anonymous remain.",
+      "remaining": "See concrete finish checklist; final all-mode/offline release remains incomplete."
     }
   ],
   "experimental_unavailable": [
@@ -166,5 +167,6 @@
     "offline_accepted": false,
     "geometry": "480x800+0+62",
     "remaining": "FINISH_CHECKLIST F04-F20/F23/F25/F26"
-  }
+  },
+  "latest_runtime_evidence": "deployable-runtime-resume-v1/ACTUAL_MODE_REVIEW_V2.json"
 }
