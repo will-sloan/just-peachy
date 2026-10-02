@@ -1,3 +1,20 @@
+# Current mounted-motion delivery — October 2
+
+field-runtime-v27 is deployed for bounded real-world validation across all ten
+profile pins, with BMI270 motion integration,3recording slots remaining and the
+last manager observation idle/captureoff/display270. Source commit
+ed27d04b6131106c400bda828a64d00274095c56 is remotely verified after user approval.
+Current operator instructions and refreshed handoff are in completion_20261001:
+START_HERE, MODE_GUIDE, MOTION_GUIDE, MOTION_RELEASE_INDEX, MOTION_REMOTE and
+MOTION_HANDOFF_RECEIPT. No additional native/model campaign is pending.
+
+Changed functional evidence:5.25s/84000samples, full Stop/Save/closure and two
+independentPCcopies; IMU thread1.21%ofonecore at50.29Hz. Translation invalidates
+location assumptions; no reliable absoluteposition/heading or noisyworld/battery
+claim. Future physicalvalidation follows FIELD_VALIDATION within actual limits.
+
+## Retained previous status and research history
+
 # Extended campaign status
 
 Latest verified result (September 28, 23:30 UTC): a0-panel-retry-v3 and a2-panel-retry-v3 passed independent PASS_TARGETED_APPLICATION_STRUCTURE_ONLY and PASS_TARGETED_RAW_CAPTION_LINEAGE_ONLY reviews with closed exact owners. Each retained all 715,127 samples and a complete native event census, passed source/archive/Controller closure within the unchanged drain gate, and represented every raw ASR revision with no unfinished utterance. Read PANEL_RETRY_FINDINGS_V3.md and PANEL_RETRY_CHECK_SUMMARY_V3.json. The source is now the immutable panel-journal-v1 derivative over component-costs-v1, with eight passed journal-retention checks and unchanged acoustic logic. V1 preflight, V2 collector failures and caption-reader V1's serialized-size error remain preserved. Current caption-reader V2 checks and verifies the actual bytes written.

@@ -1,11 +1,24 @@
 {
-  "bytes": 192107,
+  "bytes": 198026,
   "complete_member_readback": true,
+  "earlier_receipt": {
+    "bytes": 192107,
+    "complete_member_readback": true,
+    "independent_zip_and_expanded_restore": true,
+    "members": 53,
+    "old_packs_unchanged": true,
+    "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\imu-integration-20261002\\publication-v2\\JustPeachy-motion-v27-ChatGPT-handoff.zip",
+    "private_audio_or_models": false,
+    "schema": "just-peachy.motion-handoff-receipt.v1",
+    "sha256": "e318a11f9a1c7e07f9f08c2714d7378886fc623bb848d1525137a20e19243ca6"
+  },
   "independent_zip_and_expanded_restore": true,
-  "members": 53,
+  "members": 54,
   "old_packs_unchanged": true,
-  "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\imu-integration-20261002\\publication-v2\\JustPeachy-motion-v27-ChatGPT-handoff.zip",
+  "path": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\imu-integration-20261002\\approved-final-docs-v1\\JustPeachy-motion-v27-final-ChatGPT-handoff.zip",
   "private_audio_or_models": false,
-  "schema": "just-peachy.motion-handoff-receipt.v1",
-  "sha256": "e318a11f9a1c7e07f9f08c2714d7378886fc623bb848d1525137a20e19243ca6"
+  "schema": "just-peachy.motion-handoff-receipt.v2",
+  "sha256": "befe48002cdef52e9dcbc7d55ffedc8fcf788d7e238cc26601e1d513cc7b396b",
+  "source_commit": "ed27d04b6131106c400bda828a64d00274095c56",
+  "source_remote_verified": true
 }

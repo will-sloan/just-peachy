@@ -1,6 +1,19 @@
 # Current completion outcome
 
-The requested prepared-CM5 runtime implementation is deployed with ten profiles, TitaNet/ReDimNet, optional raw/processed recording, completeoffload andfreshbatchrenewal. Finalartifact/sourcepublication isbeingclosed. Physical/noisyvalidation follows the delivered test framework; it isnot fabricatedcompletionevidence. DeadlineV3 remains2026-10-02T14:14:20Z with13:14:20Z finalizationreserve.
+The prepared-CM5 runtime is deployed for bounded real-world validation as v27,
+with ten profiles, TitaNet/ReDimNet, optional raw/processed recording and shared
+mounted BMI270 integration. The changed recording, closure, independent backups,
+efficient-worker measurement and source push are complete. Three recording slots
+remained at the last observation; capture was off. Guides and handoff are refreshed.
+
+Physical/noisy-world recognition, longer yaw drift, touch, coldboot and battery
+validation remain user measurements. Reliable absolute room translation cannot be
+inferred from this six-axis IMU. The new renewal wrapper is prepared/compiled/planned;
+its component paths have execution evidence. Do not treat it as an additional native pass.
+
+The deadlines below governed the historical delivery. The later mounted-motion
+task and this final documentation/push were separately requested by the user;
+none of the old admissions or deadline receipts was extended or rewritten.
 
 ## Historical plan and milestones
 

@@ -1,28 +1,16 @@
 {
-  "schema": "just-peachy.observed-hardware-capabilities.v1",
-  "as_of_utc": "2026-10-02T08:10:28.665699+00:00",
-  "status": "ACTUAL_AUDIO_DISPLAY_DECLARATION_OTHER_CAPABILITIES_UNQUALIFIED",
-  "device": {
-    "model": "Compute Module5",
-    "ram_tier_gib": 2,
-    "device_bytes": 31268536320,
-    "architecture": "aarch64"
-  },
-  "display": {
-    "width": 480,
-    "height": 800,
-    "transform": 270,
-    "current_boot_observed": true,
-    "physical_touch_tested": false
-  },
+  "as_of_utc": "2026-10-02T22:07:26.874484+00:00",
   "audio": {
-    "firmware": [
-      3,
-      2,
-      1
-    ],
+    "actual_channel": 0,
+    "actual_stream_rate": 48000.0,
+    "actual_tap": "O0",
+    "actual_tap_scope": "O0 is the retained normal processed route; optional packed raw route is restored afterward",
     "build": "BLD_MSG intdev-lr48-lin-i2c",
-    "reported_microphones": 4,
+    "clock_calibrated_to_acoustic_arrival": false,
+    "control_protocol": "i2c",
+    "device_mic_gain": [
+      10
+    ],
     "endpoint": {
       "default_high_input_latency": 0.034829931972789115,
       "default_high_output_latency": -1.0,
@@ -36,32 +24,38 @@
       "max_output_channels": 0,
       "name": "XMOSDevice: 1f000a0000.i2s-dir-hifi dir-hifi-1 (hw:2,1)"
     },
-    "actual_stream_rate": 48000.0,
-    "control_protocol": "i2c",
-    "actual_tap": "O0",
-    "actual_channel": 0,
-    "model_rate": 16000,
-    "host_gain_db": 3.0,
-    "device_mic_gain": [
-      10
+    "firmware": [
+      3,
+      2,
+      1
     ],
-    "simultaneous_raw_mic0_mic3": "ACTUAL_PAIRED_RECORDING_PASS_16KHZ_PCM32",
+    "host_gain_db": 3.0,
+    "model_rate": 16000,
     "raw_route_physically_unsupported_proven": false,
-    "clock_calibrated_to_acoustic_arrival": false,
-    "actual_tap_scope": "O0 is the retained normal processed route; optional packed raw route is restored afterward"
-  },
-  "camera": {
-    "status": "OPTIONAL_UNQUALIFIED_IN_FINAL_RELEASE",
-    "new_probe": false
-  },
-  "imu": {
-    "status": "FINAL_AXIS_CLOCK_MOTION_VALIDATION_OPEN",
-    "drift_free_position_or_absolute_yaw": false
+    "reported_microphones": 4,
+    "simultaneous_raw_mic0_mic3": "ACTUAL_PAIRED_RECORDING_PASS_16KHZ_PCM32"
   },
   "buttons": {
-    "status": "NO_VERIFIED_PIN_ASSIGNMENTS",
+    "enable_unknown_gpio": false,
     "gpio_assignments": null,
-    "enable_unknown_gpio": false
+    "status": "NO_VERIFIED_PIN_ASSIGNMENTS"
+  },
+  "camera": {
+    "new_probe": false,
+    "status": "OPTIONAL_UNQUALIFIED_IN_FINAL_RELEASE"
+  },
+  "device": {
+    "architecture": "aarch64",
+    "device_bytes": 31268536320,
+    "model": "Compute Module5",
+    "ram_tier_gib": 2
+  },
+  "display": {
+    "current_boot_observed": true,
+    "height": 800,
+    "physical_touch_tested": false,
+    "transform": 270,
+    "width": 480
   },
   "evidence": [
     "final-manager-joint-v2/broker-copy-mirror/recordings/slot-01/source/SOURCE_START.json",
@@ -69,8 +63,75 @@
     "user-reconnect-20261001-v4/RESULT.json",
     "deployable-runtime-resume-v1/candidate22-raw-workflow-v1/RESULT.json"
   ],
+  "imu": {
+    "accelerometer_axes": 3,
+    "array_geometry_basis": "actual AEC_MIC_ARRAY_TYPE1 and AEC_MIC_ARRAY_GEO readback",
+    "array_geometry_m": [
+      [
+        -0.04995,
+        0,
+        0
+      ],
+      [
+        -0.01665,
+        0,
+        0
+      ],
+      [
+        0.01665,
+        0,
+        0
+      ],
+      [
+        0.04995,
+        0,
+        0
+      ]
+    ],
+    "configured_rate_hz": 50,
+    "drift_free_position_or_absolute_yaw": false,
+    "evidence": [
+      "imu-integration-20261002/physical-v1",
+      "imu-integration-20261002/mount-save-v1",
+      "imu-integration-20261002/delivery-review-v1/RESULT.json"
+    ],
+    "gyroscope_axes": 3,
+    "magnetometer": false,
+    "measured_rate_hz": 50.28760165745563,
+    "measured_thread_one_core_percent": 1.2097841523466566,
+    "measurement_scope": "5.150374873s thread observation; excludes external beam-getter CPU, GUI/models and battery energy",
+    "model": "SparkFun Bosch BMI270 6DoF",
+    "mount_axes_confirmed": true,
+    "mount_position_is_approximate": true,
+    "plain_wav_live_pose_excluded": true,
+    "sensor_from_array_center_m": [
+      -0.045,
+      -0.16,
+      -0.015
+    ],
+    "sensor_to_device": [
+      [
+        0,
+        1,
+        0
+      ],
+      [
+        -1,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        1
+      ]
+    ],
+    "status": "MOUNTED_SHARED_RUNTIME_FUNCTIONAL_PASS_REAL_WORLD_VALIDATION_OPEN"
+  },
   "raw_microphones": {
-    "status": "ACTUAL_PACKED_FOUR_MIC_AND_PROCESSED_PASS",
+    "equal_acoustic_latency_claimed": false,
+    "evidence": "candidate22-raw-workflow-v1; paired independent PC copies",
+    "format": "signed PCM32 little-endian interleaved",
     "physical_channels": [
       "MIC0",
       "MIC1",
@@ -78,9 +139,9 @@
       "MIC3"
     ],
     "recorded_rate_hz": 16000,
-    "format": "signed PCM32 little-endian interleaved",
-    "transport": "48kHz stereo S32LE I2S packed six-channel firmware stream",
-    "evidence": "candidate22-raw-workflow-v1; paired independent PC copies",
-    "equal_acoustic_latency_claimed": false
-  }
+    "status": "ACTUAL_PACKED_FOUR_MIC_AND_PROCESSED_PASS",
+    "transport": "48kHz stereo S32LE I2S packed six-channel firmware stream"
+  },
+  "schema": "just-peachy.observed-hardware-capabilities.v1",
+  "status": "ACTUAL_AUDIO_DISPLAY_MOUNTED_IMU_FUNCTIONAL_OTHER_CAPABILITIES_DECLARED"
 }

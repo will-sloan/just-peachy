@@ -54,3 +54,9 @@ Read BACKUP.json before treating any directory as a complete backup; a partial o
 The two new recording copies each contain201files/3641161bytes/27directories,
 manifestSHA92cc5105498b7997fbcddf4e42ae807f63c1fe6f9d6bd6744aa7178bce4ac598.
 They are private and are never included in the source/handoff ZIP.
+
+Latest approved documentation/handoff: `I/approved-final-docs-v1`, with original
+and independent ZIP/expanded readback. MOTION_HANDOFF_RECEIPT.json is the current
+archive pointer; publication-v2's earlier ZIP stays immutable. MOTION_REMOTE.json
+records the approved, verified source push; final documentation commit verification
+is retained privately in approved-final-docs-v1/REMOTE.json.

@@ -43,7 +43,7 @@
       "task": "Measure workerCPU, retain bounded queues and sampling"
     },
     {
-      "evidence": "shortcuts-v27-v2; publication-v2",
+      "evidence": "shortcuts-v27-v2; publication-v2; approved-final-docs-v1; sourcepush ed27d04b remotelyverified",
       "id": "M08",
       "status": "DONE",
       "task": "Currentshortcuts, guides, sourcebackup and updatedhandoff"

@@ -1,6 +1,6 @@
 # Current validation scope
 
-The prepared CM5 now supports bounded real-world testing through the ten profiles in MODE_GUIDE.md. Functional recording/closure/offload and software network denial have passed; physical touch, cable-disconnected coldboot and noisy-human quality remain future operator measurements. This protocol is not a claim that those tests occurred. Stay within120s microphone/Chunk52,30s saved Streaming and the current four-slot allocation; longer examples below never enlarge those limits.
+The prepared CM5 now supports bounded real-world testing through the ten profiles in MODE_GUIDE.md. Functional recording/closure/offload and software network denial have passed; physical touch, cable-disconnected coldboot and noisy-human quality remain future operator measurements. This protocol is not a claim that those tests occurred. Stay within120s microphone/Chunk52,30s saved Streaming and the finite four-slot allocation (three slots remain in v27); longer examples below never enlarge those limits.
 
 # In-person noisy-environment validation framework
 
@@ -59,3 +59,23 @@ One private folder per run, completed template, retained media/journals/telemetr
 - Resource failure: admitted duration/storage/available-memory/queue limit breached, sustained backlog or forced termination. Report actual sampled values and missing intervals.
 
 Record actual firmware/interface/channel map. Processed O0/O1 is not raw MIC0-MIC3. Raw+processed may be tested only after simultaneous routing is qualified; retain synchronization uncertainty, sample counts and full independent copy allocation. Four48kHz PCM16 raw channels plus16kHz processed mono are1,497,600,000bytes/hour before metadata/backups. No playback/enrollment/firmware reset is implicitly authorized by this kit.
+
+## Mounted-motion validation addition
+
+Use MOTION_GUIDE and record results in the template's `motion` fields. These are
+future physical observations, not extra checks already performed or automatic jobs.
+
+1. Leave the device quiet briefly and observe automatic reference acquisition.
+2. With a stationary consented speaker, rotate and tilt the tablet. Raw beam arrows
+   must follow microphone-relative direction; trusted location association should
+   use the relative reference without changing the voice embedding itself.
+3. Move the tablet sideways. Observe motion/trust invalidation; do not expect a
+   reliable room trajectory or speaker range from accelerometer integration.
+4. Toggle the optional orientation graphic and tap it. Only the graphic zero should
+   change. After gaps/movement, observe reacquisition rather than guessed angles.
+5. Compare ReDimNet/TitaNet with separately compatible galleries and matched input.
+   A plain saved WAV must not react to present-day tablet rotation. Record drift,
+   false movement indications and battery/temperature over separately admitted runs.
+
+Keep normal duration/slot/storage limits. Long-term drift/endurance needs its own
+bounded plan; this protocol does not enlarge the current runtime allowance.

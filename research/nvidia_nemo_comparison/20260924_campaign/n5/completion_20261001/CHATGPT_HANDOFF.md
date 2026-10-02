@@ -4,6 +4,8 @@ Read START_HERE, MODE_GUIDE and MOTION_GUIDE first. Current release is v27; the 
 
 Use microphone-array-centered geometry and distinguish raw device-relative beam arrows from trusted relative-anchor location logic. BMI270 has no absolute heading/position reference: yaw can drift; detected translation/gaps suspend location assumptions. Current live pose is excluded from plain saved WAVs. Source in mounted-source/runtime is exact deployed code for reading, not a bare standalone launcher. The prior prepared-device kit and refresh wrapper omit this addition. See the new motion renewal command and MOTION_* receipts. No noisy-world accuracy, battery or physical-touch claim is added.
 
+The mounted-motion source commit ed27d04b6131106c400bda828a64d00274095c56 is now verified on the existing GitHub branch. MOTION_REMOTE.json supersedes the earlier approval hold. Current acceptance, hardware capability and checklist files incorporate this addition; historical deadline and FINAL_* receipts remain history.
+
 ## Earlier runtime/model completion (v23 history)
 
 The user requested a working offline runtime for real-world testing, then restored NeMo TitaNet alongside ReDimNet with one shortcut for each supported combination. Reused the prior ONNX model/frontend and native runtime work; no new research campaign, download, training, enrollment, solicited speech or playback.

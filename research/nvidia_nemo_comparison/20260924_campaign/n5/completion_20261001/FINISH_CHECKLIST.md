@@ -1,6 +1,6 @@
-# Concrete finish checklist
+# Concrete finish checklist — current v27 status
 
-Completed prepared-CM5 implementation and handoff 2026-10-02T08:26:44.418658+00:00. Physical/quality validation and historicalresearchgaps remain explicitly scoped below.
+Implementation is complete for bounded real-world validation. Three recording slots remained at the last observation; physical/noisy-world tests remain open. The 26 original requirements and their exit criteria stay below. The separately requested mounted-motion work is recorded in MOTION_CHECKLIST.json. Old deadlines/admissions are historical and unchanged.
 
 ## F01 — Verify the returned Pi
 
@@ -32,7 +32,9 @@ Status: **DONE_BOUNDED_PERSISTENT_MANAGER_AND_RENEWAL**
 
 Exit criterion: One persistent manual entry with current native ownership, complete local backup before another slot, independently reserved PC copies and reusable verified offload. New production policy; no consumed research launcher or expired policy as user entry.
 
-Evidence: Actual complete candidate22 batch preserved; generic inspection/provision renewed22 to23. Current manager40612/start5055076 visible480x800, captureoff, fourunused slots.
+Evidence: Current v27 manager2626/start362288 was left idle, captureoff, three slots remaining. Actual v27 install/one changed recording/localbackup/full PCcopies passed. Motion renewal wrapper is prepared/compiled/planned only; component preserve/inspect/provision evidence is retained separately.
+
+Earlier evidence (historical): Actual complete candidate22 batch preserved; generic inspection/provision renewed22 to23. Current manager40612/start5055076 visible480x800, captureoff, fourunused slots.
 
 ## F05 — Issue and enforce the production recording/lifetime policy
 
@@ -40,7 +42,9 @@ Status: **DONE_FINITE_PRODUCTION_POLICY_AND_EXPLICIT_RENEWAL**
 
 Exit criterion: Measure current target+PC usage; allocate finite recording count/duration, launch/recovery slots and independent backups. Show limits and exhaustion in the app. Keep CPU/RAM/disk floors, first-fault latch, capture-off startup and explicit Start; no silent cap removal or replenishment.
 
-Evidence: Full2988319424B runtime/3307886087B install;4recordings/16launches/24h peridlelaunch;120s microphone/Chunk52,30s savedStreaming. Complete22-to23 renewal actualPASS; PowerShell wrappersyntax andPC-only planPASS. Finite owner and resource bounds remain.
+Evidence: Same finite4recordings/16launchslots/24h idlelaunch;120s microphone/Chunk52 and30s savedStreaming. Three slots remain. Full3307886087B installation reservation retained. Metadata-only continuation1088owners within original256KiB request, no removed bounds.
+
+Earlier evidence (historical): Full2988319424B runtime/3307886087B install;4recordings/16launches/24h peridlelaunch;120s microphone/Chunk52,30s savedStreaming. Complete22-to23 renewal actualPASS; PowerShell wrappersyntax andPC-only planPASS. Finite owner and resource bounds remain.
 
 ## F06 — Install backend compositions with ReDimNet and TitaNet
 
@@ -56,7 +60,9 @@ Status: **DONE_TEN_CURRENT_SHORTCUTS_AND_ROLLBACK**
 
 Exit criterion: Create one clearly named desktop shortcut per supported ASR/diarizer/embedding/mode combination, all selecting immutable profiles through the same versioned frontend. Each opens idle/capture off, excludes duplicate ownership and shows its actual model choices. Verify shortcut dispatch and keep baseline/rollback access.
 
-Evidence: Candidate23 has ten exact profile shortcuts androllback.66obsolete shortcuts25411B independentlybacked/moved. Renderer8 accuratebaselineanonymous/ReDimNet-continuity label retained; previousactualduplicate exclusion andstartup passes reused.
+Evidence: shortcuts-v27-v2 retained ten exact current profile shortcuts plusrollback;33obsoletegeneratedicons independently backed up and retired. All10profiles pin motion commonSHA3383fa869e7357cfa7f9ef410be6dcb40972feb40cea7aebee9d71dd526e4d80.
+
+Earlier evidence (historical): Candidate23 has ten exact profile shortcuts androllback.66obsolete shortcuts25411B independentlybacked/moved. Renderer8 accuratebaselineanonymous/ReDimNet-continuity label retained; previousactualduplicate exclusion andstartup passes reused.
 
 ## F08 — Complete manual Start/Stop/Return and repeated sessions
 
@@ -136,7 +142,9 @@ Status: **DONE_PREPARED_CM5_DEPLOYMENT_AND_INDEPENDENT_KIT_RESTORE**
 
 Exit criterion: Versioned code/config/runtime manifests; all pinned assets already local; native aarch64/runtime/dependency identity verified. Health reports missing assets, incompatible gallery, disk limits or unavailable hardware explicitly and never downloads on first use.
 
-Evidence: field-runtime-v23-install and runtime-delivery-v23/BACKUP.json:2586members91554957B, independent ZIP and expanded restore
+Evidence: field-runtime-v27-install stage-backup/stage-restore and active backups retain actualinstalled motionrelease. Prior91554957B v23prepared-devicekit remains intact but omits motion; not a current-v27 OS image.
+
+Earlier evidence (historical): field-runtime-v23-install and runtime-delivery-v23/BACKUP.json:2586members91554957B, independent ZIP and expanded restore
 
 ## F18 — Verify activation, rollback and local recovery
 
@@ -152,7 +160,9 @@ Status: **DONE_SOFTWARE_OFFLINE_AND_STARTUP_PHYSICAL_TESTS_PLANNED**
 
 Exit criterion: Final shortcut and one final-release restart/coldboot open idle with270orientation and no automatic listening. Exercise its supported operation with external network unavailable after local recovery is proven. Distinguish software network denial from physically unplugged testing.
 
-Evidence: Actualbroker/childInternet socketdenial andcandidate22 offline rawrecordingpassed. Current23 samecode/idle480x800/display270. Earlieractualshortcut/autostart-commandrestart passed. Cable-disconnectedcoldboot/touch remain operator validation.
+Evidence: Historical actualbroker/childInternet socketdenial andstartup-commandrestart retained. Newv27 processedrecording/closure passed with retainedofflineguards, display270/captureoff. Physical cable-disconnectedcoldboot/touch remain validation; not rerun.
+
+Earlier evidence (historical): Actualbroker/childInternet socketdenial andcandidate22 offline rawrecordingpassed. Current23 samecode/idle480x800/display270. Earlieractualshortcut/autostart-commandrestart passed. Cable-disconnectedcoldboot/touch remain operator validation.
 
 ## F20 — Run one bounded final recording/resource acceptance
 
@@ -164,11 +174,13 @@ Evidence: Candidate22 changed raw+processed D1Delayed/TitaNet composition ran859
 
 ## F21 — Declare camera, IMU and physical-control capabilities
 
-Status: **DONE_ACTUAL_AUDIO_DISPLAY_OTHER_CAPABILITIES_DECLARED**
+Status: **DONE_ACTUAL_MOUNTED_IMU_AND_CAPABILITY_DECLARATIONS**
 
 Exit criterion: Retain one actual hardware profile and exact known routes/pins; keep unknown GPIO disabled. Show optional/on-demand camera and IMU availability honestly, with axes/clock/motion limits. No invented pin mapping or unmeasured physical-touch/button pass.
 
-Evidence: ActualfourMIC16kHz raw/processed route qualified/restored;display270. Camera/IMU/unknownGPIO explicitlyunqualified. No physicaltouch/powercycle claim.
+Evidence: HARDWARE_CAPABILITIES now records actualBMI270 axes/mount/arraygeometry/physicalturn and50Hz sharedruntime. No absoluteheading/reliableroomtranslation. Camera and unknownGPIO remain unqualified/disabled.
+
+Earlier evidence (historical): ActualfourMIC16kHz raw/processed route qualified/restored;display270. Camera/IMU/unknownGPIO explicitlyunqualified. No physicaltouch/powercycle claim.
 
 ## F22 — Freeze versioned artifacts and reconcile all original requirements
 
@@ -184,7 +196,9 @@ Status: **DONE_CURRENT_OPERATOR_GUIDES**
 
 Exit criterion: Exact Start Here, named shortcuts, shared Mode/Backend guides, recording/offload instructions, Enrollment Compatibility, Install/Health, Update/Rollback, Licence Ledger, hardware template, paths/backups and troubleshooting. Include PowerShell/CMD/Anaconda commands for every new code path and supported limits/latency. Include a complete supported-combination table for ReDimNet versus TitaNet, exact shortcut names and commands, input modes, model/gallery compatibility, limits and unavailable reasons.
 
-Evidence: Current ten-profile commands, formats, galleries, limits, offload4, renewal, recovery, paths and physical/noisy validation scope
+Evidence: Current MODE_GUIDE/MOTION_GUIDE/START_HERE, renewal/offload, hardware/acceptance and fieldtemplate updated; legacy v23kit/commands explicitly historical.
+
+Earlier evidence (historical): Current ten-profile commands, formats, galleries, limits, offload4, renewal, recovery, paths and physical/noisy validation scope
 
 ## F24 — Finish the noisy-environment testing kit
 
@@ -192,7 +206,9 @@ Status: **DONE_PROTOCOL_ONLY**
 
 Exit criterion: Consent/privacy instructions, test scenes, reference/ground-truth method, timing/sample/route metadata, expected controls, naming/Unknown/overlap checks, failure rubric and run/results template. Actual noisy-human quality and physical-touch observations remain future measurements until performed.
 
-Evidence: FIELD_VALIDATION.md/FIELD_RUN_TEMPLATE.json; no human/physical/noise-quality result.
+Evidence: FIELD_VALIDATION and FIELD_RUN_TEMPLATE include rotation/tilt/translation-trust/visualzero/drift/battery observations; protocolonly, no invented noisyhuman results.
+
+Earlier evidence (historical): FIELD_VALIDATION.md/FIELD_RUN_TEMPLATE.json; no human/physical/noise-quality result.
 
 ## F25 — Create and verify the final private and Git backups
 
@@ -200,7 +216,9 @@ Status: **DONE_PRIVATE_KIT_RESTORE_AND_REMOTE_SOURCE_BACKUP**
 
 Exit criterion: Final deployable release/config and private recordings have complete independent copies/hash/readback and a demonstrated restore path. Push only reviewed small source/manifests/redacted reports; verify remote branch/profile refs. Never publish audio, profiles, vectors, credentials or model weights.
 
-Evidence: 91554957B runtimekit/2586members independentlyrestored; all271source/document files4303782B private/indexexact andremotecommit d4fa475acf0c01d33f156b39de39855de667de97
+Evidence: Motion source commit ed27d04b6131106c400bda828a64d00274095c56 remotelyverified afterexplicituserapproval. Currentinstall/source and two independentcompletePCrecordingcopies are retained. Updateddoc/handoff backups in approved-final-docs-v1; oldkit/packsimmutable.
+
+Earlier evidence (historical): 91554957B runtimekit/2586members independentlyrestored; all271source/document files4303782B private/indexexact andremotecommit d4fa475acf0c01d33f156b39de39855de667de97
 
 ## F26 — Build the final handoff and leave a safe device
 
@@ -208,4 +226,6 @@ Status: **DONE_HANDOFF_AND_SAFE_IDLE**
 
 Exit criterion: Condensed ChatGPT ZIP<=20MiB(target<=10), WORKBOOK_UPDATE and artifact/hash index; deployable assets separately. Update ACCEPTANCE with actual evidence and all remaining blockers; close owned research, pause automation by deadline and leave accepted app idle/captureoff or recoverable baseline if required gates fail.
 
-Evidence: 38member101985B handoff SHAa5f3d1a837f1dd927a5d14b2ab2d1bce3907eebd476136db7c27ffae7bd4da6a; fullreadback plusindependentZIP/expandedrestore; automationPAUSED; acceptedmanagerleftidle. Physical/noisyvalidationisfuture.
+Evidence: MOTION_HANDOFF_RECEIPT identifies refreshedverifiedZIP with guides/readablemotioncode, no privateaudio/models. Lastv27observation idle/captureoff/three slots. No newnativeaction for this finaldocumentation.
+
+Earlier evidence (historical): 38member101985B handoff SHAa5f3d1a837f1dd927a5d14b2ab2d1bce3907eebd476136db7c27ffae7bd4da6a; fullreadback plusindependentZIP/expandedrestore; automationPAUSED; acceptedmanagerleftidle. Physical/noisyvalidationisfuture.

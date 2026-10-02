@@ -1,195 +1,207 @@
 {
-  "as_of_utc": "2026-10-02T08:26:44.418658+00:00",
+  "as_of_utc": "2026-10-02T22:07:26.874484+00:00",
+  "authority": "DEADLINE_AUTHORITY_V3.json",
+  "automation_paused": false,
+  "current_item": "IMPLEMENTATION_COMPLETE_BOUNDED_REAL_WORLD_VALIDATION_NEXT",
+  "current_release": "field-runtime-v27",
   "deadline_utc": "2026-10-02T14:14:20Z",
-  "current_item": "COMPLETE_FOR_BOUNDED_REAL_WORLD_VALIDATION",
+  "delivery_status": "INCOMPLETE",
+  "feature_freeze_utc": "2026-10-02T13:14:20Z",
   "items": [
     {
+      "done_means": "New boot, exact launcher/app identities, unchanged install/live/display pins, XMOS device and actual display270 recorded.",
+      "evidence": "user-reconnect-20261001-v4/RESULT.json",
       "id": "F01",
       "status": "DONE",
-      "title": "Verify the returned Pi",
-      "done_means": "New boot, exact launcher/app identities, unchanged install/live/display pins, XMOS device and actual display270 recorded.",
-      "evidence": "user-reconnect-20261001-v4/RESULT.json"
+      "title": "Verify the returned Pi"
     },
     {
+      "done_means": "One normal Stop; capture closed, hardware lease free, UI returned to Start; app and recordings preserved. ALSA1284 is a thread of app1124, not a separate source process.",
+      "evidence": "final-delivery-normal-stop-v1/RESULT.json; final-delivery-stop-completion-v1/RESULT.json",
       "id": "F02",
       "status": "DONE",
-      "title": "Return the existing app to safe idle",
-      "done_means": "One normal Stop; capture closed, hardware lease free, UI returned to Start; app and recordings preserved. ALSA1284 is a thread of app1124, not a separate source process.",
-      "evidence": "final-delivery-normal-stop-v1/RESULT.json; final-delivery-stop-completion-v1/RESULT.json"
+      "title": "Return the existing app to safe idle"
     },
     {
+      "done_means": "Settings backup and independent restore verified; normal UI changed only auto_start_listening to false; saved hash verified. Final-release restart/boot persistence is F19.",
+      "evidence": "Candidate17 actual shortcut and autostart-command restarts preserved auto_start_listening=false/display270/captureoff. Physical coldboot remains unobserved.",
       "id": "F03",
       "status": "DONE_SAVED_SETTING_AND_TWO_IDLE_RESTARTS",
-      "title": "Disable automatic listening",
-      "done_means": "Settings backup and independent restore verified; normal UI changed only auto_start_listening to false; saved hash verified. Final-release restart/boot persistence is F19.",
-      "evidence": "Candidate17 actual shortcut and autostart-command restarts preserved auto_start_listening=false/display270/captureoff. Physical coldboot remains unobserved."
+      "title": "Disable automatic listening"
     },
     {
+      "done_means": "One persistent manual entry with current native ownership, complete local backup before another slot, independently reserved PC copies and reusable verified offload. New production policy; no consumed research launcher or expired policy as user entry.",
+      "evidence": "Current v27 manager2626/start362288 was left idle, captureoff, three slots remaining. Actual v27 install/one changed recording/localbackup/full PCcopies passed. Motion renewal wrapper is prepared/compiled/planned only; component preserve/inspect/provision evidence is retained separately.",
+      "historical_evidence_before_motion": "Actual complete candidate22 batch preserved; generic inspection/provision renewed22 to23. Current manager40612/start5055076 visible480x800, captureoff, fourunused slots.",
       "id": "F04",
       "status": "DONE_BOUNDED_PERSISTENT_MANAGER_AND_RENEWAL",
-      "title": "Finish the persistent local manager",
-      "done_means": "One persistent manual entry with current native ownership, complete local backup before another slot, independently reserved PC copies and reusable verified offload. New production policy; no consumed research launcher or expired policy as user entry.",
-      "evidence": "Actual complete candidate22 batch preserved; generic inspection/provision renewed22 to23. Current manager40612/start5055076 visible480x800, captureoff, fourunused slots."
+      "title": "Finish the persistent local manager"
     },
     {
+      "done_means": "Measure current target+PC usage; allocate finite recording count/duration, launch/recovery slots and independent backups. Show limits and exhaustion in the app. Keep CPU/RAM/disk floors, first-fault latch, capture-off startup and explicit Start; no silent cap removal or replenishment.",
+      "evidence": "Same finite4recordings/16launchslots/24h idlelaunch;120s microphone/Chunk52 and30s savedStreaming. Three slots remain. Full3307886087B installation reservation retained. Metadata-only continuation1088owners within original256KiB request, no removed bounds.",
+      "historical_evidence_before_motion": "Full2988319424B runtime/3307886087B install;4recordings/16launches/24h peridlelaunch;120s microphone/Chunk52,30s savedStreaming. Complete22-to23 renewal actualPASS; PowerShell wrappersyntax andPC-only planPASS. Finite owner and resource bounds remain.",
       "id": "F05",
       "status": "DONE_FINITE_PRODUCTION_POLICY_AND_EXPLICIT_RENEWAL",
-      "title": "Issue and enforce the production recording/lifetime policy",
-      "done_means": "Measure current target+PC usage; allocate finite recording count/duration, launch/recovery slots and independent backups. Show limits and exhaustion in the app. Keep CPU/RAM/disk floors, first-fault latch, capture-off startup and explicit Start; no silent cap removal or replenishment.",
-      "evidence": "Full2988319424B runtime/3307886087B install;4recordings/16launches/24h peridlelaunch;120s microphone/Chunk52,30s savedStreaming. Complete22-to23 renewal actualPASS; PowerShell wrappersyntax andPC-only planPASS. Finite owner and resource bounds remain."
+      "title": "Issue and enforce the production recording/lifetime policy"
     },
     {
+      "done_means": "Reuse the existing ReDimNet and NeMo TitaNet implementations and local assets. Expose baseline diarization and Nemotron-3 D1 with either embedding model, plus explicit anonymous operation where supported, while retaining Sherpa ONNX ASR/PnC. Pin actual encoder/runtime/frontend/mode/tap/gain manifests. Keep live Delayed and saved Streaming/Chunk52 distinct; verify each supported combination loads and runs without silent fallback. New native availability remains to be established.",
+      "evidence": "Five previous microphone passes pluscandidate16 baselineanonymous82080samples5.13s. SavedStreaming/TitaNetOff andReDimNetProcessed each131520samples8.22s wholeclosurePASScandidate16. Chunk52both8.22s candidate14, including7TitaNetqueries andnonemptyReDimNetdataactions. Noqualitybenchmark.",
       "id": "F06",
       "status": "ALL_TEN_SCOPED_NATIVE_COMPOSITIONS_PASS",
-      "title": "Install backend compositions with ReDimNet and TitaNet",
-      "done_means": "Reuse the existing ReDimNet and NeMo TitaNet implementations and local assets. Expose baseline diarization and Nemotron-3 D1 with either embedding model, plus explicit anonymous operation where supported, while retaining Sherpa ONNX ASR/PnC. Pin actual encoder/runtime/frontend/mode/tap/gain manifests. Keep live Delayed and saved Streaming/Chunk52 distinct; verify each supported combination loads and runs without silent fallback. New native availability remains to be established.",
-      "evidence": "Five previous microphone passes pluscandidate16 baselineanonymous82080samples5.13s. SavedStreaming/TitaNetOff andReDimNetProcessed each131520samples8.22s wholeclosurePASScandidate16. Chunk52both8.22s candidate14, including7TitaNetqueries andnonemptyReDimNetdataactions. Noqualitybenchmark."
+      "title": "Install backend compositions with ReDimNet and TitaNet"
     },
     {
+      "done_means": "Create one clearly named desktop shortcut per supported ASR/diarizer/embedding/mode combination, all selecting immutable profiles through the same versioned frontend. Each opens idle/capture off, excludes duplicate ownership and shows its actual model choices. Verify shortcut dispatch and keep baseline/rollback access.",
+      "evidence": "shortcuts-v27-v2 retained ten exact current profile shortcuts plusrollback;33obsoletegeneratedicons independently backed up and retired. All10profiles pin motion commonSHA3383fa869e7357cfa7f9ef410be6dcb40972feb40cea7aebee9d71dd526e4d80.",
+      "historical_evidence_before_motion": "Candidate23 has ten exact profile shortcuts androllback.66obsolete shortcuts25411B independentlybacked/moved. Renderer8 accuratebaselineanonymous/ReDimNet-continuity label retained; previousactualduplicate exclusion andstartup passes reused.",
       "id": "F07",
       "status": "DONE_TEN_CURRENT_SHORTCUTS_AND_ROLLBACK",
-      "title": "Create real desktop profile shortcuts",
-      "done_means": "Create one clearly named desktop shortcut per supported ASR/diarizer/embedding/mode combination, all selecting immutable profiles through the same versioned frontend. Each opens idle/capture off, excludes duplicate ownership and shows its actual model choices. Verify shortcut dispatch and keep baseline/rollback access.",
-      "evidence": "Candidate23 has ten exact profile shortcuts androllback.66obsolete shortcuts25411B independentlybacked/moved. Renderer8 accuratebaselineanonymous/ReDimNet-continuity label retained; previousactualduplicate exclusion andstartup passes reused."
+      "title": "Create real desktop profile shortcuts"
     },
     {
+      "done_means": "From the final user entry, verify New, consent, Start, Stop/drain, Save and Return; a subsequent recording gets fresh process ownership and preserves the first. Reuse old scoped component evidence; test the changed final composition once.",
+      "evidence": "Candidate8 slots01..04 used fresh processes for d1-delayed, baseline-titanet, baseline and d1-anonymous. Workflow7 verified all prior complete source/local-copy memberships and hashes before and after each subsequent operation. All source/controller/model owners closed before the next local backup/slot.",
       "id": "F08",
       "status": "FOUR_SUCCESSIVE_NATIVE_RECORDINGS_CLOSED_PRESERVED",
-      "title": "Complete manual Start/Stop/Return and repeated sessions",
-      "done_means": "From the final user entry, verify New, consent, Start, Stop/drain, Save and Return; a subsequent recording gets fresh process ownership and preserves the first. Reuse old scoped component evidence; test the changed final composition once.",
-      "evidence": "Candidate8 slots01..04 used fresh processes for d1-delayed, baseline-titanet, baseline and d1-anonymous. Workflow7 verified all prior complete source/local-copy memberships and hashes before and after each subsequent operation. All source/controller/model owners closed before the next local backup/slot."
+      "title": "Complete manual Start/Stop/Return and repeated sessions"
     },
     {
+      "done_means": "Verify missing/corrupt backend asset, startup failure and one interrupted/failed session in the final manager. Stop before diagnostics, release actual source/model/writers, preserve partial data, fence unresolved owners and provide a usable recovery/rollback path without resetting old failed ledgers.",
+      "evidence": "Candidate16slot4CLOSED_UNUSED_BROKER preserves fullallocation without child/source/model. Candidate16earlyClose triggeredactualautomaticrollback, allfivecompletePCtreesretained. Manager9fix actualcandidate17earlyClose/naturalexit/autostartreopenPASS. No arbitrarypowerlossclaim.",
       "id": "F09",
       "status": "CANCEL_BEFORE_RECORDING_AND_EARLY_CLOSE_RECOVERY_PASS",
-      "title": "Finish failure recovery",
-      "done_means": "Verify missing/corrupt backend asset, startup failure and one interrupted/failed session in the final manager. Stop before diagnostics, release actual source/model/writers, preserve partial data, fence unresolved owners and provide a usable recovery/rollback path without resetting old failed ledgers.",
-      "evidence": "Candidate16slot4CLOSED_UNUSED_BROKER preserves fullallocation without child/source/model. Candidate16earlyClose triggeredactualautomaticrollback, allfivecompletePCtreesretained. Manager9fix actualcandidate17earlyClose/naturalexit/autostartreopenPASS. No arbitrarypowerlossclaim."
+      "title": "Finish failure recovery"
     },
     {
+      "done_means": "All required controls reachable with270orientation; correct backend/mode, recording state and unavailable reasons visible. Use an existing authorized saved speech input for actual nonempty captions/audio links, Pending/Unknown and independent caption timing. No audible playback or solicited speech.",
+      "evidence": "Candidate14 slot3 real saved-transcript UI showed one nonempty caption/audio-link control after exact import and explicit Reopen,480x800/270. No playback, physical touch or accuracy claim.",
       "id": "F10",
       "status": "NATIVE_NONEMPTY_CAPTION_REOPEN_PASS_PHYSICAL_TOUCH_OPEN",
-      "title": "Finish the480x800 UI and nonempty captions",
-      "done_means": "All required controls reachable with270orientation; correct backend/mode, recording state and unavailable reasons visible. Use an existing authorized saved speech input for actual nonempty captions/audio links, Pending/Unknown and independent caption timing. No audible playback or solicited speech.",
-      "evidence": "Candidate14 slot3 real saved-transcript UI showed one nonempty caption/audio-link control after exact import and explicit Reopen,480x800/270. No playback, physical touch or accuracy claim."
+      "title": "Finish the480x800 UI and nonempty captions"
     },
     {
+      "done_means": "Save/reopen two recordings, select earlier history, export/import and delete only a verified disposable copy after backup. Preserve complete audio/events/probabilities/timestamps. Existing V123/V128 passes are reused; rerun only final-entry integration or changed nonempty-content gaps.",
+      "evidence": "Manager11 exposes13 closed sessions. Candidate18 actual AudioOff/nonempty history passed before legacy rejection; candidate19 legacy Processed/nonempty caption Open/Back passed, no capture/model/recording slot consumed. Original pinned legacy journal method fixes six-versus-seven source-pin schema, without changing old receipts. Earlier actual Save/export/readback/disposableDelete/Import/Reopen evidence retained.",
       "id": "F11",
       "status": "NATIVE_CROSS_SESSION_HISTORY_AND_SCOPED_DATA_ACTIONS_PASS",
-      "title": "Verify saved history and data actions in the final release",
-      "done_means": "Save/reopen two recordings, select earlier history, export/import and delete only a verified disposable copy after backup. Preserve complete audio/events/probabilities/timestamps. Existing V123/V128 passes are reused; rerun only final-entry integration or changed nonempty-content gaps.",
-      "evidence": "Manager11 exposes13 closed sessions. Candidate18 actual AudioOff/nonempty history passed before legacy rejection; candidate19 legacy Processed/nonempty caption Open/Back passed, no capture/model/recording slot consumed. Original pinned legacy journal method fixes six-versus-seven source-pin schema, without changing old receipts. Earlier actual Save/export/readback/disposableDelete/Import/Reopen evidence retained."
+      "title": "Verify saved history and data actions in the final release"
     },
     {
+      "done_means": "Read-only review of UUID/encoder/revision/tap/gain namespaces, including separate ReDimNet and TitaNet galleries. Reuse existing TitaNet namespace support; never compare or relabel vectors across models, silently enroll, migrate or overwrite personal data. Compatible references load; incompatible/empty galleries remain Unknown with a clear explanation. Preserve schema rollback.",
+      "evidence": "Candidate14 TitaNet completed seven real saved-speech embedding queries using its original frontend/weights, without raising768MiB AS. E0 separate gallery remains preserved; TitaNet gallery remains separately empty/Unknown. No enrollment, model-space conversion or recognition-quality claim.",
       "id": "F12",
       "status": "SEPARATE_ENCODERS_ACTUALLY_QUERY_GALLERY_QUALITY_OPEN",
-      "title": "Verify personal gallery compatibility",
-      "done_means": "Read-only review of UUID/encoder/revision/tap/gain namespaces, including separate ReDimNet and TitaNet galleries. Reuse existing TitaNet namespace support; never compare or relabel vectors across models, silently enroll, migrate or overwrite personal data. Compatible references load; incompatible/empty galleries remain Unknown with a clear explanation. Preserve schema rollback.",
-      "evidence": "Candidate14 TitaNet completed seven real saved-speech embedding queries using its original frontend/weights, without raising768MiB AS. E0 separate gallery remains preserved; TitaNet gallery remains separately empty/Unknown. No enrollment, model-space conversion or recognition-quality claim."
+      "title": "Verify personal gallery compatibility"
     },
     {
+      "done_means": "Provide Off/Processed selection before Start, recording indicator, elapsed time, admitted remaining duration/storage and Stop. Save exact model-input audio losslessly with its rate, channels, tap, gain and resampling metadata.",
+      "evidence": "Candidate16StreamingTitaNetAudioOff consumes131520samples without storedaudio and closescleanly. StreamingReDimNetProcessed preserves131520float/WAVsamples/completeevents. Fullreservationretained forOff.",
       "id": "F13",
       "status": "OFF_AND_PROCESSED_NATIVE_COMPLETE_PASS",
-      "title": "Add optional processed recording controls",
-      "done_means": "Provide Off/Processed selection before Start, recording indicator, elapsed time, admitted remaining duration/storage and Stop. Save exact model-input audio losslessly with its rate, channels, tap, gain and resampling metadata.",
-      "evidence": "Candidate16StreamingTitaNetAudioOff consumes131520samples without storedaudio and closescleanly. StreamingReDimNetProcessed preserves131520float/WAVsamples/completeevents. Fullreservationretained forOff."
+      "title": "Add optional processed recording controls"
     },
     {
+      "done_means": "Check actual firmware/routing for simultaneous physical MIC0-MIC3 and processed taps. If supported, qualify one bounded paired recording with synchronized clocks, sample counts and route restoration. If unsupported, visibly disable Raw+processed with the exact reason; never relabel O0/O1 or float/WAV as raw microphones.",
+      "evidence": "Candidate22 actual UI raw consent/Start/Stop/Save/Return produced85919 paired samples5.3699375s. PhysicalMIC0-MIC3 signedPCM32/16kHz from firmware category1 packed I2S48kHz, zero marker errors; exact processed model-input count. No48kHzADC/equal acoustic latency claim. All routes restored/captureclosed/leasesfree. Whole203file4872052B original and independent local backup copied/readback onPC, identicalmanifest0c2d958f8ed9051589e5432166736fa585b94dc95a0a63173aa19baa02cb6785.",
       "id": "F14",
       "status": "NATIVE_FOUR_MIC_RAW_AND_PROCESSED_RECORDING_PASS",
-      "title": "Resolve true raw microphone support",
-      "done_means": "Check actual firmware/routing for simultaneous physical MIC0-MIC3 and processed taps. If supported, qualify one bounded paired recording with synchronized clocks, sample counts and route restoration. If unsupported, visibly disable Raw+processed with the exact reason; never relabel O0/O1 or float/WAV as raw microphones.",
-      "evidence": "Candidate22 actual UI raw consent/Start/Stop/Save/Return produced85919 paired samples5.3699375s. PhysicalMIC0-MIC3 signedPCM32/16kHz from firmware category1 packed I2S48kHz, zero marker errors; exact processed model-input count. No48kHzADC/equal acoustic latency claim. All routes restored/captureclosed/leasesfree. Whole203file4872052B original and independent local backup copied/readback onPC, identicalmanifest0c2d958f8ed9051589e5432166736fa585b94dc95a0a63173aa19baa02cb6785."
+      "title": "Resolve true raw microphone support"
     },
     {
+      "done_means": "Bound every writer and count raw/processed/events/metadata plus independent local and PC copies. Enforce at least5GiB Pi/C50GiB/G75GiB free floors, finite duration, no drop/overflow masquerading as success, complete Stop/closed files and final manifest hashes. Preserve partial failures and originals.",
+      "evidence": "Candidate22 raw1374704B/f32le343676B/WAV171882B each85919samples. D1closed537frames; source537blocks/257757transportframes/no drops/fault. Source/controller/archive/writers closed. One transport prefix/two incomplete terminal frames explicitly recorded; all complete packed samples retained. Full independent raw allocation unchanged.",
       "id": "F15",
       "status": "RAW_PROCESSED_COUNTS_CLOSURE_AND_FULL_COPIES_PASS",
-      "title": "Close recording integrity and storage accounting",
-      "done_means": "Bound every writer and count raw/processed/events/metadata plus independent local and PC copies. Enforce at least5GiB Pi/C50GiB/G75GiB free floors, finite duration, no drop/overflow masquerading as success, complete Stop/closed files and final manifest hashes. Preserve partial failures and originals.",
-      "evidence": "Candidate22 raw1374704B/f32le343676B/WAV171882B each85919samples. D1closed537frames; source537blocks/257757transportframes/no drops/fault. Source/controller/archive/writers closed. One transport prefix/two incomplete terminal frames explicitly recorded; all complete packed samples retained. Full independent raw allocation unchanged."
+      "title": "Close recording integrity and storage accounting"
     },
     {
+      "done_means": "A reusable documented export command/control copies a stopped recording into a fresh private PC destination. Verify membership, sizes, SHA256 and full readback; retain receipt and path. Preserve interrupted transfers and Pi originals; no automatic deletion.",
+      "evidence": "export_runtime_recording_v4 copied source and Pi-local backup independently:203files4872052B425measuredchunks27dirs each, matchingmanifest0c2d958f8ed9051589e5432166736fa585b94dc95a0a63173aa19baa02cb6785. No deletion. Both exact native exporters closed, manager idle.",
       "id": "F16",
       "status": "REUSABLE_RAW_AND_PROCESSED_PC_OFFLOAD_PASS",
-      "title": "Deliver verified copy-to-PC offload",
-      "done_means": "A reusable documented export command/control copies a stopped recording into a fresh private PC destination. Verify membership, sizes, SHA256 and full readback; retain receipt and path. Preserve interrupted transfers and Pi originals; no automatic deletion.",
-      "evidence": "export_runtime_recording_v4 copied source and Pi-local backup independently:203files4872052B425measuredchunks27dirs each, matchingmanifest0c2d958f8ed9051589e5432166736fa585b94dc95a0a63173aa19baa02cb6785. No deletion. Both exact native exporters closed, manager idle."
+      "title": "Deliver verified copy-to-PC offload"
     },
     {
+      "done_means": "Versioned code/config/runtime manifests; all pinned assets already local; native aarch64/runtime/dependency identity verified. Health reports missing assets, incompatible gallery, disk limits or unavailable hardware explicitly and never downloads on first use.",
+      "evidence": "field-runtime-v27-install stage-backup/stage-restore and active backups retain actualinstalled motionrelease. Prior91554957B v23prepared-devicekit remains intact but omits motion; not a current-v27 OS image.",
+      "historical_evidence_before_motion": "field-runtime-v23-install and runtime-delivery-v23/BACKUP.json:2586members91554957B, independent ZIP and expanded restore",
       "id": "F17",
       "status": "DONE_PREPARED_CM5_DEPLOYMENT_AND_INDEPENDENT_KIT_RESTORE",
-      "title": "Finish deterministic install and health checks",
-      "done_means": "Versioned code/config/runtime manifests; all pinned assets already local; native aarch64/runtime/dependency identity verified. Health reports missing assets, incompatible gallery, disk limits or unavailable hardware explicitly and never downloads on first use.",
-      "evidence": "field-runtime-v23-install and runtime-delivery-v23/BACKUP.json:2586members91554957B, independent ZIP and expanded restore"
+      "title": "Finish deterministic install and health checks"
     },
     {
+      "done_means": "Back up active code/config/desktop/autostart manifests with independent restore readback. Activate final candidate, exercise rollback and restore candidate. Prove recovery works locally before denying its network access; preserve baseline and personal data.",
+      "evidence": "Candidate22 normalClose/exactdeath/fullPCpreservation/pinnedrollback restored idlebaseline. Fresh23 activation passed. Priorautomaticrollback/normalstartup-commandrestart retained; no powerlossclaim.",
       "id": "F18",
       "status": "DONE_SCOPED_LOCAL_ROLLBACK_AND_REACTIVATION",
-      "title": "Verify activation, rollback and local recovery",
-      "done_means": "Back up active code/config/desktop/autostart manifests with independent restore readback. Activate final candidate, exercise rollback and restore candidate. Prove recovery works locally before denying its network access; preserve baseline and personal data.",
-      "evidence": "Candidate22 normalClose/exactdeath/fullPCpreservation/pinnedrollback restored idlebaseline. Fresh23 activation passed. Priorautomaticrollback/normalstartup-commandrestart retained; no powerlossclaim."
+      "title": "Verify activation, rollback and local recovery"
     },
     {
+      "done_means": "Final shortcut and one final-release restart/coldboot open idle with270orientation and no automatic listening. Exercise its supported operation with external network unavailable after local recovery is proven. Distinguish software network denial from physically unplugged testing.",
+      "evidence": "Historical actualbroker/childInternet socketdenial andstartup-commandrestart retained. Newv27 processedrecording/closure passed with retainedofflineguards, display270/captureoff. Physical cable-disconnectedcoldboot/touch remain validation; not rerun.",
+      "historical_evidence_before_motion": "Actualbroker/childInternet socketdenial andcandidate22 offline rawrecordingpassed. Current23 samecode/idle480x800/display270. Earlieractualshortcut/autostart-commandrestart passed. Cable-disconnectedcoldboot/touch remain operator validation.",
       "id": "F19",
       "status": "DONE_SOFTWARE_OFFLINE_AND_STARTUP_PHYSICAL_TESTS_PLANNED",
-      "title": "Verify final startup and offline operation",
-      "done_means": "Final shortcut and one final-release restart/coldboot open idle with270orientation and no automatic listening. Exercise its supported operation with external network unavailable after local recovery is proven. Distinguish software network denial from physically unplugged testing.",
-      "evidence": "Actualbroker/childInternet socketdenial andcandidate22 offline rawrecordingpassed. Current23 samecode/idle480x800/display270. Earlieractualshortcut/autostart-commandrestart passed. Cable-disconnectedcoldboot/touch remain operator validation."
+      "title": "Verify final startup and offline operation"
     },
     {
+      "done_means": "Use the final installed composition for its supported bounded recording duration, then Stop/Save/PCcopy. Record combined resource/CPU/available-memory/disk observations, complete samples/events and actual cleanup. Reuse this same run for F08,F13,F15,F16 where it supplies evidence; no independent duplicate healthy runs. Use only focused functional checks for the newly added TitaNet routes, reusing prior healthy evidence; do not add an embedding-quality benchmark campaign.",
+      "evidence": "Candidate22 changed raw+processed D1Delayed/TitaNet composition ran85919samples. Actual child IPv4/IPv6socketdenial/seccomp retained, fullsource/model/UIStop/Save/Return and both independentPCcopies complete. Quietfunctionalcheck, no newquality/noisyhuman/physicaltouch evidence. Unchanged ten model-route passes reused.",
       "id": "F20",
       "status": "FINAL_RAW_OFFLINE_COMPOSITION_AND_PAIRED_PC_BACKUPS_PASS",
-      "title": "Run one bounded final recording/resource acceptance",
-      "done_means": "Use the final installed composition for its supported bounded recording duration, then Stop/Save/PCcopy. Record combined resource/CPU/available-memory/disk observations, complete samples/events and actual cleanup. Reuse this same run for F08,F13,F15,F16 where it supplies evidence; no independent duplicate healthy runs. Use only focused functional checks for the newly added TitaNet routes, reusing prior healthy evidence; do not add an embedding-quality benchmark campaign.",
-      "evidence": "Candidate22 changed raw+processed D1Delayed/TitaNet composition ran85919samples. Actual child IPv4/IPv6socketdenial/seccomp retained, fullsource/model/UIStop/Save/Return and both independentPCcopies complete. Quietfunctionalcheck, no newquality/noisyhuman/physicaltouch evidence. Unchanged ten model-route passes reused."
+      "title": "Run one bounded final recording/resource acceptance"
     },
     {
-      "id": "F21",
-      "status": "DONE_ACTUAL_AUDIO_DISPLAY_OTHER_CAPABILITIES_DECLARED",
-      "title": "Declare camera, IMU and physical-control capabilities",
       "done_means": "Retain one actual hardware profile and exact known routes/pins; keep unknown GPIO disabled. Show optional/on-demand camera and IMU availability honestly, with axes/clock/motion limits. No invented pin mapping or unmeasured physical-touch/button pass.",
-      "evidence": "ActualfourMIC16kHz raw/processed route qualified/restored;display270. Camera/IMU/unknownGPIO explicitlyunqualified. No physicaltouch/powercycle claim."
+      "evidence": "HARDWARE_CAPABILITIES now records actualBMI270 axes/mount/arraygeometry/physicalturn and50Hz sharedruntime. No absoluteheading/reliableroomtranslation. Camera and unknownGPIO remain unqualified/disabled.",
+      "historical_evidence_before_motion": "ActualfourMIC16kHz raw/processed route qualified/restored;display270. Camera/IMU/unknownGPIO explicitlyunqualified. No physicaltouch/powercycle claim.",
+      "id": "F21",
+      "status": "DONE_ACTUAL_MOUNTED_IMU_AND_CAPABILITY_DECLARATIONS",
+      "title": "Declare camera, IMU and physical-control capabilities"
     },
     {
+      "done_means": "Map every retained Windows/Pi composition to its actual source/config/runtime/model hashes and Git ref. Reconcile N1-N5, all34methods and full240-cell N4 denominator with existing receipts. Mark unrun/failed/deferred entries explicitly; no new campaign or benchmark sweep to fill them.",
+      "evidence": "FINAL_COVERAGE.md; original N5,73notes,240scene/panel denominators and all34methods retained; FINAL_ARTIFACT_INDEX.json.",
       "id": "F22",
       "status": "DONE_RECONCILED_WITH_GAPS",
-      "title": "Freeze versioned artifacts and reconcile all original requirements",
-      "done_means": "Map every retained Windows/Pi composition to its actual source/config/runtime/model hashes and Git ref. Reconcile N1-N5, all34methods and full240-cell N4 denominator with existing receipts. Mark unrun/failed/deferred entries explicitly; no new campaign or benchmark sweep to fill them.",
-      "evidence": "FINAL_COVERAGE.md; original N5,73notes,240scene/panel denominators and all34methods retained; FINAL_ARTIFACT_INDEX.json."
+      "title": "Freeze versioned artifacts and reconcile all original requirements"
     },
     {
+      "done_means": "Exact Start Here, named shortcuts, shared Mode/Backend guides, recording/offload instructions, Enrollment Compatibility, Install/Health, Update/Rollback, Licence Ledger, hardware template, paths/backups and troubleshooting. Include PowerShell/CMD/Anaconda commands for every new code path and supported limits/latency. Include a complete supported-combination table for ReDimNet versus TitaNet, exact shortcut names and commands, input modes, model/gallery compatibility, limits and unavailable reasons.",
+      "evidence": "Current MODE_GUIDE/MOTION_GUIDE/START_HERE, renewal/offload, hardware/acceptance and fieldtemplate updated; legacy v23kit/commands explicitly historical.",
+      "historical_evidence_before_motion": "Current ten-profile commands, formats, galleries, limits, offload4, renewal, recovery, paths and physical/noisy validation scope",
       "id": "F23",
       "status": "DONE_CURRENT_OPERATOR_GUIDES",
-      "title": "Finish the operator documentation",
-      "done_means": "Exact Start Here, named shortcuts, shared Mode/Backend guides, recording/offload instructions, Enrollment Compatibility, Install/Health, Update/Rollback, Licence Ledger, hardware template, paths/backups and troubleshooting. Include PowerShell/CMD/Anaconda commands for every new code path and supported limits/latency. Include a complete supported-combination table for ReDimNet versus TitaNet, exact shortcut names and commands, input modes, model/gallery compatibility, limits and unavailable reasons.",
-      "evidence": "Current ten-profile commands, formats, galleries, limits, offload4, renewal, recovery, paths and physical/noisy validation scope"
+      "title": "Finish the operator documentation"
     },
     {
+      "done_means": "Consent/privacy instructions, test scenes, reference/ground-truth method, timing/sample/route metadata, expected controls, naming/Unknown/overlap checks, failure rubric and run/results template. Actual noisy-human quality and physical-touch observations remain future measurements until performed.",
+      "evidence": "FIELD_VALIDATION and FIELD_RUN_TEMPLATE include rotation/tilt/translation-trust/visualzero/drift/battery observations; protocolonly, no invented noisyhuman results.",
+      "historical_evidence_before_motion": "FIELD_VALIDATION.md/FIELD_RUN_TEMPLATE.json; no human/physical/noise-quality result.",
       "id": "F24",
       "status": "DONE_PROTOCOL_ONLY",
-      "title": "Finish the noisy-environment testing kit",
-      "done_means": "Consent/privacy instructions, test scenes, reference/ground-truth method, timing/sample/route metadata, expected controls, naming/Unknown/overlap checks, failure rubric and run/results template. Actual noisy-human quality and physical-touch observations remain future measurements until performed.",
-      "evidence": "FIELD_VALIDATION.md/FIELD_RUN_TEMPLATE.json; no human/physical/noise-quality result."
+      "title": "Finish the noisy-environment testing kit"
     },
     {
+      "done_means": "Final deployable release/config and private recordings have complete independent copies/hash/readback and a demonstrated restore path. Push only reviewed small source/manifests/redacted reports; verify remote branch/profile refs. Never publish audio, profiles, vectors, credentials or model weights.",
+      "evidence": "Motion source commit ed27d04b6131106c400bda828a64d00274095c56 remotelyverified afterexplicituserapproval. Currentinstall/source and two independentcompletePCrecordingcopies are retained. Updateddoc/handoff backups in approved-final-docs-v1; oldkit/packsimmutable.",
+      "historical_evidence_before_motion": "91554957B runtimekit/2586members independentlyrestored; all271source/document files4303782B private/indexexact andremotecommit d4fa475acf0c01d33f156b39de39855de667de97",
       "id": "F25",
       "status": "DONE_PRIVATE_KIT_RESTORE_AND_REMOTE_SOURCE_BACKUP",
-      "title": "Create and verify the final private and Git backups",
-      "done_means": "Final deployable release/config and private recordings have complete independent copies/hash/readback and a demonstrated restore path. Push only reviewed small source/manifests/redacted reports; verify remote branch/profile refs. Never publish audio, profiles, vectors, credentials or model weights.",
-      "evidence": "91554957B runtimekit/2586members independentlyrestored; all271source/document files4303782B private/indexexact andremotecommit d4fa475acf0c01d33f156b39de39855de667de97"
+      "title": "Create and verify the final private and Git backups"
     },
     {
+      "done_means": "Condensed ChatGPT ZIP<=20MiB(target<=10), WORKBOOK_UPDATE and artifact/hash index; deployable assets separately. Update ACCEPTANCE with actual evidence and all remaining blockers; close owned research, pause automation by deadline and leave accepted app idle/captureoff or recoverable baseline if required gates fail.",
+      "evidence": "MOTION_HANDOFF_RECEIPT identifies refreshedverifiedZIP with guides/readablemotioncode, no privateaudio/models. Lastv27observation idle/captureoff/three slots. No newnativeaction for this finaldocumentation.",
+      "historical_evidence_before_motion": "38member101985B handoff SHAa5f3d1a837f1dd927a5d14b2ab2d1bce3907eebd476136db7c27ffae7bd4da6a; fullreadback plusindependentZIP/expandedrestore; automationPAUSED; acceptedmanagerleftidle. Physical/noisyvalidationisfuture.",
       "id": "F26",
       "status": "DONE_HANDOFF_AND_SAFE_IDLE",
-      "title": "Build the final handoff and leave a safe device",
-      "done_means": "Condensed ChatGPT ZIP<=20MiB(target<=10), WORKBOOK_UPDATE and artifact/hash index; deployable assets separately. Update ACCEPTANCE with actual evidence and all remaining blockers; close owned research, pause automation by deadline and leave accepted app idle/captureoff or recoverable baseline if required gates fail.",
-      "evidence": "38member101985B handoff SHAa5f3d1a837f1dd927a5d14b2ab2d1bce3907eebd476136db7c27ffae7bd4da6a; fullreadback plusindependentZIP/expandedrestore; automationPAUSED; acceptedmanagerleftidle. Physical/noisyvalidationisfuture."
+      "title": "Build the final handoff and leave a safe device"
     }
   ],
-  "feature_freeze_utc": "2026-10-02T13:14:20Z",
-  "delivery_status": "INCOMPLETE",
-  "automation_paused": false,
+  "motion_addendum": "MOTION_CHECKLIST.json; separately user-requested mounted-motion task, not a historical deadline extension",
   "previous_deadline_utc": "2026-10-01T16:14:58Z",
-  "authority": "DEADLINE_AUTHORITY_V3.json",
   "updated_utc": "2026-10-02T07:31:34.376542+00:00"
 }

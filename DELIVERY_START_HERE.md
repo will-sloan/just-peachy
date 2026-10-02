@@ -9,3 +9,5 @@ is MOTION_HANDOFF_RECEIPT.json; older FINAL_* receipts and the v23 kit are histo
 Relative rotation/tilt are integrated; reliable absolute room translation is not
 available from this six-axis sensor. Real-world recognition, battery and physical
 interaction validation remain separate from the completed functional check.
+
+The source push is approved and remotely verified; the current motion handoff receipt links the final refreshed archive.

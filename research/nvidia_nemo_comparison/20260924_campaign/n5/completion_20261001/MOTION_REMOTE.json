@@ -1,0 +1,12 @@
+{
+  "branch": "codex/n1-foundation-20260924",
+  "documentation_followup_commit": "Recorded separately after this immutable handoff to avoid a self-referential hash",
+  "previous_rejection_preserved": "publication-v2/COMPLETION_AND_REMOTE_HOLD.json",
+  "private_media_or_model_payload_uploaded": false,
+  "recorded_utc": "2026-10-02T22:07:26.874484+00:00",
+  "repository": "https://github.com/will-sloan/just-peachy",
+  "source_commit": "ed27d04b6131106c400bda828a64d00274095c56",
+  "source_push_verified": true,
+  "user_authority": "You can push it and I approve everything. Please update all of the documentation and the hand off.",
+  "verification": "git push succeeded; git ls-remote matched exact source commit in this turn"
+}

@@ -1,4 +1,5 @@
 {
+  "documentation_updated_utc": "2026-10-02T22:07:26.874484+00:00",
   "fixed_mount_sha256": "e17ea820ca7a960d71a6c82b649b7901293574e7771d49fc82c90bb3a3a5eaab",
   "historical_kit": "runtime-delivery-v23; excludes mounted motion",
   "host_code": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\Resumes\\imu_integration_20261002",
@@ -183,5 +184,17 @@
       "scope": "complete frontend; upper bound for IMU, includes GUI"
     }
   },
-  "schema": "just-peachy.mounted-motion-release.v1"
+  "schema": "just-peachy.mounted-motion-release.v1",
+  "source_backup": {
+    "branch": "codex/n1-foundation-20260924",
+    "documentation_followup_commit": "Recorded separately after this immutable handoff to avoid a self-referential hash",
+    "previous_rejection_preserved": "publication-v2/COMPLETION_AND_REMOTE_HOLD.json",
+    "private_media_or_model_payload_uploaded": false,
+    "recorded_utc": "2026-10-02T22:07:26.874484+00:00",
+    "repository": "https://github.com/will-sloan/just-peachy",
+    "source_commit": "ed27d04b6131106c400bda828a64d00274095c56",
+    "source_push_verified": true,
+    "user_authority": "You can push it and I approve everything. Please update all of the documentation and the hand off.",
+    "verification": "git push succeeded; git ls-remote matched exact source commit in this turn"
+  }
 }

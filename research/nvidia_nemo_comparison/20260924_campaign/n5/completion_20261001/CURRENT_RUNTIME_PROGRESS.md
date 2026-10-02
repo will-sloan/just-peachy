@@ -19,3 +19,9 @@ No additional native job is required for this handoff. Physical touch, cable-
 disconnected coldboot, long-term yaw drift, battery endurance and noisy-human
 recognition remain operator validation. Reliable inertial room position is not
 available; acceleration suspends location priors without inventing translation.
+
+Source publication ed27d04b6131106c400bda828a64d00274095c56 is verified on the
+existing GitHub delivery branch after explicit user approval. Current acceptance,
+hardware/checklist declarations and the field-run template now include motion.
+MOTION_HANDOFF_RECEIPT points to the refreshed immutable handoff. No native action
+or quality/battery test occurred during this documentation update.

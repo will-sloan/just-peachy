@@ -34,3 +34,9 @@ Physical touch, cable-disconnected coldboot, battery endurance, long-term drift
 and noisy-world recognition remain real-world validation, not completed claims.
 Use FIELD_VALIDATION.md/FIELD_RUN_TEMPLATE.json. FINAL_COVERAGE retains the
 N1-N5/34-method denominator and incomplete full 240-cell N4 comparison.
+
+The approved motion source is remotely backed up at commit
+`ed27d04b6131106c400bda828a64d00274095c56`; see MOTION_REMOTE.json.
+Use the current MOTION_HANDOFF_RECEIPT.json for the latest verified archive.
+The previous upload approval hold is resolved. No new native test was needed
+for this documentation refresh; hardware observations remain the recorded v27 check.
