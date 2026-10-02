@@ -1,6 +1,6 @@
 {
   "schema": "just-peachy.observed-hardware-capabilities.v1",
-  "as_of_utc": "2026-10-01T15:27:56.706346+00:00",
+  "as_of_utc": "2026-10-02T08:10:28.665699+00:00",
   "status": "ACTUAL_AUDIO_DISPLAY_DECLARATION_OTHER_CAPABILITIES_UNQUALIFIED",
   "device": {
     "model": "Compute Module5",
@@ -45,9 +45,10 @@
     "device_mic_gain": [
       10
     ],
-    "simultaneous_raw_mic0_mic3": "NOT_QUALIFIED",
+    "simultaneous_raw_mic0_mic3": "ACTUAL_PAIRED_RECORDING_PASS_16KHZ_PCM32",
     "raw_route_physically_unsupported_proven": false,
-    "clock_calibrated_to_acoustic_arrival": false
+    "clock_calibrated_to_acoustic_arrival": false,
+    "actual_tap_scope": "O0 is the retained normal processed route; optional packed raw route is restored afterward"
   },
   "camera": {
     "status": "OPTIONAL_UNQUALIFIED_IN_FINAL_RELEASE",
@@ -65,6 +66,21 @@
   "evidence": [
     "final-manager-joint-v2/broker-copy-mirror/recordings/slot-01/source/SOURCE_START.json",
     "final-manager-joint-v2/broker-copy-mirror/recordings/slot-01/source/PRE_ROUTE_SNAPSHOT.json",
-    "user-reconnect-20261001-v4/RESULT.json"
-  ]
+    "user-reconnect-20261001-v4/RESULT.json",
+    "deployable-runtime-resume-v1/candidate22-raw-workflow-v1/RESULT.json"
+  ],
+  "raw_microphones": {
+    "status": "ACTUAL_PACKED_FOUR_MIC_AND_PROCESSED_PASS",
+    "physical_channels": [
+      "MIC0",
+      "MIC1",
+      "MIC2",
+      "MIC3"
+    ],
+    "recorded_rate_hz": 16000,
+    "format": "signed PCM32 little-endian interleaved",
+    "transport": "48kHz stereo S32LE I2S packed six-channel firmware stream",
+    "evidence": "candidate22-raw-workflow-v1; paired independent PC copies",
+    "equal_acoustic_latency_claimed": false
+  }
 }

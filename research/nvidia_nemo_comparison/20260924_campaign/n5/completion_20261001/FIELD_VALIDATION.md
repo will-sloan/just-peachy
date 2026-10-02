@@ -1,6 +1,6 @@
-# Current readiness gate
+# Current validation scope
 
-**Protocol delivered; field app not accepted. Do not begin unsupervised field recording from the new Nemotron release yet.** F04-F20 functional blockers in FINISH_CHECKLIST must be resolved first. This document plans future consented testing; no human trial was run during finalization. Its30/60minute or1-2minute examples never override the actual release duration/storage admission.
+The prepared CM5 now supports bounded real-world testing through the ten profiles in MODE_GUIDE.md. Functional recording/closure/offload and software network denial have passed; physical touch, cable-disconnected coldboot and noisy-human quality remain future operator measurements. This protocol is not a claim that those tests occurred. Stay within120s microphone/Chunk52,30s saved Streaming and the current four-slot allocation; longer examples below never enlarge those limits.
 
 # In-person noisy-environment validation framework
 

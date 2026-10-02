@@ -1,5 +1,5 @@
 # Final N1–N5 and original-requirement reconciliation
-This closes the **accounting of requirements**, not the unfinished software. No new comparison campaign was run. The original N5 prompt remains the denominator; later hardware/quiet-work/user decisions supersede its old Pi-off instructions only for the authorized scopes.
+This preserves the **accounting of all original requirements** alongside the delivered prepared-CM5 runtime. No new comparison campaign was run. The original N5 prompt remains the denominator; later hardware/quiet-work/user decisions supersede its old Pi-off instructions only for the authorized scopes.
 
 ## Stage outcomes
 | Stage | Retained outcome | Evidence and remaining scope |
@@ -19,9 +19,9 @@ The full scene denominator remains156complete nonoverlap,47overlap,26incomplete 
 |---|---|---|
 | Shared front end, backend picker, exact manifests, explicit unavailable modes | Implemented and scoped Windows/Pi tests; final manually installed backend choices incomplete | F04,F06,F10 |
 | Idle desktop shortcuts per retained backend, duplicate exclusion | Windows historical previews retained; required final Pi shortcuts absent | F07 |
-| Real startup/Stop/mode/history/save/delete/import/export per build | Separate native V123/V128/V141 scopes; final manual and nonempty content not accepted | F08,F10,F11 |
+| Real startup/Stop/mode/history/save/delete/import/export per build | Current ten-profile manager; actual nonempty captions/history/data actions and recording/offload scoped passes; physical touch/quality still future | F08,F10,F11 |
 | Personal UUID/gallery/encoder/schema compatibility and rollback | Namespaces and preservation rules retained; final current-Pi compatibility/migration review not completed | F12 |
-| Real aarch64 binary/runtime/model binding; no placeholder | Actual native component/application passes, exact asset/runtime pins; still no deployable final production release | F06,F17 |
+| Real aarch64 binary/runtime/model binding; no placeholder | Actual native component/application passes, exact asset/runtime pins; current prepared-CM5 overlay deployed; not a portable clean-OS image | F06,F17 |
 | Model/reference/cache/EOF parity and accuracy | Native retained matched pre-EOF proofs; new EOF/source-reference and held-out quality gaps explicit | F20,F22 |
 | CM5/2GB/32GB, bounded logs/history/storage/CPU | Actual device/resources and bounded recordings measured. Finite production lifetime and sustained whole-system acceptance open | F05,F15,F20 |
 | One hardware profile, known routing, disabled unknown GPIO | Actual audio/display facts in HARDWARE_CAPABILITIES.json; camera/IMU/button/touch limits explicit | F14,F21 |
@@ -33,7 +33,7 @@ The full scene denominator remains156complete nonoverlap,47overlap,26incomplete 
 | Optional true raw plus processed recording and verified PC offload (Oct1 addition) | Processed qualification files/copies verified; production selector, simultaneous raw qualification and reusable operator flow unfinished | F13–F16 |
 | User testing in noisy environments | Protocol/template delivered; actual consenting-human quality/physical observations not performed | F24 |
 
-No new accepted N4 configuration or N5 production release tag is manufactured. Source tags/commits and engineering-only archives are mapped in FINAL_ARTIFACT_INDEX.json and ../RELEASE_MAPPING_20260927.md. Nemotron ASR is deferred by user choice, not a missing delivery prerequisite. TitaNet is historical-only. Licences/revisions remain in ../LICENSE_LEDGER.md and PI_RAM_MODEL_REPORT_V1.md; no new licence clearance or redistribution claim is added.
+No full N4 comparison or unmeasured N5 quality/physical result is manufactured; the new prepared-device runtime has its own scoped delivery evidence. Source tags/commits and engineering-only archives are mapped in FINAL_ARTIFACT_INDEX.json and ../RELEASE_MAPPING_20260927.md. Nemotron ASR is deferred by user choice, not a missing delivery prerequisite. TitaNet is restored alongside ReDimNet by the latest user authority and has actual embedding/model-route evidence. Licences/revisions remain in ../LICENSE_LEDGER.md and PI_RAM_MODEL_REPORT_V1.md; no new licence clearance or redistribution claim is added.
 
 ## All34 retained methods
 The immutable catalogue below originally marks every specification SPECIFIED_NOT_EXECUTED. That field is preserved. Later related work is recorded separately; a similarly named component run does not execute the entire original two-composition specification.

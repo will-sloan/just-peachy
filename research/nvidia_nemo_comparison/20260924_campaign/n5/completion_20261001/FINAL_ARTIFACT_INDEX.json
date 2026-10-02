@@ -1,8 +1,8 @@
 {
   "schema": "just-peachy.final-artifact-index.v1",
-  "utc": "2026-10-01T15:35:14.279053+00:00",
-  "delivery_status": "INCOMPLETE",
-  "new_production_release": null,
+  "utc": "2026-10-02T08:18:23.120423+00:00",
+  "delivery_status": "DEPLOYED_PREPARED_CM5_RUNTIME_FOR_BOUNDED_VALIDATION",
+  "new_production_release": true,
   "remote": "https://github.com/will-sloan/just-peachy",
   "branch": "codex/n1-foundation-20260924",
   "source_publication": "FINAL_GIT_BACKUP.json",
@@ -281,5 +281,26 @@
     "profiles/photos/voiceprints/vectors",
     "credentials",
     "model weights"
-  ]
+  ],
+  "prepared_device_kit": {
+    "all_members_independently_restored_and_read": true,
+    "bytes": 91554957,
+    "full_zip_readback": true,
+    "manifest_sha256": "136be2936f068be1a387461a8cc8aa0366dfc4ed0403b318d1d68bfc5ef3616b",
+    "members": 2586,
+    "native_dispatched": false,
+    "package": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\runtime-delivery-v23\\JustPeachy-prepared-CM5-runtime.zip",
+    "release": "field-runtime-v23",
+    "scope_sha256": "0d8ef9e185b0300981b93158b455a1b414891b1ec565ceb6df1f656a8bbb80cf",
+    "sha256": "684abe51500f47a6c444c1905783d8acb043d46887b9cd0a8a50388b83b27533",
+    "source_bytes": 111754870,
+    "status": "COMPLETE_PREPARED_DEVICE_KIT_AND_INDEPENDENT_RESTORE",
+    "total_private_bytes": 294864866,
+    "utc": "2026-10-02T08:10:58.987215+00:00"
+  },
+  "arbitrary_device_portable": false,
+  "current_release": "field-runtime-v23",
+  "current_policy_sha256": "c9dedad236e0c73f9a4a671ddb9c7e4ca74e848b74544a9b33f2bcc508a2ef96",
+  "current_native_summary": "CHECK_SUMMARY_V142.json",
+  "physical_noisy_validation": "PLANNED_NOT_OBSERVED"
 }

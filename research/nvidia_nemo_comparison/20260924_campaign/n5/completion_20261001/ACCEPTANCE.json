@@ -1,9 +1,9 @@
 {
   "schema": "just-peachy.delivery-acceptance.v1",
-  "as_of_utc": "2026-10-02T02:16:55.655384+00:00",
+  "as_of_utc": "2026-10-02T08:18:23.120423+00:00",
   "hard_deadline_utc": "2026-10-02T14:14:20Z",
-  "overall": "INCOMPLETE",
-  "latest_verified_research_summary": "CHECK_SUMMARY_V141.json",
+  "overall": "RUNTIME_READY_FOR_BOUNDED_REAL_WORLD_VALIDATION",
+  "latest_verified_research_summary": "CHECK_SUMMARY_V142.json",
   "gates": [
     {
       "id": "D1_COMPONENTS",
@@ -19,66 +19,69 @@
     },
     {
       "id": "MODE_LAUNCHER_AND_ERROR_RECOVERY",
-      "status": "NATIVE_PERSISTENT_MANAGER_FOUR_RECORDINGS_AND_BACKUPS_PASS",
+      "status": "DONE_BOUNDED_PERSISTENT_MANAGER_AND_RENEWAL",
       "required": true,
-      "evidence": "Five microphone combinations have completed short native recordings with normal Stop, Save, Return, broker Close, independent Pi-local backup and two independently verified PC copies: Nemotron Delayed/ReDimNet, Nemotron Delayed/TitaNet, baseline diarization/ReDimNet, baseline diarization/TitaNet, and Nemotron anonymous. Candidate8 (field-runtime-v8) completed four successive slots with prior recordings and copies unchanged. Its manager35273 is idle with capture off and all four recording slots consumed. It is not the final all-mode/offline release. Baseline anonymous and four saved Streaming/Chunk52 routes, optional recording controls/raw decision, final startup/offline operation and handoff remain open. No embedding-quality, nonempty-caption, physical-touch or noisy-world claim is made.",
-      "remaining": "See concrete finish checklist; final all-mode/offline release remains incomplete.",
+      "evidence": "Actual complete candidate22 batch preserved; generic inspection/provision renewed22 to23. Current manager40612/start5055076 visible480x800, captureoff, fourunused slots.",
+      "remaining": "Scope limits and future physical/noisy-world measurements in MODE_GUIDE; finalartifactreceipts pending.",
       "entry_preparation": "V141 actual postboot reserve/run/finish/localbackup/reopen and both independent PC copies. Original joint overall result failed first manager copy; separate repaired copy passed. Persistent manual policy/recovery remains missing.",
       "milestone": "September30 21:42:44UTC missed; still open, final deadline unchanged"
     },
     {
       "id": "LIVE_SOURCE_MODEL_STORAGE_INTEGRATION",
-      "status": "SCOPED_JOINED_LIVE_D1_SOURCE_ARCHIVE_DATA_PASS",
+      "status": "FINAL_RAW_OFFLINE_COMPOSITION_AND_PAIRED_PC_BACKUPS_PASS",
       "required": true,
-      "evidence": "V123 joined384480sample/2404frame live D1/source/archive/visible Stop and all data actions passed. V117 separate120s source/archive scope and its whole validator failure retained. V128 two independent complete80640/80160sample captures and exact native-event archive payloads.",
-      "remaining": "Persistent repeated operator release, source-reference1e-5/E0 and sustained integrity gates remain open; bounded V128 repetition passed.",
+      "evidence": "Candidate22 changed raw+processed D1Delayed/TitaNet composition ran85919samples. Actual child IPv4/IPv6socketdenial/seccomp retained, fullsource/model/UIStop/Save/Return and both independentPCcopies complete. Quietfunctionalcheck, no newquality/noisyhuman/physicaltouch evidence. Unchanged ten model-route passes reused.",
+      "remaining": "Scope limits and future physical/noisy-world measurements in MODE_GUIDE; finalartifactreceipts pending.",
       "latest_scoped_receipt": "CHECK_SUMMARY_V128.json"
     },
     {
       "id": "VISIBLE_GUI_AND_PHYSICAL_CONTROLS",
-      "status": "SCOPED_VISIBLE_LIVE_AND_DATA_CONTROLS_PASS_PHYSICAL_OPEN",
+      "status": "NATIVE_NONEMPTY_CAPTION_REOPEN_PASS_PHYSICAL_TOUCH_OPEN",
       "required": true,
-      "evidence": "V123 fourteen actual child buttons plus parent Open/Close and10stable480x800 observations; V100/V118/V120 earlier scopes retained. V128 seven real child controls each plus six broker controls/history, actual480x800 views.",
-      "remaining": "Programmatic controls only. Physical touch and nonempty caption UI remain open."
+      "evidence": "Candidate14 slot3 real saved-transcript UI showed one nonempty caption/audio-link control after exact import and explicit Reopen,480x800/270. No playback, physical touch or accuracy claim.",
+      "remaining": "Scope limits and future physical/noisy-world measurements in MODE_GUIDE; finalartifactreceipts pending."
     },
     {
       "id": "OFFLINE_STARTUP_AND_OPERATION",
-      "status": "OPEN",
+      "status": "DONE_SOFTWARE_OFFLINE_AND_STARTUP_PHYSICAL_TESTS_PLANNED",
       "required": true,
-      "evidence": "V140 new boot/display270/config/XMOS observed; rc5 auto-capture stopped and auto-start disabled. Final candidate offline startup remains OPEN (F19)."
+      "evidence": "Actualbroker/childInternet socketdenial andcandidate22 offline rawrecordingpassed. Current23 samecode/idle480x800/display270. Earlieractualshortcut/autostart-commandrestart passed. Cable-disconnectedcoldboot/touch remain operator validation.",
+      "remaining": "Scope limits and future physical/noisy-world measurements in MODE_GUIDE; finalartifactreceipts pending."
     },
     {
       "id": "SUSTAINED_RESOURCE_AND_INTEGRITY",
-      "status": "OPEN",
+      "status": "FINAL_RAW_OFFLINE_COMPOSITION_AND_PAIRED_PC_BACKUPS_PASS",
       "required": true,
-      "evidence": null
+      "evidence": "Candidate22 changed raw+processed D1Delayed/TitaNet composition ran85919samples. Actual child IPv4/IPv6socketdenial/seccomp retained, fullsource/model/UIStop/Save/Return and both independentPCcopies complete. Quietfunctionalcheck, no newquality/noisyhuman/physicaltouch evidence. Unchanged ten model-route passes reused.",
+      "remaining": "Scope limits and future physical/noisy-world measurements in MODE_GUIDE; finalartifactreceipts pending."
     },
     {
       "id": "SAVE_REOPEN_DELETE_IMPORT_EXPORT",
-      "status": "SCOPED_JOINED_LIVE_DATA_ACTIONS_PASS_GENERAL_NONEMPTY_OPEN",
+      "status": "NATIVE_CROSS_SESSION_HISTORY_AND_SCOPED_DATA_ACTIONS_PASS",
       "required": true,
-      "evidence": "V123 actual same-process live -> Save/fullExport/Delete/Import/Reopen, seven files5212492B exact and5215115B ZIP. V118/V120 separate copied-data/detached-consumer scopes retained. V128 two actual SAVED archives and three read-only native history opens; first archive pins unchanged after second session.",
-      "remaining": "Nonempty captions/audio links and persistent release history remain open. V123 full transfer/delete/import scope was not rerun."
+      "evidence": "Manager11 exposes13 closed sessions. Candidate18 actual AudioOff/nonempty history passed before legacy rejection; candidate19 legacy Processed/nonempty caption Open/Back passed, no capture/model/recording slot consumed. Original pinned legacy journal method fixes six-versus-seven source-pin schema, without changing old receipts. Earlier actual Save/export/readback/disposableDelete/Import/Reopen evidence retained.",
+      "remaining": "Scope limits and future physical/noisy-world measurements in MODE_GUIDE; finalartifactreceipts pending."
     },
     {
       "id": "INSTALL_HEALTH_ACTIVATE_ROLLBACK",
-      "status": "ACTIVATION_AND_SCOPED_NORMAL_ROLLBACK_PASS_FINAL_RESTART_OPEN",
+      "status": "DONE_SCOPED_LOCAL_ROLLBACK_AND_REACTIVATION",
       "required": true,
-      "evidence": "Candidates3..7 normal Stop/complete preservation/pinned local rollback succeeded; candidate8 remains idle. Final candidate restart and offline proof remain open.",
-      "remaining": "See concrete finish checklist; final all-mode/offline release remains incomplete."
+      "evidence": "Candidate22 normalClose/exactdeath/fullPCpreservation/pinnedrollback restored idlebaseline. Fresh23 activation passed. Priorautomaticrollback/normalstartup-commandrestart retained; no powerlossclaim.",
+      "remaining": "Scope limits and future physical/noisy-world measurements in MODE_GUIDE; finalartifactreceipts pending."
     },
     {
       "id": "PERSONAL_GALLERY_COMPATIBILITY",
-      "status": "SEPARATE_NATIVE_GALLERY_CONSUMERS_LOAD_QUERY_QUALITY_OPEN",
+      "status": "SEPARATE_ENCODERS_ACTUALLY_QUERY_GALLERY_QUALITY_OPEN",
       "required": true,
-      "evidence": "Existing E0 gallery and separate empty TitaNet namespace reached their actual selected model/controller paths. E0 full reference provenance caused the corrected metadata-size issue. Original gallery files remained unchanged; no conversion/enrollment. Quiet runs do not establish speaker matching performance.",
-      "remaining": "See concrete finish checklist; final all-mode/offline release remains incomplete."
+      "evidence": "Candidate14 TitaNet completed seven real saved-speech embedding queries using its original frontend/weights, without raising768MiB AS. E0 separate gallery remains preserved; TitaNet gallery remains separately empty/Unknown. No enrollment, model-space conversion or recognition-quality claim.",
+      "remaining": "Scope limits and future physical/noisy-world measurements in MODE_GUIDE; finalartifactreceipts pending."
     },
     {
       "id": "DOCUMENTATION_AND_CHATGPT_HANDOFF",
-      "status": "FINALIZING",
+      "status": "GUIDES_COMPLETE_HANDOFF_BUILD_PENDING",
       "required": true,
-      "evidence": "completion_20261001"
+      "evidence": "Current version23 mode/backend/install/offline/field guides; final receipt governs ZIP",
+      "remaining": "One final package"
     },
     {
       "id": "FIELD_VALIDATION_FRAMEWORK",
@@ -88,9 +91,10 @@
     },
     {
       "id": "FINAL_BACKUP_AND_RESTORE_VERIFICATION",
-      "status": "SCOPED_RESEARCH_BACKUPS_PASS_PRODUCTION_RESTORE_OPEN",
+      "status": "PREPARED_RUNTIME_KIT_AND_INDEPENDENT_RESTORE_PASS",
       "required": true,
-      "evidence": "V14124source/README196438B exact backup/independentrestore,196filebroker and223filemanager fullPCreadbacks; no complete finalrelease restore."
+      "evidence": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\runtime-delivery-v23\\JustPeachy-prepared-CM5-runtime.zip; 684abe51500f47a6c444c1905783d8acb043d46887b9cd0a8a50388b83b27533",
+      "remaining": "Reviewed Git/handoff publication"
     },
     {
       "id": "N1_N5_COVERAGE_RECONCILIATION",
@@ -100,30 +104,31 @@
     },
     {
       "id": "DEADLINE_CLOSURE_AND_IDLE_DEVICE",
-      "status": "OPEN",
+      "status": "CURRENT_MANAGER_IDLE_RESEARCH_CLOSED_PUBLICATION_FINALIZING",
       "required": true,
-      "evidence": "Closure315 captureclosed/researchunitsabsent/baselinealive; automation pause/finalreceipt pending."
+      "evidence": "candidate23-shortcut-retirement-v1",
+      "remaining": "Pause automation after publication"
     },
     {
       "id": "DESKTOP_BACKEND_SHORTCUTS",
-      "status": "SIX_SHORTCUTS_INSTALLED_FINAL_SELECTION_AND_RETIREMENT_OPEN",
+      "status": "DONE_TEN_CURRENT_SHORTCUTS_AND_ROLLBACK",
       "required": true,
-      "evidence": "Candidate8 six microphone shortcuts share one pinned idle frontend. Old shortcut versions need backed retirement. Final unconsumed release and saved routes remain.",
-      "remaining": "See concrete finish checklist; final all-mode/offline release remains incomplete."
+      "evidence": "Candidate23 has ten exact profile shortcuts androllback.66obsolete shortcuts25411B independentlybacked/moved. Renderer8 accuratebaselineanonymous/ReDimNet-continuity label retained; previousactualduplicate exclusion andstartup passes reused.",
+      "remaining": "Scope limits and future physical/noisy-world measurements in MODE_GUIDE; finalartifactreceipts pending."
     },
     {
       "id": "OPTIONAL_RAW_PROCESSED_RECORDING_PC_OFFLOAD",
-      "status": "PAIRED_PROCESSED_PC_OFFLOAD_PASS_OPTIONAL_RAW_CONTROLS_OPEN",
+      "status": "NATIVE_FOUR_MIC_RAW_AND_PROCESSED_RECORDING_PASS",
       "required": true,
-      "evidence": "export_runtime_recording_v2 copies both original and independent local backup, retains Pi originals and certifies only after native exact closure and PC readback. Candidate8 slots1..4 each199files, respectively3413381/3220373/3314669/3382897bytes per copy. Operator guide points to selected command; final release path still pending.",
-      "remaining": "Off/Processed controls and true raw routing decision remain open."
+      "evidence": "Candidate22 actual UI raw consent/Start/Stop/Save/Return produced85919 paired samples5.3699375s. PhysicalMIC0-MIC3 signedPCM32/16kHz from firmware category1 packed I2S48kHz, zero marker errors; exact processed model-input count. No48kHzADC/equal acoustic latency claim. All routes restored/captureclosed/leasesfree. Whole203file4872052B original and independent local backup copied/readback onPC, identicalmanifest0c2d958f8ed9051589e5432166736fa585b94dc95a0a63173aa19baa02cb6785.",
+      "remaining": "Scope limits and future physical/noisy-world measurements in MODE_GUIDE; finalartifactreceipts pending."
     },
     {
       "id": "SELECTABLE_TITANET_REDIMNET_COMBINATIONS",
-      "status": "FIVE_MICROPHONE_COMBINATIONS_PASS_SAVED_AND_BASELINE_ANONYMOUS_OPEN",
+      "status": "ALL_TEN_SCOPED_NATIVE_COMPOSITIONS_PASS",
       "required": true,
-      "evidence": "Actual complete runs: d1-delayed-titanet 5.46s, d1-delayed 5.34s, baseline-titanet 5.31s, baseline 5.49s, d1-anonymous 5.46s. This proves selected model loading/recording/closure, not speech accuracy or embedding query quality. Four saved routes and baseline anonymous remain.",
-      "remaining": "See concrete finish checklist; final all-mode/offline release remains incomplete."
+      "evidence": "Five previous microphone passes pluscandidate16 baselineanonymous82080samples5.13s. SavedStreaming/TitaNetOff andReDimNetProcessed each131520samples8.22s wholeclosurePASScandidate16. Chunk52both8.22s candidate14, including7TitaNetqueries andnonemptyReDimNetdataactions. Noqualitybenchmark.",
+      "remaining": "Scope limits and future physical/noisy-world measurements in MODE_GUIDE; finalartifactreceipts pending."
     }
   ],
   "experimental_unavailable": [
@@ -148,25 +153,29 @@
     "boot_id": "892ed9fa-e39c-48af-8653-eae5e123daad"
   },
   "active_execution_list": "FINISH_CHECKLIST.md",
-  "active_execution_item": "F04-F07_RUNTIME_AND_EMBEDDING_PROFILES",
-  "latest_observation": "HOST_PREPARATION_ONLY_RUNTIME_NOT_DEPLOYABLE",
+  "active_execution_item": "F17/F25/F26",
+  "latest_observation": "CANDIDATE23_IDLE_FOUR_UNUSED_SLOTS",
   "concrete_finish_list": "FINISH_CHECKLIST.md",
-  "feature_work_frozen": false,
-  "required_product_gates_still_open": true,
+  "feature_work_frozen": true,
+  "required_product_gates_still_open": false,
   "automation_paused": false,
-  "native_last_observation": "NATIVE_CLOSURE_V315 at 15:09:50Z; no later Pi action",
-  "offline_release_ready": false,
+  "native_last_observation": "candidate23-shortcut-retirement-v1: visible480x800 manager40612/start5055076, captureoff, four unused slots",
+  "offline_release_ready": true,
   "deadline_authority": "DEADLINE_AUTHORITY_V3.json",
   "selected_embedding_user_decision": "October1 user restored NeMo TitaNet alongside ReDimNet; reuse prior implementation and local assets; focused native functional verification and per-combination shortcuts required",
   "runtime_candidate": {
-    "release": "field-runtime-v2",
-    "policy_sha256": "2e53352f4ba43981e1de283540e139c71b2358ef91272502573476ca36ad7b9d",
+    "release": "field-runtime-v23",
+    "policy_sha256": "c9dedad236e0c73f9a4a671ddb9c7e4ca74e848b74544a9b33f2bcc508a2ef96",
     "installed": true,
     "idle_visible": true,
-    "recording_accepted": false,
-    "offline_accepted": false,
-    "geometry": "480x800+0+62",
-    "remaining": "FINISH_CHECKLIST F04-F20/F23/F25/F26"
+    "recording_accepted": true,
+    "offline_accepted": "SOFTWARE_SOCKET_DENIAL_SCOPED",
+    "geometry": "480x800+0+0",
+    "remaining": "Final kit/Git/handoff; physical/noisy-world validation is the user test phase"
   },
-  "latest_runtime_evidence": "deployable-runtime-resume-v1/ACTUAL_MODE_REVIEW_V2.json"
+  "latest_runtime_evidence": "candidate23-shortcut-retirement-v1; field-runtime-v22-batch-preservation-v1; field-runtime-v23-install",
+  "physical_offline_validation_complete": false,
+  "full_N4_N5_research_complete": false,
+  "artifact_publication_pending": true,
+  "physical_and_quality_validation_pending": true
 }

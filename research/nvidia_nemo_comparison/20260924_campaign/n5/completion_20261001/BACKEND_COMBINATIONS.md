@@ -1,15 +1,11 @@
-# Backend combinations and current evidence
+# Supported backend combinations
 
-Five microphone combinations have completed short native recordings with normal Stop, Save, Return, broker Close, independent Pi-local backup and two independently verified PC copies: Nemotron Delayed/ReDimNet, Nemotron Delayed/TitaNet, baseline diarization/ReDimNet, baseline diarization/TitaNet, and Nemotron anonymous. Candidate8 (field-runtime-v8) completed four successive slots with prior recordings and copies unchanged. Its manager35273 is idle with capture off and all four recording slots consumed. It is not the final all-mode/offline release. Baseline anonymous and four saved Streaming/Chunk52 routes, optional recording controls/raw decision, final startup/offline operation and handoff remain open. No embedding-quality, nonempty-caption, physical-touch or noisy-world claim is made.
+The authoritative executable profile table and commands are in [MODE_GUIDE.md](MODE_GUIDE.md). All ten profiles use Sherpa ONNX ASR/PnC and the same versioned frontend.
 
-| Profile | Native recording evidence |
-|---|---|
-| d1-delayed-titanet | 5.46s; closed and both copies PC-verified |
-| d1-delayed | 5.34s; closed and both copies PC-verified |
-| baseline-titanet | 5.31s; closed and both copies PC-verified |
-| baseline | 5.49s; closed and both copies PC-verified |
-| d1-anonymous | 5.46s; closed and both copies PC-verified |
+Six microphone choices: Pyannote with ReDimNet, TitaNet or anonymous ReDimNet continuity; Nemotron-3 Delayed with ReDimNet, TitaNet or native anonymous slots. Four saved-input choices: Nemotron-3 Streaming or Chunk52, each with ReDimNet or TitaNet. Saved inputs are mono16kHz PCM16 WAV. Streaming is limited to30s; microphone/Chunk52 to120s.
 
-The complete ten-route table, current commands, model/gallery distinctions and unavailable saved routes are in [MODE_GUIDE.md](MODE_GUIDE.md). Baseline anonymous remains installed but not yet exercised in this runtime. No embedding-quality result is inferred from quiet recordings.
+NeMo TitaNet was restored at the user's request using its existing ONNX model/frontend and separate gallery. Seven real saved-speech embedding calls succeeded in candidate14. ReDimNet remains selectable; no claim is made that either encoder will outperform the other in the user's environment.
 
-Deadline: October2,2026,14:14:20Z. Reuse previous TitaNet assets/implementation and Sherpa ONNX ASR/PnC. Final offline startup and unconsumed launch policy remain open.
+Live Streaming/Chunk52, applied ASR skipping, parallel diarizer pools, whole-waveform ONNX and the unqualified A76 Nemotron ASR alternative remain unavailable. Nemotron ASR is deferred; the user selected Sherpa. The34-method research catalogue and uncompleted full240-cell N4 comparison remain provenance, not extra enabled profiles.
+
+The current ten named shortcuts share duplicate-owner exclusion and capture-off startup. Raw+processed uses qualified four-microphone16kHz PCM32 plus model-input audio where the microphone route offers it. Processed saved-WAV input is not relabelled as raw microphone evidence.

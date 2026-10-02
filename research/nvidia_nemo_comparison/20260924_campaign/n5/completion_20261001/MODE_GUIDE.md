@@ -1,58 +1,68 @@
-# Backend and mode guide
+# Just Peachy mode and recording guide
 
-Status: five short microphone compositions passed normal recording/closure and complete local/PC backup. The current field-runtime-v8 has consumed its four recording slots and is idle. Final unconsumed release, saved-audio routes and offline startup are still being completed. Do not treat an exhausted candidate as the final handoff.
+The current prepared CM5 release is **field-runtime-v23**. It offers ten combinations through one offline frontend, with NeMo TitaNet and ReDimNet both available. Sherpa ONNX ASR and punctuation remain selected. The Pi starts idle with capture off; display orientation is270 and the viewport480×800. Current validation establishes execution, controls and recording integrity, not superior speaker-recognition accuracy.
 
-All choices retain Sherpa ONNX ASR/PnC. NeMo TitaNet reuses the original ONNX graph and frontend; ReDimNet remains available. Nemotron ASR is deferred. No downloads or enrollment occurred.
+## Available combinations
 
-| Profile | Diarizer | Speaker representation | Availability |
+| Profile / shortcut suffix | Diarizer | Speaker embedding or identity | Input and limit |
 |---|---|---|---|
-| baseline | Baseline Pyannote | ReDimNet | Short native recording passed |
-| baseline-titanet | Baseline Pyannote | NeMo TitaNet | Short native recording passed |
-| d1-delayed | Nemotron-3 Delayed | ReDimNet | Short native recording passed |
-| d1-delayed-titanet | Nemotron-3 Delayed | NeMo TitaNet | Short native recording passed in candidate7 |
-| d1-anonymous | Nemotron-3 Delayed | Anonymous native slots | Short native recording passed |
-| baseline-anonymous | Baseline Pyannote | ReDimNet anonymous continuity | Installed; focused mode check open |
-| d1-streaming-saved | Nemotron-3 Streaming | ReDimNet | Saved source integration open |
-| d1-streaming-titanet-saved | Nemotron-3 Streaming | NeMo TitaNet | Saved source integration open |
-| d1-chunk52-saved | Nemotron-3 Chunk52 | ReDimNet | Saved source integration open |
-| d1-chunk52-titanet-saved | Nemotron-3 Chunk52 | NeMo TitaNet | Saved source integration open |
+| baseline | Pyannote | ReDimNet | Microphone,120s |
+| baseline-titanet | Pyannote | NeMo TitaNet | Microphone,120s |
+| baseline-anonymous | Pyannote | ReDimNet for anonymous continuity | Microphone,120s |
+| d1-delayed | Nemotron-3 Delayed | ReDimNet | Microphone,120s |
+| d1-delayed-titanet | Nemotron-3 Delayed | NeMo TitaNet | Microphone,120s |
+| d1-anonymous | Nemotron-3 Delayed | Native anonymous slots; embedding bypassed | Microphone,120s |
+| d1-streaming-saved | Nemotron-3 Streaming | ReDimNet | Saved WAV,30s |
+| d1-streaming-titanet-saved | Nemotron-3 Streaming | NeMo TitaNet | Saved WAV,30s |
+| d1-chunk52-saved | Nemotron-3 Chunk52 | ReDimNet | Saved WAV,120s |
+| d1-chunk52-titanet-saved | Nemotron-3 Chunk52 | NeMo TitaNet | Saved WAV,120s |
 
-## Current Pi entry and controls
+Desktop files are named `just-peachy-field-runtime-v23-PROFILE.desktop`, replacing PROFILE with the table value. Ten profile shortcuts plus rollback are retained; older generated shortcuts were backed up and archived. Use the visible profile chooser to change selection while idle. If opening another shortcut, close the current idle manager first: duplicate ownership is rejected.
 
-Desktop labels spell out Sherpa, diarizer and encoder. Each starts the same versioned frontend idle with capture off; duplicate ownership is rejected. The profile list can select another combination before New. Only close an idle manager before opening another shortcut.
-
-Current Pi terminal command (candidate8 is exhausted; final path will replace it):
+Pi terminal example:
 ~~~sh
-/home/peachyprototype/JustPeachy/research/nemotron-20260928/field-runtime-v8-profiles/bin/launch-profile --profile d1-delayed-titanet
+/home/peachyprototype/JustPeachy/research/nemotron-20260928/field-runtime-v23-profiles/bin/launch-profile --profile d1-delayed-titanet
 ~~~
-Substitute a supported microphone profile from the table. A shortcut selection never silently substitutes a model.
+Substitute another exact table profile. Saved inputs must be mono16kHz PCM16 WAV, at most32MiB, under `/home/peachyprototype/JustPeachy`. Streaming/Chunk52 microphone routes are unavailable. Nemotron Delayed buffers about21.3s before its regular output; short runs can emit speaker results at Stop. This is a latency tradeoff, not a missing recording.
 
-Recording sequence: select profile, New recording, broker New, create a consented audio draft in History/Developer Sessions, Start and consent, Stop, Save, Return to modes, then Close the broker. The manager verifies an independent local copy before enabling another recording. The current mandatory processed-audio draft is not yet the requested optional Off/Processed selector. Raw+processed remains unavailable until actual simultaneous MIC0–MIC3 routing and clocks are qualified.
+## Record, stop and save
 
-Each policy reserves four recordings of at most120seconds,16manager/helper launches and a24hour idle lifetime. These are finite testing limits, not unlimited recording. Failed/consumed slots are retained. A fresh measured release is required after exhaustion; never edit a closed policy or delete files to obtain credit.
+1. Select a profile and choose **New recording**.
+2. In the broker choose a new microphone recording or the supported saved-WAV route.
+3. Create the audio draft and choose **Audio off**, **Processed**, or **Raw+processed** where offered. Confirm the raw-recording notice when selecting it.
+4. Press Start and provide the normal in-app consent. Nothing starts merely by opening a shortcut.
+5. Press Stop and allow source/model/archive cleanup to finish. Then Save and Return to modes.
+6. Close the recording broker. Wait for the manager's verified independent local backup before another recording. Saved recordings opens the read-only history.
 
-## Verified copy to PC
+The fresh release has four recording slots. There are16 total manager/helper launch slots; each idle manager launch is bounded to24h. Each recording uses separately reserved helper slots. Closing/reopening the manager consumes another launch, so avoid unnecessary reopen loops. Stop is bounded automatically at the input limit. Failed/cancelled/finished slots remain consumed. After exhaustion use the explicit PC batch-refresh command below.
 
-Purpose: copy a stopped successful recording and its separate Pi-local backup into a new private PC directory; preserve originals. Inputs are the actual install, latest owner/closure inspection, complete prior binding and a fresh bounded scope. Output includes both complete trees, hashes/readback, native closure and BACKUP.json. Current successful copies are listed in PATHS_AND_BACKUPS. No playback or deletion.
+## Audio formats and clocks
 
-PowerShell, from the native source directory:
+Audio off keeps events/metadata without recorded audio. Processed stores the exact16kHz mono model-input float stream and WAV. Raw+processed additionally stores physical MIC0–MIC3 as interleaved signed32-bit little-endian PCM at16kHz. The firmware transports its packed six-channel stream over48kHz stereo S32LE I2S. The raw recording is **not48kHz ADC audio** and is not the ordinary processed O0/O1 tap.
+
+The raw metadata identifies four channels, firmware route, sample clocks, packing prefix/tail and source/processed counts. Candidate22 recorded85919 paired samples with zero packing-marker errors, then restored every changed route. Shared sample-clock indexing does not imply equal acoustic latency between raw and processed paths. Preserve RAW_CAPTURE metadata with the PCM; do not infer format from the extension.
+
+## Speaker galleries
+
+TitaNet and ReDimNet use separate model/revision/tap/gain namespaces. Existing personal ReDimNet data is preserved. TitaNet's separate gallery is empty, so Unknown identities are expected until a future explicitly consented enrollment. No vectors are converted or compared across embedding models. Anonymous modes do not assign personal names. Baseline anonymous still uses ReDimNet continuity; D1 anonymous bypasses embedding extraction.
+
+## Copy to the PC and renew
+
+Use `export_runtime_recording_v4.py` in the native source directory; its maintained instructions are in `README_RUNTIME_RECORDING_OFFLOAD_V4.md`. Copy the original and independent Pi-local backup separately into new private PC directories. Each command checks complete membership, sizes, SHA256 and full readback before BACKUP.json. The Pi originals remain untouched.
+
+PowerShell example (replace the previous utility and NEW_DESTINATION with the actual latest receipt and an absent private directory):
 ~~~powershell
-& 'C:/Users/amiri/Documents/GitHub/just-peachy/.edge-speech-env/python.exe' -B .\export_runtime_recording_v2.py --local LOCAL_ROOT --private PRIVATE_ROOT --prior-closure PRIOR_BINDING --previous-inspection LAST_INSPECTION --candidate-install ACTUAL_INSTALL --scope FRESH_SCOPE --slot recording-01 --output NEW_PRIVATE_OUTPUT
+& "C:/Users/amiri/Documents/GitHub/just-peachy/.edge-speech-env/python.exe" -B export_runtime_recording_v4.py --local "G:/Just_Peachy_N1/20260924_campaign/local" --private "G:/Just_Peachy_N1/20260924_campaign/local/n5/research-extension-20260928/pi-native-20260928" --prior-closure "G:/Just_Peachy_N1/20260924_campaign/local/n5/research-extension-20260928/pi-native-20260928/deployable-runtime-resume-v1/PREINSTALL_PRIOR_BINDING_V6.json" --previous-inspection PREVIOUS_RECEIPT --candidate-install "G:/Just_Peachy_N1/20260924_campaign/local/n5/research-extension-20260928/pi-native-20260928/field-runtime-v23-install" --active-install "G:/Just_Peachy_N1/20260924_campaign/local/n5/research-extension-20260928/pi-native-20260928/field-runtime-v23-install" --slot recording-01 --root-kind original --output NEW_DESTINATION
 ~~~
-CMD / Anaconda Prompt:
-~~~bat
-"C:/Users/amiri/Documents/GitHub/just-peachy/.edge-speech-env/python.exe" -B export_runtime_recording_v2.py --local LOCAL_ROOT --private PRIVATE_ROOT --prior-closure PRIOR_BINDING --previous-inspection LAST_INSPECTION --candidate-install ACTUAL_INSTALL --scope FRESH_SCOPE --slot recording-01 --output NEW_PRIVATE_OUTPUT
+CMD/Anaconda uses the same arguments after `python -B export_runtime_recording_v4.py`. Then use that output as PREVIOUS_RECEIPT, change root-kind to local and choose a different destination.
+
+For a fresh batch, after Stop/Save/Return/broker Close and local backup:
+~~~powershell
+.\Refresh-JustPeachy.ps1 -Version 24 -PreviousVersion 23 -Plan
+.\Refresh-JustPeachy.ps1 -Version 24 -PreviousVersion 23
 ~~~
-See README_RUNTIME_RECORDING_OFFLOAD_V2.md for exact argument semantics. Reusable self-contained final operator offload admission remains part of completion; old expired scopes cannot be reused.
+CMD/Anaconda: `powershell -NoProfile -File Refresh-JustPeachy.ps1 -Version 24 -PreviousVersion 23`. See README_RUNTIME_OPERATOR_V2.md. The component preservation/inspection/provision sequence actually renewed22→23; the wrapper's PC-only plan passed. Use a fresh higher version on later successful renewals. This prepared-workstation command reserves full independent storage; it never clears failures or recycles consumed roots.
 
-## Choosing a diarizer
+## Validation scope
 
-Delayed uses264/1/1/0/264/188 geometry and about21.3seconds of source buffering. Streaming uses13/1/0/80/264/40; Chunk52 uses52/1/0/80/264/40. Retained44.7second component costs were about0.405/3.634/1.085RTF respectively. Those different geometries are not a quality ranking or an application speedup. Streaming/Chunk52 have historical saved application evidence, not general live availability. GPU is off; fixed exact native assets and one model thread are retained.
-
-## Speaker identity and product modes
-
-ReDimNet and TitaNet both produce192-dimensional vectors but use different spaces. Exact encoder/frontend/preprocessing/tap/gain namespaces are mandatory. Existing E0 personal references are preserved; TitaNet has an empty separate gallery and must remain Unknown without compatible references. Nothing was converted, enrolled or silently shared. The short quiet runs establish loading and recording, not nonempty embedding-query accuracy or improved recognition.
-
-Named/Unknown, selected roster, anonymous continuity and spatial behavior are separate from backend composition. The installed shortcuts currently pin open-with-names or explicit anonymous. Selected/closed-roster/spatial choices require their own supported controller route and honest unavailable reasons; never infer a person from an anonymous number or empty gallery. No new physical touch, acoustic clock calibration, noisy-human accuracy or source-reference parity claim is made.
-
-All26 completion items and all N1–N5/34-method research distinctions remain in FINISH_CHECKLIST, COVERAGE and MASTER_BACKEND_MODE_GUIDE. Only final F26 creates the condensed handoff ZIP.
+All ten routes have scoped native functional evidence, including nonempty saved captions, both real embedding paths, history/data actions, Audio off/Processed and paired raw recording. Actual broker and child processes deny IPv4/IPv6 sockets; local assets are used. Physical cable-disconnected coldboot, touch, battery endurance and noisy-world accuracy remain operator validation tasks. Use FIELD_VALIDATION.md, keeping each run within the actual duration/slot/storage limits.

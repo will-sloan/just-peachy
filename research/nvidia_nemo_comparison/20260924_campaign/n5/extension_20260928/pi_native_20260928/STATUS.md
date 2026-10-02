@@ -1,4 +1,18 @@
+# Current delivery — October2
+
+field-runtime-v23 is deployed and visible idle, captureoff, fourunused recording slots. Tenprofile compositions inclTitaNet/ReDimNet retainnativepasses. Raw+processedcandidate22 andbothindependentPCcopiespassed; completebatch22preservation/rollback/fresh23provisioningpassed. Private91554957Bprepared-devicekit hasfullindependentarchive/expandedrestore. Currentguides are in completion_20261001; finalGit/handoffreceipts follow publication.
+
+Physicaltouch/coldboot/cable/noisyquality remain futurevalidation. No fullN4comparison or retroactivefailurepass. CHECK_SUMMARY_V142.json iscurrent.
+
+## Historical status entries
+
 # Current runtime update — October2,02:14Z
+
+Current update 2026-10-02T05:32:23.056933+00:00: Candidate17 is installed and visible idle, capture off, with all four recording slots unused. All ten compositions have scoped native functional evidence: six microphone routes and four saved Streaming/Chunk52 routes. Candidate17 passed all ten duplicate-shortcut exclusions, TitaNet shortcut selection, early Close and actual autostart-command restart. Candidate16 broker/child processes proved IPv4/IPv6 socket denial; this is software-offline operation, not physical cable/coldboot evidence.115 obsolete generated shortcuts are backed and archived; ten current profiles plus rollback remain. Reusable operator offload3 independently copied an older recording and its local backup,190files3918597B each, with complete matching PC hashes/readback while candidate17 stayed idle. Remaining product work is cross-session history/reprovision usability, true raw support decision, final complete guides and release/handoff backups. See CURRENT_RUNTIME_PROGRESS.md and FINISH_CHECKLIST. All older current-state paragraphs below are historical snapshots.
+
+
+Current update 2026-10-02T04:17:10.940612+00:00: Candidate14 adds complete saved Chunk52 runs with both NeMo TitaNet and ReDimNet: each processed all131520 samples (8.22s), saved and closed without terminal configuration failure, then received independent Pi-local and two full PC copies. TitaNet produced seven successful embedding queries using the original model/frontend with CPU arena/memory-pattern allocation disabled. ReDimNet also completed verified export, disposable-copy deletion, exact import and explicit nonempty-caption reopening (one audio-link control; no playback). Five earlier microphone combinations remain scoped passes. Candidate14 manager37488 is active, capture off; all four operation slots are consumed, but its final baseline-anonymous operation never opened a child or started capture because the driver used an obsolete button label. It is not final offline delivery. See completion_20261001/CURRENT_RUNTIME_PROGRESS.md and FINISH_CHECKLIST for current next work; older sections retain historical scope.
+
 
 Five microphone combinations have completed short native recordings with normal Stop, Save, Return, broker Close, independent Pi-local backup and two independently verified PC copies: Nemotron Delayed/ReDimNet, Nemotron Delayed/TitaNet, baseline diarization/ReDimNet, baseline diarization/TitaNet, and Nemotron anonymous. Candidate8 (field-runtime-v8) completed four successive slots with prior recordings and copies unchanged. Its manager35273 is idle with capture off and all four recording slots consumed. It is not the final all-mode/offline release. Baseline anonymous and four saved Streaming/Chunk52 routes, optional recording controls/raw decision, final startup/offline operation and handoff remain open. No embedding-quality, nonempty-caption, physical-touch or noisy-world claim is made.
 

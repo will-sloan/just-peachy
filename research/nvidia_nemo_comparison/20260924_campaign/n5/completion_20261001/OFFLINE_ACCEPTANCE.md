@@ -1,17 +1,13 @@
-# Offline acceptance — NOT PASSED
-No final persistent Nemotron release is accepted. Local models and a successful network-connected native run do not establish offline startup or recovery. The current result is INCOMPLETE.
+# Offline validation status
 
-The user reconnected power/Ethernet and a new Linux boot was observed. The baseline auto-started capture; normal Stop closed it and normal Settings saved auto_start_listening=false. This does not prove final-candidate coldboot behavior. Display270 was observed on the returned baseline.
+The prepared CM5 runtime has scoped software-offline functional evidence. Candidate16 broker and child processes actually denied IPv4 TCP and IPv6 UDP socket creation (errno97, seccomp2, NoNewPrivs1, no inherited Internet descriptors). Candidate22's raw+processed model child retained the denial and completed recording/Stop/Save/local backup. Current candidate23 reuses the same reviewed runtime/model bytes.
 
-## Remaining release acceptance
-1. Install one versioned manual frontend with finite production policy, explicit supported modes and idle startup.
-2. Verify complete independent code/config/data backup and a local rollback/recovery path.
-3. Launch each real profile shortcut; verify duplicate-owner exclusion, correct pins and capture off.
-4. Restart the final app locally and verify saved settings, display and hardware availability.
-5. Only after recovery works, exercise the supported mode with external networking unavailable. Record software denial separately from physical Ethernet disconnection.
-6. Perform one bounded recording, Stop/drain/Save/reopen and verified later PC copy. Check complete source samples/events, resource floors and release ownership.
-7. Record actual physical touch and coldboot observations separately. Do not invent these from screenshots or process receipts.
+All model assets are local. Actual ten-profile execution, separate TitaNet/ReDimNet choices, finite recording controls, complete local/PC backups and current capture-off manager startup are documented in CHECK_SUMMARY_V142.json and MODE_GUIDE.md.
 
-All seven are final-release gates. Existing isolated/scoped passes may be reused where unchanged, but do not fill missing integration evidence. Physical/noisy tests must use consented participants and FIELD_VALIDATION.md after functional acceptance.
+Local automatic rollback and actual startup-command restart passed. These are not physical cable removal or a power-cycle observation. Before the first real-world session, the operator should:
+1. Confirm the current manager is idle, then check physical touch/Start/Stop/Save.
+2. After preserving the current batch, perform a consented cable-disconnected startup check with local rollback available.
+3. Confirm display270 and capture-off startup, then record within the finite slot/duration limits.
+4. Reconnect only when needed for verified PC copies; preserve source/tap/clock metadata.
 
-No network isolation or reboot was attempted during finalization. Original app remains the recoverable baseline; it is not relabelled the new offline release.
+Record those physical outcomes in FIELD_RUN_TEMPLATE.json. No battery endurance, new noisy-human WER/DER, enrollment or speaker-identification improvement has been established.

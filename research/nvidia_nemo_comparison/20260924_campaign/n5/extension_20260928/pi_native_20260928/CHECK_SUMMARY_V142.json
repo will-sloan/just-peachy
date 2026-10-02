@@ -1,0 +1,117 @@
+{
+  "schema": "just-peachy.check-summary.v142",
+  "utc": "2026-10-02T08:18:23.120423+00:00",
+  "status": "DEPLOYED_TEN_PROFILE_OFFLINE_RUNTIME_RAW_RECORDING_AND_RENEWAL_PASS",
+  "release": "field-runtime-v23",
+  "policy_sha256": "c9dedad236e0c73f9a4a671ddb9c7e4ca74e848b74544a9b33f2bcc508a2ef96",
+  "manager": {
+    "pid": 40612,
+    "start_ticks": 5055076,
+    "boot_id": "cae570ae-9f68-4e09-9c1c-b6dbd4b03e97",
+    "geometry": "480x800+0+0",
+    "capture_off": true,
+    "unused_recording_slots": 4,
+    "observation": "candidate23-shortcut-retirement-v1/INSPECTION.json"
+  },
+  "profiles": {
+    "total": 10,
+    "microphone": 6,
+    "saved_wav": 4,
+    "asr": "Sherpa ONNX/PnC",
+    "embeddings": [
+      "ReDimNet",
+      "NeMo TitaNet"
+    ],
+    "anonymous": "baseline ReDimNet continuity or D1 embedding bypass"
+  },
+  "raw": {
+    "receipt": "candidate22-raw-workflow-v1",
+    "samples": 85919,
+    "seconds": 5.3699375,
+    "microphone_channels": 4,
+    "raw_rate_hz": 16000,
+    "format": "PCM32LE interleaved",
+    "raw_bytes": 1374704,
+    "processed_float_bytes": 343676,
+    "processed_wav_bytes": 171882,
+    "marker_errors": 0,
+    "drops": 0,
+    "all_routes_restored": true,
+    "equal_acoustic_latency_claim": false,
+    "raw_48khz_adc_claim": false
+  },
+  "paired_pc_copies": {
+    "files_each": 203,
+    "bytes_each": 4872052,
+    "directories_each": 27,
+    "measured_16k_chunks_each": 425,
+    "manifest_sha256": "0c2d958f8ed9051589e5432166736fa585b94dc95a0a63173aa19baa02cb6785",
+    "source_deleted": false
+  },
+  "renewal": {
+    "actual_complete_batch_preserve_rollback_inspect_provision": "22 to23 PASS",
+    "wrapper_syntax_and_host_only_plan": "PASS",
+    "wrapper_full_native_rerun": false,
+    "source_closed": 157
+  },
+  "kit": {
+    "all_members_independently_restored_and_read": true,
+    "bytes": 91554957,
+    "full_zip_readback": true,
+    "manifest_sha256": "136be2936f068be1a387461a8cc8aa0366dfc4ed0403b318d1d68bfc5ef3616b",
+    "members": 2586,
+    "native_dispatched": false,
+    "package": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\runtime-delivery-v23\\JustPeachy-prepared-CM5-runtime.zip",
+    "release": "field-runtime-v23",
+    "scope_sha256": "0d8ef9e185b0300981b93158b455a1b414891b1ec565ceb6df1f656a8bbb80cf",
+    "sha256": "684abe51500f47a6c444c1905783d8acb043d46887b9cd0a8a50388b83b27533",
+    "source_bytes": 111754870,
+    "status": "COMPLETE_PREPARED_DEVICE_KIT_AND_INDEPENDENT_RESTORE",
+    "total_private_bytes": 294864866,
+    "utc": "2026-10-02T08:10:58.987215+00:00"
+  },
+  "limits": {
+    "recordings": 4,
+    "total_launch_slots": 16,
+    "idle_launch_seconds": 86400,
+    "microphone_or_chunk52_seconds": 120,
+    "saved_streaming_seconds": 30,
+    "full_runtime_reserve_bytes": 2988319424,
+    "full_install_reserve_bytes": 3307886087,
+    "automatic_replenishment": false
+  },
+  "shortcut_retirement": {
+    "retired": 66,
+    "bytes": 25411,
+    "retained_profiles": 10,
+    "rollback": 1,
+    "exact_independent_backup_before_move": true
+  },
+  "prior_passes_reused": [
+    "all ten model combinations",
+    "candidate14 seven TitaNet embedding queries",
+    "candidate14 nonempty caption/export/delete/import/reopen",
+    "candidate16 both Streaming inputs and AudioOff/Processed",
+    "candidate8 four successive recordings",
+    "candidate17 duplicate shortcuts and startup-command restart",
+    "candidate19 history"
+  ],
+  "software_offline": true,
+  "physical_touch": false,
+  "physical_cable_offline": false,
+  "physical_coldboot": false,
+  "noisy_human_quality": false,
+  "full_N4_240_cell_complete": false,
+  "preserved_failures": [
+    "candidate21 independent child-allocation rejection before child/model/capture; complete preserved failed tree",
+    "raw hardware probe1 SIGXFSZ zero bytes before route mutation; cause unproven",
+    "raw probe2 wrong ALSA path before capture/routes",
+    "raw4 Windows UTF8 derivation failed before SSH",
+    "all earlier owner identity gaps and accounting violations unchanged"
+  ],
+  "private_evidence": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928",
+  "source_receipts": "deployable-runtime-resume-v1/SOURCE_CLOSED_V1..V160; exact scope-specific receipts govern",
+  "native_source_changes_after_bound_backup": false,
+  "publication": "FINAL_GIT_BACKUP.json and FINAL_HANDOFF_RECEIPT.json close external publication",
+  "deadline_utc": "2026-10-02T14:14:20Z"
+}

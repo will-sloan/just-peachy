@@ -1,44 +1,35 @@
-# Current runtime update — October2,02:14Z
+# Paths and verified backups
 
-Five microphone combinations have completed short native recordings with normal Stop, Save, Return, broker Close, independent Pi-local backup and two independently verified PC copies: Nemotron Delayed/ReDimNet, Nemotron Delayed/TitaNet, baseline diarization/ReDimNet, baseline diarization/TitaNet, and Nemotron anonymous. Candidate8 (field-runtime-v8) completed four successive slots with prior recordings and copies unchanged. Its manager35273 is idle with capture off and all four recording slots consumed. It is not the final all-mode/offline release. Baseline anonymous and four saved Streaming/Chunk52 routes, optional recording controls/raw decision, final startup/offline operation and handoff remain open. No embedding-quality, nonempty-caption, physical-touch or noisy-world claim is made.
+Current native release: `/home/peachyprototype/JustPeachy/research/nemotron-20260928/field-runtime-v23`. Current manager40612/start5055076 was observed idle at480×800, capture closed, on bootcae570ae-9f68-4e09-9c1c-b6dbd4b03e97. PolicySHA256 `c9dedad236e0c73f9a4a671ddb9c7e4ca74e848b74544a9b33f2bcc508a2ef96`.
 
-See completion_20261001/MODE_GUIDE.md and FINISH_CHECKLIST for current commands and required remaining work. The older entries below retain their original historical scope and are superseded only where this dated update says so.
-
-Private base: G:/Just_Peachy_N1/20260924_campaign/local/n5/research-extension-20260928/pi-native-20260928. Complete successful offloads: field-runtime-v7-offload-v1 and field-runtime-v8-offload-v1/v3/v4/v5. Each contains the original broker tree and independent local copy, both copied and read back independently. field-runtime-v8-offload-v2 is a preserved pre-SSH host-reserve rejection, not a backup. field-runtime-v7-preservation-v1 retains its successful first recording, failed second and whole manager. Private ACTUAL_MODE_REVIEW_V2.json is under deployable-runtime-resume-v1. Final ZIP is not yet built.
-
-# Artifact and backup paths
-Paths below are exact. Preserve all old packs, failed roots, personal data and source bytes. No consolidation moved or deleted evidence.
-
-| Purpose | Location |
+| Purpose | Exact path |
 |---|---|
-| Entry | G:/Just_Peachy_N1/20260924_campaign/worktree/DELIVERY_START_HERE.md |
-| Git worktree | G:/Just_Peachy_N1/20260924_campaign/worktree |
-| Completion documents | research/nvidia_nemo_comparison/20260924_campaign/n5/completion_20261001 under that worktree |
-| Current source/reports | research/nvidia_nemo_comparison/20260924_campaign/n5/extension_20260928/pi_native_20260928 |
-| Private root B | G:/Just_Peachy_N1/20260924_campaign/local/n5/research-extension-20260928/pi-native-20260928 |
-| Runtime for host tools | C:/Users/amiri/Documents/GitHub/just-peachy/.edge-speech-env/python.exe |
-| Authorized Git remote/ref | https://github.com/will-sloan/just-peachy / codex/n1-foundation-20260924 |
-| Pi baseline pointer | /home/peachyprototype/JustPeachy/install/current.json |
-| Pi private config/data | /home/peachyprototype/JustPeachy/data |
-| Pi shared models | /home/peachyprototype/JustPeachy/install/models |
-| Pi original runtime | /home/peachyprototype/JustPeachy/install/runtimes/proto1-cm5-20260923-rc5/bin/python |
-| Pi research root R | /home/peachyprototype/JustPeachy/research/nemotron-20260928 |
-| Existing research install | R/field-artifact-install-v2/deployment/releases/b01-offline-20260930-v12 |
-| Display config | /home/peachyprototype/.config/kanshi/config,270degrees; preserve current85-byte hash |
-| Final manager/source qualification | R/field-local-release-v2 and R/field-operator-sessions-v8; closed finite research roots |
-| Complete broker PC copy | B/final-manager-joint-v2/broker-copy-mirror;196files3,149,456bytes |
-| Independent manager/local-copy PC copy | B/final-manager-pc-copy-v2/manager-copy-mirror;223files3,323,072bytes |
-| New source backups/restores | B/final-manager-integration-v1/source-backup-v1,v2,v3,v4,v6,v7,v8 and matching source-restore folders |
-| Final raw native evidence | B/final-manager-joint-v1 (clock preflight failure), final-manager-joint-v2 (native pass/first copy failure), final-manager-pc-copy-v2 (separate copy pass) |
-| Final source/readback review | B/final-manager-integration-v1/FINAL_ACTUAL_REVIEW_V1.json |
-| Final whole closure/accounting | B/NATIVE_CLOSURE_V315.json and NATIVE_RESOURCES_V315.json |
-| Actual host census filename | B/HOST_CENSUS_V356.json; its stdout incorrectly said257, preserved |
-| Final publication/backups | B/final-delivery-publication-v1 |
-| Immutable documentation packs | B/completion-20261001-backups; final selection is recorded in FINAL_HANDOFF_RECEIPT.json |
-| Historical separate deployable archives | G:/Just_Peachy_N1/20260924_campaign/local/n5/releases; see FINAL_ARTIFACT_INDEX.json for exact hashes and readiness |
+| Repository | G:/Just_Peachy_N1/20260924_campaign/worktree |
+| Main entry | G:/Just_Peachy_N1/20260924_campaign/worktree/DELIVERY_START_HERE.md |
+| Completion guides | research/nvidia_nemo_comparison/20260924_campaign/n5/completion_20261001 under the repository |
+| Native tools/source | research/nvidia_nemo_comparison/20260924_campaign/n5/extension_20260928/pi_native_20260928 under the repository |
+| Private base B | G:/Just_Peachy_N1/20260924_campaign/local/n5/research-extension-20260928/pi-native-20260928 |
+| Current installation/independent code and active-file restores | B/field-runtime-v23-install |
+| Prepared-device runtime kit | B/runtime-delivery-v23/JustPeachy-prepared-CM5-runtime.zip; BACKUP.json certifies completion/hash |
+| Independent expanded kit restore | B/runtime-delivery-v23/independent-restore |
+| Complete candidate22 batch copy | B/field-runtime-v22-batch-preservation-v1/tree |
+| Raw test original PC copy | B/field-runtime-v22-slot1-offload-original-v1/tree/field-operator-sessions-v285 |
+| Independent Pi-local raw test copy on PC | B/field-runtime-v22-slot1-offload-local-v1/tree/recording-01 |
+| PC operator preparation/receipts | B/deployable-runtime-resume-v1 |
+| TitaNet source backup/restore | B/runtime-titanet-v1-install/assets-backup and assets-restore |
+| Existing baseline/engineering archives | G:/Just_Peachy_N1/20260924_campaign/local/n5/releases |
+| Host Python | C:/Users/amiri/Documents/GitHub/just-peachy/.edge-speech-env/python.exe |
+| Pi profiles/shortcuts | /home/peachyprototype/JustPeachy/research/nemotron-20260928/field-runtime-v23-profiles |
+| Pi TitaNet assets | /home/peachyprototype/JustPeachy/research/nemotron-20260928/runtime-titanet-v3 |
+| Pi original Python environment | /home/peachyprototype/JustPeachy/install/runtimes/proto1-cm5-20260923-rc5/bin/python |
+| Pi installed application | /home/peachyprototype/JustPeachy/research/nemotron-20260928/field-artifact-install-v2/deployment/releases/b01-offline-20260930-v12 |
+| Pi private data/settings | /home/peachyprototype/JustPeachy/data |
+| Git remote/ref | https://github.com/will-sloan/just-peachy / codex/n1-foundation-20260924 |
 
-The final analysis ZIP is not deployable. There is no newly accepted production runtime archive. Historical baseline310,867,595-byte ZIP and1,874,637-byte native engineering TAR retain their prepared/build scope; do not relabel them from later component tests.
+The current prepared-device kit supplements existing pinned baseline/Nemotron dependencies; it is not an OS image. The small final ChatGPT ZIP is documentation only. FINAL_ARTIFACT_INDEX and FINAL_HANDOFF_RECEIPT record final immutable paths/hashes after packaging.
 
-The current85-byte display configuration SHA256 is c4e12bb19373d607a7ca1e52a0c007e082e17a18eb5af7b8a60384ca82aae23b. The saved214-byte idle-start settings SHA256 is d94face8f202cc0aceac059bf32500721ab5da5b8e18446291642e9464ef0b57. Original config backups and independent restores are in B/user-poweroff-20261001-v1 and B/final-delivery-idle-start-v2. A whole personal-store disaster restore was not performed.
+Candidate22 raw original and independent local PC copies each contain203files4872052bytes/27directories with identical manifestSHA `0c2d958f8ed9051589e5432166736fa585b94dc95a0a63173aa19baa02cb6785`. Its complete batch preservation contains the original4872052-byte broker plus5129266-byte manager/local-copy tree; exact manager death, native exporter closure and rollback are separately recorded.
 
-V141 source backups and independent restore copies were rehashed exactly. Both PC recording trees were fully read back. Native manager reopen is separate from a power-loss/whole-app restoration trial. Final Git/private backup receipts provide the published source commit; no personal data is in Git. Retain the old manager-bootstrap-v49 pack and every earlier pack unchanged.
+All prior successful, failed, consumed and pending roots remain immutable, including old handoff ZIPs. Source backup/independent restore receipts1–158 are under deployable-runtime-resume-v1 (later receipts continue there). No path consolidation deleted or moved personal data. Old generated shortcuts alone were backed and moved to versioned retired-shortcuts directories.
+
+Read BACKUP.json before treating any directory as a complete backup; a partial output is not a successful copy. Never place private recordings, transcripts, gallery vectors, model weights or credentials in Git or the ChatGPT handoff.

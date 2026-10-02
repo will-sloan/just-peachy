@@ -1,0 +1,5 @@
+# Ten-profile native installer
+Purpose: replace the prior exact six-profile transfer count with the exact ten selected profile set and27 transferred files (16manager modules, common capsule,10descriptors). Existing96file,1MiBpacked,2MiBcode,128KiBmember and full independent allocation guards are unchanged.
+Inputs: command-bound request SHA and framed pinned admission/files over standard input, as supplied by install_field_runtime_v13.py. Outputs: early owner, backup handshake, full readback and installation result. Existing asset bytes remain independently verified.
+Run through the host installer only. PowerShell: use & 'PYTHON_EXE' -B .\install_field_runtime_v13.py with the arguments in README_RUNTIME_INSTALL_V13.md. CMD and Anaconda Prompt: "PYTHON_EXE" -B install_field_runtime_v13.py with the same arguments. No bare native invocation is admitted.
+Previous candidate9 failed the old exact-count assertion before HELLO/mkdir/Close; its source, admission and closure evidence are immutable. Candidate10 is a fresh operation.

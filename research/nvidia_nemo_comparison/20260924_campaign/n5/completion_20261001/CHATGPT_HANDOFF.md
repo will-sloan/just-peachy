@@ -1,58 +1,20 @@
-# Current runtime update — October2,02:14Z
+# ChatGPT handoff — prepared CM5 runtime
 
-Five microphone combinations have completed short native recordings with normal Stop, Save, Return, broker Close, independent Pi-local backup and two independently verified PC copies: Nemotron Delayed/ReDimNet, Nemotron Delayed/TitaNet, baseline diarization/ReDimNet, baseline diarization/TitaNet, and Nemotron anonymous. Candidate8 (field-runtime-v8) completed four successive slots with prior recordings and copies unchanged. Its manager35273 is idle with capture off and all four recording slots consumed. It is not the final all-mode/offline release. Baseline anonymous and four saved Streaming/Chunk52 routes, optional recording controls/raw decision, final startup/offline operation and handoff remain open. No embedding-quality, nonempty-caption, physical-touch or noisy-world claim is made.
+The user requested a working offline runtime for real-world testing, then restored NeMo TitaNet alongside ReDimNet with one shortcut for each supported combination. Reused the prior ONNX model/frontend and native runtime work; no new research campaign, download, training, enrollment, solicited speech or playback.
 
-See completion_20261001/MODE_GUIDE.md and FINISH_CHECKLIST for current commands and required remaining work. The older entries below retain their original historical scope and are superseded only where this dated update says so.
+Current release is field-runtime-v23 on the prepared2GB CM5/32GB device. One480×800 frontend starts idle, display270, Sherpa ONNX ASR/PnC. Six microphone profiles combine Pyannote or Nemotron-3 Delayed with ReDimNet/TitaNet/explicit anonymous handling. Four saved-input profiles combine Nemotron Streaming/Chunk52 with either encoder. MODE_GUIDE is the executable choice table.
 
-# Just Peachy final technical handoff
-## Outcome
-**Incomplete offline field delivery.** User selected Sherpa ONNX ASR, Nemotron-3 diarization and compatible ReDimNet, and required desktop backend shortcuts plus optional true raw/processed recording and verified PC offload. The implementation freeze began2026-10-01T15:14:58Z; hard deadline16:14:58Z. The original rc5 baseline is preserved idle. There is no accepted persistent manual Nemotron release.
+Actual functional evidence:
+- All ten compositions executed. Both saved Chunk52 encoders completed8.22s; TitaNet made seven real embedding queries. Saved Streaming with both encoders completed8.22s, including Audio off and Processed cases.
+- Four successive independent recordings, complete source/model/archive closure and verified local backup before the next slot passed. Actual saved history, nonempty captions, full export/readback/disposable-copy delete/import/reopen passed.
+- Candidate22 recorded85919paired samples5.3699375s: physicalMIC0–MIC3 PCM32LE16kHz plus exact processed model input. Zero marker/drop/callback errors; route restoration and physical capture closure passed. Original and independent Pi-local copies each203files4872052B were copied/read back independently onPC.
+- IPv4/IPv6 socket creation is denied in actual broker/child processes. All assets are local. Automatic rollback and real shortcut/startup-command restarts passed.
+- Complete candidate22 batch preservation/rollback and generic fresh23 provisioning passed. Current manager40612/start5055076 has fourunused slots;66obsolete icons were independently backed and archived, leaving ten current profiles plusrollback.
 
-Use FINISH_CHECKLIST.md/.json for all26 criteria, ACCEPTANCE.json for gate status, FINAL_COVERAGE.md for the original N1–N5 denominator, and PATHS_AND_BACKUPS.md for artifacts. Earlier CHECK_SUMMARY files and old packages are immutable historical scopes.
+Finite limits remain: four recordings,16total launch/helper slots,24h per idle launch,120s microphone/Chunk52,30s savedStreaming. CPU2/3/shared200%/64tasks/one model thread/GPUoff/1MiB stacks/default768MiB AS; initial850MiB/stop192MiB availableRAM. Pi5GiB/C50GiB/G75GiB free floors. Full rawruntime2988319424B and freshinstall3307886087B reserve independent copies; no failed/unused/deleted credit.
 
-## Architecture and selected components
-One480×800 frontend, separate product mode/backend/tap, local assets and personal data outside replaceable code. B01 is Sherpa/PnC + native Nemotron-3 D1 + compatible ReDimNet. B05 is the explicit anonymous path. D1 has eight anonymous activity slots; it is not an enrollment encoder. Do not compare embeddings across encoders or infer names from an empty gallery. TitaNet and Nemotron ASR are deferred from the selected delivery.
+The PowerShell refresh wrapper plans/preserves/inspects/provisions a new higher version on the prepared PC/CM5. The underlying sequence actually renewed22→23; its combined wrapper passed syntax and PC-only plan. It retains finite owner bounds and fails explicitly rather than erasing history. The runtime kit91554957B/SHA684abe51500f47a6c444c1905783d8acb043d46887b9cd0a8a50388b83b27533 has2586members, separate archive copy and full expanded restore readback. Existing baseline/Nemotron dependencies remain required; this is not an OS image.
 
-The prepared/local manager uses Plan2, Journal6, Supervisor3, copier2 and Gate12. V141 added a fresh postboot capsule derivative, initializer4/phase2, actual host dispatcher2, receiver2 and strict closure collector19. The auxiliary loader/bootstrap/exporter prepared in V139 now executed natively in read-only census/export. All sources, backups and failures remain versioned.
+Separate galleries protect existing personal ReDimNet data. TitaNet remains separately empty/Unknown until future explicit enrollment. No embedding-quality gain or noisy-human WER/DER is inferred. Physical touch, cable-disconnected coldboot, battery tests and real-world noisy validation are planned, not observed. The full34-method/N1–N5 denominator and incomplete240-cell N4 remain in FINAL_COVERAGE. All prior failures/identity gaps/closed admissions are preserved and are never retroactively passed.
 
-The full one-recording/three-launch reservation is617,760,944bytes:306,783,320target plus310,977,624host, including independent copies. It is a finite qualification policy, not production lifetime authority. The manager-tree copy reserves155,669,036bytes independently. No deleted/failed/small-output credits, cap removal or old root reuse.
-
-## Latest actual result — V141
-On boot892ed9fa-e39c-48af-8653-eae5e123daad, managerfield-local-release-v2 and brokerfield-operator-sessions-v8 completed:
-1. Manager install/reserve before broker staging.
-2. Actual gate/broker identity binding and Journal STARTED before ACK.
-3. Visible programmatic New/consent/Start/Stop/Save/Return/history;80,640samples (5.04s), zero captions.
-4. Natural process closure; fresh finish recorded CLOSED and made a complete independent Pi-local broker copy.
-5. Fresh process verified manager reopen.
-6. PC broker copy196files3,149,456bytes, fully rehashed during finalization.
-7. Separately admitted repaired manager PC copy223files3,323,072bytes/350measured16KiBchunks, with exporter/helper closure before certification.
-
-The first manager PC copy failed BEFORE the first file because JSON key insertion order differed from native sorted framing. The original joint RESULT remainsFAILED. Receiver2 canonicalizes comparison without changing field/value/size/path checks. The later standalone copy is separate success, not retroactive whole-trial success.
-
-Native closure315 checked497 tree owner records plus706 registered-owner records (706 unique identities across those sets), three separate typed nonidentity closures, empty active research-unit list, capture closed, free leases and exact living baseline launcher1008/476 + app1124/514. Its own helper5226/778262 was absent after SSH. Old-boot identity gaps are still historical gaps, not repaired by the new boot. Read-only accounting uses the exact closed joint policy; it authorizes no new dispatch.
-
-## Retained evidence to reuse
-- V98: saved Streaming fresh-process application passage,104matched pre-EOF frames and17unmatched tail frames.
-- V95: saved Chunk52 application/method controls;416matched pre-EOF frames plus15accounted tails.
-- V91–V93: distinct saved Delayed/Streaming/Chunk52 app passes; no general launcher claim.
-- V117:120seconds/all1,920,000samples archived; original whole trial FAILED its validator. Later read-only interpretation never rewrites it.
-- V123:24.03seconds live plus visible Save/export/delete/import/reopen on the owned recording; all original payload fields retained.
-- V128: two independent5-second sessions, exact closure before next reserve, saved history preserved.
-- V131/V132: metadata reopen/pending fence and separate complete local copy; V141 connects their later derivatives.
-- Native repaired A76 same-geometry pairs reduced wall work23–24% on one retained file. Cross-mode costs~0.405Delayed/~1.085Chunk52/~3.634Streaming are different geometries, not a general speedup or field benchmark.
-
-Source buffering is material: Delayed needs about21.3seconds of source before first output; short recordings can produce diarizer output at EOF. Streaming early output does not establish sustained realtime operation. No new WER/DER/identity quality, matched source-reference1e-5/E0, noisy-human or physical-touch result was obtained.
-
-## Failures and constraints preserved
-V141: scope2 source-backup expiry gap; dispatcher1 strict future-clock rejection before admission/mutation; bounded host-clock catch-up in dispatcher2 preserving native timestamps; invalid copy1 indentation before execution/SSH; collector18 nonexistent API caught statically and left unexecuted; collector314 requested a nonexistent census filename before SSH. Actual fresh census was saved asHOST_CENSUS_V356 despite stdout saying257; collector315 used the real file. All failed roots and raw outputs remain.
-
-V140 exceeded its2MiB host preparation allowance through repeated full preread receipts; bytes and violation remain. V141 reads all owners but writes compact count/digests. Earlier V300 and V137 shutdown postexit uncertainties remain. No firmware reset, new model download, training, enrollment or audible playback occurred in the final stretch.
-
-## Exact continuation boundary
-F04/F05 are still the blocking dependency: local manual admission, finite production lifetime/storage, failed-source recovery and restart fencing. Never rename the600s research dispatcher as a user launcher. Journal activation/rollback remains unwired. Then F06–F20 must be finished against the actual installed composition, with one combined final recording and explicit unsupported features.
-
-No final backend shortcuts, production optional recording selector, simultaneous rawMIC0–MIC3 qualification, local automatic recovery, activation/rollback or final offline startup pass exists. ExistingO0/O1 and model-inputWAV/float are processed taps, not proof of raw microphones. Final gallery compatibility and nonempty captions remain open. The field kit is ready as a protocol, but the new app is not ready to use that protocol unsupervised.
-
-No continuation beyond the deadline is automatic. A future continuation requires explicit user authority and fresh boot/identity/resource admissions. Preserve display270, personal data, exact baseline, old policies and failed records.
-
-Final publication accounting: the retained whitespace audit produced a 15,903-byte overrun above its 2 MiB host metadata scope. All bytes and the violation are preserved. A separately recorded prospective 1 MiB finalization allowance covers remaining receipts; no native allowance or old cap was changed. Automation was paused before the hard deadline. The offline release remains INCOMPLETE.
+Use START_HERE, MODE_GUIDE, INSTALL_HEALTH_AND_RECOVERY, FIELD_VALIDATION, FINISH_CHECKLIST and final artifact/Git/handoff receipts. Keep recordings, transcripts, vectors, weights and credentials outside Git and this documentation ZIP.
