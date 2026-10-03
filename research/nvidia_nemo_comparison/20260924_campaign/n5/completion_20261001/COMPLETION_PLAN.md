@@ -1,5 +1,10 @@
 # Current completion outcome
 
+> Current October3 update: **v28, desktop-first startup**. Use the ten desktop
+> shortcuts; choose **Exit to desktop** in the main manager to close normally.
+> Four recording slots remain. See [DESKTOP_GUIDE.md](DESKTOP_GUIDE.md) and
+> DESKTOP_RELEASE_INDEX.json. Earlier v27 measurements below remain historical.
+
 The prepared-CM5 runtime is deployed for bounded real-world validation as v27,
 with ten profiles, TitaNet/ReDimNet, optional raw/processed recording and shared
 mounted BMI270 integration. The changed recording, closure, independent backups,

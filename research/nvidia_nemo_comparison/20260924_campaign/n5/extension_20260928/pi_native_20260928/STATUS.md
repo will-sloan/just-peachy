@@ -1,5 +1,7 @@
 # Current mounted-motion delivery — October 2
 
+Current release: field-runtime-v28, desktop-first startup, verified normal Exit/reopen/Exit, capture off. Use completion_20261001/DESKTOP_GUIDE.md and DESKTOP_RELEASE_INDEX.json. Earlier v27 motion evidence remains historical.
+
 field-runtime-v27 is deployed for bounded real-world validation across all ten
 profile pins, with BMI270 motion integration,3recording slots remaining and the
 last manager observation idle/captureoff/display270. Source commit

@@ -1,0 +1,50 @@
+{
+  "autostart_sha256": "8841a9fe0f62b662906bb9cb0d8914ac9bab86ebb7c4d28f7699194971f39206",
+  "evidence": {
+    "first_observer": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\desktop-exit-20261003\\exit-reopen-v1",
+    "install": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\field-runtime-v28-install",
+    "old_runtime_preservation": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\field-runtime-v27-preservation-desktop-v1",
+    "post_exit_readonly": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\desktop-exit-20261003\\inspection-after-exit-v1",
+    "reopen": "G:\\Just_Peachy_N1\\20260924_campaign\\local\\n5\\research-extension-20260928\\pi-native-20260928\\desktop-exit-20261003\\reopen-v2"
+  },
+  "exit_location": "Main profile manager: Exit to desktop; return from recording screen first",
+  "historical_motion_evidence": "MOTION_RELEASE_INDEX.json; v27 recording/resource results remain historical, not new v28 tests",
+  "limitations": [
+    "Original finite recording/launch/duration limits remain",
+    "No new physical reboot/noisy-world/model-quality result"
+  ],
+  "native_root": "/home/peachyprototype/JustPeachy/research/nemotron-20260928/field-runtime-v28",
+  "observed_utc": "2026-10-03T18:12:21.353228+00:00",
+  "older_shortcuts_preserved": "/home/peachyprototype/JustPeachy/research/nemotron-20260928/field-runtime-v28-profiles/retired-shortcuts-desktop-v1",
+  "profiles": [
+    "baseline",
+    "baseline-anonymous",
+    "baseline-titanet",
+    "d1-anonymous",
+    "d1-chunk52-saved",
+    "d1-chunk52-titanet-saved",
+    "d1-delayed",
+    "d1-delayed-titanet",
+    "d1-streaming-saved",
+    "d1-streaming-titanet-saved"
+  ],
+  "release_id": "field-runtime-v28",
+  "remaining_launch_slots": 14,
+  "remaining_recording_slots": 4,
+  "retained_shortcuts": 11,
+  "rollback_also_preserves_disabled_autostart": true,
+  "schema": "just-peachy.desktop-first-release.v1",
+  "shared_motion_capsule_sha256": "3383fa869e7357cfa7f9ef410be6dcb40972feb40cea7aebee9d71dd526e4d80",
+  "startup": "Desktop only; application login autostart disabled",
+  "status": "DESKTOP_IDLE_NORMAL_EXIT_AND_SHORTCUT_REOPEN_VERIFIED",
+  "validation": {
+    "capture_started": false,
+    "models_executed": false,
+    "normal_exit": true,
+    "original_observer_timeout_preserved": true,
+    "physical_touch_tested": false,
+    "reboot_performed": false,
+    "shortcut_reopen": true,
+    "visible_exit_button": true
+  }
+}

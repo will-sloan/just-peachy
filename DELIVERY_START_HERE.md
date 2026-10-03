@@ -1,5 +1,7 @@
 # Just Peachy delivery
 
+Current release: field-runtime-v28, desktop-first startup, verified normal Exit/reopen/Exit, capture off. Use completion_20261001/DESKTOP_GUIDE.md and DESKTOP_RELEASE_INDEX.json. Earlier v27 motion evidence remains historical.
+
 The prepared CM5 runs **field-runtime-v27**, including all ten backend profiles
 and the mounted BMI270 integration. It was left idle, capture off, with **three
 recording slots remaining**. Start with [the operator entry](research/nvidia_nemo_comparison/20260924_campaign/n5/completion_20261001/START_HERE.md),

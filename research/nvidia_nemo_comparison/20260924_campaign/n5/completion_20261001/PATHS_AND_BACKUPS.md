@@ -1,5 +1,10 @@
 # Paths and verified backups
 
+> Current October3 update: **v28, desktop-first startup**. Use the ten desktop
+> shortcuts; choose **Exit to desktop** in the main manager to close normally.
+> Four recording slots remain. See [DESKTOP_GUIDE.md](DESKTOP_GUIDE.md) and
+> DESKTOP_RELEASE_INDEX.json. Earlier v27 measurements below remain historical.
+
 Current native release: `/home/peachyprototype/JustPeachy/research/nemotron-20260928/field-runtime-v27`. Last observed manager2626/start362288 on bootfddfa8ec-8af2-4e41-ae56-f2ac5dcc73d4 was idle, capture off, with three slots left. These are recorded observations, not reusable future process authority.
 
 | Purpose | Exact path |

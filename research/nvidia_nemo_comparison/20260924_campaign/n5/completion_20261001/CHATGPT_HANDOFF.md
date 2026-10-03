@@ -1,5 +1,10 @@
 # ChatGPT handoff — current mounted-motion runtime
 
+> Current October3 update: **v28, desktop-first startup**. Use the ten desktop
+> shortcuts; choose **Exit to desktop** in the main manager to close normally.
+> Four recording slots remain. See [DESKTOP_GUIDE.md](DESKTOP_GUIDE.md) and
+> DESKTOP_RELEASE_INDEX.json. Earlier v27 measurements below remain historical.
+
 Read START_HERE, MODE_GUIDE and MOTION_GUIDE first. Current release is v27; the following v23 completion account is retained history. The new shared mounted motion path was deployed, checked with one5.25s live recording and two independent complete PC copies, and left idle with three slots remaining. All ten profile pins share the same common code. IMU thread cost was1.21% of one core at50.29samples/s; not total pipeline or battery cost.
 
 Use microphone-array-centered geometry and distinguish raw device-relative beam arrows from trusted relative-anchor location logic. BMI270 has no absolute heading/position reference: yaw can drift; detected translation/gaps suspend location assumptions. Current live pose is excluded from plain saved WAVs. Source in mounted-source/runtime is exact deployed code for reading, not a bare standalone launcher. The prior prepared-device kit and refresh wrapper omit this addition. See the new motion renewal command and MOTION_* receipts. No noisy-world accuracy, battery or physical-touch claim is added.

@@ -1,5 +1,10 @@
 # Concrete finish checklist — current v27 status
 
+> Current October3 update: **v28, desktop-first startup**. Use the ten desktop
+> shortcuts; choose **Exit to desktop** in the main manager to close normally.
+> Four recording slots remain. See [DESKTOP_GUIDE.md](DESKTOP_GUIDE.md) and
+> DESKTOP_RELEASE_INDEX.json. Earlier v27 measurements below remain historical.
+
 Implementation is complete for bounded real-world validation. Three recording slots remained at the last observation; physical/noisy-world tests remain open. The 26 original requirements and their exit criteria stay below. The separately requested mounted-motion work is recorded in MOTION_CHECKLIST.json. Old deadlines/admissions are historical and unchanged.
 
 ## F01 — Verify the returned Pi

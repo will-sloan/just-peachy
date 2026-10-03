@@ -1,5 +1,10 @@
 # Supported backend combinations
 
+> Current October3 update: **v28, desktop-first startup**. Use the ten desktop
+> shortcuts; choose **Exit to desktop** in the main manager to close normally.
+> Four recording slots remain. See [DESKTOP_GUIDE.md](DESKTOP_GUIDE.md) and
+> DESKTOP_RELEASE_INDEX.json. Earlier v27 measurements below remain historical.
+
 The authoritative executable profile table and commands are in [MODE_GUIDE.md](MODE_GUIDE.md). All ten profiles use Sherpa ONNX ASR/PnC and the same versioned frontend.
 
 Six microphone choices: Pyannote with ReDimNet, TitaNet or anonymous ReDimNet continuity; Nemotron-3 Delayed with ReDimNet, TitaNet or native anonymous slots. Four saved-input choices: Nemotron-3 Streaming or Chunk52, each with ReDimNet or TitaNet. Saved inputs are mono16kHz PCM16 WAV. Streaming is limited to30s; microphone/Chunk52 to120s.

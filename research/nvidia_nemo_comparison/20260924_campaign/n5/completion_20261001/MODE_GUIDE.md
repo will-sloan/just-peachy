@@ -1,6 +1,11 @@
 # Just Peachy mode and recording guide
 
-The current prepared CM5 release is **field-runtime-v27**. It offers ten combinations through one offline frontend, with NeMo TitaNet and ReDimNet both available. Sherpa ONNX ASR and punctuation remain selected. The Pi starts idle with capture off; display orientation is270 and the viewport480×800. Current validation establishes execution, controls and recording integrity, not superior speaker-recognition accuracy.
+> Current October3 update: **v28, desktop-first startup**. Use the ten desktop
+> shortcuts; choose **Exit to desktop** in the main manager to close normally.
+> Four recording slots remain. See [DESKTOP_GUIDE.md](DESKTOP_GUIDE.md) and
+> DESKTOP_RELEASE_INDEX.json. Earlier v27 measurements below remain historical.
+
+The current prepared CM5 release is **field-runtime-v28**. It offers ten combinations through one offline frontend, with NeMo TitaNet and ReDimNet both available. Sherpa ONNX ASR and punctuation remain selected. The Pi stays at the desktop after login; a shortcut opens the app idle with capture off; display orientation is270 and the viewport480×800. Current validation establishes execution, controls and recording integrity, not superior speaker-recognition accuracy.
 
 ## Available combinations
 
@@ -17,11 +22,11 @@ The current prepared CM5 release is **field-runtime-v27**. It offers ten combina
 | d1-chunk52-saved | Nemotron-3 Chunk52 | ReDimNet | Saved WAV,120s |
 | d1-chunk52-titanet-saved | Nemotron-3 Chunk52 | NeMo TitaNet | Saved WAV,120s |
 
-Desktop files are named `just-peachy-field-runtime-v27-PROFILE.desktop`, replacing PROFILE with the table value. Ten profile shortcuts plus rollback are retained; older generated shortcuts were backed up and archived. Use the visible profile chooser to change selection while idle. If opening another shortcut, close the current idle manager first: duplicate ownership is rejected.
+Desktop files are named `just-peachy-field-runtime-v28-PROFILE.desktop`, replacing PROFILE with the table value. Ten profile shortcuts plus rollback are retained; older generated shortcuts were backed up and archived. Use the visible profile chooser to change selection while idle. If opening another shortcut, close the current idle manager first: duplicate ownership is rejected.
 
 Pi terminal example:
 ~~~sh
-/home/peachyprototype/JustPeachy/research/nemotron-20260928/field-runtime-v27-profiles/bin/launch-profile --profile d1-delayed-titanet
+/home/peachyprototype/JustPeachy/research/nemotron-20260928/field-runtime-v28-profiles/bin/launch-profile --profile d1-delayed-titanet
 ~~~
 Substitute another exact table profile. Saved inputs must be mono16kHz PCM16 WAV, at most32MiB, under `/home/peachyprototype/JustPeachy`. Streaming/Chunk52 microphone routes are unavailable. Nemotron Delayed buffers about21.3s before its regular output; short runs can emit speaker results at Stop. This is a latency tradeoff, not a missing recording.
 
@@ -34,7 +39,7 @@ Substitute another exact table profile. Saved inputs must be mono16kHz PCM16 WAV
 5. Press Stop and allow source/model/archive cleanup to finish. Then Save and Return to modes.
 6. Close the recording broker. Wait for the manager's verified independent local backup before another recording. Saved recordings opens the read-only history.
 
-The release reserves four recording slots; three remain after the motion integration recording. There are16 total manager/helper launch slots; each idle manager launch is bounded to24h. Each recording uses separately reserved helper slots. Closing/reopening the manager consumes another launch, so avoid unnecessary reopen loops. Stop is bounded automatically at the input limit. Failed/cancelled/finished slots remain consumed. After exhaustion use the explicit PC batch-refresh command below.
+The release reserves four recording slots; all four remain in v28; the motion integration recording is preserved in v27. There are16 total manager/helper launch slots; each idle manager launch is bounded to24h. Each recording uses separately reserved helper slots. Closing/reopening the manager consumes another launch, so avoid unnecessary reopen loops. Stop is bounded automatically at the input limit. Failed/cancelled/finished slots remain consumed. After exhaustion follow the desktop-aware renewal requirements below.
 
 ## Audio formats and clocks
 
@@ -52,25 +57,12 @@ Use `operator-tools-v1/export_runtime_recording_v4.py` under `C:/Users/amiri/Doc
 
 PowerShell example (replace the previous utility and NEW_DESTINATION with the actual latest receipt and an absent private directory):
 ~~~powershell
-& "C:/Users/amiri/Documents/GitHub/just-peachy/.edge-speech-env/python.exe" -B "C:/Users/amiri/Documents/GitHub/just-peachy/Resumes/imu_integration_20261002/operator-tools-v1/export_runtime_recording_v4.py" --local "G:/Just_Peachy_N1/20260924_campaign/local" --private "G:/Just_Peachy_N1/20260924_campaign/local/n5/research-extension-20260928/pi-native-20260928" --prior-closure "G:/Just_Peachy_N1/20260924_campaign/local/n5/research-extension-20260928/pi-native-20260928/NATIVE_CLOSURE_V315.json" --previous-inspection PREVIOUS_RECEIPT --candidate-install "G:/Just_Peachy_N1/20260924_campaign/local/n5/research-extension-20260928/pi-native-20260928/field-runtime-v27-install" --active-install "G:/Just_Peachy_N1/20260924_campaign/local/n5/research-extension-20260928/pi-native-20260928/field-runtime-v27-install" --slot recording-01 --root-kind original --output NEW_DESTINATION
+& "C:/Users/amiri/Documents/GitHub/just-peachy/.edge-speech-env/python.exe" -B "C:/Users/amiri/Documents/GitHub/just-peachy/Resumes/imu_integration_20261002/operator-tools-v1/export_runtime_recording_v4.py" --local "G:/Just_Peachy_N1/20260924_campaign/local" --private "G:/Just_Peachy_N1/20260924_campaign/local/n5/research-extension-20260928/pi-native-20260928" --prior-closure "G:/Just_Peachy_N1/20260924_campaign/local/n5/research-extension-20260928/pi-native-20260928/NATIVE_CLOSURE_V315.json" --previous-inspection PREVIOUS_RECEIPT --candidate-install "G:/Just_Peachy_N1/20260924_campaign/local/n5/research-extension-20260928/pi-native-20260928/field-runtime-v28-install" --active-install "G:/Just_Peachy_N1/20260924_campaign/local/n5/research-extension-20260928/pi-native-20260928/field-runtime-v28-install" --slot recording-01 --root-kind original --output NEW_DESTINATION
 ~~~
 CMD/Anaconda uses the same arguments after `python -B "C:/Users/amiri/Documents/GitHub/just-peachy/Resumes/imu_integration_20261002/operator-tools-v1/export_runtime_recording_v4.py"`. Then use that output as PREVIOUS_RECEIPT, change root-kind to local and choose a different destination.
 
-For a fresh batch, after Stop/Save/Return/broker Close and local backup, use
-the new motion-preserving wrapper. The old Refresh-JustPeachy reconstructs v23
-and omits this integration. From the host motion directory:
-
-~~~powershell
-& 'C:/Users/amiri/Documents/GitHub/just-peachy/.edge-speech-env/python.exe' -B ./renew_motion_runtime.py --previous-version 27 --version 28 --last-receipt 'G:/Just_Peachy_N1/20260924_campaign/local/n5/research-extension-20260928/pi-native-20260928/imu-integration-20261002/shortcuts-v27-v2' --plan
-~~~
-
-CMD/Anaconda uses the same arguments after `python -B renew_motion_runtime.py`.
-Replace the receipt with the latest actual utility receipt after any later native
-operation. Remove `--plan` to perform intentional renewal; use higher unused
-versions thereafter. This wrapper is prepared/compiled/planned only. Its component
-preservation, inspection and provision paths have actual execution evidence.
-Every phase retains full independent storage reservations and a 600-second limit;
-failed sources require their specific recovery, never counter or pending-file deletion.
+For a fresh batch, preserve completed recordings and local backups first.
+Desktop-first renewal: see DESKTOP_GUIDE.md. Do not execute the older motion renewal wrapper unchanged; its launcher would restore automatic startup and its old Close-button selector is obsolete.
 
 ## Mounted motion
 

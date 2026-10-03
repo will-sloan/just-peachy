@@ -1,5 +1,10 @@
 # Current runtime progress
 
+> Current October3 update: **v28, desktop-first startup**. Use the ten desktop
+> shortcuts; choose **Exit to desktop** in the main manager to close normally.
+> Four recording slots remain. See [DESKTOP_GUIDE.md](DESKTOP_GUIDE.md) and
+> DESKTOP_RELEASE_INDEX.json. Earlier v27 measurements below remain historical.
+
 field-runtime-v27 is installed, idle and capture off, display270, with three
 recording slots remaining and ten profile shortcuts plus rollback. The shared
 mounted BMI270 implementation and array-centered transform are deployed.
