@@ -1,12 +1,34 @@
 # Modes, recording and current release status
 
-The sole desktop shortcut now selects **field-runtime-v29-build-16**. Its
-accepted package was staged, activated and consolidated, with the ten previous
-shortcuts archived and independently copied to the PC. Actual Desktop Exec,
-native_scope and the default data root passed the final idle/control check:
-ten stable 480x800 fullscreen samples, one normal Exit and complete process/unit
-closure. No capture or model worker started; login autostart remains disabled.
-Physical double-click, touch and a new reboot were not tested.
+**Current runtime: field-runtime-v29-build-17 is installed and activated.**
+Its short native integration check passed. Check02 used actual480x800 portrait/tabs and
+consent, Pyannote+ReDimNet live capture,52,799 processed samples
+(3.2999375seconds), Stop/drain, exact source/worker closure, processed Save and
+readback, and Exit. Raw/model frames aligned and source routes were restored.
+This is a short functional pass, not a new sustained/accuracy result. Desktop
+activation passed with independent before/restore readbacks and the duplicate
+shortcut archived. Normal-Desktop chooser/Exit verification passed; the current handoff is named in the publication guide.
+
+Check01's portrait/consent/readiness passed but its test-wrapper32MiB file cap
+was below the worker's declared SQLite allocation. That failed check is retained.
+Check02 used the corrected original64MiB admitted wrapper; build17 was unchanged.
+
+The intended one-icon flow is a scrollable backend/source chooser, **OK**, then
+the original portrait caption application with Mode, People and Settings
+navigation. It opens idle and Exit returns to the desktop. Login autostart
+remains disabled. Build16, v27/v28 and existing recordings remain preserved.
+The chooser presents39 basic backend/embedding combinations: Pyannote and
+12Nemotron geometries, each with ReDimNet, TitaNet or anonymous attribution.
+Live microphone/Saved WAV is an independent source choice. These entries are
+available for investigation under their existing gates; they are not39 new
+native passes or blanket qualification of the advanced source catalog.
+
+Six build16 user-created sessions shared an AEC_MIC_ARRAY_TYPE255
+`Resource could not respond` failure after physical stream startup, with zero
+accepted processed audio. SOURCE_NOT_STARTED was a cleanup summary, not its
+cause. The new live Start adds one fault-bound readiness procedure, retaining
+the original failures and refusing uncertain automatic retries. See
+[repair findings](../extension_20260928/pi_native_20260928/live_runtime_20261003/ui_restore_20261004/UI_REPAIR_FINDINGS.md).
 
 Compute measurements below keep their executed release identities. GUI-only15
 preserves the actual14 worker/model/source graph; production16 relocates that
@@ -43,7 +65,7 @@ Followup01 child fell behind and was disabled while primary capture continued.
 Actual14 Followup02 completed live300 primary/raw and child EOF under the exact
 60-second revision/drain and30-second backlog policy. It produced zero optional
 correction events; that workload does not establish correction quality.
-Ordinary GUI optional permission still requires an exact reviewed selection
+The optional parallel-refiner feature is disabled in build17; the following permission rules describe the preserved earlier implementation. Ordinary GUI optional permission required an exact reviewed selection
 and policy. The disabled old provisional_correction draft is a separate option.
 Do not confuse primary label revisions with successful secondary corrections.
 
@@ -123,32 +145,40 @@ calls and0.223s maximum source-wall lag. It does not qualify a new application
 hour. Research07 compared all4,470 x8 native values with zero numerical difference
 and preserved the final ASR sequence. Its sampled worker RSS was550,502,400 B
 with at least1,258,323,968 B available system RAM; no whole-unit peak was
-recorded. Production16 now has actual installation/idle evidence; original compute scopes are unchanged.
+recorded. Production16's installation/idle evidence remains historical;
+build17's native repair has a separate short functional pass. Original compute
+scopes are unchanged.
 
 ## Open, select and close
 
-Open the sole JustPeachy desktop shortcut. Capture is off until Start. Choose
-source, diarizer and embedding while idle. Ordinary policy is source300/load120/
-drain120/backlog120/cleanup60 seconds. Stop/drain completes before Keep/Discard.
+Open the sole Just Peachy shortcut. Choose the backend/embedding and source in
+the scrollable list; press **OK · open application**. Start in the original
+portrait application requests microphone consent, while Saved WAV opens a
+replay-file choice. Choosing a combination never starts capture. Ordinary
+policy remains source300/load120/drain120/backlog120/cleanup60 seconds.
+Stop/drain and exact worker/source closure precede Settings → Recordings
+save/discard/export/delete. Choose Return to backend combinations to change the
+profile after the worker closes, or Exit to desktop to close the application.
 
-For the one reviewed optional mode, choose **Pyannote, TitaNet and Live**,
-enable experimental options, set the Advanced revision window to **60 seconds**,
-then check optional CurrentDelayed refinement. The displayed policy must be
-**source300 / load120 / drain60 / backlog30 / cleanup60**. Eligibility still
-requires the exact accepted selection/assets. Unchecking restores ordinary
-defaults. The actual policy-control check invoked no Start; live300 compute
-evidence remains actual14 Followup02, with zero optional corrections.
-Other optional combinations remain unavailable.
+The historical advanced optional recipe, disabled in build17, is Pyannote/TitaNet/Live with
+CurrentDelayed refinement and the exact60second revision/30second backlog
+policy: source300/load120/drain60/backlog30/cleanup60. Its earlier laboratory
+policy-control check invoked no Start; live300 compute evidence remains
+actual14 Followup02, with zero optional corrections. The restored basic chooser
+does not expose this advanced optional checkbox or all246 nonoptional recipes.
+Those source/API recipes retain their original exact acceptance gates; the
+portrait Advanced page is diagnostics. No new optional qualification is claimed.
 
 Use normal Exit before opening another launcher. Settings, disabled autostart,
-the270-degree display transform and gallery namespaces are preserved. v27/v28
-rollback stores are separate and are not automatically imported into History.
+the270-degree display transform and gallery namespaces are preserved. The
+existing runtime-v29 store remains in use. v27/v28 rollback stores are separate
+and are not automatically imported into History.
 
 Purpose, inputs/outputs and PowerShell/CMD/Anaconda commands are in the
 [runtime README](../extension_20260928/pi_native_20260928/live_runtime_20261003/README.md),
 [17 pipeline pages](../extension_20260928/pi_native_20260928/live_runtime_20261003/README_PIPELINES.md)
 and [publication checklist](../extension_20260928/pi_native_20260928/live_runtime_20261003/README_FINAL_PUBLICATION.md).
-The single final source ZIP is
-live-runtime-20261003/audit-preparation/final-handoff-v29-build16-20261004/JustPeachy-v29-ChatGPT-handoff.zip
+The current repaired-runtime source ZIP is at
+live-runtime-20261003/audit-preparation/final-handoff-v29-build17-20261004/JustPeachy-v29-ChatGPT-handoff.zip
 under the private campaign root. Its adjacent HANDOFF_RECEIPT.json is authoritative
-for completed archive/hash/readback; included guides omit their own ZIP hash.
+for that archive/hash/readback. The previous build16 archive remains preserved; included guides omit their own ZIP hash.

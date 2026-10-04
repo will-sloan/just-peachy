@@ -1,6 +1,6 @@
 # Installation, health and recovery
 
-See CURRENT_RUNTIME_PROGRESS for whether the v29 candidate has been activated.
+See CURRENT_RUNTIME_PROGRESS for the actual build17 repair, activation and native evidence.
 v27 remains untouched as the rollback/reference; v28 remains the prior
 desktop-first release. Use the final v29 release index and actual manifests,
 not an old campaign dispatcher, to identify deployed code.
@@ -14,7 +14,7 @@ when a field session starts. The ChatGPT ZIP does not contain these model assets
 ## Normal operation
 
 Open the unified launcher once. Select backend/profile, embedding and Live
-microphone or Saved input. Opening the launcher leaves capture off. Start
+microphone or Saved input, then press OK to open the familiar portrait caption app with Mode, People and Settings tabs. Opening either view leaves capture off. Start
 checks the accepted combination, exact assets, source availability, ownership,
 RAM and finite storage allocation. Experimental permission never promises
 real-time performance or silently changes to another backend.
@@ -67,3 +67,7 @@ Technical interfaces and commands:
 [backup](../extension_20260928/pi_native_20260928/live_runtime_20261003/README_BACKUP_EXTERNAL_V2.md),
 [desktop activation](../extension_20260928/pi_native_20260928/live_runtime_20261003/README_DESKTOP_ACTIVATION.md),
 [recording offload](../extension_20260928/pi_native_20260928/live_runtime_20261003/README_OFFLOAD.md).
+
+## Current microphone startup repair
+
+The earlier source failure was an XVF3800 AEC_MIC_ARRAY_TYPE readiness error after priming; SOURCE_NOT_STARTED alone was not the cause. Build17 checks the exact current-boot failed source and its physical closure before one conditional TEST_CORE_BURN 0 recovery. Exact tool/config/display/settings backups and independent restore readbacks precede that action. Successful readiness is cached for the bound failure and boot; failed or uncertain recovery is not automatically retried. Original failure records stay intact. See [repair findings](../extension_20260928/pi_native_20260928/live_runtime_20261003/ui_restore_20261004/UI_REPAIR_FINDINGS.md) and [recovery implementation](../extension_20260928/pi_native_20260928/live_runtime_20261003/ui_restore_20261004/README_XVF_READINESS.md).

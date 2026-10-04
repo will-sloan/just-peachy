@@ -1,28 +1,13 @@
-# Desktop and unified launcher
+# Desktop and familiar caption application
 
-Activation status is in CURRENT_RUNTIME_PROGRESS. The v29 delivery uses one
-Just Peachy desktop launcher with a scrollable backend/profile selector,
-embedding choice and independent Live/Saved input selection. Temporary geometry
-experiments belong in that selector rather than permanent desktop icons.
+Use the single **Just Peachy** desktop shortcut. Choose a backend/embedding combination and Live microphone or Saved input, then press **OK · open application**. This opens the retained portrait caption UI with **Start, Mode, People and Settings** tabs. The previous Launch / Recordings / Developer layout is preserved as historical code, not the normal application view.
 
-Open once; capture stays off. Select a supported combination, choose its source,
-then Start. Stop and wait for drain before saving or discarding audio. History
-contains persistent recordings across restarts, with paged loading. Use Exit to
-desktop to close normally. Login/restart remains desktop-first; it must not
-automatically launch recording.
+The chooser contains39 basic backend/embedding combinations. Experimental geometries are labelled; live input availability does not establish sustainable real-time performance. Advanced attribution implementations remain in the package. The optional parallel refiner is disabled for this repaired content because its prior measured admission is content-specific.
 
-The previous eleven owned v28 entries are backed up and archived only when the
-final consolidation action succeeds. Until then they remain the current desktop.
-Unrelated shortcuts, v27/v28 releases, galleries and recordings are preserved.
-The new launcher does not consume or renew the historical four-slot batches.
+The launcher and caption app open idle with capture off. Press Start and grant the microphone consent, then Stop and wait for drain. Open **Settings → Recordings** to keep processed/model-input audio, keep qualified raw plus processed, discard, replay, export or deliberately delete a selected recording. Current qualified physical raw is4×16kHz PCM32. Processed replay WAV is not raw audio. Recordings retain UUIDs across restarts and are limited by safe storage capacity, not four slots.
 
-See MODE_GUIDE for retained choices and evidence. In Advanced/developer controls,
-show experimental profiles and health only when useful. Processing backlog,
-RTF, provisional labels and memory indicators are not ordinary caption text.
-A disabled/raw-unavailable option must not be confused with an enabled physical
-raw source. Current qualified raw is4×16kHz PCM32, not four48kHz channels.
+Use **Settings → Exit to desktop** to close normally. Login startup remains disabled, so restarting stays on the desktop. The finite idle lifetime remains a resource safeguard; reopen the shortcut when needed.
 
-The former rollback shortcut is retained in the archived prior entries. Exact
-restoration uses the final desktop/activation receipt and
-[desktop consolidation instructions](../extension_20260928/pi_native_20260928/live_runtime_20261003/README_DESKTOP_CONSOLIDATION.md).
-Do not run historical renewal scripts against v29.
+The repair archives the redundant owned v28 shortcut only after exact backup and independent restore readbacks. v27, v28 and build16, personal recordings, separate galleries, motion calibration and display270 remain preserved. Activation evidence and the actual native result are in CURRENT_RUNTIME_PROGRESS; see MODE_GUIDE for mode evidence and limitations.
+
+Technical activation and exact rollback instructions are in [README_CLASSIC_ACTIVATION](../extension_20260928/pi_native_20260928/live_runtime_20261003/ui_restore_20261004/README_CLASSIC_ACTIVATION.md). Physical touch and noisy-world quality still require the FIELD_VALIDATION procedure.
