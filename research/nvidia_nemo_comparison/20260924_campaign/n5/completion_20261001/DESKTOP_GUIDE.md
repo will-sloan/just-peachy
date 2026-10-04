@@ -1,38 +1,28 @@
-# Desktop startup and Exit
+# Desktop and unified launcher
 
-The current runtime is **field-runtime-v28**. The Pi is left at the desktop with
-capture off. Login autostart is disabled, including the baseline startup copy
-used by this release's rollback. Choose any of the ten current desktop profile
-shortcuts to open the app idle; recording still requires New and Start.
+Activation status is in CURRENT_RUNTIME_PROGRESS. The v29 delivery uses one
+Just Peachy desktop launcher with a scrollable backend/profile selector,
+embedding choice and independent Live/Saved input selection. Temporary geometry
+experiments belong in that selector rather than permanent desktop icons.
 
-To leave the application, press **Exit to desktop** at the bottom of the main
-profile manager. From a recording screen, Stop, Save if wanted, Return to modes,
-and close the recording broker first. Wait for the local backup to finish; Exit
-refuses to close an active recording. Then select another shortcut as needed.
+Open once; capture stays off. Select a supported combination, choose its source,
+then Start. Stop and wait for drain before saving or discarding audio. History
+contains persistent recordings across restarts, with paged loading. Use Exit to
+desktop to close normally. Login/restart remains desktop-first; it must not
+automatically launch recording.
 
-Exit and one actual shortcut reopening were verified on the Pi. The final state
-is no manager process, capture closed and hardware/research leases free. All ten
-shortcut targets were checked. No recording, model test or reboot was performed
-for this edit. The disabled login entry was read back from disk; physical reboot
-validation remains separate.
+The previous eleven owned v28 entries are backed up and archived only when the
+final consolidation action succeeds. Until then they remain the current desktop.
+Unrelated shortcuts, v27/v28 releases, galleries and recordings are preserved.
+The new launcher does not consume or renew the historical four-slot batches.
 
-The former v27 session had been interrupted by a reboot. Its entire manager tree
-and completed recording were copied and verified without fabricating an EXIT or
-editing its journal. Eleven old desktop icons were backed up and preserved under
-the v28 profiles directory. The desktop now has ten v28 profiles plus rollback.
+See MODE_GUIDE for retained choices and evidence. In Advanced/developer controls,
+show experimental profiles and health only when useful. Processing backlog,
+RTF, provisional labels and memory indicators are not ordinary caption text.
+A disabled/raw-unavailable option must not be confused with an enabled physical
+raw source. Current qualified raw is4×16kHz PCM32, not four48kHz channels.
 
-The same mounted BMI270 and audio/model capsule is retained. Read MODE_GUIDE and
-MOTION_GUIDE for backend choices and motion limitations. Four recording slots and
-fourteen manager/helper launch slots remain after this UI check; existing 120s
-microphone/Chunk52,30s saved Streaming and24h idle limits remain unchanged.
-
-The older `renew_motion_runtime.py` wrapper predates desktop-first startup and
-expects a Close label. Do not use it unchanged for v28. The desktop-aware installer
-and previous-batch binder are in `desktop_exit_20261003`; its README documents the
-executed one-time deployment. A future batch renewal must preserve the disabled
-autostart and Exit button and use fresh version/owner/resource bindings. Never
-replay the consumed v28 deployment commands or overwrite a closed runtime.
-
-DESKTOP_RELEASE_INDEX.json identifies the current deployment and receipts.
-DESKTOP_HANDOFF_RECEIPT.json identifies the refreshed small ChatGPT archive.
-Older motion/model evidence and all previous archives remain preserved.
+The former rollback shortcut is retained in the archived prior entries. Exact
+restoration uses the final desktop/activation receipt and
+[desktop consolidation instructions](../extension_20260928/pi_native_20260928/live_runtime_20261003/README_DESKTOP_CONSOLIDATION.md).
+Do not run historical renewal scripts against v29.

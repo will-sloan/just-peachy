@@ -1,80 +1,154 @@
-# Just Peachy mode and recording guide
+# Modes, recording and current release status
 
-> Current October3 update: **v28, desktop-first startup**. Use the ten desktop
-> shortcuts; choose **Exit to desktop** in the main manager to close normally.
-> Four recording slots remain. See [DESKTOP_GUIDE.md](DESKTOP_GUIDE.md) and
-> DESKTOP_RELEASE_INDEX.json. Earlier v27 measurements below remain historical.
+The sole desktop shortcut now selects **field-runtime-v29-build-16**. Its
+accepted package was staged, activated and consolidated, with the ten previous
+shortcuts archived and independently copied to the PC. Actual Desktop Exec,
+native_scope and the default data root passed the final idle/control check:
+ten stable 480x800 fullscreen samples, one normal Exit and complete process/unit
+closure. No capture or model worker started; login autostart remains disabled.
+Physical double-click, touch and a new reboot were not tested.
 
-The current prepared CM5 release is **field-runtime-v28**. It offers ten combinations through one offline frontend, with NeMo TitaNet and ReDimNet both available. Sherpa ONNX ASR and punctuation remain selected. The Pi stays at the desktop after login; a shortcut opens the app idle with capture off; display orientation is270 and the viewport480×800. Current validation establishes execution, controls and recording integrity, not superior speaker-recognition accuracy.
+Compute measurements below keep their executed release identities. GUI-only15
+preserves the actual14 worker/model/source graph; production16 relocates that
+reviewed source and carries explicit measurement-reuse certificates.
+Ordinary sessions default to300 seconds through explicit policy, not an
+intrinsic algorithm counter. Longer developer replay requires a separate finite
+source, processing, storage and closure policy. The failed application-hour
+attempt remains failed; source batching alone does not prove it is repaired.
 
-## Available combinations
+| Choice | Behavior |
+|---|---|
+| Pyannote + ReDimNet or TitaNet | Primary rolling segmentation plus the selected retained embedding/resolver. |
+| Pyannote + anonymous | ReDimNet maintains anonymous speaker continuity; no personal names. |
+| Nemotron + ReDimNet or TitaNet | One selected D1 geometry plus that named embedding/resolver. |
+| Nemotron + anonymous | Native anonymous speaker slots; named embedding extraction is bypassed. |
+| Live or saved | Independent source selection. Saved audio retains its sample clock and has no invented live motion evidence. |
 
-| Profile / shortcut suffix | Diarizer | Speaker embedding or identity | Input and limit |
-|---|---|---|---|
-| baseline | Pyannote | ReDimNet | Microphone,120s |
-| baseline-titanet | Pyannote | NeMo TitaNet | Microphone,120s |
-| baseline-anonymous | Pyannote | ReDimNet for anonymous continuity | Microphone,120s |
-| d1-delayed | Nemotron-3 Delayed | ReDimNet | Microphone,120s |
-| d1-delayed-titanet | Nemotron-3 Delayed | NeMo TitaNet | Microphone,120s |
-| d1-anonymous | Nemotron-3 Delayed | Native anonymous slots; embedding bypassed | Microphone,120s |
-| d1-streaming-saved | Nemotron-3 Streaming | ReDimNet | Saved WAV,30s |
-| d1-streaming-titanet-saved | Nemotron-3 Streaming | NeMo TitaNet | Saved WAV,30s |
-| d1-chunk52-saved | Nemotron-3 Chunk52 | ReDimNet | Saved WAV,120s |
-| d1-chunk52-titanet-saved | Nemotron-3 Chunk52 | NeMo TitaNet | Saved WAV,120s |
+The12 D1 geometries and their scoped measurements are in
+[BACKEND_COMBINATIONS](BACKEND_COMBINATIONS.md). Nominal input buffer length
+excludes model computation. A shorter buffer does not by itself mean real-time
+operation.
 
-Desktop files are named `just-peachy-field-runtime-v28-PROFILE.desktop`, replacing PROFILE with the table value. Ten profile shortcuts plus rollback are retained; older generated shortcuts were backed up and archived. Use the visible profile chooser to change selection while idle. If opening another shortcut, close the current idle manager first: duplicate ownership is rejected.
+ASR-first delayed attribution publishes stable text and accepts bounded later
+speaker evidence from one D1 instance. Unsupported identity remains Unknown.
+Sparse clean-turn embedding uses eligible exclusive runs and explicit refresh
+intervals without skipping ASR/diarizer samples or changing resolver thresholds.
+The build14 late-label repair recognizes an existing anonymous voice track only
+when retained token, revision, event, source and ownership evidence agree. Research07 completed its native changed path; the matched numeric result and
+host actual-row replay are not speaker-accuracy measurements.
 
-Pi terminal example:
-~~~sh
-/home/peachyprototype/JustPeachy/research/nemotron-20260928/field-runtime-v28-profiles/bin/launch-profile --profile d1-delayed-titanet
-~~~
-Substitute another exact table profile. Saved inputs must be mono16kHz PCM16 WAV, at most32MiB, under `/home/peachyprototype/JustPeachy`. Streaming/Chunk52 microphone routes are unavailable. Nemotron Delayed buffers about21.3s before its regular output; short runs can emit speaker results at Stop. This is a latency tradeoff, not a missing recording.
+Optional CurrentDelayed refinement adds one anonymous D1 child behind a
+Pyannote primary. The short First02 consumers completed; the live30-second-window
+Followup01 child fell behind and was disabled while primary capture continued.
+Actual14 Followup02 completed live300 primary/raw and child EOF under the exact
+60-second revision/drain and30-second backlog policy. It produced zero optional
+correction events; that workload does not establish correction quality.
+Ordinary GUI optional permission still requires an exact reviewed selection
+and policy. The disabled old provisional_correction draft is a separate option.
+Do not confuse primary label revisions with successful secondary corrections.
 
-## Record, stop and save
+## Actual evidence
 
-1. Select a profile and choose **New recording**.
-2. In the broker choose a new microphone recording or the supported saved-WAV route.
-3. Create the audio draft and choose **Audio off**, **Processed**, or **Raw+processed** where offered. Confirm the raw-recording notice when selecting it.
-4. Press Start and provide the normal in-app consent. Nothing starts merely by opening a shortcut.
-5. Press Stop and allow source/model/archive cleanup to finish. Then Save and Return to modes.
-6. Close the recording broker. Wait for the manager's verified independent local backup before another recording. Saved recordings opens the read-only history.
+| Workload | Result and scope |
+|---|---|
+| Build07 saved CurrentDelayed/ReDimNet | Complete715,127 samples, natural EOF/cleanup/full mirror; worker sampled RSS556,761,088 B. Short matched function result, not an hour pass. |
+| Build08 saved Pyannote/TitaNet | Same full input and closure; worker RSS468,762,624 B under768MiB AS. No identity-accuracy claim. |
+| Build08 actual Tk live/save/replay |43 controls; policy300,4,800,000 processed/raw samples, Save raw, complete replay, replay discard and Exit. Quiet input; no physical-touch or screenshot qualification. |
+| Build13 First02 optional saved | Both715,127-sample consumers and4,470 child frames completed with full closure. Whole-unit sampled RSS637,370,368 B. Short combined feasibility, not live/sustained correction approval. |
+| Build13 Followup01 live300 | Primary/raw4,800,000 samples and full closure passed. Child stopped after676,800 samples/2,112 frames on the30-second label-lag window; no child EOF or correction success. |
+| Build14 Followup02 live300 | Primary/raw and child completed4,800,000 samples, with30,001 child frames and full closure. Whole-unit sampled RSS760,020,992 B/PSS700,768,256 B; minimum available1,178,828,800 B; no owned swap. Zero optional correction events; no whole-application hour or identity-quality claim. |
+| Build13 actual History Export04 | One real History Export and one Exit; ten stable480x800 fullscreen samples, unchanged source metadata/orientation, no capture/models. All112 ZIP members/CRC verified independently. File chooser destination was injected; physical touch remains unqualified. |
+| Research06 / actual14 Research07 repair | Research06 exposed missing anonymous late labels. Research07 completed the fixed path with all4,470 x8 native floats and final3-utterance/38-word ASR exactly matching baseline04. Thirty supported view updates; final31 attributed/one expired-supported/six pending spans. Functional consistency, not identity accuracy or sustained approval. |
+| Two-thread Chunk52 component hour | Complete continuous input; average component RTF0.88445, late about0.94, peak85.35 C, RSS about166.5MiB plateau. Component-only, not a whole-application hour. |
 
-The release reserves four recording slots; all four remain in v28; the motion integration recording is preserved in v27. There are16 total manager/helper launch slots; each idle manager launch is bounded to24h. Each recording uses separately reserved helper slots. Closing/reopening the manager consumes another launch, so avoid unnecessary reopen loops. Stop is bounded automatically at the input limit. Failed/cancelled/finished slots remain consumed. After exhaustion follow the desktop-aware renewal requirements below.
+Preserved failures remain separate: First01's child failed at2,880 samples with
+zero frames; the primary fallback completed. Full-application hour02 stopped
+at the output guard, whose original triggering path was not retained.
+Hour04 ended at its worker watchdog with3,584.955 of3,600 source seconds
+committed, before normal EOF. Physical closure/full mirror does not substitute
+for missing successful worker/model cleanup. Export01/02 failed before the
+later data-path Export03 and real-widget Export04 passes.
 
-## Audio formats and clocks
+Actual prior-release observations retain their original root, manifest and
+scope. Reuse on a later release requires an explicit selected-source comparison.
+See [native results](../extension_20260928/pi_native_20260928/live_runtime_20261003/NATIVE_RESULTS.md),
+[RAM/resources](../extension_20260928/pi_native_20260928/live_runtime_20261003/RAM_RESOURCE_GUIDE.md),
+and [research architectures](../extension_20260928/pi_native_20260928/live_runtime_20261003/RESEARCH_ARCHITECTURES.md).
 
-Audio off keeps events/metadata without recorded audio. Processed stores the exact16kHz mono model-input float stream and WAV. Raw+processed additionally stores physical MIC0–MIC3 as interleaved signed32-bit little-endian PCM at16kHz. The firmware transports its packed six-channel stream over48kHz stereo S32LE I2S. The raw recording is **not48kHz ADC audio** and is not the ordinary processed O0/O1 tap.
+## Recording, galleries and clocks
 
-The raw metadata identifies four channels, firmware route, sample clocks, packing prefix/tail and source/processed counts. Candidate22 recorded85919 paired samples with zero packing-marker errors, then restored every changed route. Shared sample-clock indexing does not imply equal acoustic latency between raw and processed paths. Preserve RAW_CAPTURE metadata with the PCM; do not infer format from the extension.
+Choose source, backend, embedding and finite policy while idle. Start creates a
+fresh session; Stop or the source boundary closes processing before Keep or
+Discard. History reads the complete kept source including its partial final
+block. Actual sample counts establish coverage, not the duration setting alone.
+The new v29 index does not automatically migrate v27/v28 rollback recordings or
+inherit their old four-slot allowance.
 
-## Speaker galleries
+Processed audio is the exact16kHz mono model input. Qualified raw is four
+physical microphone channels at16kHz signed32-bit little-endian with format and
+sample-clock receipts. Its48kHz stereo transport does not make stored raw
+48kHz ADC data. Saved processed WAV is not raw microphone evidence.
 
-TitaNet and ReDimNet use separate model/revision/tap/gain namespaces. Existing personal ReDimNet data is preserved. TitaNet's separate gallery is empty, so Unknown identities are expected until a future explicitly consented enrollment. No vectors are converted or compared across embedding models. Anonymous modes do not assign personal names. Baseline anonymous still uses ReDimNet continuity; D1 anonymous bypasses embedding extraction.
+ReDimNet and TitaNet galleries retain separate model/revision/tap/gain
+namespaces. No vectors are converted, thresholds changed or identities inferred
+from choosing a model. Unknown remains valid. Spatial display uses cached
+device-relative observations separately from existing motion-compensated
+association. Plain saved audio has no current-pose evidence. See
+[MOTION_GUIDE](MOTION_GUIDE.md) and
+[geometry/calibration math](../extension_20260928/pi_native_20260928/live_runtime_20261003/ARCHITECTURE_AND_MATH.md).
 
-## Copy to the PC and renew
+## RAM, CPU and longer runs
 
-Use `operator-tools-v1/export_runtime_recording_v4.py` under `C:/Users/amiri/Documents/GitHub/just-peachy/Resumes/imu_integration_20261002`; its maintained instructions are in `README_RUNTIME_RECORDING_OFFLOAD_V4.md`. Copy the original and independent Pi-local backup separately into new private PC directories. Each command checks complete membership, sizes, SHA256 and full readback before BACKUP.json. The Pi originals remain untouched.
+Measurements are on the 2GB CM5 (MemTotal 2,108,473,344 B). Successful actual14 Followup02 live300 sampled whole-unit RSS/PSS at 760,020,992/700,768,256 B, with at least 1,178,828,800 B available and zero owned swap. These are sampled observations, not continuous maxima. Earlier Followup01 whole-unit
+sampled peak RSS/PSS were696,287,232/651,709,440 B; available RAM stayed above
+1,189,969,920 B and owned swap was zero. The child stopped for label lag,
+not a demonstrated hardware-memory failure. These are sampled maxima, not
+continuous peak guarantees or successful optional correction measurements.
 
-PowerShell example (replace the previous utility and NEW_DESTINATION with the actual latest receipt and an absent private directory):
-~~~powershell
-& "C:/Users/amiri/Documents/GitHub/just-peachy/.edge-speech-env/python.exe" -B "C:/Users/amiri/Documents/GitHub/just-peachy/Resumes/imu_integration_20261002/operator-tools-v1/export_runtime_recording_v4.py" --local "G:/Just_Peachy_N1/20260924_campaign/local" --private "G:/Just_Peachy_N1/20260924_campaign/local/n5/research-extension-20260928/pi-native-20260928" --prior-closure "G:/Just_Peachy_N1/20260924_campaign/local/n5/research-extension-20260928/pi-native-20260928/NATIVE_CLOSURE_V315.json" --previous-inspection PREVIOUS_RECEIPT --candidate-install "G:/Just_Peachy_N1/20260924_campaign/local/n5/research-extension-20260928/pi-native-20260928/field-runtime-v28-install" --active-install "G:/Just_Peachy_N1/20260924_campaign/local/n5/research-extension-20260928/pi-native-20260928/field-runtime-v28-install" --slot recording-01 --root-kind original --output NEW_DESTINATION
-~~~
-CMD/Anaconda uses the same arguments after `python -B "C:/Users/amiri/Documents/GitHub/just-peachy/Resumes/imu_integration_20261002/operator-tools-v1/export_runtime_recording_v4.py"`. Then use that output as PREVIOUS_RECEIPT, change root-kind to local and choose a different destination.
+The768MiB per-process AS guard limits virtual mappings, separately from RSS/PSS
+and physical availability. Adding two AS ceilings does not estimate combined
+resident memory; shared pages can also be counted in multiple RSS values.
+Hour04 worker VmPeak797,163,520 B approached its805,306,368 B ceiling, but no
+allocation failure establishes that as the cause. Source delivery fell behind
+wall time, and physical RAM remained available.
 
-For a fresh batch, preserve completed recordings and local backups first.
-Desktop-first renewal: see DESKTOP_GUIDE.md. Do not execute the older motion renewal wrapper unchanged; its launcher would restore automatic startup and its old Close-button selector is obsolete.
+4GB or8GB may offer more model/cache residency when physical memory is actually
+the constraint. It does not automatically change process limits, CPU quota,
+native graph work, cooling or storage latency. No larger-board benchmark or
+speedup is claimed. The component hour's lateRTF near0.94 and85.35 C show why
+CPU/thermal headroom must remain separate from capacity.
 
-## Mounted motion
+Build13's saved100ms intake completed the short First02 file with447 append
+calls and0.223s maximum source-wall lag. It does not qualify a new application
+hour. Research07 compared all4,470 x8 native values with zero numerical difference
+and preserved the final ASR sequence. Its sampled worker RSS was550,502,400 B
+with at least1,258,323,968 B available system RAM; no whole-unit peak was
+recorded. Production16 now has actual installation/idle evidence; original compute scopes are unchanged.
 
-All profiles share the integration described in [MOTION_GUIDE.md](MOTION_GUIDE.md).
-Live beams stay microphone-relative; existing location logic uses trusted relative
-rotation correction. Acceleration/gaps invalidate spatial trust. Voice-only rules
-and plain saved WAVs do not gain invented location evidence. Settings -> Orientation
-graphic toggles an upper-right diagnostic; tap it to zero the visual only.
-It is hidden by default. Automatic quiet reference acquisition needs no manual zero.
+## Open, select and close
 
-## Validation scope
+Open the sole JustPeachy desktop shortcut. Capture is off until Start. Choose
+source, diarizer and embedding while idle. Ordinary policy is source300/load120/
+drain120/backlog120/cleanup60 seconds. Stop/drain completes before Keep/Discard.
 
-Before the motion change, all ten routes had scoped native functional evidence, including nonempty saved captions, both real embedding paths, history/data actions, Audio off/Processed and paired raw recording. Actual broker and child processes deny IPv4/IPv6 sockets; local assets are used. Physical cable-disconnected coldboot, touch, battery endurance and noisy-world accuracy remain operator validation tasks. Use FIELD_VALIDATION.md, keeping each run within the actual duration/slot/storage limits.
+For the one reviewed optional mode, choose **Pyannote, TitaNet and Live**,
+enable experimental options, set the Advanced revision window to **60 seconds**,
+then check optional CurrentDelayed refinement. The displayed policy must be
+**source300 / load120 / drain60 / backlog30 / cleanup60**. Eligibility still
+requires the exact accepted selection/assets. Unchecking restores ordinary
+defaults. The actual policy-control check invoked no Start; live300 compute
+evidence remains actual14 Followup02, with zero optional corrections.
+Other optional combinations remain unavailable.
 
-The changed shared motion path passed one new D1/ReDimNet live recording; all ten profile pins were checked. Other unchanged model/raw routes were not rerun. Three slots remain.
+Use normal Exit before opening another launcher. Settings, disabled autostart,
+the270-degree display transform and gallery namespaces are preserved. v27/v28
+rollback stores are separate and are not automatically imported into History.
+
+Purpose, inputs/outputs and PowerShell/CMD/Anaconda commands are in the
+[runtime README](../extension_20260928/pi_native_20260928/live_runtime_20261003/README.md),
+[17 pipeline pages](../extension_20260928/pi_native_20260928/live_runtime_20261003/README_PIPELINES.md)
+and [publication checklist](../extension_20260928/pi_native_20260928/live_runtime_20261003/README_FINAL_PUBLICATION.md).
+The single final source ZIP is
+live-runtime-20261003/audit-preparation/final-handoff-v29-build16-20261004/JustPeachy-v29-ChatGPT-handoff.zip
+under the private campaign root. Its adjacent HANDOFF_RECEIPT.json is authoritative
+for completed archive/hash/readback; included guides omit their own ZIP hash.

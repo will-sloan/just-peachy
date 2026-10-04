@@ -1,7 +1,10 @@
 # Current validation scope
 
-The prepared CM5 now supports bounded real-world testing through the ten profiles in MODE_GUIDE.md. Functional recording/closure/offload and software network denial have passed; physical touch, cable-disconnected coldboot and noisy-human quality remain future operator measurements. This protocol is not a claim that those tests occurred. Stay within120s microphone/Chunk52,30s saved Streaming and the finite four-slot allocation (three slots remain in v27); longer examples below never enlarge those limits.
-
+The v29 candidate separates backend, embedding and live/saved source. Normal
+sessions are300s with storage-capacity-driven UUID recordings; a separate explicit
+developer path permits3600s continuous replay. See CURRENT_RUNTIME_PROGRESS and
+MODE_GUIDE for activation and actual per-mode qualification before field use.
+A live input route is not a sustainable-real-time claim. Preserve v27 as rollback.
 # In-person noisy-environment validation framework
 
 Purpose: compare the frozen, accepted offline modes in real settings after delivery. This is a future operator protocol, not a claim that new speech/noise accuracy has been measured. Use only actually enabled combinations from the final mode guide. Keep recordings and speaker/profile information private; use consenting test participants and anonymous run aliases.
@@ -58,7 +61,7 @@ One private folder per run, completed template, retained media/journals/telemetr
 - Quality observation: missed/inserted words, wrong name, excessive Unknown, anonymous split/merge, overlap error. Requires independent reference before a numerical score; it is not an integrity pass/fail substitute.
 - Resource failure: admitted duration/storage/available-memory/queue limit breached, sustained backlog or forced termination. Report actual sampled values and missing intervals.
 
-Record actual firmware/interface/channel map. Processed O0/O1 is not raw MIC0-MIC3. Raw+processed may be tested only after simultaneous routing is qualified; retain synchronization uncertainty, sample counts and full independent copy allocation. Four48kHz PCM16 raw channels plus16kHz processed mono are1,497,600,000bytes/hour before metadata/backups. No playback/enrollment/firmware reset is implicitly authorized by this kit.
+Record actual firmware/interface/channel map. Processed O0/O1 is not raw MIC0-MIC3. The qualified v29 physical route is four16kHz PCM32 channels packed over48kHz stereoS32, paired with exact16kHz model-input audio. It is not four48kHz microphone channels. Preserve channel order, sample indexes, synchronization metadata and complete copy allocation; use the actual StoragePolicy reservation for every run. No playback/enrollment/firmware reset is implicitly authorized by this kit.
 
 ## Mounted-motion validation addition
 
@@ -77,5 +80,5 @@ future physical observations, not extra checks already performed or automatic jo
    A plain saved WAV must not react to present-day tablet rotation. Record drift,
    false movement indications and battery/temperature over separately admitted runs.
 
-Keep normal duration/slot/storage limits. Long-term drift/endurance needs its own
+Keep normal duration, resource and storage limits. There is no four-recording global counter in v29. Long-term drift/endurance needs its own
 bounded plan; this protocol does not enlarge the current runtime allowance.

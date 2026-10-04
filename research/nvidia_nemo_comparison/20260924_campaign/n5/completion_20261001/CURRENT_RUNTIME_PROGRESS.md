@@ -1,32 +1,41 @@
-# Current runtime progress
+# Current runtime status — production16
 
-> Current October3 update: **v28, desktop-first startup**. Use the ten desktop
-> shortcuts; choose **Exit to desktop** in the main manager to close normally.
-> Four recording slots remain. See [DESKTOP_GUIDE.md](DESKTOP_GUIDE.md) and
-> DESKTOP_RELEASE_INDEX.json. Earlier v27 measurements below remain historical.
+**field-runtime-v29-build-16 is the accepted, staged and sole desktop launcher.**
+Activation/consolidation and independent host readbacks passed;ten prior
+shortcuts are archived. Actual Desktop Exec/native_scope/default-data idle
+passed ten480x800 fullscreen observations and normal Exit. Outer/nested/watchdog
+owners closed;settings,display270 and disabled autostart remained unchanged.
+No Start,capture or model worker ran. Physical touch/double-click/reboot were
+not tested. Old campaign deadlines and v27/v28 receipts remain historical.
 
-field-runtime-v27 is installed, idle and capture off, display270, with three
-recording slots remaining and ten profile shortcuts plus rollback. The shared
-mounted BMI270 implementation and array-centered transform are deployed.
+| Requirement | Actual scope |
+|---|---|
+| Normal300s and post-Stop choice | Actual build08 GUI4,800,000raw/processed samples,Save raw,full replay/discard/Exit |
+| Recording count | Capacity-based UUID store;31kept synthetic recordings/35sessions and subsequent admission;no fixed global slots |
+| Primary models | Short saved CurrentDelayed/ReDimNet and Pyannote/TitaNet source/EOF/logical/physical closure |
+| Optional refinement | Actual14 live300 primary/raw/child4,800,000samples/30,001frames/fullclosure under exact60/30 policy;zero optional corrections |
+| Late labels | Actual14 Research07 all4,470x8nativevalues/finalASR preserved;30supported late updates;no identity-quality claim |
+| History Export | Actual13 real Export/Exit;112members/142,926,668BZIP complete independent CRC/hash readback |
+| Complete backup | Backup03:26roots/1,932files/657,980,201B,complete readback/sourceidentity/closure |
+| Production GUI policy | Actual16 checked300/120/60/30/60,unchecked300/120/120/120/60;267disabledStartchecks/zeroinvocations |
+| Component hour | Complete isolated Chunk52:RTF0.88445 overall,about0.94 late,peak85.35C;not whole application |
+| Full application hour | Hour04 failed:57,359,280/57,600,000samples,watchdogclosure;noWorkerRESULT/logicalfinalization/hourpass |
+| Handoff | One declared source ZIP;adjacentHANDOFF_RECEIPT.json authoritative for completed build/hash/readback |
 
-Actual changed integration:5.25s/84000samples/525blocks;79causal beam records with
-no queue drops;44pose records, including8explicit invalid startup poses and36valid
-poses after automatic stationary recovery. Source/model/archive/command closure,
-local backup and two complete independent PC copies passed. IMU thread50.29Hz,
-1.21% of one core. The same final code's optional graphic show/tap/hide passed.
+Permission covers246 nonoptional configurations plus one exact optional
+configuration,not247 independent native passes. Optional GUI selection is
+Pyannote/TitaNet/Live,experimental enabled,revisionwindow60;the reviewed policy
+is displayed. Other optional combinations remain unavailable.
 
-All ten profiles bind the exact common capsule. Earlier model/raw/control passes
-remain separately scoped; unchanged profiles were not exhaustively rerun. Old
-v25/v26 failures remain preserved. Current receipts are MOTION_RELEASE_INDEX,
-MOTION_CHECKLIST and MOTION_HANDOFF_RECEIPT. Old FINAL_* receipts describe v23.
+Actual14 optional live300 sampled aggregate RSS760,020,992B/PSS700,768,256B,
+minimum available1,178,828,800B and zero owned swap on the2GB CM5. This does not
+remove768MiB per-process virtual-address guards or thermal/CPU/storage limits.
+No4GB/8GB speed benchmark or whole-application-hour qualification is claimed.
 
-No additional native job is required for this handoff. Physical touch, cable-
-disconnected coldboot, long-term yaw drift, battery endurance and noisy-human
-recognition remain operator validation. Reliable inertial room position is not
-available; acceleration suspends location priors without inventing translation.
-
-Source publication ed27d04b6131106c400bda828a64d00274095c56 is verified on the
-existing GitHub delivery branch after explicit user approval. Current acceptance,
-hardware/checklist declarations and the field-run template now include motion.
-MOTION_HANDOFF_RECEIPT points to the refreshed immutable handoff. No native action
-or quality/battery test occurred during this documentation update.
+Read [MODE_GUIDE](MODE_GUIDE.md),[BACKEND_COMBINATIONS](BACKEND_COMBINATIONS.md),
+[native results](../extension_20260928/pi_native_20260928/live_runtime_20261003/NATIVE_RESULTS.md),
+[RAM guide](../extension_20260928/pi_native_20260928/live_runtime_20261003/RAM_RESOURCE_GUIDE.md)
+and [publication guide](../extension_20260928/pi_native_20260928/live_runtime_20261003/README_FINAL_PUBLICATION.md).
+Representative speech/identity quality,touch,battery endurance and arbitrary
+power-loss recovery remain unverified. v29History does not import old rollback
+stores automatically;gallery namespaces and thresholds remain unchanged.

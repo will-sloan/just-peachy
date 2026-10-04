@@ -1,25 +1,33 @@
-# Offline validation status
+# Offline validation and physical checks
 
-> Current October3 update: **v28, desktop-first startup**. Use the ten desktop
-> shortcuts; choose **Exit to desktop** in the main manager to close normally.
-> Four recording slots remain. See [DESKTOP_GUIDE.md](DESKTOP_GUIDE.md) and
-> DESKTOP_RELEASE_INDEX.json. Earlier v27 measurements below remain historical.
+The v29 runtime uses local pinned model assets and local motion/audio interfaces;
+no first-run download or network service is required by its pipeline. The final
+release status, asset inventory and activation evidence are identified in
+CURRENT_RUNTIME_PROGRESS and the final v29 release index.
 
-The prepared CM5 runtime has scoped software-offline functional evidence. Candidate16 broker and child processes actually denied IPv4 TCP and IPv6 UDP socket creation (errno97, seccomp2, NoNewPrivs1, no inherited Internet descriptors). Candidate22's raw+processed model child retained the denial and completed recording/Stop/Save/local backup. Current candidate27 retains the reviewed network restrictions and model assets, with new mounted-motion source integration. Its separate5.25s processed recording and full closure/copies passed; unchanged model combinations/raw paths were not all rerun.
+Earlier candidate16/22 software socket-denial tests and v27 motion checks are
+historical evidence for those releases. They are not a fresh network-isolation,
+coldboot or physical-touch test of v29. Local-asset hash verification does not
+by itself establish cable-disconnected startup.
 
-All model assets are local. Actual ten-profile execution, separate TitaNet/ReDimNet choices, finite recording controls, complete local/PC backups and current capture-off manager startup are documented in CHECK_SUMMARY_V142.json and MODE_GUIDE.md.
+Before field use, with the final release and recoverable backups available:
 
-Local automatic rollback and actual startup-command restart passed. These are not physical cable removal or a power-cycle observation. Before the first real-world session, the operator should:
-1. Confirm the current manager is idle, then check physical touch/Start/Stop/Save.
-2. After preserving the current batch, perform a consented cable-disconnected startup check with local rollback available.
-3. Confirm display270 and capture-off startup, then record within the finite slot/duration limits.
-4. Reconnect only when needed for verified PC copies; preserve source/tap/clock metadata.
+1. Confirm desktop-first startup, display270 and capture off. Open the one
+   launcher manually and inspect the selected backend/source.
+2. Check physical touch, Start, Stop/drain and post-Stop keep/discard controls.
+3. After closing capture and preserving data, perform a cable-disconnected
+   startup check with the documented local rollback available.
+4. Record within the300s normal policy and storage admission; reopen the saved
+   processed timeline. A developer hour is a separate explicit test.
+5. Reconnect only as needed for verified PC copies. Keep source/tap/clock metadata
+   and the original recording until the copy is independently read back.
 
-Record those physical outcomes in FIELD_RUN_TEMPLATE.json. No battery endurance, new noisy-human WER/DER, enrollment or speaker-identification improvement has been established.
+Record actual observations in FIELD_RUN_TEMPLATE. Do not convert a software
+network restriction or an SSH disconnect into proof of physical unplugging.
+Noisy-human WER/DER, named-speaker improvement, battery endurance and power-cut
+durability require their own observations.
 
-Mounted BMI270 orientation, gravity/gyro fusion and array-centered correction are
-local and require no network. Relative yaw can drift and reliable room translation
-is unavailable. Confirm movement/rotation behavior during operator validation;
-the live sensor never supplies retrospective pose to a plain saved WAV.
-Three recording slots remained at the last v27 observation. See MOTION_GUIDE
-and MOTION_RELEASE_INDEX for the exact functional/resource scope.
+BMI270 fusion and array-centered rotation are local. Relative yaw can drift;
+reliable absolute room translation is unavailable. Motion/gaps suspend spatial
+trust, and current tablet pose must never be applied retrospectively to a plain
+saved WAV. See MOTION_GUIDE and the per-pipeline documents.

@@ -1,35 +1,69 @@
 # Installation, health and recovery
 
-> Current October3 update: **v28, desktop-first startup**. Use the ten desktop
-> shortcuts; choose **Exit to desktop** in the main manager to close normally.
-> Four recording slots remain. See [DESKTOP_GUIDE.md](DESKTOP_GUIDE.md) and
-> DESKTOP_RELEASE_INDEX.json. Earlier v27 measurements below remain historical.
+See CURRENT_RUNTIME_PROGRESS for whether the v29 candidate has been activated.
+v27 remains untouched as the rollback/reference; v28 remains the prior
+desktop-first release. Use the final v29 release index and actual manifests,
+not an old campaign dispatcher, to identify deployed code.
 
-The deployed release is `/home/peachyprototype/JustPeachy/research/nemotron-20260928/field-runtime-v28`, with profiles/shortcuts in the sibling `field-runtime-v28-profiles`. It is a deployable overlay for this prepared CM5, not an SD image for arbitrary devices.
+The runtime is an overlay for this prepared CM5, not an arbitrary-device OS
+image. It relies on the pinned aarch64 Python environment, installed application,
+local Sherpa/PnC/Pyannote/Nemotron libraries and assets, separate ReDimNet/TitaNet
+galleries, XVF3800 route, and mounted BMI270 configuration. Nothing is downloaded
+when a field session starts. The ChatGPT ZIP does not contain these model assets.
 
-The existing aarch64 Python3.11 baseline environment, installed v12 application, local Sherpa/PnC/Pyannote/ReDimNet assets, selected Nemotron libraries/endpoints and research dependency pins remain required. TitaNet reuses the prior88696429-byte ONNX/frontend/manifest export at `runtime-titanet-v3`. No first-run downloads occur. The retained native dependency catalogue covers7890entries/7847unique files/791871486bytes; later runtime/endpoint/TitaNet pins supplement it. Do not move those native paths or assume the small ChatGPT ZIP contains models.
+## Normal operation
 
-Current source/control backups and independent restores are under `field-runtime-v28-install` in the private PC base listed in PATHS_AND_BACKUPS.md. `stage-backup` and `stage-restore` preserve installed code/profiles; `active-backup` and `active-restore` preserve startup/config changes. The historical v23 prepared-device kit includes its old code, TitaNet assets, operator sources and exact manifests; it does not include mounted motion. The v27 install backups and motion source/capsule are the current restore basis. Its BACKUP.json certifies independent ZIP and expanded-file readback. Older baseline/model archives remain separate.
+Open the unified launcher once. Select backend/profile, embedding and Live
+microphone or Saved input. Opening the launcher leaves capture off. Start
+checks the accepted combination, exact assets, source availability, ownership,
+RAM and finite storage allocation. Experimental permission never promises
+real-time performance or silently changes to another backend.
 
-## Normal operation and health
+Normal policy is300s. Stop drains and closes the source/model/storage before
+offering permanent processed, qualified raw+processed, or discard choices.
+New recordings use persistent UUIDs and capacity checks, with no four-recording
+global limit or reinstall requirement. History is paged; select recordings
+explicitly for replay/export/delete. Deletion never authorizes touching another
+session. Failed data and its fault are retained until an explicit safe action.
 
-Open one version28 profile shortcut. The manager must show capture off and its remaining slots, at480×800. Starting a recording verifies pinned model/runtime/profile membership, current owners, units, capture leases, storage and process limits before acquisition. Missing/incompatible assets or a pending writer fail explicitly; there is no silent model fallback or download.
+Exit to desktop closes the launcher. Startup stays desktop-first with capture
+off. The finite GUI process also closes after an idle interval; reopening the
+launcher creates a fresh owned envelope, without deleting recordings.
 
-Current limits retain CPU2/3 shared200%,64tasks, one model thread, GPU off,1MiB stacks and default768MiB address space. Minimum start memory850MiB and stop floor192MiB remain. The32GB device must retain5GiB free; PC C/G floors are50/75GiB. Four recording slots and independent local/PC copies are reserved in full, even when Audio off or a short/failed run uses fewer bytes.
+## Resource and failure behavior
 
-## Renewal and rollback
+The2GB device retains OS/storage headroom. Source queues, revision windows,
+diagnostics and disk allocations are bounded. Ordinary model processes retain
+the768MiB virtual-address limit, shared CPU2–3/200% and64-task envelope; the
+explicit two-thread Chunk52 variant is separate from single-thread profiles.
+These are software policies, not physical-RAM measurements. See RAM_RESOURCE_GUIDE.
 
-Use DESKTOP_GUIDE.md for the current desktop-aware installer/binder and renewal constraints. The old renewal wrapper must not be replayed unchanged.
+A source, archive, ownership or resource failure ends that trial explicitly.
+Preserve its logs and original audio; do not erase pending records, relabel a
+partial session complete, reset firmware repeatedly, or bypass a guard.
+A larger RAM device does not automatically relax software limits or cure CPU
+backlog. Long developer tests need explicit finite duration and storage reserves.
 
-The rollback shortcut is `just-peachy-field-runtime-v28-rollback.desktop`. Finish Stop/Save/Return and close the idle manager before using rollback. Its pinned local path restores the backed-up baseline with login autostart still disabled; it does not erase data or undo personal settings. Baseline auto-listening remains false. Actual local automatic rollback and normal startup-command restart passed in the retained candidate16/17 evidence. No arbitrary crash/power-cut durability claim follows.
+## Rollback and restoration
 
-If a guard rejects or a session fails, keep every original and failure receipt. Stop/Close through the app and preserve the failed source via the maintained failure-preservation instructions; do not remove pending files, reset counters or rerun a failed output. A measured metadata-only continuation allows at most1088 prior identities under the unchanged256KiB request ceiling; all old identities and other finite bounds remain explicit; renewal can refuse when a review is required. Do not bypass that refusal.
+Keep the immutable v27/v28 directories, galleries, recordings and existing
+desktop/startup backups. The final selected-release backup must include current
+source/control/configuration, user data, referenced galleries and all old owned
+desktop entries, with independent full PC readback before activation.
 
-Use copies in new directories for restoration review. Verify all file sizes/SHA256 against the manifest before a fresh-version deployment. Never unzip an old consumed release over the live manager or blindly replay an expired research dispatcher.
+Shortcut consolidation archives old owned entries after exact backups; unrelated
+desktop files remain untouched. Use the final activation/consolidation receipts
+and their documented restore procedure to restore exact previous bytes. Do not
+extract a consumed release over an existing runtime, replay expired research
+commands, or overwrite current recordings.
 
-Mounted sensor configuration is `/home/peachyprototype/JustPeachy/data/imu_config.json`.
-Its fixed geometry and library hash are pinned. Stale/unavailable sensor data
-suspends location trust; do not fabricate a corrected direction. Source25's graphic
-failure and26's AEC255 firmware fault were preserved. One conditional maintenance
-send followed that actual fault; matching firmware readback and the v27 recording
-succeeded. No periodic reset is configured or authorized. See MOTION_GUIDE.
+Physical power-cut durability, cable-disconnected coldboot and arbitrary-crash
+recovery are not inferred from normal Stop/Exit. Follow OFFLINE_ACCEPTANCE and
+FIELD_VALIDATION for the separately observed operator checks. Motion gaps make
+spatial trust unavailable; they must not invent a corrected speaker position.
+
+Technical interfaces and commands:
+[release authorization](../extension_20260928/pi_native_20260928/live_runtime_20261003/README_RELEASE_AUTHORIZATION.md),
+[backup](../extension_20260928/pi_native_20260928/live_runtime_20261003/README_BACKUP_EXTERNAL_V2.md),
+[desktop activation](../extension_20260928/pi_native_20260928/live_runtime_20261003/README_DESKTOP_ACTIVATION.md),
+[recording offload](../extension_20260928/pi_native_20260928/live_runtime_20261003/README_OFFLOAD.md).

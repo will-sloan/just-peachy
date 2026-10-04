@@ -1,0 +1,35 @@
+# Saved source batching and numeric timing
+
+Purpose: reduce the number of synchronous durable journal appends for saved WAV, repeated developer WAV and kept-recording replay. This is a controlled source-only derivative of the exact frozen build12, prepared for build13. No native execution or speedup is claimed. Do not copy these files into a running or frozen installation.
+
+`installed_engine.py` changes only `SavedSource`; every other top-level AST, including all `InstalledSession` methods, model acquisition, native bindings and physical capture paths, is unchanged. `developer_replay.py` and `saved_replay.py` use the same new `saved_source_metrics.py` helper. The model, profile, identity thresholds, sample rate, memory guards and default capture policy are unchanged. `test_saved_source_metrics.py` is a host-only synthetic source proof, not a native model test.
+
+The source constructor keyword `append_batch_samples` defaults to 1600 (100 ms at 16 kHz), and accepts only integer multiples of 320 from 320 through 1600. There is no new UI or environment override; integrated constructors use the explicit code default. The journal and all model readers retain their existing bounds and read sizes. PCM16 conversion still divides by 32768; kept float32 bytes are unchanged. The final partial block is delivered exactly, without padding. Repetition hashes the input at each boundary, retains one source epoch, and never resets the journal or models. A block can end early at a WAV repetition or kept-segment boundary, so these small tails are not coalesced across independently pinned extents. Stop remains interruptible during pacing, with at most one bounded append already in progress. Sent counters advance only after append returns.
+
+The callback emits `saved_source_progress` at most once per wall-clock second and includes one final `saved_source_metrics` object in `source_stopped`. There is no metric history in RAM, extra hardware polling or new output file. Existing event output allocation and failure guards apply. Fields are numeric except schema and the timing-scope description: committed samples; source seconds; elapsed source wall seconds; current and maximum nonnegative wall lag; append calls/failures; total and maximum append elapsed seconds; configured maximum block samples. `append_seconds` measures the wall duration of `journal.append`, including its lock wait, durable writes, observer and callback work inside that call. It is not storage CPU time, isolated fsync time or model RTF. Source wall lag is `max(0, elapsed_wall - committed_samples / 16000)`, distinct from the diarizer's source-clock backlog. Normal EOF hashing and callback time can contribute to the final wall lag. Waveform quality diagnostics use the append block as before; their aggregation window therefore changes with the source batch size. No new quality claim follows.
+
+Actual build10 hour04 committed 57,359,280 samples (3584.955 s), short of the explicit 3600 s target, and was closed by its watchdog. It did not reach normal source EOF. Minimum available physical RAM was 1,210,351,616 B while worker virtual peak was 797,163,520 B under an 805,306,368 B address-space guard. These facts do not prove a physical RAM or virtual-allocation failure. The old saved path synchronously performed durable append work every 20 ms; the 100 ms default reduces a 715,127-sample WAV from 2235 to 447 journal calls. That call-count reduction is a host source proof, not a measured native throughput gain. Other possible costs remain unquantified: the external bounded-output guard walks its owned tree at 5 Hz, and the unit memory monitor publishes fsynced samples at 1 Hz on the shared CPU allocation. Those guards and segment lengths are unchanged here. This change is not presented as a proven fix for hour04.
+
+## Inputs and outputs
+
+Runtime input: the existing journal, pinned mono PCM16 16 kHz WAV (or pinned kept float32 segment index), callback, finite `SessionPolicy`, Stop event, and optional bounded constructor batch value. Runtime output: the same ordered float32 samples and source-clock intervals, existing repeat/EOF receipts, plus bounded numeric callback metrics. No whole-WAV repetition is materialized in RAM.
+
+The host check uses generated synthetic audio only. It verifies exact float32 SHA concatenation for 20/100 ms WAV blocks and partial tails; a simulated 57,600,000-sample continuous replay with one epoch; Stop/failure prefix accounting; kept-segment concatenation/lease closure; invalid configuration refusal; timing denominators; and unchanged engine AST outside `SavedSource`. Simulated hour source time is not an elapsed-hour or performance test. It writes a fresh private `REGISTERED_OWNER.json`, synthetic WAV/float fixtures and `RESULT.json` below the existing private preparation root. No models, Pi connection, transcript or user media are used.
+
+## Run the focused host proof
+
+Use the existing qualified interpreter; do not create or activate a different environment. The script sets CPU14 and writes its numeric owner before project reads/imports.
+
+PowerShell:
+
+```powershell
+& 'C:/Users/amiri/Documents/GitHub/just-peachy/.edge-speech-env/python.exe' -B 'G:/Just_Peachy_N1/20260924_campaign/worktree/research/nvidia_nemo_comparison/20260924_campaign/n5/extension_20260928/pi_native_20260928/live_runtime_20261003/saved_source_batch_derivative13/test_saved_source_metrics.py'
+```
+
+Command Prompt or Anaconda Prompt (same installed interpreter):
+
+```cmd
+"C:\Users\amiri\Documents\GitHub\just-peachy\.edge-speech-env\python.exe" -B "G:\Just_Peachy_N1\20260924_campaign\worktree\research\nvidia_nemo_comparison\20260924_campaign\n5\extension_20260928\pi_native_20260928\live_runtime_20261003\saved_source_batch_derivative13\test_saved_source_metrics.py"
+```
+
+The already completed focused proof is recorded in `SOURCE_REVIEW.json`. Do not repeat a healthy check merely to prepare packaging. The separate reviewed builder must include the four runtime modules and this README in the exact candidate content inventory. The new helper belongs in that inventory, not the unchanged retained 66-file v28 reference capsule. Frozen12 and previous native evidence remain immutable. Actual08 primary/GUI results can be cited only with their original scope and the explicit source-difference chain; they do not become native build13 or batching measurements. The next matched short qualification uses the existing owned dispatcher after fresh candidate admission; this README does not authorize a native run or an additional hour campaign.

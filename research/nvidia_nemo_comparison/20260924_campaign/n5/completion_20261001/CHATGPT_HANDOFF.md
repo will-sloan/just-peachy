@@ -1,33 +1,54 @@
-# ChatGPT handoff — current mounted-motion runtime
+# ChatGPT handoff — v29 live-runtime expansion
 
-> Current October3 update: **v28, desktop-first startup**. Use the ten desktop
-> shortcuts; choose **Exit to desktop** in the main manager to close normally.
-> Four recording slots remain. See [DESKTOP_GUIDE.md](DESKTOP_GUIDE.md) and
-> DESKTOP_RELEASE_INDEX.json. Earlier v27 measurements below remain historical.
+Read START_HERE, CURRENT_RUNTIME_PROGRESS, MODE_GUIDE and BACKEND_COMBINATIONS
+first. They distinguish the installed release from the new candidate. The
+archive is for understanding and review; it excludes models, recordings,
+transcripts, speaker vectors, galleries and credentials.
 
-Read START_HERE, MODE_GUIDE and MOTION_GUIDE first. Current release is v27; the following v23 completion account is retained history. The new shared mounted motion path was deployed, checked with one5.25s live recording and two independent complete PC copies, and left idle with three slots remaining. All ten profile pins share the same common code. IMU thread cost was1.21% of one core at50.29samples/s; not total pipeline or battery cost.
+The objective is offline live ASR, speaker diarization and optional identity on
+the prepared2GB CM5. Sherpa/PnC remain shared. Pyannote or explicit Nemotron
+geometries provide activity; ReDimNet or TitaNet provide separate embedding
+namespaces. Anonymous operation remains available. XVF3800 capture and BMI270
+motion integration are retained.
 
-Use microphone-array-centered geometry and distinguish raw device-relative beam arrows from trusted relative-anchor location logic. BMI270 has no absolute heading/position reference: yaw can drift; detected translation/gaps suspend location assumptions. Current live pose is excluded from plain saved WAVs. Source in mounted-source/runtime is exact deployed code for reading, not a bare standalone launcher. The prior prepared-device kit and refresh wrapper omit this addition. See the new motion renewal command and MOTION_* receipts. No noisy-world accuracy, battery or physical-touch claim is added.
+The v29 design separates source from backend, makes normal duration300s, adds a
+separate3600s developer replay path, bounded disk spooling and post-Stop audio
+retention, and capacity-based persistent UUID sessions. It removes the four-slot
+renewal requirement for the new runtime while preserving ownership, leases,
+finite per-session allocation, cleanup and original data.
 
-The mounted-motion source commit ed27d04b6131106c400bda828a64d00274095c56 is now verified on the existing GitHub branch. MOTION_REMOTE.json supersedes the earlier approval hold. Current acceptance, hardware capability and checklist files incorporate this addition; historical deadline and FINAL_* receipts remain history.
+Read [the pipeline documentation](../extension_20260928/pi_native_20260928/live_runtime_20261003/README_PIPELINES.md)
+for each architecture, mathematics, implementation hooks and evidence gaps.
+[Research adaptations](../extension_20260928/pi_native_20260928/live_runtime_20261003/RESEARCH_ARCHITECTURES.md)
+links primary papers and separates adaptations from exact reproductions.
+[Native results](../extension_20260928/pi_native_20260928/live_runtime_20261003/NATIVE_RESULTS.md)
+contains matched-input performance/failure scopes; the
+[RAM guide](../extension_20260928/pi_native_20260928/live_runtime_20261003/RAM_RESOURCE_GUIDE.md)
+distinguishes2GB capacity, virtual-address limits, CPU work, heat and4/8GB hypotheses.
 
-## Earlier runtime/model completion (v23 history)
+For interpretation:
 
-The user requested a working offline runtime for real-world testing, then restored NeMo TitaNet alongside ReDimNet with one shortcut for each supported combination. Reused the prior ONNX model/frontend and native runtime work; no new research campaign, download, training, enrollment, solicited speech or playback.
+- A live microphone path does not establish sustained real-time behavior.
+- Input-buffer latency excludes compute, association, queueing and stable labels.
+- Component RTF does not equal whole-application throughput.
+- Numerical equivalence is not ground-truth accuracy.
+- Quiet functional recording does not establish speech or speaker accuracy.
+- A one-hour component run does not qualify a one-hour complete application.
+- Recorded motion can invalidate position priors; BMI270 alone cannot recover
+  reliable absolute translation or drift-free heading.
+- A complete verified backup is distinct from source presence or an unfinished
+  copy. Private failure evidence remains preserved.
 
-Current release is field-runtime-v23 on the prepared2GB CM5/32GB device. One480×800 frontend starts idle, display270, Sherpa ONNX ASR/PnC. Six microphone profiles combine Pyannote or Nemotron-3 Delayed with ReDimNet/TitaNet/explicit anonymous handling. Four saved-input profiles combine Nemotron Streaming/Chunk52 with either encoder. MODE_GUIDE is the executable choice table.
+Useful reading questions are: Where do sample clocks originate? Which queues
+are bounded? What owns each model/source? How are provisional labels revised
+without replacing caption text? Which spatial cues are trusted after movement?
+Which audio bytes are retained and replayed? What happens on each first fault?
 
-Actual functional evidence:
-- All ten compositions executed. Both saved Chunk52 encoders completed8.22s; TitaNet made seven real embedding queries. Saved Streaming with both encoders completed8.22s, including Audio off and Processed cases.
-- Four successive independent recordings, complete source/model/archive closure and verified local backup before the next slot passed. Actual saved history, nonempty captions, full export/readback/disposable-copy delete/import/reopen passed.
-- Candidate22 recorded85919paired samples5.3699375s: physicalMIC0–MIC3 PCM32LE16kHz plus exact processed model input. Zero marker/drop/callback errors; route restoration and physical capture closure passed. Original and independent Pi-local copies each203files4872052B were copied/read back independently onPC.
-- IPv4/IPv6 socket creation is denied in actual broker/child processes. All assets are local. Automatic rollback and real shortcut/startup-command restarts passed.
-- Complete candidate22 batch preservation/rollback and generic fresh23 provisioning passed. Current manager40612/start5055076 has fourunused slots;66obsolete icons were independently backed and archived, leaving ten current profiles plusrollback.
+After understanding those paths, plan a small consenting real-world trial with
+FIELD_VALIDATION and FIELD_RUN_TEMPLATE. Compare modes on the same saved
+processed timeline before attributing differences to models. Enroll separately
+only when deliberately authorized; never reuse a ReDimNet gallery as TitaNet.
 
-Finite limits remain: four recordings,16total launch/helper slots,24h per idle launch,120s microphone/Chunk52,30s savedStreaming. CPU2/3/shared200%/64tasks/one model thread/GPUoff/1MiB stacks/default768MiB AS; initial850MiB/stop192MiB availableRAM. Pi5GiB/C50GiB/G75GiB free floors. Full rawruntime2988319424B and freshinstall3307886087B reserve independent copies; no failed/unused/deleted credit.
-
-The PowerShell refresh wrapper plans/preserves/inspects/provisions a new higher version on the prepared PC/CM5. The underlying sequence actually renewed22→23; its combined wrapper passed syntax and PC-only plan. It retains finite owner bounds and fails explicitly rather than erasing history. The runtime kit91554957B/SHA684abe51500f47a6c444c1905783d8acb043d46887b9cd0a8a50388b83b27533 has2586members, separate archive copy and full expanded restore readback. Existing baseline/Nemotron dependencies remain required; this is not an OS image.
-
-Separate galleries protect existing personal ReDimNet data. TitaNet remains separately empty/Unknown until future explicit enrollment. No embedding-quality gain or noisy-human WER/DER is inferred. Physical touch, cable-disconnected coldboot, battery tests and real-world noisy validation are planned, not observed. The full34-method/N1–N5 denominator and incomplete240-cell N4 remain in FINAL_COVERAGE. All prior failures/identity gaps/closed admissions are preserved and are never retroactively passed.
-
-Use START_HERE, MODE_GUIDE, INSTALL_HEALTH_AND_RECOVERY, FIELD_VALIDATION, FINISH_CHECKLIST and final artifact/Git/handoff receipts. Keep recordings, transcripts, vectors, weights and credentials outside Git and this documentation ZIP.
+Earlier v23/v27/v28 and campaign documents remain provenance. FINAL_COVERAGE
+retains N1–N5, the34-method catalogue and unfinished240-cell N4 denominator.
+This iteration does not silently complete those historical experiments.

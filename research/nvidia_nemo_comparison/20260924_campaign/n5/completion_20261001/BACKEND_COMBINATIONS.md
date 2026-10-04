@@ -1,21 +1,50 @@
-# Supported backend combinations
+# Backend combinations and evidence scope
 
-> Current October3 update: **v28, desktop-first startup**. Use the ten desktop
-> shortcuts; choose **Exit to desktop** in the main manager to close normally.
-> Four recording slots remain. See [DESKTOP_GUIDE.md](DESKTOP_GUIDE.md) and
-> DESKTOP_RELEASE_INDEX.json. Earlier v27 measurements below remain historical.
+Production16 is installed as the sole unified desktop launcher. Actual activation, shortcut archive, independent readbacks and idle/policy-controls/normal Exit passed. The v27/v28 releases and data remain preserved rollback references. This is an implemented selector contract, not a native Cartesian campaign or accuracy ranking. Sherpa ONNX ASR/punctuation remains the ASR path.
 
-The authoritative executable profile table and commands are in [MODE_GUIDE.md](MODE_GUIDE.md). All ten profiles use Sherpa ONNX ASR/PnC and the same versioned frontend.
+| Primary | ReDimNet | TitaNet | Anonymous | Sources |
+|---|---|---|---|---|
+| Pyannote | Existing named namespace | Separate model/frontend/namespace | ReDimNet continuity, no names | Live and saved |
+| Nemotron, each geometry | Existing named namespace | Separate TitaNet namespace | Native slots; embedding bypass | Live and saved |
 
-Six microphone choices: Pyannote with ReDimNet, TitaNet or anonymous ReDimNet continuity; Nemotron-3 Delayed with ReDimNet, TitaNet or native anonymous slots. Four saved-input choices: Nemotron-3 Streaming or Chunk52, each with ReDimNet or TitaNet. Saved inputs are mono16kHz PCM16 WAV. Streaming is limited to30s; microphone/Chunk52 to120s.
+Ordinary policy defaults to300 seconds; explicit developer policy can reserve at least3600 seconds. Neither is an intrinsic algorithm cutoff. Raw belongs only to the qualified physical adapter; saved processed audio stays processed audio.
 
-NeMo TitaNet was restored at the user's request using its existing ONNX model/frontend and separate gallery. Seven real saved-speech embedding calls succeeded in candidate14. ReDimNet remains selectable; no claim is made that either encoder will outperform the other in the user's environment.
+| D1 geometry | Input buffer / retained latency | Actual evidence |
+|---|---:|---|
+| [CurrentDelayed](../extension_20260928/pi_native_20260928/live_runtime_20261003/pipelines/current_delayed.md) |21.20s nominal; retained roughly21.3s first regular output | Complete build07 whole pipeline with ReDimNet; build08 live300 GUI workflow. |
+| [Chunk52](../extension_20260928/pi_native_20260928/live_runtime_20261003/pipelines/chunk52.md) |4.24s nominal |44.7s component RTF1.0813;4470 x 8 probabilities exactly match retained reference. |
+| [Chunk52 two threads](../extension_20260928/pi_native_20260928/live_runtime_20261003/pipelines/chunk52_threads2.md) |4.24s nominal | Short RTF0.5543/exact match; repeated component hour0.88445 average. Whole-application and cooling scopes remain separate. |
+| [Streaming](../extension_20260928/pi_native_20260928/live_runtime_20261003/pipelines/streaming.md) |1.12s nominal | Retained component evidence; no new broad whole-pipeline qualification inferred. |
+| [Official low](../extension_20260928/pi_native_20260928/live_runtime_20261003/pipelines/official_low.md) |1.04s nominal | Safe failure at34.9s input prefix, RTF4.819; mature native graph compute dominates. |
+| [Official very low](../extension_20260928/pi_native_20260928/live_runtime_20261003/pipelines/official_very_low.md) |0.64s nominal | Safe failure at28.5s prefix, RTF5.791. |
+| [Official ultra low](../extension_20260928/pi_native_20260928/live_runtime_20261003/pipelines/official_ultra_low.md) |0.32s nominal | Safe failure at20.5s prefix, RTF8.119. |
+| [Candidate1.20](../extension_20260928/pi_native_20260928/live_runtime_20261003/pipelines/candidate_1_2.md) |1.20s nominal | Source/native-parameter rules validated; no new native result. |
+| [Candidate2.00](../extension_20260928/pi_native_20260928/live_runtime_20261003/pipelines/candidate_2.md) |2.00s nominal | Complete44.7s component RTF2.123; not real-time. |
+| [Candidate3.04](../extension_20260928/pi_native_20260928/live_runtime_20261003/pipelines/candidate_3.md) |3.04s nominal | Source rules validated; separate from compact context. |
+| [Candidate3.04 compact](../extension_20260928/pi_native_20260928/live_runtime_20261003/pipelines/candidate_3_compact.md) |3.04s nominal | Complete44.7s component RTF0.8568; reduced history has no quality pass. |
+| [Candidate4.48](../extension_20260928/pi_native_20260928/live_runtime_20261003/pipelines/candidate_4_5.md) |4.48s nominal | Complete44.7s component RTF1.1091. |
 
-Live Streaming/Chunk52, applied ASR skipping, parallel diarizer pools, whole-waveform ONNX and the unqualified A76 Nemotron ASR alternative remain unavailable. Nemotron ASR is deferred; the user selected Sherpa. The34-method research catalogue and uncompleted full240-cell N4 comparison remain provenance, not extra enabled profiles.
+Nominal buffers exclude compute/scheduling. Prefix failures provide neither full-input numerical equivalence nor sustained qualification. Early first output does not establish mature throughput. The two-thread profile uses its exact separately pinned core/descriptor; it changes no OS/BLAS thread setting or shared two-core200% envelope.
 
-The current ten named shortcuts share duplicate-owner exclusion and capture-off startup. Raw+processed uses qualified four-microphone16kHz PCM32 plus model-input audio where the microphone route offers it. Processed saved-WAV input is not relabelled as raw microphone evidence.
+The other five of17 pages cover [Pyannote/ReDimNet](../extension_20260928/pi_native_20260928/live_runtime_20261003/pipelines/pyannote_redimnet.md), [Pyannote/TitaNet](../extension_20260928/pi_native_20260928/live_runtime_20261003/pipelines/pyannote_titanet.md), [Pyannote/anonymous](../extension_20260928/pi_native_20260928/live_runtime_20261003/pipelines/pyannote_anonymous.md), [provisional/revised labels](../extension_20260928/pi_native_20260928/live_runtime_20261003/pipelines/provisional_correction.md), and the [command matrix](../extension_20260928/pi_native_20260928/live_runtime_20261003/pipelines/command_matrix.md). Shared layer/clock/cache math is in [ARCHITECTURE_AND_MATH](../extension_20260928/pi_native_20260928/live_runtime_20261003/ARCHITECTURE_AND_MATH.md).
 
-Mounted motion is shared across all ten profile pins in v27. Existing live spatial
-consumers receive trusted rotation-aware cues; voice-only/native anonymous rules
-are unchanged, and current pose is excluded from plain saved WAVs. MOTION_GUIDE
-describes geometry, efficient sampling and limits. Three recording slots remain.
+Sparse clean-turn extraction applies only to named D1 modes and retains every ASR/diarizer sample and resolver threshold. ASR-first delayed attribution uses one D1 worker, stable caption IDs, exact source intervals and bounded revisions. It emits an available genuine prior label or Unknown while text continues. Neither is a measured accuracy improvement.
+
+Optional Pyannote plus one continuous anonymous CurrentDelayed child is a distinct implemented experimental path. Actual build14 First03 completed matched saved45 child/primary EOF; Followup02 then completed all4.8M primary/raw/child live300 samples and30,001 child frames with window60, source300/drain60/backlog30. Full owner/model closure and sampled aggregateRSS760,020,992B/minimumavailable1,178,828,800B/owned swap0 support that bounded experimental scope. Zero optional corrections were observed. Root approved its exact measured receipt. Actual production16 production-idle-01 verified the optional checked drain60/backlog30 policy, unchecked ordinary drain120/backlog120 policy and normal Exit, with zero Start invocations, models or capture; model measurements remain actual14 facts reused through reviewed GUI and path changes. The actual build13 window30 child timeout remains a preserved fallback result, not full child EOF. The old `provisional_correction` two-Nemotron draft remains unavailable and is not required for this child.
+
+Build08 Pyannote+TitaNet completed the matched715127-sample saved whole pipeline under768MiB AS with actual arena disabling. Functional execution is not identity accuracy. Build08 live300 GUI provides raw/processed count and replay/closure evidence, not quiet-session speech quality. New-root reuse keeps those08 facts and an explicit source-difference chain. The failed08 whole-application hour is not a pass; the repaired full-application hour04 subsequently failed at its worker watchdog before source EOF (3,584.955 seconds committed), with a full closed mirror but no successful worker cleanup receipt.
+
+The2GB native machine is the measured target. Physical RAM pressure, virtual-address limits and CPU queues are different constraints;4/8GB effects remain estimates. See [RAM_RESOURCE_GUIDE](../extension_20260928/pi_native_20260928/live_runtime_20261003/RAM_RESOURCE_GUIDE.md), [NATIVE_RESULTS](../extension_20260928/pi_native_20260928/live_runtime_20261003/NATIVE_RESULTS.md), [research architectures](../extension_20260928/pi_native_20260928/live_runtime_20261003/RESEARCH_ARCHITECTURES.md), and [MODE_GUIDE](MODE_GUIDE.md).
+
+## Reading RAM and throughput evidence
+
+The measured machine is the 2 GB CM5 (MemTotal 2,108,473,344 bytes). The saved CurrentDelayed/ReDimNet worker sampled RSS 556,761,088 bytes; the saved Pyannote/TitaNet worker sampled RSS 468,762,624 bytes. These are different whole-pipeline workers on short matched inputs, not continuous aggregate GUI/source/child peaks. The TitaNet run's partial aggregate sample reached RSS 492,240,896 bytes. The quiet live300 GUI run measured its own worker; its late external trace covered replay, not the complete live peak. Do not add peaks from independent runs or use quiet-session inference costs as speech-load measurements.
+
+The 768 MiB per-process AS guard constrains virtual mappings. It is distinct from RSS/PSS and from installed/available physical RAM, and adding two AS ceilings does not estimate dual-worker resident use. Owned swap and system swap have different scopes. Shared pages can be counted in several processes' RSS; aggregate PSS is a complementary measurement.
+
+The two-thread Chunk52 component hour completed with RSS near 166.5 MiB, available RAM above 1.48 GB and temperature up to 85.35 C. Its average component RTF 0.88445 and later bins near 0.94 expose CPU/cooling margin limits despite physical-memory headroom. This does not qualify a whole-application two-thread hour. The repaired full-application hour04 ended at its worker watchdog before source EOF: 57,359,280 of 57,600,000 samples were committed. Whole-unit sampled peak RSS was 643,776,512 bytes and minimum available RAM was 1,210,351,616 bytes with zero owned swap. Worker VmPeak 797,163,520 bytes was near its 805,306,368-byte AS ceiling, but no allocation failure establishes that as the cause. Source delivery fell behind wall time; synchronous storage and shared-lock costs require separate timing evidence. The closed mirror does not establish successful logical/model cleanup. Actual14 Research07 verified the changed single-D1 late-label path with exact probabilities/ASR and30 supported/partial updates. First03 and Followup02 reached full child EOF; Followup02 sampled aggregateRSS760,020,992B/PSS700,768,256B, minimumavailable1,178,828,800B and no owned swap, with zero optional corrections. These exact modes do not qualify all possible combinations. First01 remains a failed startup prefix.
+
+A 4/8 GB board may allow more resident models/cache when physical memory is the constraint. It does not itself change a fixed virtual-memory limit, reduce native graph work, increase the shared CPU quota or prove improved cooling. No 4/8 GB native measurement or performance scaling claim is available.
+
+
+The controlled build13 source candidate adds bounded100ms saved/repeated/kept replay appends and numeric append-time/source-wall-lag metrics; see the [source-only batching contract](../extension_20260928/pi_native_20260928/live_runtime_20261003/README_SAVED_SOURCE_METRICS.md). It also includes the reviewed optional activity-handoff repair. Production16 is now activated with the reviewed GUI and path-only changes; actual build13/14 matched45s optional/research trials retain their original measured scope for the changed saved path. This is not a claim that batching fixes the failed hour04: external5Hz output-tree checks and1Hz fsynced resource sampling are other unmeasured overhead candidates, and their guards remain unchanged. The research comparison reuses baseline04, requires exact processed float32/sample-clock agreement, and compares all4470×8native D1 probabilities by hash and maximum absolute difference with an explicit1e-5 tolerance. No additional baseline, hour or geometry sweep is prescribed.

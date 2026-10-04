@@ -1,0 +1,7 @@
+# Controlled optional qualification guard derivative
+
+Purpose: permit a fully reserved finite300-second live refinement qualification and a reviewed saved-primary/live-source composition bridge without altering model, source, identity or UI algorithms. Input is the exact immutable08 optional qualification module plus the first pinned allocation derivative. Output is this final module SHA `92b91aa392876d2448b22bc0180b8888e314720d19cc30ddb0ffc81120678cc6`; the independent09 builder copies it only under an explicit complete inventory-difference review.
+
+Do not run this module directly. The exact frozen09 worker invokes its qualification functions only inside the actual owned finite unit after full package, source, selection, prerequisite, asset, boot and resource checks. Initial qualification remains saved45 with256MiB output; followup raw live300 reserves330,610,984 bytes plus an equal independent PC allocation. Live composition review preserves actual saved primary proof and claims permission to collect new evidence only.
+
+To reproduce host source preparation once, use `prepare_derivative09.py`, then `prepare_bridge09.py` in the parent folder. PowerShell uses `& 'C:/Users/amiri/Documents/GitHub/just-peachy/.edge-speech-env/python.exe' -B 'FULL_SCRIPT_PATH'`; CMD/Anaconda Prompt omit `&` and use the same quoted paths. Both scripts register CPU14/numeric ownership before project reads and refuse existing output directories. Full paths, inputs/outputs, tests and execution limits are in the parent README. No native test was executed during generation.

@@ -1,3 +1,5 @@
+> **Scope notice:** The F01-F26 entries below preserve earlier v23/v27/v28 work, slot policies and observations. Their DONE/PASS labels do not accept current v29. Current gates and the16+ capacity requirement are in [ACCEPTANCE.json](ACCEPTANCE.json) and [ACCEPTANCE_SCOPE.md](ACCEPTANCE_SCOPE.md). Historical deadlines/receipts remain unchanged; no pending v29 run is marked complete.
+
 # Concrete finish checklist — current v27 status
 
 > Current October3 update: **v28, desktop-first startup**. Use the ten desktop

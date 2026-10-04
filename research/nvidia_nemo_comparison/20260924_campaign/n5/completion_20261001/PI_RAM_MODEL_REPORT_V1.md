@@ -1,3 +1,9 @@
+> October4 runtime addendum: current2GB measurements and the4GB/8GB capacity
+> interpretation are maintained in [RAM_RESOURCE_GUIDE](../extension_20260928/pi_native_20260928/live_runtime_20261003/RAM_RESOURCE_GUIDE.md).
+> This earlier pricing/licensing comparison is dated historical research, not
+> a current purchase quote or a larger-RAM benchmark. Completed combined
+> five-minute runs fit2GB. Chunk52's component hour points to CPU/thermal limits.
+> No drastic speedup from additional RAM has been measured.
 # CM5 memory, model choices and product cost
 
 **Decision — 1 October 2026:** keep **Sherpa ONNX ASR**, Nemotron-3 diarization and the compatible ReDimNet speaker encoder as the delivery candidate. The user explicitly chose Sherpa after reviewing Nemotron ASR's measured cost. No new model or hardware was tested for this report.

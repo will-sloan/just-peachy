@@ -1,46 +1,44 @@
-# Just Peachy: start here
+# Just Peachy — start here
 
-> Current October3 update: **v28, desktop-first startup**. Use the ten desktop
-> shortcuts; choose **Exit to desktop** in the main manager to close normally.
-> Four recording slots remain. See [DESKTOP_GUIDE.md](DESKTOP_GUIDE.md) and
-> DESKTOP_RELEASE_INDEX.json. Earlier v27 measurements below remain historical.
+**Current release: field-runtime-v29-build-16, one desktop launcher.** Stage,
+activation, ten-shortcut archive, independent readbacks and actual normal
+idle/Exit passed. Capture stays off until Start and login autostart stays
+disabled. The policy-control check started no worker or model; physical
+touch, double-click and a new reboot were not tested. v27/v28 remain preserved
+rollback references. [Current status](CURRENT_RUNTIME_PROGRESS.md) separates
+bounded passes from the failed whole-application hour and unqualified quality.
+Read these in order:
 
-**The prepared CM5 has field-runtime-v28 installed with mounted BMI270 integration.**
-It is left at the desktop, capture off, display 270, with **four recording slots remaining**
-and ten backend shortcuts plus rollback. No recording starts by opening a profile.
+1. [MODE_GUIDE.md](MODE_GUIDE.md): operator choices, live/saved sources,
+   recording workflow, measurements and experimental limitations.
+2. [BACKEND_COMBINATIONS.md](BACKEND_COMBINATIONS.md): diarizer/embedding/profile
+   combinations. Sherpa/PnC remain shared; ReDimNet/TitaNet galleries stay separate.
+3. [Pipeline architecture and mathematics](../extension_20260928/pi_native_20260928/live_runtime_20261003/README_PIPELINES.md):
+   individual pipeline guides and source entry points.
+4. [Research adaptations](../extension_20260928/pi_native_20260928/live_runtime_20261003/RESEARCH_ARCHITECTURES.md):
+   primary papers, adaptations using existing models, and unreproduced results.
+5. [RAM/resource guide](../extension_20260928/pi_native_20260928/live_runtime_20261003/RAM_RESOURCE_GUIDE.md)
+   and [native results](../extension_20260928/pi_native_20260928/live_runtime_20261003/NATIVE_RESULTS.md):
+   actual2GB observations, CPU/thermal/software limits and possible4GB/8GB benefits.
+6. [FIELD_VALIDATION.md](FIELD_VALIDATION.md), [MOTION_GUIDE.md](MOTION_GUIDE.md),
+   [INSTALL_HEALTH_AND_RECOVERY.md](INSTALL_HEALTH_AND_RECOVERY.md), and
+   [PATHS_AND_BACKUPS.md](PATHS_AND_BACKUPS.md).
 
-Read [MODE_GUIDE.md](MODE_GUIDE.md) for the ten diarizer/embedding combinations,
-recording controls and PC commands. Read [MOTION_GUIDE.md](MOTION_GUIDE.md) for
-automatic calibration, array-centered geometry, the optional orientation graphic,
-and what the six-axis sensor can and cannot infer. Sherpa ASR, ReDimNet/TitaNet
-and the existing Pyannote/Nemotron choices are retained.
+The v29 flow is one launcher, choose backend and live/saved source,
+Start, Stop/drain, then keep processed, qualified raw+processed, or discard.
+Normal live policy is300s; a separate developer path permits one-hour testing.
+Persistent recordings are capacity-driven UUID sessions rather than four slots.
+Implementation does not establish that every mode sustains real time.
 
-The retained v27 shared integration passed one native 5.25-second processed recording,
-normal Stop/Save/Return/closure, local backup and two complete independent PC
-copies. It measured about 1.21% of one core for the IMU thread at 50.29 samples/s.
-All ten profiles bind the same code; the unchanged model combinations were not
-all rerun. Earlier all-profile and raw-recording evidence remains separately scoped.
+BMI270 retains the microphone-array origin, causal pose timing and device-relative
+beam display. Motion suspends unreliable location priors. This six-axis sensor
+does not provide reliable absolute room translation or drift-free yaw. Plain
+saved WAVs never borrow current tablet motion.
 
-The sensor handles relative rotation and tilt, with the microphone-array center
-as origin. Detected translation suspends location assumptions; reliable absolute
-room position is unavailable. Relative yaw can drift. Live beam arrows stay
-device-relative, and plain saved WAVs never borrow current tablet motion.
+The small ChatGPT handoff is documentation/readable source, not an OS image or
+complete model installation. Models, galleries, recordings and transcripts stay
+outside the public archive. Older FINAL_*, MOTION_* and DESKTOP_* receipts retain
+their original release scope. Historic34-method and incomplete240-cell N4
+coverage remain in FINAL_COVERAGE; this runtime update does not complete them.
 
-[INSTALL_HEALTH_AND_RECOVERY.md](INSTALL_HEALTH_AND_RECOVERY.md) and
-[PATHS_AND_BACKUPS.md](PATHS_AND_BACKUPS.md) cover renewal, rollback and storage.
-Follow DESKTOP_GUIDE for renewal limitations; older renewal wrappers do not preserve this desktop-first change. The 91,554,957-byte v23 kit omits motion. The current code is installed
-and independently backed up. The new small handoff includes guides and readable
-motion source, not models, recordings or a standalone OS image.
-
-Current receipts: MOTION_RELEASE_INDEX.json, MOTION_CHECKLIST.json and
-MOTION_HANDOFF_RECEIPT.json. Older FINAL_* receipts remain immutable v23 history.
-Physical touch, cable-disconnected coldboot, battery endurance, long-term drift
-and noisy-world recognition remain real-world validation, not completed claims.
-Use FIELD_VALIDATION.md/FIELD_RUN_TEMPLATE.json. FINAL_COVERAGE retains the
-N1-N5/34-method denominator and incomplete full 240-cell N4 comparison.
-
-The approved motion source is remotely backed up at commit
-`ed27d04b6131106c400bda828a64d00274095c56`; see MOTION_REMOTE.json.
-Use the current MOTION_HANDOFF_RECEIPT.json for the latest verified archive.
-The previous upload approval hold is resolved. No new native test was needed
-for this documentation refresh; hardware observations remain the recorded v27 check.
+The single final source handoff and authoritative adjacent readback receipt are named in the [publication guide](../extension_20260928/pi_native_20260928/live_runtime_20261003/README_FINAL_PUBLICATION.md). The guide omits its own ZIP hash to avoid a circular artifact.
