@@ -1,4 +1,4 @@
-# Historical readiness and current v29 acceptance
+# Historical acceptance and current build21 evidence
 
 ACCEPTANCE.json is a delivery status index, not executable native admission.
 The selected release is **field-runtime-v29-build-16**: production permission,
@@ -77,3 +77,16 @@ Back up/read back current bytes before edits and preserve historical scope.
 The final ZIP/adjacent HANDOFF_RECEIPT.json location is in the
 [publication guide](../extension_20260928/pi_native_20260928/live_runtime_20261003/README_FINAL_PUBLICATION.md).
 Its external receipt is authoritative; included files omit their own ZIP hash.
+
+## Current restoration supersedes the old interface and policy
+
+The build16/17 facts above remain historical; ACCEPTANCE.json is not a new
+executable admission or build21 certificate. Installed runtime is build21,
+manifest9abaaaffe35d328fd97f5fc47f1f5b938803705dffb728c5d804d225a646ba6e.
+Activation and normal desktop launch/idle/Exit passed. The original twelve Modes,
+People and Settings are restored, with manual Stop and complete Save/Discard.
+Representative native checks include310.2s manual Stop and rich30member PC export.
+Assigned seats/saved spatial/legacy optional limits remain explicit.
+Human/noisy quality, touch/coldboot, battery and whole-application-hour use remain
+open. Historical N1–N5 coverage is preserved. See CURRENT_RUNTIME_PROGRESS and
+RESTORATION_FINDINGS for current scope and exact backup/handoff receipts.

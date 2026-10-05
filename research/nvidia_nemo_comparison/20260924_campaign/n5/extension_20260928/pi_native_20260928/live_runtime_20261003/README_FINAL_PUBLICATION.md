@@ -1,10 +1,10 @@
 # Final public-source handoff checklist
 
-## Current classic frontend repair: build17
+## Current mature application restoration: build21
 
-Build17 is installed and activated. The real portrait/consent/Pyannote+ReDimNet microphone/Stop/drain/processed-Save/Exit check passed with52,799samples. The normal single Desktop command separately opened its39-choice idle chooser and exited with zero workers, models or capture. Exact natural closure and independent full private output readbacks passed. User recordings/galleries, rollback releases, display270 and disabled login startup are preserved. Physical touch, noisy-world quality and sustained operation are separate unqualified scopes.
+Build21 is installed and activated. Original Modes/People/Settings, rosters, compatible seats, enrollment helpers and rich History are restored. Representative native checks include both encoders/diarizers, Chunk52/anonymous,310.2s manual Stop,30member PC export and normal desktop launch/Exit. Build17/v27/v28, personal data, display270 and disabled autostart remain preserved. Human/noisy quality, touch/coldboot and whole-application-hour use remain unqualified.
 
-The final public plan preserves the previous385-member whitelist, refreshes guides, and adds reviewed repair Python/Markdown source/tests/READMEs. The locked older completion START_HERE.md is untouched; current START_HERE_CURRENT.md is the reviewed source for that handoff member and is included under its own name. Caches, private evidence, credentials, media, models, galleries and live user configuration are excluded. The final builder independently restores every ZIP member. Its adjacent HANDOFF_RECEIPT.json records the actual completed archive/hash/readback. Previous build16 packs and failed checks remain immutable.
+The final public plan preserves the previous build17 public whitelist, refreshes guides, and adds reviewed full_application_20261004 source/tests/READMEs. The locked older completion START_HERE.md is untouched; current START_HERE_CURRENT.md is the reviewed source for that handoff member and is included under its own name. Caches, private evidence, credentials, media, models, galleries and live user configuration are excluded. The final builder independently restores every ZIP member. Its adjacent HANDOFF_RECEIPT.json records the actual completed archive/hash/readback. Previous build16/build17 packs and failed checks remain immutable.
 
 ## Preserved build16 publication basis
 
@@ -25,7 +25,7 @@ directory. No native action, model run or recording copy is part of this step.
 
 The one intended deliverable is:
 
-    G:/Just_Peachy_N1/20260924_campaign/local/n5/research-extension-20260928/pi-native-20260928/live-runtime-20261003/audit-preparation/final-handoff-v29-build17-20261004/JustPeachy-v29-ChatGPT-handoff.zip
+    G:/Just_Peachy_N1/20260924_campaign/local/n5/research-extension-20260928/pi-native-20260928/live-runtime-20261003/audit-preparation/final-handoff-v29-build21-20261005/JustPeachy-v29-ChatGPT-handoff.zip
 
 The adjacent HANDOFF_RECEIPT.json is authoritative for the completed build and records the
 actual ZIP SHA, extent, final reviewed-plan SHA and complete independent
@@ -118,7 +118,7 @@ the old proposed plan or substitute an active native/runtime package path.
     $py='C:/Users/amiri/Documents/GitHub/just-peachy/.edge-speech-env/python.exe'
     $t='G:/Just_Peachy_N1/20260924_campaign/worktree/research/nvidia_nemo_comparison/20260924_campaign/n5/extension_20260928/pi_native_20260928/runtime_handoff_tools'
     $q='G:/Just_Peachy_N1/20260924_campaign/local/n5/research-extension-20260928/pi-native-20260928/live-runtime-20261003'
-    & $py -B "$t/build_handoff_v2.py" --plan "$q/audit-preparation/FINAL_REVIEWED_PLAN.json" --output "$q/audit-preparation/final-handoff-v29-build17-20261004"
+    & $py -B "$t/build_handoff_v2.py" --plan "$q/audit-preparation/full-final-plan-build21-02/REVIEWED_PLAN.json" --output "$q/audit-preparation/final-handoff-v29-build21-20261005"
 
 ## Command Prompt and Anaconda Prompt
 
@@ -127,7 +127,7 @@ Use the qualified interpreter directly; no install or environment activation.
     set "PY=C:\Users\amiri\Documents\GitHub\just-peachy\.edge-speech-env\python.exe"
     set "T=G:\Just_Peachy_N1\20260924_campaign\worktree\research\nvidia_nemo_comparison\20260924_campaign\n5\extension_20260928\pi_native_20260928\runtime_handoff_tools"
     set "Q=G:\Just_Peachy_N1\20260924_campaign\local\n5\research-extension-20260928\pi-native-20260928\live-runtime-20261003"
-    "%PY%" -B "%T%\build_handoff_v2.py" --plan "%Q%\audit-preparation\FINAL_REVIEWED_PLAN.json" --output "%Q%\audit-preparation\final-handoff-v29-build17-20261004"
+    "%PY%" -B "%T%\build_handoff_v2.py" --plan "%Q%\audit-preparation\full-final-plan-build21-02\REVIEWED_PLAN.json" --output "%Q%\audit-preparation\final-handoff-v29-build21-20261005"
 
 The builder enforces4096 members,2MiB per text file,20MiB total source and ZIP,
 96MiB complete output/restore allocation, and C:50GiB/G:75GiB+128MiB floors.

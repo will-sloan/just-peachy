@@ -1,7 +1,7 @@
-# ChatGPT handoff — v29 live-runtime expansion
+# ChatGPT handoff — v29 restored build21
 
 Read START_HERE, CURRENT_RUNTIME_PROGRESS, MODE_GUIDE and BACKEND_COMBINATIONS
-first. They distinguish the installed release from the new candidate. The
+first. Build21 is installed and activated; older release evidence retains its scope. The
 archive is for understanding and review; it excludes models, recordings,
 transcripts, speaker vectors, galleries and credentials.
 
@@ -52,3 +52,14 @@ only when deliberately authorized; never reuse a ReDimNet gallery as TitaNet.
 Earlier v23/v27/v28 and campaign documents remain provenance. FINAL_COVERAGE
 retains N1–N5, the34-method catalogue and unfinished240-cell N4 denominator.
 This iteration does not silently complete those historical experiments.
+
+Build21 reconnects the original twelve application Modes, People/UUID rosters,
+compatible seats, paragraph enrollment/quality/CRUD and rich History above the
+current isolated pipeline. Application Mode is separate from backend geometry.
+Read full_application_20261004/APPLICATION_MODES_AND_MATH.md and
+RESTORATION_FINDINGS.md for the exact connections, voice/seat/math and clocks.
+Representative native checks include310.2s manual Stop and rich export with
+all30members verified. Human enrollment/accuracy remains physical validation.
+The stationary dinner/noise recording and matched sequential Pi replay with
+timed display/offload workflow is documented in FIELD_VALIDATION and deferred.
+No batch runner is implemented now.

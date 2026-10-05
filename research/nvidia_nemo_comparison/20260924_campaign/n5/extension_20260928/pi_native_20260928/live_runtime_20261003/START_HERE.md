@@ -1,3 +1,18 @@
+# Current operator entry — restored build21
+
+Build21 is installed and activated. One shortcut opens a backend/source chooser
+and the original portrait app with Modes/People/Settings. Live uses manual Stop
+with bounded storage/resource protection; Save/Discard applies to the complete
+rich session. ReDimNet/TitaNet enrollments/galleries remain separate.
+Read completion_20261001/START_HERE_CURRENT.md and MODE_GUIDE.md, plus
+full_application_20261004/APPLICATION_MODES_AND_MATH.md and RESTORATION_FINDINGS.md.
+Representative checks include310.2s manual Stop and30member PC export.
+Human/noisy/touch/hour qualification remains future validation.
+
+The following quick start describes **historical production16**. Its dashboard,
+300-second ordinary policy and optional-refiner admission do not describe build21.
+Keep its original compute/evidence scope.
+
 # Just Peachy field-testing quick start
 
 Production16 is installed with one unified **Just Peachy** Desktop shortcut. The actual desktop command, fullscreen480×800 interface, optional/ordinary policy controls and normal Exit passed the final closed native check. Prior owned shortcuts have verified archive/restore copies outside Desktop. Autostart remains disabled. Startup remains configured for desktop; no new reboot test was performed.

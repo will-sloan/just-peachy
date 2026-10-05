@@ -1,9 +1,9 @@
 # Current validation scope
 
-The v29 candidate separates backend, embedding and live/saved source. Normal
-sessions are300s with storage-capacity-driven UUID recordings; a separate explicit
-developer path permits3600s continuous replay. See CURRENT_RUNTIME_PROGRESS and
-MODE_GUIDE for activation and actual per-mode qualification before field use.
+Build21 separates backend, embedding, application Mode and live/saved source.
+Normal Live uses manual Stop with storage/resource guards and capacity-driven
+UUID recordings; controlled developer replay retains explicit finite policies.
+See CURRENT_RUNTIME_PROGRESS and MODE_GUIDE for exact qualification.
 A live input route is not a sustainable-real-time claim. Preserve v27 as rollback.
 # In-person noisy-environment validation framework
 
@@ -27,9 +27,25 @@ Copy FIELD_RUN_TEMPLATE.json into private run storage; assign unique run and loc
 
 Start with one functional pilot at each setting. Compare two delivery-qualified D1 choices on the same participant task and placement, counterbalancing order (A/B then B/A) to reduce warmup/order confounding. Add the third choice only when there is a concrete unresolved tradeoff. This is a targeted test, not all product modes x backends x every noise condition.
 
-Use a short repeatable task (about1-2minutes if within the release's measured duration/storage limit): speakerA alone, speakerB alone, alternating turns, a pause/return, then a brief labelled overlap. Retain spontaneous speech as a separate naturalistic run. Do not call live repetitions identical audio; record differences. A saved matched-input comparison, if later authorized, is a separate experiment and not evidence of identical live conditions.
+Use a short repeatable task (about1-2minutes if within the release's measured duration/storage limit): speakerA alone, speakerB alone, alternating turns, a pause/return, then a brief labelled overlap. Retain spontaneous speech as a separate naturalistic run. Do not call live repetitions identical audio; record differences. A saved matched-input comparison is a separate experiment and not evidence of identical live conditions. The operator's planned workflow below is deferred; no batch runner is being implemented now.
 
 For identity modes, test anonymous first, then compatible enrolled/open-set, selected roster and explicit closed-group assumptions separately. Gallery construction/enrollment is a distinct consented activity and does not change automatically during scoring. Do not treat assumed closed-group labels as verified recognition. Spatial contrasts need real fresh cue evidence and a placement sketch; folded front/rear ambiguity remains.
+
+## Planned representative recording and matched Pi replay
+
+The preferred future comparison workflow is one consented dinner-table or noisy-setting conversation with the device stationary. Enroll the participating people separately with ReDimNet and TitaNet, then freeze both model-specific galleries before the evaluation conversation. Enrollment audio should be separate from scored conversation audio. Keep anonymous participant aliases and a seating sketch alongside the actual application Mode and selected roster.
+
+After Stop and drain, retain a complete private session: exact processed replay audio, qualified physical raw channels when available, source sample clocks, full captions/revisions, beam and BMI270 timelines, source routing/gain, backend/Mode settings, model hashes, and the exact gallery snapshot or hash-bound private copies. Saving audio alone does not preserve the enrollment or spatial evidence used by the live session.
+
+A future Windows coordinator can connect to the Pi and run compatible backend, embedding and application Mode combinations sequentially on that same session. Each run should use fresh model state and its own result directory while preserving the original recording and frozen galleries. Record unsupported combinations explicitly rather than silently substituting a backend. The models should execute on the Pi when measuring Pi performance.
+
+Keep two replay measurements separate: unpaced replay for processing cost, and source-clock-paced replay for caption/speaker presentation timing. A timed screen recording can show first output, revisions and backlog alongside machine-readable events. Measure screen-capture overhead or use an external camera for an undisturbed display measurement; an accelerated replay video is not a live-latency result. Copy complete private results and selected screen recordings to Windows with manifest/hash readback, retaining the Pi originals by default.
+
+Backend comparisons using identical processed audio are repeatable. They do not compare different XVF acquisition or beam-processing routes: an already processed waveform cannot recreate a different hardware route. Such comparisons need an appropriate raw reprocessing implementation or separately qualified simultaneous taps. Replay of spatial Modes must consume the recorded beam/motion timeline and seating context; current tablet sensors must not influence historical audio. That synchronized spatial replay integration remains future work.
+
+Reference words and time-aligned speaker/overlap labels are needed for accuracy scores. Without them, report functionality, timing, resource behavior and qualitative observations. Hold out separate conversations before tuning thresholds or choosing a winning configuration. Retain a smaller live test of the selected configurations afterward, because matched replay alone does not qualify microphone acquisition, real-world responsiveness, motion behavior or battery endurance.
+
+This section records the proposed workflow only. Batch orchestration, automated screen recording, gallery transport and synchronized spatial replay are not claimed implemented or accepted.
 
 ## During each run
 

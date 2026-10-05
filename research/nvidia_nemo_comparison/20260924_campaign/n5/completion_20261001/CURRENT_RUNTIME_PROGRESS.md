@@ -1,64 +1,68 @@
-# Current runtime status — restored portrait production17
+# Current runtime — restored build21
 
-**field-runtime-v29-build-17 is installed and activated; native check02 passed.** Actual
-480x800 portrait/tabs/consent, Pyannote+ReDimNet live52,799 processed samples
-(3.2999375seconds), Stop/drain, exact source/worker closure, processed
-Save/readback and Exit passed. Raw/model frames aligned and source routes were
-restored. One Just Peachy.desktop points at build17; the old duplicate is
-archived, before/independent restore copies verified, and user data,autostart
-disabled,captureoff,display270 preserved. Normal-Desktop chooser/Exit verification passed with zero new workers, audio or models.
+**field-runtime-v29-build-21 is installed and activated.** The sole Just Peachy
+shortcut opens a backend/source chooser and the original portrait app with
+Modes, People and Settings. Login autostart stays disabled; opening stays idle;
+Exit returns to desktop. Build17 and v27/v28 remain preserved with user data.
 
-Check01's portrait/consent/readiness passed but it failed before source startup
-on a test-wrapper32MiB file cap below the worker's declared SQLite allocation.
-Check02 corrected the wrapper using its original64MiB admitted reserve.
-Build17's package was unchanged. Full independent closed check02 mirror is
-private classic-ui-check-02-monitor-01; this is a short functional pass.
+Package manifest9abaaaffe35d328fd97f5fc47f1f5b938803705dffb728c5d804d225a646ba6e.
+Desktop SHA7349e29b426e42cd92bbd4b13df02776c07b65110b7e5bad05aad2168f85ee72.
+Actual current boot7dbfe9c2-fcd8-4395-ab4e-078cb7df00b7.
+Display270 and startup/configuration pins remained unchanged at activation.
 
-The new entry is one scrollable backend/source chooser, then the original
-verified PrototypeUI portrait application.39 basic backend/embedding combinations
-have independent Live/Saved selection; this is availability, not39 new passes.
-Six build16 user sessions had the same closed-source AEC255
-`Resource could not respond` failure after physical stream startup, with zero
-accepted processed audio. SOURCE_NOT_STARTED was a cleanup classification.
-The new live Start adds bounded current-boot readiness: no maintenance when
-AEC is readable; otherwise one exact fault-bound TEST_CORE_BURN0 intent and
-unchanged-firmware/AEC readback, with no automatic retry after uncertainty.
+The previous build17 facade bypassed original Mode/roster/seat/enrollment methods.
+Build21 reconnects those methods to the current isolated pipeline, preserving
+Sherpa/PnC, backend profiles, separate encoder galleries, source/raw/motion
+provenance and owner/resource guards. Backend and application Mode are separate.
+The chooser displays123 recipe/backend variants with independent Live/Saved
+input; the underlying246-configuration allowlist is not a Cartesian test pass.
 
-Build16's accepted stage/activation/idle/Exit checks remain historical. That
-idle check started no capture/model and did not predict the later user failures.
-Build16, v27/v28, gallery namespaces, existing runtime-v29 data,display270 and
-disabled login autostart remain preserved. Physical touch/double-click/new reboot
-are not qualified by this repair. Old campaign deadlines remain historical.
-
-| Requirement | Actual scope |
+| Requirement | Actual new evidence |
 |---|---|
-| Restored desktop activation | Actual activation23:30:46Z;oneJustPeachy.desktopSHA5e98dbb0874025e9b328fc1e1490ac06fa9dd07c54b66cb9ac3b32488fbe6d76;independentrestore/oldduplicatearchive |
-| Original portrait frontend | Build17 check02 actual480x800 portrait/tabs/consent,processedSave/readback andExit passed |
-| Shared microphone Start fault | Six build16 AEC255 failures retained;seven host readiness checks;newPyannote/ReDimNet52,799samplecapture/Stop/exactclosure passed |
-| Normal300s and post-Stop choice | Actual build08 GUI4,800,000raw/processed samples,Save raw,full replay/discard/Exit |
-| Recording count | Capacity-based UUID store;31kept synthetic recordings/35sessions and subsequent admission;no fixed global slots |
-| Primary models | Short saved CurrentDelayed/ReDimNet and Pyannote/TitaNet source/EOF/logical/physical closure |
-| Optional refinement | Actual14 live300 primary/raw/child4,800,000samples/30,001frames/fullclosure under exact60/30 policy;zero optional corrections |
-| Late labels | Actual14 Research07 all4,470x8nativevalues/finalASR preserved;30supported late updates;no identity-quality claim |
-| History Export | Actual13 real Export/Exit;112members/142,926,668BZIP complete independent CRC/hash readback |
-| Complete backup | Backup03:26roots/1,932files/657,980,201B,complete readback/sourceidentity/closure |
-| Production GUI policy | Actual16 checked300/120/60/30/60,unchecked300/120/120/120/60;267disabledStartchecks/zeroinvocations |
-| Component hour | Complete isolated Chunk52:RTF0.88445 overall,about0.94 late,peak85.35C;not whole application |
-| Full application hour | Hour04 failed:57,359,280/57,600,000samples,watchdogclosure;noWorkerRESULT/logicalfinalization/hourpass |
-| Handoff | One declared source ZIP;adjacentHANDOFF_RECEIPT.json authoritative for completed build/hash/readback |
+| Original full application | Twelve Mode definitions, People/UUID participant/display rosters, compatible seats, Settings and rich History restored. |
+| Named backends | Native short Pyannote/ReDimNet and Pyannote/TitaNet; CurrentDelayed/ReDimNet and CurrentDelayed/TitaNet passed. |
+| Newer/anonymous | Build21 Chunk52/ReDimNet and Chunk52 anonymous passed real UI/source/Stop closure. |
+| Enrollment helper | Actual ReDimNet and TitaNet encoders/quality models prepared idle without mic/person, then helpers closed. Paragraph/consent/quality/Save/CRUD reused; human enrollment quality pending. |
+| Manual Stop | CurrentDelayed/TitaNet310.2s /4,963,200processed samples; complete raw, restored routes and exact source/worker/unit closure before Save. Finite qualification, not an hour/RTF pass. |
+| Rich retention | Save keeps full audio/captions/revisions/spatial/config/gallery provenance; anonymous Discard removed the entire temporary session. |
+| Verified PC offload | Export09 ZIP2,152,081B /30regular members; native whole-file hash and all member CRC/readbacks independently verified. Source unchanged. |
+| Normal desktop entry | Actual desktop Exec, chooser, ten stable480x800 states, no model/capture, normal Exit and exact GUI/watchdog/unit closure. Manual runtime/deadlineNone;300s is only idle timeout. |
+| Recording count | Persistent paged UUID store/capacity policy; original31-synthetic-recording check remains historical, not31 live recordings. |
+| Assets | Fresh same-boot selected asset inventory664,806,204B, actual hashes verified without models or native payload writes. |
+| Current backup | Backup08 COMPLETE:18roots/3,536files/856,448,332B; source before/after verified, complete independent PC readback, leases released, natural0/exact owner gone/cgroup empty. |
+| Handoff/publication | Source/docs archive and Git release closure are established by final adjacent receipts; old archives preserved. |
 
-The current source/API permission covers246 nonoptional configurations; this is not246 independent native passes. The portrait chooser exposes39 basic backend/embedding combinations and independent source choice. Its Advanced page is diagnostics. The previous parallel-refiner recipe is disabled in build17 because its measured admission binds older content; it is preserved for rollback and documented history, without reusing that admission for this repair.
+Normal live conversations use manual Stop rather than an arbitrary120/300s
+expiry. Storage-derived recording/export reserve, physical/virtual memory and
+disk floors, bounded rolling queues/caches and finite load/backlog/drain/cleanup
+remain. A safety fault Stops. More than five minutes does not prove an hour.
 
-Actual14 optional live300 sampled aggregate RSS760,020,992B/PSS700,768,256B,
-minimum available1,178,828,800B and zero owned swap on the2GB CM5. This does not
-remove768MiB per-process virtual-address guards or thermal/CPU/storage limits.
-No4GB/8GB speed benchmark or whole-application-hour qualification is claimed.
+Preserved failures: build19 motion-history overrun during model load was fixed
+by a bounded observer in build20; new checks06/07 passed. Earlier bad finalize
+FSIZE0, short stage caller allocation, experimental caller mismatch and obsolete
+export wrapper remain separate failed evidence. Backup06 failed its old Windows
+POSIX-path parser before transfer, naturally timed out and was fully mirrored;
+backup07 used V5 but exceeded its finite600s transfer lifetime. Both failure
+mirrors and partial copies remain. Fresh backup08 used an independently admitted
+1800s snapshot, the same floors/full reservations and verified content seeds;
+its COMPLETE/FULL_BACKUP receipts establish the current successful copy.
+The original six build16 AEC255 failures and fault-bound build17 readiness
+repair retain their exact original scopes.
 
-Read [MODE_GUIDE](MODE_GUIDE.md),[BACKEND_COMBINATIONS](BACKEND_COMBINATIONS.md),
-[UI repair findings](../extension_20260928/pi_native_20260928/live_runtime_20261003/ui_restore_20261004/UI_REPAIR_FINDINGS.md),
-[native results](../extension_20260928/pi_native_20260928/live_runtime_20261003/NATIVE_RESULTS.md),
-[RAM guide](../extension_20260928/pi_native_20260928/live_runtime_20261003/RAM_RESOURCE_GUIDE.md)
-and [publication guide](../extension_20260928/pi_native_20260928/live_runtime_20261003/README_FINAL_PUBLICATION.md).
-Representative speech/identity quality,touch,battery endurance and arbitrary
-power-loss recovery remain unverified. v29History does not import old rollback
-stores automatically;gallery namespaces and thresholds remain unchanged.
+Assigned seats currently require Pyannote/ReDimNet; saved spatial replay,
+DPDFNet route, adaptive promotion, Windows transcript review and RAM audio
+excerpts remain explicitly unavailable. Metadata problem markers work.
+Old parallel-refinement admission binds earlier content and stays disabled.
+
+Representative checks are programmatic real widgets and quiet function/resource
+observations. Human paragraph enrollment/identity/noisy quality, physical touch,
+offline coldboot, battery and whole-application-hour stability remain unverified.
+Hour04 remains FAILED at3,584.955/3,600source seconds. Component-hour RTF0.88445,
+late~0.94/85.35C and earlier RAM numbers retain their original release scope.
+No4/8GB benchmark, new WER/DER, or reliable BMI absolute translation is claimed.
+
+Read MODE_GUIDE, BACKEND_COMBINATIONS, full_application_20261004/
+APPLICATION_MODES_AND_MATH.md and RESTORATION_FINDINGS.md, FIELD_VALIDATION,
+INSTALL_HEALTH_AND_RECOVERY and PATHS_AND_BACKUPS.
+The proposed stationary dinner/noise matched-replay/timed-display workflow is
+documented; its batch automation is deliberately deferred.

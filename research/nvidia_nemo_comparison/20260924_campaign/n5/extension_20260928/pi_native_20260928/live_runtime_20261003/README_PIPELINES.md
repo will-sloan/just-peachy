@@ -1,5 +1,23 @@
 # Runtime pipeline components
 
+## Current application: restored build21
+
+Build21 is installed and activated behind the single desktop shortcut.
+The full original portrait Modes/People/Settings are bridged to the isolated
+backends in `full_application_20261004`. Application Mode and backend geometry
+are separate; read its APPLICATION_MODES_AND_MATH.md and RESTORATION_FINDINGS.md,
+plus the current completion MODE_GUIDE. Normal Live uses manual Stop with
+storage/resource protection. The old300-second policies below describe finite
+qualification/API workloads, not the current ordinary GUI session timer.
+The19 delivered runtime Python replacements match their qualified package.
+Representative tests include310.2s manual Stop,30member rich export and normal
+desktop launch/Exit. Human/noisy/touch/hour qualification remains open.
+Older parallel refinement remains content-bound and disabled; primary bounded
+late labels remain. Exact geometry/compute measurements in the17 pipeline pages
+keep their historical scopes and are not new build21 performance measurements.
+
+## Preserved backend preparation and earlier evidence
+
 These new files prepare selectable diarization settings, bounded provisional
 speaker corrections, measured telemetry and a native adapter factory for the
 runtime after v28. They do not modify v27, v28, retained assets or old source
