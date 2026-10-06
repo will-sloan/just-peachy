@@ -4,6 +4,7 @@ import fcntl
 import hashlib
 import importlib.util
 import json
+import math
 import os
 from pathlib import Path
 import re
@@ -100,18 +101,48 @@ def unit_checks(request):
     if hashlib.sha256(raw).hexdigest() != request['unit_ownership_sha256']:
         raise ValueError('Owned GUI unit receipt changed')
     receipt = strict(raw)
+    keys = {'unit', 'owner', 'main_pid', 'invocation_id', 'control_group',
+            'runtime_max_seconds', 'deadline_monotonic', 'idle_timeout_seconds'}
+    manual = receipt.get('lifetime_policy') == 'manual_stop_storage_guarded'
+    if manual:
+        if (set(receipt) != keys | {'lifetime_policy'}
+                or receipt.get('runtime_max_seconds') is not None
+                or receipt.get('deadline_monotonic') is not None
+                or type(receipt.get('idle_timeout_seconds')) is not int
+                or receipt['idle_timeout_seconds'] != 300):
+            raise ValueError('Exact manual-Stop storage-guarded GUI lifetime required')
+    else:
+        deadline, runtime = receipt.get('deadline_monotonic'), receipt.get('runtime_max_seconds')
+        finite_schema = (set(receipt) == keys or
+                         (set(receipt) == keys | {'lifetime_policy'}
+                          and receipt.get('lifetime_policy') == 'finite_qualification'))
+        if (not finite_schema or type(deadline) not in (int, float) or not math.isfinite(deadline)
+                or type(runtime) not in (int, float) or not math.isfinite(runtime) or runtime <= 0
+                or deadline-time.monotonic() < 60):
+            raise ValueError('Finite owned GUI lifetime cannot cover microphone recovery')
     if (receipt.get('unit') != request['unit'] or receipt.get('owner') != request['manager_owner'] or
-        receipt['main_pid'] != request['manager_owner']['pid'] or owner_closed(request['manager_owner']) or
-        receipt.get('deadline_monotonic', 0)-time.monotonic() < 60):
+        type(receipt.get('main_pid')) is not int or receipt['main_pid'] != request['manager_owner']['pid']
+        or owner_closed(request['manager_owner'])):
         raise ValueError('Current native GUI ownership or remaining lifetime is insufficient')
     shown = subprocess.run(['systemctl', '--user', 'show', request['unit'],
-        '--property=MainPID,InvocationID,ControlGroup,ActiveState,AllowedCPUs,CPUQuotaPerSecUSec,TasksMax'],
+        '--property=MainPID,InvocationID,ControlGroup,ActiveState,AllowedCPUs,CPUQuotaPerSecUSec,TasksMax,RuntimeMaxUSec'],
         capture_output=True, text=True, check=True, timeout=3)
     props = dict(line.split('=', 1) for line in shown.stdout.splitlines() if '=' in line)
     if (props.get('ActiveState') != 'active' or props.get('MainPID') != str(receipt['main_pid']) or
         props.get('InvocationID') != receipt['invocation_id'] or props.get('ControlGroup') != receipt['control_group'] or
         props.get('AllowedCPUs') not in ('2-3', '2,3') or props.get('CPUQuotaPerSecUSec') != '2s' or props.get('TasksMax') != '64'):
         raise ValueError('Actual native shared unit differs from its CPU/task ownership envelope')
+    if ((manual and props.get('RuntimeMaxUSec') != 'infinity') or
+            (not manual and props.get('RuntimeMaxUSec') in (None, '', 'infinity'))):
+        raise ValueError('Actual GUI service lifetime differs from the explicit owned lifetime policy')
+    if not manual:
+        value = props['RuntimeMaxUSec']
+        units = {'us': .000001, 'ms': .001, 's': 1, 'min': 60, 'h': 3600, 'd': 86400}
+        tokens = re.findall(r'([0-9]+(?:\.[0-9]+)?)(us|ms|min|s|h|d)', value)
+        if (not tokens or ''.join(number+unit for number, unit in tokens) != value.replace(' ', '')
+                or not math.isclose(sum(float(number)*units[unit] for number, unit in tokens), runtime,
+                                    rel_tol=1e-9, abs_tol=1e-6)):
+            raise ValueError('Actual finite GUI runtime limit differs from its ownership receipt')
     group = receipt['control_group']
     if (not group.startswith('/user.slice/') or '..' in group.split('/') or '\\' in group or
         not any(line.endswith(':'+group) for line in Path('/proc/self/cgroup').read_text().splitlines())):

@@ -1,6 +1,37 @@
 # Just Peachy — start here
 
-**field-runtime-v29-build-26 is installed and activated.** One desktop shortcut
+## Current release: activated build28 shared first-Start repair
+
+**field-runtime-v29-build-28 is installed and activated.** Manifest:
+`e3d55e232730cb3b06cc12289d94cf04539ee04b8021ebd45553e5fd5027917b`.
+The sole Just Peachy desktop shortcut opens the six-choice backend/source
+chooser, then the retained portrait application. Build26, prepared build27 and
+older rollback releases remain preserved.
+
+CHECK32 passed one Start click without a listening checkbox: a preserved fresh
+zero-sample AEC255 fault received one conditional readiness recovery, then
+193,600 samples/12.1 s, zero reported drops/errors, Stop/processed Save/Exit.
+CHECK33 passed the normal next Start for Nemotron CurrentDelayed + ReDimNet:
+196,799 samples/12.2999375 s, zero drops/errors and no helper needed. Both passed
+independent native finalization and private job-output readback. These quiet
+checks produced zero indexed captions; earlier six-row speech/quality scopes
+remain distinct. Native Save readback is not a new whole PC audio-export test.
+
+**Start itself authorizes live listening.** Opening stays idle/capture off and
+login autostart is disabled. Enrollment/gallery consent remains. Pending
+readiness keeps Stop available; Exit waits for helper reap/thread join. Another
+source fault after the single continuation is reported instead of a reset loop.
+Guarded activation verified native before/restore copies and preserved data;
+utility11833/start330361 exited0 and was exactly absent. Desktop SHA:
+`8c917153c58c57d73d8ce0d0e5662b42b3f7d698de0cee4189b844f8cfc70ac0`.
+Independent PC desktop-byte reconstruction passed; no whole native activation
+mirror is claimed. Updated handoff completion is established by its adjacent
+receipt, not this runtime activation.
+Read [first-Start repair findings](../extension_20260928/pi_native_20260928/live_runtime_20261003/stabilization_20261005/FIRST_START_REPAIR_FINDINGS.md).
+
+## Preserved build26 release and evidence
+
+**field-runtime-v29-build-26 was installed and historically activated; it is preserved.** One desktop shortcut
 opens six named backend choices and independent Live/Saved input; **Open Application** opens
 the original portrait application. Modes, People, Settings, rosters, compatible
 seats, encoder-specific enrollment and History are reconnected. It opens idle;
@@ -66,8 +97,7 @@ is not implemented now. BMI270 provides causal relative pose at the array
 center, not reliable absolute translation/drift-free heading. Saved WAV does not
 borrow current motion.
 
-Current build26 source/docs handoff verification is determined by the adjacent
-receipt establishes construction, hash and complete readback.
+The preserved build26 handoff has its own adjacent construction/hash/readback receipt. A build28 handoff requires a fresh receipt.
 
 Preserved build21 source/docs handoff:
 G:/Just_Peachy_N1/20260924_campaign/local/n5/research-extension-20260928/pi-native-20260928/live-runtime-20261003/audit-preparation/final-handoff-v29-build21-20261005/JustPeachy-v29-ChatGPT-handoff.zip
@@ -77,9 +107,15 @@ The ZIP is not an OS image and excludes models/personal data. Old receipts
 retain their scopes; historical34-method/incomplete240-cellN4 coverage is not
 completed by this restoration.
 
-Selected current handoff: `G:/Just_Peachy_N1/20260924_campaign/local/n5/research-extension-20260928/pi-native-20260928/live-runtime-20261003/audit-preparation/final-handoff-v29-build26-20261006/JustPeachy-v29-ChatGPT-handoff.zip`. Its adjacent
+Preserved build26 handoff: `G:/Just_Peachy_N1/20260924_campaign/local/n5/research-extension-20260928/pi-native-20260928/live-runtime-20261003/audit-preparation/final-handoff-v29-build26-20261006/JustPeachy-v29-ChatGPT-handoff.zip`. Its adjacent
 `HANDOFF_RECEIPT.json` is the authority for completed construction, full
 member readback and ZIP SHA. A path in this guide alone does not assert those
 checks passed. No ZIP self-hash is embedded in archived documentation; older
 archives remain immutable. Deployable/model assets and private recordings
 remain separate.
+Selected build28 source/docs handoff target:
+`G:/Just_Peachy_N1/20260924_campaign/local/n5/research-extension-20260928/pi-native-20260928/live-runtime-20261003/audit-preparation/final-handoff-v29-build28-20261006/JustPeachy-v29-ChatGPT-handoff.zip`.
+Its adjacent `HANDOFF_RECEIPT.json` establishes construction, complete member
+readback and ZIP hash. This target path does not itself assert completion.
+The source/docs archive excludes models and personal recordings; deployable
+runtime assets and private media remain separate. Older handoffs are immutable.

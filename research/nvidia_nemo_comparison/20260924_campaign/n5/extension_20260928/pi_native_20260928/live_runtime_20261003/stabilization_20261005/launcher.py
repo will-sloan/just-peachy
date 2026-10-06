@@ -59,13 +59,25 @@ class Manager:
         self.latest_spatial = None
         self.export_task = None
         self.last_export = None
+        self._readiness_thread = None
+        self._readiness_done = threading.Event()
+        self._readiness_cancel = threading.Event()
+        self._readiness_result = self._readiness_error = None
+        self._readiness_origin = self._start_context = None
+        self._continuation_used = self._resuming_start = False
+        self.readiness_notice = ''
+
+    @property
+    def readiness_pending(self):
+        """The helper remains owned until poll joins it; Stop stays available."""
+        return self._readiness_thread is not None
 
     def start(self, selection, policy, saved_path=None, *, saved_session_id=None, saved_store_root=None,
               repeat_input_seconds=None, application=None):
         self.poll()
         if self.export_task is not None:
             raise RuntimeError('Wait for the selected recording export to close before Start')
-        if self.closed or self.process is not None:
+        if self.closed or self.process is not None or self.readiness_pending:
             raise RuntimeError('Close the previous owned worker before another Start')
         selection.validate(); policy.validate()
         from application_contract import validate, default
@@ -97,9 +109,22 @@ class Manager:
             (self.service_room_check or require_service_room)(self.unit_ownership, policy)
         from optional_refiner_dispatch import request_receipt
         optional_admission=request_receipt(self.binding,selection,policy)
-        if selection.input_source == 'live':
-            from xvf_readiness import recover_previous_source
-            recover_previous_source(self)
+        if not self._resuming_start:
+            self.stop_requested = None
+            self.watchdog_requested = False
+            self.reader_error = None
+            self.latest_health = self.latest_diagnostic = self.latest_spatial = None
+            self._readiness_cancel.clear()
+            self._continuation_used = False
+            self._start_context = strict(encoded(dict(selection=selection.validate(), policy=policy.validate(),
+                saved_path=str(saved_path) if saved_path else None, saved_session_id=saved_session_id,
+                saved_store_root=str(saved_store_root) if saved_store_root else None,
+                repeat_input_seconds=repeat_input_seconds, application=application)))
+            if selection.input_source == 'live':
+                previous = self._previous_readiness_fault()
+                if previous is not None:
+                    self._begin_readiness(previous)
+                    return
         self.run_dir = self.launches/uuid.uuid4().hex
         self.run_dir.mkdir()
         self.owner_dir = self.run_dir/'worker'
@@ -178,6 +203,142 @@ class Manager:
                 pass
         publish(self.run_dir/'CHILD_LAUNCH.json', dict(pid=self.process.pid, manager=current_owner(),
             child_owner=child_owner, request_sha256=digest(request_path)))
+
+    def _readiness_fault(self, closure):
+        """Only an exact naturally closed, empty physical AEC255 source qualifies."""
+        from xvf_readiness import qualifying_fault
+        if type(closure) is not dict or closure.get('direct_child_reaped') is not True:
+            return False
+        nested = closure.get('nested_source')
+        if (type(nested) is not dict or nested.get('closed') is not True
+                or closure.get('stdout_reader_joined') is not True or closure.get('receipt_errors')
+                or closure.get('output_error') or type(closure.get('returncode')) is not int
+                or closure['returncode'] < 0):
+            return False
+        physical = nested.get('physical_receipt')
+        if type(physical) is not dict or not qualifying_fault(physical):
+            return False
+        owners = (closure.get('registered_owner'), physical.get('owner'))
+        for owner in owners:
+            if (type(owner) is not dict or set(owner) != {'pid', 'start_ticks', 'boot_id'}
+                    or type(owner['pid']) is not int or owner['pid'] <= 0
+                    or type(owner['start_ticks']) is not int or owner['start_ticks'] <= 0
+                    or type(owner['boot_id']) is not str):
+                return False
+            try:
+                if str(uuid.UUID(owner['boot_id'])) != owner['boot_id']:
+                    return False
+            except ValueError:
+                return False
+        result = closure.get('result')
+        facts = result.get('source_facts') if type(result) is dict else None
+        if (type(facts) is not dict or facts.get('input_source') != 'live'
+                or facts.get('owner') != owners[1] or facts.get('source_thread_joined') is not True
+                or type(facts.get('child_returncode')) is not int or facts['child_returncode'] < 0
+                or type(facts.get('processed_samples')) is not int or facts['processed_samples'] != 0):
+            return False
+        if os.name == 'posix' and any(type(owner) is not dict or
+                owner.get('boot_id') != current_owner()['boot_id'] for owner in owners):
+            return False
+        return all(type(state) is dict and state.get('closed') is True
+                   for state in (self.owner_probe(owner) for owner in owners))
+
+    def _previous_readiness_fault(self):
+        pointer = self.data_root/'CURRENT_LAUNCH.json'
+        if not pointer.exists():
+            return None
+        identifier = strict(pointer.read_bytes()).get('launch_id')
+        if type(identifier) is not str or len(identifier) != 32 or any(c not in '0123456789abcdef' for c in identifier):
+            raise RuntimeError('Previous microphone launch identifier is invalid')
+        path = self.launches/identifier/'HOST_CLOSURE.json'
+        if not path.exists():
+            return None
+        if path.is_symlink() or path.stat().st_size > 262144:
+            raise RuntimeError('Previous microphone closure must be a bounded real receipt')
+        closure = strict(path.read_bytes())
+        if not self._readiness_fault(closure):
+            return None
+        from xvf_readiness import preserved_unsent_manual_failure
+        if preserved_unsent_manual_failure(self, closure):
+            # Preserve the old failed/no-send recovery. A fresh ordinary source
+            # produces new ownership/fault evidence before any fixed helper.
+            return None
+        return closure
+
+    def _begin_readiness(self, closure):
+        """Use at most one helper/continuation for the unchanged user Start."""
+        if (self._continuation_used or self.readiness_pending or self._readiness_cancel.is_set()
+                or self.closed or self.process is not None or not self._readiness_fault(closure)):
+            raise RuntimeError('Microphone recovery continuation is not admitted')
+        pointer = strict((self.data_root/'CURRENT_LAUNCH.json').read_bytes())
+        origin = self.launches/pointer['launch_id']
+        if strict((origin/'HOST_CLOSURE.json').read_bytes()) != closure:
+            raise RuntimeError('Microphone continuation must bind the current closed failure')
+        self._continuation_used = True
+        self._readiness_origin = (origin, closure)
+        self._readiness_result = self._readiness_error = None
+        self._readiness_done.clear()
+        self.stop_requested = None
+        self.readiness_notice = 'Preparing microphone after its closed startup fault; Stop cancels this Start.'
+        publish(origin/('SOURCE_RESTART_INTENT_'+uuid.uuid4().hex+'.json'),
+                dict(schema='just-peachy.same-start-readiness.v1', maximum_continuations=1,
+                     original_request_sha256=digest(origin/'REQUEST.json'),
+                     original_source_sha256=digest(self.store._artifact_path(
+                         strict((origin/'worker/SESSION.json').read_bytes())['session_id'],
+                         'work/source/SOURCE_CLOSE.json')),
+                     requested_selection=self._start_context['selection'], closure_claimed=False))
+        def recover():
+            try:
+                if self._readiness_cancel.is_set():
+                    return
+                from xvf_readiness import recover_previous_source
+                self._readiness_result = recover_previous_source(self)
+                if self._readiness_result is None:
+                    raise RuntimeError('Exact closed microphone fault no longer qualifies; Start was not repeated')
+            except BaseException as exc:
+                self._readiness_error = type(exc).__name__+': '+str(exc)
+            finally:
+                self._readiness_done.set()
+        self._readiness_thread = threading.Thread(target=recover, name='xvf-start-readiness', daemon=True)
+        try:
+            self._readiness_thread.start()
+        except BaseException:
+            self._readiness_thread = None
+            self._readiness_done.set()
+            raise
+
+    def _poll_readiness(self):
+        if not self._readiness_done.is_set():
+            return None
+        self._readiness_thread.join()
+        self._readiness_thread = None
+        origin, closure = self._readiness_origin
+        cancelled = self._readiness_cancel.is_set() or self.closed
+        decision = dict(schema='just-peachy.same-start-readiness.v1',
+                        cancelled=cancelled, result=self._readiness_result,
+                        error=self._readiness_error, helper_thread_joined=True,
+                        fresh_worker_requested=not cancelled and self._readiness_error is None)
+        publish(origin/('SOURCE_RESTART_RESULT_'+uuid.uuid4().hex+'.json'), decision)
+        if cancelled or self._readiness_error is not None:
+            self.readiness_notice = ('Microphone Start cancelled; recovery evidence retained.' if cancelled else
+                                    'Microphone recovery stopped safely: '+self._readiness_error)
+            self.last = dict(closure, readiness_continuation=decision)
+            return self.last
+        context = self._start_context
+        self.readiness_notice = 'Microphone ready; loading the selected backend.'
+        self._resuming_start = True
+        try:
+            self.start(RuntimeSelection(**context['selection']), SessionPolicy(**context['policy']),
+                       context['saved_path'], saved_session_id=context['saved_session_id'],
+                       saved_store_root=context['saved_store_root'],
+                       repeat_input_seconds=context['repeat_input_seconds'], application=context['application'])
+        except BaseException as exc:
+            self.readiness_notice = 'Recovered microphone Start refused: '+str(exc)
+            self.last = dict(closure, readiness_continuation=dict(decision, restart_error=repr(exc)))
+            return self.last
+        finally:
+            self._resuming_start = False
+        return None
 
     def _nested_source(self, owner_dir):
         result_path = owner_dir/'RESULT.json'
@@ -373,6 +534,10 @@ class Manager:
         publish(previous/'RECOVERED_CLOSURE.json', dict(worker=state, source=source), replace=True)
 
     def stop(self):
+        self._readiness_cancel.set()
+        if self.readiness_pending:
+            self.stop_requested = self.stop_requested or time.monotonic()
+            self.readiness_notice = 'Cancelling microphone Start; waiting for the owned recovery helper to close.'
         if self.process is None:
             return
         self.stop_requested = self.stop_requested or time.monotonic()
@@ -391,6 +556,8 @@ class Manager:
         else:marker.unlink(missing_ok=True)
 
     def poll(self):
+        if self.readiness_pending:
+            return self._poll_readiness()
         if self.process is None:
             return self.last
         if self.spatial_visible and self.owner_dir.is_dir() and not (self.owner_dir/'GUI_SPATIAL_ON').exists():
@@ -443,6 +610,12 @@ class Manager:
         publish(self.run_dir/'HOST_CLOSURE.json', closure)
         self.last = closure
         self.process = None
+        if (self._start_context is not None and self._start_context['selection']['input_source'] == 'live'
+                and not self._continuation_used and not self._readiness_cancel.is_set()
+                and self.stop_requested is None and not self.watchdog_requested and not self.closed
+                and self._readiness_fault(closure)):
+            self._begin_readiness(closure)
+            return None
         return closure
 
     def active_session_id(self):
@@ -452,7 +625,7 @@ class Manager:
         return strict(path.read_bytes())['session_id'] if path.exists() else None
 
     def export_recordings(self, session_ids, destination):
-        if self.process is not None or self.export_task is not None or self.closed:
+        if self.process is not None or self.export_task is not None or self.closed or self.readiness_pending:
             raise RuntimeError('Stop the active session and close any prior export first')
         from owned_export import ExportTask
         deadline = None
@@ -472,6 +645,7 @@ class Manager:
         return None
 
     def close(self):
+        self._readiness_cancel.set()
         self.poll()
         self.poll_export()
         if self.export_task is not None:
@@ -480,6 +654,9 @@ class Manager:
         if self.process is not None:
             self.stop()
             raise RuntimeError('Stopping and draining. Exit remains pending until the worker closes.')
+        if self.readiness_pending:
+            self.readiness_notice = 'Closing microphone recovery before Exit.'
+            raise RuntimeError('Microphone recovery is closing. Exit remains pending until the helper is reaped.')
         self.store.close(); self.lease.close(); self.closed = True
 
 

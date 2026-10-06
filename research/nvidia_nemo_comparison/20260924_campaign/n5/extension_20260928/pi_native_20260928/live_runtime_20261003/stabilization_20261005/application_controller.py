@@ -71,6 +71,7 @@ def controller_type(Base):
                 raise ValueError('Explicit paragraph evidence flag required')
 
         def _ensure_idle(self):
+            self._require_readiness_idle()
             if self.manager.process is not None:
                 raise ValueError('Stop and drain the current session before changing its processing Mode or gallery')
             if self.enrollment.get('state') not in ('IDLE', 'SAVED', 'ERROR', 'CANCELLED'):
@@ -110,6 +111,7 @@ def controller_type(Base):
             self.manager.show_spatial(bool(self.settings.get('spatial_visualization')))
 
         def switch(self, *, mode=None, recipe=None, tap=None, selected_ids=None, strict=None, **values):
+            self._require_readiness_idle()
             if values:
                 raise ValueError('Unknown application selection')
             proposal = deepcopy(self.intent)
@@ -134,6 +136,7 @@ def controller_type(Base):
             self.notice = 'Mode selected. Press Start when ready.'
 
         def display_roster(self, ids):
+            self._require_readiness_idle()
             proposal = deepcopy(self.intent)
             proposal['display_ids'] = list(ids)
             if not ids:
@@ -190,6 +193,7 @@ def controller_type(Base):
             self._persist_intent()
 
         def settings_update(self, values):
+            self._require_readiness_idle()
             self._validate_settings(values)
             if 'preview_zoom' in values and values['preview_zoom'] not in self.config['preview_zooms']:
                 raise ValueError('Unknown retained preview zoom')
@@ -260,6 +264,7 @@ def controller_type(Base):
             return value
 
         def text_assistance_action(self, action, **values):
+            self._require_readiness_idle()
             self.text_assistance.change(action, values, self.people_cache)
             self.notice = 'Text preference saved. Raw speech and speaker matching are unchanged.'
 
@@ -293,6 +298,7 @@ def controller_type(Base):
         def script_review(self, identifier): self._gallery('script_review', identifier)
 
         def _gallery(self, command, *args, **kwargs):
+            self._require_readiness_idle()
             if self.selection.embedding == 'anonymous':
                 raise ValueError('Anonymous processing has no personal gallery; choose ReDimNet or TitaNet to enroll or manage people')
             if self.manager.process is not None or self.manager.export_task is not None:

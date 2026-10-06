@@ -1,6 +1,37 @@
-# Current build26 stabilization
+# Stabilization tools and shared first-Start repair
 
-The deployed release is build26, manifest `f4c9cc2fd841e3b240b8c16799858ec87839e265cc9f6f6dfbd0db6c772c55a0`. The single desktop shortcut opens the backend/source chooser and the retained portrait application. Login autostart is disabled. All six choices have scoped native Live/Stop/Save/Exit and independent closure evidence; noisy-room quality and sustained real-time remain unqualified. See STABILIZATION_RESULTS.md and STABILIZATION_MODE_GUIDE.md; the earlier commands below describe historical, single-use operations.
+## Current release: activated build28 shared first-Start repair
+
+**field-runtime-v29-build-28 is installed and activated.** Manifest:
+`e3d55e232730cb3b06cc12289d94cf04539ee04b8021ebd45553e5fd5027917b`.
+The sole Just Peachy desktop shortcut opens the six-choice backend/source
+chooser, then the retained portrait application. Build26, prepared build27 and
+older rollback releases remain preserved.
+
+CHECK32 passed one Start click without a listening checkbox: a preserved fresh
+zero-sample AEC255 fault received one conditional readiness recovery, then
+193,600 samples/12.1 s, zero reported drops/errors, Stop/processed Save/Exit.
+CHECK33 passed the normal next Start for Nemotron CurrentDelayed + ReDimNet:
+196,799 samples/12.2999375 s, zero drops/errors and no helper needed. Both passed
+independent native finalization and private job-output readback. These quiet
+checks produced zero indexed captions; earlier six-row speech/quality scopes
+remain distinct. Native Save readback is not a new whole PC audio-export test.
+
+**Start itself authorizes live listening.** Opening stays idle/capture off and
+login autostart is disabled. Enrollment/gallery consent remains. Pending
+readiness keeps Stop available; Exit waits for helper reap/thread join. Another
+source fault after the single continuation is reported instead of a reset loop.
+Guarded activation verified native before/restore copies and preserved data;
+utility11833/start330361 exited0 and was exactly absent. Desktop SHA:
+`8c917153c58c57d73d8ce0d0e5662b42b3f7d698de0cee4189b844f8cfc70ac0`.
+Independent PC desktop-byte reconstruction passed; no whole native activation
+mirror is claimed. Updated handoff completion is established by its adjacent
+receipt, not this runtime activation.
+Read [first-Start repair findings](FIRST_START_REPAIR_FINDINGS.md).
+
+## Preserved build26 release and evidence
+
+The preserved previously deployed release is build26, manifest `f4c9cc2fd841e3b240b8c16799858ec87839e265cc9f6f6dfbd0db6c772c55a0`. The single desktop shortcut opens the backend/source chooser and the retained portrait application. Login autostart is disabled. All six choices have scoped native Live/Stop/Save/Exit and independent closure evidence; noisy-room quality and sustained real-time remain unqualified. See STABILIZATION_RESULTS.md and STABILIZATION_MODE_GUIDE.md; the earlier commands below describe historical, single-use operations.
 
 Fresh guarded host operations use host_stabilization_operations_v5.py and README_HOST_STABILIZATION_OPERATIONS_V5.md. Build26 live preparation uses README_LIVE_CHECK_PAYLOAD_V3.md and README_EXTRACT_STABILIZATION_JOB_V6.md; Saved preparation/execution uses README_PREPARE_SAVED_STABILIZATION_V5.md and README_NATIVE_SAVED_STABILIZATION_CHECK_V4.md. Finite independent allocations remain enforced. These are developer tools; ordinary field use starts from the desktop shortcut. Preserve build25/build21 and v27 rollback, existing recordings and separate galleries.
 

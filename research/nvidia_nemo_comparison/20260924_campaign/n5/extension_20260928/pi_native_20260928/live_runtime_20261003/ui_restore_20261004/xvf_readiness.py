@@ -33,6 +33,111 @@ def qualifying_fault(value):
         'Resource could not respond' in commands[2].get('stderr', ''))
 
 
+def qualifying_unsent_manual_failure(records, binding, owner_probe):
+    """Pure acknowledgment of the exact completed old unsent manual-lifetime bug."""
+    expected = {
+        'CHILD_LAUNCH.json': (188, '705b3b2aa93e892f9884039b23d7fca28e692f300f29440335e7461bcdd156ac'),
+        'HELPER.stderr': (0, 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855'),
+        'HELPER.stdout': (0, 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855'),
+        'HOST_CLOSURE.json': (181, 'cae806bc3cfd9ce0bbd4d509357dbb23dd37d848961dff25ecc825c3876b39e0'),
+        'RECOVERY.json': (487, '265c1b463f7309d955b6f3e2013e4a71b41f373770cdf4877abd9e14468a0fed'),
+        'REGISTERED_OWNER.json': (81, 'b4d31f526946a805bb4817c28fb348be8e1121bbee997d4e94f3327dbdcc4b61'),
+        'REQUEST.json': (1375, 'e2bd6f9ba222d605a6608c1fc301a95a7ad8f49cd3709ffc27c5e29df8292576')}
+    if (type(records) is not dict or set(records) != set(expected) or type(binding) is not dict
+            or set(binding) != {'fault_sha256','fault_path','closed_path','closed_sha256','boot_id',
+                                'module_sha256','helper_sha256'}):
+        return False
+    for name, (size, pin) in expected.items():
+        raw = records[name]
+        if type(raw) is not bytes or len(raw) != size or hashlib.sha256(raw).hexdigest() != pin:
+            return False
+    def strict(raw):
+        def pairs(items):
+            value={}
+            for key,item in items:
+                if key in value:raise ValueError('Duplicate preserved recovery field')
+                value[key]=item
+            return value
+        return json.loads(raw,object_pairs_hook=pairs,
+            parse_constant=lambda item:(_ for _ in ()).throw(ValueError(item)))
+    request=strict(records['REQUEST.json']);child=strict(records['CHILD_LAUNCH.json'])
+    host=strict(records['HOST_CLOSURE.json']);result=strict(records['RECOVERY.json'])
+    helper=strict(records['REGISTERED_OWNER.json'])
+    if any(request.get(key) != binding[key] for key in
+           ('fault_sha256','fault_path','closed_path','closed_sha256','module_sha256','helper_sha256')):
+        return False
+    if (binding['module_sha256'] != '593587891bbdba33619f60e1aafef7888c5b247122e59505cd44917fe12326bd'
+            or binding['helper_sha256'] != '8947bf981ce46aebd4b9623a5f621a1d55e4f1f024df91cfd1ddc34c29ebe659'
+            or binding['fault_sha256'] != '01beda380170956338c66b1489689e7c725cb0f74a6014b6793a96eb389f133a'
+            or type(host.get('natural_returncode')) is not int or host['natural_returncode'] != 1
+            or host.get('timeout') is not False or host.get('direct_child_reaped') is not True
+            or host.get('exact_owner_gone') is not True or host.get('owner') != helper
+            or child.get('owner') != helper or child.get('manager_owner') != request.get('manager_owner')
+            or result.get('owner') != helper or result.get('fault_sha256') != binding['fault_sha256']
+            or result.get('status') != 'FAILED_PRESERVED' or result.get('commands') != []
+            or result.get('error') != {'type':'TypeError', 'message':"unsupported operand type(s) for -: 'NoneType' and 'float'"}
+            or any(result.get(key) is not False for key in ('audio_qualified','capture_opened','models_loaded','readiness_verified'))
+            or result.get('leases_released') is not True
+            or any(type(result.get(key)) is not int or result[key] != 0 for key in ('maintenance_sends','maintenance_sends_attempted'))):
+        return False
+    for owner in (helper, request['manager_owner'], request['worker_owner'], request['source_owner']):
+        if (type(owner) is not dict or set(owner) != {'pid','start_ticks','boot_id'}
+                or type(owner['pid']) is not int or owner['pid'] <= 0
+                or type(owner['start_ticks']) is not int or owner['start_ticks'] <= 0
+                or owner['boot_id'] != binding['boot_id']):
+            return False
+        observed=owner_probe(owner)
+        if type(observed) is not dict or observed.get('closed') is not True:return False
+    return True
+
+
+def preserved_unsent_manual_failure(manager, closure):
+    """Read unchanged seven-member evidence; never reopen or retry its old helper."""
+    from runtime_support import strict, current_owner
+    import stat
+    if os.name != 'posix':return False
+    pointer=strict((manager.data_root/'CURRENT_LAUNCH.json').read_bytes())
+    identifier=pointer.get('launch_id')
+    if type(identifier) is not str or re.fullmatch('[0-9a-f]{32}',identifier) is None:return False
+    origin=manager.launches/identifier
+    session=strict((origin/'worker/SESSION.json').read_bytes())['session_id']
+    fault=manager.store._artifact_path(session,'work/source/SOURCE_CLOSE.json')
+    closed=origin/'HOST_CLOSURE.json'
+    def read(path,maximum):
+        before=path.lstat()
+        if path.is_symlink() or not stat.S_ISREG(before.st_mode) or before.st_nlink != 1 or before.st_size > maximum:
+            raise ValueError('Stable bounded real unsent recovery input required')
+        raw=path.read_bytes();after=path.lstat()
+        if (before.st_dev,before.st_ino,before.st_size,before.st_mtime_ns)!=(after.st_dev,after.st_ino,after.st_size,after.st_mtime_ns):
+            raise ValueError('Unsent recovery input changed')
+        return raw
+    fault_raw=read(fault,65536);closed_raw=read(closed,262144)
+    if strict(closed_raw)!=closure or strict(fault_raw)!=closure.get('nested_source',{}).get('physical_receipt'):
+        return False
+    fault_sha=hashlib.sha256(fault_raw).hexdigest()
+    if fault_sha!='01beda380170956338c66b1489689e7c725cb0f74a6014b6793a96eb389f133a':return False
+    out=manager.data_root/'recovery'/fault_sha
+    if not out.exists():return False
+    before=out.lstat()
+    if out.is_symlink() or not stat.S_ISDIR(before.st_mode) or out.resolve(strict=True)!=out:return False
+    names=sorted(path.name for path in out.iterdir())
+    if names!=['CHILD_LAUNCH.json','HELPER.stderr','HELPER.stdout','HOST_CLOSURE.json',
+               'RECOVERY.json','REGISTERED_OWNER.json','REQUEST.json']:return False
+    records={name:read(out/name,16384) for name in names}
+    after=out.lstat()
+    if names!=sorted(path.name for path in out.iterdir()) or (before.st_dev,before.st_ino,before.st_mtime_ns)!=(after.st_dev,after.st_ino,after.st_mtime_ns):
+        return False
+    # Verify the actual retained old source files, not only self-declared pins.
+    old=Path('/home/peachyprototype/JustPeachy/research/nemotron-20260928/field-runtime-v29-build-26')
+    if hashlib.sha256(read(old/'PACKAGE_MANIFEST.json',262144)).hexdigest()!='f4c9cc2fd841e3b240b8c16799858ec87839e265cc9f6f6dfbd0db6c772c55a0':
+        return False
+    binding=dict(fault_sha256=fault_sha,fault_path=str(fault),closed_path=str(closed),
+        closed_sha256=hashlib.sha256(closed_raw).hexdigest(),boot_id=current_owner()['boot_id'],
+        module_sha256=hashlib.sha256(read(old/'xvf_readiness.py',65536)).hexdigest(),
+        helper_sha256=hashlib.sha256(read(old/'xvf_readiness_helper.py',65536)).hexdigest())
+    return qualifying_unsent_manual_failure(records,binding,manager.owner_probe)
+
+
 def recovery_sequence(command, save, sleep, fault_sha):
     """Pure retained sequence; one literal TEST_CORE_BURN 0, never a retry."""
     def firmware():

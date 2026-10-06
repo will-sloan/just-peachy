@@ -1,4 +1,4 @@
-"""Selective reuse of the original portrait UI. See README_STARTUP_REPAIR.md."""
+"""Selective reuse of the original portrait UI. See README_STARTUP_REPAIR.md and README_MANUAL_START.md."""
 from pathlib import Path
 import time
 import types
@@ -37,10 +37,14 @@ def frontend_type(prototype, Portrait):
             return prototype._choose_mode(self, mode)
 
         def show_settings(self):
+            # A previous page may have left destroyed widgets in this map.
+            for key in ('microphone_permission', 'auto_listening'):
+                self.actions.pop(key, None)
             prototype.show_settings(self)
-            button = self.actions.get('auto_listening')
-            if button is not None:
-                button.configure(text='Listen when app opens: Off · manual Start', state='disabled')
+            for key in ('microphone_permission', 'auto_listening'):
+                button = self.actions.pop(key, None)
+                if button is not None:
+                    button.master.destroy()
 
         def show_people(self):
             prototype.show_people(self)
@@ -60,14 +64,25 @@ def frontend_type(prototype, Portrait):
                 self.button(frame, 'Exit to desktop', self.close,
                     key='exit_desktop').pack(fill='x', padx=self.px(12), pady=self.px(4))
                 self._paragraph_label(frame,
+                    'The app opens with the microphone off. Press Start to listen and Stop to release capture. '
                     'Live conversations continue until Stop. Storage, backlog and hardware faults can stop safely. '
                     'After processing drains, choose Save session or Discard.', True)
             return frame
 
         def poll(self):
             super().poll()
+            readiness = bool(getattr(self.controller.manager, 'readiness_pending', False))
+            if readiness and not self._closing:
+                for key in ('mode', 'people', 'settings', 'backend'):
+                    self.actions[key].configure(state='disabled')
+                self.actions['start_stop'].configure(state='normal')
+                self._readiness_controls_disabled = True
+            elif getattr(self, '_readiness_controls_disabled', False) and not self._closing:
+                for key in ('mode', 'people', 'settings', 'backend'):
+                    self.actions[key].configure(state='normal')
+                self._readiness_controls_disabled = False
             identifier = self.snapshot.get('pending_save')
-            if identifier and identifier != getattr(self, '_save_prompt_id', None) and not self._closing:
+            if identifier and identifier != getattr(self, '_save_prompt_id', None) and not self._closing and not readiness:
                 self._save_prompt_id = identifier
                 self.show_save_prompt(identifier)
 

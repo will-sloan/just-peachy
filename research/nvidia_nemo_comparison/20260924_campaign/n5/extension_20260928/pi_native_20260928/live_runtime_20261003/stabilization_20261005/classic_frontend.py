@@ -1,6 +1,6 @@
 """Restore the retained portrait frontend over the current runtime manager.
 
-See README_STARTUP_REPAIR.md. This module owns presentation only; speech,
+See README_STARTUP_REPAIR.md and README_MANUAL_START.md. This module owns presentation only; speech,
 capture, storage, admission and closure remain in the current worker/manager.
 """
 from __future__ import annotations
@@ -162,6 +162,7 @@ class ClassicController:
                 raise ValueError('Exact boolean portrait setting required')
 
     def settings_update(self, values):
+        self._require_readiness_idle()
         self._validate_settings(values)
         merged = {key: value for key, value in self.settings.items() if key != 'direction'}
         merged.update(values)
@@ -169,6 +170,10 @@ class ClassicController:
         publish(self.settings_path, merged, replace=True)
         self.settings.update(values)
         self.manager.show_spatial(bool(self.settings['spatial_visualization']))
+
+    def _require_readiness_idle(self):
+        if getattr(self.manager, 'readiness_pending', False):
+            raise ValueError('Microphone readiness is pending. Use Stop to cancel, or wait for it to close.')
 
     def _policy(self):
         from launcher import gui_session_policy
@@ -223,6 +228,7 @@ class ClassicController:
         return self.history_page
 
     def session_action(self, action, **values):
+        self._require_readiness_idle()
         identifier = values.get('identifier') or self.current_id
         if action in ('open', 'replay', 'save', 'discard', 'delete', 'export') and not identifier:
             raise ValueError('Choose a recording first')
@@ -278,7 +284,11 @@ class ClassicController:
             self.notice = 'Export completed.' if export.get('success') else 'Export closed; see diagnostics.'
         health = self.manager.latest_health or {}
         measured = health.get('value') or {}
-        if self.manager.process is not None:
+        if getattr(self.manager, 'readiness_pending', False):
+            state = 'STOPPING' if self.manager.stop_requested is not None else 'STARTING'
+            self.notice = self.manager.readiness_notice
+            self.error = None
+        elif self.manager.process is not None:
             state = 'STOPPING' if self.manager.stop_requested is not None else 'RUNNING' if measured.get('source_samples', 0) else 'STARTING'
             if state == 'RUNNING':
                 self.notice = 'Listening locally' if self.selection.input_source == 'live' else 'Replaying saved audio'
@@ -315,7 +325,8 @@ class ClassicController:
         else:
             state = 'IDLE'
         self.last_closure = closure
-        if self.closing and self.manager.process is None and self.manager.export_task is None:
+        if (self.closing and self.manager.process is None and self.manager.export_task is None
+                and not getattr(self.manager, 'readiness_pending', False)):
             self.closed = True
             state = 'CLOSED'
         self._read_captions()
@@ -333,7 +344,8 @@ class ClassicController:
             backends=[backend], strict=False, settings=dict(self.settings), people=[], selected_ids=[], display_ids=[],
             sessions=dict(current_id=self.current_id, opened_id=self.opened_id),
             motion=dict(view.get('motion') or {}, enabled=self.selection.input_source == 'live'),
-            spatial_view=view, beam_diagnostics=view, metrics=dict(measured), pending_actions=0,
+            spatial_view=view, beam_diagnostics=view, metrics=dict(measured),
+            pending_actions=int(bool(getattr(self.manager, 'readiness_pending', False))),
             enrollment=dict(state='IDLE'), closed=self.closed)
 
     def failure_detail(self):
@@ -380,6 +392,10 @@ def frontend_type(prototype):
                 return super().toggle_listening()
             if self.controller.selection.input_source == 'saved':
                 return self.browse_file('replay', Path.home()/'JustPeachy/data')
+            # The operator's Start click authorizes this live acquisition. Keep
+            # the retained availability/Stop path and its consent=True call,
+            # without another listening-confirmation page or settings write.
+            self._mic_consented = True
             return super().toggle_listening()
 
         def show_backends(self):

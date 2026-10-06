@@ -1,12 +1,43 @@
 # Installation, health and recovery
 
-See CURRENT_RUNTIME_PROGRESS for actual build26 activation and the bounded
+## Current release: activated build28 shared first-Start repair
+
+**field-runtime-v29-build-28 is installed and activated.** Manifest:
+`e3d55e232730cb3b06cc12289d94cf04539ee04b8021ebd45553e5fd5027917b`.
+The sole Just Peachy desktop shortcut opens the six-choice backend/source
+chooser, then the retained portrait application. Build26, prepared build27 and
+older rollback releases remain preserved.
+
+CHECK32 passed one Start click without a listening checkbox: a preserved fresh
+zero-sample AEC255 fault received one conditional readiness recovery, then
+193,600 samples/12.1 s, zero reported drops/errors, Stop/processed Save/Exit.
+CHECK33 passed the normal next Start for Nemotron CurrentDelayed + ReDimNet:
+196,799 samples/12.2999375 s, zero drops/errors and no helper needed. Both passed
+independent native finalization and private job-output readback. These quiet
+checks produced zero indexed captions; earlier six-row speech/quality scopes
+remain distinct. Native Save readback is not a new whole PC audio-export test.
+
+**Start itself authorizes live listening.** Opening stays idle/capture off and
+login autostart is disabled. Enrollment/gallery consent remains. Pending
+readiness keeps Stop available; Exit waits for helper reap/thread join. Another
+source fault after the single continuation is reported instead of a reset loop.
+Guarded activation verified native before/restore copies and preserved data;
+utility11833/start330361 exited0 and was exactly absent. Desktop SHA:
+`8c917153c58c57d73d8ce0d0e5662b42b3f7d698de0cee4189b844f8cfc70ac0`.
+Independent PC desktop-byte reconstruction passed; no whole native activation
+mirror is claimed. Updated handoff completion is established by its adjacent
+receipt, not this runtime activation.
+Read [first-Start repair findings](../extension_20260928/pi_native_20260928/live_runtime_20261003/stabilization_20261005/FIRST_START_REPAIR_FINDINGS.md).
+
+## Preserved build26 release and evidence
+
+See CURRENT_RUNTIME_PROGRESS for historical build26 activation and the bounded
 CHECK21 Pyannote/ReDimNet60.4s speech/Stop/Save raw + processed pass. The other
 combination results are maintained in the matrix. CHECK27's full saved replay
 and worker cleanup are observed, but its launcher closure failed because Saved
 input was incorrectly required to supply a physical microphone owner. Fresh
 build26 CHECK28 passed full replay/processed Save/Settings/Exit with natural
-worker/main0 and independent exact closure. Build26 is activated with verified
+worker/main0 and independent exact closure. Build26 was historically activated with verified
 before/restore copies; all six rows have scoped Live function/closure evidence.
 Do not delete owner fences or invent a microphone identity.
 Build21 restoration and earlier recovery receipts remain historical references.
@@ -79,11 +110,39 @@ Technical interfaces and commands:
 [desktop activation](../extension_20260928/pi_native_20260928/live_runtime_20261003/README_DESKTOP_ACTIVATION.md),
 [recording offload](../extension_20260928/pi_native_20260928/live_runtime_20261003/README_OFFLOAD.md).
 
-## Current microphone startup repair
+## Shared microphone startup repair
 
-The earlier source failure was an XVF3800 AEC_MIC_ARRAY_TYPE readiness error after priming; SOURCE_NOT_STARTED alone was not the cause. The retained build17 readiness path checks the exact current-boot failed source and its physical closure before one conditional TEST_CORE_BURN 0 recovery. Exact tool/config/display/settings backups and independent restore readbacks precede that action. Successful readiness is cached for the bound failure and boot; failed or uncertain recovery is not automatically retried. Original failure records stay intact. See [repair findings](../extension_20260928/pi_native_20260928/live_runtime_20261003/ui_restore_20261004/UI_REPAIR_FINDINGS.md) and [recovery implementation](../extension_20260928/pi_native_20260928/live_runtime_20261003/ui_restore_20261004/README_XVF_READINESS.md).
+Build28 handles the exact closed zero-sample AEC255 fault on the original Start
+click. It verifies fault/current owner/leases/capture/resource guards, backs up
+and independently reads back tool/configuration restore copies, and permits one
+conditional `TEST_CORE_BURN 0` with post-AEC/version/build readback. A successful
+readiness check is not itself microphone or model qualification. The actual
+CHECK32 continuation then captured12.1s and completed Stop/processed Save/Exit
+with independent native finalization PASS; CHECK33's normal second Start
+captured12.2999375s without another helper, with independent finalization PASS.
 
-## Current restored application
+The helper runs asynchronously. Stop cancels continuation; Exit retains the
+launcher lease/store until exact helper closure and thread join. Pending mode,
+settings, gallery and recording mutations are blocked. A consumed or uncertain
+maintenance send is not automatically retried. The preserved old helper's
+manual-lifetime null-deadline TypeError occurred before any send; reviewed
+provably-unsent migration remains distinct from uncertain-command handling.
+CHECK32 exercised the narrow pinned old-unsent-failure migration before its
+ordinary source attempt, preserving all old bytes. Its new source produced a
+fresh fault before one fixed helper continuation. This integrated quiet check
+is not a separate migration qualification or generic crash-recovery test.
+
+The manual service's null runtime/deadline are validated against actual systemd
+infinity. Finite check units require finite matching lifetime/reserve; helper
+alarm/CPU/memory/command/cleanup bounds always remain finite. CHECK32's actual
+unit was finite9min, not a new native production-lifetime qualification.
+Start authorizes acquisition directly; no second listening checkbox is needed.
+Enrollment/gallery consent and idle/capture-off startup stay unchanged.
+
+See [first-Start findings](../extension_20260928/pi_native_20260928/live_runtime_20261003/stabilization_20261005/FIRST_START_REPAIR_FINDINGS.md),
+[manual Start](../extension_20260928/pi_native_20260928/live_runtime_20261003/stabilization_20261005/README_MANUAL_START.md)
+and [bounded recovery](../extension_20260928/pi_native_20260928/live_runtime_20261003/ui_restore_20261004/README_XVF_READINESS.md).
+## Preserved build25 activation and rollback
 
 Build25 is installed at /home/peachyprototype/JustPeachy/research/nemotron-20260928/field-runtime-v29-build-25.
 Manifest6f548c3aa4005a43aaf4da378c364b0a2c5f17a90a36c223474e85c3b2468df8;
