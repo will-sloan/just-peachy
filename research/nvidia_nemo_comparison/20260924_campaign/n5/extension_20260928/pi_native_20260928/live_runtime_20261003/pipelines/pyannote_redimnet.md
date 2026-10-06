@@ -1,5 +1,35 @@
 # Pyannote + ReDimNet
 
+## Current integration: build25 speech and build26 rich Saved replay passed
+
+Select **Pyannote + ReDimNet** (`pyannote_redimnet`) and independent Live/Saved,
+then **Open Application** for the mature portrait Mode/People/Settings pages.
+The retained segmentation, normalized ReDimNet vectors and thresholds explained
+below are unchanged. Rich saved spatial replay uses recorded beams/BMI and
+source anchors; plain WAV has no such evidence. Original C088 calibration
+applies only in its original Pyannote/ReDimNet domain; invalid spatial cues or
+unaccepted naming evidence remains Unknown. Build25 prepares an explicitly
+reserved metadata/terminal cleanup repair, with 256 MiB independently per Pi/PC
+qualification copy (disk, not RAM). CHECK21 passed60.4s/966400samples,48indexed
+nonempty captions/40visible, source closure, cleanup and Save raw + processed with no
+failure. The verified export records120 positive Pyannote segmentation API calls
+(summed16.875635s) and208 positive ReDimNet embedding API calls
+(summed20.750158s), all normalized192D. It also records208 speaker decisions and
+105 identity decisions. Overlapping model windows prevent interpreting these
+call sums as whole-pipeline RTF. They establish actual inference, without named
+accuracy,300s speech or hour qualification. Model setup took3.231309s;
+RSS49,283,072→354,811,904B is a startup observation rather than a session peak.
+CHECK27's worker consumed the full matched saved source and recorded spatial
+anchors, with source verification and logical cleanup. Its parent GUI closure
+failed while requiring a physical microphone owner from Saved input. Fresh
+build26 CHECK28 passed the repaired full GUI replay, processed Save,
+Settings/Exit and independent closure. It consumed the full966400 samples,
+6040 audio anchors,906 beams and3156 original poses without current motion;
+source membership/pins stayed unchanged. Its35 nonempty indexed/visible captions
+differ from live CHECK21's48; neither a quality nor output-equivalence claim is made.
+See [current guide](../stabilization_20261005/STABILIZATION_MODE_GUIDE.md)
+and [storage findings](../stabilization_20261005/SPEECH_STORAGE_REPAIR_FINDINGS.md).
+
 Purpose: Retained baseline Pyannote segmentation and ReDimNet identity namespace.
 
 Inputs: processed mono 16 kHz audio from live capture, an external mono PCM16 WAV, or the exact authoritative `FLOAT32_LE` segments of a kept History recording; existing installed model assets; and a finite session policy. Source selection is independent of backend. These settings do not select Nemotron geometry.

@@ -1,5 +1,24 @@
 # Pyannote + TitaNet
 
+## Current stabilization: preserved CHECK22 quiet native pass
+
+Select **Pyannote + TitaNet** (`pyannote_titanet`) and independent Live/Saved,
+then **Open Application** for the mature portrait Mode/People/Settings pages.
+The pinned mel frontend, TitaNet encoder and separate gallery explained below
+are unchanged. Rich spatial replay consumes recorded source-time beams/BMI;
+plain WAV cannot use current sensors to fill missing evidence. C088 ReDimNet
+calibration is not transferred: hybrid naming needs accepted calibration for
+this actual encoder/query domain or reports Unknown/calibration blocker.
+Direction-only seats are marked assumptions. Build25 prepares the metadata and
+terminal cleanup repair; finite Pi/PC copies each reserve 256 MiB disk, not RAM.
+CHECK22 completed30.1s quiet live input/Stop/raw+processed Save with independent
+source and process closure. No captions or separate embedding-call evidence
+were observed in that quiet check; TitaNet speech/extraction quality remains
+unqualified. Build25 CHECK21
+passed60.4s speech/Stop/Save with Pyannote/ReDimNet; it does not substitute for
+this encoder's execution, extraction or accuracy evidence. See [current guide](../stabilization_20261005/STABILIZATION_MODE_GUIDE.md)
+and [storage findings](../stabilization_20261005/SPEECH_STORAGE_REPAIR_FINDINGS.md).
+
 Purpose: Retained Pyannote segmentation and the separately pinned TitaNet identity namespace; galleries must use that namespace.
 
 Inputs: processed mono 16 kHz audio from live capture, an external mono PCM16 WAV, or the exact authoritative `FLOAT32_LE` segments of a kept History recording; existing installed model assets; and a finite session policy. Source selection is independent of backend. These settings do not select Nemotron geometry.

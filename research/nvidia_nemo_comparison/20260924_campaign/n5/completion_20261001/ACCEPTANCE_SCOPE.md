@@ -1,7 +1,28 @@
-# Historical acceptance and current build21 evidence
+# Current build26 and preserved acceptance history
+
+Build26 is activated with one desktop shortcut, the backend/source chooser and
+the restored Modes, People and Settings interface. One bounded Pyannote/ReDimNet
+speech check completed60.4s/966400samples,48 nonempty caption rows, normal Stop,
+raw+processed Save and exact process closure. Export10 has a complete private
+PC readback. CHECK22/23 add scoped quiet live passes. CHECK27's worker consumed
+the full saved source and recorded beam/BMI anchors, verified its source after
+drain and completed logical cleanup. Its parent GUI workflow failed by signal9
+while waiting for a physical microphone owner that Saved input does not create.
+Fresh build26 CHECK28 passed that repaired full GUI replay, processed Save,
+Settings/Exit and independent physical closure with the original source unchanged.
+All six normal rows have bounded Live function/closure evidence. Build26
+activation passed with verified before/restore copies and capture off/no app;
+CHECK27 remains a failure. Quiet rows do not establish speech/identity quality.
+Spatial naming remains Unknown outside an applicable calibration;
+no embedding-quality,300s speech or application-hour claim follows from this check.
+Current row status and evidence are maintained in
+[STABILIZATION_RESULTS](../extension_20260928/pi_native_20260928/live_runtime_20261003/stabilization_20261005/STABILIZATION_RESULTS.md)
+and ACCEPTANCE.json. The selected build26 archive requires its adjacent HANDOFF_RECEIPT.json for construction/hash/readback verification.
+
+## Historical build16 and build21 scopes
 
 ACCEPTANCE.json is a delivery status index, not executable native admission.
-The selected release is **field-runtime-v29-build-16**: production permission,
+The then-selected release was **field-runtime-v29-build-16**: production permission,
 stage, activation, sole desktop shortcut and actual idle/normal Exit are verified.
 This is guarded field-use readiness. The application-hour gate remains failed;
 physical/quality validation remains unqualified. The final adjacent handoff
@@ -81,7 +102,7 @@ Its external receipt is authoritative; included files omit their own ZIP hash.
 ## Current restoration supersedes the old interface and policy
 
 The build16/17 facts above remain historical; ACCEPTANCE.json is not a new
-executable admission or build21 certificate. Installed runtime is build21,
+executable admission or build21 certificate. The then-installed runtime was build21,
 manifest9abaaaffe35d328fd97f5fc47f1f5b938803705dffb728c5d804d225a646ba6e.
 Activation and normal desktop launch/idle/Exit passed. The original twelve Modes,
 People and Settings are restored, with manual Stop and complete Save/Discard.
@@ -90,3 +111,10 @@ Assigned seats/saved spatial/legacy optional limits remain explicit.
 Human/noisy quality, touch/coldboot, battery and whole-application-hour use remain
 open. Historical N1–N5 coverage is preserved. See CURRENT_RUNTIME_PROGRESS and
 RESTORATION_FINDINGS for current scope and exact backup/handoff receipts.
+
+Selected current handoff: `G:/Just_Peachy_N1/20260924_campaign/local/n5/research-extension-20260928/pi-native-20260928/live-runtime-20261003/audit-preparation/final-handoff-v29-build26-20261006/JustPeachy-v29-ChatGPT-handoff.zip`. Its adjacent
+`HANDOFF_RECEIPT.json` is the authority for completed construction, full
+member readback and ZIP SHA. A path in this guide alone does not assert those
+checks passed. No ZIP self-hash is embedded in archived documentation; older
+archives remain immutable. Deployable/model assets and private recordings
+remain separate.

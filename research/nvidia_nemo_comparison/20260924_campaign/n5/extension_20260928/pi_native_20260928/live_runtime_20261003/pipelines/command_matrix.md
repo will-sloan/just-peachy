@@ -1,5 +1,27 @@
 # Configuration command matrix
 
+## Current operator entry: build26, six scoped live functional routes
+
+Use the single versioned Just Peachy shortcut, choose one of the six named
+Pyannote/CurrentDelayed/two-thread-Chunk52 × ReDimNet/TitaNet combinations,
+select Live microphone or Saved WAV independently, then Open Application.
+The retained portrait Mode/People/Settings pages perform normal controls.
+[Current guide](../stabilization_20261005/STABILIZATION_MODE_GUIDE.md) explains
+rich-session spatial replay, plain-WAV restrictions and calibrated naming.
+
+The broader command matrix below remains configuration/provenance material;
+printing a valid geometry does not add a normal chooser row or authorize a
+native job. Build25 prepares the [speech metadata repair](../stabilization_20261005/SPEECH_STORAGE_REPAIR_FINDINGS.md)
+with a separate terminal pool and 256 MiB independently per Pi/PC finite-check
+disk copy. These allowances do not allocate RAM. Native Pyannote/ReDimNet
+speech/Stop/Save CHECK21 passed 60.4 s / 966,400 samples with actual
+caption output and complete closure. Later per-route statuses and CHECK27's
+full-worker replay/failed parent closure are in the current result matrix.
+The verified CHECK21 export separately proves segmentation/embedding calls;
+ASR/setup counters alone do not prove embedding extraction,
+quality,300s speech or hour stability. Preserved earlier results remain attached
+to their actual builds.
+
 Purpose: inspect available settings and validate an explicit independent
 backend/source selection without loading any model. Inputs are the flags below;
 output is JSON on stdout. These are configuration commands, not native execution

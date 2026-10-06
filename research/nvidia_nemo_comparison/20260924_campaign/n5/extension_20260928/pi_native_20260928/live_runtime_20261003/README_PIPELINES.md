@@ -1,8 +1,38 @@
 # Runtime pipeline components
 
-## Current application: restored build21
+## Current release: build26, six scoped live routes and rich replay
 
-Build21 is installed and activated behind the single desktop shortcut.
+The [stabilization guide](stabilization_20261005/STABILIZATION_MODE_GUIDE.md)
+describes the six named chooser rows: Pyannote, CurrentDelayed and two-thread
+Chunk52, each with ReDimNet or TitaNet. Live/Saved is independent. Open Application
+enters the retained mature portrait pages. The detailed mathematics and earlier
+measurements in the pipeline pages below keep their original scopes.
+
+Build25 prepares the [speech storage repair](stabilization_20261005/SPEECH_STORAGE_REPAIR_FINDINGS.md)
+with fresh metadata/terminal allocations after actual build24 speech exhausted
+SQLite. Its finite qualification reserves 256 MiB per independent Pi/PC copy;
+disk reserves are not RAM usage. CHECK21 passed Pyannote/ReDimNet over 60.4 s /
+966,400 samples, including actual caption output, Stop, cleanup and Save
+raw + processed. The source exited0 and exact ownership/cgroup closure passed.
+The verified export confirms120 Pyannote segmentation calls and208 normalized
+192D ReDimNet embedding calls. The original ASR/setup cost keys were incomplete
+instrumentation, not evidence of zero model inference. Speaker quality,300s
+speech and an integrated-hour pass remain unqualified. See the current result
+matrix for other routes. Fresh staged build26 CHECK28 passed full rich saved
+spatial replay/processed Save/Exit, preserving the source pins and excluding
+current motion. Build26 is activated; all six normal rows have scoped native
+Live function/closure evidence. Rich replay uses recorded source
+anchors, beams and BMI; plain WAV has no spatial sidecars. C088 identity
+calibration remains in its original domain, with explicit Unknown/blockers for
+unaccepted cross-domain naming. This bounded pass is not whole-matrix readiness
+or sustainable-real-time qualification.
+
+## Preserved application: restored build21
+
+Use the [current native result matrix](stabilization_20261005/STABILIZATION_RESULTS.md)
+for later per-combination evidence; this section preserves build21.
+
+Build21 was installed and activated behind the single desktop shortcut.
 The full original portrait Modes/People/Settings are bridged to the isolated
 backends in `full_application_20261004`. Application Mode and backend geometry
 are separate; read its APPLICATION_MODES_AND_MATH.md and RESTORATION_FINDINGS.md,

@@ -1,5 +1,27 @@
 # CurrentDelayed
 
+## Current stabilization: both encoder routes have scoped quiet native checks
+
+The chooser exposes **Nemotron Delayed + ReDimNet** (`delayed_redimnet`) and
+**Nemotron Delayed + TitaNet** (`delayed_titanet`), with independent Live/Saved.
+Open Application enters the mature portrait pages. Geometry below is unchanged;
+Advanced attribution selects retained sparse and/or single-D1 late labels,
+without a second diarizer. Delayed seat evidence uses the original speech
+window, not model-output arrival or current tablet pose. Rich replay requires
+recorded beams/BMI/sample anchors; plain WAV has none. C088 voice calibration
+does not transfer to these query domains: unaccepted hybrid calibration or
+missing cues stays Unknown, and direction-only seats remain marked assumptions.
+The fresh metadata/terminal repair reserves 256 MiB independently per Pi/PC
+finite-check copy (disk, not RAM). CHECK23 completed30.1s quiet ReDimNet live
+input with301 actual D1 pushes, Stop/Save and independent process closure.
+Fresh build26 CHECK29 completed30.1s quiet TitaNet live input with301 D1
+pushes, Stop/Save and natural/independent source, worker and main closure.
+Neither quiet check establishes captions, separate embedding-call evidence or
+speaker-quality/calibration results. Build25 CHECK21 passed60.4s speech/Stop/Save
+with Pyannote/ReDimNet only; no Delayed or embedding-extraction pass is inferred.
+Prior timing/math below retains its measured scope. See [current guide](../stabilization_20261005/STABILIZATION_MODE_GUIDE.md)
+and [storage findings](../stabilization_20261005/SPEECH_STORAGE_REPAIR_FINDINGS.md).
+
 Purpose: select the `current_delayed` Nemotron geometry independently of source and identity encoder. Retained delayed LRU1/2 MiB metadata recipe. Historical unpaced RTF 0.4047877, source wait 21.3 s; neither is new live qualification.
 
 Inputs: mono 16 kHz audio, live or saved; ReDimNet, TitaNet or anonymous identity; the existing pinned Q8 model and retained delayed LRU1 library. No model conversion or new download.

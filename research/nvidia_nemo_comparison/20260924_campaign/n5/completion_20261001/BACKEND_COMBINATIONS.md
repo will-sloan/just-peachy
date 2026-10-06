@@ -1,6 +1,51 @@
 # Backend combinations and evidence scope
 
-Build21 restores the full original Mode/People/Settings portrait application behind one chooser. It is installed and activated; build17/v27/v28 are preserved. Representative native checks cover both encoders/diarizers, Chunk52/anonymous,310.2s manual Stop, rich export and desktop launch/Exit. See CURRENT_RUNTIME_PROGRESS for scope; this is not a Cartesian campaign or accuracy ranking. Sherpa/PnC remain shared.
+## Current six-choice release: build26, scoped live function and rich replay
+
+The chooser opens the mature portrait Mode/People/Settings application with
+**Open Application**. Source is an independent **Live microphone / Saved WAV**
+choice. Sherpa ONNX ASR/punctuation, XVF acquisition and separate encoder
+galleries remain shared integrations. CHECK21 passed Pyannote + ReDimNet for
+60.4 s / 966,400 processed samples, source closure, cleanup and Save raw + processed;
+48 indexed nonempty captions / 40 visible rows were observed. The other five
+routes have their own current matrix results. Fresh staged build26 CHECK28
+passed full Pyannote/ReDimNet rich saved spatial replay, processed Save and
+independent closure. Build26 is activated; all six normal rows have bounded
+native live function/closure observations. The verified CHECK21
+export confirms120 Pyannote segmentation calls and208 normalized192D ReDimNet
+embedding calls, in addition to ASR. Summed API call times are16.875635s and
+20.750158s respectively; overlapping windows make these unsuitable as a
+whole-pipeline RTF or speaker-quality measurement.
+There is no new 300 s, hour or six-combination qualification.
+
+| Chooser choice | Profile ID | Diarizer geometry | Encoder | Source |
+|---|---|---|---|---|
+| Pyannote + ReDimNet | `pyannote_redimnet` | Retained Pyannote | ReDimNet | Live / Saved |
+| Pyannote + TitaNet | `pyannote_titanet` | Retained Pyannote | NeMo TitaNet | Live / Saved |
+| Nemotron Delayed + ReDimNet | `delayed_redimnet` | CurrentDelayed: cache264/FIFO0/chunk264/right1/left1/update188 | ReDimNet | Live / Saved |
+| Nemotron Delayed + TitaNet | `delayed_titanet` | Same CurrentDelayed geometry | NeMo TitaNet | Live / Saved |
+| Nemotron Chunk52 2T + ReDimNet | `chunk52_2t_redimnet` | cache264/FIFO80/chunk52/right1/left0/update40, two graph threads | ReDimNet | Live / Saved |
+| Nemotron Chunk52 2T + TitaNet | `chunk52_2t_titanet` | Same two-thread Chunk52 geometry | NeMo TitaNet | Live / Saved |
+
+One collapsed Advanced attribution control offers Standard, Sparse clean turns,
+Late labels and Sparse + late for the named Nemotron choices. These select
+existing policies; they do not start a parallel refiner. Historical geometries
+below remain provenance rather than extra normal chooser rows.
+
+Build25 prepares the [speech storage repair](../extension_20260928/pi_native_20260928/live_runtime_20261003/stabilization_20261005/SPEECH_STORAGE_REPAIR_FINDINGS.md):
+fresh doubled metadata allocation, equal text/SQLite split and a separate
+256 KiB terminal pool. Finite checks reserve 256 MiB independently per Pi/PC
+copy and remeasure the shared database. Disk reservation does not mean resident
+RAM. Recorded rich-session spatial replay uses source-time beams/BMI; WAV has
+no spatial evidence. C088 naming thresholds are not transferred to TitaNet or
+Nemotron; unavailable calibration, gaps or conflicts remain Unknown.
+See the [current operator guide](../extension_20260928/pi_native_20260928/live_runtime_20261003/stabilization_20261005/STABILIZATION_MODE_GUIDE.md).
+Use the [current native result matrix](../extension_20260928/pi_native_20260928/live_runtime_20261003/stabilization_20261005/STABILIZATION_RESULTS.md)
+for subsequent per-combination evidence.
+
+## Preserved build21 and earlier measurements
+
+Build21 restored the full original Mode/People/Settings portrait application behind one chooser. It was installed and activated; build17/v27/v28 are preserved. Representative native checks cover both encoders/diarizers, Chunk52/anonymous,310.2s manual Stop, rich export and desktop launch/Exit. See CURRENT_RUNTIME_PROGRESS for scope; this is not a Cartesian campaign or accuracy ranking. Sherpa/PnC remain shared.
 
 | Primary | ReDimNet | TitaNet | Anonymous | Sources |
 |---|---|---|---|---|

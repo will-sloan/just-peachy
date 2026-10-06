@@ -1,5 +1,41 @@
 # Chunk52 with two native graph threads
 
+## Current stabilization: both encoder routes have bounded native passes
+
+The chooser exposes **Nemotron Chunk52 2T + ReDimNet**
+(`chunk52_2t_redimnet`) and **Nemotron Chunk52 2T + TitaNet**
+(`chunk52_2t_titanet`), each with independent Live/Saved and the retained mature
+portrait application. This preserves the separately pinned two-thread core and
+geometry below; earlier component RTF is not current whole-application RTF.
+Advanced attribution selects retained sparse/single-D1 late policies. Spatial
+evidence uses the original source window; rich saved replay consumes recorded
+beam/BMI anchors and never current pose, while plain WAV lacks spatial evidence.
+C088 voice thresholds do not transfer; unaccepted hybrid calibration or invalid
+cues stays Unknown. The fresh metadata/terminal cleanup repair uses separate
+256 MiB Pi/PC finite-check disk reservations, not RAM allocations. Fresh
+build26 CHECK30 completed489599 processed/raw samples (about30.60s),57 indexed
+nonempty captions/40 visible,306 actual D1 pushes and37 embedding calls over
+overlapping656000 window-samples. Stop/Save, logical worker cleanup, natural
+worker/main0 and independent source/unit closure passed. D1 push/finish sums
+were19.560951s/3.343592s; embedding sum3.974033s and model setup3.173216s.
+These call sums are not whole-pipeline sustainable RTF. Reported maximum source
+lag was3.686385873s and reported drops0; the source separately recorded39
+unconverted queued Stop-tail blocks/18720 transport frames and one incomplete
+terminal packet. Those facts remain
+visible rather than being relabeled as zero backlog or lossless continuous
+operation. CHECK31 TitaNet completed30.1s/481600 processed/raw samples,
+30 nonempty indexed captions,301 D1 pushes and24 embedding calls over448000
+overlapping window-samples. D1 push/finish sums were16.636247113s/3.202955887s,
+embedding5.088449037s, ASR7.299346898s and setup2.864817395s. Source lag maximum
+was0.587177743s with reported drops0, five unconverted Stop-tail blocks/2400
+transport frames and no incomplete terminal packet. Stop/Save/Settings/Exit and natural worker/
+main0 plus independent physical closure passed. The live inputs differ, so
+these are functional observations rather than an encoder-speed comparison.
+Neither check establishes WER/DER,300s/hour use, named-speaker quality or
+sustainable whole-pipeline real-time operation.
+See [current guide](../stabilization_20261005/STABILIZATION_MODE_GUIDE.md)
+and [storage findings](../stabilization_20261005/SPEECH_STORAGE_REPAIR_FINDINGS.md).
+
 Purpose: explicitly select the measured separate two-thread native core while
 preserving Chunk52 geometry, weights, source clock and probability output.
 Default profiles and their libraries remain unchanged.

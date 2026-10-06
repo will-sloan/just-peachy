@@ -1,9 +1,54 @@
-# Mode guide — restored build21
+# Mode guide — current stabilization and preserved build21
 
-**field-runtime-v29-build-21 is installed and activated.** Open the single
-Just Peachy shortcut, choose backend/embedding/recipe and independent Live/Saved
-input, press OK, then use the original portrait application with Modes, People
-and Settings. It opens idle; Exit returns to the desktop. Autostart remains
+## Current release: build26, all six scoped live routes and rich replay
+
+Build26 is the activated immutable runtime; it does not replace the evidence for
+build21 or repair failed build24 recordings in place. Native **CHECK21 passed
+Pyannote + ReDimNet speech/Stop/cleanup/Save raw + processed**: 60.4 s / 966,400 processed samples,
+48 indexed nonempty caption rows and 40 visible rows. The source child exited0,
+its thread joined, nested owners/main process closed and the cgroup was empty.
+CHECK22/23 add scoped quiet live checks. CHECK27 consumed the full recorded
+spatial source and completed worker cleanup, but its parent closure failed;
+fresh build26 CHECK28 repaired that closure workflow. CHECK21's verified export proves actual segmentation
+and embedding calls. This does not prove named-speaker accuracy, 300 s or an
+integrated hour. The normal
+chooser has six named combinations: Pyannote, Nemotron CurrentDelayed or
+Nemotron Chunk52 with two native graph threads, each with ReDimNet or TitaNet.
+Choose **Live microphone / Saved WAV** independently, then **Open Application**
+to enter the retained portrait application with Mode, People and Settings.
+The small chooser is the entry point; the caption application retains its layout.
+The [current six-choice guide](../extension_20260928/pi_native_20260928/live_runtime_20261003/stabilization_20261005/STABILIZATION_MODE_GUIDE.md)
+and [backend matrix](BACKEND_COMBINATIONS.md) give the current selection rules.
+The [current native result matrix](../extension_20260928/pi_native_20260928/live_runtime_20261003/stabilization_20261005/STABILIZATION_RESULTS.md)
+centralizes later per-combination checks. Fresh staged build26 CHECK28 passed
+full60.4s rich recorded spatial replay/processed Save/Settings/Exit and
+independent closure. It used original beams/BMI/source anchors without current
+motion; plain WAV still has no spatial evidence. Build26 is activated with
+verified before/restore copies. All six normal rows have bounded native live
+function/closure observations; their speech/inference/quality scopes differ.
+
+The actual build24 speech trial produced 19 nonempty captions before exhausting
+its SQLite metadata allocation. Build25 prepares a new, explicitly reserved
+text/SQLite allocation and an independent terminal-cleanup pool; CHECK21 then
+completed with no failure or cleanup error. Old meters,
+failed audio and errors remain preserved. The external finite check reserves
+**256 MiB on the Pi and a separate 256 MiB PC copy**. These are disk allowances,
+not model RAM. Read the [speech storage repair and evidence limits](../extension_20260928/pi_native_20260928/live_runtime_20261003/stabilization_20261005/SPEECH_STORAGE_REPAIR_FINDINGS.md).
+
+Rich saved-session spatial replay is prepared using recorded beam/BMI logs and
+the original sample/callback anchors; plain WAV cannot provide those cues and
+never borrows current sensors. Direction-only seats remain explicit assumptions.
+C088 personal-name calibration stays in its original Pyannote/ReDimNet domain;
+other hybrid routes require their own accepted calibrated voice evidence or
+report **Unknown/calibration blocker**. See the current guide above for gap,
+motion-reference and saved-source restrictions. No new accuracy claim follows.
+
+## Preserved build21 interface and evidence
+
+**field-runtime-v29-build-21 was installed and activated.** Its single
+Just Peachy shortcut opened a backend/embedding/recipe chooser with independent
+Live/Saved input; OK then opened the original portrait Modes, People and
+Settings. It opened idle; Exit returned to the desktop. Autostart remains
 disabled; build17 and v27/v28 remain preserved.
 
 Backend selection and application Mode are separate. Sherpa/PnC remain shared;
@@ -31,8 +76,8 @@ real-time guarantee. Experimental profiles require explicit permission.
 | Anonymous conversation | Numbered continuity without names; tracks may split/merge. |
 | Open with names | Cautious enrolled names plus anonymous continuity. |
 
-Anonymous backends support caption-only/anonymous Modes. Spatial Modes require
-Live input; recorded spatial replay is not connected. Assigned seats currently
+In build21, anonymous backends supported caption-only/anonymous Modes. Spatial Modes required
+Live input; recorded spatial replay was not connected. Assigned seats then
 require **Pyannote + ReDimNet** because recovered C088 calibration cannot be
 silently applied to TitaNet/Nemotron. Apply anchors the current device position;
 motion can invalidate seat trust. Participant roster constrains lookup; the
@@ -46,7 +91,7 @@ explain each backend geometry and its high/low-level implementation.
 
 ## Operator workflow
 
-1. Select backend/source while idle; press OK; choose Mode/rosters/seats.
+1. Select backend/source while idle; press **Open Application** in the current chooser (OK in build21); choose Mode/rosters/seats.
 2. For names, use People and explicit-consent paragraph enrollment separately
    for each encoder. Gallery helpers close before live model construction.
 3. Press Start and confirm consent, or select the saved replay WAV.
@@ -106,7 +151,8 @@ CPU2–3/shared200%,64tasks and1MiB stacks remain. AS differs from RSS/PSS.
 4/8GB may help residency when memory is limiting; it does not cure CPU/thermal
 backlog or relax software guards. No larger-board benchmark is claimed.
 
-Assigned seats are Pyannote/ReDimNet only. Saved spatial replay, DPDFNet,
+Build21 assigned seats were Pyannote/ReDimNet only and saved spatial replay was
+unavailable; build25's prepared changes are described above. DPDFNet,
 adaptive promotion, Windows transcript review and RAM audio excerpts are
 explicitly unavailable; metadata problem markers work. BMI270 cannot supply
 reliable absolute translation or drift-free heading. Human enrollment quality,

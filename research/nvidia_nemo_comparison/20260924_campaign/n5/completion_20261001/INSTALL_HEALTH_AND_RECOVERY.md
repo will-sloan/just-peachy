@@ -1,6 +1,17 @@
 # Installation, health and recovery
 
-See CURRENT_RUNTIME_PROGRESS for the actual build21 restoration, activation and native evidence.
+See CURRENT_RUNTIME_PROGRESS for actual build26 activation and the bounded
+CHECK21 Pyannote/ReDimNet60.4s speech/Stop/Save raw + processed pass. The other
+combination results are maintained in the matrix. CHECK27's full saved replay
+and worker cleanup are observed, but its launcher closure failed because Saved
+input was incorrectly required to supply a physical microphone owner. Fresh
+build26 CHECK28 passed full replay/processed Save/Settings/Exit with natural
+worker/main0 and independent exact closure. Build26 is activated with verified
+before/restore copies; all six rows have scoped Live function/closure evidence.
+Do not delete owner fences or invent a microphone identity.
+Build21 restoration and earlier recovery receipts remain historical references.
+The [current result matrix](../extension_20260928/pi_native_20260928/live_runtime_20261003/stabilization_20261005/STABILIZATION_RESULTS.md)
+records each later combination's functional scope.
 v27 remains untouched as the rollback/reference; v28 remains the prior
 desktop-first release. Use the final v29 release index and actual manifests,
 not an old campaign dispatcher, to identify deployed code.
@@ -14,7 +25,7 @@ when a field session starts. The ChatGPT ZIP does not contain these model assets
 ## Normal operation
 
 Open the unified launcher once. Select backend/profile, embedding and Live
-microphone or Saved input, then press OK to open the familiar portrait caption app with Mode, People and Settings tabs. Opening either view leaves capture off. Start
+microphone or Saved input, then press Open Application to open the familiar portrait caption app with Mode, People and Settings tabs. Opening either view leaves capture off. Start
 checks the accepted combination, exact assets, source availability, ownership,
 RAM and finite storage allocation. Experimental permission never promises
 real-time performance or silently changes to another backend.
@@ -74,7 +85,26 @@ The earlier source failure was an XVF3800 AEC_MIC_ARRAY_TYPE readiness error aft
 
 ## Current restored application
 
-Build21 is installed at /home/peachyprototype/JustPeachy/research/nemotron-20260928/field-runtime-v29-build-21.
+Build25 is installed at /home/peachyprototype/JustPeachy/research/nemotron-20260928/field-runtime-v29-build-25.
+Manifest6f548c3aa4005a43aaf4da378c364b0a2c5f17a90a36c223474e85c3b2468df8;
+sole desktop SHA85c61144e899e20f36c3353e9456af3134c72a83491d33815b5e56b0ca392a3a.
+Actual activation left no app/capture, preserved display270 and login autostart
+off. Before/independent restore-copy readbacks are retained at Pi campaign
+field-runtime-v29-classic-activation-0c1fd905aa3449d19a58ce1811916c9c and the
+PC operation-stabilization-desktop25-01/dispatch/RESULT.json. Use those actual
+previous desktop bytes for rollback; never rerun a consumed activation helper.
+Build21 and older runtimes/data remain preserved.
+
+The speech storage repair explicitly reserves new metadata and independent
+terminal cleanup facts. Ordinary exhaustion still Stops; cleanup attempts all
+releases and preserves the original error. New256MiB Pi/PC finite-copy allowances
+are disk reservations, notRAM. Remeasure shared database/file bounds for each
+check; never reset old ledgers. CHECK21's bounded success is not300s/hour proof.
+See [storage/cleanup findings](../extension_20260928/pi_native_20260928/live_runtime_20261003/stabilization_20261005/SPEECH_STORAGE_REPAIR_FINDINGS.md).
+
+### Preserved build21 restoration/rollback evidence
+
+Build21 was installed at /home/peachyprototype/JustPeachy/research/nemotron-20260928/field-runtime-v29-build-21.
 Manifest9abaaaffe35d328fd97f5fc47f1f5b938803705dffb728c5d804d225a646ba6e.
 The sole Desktop/Just Peachy.desktop SHA is7349e29b426e42cd92bbd4b13df02776c07b65110b7e5bad05aad2168f85ee72.
 Actual normal desktop launch/idle/Exit passed; capture/models stayed off.
@@ -86,7 +116,7 @@ do not overwrite build17 or move/delete current data. A rollback also needs the
 same no-capture/closed-owner checks; do not replay the consumed activation helper.
 The source wrapper/commands are in full_application_20261004/README_DELIVERY_ACTIONS.md.
 
-Assigned seats currently require Pyannote/ReDimNet; recorded spatial replay and
+Build21 assigned seats required Pyannote/ReDimNet; recorded spatial replay and
 optional legacy adaptations are explicitly unavailable. See MODE_GUIDE.
 The new backup path/completion is named in PATHS_AND_BACKUPS; a prepared scope
 is never proof of complete backup. Older backup03 remains preserved.

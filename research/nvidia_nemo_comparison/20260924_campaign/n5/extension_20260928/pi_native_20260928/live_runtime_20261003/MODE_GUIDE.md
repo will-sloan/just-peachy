@@ -1,6 +1,43 @@
-# Guide to production16 runtime modes
+# Runtime modes: current candidate and retained measurements
 
-The consolidated launcher now runs **v29 production16** at
+## Current release: build26, six scoped live routes and rich replay
+
+The deployed build26 chooser has six named combinations: Pyannote,
+CurrentDelayed or Chunk52 with two native graph threads, each with ReDimNet or
+TitaNet. Select Live microphone or Saved WAV independently, then Open Application
+to enter the retained portrait Mode/People/Settings application. The collapsed
+Advanced attribution control retains single-D1 sparse/late policies; parallel
+refinement remains disabled. The [current operator guide](stabilization_20261005/STABILIZATION_MODE_GUIDE.md)
+and [completion backend matrix](../../../completion_20261001/BACKEND_COMBINATIONS.md)
+describe these six choices; the broad historical selection matrix below does
+not describe the current normal chooser.
+
+The [speech storage repair](stabilization_20261005/SPEECH_STORAGE_REPAIR_FINDINGS.md)
+prepares fresh text/SQLite allocation and independent terminal-cleanup metadata
+after an actual speech session exhausted the old SQLite pool. New finite
+checks reserve 256 MiB independently on Pi and PC and remeasure shared history;
+this reserves disk space, not RAM. CHECK21 passed Pyannote/ReDimNet speech,
+Stop/cleanup/Save raw + processed over 60.4 s / 966,400 samples with 48 indexed
+nonempty captions and 40 visible rows; no failure or cleanup error was recorded.
+This resolves source acquisition and metadata cleanup for that bounded run.
+Its verified export confirms120 Pyannote segmentation calls and208 normalized
+192D ReDimNet embedding calls; setup counters alone were incomplete evidence.
+Naming accuracy and300s/hour use remain unqualified. Refer to the current result
+matrix for other routes. Fresh staged build26 CHECK28 passed full rich saved
+spatial replay/processed Save/Exit with source pins unchanged/current motion
+excluded and independent closure. Build26 is activated; all six rows have
+bounded native Live function/closure observations with separate quality limits.
+Rich replay uses
+recorded beams/BMI and original source anchors; plain WAV cannot supply spatial
+cues. The original C088 identity calibration is not transferred to other
+encoder/diarizer domains. Missing accepted calibration or cues stays Unknown.
+
+## Preserved production16 guide
+
+Later per-combination results are centralized in [STABILIZATION_RESULTS.md](stabilization_20261005/STABILIZATION_RESULTS.md);
+the production16 instructions below are historical.
+
+The consolidated launcher previously ran **v29 production16** at
 `/home/peachyprototype/JustPeachy/research/nemotron-20260928/field-runtime-v29-build-16`.
 The old v27/v28 runtimes, galleries and recordings remain rollback references.
 The release permits 247 exact selections (246 nonoptional and one optional); this
