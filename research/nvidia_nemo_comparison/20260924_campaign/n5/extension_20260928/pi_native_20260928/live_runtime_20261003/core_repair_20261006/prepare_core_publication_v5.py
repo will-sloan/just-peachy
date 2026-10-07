@@ -1,0 +1,568 @@
+"""Prepare one unapproved final build33 source plan; README_CORE_PUBLICATION_V5.md."""
+import ctypes
+_k=ctypes.WinDLL('kernel32',use_last_error=True)
+_k.GetCurrentProcess.restype=ctypes.c_void_p
+_h=_k.GetCurrentProcess()
+_k.SetProcessAffinityMask.argtypes=[ctypes.c_void_p,ctypes.c_size_t]
+if not _k.SetProcessAffinityMask(_h,16384):raise ctypes.WinError(ctypes.get_last_error())
+import argparse,hashlib,json,os,re,shutil,stat,time,uuid
+from pathlib import Path,PurePosixPath
+ROOT=Path('G:/Just_Peachy_N1/20260924_campaign/worktree')
+HERE=Path(__file__).parent
+Q=Path('G:/Just_Peachy_N1/20260924_campaign/local/n5/research-extension-20260928/pi-native-20260928/live-runtime-20261003')
+BASE=Q/'audit-preparation/final-build28-reviewed-plan-c30ef5c38a5d4752ae0eb6a0fcdd4d19/REVIEWED_PLAN.json'
+BASE_SHA='0639e6249fb288120657e9e1fffee56d6b72f7e9c452f4faaf071c20df035d6f'
+PIN='4b9e8fbc5c121435ecd46684b8bf55aa0996917e23892e883979668511d43767'
+SOURCE_REVIEW=Q/'audit-preparation/caption-package31-f6383c985d4d41e6b065ff9487dd19ad/SOURCE_DIFF_REVIEW.json'
+SOURCE_REVIEW_SHA='6894adf19266061a15a71dc103d7317303652d68d58a4e27b74016430caaf4ca'
+MIDDLE_SOURCE_REVIEW=Q/'audit-preparation/sidecar-package30-98954655204a43a99b28375e33d3faf6/SOURCE_DIFF_REVIEW.json'
+MIDDLE_SOURCE_REVIEW_SHA='337cfff9ac688ee947b66e2920306dbca5c11a72fd230486ad35eec54bfd34c7'
+PARENT_SOURCE_REVIEW=Q/'audit-preparation/core-package-v1-98d8679173344e6cb1f97599f489a1b7/SOURCE_DIFF_REVIEW.json'
+PARENT_SOURCE_REVIEW_SHA='2f2b7b92fe54c87c5f1713c3cffc2f97420b1fc5d3f7f86566c043348d01549c'
+PARENT_PIN='b2eeab82452d5b87515477c4a562ce167cf6d35503a16df6a4febc1b1af25569'
+PACKAGE=Q/'audit-preparation/caption-package31-f6383c985d4d41e6b065ff9487dd19ad/package'
+PACKAGE_CONTENT_SHA='f65029c4d476fd557e073890dacaec218c0c2a6ce877c93a466c50a04e272b8d'
+REPLACEMENT_ROOT=HERE/'caption_snapshot_20261006'
+MIDDLE_REPLACEMENT_ROOT=HERE/'sqlite_sidecar_race_20261006'
+PARENT_PROPOSER_SHA='46f580f1521eba1bab0117ba0f4766a51b0e6c319d64f8c8391a406a6d8f0b5d'
+PARENT_REVIEWER_SHA='2ea65d63bd269f51f3ee7a65332e6e647258aade77b5cd03fcc3bd3bd5d49037'
+PARENT_README_SHA='ed2220c82a92cb893ae0362c70d3675aa99f2f7a76bbe73408a77f4adc33166e'
+FINAL_BUILDER=HERE.parent.parent/'runtime_handoff_tools/build_handoff_v2.py'
+FINAL_BUILDER_SHA='34bd6696f360dd0c50a0e1817fc328b1d5a7983aa968d391c264fb8263349c6f'
+C='research/nvidia_nemo_comparison/20260924_campaign/n5/completion_20261001/'
+L='research/nvidia_nemo_comparison/20260924_campaign/n5/extension_20260928/pi_native_20260928/live_runtime_20261003/'
+TRACKED=('DELIVERY_START_HERE.md',C+'ACCEPTANCE.json',C+'ACCEPTANCE_SCOPE.md',
+    C+'BACKEND_COMBINATIONS.md',C+'CURRENT_RUNTIME_PROGRESS.md',C+'INSTALL_HEALTH_AND_RECOVERY.md',
+    C+'MODE_GUIDE.md',C+'PATHS_AND_BACKUPS.md',C+'START_HERE_CURRENT.md',
+    C+'FINAL_OPERATOR_GUIDE.md',C+'CHATGPT_HANDOFF.md',L+'MODE_GUIDE.md',
+    L+'README_PIPELINES.md',L+'CORE_REPAIR_PIPELINE_NOTES.md',L+'CORE_REPAIR_TECHNICAL_NOTES.md',
+    L+'pipelines/chunk52_threads2.md',L+'pipelines/command_matrix.md',
+    L+'pipelines/current_delayed.md',L+'pipelines/pyannote_redimnet.md',L+'pipelines/pyannote_titanet.md')
+SELECTED='''activate_core_desktop_action29.py application_controller.py asr_segment_contract.py asr_segment_runtime.py build_core_package_v1.py CAPTION_AUDIT.md caption_paragraphs.py check_asr_segments.py check_caption_repair.py classic_frontend.py core_database_recovery.py CORE_REPAIR_TECHNICAL_NOTES.md d1_spatial_policy.py gallery_snapshot_io.py host_core_operations_v2.py host_core_operations_v3.py host_core_operations_v4.py host_core_operations_v5.py host_core_operations.py host_inspect_core.py identity_modes.py inspect_core_storage.py installed_engine.py launch_core_full_app_hour.py launcher.py mature_frontend.py native_core_live_check_v2.py native_core_live_check.py native_core_saved_check_v2.py native_core_saved_check.py native_scope.py personal_gallery.py prepare_core_activation29.py prepare_core_database_recovery_v2.py prepare_core_endurance.py prepare_core_native_validation_v2.py prepare_core_native_validation.py prepare_core_publication_v1.py prepare_core_stage29_v2.py prepare_core_stage29.py README_ASR_SEGMENTS.md README_CAPTION_REPAIR.md README_CORE_ACTIVATION29.md README_CORE_BACKUP_V2.md README_CORE_BACKUP.md README_CORE_ENDURANCE.md README_CORE_INSPECTION.md README_CORE_NATIVE_VALIDATION_V2.md README_CORE_NATIVE_VALIDATION.md README_CORE_OPERATIONS_V3.md README_CORE_OPERATIONS_V4.md README_CORE_OPERATIONS_V5.md README_CORE_OPERATIONS.md README_CORE_PACKAGE_V1.md README_CORE_PUBLICATION.md README_CORE_REPAIR.md README_CORE_STAGE_V2.md README_CORE_STAGE.md README_DATABASE_RECOVERY_V2.md README_DATABASE_RECOVERY.md README_GALLERY_CAPACITY.md README_IDENTITY_MODES.md README_RUNTIME_CAPACITY.md README_STORAGE_RECOVERY.md reconcile_core_backup_v2.py reconcile_core_backup.py recover_core_database_copy.py recover_core_database_v2.py recover_core_database.py review_core_publication_v1.py run_host_caption_checks.py run_host_identity_checks.py run_host_storage_checks.py runtime_support.py stage_c24_endurance_input.py storage_support.py storage.py test_gallery_capacity.py test_identity_modes.py test_identity_pinned.py test_installed_caption_projection.py test_runtime_capacity.py test_storage_recovery.py worker.py'''.split()
+CROSS_SOURCES=('ui_restore_20261004/xvf_readiness.py',
+    'ui_restore_20261004/xvf_readiness_helper.py')
+SELECTED += '''activate_core_desktop_action30.py prepare_core_activation30.py prepare_core_native_validation_v3.py prepare_core_endurance30.py launch_core_full_app_hour30.py stage_c24_endurance_input30.py review_core_full_app_hour.py review_core_full_app_hour30.py README_CORE_BUILD30_HELPERS.md README_CORE_HOUR_REVIEW.md host_core_operations_v6.py README_CORE_OPERATIONS_V6.md inspect_sqlite_guard_failure.py README_SQLITE_GUARD_INSPECTION.md prepare_core_publication_v2.py review_core_publication_v2.py README_CORE_PUBLICATION_V2.md'''.split()
+SELECTED += ['host_core_operations_v7.py','README_CORE_OPERATIONS_V7.md']
+SELECTED += ['host_core_operations_v8.py','README_CORE_OPERATIONS_V8.md','README_CORE_HOUR_DISPATCH.md']
+SELECTED += ['review_hour01_lanes.py','README_HOUR01_LANES.md',
+    'host_core_operations_v9.py','README_CORE_OPERATIONS_V9.md',
+    'extract_core_job31.py','README_EXTRACT_CORE_JOB31.md',
+    'prepare_core_publication_v5.py','review_core_publication_v5.py','README_CORE_PUBLICATION_V5.md']
+SUBTREE_SOURCES=tuple('sqlite_sidecar_race_20261006/'+name for name in (
+    'storage_support.py','test_sqlite_sidecar_race.py','run_host_sidecar_checks.py',
+    'build_sidecar_package30.py','prepare_sidecar_stage30.py',
+    'README_SQLITE_SIDECAR_RACE.md','README_SIDECAR_PACKAGE30.md','README_SIDECAR_STAGE30.md',
+    'prepare_sidecar_stage30_v2.py','README_SIDECAR_STAGE30_V2.md'))
+SUBTREE_SOURCES += tuple('caption_snapshot_20261006/'+name for name in (
+    'installed_engine.py','d1_spatial_policy.py','d1_caption_snapshot.py',
+    'check_d1_caption_snapshot.py','run_host_snapshot_checks.py',
+    'README_D1_CAPTION_SNAPSHOT.md','build_caption_package31.py',
+    'README_CAPTION_PACKAGE31.md','ops31/prepare_caption31.py',
+    'ops31/README_CAPTION31_OPS.md'))
+SUBTREE_SOURCES += tuple('capacity_gallery_20261006/'+name for name in (
+    'installed_engine.py','personal_gallery.py','application_contract.py','capacity_personal_store.py',
+    'gallery_worker.py','gallery_capacity_admission.py','README_GALLERY_CAPACITY_STORE.md',
+    'README_GALLERY_WORKER_CAPACITY.md','test_capacity_personal_store.py','test_gallery_worker_capacity.py',
+    'run_host_gallery_capacity.py','build_gallery_package32.py','README_GALLERY_PACKAGE32.md',
+    'ops32/prepare_gallery32.py','ops32/README_GALLERY32_OPS.md'))
+SUBTREE_SOURCES += tuple('event_writer_streaming_20261006/'+name for name in (
+    'event_compaction.py','runtime_support.py','README_EVENT_WRITER_STREAMING.md',
+    'test_event_writer_streaming.py','run_host_event_writer_checks.py',
+    'build_event_package33.py','README_EVENT_PACKAGE33.md'))
+SUBTREE_SOURCES += tuple('model_address_space_20261006/'+name for name in (
+    'worker.py','native_scope.py','launch_raw_qualification_action.py','README_MODEL_ADDRESS_SPACE.md',
+    'test_model_address_space.py','run_host_model_address_space_checks.py',
+    'closed_unit_owner_as.py','README_CLOSED_UNIT_OWNER_AS.md'))
+GUIDE_TARGETS=(C+'MODE_GUIDE.md',C+'BACKEND_COMBINATIONS.md',
+    C+'INSTALL_HEALTH_AND_RECOVERY.md',C+'CHATGPT_HANDOFF.md',C+'FINAL_OPERATOR_GUIDE.md',
+    L+'README_PIPELINES.md',L+'CORE_REPAIR_PIPELINE_NOTES.md',L+'CORE_REPAIR_TECHNICAL_NOTES.md',
+    L+'RAM_RESOURCE_GUIDE.md',L+'pipelines/pyannote_redimnet.md',L+'pipelines/pyannote_titanet.md',
+    L+'pipelines/current_delayed.md',L+'pipelines/chunk52_threads2.md')
+ENTRY_TARGETS=('DELIVERY_START_HERE.md',C+'START_HERE_CURRENT.md',L+'START_HERE.md')
+TRACKED=tuple(dict.fromkeys((*TRACKED,*GUIDE_TARGETS,*ENTRY_TARGETS)))
+PRIVATE_PARTS=frozenset(('preserved','drafts','source','backup','restore','runtime-data',
+    'models','galleries','recordings','__pycache__','source-backups','current_build33'))
+PRIVATE_PREFIXES=('completion_docs_','entry_review_','audit-','operation-',
+    'production-backup-','classic-ui-check-','full-app-hour-','publication-')
+PUBLICATION_V3_PINS={
+    'prepare_core_publication_v3.py':'84992726ec1c929952c2a306838b41bd7dd1173c8e19102aeaede5b3c08f1f30',
+    'review_core_publication_v3.py':'65a55c9242db046417be546eae200e65bc52e3180baddb70947a13d42bc1a62f',
+    'README_CORE_PUBLICATION_V3.md':'a65fa8346f3e200e72707bc116c780fb4e4b9d3349e90e03710e1d25e36f0fa3'}
+PUBLICATION_V4_PINS={
+    'prepare_core_publication_v4.py':'fe5b80f7740d5949a36429e341563f475f6dd6ddc45611c507e45d4244a1dbe9',
+    'review_core_publication_v4.py':'950fef3fdad797c372148343b20f85043283a72eabe0c8d643b40fafa794bf8b',
+    'README_CORE_PUBLICATION_V4.md':'44dd1f05fd6994548955c1a52c8518810f1d50214eb750c6163bd85aa0d50785'}
+SELECTED += list(PUBLICATION_V4_PINS)+['host_core_operations_v10.py','README_CORE_OPERATIONS_V10.md']
+SUBTREE_SOURCES += tuple('event_writer_streaming_20261006/ops33/'+name for name in (
+    'prepare_event33_v2.py','README_EVENT33_OPS_V2.md'))
+SELECTED += list(PUBLICATION_V3_PINS)+[
+    'prepare_core_publication_v5.py','review_core_publication_v5.py','README_CORE_PUBLICATION_V5.md',
+    'review_failed_hour05_prefix.py','README_FAILED_HOUR05_PREFIX.md']
+SELECTED=list(dict.fromkeys(SELECTED))
+CURRENT_TARGET='/home/peachyprototype/JustPeachy/research/nemotron-20260928/field-runtime-v29-build-33'
+CURRENT_PARENT_PIN='55f449d563b3011a0793cef174921a215cd9aeb0dbbaa597b228ae4ba889fbbf'
+CURRENT_REPLACEMENTS=frozenset(('event_compaction.py','runtime_support.py','worker.py',
+    'native_scope.py','launch_raw_qualification_action.py',
+    'README_EVENT_WRITER_STREAMING.md','README_MODEL_ADDRESS_SPACE.md'))
+CURRENT_CONTROL_JSON=frozenset(('BINDING.json','BUILD_OPTIONS.json',*(
+    'profiles/'+name+'.json' for name in ('baseline','baseline-anonymous','baseline-titanet',
+    'd1-anonymous','d1-delayed','d1-delayed-titanet','d1-streaming-saved',
+    'd1-streaming-titanet-saved','d1-chunk52-saved','d1-chunk52-titanet-saved'))))
+CURRENT_ARGUMENTS=('current_package','current_manifest_sha256','current_content_sha256',
+    'current_source_review','current_source_review_sha256','current_build_result',
+    'current_build_result_sha256','current_build_closure','current_build_closure_sha256',
+    'current_archive','current_archive_sha256','current_members_file','current_members_sha256')
+CURRENT_PATH_ARGUMENTS=frozenset(('current_package','current_source_review','current_build_result',
+    'current_build_closure','current_archive','current_members_file'))
+CURRENT_MIRROR=HERE/'current_build33'
+
+def extra_source_path(name):
+    rel=PurePosixPath(name)
+    if (not name or rel.is_absolute() or '..' in rel.parts or '\\' in name or ':' in name
+            or rel.as_posix()!=name or rel.suffix not in {'.py','.md'}
+            or any(part.casefold() in PRIVATE_PARTS or
+                   part.casefold().startswith(PRIVATE_PREFIXES) for part in rel.parts)):
+        raise ValueError('Explicit public D code/Markdown path required; private/draft trees excluded')
+    return HERE.joinpath(*rel.parts)
+
+def encoded(value):return (json.dumps(value,sort_keys=True,indent=2,allow_nan=False)+'\n').encode()
+def sha(raw):return hashlib.sha256(raw).hexdigest()
+def strict(raw):
+    def pairs(rows):
+        out={}
+        for key,value in rows:
+            if key in out:raise ValueError('Duplicate plan key')
+            out[key]=value
+        return out
+    return json.loads(raw,object_pairs_hook=pairs,parse_constant=lambda v:(_ for _ in ()).throw(ValueError(v)))
+def read(path,maximum=2*1024**2):
+    before=path.lstat();resolved=path.resolve(strict=True)
+    if (path.is_symlink() or any(p.is_symlink() for p in path.parents) or not stat.S_ISREG(before.st_mode)
+        or before.st_nlink!=1 or before.st_size>maximum or os.path.normcase(str(path.absolute()))!=os.path.normcase(str(resolved))):raise ValueError('Canonical bounded ordinary source required: '+str(path))
+    raw=path.read_bytes();after=path.stat()
+    if (before.st_ino,before.st_size,before.st_mtime_ns)!=(after.st_ino,after.st_size,after.st_mtime_ns) or len(raw)!=before.st_size:raise ValueError('Source changed during plan snapshot')
+    return raw
+
+def archive_hash(path):
+    """Hash the separate deployment asset without copying it into the public source plan."""
+    before=path.lstat();resolved=path.resolve(strict=True)
+    if (path.is_symlink() or any(p.is_symlink() for p in path.parents)
+            or not stat.S_ISREG(before.st_mode) or before.st_nlink!=1
+            or not 0<before.st_size<=16*1024**2
+            or os.path.normcase(str(path.absolute()))!=os.path.normcase(str(resolved))):
+        raise ValueError('Canonical bounded ordinary deployment archive required')
+    digest=hashlib.sha256();count=0
+    with path.open('rb') as stream:
+        for raw in iter(lambda:stream.read(65536),b''):
+            count+=len(raw);digest.update(raw)
+    after=path.stat()
+    if ((before.st_ino,before.st_size,before.st_mtime_ns)!=(after.st_ino,after.st_size,after.st_mtime_ns)
+            or count!=before.st_size):raise ValueError('Deployment asset changed during hash readback')
+    return digest.hexdigest(),count
+
+def current_member_path(name):
+    rel=PurePosixPath(name)
+    if (not name or rel.is_absolute() or '..' in rel.parts or '\\' in name or ':' in name
+            or rel.as_posix()!=name or any(part.casefold() in PRIVATE_PARTS
+                or part.casefold().startswith(PRIVATE_PREFIXES) for part in rel.parts)
+            or any('.backup' in part.casefold() or '.restore' in part.casefold() for part in rel.parts)
+            or (rel.suffix not in {'.py','.md'} and name not in CURRENT_CONTROL_JSON)):
+        raise ValueError('Explicit current Python/Markdown or named control/profile JSON required')
+    return rel
+
+def current_arguments(value):
+    if type(value) is not dict or set(value)!=set(CURRENT_ARGUMENTS):
+        raise ValueError('Exact current build33 argument inventory required')
+    return argparse.Namespace(**{name:Path(body) if name in CURRENT_PATH_ARGUMENTS else body
+        for name,body in value.items()})
+
+def verify_current(args):
+    """Bind actual sealed33 source, independent closure and the separate installer asset."""
+    for name in CURRENT_ARGUMENTS:
+        value=getattr(args,name)
+        if name not in CURRENT_PATH_ARGUMENTS and (type(value) is not str
+                or re.fullmatch('[0-9a-f]{64}',value) is None):
+            raise ValueError('Explicit actual current build/source/archive pins required')
+    package=args.current_package
+    if (package.name!='package' or package.parent.parent!=Q/'audit-preparation'
+            or package.resolve(strict=True)!=package):raise ValueError('Canonical actual sealed package required')
+    for path,name,pin in ((package/'PACKAGE_MANIFEST.json','manifest',args.current_manifest_sha256),
+            (args.current_source_review,'source_review',args.current_source_review_sha256),
+            (args.current_build_result,'build_result',args.current_build_result_sha256),
+            (args.current_build_closure,'build_closure',args.current_build_closure_sha256)):
+        raw=read(path)
+        if sha(raw)!=pin:raise ValueError('Actual current '+name+' pin differs')
+        if path.parent!=package.parent and name!='manifest':
+            raise ValueError('Current package/source/closure must share the exact build root')
+    manifest=strict(read(package/'PACKAGE_MANIFEST.json'))
+    review=strict(read(args.current_source_review));result=strict(read(args.current_build_result))
+    closure=strict(read(args.current_build_closure));owner=strict(read(package.parent/'REGISTERED_OWNER.json'))
+    closed=strict(read(package.parent/'SOURCE_CLOSED.json'))
+    binding=strict(read(package/'BINDING.json'));provenance=strict(read(package/'REPAIR_PROVENANCE.json'))
+    files=manifest.get('files')
+    if (owner.get('schema')!='just-peachy.host-registered-owner.v1' or owner.get('cpu')!=14
+            or owner.get('affinity_mask')!=16384 or any(type(owner.get(name)) is not int
+                or owner[name]<=0 for name in ('pid','creation_filetime'))):
+        raise ValueError('Actual registered current build owner required')
+    if (type(files) is not list or len(files)>4096 or not files
+            or manifest.get('target')!=CURRENT_TARGET or binding.get('target')!=CURRENT_TARGET
+            or manifest.get('candidate_content_sha256')!=args.current_content_sha256
+            or binding.get('candidate_content_sha256')!=args.current_content_sha256
+            or review.get('schema')!='just-peachy.event-writer-model-as-package-source-review.v1'
+            or review.get('target')!=CURRENT_TARGET or review.get('parent_manifest_sha256')!=CURRENT_PARENT_PIN
+            or set(review.get('replacement_pins',{}))!=CURRENT_REPLACEMENTS
+            or provenance.get('parent_manifest_sha256')!=CURRENT_PARENT_PIN
+            or provenance.get('source_review_sha256')!=args.current_source_review_sha256):
+        raise ValueError('Actual current build33 target/content/parent/source identity differs')
+    inventory={row['path']:row for row in files}
+    if len(inventory)!=len(files) or len({name.casefold() for name in inventory})!=len(files):
+        raise ValueError('Unique sealed current package inventory required')
+    expanded_bytes=sum(row['bytes'] for row in files)+len(read(package/'PACKAGE_MANIFEST.json'))
+    for name,value in review['source_pins'].items():
+        source=read(Path(value['path']))
+        if (len(source),sha(source))!=(value['bytes'],value['sha256']):
+            raise ValueError('Frozen current33 input changed: '+name)
+    for name,value in review['replacement_pins'].items():
+        source=read(package/name)
+        if ((len(source),sha(source))!=(value['bytes'],value['sha256'])
+                or name not in inventory or inventory[name]['bytes']!=len(source)
+                or inventory[name]['sha256']!=sha(source)):
+            raise ValueError('Current replacement differs from source review/package: '+name)
+    if (result.get('manifest_sha256')!=args.current_manifest_sha256
+            or result.get('candidate_content_sha256')!=args.current_content_sha256
+            or result.get('parent_manifest_sha256')!=CURRENT_PARENT_PIN
+            or result.get('target')!=CURRENT_TARGET or Path(result.get('package',''))!=package
+            or result.get('files')!=len(files) or result.get('source_backups_and_restores_exact') is not True
+            or result.get('archive_members_independently_restored')!=len(files)+1
+            or result.get('archive_sha256')!=args.current_archive_sha256
+            or Path(result.get('archive',''))!=args.current_archive
+            or result.get('installed') is not False or result.get('native_qualified') is not False
+            or closure.get('schema')!='just-peachy.event-package33-independent-closure.v1'
+            or closure.get('owner')!=owner or type(closure.get('natural_exit')) is not int
+            or closure.get('natural_exit')!=0
+            or closure.get('exact_owner_absent') is not True
+            or closure.get('source_backups_and_independent_restores_exact') is not True
+            or closure.get('current_sources_unchanged') is not True
+            or closure.get('manifest_sha256')!=args.current_manifest_sha256
+            or closure.get('source_review_sha256')!=args.current_source_review_sha256
+            or closure.get('archive_sha256')!=args.current_archive_sha256
+            or closure.get('candidate_content_sha256')!=args.current_content_sha256
+            or closure.get('source_inputs')!=len(review['source_pins'])
+            or closure.get('archive_members_readback')!=len(files)+1
+            or closure.get('archive_expanded_bytes')!=expanded_bytes
+            or closure.get('independent_expanded_restore_exact') is not True
+            or closure.get('native_action') is not False
+            or closed.get('scope_closed') is not True or closed.get('native_action') is not False):
+        raise ValueError('Actual independently closed build33 preparation/restore required')
+    asset_sha,asset_bytes=archive_hash(args.current_archive)
+    if (asset_sha!=args.current_archive_sha256
+            or args.current_archive.parent!=package.parent):
+        raise ValueError('Separate deployment archive identity/readback differs')
+    selection=read(args.current_members_file)
+    if sha(selection)!=args.current_members_sha256:raise ValueError('Root-reviewed exact current source member list differs')
+    names=selection.decode('utf-8').splitlines()
+    if (not names or len(names)>4096 or len(names)!=len(set(names))
+            or len({name.casefold() for name in names})!=len(names)):
+        raise ValueError('Explicit unique current source selection required')
+    required_current=CURRENT_REPLACEMENTS|CURRENT_CONTROL_JSON|{
+        name for name in inventory if name.endswith('.py')}
+    if not required_current<=set(names):
+        raise ValueError('All package Python, seven changed source/README members and named controls/profiles required')
+    selected=[];selected_bytes=0
+    for name in names:
+        rel=current_member_path(name)
+        if name not in inventory:raise ValueError('Selected source absent from sealed package: '+name)
+        raw=read(package.joinpath(*rel.parts));raw.decode('utf-8')
+        if (len(raw),sha(raw))!=(inventory[name]['bytes'],inventory[name]['sha256']):
+            raise ValueError('Selected current source differs from manifest: '+name)
+        if rel.suffix=='.json':strict(raw)
+        selected_bytes+=len(raw)
+        if selected_bytes>8*1024**2:raise ValueError('Finite8MiB current public source mirror')
+        selected.append(dict(path=name,bytes=len(raw),sha256=sha(raw)))
+    return dict(schema='just-peachy.current-public-source-map.v1',build=33,target=CURRENT_TARGET,
+        arguments={name:str(getattr(args,name)) for name in CURRENT_ARGUMENTS},
+        deployment_members=len(files)+1,selected_source_members=len(selected),selected_source_bytes=selected_bytes,
+        deployment_expanded_bytes=expanded_bytes,
+        separate_deployment_archive_bytes=asset_bytes,source_mirror=str(CURRENT_MIRROR),files=selected,
+        package_controls_not_copied={name:inventory[name]['sha256'] for name in
+            ('PRODUCTION_ACCEPTANCE.json','RELOCATION_CERTIFICATE.json','REPAIR_PROVENANCE.json') if name in inventory},
+        source_only=True,complete_deployment_bundle_included=False,native_qualification_inferred=False)
+
+def source_map_bytes(current):
+    args=current['arguments']
+    lines=['# Current build33 source mirror','',
+        'Selected code, Markdown and reviewed control/profile JSON copied byte-for-byte from the sealed package.',
+        'This directory is a source handoff. It does not contain the complete deployment package, models, galleries, recordings or private receipts.',
+        'Source/package identity checks do not qualify native operation. Current outcomes and limits are in ../CORE_REPAIR_RESULTS.md.','',
+        '- Native target: `'+current['target']+'`.',
+        '- Sealed package source: `'+args['current_package']+'`.',
+        '- Manifest SHA256: `'+args['current_manifest_sha256']+'`.',
+        '- Candidate content SHA256: `'+args['current_content_sha256']+'`.',
+        '- Source review: `'+args['current_source_review']+'`; SHA256 `'+args['current_source_review_sha256']+'`.',
+        '- Closed build receipt: `'+args['current_build_result']+'`; SHA256 `'+args['current_build_result_sha256']+'`.',
+        '- Independent closure: `'+args['current_build_closure']+'`; SHA256 `'+args['current_build_closure_sha256']+'`.',
+        '- Separate installer asset: `'+args['current_archive']+'`; SHA256 `'+args['current_archive_sha256']+'`.',
+        '- Installer asset bytes: '+str(current['separate_deployment_archive_bytes'])+'.',
+        '- Full deployment members: '+str(current['deployment_members'])+'; selected source members: '+str(current['selected_source_members'])+'.',
+        '- Exact selection-list SHA256: `'+args['current_members_sha256']+'`.','',
+        'Runtime source is under this directory; historical repair and test procedures remain in the parent and named repair subdirectories.',
+        'Deployment acceptance, relocation and repair receipts stay external. Their package hashes are:', '']
+    lines.extend('- `'+name+'`: `'+pin+'`.' for name,pin in sorted(current['package_controls_not_copied'].items()))
+    lines+=['','| Selected package path | Bytes | SHA256 |','| --- | ---: | --- |']
+    lines.extend('| ['+row['path']+']('+row['path']+') | '+str(row['bytes'])+' | `'+row['sha256']+'` |' for row in current['files'])
+    return ('\n'.join(lines)+'\n').encode('utf-8')
+
+def mirror_current(current,package):
+    """Create only selected public source files; existing differing bytes are never overwritten."""
+    expected={row['path'] for row in current['files']}|{'SOURCE_MAP.md'}
+    if CURRENT_MIRROR.exists():
+        if CURRENT_MIRROR.resolve(strict=True)!=CURRENT_MIRROR or not CURRENT_MIRROR.is_dir():
+            raise ValueError('Ordinary canonical current source mirror required')
+        actual=set()
+        for folder,dirs,files in os.walk(CURRENT_MIRROR,followlinks=False):
+            for name in dirs:
+                path=Path(folder)/name
+                if path.resolve(strict=True)!=path or path.is_symlink():raise ValueError('No links in current mirror')
+            actual.update((Path(folder)/name).relative_to(CURRENT_MIRROR).as_posix() for name in files)
+        if actual-expected:raise ValueError('Unexpected existing current mirror files; preserve and use root review')
+    paths=[];written=0;directories={CURRENT_MIRROR}
+    for row in (*current['files'],dict(path='SOURCE_MAP.md')):
+        name=row['path'];path=CURRENT_MIRROR.joinpath(*PurePosixPath(name).parts)
+        raw=source_map_bytes(current) if name=='SOURCE_MAP.md' else read(package.joinpath(*PurePosixPath(name).parts))
+        written+=len(raw)
+        directories.update(parent for parent in path.parents if parent==CURRENT_MIRROR or parent.is_relative_to(CURRENT_MIRROR))
+        if written+len(directories)*65536>8*1024**2:
+            raise ValueError('Finite8MiB mirror including source map/directory reservations')
+        for drive,floor in (('C:/',50*1024**3),('G:/',75*1024**3)):
+            if shutil.disk_usage(drive).free<floor+24*1024**2:raise OSError('Original host floor plus exact source/plan reservations')
+        if path.exists():
+            if read(path)!=raw:raise ValueError('Existing current source mirror differs; no overwrite: '+name)
+        else:
+            if path.parent.resolve()!=path.parent:raise ValueError('Canonical mirror parent required before mkdir')
+            path.parent.mkdir(parents=True,exist_ok=True)
+            if path.parent.resolve(strict=True)!=path.parent:raise ValueError('Canonical mirror parent required')
+            with path.open('xb') as stream:
+                if stream.write(raw)!=len(raw):raise OSError('Short current source mirror write')
+                stream.flush();os.fsync(stream.fileno())
+        if read(path)!=raw:raise OSError('Independent current source mirror readback differs')
+        paths.append(path)
+    return paths
+
+def verify_frozen_sources():
+    """Preserve all three immutable source generations and bind actual build31 bytes."""
+    for name,pin in PUBLICATION_V3_PINS.items():
+        if sha(read(HERE/name))!=pin:raise ValueError('Immutable publicationV3 source changed: '+name)
+    for name,pin in PUBLICATION_V4_PINS.items():
+        if sha(read(HERE/name))!=pin:raise ValueError('Immutable publicationV4 source changed: '+name)
+    reviews=[]
+    for path,pin,root,expected_inputs,expected_replacements in (
+            (PARENT_SOURCE_REVIEW,PARENT_SOURCE_REVIEW_SHA,HERE,27,24),
+            (MIDDLE_SOURCE_REVIEW,MIDDLE_SOURCE_REVIEW_SHA,MIDDLE_REPLACEMENT_ROOT,10,2),
+            (SOURCE_REVIEW,SOURCE_REVIEW_SHA,REPLACEMENT_ROOT,13,4)):
+        raw=read(path)
+        if sha(raw)!=pin:raise ValueError('Root-approved immutable source review changed')
+        document=strict(raw)
+        if (len(document['source_pins'])!=expected_inputs or
+                len(document['replacement_pins'])!=expected_replacements):
+            raise ValueError('Exact parent/current source inventory required')
+        for name,value in document['source_pins'].items():
+            source=read(Path(value['path']))
+            if (len(source),sha(source))!=(value['bytes'],value['sha256']):
+                raise ValueError('Frozen build source/evidence changed: '+name)
+        for name,value in document['replacement_pins'].items():
+            source=read(root/name)
+            if (len(source),sha(source))!=(value['bytes'],value['sha256']):
+                raise ValueError('Frozen runtime replacement changed: '+name)
+        reviews.append(document)
+    manifest_raw=read(PACKAGE/'PACKAGE_MANIFEST.json')
+    if sha(manifest_raw)!=PIN:raise ValueError('Exact immutable build31 manifest required')
+    manifest=strict(manifest_raw)
+    binding=strict(read(PACKAGE/'BINDING.json'))
+    provenance=strict(read(PACKAGE/'REPAIR_PROVENANCE.json'))
+    if (manifest.get('target')!=binding.get('target') or
+            manifest.get('target')!='/home/peachyprototype/JustPeachy/research/nemotron-20260928/field-runtime-v29-build-31' or
+            manifest.get('candidate_content_sha256')!=PACKAGE_CONTENT_SHA or
+            binding.get('candidate_content_sha256')!=PACKAGE_CONTENT_SHA or
+            provenance.get('parent_manifest_sha256')!=PARENT_PIN or
+            provenance.get('source_review_sha256')!=SOURCE_REVIEW_SHA):
+        raise ValueError('Actual build31 target/content/parent/source binding differs')
+    for name,value in reviews[2]['replacement_pins'].items():
+        source=read(PACKAGE/name)
+        if (len(source),sha(source))!=(value['bytes'],value['sha256']):
+            raise ValueError('Actual package replacement differs from frozen current source')
+    return reviews
+
+def main():
+    parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--label',required=True)
+    parser.add_argument('--results-summary',type=Path,required=True,help='Final reviewed aggregate Markdown findings, without private content')
+    parser.add_argument('--results-summary-sha256',required=True)
+    parser.add_argument('--extra-source',action='append',default=[],help='Explicit D-relative additional code/Markdown only; no globs')
+    for name in CURRENT_ARGUMENTS:
+        parser.add_argument('--'+name.replace('_','-'),required=True,
+            type=Path if name in CURRENT_PATH_ARGUMENTS else str)
+    args=parser.parse_args()
+    if (re.fullmatch(r'[a-z][a-z0-9-]{0,63}',args.label) is None
+        or re.fullmatch('[0-9a-f]{64}',args.results_summary_sha256) is None):raise ValueError('Fresh canonical plan label and explicit final-results pin required')
+    stamps=[ctypes.c_ulonglong() for _ in range(4)]
+    _k.GetProcessTimes.argtypes=[ctypes.c_void_p]+[ctypes.POINTER(ctypes.c_ulonglong)]*4
+    if not _k.GetProcessTimes(_h,*(ctypes.byref(s) for s in stamps)):raise ctypes.WinError(ctypes.get_last_error())
+    out=Q/'audit-preparation'/(args.label+'-'+uuid.uuid4().hex);out.mkdir()
+    owner=dict(schema='just-peachy.host-registered-owner.v1',pid=os.getpid(),cpu=14,
+        affinity_mask=16384,creation_filetime=stamps[0].value,create_time=(stamps[0].value-116444736000000000)/10000000)
+    with (out/'REGISTERED_OWNER.json').open('xb') as stream:
+        raw=encoded(owner);stream.write(raw);stream.flush();os.fsync(stream.fileno())
+    started=time.monotonic();written=len(raw)+65536;directories={out}
+    def put(name,raw):
+        nonlocal written
+        path=out.joinpath(*PurePosixPath(name).parts)
+        if path.is_relative_to(out) is not True:raise ValueError('Owned output only')
+        pending=[p for p in path.parents if p!=out and p.is_relative_to(out) and p not in directories]
+        if written+len(raw)+len(pending)*65536>16*1024**2 or time.monotonic()-started>600:raise OSError('Finite16MiB includingdirectories/600s plan scope')
+        for drive,floor in (('C:/',50*1024**3),('G:/',75*1024**3)):
+            if shutil.disk_usage(drive).free<floor+16*1024**2:raise OSError('Original host floor')
+        path.parent.mkdir(parents=True,exist_ok=True);directories.update(pending);written+=len(pending)*65536
+        with path.open('xb') as stream:
+            if stream.write(raw)!=len(raw):raise OSError('Short publication-plan write')
+            stream.flush();os.fsync(stream.fileno())
+        written+=len(raw)
+        if read(path,16*1024**2)!=raw:raise OSError('Independent publication-plan readback differs')
+    put('HOST_SCOPE.json',encoded(dict(maximum_bytes=16*1024**2,maximum_seconds=600,includes_directory_reservations=True,native_action=False,zip_built=False)))
+    try:
+        for name in ('prepare_core_publication_v5.py','review_core_publication_v5.py','README_CORE_PUBLICATION_V5.md'):
+            raw=read(HERE/name)
+            for suffix in ('','.backup','.restore'):put(name+suffix,raw)
+        for name,pin in PUBLICATION_V3_PINS.items():
+            raw=read(HERE/name)
+            if sha(raw)!=pin:raise ValueError('Immutable publicationV3 source differs: '+name)
+            for suffix in ('','.backup','.restore'):put('PARENT_V3_'+name+suffix,raw)
+        for name,pin in PUBLICATION_V4_PINS.items():
+            raw=read(HERE/name)
+            if sha(raw)!=pin:raise ValueError('Immutable publicationV4 source differs: '+name)
+            for suffix in ('','.backup','.restore'):put('PARENT_V4_'+name+suffix,raw)
+        parent_raw=read(HERE/'prepare_core_publication_v2.py')
+        if sha(parent_raw)!=PARENT_PROPOSER_SHA or sha(read(FINAL_BUILDER))!=FINAL_BUILDER_SHA:
+            raise ValueError('Immutable publicationV2/exact final archive-builder pins required')
+        for suffix in ('','.backup','.restore'):put('PARENT_PROPOSER.py'+suffix,parent_raw)
+        for name,pin in (('review_core_publication_v2.py',PARENT_REVIEWER_SHA),
+                         ('README_CORE_PUBLICATION_V2.md',PARENT_README_SHA)):
+            body=read(HERE/name)
+            if sha(body)!=pin:raise ValueError('Immutable publicationV2 parent differs: '+name)
+            for suffix in ('','.backup','.restore'):put('PARENT_'+name+suffix,body)
+        parent_source,middle_source,approved_source=verify_frozen_sources()
+        current=verify_current(args)
+        current_paths=mirror_current(current,args.current_package)
+        put('CURRENT_SOURCE_SELECTION.txt',read(args.current_members_file))
+        put('CURRENT_SOURCE_MAP.json',encoded(current))
+        frozen=approved_source['replacement_pins']
+        summary=args.results_summary
+        if summary.resolve(strict=True)!=(HERE/'CORE_REPAIR_RESULTS.md').resolve(strict=True):
+            raise ValueError('Final results must be exact canonical CORE_REPAIR_RESULTS.md')
+        summary_raw=read(summary)
+        if sha(summary_raw)!=args.results_summary_sha256:raise ValueError('Final aggregate results summary differs from supplied pin')
+        summary_member=summary.resolve(strict=True).relative_to(ROOT).as_posix()
+        base_raw=read(BASE,1024**2)
+        if sha(base_raw)!=BASE_SHA:raise ValueError('Exact immutable approved build28 handoff plan required')
+        base=strict(base_raw)
+        if base.get('schema')!='just-peachy.reviewed-public-handoff.v1' or base.get('reviewed_publication') is not True:raise ValueError('Prior reviewed plan required')
+        sources={row['member']:Path(row['source']) for row in base['files']};old={row['member']:row for row in base['files']}
+        if len(old)!=697 or len(old)!=len(base['files']):raise ValueError('Exact 697 unique approved build28 sources required')
+        sources[C+'START_HERE.md']=ROOT/(C+'START_HERE_CURRENT.md')
+        sources[summary_member]=summary
+        for path in current_paths:sources[path.relative_to(ROOT).as_posix()]=path
+        for name in SUBTREE_SOURCES:
+            path=HERE.joinpath(*PurePosixPath(name).parts)
+            raw=read(path);raw.decode('utf-8')
+            sources[path.relative_to(ROOT).as_posix()]=path
+        for name in args.extra_source:
+            path=extra_source_path(name)
+            raw=read(path);raw.decode('utf-8')
+            sources[path.relative_to(ROOT).as_posix()]=path
+        queue=list(SELECTED);chosen=set();referenced_history=[];missing_links=[]
+        while queue:
+            name=queue.pop()
+            canonical=(HERE/name).resolve(strict=True)
+            if canonical.parent!=HERE.resolve(strict=True):raise ValueError('Same-parent stabilization dependency required')
+            name=canonical.name
+            if name in chosen:continue
+            if re.fullmatch(r'[A-Za-z][A-Za-z0-9_.-]*\.(?:py|md)',name) is None:raise ValueError('Explicit flat core source required')
+            raw=read(HERE/name);text=raw.decode('utf-8');chosen.add(name)
+            for dependency in re.findall(r'\b([A-Za-z][A-Za-z0-9_.-]*\.(?:py|md))\b',text):
+                if dependency not in chosen and (HERE/dependency).is_file():
+                    queue.append(dependency)
+                    if dependency not in SELECTED:referenced_history.append(dependency)
+            if name.endswith('.md'):
+                for target in re.findall(r'\]\(([^)]+)\)',text):
+                    target=target.split('#',1)[0].strip('<>')
+                    if not target or ':' in target or target.startswith('/'):continue
+                    candidate=(HERE/target).resolve()
+                    if candidate.is_relative_to(ROOT) and candidate.is_file():
+                        member=candidate.relative_to(ROOT).as_posix()
+                        if member not in sources and candidate.parent!=HERE:missing_links.append(member)
+                    elif not candidate.is_file():missing_links.append(name+' -> '+target)
+        for name in chosen:sources[(HERE/name).relative_to(ROOT).as_posix()]=HERE/name
+        for name in CROSS_SOURCES:sources[L+name]=ROOT/(L+name)
+        for name in TRACKED:sources[name]=ROOT/name
+        rows=[];total=0;aliases=set();changed=[];snapshots={};backed_inputs={}
+        for member,path in sorted(sources.items()):
+            rel=PurePosixPath(member)
+            if (rel.is_absolute() or '..' in rel.parts or '\\' in member or rel.as_posix()!=member
+                or member.casefold() in aliases or path.suffix.lower() not in {'.md','.json','.py','.txt','.toml','.h','.cpp','.c','.sh'}):raise ValueError('Exact unique public source member required')
+            aliases.add(member.casefold());relative=path.resolve(strict=True).relative_to(ROOT).as_posix()
+            if relative!=member and (member,relative)!=(C+'START_HERE.md',C+'START_HERE_CURRENT.md'):raise ValueError('Only locked StartHere alias permitted: '+member+' -> '+relative)
+            raw=read(path);raw.decode('utf-8');total+=len(raw)
+            if total>20*1024**2 or len(rows)>=4096:raise ValueError('Original20MiB/4096source bounds')
+            row=dict(member=member,source=str(path),bytes=len(raw),sha256=sha(raw));rows.append(row);snapshots[member]=row
+            if member not in old or (row['bytes'],row['sha256'])!=(old[member]['bytes'],old[member]['sha256']):
+                changed.append(member)
+                if relative in backed_inputs:
+                    if backed_inputs[relative]!=sha(raw):raise ValueError('Aliased real input changed between archive members')
+                else:
+                    for prefix in ('source','backup','restore'):put(prefix+'/'+relative,raw)
+                    backed_inputs[relative]=sha(raw)
+        plan=dict(schema=base['schema'],reviewed_publication=False,
+            scope='Final build33 selected source mirror, preserving all approved697 baseline paths and immutable29/30/31 historical storage/caption/identity sources. The source mirror and its SOURCE_MAP.md identify the actual current package and separate deployment installer. This source-only plan excludes the complete deployment bundle, private receipts and data. Final observed outcomes and limits are in '+summary_member+'. Failed hour01/hour05 and historical evidence retain their original scope; host checks do not qualify native behavior.',files=rows)
+        plan_raw=encoded(plan)
+        for suffix in ('','.backup','.restore'):put('PROPOSED_PLAN_REQUIRES_FINAL_REVIEW.json'+suffix,plan_raw)
+        if not set(old)<=set(sources):raise ValueError('Every approved build28 handoff member must remain')
+        git_names=sorted(set(TRACKED)|{(HERE/name).relative_to(ROOT).as_posix() for name in chosen}|
+            {L+name for name in CROSS_SOURCES}|{summary_member}|
+            {(HERE.joinpath(*PurePosixPath(name).parts)).relative_to(ROOT).as_posix() for name in SUBTREE_SOURCES}|
+            {extra_source_path(name).relative_to(ROOT).as_posix() for name in args.extra_source}|
+            {path.relative_to(ROOT).as_posix() for path in current_paths})
+        put('GIT_WHITELIST.txt',('\n'.join(git_names)+'\n').encode())
+        if any(sha(read(path))!=snapshots[member]['sha256'] for member,path in sources.items()):raise ValueError('Publication source changed after backup')
+        result=dict(output=str(out),base_plan_sha256=BASE_SHA,
+            selected_runtime_manifest_sha256=args.current_manifest_sha256,
+            current_build=33,current_source_map=current,current_source_map_sha256=sha(encoded(current)),
+            current_source_map_member=(CURRENT_MIRROR/'SOURCE_MAP.md').relative_to(ROOT).as_posix(),
+            current_source_mirror_members=[path.relative_to(ROOT).as_posix() for path in current_paths],
+            source_mirror_independent_readbacks=True,source_mirror_maximum_bytes=8*1024**2,
+            frozen_build31_manifest_sha256=PIN,
+            frozen_build31_source_review_sha256=SOURCE_REVIEW_SHA,frozen_replacements=len(frozen),
+            frozen_source_inputs=len(approved_source['source_pins']),
+            frozen_middle_build30_source_review_sha256=MIDDLE_SOURCE_REVIEW_SHA,
+            frozen_middle_build30_source_inputs=len(middle_source['source_pins']),
+            frozen_middle_build30_replacements=len(middle_source['replacement_pins']),
+            frozen_parent_build29_source_review_sha256=PARENT_SOURCE_REVIEW_SHA,
+            frozen_parent_build29_source_inputs=len(parent_source['source_pins']),
+            frozen_parent_build29_replacements=len(parent_source['replacement_pins']),
+            immutable_build31_candidate_content_sha256=PACKAGE_CONTENT_SHA,
+            selected_explicit_subtree_sources=list(SUBTREE_SOURCES),
+            selected_canonical_guides=list(GUIDE_TARGETS),selected_existing_entries=list(ENTRY_TARGETS),
+            selected_extra_sources=list(args.extra_source),
+            final_archive_builder_sha256=FINAL_BUILDER_SHA,
+            results_summary_member=summary_member,results_summary_sha256=args.results_summary_sha256,
+            prior_members=len(old),members=len(rows),source_bytes=total,git_publication_members=len(git_names),
+            selected_stabilization_files=sorted(chosen),referenced_historical_sources=sorted(set(referenced_history)),
+            changed_existing_and_new_members=changed,unresolved_current_links=sorted(set(missing_links)),
+            proposed_plan_sha256=sha(plan_raw),reviewed_publication=False,native_action=False,zip_built=False,
+            independent_changed_source_restores=True,backed_real_inputs=len(backed_inputs),duplicate_archive_aliases_use_same_exact_restored_input=True,private_media_models_galleries_included=False,
+            all_approved_build28_member_paths_preserved=True,
+            unchanged_sources_reuse_prior_closed_backups=True,
+            directory_reserved_bytes=len(directories)*65536,prepared_allocated_bytes=written)
+        put('PLAN_REVIEW.json',encoded(result));put('SOURCE_CLOSED.json',encoded(dict(closed_unix=time.time(),prepared_allocated_bytes=written,source_backups_and_independent_restores=True,native_action=False)))
+        print(json.dumps(dict(output=str(out),members=len(rows),source_bytes=total,git_publication_members=len(git_names),unresolved_current_links=result['unresolved_current_links'],reviewed_publication=False,zip_built=False)))
+    except BaseException as error:
+        put('FAILURE.json',encoded(dict(type=type(error).__name__,message=str(error)[:2048])));raise
+
+if __name__=='__main__':main()

@@ -1,3 +1,59 @@
+# Runtime pipeline navigation
+
+Current build35 scope: build35 is activated through the Just Peachy shortcut.
+Opening stays idle with capture off. Choose one of six backend combinations,
+Live microphone or Saved WAV, then Open Application and a Mode. Eleven Mode
+policies are visible; backend, identity policy and calibration are separate.
+
+Ordinary Pyannote + ReDimNet Start captured 12.5 s and completed Stop and the
+selected full Discard in normal03. That whole check FAILED its later Settings
+observer. Separate exit-only05 passed idle Open Application, Settings and Exit
+with no Start, capture, models or worker launch. These are distinct scopes.
+Live53 passed quiet capture after one verified recovery; Saved54 processed C24
+speech with 137 indexed parts, 40 text rows and 117 embedding queries.
+
+Hour08 completed 3600 s / 57.6M samples and all 20 source/model/closure gates.
+Backlog grew to 495.360 s; source-to-EOF took 4090.959 s. Completion passed,
+but sustainable real-time operation did not. Speech/name accuracy, natural
+conversation and biometric calibration remain unqualified or UNCALIBRATED.
+
+Normal live uses manual Stop and storage capacity without arbitrary duration,
+recording, people, reference or slot counts, or a fixed ordinary backlog cutoff.
+Actual memory/AS/free-space, finite capacity-derived file/drain allowances,
+bounded queues, source/lease/owner, I/O and cleanup guards remain. Individual
+lane delay labels are unavailable; aggregate backlog remains in health metadata.
+Model geometry, thresholds and calibration math are unchanged.
+
+Choose a backend/encoder and Live/Saved input in the six-row chooser, then open
+the idle portrait application. Mode controls identity/display policy; backend
+controls diarization timing and voice-query namespace. Sherpa ASR/PnC is shared.
+
+| Row IDs | Diarization | Separate voice encoder |
+| --- | --- | --- |
+| pyannote_redimnet / pyannote_titanet | Retained Pyannote | ReDimNet2-B2 FP32 / TitaNet-Large FP32 |
+| delayed_redimnet / delayed_titanet | Nemotron CurrentDelayed | Same two independent encoder namespaces |
+| chunk52_2t_redimnet / chunk52_2t_titanet | Exact two-thread Chunk52 | Same two independent encoder namespaces |
+
+Read [pipeline notes](CORE_REPAIR_PIPELINE_NOTES.md) for all six selections and
+[technical notes](CORE_REPAIR_TECHNICAL_NOTES.md) for caption/source/capacity math.
+The final handoff identifies selected code under
+[current_build35/SOURCE_MAP](core_repair_20261006/current_build35/SOURCE_MAP.md),
+with all package Python including nested reference code and reviewed profiles.
+Its installer is separate; selected source is not the full deployment bundle.
+
+Activated build35 carries source-ordered atomic captions, bounded actual-BPE
+utterance/PnC assembly, minimal keyed identity snapshots/current-revision
+cleanup, capacity-driven recordings/gallery totals, patch-first compact writes
+and a finite 1 GiB model AS scope. Recognition/diarizer/encoder math, geometry,
+calibration and physical RAM/disk/ownership guards remain.
+
+
+## Historical original runtime index
+
+The following original bytes are preserved. "Current", runnable examples and
+acceptance statements below belong to their stated historical releases; use
+the operator/selected-source references above for this repair.
+
 # Runtime pipeline components
 
 ## Current release: build26, six scoped live routes and rich replay

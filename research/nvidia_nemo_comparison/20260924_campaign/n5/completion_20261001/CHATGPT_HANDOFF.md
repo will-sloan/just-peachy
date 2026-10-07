@@ -1,65 +1,103 @@
-# ChatGPT handoff — v29 restored build21
+# Continue from the selected current source
 
-Read START_HERE, CURRENT_RUNTIME_PROGRESS, MODE_GUIDE and BACKEND_COMBINATIONS
-first. Build21 is installed and activated; older release evidence retains its scope. The
-archive is for understanding and review; it excludes models, recordings,
-transcripts, speaker vectors, galleries and credentials.
+Current build35 scope: build35 is activated through the Just Peachy shortcut.
+Opening stays idle with capture off. Choose one of six backend combinations,
+Live microphone or Saved WAV, then Open Application and a Mode. Eleven Mode
+policies are visible; backend, identity policy and calibration are separate.
 
-The objective is offline live ASR, speaker diarization and optional identity on
-the prepared2GB CM5. Sherpa/PnC remain shared. Pyannote or explicit Nemotron
-geometries provide activity; ReDimNet or TitaNet provide separate embedding
-namespaces. Anonymous operation remains available. XVF3800 capture and BMI270
-motion integration are retained.
+Ordinary Pyannote + ReDimNet Start captured 12.5 s and completed Stop and the
+selected full Discard in normal03. That whole check FAILED its later Settings
+observer. Separate exit-only05 passed idle Open Application, Settings and Exit
+with no Start, capture, models or worker launch. These are distinct scopes.
+Live53 passed quiet capture after one verified recovery; Saved54 processed C24
+speech with 137 indexed parts, 40 text rows and 117 embedding queries.
 
-The v29 design separates source from backend, makes normal duration300s, adds a
-separate3600s developer replay path, bounded disk spooling and post-Stop audio
-retention, and capacity-based persistent UUID sessions. It removes the four-slot
-renewal requirement for the new runtime while preserving ownership, leases,
-finite per-session allocation, cleanup and original data.
+Hour08 completed 3600 s / 57.6M samples and all 20 source/model/closure gates.
+Backlog grew to 495.360 s; source-to-EOF took 4090.959 s. Completion passed,
+but sustainable real-time operation did not. Speech/name accuracy, natural
+conversation and biometric calibration remain unqualified or UNCALIBRATED.
 
-Read [the pipeline documentation](../extension_20260928/pi_native_20260928/live_runtime_20261003/README_PIPELINES.md)
-for each architecture, mathematics, implementation hooks and evidence gaps.
-[Research adaptations](../extension_20260928/pi_native_20260928/live_runtime_20261003/RESEARCH_ARCHITECTURES.md)
-links primary papers and separates adaptations from exact reproductions.
-[Native results](../extension_20260928/pi_native_20260928/live_runtime_20261003/NATIVE_RESULTS.md)
-contains matched-input performance/failure scopes; the
-[RAM guide](../extension_20260928/pi_native_20260928/live_runtime_20261003/RAM_RESOURCE_GUIDE.md)
-distinguishes2GB capacity, virtual-address limits, CPU work, heat and4/8GB hypotheses.
+Normal live uses manual Stop and storage capacity without arbitrary duration,
+recording, people, reference or slot counts, or a fixed ordinary backlog cutoff.
+Actual memory/AS/free-space, finite capacity-derived file/drain allowances,
+bounded queues, source/lease/owner, I/O and cleanup guards remain. Individual
+lane delay labels are unavailable; aggregate backlog remains in health metadata.
+Model geometry, thresholds and calibration math are unchanged.
 
-For interpretation:
+Begin with [operator use](FINAL_OPERATOR_GUIDE.md), [Modes](MODE_GUIDE.md),
+[backend combinations](BACKEND_COMBINATIONS.md) and [recovery](INSTALL_HEALTH_AND_RECOVERY.md).
+The runtime pipeline/math notes retain the six exact diarizer/encoder choices.
+Sherpa ASR/PnC, source ordering, captions and the mature portrait UI are shared.
 
-- A live microphone path does not establish sustained real-time behavior.
-- Input-buffer latency excludes compute, association, queueing and stable labels.
-- Component RTF does not equal whole-application throughput.
-- Numerical equivalence is not ground-truth accuracy.
-- Quiet functional recording does not establish speech or speaker accuracy.
-- A one-hour component run does not qualify a one-hour complete application.
-- Recorded motion can invalidate position priors; BMI270 alone cannot recover
-  reliable absolute translation or drift-free heading.
-- A complete verified backup is distinct from source presence or an unfinished
-  copy. Private failure evidence remains preserved.
+## Release and evidence boundary
 
-Useful reading questions are: Where do sample clocks originate? Which queues
-are bounded? What owns each model/source? How are provisional labels revised
-without replacing caption text? Which spatial cues are trusted after movement?
-Which audio bytes are retained and replayed? What happens on each first fault?
 
-After understanding those paths, plan a small consenting real-world trial with
-FIELD_VALIDATION and FIELD_RUN_TEMPLATE. Compare modes on the same saved
-processed timeline before attributing differences to models. Enroll separately
-only when deliberately authorized; never reuse a ReDimNet gallery as TitaNet.
+Closed host scopes are storage23,caption/ASR36,identity28,anchor5,snapshot11,
+gallery20,writer14 and address-space10. These verify contracts/source bytes;
+they do not evaluate speech, biometric names or sustained native operation.
+Older bounded Live/Saved passes do not pass a changed33 runtime.
 
-Earlier v23/v27/v28 and campaign documents remain provenance. FINAL_COVERAGE
-retains N1–N5, the34-method catalogue and unfinished240-cell N4 denominator.
-This iteration does not silently complete those historical experiments.
+Hour01 on30 FAILED at 312s with the exact D1 speaker lag 120.0200042486s.
+Hour05 on31 FAILED at 922.9s with an incomplete compact writer/MemoryError near
+its finite 768 MiB virtual ceiling, despite about 1.1 GB available RAM. It also had
+D1 backlog pressure; exclusive failure allocation/stop ordering is unproven.
+Its external closed mirror is complete, not its internal event stream.
+Neither is a successful full-app hour or natural-conversation quality result.
 
-Build21 reconnects the original twelve application Modes, People/UUID rosters,
-compatible seats, paragraph enrollment/quality/CRUD and rich History above the
-current isolated pipeline. Application Mode is separate from backend geometry.
-Read full_application_20261004/APPLICATION_MODES_AND_MATH.md and
-RESTORATION_FINDINGS.md for the exact connections, voice/seat/math and clocks.
-Representative native checks include310.2s manual Stop and rich export with
-all30members verified. Human enrollment/accuracy remains physical validation.
-The stationary dinner/noise recording and matched sequential Pi replay with
-timed display/offload workflow is documented in FIELD_VALIDATION and deferred.
-No batch runner is implemented now.
+## Native33 short pair and closed sustained failure
+
+| Finalized check | Exact observed scope |
+| --- | --- |
+| Live49, delayed_titanet | Quiet microphone, 195199 samples/12.1999375s; no AEC startup error. Eleven Modes, Stop/source closure, complete Discard and idle chooser/app reopen/Settings Exit passed. No recognized words or embedding query; this is capture/UI evidence. |
+| Saved50, delayed_redimnet | C24 replay, 966400 samples/60.4s; 137 indexed caption parts, 40 GUI rows and 117 embedding calls. Stop/Discard/reopen/Exit passed; original_source_unchanged and its shared lease closure are true. |
+
+Both finalized proofs report worker/main/unit closure and all nine selected
+Discard tables empty with the session folder absent. Their full closed mirrors
+are complete. Neither check saved its discarded session or evaluates speech,
+biometric names, manual Stop beyond 300s or sustained whole-app operation.
+Hour06 FAILED after 10,380,800 samples/649.3s, with no MemoryError or cleanup error.
+Its exact owner exited naturally with code 1, cgroup emptied and leases released; the full
+closed mirror contains 201 files / 249,579,344 bytes. That closure is not a completed hour.
+Historically, desktop30 remained active while build34 failed Live51 and was not activated. Other
+chooser rows retain their earlier release-specific evidence, not a new33 pass.
+Detailed proof/mirror identities remain in CORE_REPAIR_RESULTS.
+
+## Current code navigation
+
+The final V10 handoff source plan for activated35 identifies selected
+[current_build35/SOURCE_MAP](../extension_20260928/pi_native_20260928/live_runtime_20261003/core_repair_20261006/current_build35/SOURCE_MAP.md),
+all package Python including nested reference code, the five changed source/
+README members, and named reviewed controls/profiles. Its map binds actual
+package/content/source-review/closure and selected-file hashes. It distinguishes
+selected source from 449 deployment members and the separate installer tar/SHA.
+The final archive receipt is the authority for actual source publication and archive closure. Procedure sources retain
+their maintained purpose/input/output and PowerShell/CMD/Anaconda READMEs.
+Publication V10 requires actual closed outcomes and privacy/link
+review and settled guide promotion. Its reviewer requires deliberate root
+review; final archive building/sharing is a separate action. No interim ZIP or
+raw Q receipt/content, audio, transcript, person/vector or model asset is selected.
+
+## Build35 host checks and safety
+
+HOST17 passed the bounded ASR metadata cache and HOST19 passed S7 ordered-output/
+deepcopy equivalence and numeric status-format fixtures. Individual lane labels remain unavailable in the current GUI mapping. The manual-Stop policy uses
+storage-derived finite source/drain allowances, max_backlog_seconds=None and
+an observed-size native output workspace. Physical/AS, source continuity, queues,
+I/O and cleanup guards remain. No speech skipping, model geometry or calibration
+changes remain source-bound. Live51 stays FAILED. Live53 verified one current-Start recovery and scoped quiet capture/UI; hour08 subsequently completed source/drain/closure. Sustainable real-time, naming accuracy and long ordinary manual Stop remain unqualified. Normal03 passed capture/Stop/Discard substeps but whole FAILED its Settings observer; separate exit-only05 passed idle Settings/Exit without Start. Hour07 has not run.
+
+## Preserve behavior and unresolved limits
+
+Activated build35 removes arbitrary recording/gallery totals while retaining actual
+free-space/file/queue/payload/transaction/ownership guards and encoder namespaces.
+Atomic caption partitions preserve parent source/token order; partial revisions,
+actual BPE continuation, genuine repetitions and bounded pause/Stop PnC remain.
+Unattributed paragraph grouping does not infer shared identity. Track/name
+assumptions are distinct from independent encoder/query-domain/roster calibration.
+The reserve+8MiB SQLite cleanup edge remains unresolved.
+
+Writer HOST14 retained exact canonical compact bytes/digests and lowered
+preparation peak; it does not qualify a native hour. The finite build35 1 GiB AS policy
+applies to the source-bound worker and admitted recording parents; other
+qualification paths, physical RAM/disk floors and ownership guards remain.
+Use the results for actual scopes, retained failures and unresolved accuracy, timing and cleanup limits.

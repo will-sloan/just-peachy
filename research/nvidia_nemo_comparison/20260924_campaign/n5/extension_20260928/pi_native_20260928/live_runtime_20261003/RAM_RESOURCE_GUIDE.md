@@ -1,3 +1,73 @@
+# RAM, virtual address space and storage
+
+Current build35 scope: build35 is activated through the Just Peachy shortcut.
+Opening stays idle with capture off. Choose one of six backend combinations,
+Live microphone or Saved WAV, then Open Application and a Mode. Eleven Mode
+policies are visible; backend, identity policy and calibration are separate.
+
+Ordinary Pyannote + ReDimNet Start captured 12.5 s and completed Stop and the
+selected full Discard in normal03. That whole check FAILED its later Settings
+observer. Separate exit-only05 passed idle Open Application, Settings and Exit
+with no Start, capture, models or worker launch. These are distinct scopes.
+Live53 passed quiet capture after one verified recovery; Saved54 processed C24
+speech with 137 indexed parts, 40 text rows and 117 embedding queries.
+
+Hour08 completed 3600 s / 57.6M samples and all 20 source/model/closure gates.
+Backlog grew to 495.360 s; source-to-EOF took 4090.959 s. Completion passed,
+but sustainable real-time operation did not. Speech/name accuracy, natural
+conversation and biometric calibration remain unqualified or UNCALIBRATED.
+
+Normal live uses manual Stop and storage capacity without arbitrary duration,
+recording, people, reference or slot counts, or a fixed ordinary backlog cutoff.
+Actual memory/AS/free-space, finite capacity-derived file/drain allowances,
+bounded queues, source/lease/owner, I/O and cleanup guards remain. Individual
+lane delay labels are unavailable; aggregate backlog remains in health metadata.
+Model geometry, thresholds and calibration math are unchanged.
+
+2 GB, 4 GB and 8 GB describe physical RAM. A per-process RLIMIT_AS ceiling describes
+virtual address mappings; it is not resident use, available RAM or a duration
+allowance. More RAM does not remove repeated CPU/copy work or prove sustained
+operation. Backend/model/query/calibration choices keep their own exact scopes.
+
+| CM5 physical RAM | What current evidence permits |
+| --- | --- |
+| 2GB | Build35 completed the repeated-source hour and closure. Sampled whole-unit RSS797,212,672B; minimum available962,789,376B; owned swap12,976,128B and81.5C. Growing lag/memory prevents sustainable real-time or steady-state qualification. |
+| 4GB | More physical headroom may help coexistence/caches. Finite AS/CPU/storage guards still apply; this RAM variant was not measured. More RAM does not fix growing compute lag. |
+| 8GB | Greater physical headroom, not automatic latency, naming, thermal or hour qualification. Guarded model/context/CPU costs remain. |
+
+Hour01 on30 failed a genuine D1 speaker backlog at 312 source seconds. Whole-unit
+peak RSS 615464960/PSS 599397376 bytes, minimum MemAvailable 1066254336 bytes,
+swap 0 and peak 72.15 C belong to that failed scope.
+
+Hour05 on31 failed at 922.9 source seconds. The complete external closed mirror
+contains an incomplete compact writer with MemoryError. Whole-unit peak
+RSS 648724480/PSS 632099840 bytes, minimum MemAvailable 1125548032 bytes and swap 0
+do not indicate physical RAM exhaustion. Worker VmPeak 805224448 bytes was
+81920 bytes below the finite 768 MiB ceiling. D1 backlog pressure also existed;
+exclusive failure allocation/stop ordering remains unproven. Peak 76 C belongs
+to a failed headless repeated-source run, not a thermal/noisy/GUI-hour pass.
+
+Build35 retains source-bound finite 1 GiB model AS for the worker
+and admitted recording parents, retaining frontend 256 MiB soft/1 GiB hard,
+independent metadata 128 MiB and other parents 768 MiB. Physical free-RAM/disk
+floors and CPU/stack/core/task/source/queue protections remain. HOST10 validates source policy. Hour08 completed source/drain/closure; sustainable real-time remains unqualified. Writer HOST14 preserved canonical bytes/digests and lowered
+traced preparation peak 1,868,863 to 961,646 bytes; it is a host allocation case.
+
+Storage totals are capacity-driven, while queues, files, payloads and source
+copies remain bounded. The reserve+8MiB writable-SQLite edge can still block
+cleanup before unlink; ASR ledger planning needs 16 MiB above its reserve.
+See [technical notes](CORE_REPAIR_TECHNICAL_NOTES.md) and the final
+[selected source map](core_repair_20261006/current_build35/SOURCE_MAP.md).
+
+
+
+Hour08 sampled whole-unit peak PSS780,467,200B; worker VmPeak959,758,336B. No throttle flag was sampled. Memory grew: no steady-state, leak-free, cooling/noisy-room/name-quality proof follows. The4GB/8GB possibilities are not measured upgrade results.
+
+## Historical pre-core RAM guide and measurements
+
+Original bytes follow. "Current" and 4 GB/8 GB proposals below retain their stated
+historical scope, not a new33 acceptance or authorization to widen guards.
+
 # RAM and processing limits on the CM5
 
 The device used for this iteration has **2 GB of physical RAM**. Results below

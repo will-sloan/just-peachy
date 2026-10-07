@@ -1,181 +1,155 @@
 # Installation, health and recovery
 
-## Current release: activated build28 shared first-Start repair
+Current build35 scope: build35 is activated through the Just Peachy shortcut.
+Opening stays idle with capture off. Choose one of six backend combinations,
+Live microphone or Saved WAV, then Open Application and a Mode. Eleven Mode
+policies are visible; backend, identity policy and calibration are separate.
 
-**field-runtime-v29-build-28 is installed and activated.** Manifest:
-`e3d55e232730cb3b06cc12289d94cf04539ee04b8021ebd45553e5fd5027917b`.
-The sole Just Peachy desktop shortcut opens the six-choice backend/source
-chooser, then the retained portrait application. Build26, prepared build27 and
-older rollback releases remain preserved.
+Ordinary Pyannote + ReDimNet Start captured 12.5 s and completed Stop and the
+selected full Discard in normal03. That whole check FAILED its later Settings
+observer. Separate exit-only05 passed idle Open Application, Settings and Exit
+with no Start, capture, models or worker launch. These are distinct scopes.
+Live53 passed quiet capture after one verified recovery; Saved54 processed C24
+speech with 137 indexed parts, 40 text rows and 117 embedding queries.
 
-CHECK32 passed one Start click without a listening checkbox: a preserved fresh
-zero-sample AEC255 fault received one conditional readiness recovery, then
-193,600 samples/12.1 s, zero reported drops/errors, Stop/processed Save/Exit.
-CHECK33 passed the normal next Start for Nemotron CurrentDelayed + ReDimNet:
-196,799 samples/12.2999375 s, zero drops/errors and no helper needed. Both passed
-independent native finalization and private job-output readback. These quiet
-checks produced zero indexed captions; earlier six-row speech/quality scopes
-remain distinct. Native Save readback is not a new whole PC audio-export test.
+Hour08 completed 3600 s / 57.6M samples and all 20 source/model/closure gates.
+Backlog grew to 495.360 s; source-to-EOF took 4090.959 s. Completion passed,
+but sustainable real-time operation did not. Speech/name accuracy, natural
+conversation and biometric calibration remain unqualified or UNCALIBRATED.
 
-**Start itself authorizes live listening.** Opening stays idle/capture off and
-login autostart is disabled. Enrollment/gallery consent remains. Pending
-readiness keeps Stop available; Exit waits for helper reap/thread join. Another
-source fault after the single continuation is reported instead of a reset loop.
-Guarded activation verified native before/restore copies and preserved data;
-utility11833/start330361 exited0 and was exactly absent. Desktop SHA:
-`8c917153c58c57d73d8ce0d0e5662b42b3f7d698de0cee4189b844f8cfc70ac0`.
-Independent PC desktop-byte reconstruction passed; no whole native activation
-mirror is claimed. Updated handoff completion is established by its adjacent
-receipt, not this runtime activation.
-Read [first-Start repair findings](../extension_20260928/pi_native_20260928/live_runtime_20261003/stabilization_20261005/FIRST_START_REPAIR_FINDINGS.md).
+Normal live uses manual Stop and storage capacity without arbitrary duration,
+recording, people, reference or slot counts, or a fixed ordinary backlog cutoff.
+Actual memory/AS/free-space, finite capacity-derived file/drain allowances,
+bounded queues, source/lease/owner, I/O and cleanup guards remain. Individual
+lane delay labels are unavailable; aggregate backlog remains in health metadata.
+Model geometry, thresholds and calibration math are unchanged.
 
-## Preserved build26 release and evidence
+## Startup and healthy use
 
-See CURRENT_RUNTIME_PROGRESS for historical build26 activation and the bounded
-CHECK21 Pyannote/ReDimNet60.4s speech/Stop/Save raw + processed pass. The other
-combination results are maintained in the matrix. CHECK27's full saved replay
-and worker cleanup are observed, but its launcher closure failed because Saved
-input was incorrectly required to supply a physical microphone owner. Fresh
-build26 CHECK28 passed full replay/processed Save/Settings/Exit with natural
-worker/main0 and independent exact closure. Build26 was historically activated with verified
-before/restore copies; all six rows have scoped Live function/closure evidence.
-Do not delete owner fences or invent a microphone identity.
-Build21 restoration and earlier recovery receipts remain historical references.
-The [current result matrix](../extension_20260928/pi_native_20260928/live_runtime_20261003/stabilization_20261005/STABILIZATION_RESULTS.md)
-records each later combination's functional scope.
-v27 remains untouched as the rollback/reference; v28 remains the prior
-desktop-first release. Use the final v29 release index and actual manifests,
-not an old campaign dispatcher, to identify deployed code.
+The single Just Peachy shortcut opens the six-row chooser, then the portrait
+Mode/People/Settings application. Opening stays idle/capture-off; Start itself
+authorizes live listening. Enrollment/gallery consent is separate. Login
+autostart remains disabled. Existing microphone readiness recovery is limited
+to its exact guarded fault/owner path, with one conditional continuation;
+it does not loop firmware resets or qualify speech models.
 
-The runtime is an overlay for this prepared CM5, not an arbitrary-device OS
-image. It relies on the pinned aarch64 Python environment, installed application,
-local Sherpa/PnC/Pyannote/Nemotron libraries and assets, separate ReDimNet/TitaNet
-galleries, XVF3800 route, and mounted BMI270 configuration. Nothing is downloaded
-when a field session starts. The ChatGPT ZIP does not contain these model assets.
+Stop waits for source/model/worker drain and closure before Save/Discard.
+Return to backend combinations closes the controller and returns idle to the
+chooser. Exit closes the launcher; reopening obtains a fresh owned envelope.
+Manual session duration and GUI idle lifetime are different. Actual storage,
+source/queue-health, finite drain/cleanup and hardware faults can stop safely. Ordinary manual Stop has no fixed backlog cutoff.
 
-## Normal operation
+Recording History is UUID-based and paged. Availability depends on measured
+storage capacity, not four slots, a recording-count cap or duration-derived
+SQLite/text quota. Segmented files and bounded working sets remain. Physical
+free-space reserves and finite capacity-derived per-file limits still apply.
 
-Open the unified launcher once. Select backend/profile, embedding and Live
-microphone or Saved input, then press Open Application to open the familiar portrait caption app with Mode, People and Settings tabs. Opening either view leaves capture off. Start
-checks the accepted combination, exact assets, source availability, ownership,
-RAM and finite storage allocation. Experimental permission never promises
-real-time performance or silently changes to another backend.
+## If startup reaches recovery
 
-Normal Live uses manual Stop without arbitrary300-second expiry; storage-derived ceilings and finite load/backlog/drain/cleanup remain. Stop drains and closes the source/model/storage before
-offering permanent processed, qualified raw+processed, or discard choices.
-New recordings use persistent UUIDs and capacity checks, with no four-recording
-global limit or reinstall requirement. History is paged; select recordings
-explicitly for replay/export/delete. Deletion never authorizes touching another
-session. Failed data and its fault are retained until an explicit safe action.
+Manager initialization failures show a recovery window with capture disabled
+and explicit SQLite/I/O diagnostic details. Retry reattempts the owned manager
+initialization; it does not silently erase sidecars or arbitrary recordings.
+Diagnostics preserve extended SQLite code/name, operation and database path
+without transcript words or vector contents. Preserve the original failure.
 
-Exit to desktop closes the launcher. Startup stays desktop-first with capture
-off. The GUI has no normal live-session expiry; its300-second idle timeout is separate. Reopening the
-launcher creates a fresh owned envelope, without deleting recordings.
+Writable startup resumes only persisted explicit Discard/Delete intents bound
+to the correct store/session. A status such as failed/deleting/discarded, an
+orphaned directory or a missing audio flag is not independent deletion authority.
+Unknown children, changed ownership, symlinks/reparse points, hard links or
+held capture/replay/export leases block the action rather than selecting another
+session. Kept sessions require deliberate individual Delete.
 
-## Resource and failure behavior
+## What complete Discard means
 
-The2GB device retains OS/storage headroom. Source queues, revision windows,
-diagnostics and disk allocations are bounded. Ordinary model processes retain
-the768MiB virtual-address limit, shared CPU2–3/200% and64-task envelope; the
-explicit two-thread Chunk52 variant is separate from single-thread profiles.
-These are software policies, not physical-RAM measurements. See RAM_RESOURCE_GUIDE.
+An explicit request takes the selected session's exclusive lease and validates
+its owned artifacts before unlink. A durable store-bound intent is published;
+the index becomes deleting. Media/artifacts are removed before bounded index
+purges. owner.json remains until content/index removal commits, then the empty
+session directory is removed and a minimal non-content receipt completes the
+intent. Interrupted retries use that same intent; exact repeats are idempotent.
 
-A source, archive, ownership or resource failure ends that trial explicitly.
-Preserve its logs and original audio; do not erase pending records, relabel a
-partial session complete, reset firmware repeatedly, or bypass a guard.
-A larger RAM device does not automatically relax software limits or cure CPU
-backlog. Long developer tests need explicit finite duration and storage reserves.
+This removes temporary audio, transcript, captions/revisions, spatial work and
+allocation/index rows. It does not mutate another UUID or automatically clean
+unrequested legacy orphans. Old kept evidence is not retrospectively backfilled.
 
-## Rollback and restoration
+## Capacity and the known cleanup edge
 
-Keep the immutable v27/v28 directories, galleries, recordings and existing
-desktop/startup backups. The final selected-release backup must include current
-source/control/configuration, user data, referenced galleries, sole current
-desktop entry and retained old restoration files, with full independent PC readback.
+SQLite considers main/journal/WAL/SHM extents. Its expanding finite file ceiling
+uses existing extents plus free bytes above StoragePolicy reserve, capped at
+filesystem capacity minus reserve. Linux can raise a soft allowance only within
+the inherited finite physical hard ceiling. Existing bytes are not charged
+again as future growth. Logical quota meters remain accounting only.
 
-Shortcut consolidation archives old owned entries after exact backups; unrelated
-desktop files remain untouched. Use the final activation/consolidation receipts
-and their documented restore procedure to restore exact previous bytes. Do not
-extract a consumed release over an existing runtime, replay expired research
-commands, or overwrite current recordings.
+The shared planner needs 2 * metadata_bytes + 8 MiB above reserve before every
+writable LocalStore connection. At default metadata 0, reserve + 8 MiB is needed
+even for writable reads/deletion validation. Below it, Discard can fail before
+its first unlink; the ASR ledger's 4 MiB planning input requires 16 MiB above
+reserve. This physical cleanup edge is **not repaired by logical quota removal**.
+Do not promise that near-full storage always allows automatic cleanup. A
+separately scoped recovery must preserve the sidecars and intended session.
 
-Physical power-cut durability, cable-disconnected coldboot and arbitrary-crash
-recovery are not inferred from normal Stop/Exit. Follow OFFLINE_ACCEPTANCE and
-FIELD_VALIDATION for the separately observed operator checks. Motion gaps make
-spatial trust unavailable; they must not invent a corrected speaker position.
+## Database recovery and rollback
 
-Technical interfaces and commands:
-[release authorization](../extension_20260928/pi_native_20260928/live_runtime_20261003/README_RELEASE_AUTHORIZATION.md),
-[backup](../extension_20260928/pi_native_20260928/live_runtime_20261003/README_BACKUP_EXTERNAL_V2.md),
-[desktop activation](../extension_20260928/pi_native_20260928/live_runtime_20261003/README_DESKTOP_ACTIVATION.md),
-[recording offload](../extension_20260928/pi_native_20260928/live_runtime_20261003/README_OFFLOAD.md).
+Back up the exact closed database and all present sidecars before any repair.
+A completed selected-release-and-user-data backup needs independently verified
+member bytes/hashes and actual source/owner closure; a census, copied subset,
+old embedded backup or progress indicator is not COMPLETE.
 
-## Shared microphone startup repair
+Normal SQLite hot-journal recovery first passed on an independently restored
+host copy, leaving original captured PC bytes unchanged. After accepted full
+backup12, actual Live34 SessionStore opening recovered the native database:
+35,889,152 bytes plus a 41,552-byte journal became36,171,776 bytes with no
+journal/WAL/SHM; quick_check returned ok and projection columns were present.
+No manual journal clear occurred. This is actual store-opening recovery after
+full backup, separate from the earlier host-copy result and from generic crash
+or power-cut durability. Explicit UI Discard then removed only its new selected
+session, with zero rows across nine selected tables and idle chooser/app relaunch.
 
-Build28 handles the exact closed zero-sample AEC255 fault on the original Start
-click. It verifies fault/current owner/leases/capture/resource guards, backs up
-and independently reads back tool/configuration restore copies, and permits one
-conditional `TEST_CORE_BURN 0` with post-AEC/version/build readback. A successful
-readiness check is not itself microphone or model qualification. The actual
-CHECK32 continuation then captured12.1s and completed Stop/processed Save/Exit
-with independent native finalization PASS; CHECK33's normal second Start
-captured12.2999375s without another helper, with independent finalization PASS.
+Never manually remove a hot journal/WAL/SHM, open an immutable URI to hide
+recovery, overwrite a release in place or clear owner fences to force Start.
+Use the exact reviewed package/action and fresh boot/owner/backup receipts.
+No copy-only success becomes backup completion. Do not replay a consumed
+stage/activation/recovery payload or substitute historical acceptance.
 
-The helper runs asynchronously. Stop cancels continuation; Exit retains the
-launcher lease/store until exact helper closure and thread join. Pending mode,
-settings, gallery and recording mutations are blocked. A consumed or uncertain
-maintenance send is not automatically retried. The preserved old helper's
-manual-lifetime null-deadline TypeError occurred before any send; reviewed
-provably-unsent migration remains distinct from uncertain-command handling.
-CHECK32 exercised the narrow pinned old-unsent-failure migration before its
-ordinary source attempt, preserving all old bytes. Its new source produced a
-fresh fault before one fixed helper continuation. This integrated quiet check
-is not a separate migration qualification or generic crash-recovery test.
+Build28 and older immutable releases/data remain rollback points. Restore only
+the exact previous desktop/control bytes verified by the matching activation
+before/restore receipts, after source/helper/cgroup closure. This draft neither
+activates a candidate nor manufactures a rollback/backup-completion receipt.
 
-The manual service's null runtime/deadline are validated against actual systemd
-infinity. Finite check units require finite matching lifetime/reserve; helper
-alarm/CPU/memory/command/cleanup bounds always remain finite. CHECK32's actual
-unit was finite9min, not a new native production-lifetime qualification.
-Start authorizes acquisition directly; no second listening checkbox is needed.
-Enrollment/gallery consent and idle/capture-off startup stay unchanged.
+## Evidence and technical run guidance
 
-See [first-Start findings](../extension_20260928/pi_native_20260928/live_runtime_20261003/stabilization_20261005/FIRST_START_REPAIR_FINDINGS.md),
-[manual Start](../extension_20260928/pi_native_20260928/live_runtime_20261003/stabilization_20261005/README_MANUAL_START.md)
-and [bounded recovery](../extension_20260928/pi_native_20260928/live_runtime_20261003/ui_restore_20261004/README_XVF_READINESS.md).
-## Preserved build25 activation and rollback
+Host storage 23, caption/ASR 36, identity 28 and caption-handoff 5 passed their
+declared synthetic/pinned scopes with backups/restores and exact owner closure.
+Live34 and later checks retain bounded native recovery/Discard/relaunch evidence. Build35 has quiet Live53 and nonempty Saved54 speech/UI checks, normal03 capture/Stop/Discard subpasses and separate idle Exit05. Hour08 completed source/drain/closure with growing lag; sustainable real-time remains unqualified. Physical power-cut/coldboot durability and
+arbitrary crash recovery do not follow from normal Stop/Exit.
 
-Build25 is installed at /home/peachyprototype/JustPeachy/research/nemotron-20260928/field-runtime-v29-build-25.
-Manifest6f548c3aa4005a43aaf4da378c364b0a2c5f17a90a36c223474e85c3b2468df8;
-sole desktop SHA85c61144e899e20f36c3353e9456af3134c72a83491d33815b5e56b0ca392a3a.
-Actual activation left no app/capture, preserved display270 and login autostart
-off. Before/independent restore-copy readbacks are retained at Pi campaign
-field-runtime-v29-classic-activation-0c1fd905aa3449d19a58ce1811916c9c and the
-PC operation-stabilization-desktop25-01/dispatch/RESULT.json. Use those actual
-previous desktop bytes for rollback; never rerun a consumed activation helper.
-Build21 and older runtimes/data remain preserved.
+Technical purpose, inputs/outputs and PowerShell/CMD/Anaconda commands are in
+the candidate READMEs: README_STORAGE_RECOVERY, README_DATABASE_RECOVERY,
+README_CORE_BACKUP_V2, README_CORE_STAGE_V2 and README_CORE_NATIVE_VALIDATION.
+Operator startup is the desktop shortcut; native maintenance uses the root's
+guarded dispatcher, not standalone recovery commands pasted from historical
+examples. See MODE_GUIDE and CORE_REPAIR_TECHNICAL_NOTES for identity/caption limits.
+## Current source and preserved recovery evidence
 
-The speech storage repair explicitly reserves new metadata and independent
-terminal cleanup facts. Ordinary exhaustion still Stops; cleanup attempts all
-releases and preserves the original error. New256MiB Pi/PC finite-copy allowances
-are disk reservations, notRAM. Remeasure shared database/file bounds for each
-check; never reset old ledgers. CHECK21's bounded success is not300s/hour proof.
-See [storage/cleanup findings](../extension_20260928/pi_native_20260928/live_runtime_20261003/stabilization_20261005/SPEECH_STORAGE_REPAIR_FINDINGS.md).
+Build35 is activated through the current capital/spaced Just Peachy shortcut. Its selected
+[source map](../extension_20260928/pi_native_20260928/live_runtime_20261003/core_repair_20261006/current_build35/SOURCE_MAP.md)
+identifies current code and the separate installer; source presence is not
+activation or a backup.
 
-### Preserved build21 restoration/rollback evidence
+Backup14 was complete at its own census:2990 files/684159787 bytes, independent
+hash/readback and exact68815 closure. COMPLETE SHA256:
+9aa11fd4932bb64accda5a8155e735110c20bfb29189c4dc07563c7a171ee80e.
+It predates later hour05 changes and is not called a fresh post-failure backup.
+Rollback28 and existing kept data/galleries remain preserved.
 
-Build21 was installed at /home/peachyprototype/JustPeachy/research/nemotron-20260928/field-runtime-v29-build-21.
-Manifest9abaaaffe35d328fd97f5fc47f1f5b938803705dffb728c5d804d225a646ba6e.
-The sole Desktop/Just Peachy.desktop SHA is7349e29b426e42cd92bbd4b13df02776c07b65110b7e5bad05aad2168f85ee72.
-Actual normal desktop launch/idle/Exit passed; capture/models stayed off.
+Hour05 on31 closed FAILED at 922.9 source seconds. Its complete external mirror
+is distinct from the incomplete internal compact writer. The writer reported
+MemoryError; physical available RAM remained about 1.1 GB while VmPeak approached
+the finite 768 MiB AS ceiling. D1 backlog pressure also existed; exclusive
+allocation/stop ordering is unproven. Keep that failure and its original scope.
+Do not treat a capacity-driven store or a raised finite candidate AS ceiling as
+proof of successful recovery or sustained operation.
 
-Immediate rollback is the exact build17 shortcut saved in the activation evidence
-field-runtime-v29-classic-activation-84c3b00fa02f4fa1821aae01916d3e83 under the Pi campaign.
-Use its before/restore readbacks and exact previous SHA before an atomic restore;
-do not overwrite build17 or move/delete current data. A rollback also needs the
-same no-capture/closed-owner checks; do not replay the consumed activation helper.
-The source wrapper/commands are in full_application_20261004/README_DELIVERY_ACTIONS.md.
+## Current desktop syntax erratum
 
-Build21 assigned seats required Pyannote/ReDimNet; recorded spatial replay and
-optional legacy adaptations are explicitly unavailable. See MODE_GUIDE.
-The new backup path/completion is named in PATHS_AND_BACKUPS; a prepared scope
-is never proof of complete backup. Older backup03 remains preserved.
+The activated shortcut is /home/peachyprototype/Desktop/Just Peachy.desktop. In PowerShell, CMD and Anaconda Prompt quote --desktop "/home/peachyprototype/Desktop/Just Peachy.desktop". The lowercase example in the preserved original normalGUI35 README is historical. V2 selects six metadata reserves and preserves the original32MiB FSIZE; it changes no runtime policy. Do not rerun closed acceptance as ordinary use.

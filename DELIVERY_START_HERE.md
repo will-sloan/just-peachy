@@ -1,3 +1,45 @@
+# Start with operator use and selected source
+
+Current build35 scope: build35 is activated through the Just Peachy shortcut.
+Opening stays idle with capture off. Choose one of six backend combinations,
+Live microphone or Saved WAV, then Open Application and a Mode. Eleven Mode
+policies are visible; backend, identity policy and calibration are separate.
+
+Ordinary Pyannote + ReDimNet Start captured 12.5 s and completed Stop and the
+selected full Discard in normal03. That whole check FAILED its later Settings
+observer. Separate exit-only05 passed idle Open Application, Settings and Exit
+with no Start, capture, models or worker launch. These are distinct scopes.
+Live53 passed quiet capture after one verified recovery; Saved54 processed C24
+speech with 137 indexed parts, 40 text rows and 117 embedding queries.
+
+Hour08 completed 3600 s / 57.6M samples and all 20 source/model/closure gates.
+Backlog grew to 495.360 s; source-to-EOF took 4090.959 s. Completion passed,
+but sustainable real-time operation did not. Speech/name accuracy, natural
+conversation and biometric calibration remain unqualified or UNCALIBRATED.
+
+Normal live uses manual Stop and storage capacity without arbitrary duration,
+recording, people, reference or slot counts, or a fixed ordinary backlog cutoff.
+Actual memory/AS/free-space, finite capacity-derived file/drain allowances,
+bounded queues, source/lease/owner, I/O and cleanup guards remain. Individual
+lane delay labels are unavailable; aggregate backlog remains in health metadata.
+Model geometry, thresholds and calibration math are unchanged.
+
+Open the Just Peachy shortcut, choose one of six backend/encoder rows and Live/Saved,
+then open the idle portrait app. Select Mode/rosters; Start authorizes listening.
+Stop waits for drain/closure before Save or deliberate full-session Discard.
+
+- [Operator steps](research/nvidia_nemo_comparison/20260924_campaign/n5/completion_20261001/FINAL_OPERATOR_GUIDE.md).
+- [Modes, Unknown and calibration](research/nvidia_nemo_comparison/20260924_campaign/n5/completion_20261001/MODE_GUIDE.md); [six combinations](research/nvidia_nemo_comparison/20260924_campaign/n5/completion_20261001/BACKEND_COMBINATIONS.md).
+- [Recovery and capacity](research/nvidia_nemo_comparison/20260924_campaign/n5/completion_20261001/INSTALL_HEALTH_AND_RECOVERY.md).
+- [Per-pipeline math](research/nvidia_nemo_comparison/20260924_campaign/n5/extension_20260928/pi_native_20260928/live_runtime_20261003/CORE_REPAIR_PIPELINE_NOTES.md); [caption/resource contracts](research/nvidia_nemo_comparison/20260924_campaign/n5/extension_20260928/pi_native_20260928/live_runtime_20261003/CORE_REPAIR_TECHNICAL_NOTES.md).
+- Final [selected source map](research/nvidia_nemo_comparison/20260924_campaign/n5/extension_20260928/pi_native_20260928/live_runtime_20261003/core_repair_20261006/current_build35/SOURCE_MAP.md) and [scoped results](research/nvidia_nemo_comparison/20260924_campaign/n5/extension_20260928/pi_native_20260928/live_runtime_20261003/core_repair_20261006/CORE_REPAIR_RESULTS.md).
+
+
+## Historical entry text
+
+Original bytes follow unchanged. Any current/run/acceptance language below belongs
+to its stated historical release; use the current navigation above for this repair.
+
 # Just Peachy — build28 first-Start repair
 
 ## Current release: activated build28 shared first-Start repair

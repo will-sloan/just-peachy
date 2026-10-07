@@ -1,3 +1,54 @@
+# Chunk52, two native threads: selection and timing
+
+Current build35 scope: build35 is activated through the Just Peachy shortcut.
+Opening stays idle with capture off. Choose one of six backend combinations,
+Live microphone or Saved WAV, then Open Application and a Mode. Eleven Mode
+policies are visible; backend, identity policy and calibration are separate.
+
+Ordinary Pyannote + ReDimNet Start captured 12.5 s and completed Stop and the
+selected full Discard in normal03. That whole check FAILED its later Settings
+observer. Separate exit-only05 passed idle Open Application, Settings and Exit
+with no Start, capture, models or worker launch. These are distinct scopes.
+Live53 passed quiet capture after one verified recovery; Saved54 processed C24
+speech with 137 indexed parts, 40 text rows and 117 embedding queries.
+
+Hour08 completed 3600 s / 57.6M samples and all 20 source/model/closure gates.
+Backlog grew to 495.360 s; source-to-EOF took 4090.959 s. Completion passed,
+but sustainable real-time operation did not. Speech/name accuracy, natural
+conversation and biometric calibration remain unqualified or UNCALIBRATED.
+
+Normal live uses manual Stop and storage capacity without arbitrary duration,
+recording, people, reference or slot counts, or a fixed ordinary backlog cutoff.
+Actual memory/AS/free-space, finite capacity-derived file/drain allowances,
+bounded queues, source/lease/owner, I/O and cleanup guards remain. Individual
+lane delay labels are unavailable; aggregate backlog remains in health metadata.
+Model geometry, thresholds and calibration math are unchanged.
+
+Both encoder rows retain cache264/FIFO80/chunk52/right1/left0/update40 in80ms frames: nominal4.24s buffering excludes compute. The exact separately pinned graph requests two native threads; OS/BLAS/shared CPU limits remain. Calibration is independent for each encoder/query domain/roster.
+
+Choose this row with Live/Saved input in the ordinary chooser, then open the
+idle app and select Mode. A plain WAV lacks beam/BMI; spatial replay needs
+recorded rich cues. Closed-group/seat assumptions are not biometric names.
+
+All six rows share actual-BPE continuation, internal bounded recognition resets,
+pause/Stop PnC, source-ordered atomic captions and conservative delayed labels.
+Known track changes/source gaps split paragraphs; contiguous unattributed text
+may group without claiming a shared speaker. Manual History preserves its window.
+
+Read the [six-row notes](../CORE_REPAIR_PIPELINE_NOTES.md),
+[shared contracts](../CORE_REPAIR_TECHNICAL_NOTES.md) and final
+[selected source map](../core_repair_20261006/current_build35/SOURCE_MAP.md).
+Candidate33 carries tested capacity-driven gallery/storage and compact writer
+repairs plus a finite 1 GiB model AS policy; model/geometry/calibration math is
+unchanged.
+
+
+## Historical pre-core technical sheet and measurements
+
+The original bytes below retain their exact release/input/component scopes.
+Their "current" checks, latency/RTF and run examples do not pass the changed33
+whole application or independently calibrate personal naming.
+
 # Chunk52 with two native graph threads
 
 ## Current stabilization: both encoder routes have bounded native passes

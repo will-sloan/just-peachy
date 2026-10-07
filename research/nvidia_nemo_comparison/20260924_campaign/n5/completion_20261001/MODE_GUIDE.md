@@ -1,195 +1,136 @@
-# Mode guide — current stabilization and preserved build21
+# Mode guide
 
-## Current release: activated build28 shared first-Start repair
+Current build35 scope: build35 is activated through the Just Peachy shortcut.
+Opening stays idle with capture off. Choose one of six backend combinations,
+Live microphone or Saved WAV, then Open Application and a Mode. Eleven Mode
+policies are visible; backend, identity policy and calibration are separate.
 
-**field-runtime-v29-build-28 is installed and activated.** Manifest:
-`e3d55e232730cb3b06cc12289d94cf04539ee04b8021ebd45553e5fd5027917b`.
-The sole Just Peachy desktop shortcut opens the six-choice backend/source
-chooser, then the retained portrait application. Build26, prepared build27 and
-older rollback releases remain preserved.
+Ordinary Pyannote + ReDimNet Start captured 12.5 s and completed Stop and the
+selected full Discard in normal03. That whole check FAILED its later Settings
+observer. Separate exit-only05 passed idle Open Application, Settings and Exit
+with no Start, capture, models or worker launch. These are distinct scopes.
+Live53 passed quiet capture after one verified recovery; Saved54 processed C24
+speech with 137 indexed parts, 40 text rows and 117 embedding queries.
 
-CHECK32 passed one Start click without a listening checkbox: a preserved fresh
-zero-sample AEC255 fault received one conditional readiness recovery, then
-193,600 samples/12.1 s, zero reported drops/errors, Stop/processed Save/Exit.
-CHECK33 passed the normal next Start for Nemotron CurrentDelayed + ReDimNet:
-196,799 samples/12.2999375 s, zero drops/errors and no helper needed. Both passed
-independent native finalization and private job-output readback. These quiet
-checks produced zero indexed captions; earlier six-row speech/quality scopes
-remain distinct. Native Save readback is not a new whole PC audio-export test.
+Hour08 completed 3600 s / 57.6M samples and all 20 source/model/closure gates.
+Backlog grew to 495.360 s; source-to-EOF took 4090.959 s. Completion passed,
+but sustainable real-time operation did not. Speech/name accuracy, natural
+conversation and biometric calibration remain unqualified or UNCALIBRATED.
 
-**Start itself authorizes live listening.** Opening stays idle/capture off and
-login autostart is disabled. Enrollment/gallery consent remains. Pending
-readiness keeps Stop available; Exit waits for helper reap/thread join. Another
-source fault after the single continuation is reported instead of a reset loop.
-Guarded activation verified native before/restore copies and preserved data;
-utility11833/start330361 exited0 and was exactly absent. Desktop SHA:
-`8c917153c58c57d73d8ce0d0e5662b42b3f7d698de0cee4189b844f8cfc70ac0`.
-Independent PC desktop-byte reconstruction passed; no whole native activation
-mirror is claimed. Updated handoff completion is established by its adjacent
-receipt, not this runtime activation.
-Read [first-Start repair findings](../extension_20260928/pi_native_20260928/live_runtime_20261003/stabilization_20261005/FIRST_START_REPAIR_FINDINGS.md).
+Normal live uses manual Stop and storage capacity without arbitrary duration,
+recording, people, reference or slot counts, or a fixed ordinary backlog cutoff.
+Actual memory/AS/free-space, finite capacity-derived file/drain allowances,
+bounded queues, source/lease/owner, I/O and cleanup guards remain. Individual
+lane delay labels are unavailable; aggregate backlog remains in health metadata.
+Model geometry, thresholds and calibration math are unchanged.
 
-## Preserved build26: all six scoped live routes and rich replay
+## Select a combination, then a Mode
 
-Build26 is a preserved, historically activated immutable runtime; it does not replace the evidence for
-build21 or repair failed build24 recordings in place. Native **CHECK21 passed
-Pyannote + ReDimNet speech/Stop/cleanup/Save raw + processed**: 60.4 s / 966,400 processed samples,
-48 indexed nonempty caption rows and 40 visible rows. The source child exited0,
-its thread joined, nested owners/main process closed and the cgroup was empty.
-CHECK22/23 add scoped quiet live checks. CHECK27 consumed the full recorded
-spatial source and completed worker cleanup, but its parent closure failed;
-fresh build26 CHECK28 repaired that closure workflow. CHECK21's verified export proves actual segmentation
-and embedding calls. This does not prove named-speaker accuracy, 300 s or an
-integrated hour. The normal
-chooser has six named combinations: Pyannote, Nemotron CurrentDelayed or
-Nemotron Chunk52 with two native graph threads, each with ReDimNet or TitaNet.
-Choose **Live microphone / Saved WAV** independently, then **Open Application**
-to enter the retained portrait application with Mode, People and Settings.
-The small chooser is the entry point; the caption application retains its layout.
-The [current six-choice guide](../extension_20260928/pi_native_20260928/live_runtime_20261003/stabilization_20261005/STABILIZATION_MODE_GUIDE.md)
-and [backend matrix](BACKEND_COMBINATIONS.md) give the current selection rules.
-The [current native result matrix](../extension_20260928/pi_native_20260928/live_runtime_20261003/stabilization_20261005/STABILIZATION_RESULTS.md)
-centralizes later per-combination checks. Fresh staged build26 CHECK28 passed
-full60.4s rich recorded spatial replay/processed Save/Settings/Exit and
-independent closure. It used original beams/BMI/source anchors without current
-motion; plain WAV still has no spatial evidence. Build26 was historically activated with
-verified before/restore copies. All six normal rows have bounded native live
-function/closure observations; their speech/inference/quality scopes differ.
+The ordinary chooser has six rows: Pyannote, Nemotron CurrentDelayed, or Nemotron
+Chunk52 with two native graph threads, each with ReDimNet or TitaNet. Select
+Live microphone or Saved WAV independently and press Open Application. The
+retained portrait app opens idle with Start, Mode, People and Settings.
 
-The actual build24 speech trial produced 19 nonempty captions before exhausting
-its SQLite metadata allocation. Build25 prepares a new, explicitly reserved
-text/SQLite allocation and an independent terminal-cleanup pool; CHECK21 then
-completed with no failure or cleanup error. Old meters,
-failed audio and errors remain preserved. The external finite check reserves
-**256 MiB on the Pi and a separate 256 MiB PC copy**. These are disk allowances,
-not model RAM. Read the [speech storage repair and evidence limits](../extension_20260928/pi_native_20260928/live_runtime_20261003/stabilization_20261005/SPEECH_STORAGE_REPAIR_FINDINGS.md).
+Backend selects diarization timing and voice encoder. Mode selects identity,
+continuity and presentation policy. Sherpa ASR/PnC are shared by all six rows.
+There is no ordinary Anonymous backend row. The underlying contract retains
+12 Mode keys; the mature menu filters standalone Numbered Unknowns
+(anonymous_conversation), leaving 11 visible keys across Mode and Advanced.
 
-Rich saved-session spatial replay is prepared using recorded beam/BMI logs and
-the original sample/callback anchors; plain WAV cannot provide those cues and
-never borrows current sensors. Direction-only seats remain explicit assumptions.
-C088 personal-name calibration stays in its original Pyannote/ReDimNet domain;
-other hybrid routes require their own accepted calibrated voice evidence or
-report **Unknown/calibration blocker**. See the current guide above for gap,
-motion-reference and saved-source restrictions. No new accuracy claim follows.
+| Visible Mode | Meaning and limit |
+| --- | --- |
+| Just Transcription | All words, neutral label, no personal lookup. |
+| All enrolled - one Unknown | Compare compatible people in the active encoder gallery; inadequate/conflicting voice stays Unknown. |
+| Selected names - one Unknown | Only selected compatible UUIDs enter matching. Outsiders may stay Unknown; all captions remain visible. |
+| Selected - closed group | Always show a selected display name. Usable voice chooses its roster winner; absent voice can use a source-linked current/recent assumption or first roster fallback. Assumed names are unverified, may misname outsiders/overlap, and cannot train identity. |
+| Spatial - all enrolled | C079 source-clock cues support voice association; missing/stale cues fall back to voice. Directions do not verify names. |
+| Spatial - selected names | The same conservative association with only the selected compatible matching roster. |
+| Strong spatial - all enrolled | Experimental C060 stronger spatial weighting; freshness, motion, conflict and decay guards remain. Names retain their independent voice gate. |
+| Strong spatial - selected | The same stronger association within the selected matching roster. |
+| Seats - direction only | A fresh unique manually anchored direction region supplies a closed seating assumption, not verified voice identity. Missing/stale/ambiguous directions stay unavailable. |
+| Seats - voice + direction | Exact calibrated voice plus retained seat/conflict policy. Apply at this location; Stop or motion requires re-anchoring. The calibration blocker remains explicit. |
+| All enrolled - numbered Unknowns | Names plus anonymous numbered continuity; tracks can split/merge. Available through Advanced. |
 
-## Preserved build21 interface and evidence
+Matching roster and display roster are separate. Selected-only display hides
+text; it does not acoustically remove voices or restrict the matching roster.
+The full internal transcript remains. Seats use the recording's original array
+orientation. Plain WAV has no beam/BMI timeline; saved spatial replay needs a
+kept rich recording and uses recorded cues, never current motion.
 
-**field-runtime-v29-build-21 was installed and activated.** Its single
-Just Peachy shortcut opened a backend/embedding/recipe chooser with independent
-Live/Saved input; OK then opened the original portrait Modes, People and
-Settings. It opened idle; Exit returned to the desktop. Autostart remains
-disabled; build17 and v27/v28 remain preserved.
+## Unknown, assumptions and calibration
 
-Backend selection and application Mode are separate. Sherpa/PnC remain shared;
-Pyannote or one of twelve Nemotron geometries supplies diarization. ReDimNet and
-TitaNet use separate enrollment/gallery domains; vectors are never converted.
-Anonymous avoids personal names. The chooser has123 backend/embedding/recipe
-variants, with independent source choice; the underlying allowlist retains246
-ordinary configurations. Availability is not Cartesian native testing or a
-real-time guarantee. Experimental profiles require explicit permission.
+ReDimNet2-B2 FP32 and TitaNet-Large FP32 have separate galleries/namespaces.
+Enrollment supplies compatible references; it does not fit calibration. Raw
+cosine is not a probability. A supported anonymous track is not an accepted
+personal identity, and a displayed roster name is not a verified biometric name.
 
-## Original application Modes
+Pyannote/ReDimNet retains the original C088 resolver/gates; its personal-domain
+accuracy remains unevaluated by the repair fixtures. The other five ordinary
+rows require independent calibration for the exact encoder, voice-query domain
+and roster before biometric naming. Their actual voice queries can execute and
+report scores/rejection reasons while names remain Unknown. No C088 threshold
+transfers to TitaNet or Nemotron. Closed-group and direction-seat assumptions
+are displayed separately from that verification gate.
 
-| Mode | Behavior and limit |
-|---|---|
-| Caption only | Text without personal naming. |
-| Enrolled names | All compatible people; insufficient evidence stays Unknown. |
-| Selected focus | Selected participants only; outsiders may stay Unknown. |
-| Selected closed | Forces a selected name, including explicit assumed fallback; can misname outsiders. Assumptions never train identity. |
-| Spatial assisted | Conservative spatial prior; voice evidence still required for names. |
-| Strongly spatial assisted | Experimental stronger prior; conflict/freshness/decay retained. |
-| Spatial selected | Conservative spatial prior within selected roster. |
-| Strongly spatial selected | Experimental stronger prior within selected roster. |
-| Assigned direction | Applied seat region gives a closed-table assumption, not verified identity. |
-| Assigned hybrid | Voice evidence plus applied seats; Unknown/conflict release remain possible. |
-| Anonymous conversation | Numbered continuity without names; tracks may split/merge. |
-| Open with names | Cautious enrolled names plus anonymous continuity. |
+## Read captions and History
 
-In build21, anonymous backends supported caption-only/anonymous Modes. Spatial Modes required
-Live input; recorded spatial replay was not connected. Assigned seats then
-require **Pyannote + ReDimNet** because recovered C088 calibration cannot be
-silently applied to TitaNet/Nemotron. Apply anchors the current device position;
-motion can invalidate seat trust. Participant roster constrains lookup; the
-separate display roster filters presentation without changing recorded evidence.
-Fast/classic/balanced/patient recipes keep explicit dependencies.
+Immediate partials and same-parent revisions remain. The recognizer still
+resets internally near 20 seconds to bound native state; this is not automatically
+a completed spoken utterance. Actual BPE word-start markers determine whether
+the next piece needs a space or continues a word; genuine repetitions remain.
+PnC follows assembled speech at pause/Stop through bounded windows and lexical
+guards. Raw words, source intervals and delayed speaker revisions are retained.
+Token emissions/coarse source windows are not phonetic word timestamps.
 
-The [application Mode integration/math](../extension_20260928/pi_native_20260928/live_runtime_20261003/full_application_20261004/APPLICATION_MODES_AND_MATH.md)
-page explains exact IDs, effective profiles, cosine/seat scoring, gallery
-ownership and clocks. The [17 pipeline pages](../extension_20260928/pi_native_20260928/live_runtime_20261003/README_PIPELINES.md)
-explain each backend geometry and its high/low-level implementation.
+Atomic storage replacement retires old children of the exact parent and keeps
+source/token order even when a later child's coarse clock falls back. Unknown
+text without an actual track can share an explicitly unattributed paragraph;
+that presentation grouping never claims a common speaker. Known track changes,
+source gaps and explicit breaks remain boundaries. Compact default is 19 px;
+larger accessibility choices and saved preferences remain. Pending styling is
+steady. Manual scroll freezes its parent window; older History pages preserve
+the anchor, and Return to live resumes the current tail.
 
-## Operator workflow
+## Ordinary workflow and storage
 
-1. Select backend/source while idle; press **Open Application** in the current chooser (OK in build21); choose Mode/rosters/seats.
-2. For names, use People and explicit-consent paragraph enrollment separately
-   for each encoder. Gallery helpers close before live model construction.
-3. Press **Start**; in build28 that click directly authorizes listening, without a second consent page. For Saved input, select the replay WAV.
-4. Press Stop; wait for drain and source/model/worker closure.
-5. Save the complete session with processed or qualified raw+processed audio,
-   or Discard the entire temporary UUID, including transcript/artifacts.
-6. History supports reopen, rename, deliberate delete and export. Return closes
-   workers before changing backend; Exit returns to desktop.
+1. Choose combination/source while idle, open the app, then select Mode/rosters.
+2. For names, use People with deliberate enrollment consent for each encoder.
+3. Start authorizes listening. Opening remains capture-off; autostart is disabled.
+4. Stop and wait for drain, source/model/worker closure.
+5. Save processed or qualified raw+processed session, or Discard the complete
+   temporary UUID, including transcript, spatial work and index rows.
+6. Use History to reopen/export or deliberately Delete a kept session. Settings'
+   Return to backend combinations closes the controller and returns idle to the
+   chooser; Discard itself does not invoke that transition.
 
-Normal Live uses **manual Stop**, without an arbitrary120/300-second cutoff.
-Capacity-derived recording/export reserves, disk floors, bounded queues/caches
-and finite load/backlog/drain/cleanup still apply. Safety faults can Stop.
-Kept history uses persistent UUIDs, pagination and storage capacity, not four
-global slots. v27/v28 rollback recordings are not automatically migrated.
+Normal live duration uses manual Stop and actual storage/resource protection,
+not an arbitrary recording count or 120/300-second conversation timer. Logical duration-derived metadata quotas are removed. Activated build35 removes inherited gallery count/reference/snapshot/export ceilings. Paged History and segmented files preserve growing history with bounded
+RAM. Real free-space reserves, finite file allowance, queues/payloads and
+source/queue-health and finite drain/cleanup guards remain; ordinary manual Stop has no fixed backlog cutoff. A physical I/O fault can stop safely.
 
-## Recording and provenance
+Known limit: writable SQLite admission needs 8 MiB above the physical reserve
+even before deletion validation. Near that floor, Discard can fail before its
+first unlink; the frozen candidate does not establish automatic space recovery.
 
-Kept sessions contain exact segmented16kHz float32 model input/PCM16 replay WAV,
-captions/revisions/transcript, configuration, gallery/model pins/snapshots and
-available beam/BMI streams. Qualified raw is four physical **16kHz PCM32
-little-endian** channels; its48kHz stereo transport does not make stored raw48kHz
-ADC audio. Processed XVF output is never called raw.
 
-Beam reads/BMI poses retain actual monotonic observation times; separate audio
-callback/sample anchors permit an honest join, not proven DSP acoustic time.
-Gaps/reference changes remain explicit; saved WAV never borrows current pose.
+## Current source and evidence
 
-Store: /home/peachyprototype/JustPeachy/data/runtime-v29/recordings
-Export: /home/peachyprototype/JustPeachy/data/runtime-v29/recording_exports
+The repair candidate uses capacity for total recordings and gallery contents.
+People consent, separate encoder namespaces, per-item validation and real
+free-space/ownership guards remain. Its streamed copies and exports have bounded
+working buffers; this does not establish large-gallery speed or naming accuracy.
 
-Keep the complete ZIP; copy/export preserves the Pi source.
+Read [backend combinations](BACKEND_COMBINATIONS.md),
+[recovery](INSTALL_HEALTH_AND_RECOVERY.md) and the runtime
+[pipeline notes](../extension_20260928/pi_native_20260928/live_runtime_20261003/CORE_REPAIR_PIPELINE_NOTES.md).
+The final selected source will be listed in
+[current_build35/SOURCE_MAP](../extension_20260928/pi_native_20260928/live_runtime_20261003/core_repair_20261006/current_build35/SOURCE_MAP.md).
+Its deployment installer is a separate asset. Historical Mode math remains in
+full_application_20261004/APPLICATION_MODES_AND_MATH.md with its original scope.
+Current35 operator behavior: individual text/speaker delay labels are unavailable;
+aggregate backlog remains in health metadata and timing is unqualified.
+Its ordinary manual-Stop path keeps accepted speech while work catches up,
+rather than stop solely on accumulated lag. Stop still waits for finite admitted drain; a failed/incomplete drain
+does not become a successful recording. Larger lag may expire voice/direction
+evidence and leave Unknown; a closed roster assumption remains unverified.
 
-## Actual evidence and limits
-
-Representative native checks passed Pyannote/ReDimNet, Pyannote/TitaNet,
-CurrentDelayed/ReDimNet, CurrentDelayed/TitaNet, Chunk52/ReDimNet and anonymous.
-The manual-Stop trial retained **310.2s /4,963,200 processed samples**, complete
-raw, restored routes and exact closure. Real encoder/quality models prepared
-without mic/person creation for both enrollment helpers. Anonymous Discard
-removed the entire temporary session. Build21 normal desktop launch/idle/Exit
-passed with ten stable480x800 states and no capture/model. Rich Export09 copied
-a2,152,081B ZIP with all30members/CRC/readback verified. These are programmatic
-real-widget functional checks, not touch/human enrollment/noisy accuracy tests.
-[Restoration findings](../extension_20260928/pi_native_20260928/live_runtime_20261003/full_application_20261004/RESTORATION_FINDINGS.md)
-preserves all failed trials and new corrections.
-
-[BACKEND_COMBINATIONS](BACKEND_COMBINATIONS.md) retains original measured scopes:
-CurrentDelayed roughly21.3s first output; Chunk52 component RTF about1.08;
-two-thread component hour0.88445 average/about0.94late/85.35Cpeak; official
-low/very-low/ultra-low prefix RTF4.819/5.791/8.119; compact3.04s short RTF0.8568,
-quality unqualified. Buffer latency excludes compute. Whole-application hour04
-FAILED at3,584.955/3,600seconds; OS closure/backup do not pass it. Primary bounded
-late labels/sparse extraction remain; older parallel refinement is disabled.
-
-The actual2GB CM5 has2,108,473,344B MemTotal.768MiB process virtual-AS,
-CPU2–3/shared200%,64tasks and1MiB stacks remain. AS differs from RSS/PSS.
-4/8GB may help residency when memory is limiting; it does not cure CPU/thermal
-backlog or relax software guards. No larger-board benchmark is claimed.
-
-Build21 assigned seats were Pyannote/ReDimNet only and saved spatial replay was
-unavailable; build25's prepared changes are described above. DPDFNet,
-adaptive promotion, Windows transcript review and RAM audio excerpts are
-explicitly unavailable; metadata problem markers work. BMI270 cannot supply
-reliable absolute translation or drift-free heading. Human enrollment quality,
-representative noise, touch/offline coldboot, battery and a successful whole-app
-hour remain real-world validation.
-
-The future stationary recording / separate enrollments / matched Pi replay /
-timed display / Windows offload workflow is in [FIELD_VALIDATION](FIELD_VALIDATION.md).
-Batch automation is deliberately not implemented now. Read [recovery](INSTALL_HEALTH_AND_RECOVERY.md),
-[motion](MOTION_GUIDE.md), [paths/backups](PATHS_AND_BACKUPS.md) and
-[RAM/resources](../extension_20260928/pi_native_20260928/live_runtime_20261003/RAM_RESOURCE_GUIDE.md).
