@@ -1,0 +1,30 @@
+{
+  "epoch": 0,
+  "next_batch": 147370,
+  "step": 147370,
+  "processed_records": 1025675,
+  "processed_audio_seconds": 3088162.8876037556,
+  "active_seconds": 19519.406266804086,
+  "dataset_records": {
+    "ami": 340990,
+    "chime6": 630183,
+    "common_voice": 45892,
+    "voices": 8610
+  },
+  "best_validation_loss": null,
+  "identity": "69d1a3269aef1c0258aa8ac77b86a895753668fca7ff0bd6fe7a2a43d31ae248",
+  "training_wall_seconds": 31123.033287645943,
+  "distinct_sources": {
+    "common_voice": 45892,
+    "ami": 76136,
+    "chime6": 51721,
+    "voices": 513
+  },
+  "training_cap_reached": false,
+  "complete": true,
+  "method": "full",
+  "weights": "weights.step_0147370.msgpack",
+  "weights_sha256": "56bc85b2fa68c489abf7f74750bbd4c15be28aa0a425ce1c546b04411689541a",
+  "model": "whistle.step_0147370.cact",
+  "model_sha256": "e24d8a15eb7cb17dc83c93b1a24a02199ee147eb3649728f985f21188aa520bf"
+}

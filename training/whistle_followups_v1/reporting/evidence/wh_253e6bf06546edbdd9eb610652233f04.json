@@ -1,0 +1,25 @@
+{
+  "kind": "note",
+  "title": "Completed omission comparisons retain all four training datasets",
+  "data": {
+    "id": "extension_selection_interpretation_3cd09088fdddef32",
+    "title": "Completed omission comparisons retain all four training datasets",
+    "paragraphs": [
+      "The saved extension decision rejects both omissions and retains the mixed reference. Every longer pilot reached 30,000 updates and exceeded 500 visited views for every retained dataset, so these rejections are supported by measured results rather than insufficient exposure. The last pilot, without CHiME 6, completed in 82.9 active minutes and visited 181,394 microphone views: 156,873 AMI, 20,687 Common Voice and 3,834 VOiCES. Its development-selected best export scored 30.71% macro WER; its distinct final export scored 31.30%. Both identities remain recorded.",
+      "The longer mixed reference scored 29.52% development macro WER. Removing VOiCES raised error to 30.34%, a 0.82 percentage-point increase; the saved paired cluster 95% interval for candidate minus reference is +0.29 to +1.37 points. Removing CHiME 6 raised error to 30.71%, a 1.20-point increase, with interval +0.37 to +1.69 points. Both intervals lie above zero, supporting worsening within this declared comparison. Neither omission achieves the required 2% relative gain. These development intervals do not correct for the entire model search and do not establish a globally optimal mixture.",
+      "The CHiME omission improves AMI from 33.71% to 32.86% and VOiCES from 17.36% to 17.18%, but worsens Common Voice from 7.32% to 7.82% and CHiME 6 from 59.67% to 64.99%. The 5.32-point CHiME regression breaches the two-point per-dataset guard. The VOiCES omission also breaches that guard on VOiCES (+2.19 points). These tradeoffs show why the decision must include all four evaluation datasets, including the omitted training source.",
+      "Quiet-view WER is 47.04% for the mixed reference, 46.82% without VOiCES and 47.07% without CHiME 6. All selected exports have zero insertions on the 20 fixed silence and Gaussian-noise probes, and both omissions pass the saved quiet/noise guards. Passing those narrow guards does not compensate for aggregate and dataset regressions, or establish robustness on real product recordings.",
+      "The saved production decision requires no refit and preserves production_all_audio. Its all-audio LoRA recipe retains the original relative weights: Common Voice 0.4008074125, AMI 0.3135967650, CHiME 6 0.1855958224 and VOiCES 0.1. The campaign used 11 followup training runs: seven original pilots, the preserved production fit and three extension pilots; the one conditional twelfth run was not selected. Frozen production scoring followed recipe selection and did not choose or alter the recipe. No further trial is authorized by these results."
+    ],
+    "evidence": [
+      "training/whistle_followups_v1/extension_decision.json SHA256 3cd09088fdddef3220c00e4e00d24a2d640b0a925663a2f41618f97940feb1f1",
+      "training/whistle_followups_v1/extension_production_decision.json SHA256 f8332a74b4cce8921abd142f098eb0a04206859346a3885df3ed16f98ee19d26",
+      "training/whistle_followups_v1/runs/ext_without_chime6/scores.json SHA256 019905a76cb48ff496a720ab2efb53e78178b222ddf685335956b337face5506",
+      "training/whistle_followups_v1/extension_snapshot.json SHA256 21a8eb4a32f3a422a7156d380eeef4ab07db320d7f005f89176d0fba1eb147c2",
+      "training/whistle_followups_v1/runs/ext_without_chime6/checkpoint.json SHA256 b9a1737b360168a4872a1c531e956344f229b0489d7ad1cd38b156b8f2cb2f8c"
+    ]
+  },
+  "sources": [],
+  "key": "extension_selection_interpretation_3cd09088fdddef32",
+  "id": "wh_253e6bf06546edbdd9eb610652233f04"
+}

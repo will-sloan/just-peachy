@@ -1,0 +1,108 @@
+{
+  "run": "whistle_transcription_guarded_v1",
+  "initialization": {
+    "passed": true,
+    "identity": "25cdf29e1111e85ed9947547a271d3f20745c9158318e949fde365c4a344e619",
+    "zero_update_export_sha256": "cd6b10970450112a70f08cbf6416cac04462932be4604bda8f93b758f5b1c337",
+    "native_export_byte_identical": true,
+    "fresh_optimizer": true,
+    "parent_adapter_sha256": "2b65dbd47bc82f629e65f32e356299a15774073dec8d61f9181f9b477f8bc558",
+    "step": 0
+  },
+  "configuration": {
+    "run_name": "whistle_transcription_guarded_v1",
+    "epochs": 1,
+    "seed": 20261022,
+    "learning_rate": 1e-05,
+    "lora_rank": 16,
+    "lora_alpha": 32,
+    "dtype": "bfloat16",
+    "matmul_precision": "highest",
+    "loss_normalization": "full_pool_per_clip",
+    "max_batch_size": 8,
+    "batch_audio_seconds": 60,
+    "batch_tokens": 1024,
+    "loader_workers": 12,
+    "checkpoint_seconds": 300,
+    "validation_every_steps": 5000,
+    "validation_per_dataset": 128,
+    "whistle_revision": "741118687e1f008f06d1351a402a731274789790",
+    "dataset_weights": {
+      "common_voice": 0.32064,
+      "ami": 0.25088,
+      "chime6": 0.14848,
+      "voices": 0.08,
+      "librispeech_clean": 0.2
+    },
+    "source_manifest_directory": "training/successors/phase5a_original_adapter_training_v1/framework_manifests",
+    "training_manifests": [
+      "age_train.parquet",
+      "ami_train.parquet",
+      "chime_train.parquet",
+      "voices_train.parquet"
+    ],
+    "development_manifests": [
+      "age_dev.parquet",
+      "ami_dev.parquet",
+      "chime_dev.parquet",
+      "voices_dev.parquet"
+    ],
+    "wsl_distribution": "Ubuntu",
+    "wsl_python": "/home/amiri/.venvs/whistle/bin/python",
+    "dashboard_port": 8766,
+    "release_review_required": false,
+    "quantization_mode": "upstream_full",
+    "max_steps": 10000,
+    "max_active_seconds": 3600,
+    "warmup_steps": 200,
+    "end_learning_rate": 5e-07,
+    "amendment_sha256": "bd4c831625afc536a27f83643fbd5a45358ebf8500762e7fe91b5587433cd4f9",
+    "split_snapshot_sha256": "3cafc586d637da1fa5c5093fc942005f1171d3fb28911d507450530c688095c7",
+    "initial_adapter_sha256": "2b65dbd47bc82f629e65f32e356299a15774073dec8d61f9181f9b477f8bc558"
+  },
+  "completed_training": {
+    "epoch": 0,
+    "next_batch": 4000,
+    "step": 4000,
+    "processed_records": 20225,
+    "processed_audio_seconds": 142009.17618153075,
+    "active_seconds": 406.7172717879862,
+    "dataset_records": {
+      "ami": 5091,
+      "voices": 1703,
+      "librispeech_clean": 4013,
+      "chime6": 2985,
+      "common_voice": 6433
+    },
+    "best_validation_loss": null,
+    "identity": "25cdf29e1111e85ed9947547a271d3f20745c9158318e949fde365c4a344e619",
+    "distinct_sources": {
+      "common_voice": 6433,
+      "ami": 5091,
+      "chime6": 2985,
+      "voices": 502,
+      "librispeech_clean": 3408
+    },
+    "training_cap_reached": false,
+    "saved_at": 1792967805.9127984,
+    "bytes": 20355004,
+    "sha256": "69ad036d80525973fb8130650330b0827ef3efd00fcbf298cee667da064d4db3"
+  },
+  "default_model_sha256": "cd6b10970450112a70f08cbf6416cac04462932be4604bda8f93b758f5b1c337",
+  "experimental_models": {},
+  "training_includes_development": false,
+  "base_license": "Apache-2.0",
+  "inherited_license_provenance": {
+    "status": "resolved",
+    "release_review_required": false,
+    "dataset": "chime6",
+    "license": "CC-BY-SA-4.0",
+    "confirmation_date": "2026-10-23",
+    "confirmation_source": "explicit user message in the current chat",
+    "user_statement": "The chime6 licensing is resolved and good to go.",
+    "attribution_records_retained": true
+  },
+  "additional_clean_replay_license": "LibriSpeech CC-BY-4.0; preserve attribution",
+  "product_microphone_validation": false,
+  "independent_final_age_test": false
+}

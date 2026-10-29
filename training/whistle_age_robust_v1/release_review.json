@@ -1,0 +1,10 @@
+{
+  "status": "resolved",
+  "release_review_required": false,
+  "dataset": "chime6",
+  "license": "CC-BY-SA-4.0",
+  "confirmation_date": "2026-10-23",
+  "confirmation_source": "explicit user message in the current chat",
+  "user_statement": "The chime6 licensing is resolved and good to go.",
+  "attribution_records_retained": true
+}

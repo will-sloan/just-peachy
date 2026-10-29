@@ -1,0 +1,10 @@
+{
+  "rerun_required": false,
+  "selected_production_run": "production_all_audio",
+  "selected_method_run": "ext_mix_reference",
+  "recipe": null,
+  "decision_sha256": "3cd09088fdddef3220c00e4e00d24a2d640b0a925663a2f41618f97940feb1f1",
+  "development_folded_into_training": true,
+  "frozen_test_used_for_selection": false,
+  "reason": "No eligible omission passed all guards; preserve the existing production fit"
+}

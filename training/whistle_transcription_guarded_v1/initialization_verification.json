@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "identity": "25cdf29e1111e85ed9947547a271d3f20745c9158318e949fde365c4a344e619",
+  "zero_update_export_sha256": "cd6b10970450112a70f08cbf6416cac04462932be4604bda8f93b758f5b1c337",
+  "native_export_byte_identical": true,
+  "fresh_optimizer": true,
+  "parent_adapter_sha256": "2b65dbd47bc82f629e65f32e356299a15774073dec8d61f9181f9b477f8bc558",
+  "step": 0
+}

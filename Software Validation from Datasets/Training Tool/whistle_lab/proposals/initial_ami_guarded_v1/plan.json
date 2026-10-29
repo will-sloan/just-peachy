@@ -1,0 +1,195 @@
+{
+  "schema": "whistle-training-proposal/v1",
+  "id": "initial_ami_guarded_v1",
+  "created_on": "2026-10-25",
+  "status": "designed_not_started",
+  "executable": false,
+  "scope": "One proposed additional training trajectory. This is separate from the completed frozen campaign; the current request is to design it.",
+  "question": "Does a short AMI-only adaptation of the initial tuned model improve noisy-speech recognition while preserving its other capabilities?",
+  "interpretation_limit": "This is AMI-only additional training, not a model trained exclusively on AMI: the initialization already learned from four datasets. It is not a causal dataset-ranking experiment.",
+  "initialization": {
+    "base_revision": "741118687e1f008f06d1351a402a731274789790",
+    "adapter": "C:/Users/amiri/Documents/GitHub/just-peachy/training/whistle_age_robust_v1/adapter.final.safetensors",
+    "adapter_sha256": "2b65dbd47bc82f629e65f32e356299a15774073dec8d61f9181f9b477f8bc558",
+    "reference_export": "C:/Users/amiri/Documents/GitHub/just-peachy/training/whistle_age_robust_v1/whistle.final.cact",
+    "reference_export_sha256": "cd6b10970450112a70f08cbf6416cac04462932be4604bda8f93b758f5b1c337",
+    "parent_run_identity": "7b6483a245ab50a8ae60bed32c4c3eb0ba4a450e898eccf066628a1b83a1e65c",
+    "optimizer": "fresh AdamW state for a new experiment; restore trained adapter tensors, not the exhausted parent schedule",
+    "start_step": 0,
+    "reference_in_candidate_set": true,
+    "prerequisite": "Verify adapter/base compatibility and zero-update native export equivalence to the preserved initial model before any optimizer update."
+  },
+  "training": {
+    "dataset": "ami",
+    "split": "qualified train only",
+    "source": "Existing published qualified AMI views; select only original eligible AMI training source groups and exclude every validation/confirmation source group.",
+    "data_policy": "Retain the published quarantine, original aligned transcripts, source-utterance normalization and relative quiet-view confidence. No new microphone expansion, transcript rewriting, gain adjustment or energy-only intelligibility claim.",
+    "quality_generation": "ce763f776b2cf4a81168",
+    "dataset_relative_weight": 1,
+    "method": "LoRA attention adapters",
+    "lora_rank": 16,
+    "lora_alpha": 32,
+    "base_frozen": true,
+    "dtype": "bfloat16",
+    "quantization_mode": "upstream_full",
+    "peak_learning_rate": 0.00001,
+    "warmup_steps": 200,
+    "schedule": "cosine over the fixed 10,000-update horizon, ending at 5e-7; an earlier cap does not stretch or restart the schedule",
+    "end_learning_rate": 5e-7,
+    "weight_decay": 0.01,
+    "gradient_clip_norm": 1,
+    "max_batch_size": 8,
+    "batch_audio_seconds": 60,
+    "batch_tokens": 1024,
+    "seed": 20261022,
+    "loader_workers": 12,
+    "checkpoint_seconds": 300,
+    "caps": {
+      "max_updates": 10000,
+      "max_active_optimizer_seconds": 3600,
+      "max_training_passes": 1,
+      "stop_at_first_limit": true
+    },
+    "minimum_promotion_exposure": {
+      "updates": 4000,
+      "distinct_ami_source_utterances": 1000
+    },
+    "max_training_runs": 1,
+    "max_production_refits": 0
+  },
+  "evaluation": {
+    "runtime": "Same pinned native runtime and Whisper English normalizer; evaluate exported W4A8 models.",
+    "roles": {
+      "historical": "The already-inspected 512-clip frozen benchmark is historical evidence for this new proposal; it cannot be advertised as a fresh independent test.",
+      "development": "Freeze a source-group-disjoint panel before training, retaining all four dataset domains plus clean/general-speech retention cohorts.",
+      "confirmation": "Freeze a separate, previously unscored panel from sources unseen by the initial model and this adaptation, including speaker/session/meeting disjointness. Do not inspect its outcomes until the development checkpoint is fixed."
+    },
+    "cohorts": [
+      "ami",
+      "chime6",
+      "voices",
+      "common_voice_age",
+      "cmu_arctic_clean",
+      "hifitts_clean",
+      "hifitts_native",
+      "librispeech_clean",
+      "librispeech_native"
+    ],
+    "target_distinct_utterances_per_cohort": 128,
+    "group_units": {
+      "ami": "meeting",
+      "chime6": "session",
+      "voices": "speaker with clean/re-recorded variants grouped",
+      "common_voice_age": "speaker/client",
+      "other": "speaker/book or source recording, grouping matched variants"
+    },
+    "split_gate": "Metadata audit must prove exclusions against the full parent training history and this run. New source IDs or new segment boundaries alone are insufficient. If disjoint, adequately represented confirmation data cannot be frozen, stop at preparation; do not relabel an exposed panel as independent.",
+    "clean_audio_use": "Validation and confirmation only; it is not part of the AMI-only training loss.",
+    "age_test": "Claim an independent age result only if speaker-disjoint, previously unused age data pass the provenance gate.",
+    "candidate_steps": [
+      2000,
+      4000,
+      6000,
+      8000,
+      10000
+    ],
+    "max_candidate_validation_passes": 5,
+    "limit_checkpoint_rule": "A terminal checkpoint between scheduled steps replaces the next evaluation slot; no sixth candidate pass.",
+    "negative_probes": "Retain the 20 fixed silence/Gaussian-noise probes. They do not replace real product-microphone or real background-speech validation.",
+    "quiet_reference_words_min": 100,
+    "execution": "Serialize validation between checkpointed training blocks; do not run a second GPU worker or competing inference job.",
+    "primary_metric": "Arithmetic mean of AMI and CHiME-6 WER, with each dataset weighted equally.",
+    "tie_break": "Among checkpoints passing all development guards, choose the lowest primary WER; choose the earlier step on an exact tie.",
+    "early_stop": {
+      "check_interval_updates": 2000,
+      "patience_evaluations": 3,
+      "min_primary_improvement_percentage_points": 0.2,
+      "stop_after_two_consecutive_guard_violations": true,
+      "retain_best_and_step_zero": true
+    },
+    "final_confirmation_passes": 1,
+    "uncertainty": {
+      "method": "Paired hierarchical/group bootstrap, preserving microphone variants within the same source group",
+      "resamples": 10000,
+      "seed": 20261025,
+      "confidence": 0.95,
+      "primary_comparison": "one preselected candidate versus the initial model; no runner-up after inspecting confirmation"
+    },
+    "caveat": "Development checkpoint selection is adaptive; only the separate one-shot confirmation supports the new improvement claim. Report cluster counts and uncertainty, not microphone-view counts as independent samples."
+  },
+  "promotion": {
+    "reference": "initial tuned final export",
+    "minimum_relative_primary_gain": 0.02,
+    "paired_confirmation_95pct_upper_delta_must_be_below": 0,
+    "maximum_wer_increase_percentage_points": {
+      "ami": 0.5,
+      "chime6": 0.5,
+      "voices": 0.5,
+      "common_voice_age": 0.5,
+      "cmu_arctic_clean": 0.25,
+      "hifitts_clean": 0.25,
+      "librispeech_clean": 0.25,
+      "hifitts_native": 0.5,
+      "librispeech_native": 0.5,
+      "quiet_speech": 1
+    },
+    "negative_probe_increases_allowed": 0,
+    "apply_point_guards_to": "both development selection and final confirmation; show paired uncertainty for retention slices as well",
+    "missing_or_underpowered_evidence": "no promotion; retain the initial model",
+    "all_gates_required": true,
+    "deployment_artifact": "Exact selected checkpoint export; do not fold development into training or train again after selection.",
+    "rejected_candidate": "Archive its evidence and retain the initial model. No additional dataset, seed, learning-rate search or refit in this proposal."
+  },
+  "outputs": {
+    "intended_run_directory": "C:/Users/amiri/Documents/GitHub/just-peachy/training/whistle_initial_ami_guarded_v1",
+    "required": [
+      "proposal_snapshot.json",
+      "provenance_audit.json",
+      "split_snapshot.json",
+      "initialization_verification.json",
+      "control.json",
+      "status.json",
+      "checkpoint.json",
+      "validation_summary.json",
+      "confirmation_summary.json",
+      "decision.json",
+      "model_manifest.json",
+      "adapter.selected.safetensors",
+      "whistle.selected.cact",
+      "summary.json"
+    ],
+    "protected": [
+      "C:/Users/amiri/Documents/GitHub/just-peachy/training/whistle_age_robust_v1",
+      "C:/Users/amiri/Documents/GitHub/just-peachy/training/whistle_followups_v1"
+    ]
+  },
+  "readiness": {
+    "implemented": false,
+    "training_launched": false,
+    "automations_reactivated": false,
+    "remaining_work": [
+      "Implement isolated warm-start loading and step-zero candidate preservation.",
+      "Freeze and hash source-disjoint development and fresh confirmation panels, including clean-speech retention cohorts.",
+      "Verify every batch shape, zero-update model equivalence and exact pause/resume for the new runner.",
+      "Write tested launch/status/pause/resume instructions before execution."
+    ],
+    "current_launch_command": null,
+    "reason": "Existing worker/launcher contracts implement the completed campaign and do not implement this guarded warm-start proposal."
+  },
+  "evidence": {
+    "completed_summary_sha256": "a374fc3b69cbb6f5d41dada896f3d139c7836f7edade046c1091deb1b1fdc5a5",
+    "completed_extension_decision_sha256": "3cd09088fdddef3220c00e4e00d24a2d640b0a925663a2f41618f97940feb1f1",
+    "dataset_contributions_sha256": "a52f57f3d4a0b14ead8e426aad765a741a57766ca41e98bc1634189357b19048",
+    "four_dataset_development_macro_wer": {
+      "initial_tuned_final": 0.2805755,
+      "short_mixed": 0.3169663578628649,
+      "short_ami_only": 0.318455843108347,
+      "long_mixed": 0.2951605526508913
+    },
+    "numbers_are_not_comparable_to": "The eight-cohort historical frozen-test aggregate; the panels and domains differ.",
+    "sources": [
+      "https://www.cactuscompute.com/blog/finetuning-whistle",
+      "https://arxiv.org/abs/2207.00216"
+    ]
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "kind": "decision",
+  "title": "Longer omission comparison decision",
+  "data": {
+    "selected": "ext_mix_reference",
+    "reference": "ext_mix_reference",
+    "comparisons": [
+      {
+        "reference": "ext_mix_reference",
+        "candidate": "ext_without_voices",
+        "macro_wer_delta": 0.008242630385831895,
+        "relative_gain": -0.02792592137331128,
+        "paired_cluster_95pct_interval": [
+          0.002864328234116453,
+          0.013740362981985286
+        ],
+        "dataset_deltas": {
+          "common_voice": 0.0,
+          "ami": -0.0007617306520414369,
+          "chime6": 0.011865793780687306,
+          "voices": 0.021866458414681794
+        },
+        "silence_noise_guard_passed": true,
+        "quiet_audio_guard_passed": true,
+        "promote": false,
+        "interpretation": "development evidence only; intervals do not correct for the entire model search; quiet guard only applied with at least 100 reference words"
+      },
+      {
+        "reference": "ext_mix_reference",
+        "candidate": "ext_without_chime6",
+        "macro_wer_delta": 0.01196485549859777,
+        "relative_gain": -0.04053677021247995,
+        "paired_cluster_95pct_interval": [
+          0.0036871704325067266,
+          0.01693471777580532
+        ],
+        "dataset_deltas": {
+          "common_voice": 0.005021520803443327,
+          "ami": -0.00853138330286407,
+          "chime6": 0.05319148936170215,
+          "voices": -0.0018222048678901426
+        },
+        "silence_noise_guard_passed": true,
+        "quiet_audio_guard_passed": true,
+        "promote": false,
+        "interpretation": "development evidence only; intervals do not correct for the entire model search; quiet guard only applied with at least 100 reference words"
+      }
+    ],
+    "exposure": {
+      "ext_mix_reference": {
+        "step": 30000,
+        "active_seconds": 6552.298697954015,
+        "dataset_records": {
+          "chime6": 128115,
+          "ami": 70078,
+          "common_voice": 9282,
+          "voices": 1696
+        },
+        "audio_hours_processed": 174.21189258888217,
+        "eligible": true
+      },
+      "ext_without_voices": {
+        "step": 30000,
+        "active_seconds": 6404.656808494008,
+        "dataset_records": {
+          "chime6": 130908,
+          "ami": 70979,
+          "common_voice": 9527
+        },
+        "audio_hours_processed": 170.3803238167278,
+        "eligible": true
+      },
+      "ext_without_chime6": {
+        "step": 30000,
+        "active_seconds": 4971.665595386003,
+        "dataset_records": {
+          "ami": 156873,
+          "common_voice": 20687,
+          "voices": 3834
+        },
+        "audio_hours_processed": 223.46138718528476,
+        "eligible": true
+      }
+    },
+    "extension_policy_sha256": "0924ba771578fc6916bc0a8d4cc6aaedfbe4b1736c04ae7775598949fe93c883",
+    "selection_panel": "qualified development only; no production or frozen-test score used",
+    "inconclusive_runs": [],
+    "next_stage": "retain existing production; frozen comparison"
+  },
+  "sources": [
+    {
+      "path": "training/whistle_followups_v1/extension_decision.json",
+      "sha256": "3cd09088fdddef3220c00e4e00d24a2d640b0a925663a2f41618f97940feb1f1"
+    }
+  ],
+  "key": "extension_decision.json",
+  "id": "wh_f7801ca57d1ce51ee045eadc24b05e6e"
+}

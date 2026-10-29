@@ -1,0 +1,24 @@
+{
+  "kind": "note",
+  "title": "Interpretation of the completed CHiME 6 only pilot",
+  "data": {
+    "id": "only_chime6_interpretation_e8ebac83d62326c1",
+    "title": "Interpretation of the completed CHiME 6 only pilot",
+    "paragraphs": [
+      "The CHiME 6 only LoRA pilot completed 10,000 optimizer steps in 25.9 active training minutes, visiting 76,911 microphone views. Best and final exports are byte-identical, so their scoring and timings were reused. Compilation, export and scoring are additional to active training time.",
+      "On the unchanged 954-view development panel, macro WER is 36.24%, versus 40.68% for the W4A8 base and 31.70% for the mixed pilot. CHiME 6 itself improves substantially over base, from 85.38% to 65.96%, but remains worse than mixed at 64.06%. Every dataset has higher WER than the mixed pilot in this capped standalone experiment.",
+      "There are also regressions relative to base: age-filtered Common Voice WER rises from 8.39% to 9.83%, and VOiCES rises from 20.64% to 21.78%. AMI is 47.41%, only slightly better than base at 48.29% and substantially worse than mixed at 36.94%. The aggregate gain over base is therefore concentrated in CHiME 6, rather than consistent across settings.",
+      "Quiet-view WER is 58.71%, close to the base 59.52% and worse than mixed at 47.95%. All 20 fixed silence and Gaussian-noise probes still produce zero inserted words. This separates poor recognition of quiet speech from observed insertions on those specific synthetic probes; it does not establish behavior with real product microphones or background voices.",
+      "These development comparisons do not prove CHiME 6 should be removed from mixed training. Standalone adaptation is not a leave-one-dataset-out test, and the capped pilot covers only part of its expanded microphone-view pool. No weight or method decision is due yet. The supervisor automatically started the final individual-dataset pilot, VOiCES, observed at step 1,700 of 10,000. The frozen policy will then decide the single permitted weighting proposal; no extra trials or changes are introduced."
+    ],
+    "evidence": [
+      "training/whistle_followups_v1/runs/only_chime6/scores.json SHA256 e8ebac83d62326c124d9ab947f306cfd419a81a63066e06699fd694a9411a707",
+      "training/whistle_followups_v1/runs/only_chime6/checkpoint.json SHA256 a53dd8ddaee5108ac99e04a41c19c19c1dc9b76401a99f4494e161afbb89fdb2",
+      "training/whistle_followups_v1/runs/mix_reference/scores.json SHA256 e2d25cfed572af2abfaf320566caa5863afb238bd15fef4faecaa88ae312f618",
+      "training/whistle_followups_v1/baseline/scores.json SHA256 130de13055a55e3dfbd7f05d4910821395ca9109d20d0e45d0cce614bf372840"
+    ]
+  },
+  "sources": [],
+  "key": "only_chime6_interpretation_e8ebac83d62326c1",
+  "id": "wh_b18318eacd3de74020d5a864851fd459"
+}

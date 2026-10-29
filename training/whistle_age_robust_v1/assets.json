@@ -1,0 +1,50 @@
+{
+  "package": "3.2.1",
+  "whistle_revision": "741118687e1f008f06d1351a402a731274789790",
+  "needle3_revision": "d6c7d6a2e9655505e0f8e23339356dd1705900eb",
+  "runtime": "/mnt/c/Users/amiri/Documents/GitHub/just-peachy/training/whistle_age_robust_v1/assets/libneedle.so",
+  "files": {
+    "config.json": {
+      "sha256": "ac2dbcb98a945eff2de98a03104c468dc9d68c06b9ff791539327f90298a3d43",
+      "bytes": 603
+    },
+    "libneedle.so": {
+      "sha256": "87476ff70e80334d7c766dbf236b72f42876072df22014c6ec8a9b087b82b260",
+      "bytes": 1590584
+    },
+    "LICENSE": {
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "bytes": 11358
+    },
+    "README.md": {
+      "sha256": "8c8a12d5efffd54026856e461380afa084b87d041cce7e8e35d29f18ddbef120",
+      "bytes": 7314
+    },
+    "tokenizer.model": {
+      "sha256": "97dfd5666620b19875deba9e55953d312364e7763bd08bee428b94f1b9491b25",
+      "bytes": 126520
+    },
+    "tokenizer.vocab": {
+      "sha256": "7c87aa0da9f19b5d5a97824ec94555d6e73766f2a60e51e7ebe0b7c61ded3b33",
+      "bytes": 106870
+    },
+    "whistle.cact": {
+      "sha256": "b6e02f048568ac5d01a2042556c658061e699acbc0aa2a1439f52f3d461dffeb",
+      "bytes": 16919407
+    },
+    "whistle.safetensors": {
+      "sha256": "5fd58c246f522ecee2b568b306598a3befdc274c225e3a7376abce277ab3d107",
+      "bytes": 220618620
+    },
+    "needle-python-LICENSE": {
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "bytes": 11358
+    },
+    "needle-engine-LICENSE": {
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "bytes": 11358
+    }
+  },
+  "runtime_wheel": "python/cactus_needle-3.3.3-py3-none-manylinux2014_x86_64.whl",
+  "needle_python_source_commit": "b4fc11b04f1852888d375c8c6dfbaca44572d014"
+}

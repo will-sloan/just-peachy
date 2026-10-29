@@ -1,0 +1,24 @@
+{
+  "kind": "note",
+  "title": "VOiCES omission does not improve the longer mixed reference",
+  "data": {
+    "id": "ext_without_voices_interpretation_358e34326f3fc3ce",
+    "title": "VOiCES omission does not improve the longer mixed reference",
+    "paragraphs": [
+      "The VOiCES omission pilot completed its 30,000-update cap in 106.7 active training minutes, within the declared two-hour cap. It visited 211,414 training microphone views: 130,908 CHiME 6, 70,979 AMI and 9,527 Common Voice. Its completed run meets the amendment's 20,000-update and 500-view exposure floor for every retained dataset. The same 954-view, four-dataset development panel still includes VOiCES. View visits are not independent utterances, and the same step cap does not imply identical audio exposure.",
+      "Development scoring selected best at 30.34% macro WER, versus 30.40% for final. The exports are distinct and were decoded separately. The longer mixed reference is 29.52%, so the selected omission result is 0.82 percentage points worse, or 2.79% higher error. These point estimates do not meet the required improvement criterion. A paired uncertainty result and the combined extension decision have not yet been published; this descriptive difference does not establish statistically reliable worsening or a universal value for the dataset.",
+      "Relative to the longer mixed reference, AMI changes slightly from 33.71% to 33.64% WER and Common Voice is unchanged at 7.32%. CHiME 6 worsens from 59.67% to 60.86%. VOiCES worsens from 17.36% to 19.55%, a 2.19-point increase that also exceeds the declared two-point per-dataset guard. Its far-microphone slice rises from 33.97% to 38.46%. This experiment directly tests the declared omission recipe under a matched step cap; it supplies no evidence that removing VOiCES improves the mixture.",
+      "Quiet-view WER improves slightly from 47.04% to 46.82%. The selected model and the final export each produce zero inserted words on the 20 fixed silence and Gaussian-noise probes. Those limited probes do not validate real background voices or the product microphone. The small quiet-speech gain does not offset the required aggregate and per-dataset criteria.",
+      "The supervisor automatically started ext_without_chime6, the last planned extension pilot. No extension selection has been saved yet and no production refit is authorized by these results alone. The frozen policy will decide after all three longer pilots are complete; an insufficient or inconclusive outcome retains the preserved production_all_audio model. All these scores are development evidence from train-only pilots, not final production accuracy measurements. Frozen production scoring remains deferred until recipe selection, and real product-microphone validation and an independent final age test remain unavailable."
+    ],
+    "evidence": [
+      "training/whistle_followups_v1/runs/ext_without_voices/scores.json SHA256 358e34326f3fc3ce37dfabcae1b315008e6b1274012b10d66710c67b3f91665f",
+      "training/whistle_followups_v1/runs/ext_without_voices/checkpoint.json SHA256 da9398949efc6c384dcd2f4e439ee0bbb9fc1e9304c7505601a77cb3e23bf6c7",
+      "training/whistle_followups_v1/runs/ext_mix_reference/scores.json SHA256 da5e30e1d8845aeca532cadf14bd3d286a8060cb56e24be3afe8e8b4ac65ddbe",
+      "training/whistle_followups_v1/extension_snapshot.json SHA256 21a8eb4a32f3a422a7156d380eeef4ab07db320d7f005f89176d0fba1eb147c2"
+    ]
+  },
+  "sources": [],
+  "key": "ext_without_voices_interpretation_358e34326f3fc3ce",
+  "id": "wh_9ae32b7f84bc397c94ab081e675dc0c9"
+}

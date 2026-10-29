@@ -1,0 +1,24 @@
+{
+  "kind": "note",
+  "title": "First production fit completed and longer mixture comparisons started",
+  "data": {
+    "id": "production_all_audio_export_517569_540bd02bf66d66f6",
+    "title": "First production fit completed and longer mixture comparisons started",
+    "paragraphs": [
+      "The first production_all_audio fit completed all 517,569 optimizer updates and three passes through 2,413,566 retained training and development microphone views. Its final checkpoint records 7,240,698 view visits and 34.29 active training hours. These visits include repeated microphones of the same underlying speech and are not independent utterances. The completed LoRA model and export are preserved under the original production identity.",
+      "The periodic status file retains the last ten-step progress sample at step 517,560, but the final checkpoint confirms step 517,569, epoch 3 and next_batch 0. The run status reports that export is complete and comparison decoding is pending. This is a completed training and export milestone; it supplies no new measured accuracy gain or regression, quiet-speech score, or silence/noise result.",
+      "The supervisor has automatically begun ext_mix_reference from the pretrained base, using training data only and the original four-dataset relative weights. The declared ext_without_voices and ext_without_chime6 pilots follow. All three use the same qualified four-dataset development panel for evaluation. Each stops at 30,000 updates, two active hours or three passes, whichever comes first; compilation and scoring are additional.",
+      "The saved amendment requires at least 20,000 updates and 500 visited views per retained dataset in both reference and candidate before an omission can qualify, together with the original gain, uncertainty, dataset, quiet-speech and noise guards. The exposure minimum is an eligibility rule, not proof of statistical adequacy or a globally optimal mixture. Insufficient or inconclusive evidence keeps the completed production_all_audio model. Only a qualifying saved development decision can trigger the single additional three-pass production fit.",
+      "Development joined this first production fit after its original recipe selection, so its development performance would no longer be independent final evidence. The new comparisons retain their train-only separation by starting fresh from the pretrained base. Frozen production scoring remains deferred until the extension choice is fixed and will describe outcomes without choosing the recipe. Real product-microphone validation and an independent final age test remain unavailable."
+    ],
+    "evidence": [
+      "training/whistle_followups_v1/runs/production_all_audio/status.json SHA256 ac06399bddb3bb6ba684ed6d245bf7a07f0805491c9c8e58f2046969fc7f5667",
+      "training/whistle_followups_v1/runs/production_all_audio/checkpoint.json SHA256 6f9979ee0e97ab7c14b520471264c13f29ba8f8433e62ba4ce34ed6673ff1cc8",
+      "training/whistle_followups_v1/production_decision.json SHA256 c581dad5aebdf73a596c19638bdd6ccb052db05b8f176cdd138c6a638a1631a2",
+      "training/whistle_followups_v1/extension_snapshot.json SHA256 21a8eb4a32f3a422a7156d380eeef4ab07db320d7f005f89176d0fba1eb147c2"
+    ]
+  },
+  "sources": [],
+  "key": "production_all_audio_export_517569_540bd02bf66d66f6",
+  "id": "wh_6522270848b9edc8f0ebdb28dd8965b3"
+}

@@ -1,0 +1,13 @@
+{
+  "pid": 57348,
+  "created_at": 1793045014.978946,
+  "command": [
+    "wsl.exe",
+    "-d",
+    "Ubuntu",
+    "--",
+    "/home/amiri/.venvs/whistle/bin/python",
+    "-u",
+    "/mnt/c/Users/amiri/Documents/GitHub/just-peachy/Software Validation from Datasets/Training Tool/whistle_lab/rerun_full/supervise.py"
+  ]
+}

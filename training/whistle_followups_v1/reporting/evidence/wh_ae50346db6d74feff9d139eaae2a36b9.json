@@ -1,0 +1,27 @@
+{
+  "kind": "production",
+  "title": "Selected production recipe",
+  "data": {
+    "selected_method_run": "mix_reference",
+    "recipe": {
+      "max_batch_size": 16,
+      "batch_audio_seconds": 120,
+      "batch_tokens": 2048,
+      "production": true,
+      "seed": 20261022
+    },
+    "second_seed_confirmation": false,
+    "bounded_screening_only": true,
+    "development_folded_into_training": true,
+    "frozen_test_preserved": true,
+    "real_product_validation_available": false
+  },
+  "sources": [
+    {
+      "path": "training/whistle_followups_v1/production_decision.json",
+      "sha256": "c581dad5aebdf73a596c19638bdd6ccb052db05b8f176cdd138c6a638a1631a2"
+    }
+  ],
+  "key": "production_decision.json",
+  "id": "wh_ae50346db6d74feff9d139eaae2a36b9"
+}

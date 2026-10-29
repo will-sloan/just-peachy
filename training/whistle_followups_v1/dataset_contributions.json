@@ -1,0 +1,296 @@
+{
+  "single_dataset_macro_wer_gain_over_base": {
+    "common_voice": 0.03746272120680599,
+    "ami": 0.0883165932240389,
+    "chime6": 0.044345575494109946,
+    "voices": 0.004911710219133558
+  },
+  "single_dataset": {
+    "common_voice": {
+      "macro_wer": 0.3693097151255799,
+      "datasets": {
+        "ami": {
+          "wer": 0.44652650822669104,
+          "cer": 0.3224889955982393,
+          "sources": 128,
+          "clips": 314,
+          "rtf": 0.047110662337108235
+        },
+        "chime6": {
+          "wer": 0.7741407528641571,
+          "cer": 0.6252537080405932,
+          "sources": 128,
+          "clips": 344,
+          "rtf": 0.028897561013499502
+        },
+        "common_voice": {
+          "wer": 0.07747489239598278,
+          "cer": 0.030210602759622368,
+          "sources": 128,
+          "clips": 128,
+          "rtf": 0.017831176228844857
+        },
+        "voices": {
+          "wer": 0.17909670701548874,
+          "cer": 0.11377448712016042,
+          "sources": 56,
+          "clips": 168,
+          "rtf": 0.03341983290001112
+        }
+      },
+      "quiet_audio": {
+        "clips": 342,
+        "reference_words": 2732.0,
+        "wer": 0.5453879941434846
+      },
+      "mic_slices": {
+        "ami/array": 0.547945205479452,
+        "ami/headset": 0.26142595978062155,
+        "chime6/array": 0.9070796460176991,
+        "chime6/worn": 0.5437125748502994,
+        "common_voice/age": 0.07747489239598278,
+        "voices/clean": 0.04841858648965248,
+        "voices/close": 0.13705583756345177,
+        "voices/far": 0.35181569699336196
+      },
+      "negative_probes": {
+        "clips": 20,
+        "false_positive_rate": 0.0,
+        "inserted_words": 0,
+        "interpretation": "Fixed silence and generated Gaussian noise; not a guarantee on real product recordings"
+      },
+      "predictions": "best.dev.jsonl",
+      "weights": "whistle.best.cact",
+      "model_sha256": "bc7bdc7a42e544a78413608f9adcd28caa2b2172d5d43b32dfa1eaf866a499e0"
+    },
+    "ami": {
+      "macro_wer": 0.318455843108347,
+      "datasets": {
+        "ami": {
+          "wer": 0.34780621572212067,
+          "cer": 0.26966786714685875,
+          "sources": 128,
+          "clips": 314,
+          "rtf": 0.024036433948816296
+        },
+        "chime6": {
+          "wer": 0.6414348063284233,
+          "cer": 0.5658860265417642,
+          "sources": 128,
+          "clips": 344,
+          "rtf": 0.022392026225035527
+        },
+        "common_voice": {
+          "wer": 0.09038737446197992,
+          "cer": 0.032970225127087874,
+          "sources": 128,
+          "clips": 128,
+          "rtf": 0.016423224511447593
+        },
+        "voices": {
+          "wer": 0.19419497592086424,
+          "cer": 0.1277494986888786,
+          "sources": 56,
+          "clips": 168,
+          "rtf": 0.02332394038333793
+        }
+      },
+      "quiet_audio": {
+        "clips": 342,
+        "reference_words": 2732.0,
+        "wer": 0.48279648609077597
+      },
+      "mic_slices": {
+        "ami/array": 0.4452054794520548,
+        "ami/headset": 0.1882998171846435,
+        "chime6/array": 0.7820796460176991,
+        "chime6/worn": 0.4598802395209581,
+        "common_voice/age": 0.09038737446197992,
+        "voices/clean": 0.04880905896134322,
+        "voices/close": 0.14642717688402968,
+        "voices/far": 0.3873486919172198
+      },
+      "negative_probes": {
+        "clips": 20,
+        "false_positive_rate": 0.0,
+        "inserted_words": 0,
+        "interpretation": "Fixed silence and generated Gaussian noise; not a guarantee on real product recordings"
+      },
+      "predictions": "best.dev.jsonl",
+      "weights": "whistle.best.cact",
+      "model_sha256": "b5b81b4cca6c4ee117e92e9f8201c269b964ef84d289921713f73ca2058bb7f3"
+    },
+    "chime6": {
+      "macro_wer": 0.36242686083827597,
+      "datasets": {
+        "ami": {
+          "wer": 0.47410115783059115,
+          "cer": 0.3871948779511805,
+          "sources": 128,
+          "clips": 314,
+          "rtf": 0.020428691041010853
+        },
+        "chime6": {
+          "wer": 0.6595744680851063,
+          "cer": 0.5793130366900858,
+          "sources": 128,
+          "clips": 344,
+          "rtf": 0.023141933766678616
+        },
+        "common_voice": {
+          "wer": 0.09827833572453372,
+          "cer": 0.03761801016702977,
+          "sources": 128,
+          "clips": 128,
+          "rtf": 0.016773832590378377
+        },
+        "voices": {
+          "wer": 0.21775348171287257,
+          "cer": 0.16131420638593244,
+          "sources": 56,
+          "clips": 168,
+          "rtf": 0.020778839239786465
+        }
+      },
+      "quiet_audio": {
+        "clips": 342,
+        "reference_words": 2732.0,
+        "wer": 0.5871156661786238
+      },
+      "mic_slices": {
+        "ami/array": 0.565068493150685,
+        "ami/headset": 0.3080438756855576,
+        "chime6/array": 0.8053097345132744,
+        "chime6/worn": 0.48383233532934133,
+        "common_voice/age": 0.09827833572453372,
+        "voices/clean": 0.04529480671612651,
+        "voices/close": 0.17493166731745413,
+        "voices/far": 0.4330339711050371
+      },
+      "negative_probes": {
+        "clips": 20,
+        "false_positive_rate": 0.0,
+        "inserted_words": 0,
+        "interpretation": "Fixed silence and generated Gaussian noise; not a guarantee on real product recordings"
+      },
+      "predictions": "best.dev.jsonl",
+      "weights": "whistle.best.cact",
+      "model_sha256": "1e4740822318778c5028ffb92ecffeb3032795cfbccfcc571e398e74b2608ebc"
+    },
+    "voices": {
+      "macro_wer": 0.40186072611325235,
+      "datasets": {
+        "ami": {
+          "wer": 0.4693784277879342,
+          "cer": 0.34477791116446577,
+          "sources": 128,
+          "clips": 314,
+          "rtf": 0.020469960582443318
+        },
+        "chime6": {
+          "wer": 0.8514729950900164,
+          "cer": 0.6872755659640906,
+          "sources": 128,
+          "clips": 344,
+          "rtf": 0.026315660991966187
+        },
+        "common_voice": {
+          "wer": 0.11764705882352941,
+          "cer": 0.047058823529411764,
+          "sources": 128,
+          "clips": 128,
+          "rtf": 0.016974546664674774
+        },
+        "voices": {
+          "wer": 0.16894442275152935,
+          "cer": 0.10519821070492055,
+          "sources": 56,
+          "clips": 168,
+          "rtf": 0.020786915868537866
+        }
+      },
+      "quiet_audio": {
+        "clips": 342,
+        "reference_words": 2732.0,
+        "wer": 0.585285505124451
+      },
+      "mic_slices": {
+        "ami/array": 0.569634703196347,
+        "ami/headset": 0.2842778793418647,
+        "chime6/array": 0.9811946902654868,
+        "chime6/worn": 0.6059880239520958,
+        "common_voice/age": 0.11764705882352941,
+        "voices/clean": 0.05505661850839516,
+        "voices/close": 0.12690355329949238,
+        "voices/far": 0.3248730964467005
+      },
+      "negative_probes": {
+        "clips": 20,
+        "false_positive_rate": 0.0,
+        "inserted_words": 0,
+        "interpretation": "Fixed silence and generated Gaussian noise; not a guarantee on real product recordings"
+      },
+      "predictions": "best.dev.jsonl",
+      "weights": "whistle.best.cact",
+      "model_sha256": "dae6d35aa10258c1a9fd26fbf620cd3bf16153b358c276d9268b04f2f233419a"
+    }
+  },
+  "reference": {
+    "macro_wer": 0.3169663578628649,
+    "datasets": {
+      "ami": {
+        "wer": 0.3694393662400975,
+        "cer": 0.2725090036014406,
+        "sources": 128,
+        "clips": 314,
+        "rtf": 0.024642703600462557
+      },
+      "chime6": {
+        "wer": 0.6406164757228587,
+        "cer": 0.5595238095238096,
+        "sources": 128,
+        "clips": 344,
+        "rtf": 0.02608955165521708
+      },
+      "common_voice": {
+        "wer": 0.0781922525107604,
+        "cer": 0.03137254901960784,
+        "sources": 128,
+        "clips": 128,
+        "rtf": 0.019128150547211967
+      },
+      "voices": {
+        "wer": 0.17961733697774307,
+        "cer": 0.11399043652629953,
+        "sources": 56,
+        "clips": 168,
+        "rtf": 0.02508714231618048
+      }
+    },
+    "quiet_audio": {
+      "clips": 342,
+      "reference_words": 2732.0,
+      "wer": 0.479502196193265
+    },
+    "mic_slices": {
+      "ami/array": 0.4589041095890411,
+      "ami/headset": 0.21023765996343693,
+      "chime6/array": 0.7776548672566371,
+      "chime6/worn": 0.4359281437125748,
+      "common_voice/age": 0.0781922525107604,
+      "voices/clean": 0.04568527918781726,
+      "voices/close": 0.14096056228035925,
+      "voices/far": 0.35220616946505273
+    },
+    "negative_probes": {
+      "clips": 20,
+      "false_positive_rate": 0.0,
+      "inserted_words": 0,
+      "interpretation": "Fixed silence and generated Gaussian noise; not a guarantee on real product recordings"
+    },
+    "predictions": "best.dev.jsonl",
+    "weights": "whistle.best.cact",
+    "model_sha256": "adbe61f808906818f9a76d02dfe30c35cc0b3bd14062397812a25a71138edca3"
+  },
+  "caution": "Short standalone adaptation results do not measure a dataset's causal marginal contribution to a mixture; training exposure can differ at the epoch/time caps"
+}

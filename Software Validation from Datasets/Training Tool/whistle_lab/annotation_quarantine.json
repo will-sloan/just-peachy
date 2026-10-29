@@ -1,0 +1,370 @@
+{
+  "reason": "Five TS3007c annotations across 45 microphone views extend beyond the available 2420-second official and local recordings. No transcript is truncated or paired with invented audio.",
+  "source_manifest": "train/ami_train.parquet",
+  "source_sha256": "66d5a023434ddc25ff9106dea099a7d465e6972bdab3fc1676deda0603006602",
+  "official_audio_directory": "https://groups.inf.ed.ac.uk/ami/AMICorpusMirror/amicorpus/TS3007c/audio/",
+  "official_header_verification": "HTTP Range checks on 2026-10-23: Array1-02, Array2-01, Headset-1, Headset-2 and Mix-Headset each have 77440044 bytes, 16 kHz mono PCM16, 2420.0 seconds.",
+  "reference_recipe": "https://lhotse.readthedocs.io/en/latest/_modules/lhotse/recipes/ami.html",
+  "records": [
+    {
+      "source_registry_row_id": "AMI_TS3007c_array_Array1-01:TS3007c.sync.682",
+      "audio_root_id": "JP_DATA_ROOT",
+      "audio_relative_path": "Raw Datasets (Not formatted)/AMI Meeting Corpus/Array1-01/TS3007c/audio/TS3007c.Array1-01.wav",
+      "start_sec": 2428.31,
+      "end_sec": 2430.2,
+      "actual_seconds": 2420.0
+    },
+    {
+      "source_registry_row_id": "AMI_TS3007c_array_Array1-01:TS3007c.sync.952",
+      "audio_root_id": "JP_DATA_ROOT",
+      "audio_relative_path": "Raw Datasets (Not formatted)/AMI Meeting Corpus/Array1-01/TS3007c/audio/TS3007c.Array1-01.wav",
+      "start_sec": 2413.698,
+      "end_sec": 2422.692,
+      "actual_seconds": 2420.0
+    },
+    {
+      "source_registry_row_id": "AMI_TS3007c_array_Array1-01:TS3007c.sync.954",
+      "audio_root_id": "JP_DATA_ROOT",
+      "audio_relative_path": "Raw Datasets (Not formatted)/AMI Meeting Corpus/Array1-01/TS3007c/audio/TS3007c.Array1-01.wav",
+      "start_sec": 2424.77,
+      "end_sec": 2425.214,
+      "actual_seconds": 2420.0
+    },
+    {
+      "source_registry_row_id": "AMI_TS3007c_array_Array1-01:TS3007c.sync.956",
+      "audio_root_id": "JP_DATA_ROOT",
+      "audio_relative_path": "Raw Datasets (Not formatted)/AMI Meeting Corpus/Array1-01/TS3007c/audio/TS3007c.Array1-01.wav",
+      "start_sec": 2427.1,
+      "end_sec": 2428.1,
+      "actual_seconds": 2420.0
+    },
+    {
+      "source_registry_row_id": "AMI_TS3007c_array_Array1-01:TS3007c.sync.958",
+      "audio_root_id": "JP_DATA_ROOT",
+      "audio_relative_path": "Raw Datasets (Not formatted)/AMI Meeting Corpus/Array1-01/TS3007c/audio/TS3007c.Array1-01.wav",
+      "start_sec": 2429.52,
+      "end_sec": 2429.86,
+      "actual_seconds": 2420.0
+    },
+    {
+      "source_registry_row_id": "AMI_TS3007c_array_Array1-02:TS3007c.sync.682",
+      "audio_root_id": "JP_DATA_ROOT",
+      "audio_relative_path": "Raw Datasets (Not formatted)/AMI Meeting Corpus/Array1-02/TS3007c/audio/TS3007c.Array1-02.wav",
+      "start_sec": 2428.31,
+      "end_sec": 2430.2,
+      "actual_seconds": 2420.0
+    },
+    {
+      "source_registry_row_id": "AMI_TS3007c_array_Array1-02:TS3007c.sync.952",
+      "audio_root_id": "JP_DATA_ROOT",
+      "audio_relative_path": "Raw Datasets (Not formatted)/AMI Meeting Corpus/Array1-02/TS3007c/audio/TS3007c.Array1-02.wav",
+      "start_sec": 2413.698,
+      "end_sec": 2422.692,
+      "actual_seconds": 2420.0
+    },
+    {
+      "source_registry_row_id": "AMI_TS3007c_array_Array1-02:TS3007c.sync.954",
+      "audio_root_id": "JP_DATA_ROOT",
+      "audio_relative_path": "Raw Datasets (Not formatted)/AMI Meeting Corpus/Array1-02/TS3007c/audio/TS3007c.Array1-02.wav",
+      "start_sec": 2424.77,
+      "end_sec": 2425.214,
+      "actual_seconds": 2420.0
+    },
+    {
+      "source_registry_row_id": "AMI_TS3007c_array_Array1-02:TS3007c.sync.956",
+      "audio_root_id": "JP_DATA_ROOT",
+      "audio_relative_path": "Raw Datasets (Not formatted)/AMI Meeting Corpus/Array1-02/TS3007c/audio/TS3007c.Array1-02.wav",
+      "start_sec": 2427.1,
+      "end_sec": 2428.1,
+      "actual_seconds": 2420.0
+    },
+    {
+      "source_registry_row_id": "AMI_TS3007c_array_Array1-02:TS3007c.sync.958",
+      "audio_root_id": "JP_DATA_ROOT",
+      "audio_relative_path": "Raw Datasets (Not formatted)/AMI Meeting Corpus/Array1-02/TS3007c/audio/TS3007c.Array1-02.wav",
+      "start_sec": 2429.52,
+      "end_sec": 2429.86,
+      "actual_seconds": 2420.0
+    },
+    {
+      "source_registry_row_id": "AMI_TS3007c_array_Array1-03:TS3007c.sync.682",
+      "audio_root_id": "JP_DATA_ROOT",
+      "audio_relative_path": "Raw Datasets (Not formatted)/AMI Meeting Corpus/Array1-03/TS3007c/audio/TS3007c.Array1-03.wav",
+      "start_sec": 2428.31,
+      "end_sec": 2430.2,
+      "actual_seconds": 2420.0
+    },
+    {
+      "source_registry_row_id": "AMI_TS3007c_array_Array1-03:TS3007c.sync.952",
+      "audio_root_id": "JP_DATA_ROOT",
+      "audio_relative_path": "Raw Datasets (Not formatted)/AMI Meeting Corpus/Array1-03/TS3007c/audio/TS3007c.Array1-03.wav",
+      "start_sec": 2413.698,
+      "end_sec": 2422.692,
+      "actual_seconds": 2420.0
+    },
+    {
+      "source_registry_row_id": "AMI_TS3007c_array_Array1-03:TS3007c.sync.954",
+      "audio_root_id": "JP_DATA_ROOT",
+      "audio_relative_path": "Raw Datasets (Not formatted)/AMI Meeting Corpus/Array1-03/TS3007c/audio/TS3007c.Array1-03.wav",
+      "start_sec": 2424.77,
+      "end_sec": 2425.214,
+      "actual_seconds": 2420.0
+    },
+    {
+      "source_registry_row_id": "AMI_TS3007c_array_Array1-03:TS3007c.sync.956",
+      "audio_root_id": "JP_DATA_ROOT",
+      "audio_relative_path": "Raw Datasets (Not formatted)/AMI Meeting Corpus/Array1-03/TS3007c/audio/TS3007c.Array1-03.wav",
+      "start_sec": 2427.1,
+      "end_sec": 2428.1,
+      "actual_seconds": 2420.0
+    },
+    {
+      "source_registry_row_id": "AMI_TS3007c_array_Array1-03:TS3007c.sync.958",
+      "audio_root_id": "JP_DATA_ROOT",
+      "audio_relative_path": "Raw Datasets (Not formatted)/AMI Meeting Corpus/Array1-03/TS3007c/audio/TS3007c.Array1-03.wav",
+      "start_sec": 2429.52,
+      "end_sec": 2429.86,
+      "actual_seconds": 2420.0
+    },
+    {
+      "source_registry_row_id": "AMI_TS3007c_array_Array1-04:TS3007c.sync.682",
+      "audio_root_id": "JP_DATA_ROOT",
+      "audio_relative_path": "Raw Datasets (Not formatted)/AMI Meeting Corpus/Array1-04/TS3007c/audio/TS3007c.Array1-04.wav",
+      "start_sec": 2428.31,
+      "end_sec": 2430.2,
+      "actual_seconds": 2420.0
+    },
+    {
+      "source_registry_row_id": "AMI_TS3007c_array_Array1-04:TS3007c.sync.952",
+      "audio_root_id": "JP_DATA_ROOT",
+      "audio_relative_path": "Raw Datasets (Not formatted)/AMI Meeting Corpus/Array1-04/TS3007c/audio/TS3007c.Array1-04.wav",
+      "start_sec": 2413.698,
+      "end_sec": 2422.692,
+      "actual_seconds": 2420.0
+    },
+    {
+      "source_registry_row_id": "AMI_TS3007c_array_Array1-04:TS3007c.sync.954",
+      "audio_root_id": "JP_DATA_ROOT",
+      "audio_relative_path": "Raw Datasets (Not formatted)/AMI Meeting Corpus/Array1-04/TS3007c/audio/TS3007c.Array1-04.wav",
+      "start_sec": 2424.77,
+      "end_sec": 2425.214,
+      "actual_seconds": 2420.0
+    },
+    {
+      "source_registry_row_id": "AMI_TS3007c_array_Array1-04:TS3007c.sync.956",
+      "audio_root_id": "JP_DATA_ROOT",
+      "audio_relative_path": "Raw Datasets (Not formatted)/AMI Meeting Corpus/Array1-04/TS3007c/audio/TS3007c.Array1-04.wav",
+      "start_sec": 2427.1,
+      "end_sec": 2428.1,
+      "actual_seconds": 2420.0
+    },
+    {
+      "source_registry_row_id": "AMI_TS3007c_array_Array1-04:TS3007c.sync.958",
+      "audio_root_id": "JP_DATA_ROOT",
+      "audio_relative_path": "Raw Datasets (Not formatted)/AMI Meeting Corpus/Array1-04/TS3007c/audio/TS3007c.Array1-04.wav",
+      "start_sec": 2429.52,
+      "end_sec": 2429.86,
+      "actual_seconds": 2420.0
+    },
+    {
+      "source_registry_row_id": "AMI_TS3007c_array_Array1-05:TS3007c.sync.682",
+      "audio_root_id": "JP_DATA_ROOT",
+      "audio_relative_path": "Raw Datasets (Not formatted)/AMI Meeting Corpus/Array1-05/TS3007c/audio/TS3007c.Array1-05.wav",
+      "start_sec": 2428.31,
+      "end_sec": 2430.2,
+      "actual_seconds": 2420.0
+    },
+    {
+      "source_registry_row_id": "AMI_TS3007c_array_Array1-05:TS3007c.sync.952",
+      "audio_root_id": "JP_DATA_ROOT",
+      "audio_relative_path": "Raw Datasets (Not formatted)/AMI Meeting Corpus/Array1-05/TS3007c/audio/TS3007c.Array1-05.wav",
+      "start_sec": 2413.698,
+      "end_sec": 2422.692,
+      "actual_seconds": 2420.0
+    },
+    {
+      "source_registry_row_id": "AMI_TS3007c_array_Array1-05:TS3007c.sync.954",
+      "audio_root_id": "JP_DATA_ROOT",
+      "audio_relative_path": "Raw Datasets (Not formatted)/AMI Meeting Corpus/Array1-05/TS3007c/audio/TS3007c.Array1-05.wav",
+      "start_sec": 2424.77,
+      "end_sec": 2425.214,
+      "actual_seconds": 2420.0
+    },
+    {
+      "source_registry_row_id": "AMI_TS3007c_array_Array1-05:TS3007c.sync.956",
+      "audio_root_id": "JP_DATA_ROOT",
+      "audio_relative_path": "Raw Datasets (Not formatted)/AMI Meeting Corpus/Array1-05/TS3007c/audio/TS3007c.Array1-05.wav",
+      "start_sec": 2427.1,
+      "end_sec": 2428.1,
+      "actual_seconds": 2420.0
+    },
+    {
+      "source_registry_row_id": "AMI_TS3007c_array_Array1-05:TS3007c.sync.958",
+      "audio_root_id": "JP_DATA_ROOT",
+      "audio_relative_path": "Raw Datasets (Not formatted)/AMI Meeting Corpus/Array1-05/TS3007c/audio/TS3007c.Array1-05.wav",
+      "start_sec": 2429.52,
+      "end_sec": 2429.86,
+      "actual_seconds": 2420.0
+    },
+    {
+      "source_registry_row_id": "AMI_TS3007c_array_Array1-06:TS3007c.sync.682",
+      "audio_root_id": "JP_DATA_ROOT",
+      "audio_relative_path": "Raw Datasets (Not formatted)/AMI Meeting Corpus/Array1-06/TS3007c/audio/TS3007c.Array1-06.wav",
+      "start_sec": 2428.31,
+      "end_sec": 2430.2,
+      "actual_seconds": 2420.0
+    },
+    {
+      "source_registry_row_id": "AMI_TS3007c_array_Array1-06:TS3007c.sync.952",
+      "audio_root_id": "JP_DATA_ROOT",
+      "audio_relative_path": "Raw Datasets (Not formatted)/AMI Meeting Corpus/Array1-06/TS3007c/audio/TS3007c.Array1-06.wav",
+      "start_sec": 2413.698,
+      "end_sec": 2422.692,
+      "actual_seconds": 2420.0
+    },
+    {
+      "source_registry_row_id": "AMI_TS3007c_array_Array1-06:TS3007c.sync.954",
+      "audio_root_id": "JP_DATA_ROOT",
+      "audio_relative_path": "Raw Datasets (Not formatted)/AMI Meeting Corpus/Array1-06/TS3007c/audio/TS3007c.Array1-06.wav",
+      "start_sec": 2424.77,
+      "end_sec": 2425.214,
+      "actual_seconds": 2420.0
+    },
+    {
+      "source_registry_row_id": "AMI_TS3007c_array_Array1-06:TS3007c.sync.956",
+      "audio_root_id": "JP_DATA_ROOT",
+      "audio_relative_path": "Raw Datasets (Not formatted)/AMI Meeting Corpus/Array1-06/TS3007c/audio/TS3007c.Array1-06.wav",
+      "start_sec": 2427.1,
+      "end_sec": 2428.1,
+      "actual_seconds": 2420.0
+    },
+    {
+      "source_registry_row_id": "AMI_TS3007c_array_Array1-06:TS3007c.sync.958",
+      "audio_root_id": "JP_DATA_ROOT",
+      "audio_relative_path": "Raw Datasets (Not formatted)/AMI Meeting Corpus/Array1-06/TS3007c/audio/TS3007c.Array1-06.wav",
+      "start_sec": 2429.52,
+      "end_sec": 2429.86,
+      "actual_seconds": 2420.0
+    },
+    {
+      "source_registry_row_id": "AMI_TS3007c_array_Array1-07:TS3007c.sync.682",
+      "audio_root_id": "JP_DATA_ROOT",
+      "audio_relative_path": "Raw Datasets (Not formatted)/AMI Meeting Corpus/Array1-07/TS3007c/audio/TS3007c.Array1-07.wav",
+      "start_sec": 2428.31,
+      "end_sec": 2430.2,
+      "actual_seconds": 2420.0
+    },
+    {
+      "source_registry_row_id": "AMI_TS3007c_array_Array1-07:TS3007c.sync.952",
+      "audio_root_id": "JP_DATA_ROOT",
+      "audio_relative_path": "Raw Datasets (Not formatted)/AMI Meeting Corpus/Array1-07/TS3007c/audio/TS3007c.Array1-07.wav",
+      "start_sec": 2413.698,
+      "end_sec": 2422.692,
+      "actual_seconds": 2420.0
+    },
+    {
+      "source_registry_row_id": "AMI_TS3007c_array_Array1-07:TS3007c.sync.954",
+      "audio_root_id": "JP_DATA_ROOT",
+      "audio_relative_path": "Raw Datasets (Not formatted)/AMI Meeting Corpus/Array1-07/TS3007c/audio/TS3007c.Array1-07.wav",
+      "start_sec": 2424.77,
+      "end_sec": 2425.214,
+      "actual_seconds": 2420.0
+    },
+    {
+      "source_registry_row_id": "AMI_TS3007c_array_Array1-07:TS3007c.sync.956",
+      "audio_root_id": "JP_DATA_ROOT",
+      "audio_relative_path": "Raw Datasets (Not formatted)/AMI Meeting Corpus/Array1-07/TS3007c/audio/TS3007c.Array1-07.wav",
+      "start_sec": 2427.1,
+      "end_sec": 2428.1,
+      "actual_seconds": 2420.0
+    },
+    {
+      "source_registry_row_id": "AMI_TS3007c_array_Array1-07:TS3007c.sync.958",
+      "audio_root_id": "JP_DATA_ROOT",
+      "audio_relative_path": "Raw Datasets (Not formatted)/AMI Meeting Corpus/Array1-07/TS3007c/audio/TS3007c.Array1-07.wav",
+      "start_sec": 2429.52,
+      "end_sec": 2429.86,
+      "actual_seconds": 2420.0
+    },
+    {
+      "source_registry_row_id": "AMI_TS3007c_array_Array1-08:TS3007c.sync.682",
+      "audio_root_id": "JP_DATA_ROOT",
+      "audio_relative_path": "Raw Datasets (Not formatted)/AMI Meeting Corpus/Array1-08/TS3007c/audio/TS3007c.Array1-08.wav",
+      "start_sec": 2428.31,
+      "end_sec": 2430.2,
+      "actual_seconds": 2420.0
+    },
+    {
+      "source_registry_row_id": "AMI_TS3007c_array_Array1-08:TS3007c.sync.952",
+      "audio_root_id": "JP_DATA_ROOT",
+      "audio_relative_path": "Raw Datasets (Not formatted)/AMI Meeting Corpus/Array1-08/TS3007c/audio/TS3007c.Array1-08.wav",
+      "start_sec": 2413.698,
+      "end_sec": 2422.692,
+      "actual_seconds": 2420.0
+    },
+    {
+      "source_registry_row_id": "AMI_TS3007c_array_Array1-08:TS3007c.sync.954",
+      "audio_root_id": "JP_DATA_ROOT",
+      "audio_relative_path": "Raw Datasets (Not formatted)/AMI Meeting Corpus/Array1-08/TS3007c/audio/TS3007c.Array1-08.wav",
+      "start_sec": 2424.77,
+      "end_sec": 2425.214,
+      "actual_seconds": 2420.0
+    },
+    {
+      "source_registry_row_id": "AMI_TS3007c_array_Array1-08:TS3007c.sync.956",
+      "audio_root_id": "JP_DATA_ROOT",
+      "audio_relative_path": "Raw Datasets (Not formatted)/AMI Meeting Corpus/Array1-08/TS3007c/audio/TS3007c.Array1-08.wav",
+      "start_sec": 2427.1,
+      "end_sec": 2428.1,
+      "actual_seconds": 2420.0
+    },
+    {
+      "source_registry_row_id": "AMI_TS3007c_array_Array1-08:TS3007c.sync.958",
+      "audio_root_id": "JP_DATA_ROOT",
+      "audio_relative_path": "Raw Datasets (Not formatted)/AMI Meeting Corpus/Array1-08/TS3007c/audio/TS3007c.Array1-08.wav",
+      "start_sec": 2429.52,
+      "end_sec": 2429.86,
+      "actual_seconds": 2420.0
+    },
+    {
+      "source_registry_row_id": "AMI_TS3007c_headset_Headset-1:TS3007c.sync.682",
+      "audio_root_id": "JP_DATA_ROOT",
+      "audio_relative_path": "Raw Datasets (Not formatted)/AMI Meeting Corpus/headset/TS3007c/audio/TS3007c.Headset-1.wav",
+      "start_sec": 2428.31,
+      "end_sec": 2430.2,
+      "actual_seconds": 2420.0
+    },
+    {
+      "source_registry_row_id": "AMI_TS3007c_headset_Headset-2:TS3007c.sync.952",
+      "audio_root_id": "JP_DATA_ROOT",
+      "audio_relative_path": "Raw Datasets (Not formatted)/AMI Meeting Corpus/headset/TS3007c/audio/TS3007c.Headset-2.wav",
+      "start_sec": 2413.698,
+      "end_sec": 2422.692,
+      "actual_seconds": 2420.0
+    },
+    {
+      "source_registry_row_id": "AMI_TS3007c_headset_Headset-2:TS3007c.sync.954",
+      "audio_root_id": "JP_DATA_ROOT",
+      "audio_relative_path": "Raw Datasets (Not formatted)/AMI Meeting Corpus/headset/TS3007c/audio/TS3007c.Headset-2.wav",
+      "start_sec": 2424.77,
+      "end_sec": 2425.214,
+      "actual_seconds": 2420.0
+    },
+    {
+      "source_registry_row_id": "AMI_TS3007c_headset_Headset-2:TS3007c.sync.956",
+      "audio_root_id": "JP_DATA_ROOT",
+      "audio_relative_path": "Raw Datasets (Not formatted)/AMI Meeting Corpus/headset/TS3007c/audio/TS3007c.Headset-2.wav",
+      "start_sec": 2427.1,
+      "end_sec": 2428.1,
+      "actual_seconds": 2420.0
+    },
+    {
+      "source_registry_row_id": "AMI_TS3007c_headset_Headset-2:TS3007c.sync.958",
+      "audio_root_id": "JP_DATA_ROOT",
+      "audio_relative_path": "Raw Datasets (Not formatted)/AMI Meeting Corpus/headset/TS3007c/audio/TS3007c.Headset-2.wav",
+      "start_sec": 2429.52,
+      "end_sec": 2429.86,
+      "actual_seconds": 2420.0
+    }
+  ]
+}

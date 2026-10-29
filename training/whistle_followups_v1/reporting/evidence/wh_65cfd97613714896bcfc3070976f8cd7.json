@@ -1,0 +1,23 @@
+{
+  "kind": "note",
+  "title": "Authorized longer comparisons and conditional production refit",
+  "data": {
+    "paragraphs": [
+      "On 24 October 2026 the user authorized a finite extension. The existing production fit continues unchanged and is preserved. The combined ceiling is 12 training runs, including the original seven pilots, current production, three longer pilots and at most one additional production fit.",
+      "Standalone CHiME-6 adaptation showed cross-domain regressions; VOiCES showed limited macro benefit despite domain gains. Those results cannot determine their marginal benefit inside the mixture. Compare these two omissions against a longer matched mixed reference; retain clearly useful age and AMI coverage.",
+      "The added pilots are a fresh mixed reference, without VOiCES, and without CHiME-6. Each stops at 30,000 updates, two active hours or three passes, whichever comes first. Six active GPU hours is the maximum added pilot budget; compilation, export and scoring are extra. Added results are not yet available when this amendment is recorded.",
+      "All three use qualified training only and the same four-dataset development panel. Original relative weights are renormalized over retained datasets. Promotion requires the original recognition, uncertainty, dataset, quiet and noise guards plus at least 20,000 updates and 500 visited views per retained dataset in both runs. Exposure floors do not prove representativeness; insufficient evidence retains the existing recipe.",
+      "Finish and preserve production_all_audio. Defer its frozen scoring until the extension recipe is selected. Refit from the base on retained qualified train plus dev for three passes only if an omission qualifies; otherwise retain production_all_audio. No decisions from either production test. No further trials.",
+      "Two omission comparisons are a bounded screen, not a causal ranking or proof of an optimal mixture. Exposure and training duration can differ at the declared caps. Existing bootstrap intervals are not corrected for the entire model search.",
+      "The dashboard separates measured current-fit time from the amended campaign. Its upper scenario includes a conditional extra three-pass fit; the lower retains the first fit. Neither a report delay nor an LLM response blocks the supervisor."
+    ]
+  },
+  "sources": [
+    {
+      "path": "training/whistle_followups_v1/extension_snapshot.json",
+      "sha256": "21a8eb4a32f3a422a7156d380eeef4ab07db320d7f005f89176d0fba1eb147c2"
+    }
+  ],
+  "key": "omission_comparison_2026_10_24",
+  "id": "wh_65cfd97613714896bcfc3070976f8cd7"
+}

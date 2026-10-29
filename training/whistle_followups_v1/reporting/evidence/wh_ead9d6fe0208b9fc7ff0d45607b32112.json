@@ -1,0 +1,98 @@
+{
+  "kind": "protocol",
+  "title": "Campaign design and automatic decisions",
+  "data": {
+    "config": {
+      "run_name": "whistle_age_robust_v1",
+      "epochs": 3,
+      "seed": 20261022,
+      "learning_rate": 0.0001,
+      "lora_rank": 16,
+      "lora_alpha": 32,
+      "dtype": "bfloat16",
+      "matmul_precision": "highest",
+      "loss_normalization": "full_pool_per_clip",
+      "max_batch_size": 16,
+      "batch_audio_seconds": 120,
+      "batch_tokens": 2048,
+      "loader_workers": 12,
+      "checkpoint_seconds": 300,
+      "validation_every_steps": 5000,
+      "validation_per_dataset": 128,
+      "whistle_revision": "741118687e1f008f06d1351a402a731274789790",
+      "dataset_weights": {
+        "common_voice": 0.4008074125352768,
+        "ami": 0.3135967650271186,
+        "chime6": 0.18559582243760464,
+        "voices": 0.1
+      },
+      "source_manifest_directory": "training/successors/phase5a_original_adapter_training_v1/framework_manifests",
+      "training_manifests": [
+        "age_train.parquet",
+        "ami_train.parquet",
+        "chime_train.parquet",
+        "voices_train.parquet"
+      ],
+      "development_manifests": [
+        "age_dev.parquet",
+        "ami_dev.parquet",
+        "chime_dev.parquet",
+        "voices_dev.parquet"
+      ],
+      "wsl_distribution": "Ubuntu",
+      "wsl_python": "/home/amiri/.venvs/whistle/bin/python",
+      "dashboard_port": 8766,
+      "release_review_required": false,
+      "quantization_mode": "upstream_full"
+    },
+    "plan": {
+      "version": 2,
+      "authorized_on": "2026-10-23",
+      "seed": 20261022,
+      "pilot_steps": 10000,
+      "pilot_max_active_seconds": 3600,
+      "maximum_training_runs": 8,
+      "pilot_max_epochs": 3,
+      "final_epochs": 3,
+      "final_lora_use_original_batch_limits": true,
+      "development_sources_per_dataset": 128,
+      "bootstrap_repetitions": 1000,
+      "promotion_minimum_relative_wer_gain": 0.02,
+      "maximum_dataset_absolute_wer_regression": 0.02,
+      "minimum_free_disk_gib": 12,
+      "dashboard_port": 8767,
+      "expand_local_microphones": true,
+      "fold_development_into_final_training": true,
+      "preserve_frozen_test": true,
+      "common_voice_age_filter": "retain original age-filtered selection",
+      "production_gate": "choose conservatively on development only; one weighting trial and one full-tuning trial; no recursive search; evaluate frozen test after final export",
+      "real_product_validation_available": false,
+      "experimental_scope": "four single-dataset pilots, one mixed reference, at most one weighting pilot, one full-tuning pilot, one final production fit; no omission, rank, partial-tuning or extra-seed sweep",
+      "audio_quality": {
+        "version": 1,
+        "workers": 2,
+        "near_silent_rms_dbfs": -65,
+        "near_silent_peak_dbfs": -50,
+        "quiet_rms_dbfs": -45,
+        "quiet_peak_dbfs": -35,
+        "quiet_relative_view_weight": 0.25,
+        "automatic_gain_or_denoising": false,
+        "chime_opening_beep_policy": "reserve complete speech-labelled annotations overlapping session seconds 0-1; never trim each utterance",
+        "interpretation": "Amplitude audit, not an intelligibility or SNR estimate; quarantine near-silent labelled speech and reduce quiet-view influence within each source"
+      },
+      "local_only": true
+    }
+  },
+  "sources": [
+    {
+      "path": "Software Validation from Datasets/Training Tool/whistle_lab/config.json",
+      "sha256": "1311edfd66a31c00f5d1d27f52c00f4b457ce63fb38bc0d8a1a5fc219dbdeea6"
+    },
+    {
+      "path": "Software Validation from Datasets/Training Tool/whistle_lab/followup/plan.json",
+      "sha256": "7c3e6c8f33d5deaebc62e25292ca1c0def8a1406484f797ae310771b4c3ba451"
+    }
+  ],
+  "key": "",
+  "id": "wh_ead9d6fe0208b9fc7ff0d45607b32112"
+}

@@ -1,0 +1,15 @@
+{
+  "selected_method_run": "mix_reference",
+  "recipe": {
+    "max_batch_size": 16,
+    "batch_audio_seconds": 120,
+    "batch_tokens": 2048,
+    "production": true,
+    "seed": 20261022
+  },
+  "second_seed_confirmation": false,
+  "bounded_screening_only": true,
+  "development_folded_into_training": true,
+  "frozen_test_preserved": true,
+  "real_product_validation_available": false
+}

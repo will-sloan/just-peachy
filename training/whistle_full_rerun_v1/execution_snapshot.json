@@ -1,0 +1,49 @@
+{
+  "complete": true,
+  "authorized_full_rerun": true,
+  "frozen_at": 1793044985.972157,
+  "request": "26 October 2026: rerun initial-model training, seek incremental transcription improvement; full fine-tuning and same dataset weights allowed.",
+  "files": {
+    "config.json": "3fc3779d284f9e7bcb97b7482afd8f22850f87f9fd418e4ad5021d74b7dbf223",
+    "split_snapshot.json": "1c99aafe52d5a2cc0ceab0247c69da236359412a13596da549229f9b4a0290e4",
+    "train.parquet": "7c737c82dfadbaa9844c710c177a240f490a015bcc14df173512811375ff1e66",
+    "dev.parquet": "38731c7882f4493c9e2f0acf1861c06c77f2742920823dd3020a227f6d3ba1ee",
+    "confirmation.parquet": "bb1540a4d50328f55247f0999a78182833aca3e09446c7c8c6f4c839e640d260",
+    "assets.json": "af580001d0176e54b617d5d2fed659a5f50afbb3b5d9779715cea84937fa585d",
+    "release_review.json": "34298bcb8c1f0d57ee32e0c2c52290af34d0d46af6c9de6c5d29486c28e73d2f",
+    "data_audit.json": "1004f6b32f9b678a2c06ecae3d906f4110d6aef5a9560187530e960a885e2c36",
+    "audio_header_audit.json": "0be1707ae04c47a2583bc853f950bec5937f0fb3117625632b746c66a4fd951b",
+    "baseline_reuse.json": "245bccf7acdcaff9ed47a7f383c3dcc12c324d0fefa87b24ad88de02b24487f6",
+    "scores/dev_0000000.json": "55eb22aa501882724cdd1a1abb0eadcadd031224e53a49ed9dab55097aea5ef1",
+    "scores/dev_0000000.jsonl": "974bcdba9eee7d247ab53eab8e9767dc3e4f6790c568f415bb8d63944faee4ef",
+    "scores/dev_0000000.negative.jsonl": "8d9158b812cadbd000e65b9202400b2bd98f6a1fa43feffcf57d0e15db358400"
+  },
+  "source_sha256": {
+    "rerun_full/audioio.py": "af272f3e11ce1447cb2791381946d1e55d2a19d6ddafb0981bd7f6028dddf3d3",
+    "rerun_full/control.py": "42642e2244c9f8c43e3c024a716c47ea2450c45a4095fb25dca52b3cbf8d96b2",
+    "rerun_full/policy.py": "a825f53aab1743e937e58579c0e3bb9a3f9c997da64ad92d81a3a3887f5f602d",
+    "rerun_full/prepare.py": "c47d7eabbb51145c5d0864686df01203d42c06e8d74c7fa41e7c752b2ef53ccc",
+    "rerun_full/results.py": "8fd176a7ab32e346cb89b2e727f2ec67e12fdd5847357090fd32d443d0be4bbb",
+    "rerun_full/runtime.py": "7a02979364d5315c2bf088c9a4c2460b74ce8ab976e0be962673a4eb812829d7",
+    "rerun_full/score.py": "61c39a5279ee85927b6d8c1ddbf657fcdb54e9f10c0909ded47d3e853e603ad2",
+    "rerun_full/supervise.py": "27be4ff4d6eea4cfb2d70ce7e92e85b19946b27d57cffaabfb2d54f65fa7e9ac",
+    "rerun_full/test_rerun.py": "d2296edf2e6b4b82524c145d1592cc7ae067d8ec273b65609f4aece63be8678a",
+    "rerun_full/worker.py": "554757e9dd74b431878ab77c7a851c16facb9402c50ceba5c14f3dff753b2aee",
+    "common.py": "86379e5154606690071c527d77498f036bdb4381f5674f5e403f4ec9dce2d849",
+    "data.py": "a03c11637ea3aa0afb4cae872c7269ad0241e699151275a21094d58717489616",
+    "train.py": "80c91fddcd9720e2e568a3cfafe05cc60e92209123857cedeb534a9949f8fb50",
+    "evaluate.py": "2b0e28115cd7d1351405693b30cacaa720cdf2063df5690baebcb91761e11fba",
+    "guarded_ami/audioio.py": "88a2643767110d6ba7f7cb0d48bb780be6ce5bcb2e283dfdd21944fa64394ec2",
+    "guarded_ami/score.py": "c90e221856b824c490980df6bfae9734e5df2c6741aeff5e3dcb267807bc9a82",
+    "guarded_ami/policy.py": "4bb025db1d77150af106caadb73cc7d6a8377989d8e7579df5556024f4fc9428",
+    "guarded_ami/results.py": "41adb832660c6e4583f322579286ccc1bd42adcd3e375cc34497ae86702b3382"
+  },
+  "base_sha256": {
+    "assets/whistle.safetensors": "5fd58c246f522ecee2b568b306598a3befdc274c225e3a7376abce277ab3d107",
+    "adapter.final.safetensors": "2b65dbd47bc82f629e65f32e356299a15774073dec8d61f9181f9b477f8bc558",
+    "whistle.final.cact": "cd6b10970450112a70f08cbf6416cac04462932be4604bda8f93b758f5b1c337"
+  },
+  "needle_commit": "b4fc11b04f1852888d375c8c6dfbaca44572d014",
+  "training": "One fresh-base full-parameter trajectory, three complete passes, six half-pass validations, no short-pilot early-stop, refit, sweep or automatic promotion.",
+  "selection": "Screen native nine-cohort macro WER gain >=0.2 percentage points with all retention guards; one selected exploratory confirmation; preserve initial default."
+}

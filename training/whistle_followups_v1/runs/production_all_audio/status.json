@@ -1,0 +1,28 @@
+{
+  "phase": "trained",
+  "updated_at": 1792932959.4403884,
+  "message": "Export complete; decoding comparison pending",
+  "completed_shapes": 21,
+  "total_shapes": 22,
+  "time": 1792932943.7533517,
+  "step": 517560,
+  "total_steps": 517569,
+  "epoch": 2,
+  "epochs": 3,
+  "processed_records": 7240562,
+  "training_rows": 2413566,
+  "percent": 100.0,
+  "elapsed_seconds": 123456.27936143099,
+  "remaining_seconds": 2.146816821726716,
+  "learning_rate": 4.999999873689376e-06,
+  "dataset_records": {
+    "chime6": 4575696,
+    "ami": 2304313,
+    "common_voice": 304222,
+    "voices": 56331
+  },
+  "audio_hours_processed": 5921.053298595287,
+  "method": "lora",
+  "loss": 0.4922705888748169,
+  "gradient_norm": 0.6320821046829224
+}

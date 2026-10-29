@@ -1,0 +1,16 @@
+{
+  "epoch": 1,
+  "next_batch": 4346,
+  "step": 10000,
+  "processed_records": 29947,
+  "processed_audio_seconds": 475798.99928749894,
+  "active_seconds": 1155.1209107609993,
+  "dataset_records": {
+    "voices": 29947
+  },
+  "best_validation_loss": 1.3515350515250117,
+  "identity": "0c671f7cf32c3be16f246b1b9cbfa261843d14d396400c47269a163933330a6a",
+  "saved_at": 1792803156.9404392,
+  "bytes": 20354797,
+  "sha256": "83696654373d1e2664566b248028e2010cd754535a48e841c1668d8badfc8f21"
+}

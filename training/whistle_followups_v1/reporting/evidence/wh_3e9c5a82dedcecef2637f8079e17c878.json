@@ -1,0 +1,27 @@
+{
+  "kind": "note",
+  "title": "First full rerun checkpoint improves average error but fails clean speech retention",
+  "data": {
+    "id": "full_rerun_dev_0147370_864c17d092bf9197",
+    "title": "First full rerun checkpoint improves average error but fails clean speech retention",
+    "paragraphs": [
+      "The first of six scheduled native comparisons, at update 147,370, lowers equal-weight nine-cohort development WER from the preserved initial model's 18.511% to 18.066%, a 0.445 percentage-point improvement. Six cohorts improve and three regress. The saved policy rejects this checkpoint for selection: CMU Arctic clean WER rises by 0.267 points, exceeding the unchanged 0.250-point clean-speech retention limit. The macro gain passes its 0.2-point requirement, but it does not override that failure. No candidate has been selected or promoted; the initial model remains default.",
+      "This fresh pretrained-base full-parameter checkpoint has processed 1,025,675 microphone-view visits from 174,262 distinct source utterances, near the middle of its first of three passes. Actual visits/distinct sources are Common Voice 45,892/45,892; AMI 340,990/76,136; CHiME-6 630,183/51,721; and VOiCES 8,610/513. Repeated microphone views are not independent utterances. All original objective weights and exclusions remain frozen.",
+      "WER percentages, initial to checkpoint, with candidate-minus-initial changes in percentage points: AMI 26.825 to 27.033 (+0.208); CHiME-6 76.320 to 74.604 (-1.716); Common Voice age 12.286 to 12.368 (+0.081). Saved 95% paired cluster-bootstrap intervals for these changes are AMI [-1.312, +1.943], CHiME-6 [-6.387, +3.762], and Common Voice [-1.706, +1.710]. These noisy/age results remain uncertain.",
+      "Clean and read-speech WER percentages, initial to checkpoint: CMU Arctic clean 8.541 to 8.808 (+0.267 points; 95% interval [-0.794, +1.227]); HiFiTTS clean 7.485 to 6.481 (-1.003; [-1.685, -0.525]); HiFiTTS native 6.464 to 5.932 (-0.532; [-1.449, +0.131]); LibriSpeech clean 5.894 to 5.531 (-0.363; [-1.383, +0.609]); LibriSpeech native 10.269 to 10.224 (-0.045; [-1.144, +0.940]). HiFiTTS clean has only two development readers and native only four, so their intervals are fragile.",
+      "VOiCES WER falls from 12.511% to 11.613%, a 0.898-point reduction with saved 95% interval [-1.485, -0.374]. Its development evidence is still sparse: 26 source utterances, 78 microphone views and 13 speakers. The nine-cohort macro change has a 95% interval of [-1.098, +0.241] points, which includes no improvement. The 10,000-draw paired bootstrap averages microphone views per source and resamples meetings, sessions or speakers; it is not adjusted for choosing among six checkpoints.",
+      "The aggregate noisy-speech result masks different microphone outcomes. CHiME-6 array WER improves from 79.212% to 77.106%, while worn-microphone WER rises from 41.606% to 54.745% across 27 clips. AMI array worsens from 31.859% to 32.667%, while headset improves from 17.804% to 16.973%. These are descriptive slices without saved slice-specific intervals, not additional selection criteria.",
+      "Quiet-speech WER rises from 31.823% to 32.719%, a 0.896-point regression on 160 views, 77 sources and 1,004 reference words; its saved 95% change interval is [-2.463, +5.351] points. The point estimate remains within the 1.0-point quiet retention limit but gives no evidence of a quiet-speech improvement. Both models produce zero false positives and zero inserted words on all 20 silence/noise probes. Passing these limited probes does not establish intelligibility or product-microphone performance.",
+      "The owned pipeline has resumed training toward the next fixed validation at update 294,740; all six validations remain scheduled before one development candidate can be frozen. This is exploratory evidence from held-out utterances in previously evaluated populations, not fresh independent confirmation. The separate HiFiTTS clean confirmation panel has only one reader, so its interval and the complete nine-cohort confirmation interval remain undefined. No real product-microphone validation or independent final age test is available. Earlier models and their identities remain preserved; this checkpoint is experimental."
+    ],
+    "evidence": [
+      "training/whistle_full_rerun_v1/scores/dev_0147370.json SHA256 864c17d092bf91978014e5677929fe43ace8aabe47e006aea97c95a8dd4bca85",
+      "training/whistle_full_rerun_v1/scores/dev_0147370.uncertainty.json SHA256 c78142073b50053ba8af6b2d7b6d67268570c7cd758a027a3d9d1f07b9386078",
+      "training/whistle_full_rerun_v1/exports/step_0147370.json SHA256 04f989a3fbdd43f2be6ebe763d451d56d89f259fd2723e5b7d90ecb7af6d0dc6",
+      "training/whistle_full_rerun_v1/validation_summary.json SHA256 fb77857eb48e17a4f41300d61d8bf531ee20476c569a1cac7ead57fb5e798496"
+    ]
+  },
+  "sources": [],
+  "key": "full_rerun_dev_0147370_864c17d092bf9197",
+  "id": "wh_3e9c5a82dedcecef2637f8079e17c878"
+}

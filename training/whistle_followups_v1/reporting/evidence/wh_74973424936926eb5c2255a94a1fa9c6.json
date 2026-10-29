@@ -1,0 +1,26 @@
+{
+  "kind": "note",
+  "title": "VOiCES results and the single weighting proposal",
+  "data": {
+    "id": "individual_pilots_complete_b998e32e4548c956",
+    "title": "VOiCES results and the single weighting proposal",
+    "paragraphs": [
+      "The VOiCES only pilot completed 10,000 optimizer steps in 19.3 active training minutes, with 29,947 microphone-view visits across approximately 1.77 passes of its 16,929-view pool. Its best and final exports differ. Development scoring selected best at 40.19% macro WER, compared with 40.53% for final, 40.68% for the W4A8 base and 31.70% for the mixed pilot. The small aggregate gain over base does not establish a reliable general improvement.",
+      "VOiCES WER improves to 16.89%, compared with 20.64% for base and 17.96% for mixed. However, Common Voice worsens to 11.76%, versus 8.39% for base and 7.82% for mixed. AMI and CHiME 6 remain much worse than mixed at 46.94% and 85.15%. This is another example of narrow adaptation improving its own setting while sacrificing broader accuracy.",
+      "Best-checkpoint quiet-view WER is 58.53%, versus 59.52% for base and 47.95% for mixed. Both VOiCES exports produce zero inserted words on the 20 fixed silence and Gaussian-noise probes. This limited probe result does not offset the recognition regressions or establish behavior with real product microphones and background voices.",
+      "All four individual pilots are now complete. Macro development WER is 31.85% for AMI, 36.24% for CHiME 6, 36.93% for Common Voice and 40.19% for VOiCES; none beats mixed at 31.70%. These are standalone adaptation results, not causal marginal dataset contributions. Repeated microphone views and differing duration or coverage under the caps limit interpretation; frozen final tests are not used to select the recipe.",
+      "The supervisor followed the frozen proposal rule: AMI had the largest standalone macro gain over base, so its relative weight was multiplied by 1.5 and all four weights renormalized. The trial uses AMI 40.66%, Common Voice 34.65%, CHiME 6 16.04% and VOiCES 8.64%, versus prior AMI 31.36%, Common Voice 40.08%, CHiME 6 18.56% and VOiCES 10.00%. These are dataset loss-weight allocations, not dataset sizes or audio sampling percentages; the existing coverage and per-source microphone-confidence policies remain in place.",
+      "This weighting is a candidate, not an accepted production recipe. The weight_once pilot started automatically and was at 1,950 of 10,000 steps when checked. Its result must pass the declared development improvement, uncertainty, per-dataset and quiet/noise guards against mixed before promotion. Older-voice regressions in the standalone AMI run make that check especially relevant. The one full-tuning pilot follows under the frozen plan; no further weighting trials or policy changes are introduced."
+    ],
+    "evidence": [
+      "training/whistle_followups_v1/runs/only_voices/scores.json SHA256 b998e32e4548c95607aa0307186fedc8a947b456931fd88d2941a31b23c06312",
+      "training/whistle_followups_v1/runs/only_voices/checkpoint.json SHA256 49403ebac495a2f115290c45c232cfbaef157f4e445db60cc6eed9e8b635e74b",
+      "training/whistle_followups_v1/dataset_contributions.json SHA256 a52f57f3d4a0b14ead8e426aad765a741a57766ca41e98bc1634189357b19048",
+      "training/whistle_followups_v1/queue.json SHA256 de2a0420a2d861cde17692b0790f32c07d7d92538d319c8eb569c0c4ed040e53",
+      "training/whistle_followups_v1/baseline/scores.json SHA256 130de13055a55e3dfbd7f05d4910821395ca9109d20d0e45d0cce614bf372840"
+    ]
+  },
+  "sources": [],
+  "key": "individual_pilots_complete_b998e32e4548c956",
+  "id": "wh_74973424936926eb5c2255a94a1fa9c6"
+}

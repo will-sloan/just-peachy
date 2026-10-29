@@ -1,0 +1,25 @@
+{
+  "kind": "note",
+  "title": "Longer mixed reference completed before the two omission comparisons",
+  "data": {
+    "id": "ext_mix_reference_interpretation_da5e30e1d8845aec",
+    "title": "Longer mixed reference completed before the two omission comparisons",
+    "paragraphs": [
+      "The longer mixed reference completed its 30,000-update cap in 109.2 active training minutes, within its two-hour limit. It visited 209,171 training microphone views: 128,115 CHiME 6, 70,078 AMI, 9,282 Common Voice and 1,696 VOiCES. These are view visits, not independent utterances. It meets the amendment's reference eligibility floor of 20,000 updates and 500 visited views per retained dataset. That floor does not prove convergence or statistical adequacy. Best and final exports are byte-identical and share one decode.",
+      "On the unchanged 954-view development panel, macro WER is 29.52%, compared with 31.70% for the 10,000-update mixed pilot: 2.18 percentage points lower, or 6.88% relative improvement. Base WER is 40.68%. The longer run improves all four dataset averages relative to the short pilot: AMI 33.71% versus 36.94%, CHiME 6 59.67% versus 64.06%, Common Voice 7.32% versus 7.82%, and VOiCES 17.36% versus 17.96%. These are descriptive differences; no paired uncertainty result for this duration comparison is saved. The earlier full-duration initial final model remains lower overall at 28.06%, under different duration and exposure.",
+      "The aggregate improvement does not mean every slice improved. The VOiCES clean slice rises from 4.57% to 5.08% WER, although its close and far slices improve. Quiet-view WER falls from 47.95% to 47.04%, but remains above the initial final model's 41.95%. All 20 fixed silence and Gaussian-noise probes produce zero inserted words. Quiet recognition errors remain substantial; the synthetic probe result does not establish behavior on real background voices or the product microphone.",
+      "The supervisor has automatically started ext_without_voices preflight; ext_without_chime6 follows. Both retain all four datasets in development evaluation. No omission is accepted or rejected yet. Each candidate must meet the declared exposure floor and the original gain, paired uncertainty, per-dataset and quiet/noise guards against this longer reference. An insufficient or inconclusive result retains the completed production_all_audio fit, with no additional trial.",
+      "This result demonstrates that the early capped mixed pilot left room for further measured improvement. It does not retrospectively make short standalone pilots sufficient for definitive dataset rankings or establish an optimal mixture. The new reference and omissions train only on training data from a fresh pretrained base. Production scoring remains deferred until recipe selection is fixed; the exported first production model is not evaluated by these pilot scores. Real product-microphone validation and an independent final age test remain unavailable."
+    ],
+    "evidence": [
+      "training/whistle_followups_v1/runs/ext_mix_reference/scores.json SHA256 da5e30e1d8845aeca532cadf14bd3d286a8060cb56e24be3afe8e8b4ac65ddbe",
+      "training/whistle_followups_v1/runs/ext_mix_reference/checkpoint.json SHA256 6b6b3b1ef8c5e7cef054bff03d91dbd30f7a85e7a312c312480504dab3858cc7",
+      "training/whistle_followups_v1/runs/mix_reference/scores.json SHA256 e2d25cfed572af2abfaf320566caa5863afb238bd15fef4faecaa88ae312f618",
+      "training/whistle_followups_v1/baseline/scores.json SHA256 130de13055a55e3dfbd7f05d4910821395ca9109d20d0e45d0cce614bf372840",
+      "training/whistle_followups_v1/extension_snapshot.json SHA256 21a8eb4a32f3a422a7156d380eeef4ab07db320d7f005f89176d0fba1eb147c2"
+    ]
+  },
+  "sources": [],
+  "key": "ext_mix_reference_interpretation_da5e30e1d8845aec",
+  "id": "wh_781969472ee00a6df876cbdfa1383450"
+}

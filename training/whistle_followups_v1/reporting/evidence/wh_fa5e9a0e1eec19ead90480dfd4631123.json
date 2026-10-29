@@ -1,0 +1,232 @@
+{
+  "kind": "scores",
+  "title": "Results for ext without chime6",
+  "data": {
+    "complete": true,
+    "role": "development",
+    "models": {
+      "best": {
+        "macro_wer": 0.3071254081494891,
+        "datasets": {
+          "ami": {
+            "wer": 0.32861060329067643,
+            "cer": 0.2597038815526211,
+            "sources": 128,
+            "clips": 314,
+            "rtf": 0.02155396332074065
+          },
+          "chime6": {
+            "wer": 0.6498908892525914,
+            "cer": 0.5756049960967993,
+            "sources": 128,
+            "clips": 344,
+            "rtf": 0.021208382484161004
+          },
+          "common_voice": {
+            "wer": 0.0781922525107604,
+            "cer": 0.028467683369644153,
+            "sources": 128,
+            "clips": 128,
+            "rtf": 0.01609629661570142
+          },
+          "voices": {
+            "wer": 0.17180788754392814,
+            "cer": 0.10763535400277649,
+            "sources": 56,
+            "clips": 168,
+            "rtf": 0.01944229372907862
+          }
+        },
+        "quiet_audio": {
+          "clips": 342,
+          "reference_words": 2732.0,
+          "wer": 0.4707174231332357
+        },
+        "mic_slices": {
+          "ami/array": 0.408675799086758,
+          "ami/headset": 0.1910420475319927,
+          "chime6/array": 0.790929203539823,
+          "chime6/worn": 0.45868263473053894,
+          "common_voice/age": 0.0781922525107604,
+          "voices/clean": 0.05193283873486919,
+          "voices/close": 0.12729402577118312,
+          "voices/far": 0.3361967981257321
+        },
+        "negative_probes": {
+          "clips": 20,
+          "false_positive_rate": 0.0,
+          "inserted_words": 0,
+          "interpretation": "Fixed silence and generated Gaussian noise; not a guarantee on real product recordings"
+        },
+        "predictions": "best.dev.jsonl",
+        "weights": "whistle.best.cact",
+        "model_sha256": "0594235672e769183358885dcbc2a197f4e4123ff0a06b9d3cb3ec969b09cc4e"
+      },
+      "final": {
+        "macro_wer": 0.3129647965973707,
+        "datasets": {
+          "ami": {
+            "wer": 0.3307434491163924,
+            "cer": 0.2571428571428571,
+            "sources": 128,
+            "clips": 314,
+            "rtf": 0.02070839018198185
+          },
+          "chime6": {
+            "wer": 0.6730769230769231,
+            "cer": 0.6001561280249804,
+            "sources": 128,
+            "clips": 344,
+            "rtf": 0.021087049582399462
+          },
+          "common_voice": {
+            "wer": 0.07388809182209469,
+            "cer": 0.027160493827160494,
+            "sources": 128,
+            "clips": 128,
+            "rtf": 0.01830686380266832
+          },
+          "voices": {
+            "wer": 0.17415072237407261,
+            "cer": 0.10871510103347215,
+            "sources": 56,
+            "clips": 168,
+            "rtf": 0.020298362162752468
+          }
+        },
+        "quiet_audio": {
+          "clips": 342,
+          "reference_words": 2732.0,
+          "wer": 0.48060029282576866
+        },
+        "mic_slices": {
+          "ami/array": 0.4149543378995434,
+          "ami/headset": 0.1882998171846435,
+          "chime6/array": 0.8008849557522124,
+          "chime6/worn": 0.48982035928143713,
+          "common_voice/age": 0.07388809182209469,
+          "voices/clean": 0.05310425614994143,
+          "voices/close": 0.1261226083561109,
+          "voices/far": 0.3432253026161656
+        },
+        "negative_probes": {
+          "clips": 20,
+          "false_positive_rate": 0.0,
+          "inserted_words": 0,
+          "interpretation": "Fixed silence and generated Gaussian noise; not a guarantee on real product recordings"
+        },
+        "predictions": "final.dev.jsonl",
+        "weights": "whistle.final.cact",
+        "model_sha256": "9f332fe52384ff875e4adbb5ae50482a10e2b8e5fcf8d8edd04d5d599d149399"
+      }
+    },
+    "selected": "best",
+    "panel_sha256": "bf1ce20d2c82050542fbcf4f28575186ec261873f60734a8e58762cd91ce7805",
+    "normalization": "Whisper English text normalizer; same for every model",
+    "production": false,
+    "real_product_validation_available": false,
+    "independent_age_test_available": true,
+    "model_manifest": {
+      "run_identity": "be1bdde5f8160528a5bec861cc3b66cbf1e8fc241654f990bec4c8027955d369",
+      "config": {
+        "run_name": "whistle_followups_v1/runs/ext_without_chime6",
+        "epochs": 3,
+        "seed": 20261022,
+        "learning_rate": 0.0001,
+        "lora_rank": 16,
+        "lora_alpha": 32,
+        "dtype": "bfloat16",
+        "matmul_precision": "highest",
+        "loss_normalization": "full_pool_per_clip",
+        "max_batch_size": 8,
+        "batch_audio_seconds": 60,
+        "batch_tokens": 1024,
+        "loader_workers": 12,
+        "checkpoint_seconds": 300,
+        "validation_every_steps": 5000,
+        "validation_per_dataset": 128,
+        "whistle_revision": "741118687e1f008f06d1351a402a731274789790",
+        "dataset_weights": {
+          "common_voice": 0.4921480311347851,
+          "ami": 0.38506281483691485,
+          "voices": 0.12278915402830007
+        },
+        "source_manifest_directory": "training/successors/phase5a_original_adapter_training_v1/framework_manifests",
+        "training_manifests": [
+          "age_train.parquet",
+          "ami_train.parquet",
+          "chime_train.parquet",
+          "voices_train.parquet"
+        ],
+        "development_manifests": [
+          "age_dev.parquet",
+          "ami_dev.parquet",
+          "chime_dev.parquet",
+          "voices_dev.parquet"
+        ],
+        "wsl_distribution": "Ubuntu",
+        "wsl_python": "/home/amiri/.venvs/whistle/bin/python",
+        "dashboard_port": 8766,
+        "release_review_required": false,
+        "quantization_mode": "upstream_full",
+        "extension_id": "omission_comparison_2026_10_24",
+        "method": "lora",
+        "datasets": [
+          "common_voice",
+          "ami",
+          "voices"
+        ],
+        "max_steps": 30000,
+        "max_active_seconds": 7200,
+        "campaign_policy_sha256": "7c3e6c8f33d5deaebc62e25292ca1c0def8a1406484f797ae310771b4c3ba451",
+        "extension_policy_sha256": "0924ba771578fc6916bc0a8d4cc6aaedfbe4b1736c04ae7775598949fe93c883"
+      },
+      "completed_training": {
+        "epoch": 0,
+        "next_batch": 30000,
+        "step": 30000,
+        "processed_records": 181394,
+        "processed_audio_seconds": 804460.9938670251,
+        "active_seconds": 4971.665595386003,
+        "dataset_records": {
+          "ami": 156873,
+          "common_voice": 20687,
+          "voices": 3834
+        },
+        "best_validation_loss": 0.7273553878779524,
+        "identity": "be1bdde5f8160528a5bec861cc3b66cbf1e8fc241654f990bec4c8027955d369"
+      },
+      "model_sha256": {
+        "whistle.best.cact": "0594235672e769183358885dcbc2a197f4e4123ff0a06b9d3cb3ec969b09cc4e",
+        "whistle.final.cact": "9f332fe52384ff875e4adbb5ae50482a10e2b8e5fcf8d8edd04d5d599d149399"
+      },
+      "base_assets": "/mnt/c/Users/amiri/Documents/GitHub/just-peachy/training/whistle_age_robust_v1/assets",
+      "license_resolution": {
+        "status": "resolved",
+        "release_review_required": false,
+        "dataset": "chime6",
+        "license": "CC-BY-SA-4.0",
+        "confirmation_date": "2026-10-23",
+        "confirmation_source": "explicit user message in the current chat",
+        "user_statement": "The chime6 licensing is resolved and good to go.",
+        "attribution_records_retained": true
+      },
+      "training_includes_development": false,
+      "development_selection_disabled": false,
+      "frozen_test_preserved": true,
+      "real_product_validation_available": false
+    }
+  },
+  "sources": [
+    {
+      "path": "training/whistle_followups_v1/runs/ext_without_chime6/scores.json",
+      "sha256": "019905a76cb48ff496a720ab2efb53e78178b222ddf685335956b337face5506"
+    },
+    {
+      "path": "training/whistle_followups_v1/runs/ext_without_chime6/model_manifest.json",
+      "sha256": "dddffa2f3c9763367258d97ac482c3be20c92dbd515f1a358a5884cdae291736"
+    }
+  ],
+  "key": "ext_without_chime6",
+  "id": "wh_fa5e9a0e1eec19ead90480dfd4631123"
+}

@@ -1,0 +1,22 @@
+{
+  "kind": "extension_production",
+  "title": "Retain or refit the production model",
+  "data": {
+    "rerun_required": false,
+    "selected_production_run": "production_all_audio",
+    "selected_method_run": "ext_mix_reference",
+    "recipe": null,
+    "decision_sha256": "3cd09088fdddef3220c00e4e00d24a2d640b0a925663a2f41618f97940feb1f1",
+    "development_folded_into_training": true,
+    "frozen_test_used_for_selection": false,
+    "reason": "No eligible omission passed all guards; preserve the existing production fit"
+  },
+  "sources": [
+    {
+      "path": "training/whistle_followups_v1/extension_production_decision.json",
+      "sha256": "f8332a74b4cce8921abd142f098eb0a04206859346a3885df3ed16f98ee19d26"
+    }
+  ],
+  "key": "extension_production_decision.json",
+  "id": "wh_16f2f61b066c1131132e35f9cc0ee650"
+}

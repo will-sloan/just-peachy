@@ -1,0 +1,9 @@
+cactus-needle[train,gpu]==3.2.1
+soundfile
+pyarrow
+pandas
+psutil
+jiwer
+pytest
+soxr
+whisper-normalizer

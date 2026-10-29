@@ -1,0 +1,192 @@
+{
+  "complete": true,
+  "sha256": {
+    "train": "7c737c82dfadbaa9844c710c177a240f490a015bcc14df173512811375ff1e66",
+    "dev": "38731c7882f4493c9e2f0acf1861c06c77f2742920823dd3020a227f6d3ba1ee",
+    "confirmation": "bb1540a4d50328f55247f0999a78182833aca3e09446c7c8c6f4c839e640d260"
+  },
+  "coverage": {
+    "dev": {
+      "ami": {
+        "clips": 302,
+        "sources": 128,
+        "clusters": 11,
+        "quiet_clips": 118
+      },
+      "chime6": {
+        "clips": 170,
+        "sources": 128,
+        "clusters": 7,
+        "quiet_clips": 42
+      },
+      "cmu_arctic_clean": {
+        "clips": 128,
+        "sources": 128,
+        "clusters": 14,
+        "quiet_clips": 0
+      },
+      "common_voice_age": {
+        "clips": 128,
+        "sources": 128,
+        "clusters": 21,
+        "quiet_clips": 0
+      },
+      "hifitts_clean": {
+        "clips": 128,
+        "sources": 128,
+        "clusters": 2,
+        "quiet_clips": 0
+      },
+      "hifitts_native": {
+        "clips": 128,
+        "sources": 128,
+        "clusters": 4,
+        "quiet_clips": 0
+      },
+      "librispeech_clean": {
+        "clips": 128,
+        "sources": 128,
+        "clusters": 22,
+        "quiet_clips": 0
+      },
+      "librispeech_native": {
+        "clips": 128,
+        "sources": 128,
+        "clusters": 15,
+        "quiet_clips": 0
+      },
+      "voices": {
+        "clips": 78,
+        "sources": 26,
+        "clusters": 13,
+        "quiet_clips": 0
+      }
+    },
+    "confirmation": {
+      "ami": {
+        "clips": 285,
+        "sources": 128,
+        "clusters": 5,
+        "quiet_clips": 80
+      },
+      "chime6": {
+        "clips": 195,
+        "sources": 128,
+        "clusters": 3,
+        "quiet_clips": 54
+      },
+      "cmu_arctic_clean": {
+        "clips": 128,
+        "sources": 128,
+        "clusters": 4,
+        "quiet_clips": 0
+      },
+      "common_voice_age": {
+        "clips": 128,
+        "sources": 128,
+        "clusters": 14,
+        "quiet_clips": 0
+      },
+      "hifitts_clean": {
+        "clips": 128,
+        "sources": 128,
+        "clusters": 1,
+        "quiet_clips": 0
+      },
+      "hifitts_native": {
+        "clips": 128,
+        "sources": 128,
+        "clusters": 3,
+        "quiet_clips": 0
+      },
+      "librispeech_clean": {
+        "clips": 128,
+        "sources": 128,
+        "clusters": 9,
+        "quiet_clips": 0
+      },
+      "librispeech_native": {
+        "clips": 128,
+        "sources": 128,
+        "clusters": 18,
+        "quiet_clips": 0
+      },
+      "voices": {
+        "clips": 60,
+        "sources": 20,
+        "clusters": 10,
+        "quiet_clips": 0
+      }
+    }
+  },
+  "training": {
+    "ami": {
+      "views_per_pass": 682812,
+      "distinct_sources": 76795,
+      "objective_weight": 0.31359676502711864,
+      "quiet_views": 296882
+    },
+    "chime6": {
+      "views_per_pass": 1261887,
+      "distinct_sources": 51743,
+      "objective_weight": 0.18559582243760467,
+      "quiet_views": 471243
+    },
+    "common_voice": {
+      "views_per_pass": 91123,
+      "distinct_sources": 91123,
+      "objective_weight": 0.4008074125352768,
+      "quiet_views": 0
+    },
+    "voices": {
+      "views_per_pass": 16929,
+      "distinct_sources": 513,
+      "objective_weight": 0.10000000000000002,
+      "quiet_views": 0
+    }
+  },
+  "training_rows": 2052751,
+  "training_sources": 220174,
+  "training_clusters": 1629,
+  "total_planned_visits": 6158253,
+  "all_views_each_pass_verified": true,
+  "batches_per_epoch": 294740,
+  "validation_steps": [
+    147370,
+    294740,
+    442110,
+    589480,
+    736850,
+    884220
+  ],
+  "training_evaluation_groups_disjoint": true,
+  "development_confirmation_groups_disjoint": true,
+  "quality_generation": "ce763f776b2cf4a81168",
+  "quality_train_sha256": "65ba05afeb9fbe72dea92b0e80ad2e9b87a0721b4febaa303e70a8ebca370c00",
+  "independent_confirmation": false,
+  "coverage_shortfalls": {
+    "dev": {
+      "voices": {
+        "clips": 78,
+        "sources": 26,
+        "clusters": 13,
+        "quiet_clips": 0
+      }
+    },
+    "confirmation": {
+      "hifitts_clean": {
+        "clips": 128,
+        "sources": 128,
+        "clusters": 1,
+        "quiet_clips": 0
+      },
+      "voices": {
+        "clips": 60,
+        "sources": 20,
+        "clusters": 10,
+        "quiet_clips": 0
+      }
+    }
+  },
+  "limitation": "Reused exploratory panels from previously evaluated populations; no fresh independent confirmation."
+}

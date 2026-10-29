@@ -1,0 +1,22 @@
+{
+  "kind": "note",
+  "title": "Full training passes GPU preflight and begins optimizer updates",
+  "data": {
+    "id": "full_rerun_gpu_preflight_6fde72cc4c49a7e0",
+    "title": "Full training passes GPU preflight and begins optimizer updates",
+    "paragraphs": [
+      "All 22 declared GPU batch shapes passed for full-parameter training, including the 150-second/1,024-token shape. The preflight updates were discarded. Initialization matched the pinned pretrained values exactly; serialization/restoration reproduced the next full optimizer update within 9.094947017729282e-13. All 55,151,433 parameters are trainable. These are execution checks, not transcription accuracy results.",
+      "At the 26 October 2026 20:19 UTC snapshot, training had advanced to 2,200 of 884,220 updates, covering 15,369 microphone-view visits. The saved recovery checkpoint had advanced to update 1,373. All user-pause controls were clear, all four required training/report scheduled tasks were available, and no recovery failure was recorded.",
+      "The first measured estimate was approximately 51.6 hours of training remaining, including observed batch loading and optimizer time; its optimizer-compute component was approximately 32.0 hours. This estimate is based on the early part of the first pass and excludes future scoring, export, compilation, checkpoint writes and pauses. It is not a promised completion time. Healthy-run heartbeat visits now use two hours; the independent local recovery monitor still checks every 15 minutes.",
+      "No native candidate comparison has completed. The first fixed validation is at update 147,370. No improvement or regression can yet be inferred from training loss or successful GPU checks. The initial tuned model remains default, the three-pass/four-domain policy is unchanged, and the existing exploratory-evaluation and document-layout limitations remain applicable."
+    ],
+    "evidence": [
+      "training/whistle_full_rerun_v1/preflight.json SHA256 6fde72cc4c49a7e0f92f8e52963379bd8fcadd6caded639f4e835efbc54e7110",
+      "training/whistle_full_rerun_v1/resume_verification.json SHA256 effacdf7d3b7440fdcb3582810c2570862c00181b7c6bccd01b18699bc8aaa60",
+      "training/whistle_full_rerun_v1/initialization_verification.json SHA256 901d5eaeb24e4db76a59721c8a674fce53ceb141e96d6db0a69d7fe41b0e0c06"
+    ]
+  },
+  "sources": [],
+  "key": "full_rerun_gpu_preflight_6fde72cc4c49a7e0",
+  "id": "wh_547b32a3b5eae82fa03b356c4332deee"
+}

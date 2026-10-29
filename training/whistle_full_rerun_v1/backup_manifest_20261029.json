@@ -1,0 +1,1551 @@
+{
+  "created_at": 1793317368.7898993,
+  "repository": "will-sloan/just-peachy",
+  "branch": "codex/whistle-full-rerun-backup-2026-10-29",
+  "scope": "Whistle source, documentation, final report and supporting JSON evidence, all full-rerun model exports and optimizer checkpoints, preserved initial comparator and pinned base/runtime assets",
+  "not_included": [
+    "raw audio datasets",
+    "training/development/confirmation row manifests",
+    "prediction JSONL",
+    "training logs and caches",
+    "unrelated workspace work"
+  ],
+  "complete_training": true,
+  "default_model_unchanged": true,
+  "files": [
+    {
+      "path": "Software Validation from Datasets/Training Tool/whistle_lab/annotation_quarantine.json",
+      "bytes": 16552,
+      "sha256": "10dcc2ccb584a0fb59087c6b36cd7d67fbb2775542a47061f9a0b7cdd4053555",
+      "git_lfs": false
+    },
+    {
+      "path": "Software Validation from Datasets/Training Tool/whistle_lab/audit_audio.py",
+      "bytes": 2651,
+      "sha256": "a11651652dfd1c8a418cac49090c2d439f17e77561fdcc156132b46dcd2c4817",
+      "git_lfs": false
+    },
+    {
+      "path": "Software Validation from Datasets/Training Tool/whistle_lab/bootstrap_assets.py",
+      "bytes": 2342,
+      "sha256": "9e87d25326d887acd92291357ccc54017910912630f1d1c950322a7bd0d77231",
+      "git_lfs": false
+    },
+    {
+      "path": "Software Validation from Datasets/Training Tool/whistle_lab/common.py",
+      "bytes": 4204,
+      "sha256": "86379e5154606690071c527d77498f036bdb4381f5674f5e403f4ec9dce2d849",
+      "git_lfs": false
+    },
+    {
+      "path": "Software Validation from Datasets/Training Tool/whistle_lab/config.json",
+      "bytes": 1271,
+      "sha256": "1311edfd66a31c00f5d1d27f52c00f4b457ce63fb38bc0d8a1a5fc219dbdeea6",
+      "git_lfs": false
+    },
+    {
+      "path": "Software Validation from Datasets/Training Tool/whistle_lab/data.py",
+      "bytes": 4675,
+      "sha256": "a03c11637ea3aa0afb4cae872c7269ad0241e699151275a21094d58717489616",
+      "git_lfs": false
+    },
+    {
+      "path": "Software Validation from Datasets/Training Tool/whistle_lab/dist/index.html",
+      "bytes": 20529,
+      "sha256": "c000829d890b6099776612e1481426dd0a6236d85271f90ee71fda8b00c8cf4c",
+      "git_lfs": false
+    },
+    {
+      "path": "Software Validation from Datasets/Training Tool/whistle_lab/evaluate.py",
+      "bytes": 9530,
+      "sha256": "2b0e28115cd7d1351405693b30cacaa720cdf2063df5690baebcb91761e11fba",
+      "git_lfs": false
+    },
+    {
+      "path": "Software Validation from Datasets/Training Tool/whistle_lab/followup/audio.py",
+      "bytes": 1337,
+      "sha256": "88a2643767110d6ba7f7cb0d48bb780be6ce5bcb2e283dfdd21944fa64394ec2",
+      "git_lfs": false
+    },
+    {
+      "path": "Software Validation from Datasets/Training Tool/whistle_lab/followup/campaign.py",
+      "bytes": 18153,
+      "sha256": "bba1f9ff9ef9ea70635c63d44e987d12c001f718989b4bbad5425372b64f078e",
+      "git_lfs": false
+    },
+    {
+      "path": "Software Validation from Datasets/Training Tool/whistle_lab/followup/decide.py",
+      "bytes": 3316,
+      "sha256": "a442644033648326e4d5fc32d88449077d2a80ad38585dba0c2e1f822ec67d54",
+      "git_lfs": false
+    },
+    {
+      "path": "Software Validation from Datasets/Training Tool/whistle_lab/followup/eta.py",
+      "bytes": 15231,
+      "sha256": "fe2d9439fa920fb5307d69b165934c20c780002033556b2679eb8eaeed047486",
+      "git_lfs": false
+    },
+    {
+      "path": "Software Validation from Datasets/Training Tool/whistle_lab/followup/extension.py",
+      "bytes": 9812,
+      "sha256": "e65b93bf330f0bc7a533227236647d2c7b3859747a4128d746552f6e1e9c0a12",
+      "git_lfs": false
+    },
+    {
+      "path": "Software Validation from Datasets/Training Tool/whistle_lab/followup/extension_plan.json",
+      "bytes": 2379,
+      "sha256": "0924ba771578fc6916bc0a8d4cc6aaedfbe4b1736c04ae7775598949fe93c883",
+      "git_lfs": false
+    },
+    {
+      "path": "Software Validation from Datasets/Training Tool/whistle_lab/followup/index.html",
+      "bytes": 11926,
+      "sha256": "e33233ce850ecab87a7c8c3be2dfa2dd0a3eb9e831ddf28281ddde2c1723aaf4",
+      "git_lfs": false
+    },
+    {
+      "path": "Software Validation from Datasets/Training Tool/whistle_lab/followup/install_monitor.ps1",
+      "bytes": 1286,
+      "sha256": "40f8cd742fd4f30351974e2533c9a2d800339aae6dddb5ee36256075c79c98ab",
+      "git_lfs": false
+    },
+    {
+      "path": "Software Validation from Datasets/Training Tool/whistle_lab/followup/launch.ps1",
+      "bytes": 808,
+      "sha256": "41afd446d673b5b2d56e1706212abbaaaa30af822858a216a27aaf088666bafc",
+      "git_lfs": false
+    },
+    {
+      "path": "Software Validation from Datasets/Training Tool/whistle_lab/followup/plan.json",
+      "bytes": 1701,
+      "sha256": "7c3e6c8f33d5deaebc62e25292ca1c0def8a1406484f797ae310771b4c3ba451",
+      "git_lfs": false
+    },
+    {
+      "path": "Software Validation from Datasets/Training Tool/whistle_lab/followup/prepare.py",
+      "bytes": 13668,
+      "sha256": "36434bed821c845f34f142f9db3e6225b01a16326afc3f6aa66844a755b100bd",
+      "git_lfs": false
+    },
+    {
+      "path": "Software Validation from Datasets/Training Tool/whistle_lab/followup/quality.py",
+      "bytes": 9822,
+      "sha256": "5605f160917ec6808d382c0954218bf1636cf5acf227749b783f9663a75dd16d",
+      "git_lfs": false
+    },
+    {
+      "path": "Software Validation from Datasets/Training Tool/whistle_lab/followup/README.md",
+      "bytes": 21109,
+      "sha256": "d35d1731facbe4529fb249f0839f200689ace91f3bfa19de9891f9f90301a476",
+      "git_lfs": false
+    },
+    {
+      "path": "Software Validation from Datasets/Training Tool/whistle_lab/followup/score.py",
+      "bytes": 10629,
+      "sha256": "c1668b185d2a0267c661bc40cbd049581ec8a7e142cd74b134ee65f258807ad0",
+      "git_lfs": false
+    },
+    {
+      "path": "Software Validation from Datasets/Training Tool/whistle_lab/followup/shared.py",
+      "bytes": 2903,
+      "sha256": "7275c406d4e3a7145c30c9713fa38be1856c38c2ccbe791744fb2343e0d17a43",
+      "git_lfs": false
+    },
+    {
+      "path": "Software Validation from Datasets/Training Tool/whistle_lab/followup/test_campaign.py",
+      "bytes": 12482,
+      "sha256": "8c08e55c0015f525608c78c17c7a1c16e99608089c14ebf6970d4db598767c2e",
+      "git_lfs": false
+    },
+    {
+      "path": "Software Validation from Datasets/Training Tool/whistle_lab/followup/test_extension.py",
+      "bytes": 8077,
+      "sha256": "4d8beb59efe3b025a04edbd61fcd4edc21b6ace7517a966527ff5ba1d189e510",
+      "git_lfs": false
+    },
+    {
+      "path": "Software Validation from Datasets/Training Tool/whistle_lab/followup/worker.py",
+      "bytes": 13488,
+      "sha256": "a3ca6df84c69548876098e68982ad677f4ed5817e0497f384175ff35ef318b35",
+      "git_lfs": false
+    },
+    {
+      "path": "Software Validation from Datasets/Training Tool/whistle_lab/guarded_ami/audioio.py",
+      "bytes": 1337,
+      "sha256": "88a2643767110d6ba7f7cb0d48bb780be6ce5bcb2e283dfdd21944fa64394ec2",
+      "git_lfs": false
+    },
+    {
+      "path": "Software Validation from Datasets/Training Tool/whistle_lab/guarded_ami/audit_sources.py",
+      "bytes": 6814,
+      "sha256": "bf6464bdd3e063414d45a02af40d46d2a0010bcdc44f5a24ee93ec41c7b09a17",
+      "git_lfs": false
+    },
+    {
+      "path": "Software Validation from Datasets/Training Tool/whistle_lab/guarded_ami/control.py",
+      "bytes": 4737,
+      "sha256": "40bb241cf53214bef6a50f3533b3dc0b702a3b8a90a4bf1ef49406a8179af839",
+      "git_lfs": false
+    },
+    {
+      "path": "Software Validation from Datasets/Training Tool/whistle_lab/guarded_ami/execution_amendment.json",
+      "bytes": 3934,
+      "sha256": "e8c1d13f953ae49892505286157a4541b9d4a3192d76544a02f65cff34b2f44c",
+      "git_lfs": false
+    },
+    {
+      "path": "Software Validation from Datasets/Training Tool/whistle_lab/guarded_ami/install_monitor.ps1",
+      "bytes": 1366,
+      "sha256": "faf54196fd01ced6d3ebfd80b081ee48d87af80deb8bfa6be055a8a69aa47aef",
+      "git_lfs": false
+    },
+    {
+      "path": "Software Validation from Datasets/Training Tool/whistle_lab/guarded_ami/launch.ps1",
+      "bytes": 403,
+      "sha256": "f80e0ac62044fe42dedcad92fe5505f9865c7c6d956f61cdadf99d2e537ff3a6",
+      "git_lfs": false
+    },
+    {
+      "path": "Software Validation from Datasets/Training Tool/whistle_lab/guarded_ami/policy.py",
+      "bytes": 3271,
+      "sha256": "4bb025db1d77150af106caadb73cc7d6a8377989d8e7579df5556024f4fc9428",
+      "git_lfs": false
+    },
+    {
+      "path": "Software Validation from Datasets/Training Tool/whistle_lab/guarded_ami/prepare.py",
+      "bytes": 18417,
+      "sha256": "ef6caaf51ac1060f683118cf466edc9b024353adda2c6b89e86ab27e4fc3bda7",
+      "git_lfs": false
+    },
+    {
+      "path": "Software Validation from Datasets/Training Tool/whistle_lab/guarded_ami/README.md",
+      "bytes": 12616,
+      "sha256": "573206c5e66eec9ebb7f8458170f94bd6d30cf3ca0c36c83e18bbb8269e63ccc",
+      "git_lfs": false
+    },
+    {
+      "path": "Software Validation from Datasets/Training Tool/whistle_lab/guarded_ami/results.py",
+      "bytes": 6323,
+      "sha256": "41adb832660c6e4583f322579286ccc1bd42adcd3e375cc34497ae86702b3382",
+      "git_lfs": false
+    },
+    {
+      "path": "Software Validation from Datasets/Training Tool/whistle_lab/guarded_ami/runtime.py",
+      "bytes": 2914,
+      "sha256": "2067d403559208cdb242cc1ff5bf1b8d7fb78b73ad7b644a11b26b5047c4d0d6",
+      "git_lfs": false
+    },
+    {
+      "path": "Software Validation from Datasets/Training Tool/whistle_lab/guarded_ami/score.py",
+      "bytes": 8188,
+      "sha256": "c90e221856b824c490980df6bfae9734e5df2c6741aeff5e3dcb267807bc9a82",
+      "git_lfs": false
+    },
+    {
+      "path": "Software Validation from Datasets/Training Tool/whistle_lab/guarded_ami/supervise.py",
+      "bytes": 5848,
+      "sha256": "51fa6a6204fce148da48087491e2bf76ab5f2c9d421c28c5800ecbbcf271acd4",
+      "git_lfs": false
+    },
+    {
+      "path": "Software Validation from Datasets/Training Tool/whistle_lab/guarded_ami/test_audit_sources.py",
+      "bytes": 883,
+      "sha256": "4facbd4301636145b06a27a6c1df8187a119dd9d3baca54d29eecec0489c70d6",
+      "git_lfs": false
+    },
+    {
+      "path": "Software Validation from Datasets/Training Tool/whistle_lab/guarded_ami/test_policy.py",
+      "bytes": 2601,
+      "sha256": "59e2d959e932f7f6e975e7b354f9fb5144b57de677b1fd94d52df732ca83543b",
+      "git_lfs": false
+    },
+    {
+      "path": "Software Validation from Datasets/Training Tool/whistle_lab/guarded_ami/test_recovery.py",
+      "bytes": 4555,
+      "sha256": "683f71a7e2ba6f758d861cf99a57161493641c0e7fcaafb215cd8ae2888a5269",
+      "git_lfs": false
+    },
+    {
+      "path": "Software Validation from Datasets/Training Tool/whistle_lab/guarded_ami/worker.py",
+      "bytes": 13613,
+      "sha256": "2e169b1454e787114769da7a5c7b2b3541d2c397a1a894a3ed2f3a5a48ce878e",
+      "git_lfs": false
+    },
+    {
+      "path": "Software Validation from Datasets/Training Tool/whistle_lab/launch.ps1",
+      "bytes": 1362,
+      "sha256": "21871e860787bb4fc5ed522bd8040912ae44bc5049d991e5f499d05a7cd3dc0f",
+      "git_lfs": false
+    },
+    {
+      "path": "Software Validation from Datasets/Training Tool/whistle_lab/LICENSE_REVIEW.md",
+      "bytes": 4901,
+      "sha256": "d479038cd3f0228f186c004692beb8703ff169120ffd117887cf7d5caf7a8ab4",
+      "git_lfs": false
+    },
+    {
+      "path": "Software Validation from Datasets/Training Tool/whistle_lab/loader_benchmark.py",
+      "bytes": 1119,
+      "sha256": "2e973378d08437a0db5d52081d5141eb7ec0783d49b799e64d0b1cd934305be0",
+      "git_lfs": false
+    },
+    {
+      "path": "Software Validation from Datasets/Training Tool/whistle_lab/prepare.py",
+      "bytes": 6481,
+      "sha256": "e8b7ffe498ed4b746056a15a2851889afde510beadacc2787735c96b5440282d",
+      "git_lfs": false
+    },
+    {
+      "path": "Software Validation from Datasets/Training Tool/whistle_lab/proposals/initial_ami_guarded_v1/plan.json",
+      "bytes": 10086,
+      "sha256": "cde332f06a626a138d3412b7cf6b3715a13f2663c0e487cd90e0413dffd3e550",
+      "git_lfs": false
+    },
+    {
+      "path": "Software Validation from Datasets/Training Tool/whistle_lab/proposals/initial_ami_guarded_v1/README.md",
+      "bytes": 12757,
+      "sha256": "db821de13336239ecafe57be0baea4720529b44fd14c5fecbf2179664cc87b30",
+      "git_lfs": false
+    },
+    {
+      "path": "Software Validation from Datasets/Training Tool/whistle_lab/README.md",
+      "bytes": 19678,
+      "sha256": "eb214482e33961da525907b0e0644f95209f1934a8a761f37375ca783fbfac5d",
+      "git_lfs": false
+    },
+    {
+      "path": "Software Validation from Datasets/Training Tool/whistle_lab/reporting/install_report_task.ps1",
+      "bytes": 1259,
+      "sha256": "7c2e75996dd67697f5a8c65772b01a7c8a25c9789226b5a1db9dbe6dab43e833",
+      "git_lfs": false
+    },
+    {
+      "path": "Software Validation from Datasets/Training Tool/whistle_lab/reporting/README.md",
+      "bytes": 9093,
+      "sha256": "93b7fc3dd11cca8a99f60c83b03b3d332f9d836dcad1e9cdfdaf910a665619b9",
+      "git_lfs": false
+    },
+    {
+      "path": "Software Validation from Datasets/Training Tool/whistle_lab/reporting/report.py",
+      "bytes": 35050,
+      "sha256": "12d9c831bffb603d83618bc12f76a89530f98482ae956f6f1435284af8f02df6",
+      "git_lfs": false
+    },
+    {
+      "path": "Software Validation from Datasets/Training Tool/whistle_lab/reporting/test_report.py",
+      "bytes": 5696,
+      "sha256": "7d6973936a60afedcdd447d64bc70d9b6b98bf922f9cbb0a094b2cc5ae831c8a",
+      "git_lfs": false
+    },
+    {
+      "path": "Software Validation from Datasets/Training Tool/whistle_lab/reporting/update_report.ps1",
+      "bytes": 547,
+      "sha256": "deabfcf7d49f4ab9af4184af2895a97c31fd19b605069844445b9b769324280c",
+      "git_lfs": false
+    },
+    {
+      "path": "Software Validation from Datasets/Training Tool/whistle_lab/requirements.txt",
+      "bytes": 101,
+      "sha256": "cb8f5fe3214f7e89820e7bd8fca7bfe44bbc7d83db0b83376270e3ab3d771dbf",
+      "git_lfs": false
+    },
+    {
+      "path": "Software Validation from Datasets/Training Tool/whistle_lab/rerun_full/audioio.py",
+      "bytes": 124,
+      "sha256": "af272f3e11ce1447cb2791381946d1e55d2a19d6ddafb0981bd7f6028dddf3d3",
+      "git_lfs": false
+    },
+    {
+      "path": "Software Validation from Datasets/Training Tool/whistle_lab/rerun_full/control.py",
+      "bytes": 4734,
+      "sha256": "42642e2244c9f8c43e3c024a716c47ea2450c45a4095fb25dca52b3cbf8d96b2",
+      "git_lfs": false
+    },
+    {
+      "path": "Software Validation from Datasets/Training Tool/whistle_lab/rerun_full/install_monitor.ps1",
+      "bytes": 1357,
+      "sha256": "e7d422d76b6d16c3f47b77a0a645a0ee8fc42c531b6c7dc5e375947789c901c7",
+      "git_lfs": false
+    },
+    {
+      "path": "Software Validation from Datasets/Training Tool/whistle_lab/rerun_full/launch.ps1",
+      "bytes": 403,
+      "sha256": "f80e0ac62044fe42dedcad92fe5505f9865c7c6d956f61cdadf99d2e537ff3a6",
+      "git_lfs": false
+    },
+    {
+      "path": "Software Validation from Datasets/Training Tool/whistle_lab/rerun_full/policy.py",
+      "bytes": 2135,
+      "sha256": "a825f53aab1743e937e58579c0e3bb9a3f9c997da64ad92d81a3a3887f5f602d",
+      "git_lfs": false
+    },
+    {
+      "path": "Software Validation from Datasets/Training Tool/whistle_lab/rerun_full/prepare.py",
+      "bytes": 10771,
+      "sha256": "c47d7eabbb51145c5d0864686df01203d42c06e8d74c7fa41e7c752b2ef53ccc",
+      "git_lfs": false
+    },
+    {
+      "path": "Software Validation from Datasets/Training Tool/whistle_lab/rerun_full/README.md",
+      "bytes": 12712,
+      "sha256": "c1ba788dd062ce884c8ad2440d9333602f2661d3019346345b4d3b9888917c9b",
+      "git_lfs": false
+    },
+    {
+      "path": "Software Validation from Datasets/Training Tool/whistle_lab/rerun_full/results.py",
+      "bytes": 6716,
+      "sha256": "8fd176a7ab32e346cb89b2e727f2ec67e12fdd5847357090fd32d443d0be4bbb",
+      "git_lfs": false
+    },
+    {
+      "path": "Software Validation from Datasets/Training Tool/whistle_lab/rerun_full/runtime.py",
+      "bytes": 3706,
+      "sha256": "7a02979364d5315c2bf088c9a4c2460b74ce8ab976e0be962673a4eb812829d7",
+      "git_lfs": false
+    },
+    {
+      "path": "Software Validation from Datasets/Training Tool/whistle_lab/rerun_full/score.py",
+      "bytes": 324,
+      "sha256": "61c39a5279ee85927b6d8c1ddbf657fcdb54e9f10c0909ded47d3e853e603ad2",
+      "git_lfs": false
+    },
+    {
+      "path": "Software Validation from Datasets/Training Tool/whistle_lab/rerun_full/supervise.py",
+      "bytes": 5377,
+      "sha256": "27be4ff4d6eea4cfb2d70ce7e92e85b19946b27d57cffaabfb2d54f65fa7e9ac",
+      "git_lfs": false
+    },
+    {
+      "path": "Software Validation from Datasets/Training Tool/whistle_lab/rerun_full/test_rerun.py",
+      "bytes": 4494,
+      "sha256": "d2296edf2e6b4b82524c145d1592cc7ae067d8ec273b65609f4aece63be8678a",
+      "git_lfs": false
+    },
+    {
+      "path": "Software Validation from Datasets/Training Tool/whistle_lab/rerun_full/worker.py",
+      "bytes": 16007,
+      "sha256": "554757e9dd74b431878ab77c7a851c16facb9402c50ceba5c14f3dff753b2aee",
+      "git_lfs": false
+    },
+    {
+      "path": "Software Validation from Datasets/Training Tool/whistle_lab/supervisor.py",
+      "bytes": 8563,
+      "sha256": "aa32dd7934999ec29e02f245f7bbbfb946604194eb45e41ab3103bfe1578015e",
+      "git_lfs": false
+    },
+    {
+      "path": "Software Validation from Datasets/Training Tool/whistle_lab/test_data.py",
+      "bytes": 3623,
+      "sha256": "f7ccd5f4efe6accd309292c8e1c2f95b2b525e06aff8c3e6c241df823bfd8d44",
+      "git_lfs": false
+    },
+    {
+      "path": "Software Validation from Datasets/Training Tool/whistle_lab/test_state.py",
+      "bytes": 2854,
+      "sha256": "c68d35bcd50c2497e2316b79fc0a19dcdce8ed5bd883fcf8c21e215d5f42409a",
+      "git_lfs": false
+    },
+    {
+      "path": "Software Validation from Datasets/Training Tool/whistle_lab/train.py",
+      "bytes": 23290,
+      "sha256": "80c91fddcd9720e2e568a3cfafe05cc60e92209123857cedeb534a9949f8fb50",
+      "git_lfs": false
+    },
+    {
+      "path": "Software Validation from Datasets/Training Tool/whistle_lab/verify_export.py",
+      "bytes": 2427,
+      "sha256": "6c6009c36f6a117df64e966d10664b80ba0044f66cc6a05beeb3b205ab919a3a",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_age_robust_v1/adapter.final.safetensors",
+      "bytes": 6786968,
+      "sha256": "2b65dbd47bc82f629e65f32e356299a15774073dec8d61f9181f9b477f8bc558",
+      "git_lfs": true
+    },
+    {
+      "path": "training/whistle_age_robust_v1/assets/config.json",
+      "bytes": 603,
+      "sha256": "ac2dbcb98a945eff2de98a03104c468dc9d68c06b9ff791539327f90298a3d43",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_age_robust_v1/assets/libneedle.so",
+      "bytes": 1590584,
+      "sha256": "87476ff70e80334d7c766dbf236b72f42876072df22014c6ec8a9b087b82b260",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_age_robust_v1/assets/LICENSE",
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_age_robust_v1/assets/needle-engine-LICENSE",
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_age_robust_v1/assets/needle-python-LICENSE",
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_age_robust_v1/assets/README.md",
+      "bytes": 7314,
+      "sha256": "8c8a12d5efffd54026856e461380afa084b87d041cce7e8e35d29f18ddbef120",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_age_robust_v1/assets/tokenizer.model",
+      "bytes": 126520,
+      "sha256": "97dfd5666620b19875deba9e55953d312364e7763bd08bee428b94f1b9491b25",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_age_robust_v1/assets/tokenizer.vocab",
+      "bytes": 106870,
+      "sha256": "7c87aa0da9f19b5d5a97824ec94555d6e73766f2a60e51e7ebe0b7c61ded3b33",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_age_robust_v1/assets/whistle.cact",
+      "bytes": 16919407,
+      "sha256": "b6e02f048568ac5d01a2042556c658061e699acbc0aa2a1439f52f3d461dffeb",
+      "git_lfs": true
+    },
+    {
+      "path": "training/whistle_age_robust_v1/assets/whistle.safetensors",
+      "bytes": 220618620,
+      "sha256": "5fd58c246f522ecee2b568b306598a3befdc274c225e3a7376abce277ab3d107",
+      "git_lfs": true
+    },
+    {
+      "path": "training/whistle_age_robust_v1/assets.json",
+      "bytes": 1869,
+      "sha256": "af580001d0176e54b617d5d2fed659a5f50afbb3b5d9779715cea84937fa585d",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_age_robust_v1/evaluation_summary.json",
+      "bytes": 9383,
+      "sha256": "e1f3734a05c2485e48c9acb206b1d4a7a4c66b461ec196c2ca69e732ecbabe2b",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_age_robust_v1/model_manifest.json",
+      "bytes": 3022,
+      "sha256": "1a2a192c880ef4a52ca0fb9ccd583f26f527b90e6603c96bbe222d60aeeb197c",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_age_robust_v1/release_review.json",
+      "bytes": 334,
+      "sha256": "34298bcb8c1f0d57ee32e0c2c52290af34d0d46af6c9de6c5d29486c28e73d2f",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_age_robust_v1/requirements.lock.txt",
+      "bytes": 1585,
+      "sha256": "8717c06702ab422ba2fcbf0f68efa1b90b4413139345900d50979a8d517ab816",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_age_robust_v1/whistle.final.cact",
+      "bytes": 29346671,
+      "sha256": "cd6b10970450112a70f08cbf6416cac04462932be4604bda8f93b758f5b1c337",
+      "git_lfs": true
+    },
+    {
+      "path": "training/whistle_followups_v1/baseline/scores.json",
+      "bytes": 5739,
+      "sha256": "130de13055a55e3dfbd7f05d4910821395ca9109d20d0e45d0cce614bf372840",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_followups_v1/dataset_contributions.json",
+      "bytes": 9173,
+      "sha256": "a52f57f3d4a0b14ead8e426aad765a741a57766ca41e98bc1634189357b19048",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_followups_v1/extension_decision.json",
+      "bytes": 2791,
+      "sha256": "3cd09088fdddef3220c00e4e00d24a2d640b0a925663a2f41618f97940feb1f1",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_followups_v1/extension_production_decision.json",
+      "bytes": 415,
+      "sha256": "f8332a74b4cce8921abd142f098eb0a04206859346a3885df3ed16f98ee19d26",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_followups_v1/extension_snapshot.json",
+      "bytes": 2543,
+      "sha256": "21a8eb4a32f3a422a7156d380eeef4ab07db320d7f005f89176d0fba1eb147c2",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_followups_v1/matched_comparison.json",
+      "bytes": 12644,
+      "sha256": "019467560dcc00b3d8ac0ad2da7f382fc77c633015fd7f5c839e571892243f31",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_followups_v1/method_decision.json",
+      "bytes": 846,
+      "sha256": "9ab6fef5733c20fa535827facb67fd41311ffab12957e3b5e8cbd64d8b09fa37",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_followups_v1/production_decision.json",
+      "bytes": 387,
+      "sha256": "c581dad5aebdf73a596c19638bdd6ccb052db05b8f176cdd138c6a638a1631a2",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_followups_v1/queue.json",
+      "bytes": 4171,
+      "sha256": "2d6cd2a1297765257ef37d109044a30d9fc3a4f8ab443702c3a86e71741dc706",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_followups_v1/reporting/analyst_notes.json",
+      "bytes": 104873,
+      "sha256": "8e8a739ccd2947254e2b3626a188cf6d85e528d45c35346f86f58705c0fa1e82",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_followups_v1/reporting/evidence/wh_062208b39da88f51f254f48bbd42d505.json",
+      "bytes": 3849,
+      "sha256": "38eeff6e4006600b12d590858d3de7e355f81ec6705158bb916fc0dba0657244",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_followups_v1/reporting/evidence/wh_0b58e89d9fd8a43d4111255038bf2a4a.json",
+      "bytes": 6211,
+      "sha256": "d4b714bafe1c42e9a9f4902cc6088863c075f89dc7d7e03f708698f5eec5a478",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_followups_v1/reporting/evidence/wh_0bbc15bd5bd63cb22e69b0785bc6819c.json",
+      "bytes": 3174,
+      "sha256": "a26f908da6c8873d128a0dae46e2a6a1899795e007602ec48382b7d8e431eea2",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_followups_v1/reporting/evidence/wh_0bc0e6ba7861c838d85a951622366129.json",
+      "bytes": 2302,
+      "sha256": "c7e922286f464d8b0a2921ba9eccfbaa2f3ace98dd28b832d29903f6cdfa5d04",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_followups_v1/reporting/evidence/wh_16f2f61b066c1131132e35f9cc0ee650.json",
+      "bytes": 843,
+      "sha256": "5a9a2575b38f3e1374c349d2535d3ae3bcee9b161931d1d9ff47900ebf28c28b",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_followups_v1/reporting/evidence/wh_1ae7a13330c8bd918b5cfab9890499f3.json",
+      "bytes": 2248,
+      "sha256": "ec90b4b09e18db47881da489279f6b7943d14165973e1fc6bbd9b1509f9c7c1d",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_followups_v1/reporting/evidence/wh_204ec518612300bbe30e165c764e13b2.json",
+      "bytes": 3307,
+      "sha256": "0aebab412336f5837496f38ec4e7dc25b46636390c768ecfbc33dfec557a485f",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_followups_v1/reporting/evidence/wh_2468c279c00b9bc8b618d27b9b2f3758.json",
+      "bytes": 8386,
+      "sha256": "22f165fd8823f09b3b9ba0547d122a9bf38ccfeb2fd9042d7ac87c864f05f44c",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_followups_v1/reporting/evidence/wh_253e6bf06546edbdd9eb610652233f04.json",
+      "bytes": 3749,
+      "sha256": "f6f4556928cc63a445201ded26b0303d015ca188db159a9f9b086e7353e16572",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_followups_v1/reporting/evidence/wh_276865276b8b3b5994eb8ce280fe2bdb.json",
+      "bytes": 10439,
+      "sha256": "bb95687eda9a01f079fed35665db994cfa151381b1bd9cb2a4ba5d391aeec669",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_followups_v1/reporting/evidence/wh_2ae712ed55fe29213f435e0f78cca886.json",
+      "bytes": 10013,
+      "sha256": "d230061e4fc090b31477b1088fde2f19b121dc1a4c041506b595e04fadb90339",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_followups_v1/reporting/evidence/wh_31b86c76f36256114137250796d392bc.json",
+      "bytes": 10281,
+      "sha256": "e207c95d1add8c520ae63cbd069316a51528256d22cfd94205e382240ec3abdb",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_followups_v1/reporting/evidence/wh_35f3a479ca8b72a62c4fee4675069c0f.json",
+      "bytes": 6025,
+      "sha256": "84422c1d25ad7a6939efc46757169e8010797e43b804ca049711550dbd4f5b17",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_followups_v1/reporting/evidence/wh_3939f7e2c1a9f248eb5088e3b0c8cad0.json",
+      "bytes": 8316,
+      "sha256": "2d877e265784f8ae39904f4bf0876766be4707347c79e2b0750a845976d1a739",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_followups_v1/reporting/evidence/wh_39ac3b0827321a06b986b24ef306b6d5.json",
+      "bytes": 5523,
+      "sha256": "b236a5762ce7eb4a80aa515e1190df11bf52dccc9847d5cc76943a69b08334ba",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_followups_v1/reporting/evidence/wh_3e9c5a82dedcecef2637f8079e17c878.json",
+      "bytes": 5012,
+      "sha256": "2a86008798c5368def4f7150b9aeb66b30287a4bcca732ca4f9304660c6172f0",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_followups_v1/reporting/evidence/wh_3fd81d9c57b615fda13729ab7012e54c.json",
+      "bytes": 2962,
+      "sha256": "be0ad5a6002be42155c5f9553b120f1c38d90ea7e47346111d4ddcb46841e7fd",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_followups_v1/reporting/evidence/wh_513d87edc73befedde77926a9f5847ec.json",
+      "bytes": 8678,
+      "sha256": "2faa4af474ae5eaf40d5d74d126353620677d72ebeee67d010eea7dbf072ea2c",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_followups_v1/reporting/evidence/wh_547b32a3b5eae82fa03b356c4332deee.json",
+      "bytes": 2491,
+      "sha256": "5c8dbe7506640aa879261bd4cda0f8c6391626190514924e20d3a15d78baf8c6",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_followups_v1/reporting/evidence/wh_6522270848b9edc8f0ebdb28dd8965b3.json",
+      "bytes": 3392,
+      "sha256": "6200a1b784ae122dde2c2262415a8e18e3936b625d2b4b5fdc791259a040f8a1",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_followups_v1/reporting/evidence/wh_659b0cac78d542fd76748e0c614ccdba.json",
+      "bytes": 3313,
+      "sha256": "a6aeb1096d449e7b8c740952883f89007a69fbcbb8d95cda2c32580852dd4b98",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_followups_v1/reporting/evidence/wh_65cfd97613714896bcfc3070976f8cd7.json",
+      "bytes": 2652,
+      "sha256": "4f8107281d15a1e8d863cd7f1212512f2657652bf49489dd6496be1b3f1dbdc3",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_followups_v1/reporting/evidence/wh_74973424936926eb5c2255a94a1fa9c6.json",
+      "bytes": 3704,
+      "sha256": "1c962b82b74d7b7a7430a4e5511f1bd123307ceea16aa87de9b51b93b8d2031e",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_followups_v1/reporting/evidence/wh_781969472ee00a6df876cbdfa1383450.json",
+      "bytes": 3883,
+      "sha256": "5b66c6b12214de957d3bbbdceb2e97130e06e72dca4a97dcfca57d218664ccb2",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_followups_v1/reporting/evidence/wh_886350dc25c28e7ea6d9e5127d6ecd02.json",
+      "bytes": 1276,
+      "sha256": "6ef79d595016889b622089065778320c9ba1fac3e2eae58cc661785cc71d645d",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_followups_v1/reporting/evidence/wh_90fb29d4117f7c06c3af65ec143f8167.json",
+      "bytes": 3651,
+      "sha256": "febd28bd148ee90308317c36cc4316a41a45bf2fbe9b2262732c19e03446debd",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_followups_v1/reporting/evidence/wh_9ae32b7f84bc397c94ab081e675dc0c9.json",
+      "bytes": 3611,
+      "sha256": "734982fb23c7ba1dd80fda53c30b911d17a687ea82db3dcbca8f17a16211b40e",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_followups_v1/reporting/evidence/wh_ad339426c0018e5fa73035e7cc334b6a.json",
+      "bytes": 5666,
+      "sha256": "e799b9578331a630ebb00cf99330cfd2909f980cdced46ba20a870a794a28fcd",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_followups_v1/reporting/evidence/wh_ae50346db6d74feff9d139eaae2a36b9.json",
+      "bytes": 790,
+      "sha256": "7c14a8a9288c52b535fce4f38365feb77270b0ade97bd75d59d86f790faa0ed2",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_followups_v1/reporting/evidence/wh_b18318eacd3de74020d5a864851fd459.json",
+      "bytes": 2844,
+      "sha256": "88fb0fd99d6d2ad724578bf2ab2d8c2372c87f6433994fb26e9ef1b5a3b12a2f",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_followups_v1/reporting/evidence/wh_b1dddb21bd101a4be6e7be1979313b65.json",
+      "bytes": 8365,
+      "sha256": "fee3ddd57f54adb4ffbac0a2496df7bde6b331064da848160488d070eeea35fd",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_followups_v1/reporting/evidence/wh_b36bb0aad320d717ce855b0451e89652.json",
+      "bytes": 8350,
+      "sha256": "da9e8d418bb9e35f902378ce462db1876df73c0a08b33a6ded3fd4e26c1a3ba2",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_followups_v1/reporting/evidence/wh_b9643d6452115531bf81094debd887d5.json",
+      "bytes": 6625,
+      "sha256": "c3eaa2810547ee0aef10e67251c6c25af504f376b5ccbd9da42e6ea8541b9a8e",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_followups_v1/reporting/evidence/wh_b998d940a8399064d7d22c0d2761fd88.json",
+      "bytes": 4766,
+      "sha256": "4eff4ba7c36ce7af7cc3404e01fae72ed4b575f529411c3c8a82ea9e88e6ee11",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_followups_v1/reporting/evidence/wh_cdad8aca7d870a91c8a73540a99bdfa8.json",
+      "bytes": 6543,
+      "sha256": "1ca8d9c19770c8dad22ba91fa0143b2fe81b8c22a2bb85e23f3981f601a180c8",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_followups_v1/reporting/evidence/wh_d36fa57eadb24738d7edea4dd357cb84.json",
+      "bytes": 8434,
+      "sha256": "dec29ed74a540b2cb85a08674ae8fe277cdbc76f2da6816425b9ccafd071965b",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_followups_v1/reporting/evidence/wh_d9407e4c1146cebbcf4c4b22bd700d78.json",
+      "bytes": 14327,
+      "sha256": "1a80570805f0c1bb673bc47c976f9ef4f987fc041a6e959f80379c7e24f3477e",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_followups_v1/reporting/evidence/wh_da067fc3420fcab22a9bb1d21b17a8fb.json",
+      "bytes": 8381,
+      "sha256": "1def5addf7eb59c247f80ca077cc4273ce04be26712bb96ad896d74c47e7a92e",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_followups_v1/reporting/evidence/wh_dede83701056b41f35640c47709993f4.json",
+      "bytes": 8340,
+      "sha256": "395d2adf8edc4dafd53fa61732a163c5148bdf7c9c90c751a7134547f11d11c0",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_followups_v1/reporting/evidence/wh_dfbab268ccaa9e797abba8e1dad478a0.json",
+      "bytes": 6029,
+      "sha256": "8c69f4623cbd5f4e8f85f5bc627e7c7328314e9a1bca588b9f45be769fdacf2f",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_followups_v1/reporting/evidence/wh_e3b2aeccffea806c9c6e757d4156ebcd.json",
+      "bytes": 8164,
+      "sha256": "c8093a772292bca294e0c8ed243b22467eabaf95411eef9d95fa192d11c0033a",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_followups_v1/reporting/evidence/wh_e6dd36f5a557c6315243be8e98c0760d.json",
+      "bytes": 10737,
+      "sha256": "7123e88b6cc7e921bf6f5008b0856dd83fceba0a6a0612ca72ade6fb57260d7c",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_followups_v1/reporting/evidence/wh_e818494945332cf61fbf9e0bea80fd00.json",
+      "bytes": 52103,
+      "sha256": "69aadd83497d0dfdda89258c200bdbc68b3f79e900fdb9f0a244618eb54a65a1",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_followups_v1/reporting/evidence/wh_e87170315694ed9a094d6416af158a64.json",
+      "bytes": 4565,
+      "sha256": "77559937b355b6e6f02886ab4f08c50a6cb97bd9d55444e953287f0b2c72c41f",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_followups_v1/reporting/evidence/wh_ead9d6fe0208b9fc7ff0d45607b32112.json",
+      "bytes": 3916,
+      "sha256": "7e6301a17e44b75df0ab4fd2b61cc43caf9f9e2db498fa9efab5a18382d503f7",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_followups_v1/reporting/evidence/wh_eeca9c26841c69d8239087ce855fd015.json",
+      "bytes": 1275,
+      "sha256": "d9cbbe890d59fb51448e1e1f7a5b75df5c4873ad9349ebe6155ecc2309cb93af",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_followups_v1/reporting/evidence/wh_f7801ca57d1ce51ee045eadc24b05e6e.json",
+      "bytes": 3412,
+      "sha256": "fc687723ee7bc7a45ee4af628238dbc016cb609b3cf40d3df7d3588073b8475f",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_followups_v1/reporting/evidence/wh_f837465df550c6a113b25947999b330f.json",
+      "bytes": 4605,
+      "sha256": "8f9d3b54bdb1ba67a415fc1b5d4e2253993ac0ab33deea5d56bdea79a6ee38f3",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_followups_v1/reporting/evidence/wh_fa5e9a0e1eec19ead90480dfd4631123.json",
+      "bytes": 8435,
+      "sha256": "bfe145bef6aca60b25beff895560d70fa6ec5734977c501b4928385c5be15d1e",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_followups_v1/reporting/evidence/wh_fc7ab783142b6c892438042e098da039.json",
+      "bytes": 2945,
+      "sha256": "694b80e32ef3ebaf920f6d06335f1f6ae6d02fe61b4e9b44835ec9fefbfedccf",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_followups_v1/reporting/report_status.json",
+      "bytes": 1290,
+      "sha256": "5582ae515076edc60a81948086a5ebf9861a684e50a4325707b9a932e7dfc7d6",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_followups_v1/reporting/Whistle_Fine_Tuning_Findings.docx",
+      "bytes": 90560,
+      "sha256": "0826b8143acca5b47718c69e5e94b5b8e38a6c30d3f6a1b9ea4d1e1b67f81cc6",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_followups_v1/runs/ext_mix_reference/checkpoint.json",
+      "bytes": 551,
+      "sha256": "6b6b3b1ef8c5e7cef054bff03d91dbd30f7a85e7a312c312480504dab3858cc7",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_followups_v1/runs/ext_mix_reference/scores.json",
+      "bytes": 4077,
+      "sha256": "da5e30e1d8845aeca532cadf14bd3d286a8060cb56e24be3afe8e8b4ac65ddbe",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_followups_v1/runs/ext_without_chime6/checkpoint.json",
+      "bytes": 530,
+      "sha256": "b9a1737b360168a4872a1c531e956344f229b0489d7ad1cd38b156b8f2cb2f8c",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_followups_v1/runs/ext_without_chime6/scores.json",
+      "bytes": 3908,
+      "sha256": "019905a76cb48ff496a720ab2efb53e78178b222ddf685335956b337face5506",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_followups_v1/runs/ext_without_voices/checkpoint.json",
+      "bytes": 530,
+      "sha256": "da9398949efc6c384dcd2f4e439ee0bbb9fc1e9304c7505601a77cb3e23bf6c7",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_followups_v1/runs/ext_without_voices/scores.json",
+      "bytes": 3907,
+      "sha256": "358e34326f3fc3ce37dfabcae1b315008e6b1274012b10d66710c67b3f91665f",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_followups_v1/runs/method_full/checkpoint.json",
+      "bytes": 547,
+      "sha256": "7bc0f3e39863c80d06b3cf7deeaa83ea0c6bd005d1b34f30ce31b844059512ed",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_followups_v1/runs/method_full/scores.json",
+      "bytes": 4069,
+      "sha256": "689aa32710109cca250962aaa14d5a51f28dc4cd4fa55442ba09f7454d3e4ad7",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_followups_v1/runs/mix_reference/scores.json",
+      "bytes": 4073,
+      "sha256": "e2d25cfed572af2abfaf320566caa5863afb238bd15fef4faecaa88ae312f618",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_followups_v1/runs/only_ami/checkpoint.json",
+      "bytes": 483,
+      "sha256": "9983edbccaf81cee1046efe9f2ec7721501be8ebd5323f098baeb70830f3bbc7",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_followups_v1/runs/only_ami/scores.json",
+      "bytes": 4081,
+      "sha256": "c49014678a9c679d551dff44832a08127cd0a44e72fbd66e215a3ee2141c903d",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_followups_v1/runs/only_chime6/checkpoint.json",
+      "bytes": 487,
+      "sha256": "a53dd8ddaee5108ac99e04a41c19c19c1dc9b76401a99f4494e161afbb89fdb2",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_followups_v1/runs/only_chime6/scores.json",
+      "bytes": 4083,
+      "sha256": "e8ebac83d62326c124d9ab947f306cfd419a81a63066e06699fd694a9411a707",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_followups_v1/runs/only_common_voice/checkpoint.json",
+      "bytes": 492,
+      "sha256": "5d4707d0183e03e5f605dabe3c3818d366e3ce80610fb6d0c22f94aea53ebafe",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_followups_v1/runs/only_common_voice/scores.json",
+      "bytes": 4083,
+      "sha256": "6b5fcf8e0329205aa3ebe0b041ec7f3af5f3b0d6472e117839181fa098720075",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_followups_v1/runs/only_voices/checkpoint.json",
+      "bytes": 486,
+      "sha256": "49403ebac495a2f115290c45c232cfbaef157f4e445db60cc6eed9e8b635e74b",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_followups_v1/runs/only_voices/scores.json",
+      "bytes": 3914,
+      "sha256": "b998e32e4548c95607aa0307186fedc8a947b456931fd88d2941a31b23c06312",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_followups_v1/runs/production_all_audio/checkpoint.json",
+      "bytes": 542,
+      "sha256": "6f9979ee0e97ab7c14b520471264c13f29ba8f8433e62ba4ce34ed6673ff1cc8",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_followups_v1/runs/production_all_audio/matched_comparison.json",
+      "bytes": 12201,
+      "sha256": "ee8836798267548ad147405cc53e0b5a8cd0a3ba0a9a4c444f480d635f85d861",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_followups_v1/runs/production_all_audio/status.json",
+      "bytes": 731,
+      "sha256": "ac06399bddb3bb6ba684ed6d245bf7a07f0805491c9c8e58f2046969fc7f5667",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_followups_v1/runs/weight_once/checkpoint.json",
+      "bytes": 546,
+      "sha256": "8d613cd572f97717591271c86f287e47bc172b2a454a578f633e7c25fe09ebb2",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_followups_v1/runs/weight_once/scores.json",
+      "bytes": 4089,
+      "sha256": "8b338daf8d4706ee98eddd40cf86231755b1e1d35840a463d06b2686d17a3ee3",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_followups_v1/summary.json",
+      "bytes": 47488,
+      "sha256": "a374fc3b69cbb6f5d41dada896f3d139c7836f7edade046c1091deb1b1fdc5a5",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_followups_v1/weight_decision.json",
+      "bytes": 850,
+      "sha256": "c59e0567d40cdc97221d97a6f865b5391055129b61939f682bf82c8ac65e842f",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_full_rerun_v1/assets.json",
+      "bytes": 1869,
+      "sha256": "af580001d0176e54b617d5d2fed659a5f50afbb3b5d9779715cea84937fa585d",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_full_rerun_v1/audio_header_audit.json",
+      "bytes": 520,
+      "sha256": "0be1707ae04c47a2583bc853f950bec5937f0fb3117625632b746c66a4fd951b",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_full_rerun_v1/baseline_reuse.json",
+      "bytes": 621,
+      "sha256": "245bccf7acdcaff9ed47a7f383c3dcc12c324d0fefa87b24ad88de02b24487f6",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_full_rerun_v1/checkpoint.json",
+      "bytes": 792,
+      "sha256": "33e0a362b2dd87afe61f11abe9d72c5f239f3e450432e0b59a4525338c810b21",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_full_rerun_v1/checkpoint.msgpack",
+      "bytes": 661829609,
+      "sha256": "581af9d6853b190a4004011b225bda790ced1754151620da09a956106d96a15a",
+      "git_lfs": true
+    },
+    {
+      "path": "training/whistle_full_rerun_v1/checkpoint.previous.msgpack",
+      "bytes": 661829614,
+      "sha256": "8596f43f7fe73354fcf1ce057f29aadc39450706511900b2e203c0c178769db7",
+      "git_lfs": true
+    },
+    {
+      "path": "training/whistle_full_rerun_v1/config.json",
+      "bytes": 1581,
+      "sha256": "3fc3779d284f9e7bcb97b7482afd8f22850f87f9fd418e4ad5021d74b7dbf223",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_full_rerun_v1/confirmation_summary.json",
+      "bytes": 11181,
+      "sha256": "7a79ad52690061f5eab16cbc0aa130b5a3bea777ac49f1ceda89c26e8ffa5fab",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_full_rerun_v1/control.json",
+      "bytes": 22,
+      "sha256": "73047546a321d3a6a6fc4ed9096ec27f3aef4ac80a66cbf9cf9df48d3ae7471b",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_full_rerun_v1/data_audit.json",
+      "bytes": 331,
+      "sha256": "1004f6b32f9b678a2c06ecae3d906f4110d6aef5a9560187530e960a885e2c36",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_full_rerun_v1/decision.json",
+      "bytes": 14185,
+      "sha256": "5235b5e3ed6bc0c6f738413ed3ce4682ce4ce4d2e94c6026a9584be3797e9ae8",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_full_rerun_v1/development_decision.json",
+      "bytes": 1644,
+      "sha256": "c1b3f63c41ab90a71c14ee6b696ee110b0f8b7031f48c4548b9e4ddead935df8",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_full_rerun_v1/execution_snapshot.json",
+      "bytes": 3949,
+      "sha256": "bcb1bc7691c71afb89871520d1c96e6e277372ee8f9a07f3105f1c0b09de723d",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_full_rerun_v1/exports/step_0147370.json",
+      "bytes": 901,
+      "sha256": "04f989a3fbdd43f2be6ebe763d451d56d89f259fd2723e5b7d90ecb7af6d0dc6",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_full_rerun_v1/exports/step_0294740.json",
+      "bytes": 895,
+      "sha256": "f2d363240213b00040789393b5f14380751b8514350ec9964d668c80882c7c78",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_full_rerun_v1/exports/step_0442110.json",
+      "bytes": 903,
+      "sha256": "8702ffbcfcb932121efaebb76fb96948ad49aea81dc5c94783af3189fca33fdb",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_full_rerun_v1/exports/step_0589480.json",
+      "bytes": 899,
+      "sha256": "ebd94b166b83a677ae60a3d10107f612e4fcf54bb722e522ee353503fc008c0f",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_full_rerun_v1/exports/step_0736850.json",
+      "bytes": 904,
+      "sha256": "f8bf2feb025a2ff72543bf73114e4a876dda5499ca9b2c75f56cf171c5098fea",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_full_rerun_v1/exports/step_0884220.json",
+      "bytes": 899,
+      "sha256": "2b140cec9d6c7112056ed7c0b4089242b4e454f4475aad7bb8598b9da66e4f0a",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_full_rerun_v1/initialization_verification.json",
+      "bytes": 564,
+      "sha256": "901d5eaeb24e4db76a59721c8a674fce53ceb141e96d6db0a69d7fe41b0e0c06",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_full_rerun_v1/launcher.json",
+      "bytes": 316,
+      "sha256": "dcebd89dc37d29eb332e112c56e9ac38febe50cedaea44b8a7eb8d8f396cfbb1",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_full_rerun_v1/model_manifest.json",
+      "bytes": 4764,
+      "sha256": "9af8cfc10b6476c7841ae5ba782b335111d015670850490a443fdac26b58d295",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_full_rerun_v1/monitor_state.json",
+      "bytes": 17521,
+      "sha256": "8432df357408e1a1faf13cec30ef74a4b9b433c4d549114136036c0d18979ad6",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_full_rerun_v1/preflight.json",
+      "bytes": 2588,
+      "sha256": "6fde72cc4c49a7e0f92f8e52963379bd8fcadd6caded639f4e835efbc54e7110",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_full_rerun_v1/recovery.json",
+      "bytes": 209,
+      "sha256": "1e4f0118aeecd475adc022b39a5abad1087fcf17316b9e22a8de05aa5858851c",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_full_rerun_v1/release_review.json",
+      "bytes": 334,
+      "sha256": "34298bcb8c1f0d57ee32e0c2c52290af34d0d46af6c9de6c5d29486c28e73d2f",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_full_rerun_v1/resume_verification.json",
+      "bytes": 277,
+      "sha256": "effacdf7d3b7440fdcb3582810c2570862c00181b7c6bccd01b18699bc8aaa60",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_full_rerun_v1/scores/confirmation_0000000.json",
+      "bytes": 3680,
+      "sha256": "e3a403ffbb8177114357ab12a644b07f5432bc8af6e42e2e3b70d808213611cd",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_full_rerun_v1/scores/confirmation_0442110.json",
+      "bytes": 3686,
+      "sha256": "59cdf8d88dc4727405e872a73faf6bbb94a93aa2a294c58daea2658cce153953",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_full_rerun_v1/scores/dev_0000000.json",
+      "bytes": 3823,
+      "sha256": "55eb22aa501882724cdd1a1abb0eadcadd031224e53a49ed9dab55097aea5ef1",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_full_rerun_v1/scores/dev_0147370.json",
+      "bytes": 3700,
+      "sha256": "864c17d092bf91978014e5677929fe43ace8aabe47e006aea97c95a8dd4bca85",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_full_rerun_v1/scores/dev_0147370.uncertainty.json",
+      "bytes": 3028,
+      "sha256": "c78142073b50053ba8af6b2d7b6d67268570c7cd758a027a3d9d1f07b9386078",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_full_rerun_v1/scores/dev_0294740.json",
+      "bytes": 3701,
+      "sha256": "2b246ac1c00eced399bb24adaffdf9ca3fe4ad195972bd1a97fc8ee667298134",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_full_rerun_v1/scores/dev_0294740.uncertainty.json",
+      "bytes": 3027,
+      "sha256": "ccc4467744ad0b58fb7d5286e3fb10b1bdbcce4a4a520aec60a5eaa8a8673fff",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_full_rerun_v1/scores/dev_0442110.json",
+      "bytes": 3697,
+      "sha256": "d6be0a00fa9707000a974c59c3c89c041eb9ccfe497f14c55803d331e813df3c",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_full_rerun_v1/scores/dev_0442110.uncertainty.json",
+      "bytes": 3023,
+      "sha256": "d2967b7c0739a03a1323df69ee3d73fd319f2c3c0d0ade08938bfbb5cd17af15",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_full_rerun_v1/scores/dev_0589480.json",
+      "bytes": 3700,
+      "sha256": "2c70bddd37e1f62a328fb171a72d4f17772292ec2146fe6464a2858c5f1675ad",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_full_rerun_v1/scores/dev_0589480.uncertainty.json",
+      "bytes": 3032,
+      "sha256": "fcd54d62ce687f5ae09367e998b912d7d48741edd90dd55de142c2a72e2bb24f",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_full_rerun_v1/scores/dev_0736850.json",
+      "bytes": 3698,
+      "sha256": "644b6aabcab70fc85ac21205c79c5ca8a1bbd8da010b9f0c19a1729447233175",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_full_rerun_v1/scores/dev_0736850.uncertainty.json",
+      "bytes": 3011,
+      "sha256": "5ef41a40998aae749f3b0606f839d21063b9b8a08d836ff1534b3435ce1c6a58",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_full_rerun_v1/scores/dev_0884220.json",
+      "bytes": 3701,
+      "sha256": "2ffb5ebad793630dd85468d9e3898d74f296a0dcbc4fbb698c8e3f25a4957f39",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_full_rerun_v1/scores/dev_0884220.uncertainty.json",
+      "bytes": 3026,
+      "sha256": "0442fd34583055bf100b10f42b829ebaee5cf074276bac9f5a367479b0b81c73",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_full_rerun_v1/scoring_status.json",
+      "bytes": 141,
+      "sha256": "f8a07874c1cf823d1d7a8e8bf377b7c3e31fd56e58719a9ce138303b84e69e48",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_full_rerun_v1/shutdown_receipt_20261029.json",
+      "bytes": 1038,
+      "sha256": "aa41e87d1a1492959b701daec4138ff08c3eccdbabfb5d6684b4ce8d148196f7",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_full_rerun_v1/split_snapshot.json",
+      "bytes": 4451,
+      "sha256": "1c99aafe52d5a2cc0ceab0247c69da236359412a13596da549229f9b4a0290e4",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_full_rerun_v1/status.json",
+      "bytes": 1351,
+      "sha256": "670cd8f5231747c2cb29ea549f611de3922ee530b1898d30e3755b0695653030",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_full_rerun_v1/summary.json",
+      "bytes": 90800,
+      "sha256": "f5e0d88b63cdfb88fd1042be2d4fb021951522b0c74acfc14edb13807b2ad575",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_full_rerun_v1/validation_summary.json",
+      "bytes": 62711,
+      "sha256": "44dad19675a51d85e239d7a30920e6632aafec95f7eae4500a8521e5ad39d1dc",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_full_rerun_v1/weights.experimental.msgpack",
+      "bytes": 220609660,
+      "sha256": "0eae99fba67e1fd5e641971b6f92664ef1a45e704d7257432df3cd4c468ead03",
+      "git_lfs": true
+    },
+    {
+      "path": "training/whistle_full_rerun_v1/weights.step_0147370.msgpack",
+      "bytes": 220609660,
+      "sha256": "56bc85b2fa68c489abf7f74750bbd4c15be28aa0a425ce1c546b04411689541a",
+      "git_lfs": true
+    },
+    {
+      "path": "training/whistle_full_rerun_v1/weights.step_0294740.msgpack",
+      "bytes": 220609660,
+      "sha256": "0c8d6f577842014b882634df8783742a98ba6898c1686ac390598df992146b33",
+      "git_lfs": true
+    },
+    {
+      "path": "training/whistle_full_rerun_v1/weights.step_0442110.msgpack",
+      "bytes": 220609660,
+      "sha256": "0eae99fba67e1fd5e641971b6f92664ef1a45e704d7257432df3cd4c468ead03",
+      "git_lfs": true
+    },
+    {
+      "path": "training/whistle_full_rerun_v1/weights.step_0589480.msgpack",
+      "bytes": 220609660,
+      "sha256": "2b895dc950457a3ec3a4ded17149d294ea2b3272afea4fb91d0cf5e3da5a4cd8",
+      "git_lfs": true
+    },
+    {
+      "path": "training/whistle_full_rerun_v1/weights.step_0736850.msgpack",
+      "bytes": 220609660,
+      "sha256": "648b7c33ea6c095cbb62195bb753cdef6e962ca6a8790e773c895dc00ad7db4f",
+      "git_lfs": true
+    },
+    {
+      "path": "training/whistle_full_rerun_v1/weights.step_0884220.msgpack",
+      "bytes": 220609660,
+      "sha256": "6e69a6e92259c6498cf3c79cd5ac1392f93a04de0a3968e9eb2dfdd85d99a84c",
+      "git_lfs": true
+    },
+    {
+      "path": "training/whistle_full_rerun_v1/whistle.base_zero.cact",
+      "bytes": 29346671,
+      "sha256": "da5525ead826cdcb67295b0af6826b16a288a283af22c26abd6829ee1f07df95",
+      "git_lfs": true
+    },
+    {
+      "path": "training/whistle_full_rerun_v1/whistle.experimental.cact",
+      "bytes": 29346671,
+      "sha256": "3e3cd823f1eb7aceda29680a634a0eb3605f1d5bf317052e7f2dbf88ab3611af",
+      "git_lfs": true
+    },
+    {
+      "path": "training/whistle_full_rerun_v1/whistle.selected.cact",
+      "bytes": 29346671,
+      "sha256": "cd6b10970450112a70f08cbf6416cac04462932be4604bda8f93b758f5b1c337",
+      "git_lfs": true
+    },
+    {
+      "path": "training/whistle_full_rerun_v1/whistle.step_0147370.cact",
+      "bytes": 29346671,
+      "sha256": "e24d8a15eb7cb17dc83c93b1a24a02199ee147eb3649728f985f21188aa520bf",
+      "git_lfs": true
+    },
+    {
+      "path": "training/whistle_full_rerun_v1/whistle.step_0294740.cact",
+      "bytes": 29346671,
+      "sha256": "150be9a7c86655a5e5e6044147c319a8190e1b03a6d20a78180a1d43a6e55e3d",
+      "git_lfs": true
+    },
+    {
+      "path": "training/whistle_full_rerun_v1/whistle.step_0442110.cact",
+      "bytes": 29346671,
+      "sha256": "3e3cd823f1eb7aceda29680a634a0eb3605f1d5bf317052e7f2dbf88ab3611af",
+      "git_lfs": true
+    },
+    {
+      "path": "training/whistle_full_rerun_v1/whistle.step_0589480.cact",
+      "bytes": 29346671,
+      "sha256": "884d51a5105770972d3c2dbd17cb1e9e34bcf5edda857c0ceea9e10b5b3cfdb4",
+      "git_lfs": true
+    },
+    {
+      "path": "training/whistle_full_rerun_v1/whistle.step_0736850.cact",
+      "bytes": 29346671,
+      "sha256": "96c46d023f10b5b58207a9e1d67426009ac5f7491a8b33844a90ee7913af8e63",
+      "git_lfs": true
+    },
+    {
+      "path": "training/whistle_full_rerun_v1/whistle.step_0884220.cact",
+      "bytes": 29346671,
+      "sha256": "fc6895ec73508f87a3ffe68075acc39cf52921dfeff6171c3c21cf701c66c95b",
+      "git_lfs": true
+    },
+    {
+      "path": "training/whistle_full_rerun_v1/worker.json",
+      "bytes": 176,
+      "sha256": "47c289d2bccdcdafb155572180db4e6d7c0feb6000183f29bad7f7aaf898dba8",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_transcription_guarded_v1/config.json",
+      "bytes": 1619,
+      "sha256": "29d4a02abacf8ad3a47ec4b56a81e41cbd9108fcd84dfcca1fd9a4bf94d762b5",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_transcription_guarded_v1/confirmation_summary.json",
+      "bytes": 91,
+      "sha256": "8a06cb6bef3b7b810941d33aa54ef22c696049db7787260f761a13eef2926dac",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_transcription_guarded_v1/decision.json",
+      "bytes": 1480,
+      "sha256": "4bd448f59072505331b852961706831f6a58b0172c4fdebae0302da9c4dbb135",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_transcription_guarded_v1/development_decision.json",
+      "bytes": 914,
+      "sha256": "a9f4a66954125008a368ed6bf4f0678afa504825197cfe42a3428e5338b0227c",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_transcription_guarded_v1/execution_amendment.json",
+      "bytes": 3933,
+      "sha256": "bd4c831625afc536a27f83643fbd5a45358ebf8500762e7fe91b5587433cd4f9",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_transcription_guarded_v1/initialization_verification.json",
+      "bytes": 377,
+      "sha256": "296770e119683b56046ff1b167e9fb01eb36bf505feaae32f260a6247245874e",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_transcription_guarded_v1/model_manifest.json",
+      "bytes": 3766,
+      "sha256": "8d52121f8967d2f233439b12a30d7f4737b5757a5c9a3af7eeb39652f5778e68",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_transcription_guarded_v1/preflight.json",
+      "bytes": 2571,
+      "sha256": "7e5032d07f41639702fff16257141aacabf4e68619ac6e0b87b21342cecc91db",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_transcription_guarded_v1/resume_verification.json",
+      "bytes": 223,
+      "sha256": "70d680df6f48b83bf1439278f89c5178481c93885ec6535df6562100190a6112",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_transcription_guarded_v1/scores/dev_00000.json",
+      "bytes": 3689,
+      "sha256": "011e106bed8e35c8d7f763a03ce65b56eb32bee80528aac8e524445e5a515f30",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_transcription_guarded_v1/split_snapshot.json",
+      "bytes": 16541,
+      "sha256": "3cafc586d637da1fa5c5093fc942005f1171d3fb28911d507450530c688095c7",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_transcription_guarded_v1/summary.json",
+      "bytes": 23285,
+      "sha256": "5830c14cd32cec2ae109629e823744b8cd10e8c92201a4be744d89d499cdec8a",
+      "git_lfs": false
+    },
+    {
+      "path": "training/whistle_transcription_guarded_v1/validation_summary.json",
+      "bytes": 14424,
+      "sha256": "179368100027775488aee59d7698f3984ec10d26722ca5276f3dd4aee161d1c6",
+      "git_lfs": false
+    }
+  ],
+  "file_count": 255,
+  "total_bytes": 3409151025,
+  "lfs_file_count": 22,
+  "frozen_source_hashes_verified": 18
+}

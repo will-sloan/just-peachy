@@ -1,0 +1,24 @@
+{
+  "kind": "note",
+  "title": "Interpretation of the completed AMI only pilot",
+  "data": {
+    "id": "only_ami_interpretation_c49014678a9c679d",
+    "title": "Interpretation of the completed AMI only pilot",
+    "paragraphs": [
+      "The AMI only LoRA pilot completed 10,000 optimizer steps in 24.3 active training minutes, visiting 61,203 microphone views. Compilation, export and scoring are additional time. Best and final exports are byte-identical; their shared decode and timings are not independent measurements.",
+      "On the same 954-view development panel, macro WER is 31.85%, compared with 40.68% for the W4A8 base and 31.70% for the mixed pilot. The 8.83 percentage point gain over base is descriptive. Its 0.15-point deficit to mixed is too small to establish a meaningful ranking without the declared uncertainty analysis. The earlier full-duration initial final checkpoint remains at 28.06%, under a different training budget.",
+      "AMI WER improves to 34.78% versus 36.94% for mixed, and CHiME 6 is similar at 64.14% versus 64.06%. However, age-filtered Common Voice worsens to 9.04%, compared with 7.82% for mixed and 8.39% for base. VOiCES is also worse than mixed at 19.42% versus 17.96%, though still better than base at 20.64%. This illustrates a meeting-speech gain with a cost on older read voices; aggregate improvement alone does not justify choosing AMI only.",
+      "Quiet-view WER is 48.28%, similar to mixed at 47.95% and better than base at 59.52%. The 20 fixed silence and Gaussian-noise probes produce zero inserted words. Quiet-view error remains substantial, and these synthetic probes do not establish safety against invented words on real background voices or product-microphone recordings.",
+      "These are development results from capped standalone adaptation runs, not a causal estimate of removing or adding AMI within the mixture. Microphone views are related, and each pilot sees different audio duration and coverage. No weight or method decision has been saved yet. The supervisor automatically started CHiME 6, observed at step 1,330 of 10,000; VOiCES follows before the single permitted weighting proposal. No extra experiment or policy change is introduced."
+    ],
+    "evidence": [
+      "training/whistle_followups_v1/runs/only_ami/scores.json SHA256 c49014678a9c679d551dff44832a08127cd0a44e72fbd66e215a3ee2141c903d",
+      "training/whistle_followups_v1/runs/only_ami/checkpoint.json SHA256 9983edbccaf81cee1046efe9f2ec7721501be8ebd5323f098baeb70830f3bbc7",
+      "training/whistle_followups_v1/runs/mix_reference/scores.json SHA256 e2d25cfed572af2abfaf320566caa5863afb238bd15fef4faecaa88ae312f618",
+      "training/whistle_followups_v1/baseline/scores.json SHA256 130de13055a55e3dfbd7f05d4910821395ca9109d20d0e45d0cce614bf372840"
+    ]
+  },
+  "sources": [],
+  "key": "only_ami_interpretation_c49014678a9c679d",
+  "id": "wh_fc7ab783142b6c892438042e098da039"
+}

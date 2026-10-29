@@ -1,0 +1,24 @@
+{
+  "kind": "note",
+  "title": "Exploratory development baseline completed",
+  "data": {
+    "id": "exploratory_development_baseline_011e106bed8e35c8",
+    "title": "Exploratory development baseline completed",
+    "paragraphs": [
+      "All 22 GPU batch shapes passed preflight, and the initial model completed native scoring on all 1,318 frozen development clips before optimizer training began. The pipeline is advancing through its first bounded training block. The initial model remains the default; no adapted checkpoint had a completed comparison at this observation.",
+      "Baseline source-balanced WER percentages are AMI 26.82, CHiME 6 76.32, CMU Arctic clean 8.54, older-speaker Common Voice 12.29, HiFiTTS clean 7.48, HiFiTTS native 6.46, LibriSpeech clean 5.89, LibriSpeech native 10.27 and VOiCES 12.51. The equal-weight nine-cohort macro is 18.51%; the equal-weight AMI/CHiME primary score is 51.57%. These are reference measurements for comparing this run's later checkpoints, not gains produced by the new training.",
+      "The model export is unchanged from the preserved initial native model, SHA256 cd6b10970450112a70f08cbf6416cac04462932be4604bda8f93b758f5b1c337. These results use a different development panel and source-balanced microphone weighting from the historical 512-clip comparison, so differences between the two tables must not be described as a model improvement or regression.",
+      "Quiet speech has 31.82% baseline WER across 160 microphone views of 77 source utterances and 1,004 reference words. All 20 fixed silence/Gaussian-noise probes produced zero inserted words. The quiet coverage meets the saved minimum word count for subsequent regression checks; it does not prove reliable transcription of every low-level or unintelligible signal. No candidate comparison or paired improvement interval is available yet.",
+      "VOiCES development coverage is limited to 26 source utterances from 13 speakers, and HiFiTTS clean development has only two speakers. The confirmation panel's single HiFiTTS clean speaker and the previously evaluated CHiME populations remain explicit limitations. These exploratory measurements cannot establish fresh independent confirmation, product-microphone performance or an independent final age test. The next stages remain the already frozen candidate validations and selection rules, without any data, recipe or trial changes."
+    ],
+    "evidence": [
+      "training/whistle_transcription_guarded_v1/scores/dev_00000.json SHA256 011e106bed8e35c8d7f763a03ce65b56eb32bee80528aac8e524445e5a515f30",
+      "training/whistle_transcription_guarded_v1/preflight.json SHA256 7e5032d07f41639702fff16257141aacabf4e68619ac6e0b87b21342cecc91db",
+      "training/whistle_transcription_guarded_v1/initialization_verification.json SHA256 296770e119683b56046ff1b167e9fb01eb36bf505feaae32f260a6247245874e",
+      "training/whistle_transcription_guarded_v1/split_snapshot.json SHA256 3cafc586d637da1fa5c5093fc942005f1171d3fb28911d507450530c688095c7"
+    ]
+  },
+  "sources": [],
+  "key": "exploratory_development_baseline_011e106bed8e35c8",
+  "id": "wh_0bbc15bd5bd63cb22e69b0785bc6819c"
+}

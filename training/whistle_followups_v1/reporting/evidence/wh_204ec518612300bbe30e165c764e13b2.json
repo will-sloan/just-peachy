@@ -1,0 +1,94 @@
+{
+  "kind": "quality",
+  "title": "Expanded microphone audit",
+  "data": {
+    "complete": true,
+    "finished_at": 1792791305.5071526,
+    "policy": {
+      "version": 1,
+      "workers": 2,
+      "near_silent_rms_dbfs": -65,
+      "near_silent_peak_dbfs": -50,
+      "quiet_rms_dbfs": -45,
+      "quiet_peak_dbfs": -35,
+      "quiet_relative_view_weight": 0.25,
+      "automatic_gain_or_denoising": false,
+      "chime_opening_beep_policy": "reserve complete speech-labelled annotations overlapping session seconds 0-1; never trim each utterance",
+      "interpretation": "Amplitude audit, not an intelligibility or SNR estimate; quarantine near-silent labelled speech and reduce quiet-view influence within each source"
+    },
+    "rows": {
+      "dev": 360815,
+      "train": 2052751
+    },
+    "development_rows": 954,
+    "datasets": {
+      "ami": {
+        "views": 768162,
+        "measured_views": 768162,
+        "quarantined": 42,
+        "quiet_retained": 329394,
+        "rms_dbfs_quantiles": {
+          "0.01": -58.751933364868165,
+          "0.1": -52.921065139770505,
+          "0.5": -44.55935096740723,
+          "0.9": -29.967962646484374
+        }
+      },
+      "chime6": {
+        "views": 1550782,
+        "measured_views": 1550782,
+        "quarantined": 25524,
+        "quiet_retained": 559180,
+        "rms_dbfs_quantiles": {
+          "0.01": -67.90722000122071,
+          "0.1": -57.84105186462402,
+          "0.5": -42.31533432006836,
+          "0.9": -24.43128433227539
+        }
+      },
+      "common_voice": {
+        "views": 101411,
+        "measured_views": 0,
+        "quarantined": 0,
+        "quiet_retained": 0,
+        "rms_dbfs_quantiles": {}
+      },
+      "voices": {
+        "views": 18777,
+        "measured_views": 18777,
+        "quarantined": 0,
+        "quiet_retained": 0,
+        "rms_dbfs_quantiles": {
+          "0.01": -35.28824203491211,
+          "0.1": -31.663656616210936,
+          "0.5": -27.41774559020996,
+          "0.9": -23.130267333984374
+        }
+      }
+    },
+    "quarantined_views": 25566,
+    "opening_beep_views": 44,
+    "quarantined_source_groups": 5748,
+    "source_groups_lost": 20,
+    "sha256": {
+      "train": "65ba05afeb9fbe72dea92b0e80ad2e9b87a0721b4febaa303e70a8ebca370c00",
+      "dev": "391c1035d1f7d02d739098a78a129873283f5bb13f44b640cec40a560dc2722c",
+      "development": "bf1ce20d2c82050542fbcf4f28575186ec261873f60734a8e58762cd91ce7805"
+    },
+    "source_pool_sha256": {
+      "train": "f16348ebb374e43e8257136624995835639be5bbc74b39b762a1ae6cc93b799b",
+      "dev": "59286bb93109277792c73c097c204b97fe988f0c47f9b66d1dab8161177ad1f8",
+      "development": "872c4d60bc42ab80bb3931f69ac00536c1b028356a6cfa32346e842221c68efe"
+    },
+    "common_voice": "Age-filtered single-microphone selection retained; no multi-mic level audit",
+    "limitation": "Level measurements cannot certify speech intelligibility, estimate SNR, or detect every wrong-speaker/inaudible transcript"
+  },
+  "sources": [
+    {
+      "path": "training/whistle_followups_v1/audio_quality.json",
+      "sha256": "810e4defa8eb9b299ad7d0062015f61d0042cfe7cf3e5d7110176ebc8277657e"
+    }
+  ],
+  "key": "",
+  "id": "wh_204ec518612300bbe30e165c764e13b2"
+}

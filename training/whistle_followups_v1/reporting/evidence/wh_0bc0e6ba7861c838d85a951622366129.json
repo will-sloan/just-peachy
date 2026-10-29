@@ -1,0 +1,23 @@
+{
+  "kind": "note",
+  "title": "Interpretation of the completed mixed dataset pilot",
+  "data": {
+    "id": "mix_reference_interpretation_e2d25cfed572af2a",
+    "title": "Interpretation of the completed mixed dataset pilot",
+    "paragraphs": [
+      "The mixed LoRA reference completed 10,000 optimizer steps in 39.1 active minutes, stopping at its declared step cap. It visited 69,791 microphone views. Best and final exports are byte-identical, so the scorer reused the same decode and noise probes; their timings are not independent measurements.",
+      "On the unchanged 954-view development panel, macro WER is 31.7% versus 40.7% for the W4A8 base. This is a 8.98 percentage point reduction and 22.1% relative improvement. Every dataset improves descriptively relative to that base. These values alone do not establish statistical significance.",
+      "The earlier full-duration initial final checkpoint remains better overall at 28.1% macro WER. The short pilot is 3.64 points worse. Duration, exposure and microphone coverage differ, so this comparison cannot establish that expanded microphones are harmful. The mixed pilot supplies the reference for the remaining short-budget experiments.",
+      "Quiet-view WER is 48.0%, compared with 59.5% for base and 41.9% for the initial final checkpoint. It produced 0 inserted words on 20 fixed silence and Gaussian-noise probes. That small synthetic probe set does not establish behavior with real background voices or the product microphone.",
+      "The supervisor has automatically started the Common Voice only pilot. AMI, CHiME 6 and VOiCES pilots follow before the bounded weighting decision. No mixture promotion or method decision is due yet, and no additional trials or hyperparameter changes are introduced."
+    ],
+    "evidence": [
+      "training/whistle_followups_v1/runs/mix_reference/scores.json SHA256 e2d25cfed572af2abfaf320566caa5863afb238bd15fef4faecaa88ae312f618",
+      "training/whistle_followups_v1/baseline/scores.json SHA256 130de13055a55e3dfbd7f05d4910821395ca9109d20d0e45d0cce614bf372840",
+      "training/whistle_followups_v1/runs/mix_reference/checkpoint.json"
+    ]
+  },
+  "sources": [],
+  "key": "mix_reference_interpretation_e2d25cfed572af2a",
+  "id": "wh_0bc0e6ba7861c838d85a951622366129"
+}

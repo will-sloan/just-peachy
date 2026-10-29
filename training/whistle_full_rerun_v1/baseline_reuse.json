@@ -1,0 +1,10 @@
+{
+  "complete": true,
+  "model": "/mnt/c/Users/amiri/Documents/GitHub/just-peachy/training/whistle_age_robust_v1/whistle.final.cact",
+  "model_sha256": "cd6b10970450112a70f08cbf6416cac04462932be4604bda8f93b758f5b1c337",
+  "panel_sha256": "38731c7882f4493c9e2f0acf1861c06c77f2742920823dd3020a227f6d3ba1ee",
+  "source": "/mnt/c/Users/amiri/Documents/GitHub/just-peachy/training/whistle_transcription_guarded_v1/scores/dev_00000.json",
+  "source_sha256": "011e106bed8e35c8d7f763a03ce65b56eb32bee80528aac8e524445e5a515f30",
+  "scoring_id_zero_is_initial_reference": true,
+  "fresh_base_zero_export_has_distinct_name": true
+}

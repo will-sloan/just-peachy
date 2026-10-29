@@ -1,0 +1,152 @@
+{
+  "complete": true,
+  "role": "confirmation",
+  "step": 442110,
+  "model_sha256": "3e3cd823f1eb7aceda29680a634a0eb3605f1d5bf317052e7f2dbf88ab3611af",
+  "panel_sha256": "bb1540a4d50328f55247f0999a78182833aca3e09446c7c8c6f4c839e640d260",
+  "predictions": "confirmation_0442110.jsonl",
+  "cohorts": {
+    "ami": {
+      "wer": 0.31946710168569875,
+      "cer": 0.25216947422154157,
+      "sources": 128,
+      "clips": 285,
+      "clusters": 5,
+      "reference_words": 1226.0
+    },
+    "chime6": {
+      "wer": 0.7619926199261993,
+      "cer": 0.5901275996354296,
+      "sources": 128,
+      "clips": 195,
+      "clusters": 3,
+      "reference_words": 1084.0
+    },
+    "cmu_arctic_clean": {
+      "wer": 0.054163298302344384,
+      "cer": 0.024219489120151372,
+      "sources": 128,
+      "clips": 128,
+      "clusters": 4,
+      "reference_words": 1237.0
+    },
+    "common_voice_age": {
+      "wer": 0.11265432098765432,
+      "cer": 0.0448973093456456,
+      "sources": 128,
+      "clips": 128,
+      "clusters": 14,
+      "reference_words": 1296.0
+    },
+    "hifitts_clean": {
+      "wer": 0.0625,
+      "cer": 0.027454860252287903,
+      "sources": 128,
+      "clips": 128,
+      "clusters": 1,
+      "reference_words": 896.0
+    },
+    "hifitts_native": {
+      "wer": 0.04730831973898858,
+      "cer": 0.021355799373040753,
+      "sources": 128,
+      "clips": 128,
+      "clusters": 3,
+      "reference_words": 1226.0
+    },
+    "librispeech_clean": {
+      "wer": 0.04792129482703904,
+      "cer": 0.01976142569703938,
+      "sources": 128,
+      "clips": 128,
+      "clusters": 9,
+      "reference_words": 3151.0
+    },
+    "librispeech_native": {
+      "wer": 0.14333753678015973,
+      "cer": 0.08079175924055747,
+      "sources": 128,
+      "clips": 128,
+      "clusters": 18,
+      "reference_words": 2379.0
+    },
+    "voices": {
+      "wer": 0.08396124865446715,
+      "cer": 0.04132160110420981,
+      "sources": 20,
+      "clips": 60,
+      "clusters": 10,
+      "reference_words": 929.0
+    }
+  },
+  "macro_wer": 0.18147841565583903,
+  "primary_wer": 0.540729860805949,
+  "quiet_audio": {
+    "clips": 134,
+    "sources": 71,
+    "reference_words": 558.0,
+    "wer": 0.3103345280764636
+  },
+  "mic_slices": {
+    "('ami', 'array')": {
+      "clips": 157,
+      "wer": 0.42995169082125606
+    },
+    "('ami', 'headset')": {
+      "clips": 128,
+      "wer": 0.18923327895595432
+    },
+    "('chime6', 'array')": {
+      "clips": 130,
+      "wer": 0.7918181818181819
+    },
+    "('chime6', 'worn')": {
+      "clips": 65,
+      "wer": 0.3634085213032581
+    },
+    "('cmu_arctic_clean', 'clean')": {
+      "clips": 128,
+      "wer": 0.054163298302344384
+    },
+    "('common_voice_age', 'age')": {
+      "clips": 128,
+      "wer": 0.11265432098765432
+    },
+    "('hifitts_clean', 'clean')": {
+      "clips": 128,
+      "wer": 0.0625
+    },
+    "('hifitts_native', 'native')": {
+      "clips": 128,
+      "wer": 0.04730831973898858
+    },
+    "('librispeech_clean', 'clean')": {
+      "clips": 128,
+      "wer": 0.04792129482703904
+    },
+    "('librispeech_native', 'native')": {
+      "clips": 128,
+      "wer": 0.14333753678015973
+    },
+    "('voices', 'clean')": {
+      "clips": 20,
+      "wer": 0.05059203444564048
+    },
+    "('voices', 'close')": {
+      "clips": 20,
+      "wer": 0.07642626480086114
+    },
+    "('voices', 'far')": {
+      "clips": 20,
+      "wer": 0.12486544671689989
+    }
+  },
+  "negative_probes": {
+    "clips": 20,
+    "false_positive_rate": 0.0,
+    "inserted_words": 0
+  },
+  "independent_confirmation": false,
+  "real_product_validation": false,
+  "normalization": "Whisper EnglishTextNormalizer; source-balanced microphone views"
+}

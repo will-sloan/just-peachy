@@ -1,0 +1,390 @@
+{
+  "prepared_at": 1793044988.6035235,
+  "preparation": {
+    "all_rows": 2052751,
+    "passes": 3
+  },
+  "cadence_minutes": 15,
+  "cadence_reason": "The new full rerun summary and final interpretation are complete and the Word report is published. The existing heartbeat is paused and the Full Rerun Monitor and Findings Report tasks are disabled; no further checks are scheduled.",
+  "last_analyzed_milestone": "full_rerun_final_interpretation_f5e0d88b63cdfb88",
+  "analysis_at": 1793247351.6411567,
+  "report_publication_pending": false,
+  "default_model_unchanged": true,
+  "observed_at": 1793247019.6392295,
+  "last_observation": {
+    "phase": "complete",
+    "stage": "confirmation_442110",
+    "step": 884220,
+    "epoch": 3,
+    "checkpoint_step": 884220,
+    "checkpoint_saved_at": 1793246065.4293997,
+    "completed_shapes": 22,
+    "total_shapes": 22,
+    "preflight_complete": true,
+    "training_complete": true,
+    "training_remaining_seconds": 4.196100324862054,
+    "optimizer_remaining_seconds": 2.5471230616096863,
+    "effective_training_remaining_seconds": 0,
+    "effective_optimizer_remaining_seconds": 0,
+    "training_eta_applicable": false,
+    "processed_records": 6158253,
+    "training_counters_source": "Completed checkpoint.json and exports/step_0884220.json",
+    "status_processed_records": 6158105,
+    "status_epoch": 2,
+    "scoring_step": 442110,
+    "scoring_completed": 1308,
+    "scoring_total": 1308,
+    "scoring_complete": true,
+    "eta_excludes": "Future native scoring, exports, compilation, checkpoint writes and pauses",
+    "eta_context": "All training, six validations, frozen selection and confirmation are complete. Carried status estimates refer to the last pre-boundary training update; checkpoint and summary are authoritative. Final report publication is verified; no future pipeline duration is estimated.",
+    "all_validations_complete": true,
+    "confirmation_complete": true,
+    "pipeline_complete": true
+  },
+  "report_revision": "0826b8143acca5b47718c69e5e94b5b8e38a6c30d3f6a1b9ea4d1e1b67f81cc6",
+  "report_publication_verified_at": 1793247351.6411567,
+  "visual_review": "unavailable",
+  "visual_review_reason": "No approved renderer was available at the last capability check; the earlier renderer setup was blocked by automatic approval review and was not retried. This new revision has not been visually reviewed.",
+  "last_notification": {
+    "kind": "full_rerun_complete_initial_retained",
+    "milestone": "full_rerun_final_interpretation_f5e0d88b63cdfb88",
+    "at": 1793247351.6411567,
+    "observed_step": 884220,
+    "validation_step": 884220,
+    "validation_complete": true,
+    "selected_experimental_step": 442110,
+    "confirmation_complete": true,
+    "numerical_gates_passed": false,
+    "report_revision": "0826b8143acca5b47718c69e5e94b5b8e38a6c30d3f6a1b9ea4d1e1b67f81cc6"
+  },
+  "scheduled_monitor": "JustPeachy Whistle Full Rerun Monitor",
+  "automation_id": "whistle-training-check-in",
+  "progress": {
+    "optimizer_step_delta": 0,
+    "checkpoint_step_delta": 0,
+    "processed_records_delta": 0,
+    "healthy": true,
+    "phase_transition": "Sixth development validation completed, step 442110 was frozen, confirmation completed with numerical gates failed, and final interpretation was published.",
+    "scoring_stage_changed": true,
+    "scoring_current_stage_completed": 1308,
+    "scoring_current_stage_total": 1308,
+    "new_completed_development_validations": 1
+  },
+  "scheduled_tasks": {
+    "JustPeachy Whistle Experiment Monitor": "Disabled",
+    "JustPeachy Whistle Exploratory Monitor": "Disabled",
+    "JustPeachy Whistle Findings Report": "Disabled",
+    "JustPeachy Whistle Full Rerun Monitor": "Disabled",
+    "JustPeachy Whistle Training Monitor": "Disabled"
+  },
+  "user_pause_active": false,
+  "last_notified_eta_seconds": 185664.6696569083,
+  "eta_comparison": {
+    "material_change": false,
+    "applicable": false,
+    "interpretation": "The full rerun pipeline is complete. No remaining training or pipeline ETA applies."
+  },
+  "last_check_outcome": "Full rerun completed; frozen candidate failed confirmation retention; initial model retained; final Word findings published and monitoring disabled.",
+  "last_check_notification": true,
+  "notification_history": [
+    {
+      "kind": "full_preflight_complete_and_training_started",
+      "milestone": "full_rerun_gpu_preflight_6fde72cc4c49a7e0",
+      "at": 1793046060.8160055,
+      "observed_step": 2200
+    },
+    {
+      "kind": "first_full_rerun_validation_complete",
+      "milestone": "full_rerun_dev_0147370_864c17d092bf9197",
+      "at": 1793082871.0574706,
+      "observed_step": 161850,
+      "validation_step": 147370
+    },
+    {
+      "kind": "first_complete_pass_and_second_validation_complete",
+      "milestone": "full_rerun_dev_0294740_2b246ac1c00eced3",
+      "at": 1793118581.154416,
+      "observed_step": 319600,
+      "validation_step": 294740
+    },
+    {
+      "kind": "worker_failure_automatically_recovered",
+      "milestone": "full_rerun_recovery_training_to_442110_1793137865",
+      "at": 1793140248.272,
+      "observed_step": 417000,
+      "recovery_checkpoint_step": 406761
+    },
+    {
+      "kind": "third_full_rerun_validation_complete",
+      "milestone": "full_rerun_dev_0442110_d6be0a00fa970700",
+      "at": 1793147517.2176301,
+      "observed_step": 447000,
+      "validation_step": 442110
+    },
+    {
+      "kind": "second_complete_pass_and_fourth_validation_complete",
+      "milestone": "full_rerun_dev_0589480_2c70bddd37e1f62a",
+      "at": 1793183875.313227,
+      "observed_step": 605800,
+      "validation_step": 589480
+    },
+    {
+      "kind": "fifth_validation_complete",
+      "milestone": "full_rerun_dev_0736850_644b6aabcab70fc8",
+      "at": 1793213440.0352495,
+      "observed_step": 736850,
+      "validation_step": 736850
+    },
+    {
+      "kind": "three_passes_complete_and_final_export",
+      "milestone": "full_rerun_three_passes_complete_0884220_2b140cec9d6c7112",
+      "at": 1793246226.5889256,
+      "observed_step": 884220,
+      "validation_step": 884220,
+      "validation_complete": false
+    },
+    {
+      "kind": "full_rerun_complete_initial_retained",
+      "milestone": "full_rerun_final_interpretation_f5e0d88b63cdfb88",
+      "at": 1793247351.6411567,
+      "observed_step": 884220,
+      "validation_step": 884220,
+      "validation_complete": true,
+      "selected_experimental_step": 442110,
+      "confirmation_complete": true,
+      "numerical_gates_passed": false,
+      "report_revision": "0826b8143acca5b47718c69e5e94b5b8e38a6c30d3f6a1b9ea4d1e1b67f81cc6"
+    }
+  ],
+  "cadence_verified_at": 1793247512.5495114,
+  "automation_cadence_changed": false,
+  "last_completed_validation": {
+    "step": 884220,
+    "completed_validations": 6,
+    "planned_validations": 6,
+    "initial_macro_wer": 0.18510527637934437,
+    "candidate_macro_wer": 0.17500086133919926,
+    "macro_delta_ci95": [
+      -0.018651757640978064,
+      -0.001740226265386517
+    ],
+    "quiet_wer": 0.32270916334661354,
+    "quiet_delta_ci95": [
+      -0.03951393110435667,
+      0.05206069687649851
+    ],
+    "eligible": true,
+    "reasons": [],
+    "selected_step": 442110,
+    "selection_final": true,
+    "next_validation_step": null,
+    "default_model": "preserved_initial_final"
+  },
+  "last_validation_evidence_hashes": {
+    "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\training\\whistle_full_rerun_v1\\scores\\dev_0884220.json": "2ffb5ebad793630dd85468d9e3898d74f296a0dcbc4fbb698c8e3f25a4957f39",
+    "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\training\\whistle_full_rerun_v1\\scores\\dev_0884220.uncertainty.json": "0442fd34583055bf100b10f42b829ebaee5cf074276bac9f5a367479b0b81c73",
+    "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\training\\whistle_full_rerun_v1\\exports\\step_0884220.json": "2b140cec9d6c7112056ed7c0b4089242b4e454f4475aad7bb8598b9da66e4f0a",
+    "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\training\\whistle_full_rerun_v1\\validation_summary.json": "44dad19675a51d85e239d7a30920e6632aafec95f7eae4500a8521e5ad39d1dc"
+  },
+  "scheduled_tasks_enabled": {
+    "JustPeachy Whistle Experiment Monitor": false,
+    "JustPeachy Whistle Exploratory Monitor": false,
+    "JustPeachy Whistle Findings Report": false,
+    "JustPeachy Whistle Full Rerun Monitor": false,
+    "JustPeachy Whistle Training Monitor": false
+  },
+  "recovery_observation_history": [
+    {
+      "id": "full_rerun_recovery_training_to_442110_1793137865",
+      "first_seen_at": 1793140248.272,
+      "saved_stage_failures": {
+        "training_to_442110": 1
+      },
+      "source_event": {
+        "stage": "training_to_442110",
+        "exit_code": 1,
+        "time": 1793137865.0332122,
+        "checkpoint_step": 406761
+      },
+      "worker_pid": 4405,
+      "launcher_pid": 57348,
+      "supervisor_pid": 329,
+      "owned_processes_alive": true,
+      "os_locks_verified": [
+        "1: POSIX  ADVISORY  WRITE 329 00:48:9007199255821388 0 EOF",
+        "3: POSIX  ADVISORY  WRITE 4405 00:48:3940649675030805 0 EOF",
+        "4: POSIX  ADVISORY  WRITE 4405 00:48:2533274800305211 0 EOF",
+        "5: POSIX  ADVISORY  WRITE 4405 00:48:89227567618258076 0 EOF"
+      ],
+      "log_tail_error": "CUDA_ERROR_UNKNOWN during CUDA synchronization/deallocation; originating trigger not established from permitted tail",
+      "recovered_step": 417000,
+      "recovered_checkpoint_step": 416093,
+      "manual_recovery_performed": false,
+      "inspection_conclusion": "Single recorded stage failure; finite supervisor recovery has already restored progress. Exhausted-stage inspection threshold is not reached."
+    }
+  ],
+  "last_recovery_observation": {
+    "id": "full_rerun_recovery_training_to_442110_1793137865",
+    "first_seen_at": 1793140248.272,
+    "saved_stage_failures": {
+      "training_to_442110": 1
+    },
+    "source_event": {
+      "stage": "training_to_442110",
+      "exit_code": 1,
+      "time": 1793137865.0332122,
+      "checkpoint_step": 406761
+    },
+    "worker_pid": 4405,
+    "launcher_pid": 57348,
+    "supervisor_pid": 329,
+    "owned_processes_alive": true,
+    "os_locks_verified": [
+      "1: POSIX  ADVISORY  WRITE 329 00:48:9007199255821388 0 EOF",
+      "3: POSIX  ADVISORY  WRITE 4405 00:48:3940649675030805 0 EOF",
+      "4: POSIX  ADVISORY  WRITE 4405 00:48:2533274800305211 0 EOF",
+      "5: POSIX  ADVISORY  WRITE 4405 00:48:89227567618258076 0 EOF"
+    ],
+    "log_tail_error": "CUDA_ERROR_UNKNOWN during CUDA synchronization/deallocation; originating trigger not established from permitted tail",
+    "recovered_step": 417000,
+    "recovered_checkpoint_step": 416093,
+    "manual_recovery_performed": false,
+    "inspection_conclusion": "Single recorded stage failure; finite supervisor recovery has already restored progress. Exhausted-stage inspection threshold is not reached."
+  },
+  "training_complete": true,
+  "last_completed_training": {
+    "step": 884220,
+    "passes": 3,
+    "processed_records": 6158253,
+    "distinct_source_count": 220174,
+    "dataset_records": {
+      "ami": 2048436,
+      "chime6": 3785661,
+      "common_voice": 273369,
+      "voices": 50787
+    },
+    "distinct_sources": {
+      "common_voice": 91123,
+      "ami": 76795,
+      "chime6": 51743,
+      "voices": 513
+    },
+    "active_seconds": 112610.73732966624,
+    "training_wall_seconds": 185187.09406043906,
+    "training_cap_reached": true,
+    "checkpoint_saved_at": 1793246065.4293997,
+    "final_export_complete": true,
+    "final_native_model": "whistle.step_0884220.cact",
+    "final_native_model_sha256": "fc6895ec73508f87a3ffe68075acc39cf52921dfeff6171c3c21cf701c66c95b",
+    "final_weights": "weights.step_0884220.msgpack",
+    "final_weights_sha256": "6e69a6e92259c6498cf3c79cd5ac1392f93a04de0a3968e9eb2dfdd85d99a84c"
+  },
+  "last_training_evidence_hashes": {
+    "checkpoint.json": "33e0a362b2dd87afe61f11abe9d72c5f239f3e450432e0b59a4525338c810b21",
+    "exports/step_0884220.json": "2b140cec9d6c7112056ed7c0b4089242b4e454f4475aad7bb8598b9da66e4f0a"
+  },
+  "last_active_cadence_minutes": 15,
+  "automation_status_changed": true,
+  "automation_status": "PAUSED",
+  "monitoring_complete": true,
+  "final_decision": {
+    "complete": true,
+    "promoted": false,
+    "selected_experimental_step": 442110,
+    "development_initial_macro_wer": 0.18510527637934437,
+    "development_candidate_macro_wer": 0.17402042304729537,
+    "development_macro_delta_ci95": [
+      -0.019388263409527477,
+      -0.0033818540370015473
+    ],
+    "confirmation_initial_macro_wer": 0.18698059260171873,
+    "confirmation_candidate_macro_wer": 0.18147841565583903,
+    "confirmation_macro_delta_ci95": null,
+    "confirmation_numerical_gates_passed": false,
+    "confirmation_guard_reasons": [
+      "cmu_arctic_clean: retention limit exceeded"
+    ],
+    "confirmation_undefined_interval_reason": "HiFiTTS clean confirmation has one reader; its cohort interval and complete nine-cohort interval are undefined.",
+    "default_model": "/mnt/c/Users/amiri/Documents/GitHub/just-peachy/training/whistle_age_robust_v1/whistle.final.cact",
+    "experimental_models": {
+      "weights.experimental.msgpack": {
+        "path": "/mnt/c/Users/amiri/Documents/GitHub/just-peachy/training/whistle_full_rerun_v1/weights.experimental.msgpack",
+        "sha256": "0eae99fba67e1fd5e641971b6f92664ef1a45e704d7257432df3cd4c468ead03"
+      },
+      "whistle.experimental.cact": {
+        "path": "/mnt/c/Users/amiri/Documents/GitHub/just-peachy/training/whistle_full_rerun_v1/whistle.experimental.cact",
+        "sha256": "3e3cd823f1eb7aceda29680a634a0eb3605f1d5bf317052e7f2dbf88ab3611af"
+      }
+    },
+    "reason": "The initial model remains default; this is one exploratory full-training rerun"
+  },
+  "final_evidence_hashes": {
+    "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\training\\whistle_full_rerun_v1\\scores\\dev_0884220.json": "2ffb5ebad793630dd85468d9e3898d74f296a0dcbc4fbb698c8e3f25a4957f39",
+    "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\training\\whistle_full_rerun_v1\\scores\\dev_0884220.uncertainty.json": "0442fd34583055bf100b10f42b829ebaee5cf074276bac9f5a367479b0b81c73",
+    "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\training\\whistle_full_rerun_v1\\exports\\step_0884220.json": "2b140cec9d6c7112056ed7c0b4089242b4e454f4475aad7bb8598b9da66e4f0a",
+    "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\training\\whistle_full_rerun_v1\\validation_summary.json": "44dad19675a51d85e239d7a30920e6632aafec95f7eae4500a8521e5ad39d1dc",
+    "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\training\\whistle_full_rerun_v1\\development_decision.json": "c1b3f63c41ab90a71c14ee6b696ee110b0f8b7031f48c4548b9e4ddead935df8",
+    "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\training\\whistle_full_rerun_v1\\confirmation_summary.json": "7a79ad52690061f5eab16cbc0aa130b5a3bea777ac49f1ceda89c26e8ffa5fab",
+    "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\training\\whistle_full_rerun_v1\\decision.json": "5235b5e3ed6bc0c6f738413ed3ce4682ce4ce4d2e94c6026a9584be3797e9ae8",
+    "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\training\\whistle_full_rerun_v1\\model_manifest.json": "9af8cfc10b6476c7841ae5ba782b335111d015670850490a443fdac26b58d295",
+    "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\training\\whistle_full_rerun_v1\\summary.json": "f5e0d88b63cdfb88fd1042be2d4fb021951522b0c74acfc14edb13807b2ad575"
+  },
+  "summary_complete": true,
+  "final_interpretation_published": true,
+  "monitoring_completed_at": 1793247512.5495114,
+  "completion_cleanup": {
+    "verified_at": 1793247512.5495114,
+    "heartbeat_id": "whistle-training-check-in",
+    "heartbeat_status": "PAUSED",
+    "heartbeat_preserved_fields_verified": true,
+    "disabled_tasks": [
+      "JustPeachy Whistle Full Rerun Monitor",
+      "JustPeachy Whistle Findings Report"
+    ],
+    "report_publication_verified_before_shutdown": true,
+    "report_sha256": "0826b8143acca5b47718c69e5e94b5b8e38a6c30d3f6a1b9ea4d1e1b67f81cc6"
+  },
+  "user_requested_process_shutdown": {
+    "verified_at": 1793317363.836357,
+    "reason": "User requested closure after confirmed completion",
+    "all_four_runs_complete": true,
+    "stopped_process_ids": [
+      34436,
+      99116
+    ],
+    "remaining_owned_processes": [],
+    "remaining_dashboard_listeners": [],
+    "tasks": [
+      {
+        "name": "JustPeachy Whistle Experiment Monitor",
+        "state": "Disabled",
+        "enabled": false
+      },
+      {
+        "name": "JustPeachy Whistle Exploratory Monitor",
+        "state": "Disabled",
+        "enabled": false
+      },
+      {
+        "name": "JustPeachy Whistle Findings Report",
+        "state": "Disabled",
+        "enabled": false
+      },
+      {
+        "name": "JustPeachy Whistle Full Rerun Monitor",
+        "state": "Disabled",
+        "enabled": false
+      },
+      {
+        "name": "JustPeachy Whistle Training Monitor",
+        "state": "Disabled",
+        "enabled": false
+      }
+    ],
+    "heartbeat": {
+      "id": "whistle-training-check-in",
+      "status": "PAUSED"
+    },
+    "wsl_training_processes_present": false
+  }
+}

@@ -1,0 +1,177 @@
+{
+  "stage": "complete",
+  "jobs": [
+    {
+      "name": "mix_reference",
+      "spec": {
+        "max_batch_size": 8,
+        "batch_audio_seconds": 60,
+        "batch_tokens": 1024
+      }
+    },
+    {
+      "name": "only_common_voice",
+      "spec": {
+        "max_batch_size": 8,
+        "batch_audio_seconds": 60,
+        "batch_tokens": 1024,
+        "datasets": [
+          "common_voice"
+        ]
+      }
+    },
+    {
+      "name": "only_ami",
+      "spec": {
+        "max_batch_size": 8,
+        "batch_audio_seconds": 60,
+        "batch_tokens": 1024,
+        "datasets": [
+          "ami"
+        ]
+      }
+    },
+    {
+      "name": "only_chime6",
+      "spec": {
+        "max_batch_size": 8,
+        "batch_audio_seconds": 60,
+        "batch_tokens": 1024,
+        "datasets": [
+          "chime6"
+        ]
+      }
+    },
+    {
+      "name": "only_voices",
+      "spec": {
+        "max_batch_size": 8,
+        "batch_audio_seconds": 60,
+        "batch_tokens": 1024,
+        "datasets": [
+          "voices"
+        ]
+      }
+    },
+    {
+      "name": "weight_once",
+      "spec": {
+        "max_batch_size": 8,
+        "batch_audio_seconds": 60,
+        "batch_tokens": 1024,
+        "dataset_weights": {
+          "common_voice": 0.3464799213017388,
+          "ami": 0.4066353779978286,
+          "chime6": 0.16043921330036023,
+          "voices": 0.0864454874000724
+        }
+      }
+    },
+    {
+      "name": "method_full",
+      "spec": {
+        "dataset_weights": {
+          "common_voice": 0.4008074125352768,
+          "ami": 0.3135967650271186,
+          "chime6": 0.18559582243760464,
+          "voices": 0.1
+        },
+        "max_batch_size": 8,
+        "batch_audio_seconds": 60,
+        "batch_tokens": 1024,
+        "method": "full",
+        "learning_rate": 1e-05
+      },
+      "optional": true
+    },
+    {
+      "name": "production_all_audio",
+      "spec": {
+        "max_batch_size": 16,
+        "batch_audio_seconds": 120,
+        "batch_tokens": 2048,
+        "production": true,
+        "seed": 20261022
+      }
+    },
+    {
+      "name": "ext_mix_reference",
+      "spec": {
+        "extension_id": "omission_comparison_2026_10_24",
+        "method": "lora",
+        "datasets": [
+          "common_voice",
+          "ami",
+          "chime6",
+          "voices"
+        ],
+        "dataset_weights": {
+          "common_voice": 0.4008074125352768,
+          "ami": 0.3135967650271186,
+          "chime6": 0.18559582243760464,
+          "voices": 0.1
+        },
+        "max_batch_size": 8,
+        "batch_audio_seconds": 60,
+        "batch_tokens": 1024,
+        "seed": 20261022
+      }
+    },
+    {
+      "name": "ext_without_voices",
+      "spec": {
+        "extension_id": "omission_comparison_2026_10_24",
+        "method": "lora",
+        "datasets": [
+          "common_voice",
+          "ami",
+          "chime6"
+        ],
+        "dataset_weights": {
+          "common_voice": 0.4453415694836409,
+          "ami": 0.34844085003013175,
+          "chime6": 0.20621758048622738
+        },
+        "max_batch_size": 8,
+        "batch_audio_seconds": 60,
+        "batch_tokens": 1024,
+        "seed": 20261022
+      }
+    },
+    {
+      "name": "ext_without_chime6",
+      "spec": {
+        "extension_id": "omission_comparison_2026_10_24",
+        "method": "lora",
+        "datasets": [
+          "common_voice",
+          "ami",
+          "voices"
+        ],
+        "dataset_weights": {
+          "common_voice": 0.4921480311347851,
+          "ami": 0.38506281483691485,
+          "voices": 0.12278915402830007
+        },
+        "max_batch_size": 8,
+        "batch_audio_seconds": 60,
+        "batch_tokens": 1024,
+        "seed": 20261022
+      }
+    }
+  ],
+  "created_at": 1792792308.5463977,
+  "weight_jobs": [
+    "weight_once"
+  ],
+  "selected_weights": {
+    "common_voice": 0.4008074125352768,
+    "ami": 0.3135967650271186,
+    "chime6": 0.18559582243760464,
+    "voices": 0.1
+  },
+  "selected_lora": "mix_reference",
+  "extension_policy_sha256": "0924ba771578fc6916bc0a8d4cc6aaedfbe4b1736c04ae7775598949fe93c883",
+  "selected_production_run": "production_all_audio",
+  "completed_at": 1792953094.2206314
+}

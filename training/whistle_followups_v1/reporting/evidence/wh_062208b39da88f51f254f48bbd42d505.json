@@ -1,0 +1,26 @@
+{
+  "kind": "note",
+  "title": "Weighting proposal rejected and full tuning pilot started",
+  "data": {
+    "id": "weight_decision_interpretation_c59e0567d40cdc97",
+    "title": "Weighting proposal rejected and full tuning pilot started",
+    "paragraphs": [
+      "The single weighting pilot completed 10,000 steps in 36.7 active training minutes and visited 69,791 microphone views. Best and final exports are byte-identical, so their decoding and timings were reused. On the unchanged development panel, macro WER is 31.96%, compared with 31.70% for the original mixed reference.",
+      "The saved comparison measures a 0.26 percentage point increase in error, equivalent to a negative 0.82% relative gain. Its paired cluster 95% interval for candidate minus reference spans -0.31 to +0.84 percentage points, including zero. The candidate therefore fails the required improvement criterion and does not establish a reliable gain. This interval also does not prove a significant worsening, and it is not corrected for the entire model search.",
+      "All four dataset scores are descriptively worse under the proposed weighting: AMI 37.28% versus 36.94%, CHiME 6 64.43% versus 64.06%, Common Voice 7.96% versus 7.82%, and VOiCES 18.16% versus 17.96%. Quiet-view WER is 48.98% versus 47.95%, within the declared guard but not an improvement. Both models produce zero inserted words on the 20 fixed silence and Gaussian-noise probes. The quiet and silence/noise guards passed; lack of reliable accuracy improvement prevented promotion.",
+      "The supervisor rejected weight_once and retained mix_reference, using Common Voice 40.08%, AMI 31.36%, CHiME 6 18.56% and VOiCES 10.00% as dataset loss weights. This direct weighting experiment tests the proposed AMI increase more directly than standalone dataset pilots. It shows no benefit for that particular change under this budget, not that the retained weights are globally optimal or that AMI lacks value. No further weighting trial is added.",
+      "The final permitted method pilot, method_full, started automatically with the retained weights and learning rate 0.00001. Preflight completed, and full training was advancing at 960 of 10,000 steps at this check. No full-versus-LoRA decision is available yet. Its scoring and the frozen acceptance policy will determine the method for the single three-pass production fit; reporting does not hold that transition.",
+      "At the 24 October 2026 01:51 UTC snapshot, the dashboard planning range to the production model narrowed to approximately 27-54 hours remaining, from about 27-116 hours at the prior check. The upper bound changed because early measured full-tuning throughput replaced a broader estimate. The method remains undecided and these are planning estimates, not a firm deadline or statistical confidence interval; pauses, sleep and recovery can extend them. Development findings do not establish real product-microphone performance."
+    ],
+    "evidence": [
+      "training/whistle_followups_v1/weight_decision.json SHA256 c59e0567d40cdc97221d97a6f865b5391055129b61939f682bf82c8ac65e842f",
+      "training/whistle_followups_v1/runs/weight_once/scores.json SHA256 8b338daf8d4706ee98eddd40cf86231755b1e1d35840a463d06b2686d17a3ee3",
+      "training/whistle_followups_v1/runs/weight_once/checkpoint.json SHA256 8d613cd572f97717591271c86f287e47bc172b2a454a578f633e7c25fe09ebb2",
+      "training/whistle_followups_v1/runs/mix_reference/scores.json SHA256 e2d25cfed572af2abfaf320566caa5863afb238bd15fef4faecaa88ae312f618",
+      "http://127.0.0.1:8767/api/eta snapshot updated_at 1792806702.8682437; remaining_to_production 97030.6753601552 to 192558.23794856033 seconds"
+    ]
+  },
+  "sources": [],
+  "key": "weight_decision_interpretation_c59e0567d40cdc97",
+  "id": "wh_062208b39da88f51f254f48bbd42d505"
+}

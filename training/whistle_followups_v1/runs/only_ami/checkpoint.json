@@ -1,0 +1,16 @@
+{
+  "epoch": 0,
+  "next_batch": 10000,
+  "step": 10000,
+  "processed_records": 61203,
+  "processed_audio_seconds": 247839.83200000107,
+  "active_seconds": 1455.728023054001,
+  "dataset_records": {
+    "ami": 61203
+  },
+  "best_validation_loss": 0.8399791207774774,
+  "identity": "b3b365cf7339546e29f4ac8758036b6933b091c8ae12f1c857edbee20e03de26",
+  "saved_at": 1792799794.4453328,
+  "bytes": 20354794,
+  "sha256": "efca3636648995fc9fdf6818e7f0489b3330ae4bdd278618142ecbfe4f307fea"
+}

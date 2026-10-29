@@ -1,0 +1,22 @@
+{
+  "kind": "note",
+  "title": "Interpretation before the bounded pilots",
+  "data": {
+    "id": "initial_baseline_interpretation_20261023",
+    "title": "Interpretation before the bounded pilots",
+    "paragraphs": [
+      "The completed development baseline supports a useful adaptation effect on difficult speech. On the same expanded panel, initial final reduces macro WER from 40.7% to 28.1%. The largest absolute reductions are in AMI and CHiME 6. Common Voice changes only from 8.4% to 8.2%, so the overall gain does not mean equally large benefits for older voices.",
+      "Quiet-view WER falls from 59.5% to 41.9%, but substantial errors remain. For initial final, CHiME array-view WER is 79.2% versus 34.0% on worn microphones. Microphone placement and audibility therefore remain important. These descriptive slices do not isolate a causal microphone effect because recordings and repeated source views are related.",
+      "All three baseline models produce zero inserted words on the 20 fixed silence and Gaussian-noise probes. This is reassuring for those probes only. It does not establish an absence of hallucinations on real background speech, electronics noise or product microphones.",
+      "Initial final has the lowest aggregate development WER, while initial best is slightly better on Common Voice. The separate matched panel also contains regressions on some cleaner speech cohorts. Aggregate scores must be read alongside per-dataset results. Frozen-panel findings are documented for context and are not used to choose the next recipe.",
+      "The supervisor has automatically moved to the mixed LoRA reference. It will complete the four individual-dataset pilots before considering the single permitted weighting proposal, then compare the one full-tuning pilot. No additional experiment or change in weighting is warranted from the baseline alone."
+    ],
+    "evidence": [
+      "training/whistle_followups_v1/baseline/scores.json SHA256 130de13055a55e3dfbd7f05d4910821395ca9109d20d0e45d0cce614bf372840",
+      "training/whistle_age_robust_v1/evaluation_summary.json"
+    ]
+  },
+  "sources": [],
+  "key": "initial_baseline_interpretation_20261023",
+  "id": "wh_1ae7a13330c8bd918b5cfab9890499f3"
+}

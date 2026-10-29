@@ -1,0 +1,21 @@
+{
+  "kind": "note",
+  "title": "All three full training passes and the final checkpoint export are complete",
+  "data": {
+    "id": "full_rerun_three_passes_complete_0884220_2b140cec9d6c7112",
+    "title": "All three full training passes and the final checkpoint export are complete",
+    "paragraphs": [
+      "The fresh pretrained-base full-parameter QAT trajectory reached its frozen endpoint of 884,220 updates. The saved checkpoint records epoch 3, next batch 0 and training_cap_reached true, confirming completion of all three passes over 2,052,751 qualified training views: 6,158,253 visits in total. All 55,151,433 parameters were trained under the original fixed schedule. This completes training; final development scoring, candidate selection and confirmation still remain.",
+      "Recorded visits/distinct source utterances are Common Voice 273,369/91,123; AMI 2,048,436/76,795; CHiME-6 3,785,661/51,743; and VOiCES 50,787/513. The pool contains 220,174 distinct sources; repeated microphone views and repeated passes do not create independent utterances. Original four-domain objective weights, source balance, quiet-view confidence, quarantine, age filtering and CHiME opening reservations remain unchanged, with development and evaluation excluded from training. Saved optimizer-compute time is 112,610.7 seconds (31.28 hours); recorded training-wall time is 185,187.1 seconds (51.44 hours). Neither is a total pipeline elapsed-time estimate including scoring, exports, compilation, checkpoint writes and pauses.",
+      "The final native checkpoint whistle.step_0884220.cact and full weights weights.step_0884220.msgpack were exported in training/whistle_full_rerun_v1; the export record contains their SHA256 hashes. At the monitoring snapshot, the owned pipeline had begun the sixth native development comparison, with 40 of 1,318 items decoded. No final comparison score is inferred from partial progress. Step 442,110 remains the previously reported provisional best until all six completed comparisons are considered by the frozen decision. Confirmation will evaluate only that one frozen candidate and cannot select a runner-up. The preserved initial tuned model remains default; these exports remain experimental.",
+      "The status file carries the final pre-boundary training counters and estimates, while checkpoint.json and the completed export record confirm all 6,158,253 visits and zero remaining training updates. Future scoring and confirmation duration is unmeasured. Reused evaluation populations provide no fresh independent confirmation; sparse VOiCES coverage, fragile HiFiTTS reader coverage, the undefined complete nine-cohort confirmation interval, absent product-microphone validation and absent independent final age test remain limitations. Monitoring and reporting continue through the new run's final summary."
+    ],
+    "evidence": [
+      "training/whistle_full_rerun_v1/checkpoint.json SHA256 33e0a362b2dd87afe61f11abe9d72c5f239f3e450432e0b59a4525338c810b21",
+      "training/whistle_full_rerun_v1/exports/step_0884220.json SHA256 2b140cec9d6c7112056ed7c0b4089242b4e454f4475aad7bb8598b9da66e4f0a"
+    ]
+  },
+  "sources": [],
+  "key": "full_rerun_three_passes_complete_0884220_2b140cec9d6c7112",
+  "id": "wh_659b0cac78d542fd76748e0c614ccdba"
+}

@@ -1,0 +1,13 @@
+{
+  "attempts": {
+    "training_to_442110": 1
+  },
+  "history": [
+    {
+      "stage": "training_to_442110",
+      "exit_code": 1,
+      "time": 1793137865.0332122,
+      "checkpoint_step": 406761
+    }
+  ]
+}

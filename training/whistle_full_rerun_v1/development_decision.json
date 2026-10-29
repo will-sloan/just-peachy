@@ -1,0 +1,65 @@
+{
+  "selected_step": 442110,
+  "selected_macro_wer": 0.17402042304729537,
+  "reference_macro_wer": 0.18510527637934437,
+  "observations": [
+    {
+      "step": 147370,
+      "macro_wer": 0.1806594559494354,
+      "absolute_gain": 0.0044458204299089865,
+      "eligible": false,
+      "passed": false,
+      "reasons": [
+        "cmu_arctic_clean: retention limit exceeded"
+      ]
+    },
+    {
+      "step": 294740,
+      "macro_wer": 0.1780464670440993,
+      "absolute_gain": 0.007058809335245081,
+      "eligible": true,
+      "passed": true,
+      "reasons": []
+    },
+    {
+      "step": 442110,
+      "macro_wer": 0.17402042304729537,
+      "absolute_gain": 0.011084853332049005,
+      "eligible": true,
+      "passed": true,
+      "reasons": []
+    },
+    {
+      "step": 589480,
+      "macro_wer": 0.17683534492481218,
+      "absolute_gain": 0.008269931454532198,
+      "eligible": true,
+      "passed": true,
+      "reasons": []
+    },
+    {
+      "step": 736850,
+      "macro_wer": 0.17638549906826428,
+      "absolute_gain": 0.00871977731108009,
+      "eligible": true,
+      "passed": true,
+      "reasons": []
+    },
+    {
+      "step": 884220,
+      "macro_wer": 0.17500086133919926,
+      "absolute_gain": 0.010104415040145115,
+      "eligible": true,
+      "passed": true,
+      "reasons": []
+    }
+  ],
+  "early_stop": false,
+  "automatic_promotion": false,
+  "default_model": "preserved_initial_final",
+  "objective": "equal-weight nine-cohort macro WER",
+  "frozen": true,
+  "frozen_at": 1793246308.958056,
+  "independent_confirmation": false,
+  "stop_reason": "three complete passes; all six frozen validations completed"
+}

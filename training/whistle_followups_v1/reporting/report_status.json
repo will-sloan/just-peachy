@@ -1,0 +1,20 @@
+{
+  "status": "updated",
+  "pending": false,
+  "updated_at": 1793247321.0464973,
+  "checked_at": 1793247321.0464973,
+  "path": "C:\\Users\\amiri\\Documents\\GitHub\\just-peachy\\training\\whistle_followups_v1\\reporting\\Whistle_Fine_Tuning_Findings.docx",
+  "document_sha256": "0826b8143acca5b47718c69e5e94b5b8e38a6c30d3f6a1b9ea4d1e1b67f81cc6",
+  "added_events": 1,
+  "total_events": 50,
+  "visual_review": "unavailable",
+  "campaign_complete": true,
+  "visual_review_reason": "No approved renderer was available at the last capability check; the earlier renderer setup was blocked by automatic approval review and was not retried. This new revision has not been visually reviewed.",
+  "visual_review_checked_at": 1792954094.4719698,
+  "structural_check": "ZIP integrity and XML parsing passed; the full rerun final interpretation title occurs once and all fourteen analyst paragraphs are present. This does not verify visual layout.",
+  "structural_check_document_sha256": "0826b8143acca5b47718c69e5e94b5b8e38a6c30d3f6a1b9ea4d1e1b67f81cc6",
+  "visual_review_limitation_retained_at": 1793247351.6411567,
+  "publication_verified_at": 1793247351.6411567,
+  "full_rerun_complete": true,
+  "full_rerun_final_milestone": "full_rerun_final_interpretation_f5e0d88b63cdfb88"
+}

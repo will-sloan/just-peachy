@@ -1,0 +1,26 @@
+{
+  "selected": "mix_reference",
+  "reference": "mix_reference",
+  "comparisons": [
+    {
+      "reference": "mix_reference",
+      "candidate": "weight_once",
+      "macro_wer_delta": 0.0026052962955080416,
+      "relative_gain": -0.008219472606096637,
+      "paired_cluster_95pct_interval": [
+        -0.0031388997124619095,
+        0.008416123390570473
+      ],
+      "dataset_deltas": {
+        "common_voice": 0.0014347202295552364,
+        "ami": 0.0033516148689823333,
+        "chime6": 0.0036824877250408727,
+        "voices": 0.0019523623584537242
+      },
+      "silence_noise_guard_passed": true,
+      "quiet_audio_guard_passed": true,
+      "promote": false,
+      "interpretation": "development evidence only; intervals do not correct for the entire model search; quiet guard only applied with at least 100 reference words"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "kind": "note",
+  "title": "Exploratory mixed transcription adaptation launched",
+  "data": {
+    "id": "exploratory_mixed_transcription_launch_25cdf29e1111e85e",
+    "title": "Exploratory mixed transcription adaptation launched",
+    "paragraphs": [
+      "The user authorized another training run on 25 October 2026, accepted exploratory evaluation while keeping the initial model as default, and allowed any dataset combination aimed at better transcription. The completed production campaign improved AMI but regressed against the initial final export in the other seven historical cohorts. That observation motivates this experiment; it does not establish that training on a single dataset would work better.",
+      "One new trajectory continues the preserved initial final adapter on its pinned original base, using a fresh optimizer. Its frozen schedule contains 100,000 visits to 80,513 distinct source utterances: 32,064 Common Voice visits, 25,088 AMI, 14,848 CHiME 6, 8,000 VOiCES and 20,000 clean LibriSpeech. The latter two contain 513 and 8,000 distinct source utterances respectively, so repeated visits must not be counted as independent speech. The four original domains reuse the completed quality audit, with clean replay added to practice retaining transcription of clean speech. This allocation is a bounded hypothesis, not an empirically optimal mixture.",
+      "The learning rate peaks at 0.00001 with 200 warmup updates; LoRA rank 16 and alpha 32 remain fixed. Training stops at the first of 10,000 updates, 3,600 actual optimizer-compute seconds or one pass through the frozen visit schedule. Loading, compilation, export and native scoring are additional time. At most five candidate validations apply the saved exposure, noisy-speech, age, clean-speech, quiet-speech and silence/noise guards, with declared early stopping. One candidate is frozen before exploratory confirmation. There is no extra trial, refit or automatic promotion; the initial model remains the default regardless of numerical results.",
+      "Startup evidence is complete for initialization and exact optimizer continuation: the step-zero native export is byte-identical to the preserved initial export, SHA256 cd6b10970450112a70f08cbf6416cac04462932be4604bda8f93b758f5b1c337. The serialization check reproduced the next optimizer and scheduler update with maximum difference zero; its diagnostic updates were discarded. Twelve automated checks passed, including partial-checkpoint recovery, reference identity and sparse-speaker split coverage. The launched pipeline is now verifying GPU batch shapes, followed by native baseline scoring and training. No transcription improvement is claimed at this milestone.",
+      "Development and confirmation panels are disjoint by their declared speaker, meeting and session groups and exclude known parent and new training groups. Both cover nine cohorts. VOiCES has only 26 development and 20 confirmation source utterances; HiFiTTS clean has two development speakers and one confirmation speaker. Those shortfalls limit uncertainty estimates. All local CHiME sessions appeared in earlier training or evaluation, so these panels use held-out utterances from previously evaluated populations and cannot establish fresh independent confirmation. Base-pretraining independence, real product-microphone validation and an independent final age test are not established. Parent license provenance is retained, with CC-BY-4.0 provenance for clean LibriSpeech replay and the user's resolved CHiME 6 licensing status."
+    ],
+    "evidence": [
+      "training/whistle_transcription_guarded_v1/execution_amendment.json SHA256 bd4c831625afc536a27f83643fbd5a45358ebf8500762e7fe91b5587433cd4f9",
+      "training/whistle_transcription_guarded_v1/config.json SHA256 29d4a02abacf8ad3a47ec4b56a81e41cbd9108fcd84dfcca1fd9a4bf94d762b5",
+      "training/whistle_transcription_guarded_v1/split_snapshot.json SHA256 3cafc586d637da1fa5c5093fc942005f1171d3fb28911d507450530c688095c7",
+      "training/whistle_transcription_guarded_v1/initialization_verification.json SHA256 296770e119683b56046ff1b167e9fb01eb36bf505feaae32f260a6247245874e",
+      "training/whistle_transcription_guarded_v1/resume_verification.json SHA256 70d680df6f48b83bf1439278f89c5178481c93885ec6535df6562100190a6112",
+      "training/whistle_followups_v1/summary.json SHA256 a374fc3b69cbb6f5d41dada896f3d139c7836f7edade046c1091deb1b1fdc5a5"
+    ]
+  },
+  "sources": [],
+  "key": "exploratory_mixed_transcription_launch_25cdf29e1111e85e",
+  "id": "wh_f837465df550c6a113b25947999b330f"
+}

@@ -1,0 +1,110 @@
+{
+  "complete": true,
+  "step": 294740,
+  "reference_predictions_sha256": "974bcdba9eee7d247ab53eab8e9767dc3e4f6790c568f415bb8d63944faee4ef",
+  "candidate_predictions_sha256": "cb426c806259a0dbaed087663c51cf0fd7f02b44e047d2a42d48824bcca2d182",
+  "by_cohort": {
+    "ami": {
+      "groups": 11,
+      "delta": -0.014638971315529223,
+      "ci95": [
+        -0.0443017645862005,
+        0.012107360706261575
+      ],
+      "limited_group_coverage": false,
+      "limitation": null
+    },
+    "chime6": {
+      "groups": 7,
+      "delta": -0.02177825773938085,
+      "ci95": [
+        -0.08029341792228381,
+        0.03725010509821914
+      ],
+      "limited_group_coverage": false,
+      "limitation": null
+    },
+    "cmu_arctic_clean": {
+      "groups": 14,
+      "delta": -0.0035587188612099642,
+      "ci95": [
+        -0.01903114186851211,
+        0.010939423833368708
+      ],
+      "limited_group_coverage": false,
+      "limitation": null
+    },
+    "common_voice_age": {
+      "groups": 21,
+      "delta": -0.0024410089503661514,
+      "ci95": [
+        -0.017944901288410958,
+        0.012396694214876033
+      ],
+      "limited_group_coverage": false,
+      "limitation": null
+    },
+    "hifitts_clean": {
+      "groups": 2,
+      "delta": -0.007716049382716049,
+      "ci95": [
+        -0.011235955056179775,
+        -0.005249343832020997
+      ],
+      "limited_group_coverage": true,
+      "limitation": "Undefined with one group; sparse groups give fragile intervals"
+    },
+    "hifitts_native": {
+      "groups": 4,
+      "delta": -0.008365019011406844,
+      "ci95": [
+        -0.018115942028985508,
+        -0.001310615989515072
+      ],
+      "limited_group_coverage": true,
+      "limitation": "Undefined with one group; sparse groups give fragile intervals"
+    },
+    "librispeech_clean": {
+      "groups": 22,
+      "delta": 0.0008074283407347598,
+      "ci95": [
+        -0.007390120575651498,
+        0.009483059095737035
+      ],
+      "limited_group_coverage": false,
+      "limitation": null
+    },
+    "librispeech_native": {
+      "groups": 15,
+      "delta": 0.003139013452914798,
+      "ci95": [
+        -0.008722271982486266,
+        0.014193701071567375
+      ],
+      "limited_group_coverage": false,
+      "limitation": null
+    },
+    "voices": {
+      "groups": 13,
+      "delta": -0.008977700550246171,
+      "ci95": [
+        -0.018729970432319328,
+        0.0017964167868034424
+      ],
+      "limited_group_coverage": false,
+      "limitation": null
+    }
+  },
+  "macro_delta_ci95": [
+    -0.015060351335271845,
+    0.0007492253204019688
+  ],
+  "quiet_delta_ci95": [
+    -0.031207740984743566,
+    0.05610088582773763
+  ],
+  "resamples": 10000,
+  "seed": 20261026,
+  "method": "Paired meeting/session/speaker bootstrap within cohort, after averaging microphone views per source",
+  "limitation": "Exploratory reused populations; development intervals are not adjusted for selecting among six checkpoints. A nine-cohort interval is undefined if any cohort has fewer than two groups."
+}

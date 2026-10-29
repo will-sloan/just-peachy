@@ -1,0 +1,31 @@
+{
+  "model_type": "whistle",
+  "weights_version": "2.0.0",
+  "engine": "Cactus-Compute/needle3",
+  "architectures": [
+    "WhistleForSpeechRecognition"
+  ],
+  "name_or_path": "Cactus-Compute/whistle",
+  "languages": [
+    "en",
+    "de",
+    "fr",
+    "es",
+    "it",
+    "nl",
+    "pl"
+  ],
+  "sample_rate": 16000,
+  "max_audio_seconds": 30,
+  "encoder_frame_ms": 80,
+  "attention": "gqa",
+  "mlp": "hadamard",
+  "quantization": {
+    "method": "cactus-quants",
+    "group_size": 128
+  },
+  "deployment": {
+    "format": "cact",
+    "runtime": "self-contained C++ / WebAssembly, no dependencies"
+  }
+}

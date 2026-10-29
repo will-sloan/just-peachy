@@ -1,0 +1,139 @@
+{
+  "run": "whistle_full_rerun_v1",
+  "method": "full",
+  "initialization": {
+    "passed": true,
+    "identity": "69d1a3269aef1c0258aa8ac77b86a895753668fca7ff0bd6fe7a2a43d31ae248",
+    "method": "full",
+    "trainable_parameters": 55151433,
+    "all_parameters_trainable": true,
+    "exact_pretrained_values_max_difference": 0.0,
+    "base_sha256": "5fd58c246f522ecee2b568b306598a3befdc274c225e3a7376abce277ab3d107",
+    "zero_update_native_sha256": "da5525ead826cdcb67295b0af6826b16a288a283af22c26abd6829ee1f07df95",
+    "zero_update_native_model": "whistle.base_zero.cact",
+    "fresh_optimizer": true,
+    "step": 0,
+    "initial_comparator_unchanged": true
+  },
+  "configuration": {
+    "run_name": "whistle_full_rerun_v1",
+    "epochs": 3,
+    "seed": 20261026,
+    "learning_rate": 1e-05,
+    "lora_rank": 16,
+    "lora_alpha": 32,
+    "dtype": "bfloat16",
+    "matmul_precision": "highest",
+    "loss_normalization": "full_pool_per_clip",
+    "max_batch_size": 8,
+    "batch_audio_seconds": 60,
+    "batch_tokens": 1024,
+    "loader_workers": 12,
+    "checkpoint_seconds": 300,
+    "validation_every_steps": 5000,
+    "validation_per_dataset": 128,
+    "whistle_revision": "741118687e1f008f06d1351a402a731274789790",
+    "dataset_weights": {
+      "common_voice": 0.4008074125352768,
+      "ami": 0.3135967650271186,
+      "chime6": 0.18559582243760464,
+      "voices": 0.1
+    },
+    "source_manifest_directory": "training/successors/phase5a_original_adapter_training_v1/framework_manifests",
+    "training_manifests": [
+      "age_train.parquet",
+      "ami_train.parquet",
+      "chime_train.parquet",
+      "voices_train.parquet"
+    ],
+    "development_manifests": [
+      "age_dev.parquet",
+      "ami_dev.parquet",
+      "chime_dev.parquet",
+      "voices_dev.parquet"
+    ],
+    "wsl_distribution": "Ubuntu",
+    "wsl_python": "/home/amiri/.venvs/whistle/bin/python",
+    "dashboard_port": 8766,
+    "release_review_required": false,
+    "quantization_mode": "upstream_full",
+    "method": "full",
+    "end_learning_rate": 5e-07,
+    "warmup_steps": 1000,
+    "training_includes_development": false,
+    "automatic_promotion": false,
+    "initialization": "fresh_pinned_pretrained_base",
+    "batches_per_epoch": 294740,
+    "total_steps": 884220,
+    "validation_steps": [
+      147370,
+      294740,
+      442110,
+      589480,
+      736850,
+      884220
+    ]
+  },
+  "completed_training": {
+    "epoch": 3,
+    "next_batch": 0,
+    "step": 884220,
+    "processed_records": 6158253,
+    "processed_audio_seconds": 18489987.665522445,
+    "active_seconds": 112610.73732966624,
+    "dataset_records": {
+      "ami": 2048436,
+      "chime6": 3785661,
+      "common_voice": 273369,
+      "voices": 50787
+    },
+    "best_validation_loss": null,
+    "identity": "69d1a3269aef1c0258aa8ac77b86a895753668fca7ff0bd6fe7a2a43d31ae248",
+    "training_wall_seconds": 185187.09406043906,
+    "distinct_sources": {
+      "common_voice": 91123,
+      "ami": 76795,
+      "chime6": 51743,
+      "voices": 513
+    },
+    "training_cap_reached": true,
+    "saved_at": 1793246065.4293997,
+    "method": "full",
+    "trainable_parameters": 55151433,
+    "bytes": 661829609,
+    "sha256": "581af9d6853b190a4004011b225bda790ced1754151620da09a956106d96a15a"
+  },
+  "default_model": "/mnt/c/Users/amiri/Documents/GitHub/just-peachy/training/whistle_age_robust_v1/whistle.final.cact",
+  "default_model_sha256": "cd6b10970450112a70f08cbf6416cac04462932be4604bda8f93b758f5b1c337",
+  "experimental_models": {
+    "weights.experimental.msgpack": {
+      "path": "/mnt/c/Users/amiri/Documents/GitHub/just-peachy/training/whistle_full_rerun_v1/weights.experimental.msgpack",
+      "sha256": "0eae99fba67e1fd5e641971b6f92664ef1a45e704d7257432df3cd4c468ead03"
+    },
+    "whistle.experimental.cact": {
+      "path": "/mnt/c/Users/amiri/Documents/GitHub/just-peachy/training/whistle_full_rerun_v1/whistle.experimental.cact",
+      "sha256": "3e3cd823f1eb7aceda29680a634a0eb3605f1d5bf317052e7f2dbf88ab3611af"
+    }
+  },
+  "training_includes_development": false,
+  "base_and_runtime_license": "Apache-2.0",
+  "inherited_license_provenance": {
+    "status": "resolved",
+    "release_review_required": false,
+    "dataset": "chime6",
+    "license": "CC-BY-SA-4.0",
+    "confirmation_date": "2026-10-23",
+    "confirmation_source": "explicit user message in the current chat",
+    "user_statement": "The chime6 licensing is resolved and good to go.",
+    "attribution_records_retained": true
+  },
+  "training_licenses": {
+    "common_voice": "CC0-1.0",
+    "ami": "CC-BY-4.0",
+    "voices": "CC-BY-4.0",
+    "chime6": "CC-BY-SA-4.0; resolved by user 23 October"
+  },
+  "product_microphone_validation": false,
+  "independent_final_age_test": false,
+  "independent_confirmation": false
+}

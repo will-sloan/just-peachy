@@ -1,0 +1,75 @@
+{
+  "schema": "whistle-exploratory-execution-amendment/v1",
+  "created_on": "2026-10-25",
+  "exploratory_authorized": true,
+  "user_choice": "Run exploratory adaptation; keep the initial model as default and disclose the evaluation limitation",
+  "subsequent_user_direction": "The goal is to see if we can just train the model to be better at transcription. You can use any combination of datasets",
+  "original_proposal_sha256": "cde332f06a626a138d3412b7cf6b3715a13f2663c0e487cd90e0413dffd3e550",
+  "experiment_id": "whistle_transcription_guarded_v1",
+  "scope": "One new warm-start trajectory from the preserved initial final adapter. This amendment supersedes AMI-only membership and the launch-time independent-confirmation gate. Automatic promotion remains prohibited.",
+  "training": {
+    "dataset_probabilities": {
+      "common_voice": 0.32064,
+      "ami": 0.25088,
+      "chime6": 0.14848,
+      "voices": 0.08,
+      "librispeech_clean": 0.2
+    },
+    "schedule_visits": {
+      "common_voice": 32064,
+      "ami": 25088,
+      "chime6": 14848,
+      "voices": 8000,
+      "librispeech_clean": 20000
+    },
+    "sampler": "A frozen 100,000-visit schedule. Cycle randomized distinct source utterances within each dataset; choose one aligned microphone view proportional to published view_confidence. Unit loss weight after sampling. Keeps expected equal source weight without weighting correlated microphone views as independent utterances.",
+    "clean_replay": "8,000 deterministic source utterances from LibriSpeech train-clean-100; exclude all their speakers from all evaluation cohorts, including VOiCES and HiFiTTS shared reader identities.",
+    "caps": {
+      "max_updates": 10000,
+      "max_active_optimizer_seconds": 3600,
+      "max_schedule_passes": 1
+    },
+    "learning_rate": 1e-05,
+    "warmup_steps": 200,
+    "end_learning_rate": 5e-07,
+    "lora_rank": 16,
+    "lora_alpha": 32,
+    "batch_caps": {
+      "clips": 8,
+      "padded_audio_seconds": 60,
+      "tokens": 1024
+    },
+    "max_new_trajectories": 1,
+    "max_refits": 0,
+    "rationale": "Keep the prior four-domain proportions at approximately 80% of visits and add 20% clean replay to test broad retention. Conservative settings, not claimed optimal."
+  },
+  "evaluation": {
+    "cohorts": [
+      "ami",
+      "chime6",
+      "voices",
+      "common_voice_age",
+      "cmu_arctic_clean",
+      "hifitts_clean",
+      "hifitts_native",
+      "librispeech_clean",
+      "librispeech_native"
+    ],
+    "target_sources_per_cohort_per_panel": 128,
+    "development_confirmation_clusters_disjoint": true,
+    "parent_training_excluded": true,
+    "new_training_excluded": true,
+    "independent_confirmation": false,
+    "automatic_promotion": false,
+    "default_model": "training/whistle_age_robust_v1/whistle.final.cact",
+    "limitations": [
+      "The session/speaker populations influenced earlier evaluation and design. Results are exploratory even on newly selected utterances.",
+      "The parent pretrained-base training corpus is not independently audited.",
+      "VOiCES may have fewer than 128 unused speaker-eligible source utterances per panel; record actual counts.",
+      "No product-microphone or independent final age validation."
+    ],
+    "selection": "Keep the original primary AMI/CHiME mean WER, all per-domain clean/noisy/age/quiet/noise guards, >=4000 updates and >=1000 distinct AMI sources, fixed validation slots, early stopping and one selected checkpoint. Report nine-cohort macro WER as an additional broad transcription summary.",
+    "confirmation": "One preselected development candidate is compared once with the initial model on the separate exploratory confirmation panel. No runner-up selection from confirmation.",
+    "publication": "Preserve an experimental candidate only. adapter.selected/whistle.selected always identify the unchanged initial default; no automatic deployment or refit."
+  }
+}

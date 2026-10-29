@@ -1,0 +1,48 @@
+{
+  "complete": true,
+  "promoted": false,
+  "selected_experimental_step": 0,
+  "default_model": "/mnt/c/Users/amiri/Documents/GitHub/just-peachy/training/whistle_age_robust_v1/whistle.final.cact",
+  "reason": "User authorized exploratory adaptation and retained the initial model as default",
+  "independent_confirmation": false,
+  "automatic_promotion": false,
+  "development": {
+    "selected_step": 0,
+    "selected_primary_wer": 0.5157241011223553,
+    "reference_primary_wer": 0.5157241011223553,
+    "observations": [
+      {
+        "step": 2000,
+        "distinct_sources": 2459,
+        "primary_wer": 0.5159527237820973,
+        "eligible_exposure": false,
+        "passed": false,
+        "reasons": [
+          "hifitts_clean: retention limit exceeded"
+        ]
+      },
+      {
+        "step": 4000,
+        "distinct_sources": 5091,
+        "primary_wer": 0.5215882670039216,
+        "eligible_exposure": true,
+        "passed": false,
+        "reasons": [
+          "ami: retention limit exceeded",
+          "quiet_speech: retention limit exceeded"
+        ]
+      }
+    ],
+    "early_stop": true,
+    "stop_reason": "two consecutive retention-guard violations",
+    "automatic_promotion": false,
+    "default_model": "preserved_initial_final",
+    "frozen": true,
+    "frozen_at": 1792967999.9527376,
+    "independent_confirmation": false
+  },
+  "confirmation": {
+    "performed": false,
+    "reason": "No nonzero development checkpoint passed selection"
+  }
+}

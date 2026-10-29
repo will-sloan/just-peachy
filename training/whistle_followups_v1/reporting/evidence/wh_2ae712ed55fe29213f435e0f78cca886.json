@@ -1,0 +1,275 @@
+{
+  "kind": "scores",
+  "title": "Results for production all audio",
+  "data": {
+    "complete": true,
+    "role": "frozen_test",
+    "models": {
+      "final": {
+        "macro_wer": 0.2469726061011568,
+        "datasets": {
+          "ami": {
+            "wer": 0.3079470198675497,
+            "cer": 0.21957671957671956,
+            "sources": 64,
+            "clips": 64,
+            "rtf": 0.020734040484687907
+          },
+          "chime6": {
+            "wer": 0.6643454038997214,
+            "cer": 0.4705671213208902,
+            "sources": 64,
+            "clips": 64,
+            "rtf": 0.02166430365819018
+          },
+          "cmu_arctic": {
+            "wer": 0.1258741258741259,
+            "cer": 0.03715415019762846,
+            "sources": 64,
+            "clips": 64,
+            "rtf": 0.019546174162368427
+          },
+          "hifitts": {
+            "wer": 0.044607566346696784,
+            "cer": 0.02059202059202059,
+            "sources": 128,
+            "clips": 128,
+            "rtf": 0.01908546587130422
+          },
+          "librispeech": {
+            "wer": 0.09562607204116638,
+            "cer": 0.045821296941926486,
+            "sources": 128,
+            "clips": 128,
+            "rtf": 0.02037543492404846
+          },
+          "voices": {
+            "wer": 0.2434354485776805,
+            "cer": 0.1467351430667645,
+            "sources": 64,
+            "clips": 64,
+            "rtf": 0.01809293519811216
+          }
+        },
+        "quiet_audio": {
+          "clips": 0,
+          "reference_words": 0.0,
+          "wer": null
+        },
+        "mic_slices": {
+          "ami/ami:native": 0.3079470198675497,
+          "chime6/chime6:native": 0.6643454038997214,
+          "cmu_arctic/cmu_arctic:clean": 0.1258741258741259,
+          "hifitts/hifitts:clean": 0.0484048404840484,
+          "hifitts/hifitts:native": 0.04060324825986079,
+          "librispeech/librispeech:clean": 0.05310457516339869,
+          "librispeech/librispeech:native": 0.14259927797833935,
+          "voices/voices:native": 0.2434354485776805
+        },
+        "negative_probes": {
+          "clips": 20,
+          "false_positive_rate": 0.0,
+          "inserted_words": 0,
+          "interpretation": "Fixed silence and generated Gaussian noise; not a guarantee on real product recordings"
+        },
+        "predictions": "final.test.jsonl",
+        "weights": "whistle.final.cact",
+        "model_sha256": "96d9339d13eb8c16e677a9a737e5797a7f8d9999947d82289161a2c9539cec83",
+        "matched_cohort_metrics": [
+          {
+            "model": "whistle_production_final",
+            "cohort": "ami:native",
+            "records": 64,
+            "wer": 0.3079470198675497,
+            "cer": 0.21957671957671956,
+            "reference_words": 906,
+            "rtf": 0.020734040484687907,
+            "median_ttft_ms": 27.299999999999997,
+            "p95_ttft_ms": 62.519999999999996
+          },
+          {
+            "model": "whistle_production_final",
+            "cohort": "chime6:native",
+            "records": 64,
+            "wer": 0.6643454038997214,
+            "cer": 0.4705671213208902,
+            "reference_words": 718,
+            "rtf": 0.02166430365819018,
+            "median_ttft_ms": 17.0,
+            "p95_ttft_ms": 51.13499999999999
+          },
+          {
+            "model": "whistle_production_final",
+            "cohort": "cmu_arctic:clean",
+            "records": 64,
+            "wer": 0.1258741258741259,
+            "cer": 0.03715415019762846,
+            "reference_words": 572,
+            "rtf": 0.019546174162368427,
+            "median_ttft_ms": 18.950000000000003,
+            "p95_ttft_ms": 26.564999999999994
+          },
+          {
+            "model": "whistle_production_final",
+            "cohort": "hifitts:clean",
+            "records": 64,
+            "wer": 0.0484048404840484,
+            "cer": 0.02015732546705998,
+            "reference_words": 909,
+            "rtf": 0.019317136000678983,
+            "median_ttft_ms": 21.35,
+            "p95_ttft_ms": 53.714999999999975
+          },
+          {
+            "model": "whistle_production_final",
+            "cohort": "hifitts:native",
+            "records": 64,
+            "wer": 0.04060324825986079,
+            "cer": 0.02106969205834684,
+            "reference_words": 862,
+            "rtf": 0.018830461769702277,
+            "median_ttft_ms": 22.8,
+            "p95_ttft_ms": 37.54499999999998
+          },
+          {
+            "model": "whistle_production_final",
+            "cohort": "librispeech:clean",
+            "records": 64,
+            "wer": 0.05310457516339869,
+            "cer": 0.01999252615844544,
+            "reference_words": 1224,
+            "rtf": 0.021215735187233322,
+            "median_ttft_ms": 36.15,
+            "p95_ttft_ms": 74.81999999999996
+          },
+          {
+            "model": "whistle_production_final",
+            "cohort": "librispeech:native",
+            "records": 64,
+            "wer": 0.14259927797833935,
+            "cer": 0.0753147002346917,
+            "reference_words": 1108,
+            "rtf": 0.019427234562135756,
+            "median_ttft_ms": 31.0,
+            "p95_ttft_ms": 51.464999999999996
+          },
+          {
+            "model": "whistle_production_final",
+            "cohort": "voices:native",
+            "records": 64,
+            "wer": 0.2434354485776805,
+            "cer": 0.1467351430667645,
+            "reference_words": 1828,
+            "rtf": 0.01809293519811216,
+            "median_ttft_ms": 74.55,
+            "p95_ttft_ms": 85.17999999999998
+          }
+        ]
+      }
+    },
+    "selected": "final",
+    "panel_sha256": "6538c6a8163823d63543835bb407b2b5587e11eeb10b3d957ab44f8987c8b467",
+    "normalization": "Whisper English text normalizer; same for every model",
+    "production": true,
+    "real_product_validation_available": false,
+    "independent_age_test_available": false,
+    "model_manifest": {
+      "run_identity": "d139ba849b8a647ffc874340e34dbda51f2125247859b882719fbf3b733a8ff1",
+      "config": {
+        "run_name": "whistle_followups_v1/runs/production_all_audio",
+        "epochs": 3,
+        "seed": 20261022,
+        "learning_rate": 0.0001,
+        "lora_rank": 16,
+        "lora_alpha": 32,
+        "dtype": "bfloat16",
+        "matmul_precision": "highest",
+        "loss_normalization": "full_pool_per_clip",
+        "max_batch_size": 16,
+        "batch_audio_seconds": 120,
+        "batch_tokens": 2048,
+        "loader_workers": 12,
+        "checkpoint_seconds": 300,
+        "validation_every_steps": 5000,
+        "validation_per_dataset": 128,
+        "whistle_revision": "741118687e1f008f06d1351a402a731274789790",
+        "dataset_weights": {
+          "common_voice": 0.4008074125352768,
+          "ami": 0.3135967650271186,
+          "chime6": 0.18559582243760464,
+          "voices": 0.1
+        },
+        "source_manifest_directory": "training/successors/phase5a_original_adapter_training_v1/framework_manifests",
+        "training_manifests": [
+          "age_train.parquet",
+          "ami_train.parquet",
+          "chime_train.parquet",
+          "voices_train.parquet"
+        ],
+        "development_manifests": [
+          "age_dev.parquet",
+          "ami_dev.parquet",
+          "chime_dev.parquet",
+          "voices_dev.parquet"
+        ],
+        "wsl_distribution": "Ubuntu",
+        "wsl_python": "/home/amiri/.venvs/whistle/bin/python",
+        "dashboard_port": 8766,
+        "release_review_required": false,
+        "quantization_mode": "upstream_full",
+        "production": true,
+        "max_steps": null,
+        "max_active_seconds": null,
+        "campaign_policy_sha256": "7c3e6c8f33d5deaebc62e25292ca1c0def8a1406484f797ae310771b4c3ba451",
+        "method": "lora"
+      },
+      "completed_training": {
+        "epoch": 3,
+        "next_batch": 0,
+        "step": 517569,
+        "processed_records": 7240698,
+        "processed_audio_seconds": 21316160.63806803,
+        "active_seconds": 123458.52189471398,
+        "dataset_records": {
+          "chime6": 4575774,
+          "ami": 2304360,
+          "common_voice": 304233,
+          "voices": 56331
+        },
+        "best_validation_loss": null,
+        "identity": "d139ba849b8a647ffc874340e34dbda51f2125247859b882719fbf3b733a8ff1"
+      },
+      "model_sha256": {
+        "whistle.best.cact": "96d9339d13eb8c16e677a9a737e5797a7f8d9999947d82289161a2c9539cec83",
+        "whistle.final.cact": "96d9339d13eb8c16e677a9a737e5797a7f8d9999947d82289161a2c9539cec83"
+      },
+      "base_assets": "/mnt/c/Users/amiri/Documents/GitHub/just-peachy/training/whistle_age_robust_v1/assets",
+      "license_resolution": {
+        "status": "resolved",
+        "release_review_required": false,
+        "dataset": "chime6",
+        "license": "CC-BY-SA-4.0",
+        "confirmation_date": "2026-10-23",
+        "confirmation_source": "explicit user message in the current chat",
+        "user_statement": "The chime6 licensing is resolved and good to go.",
+        "attribution_records_retained": true
+      },
+      "training_includes_development": true,
+      "development_selection_disabled": true,
+      "frozen_test_preserved": true,
+      "real_product_validation_available": false
+    }
+  },
+  "sources": [
+    {
+      "path": "training/whistle_followups_v1/runs/production_all_audio/test_scores.json",
+      "sha256": "42963404001d68614a3add19d1f9a070f29ad2b24cce988f3b2603f199a54610"
+    },
+    {
+      "path": "training/whistle_followups_v1/runs/production_all_audio/model_manifest.json",
+      "sha256": "5318bddf431e1d64a02ad0afb3574059cab8a6e2815c526d0d864f31c510d908"
+    }
+  ],
+  "key": "production_all_audio",
+  "id": "wh_2ae712ed55fe29213f435e0f78cca886"
+}

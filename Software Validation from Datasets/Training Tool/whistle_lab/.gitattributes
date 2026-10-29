@@ -1,0 +1,3 @@
+
+# Frozen execution source hashes require exact bytes across checkouts.
+* -text

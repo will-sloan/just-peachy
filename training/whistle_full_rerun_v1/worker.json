@@ -1,0 +1,11 @@
+{
+  "pid": 8795,
+  "script": "score.py",
+  "args": [
+    "442110",
+    "--role",
+    "confirmation"
+  ],
+  "stage": "confirmation_442110",
+  "started_at": 1793246484.4433808
+}

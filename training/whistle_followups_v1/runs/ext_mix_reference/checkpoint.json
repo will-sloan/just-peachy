@@ -1,0 +1,19 @@
+{
+  "epoch": 0,
+  "next_batch": 30000,
+  "step": 30000,
+  "processed_records": 209171,
+  "processed_audio_seconds": 627162.8133199757,
+  "active_seconds": 6552.298697954015,
+  "dataset_records": {
+    "chime6": 128115,
+    "ami": 70078,
+    "common_voice": 9282,
+    "voices": 1696
+  },
+  "best_validation_loss": 0.6975729412541021,
+  "identity": "b2a293d5efa9ba61f64632f35f6ada640442900393c1581fad9badfecedc13d3",
+  "saved_at": 1792939969.2910078,
+  "bytes": 20354850,
+  "sha256": "c5fe4d80009551a81d842dc959a19e7f0d6e3711492bd54b39a52ee6e3b491b0"
+}

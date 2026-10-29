@@ -1,0 +1,12 @@
+{
+  "invalid_segments": 0,
+  "manifest_sha256": {
+    "train": "7c737c82dfadbaa9844c710c177a240f490a015bcc14df173512811375ff1e66",
+    "dev": "38731c7882f4493c9e2f0acf1861c06c77f2742920823dd3020a227f6d3ba1ee"
+  },
+  "inherited_evidence": {
+    "quality": "/mnt/c/Users/amiri/Documents/GitHub/just-peachy/training/whistle_followups_v1/audio_quality.json",
+    "panel": "/mnt/c/Users/amiri/Documents/GitHub/just-peachy/training/whistle_transcription_guarded_v1/audio_header_audit.json"
+  },
+  "no_audio_rescanned": true
+}

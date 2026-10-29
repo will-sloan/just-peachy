@@ -1,0 +1,432 @@
+{
+  "complete": true,
+  "run": "production_all_audio",
+  "panel_sha256": "6538c6a8163823d63543835bb407b2b5587e11eeb10b3d957ab44f8987c8b467",
+  "metrics": [
+    {
+      "model": "sherpa_gigaspeech_cached",
+      "cohort": "ami:native",
+      "records": 64,
+      "wer": 0.4613686534216336,
+      "cer": 0.36772486772486773,
+      "reference_words": 906
+    },
+    {
+      "model": "sherpa_gigaspeech_cached",
+      "cohort": "chime6:native",
+      "records": 64,
+      "wer": 0.7172701949860725,
+      "cer": 0.6091170136396267,
+      "reference_words": 718
+    },
+    {
+      "model": "sherpa_gigaspeech_cached",
+      "cohort": "cmu_arctic:clean",
+      "records": 64,
+      "wer": 0.057692307692307696,
+      "cer": 0.012648221343873518,
+      "reference_words": 572
+    },
+    {
+      "model": "sherpa_gigaspeech_cached",
+      "cohort": "hifitts:clean",
+      "records": 64,
+      "wer": 0.0176017601760176,
+      "cer": 0.008603736479842675,
+      "reference_words": 909
+    },
+    {
+      "model": "sherpa_gigaspeech_cached",
+      "cohort": "hifitts:native",
+      "records": 64,
+      "wer": 0.01740139211136891,
+      "cer": 0.009184224743381956,
+      "reference_words": 862
+    },
+    {
+      "model": "sherpa_gigaspeech_cached",
+      "cohort": "librispeech:clean",
+      "records": 64,
+      "wer": 0.01715686274509804,
+      "cer": 0.00523168908819133,
+      "reference_words": 1224
+    },
+    {
+      "model": "sherpa_gigaspeech_cached",
+      "cohort": "librispeech:native",
+      "records": 64,
+      "wer": 0.061371841155234655,
+      "cer": 0.03243012588009388,
+      "reference_words": 1108
+    },
+    {
+      "model": "sherpa_gigaspeech_cached",
+      "cohort": "voices:native",
+      "records": 64,
+      "wer": 0.19091903719912473,
+      "cer": 0.1408657373440939,
+      "reference_words": 1828
+    },
+    {
+      "model": "whistle_base",
+      "cohort": "ami:native",
+      "records": 64,
+      "wer": 0.41501103752759383,
+      "cer": 0.2992357436801881,
+      "reference_words": 906,
+      "rtf": 0.09851205189360208,
+      "median_ttft_ms": 114.35,
+      "p95_ttft_ms": 812.9949999999992
+    },
+    {
+      "model": "whistle_base",
+      "cohort": "chime6:native",
+      "records": 64,
+      "wer": 0.7144846796657381,
+      "cer": 0.5003589375448672,
+      "reference_words": 718,
+      "rtf": 0.08550180952595222,
+      "median_ttft_ms": 36.0,
+      "p95_ttft_ms": 687.5649999999999
+    },
+    {
+      "model": "whistle_base",
+      "cohort": "cmu_arctic:clean",
+      "records": 64,
+      "wer": 0.1258741258741259,
+      "cer": 0.030434782608695653,
+      "reference_words": 572,
+      "rtf": 0.050550659669690266,
+      "median_ttft_ms": 42.0,
+      "p95_ttft_ms": 140.48499999999999
+    },
+    {
+      "model": "whistle_base",
+      "cohort": "hifitts:clean",
+      "records": 64,
+      "wer": 0.034103410341034104,
+      "cer": 0.01597836774827925,
+      "reference_words": 909,
+      "rtf": 0.06294139461984789,
+      "median_ttft_ms": 42.7,
+      "p95_ttft_ms": 635.4399999999998
+    },
+    {
+      "model": "whistle_base",
+      "cohort": "hifitts:native",
+      "records": 64,
+      "wer": 0.027842227378190254,
+      "cer": 0.012965964343598054,
+      "reference_words": 862,
+      "rtf": 0.059466928113285904,
+      "median_ttft_ms": 50.95,
+      "p95_ttft_ms": 560.7149999999995
+    },
+    {
+      "model": "whistle_base",
+      "cohort": "librispeech:clean",
+      "records": 64,
+      "wer": 0.041666666666666664,
+      "cer": 0.014947683109118086,
+      "reference_words": 1224,
+      "rtf": 0.08170125739904105,
+      "median_ttft_ms": 425.65,
+      "p95_ttft_ms": 766.3399999999996
+    },
+    {
+      "model": "whistle_base",
+      "cohort": "librispeech:native",
+      "records": 64,
+      "wer": 0.11732851985559567,
+      "cer": 0.06464689566887134,
+      "reference_words": 1108,
+      "rtf": 0.09116011165845544,
+      "median_ttft_ms": 387.70000000000005,
+      "p95_ttft_ms": 823.0749999999998
+    },
+    {
+      "model": "whistle_base",
+      "cohort": "voices:native",
+      "records": 64,
+      "wer": 0.24671772428884026,
+      "cer": 0.15774027879677183,
+      "reference_words": 1828,
+      "rtf": 0.1349934839124525,
+      "median_ttft_ms": 1051.15,
+      "p95_ttft_ms": 1654.9449999999995
+    },
+    {
+      "model": "whistle_tuned_best",
+      "cohort": "ami:native",
+      "records": 64,
+      "wer": 0.3211920529801324,
+      "cer": 0.2360376249265138,
+      "reference_words": 906,
+      "rtf": 0.03947420964826095,
+      "median_ttft_ms": 43.25,
+      "p95_ttft_ms": 150.60499999999993
+    },
+    {
+      "model": "whistle_tuned_best",
+      "cohort": "chime6:native",
+      "records": 64,
+      "wer": 0.637883008356546,
+      "cer": 0.47128499641062455,
+      "reference_words": 718,
+      "rtf": 0.04027453023314057,
+      "median_ttft_ms": 30.200000000000003,
+      "p95_ttft_ms": 80.96999999999996
+    },
+    {
+      "model": "whistle_tuned_best",
+      "cohort": "cmu_arctic:clean",
+      "records": 64,
+      "wer": 0.11713286713286714,
+      "cer": 0.03399209486166008,
+      "reference_words": 572,
+      "rtf": 0.0393868762813551,
+      "median_ttft_ms": 29.799999999999997,
+      "p95_ttft_ms": 70.23999999999997
+    },
+    {
+      "model": "whistle_tuned_best",
+      "cohort": "hifitts:clean",
+      "records": 64,
+      "wer": 0.03850385038503851,
+      "cer": 0.015732546705998034,
+      "reference_words": 909,
+      "rtf": 0.04578325767016829,
+      "median_ttft_ms": 41.0,
+      "p95_ttft_ms": 183.45999999999984
+    },
+    {
+      "model": "whistle_tuned_best",
+      "cohort": "hifitts:native",
+      "records": 64,
+      "wer": 0.03944315545243619,
+      "cer": 0.019448946515397084,
+      "reference_words": 862,
+      "rtf": 0.04577624268359972,
+      "median_ttft_ms": 42.05,
+      "p95_ttft_ms": 149.1749999999996
+    },
+    {
+      "model": "whistle_tuned_best",
+      "cohort": "librispeech:clean",
+      "records": 64,
+      "wer": 0.05310457516339869,
+      "cer": 0.019805680119581465,
+      "reference_words": 1224,
+      "rtf": 0.04334102941334269,
+      "median_ttft_ms": 57.0,
+      "p95_ttft_ms": 177.5299999999996
+    },
+    {
+      "model": "whistle_tuned_best",
+      "cohort": "librispeech:native",
+      "records": 64,
+      "wer": 0.13808664259927797,
+      "cer": 0.07488798805205889,
+      "reference_words": 1108,
+      "rtf": 0.057881784814441346,
+      "median_ttft_ms": 54.9,
+      "p95_ttft_ms": 300.83999999999935
+    },
+    {
+      "model": "whistle_tuned_best",
+      "cohort": "voices:native",
+      "records": 64,
+      "wer": 0.24070021881838075,
+      "cer": 0.14392271949131816,
+      "reference_words": 1828,
+      "rtf": 0.039677207757727935,
+      "median_ttft_ms": 109.85,
+      "p95_ttft_ms": 228.31999999999996
+    },
+    {
+      "model": "whistle_tuned_final",
+      "cohort": "ami:native",
+      "records": 64,
+      "wer": 0.31788079470198677,
+      "cer": 0.2278071722516167,
+      "reference_words": 906,
+      "rtf": 0.08520387694604474,
+      "median_ttft_ms": 62.5,
+      "p95_ttft_ms": 208.95499999999993
+    },
+    {
+      "model": "whistle_tuned_final",
+      "cohort": "chime6:native",
+      "records": 64,
+      "wer": 0.6323119777158774,
+      "cer": 0.4644651830581479,
+      "reference_words": 718,
+      "rtf": 0.04523831052170018,
+      "median_ttft_ms": 31.450000000000003,
+      "p95_ttft_ms": 90.79999999999995
+    },
+    {
+      "model": "whistle_tuned_final",
+      "cohort": "cmu_arctic:clean",
+      "records": 64,
+      "wer": 0.12062937062937062,
+      "cer": 0.03596837944664032,
+      "reference_words": 572,
+      "rtf": 0.06568224056261765,
+      "median_ttft_ms": 24.75,
+      "p95_ttft_ms": 119.64999999999998
+    },
+    {
+      "model": "whistle_tuned_final",
+      "cohort": "hifitts:clean",
+      "records": 64,
+      "wer": 0.039603960396039604,
+      "cer": 0.01597836774827925,
+      "reference_words": 909,
+      "rtf": 0.03196531892395752,
+      "median_ttft_ms": 36.0,
+      "p95_ttft_ms": 86.76499999999999
+    },
+    {
+      "model": "whistle_tuned_final",
+      "cohort": "hifitts:native",
+      "records": 64,
+      "wer": 0.03944315545243619,
+      "cer": 0.01917882225823879,
+      "reference_words": 862,
+      "rtf": 0.03499547087002838,
+      "median_ttft_ms": 37.8,
+      "p95_ttft_ms": 84.94
+    },
+    {
+      "model": "whistle_tuned_final",
+      "cohort": "librispeech:clean",
+      "records": 64,
+      "wer": 0.05065359477124183,
+      "cer": 0.01961883408071749,
+      "reference_words": 1224,
+      "rtf": 0.059688935257186375,
+      "median_ttft_ms": 70.05,
+      "p95_ttft_ms": 203.11499999999978
+    },
+    {
+      "model": "whistle_tuned_final",
+      "cohort": "librispeech:native",
+      "records": 64,
+      "wer": 0.13808664259927797,
+      "cer": 0.0751013441433753,
+      "reference_words": 1108,
+      "rtf": 0.04047818096810037,
+      "median_ttft_ms": 48.900000000000006,
+      "p95_ttft_ms": 124.53999999999994
+    },
+    {
+      "model": "whistle_tuned_final",
+      "cohort": "voices:native",
+      "records": 64,
+      "wer": 0.2335886214442013,
+      "cer": 0.14221080948887257,
+      "reference_words": 1828,
+      "rtf": 0.061053696124522695,
+      "median_ttft_ms": 131.7,
+      "p95_ttft_ms": 299.57499999999993
+    },
+    {
+      "model": "whistle_production_final",
+      "cohort": "ami:native",
+      "records": 64,
+      "wer": 0.3079470198675497,
+      "cer": 0.21957671957671956,
+      "reference_words": 906,
+      "rtf": 0.020734040484687907,
+      "median_ttft_ms": 27.299999999999997,
+      "p95_ttft_ms": 62.519999999999996
+    },
+    {
+      "model": "whistle_production_final",
+      "cohort": "chime6:native",
+      "records": 64,
+      "wer": 0.6643454038997214,
+      "cer": 0.4705671213208902,
+      "reference_words": 718,
+      "rtf": 0.02166430365819018,
+      "median_ttft_ms": 17.0,
+      "p95_ttft_ms": 51.13499999999999
+    },
+    {
+      "model": "whistle_production_final",
+      "cohort": "cmu_arctic:clean",
+      "records": 64,
+      "wer": 0.1258741258741259,
+      "cer": 0.03715415019762846,
+      "reference_words": 572,
+      "rtf": 0.019546174162368427,
+      "median_ttft_ms": 18.950000000000003,
+      "p95_ttft_ms": 26.564999999999994
+    },
+    {
+      "model": "whistle_production_final",
+      "cohort": "hifitts:clean",
+      "records": 64,
+      "wer": 0.0484048404840484,
+      "cer": 0.02015732546705998,
+      "reference_words": 909,
+      "rtf": 0.019317136000678983,
+      "median_ttft_ms": 21.35,
+      "p95_ttft_ms": 53.714999999999975
+    },
+    {
+      "model": "whistle_production_final",
+      "cohort": "hifitts:native",
+      "records": 64,
+      "wer": 0.04060324825986079,
+      "cer": 0.02106969205834684,
+      "reference_words": 862,
+      "rtf": 0.018830461769702277,
+      "median_ttft_ms": 22.8,
+      "p95_ttft_ms": 37.54499999999998
+    },
+    {
+      "model": "whistle_production_final",
+      "cohort": "librispeech:clean",
+      "records": 64,
+      "wer": 0.05310457516339869,
+      "cer": 0.01999252615844544,
+      "reference_words": 1224,
+      "rtf": 0.021215735187233322,
+      "median_ttft_ms": 36.15,
+      "p95_ttft_ms": 74.81999999999996
+    },
+    {
+      "model": "whistle_production_final",
+      "cohort": "librispeech:native",
+      "records": 64,
+      "wer": 0.14259927797833935,
+      "cer": 0.0753147002346917,
+      "reference_words": 1108,
+      "rtf": 0.019427234562135756,
+      "median_ttft_ms": 31.0,
+      "p95_ttft_ms": 51.464999999999996
+    },
+    {
+      "model": "whistle_production_final",
+      "cohort": "voices:native",
+      "records": 64,
+      "wer": 0.2434354485776805,
+      "cer": 0.1467351430667645,
+      "reference_words": 1828,
+      "rtf": 0.01809293519811216,
+      "median_ttft_ms": 74.55,
+      "p95_ttft_ms": 85.17999999999998
+    }
+  ],
+  "timing_comparison": "Whistle CPU timing is on this WSL host; historical GigaSpeech latency is not directly comparable",
+  "production_noise_probes": {
+    "clips": 20,
+    "false_positive_rate": 0.0,
+    "inserted_words": 0,
+    "interpretation": "Fixed silence and generated Gaussian noise; not a guarantee on real product recordings"
+  },
+  "real_product_validation_available": false,
+  "independent_age_test_available": false
+}

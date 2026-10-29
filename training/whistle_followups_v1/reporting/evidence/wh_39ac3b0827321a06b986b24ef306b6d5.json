@@ -1,0 +1,28 @@
+{
+  "kind": "note",
+  "title": "First full training pass produces a checkpoint that passes numerical retention",
+  "data": {
+    "id": "full_rerun_dev_0294740_2b246ac1c00eced3",
+    "title": "First full training pass produces a checkpoint that passes numerical retention",
+    "paragraphs": [
+      "At update 294,740, the second of six fixed native comparisons is the first to pass every frozen numerical guard. Equal-weight nine-cohort development WER falls from the preserved initial model's 18.511% to 17.805%, an absolute reduction of 0.706 percentage points. Seven cohorts improve and two regress. The saved development summary provisionally lists step 294,740 as the best eligible checkpoint; selection remains unfinished until all six comparisons complete. The initial model remains default and no automatic promotion occurs.",
+      "One complete pass has visited all 2,052,751 qualified training microphone views, representing 220,174 distinct source utterances. Visits/distinct sources are Common Voice 91,123/91,123; AMI 682,812/76,795; CHiME-6 1,261,887/51,743; and VOiCES 16,929/513. Training starts from the pinned pretrained base and updates all 55,151,433 parameters. Original four-domain objective weights and source/quiet confidence rules remain unchanged; development and evaluation stay excluded.",
+      "WER and saved candidate-minus-initial uncertainty for the noisy and age cohorts: AMI 26.825% to 25.361% (-1.464 points; 95% interval [-4.430, +1.211]); CHiME-6 76.320% to 74.142% (-2.178 points; 95% interval [-8.029, +3.725]); Common Voice age 12.286% to 12.042% (-0.244 points; 95% interval [-1.794, +1.240]). AMI and CHiME-6 both improve in their aggregate point estimates, but their meeting/session intervals still include regression.",
+      "The earlier clean-speech guard failure is resolved at this checkpoint: CMU Arctic clean 8.541% to 8.185% (-0.356 points; 95% interval [-1.903, +1.094]). Also, HiFiTTS clean 7.485% to 6.713% (-0.772 points; 95% interval [-1.124, -0.525]); HiFiTTS native 6.464% to 5.627% (-0.837 points; 95% interval [-1.812, -0.131]). The HiFiTTS development intervals are fragile because clean has only two readers and native four.",
+      "The two WER regressions are LibriSpeech clean 5.894% to 5.975% (+0.081 points; 95% interval [-0.739, +0.948]); and LibriSpeech native 10.269% to 10.583% (+0.314 points; 95% interval [-0.872, +1.419]). Their increases remain within the frozen clean/native limits. VOiCES 12.511% to 11.613% (-0.898 points; 95% interval [-1.873, +0.180]); its evidence remains sparse at 26 source utterances, 78 views and 13 speakers. Equal aggregate VOiCES WER at steps 147,370 and 294,740 does not imply identical errors: the saved uncertainty interval differs and now includes no improvement.",
+      "The saved 10,000-draw paired cluster-bootstrap interval for the nine-cohort WER change is [-1.506, +0.075] percentage points. It includes zero, so passing the numerical selection gates does not establish a statistically clear overall gain. The bootstrap averages microphone views per source and resamples meetings, sessions or speakers. These exploratory development intervals are not adjusted for choosing among six checkpoints.",
+      "Microphone slices still expose a substantial regression hidden by aggregate CHiME-6 improvement: array WER changes from 79.212% to 76.970%, while worn-microphone WER rises from 41.606% to 54.745% on 27 clips, unchanged from the first checkpoint. AMI array WER improves from 31.859% to 30.966% and headset from 17.804% to 15.668%. These slices are descriptive, have no saved slice-specific intervals, and do not alter the frozen selection policy.",
+      "Quiet-speech WER rises from 31.823% to 32.395%, a 0.573-point regression on 160 views, 77 sources and 1,004 reference words. Its saved 95% change interval is [-3.121, +5.610] points. The point estimate remains within the 1.0-point guard, but quiet-speech improvement is not established. Both models still produce zero false positives and zero inserted words on the 20 silence/noise probes; these limited probes do not establish intelligibility or product-microphone performance.",
+      "The owned pipeline has resumed its second training pass toward update 442,110. Four fixed comparisons remain before a single development candidate can be frozen; confirmation will not choose a runner-up. Both evaluation panels reuse previously evaluated populations rather than providing fresh independent confirmation. HiFiTTS clean confirmation has only one reader, leaving its interval and the complete nine-cohort confirmation interval undefined. There is still no real product-microphone validation or independent final age test. Earlier model identities remain preserved; the new checkpoint remains experimental."
+    ],
+    "evidence": [
+      "training/whistle_full_rerun_v1/scores/dev_0294740.json SHA256 2b246ac1c00eced399bb24adaffdf9ca3fe4ad195972bd1a97fc8ee667298134",
+      "training/whistle_full_rerun_v1/scores/dev_0294740.uncertainty.json SHA256 ccc4467744ad0b58fb7d5286e3fb10b1bdbcce4a4a520aec60a5eaa8a8673fff",
+      "training/whistle_full_rerun_v1/exports/step_0294740.json SHA256 f2d363240213b00040789393b5f14380751b8514350ec9964d668c80882c7c78",
+      "training/whistle_full_rerun_v1/validation_summary.json SHA256 0f3c75b1cc5bfd76cdc362f403155cbde65db3c8d5dbde85b6e2656addafd41c"
+    ]
+  },
+  "sources": [],
+  "key": "full_rerun_dev_0294740_2b246ac1c00eced3",
+  "id": "wh_39ac3b0827321a06b986b24ef306b6d5"
+}

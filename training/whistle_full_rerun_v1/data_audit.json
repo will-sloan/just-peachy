@@ -1,0 +1,12 @@
+{
+  "splits": {
+    "train": {
+      "sha256": "7c737c82dfadbaa9844c710c177a240f490a015bcc14df173512811375ff1e66"
+    },
+    "dev": {
+      "sha256": "38731c7882f4493c9e2f0acf1861c06c77f2742920823dd3020a227f6d3ba1ee"
+    }
+  },
+  "source": "published qualified train plus unchanged exploratory dev",
+  "no_new_audio_audit": true
+}

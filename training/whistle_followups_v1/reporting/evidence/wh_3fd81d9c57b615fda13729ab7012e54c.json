@@ -1,0 +1,25 @@
+{
+  "kind": "note",
+  "title": "Interpretation of the completed Common Voice only pilot",
+  "data": {
+    "id": "only_common_voice_interpretation_6b5fcf8e0329205a",
+    "title": "Interpretation of the completed Common Voice only pilot",
+    "paragraphs": [
+      "The age-filtered Common Voice only LoRA pilot completed its 10,000 optimizer-step cap in 34.8 active minutes, visiting 66,314 training views. Best and final exports have the same model hash, so decoding and timings were reused rather than independently measured.",
+      "On the unchanged 954-view development panel, macro WER is 36.9%, compared with 40.7% for the W4A8 base and 31.7% for the mixed pilot. The standalone pilot improves every dataset descriptively relative to base, but is 5.23 percentage points worse overall than the mixed reference.",
+      "Common Voice WER is 7.75%, versus 8.39% for base and 7.82% for the mixed pilot. The 0.07-point advantage over mixed is small and does not establish a reliable benefit from increasing its mixture weight. AMI is 44.65% versus 36.94% for mixed, and CHiME 6 is 77.41% versus 64.06%. VOiCES is similar at 17.91% versus 17.96%. The mixed recipe currently provides substantially stronger meeting robustness.",
+      "Quiet-view WER is 54.54%, better than the base 59.52% but worse than the mixed pilot 47.95%. All 20 fixed silence and Gaussian-noise probes produce zero inserted words. These probes do not establish performance with real background voices, very quiet product speech or the product microphone.",
+      "These short standalone pilots assess adaptation under a capped budget; they are not leave-one-dataset-out experiments and cannot isolate the marginal benefit of adding Common Voice to the mixture. Dataset exposure and audio duration differ despite the shared step cap. Scores are development evidence, not untouched final-test claims. No recipe promotion or weight change is due yet.",
+      "The supervisor has automatically started the AMI only pilot, which was advancing at step 1,770 of 10,000 at this check. CHiME 6 and VOiCES follow before the frozen weighting decision. The existing bounded campaign continues without extra trials or changes to its data policy."
+    ],
+    "evidence": [
+      "training/whistle_followups_v1/runs/only_common_voice/scores.json SHA256 6b5fcf8e0329205aa3ebe0b041ec7f3af5f3b0d6472e117839181fa098720075",
+      "training/whistle_followups_v1/runs/only_common_voice/checkpoint.json SHA256 5d4707d0183e03e5f605dabe3c3818d366e3ce80610fb6d0c22f94aea53ebafe",
+      "training/whistle_followups_v1/runs/mix_reference/scores.json SHA256 e2d25cfed572af2abfaf320566caa5863afb238bd15fef4faecaa88ae312f618",
+      "training/whistle_followups_v1/baseline/scores.json SHA256 130de13055a55e3dfbd7f05d4910821395ca9109d20d0e45d0cce614bf372840"
+    ]
+  },
+  "sources": [],
+  "key": "only_common_voice_interpretation_6b5fcf8e0329205a",
+  "id": "wh_3fd81d9c57b615fda13729ab7012e54c"
+}

@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "identity": "69d1a3269aef1c0258aa8ac77b86a895753668fca7ff0bd6fe7a2a43d31ae248",
+  "method": "full",
+  "trainable_parameters": 55151433,
+  "all_parameters_trainable": true,
+  "exact_pretrained_values_max_difference": 0.0,
+  "base_sha256": "5fd58c246f522ecee2b568b306598a3befdc274c225e3a7376abce277ab3d107",
+  "zero_update_native_sha256": "da5525ead826cdcb67295b0af6826b16a288a283af22c26abd6829ee1f07df95",
+  "zero_update_native_model": "whistle.base_zero.cact",
+  "fresh_optimizer": true,
+  "step": 0,
+  "initial_comparator_unchanged": true
+}

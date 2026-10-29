@@ -1,0 +1,43 @@
+{
+  "verified_at": 1793317363.836357,
+  "reason": "User requested closure after confirmed completion",
+  "all_four_runs_complete": true,
+  "stopped_process_ids": [
+    34436,
+    99116
+  ],
+  "remaining_owned_processes": [],
+  "remaining_dashboard_listeners": [],
+  "tasks": [
+    {
+      "name": "JustPeachy Whistle Experiment Monitor",
+      "state": "Disabled",
+      "enabled": false
+    },
+    {
+      "name": "JustPeachy Whistle Exploratory Monitor",
+      "state": "Disabled",
+      "enabled": false
+    },
+    {
+      "name": "JustPeachy Whistle Findings Report",
+      "state": "Disabled",
+      "enabled": false
+    },
+    {
+      "name": "JustPeachy Whistle Full Rerun Monitor",
+      "state": "Disabled",
+      "enabled": false
+    },
+    {
+      "name": "JustPeachy Whistle Training Monitor",
+      "state": "Disabled",
+      "enabled": false
+    }
+  ],
+  "heartbeat": {
+    "id": "whistle-training-check-in",
+    "status": "PAUSED"
+  },
+  "wsl_training_processes_present": false
+}
